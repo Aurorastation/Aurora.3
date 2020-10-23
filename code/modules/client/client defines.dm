@@ -60,7 +60,7 @@
 	var/account_join_date = null					// Date of the BYOND account creation in ISO 8601 format.
 	var/unacked_warning_count = 0
 
-	preload_rsc = 1
+	preload_rsc = PRELOAD_RSC
 
 		////////////
 		//PARALLAX//
@@ -77,3 +77,6 @@
 	var/authed = TRUE
 
 	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.
+
+	///goonchat chatoutput of the client
+	var/datum/chatOutput/chatOutput

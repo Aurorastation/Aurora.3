@@ -92,6 +92,12 @@
 
 	. = ..()
 
+/area/proc/is_prison()
+	return flags & PRISON
+
+/area/proc/is_no_crew_expected()
+	return flags & NO_CREW_EXPECTED
+
 /area/proc/set_lightswitch(var/state)
 	lightswitch = state
 	var/obj/machinery/light_switch/L = locate() in src
@@ -421,6 +427,8 @@ var/list/mob/living/forced_ambiance_list = new
 		if (istype(A, /area/maintenance/substation))
 			continue
 		if (istype(A, /area/turbolift))
+			continue
+		if (istype(A, /area/security/penal_colony))
 			continue
 		if (istype(A, /area/mine))
 			continue

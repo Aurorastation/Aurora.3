@@ -346,9 +346,6 @@
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
 	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
-	sprite_sheets = list(
-		BODYTYPE_VOX = 'icons/mob/species/vox/gloves.dmi'
-		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -456,10 +453,6 @@
 	var/light_applied
 	var/brightness_on
 	var/on = 0
-
-	sprite_sheets = list(
-		BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi'
-		)
 
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
@@ -573,9 +566,9 @@
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
-		BODYTYPE_VOX = 'icons/mob/species/vox/masks.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/mask.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/mask.dmi')
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/mask.dmi'
+		)
 
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
@@ -680,12 +673,8 @@
 	permeability_coefficient = 0.50
 	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VOX,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
-	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/shoes.dmi')
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/silent = 0
-	sprite_sheets = list(
-		BODYTYPE_VOX = 'icons/mob/species/vox/shoes.dmi'
-		)
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
@@ -779,10 +768,6 @@
 	w_class = ITEMSIZE_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
-	sprite_sheets = list(
-		BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi'
-		)
-
 	valid_accessory_slots = list("armband","decor", "over")
 
 /obj/item/clothing/suit/return_own_image()
@@ -831,8 +816,8 @@
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	sprite_sheets = list(
-		BODYTYPE_VOX = 'icons/mob/species/vox/uniform.dmi',
-		BODYTYPE_GOLEM = 'icons/mob/uniform_fat.dmi')
+		BODYTYPE_GOLEM = 'icons/mob/uniform_fat.dmi'
+	)
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.

@@ -93,6 +93,8 @@
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
 
+	helm_type = /obj/item/clothing/head/helmet/space/rig/tcfl
+
 	allowed = list(
 		/obj/item/device/flashlight,
 		/obj/item/tank,
@@ -120,6 +122,9 @@
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/fabricator/energy_net
 		)
+
+/obj/item/clothing/head/helmet/space/rig/tcfl
+	camera = /obj/machinery/camera/network/tcfl
 
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"

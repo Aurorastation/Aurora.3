@@ -4,6 +4,7 @@
 	cost = 2
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment"

@@ -135,7 +135,7 @@
 	name = "circular saw"
 	desc = "For heavy duty cutting."
 	icon_state = "saw"
-	item_state = "scalpel"
+	item_state = "saw"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0

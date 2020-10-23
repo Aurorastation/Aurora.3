@@ -164,7 +164,7 @@
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
 		to_world("<span class='alert'>New NanoTrasen Update available at all communication consoles.</span>")
-		to_world(sound('sound/AI/commandreport.ogg'))
+		sound_to(world, ('sound/AI/commandreport.ogg'))
 
 
 	log_admin("[senderkey] has created a command report via the api: [reportbody]",admin_key=senderkey)

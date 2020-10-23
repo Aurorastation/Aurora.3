@@ -60,9 +60,9 @@
 		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
 			G.state = GRAB_AGGRESSIVE
-			D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
+			D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"))
 			if(isvaurca(A))
-				A.bugbite()
+				A.bugbite(TRUE)
 				qdel(G)
 	return 1
 

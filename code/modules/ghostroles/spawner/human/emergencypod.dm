@@ -52,7 +52,7 @@
 		outfit = /datum/outfit/admin/pod/smuggler
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
 
-/datum/ghostspawner/human/rescuepodsurv/select_spawnpoint(var/use=TRUE)
+/datum/ghostspawner/human/rescuepodsurv/select_spawnlocation(var/use=TRUE)
 	//Randomly select a Turf on the asteroid.
 	var/turf/T = pick_area_turf(/area/mine/unexplored)
 	if(!use) //If we are just checking if we can get one, return the turf we found
@@ -89,6 +89,7 @@
 	//Spawn a drill
 	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
+	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
 
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"

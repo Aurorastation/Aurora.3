@@ -130,10 +130,12 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED 1 //shielded from radiation, clearly
-#define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
-#define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
-#define FIRING_RANGE	8
+#define RAD_SHIELDED        1 //shielded from radiation, clearly
+#define SPAWN_ROOF          2 // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP   4 // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE        8
+#define NO_CREW_EXPECTED   16 // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define PRISON             32 // Marks prison area for purposes of checking if brigged/imprisoned
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -432,6 +434,7 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define SKILLET				1 << 3
 #define SAUCEPAN			1 << 4
 #define POT					1 << 5
+#define GRILL				1 << 6
 
 // Cooking misc.
 // can_insert return values
@@ -442,6 +445,10 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define CONTAINER_EMPTY		0
 #define CONTAINER_SINGLE	1
 #define CONTAINER_MANY		2
+//Misc text define. Does 4 spaces. Used as a makeshift tabulator.
+#define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
+#define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (isclient(I) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
+
 // check_items/check_reagents/check_fruits return values
 #define COOK_CHECK_FAIL		-1
 #define COOK_CHECK_EXTRA	0

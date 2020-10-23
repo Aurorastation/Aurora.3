@@ -41,30 +41,25 @@
 
 /proc/get_centcom_access(job)
 	switch(job)
-		if("VIP Guest")
-			return list(access_cent_general)
-		if("Custodian")
-			return list(access_cent_general, access_cent_living, access_cent_storage)
-		if("Thunderdome Overseer")
-			return list(access_cent_general, access_cent_thunder)
-		if("Intel Officer")
+		if("CCIA Agent")
+			return list(access_cent_general, access_cent_captain, access_cent_living)
+		if("Emergency Response Team")
+			return list(access_cent_general, access_cent_specops, access_cent_living)
+		if("Odin Security")
+			return list(access_cent_general, access_cent_specops, access_cent_living)
+		if("Medical Doctor")
+			return list(access_cent_general, access_cent_medical)
+		if("Service")
 			return list(access_cent_general, access_cent_living)
-		if("Medical Officer")
-			return list(access_cent_general, access_cent_living, access_cent_medical)
 		if("Death Commando")
 			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
 		if("NanoTrasen Representative")
 			return list(access_cent_general, access_cent_living, access_cent_storage, access_cent_thunder, access_cent_medical, access_cent_specops, access_cent_teleporter)
-		if("Research Officer")
-			return list(access_cent_general, access_cent_specops, access_cent_medical, access_cent_teleporter, access_cent_storage)
 		if("BlackOps Commander")
 			return list(access_cent_general, access_cent_thunder, access_cent_specops, access_cent_living, access_cent_storage, access_cent_creed)
 		if("Supreme Commander")
 			return get_all_centcom_access()
-		if("CCIA Agent")
-			return list(access_cent_general, access_cent_captain, access_cent_living, access_cent_storage)
-		if("Emergency Response Team")
-			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
+
 	log_debug("Invalid job [job] passed to get_centcom_access")
 	return list()
 
@@ -203,23 +198,26 @@
 	return all_jobs
 
 /proc/get_all_centcom_jobs()
-	return list("VIP Guest",
-		"Custodian",
-		"Thunderdome Overseer",
-		"Intel Officer",
-		"General",
+	return list("NanoTrasen Representative",
+		"NanoTrasen Navy Officer",
+		"NanoTrasen Navy Captain",
+		"ERT Protection Detail",
+		"ERT Commander",
 		"Bluespace Technician",
-		"Internal Affairs Agent",
-		"VIP Guest",
-		"Medical Officer",
-		"Death Commando",
-		"Research Officer",
-		"BlackOps Commander",
-		"Supreme Commander",
+		"CCIA Agent",
+		"CCIA Escort",
+		"Odin Checkpoint Security",
+		"Odin Security",
+		"Aurora Prepatory Wing Security",
+		"Odin Medical Doctor",
+		"Odin Pharmacist",
+		"Odin Chef",
+		"Odin Bartender",
+		"Sanitation Specialist",
 		"Emergency Response Team",
 		"Emergency Response Team Leader",
 		"Emergency Responder",
-		"Central Command Internal Affairs Agent")
+		"Death Commando")
 
 /mob/proc/GetIdCard()
 	return null
@@ -239,9 +237,9 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/simple_animal/spiderbot/GetIdCard()
 	return internal_id
 
-/mob/living/carbon/human/GetIdCard()
+/mob/living/carbon/human/GetIdCard(var/ignore_hand = FALSE)
 	var/obj/item/I = get_active_hand()
-	if(I)
+	if(I && !ignore_hand)
 		var/id = I.GetID()
 		if(id)
 			return id

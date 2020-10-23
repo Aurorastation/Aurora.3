@@ -155,7 +155,7 @@ proc/get_radio_key_from_channel(var/channel)
 		return "asks"
 	return verb
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -249,7 +249,7 @@ proc/get_radio_key_from_channel(var/channel)
 			message_range = speaking.get_talkinto_msg_range(message)
 		var/msg
 		if(!speaking || !(speaking.flags & NO_TALK_MSG))
-			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]]</span>"
+			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]]</span>."
 		for(var/mob/living/M in hearers(5, src))
 			if((M != src) && msg)
 				M.show_message(msg)
@@ -271,7 +271,7 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
 
 
 	var/list/hear_clients = list()
@@ -322,5 +322,5 @@ proc/get_radio_key_from_channel(var/channel)
 /obj/effect/speech_bubble
 	var/mob/parent
 
-/mob/living/proc/GetVoice()
+/mob/proc/GetVoice()
 	return name

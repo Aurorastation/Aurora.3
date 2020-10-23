@@ -229,6 +229,11 @@
 	color = "#f5f4e9"
 	taste_description = "fish"
 
+/datum/reagent/nutriment/protein/seafood/mollusc
+	name = "Mollusc Protein"
+	taste_description = "cold, bitter slime"
+	hydration_factor = 6
+
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "Egg Yolk"
 	color = "#FFFFAA"
@@ -4021,6 +4026,13 @@
 	glass_icon_state = "sarezhiglass"
 	glass_name = "glass of Sarezhi Wine"
 	glass_desc = "It tastes like plain berry juice. Is this supposed to be alcoholic?"
+
+/datum/reagent/alcohol/butanol/threetownscider
+	name = "Three Towns Cider"
+	description = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
+	color = "#b8f77e"
+	strength = 20
+	taste_description = "bittersweet root juice"
 
 //Kaed's Unathi Cocktails
 //=======

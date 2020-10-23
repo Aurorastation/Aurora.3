@@ -299,7 +299,7 @@
 /obj/item/clothing/under/dominia/initiate
 	name = "tribunal initiate's robe"
 	desc = "A simple white robe with red trim and a red sash to fasten it. It's commonly worn by initiates of the Moroz Holy Tribunal."
-	desc_fluff = "While the most obvious purpose of an initiate’s red-and-white robe is to show that the hopeful clergy member is pure in mind and body, \
+	desc_fluff = "While the most obvious purpose of an initiate's red-and-white robe is to show that the hopeful clergy member is pure in mind and body, \
 	the stark whites of the robe also show when an initiate has neglected their appearance. The white robes must be constantly maintained and washed in order to \
 	maintain their pristine appearance, lest an initiate be found neglectful."
 	icon = 'icons/clothing/under/uniforms/dominia_initiate.dmi'
@@ -311,27 +311,27 @@
 	name = "tribunalist's robe"
 	desc = "A high-quality robe woven in black fabric with a golden trim with a red sash to fasten it. It's commonly worn by priests of the Moroz Holy Tribunal."
 	desc_fluff = "The black and gold robes of Imperial priests and priestesses have been deliberately designed by House Caladius to resemble the coats commonly \
-	worn by Dominian nobility, in order to demonstrate the importance of Dominia’s priestly classes. Each robe is tailor-made to fit an initiate upon their \
-	successful ascension to full member of the clergy, and they are expected to care for their robes throughout their lives. The loss of one’s robe is \
+	worn by Dominian nobility, in order to demonstrate the importance of Dominia's priestly classes. Each robe is tailor-made to fit an initiate upon their \
+	successful ascension to full member of the clergy, and they are expected to care for their robes throughout their lives. The loss of one's robe is \
 	considered a major embarrassment both for the individual and their church."
 	icon = 'icons/clothing/under/uniforms/dominia_priest.dmi'
 	icon_state = "dominia_priest"
 	item_state = "dominia_priest"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
-/obj/item/clothing/head/soft/dominia
-	name = "tribunal initiate’s beret"
+/obj/item/clothing/head/softcap/dominia
+	name = "tribunal initiate's beret"
 	desc = "A simple red beret with a golden badge marking its wearer as an initiate of the Moroz Holy Tribunal."
-	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal’s \
+	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
 	funding - spares any expenses funding them, and these berets are made of luxurious velvet."
 	icon = 'icons/clothing/head/dominia_beret.dmi'
 	icon_state = "dominia_beret"
 	item_state = "dominia_beret"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/soft/dominia/priest
-	name = "tribunalist’s beret"
-	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal’s clergy."
+/obj/item/clothing/head/softcap/dominia/priest
+	name = "tribunalist's beret"
+	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal's clergy."
 	desc_fluff = "With their black and gold clothing designed to resemble that of their noble counterparts, the full clergy of the Moroz Holy Tribunal \
 	are a sight to behold both inside and outside of the Empire of Dominia. This beret features an emblem luxuriously and painstakingly crafted out of real gold."
 	icon = 'icons/clothing/head/dominia_beret_priest.dmi'

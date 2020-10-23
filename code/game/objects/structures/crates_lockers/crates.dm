@@ -115,6 +115,12 @@
 			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
+	else if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else
+			attack_hand(user)
 	else return attack_hand(user)
 
 /obj/structure/closet/crate/ex_act(severity)
@@ -340,7 +346,14 @@
 		return ..()
 	if(istype(W, /obj/item/melee/energy/blade))
 		emag_act(INFINITY, user)
-	if(!opened)
+	if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else if(!opened)
+			togglelock(user)
+			return
+	else if(!opened)
 		togglelock(user)
 		return
 	return ..()
@@ -534,6 +547,15 @@
 	new /obj/item/clothing/head/radiation(src)
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
+
+/obj/structure/closet/crate/secure/aimodules
+	name = "AI modules crate"
+	desc = "A secure crate full of AI modules."
+	req_access = list(access_cent_specops)
+
+/obj/structure/closet/crate/secure/aimodules/fill()
+	for(var/moduletype in subtypesof(/obj/item/aiModule))
+		new moduletype(src)
 
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"

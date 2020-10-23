@@ -351,7 +351,7 @@
 				update_icon()
 		wrenching = 0
 
-	else if(istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda))
+	else if(I.GetID())
 		//Behavior lock/unlock mangement
 		if(allowed(user))
 			locked = !locked

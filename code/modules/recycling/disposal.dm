@@ -154,7 +154,7 @@
 		to_chat(user, "You can't place that item inside the disposal unit.")
 		return
 
-	if(istype(I, /obj/item/storage) && user.a_intent != I_HURT)
+	if(istype(I, /obj/item/storage) && length(I.contents) && user.a_intent != I_HURT)
 		var/obj/item/storage/S = I
 		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", SPAN_NOTICE("You empty \the [S] into \the [src]."), range = 3)
 		for(var/obj/item/O in S.contents)
@@ -195,7 +195,7 @@
 				for (var/mob/C in viewers(src))
 					C.show_message("<span class='warning'>[GM.name] has been placed in the [src] by [user].</span>", 3)
 				qdel(G)
-				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [GM.name] ([GM.ckey]) in disposals.</font>")
+				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
 				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return
@@ -226,6 +226,11 @@
 		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
 		return
 
+/// makes it so synths can't be flushed
+	if (istype(target, /mob/living/silicon/robot))
+		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
+		return
+
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
 	var/msg
@@ -247,7 +252,7 @@
 		msg = "[user.name] stuffs [target.name] into the [src]!"
 		to_chat(user, "You stuff [target.name] into the [src]!")
 
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [target.name] ([target.ckey]) in disposals.</font>")
+		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [target.name] ([target.ckey]) in disposals.</span>")
 		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>")
 		msg_admin_attack("[user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 	else

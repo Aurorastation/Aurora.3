@@ -225,3 +225,10 @@
 	icon_state = "dyncan"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/datum/reagent/drink/dynjuice/cold = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/threetowns
+	name = "\improper Three Towns Cider"
+	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
+	icon_state = "three_towns_cider"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/datum/reagent/alcohol/butanol/threetownscider = 30)

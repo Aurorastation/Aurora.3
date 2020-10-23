@@ -34,6 +34,7 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
+	organ_names = list("head")
 	response_help  = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
@@ -111,18 +112,15 @@
 		else
 			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
 			return
-	else if(istype(O, /obj/item/card/id)||istype(O, /obj/item/device/pda))
+	else if(O.GetID())
 		if (!mmi)
 			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>")
 			return 0
 
-		var/obj/item/card/id/id_card
+		var/obj/item/card/id/id_card = O.GetID()
 
-		if(istype(O, /obj/item/card/id))
-			id_card = O
-		else
-			var/obj/item/device/pda/pda = O
-			id_card = pda.id
+		if(!istype(id_card))
+			return 0
 
 		if(access_robotics in id_card.access)
 			to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
@@ -285,7 +283,7 @@
 /mob/living/simple_animal/spiderbot/examine(mob/user)
 	..(user)
 	if(src.held_item)
-		to_chat(user, "It is carrying \icon[src.held_item] \a [src.held_item].")
+		to_chat(user, "It is carrying [icon2html(src.held_item, user)] \a [src.held_item].")
 
 /mob/living/simple_animal/spiderbot/cannot_use_vents()
 	return

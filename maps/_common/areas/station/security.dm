@@ -25,6 +25,7 @@
 /area/security/brig
 	name = "Security - Brig"
 	lightswitch = TRUE
+	flags = PRISON
 	icon_state = "brig"
 
 /area/security/brig/prison_break()
@@ -38,6 +39,7 @@
 /area/security/prison
 	name = "Security - Prison Wing"
 	lightswitch = TRUE
+	flags = PRISON
 	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()
@@ -48,18 +50,10 @@
 		temp_timer.releasetime = 1
 	..()
 
-/area/security/prison/remote
-	name = "\improper Security - Remote Prison Wing"
-	icon_state = "sec_prison"
-
 /area/security/warden
 	name = "Security - Warden's Office"
 	icon_state = "Warden"
 	sound_env = SMALL_SOFTFLOOR
-
-/area/security/warden/remote
-	name = "\improper Security - Remote Warden's Office"
-	icon_state = "Warden"
 
 /area/security/armory
 	name = "Security - Armory"
@@ -162,3 +156,17 @@
 	name = "\improper Security - Penal Mining Colony"
 	icon_state = "security"
 	icon_state = "security"
+	holomap_color = null
+	flags = HIDE_FROM_HOLOMAP | PRISON
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+
+/area/security/penal_colony/warden
+	name = "\improper Security - Remote Warden's Office"
+	icon_state = "Warden"
+	sound_env = SMALL_ENCLOSED
+
+/area/security/penal_colony/prison
+	name = "\improper Security - Remote Prison Wing"
+	icon_state = "sec_prison"
+	sound_env = SMALL_ENCLOSED

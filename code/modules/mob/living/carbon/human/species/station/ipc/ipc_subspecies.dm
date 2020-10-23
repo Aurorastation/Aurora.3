@@ -314,8 +314,7 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag,
-		/mob/living/carbon/human/proc/crush
+		/mob/living/carbon/human/proc/check_tag
 	)
 
 	examine_color = "#688359"
@@ -467,6 +466,7 @@
 	brute_mod = 1.2
 	grab_mod = 1.1
 	resist_mod = 4
+	num_alternate_languages = 3
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 

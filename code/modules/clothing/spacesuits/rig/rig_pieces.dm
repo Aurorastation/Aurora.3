@@ -17,7 +17,6 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/helmet.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi',
-		BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi'
 	)
 
 /obj/item/clothing/gloves/rig
@@ -34,7 +33,6 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/gloves.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/gloves.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/gloves.dmi',
-		BODYTYPE_VOX = 'icons/mob/species/vox/gloves.dmi'
 	)
 
 /obj/item/clothing/shoes/magboots/rig
@@ -50,7 +48,6 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/shoes.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/shoes.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/shoes.dmi',
-		BODYTYPE_VOX = 'icons/mob/species/vox/shoes.dmi'
 	)
 
 /obj/item/clothing/suit/space/rig
@@ -71,7 +68,6 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/suit.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi',
-		BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi'
 		)
 
 	supporting_limbs = list()

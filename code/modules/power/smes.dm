@@ -29,6 +29,7 @@
 
 	var/capacity = 5e6 // maximum charge
 	var/charge = 1e6 // actual charge
+	var/max_coils = 0
 
 	var/input_attempt = 0 			// 1 = attempting to charge, 0 = not attempting to charge
 	var/inputting = 0 				// 1 = actually inputting, 0 = not inputting
@@ -112,6 +113,16 @@
 
 	if(!should_be_mapped)
 		warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
+
+/obj/machinery/power/smes/examine(mob/user)
+	. = ..()
+	if(open_hatch)
+		to_chat(user, SPAN_SUBTLE("The maintenance hatch is open."))
+		if (max_coils > 1 && Adjacent(user))
+			var/list/coils = list()
+			for(var/obj/item/smes_coil/C in component_parts)
+				coils += C
+			to_chat(user, "The [max_coils] coil slots contain: [counting_english_list(coils)]")
 
 /obj/machinery/power/smes/add_avail(var/amount)
 	if(..(amount))
@@ -298,11 +309,17 @@
 	if(W.isscrewdriver())
 		if(!open_hatch)
 			open_hatch = 1
-			to_chat(user, "<span class='notice'>You open the maintenance hatch of [src].</span>")
+			user.visible_message(\
+				"<span class='notice'>\The [user] opens the maintenance hatch of \the [src].</span>",\
+				"<span class='notice'>You open the maintenance hatch of \the [src].</span>",\
+				range = 4)
 			return 0
 		else
 			open_hatch = 0
-			to_chat(user, "<span class='notice'>You close the maintenance hatch of [src].</span>")
+			user.visible_message(\
+				"<span class='notice'>\The [user] closes the maintenance hatch of \the [src].</span>",\
+				"<span class='notice'>You close the maintenance hatch of \the [src].</span>",\
+				range = 4)
 			return 0
 
 	if (!open_hatch)
@@ -322,8 +339,8 @@
 		building_terminal = 0
 		CC.use(10)
 		user.visible_message(\
-				"<span class='notice'>[user.name] has added cables to the [src].</span>",\
-				"<span class='notice'>You added cables to the [src].</span>")
+			"<span class='notice'>[user.name] has added cables to the [src].</span>",\
+			"<span class='notice'>You added cables to the [src].</span>")
 		terminal.connect_to_network()
 		stat = 0
 		return 0
@@ -429,7 +446,7 @@
 				output_level = input(usr, "Enter new output level (0-[output_level_max])", "SMES Output Power Control", output_level) as num
 		output_level = max(0, min(output_level_max, output_level))	// clamp to range
 
-	investigate_log("input/output; <font color='[input_level>output_level?"green":"red"][input_level]/[output_level]</font> | Output-mode: [output_attempt?"<font color='green'>on</font>":"<font color='red'>off</font>"] | Input-mode: [input_attempt?"<font color='green'>auto</font>":"<font color='red'>off</font>"] by [usr.key]","singulo")
+	investigate_log("input/output; <font color='[input_level>output_level?"green":"red"][input_level]/[output_level]</font> | Output-mode: [output_attempt?"<font color='green'>on</font>":"<span class='warning'>off</span>"] | Input-mode: [input_attempt?"<font color='green'>auto</font>":"<span class='warning'>off</span>"] by [usr.key]","singulo")
 
 	return 1
 

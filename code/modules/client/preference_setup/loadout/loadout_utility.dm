@@ -77,8 +77,11 @@
 	var/wallet = list()
 	wallet["wallet, colourable"] = /obj/item/storage/wallet/colourable
 	wallet["wallet, purse"] = /obj/item/storage/wallet/purse
-	wallet["wallet, lanyard"] = /obj/item/storage/wallet/lanyard
 	gear_tweaks += new/datum/gear_tweak/path(wallet)
+
+/datum/gear/utility/lanyard
+	display_name = "lanyard"
+	path = 	/obj/item/storage/wallet/lanyard
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
@@ -106,3 +109,8 @@
 	cost = 0
 	path = /obj/item/storage/belt/utility/alt
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
+
+/datum/gear/utility/himeo_kit
+	display_name = "himean voidsuit kit"
+	path = /obj/item/himeo_kit
+	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel")

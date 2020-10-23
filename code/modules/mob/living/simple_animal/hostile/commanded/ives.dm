@@ -10,6 +10,7 @@
 	health = 70
 	maxHealth = 70
 
+	belongs_to_station = TRUE
 	stop_automated_movement_when_pulled = TRUE
 	density = TRUE
 
@@ -34,6 +35,7 @@
 
 	mob_size = 5
 
+	organ_names = list("core", "head", "tail")
 	response_help = "pets"
 	response_harm = "hits"
 	response_disarm = "pushes"

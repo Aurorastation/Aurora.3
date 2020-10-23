@@ -391,7 +391,7 @@
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
-			G.prescription = TRUE
+			G.prescription = 7
 
 	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
@@ -527,7 +527,7 @@
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
-			G.prescription = TRUE
+			G.prescription = 7
 			G.autodrobe_no_remove = TRUE
 	
 	if(H.species && !H.species_items_equipped)
@@ -757,7 +757,8 @@
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
-					custom_equip_slots += G.slot
+					if(G.slot != slot_tie)
+						custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
 					leftovers += thing

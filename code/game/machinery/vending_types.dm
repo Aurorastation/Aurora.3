@@ -94,6 +94,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
 		/obj/item/reagent_containers/food/drinks/cans/tonic = 8,
+		/obj/item/reagent_containers/food/drinks/cans/threetowns = 6,
 		/obj/item/reagent_containers/food/drinks/carton/applejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/cream = 4,
 		/obj/item/reagent_containers/food/drinks/carton/dynjuice = 4,
@@ -406,6 +407,7 @@
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
+		/obj/item/reagent_containers/glass/bottle/perconol = 3,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
 		/obj/item/reagent_containers/syringe = 12,
@@ -583,8 +585,8 @@
 	desc = "When you need seeds fast!"
 	product_slogans = "THIS'S WHERE TH' SEEDS LIVE! GIT YOU SOME!;Hands down the best seed selection on the station!;Also certain mushroom varieties available, more for experts! Get certified today!"
 	product_ads = "We like plants!;Grow some crops!;Grow, baby, growww!;Aw h'yeah son!"
-	icon_state = "seeds"
-	vend_id = "seeds"
+	icon_state = SEED_NOUN_SEEDS
+	vend_id = SEED_NOUN_SEEDS
 	products = list(
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,

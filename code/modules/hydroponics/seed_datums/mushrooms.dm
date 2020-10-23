@@ -4,7 +4,7 @@
 /datum/seed/mushroom
 	name = "mushrooms"
 	seed_name = "chanterelle"
-	seed_noun = "spores"
+	seed_noun = SEED_NOUN_SPORES
 	display_name = "chanterelle mushrooms"
 	mutants = list("reishi","amanita","plumphelmet")
 	chems = list(/datum/reagent/nutriment = list(1,25))
@@ -31,7 +31,7 @@
 /datum/seed/koisspore
 	name = "koisspore"
 	seed_name = "kois"
-	seed_noun = "spores"
+	seed_noun = SEED_NOUN_SPORES
 	display_name = "k'ois spores"
 	chems = list(
 				/datum/reagent/kois = list(4),
@@ -130,7 +130,7 @@
 	display_name = "walking mushrooms"
 	mutants = null
 	can_self_harvest = 1
-	has_mob_product = /mob/living/simple_animal/mushroom
+	product_type = /mob/living/simple_animal/mushroom
 
 /datum/seed/mushroom/plump/walking/setup_traits()
 	..()

@@ -794,7 +794,7 @@ default behaviour is:
 	set category = "IC"
 
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
 	update_vision_cone()
 
 /mob/living/proc/cannot_use_vents()
@@ -992,3 +992,13 @@ default behaviour is:
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE
+
+//called when the mob receives a bright flash
+/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(override_blindness_check || !(disabilities & BLIND))
+		..()
+		overlay_fullscreen("flash", type)
+		spawn(25)
+			if(src)
+				clear_fullscreen("flash", 25)
+		return 1

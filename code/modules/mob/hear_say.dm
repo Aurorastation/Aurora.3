@@ -41,7 +41,7 @@
 				else
 					message = stars(message)
 
-	var/accent_icon = speaker.get_accent_icon(language)
+	var/accent_icon = speaker.get_accent_icon(language, src)
 	var/speaker_name = speaker.name
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
@@ -87,7 +87,7 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[time] [message]")
 
-/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
+/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
 	if(!client && !vr_mob)
 		return
 
@@ -197,6 +197,7 @@
 		formatted = language.format_message_radio(message, verb)
 	else
 		formatted = "[verb], <span class=\"body\">\"[message]\"</span>"
+	formatted += part_c
 	if(isdeaf(src))
 		if(prob(20))
 			to_chat(src, "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>")
@@ -209,7 +210,7 @@
 /mob/proc/on_hear_radio(part_a, speaker_name, track, part_b, formatted, accent_icon)
 	var/accent_tag
 	if(accent_icon)
-		accent_tag = "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[accent_icon]'>"
+		accent_tag = "<img src=\"[accent_icon].png\">"
 	to_chat(src, "[part_a][speaker_name][part_b][formatted]")
 	if(vr_mob)
 		to_chat(vr_mob, "[part_a][accent_tag][speaker_name][part_b][formatted]")

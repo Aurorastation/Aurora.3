@@ -1,14 +1,13 @@
 <template>
   <div>
-    <h3>Firearm Control System</h3>
     <h3>Detected Firearms</h3>
-    <table>
-      <tr>
+    <table class="table border">
+      <tr class="header border">
         <th>User</th>
         <th>Firearm</th>
-        <th/>
+        <th>Settings</th>
       </tr>
-      <tr v-for="gun in wireless_firing_pins" :key="gun.ref">
+      <tr v-for="gun in sorted_pins" class="item border" :key="gun.ref">
         <td>{{ gun.registered_info }}</td>
         <td>{{ gun.gun_name }}</td>
         <td>
@@ -22,18 +21,25 @@
   </div>
 </template>
 
-
-
 <script>
 export default {
-		data() {return this.$root.$data.state},
-
-};
+  data() {
+    return this.$root.$data.state;
+  },
+  computed: {
+    sorted_pins: function() {
+      return this.wireless_firing_pins.slice(0).sort((a, b) => (a.registered_info > b.registered_info) ? 1 : -1)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 table {
     width: 100%;
     text-align: center;
-  }
+}
+tr {
+  line-height: 135%;
+}
 </style>

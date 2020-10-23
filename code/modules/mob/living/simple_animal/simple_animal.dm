@@ -35,6 +35,7 @@
 	var/turns_since_scan = 0
 
 	//Interaction
+	var/list/organ_names = list("chest")
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
@@ -363,11 +364,13 @@
 /mob/living/simple_animal/proc/speak_audio()
 	return
 
-/mob/living/simple_animal/proc/visible_emote(var/act_desc, var/log_emote=1)
-	custom_emote(VISIBLE_MESSAGE, act_desc, log_emote)
+/mob/living/simple_animal/proc/visible_emote(var/act_desc)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	custom_emote(VISIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
 /mob/living/simple_animal/proc/audible_emote(var/act_desc)
-	custom_emote(AUDIBLE_MESSAGE, act_desc)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	custom_emote(AUDIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
 /*
 mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
@@ -602,7 +605,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			sound_chance = prob(50)
 		make_noise(sound_chance)
 
-	..(message, null, verb)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	..(message, null, verb, ghost_hearing = can_ghosts_hear)
 
 /mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
@@ -692,7 +696,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
 	update_icon()
 
@@ -753,14 +757,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				B.transform = M.Scale(scale)
 				B.update_icon()
 
-/mob/living/simple_animal/proc/spawn_into_wizard_familiar(var/mob/user)
-	if(src.ckey)
-		return
-	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("wizard_familiar", src)
-	if(wizard_master)
-		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
-	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
-
 /mob/living/simple_animal/get_resist_power()
 	return resist_mod
+
+
+/mob/living/simple_animal/get_gibs_type()
+	if(isSynthetic())
+		return /obj/effect/gibspawner/robot
+	else
+		return /obj/effect/gibspawner/generic

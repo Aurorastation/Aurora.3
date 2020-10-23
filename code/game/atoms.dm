@@ -149,7 +149,7 @@
 		else
 			f_name += "oil-stained [name][infix]."
 
-	to_chat(user, "\icon[src] That's [f_name] [suffix]")
+	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]")
 	to_chat(user, desc)
 
 	if(ishuman(user))
@@ -509,3 +509,8 @@
 
 /atom/movable/onDropInto(var/atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
+
+// This proc is used by ghost spawners to assign a player to a specific atom
+// It receives the curent mob of the player s argument and MUST return the mob the player has been assigned.
+/atom/proc/assign_player(var/mob/user)
+	return
