@@ -4,7 +4,6 @@
 	desc_info = "A NanoTrasen design, this wristbound computer allows the user to quickly and safely access critical info, without taking their hands out of the equation."
 	icon = 'icons/obj/modular_wristbound.dmi'
 	icon_state = "wristbound"
-	item_state = "wristbound"
 	icon_state_menu = "menu"
 	icon_state_screensaver = "standby"
 	hardware_flag = PROGRAM_WRISTBOUND
@@ -14,29 +13,6 @@
 	w_class = ITEMSIZE_NORMAL
 	light_strength = 1
 	menu_light_color = COLOR_GREEN
-	var/flipped = FALSE
-	contained_sprite = TRUE
-
-/obj/item/modular_computer/wristbound/verb/swapwrists()
-	set category = "Object"
-	set name = "Flip Wristbound Computer Wrist"
-	set src in usr
-
-	if(usr.stat || usr.restrained())
-		return
-
-	flipped = !flipped
-	if(flipped)
-		overlay_state = "[item_state]_alt"
-		item_state = "[item_state]_alt"
-	else
-		item_state = initial(item_state)
-		overlay_state = initial(overlay_state)
-	to_chat(usr, SPAN_NOTICE("You change \the [src] to be on your [src.flipped ? "left" : "right"] hand."))
-	if(ismob(loc))
-		var/mob/M = src.loc
-		M.update_inv_gloves()
-		M.update_inv_wear_id()
 
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)
 	..()
