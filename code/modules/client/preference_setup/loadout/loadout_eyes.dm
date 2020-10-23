@@ -115,6 +115,6 @@
 	..()
 	var/blindfold = list()
 	blindfold["blindfold, black"] = /obj/item/clothing/glasses/sunglasses/blindfold
-	blindfold["blindfold, white"] = /obj/item/clothing/glasses/whiteblindfold
-	blindfold["white blindfold, see-through"] = /obj/item/clothing/glasses/whiteblindfold/seethrough
+	blindfold["blindfold, white"] = /obj/item/clothing/glasses/sunglasses/blindfold/white
+	blindfold["white blindfold, see-through"] = /obj/item/clothing/glasses/sunglasses/blindfold/white/seethrough
 	gear_tweaks += new/datum/gear_tweak/path(blindfold)
