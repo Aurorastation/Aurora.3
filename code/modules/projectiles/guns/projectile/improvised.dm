@@ -152,6 +152,9 @@
 	jam_chance = 20
 	needspin = FALSE
 
+/obj/item/gun/projectile/improvised_handgun/loaded
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 /obj/item/gun/projectile/improvised_handgun/examine(mob/user)
 	..(user)
 	switch(jam_chance)
