@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added a basic circuit kit to Tech Support to tinker with while no one visits the library."
-  - bugfix: "The Tech Support card no longer bricks devices."
