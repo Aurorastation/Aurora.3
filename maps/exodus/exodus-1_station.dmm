@@ -75187,7 +75187,7 @@
 "ljp" = (
 /obj/structure/bed/chair,
 /obj/effect/landmark/start{
-	name = "Medical Resident"
+	name = "Medical Intern"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/surgeryobs)

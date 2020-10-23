@@ -231,7 +231,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/intern_med
-	title = "Medical Resident"
+	title = "Medical Intern"
 	flag = INTERN_MED
 	department_flag = MEDSCI
 	faction = "Station"
@@ -241,11 +241,11 @@
 	selection_color = "#FF97D1"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
-	minimum_character_age = 25
+	minimum_character_age = 18
 	outfit = /datum/outfit/job/intern_med
 
 /datum/outfit/job/intern_med
-	name = "Medical Resident"
+	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical/intern
