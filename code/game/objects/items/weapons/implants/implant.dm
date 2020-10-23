@@ -83,6 +83,12 @@
 	desc = "Track with this."
 	var/id = 1.0
 
+/obj/item/implant/tracking/Initialize()
+	var/list/tracking_list = list()
+	for(var/obj/item/implant/tracking/T in implants)
+		tracking_list += T
+	id = length(tracking_list) + 1
+	. = ..()
 
 /obj/item/implant/tracking/get_data()
 	. = {"<b>Implant Specifications:</b><BR>

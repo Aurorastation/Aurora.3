@@ -20,6 +20,10 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/ammo_casing/shotgun/stunshell
 
+/datum/design/item/weapon/stunshell/tracking
+	materials = list(DEFAULT_WALL_MATERIAL = 3500, MATERIAL_URANIUM = 250)
+	build_path = /obj/item/ammo_casing/shotgun/tracking
+
 /datum/design/item/weapon/chemsprayer
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_BIO = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 1000)

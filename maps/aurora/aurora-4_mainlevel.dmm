@@ -9543,6 +9543,7 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
+/obj/item/storage/box/trackingslugs,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arH" = (
