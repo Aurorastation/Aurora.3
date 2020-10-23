@@ -87,8 +87,8 @@
 
 /obj/screen/ai/crew_manifest/Click()
 	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.show_station_manifest()
+		var/windowname = open_crew_manifest(usr)
+		onclose(usr, windowname)
 
 /obj/screen/ai/alerts
 	name = "Show Alerts"

@@ -3,6 +3,7 @@
 	desc = "The latest in portable microcomputer solutions from Thinktronic Systems, LTD."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
+	icon_state_unpowered = "pda"
 	var/icon_add // this is the "bar" part in "pda-bar"
 	enrolled = DEVICE_PRIVATE
 

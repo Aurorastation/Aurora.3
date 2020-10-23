@@ -9539,6 +9539,7 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
+/obj/item/storage/box/trackingslugs,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arH" = (
@@ -30813,7 +30814,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/heads/cryo)
 "bbo" = (
-/obj/random/junk,
+/obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bbp" = (
@@ -35691,7 +35692,6 @@
 /obj/machinery/conveyor_switch/oneway{
 	desc = "A conveyor control switch. It appears to only go in one direction. Controls the components conveyor belt.";
 	id = "Robocompo";
-	name = "conveyor switch";
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,
@@ -59337,10 +59337,18 @@
 /obj/structure/closet/lawcloset,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"cXG" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/atmos_control)
 "cXM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
+"cXY" = (
+/obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "das" = (
@@ -60929,6 +60937,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
+"gJn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "gKs" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -61532,6 +61545,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/storage)
+"hQf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "hQD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -63571,6 +63589,11 @@
 "mKz" = (
 /turf/simulated/wall,
 /area/maintenance/library)
+"mKD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "mMJ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old_dark,
@@ -64400,6 +64423,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"oDJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "oEG" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
@@ -64610,6 +64638,10 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
+"peg" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "pfO" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/bottle{
@@ -65486,6 +65518,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"qOX" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/library)
 "qPd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/junk,
@@ -66365,6 +66401,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"sAC" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "sAE" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -68393,6 +68433,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
+"weJ" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/bridge_elevator)
 "wfx" = (
 /obj/machinery/button/remote/airlock{
 	dir = 8;
@@ -84551,7 +84595,7 @@ aKV
 aOw
 aQc
 aRQ
-bcY
+cXY
 bbs
 bbs
 aXI
@@ -87098,7 +87142,7 @@ qba
 eFC
 aja
 vOd
-aid
+cXG
 aih
 ahk
 anJ
@@ -88165,7 +88209,7 @@ bbq
 bbs
 bbs
 bnt
-bcY
+cXY
 bqh
 brq
 bss
@@ -89744,7 +89788,7 @@ bPs
 bPs
 bQF
 bcY
-bPs
+mKD
 bbs
 bFT
 bcY
@@ -91803,7 +91847,7 @@ sYg
 aKT
 bNn
 bRK
-bNn
+qOX
 cbQ
 rXO
 oud
@@ -93083,7 +93127,7 @@ fqD
 xqw
 bRK
 bNn
-bNn
+qOX
 bSh
 bSh
 bSh
@@ -99434,7 +99478,7 @@ aaV
 aaA
 aaA
 aaA
-aah
+sAC
 aah
 aae
 aah
@@ -101336,7 +101380,7 @@ bEK
 bPH
 bGC
 bGC
-bGC
+peg
 bEK
 aab
 aab
@@ -101585,13 +101629,13 @@ bZt
 bSM
 bGC
 bGC
-bGC
+peg
 bMU
 pDF
 cdi
 bEK
 bMV
-bGC
+peg
 bPH
 bGC
 bEK
@@ -103352,7 +103396,7 @@ bMp
 bMp
 bGC
 eNR
-pie
+gJn
 bNO
 jPX
 yfc
@@ -103901,7 +103945,7 @@ bGC
 bGC
 bEK
 bFF
-bGC
+peg
 bEK
 aab
 aab
@@ -104047,7 +104091,7 @@ aah
 aah
 aah
 aah
-aah
+sAC
 aaV
 abE
 aeJ
@@ -105854,7 +105898,7 @@ afj
 ePU
 eZE
 pFK
-xOq
+hQf
 nHe
 hRF
 tzU
@@ -110003,7 +110047,7 @@ baW
 bct
 aYy
 bfw
-aSL
+bbo
 bhZ
 bjp
 bku
@@ -112020,7 +112064,7 @@ aaa
 aox
 aox
 nHe
-xOq
+hQf
 qqz
 txW
 amk
@@ -112338,7 +112382,7 @@ blN
 blN
 blN
 blL
-bJq
+oDJ
 blN
 bBo
 hSJ
@@ -114661,7 +114705,7 @@ dNy
 hTO
 bMu
 dNy
-dNy
+weJ
 hTO
 aaa
 aaa
@@ -117714,7 +117758,7 @@ bal
 bal
 bal
 aTf
-aSL
+bbo
 aSL
 bam
 aab
@@ -118736,9 +118780,9 @@ aUU
 aUS
 aXF
 aXC
-aSL
 bbo
-aSL
+bbo
+bbo
 aSL
 aSL
 bha

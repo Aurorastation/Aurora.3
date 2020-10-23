@@ -88,7 +88,7 @@
 
 	else if(href_list["code"])
 		radio.code += href_list["code"]
-		Clamp(1, round(radio.code), 100)
+		radio.code = Clamp(1, round(radio.code), 100)
 		return TRUE
 
 	else if(href_list["toggledoor"])

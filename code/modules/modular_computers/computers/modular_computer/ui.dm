@@ -18,7 +18,7 @@
 	// We are still here, that means there is no program loaded. Load the BIOS/ROM/OS/whatever you want to call it.
 	// This screen simply lists available programs and user may select them.
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
-		visible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."))
+		audible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."))
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
 	if(!ui)

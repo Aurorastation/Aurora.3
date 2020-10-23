@@ -23,26 +23,18 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
 	icon_state = "wristbound_cargo"
-	item_state = "wristbound_cargo"
-	icon_state_unpowered = "wristbound_cargo"
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/engineering
 	icon_state = "wristbound_engineering"
-	item_state = "wristbound_engineering"
-	icon_state_unpowered = "wristbound_engineering"
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/medical
 	icon_state = "wristbound_medical"
-	item_state = "wristbound_medical"
-	icon_state_unpowered = "wristbound_medical"
 	_app_preset_type = /datum/modular_computer_app_presets/medical
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
 	icon_state = "wristbound_security"
-	item_state = "wristbound_security"
-	icon_state_unpowered = "wristbound_security"
 	_app_preset_type = /datum/modular_computer_app_presets/security
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/security/investigations
@@ -50,14 +42,10 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/research
 	icon_state = "wristbound_science"
-	item_state = "wristbound_science"
-	icon_state_unpowered = "wristbound_science"
 	_app_preset_type = /datum/modular_computer_app_presets/research
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 	icon_state = "wristbound_command"
-	item_state = "wristbound_command"
-	icon_state_unpowered = "wristbound_command"
 	_app_preset_type = /datum/modular_computer_app_presets/command
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/ce
@@ -83,6 +71,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/representative
 	_app_preset_type = /datum/modular_computer_app_presets/representative
+	enrolled = DEVICE_PRIVATE
 
 // Wristbound PDA presets
 

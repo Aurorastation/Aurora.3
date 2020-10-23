@@ -12825,6 +12825,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/store)
+"yt" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/turret_protected/tcomsat)
 "yu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -22701,8 +22705,7 @@
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "QO" = (
-/obj/structure/table/rack,
-/obj/random/loot,
+/obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "QP" = (
@@ -22803,6 +22806,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"QZ" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "Ra" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -36900,7 +36907,7 @@ aP
 aa
 bg
 bg
-bx
+yt
 bW
 cr
 cI
@@ -41040,7 +41047,7 @@ bg
 Of
 Mp
 cl
-Mp
+QZ
 Nc
 ag
 ag
