@@ -76,6 +76,7 @@
 	. = ..()
 	if(inoperable()) // Unpowered windoors can just be slid open
 		return TRUE
+	use_power(50) // Just powering the RFID and maybe a weak motor
 	if(operable() && . == FALSE)
 		flick("[base_state]deny", src)
 
