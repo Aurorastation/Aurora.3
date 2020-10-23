@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "When you check yourself for injuries, you will now be able to feel if they contain shrapnel/implants."
