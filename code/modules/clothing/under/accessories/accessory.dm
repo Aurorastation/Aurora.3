@@ -209,60 +209,12 @@
 	item_state = "suspenders"
 
 /obj/item/clothing/accessory/scarf
-	name = "white scarf"
+	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
-	icon_state = "whitescarf"
-	item_state = "whitescarf"
-	overlay_state = "whitescarf"
+	icon_state = "scarf"
+	item_state = "scarf"
+	overlay_state = "scarf"
 	flippable = 1
-
-/obj/item/clothing/accessory/scarf/yellow
-	name = "yellow scarf"
-	icon_state = "yellowscarf"
-	item_state = "yellowscarf"
-	overlay_state = "yellowscarf"
-
-/obj/item/clothing/accessory/scarf/green
-	name = "green scarf"
-	icon_state = "greenscarf"
-	item_state = "greenscarf"
-	overlay_state = "greenscarf"
-
-/obj/item/clothing/accessory/scarf/purple
-	name = "purple scarf"
-	icon_state = "purplescarf"
-	item_state = "purplescarf"
-	overlay_state = "purplescarf"
-
-/obj/item/clothing/accessory/scarf/black
-	name = "black scarf"
-	icon_state = "blackscarf"
-	item_state = "blackscarf"
-	overlay_state = "blackscarf"
-
-/obj/item/clothing/accessory/scarf/red
-	name = "red scarf"
-	icon_state = "redscarf"
-	item_state = "redscarf"
-	overlay_state = "redscarf"
-
-/obj/item/clothing/accessory/scarf/orange
-	name = "orange scarf"
-	icon_state = "orangescarf"
-	item_state = "orangescarf"
-	overlay_state = "orangescarf"
-
-/obj/item/clothing/accessory/scarf/light_blue
-	name = "light blue scarf"
-	icon_state = "lightbluescarf"
-	item_state = "lightbluescarf"
-	overlay_state = "lightbluescarf"
-
-/obj/item/clothing/accessory/scarf/dark_blue
-	name = "dark blue scarf"
-	icon_state = "darkbluescarf"
-	item_state = "darkbluescarf"
-	overlay_state = "darkbluescarf"
 
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
