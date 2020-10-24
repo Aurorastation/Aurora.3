@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Made some of the UI warnings more obvious (oxygen, pressure, temperature)."
