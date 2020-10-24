@@ -135,21 +135,14 @@
 		shatter()
 		return
 
-/obj/machinery/door/window/attack_ai(mob/user as mob)
-	if(operable())
-		return src.attack_hand(user)
-
 /obj/machinery/door/window/attack_hand(mob/user as mob)
-
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		if(H.species.can_shred(H))
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-			user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
-			take_damage(25)
-			return
-		return attackby(user, user)
+	var/mob/living/carbon/human/H = user
+	if(istype(H) && H.species.can_shred(H))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
+		user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
+		take_damage(25)
+		return
 	else if(operable())
 		return attackby(user, user)
 
@@ -229,6 +222,7 @@
 
 /obj/machinery/door/window/brigdoor/allowed(mob/M)
 	if(inoperable()) // Brigdoors are the exception to the "fail open" windoor - they lock closed
+		to_chat(M, SPAN_WARNING("\The [src] refuses to budge in its unpowered state."))
 		return FALSE
 	. = ..()
 
