@@ -120,7 +120,7 @@
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
-	tab_pda = /obj/item/modular_computer/handheld/pda/research/xenobio
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
 
 /datum/outfit/job/scientist/xenobiologist/xenobotanist
 	name = "Xenobotanist"
@@ -155,7 +155,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_sci
-	tab_pda = /obj/item/modular_computer/handheld/pda/research/roboticist
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
 	id = /obj/item/card/id/white

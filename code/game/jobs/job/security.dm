@@ -91,7 +91,7 @@
 	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_warden
-	tab_pda = /obj/item/modular_computer/handheld/pda/security/warden
+	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head

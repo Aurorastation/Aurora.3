@@ -14,21 +14,9 @@
 /obj/item/modular_computer/handheld/pda/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
-/obj/item/modular_computer/handheld/pda/civilian/bartender
-	icon_add = "bar"
-
 /obj/item/modular_computer/handheld/pda/civilian/bartender/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
-
-/obj/item/modular_computer/handheld/pda/civilian/chef
-	icon_add = "chef"
-
-/obj/item/modular_computer/handheld/pda/civilian/botanist
-	icon_add = "hydro"
-
-/obj/item/modular_computer/handheld/pda/civilian/librarian
-	icon_add = "libb"
 
 /obj/item/modular_computer/handheld/pda/civilian/librarian/Initialize()
 	. = ..()
@@ -36,18 +24,14 @@
 	silence_notifications()
 
 /obj/item/modular_computer/handheld/pda/civilian/janitor
-	icon_add = "j"
 	_app_preset_type = /datum/modular_computer_app_presets/civilian/janitor
-
-/obj/item/modular_computer/handheld/pda/civilian/chaplain
-	icon_add = "holy"
 
 /obj/item/modular_computer/handheld/pda/civilian/chaplain/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/pda/civilian/lawyer
-	icon_add = "lawyer"
+	icon_add = "h"
 
 /obj/item/modular_computer/handheld/pda/civilian/lawyer/Initialize()
 	. = ..()
@@ -77,7 +61,6 @@
 
 /obj/item/modular_computer/handheld/pda/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
-	icon_add = "atmo"
 
 /obj/item/modular_computer/handheld/pda/engineering/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
@@ -86,7 +69,7 @@
 // Supply
 /obj/item/modular_computer/handheld/pda/supply
 	_app_preset_type = /datum/modular_computer_app_presets/supply
-	icon_add = "cargo"
+	icon_add = "sup"
 
 /obj/item/modular_computer/handheld/pda/supply/Initialize()
 	. = ..()
@@ -94,7 +77,6 @@
 
 /obj/item/modular_computer/handheld/pda/supply/miner
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
-	icon_add = "miner"
 
 /obj/item/modular_computer/handheld/pda/supply/qm
 	icon_add = "q"
@@ -112,15 +94,6 @@
 /obj/item/modular_computer/handheld/pda/medical/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
-
-/obj/item/modular_computer/handheld/pda/medical/chemistry
-	icon_add = "chem"
-
-/obj/item/modular_computer/handheld/pda/medical/paramedic
-	icon_add = "paramedic"
-
-/obj/item/modular_computer/handheld/pda/medical/psych
-	icon_add = "psych"
 
 /obj/item/modular_computer/handheld/pda/medical/psych/Initialize()
 	. = ..()
@@ -140,12 +113,6 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
 
-/obj/item/modular_computer/handheld/pda/research/roboticist
-	icon_add = "robot"
-
-/obj/item/modular_computer/handheld/pda/research/xenobio
-	icon_add = "xenobio"
-
 /obj/item/modular_computer/handheld/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
 	icon_add = "rd"
@@ -158,10 +125,6 @@
 
 /obj/item/modular_computer/handheld/pda/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
-	icon_add = "det"
-
-/obj/item/modular_computer/handheld/pda/security/warden
-	icon_add = "warden"
 
 /obj/item/modular_computer/handheld/pda/security/hos
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
@@ -209,7 +172,7 @@
 
 /obj/item/modular_computer/handheld/pda/ert
 	_app_preset_type = /datum/modular_computer_app_presets/ert
-	icon_add = "h"
+	icon_add = "s"
 	hidden = TRUE
 
 /obj/item/modular_computer/handheld/pda/syndicate
@@ -225,5 +188,4 @@
 	icon_add = "transp"
 
 /obj/item/modular_computer/handheld/pda/civilian/merchant
-	icon_add = "chef"
 	hidden = TRUE

@@ -54,7 +54,7 @@
 	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/chef
 	head = /obj/item/clothing/head/chefhat
-	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chef
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	shoes = /obj/item/clothing/shoes/black
@@ -88,7 +88,7 @@
 
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	suit = /obj/item/clothing/suit/apron
-	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/botanist
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	shoes = /obj/item/clothing/shoes/black
