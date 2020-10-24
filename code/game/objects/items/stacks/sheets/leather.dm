@@ -68,14 +68,12 @@
 	desc = "The claw of a terrible creature."
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "claw"
-	default_type = "alien hide"
 
 /obj/item/weed_extract
 	name = "weed extract"
 	desc = "A piece of slimy, purplish weed."
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "weed_extract"
-	default_type = "weed_extract"
 
 /obj/item/stack/material/hairlesshide
 	name = "hairless hide"
