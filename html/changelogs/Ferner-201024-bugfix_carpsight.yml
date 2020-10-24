@@ -1,0 +1,5 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed Icarus drones sometimes spawning indoors."
+  - bugfix: "Fixed carp and Icarus drones not seeing in the dark."
