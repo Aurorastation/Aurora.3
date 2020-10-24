@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Lights, air alarms, and APCs can now be placed in areas that don't necessarily require power."
