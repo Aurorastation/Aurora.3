@@ -11,6 +11,11 @@
 	size = 8
 	color = LIGHT_COLOR_BLUE
 
+/datum/computer_file/program/card_mod/can_run(mob/user)
+	. = ..()
+	if(computer.computer_emagged)
+		return TRUE
+
 /datum/nano_module/program/card_mod
 	name = "ID card modification program"
 	var/mod_mode = TRUE

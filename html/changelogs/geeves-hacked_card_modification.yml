@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The ID card modification program can now be used regardless of user access, if the parent computer has been emagged."
