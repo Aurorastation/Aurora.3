@@ -3,6 +3,7 @@
 	mod_type = "Combat"
 	spawn_module = /obj/item/robot_module/combat
 	cell_type = /obj/item/cell/super
+	combat = TRUE
 
 /mob/living/silicon/robot/combat/ert
 	scrambled_codes = TRUE
@@ -24,6 +25,7 @@
 	law_update = FALSE
 	scrambled_codes = TRUE
 	status_flags = GODMODE
+	combat = TRUE
 
 /mob/living/silicon/robot/bluespace/verb/bstwalk()
 	set name = "Ruin Everything"

@@ -19,6 +19,7 @@
 
 	// Bad Guy Stuff
 	var/syndicate = FALSE
+	var/combat = FALSE
 
 	// Laws
 	var/datum/ai_laws/laws
@@ -102,6 +103,9 @@
 
 /mob/living/silicon/drop_item()
 	return
+
+/mob/living/silicon/proc/allow_attack(mob/living/target)
+	return syndicate || combat
 
 /mob/living/silicon/emp_act(severity)
 	switch(severity)

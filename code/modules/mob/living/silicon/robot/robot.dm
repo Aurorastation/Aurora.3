@@ -286,6 +286,11 @@
 	QDEL_NULL(spark_system)
 	return ..()
 
+/mob/living/silicon/robot/allow_attack()
+	if(emagged)
+		return TRUE
+	return ..()
+
 /mob/living/silicon/robot/proc/set_module_sprites(var/list/new_sprites)
 	if(new_sprites && length(new_sprites))
 		module_sprites = new_sprites.Copy()

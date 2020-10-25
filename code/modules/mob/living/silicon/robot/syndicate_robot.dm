@@ -6,6 +6,7 @@
 	law_preset = /datum/ai_laws/syndicate_override
 	law_update = FALSE
 	scrambled_codes = TRUE
+	combat = TRUE
 
 	// Modules
 	mod_type = "Syndicate"
