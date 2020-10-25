@@ -1,31 +1,23 @@
-// Ported from Haine and WrongEnd with much gratitude!
-/* ._.-'~'-._.-'~'-._.-'~'-._.-'~'-._.-'~'-._.-'~'-._.-'~'-._. */
-/*-=-=-=-=-=-=-=-=-=-=-=-=-=WHAT-EVER=-=-=-=-=-=-=-=-=-=-=-=-=-*/
-/* '~'-._.-'~'-._.-'~'-._.-'~'-._.-'~'-._.-'~'-._.-'~'-._.-'~' */
-
-/obj/effect/wingrille_spawn
+/obj/effect/map_effect/wingrille_spawn
 	name = "window grille spawner"
-	icon = 'icons/obj/structures.dmi'
 	icon_state = "wingrille"
-	density = 1
-	anchored = 1.0
 	var/win_path = /obj/structure/window/basic
 	var/activated
 
 // stops ZAS expanding zones past us, the windows will block the zone anyway
-/obj/effect/wingrille_spawn/CanPass()
+/obj/effect/map_effect/wingrille_spawn/CanPass()
 	return 0
 
-/obj/effect/wingrille_spawn/attack_hand()
+/obj/effect/map_effect/wingrille_spawn/attack_hand()
 	attack_generic()
 
-/obj/effect/wingrille_spawn/attack_ghost()
+/obj/effect/map_effect/wingrille_spawn/attack_ghost()
 	attack_generic()
 
-/obj/effect/wingrille_spawn/attack_generic()
+/obj/effect/map_effect/wingrille_spawn/attack_generic()
 	activate()
 
-/obj/effect/wingrille_spawn/Initialize(mapload)
+/obj/effect/map_effect/wingrille_spawn/Initialize(mapload)
 	if (!win_path)
 		return INITIALIZE_HINT_QDEL
 
@@ -35,7 +27,7 @@
 
 	return INITIALIZE_HINT_LATEQDEL
 
-/obj/effect/wingrille_spawn/proc/activate()
+/obj/effect/map_effect/wingrille_spawn/proc/activate()
 	if(activated) return
 	if (!locate(/obj/structure/grille) in get_turf(src))
 		var/obj/structure/grille/G = new /obj/structure/grille(src.loc)
@@ -43,7 +35,7 @@
 	var/list/neighbours = list()
 	for (var/dir in cardinal)
 		var/turf/T = get_step(src, dir)
-		var/obj/effect/wingrille_spawn/other = locate(/obj/effect/wingrille_spawn) in T
+		var/obj/effect/map_effect/wingrille_spawn/other = locate(/obj/effect/map_effect/wingrille_spawn) in T
 		if(!other)
 			var/found_connection
 			if(locate(/obj/structure/grille) in T)
@@ -59,38 +51,38 @@
 			neighbours |= other
 	activated = 1
 
-/obj/effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
+/obj/effect/map_effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
 	return
 
 // Currently unused, could be useful for pre-wired electrified windows.
-/obj/effect/wingrille_spawn/proc/handle_grille_spawn(var/obj/structure/grille/G)
+/obj/effect/map_effect/wingrille_spawn/proc/handle_grille_spawn(var/obj/structure/grille/G)
 	return
 
-/obj/effect/wingrille_spawn/reinforced
+/obj/effect/map_effect/wingrille_spawn/reinforced
 	name = "reinforced window grille spawner"
 	icon_state = "r-wingrille"
 	win_path = /obj/structure/window/reinforced
 
-/obj/effect/wingrille_spawn/reinforced/crescent
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent
 	name = "Crescent window grille spawner"
 	win_path = /obj/structure/window/reinforced/crescent
 
-/obj/effect/wingrille_spawn/phoron
+/obj/effect/map_effect/wingrille_spawn/phoron
 	name = "phoron window grille spawner"
 	icon_state = "p-wingrille"
 	win_path = /obj/structure/window/phoronbasic
 
-/obj/effect/wingrille_spawn/reinforced_phoron
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron
 	name = "reinforced phoron window grille spawner"
 	icon_state = "pr-wingrille"
 	win_path = /obj/structure/window/phoronreinforced
 
-/obj/effect/wingrille_spawn/reinforced/polarized
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized
 	name = "polarized window grille spawner"
 	color = "#444444"
 	win_path = /obj/structure/window/reinforced/polarized
 	var/id
 
-/obj/effect/wingrille_spawn/reinforced/polarized/handle_window_spawn(var/obj/structure/window/reinforced/polarized/P)
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/handle_window_spawn(var/obj/structure/window/reinforced/polarized/P)
 	if(id)
 		P.id = id
