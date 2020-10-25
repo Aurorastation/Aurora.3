@@ -1344,6 +1344,7 @@
 		/mob/living/simple_animal/hostile/commanded/dog/columbo,
 		/mob/living/simple_animal/hostile/commanded/dog/pug,
 		/mob/living/simple_animal/hostile/commanded/bear,
+		/mob/living/simple_animal/hostile/commanded/baby_harvester,
 		/mob/living/simple_animal/hostile/greatworm,
 		/mob/living/simple_animal/hostile/lesserworm,
 		/mob/living/simple_animal/hostile/greatwormking,
