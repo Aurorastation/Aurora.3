@@ -149,11 +149,7 @@
 						else
 							computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 				else
-					var/contents = {"<h4>Crew Manifest</h4>
-									<br>
-									[SSrecords.get_manifest(1)]
-									"}
-					if(!computer.nano_printer.print_text(contents,text("crew manifest ([])", worldtime2text())))
+					if(!computer.nano_printer.print_text(SSrecords.get_manifest_text(), text("crew manifest ([])", worldtime2text())))
 						to_chat(usr, SPAN_WARNING(">Hardware error: Printer was unable to print the file. It may be out of paper."))
 						return
 					else

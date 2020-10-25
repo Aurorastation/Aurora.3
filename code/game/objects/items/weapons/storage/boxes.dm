@@ -261,6 +261,14 @@
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/incendiary = 8)
 
+/obj/item/storage/box/trackingslugs
+	name = "box of tracking slugs"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "trackingshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/shotgun/tracking = 4)
+
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
@@ -803,9 +811,19 @@
 	starts_with = list(/obj/item/clothing/accessory/badge/hadii_card = 6)
 
 /obj/item/storage/box/hadii_manifesto
-	name = "hadiist manifesto card box"
+	name = "hadiist manifesto box"
 	desc = "A box full of hadiist manifesto books."
 	starts_with = list(/obj/item/book/manual/pra_manifesto = 6)
+
+/obj/item/storage/box/dpra_manifesto
+	name = "al'mariist manifesto box"
+	desc = "A box full of al'mariist manifesto books."
+	starts_with = list(/obj/item/book/manual/dpra_manifesto = 6)
+
+/obj/item/storage/box/nka_manifesto
+	name = "royalist manifesto card box"
+	desc = "A box full of royalist manifesto books."
+	starts_with = list(/obj/item/book/manual/nka_manifesto = 6)
 
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
