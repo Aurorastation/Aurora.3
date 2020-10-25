@@ -2,11 +2,11 @@
 	display_name = "cane"
 	path = /obj/item/cane
 
-/datum/gear/cane
+/datum/gear/cane/crutch
 	display_name = "crutch"
 	path = /obj/item/cane/crutch
 
-/datum/gear/cane
+/datum/gear/cane/white
 	display_name = "white cane"
 	path = /obj/item/cane/white
 
