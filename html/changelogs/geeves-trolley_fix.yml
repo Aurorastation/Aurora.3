@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Unlatched trolleys can now be hitched again by dragging from the trolley you want to hitch to, to the unhitched trolley."
