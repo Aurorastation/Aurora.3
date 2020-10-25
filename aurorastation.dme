@@ -1154,6 +1154,7 @@
 #include "code\modules\admin\secrets\fun_secrets\break_some_lights.dm"
 #include "code\modules\admin\secrets\fun_secrets\fix_all_lights.dm"
 #include "code\modules\admin\secrets\fun_secrets\ghost_mode.dm"
+#include "code\modules\admin\secrets\fun_secrets\light_switches.dm"
 #include "code\modules\admin\secrets\fun_secrets\make_all_areas_powered.dm"
 #include "code\modules\admin\secrets\fun_secrets\make_all_areas_unpowered.dm"
 #include "code\modules\admin\secrets\fun_secrets\only_one.dm"
