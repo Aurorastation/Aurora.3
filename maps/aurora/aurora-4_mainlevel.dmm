@@ -63621,6 +63621,11 @@
 	pixel_x = -24;
 	pixel_y = 32
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diplomatic Reception";
+	network = list("Civilian Main","Rep_Office");
+	pixel_x = -10
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "mPJ" = (
@@ -63701,8 +63706,8 @@
 "mVU" = (
 /obj/machinery/button/windowtint{
 	id = "consular";
-	pixel_x = 24;
-	pixel_y = -20
+	pixel_x = -21;
+	pixel_y = -24
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
@@ -66243,10 +66248,6 @@
 	icon_state = "plant-21"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Representative's Office";
-	pixel_x = -5
-	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "sjg" = (
@@ -66989,12 +66990,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	dir = 4;
-	network = list("Civilian Main","Rep_Office");
-	pixel_y = -8
-	},
 /obj/machinery/computer/guestpass{
 	pixel_x = -27;
 	pixel_y = -2
@@ -67483,6 +67478,12 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diplomatic Reception";
+	dir = 8;
+	network = list("Civilian Main","Rep_Office");
+	pixel_y = -22
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ulG" = (
