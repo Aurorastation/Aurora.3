@@ -82,6 +82,7 @@
 		assign_uid()
 		id_tag = num2text(uid)
 
+/obj/machinery/atmospherics/unary/vent_pump/proc/setup_radio()
 	//some vents work his own special way
 	radio_filter_in = frequency == 1439 ? (RADIO_FROM_AIRALARM) : null
 	radio_filter_out = frequency == 1439 ? (RADIO_TO_AIRALARM) : null
