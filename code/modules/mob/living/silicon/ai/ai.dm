@@ -50,6 +50,7 @@ var/list/ai_verbs_default = list(
 	anchored = TRUE // -- TLE
 	density = TRUE
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
+	can_have_vision_cone = FALSE
 	var/carded
 
 	// Holopad and holograms
@@ -288,7 +289,7 @@ var/list/ai_verbs_default = list(
 		selected_sprite = new/datum/ai_icon("Custom", "[sprite.aichassisicon]", "4", "[sprite.aichassisicon]-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
 	else
 		selected_sprite = default_ai_icon
-	updateicon()
+	update_icon()
 
 /mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in view())
 	set popup_menu = 0
@@ -372,13 +373,14 @@ var/list/ai_verbs_default = list(
 	if (!custom_sprite)
 		var/new_sprite = input("Select an icon!", "AI", selected_sprite) as null|anything in ai_icons
 		if(new_sprite) selected_sprite = new_sprite
-	updateicon()
+	update_icon()
 
 // this verb lets the ai see the stations manifest
 /mob/living/silicon/ai/proc/ai_roster()
 	set category = "AI Commands"
 	set name = "Show Crew Manifest"
-	show_station_manifest()
+	var/windowname = open_crew_manifest(src)
+	onclose(src, windowname)
 
 //AI Examine code
 /mob/living/silicon/ai/proc/ai_examine(atom/A as mob|obj|turf in view(src.eyeobj))
@@ -648,7 +650,7 @@ var/list/ai_verbs_default = list(
 				if (H.near_camera())
 					character_icon = new('icons/mob/human.dmi', "blank")
 					for(var/renderdir in cardinal)
-						character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir, always_use_defdir=1)), dir = renderdir)
+						character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir)), dir = renderdir)
 				else
 					character_icon = getHologramIcon(icon(selection["image"]))
 			if(selection && istype(selection, /icon))
@@ -740,11 +742,12 @@ var/list/ai_verbs_default = list(
 	else if(W.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
-			if(!do_after(user,40/W.toolspeed))
+			if(!do_after(user, 40/W.toolspeed))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
-			anchored = 0
+			anchored = FALSE
+			exit_vr()
 			return
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
@@ -779,7 +782,7 @@ var/list/ai_verbs_default = list(
 	set name = "Remote Control Mech"
 	set category = "AI Commands"
 	set desc = "Remotely control any active mechs on your AI mech network."
-	SSvirtualreality.mech_selection(src, "aimechs")
+	SSvirtualreality.mech_selection(src, REMOTE_AI_MECH)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"
@@ -824,7 +827,7 @@ var/list/ai_verbs_default = list(
 	multitool_mode = !multitool_mode
 	to_chat(src, "<span class='notice'>Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged</span>")
 
-/mob/living/silicon/ai/updateicon()
+/mob/living/silicon/ai/update_icon()
 	if(!selected_sprite) selected_sprite = default_ai_icon
 
 	if(stat == DEAD)

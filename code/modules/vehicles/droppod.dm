@@ -9,6 +9,8 @@
 	icon_state = "droppod"
 	dir = SOUTH
 	layer = MOB_LAYER - 0.1
+	light_range = 0
+
 	health = 500 // pretty strong because it can't move or be shot out of
 	maxhealth = 500
 
@@ -28,7 +30,14 @@
 	desc = "A big metal pod painted in the colors of the Tau Ceti Foreign Legion."
 	icon_state = "legion_pod"
 
-/obj/vehicle/droppod/MouseDrop(atom/over_object)
+/obj/vehicle/droppod/syndie
+	desc = "A high-tech titanium pod, capable of transporting its passenger right into the action at considerable ranges. The metal foam dispensers lining the top prevent most hull breaches on station ingress."
+	icon_state = "syndie_pod"
+
+/obj/vehicle/droppod/MouseDrop()
+	return
+
+/obj/vehicle/droppod/MouseDrop_T()
 	return
 
 /obj/vehicle/droppod/emag_act()
@@ -41,10 +50,10 @@
 	if(I.iswelder() && status == USED && !humanload && !passenger)
 		var/obj/item/weldingtool/W = I
 		if(W.welding)
-			src.visible_message(span("notice","[user] starts cutting \the [src] apart."))
+			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
 			if(do_after(user, 200))
-				src.visible_message(span("danger","\The [src] is cut apart by [user]!"))
-				playsound(src, 'sound/items/Welder.ogg', 100, 1)
+				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
+				playsound(src, 'sound/items/welder.ogg', 100, 1)
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)
 				var/obj/item/stack/cable_coil/C = new /obj/item/stack/cable_coil(src.loc)
@@ -146,17 +155,22 @@
 			unload(user)
 	else if ((!humanload || !passenger) && status != USED)
 		load(user)
+		launchinterface()
 
-/obj/vehicle/droppod/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/data[0]
+/obj/vehicle/droppod/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "vehicles-droppod", 400, 400, "Drop Pod", state = default_state)
+		ui.data = vueui_data_change(null, user, ui)
+
+	ui.open()
+
+/obj/vehicle/droppod/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = list()
+
 	data["status"] = status
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "droppod.tmpl", "Drop Pod", 400, 400, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/vehicle/droppod/Topic(href, href_list)
 	if(..())
@@ -168,26 +182,28 @@
 		switch(target)
 			if("arrivals")
 				var/arrivals_destination_list = list(
-					/area/hallway/secondary/entry/fore = 2,
-					/area/hallway/secondary/entry/port = 2,
-					/area/security/vacantoffice = 1,
-					/area/hallway/secondary/entry/departure_lounge = 1
+					/area/hallway/secondary/entry/fore = 35,
+					/area/hallway/secondary/entry/port = 35,
+					/area/security/vacantoffice = 15,
+					/area/hallway/secondary/entry/departure_lounge = 15
 					)
 				A = pickweight(arrivals_destination_list)
 			if("cargo")
 				var/cargo_destination_list = list(
-					/area/quartermaster/loading = 4,
-					/area/quartermaster/qm = 1,
-					/area/storage/tools = 1,
-					/area/sconference_room = 2
+					/area/quartermaster/loading = 50,
+					/area/quartermaster/qm = 20,
+					/area/maintenance/store = 10,
+					/area/store = 5,
+					/area/hallway/secondary/entry/aft = 10,
+					/area/sconference_room = 5
 					)
 				A = pickweight(cargo_destination_list)
 			if("commandescape")
 				var/commandescape_destination_list = list(
-					/area/bridge/levela = 2,
-					/area/bridge/levela/research_dock = 2,
-					/area/security/bridge_surface_checkpoint = 1,
-					/area/maintenance/bridge_elevator/surface = 1
+					/area/bridge/levela = 35,
+					/area/bridge/levela/research_dock = 35,
+					/area/security/bridge_surface_checkpoint = 15,
+					/area/maintenance/bridge_elevator/surface = 15
 					)
 				A = pickweight(commandescape_destination_list)
 		if(A)
@@ -196,11 +212,13 @@
 				if(alert(user, "WARNING: You are not in the droppod! Are you sure you wish to launch?", "Launch Confirmation", "Yes", "No") == "No")
 					return
 			status = LAUNCHING
-			var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
-			if(ui)
-				ui.close()
+
+			var/datum/vueui/ui = href_list["vueui"]
+			ui?.close()
+
 			if(connected_blastdoor)
 				blastdoor_interact()
+
 			fire_at_area(A)
 
 /obj/vehicle/droppod/proc/fire_at_area(var/area/A)
@@ -212,7 +230,7 @@
 		var/obstacle_found = FALSE
 		if(!iswall(T))
 			for(var/obj/O in T)
-				if(istype(O, /obj/structure/grille) || istype(O, /obj/machinery/door/airlock/external)) //This is to help prevent the pod from landing right on an exterior window or airlock.
+				if(istype(O, /obj/structure/grille) || istype(O, /obj/machinery/door/airlock/external) || istype(O, /obj/machinery/embedded_controller)) //This is to help prevent the pod from landing right on an exterior window or airlock.
 					obstacle_found = TRUE
 					break
 			if(!obstacle_found)
@@ -223,7 +241,7 @@
 	var/target_turf = pick(turf_selection)
 	if(!target_turf)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(span("warning","\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
 		status = READY
 		if(connected_blastdoor)
 			blastdoor_interact(TRUE)
@@ -233,7 +251,7 @@
 /obj/vehicle/droppod/proc/fire(var/turf/A)
 	if(!isturf(A))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(span("warning","\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
 		status = READY
 		if(connected_blastdoor)
 			blastdoor_interact(TRUE)
@@ -241,7 +259,7 @@
 
 	if(!(src.z in validfirelocations))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(span("warning","\The [src]'s screen displays an error: Pod cannot be launched from this position."))
+		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Pod cannot be launched from this position."))
 		status = READY
 		if(connected_blastdoor)
 			blastdoor_interact(TRUE)
@@ -263,23 +281,23 @@
 		var/mob/M = humanload
 		shake_camera(M, 5, 1)
 	forceMove(A)
-	A.visible_message(span("danger","\The [src] crashes through the roof!"))
+	set_light(5,1,LIGHT_COLOR_EMERGENCY_SOFT)
+	A.visible_message(SPAN_DANGER("\The [src] crashes through the roof!"))
 
 	var/turf/belowturf = GetBelow(A)
 	if(belowturf)
-		belowturf.visible_message(span("danger","You hear something crash into the ceiling above!"))
-
+		belowturf.visible_message(SPAN_DANGER("You hear something crash into the ceiling above!"))
 	status = USED
 
 /obj/vehicle/droppod/proc/applyfalldamage(var/turf/A)
 	for(var/mob/T in A)
 		if(T.simulated)
 			T.gib()
-			T.visible_message(span("danger","[T] is squished by the drop pod!"))
+			T.visible_message(SPAN_DANGER("[T] is squished by the drop pod!"))
 	for(var/obj/B in A)
 		if(B.simulated && B.density)
 			qdel(B)
-			B.visible_message(span("danger","[B] is destroyed by the drop pod!"))
+			B.visible_message(SPAN_DANGER("[B] is destroyed by the drop pod!"))
 
 /obj/vehicle/droppod/proc/blastdoor_interact(var/open)
 	var/datum/wifi/sender/door/wifi_sender_blast = new(connected_blastdoor, src)
@@ -293,4 +311,3 @@
 #undef READY
 #undef USED
 #undef LAUNCHING
-

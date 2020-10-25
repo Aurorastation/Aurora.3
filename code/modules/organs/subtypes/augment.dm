@@ -6,11 +6,11 @@
 	robotic = 2
 	emp_coeff = 2
 	is_augment = TRUE
-	species_restricted = list("Human","Off-Worlder Human",
-							"Tajara", "Zhan-Khazan Tajara", "M'sai Tajara",
-							"Unathi", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame",
-							"Hephaestus G2 Industrial Frame", "Xion Industrial Frame",
-							"Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	species_restricted = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,
+							SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI,
+							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_IPC, SPECIES_IPC_G1,
+							SPECIES_IPC_G2, SPECIES_IPC_XION,
+							SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	var/cooldown = 150
 	var/action_button_icon = "augment"
 	var/activable = FALSE
@@ -26,7 +26,7 @@
 		if(activable)
 			action.button_icon_state = action_button_icon
 			if(action.button)
-				action.button.UpdateIcon()
+				action.button.update_icon()
 
 /obj/item/organ/internal/augment/attack_self(var/mob/user)
 	. = ..()
@@ -146,7 +146,7 @@
 	icon_state = "tesla_spine"
 	organ_tag = BP_AUG_TESLA
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
-	species_restricted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	species_restricted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	var/max_charges = 1
 	var/actual_charges = 0
 	var/recharge_time = 5 //this is in minutes
@@ -208,11 +208,12 @@
 	activable = TRUE
 	organ_tag = BP_AUG_EYE_SENSORS
 	action_button_name = "Toggle Eye Sensors"
+	var/active_hud = "disabled"
 
 	var/static/list/hud_types = list(
 		"Disabled",
-		"Security",
-		"Medical")
+		SEC_HUDTYPE,
+		MED_HUDTYPE)
 
 	var/selected_hud = "Disabled"
 
@@ -222,9 +223,9 @@
 	if(!.)
 		return FALSE
 
-	var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
+	var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in capitalize_list(hud_types)
 
-	selected_hud = choice
+	selected_hud = lowertext(choice)
 
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()
@@ -234,15 +235,24 @@
 
 	switch(selected_hud)
 
-		if("Security")
+		if(SEC_HUDTYPE)
 			req_access = list(access_security)
 			if(allowed(owner))
+				active_hud = "security"
 				process_sec_hud(owner, 1)
+			else
+				active_hud = "disabled"
 
-		if("Medical")
+		if(MED_HUDTYPE)
 			req_access = list(access_medical)
 			if(allowed(owner))
+				active_hud = "medical"
 				process_med_hud(owner, 1)
+			else
+				active_hud = "disabled"
+
+		else
+			active_hud = "disabled"
 
 /obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
 	..()
@@ -251,6 +261,9 @@
 		return
 	E.take_damage(5)
 
+/obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
+	return (hud == active_hud)
+
 /obj/item/organ/internal/augment/cyber_hair
 	name = "synthetic hair extensions"
 	cooldown = 20
@@ -258,7 +271,7 @@
 	organ_tag = BP_AUG_HAIR
 	activable = TRUE
 	action_button_name = "Activate Synthetic Hair Extensions"
-	species_restricted = list("Human","Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Shell Frame")
+	species_restricted = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_IPC_SHELL)
 
 /obj/item/organ/internal/augment/cyber_hair/attack_self(var/mob/user)
 	. = ..()

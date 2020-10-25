@@ -1,10 +1,11 @@
 #define LISTENER_MODULAR_COMPUTER "modular_computers"
 
 /obj/item/modular_computer/process()
-	handle_power() // Handles all computer power interaction
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
 		return FALSE
+
+	handle_power() // Handles all computer power interaction
 
 	if(damage > broken_damage)
 		shutdown_computer()
@@ -46,7 +47,7 @@
 	check_update_ui_need()
 
 	if(working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
-		playsound(get_turf(src), "computerbeep", 30, 1, 10, required_preferences = SOUND_AMBIENCE)
+		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = SOUND_AMBIENCE)
 		ambience_last_played = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
@@ -101,17 +102,14 @@
 	cut_overlays()
 	if(damage >= broken_damage)
 		icon_state = icon_state_broken
-		var/mutable_appearance/broken_overlay = mutable_appearance(icon, "broken", layer + 0.1, plane)
-		add_overlay(broken_overlay)
+		add_overlay("broken")
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
-			var/icon/screensaver_icon = icon(icon, icon_state_screensaver)
-			if(is_holographic)
-				var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
-				screensaver_icon.AddAlphaMask(alpha_mask)
-			var/mutable_appearance/screensaver_overlay = mutable_appearance(screensaver_icon, pick(screensaver_icon.IconStates()), layer + 0.1, plane)
-			add_overlay(screensaver_overlay)
+			if (is_holographic)
+				holographic_overlay(src, src.icon, icon_state_screensaver)
+			else
+				add_overlay(icon_state_screensaver)
 
 		if (screensaver_light_range && working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -120,20 +118,16 @@
 		return
 	if(active_program)
 		var/state = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
-		var/icon/state_icon = icon(icon, state)
-		if(is_holographic)
-			var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
-			state_icon.AddAlphaMask(alpha_mask)
-		var/mutable_appearance/state_overlay = mutable_appearance(state_icon, pick(state_icon.IconStates()), layer + 0.1, plane)
-		add_overlay(state_overlay)
+		if (is_holographic)
+			holographic_overlay(src, src.icon, state)
+		else
+			add_overlay(state)
 		set_light(light_strength, l_color = active_program.color)
 	else
-		var/icon/menu_icon = icon(icon, icon_state_menu)
-		if(is_holographic)
-			var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
-			menu_icon.AddAlphaMask(alpha_mask)
-		var/mutable_appearance/menu_overlay = mutable_appearance(menu_icon, pick(menu_icon.IconStates()), layer + 0.1, plane)
-		add_overlay(menu_overlay)
+		if (is_holographic)
+			holographic_overlay(src, src.icon, icon_state_menu)
+		else
+			add_overlay(icon_state_menu)
 		set_light(light_strength, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
@@ -278,9 +272,11 @@
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
 		SSnanoui.update_uis(active_program)
+		SSvueui.check_uis_for_change(active_program)
 		if(active_program.NM)
 			SSnanoui.update_uis(active_program.NM)
 	else
+		SSvueui.check_uis_for_change(src)
 		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
@@ -386,4 +382,4 @@
 		if(istype(user))
 			to_chat(user, message)
 		return
-	visible_message(message, range = message_range)
+	audible_message(message, hearing_distance = message_range)

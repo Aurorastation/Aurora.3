@@ -11,6 +11,7 @@
 	universal_speak = 1
 	speak_emote = list("hisses")
 	emote_hear = list("wails","screeches")
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "puts their hand through"
 	response_disarm = "flails at"
 	response_harm   = "punches"
@@ -95,7 +96,7 @@
 	var/datum/weakref/original_body
 	var/datum/weakref/possessed_body
 
-/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage_flags, var/def_zone, var/used_weapon)
+/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage, var/damagetype, var/def_zone, var/blocked, var/used_weapon, var/damage_flags)
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/adjustBruteLoss()

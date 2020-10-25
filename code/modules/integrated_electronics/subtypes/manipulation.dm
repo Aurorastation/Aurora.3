@@ -38,7 +38,7 @@
 		installed_gun = gun
 		size += gun.w_class
 		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(src.loc, /decl/sound_category/crowbar_sound, 50, 1)
 	else
 		..()
 
@@ -47,7 +47,7 @@
 		installed_gun.forceMove(get_turf(src))
 		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
 		size = initial(size)
-		playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
 		installed_gun = null
 	else
 		to_chat(user, "<span class='notice'>There's no weapon to remove from the mechanism.</span>")
@@ -306,7 +306,7 @@
 
 		A.forceMove(get_turf(src))
 		A.throw_at(T, round(Clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
-		
+
 /obj/item/integrated_circuit/manipulation/shocker
 	name = "shocker circuit"
 	desc = "Used to shock adjacent creatures with electricity."

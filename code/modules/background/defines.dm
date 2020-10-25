@@ -17,6 +17,7 @@
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
 
 #define CITIZENSHIP_NONE "None"
+#define CITIZENSHIP_GOLDEN "Golden Deep"
 
 //religion defines
 #define RELIGION_NONE "None"
@@ -29,6 +30,7 @@
 #define RELIGION_MOROZ "Moroz Holy Tribunal"
 #define RELIGION_TRINARY "Trinary Perfection"
 #define RELIGION_SCARAB "Scarab Folk Beliefs"
+#define RELIGION_TAOISM "Taoism"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
@@ -67,6 +69,11 @@
 #define ACCENT_VENUSJIN "Venusian Jintarian"
 #define ACCENT_DOMINIA "Dominian"
 #define ACCENT_JUPITER "Jovian"
+#define ACCENT_EUROPA "Europan"
+#define ACCENT_EARTH "Earther"
+#define ACCENT_DEEPFRONTIER "Deep Frontier"
+#define ACCENT_FISANDUH "Fisanduhian"
+#define ACCENT_GADPATHUR "Gadpathurian"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
@@ -83,7 +90,15 @@
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
 #define ACCENT_TRAD_NOBLE "Noble Traditional"
 #define ACCENT_TRAD_PEASANT "Peasant Traditional"
+#define ACCENT_WASTELAND "Deep Wastelander"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 
-#define ACCENT_DIONA "Diona"
+#define ACCENT_ROOTSONG "Rootsong"
+#define ACCENT_VOIDSONG "Voidsong"
+
+#define ACCENT_TTS "Text-to-Speech"
+
+#define ACCENT_ZORA "Zo'rane"
+#define ACCENT_KLAX "K'laxane"
+#define ACCENT_CTHUR "C'thuric"

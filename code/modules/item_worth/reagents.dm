@@ -243,10 +243,10 @@
 /datum/reagent/alcohol/ethanol/bilk
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/black_russian
+/datum/reagent/alcohol/ethanol/blackrussian
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/bloody_mary
+/datum/reagent/alcohol/ethanol/bloodymary
 	value = 0.14
 
 /datum/reagent/alcohol/ethanol/booger
@@ -258,7 +258,7 @@
 /datum/reagent/alcohol/ethanol/cmojito
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/changelingsting
+/datum/reagent/alcohol/ethanol/gibsonpunch
 	value = 0.19
 
 /datum/reagent/alcohol/ethanol/classic
@@ -294,7 +294,7 @@
 /datum/reagent/alcohol/ethanol/erikasurprise
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/gargle_blaster
+/datum/reagent/alcohol/ethanol/gargleblaster
 	value = 0.21
 
 /datum/reagent/alcohol/ethanol/gintonic
@@ -303,7 +303,7 @@
 /datum/reagent/alcohol/ethanol/goldschlager
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/hippies_delight
+/datum/reagent/alcohol/ethanol/hippiesdelight
 	value = 0.12
 
 /datum/reagent/alcohol/ethanol/hooch
@@ -393,7 +393,7 @@
 /datum/reagent/alcohol/ethanol/suidream
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/syndicatebomb
+/datum/reagent/alcohol/ethanol/gibsonhooch
 	value = 0.21
 
 /datum/reagent/alcohol/ethanol/tequila_sunrise
@@ -492,7 +492,7 @@
 /datum/reagent/alcohol/ethanol/tallrussian
 	value = 0.15
 
-/datum/reagent/norepinephrine
+/datum/reagent/inaprovaline
 	value = 2.5
 
 /datum/reagent/bicaridine
@@ -519,13 +519,13 @@
 /datum/reagent/clonexadone
 	value = 5.5
 
-/datum/reagent/paracetamol
+/datum/reagent/perconol
 	value = 3.3
 
-/datum/reagent/tramadol
+/datum/reagent/mortaphenyl
 	value = 3.1
 
-/datum/reagent/oxycodone
+/datum/reagent/oxycomorphine
 	value = 3.3
 
 /datum/reagent/synaptizine
@@ -534,7 +534,7 @@
 /datum/reagent/alkysine
 	value = 5.9
 
-/datum/reagent/imidazoline
+/datum/reagent/oculine
 	value = 4.2
 
 /datum/reagent/peridaxon
@@ -570,31 +570,28 @@
 /datum/reagent/leporazine
 	value = 2
 
-/datum/reagent/mental/methylphenidate
+/datum/reagent/mental/corophenidate
 	value = 6
 
-/datum/reagent/mental/sertraline
+/datum/reagent/mental/parvosil
 	value = 6
 
-/datum/reagent/mental/fluvoxamine
+/datum/reagent/mental/neurostabin
 	value = 6
 
-/datum/reagent/mental/escitalopram
+/datum/reagent/mental/minaphobin
 	value = 6
 
-/datum/reagent/mental/paroxetine
-	value = 3.5
-
-/datum/reagent/mental/duloxetine
+/datum/reagent/mental/emoxanyl
 	value = 6
 
-/datum/reagent/mental/venlafaxine
+/datum/reagent/mental/orastabin
 	value = 6
 
-/datum/reagent/mental/risperidone
+/datum/reagent/mental/neurapan
 	value = 6
 
-/datum/reagent/mental/olanzapine
+/datum/reagent/mental/nerospectan
 	value = 6
 
 /datum/reagent/mental/truthserum
@@ -606,7 +603,7 @@
 /datum/reagent/rezadone
 	value = 5
 
-/datum/reagent/ipecac
+/datum/reagent/verunol
 	value = 2
 
 /datum/reagent/crayon_dust
@@ -708,10 +705,10 @@
 /datum/reagent/soporific
 	value = 2.5
 
-/datum/reagent/chloralhydrate
+/datum/reagent/polysomnine
 	value = 2.6
 
-/datum/reagent/chloralhydrate/beer2
+/datum/reagent/polysomnine/beer2
 	value = 2.2
 
 /datum/reagent/space_drugs
@@ -731,9 +728,6 @@
 
 /datum/reagent/psilocybin
 	value = 0.7
-
-/datum/reagent/slimetoxin
-	value = 2
 
 /datum/reagent/aslimetoxin
 	value = 3

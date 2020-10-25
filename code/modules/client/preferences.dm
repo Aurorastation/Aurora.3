@@ -27,7 +27,6 @@ datum/preferences
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
-	var/skin_theme = "Light"
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
@@ -62,7 +61,7 @@ datum/preferences
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
-	var/species = "Human"               //Species datum to use.
+	var/species = SPECIES_HUMAN               //Species datum to use.
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
@@ -82,9 +81,14 @@ datum/preferences
 	var/religion = "None"               //Religious association.
 	var/accent = "None"               //Character accent.
 
-		//Mob preview
-	var/icon/preview_icon = null
-	var/is_updating_icon = 0
+	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
+	var/static/list/preview_screen_locs = list(
+		"1" = "character_preview_map:1,5:-12",
+		"2" = "character_preview_map:1,3:15",
+		"4"  = "character_preview_map:1:7,2:10",
+		"8"  = "character_preview_map:1:-7,1:5",
+		"BG" = "character_preview_map:1,1 to 1,5"
+	)
 
 		//Jobs, uses bitflags
 	var/job_civilian_high = 0
@@ -152,9 +156,20 @@ datum/preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/dress_mob = TRUE
+	var/bgstate = "000"
+	var/list/bgstate_options = list(
+		"fffff",
+		"000",
+		"new_steel",
+		"dark2",
+		"wood",
+		"wood_light",
+		"grass_alt",
+		"new_reinforced",
+		"new_white"
+		)
 
-
+	var/fov_cone_alpha = 255
 
 /datum/preferences/New(client/C)
 	new_setup()
@@ -165,6 +180,10 @@ datum/preferences
 			load_path(C.ckey)
 			load_preferences()
 			load_and_update_character()
+
+/datum/preferences/Destroy()
+	. = ..()
+	QDEL_NULL_LIST(char_render_holders)
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
@@ -246,17 +265,65 @@ datum/preferences
 	else
 		dat += "Please create an account to save your preferences."
 
+	if(!char_render_holders)
+		update_preview_icon()
+	show_character_previews()
+
 	dat += "<br>"
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
 	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=preferences;size=1200x800")
+	winshow(user, "preferences_window", TRUE)
+	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1000, 1000)
+	popup.set_content(dat)
+	popup.open(FALSE) // Skip registering onclose on the browser pane
+	onclose(user, "preferences_window", src) // We want to register on the window itself
+
+/datum/preferences/proc/update_character_previews(mutable_appearance/MA)
+	if(!client)
+		return
+
+	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
+	if(!BG)
+		BG = new
+		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
+		BG.layer = TURF_LAYER
+		BG.icon = 'icons/turf/total_floors.dmi'
+		LAZYSET(char_render_holders, "BG", BG)
+		client.screen |= BG
+	BG.icon_state = bgstate
+	BG.screen_loc = preview_screen_locs["BG"]
+
+	for(var/D in global.cardinal)
+		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
+		if(!O)
+			O = new
+			LAZYSET(char_render_holders, "[D]", O)
+			client.screen |= O
+		O.appearance = MA
+		O.dir = D
+		O.screen_loc = preview_screen_locs["[D]"]
+
+/datum/preferences/proc/show_character_previews()
+	if(!client || !char_render_holders)
+		return
+	for(var/render_holder in char_render_holders)
+		client.screen |= char_render_holders[render_holder]
+
+/datum/preferences/proc/clear_character_previews()
+	for(var/index in char_render_holders)
+		var/obj/screen/S = char_render_holders[index]
+		client?.screen -= S
+		qdel(S)
+	char_render_holders = null
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
-	if(!user)	return
+	if(!user)
+		return
 
-	if(!istype(user, /mob/abstract/new_player))	return
+	if(!istype(user, /mob/abstract/new_player))
+		return
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(config.forumurl)
@@ -264,7 +331,10 @@ datum/preferences
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
-	ShowChoices(usr)
+	else if(href_list["close"])
+		// User closed preferences window, cleanup anything we need to.
+		clear_character_previews()
+		return 1
 	return 1
 
 /datum/preferences/Topic(href, list/href_list)
@@ -404,7 +474,7 @@ datum/preferences
 		character.update_body(0)
 		character.update_hair(0)
 		character.update_underwear(0)
-		character.update_icons()
+		character.update_icon()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
 	var/dat = "<tt><center>"
@@ -527,14 +597,14 @@ datum/preferences
 		g_eyes = 0
 		b_eyes = 0
 
-		species = "Human"
+		species = SPECIES_HUMAN
 		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
 		accent = "None"
 
-		species = "Human"
+		species = SPECIES_HUMAN
 
 		job_civilian_high = 0
 		job_civilian_med = 0
@@ -563,8 +633,6 @@ datum/preferences
 		disabilities = list()
 
 		nanotrasen_relation = "Neutral"
-
-		update_preview_icon()
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)

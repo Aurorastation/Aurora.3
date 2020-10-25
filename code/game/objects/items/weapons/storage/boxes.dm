@@ -13,7 +13,7 @@
  *		Donkpocket and monkeycube boxes,
  *		ID and security PDA cart boxes,
  *		Handcuff, mousetrap, and pillbottle boxes,
- *		Snap-pops and matchboxes,
+ *		Snap-pops,
  *		Replacement light boxes.
  *		Kitchen utensil box
  * 		Random preserved snack box
@@ -28,6 +28,7 @@
 	item_state = "box"
 	center_of_mass = list("x" = 13,"y" = 10)
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/trash = null // if set, can be crushed into a trash item when empty
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -37,6 +38,10 @@
 /obj/item/storage/box/Initialize()
 	. = ..()
 	health = maxHealth
+	if(foldable)
+		desc_info += "You can fold this into a sheet. "
+	if(ispath(src.trash))
+		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity
@@ -49,12 +54,12 @@
 /obj/item/storage/box/attack_generic(var/mob/user)
 	if(!chewable)
 		return
-	if (istype(user, /mob/living))
+	if(istype(user, /mob/living))
 		var/mob/living/L = user
 
 		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
 			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
-				to_chat(user, span("warning", "There's no food in that box!"))
+				to_chat(user, SPAN_WARNING("There's no food in that box!"))
 				return
 			var/damage
 			if (!L.mob_size)
@@ -80,39 +85,42 @@
 	..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, span("warning", "It is slightly torn."))
+			to_chat(user, SPAN_WARNING("It is slightly torn."))
 		else
-			to_chat(user, span("danger", "It is full of tears and holes."))
+			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
-	if(..()) return
-
-	//try to fold it.
-	if ( contents.len )
+	if(..())
 		return
 
-	if ( !ispath(src.foldable) )
-		return
-	var/found = 0
-	// Close any open UI windows first
-	for(var/mob/M in range(1))
-		if (M.s_active == src)
-			src.close(M)
-		if ( M == user )
-			found = 1
-	if ( !found )	// User is too far away
-		return
-	// Now make the cardboard
-	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
-	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
-	new src.foldable(get_turf(src))
-	qdel(src)
-
-/obj/item/storage/backpack/attackby(obj/item/W as obj, mob/user as mob)
-	if (src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..()
+	if(ispath(src.foldable) || ispath(src.trash))
+		var/found = 0
+		for(var/mob/M in range(1))
+			if(M.s_active == src)
+				src.close(M) // Close any open UI windows first
+			if(M == user)
+				found = 1
+		if(!found)	// User is too far away
+			return
+		if(ispath(src.foldable))
+			if(contents.len)
+				return
+			to_chat(user, SPAN_NOTICE("You fold \the [src] flat.")) //make cardboard
+			playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
+			var/obj/item/foldable = new src.foldable()
+			qdel(src)
+			user.put_in_hands(foldable) //try to put it inhands if possible
+		if(ispath(src.trash) && user.a_intent == I_HURT)
+			if(!contents.len)
+				to_chat(user, SPAN_NOTICE("You crumple up \the [src]."))
+			else
+				user.visible_message(SPAN_DANGER("You crush \the [src], spilling its contents everywhere!"), SPAN_DANGER("[user] crushes \the [src], spilling its contents everywhere!"))
+				spill()
+			playsound(src.loc, 'sound/items/pickup/wrapper.ogg', 30, 1)
+			var/obj/item/trash = new src.trash()
+			qdel(src)
+			user.put_in_hands(trash)
 
 /obj/item/storage/box/survival
 	name = "emergency survival box"
@@ -128,9 +136,6 @@
 	..()
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
-
-/obj/item/storage/box/vox
-	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_nitrogen = 1)
 
 /obj/item/storage/box/engineer
 	autodrobe_no_remove = 1
@@ -256,6 +261,14 @@
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/incendiary = 8)
 
+/obj/item/storage/box/trackingslugs
+	name = "box of tracking slugs"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "trackingshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/shotgun/tracking = 4)
+
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
@@ -281,6 +294,11 @@
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
 	starts_with = list(/obj/item/device/firing_pin = 7)
 
+/obj/item/storage/box/securitypins
+	name = "box of wireless-control firing pins"
+	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are wireless-control enabled."
+	starts_with = list(/obj/item/device/firing_pin/wireless = 7)
+
 /obj/item/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
@@ -302,6 +320,15 @@
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
+
+/obj/item/storage/box/tethers
+	name = "box of tethering devices"
+	desc = "A box containing eight electro-tethers, used primarily to keep track of partners during expeditions."
+	starts_with = list(/obj/item/tethering_device = 8)
+
+/obj/item/storage/box/tethers/fill()
+	..()
+	make_exact_fit()
 
 /obj/item/storage/box/teargas
 	name = "box of pepperspray grenades"
@@ -403,10 +430,11 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket = 6)
 
 /obj/item/storage/box/sinpockets
-	name = "box of sin-pockets"
-	desc = "<B>Instructions:</B> <I>Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes.</I>"
+	name = "box of donk-pockets"
+	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
 	icon_state = "donk_kit"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
+	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
 
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
@@ -463,7 +491,7 @@
 
 /obj/item/storage/box/mousetraps
 	name = "box of Pest-B-Gon mousetraps"
-	desc = "<B><FONT color='red'>WARNING:</FONT></B> <I>Keep out of reach of children</I>."
+	desc = "<B><span class='warning'>WARNING:</span></B> <I>Keep out of reach of children</I>."
 	icon_state = "mousetraps"
 	starts_with = list(/obj/item/device/assembly/mousetrap = 6)
 
@@ -489,35 +517,6 @@
 /obj/item/storage/box/snappops/syndi
 	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
-
-/obj/item/storage/box/matches
-	name = "matchbox"
-	desc = "A small box of 'Space-Proof' premium matches."
-	icon = 'icons/obj/cigs_lighters.dmi'
-	icon_state = "matchbox"
-	item_state = "zippo"
-	w_class = 1
-	drop_sound = 'sound/items/drop/matchbox.ogg'
-	pickup_sound =  'sound/items/pickup/matchbox.ogg'
-	slot_flags = SLOT_BELT
-	can_hold = list(/obj/item/flame/match)
-	starts_with = list(/obj/item/flame/match = 10)
-
-/obj/item/storage/box/matches/attackby(obj/item/flame/match/W as obj, mob/user as mob)
-	if(istype(W) && !W.lit && !W.burnt)
-		if(prob(25))
-			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<span class='notice'>[user] manages to light the match on the matchbox.</span>")
-			W.lit = 1
-			W.damtype = "burn"
-			W.icon_state = "match_lit"
-			W.item_state = "match_lit"
-			START_PROCESSING(SSprocessing, W)
-		else
-			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
-	W.update_icon()
-	return
-
 
 /obj/item/storage/box/autoinjectors
 	name = "box of empty injectors"
@@ -619,7 +618,7 @@
 		)
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 21
 	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
@@ -668,6 +667,7 @@
 	var/list/snacks = list(
 			/obj/item/reagent_containers/food/snacks/koisbar_clean,
 			/obj/item/reagent_containers/food/snacks/candy,
+			/obj/item/reagent_containers/food/snacks/candy/koko,
 			/obj/item/reagent_containers/food/snacks/candy_corn,
 			/obj/item/reagent_containers/food/snacks/chips,
 			/obj/item/reagent_containers/food/snacks/chocolatebar,
@@ -688,7 +688,10 @@
 			/obj/item/reagent_containers/food/snacks/maps,
 			/obj/item/reagent_containers/food/snacks/nathisnack,
 			/obj/item/reagent_containers/food/snacks/adhomian_can,
-			/obj/item/reagent_containers/food/snacks/tuna
+			/obj/item/reagent_containers/food/snacks/tuna,
+			/obj/item/storage/box/fancy/gum,
+			/obj/item/storage/box/fancy/cookiesnack,
+			/obj/item/storage/box/fancy/admints
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -808,9 +811,19 @@
 	starts_with = list(/obj/item/clothing/accessory/badge/hadii_card = 6)
 
 /obj/item/storage/box/hadii_manifesto
-	name = "hadiist manifesto card box"
+	name = "hadiist manifesto box"
 	desc = "A box full of hadiist manifesto books."
 	starts_with = list(/obj/item/book/manual/pra_manifesto = 6)
+
+/obj/item/storage/box/dpra_manifesto
+	name = "al'mariist manifesto box"
+	desc = "A box full of al'mariist manifesto books."
+	starts_with = list(/obj/item/book/manual/dpra_manifesto = 6)
+
+/obj/item/storage/box/nka_manifesto
+	name = "royalist manifesto card box"
+	desc = "A box full of royalist manifesto books."
+	starts_with = list(/obj/item/book/manual/nka_manifesto = 6)
 
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"

@@ -53,8 +53,8 @@
 			var/path = pick(list(
 				/obj/item/clothing/mask/smokable/pipe,
 				/obj/item/clothing/mask/smokable/pipe/cobpipe,
-				/obj/item/storage/fancy/cigarettes/cigar,
-				/obj/item/storage/fancy/cigarettes
+				/obj/item/storage/box/fancy/cigarettes/cigar,
+				/obj/item/storage/box/fancy/cigarettes
 			))
 			H.equip_or_collect(new path(), slot_wear_mask)
 
@@ -67,9 +67,9 @@
 				/obj/item/clothing/glasses/eyepatch,
 				/obj/item/clothing/glasses/regular,
 				/obj/item/clothing/glasses/regular/hipster,
-				/datum/gear/eyes/glasses/monocle,
-				/datum/gear/eyes/shades/aviator,
-				/datum/gear/eyes/glasses/fakesun
+				/obj/item/clothing/glasses/monocle,
+				/obj/item/clothing/glasses/sunglasses/aviator,
+				/obj/item/clothing/glasses/sunglasses/prescription
 			))
 			H.equip_or_collect(new path(), slot_glasses)
 

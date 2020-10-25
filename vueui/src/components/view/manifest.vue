@@ -77,6 +77,7 @@ export default {
 /* Table Stuffs for manifest*/
 
 table {
+  background-color: rgba(0, 0, 0, 0.4);
   border: 2px solid RoyalBlue;
   width: 100%;
 }
@@ -121,6 +122,10 @@ table {
 
     &.misc {
       background: #666666;
+    }
+
+    &.bot {
+      background: #1d1d1d;
     }
   }
 }

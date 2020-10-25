@@ -266,16 +266,16 @@
 		if("act_intent")
 			usr.a_intent_change("right")
 		if(I_HELP)
-			usr.a_intent = I_HELP
+			usr.set_intent(I_HELP)
 			usr.hud_used.action_intent.icon_state = "intent_help"
 		if(I_HURT)
-			usr.a_intent = I_HURT
+			usr.set_intent(I_HURT)
 			usr.hud_used.action_intent.icon_state = "intent_harm"
 		if(I_GRAB)
-			usr.a_intent = I_GRAB
+			usr.set_intent(I_GRAB)
 			usr.hud_used.action_intent.icon_state = "intent_grab"
 		if(I_DISARM)
-			usr.a_intent = I_DISARM
+			usr.set_intent(I_DISARM)
 			usr.hud_used.action_intent.icon_state = "intent_disarm"
 
 		if("pull")
@@ -395,7 +395,16 @@
 			if(usr.attack_ui(slot_id))
 				usr.update_inv_l_hand(0)
 				usr.update_inv_r_hand(0)
+
 	return 1
+
+/obj/screen/fov
+	icon = 'icons/mob/vision_cone.dmi'
+	icon_state = "combat"
+	name = ""
+	screen_loc = "SOUTH,WEST"
+	mouse_opacity = 0
+	layer = SCREEN_LAYER
 
 /obj/screen/movement_intent
 	name = "mov_intent"
@@ -442,12 +451,21 @@
 				usr.m_intent = "walk"
 			if("walk")
 				usr.m_intent = "run"
-
-		update_move_icon(usr)
+	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
+		var/mob/living/simple_animal/hostile/morph/M = usr
+		switch(usr.m_intent)
+			if("run")
+				usr.m_intent = "walk"
+			if("walk")
+				usr.m_intent = "run"
+		M.update_speed()
+	update_move_icon(usr)
 
 // Hand slots are special to handle the handcuffs overlay
 /obj/screen/inventory/hand
 	var/image/handcuff_overlay
+	var/image/disabled_hand_overlay
+	var/image/removed_hand_overlay
 
 /obj/screen/inventory/hand/update_icon()
 	..()
@@ -456,8 +474,23 @@
 	if(!handcuff_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
 		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
-	overlays.Cut()
-	if(hud.mymob && iscarbon(hud.mymob))
-		var/mob/living/carbon/C = hud.mymob
-		if(C.handcuffed)
-			overlays |= handcuff_overlay
+	if(!disabled_hand_overlay)
+		var/state = (hud.l_hand_hud_object == src) ? "l_hand_disabled" : "r_hand_disabled"
+		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+	if(!removed_hand_overlay)
+		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
+		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+	cut_overlays()
+	if(hud.mymob && ishuman(hud.mymob))
+		var/mob/living/carbon/human/H = hud.mymob
+		var/obj/item/organ/external/O
+		if(hud.l_hand_hud_object == src)
+			O = H.organs_by_name[BP_L_HAND]
+		else
+			O = H.organs_by_name[BP_R_HAND]
+		if(!O || O.is_stump())
+			add_overlay(removed_hand_overlay)
+		else if(O && (!O.is_usable() || O.is_malfunctioning()))
+			add_overlay(disabled_hand_overlay)
+		if(H.handcuffed)
+			add_overlay(handcuff_overlay)

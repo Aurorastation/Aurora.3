@@ -5,13 +5,13 @@
 	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	item_state = "gas_alt"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 	var/gas_filter_strength = 1			//For gas mask filters
-	var/list/filtered_gases = list("phoron", "sleeping_agent")
+	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
 
 /obj/item/clothing/mask/gas/filter_air(datum/gas_mixture/air)
@@ -35,7 +35,7 @@
 
 /obj/item/clothing/mask/gas/old
 	desc = "A face-covering mask that can be connected to an air supply. Seems to be an old, outdated design."
-	filtered_gases = list("sleeping_agent")
+	filtered_gases = list(GAS_N2O)
 	item_state = "gas_mask"
 	icon_state = "gas_mask"
 
@@ -55,12 +55,6 @@
 	item_state = "swat"
 	siemens_coefficient = 0.7
 	body_parts_covered = FACE|EYES
-
-/obj/item/clothing/mask/gas/swat/vox
-	name = "\improper alien mask"
-	desc = "Clearly not designed for a human face."
-	body_parts_covered = 0 //Hack to allow vox to eat while wearing this mask.
-	species_restricted = list("Vox")
 
 /obj/item/clothing/mask/gas/syndicate
 	name = "tactical mask"
@@ -117,5 +111,5 @@
 	desc = "A compact carbon-fiber respirator covering the mouth and nose to protect against the inhalation of smoke and other harmful gasses. "
 	icon_state = "fullgas"
 	item_state = "fullgas"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)

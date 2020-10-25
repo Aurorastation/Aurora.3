@@ -82,24 +82,24 @@
 	desc = "Sterile nitrile gloves. Designed for Unathi use."
 	icon_state = "nitrile"
 	item_state = "nitrile"
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/latex/nitrile/tajara
 	name = "tajaran nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Tajara use."
 	icon_state = "nitrile"
 	item_state = "nitrile"
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
 	desc = "Sterile latex gloves. Designed for Unathi use."
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/latex/tajara
 	name = "tajaran latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
@@ -113,11 +113,11 @@
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/botanic_leather/tajara
 	name = "tajaran leather gloves"
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/watch
 	name = "watch"
@@ -125,7 +125,7 @@
 	desc_fluff = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	wired = 1
 	species_restricted = null
 	gender = NEUTER
@@ -169,7 +169,7 @@
 	if(wired && !clipped)
 		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
-			to_chat(usr, span("warning", "The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
+			to_chat(usr, SPAN_WARNING("The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
 	else if(wired && clipped)
 		to_chat(usr, "You check your watch, realising it's still open.")
 	else
@@ -177,19 +177,19 @@
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
-	set name = "Point at watch"
+	set name = "Point At Watch"
 	set src in usr
 
 	if(wired && !clipped)
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 	else if(wired && clipped)
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
-	set name = "Flip watch wrist"
+	set name = "Flip Watch Wrist"
 	set src in usr
 
 	if (usr.stat || usr.restrained())
@@ -206,11 +206,11 @@
 /obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if (clipped) //Using clipped because adding a new var for something is dumb
-			user.visible_message(span("notice", "[user] screws the cover of the [src] closed."), span("notice", "You screw the cover of the [src] closed."))
+			user.visible_message(SPAN_NOTICE("[user] screws the cover of the [src] closed."), SPAN_NOTICE("You screw the cover of the [src] closed."))
 			clipped = 0
 			return
-//		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message(span("notice", "[user] unscrews the cover of the [src]."), span("notice", "You unscrew the cover of the [src]."))
+//		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+		user.visible_message(SPAN_NOTICE("[user] unscrews the cover of the [src]."), SPAN_NOTICE("You unscrew the cover of the [src]."))
 		clipped = 1
 		return
 	if(wired)
@@ -218,20 +218,20 @@
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (!clipped)
-			to_chat(user, span("notice", "The [src] is not open."))
+			to_chat(user, SPAN_NOTICE("The [src] is not open."))
 			return
 
 		if(wired)
-			to_chat(user, span("notice", "The [src] are already wired."))
+			to_chat(user, SPAN_NOTICE("The [src] are already wired."))
 			return
 
 		if(C.amount < 2)
-			to_chat(user, span("notice", "There is not enough wire to cover the [src]."))
+			to_chat(user, SPAN_NOTICE("There is not enough wire to cover the [src]."))
 			return
 
 		C.use(2)
 		wired = 1
-		to_chat(user, span("notice", "You repair some wires in the [src]."))
+		to_chat(user, SPAN_NOTICE("You repair some wires in the [src]."))
 		return
 
 /obj/item/clothing/gloves/watch/emp_act(severity)
@@ -318,7 +318,6 @@
 	name = "enhanced force gloves"
 	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.
 
-
 /obj/item/clothing/gloves/brassknuckles
 	name = "brass knuckles"
 	desc = "A pair of brass knuckles. Generally used to enhance the user's punches."
@@ -330,8 +329,10 @@
 	force = 5
 	punch_force = 5
 	clipped = 1
+	matter = list(DEFAULT_WALL_MATERIAL = 1000)
+
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -344,7 +345,7 @@
 	force = 5
 	punch_force = 10
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -399,7 +400,7 @@
 	fingerprint_chance = 50
 	siemens_coefficient = 1
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER

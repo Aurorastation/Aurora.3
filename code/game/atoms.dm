@@ -149,14 +149,20 @@
 		else
 			f_name += "oil-stained [name][infix]."
 
-	to_chat(user, "\icon[src] That's [f_name] [suffix]")
+	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]")
 	to_chat(user, desc)
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.glasses)
+			H.glasses.glasses_examine_atom(src, H)
+
 	if(description_cult && (user.mind?.special_role == "Cultist" || isobserver(src)))
-		to_chat(user, FONT_SMALL(span("cult", description_cult)))
+		to_chat(user, FONT_SMALL(SPAN_CULT(description_cult)))
 	if(desc_info || desc_fluff)
-		to_chat(user, span("notice", "This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+		to_chat(user, SPAN_NOTICE("This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 	if(desc_antag && player_is_antag(user.mind))
-		to_chat(user, span("notice", "This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+		to_chat(user, SPAN_NOTICE("This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 
 	return distance == -1 || (get_dist(src, user) <= distance)
 
@@ -375,6 +381,20 @@
 	. = 1
 	return 1
 
+//For any objects that may require additional handling when swabbed, e.g. a beaker may need to provide information about its contents, not just itself
+//Children must return additional_evidence list
+/atom/proc/get_additional_forensics_swab_info()
+	SHOULD_CALL_PARENT(TRUE)
+	var/list/additional_evidence = list(
+		"type" = "",
+		"dna" = list(),
+		"gsr" = "",
+		"sample_type" = "",
+		"sample_message" = ""
+	)
+
+	return additional_evidence
+
 /atom/proc/add_vomit_floor(var/mob/living/carbon/M, var/toxvomit = 0, var/datum/reagents/inject_reagents)
 	if(istype(src, /turf/simulated))
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
@@ -396,7 +416,11 @@
 	src.germ_level = 0
 	if(istype(blood_DNA, /list))
 		blood_DNA = null
-		return 1
+		return TRUE
+
+/atom/proc/on_rag_wipe(var/obj/item/reagent_containers/glass/rag/R)
+	clean_blood()
+	R.reagents.splash(src, 1)
 
 /atom/proc/get_global_map_pos()
 	if(!islist(global_map) || isemptylist(global_map)) return
@@ -485,3 +509,8 @@
 
 /atom/movable/onDropInto(var/atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
+
+// This proc is used by ghost spawners to assign a player to a specific atom
+// It receives the curent mob of the player s argument and MUST return the mob the player has been assigned.
+/atom/proc/assign_player(var/mob/user)
+	return

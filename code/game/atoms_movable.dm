@@ -81,14 +81,14 @@
 				M.turf_collision(T, speed)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
-/atom/movable/proc/hit_check(var/speed)
+/atom/movable/proc/hit_check(var/speed, var/target)
 	if(throwing)
 		for(var/atom/A in get_turf(src))
 			if(A == src)
 				continue
 			if(isliving(A))
 				var/mob/living/M = A
-				if(M.lying)
+				if(M.lying && M != target)
 					continue
 				throw_impact(A, speed)
 			if(isobj(A))
@@ -158,7 +158,7 @@
 		if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 			break
 		src.Move(step)
-		hit_check(speed)
+		hit_check(speed, target)
 		dist_travelled++
 		dist_since_sleep++
 		if(dist_since_sleep >= speed)
@@ -212,6 +212,9 @@
 	if(z in current_map.sealed_levels)
 		return
 
+	if(anchored)
+		return
+
 	if(current_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)
 		return
@@ -241,7 +244,11 @@
 			G.check_nuke_disks()
 
 		spawn(0)
-			if(loc) loc.Entered(src)
+			if(loc)
+				var/turf/T = loc
+				loc.Entered(src)
+				if(!T.is_hole)
+					fall_impact(text2num(pickweight(list("1" = 60, "2" = 30, "3" = 10))))
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()

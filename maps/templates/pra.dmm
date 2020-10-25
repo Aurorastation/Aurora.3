@@ -276,9 +276,7 @@
 /area/derelict/ship)
 "aN" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = null
-	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "aO" = (
@@ -324,7 +322,7 @@
 "aU" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
-/obj/item/storage/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
@@ -517,9 +515,10 @@
 /area/derelict/ship)
 "bz" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/wood,
 /obj/machinery/firealarm/east,
-/obj/machinery/reagentgrinder,
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bA" = (
@@ -585,12 +584,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/white,
-/area/derelict/ship)
-"bI" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/wood,
-/obj/machinery/microwave,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bJ" = (
@@ -1393,6 +1386,12 @@
 	},
 /turf/simulated/floor,
 /area/derelict/ship)
+"hg" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/wood,
+/obj/machinery/reagentgrinder,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
 
 (1,1,1) = {"
 aa
@@ -2031,7 +2030,7 @@ aG
 aG
 aG
 by
-bI
+hg
 ab
 bT
 bQ

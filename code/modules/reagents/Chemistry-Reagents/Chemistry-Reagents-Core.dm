@@ -1,7 +1,7 @@
 /datum/reagent/blood
 	data = list(
 		"donor" = null,
-		"species" = "Human",
+		"species" = SPECIES_HUMAN,
 		"blood_DNA" = null,
 		"blood_type" = null,
 		"blood_colour" = "#A10808",
@@ -142,7 +142,7 @@
 				S.target = null
 				++S.discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the water touches it!"), span("danger", "Your flesh burns in the water!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), SPAN_DANGER("Your flesh burns in the water!"))
 
 
 /datum/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -155,7 +155,7 @@
 
 
 /datum/reagent/fuel
-	name = "Welding fuel"
+	name = "Welding Fuel"
 	description = "Required for welders. Flammable."
 	reagent_state = LIQUID
 	color = "#660000"

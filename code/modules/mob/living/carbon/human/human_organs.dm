@@ -151,7 +151,7 @@
 			emote("me", 1, "[(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
 
 		else if(!(E.status & ORGAN_ROBOT) && (CE_DROPITEM in chem_effects) && prob(chem_effects[CE_DROPITEM]))
-			to_chat(src, span("warning", "Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
+			to_chat(src, SPAN_WARNING("Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
 			emote("me", 1, "drops what they were holding in their [E.name]!")
 			switch(E.body_part)
 				if(HAND_LEFT, ARM_LEFT)

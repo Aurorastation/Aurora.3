@@ -42,12 +42,10 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		return 0
 
 	client << browse_rsc(SSassets.cache[asset_name], asset_name)
-	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
-		if (client)
-			client.cache += asset_name
+
+	if(!verify) // Can't access the asset cache browser, rip.
+		client.cache += asset_name
 		return 1
-	if (!client)
-		return 0
 
 	client.sending |= asset_name
 	var/job = ++client.last_asset_job
@@ -63,6 +61,9 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
+	
+	if(t >= timeout_time)
+		log_admin(SPAN_DANGER("Timeout time [timeout_time] exceeded for asset: [asset_name] for client [client]. Please notify a developer."))
 
 	if(client)
 		client.sending -= asset_name
@@ -94,12 +95,10 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		if (asset in SSassets.cache)
 			client << browse_rsc(SSassets.cache[asset], asset)
 
-	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
-		if (client)
-			client.cache += unreceived
+	if(!verify) // Can't access the asset cache browser, rip.
+		client.cache += unreceived
 		return 1
-	if (!client)
-		return 0
+
 	client.sending |= unreceived
 	var/job = ++client.last_asset_job
 
@@ -127,6 +126,12 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 /proc/register_asset(asset_name, asset)
 	SSassets.cache[asset_name] = asset
 
+//Generated names do not include file extention.
+//Used mainly for code that deals with assets in a generic way
+//The same asset will always lead to the same asset name
+/proc/generate_asset_name(file)
+	return "asset.[md5(fcopy_rsc(file))]"
+
 //These datums are used to populate the asset cache, the proc "register()" does this.
 
 //all of our asset datums, used for referring to these later
@@ -143,8 +148,12 @@ var/list/asset_datums = list()
 
 	asset.send(client)
 
+/datum/asset
+	var/_abstract = /datum/asset
+
 /datum/asset/New()
 	asset_datums[type] = src
+	register()
 
 /datum/asset/proc/register()
 	return
@@ -154,7 +163,8 @@ var/list/asset_datums = list()
 
 //If you don't need anything complicated.
 /datum/asset/simple
-	var/assets = list()
+	_abstract = /datum/asset/simple
+	var/list/assets = list()
 	var/verify = FALSE
 
 /datum/asset/simple/register()
@@ -163,48 +173,6 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/send(client)
 	send_asset_list(client,assets,verify)
-
-/datum/asset/simple/misc
-	assets = list(
-		"search.js" = 'html/search.js',
-		"panels.css" = 'html/panels.css',
-		"loading.gif" = 'html/images/loading.gif',
-		"bootstrap.min.css" = 'html/bootstrap/css/bootstrap.min.css',
-		"bootstrap.min.js" = 'html/bootstrap/js/bootstrap.min.js',
-		"jquery-2.0.0.min.js" = 'html/jquery/jquery-2.0.0.min.js',
-		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
-		"conninfo.min.js" = 'html/iestats/conninfo.min.js',
-		"copyright_infrigement.png" = 'html/copyright_infrigement.png'
-	)
-
-/datum/asset/simple/paper
-	assets = list(
-		"talisman.png" = 'html/images/talisman.png',
-		"barcode0.png" = 'html/images/barcode0.png',
-		"barcode1.png" = 'html/images/barcode1.png',
-		"barcode2.png" = 'html/images/barcode2.png',
-		"barcode3.png" = 'html/images/barcode3.png',
-		"ntlogo.png" = 'html/images/ntlogo.png',
-		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
-		"zhlogo.png" = 'html/images/zhlogo.png',
-		"idrislogo.png" = 'html/images/idrislogo.png',
-		"eridanilogo.png" = 'html/images/eridanilogo.png',
-		"zavodlogo.png" = 'html/images/zavodlogo.png',
-		"hplogo.png" = 'html/images/hplogo.png',
-		"belogo.png" = 'html/images/belogo.png'
-	)
-
-/datum/asset/simple/changelog
-	assets = list(
-		"changelog.css" = 'html/changelog.css',
-		"changelog.js" = 'html/changelog.js'
-	)
-
-/datum/asset/simple/vueui
-	assets = list(
-		"vueui.js" = 'vueui/dist/app.js',
-		"vueui.css" = 'vueui/dist/app.css'
-	)
 
 /datum/asset/chem_master
 	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
@@ -225,6 +193,191 @@ var/list/asset_datums = list()
 /datum/asset/chem_master/send(client)
 	send_asset_list(client, assets)
 
+/datum/asset/group
+	_abstract = /datum/asset/group
+	var/list/children
+
+/datum/asset/group/register()
+	for(var/type in children)
+		get_asset_datum(type)
+
+/datum/asset/group/send(client/C)
+	for(var/type in children)
+		var/datum/asset/A = get_asset_datum(type)
+		A.send(C)
+
+/datum/asset/group/goonchat
+	children = list(
+		/datum/asset/simple/jquery,
+		/datum/asset/simple/goonchat,
+		/datum/asset/simple/fontawesome,
+		/datum/asset/spritesheet/goonchat
+	)
+
+// spritesheet implementation
+#define SPR_SIZE 1
+#define SPR_IDX 2
+#define SPRSZ_COUNT 1
+#define SPRSZ_ICON 2
+#define SPRSZ_STRIPPED 3
+
+/datum/asset/spritesheet
+	_abstract = /datum/asset/spritesheet
+	var/name
+	var/list/sizes = list()		// "32x32" -> list(10, icon/normal, icon/stripped)
+	var/list/sprites = list()	// "foo_bar" -> list("32x32", 5)
+	var/verify = FALSE
+
+/datum/asset/spritesheet/register()
+	if(!name)
+		CRASH("spritesheet [type] cannot register without a name")
+	ensure_stripped()
+
+	var/res_name = "spritesheet_[name].css"
+	var/fname = "data/spritesheets/[res_name]"
+	dll_call(RUST_G, "file_write", generate_css(), fname)
+	register_asset(res_name, file(fname))
+
+	for(var/size_id in sizes)
+		var/size = sizes[size_id]
+		register_asset("[name]_[size_id].png", size[SPRSZ_STRIPPED])
+
+/datum/asset/spritesheet/send(client/C)
+	if(!name)
+		return
+	var/all = list("spritesheet_[name].css")
+	for(var/size_id in sizes)
+		all += "[name]_[size_id].png"
+	send_asset_list(C, all, verify)
+
+/datum/asset/spritesheet/proc/ensure_stripped(sizes_to_strip = sizes)
+	for(var/size_id in sizes_to_strip)
+		var/size = sizes[size_id]
+		if (size[SPRSZ_STRIPPED])
+			continue
+
+		var/fname = "data/spritesheets/[name]_[size_id].png"
+		fcopy(size[SPRSZ_ICON], fname)
+		var/error = dll_call(RUST_G, "dmi_strip_metadata", fname)
+		if(length(error))
+			crash_with("Failed to strip [name]_[size_id].png: [error]")
+		size[SPRSZ_STRIPPED] = icon(fname)
+
+/datum/asset/spritesheet/proc/generate_css()
+	var/list/out = list()
+
+	for (var/size_id in sizes)
+		var/size = sizes[size_id]
+		var/icon/tiny = size[SPRSZ_ICON]
+		out += ".[name][size_id]{display:inline-block;width:[tiny.Width()]px;height:[tiny.Height()]px;background:url('[name]_[size_id].png') no-repeat;}"
+
+	for (var/sprite_id in sprites)
+		var/sprite = sprites[sprite_id]
+		var/size_id = sprite[SPR_SIZE]
+		var/idx = sprite[SPR_IDX]
+		var/size = sizes[size_id]
+
+		var/icon/tiny = size[SPRSZ_ICON]
+		var/icon/big = size[SPRSZ_STRIPPED]
+		var/per_line = big.Width() / tiny.Width()
+		var/x = (idx % per_line) * tiny.Width()
+		var/y = round(idx / per_line) * tiny.Height()
+
+		out += ".[name][size_id].[sprite_id]{background-position:-[x]px -[y]px;}"
+
+	return out.Join("\n")
+
+/datum/asset/spritesheet/proc/Insert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE)
+	I = icon(I, icon_state=icon_state, dir=dir, frame=frame, moving=moving)
+	if (!I || !length(icon_states(I)))  // that direction or state doesn't exist
+		return
+	var/size_id = "[I.Width()]x[I.Height()]"
+	var/size = sizes[size_id]
+
+	if (sprites[sprite_name])
+		CRASH("duplicate sprite \"[sprite_name]\" in sheet [name] ([type])")
+
+	if (size)
+		var/position = size[SPRSZ_COUNT]++
+		var/icon/sheet = size[SPRSZ_ICON]
+		size[SPRSZ_STRIPPED] = null
+		sheet.Insert(I, icon_state=sprite_name)
+		sprites[sprite_name] = list(size_id, position)
+	else
+		sizes[size_id] = size = list(1, I, null)
+		sprites[sprite_name] = list(size_id, 0)
+
+/datum/asset/spritesheet/proc/InsertAll(prefix, icon/I, list/directions)
+	if (length(prefix))
+		prefix = "[prefix]-"
+
+	if (!directions)
+		directions = list(SOUTH)
+
+	for (var/icon_state_name in icon_states(I))
+		for (var/direction in directions)
+			var/prefix2 = (directions.len > 1) ? "[dir2text(direction)]-" : ""
+			Insert("[prefix][prefix2][icon_state_name]", I, icon_state=icon_state_name, dir=direction)
+
+/datum/asset/spritesheet/proc/css_tag()
+	return {"<link rel="stylesheet" href="spritesheet_[name].css" />"}
+
+/datum/asset/spritesheet/proc/icon_tag(sprite_name)
+	var/sprite = sprites[sprite_name]
+	if (!sprite)
+		return null
+	var/size_id = sprite[SPR_SIZE]
+	return {"<span class="[name][size_id] [sprite_name]"></span>"}
+
+#undef SPR_SIZE
+#undef SPR_IDX
+#undef SPRSZ_COUNT
+#undef SPRSZ_ICON
+#undef SPRSZ_STRIPPED
+
+
+/datum/asset/spritesheet/simple
+	_abstract = /datum/asset/spritesheet/simple
+	var/list/assets
+
+/datum/asset/spritesheet/simple/register()
+	for (var/key in assets)
+		Insert(key, assets[key])
+	..()
+
+//Generates assets based on iconstates of a single icon
+/datum/asset/simple/icon_states
+	_abstract = /datum/asset/simple/icon_states
+	var/icon
+	var/list/directions = list(SOUTH)
+	var/frame = 1
+	var/movement_states = FALSE
+	var/prefix = "default" //asset_name = "[prefix].[icon_state_name].png"
+	var/generic_icon_names = FALSE //generate icon filenames using generate_asset_name() instead the above format
+	verify = FALSE
+/datum/asset/simple/icon_states/register(_icon = icon)
+	for(var/icon_state_name in icon_states(_icon))
+		for(var/direction in directions)
+			var/asset = icon(_icon, icon_state_name, direction, frame, movement_states)
+			if (!asset)
+				continue
+			asset = fcopy_rsc(asset) //dedupe
+			var/prefix2 = (directions.len > 1) ? "[dir2text(direction)]." : ""
+			var/asset_name = sanitize_filename("[prefix].[prefix2][icon_state_name].png")
+			if (generic_icon_names)
+				asset_name = "[generate_asset_name(asset)].png"
+			register_asset(asset_name, asset)
+
+/datum/asset/simple/icon_states/multiple_icons
+	_abstract = /datum/asset/simple/icon_states/multiple_icons
+	var/list/icons
+
+/datum/asset/simple/icon_states/multiple_icons/register()
+	for(var/i in icons)
+		..(i)
+
+//DEFINITIONS FOR ASSET DATUMS START HERE.
+
 /datum/asset/simple/faction_icons
 	assets = list(
 		"faction_EPMC.png" = 'icons/misc/factions/ECFlogo.png',
@@ -235,3 +388,88 @@ var/list/asset_datums = list()
 		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',
 		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png'
 	)
+
+/datum/asset/simple/jquery
+	verify = FALSE
+	assets = list(
+		"jquery.min.js"            = 'code/modules/goonchat/browserassets/js/jquery.min.js',
+	)
+
+/datum/asset/simple/goonchat
+	verify = FALSE
+	assets = list(
+		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
+		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
+		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
+		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput_white.css'
+	)
+
+/datum/asset/simple/fontawesome
+	verify = FALSE
+	assets = list(
+		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
+		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
+		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
+		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
+		"font-awesome.css"    = 'html/font-awesome/css/all.min.css',
+		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
+	)
+
+/datum/asset/simple/misc
+	assets = list(
+		"search.js" = 'html/search.js',
+		"panels.css" = 'html/panels.css',
+		"loading.gif" = 'html/images/loading.gif',
+		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
+		"conninfo.min.js" = 'html/iestats/conninfo.min.js',
+		"copyright_infrigement.png" = 'html/copyright_infrigement.png'
+	)
+
+/datum/asset/simple/paper
+	assets = list(
+		"talisman.png" = 'html/images/talisman.png',
+		"barcode0.png" = 'html/images/barcode0.png',
+		"barcode1.png" = 'html/images/barcode1.png',
+		"barcode2.png" = 'html/images/barcode2.png',
+		"barcode3.png" = 'html/images/barcode3.png',
+		"ntlogo.png" = 'html/images/ntlogo.png',
+		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
+		"zhlogo.png" = 'html/images/zhlogo.png',
+		"idrislogo.png" = 'html/images/idrislogo.png',
+		"eridanilogo.png" = 'html/images/eridanilogo.png',
+		"zavodlogo.png" = 'html/images/zavodlogo.png',
+		"hplogo.png" = 'html/images/hplogo.png',
+		"beflag.png" = 'html/images/beflag.png',
+		"elyraflag.png" = 'html/images/elyraflag.png',
+		"solflag.png" = 'html/images/solflag.png',
+		"cocflag.png" = 'html/images/cocflag.png',
+		"domflag.png" = 'html/images/domflag.png',
+		"jargonflag.png" = 'html/images/jargonflag.png',
+		"praflag.png" = 'html/images/praflag.png',
+		"dpraflag.png" = 'html/images/dpraflag.png',
+		"nkaflag.png" = 'html/images/nkaflag.png',
+		"izweskiflag.png" = 'html/images/izweskiflag.png'
+	)
+
+/datum/asset/simple/changelog
+	assets = list(
+		"changelog.css" = 'html/changelog.css',
+		"changelog.js" = 'html/changelog.js'
+	)
+
+/datum/asset/simple/vueui
+	assets = list(
+		"vueui.js" = 'vueui/dist/app.js',
+		"vueui.css" = 'vueui/dist/app.css'
+	)
+
+/datum/asset/spritesheet/goonchat
+	name = "chat"
+
+/datum/asset/spritesheet/goonchat/register()
+	var/icon/I = icon('icons/accent_tags.dmi')
+	for(var/path in subtypesof(/datum/accent))
+		var/datum/accent/A = new path
+		if(A.tag_icon)
+			Insert(A.tag_icon, I, A.tag_icon)
+	..()

@@ -5,6 +5,7 @@
 	school = "transmutation"
 	charge_max = 200
 	spell_flags = NEEDSCLOTHES | SELECTABLE
+	blacklisted_mob_types = list(/mob/living/heavy_vehicle)
 	range = 5
 	max_targets = 1
 	invocation = "STAUN EI"

@@ -11,7 +11,7 @@
 
 /datum/rune/blind/proc/do_blind(mob/living/user, atom/movable/A, var/range = 7, var/effect_mod = 1, var/special_effects = TRUE)
 	var/list/affected = list()
-	for(var/mob/living/carbon/C in view(A, range))
+	for(var/mob/living/carbon/C in viewers(get_turf(A), range))
 		if(iscultist(C))
 			continue
 		var/obj/item/nullrod/N = locate() in C
@@ -23,11 +23,11 @@
 			C.disabilities |= NEARSIGHTED
 			if(prob(10))
 				C.sdisabilities |= BLIND
-		to_chat(C, span("danger", "Suddenly you see a red flash that blinds you!"))
+		to_chat(C, SPAN_DANGER("Suddenly you see a red flash that blinds you!"))
 		affected += C
 	if(length(affected))
 		user.say("Sti'kaliesin!")
-		to_chat(user, span("warning", "The rune flashes, blinding those who not follow the Nar-Sie, and dissipates into fine dust."))
+		to_chat(user, SPAN_WARNING("The rune flashes, blinding those who not follow the Nar-Sie, and dissipates into fine dust."))
 		admin_attacker_log_many_victims(user, affected, "Used a blindness rune.", "Was victim of a blindness rune.", "used a blindness rune on")
 		qdel(A)
 	else

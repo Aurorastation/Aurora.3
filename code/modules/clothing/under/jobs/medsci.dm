@@ -132,7 +132,7 @@
 
 /obj/item/clothing/under/rank/medical/intern
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is still a medical intern."
-	name = "medical resident's jumpsuit"
+	name = "medical intern's jumpsuit"
 	icon_state = "intern_medical"
 	worn_state = "intern_medical"
 
@@ -163,6 +163,14 @@
 	icon_state = "scrubsblack"
 	item_state = "bl_suit"
 	worn_state = "scrubsblack"
+
+/obj/item/clothing/under/rank/medical/emt
+	name = "first responder jumpsuit"
+	desc = "A jumpsuit that denotes the wearer as a Nanotrasen First Responder."
+	icon = 'icons/clothing/kit/emt.dmi'
+	contained_sprite = TRUE
+	icon_state = "emtjumpsuit"
+	item_state = "emtjumpsuit"
 
 /obj/item/clothing/under/rank/psych
 	desc = "A basic white jumpsuit. It has turqouise markings that denote the wearer as a psychiatrist."

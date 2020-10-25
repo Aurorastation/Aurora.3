@@ -47,7 +47,7 @@
 /obj/item/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
 		if ((user.is_clumsy()) && prob(50))
-			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
+			user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
 			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 			user.take_organ_damage(5,5)
 		deactivate(user)
@@ -62,7 +62,7 @@
 	add_fingerprint(user)
 	return
 
-/obj/item/melee/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/melee/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
@@ -128,12 +128,12 @@
 	icon_state = "eglaive0"
 	active_force = 40
 	active_throwforce = 60
-	active_w_class = 5
+	active_w_class = ITEMSIZE_HUGE
 	force = 20
 	throwforce = 30
 	throw_speed = 5
 	throw_range = 10
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	flags = CONDUCT | NOBLOODY
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4)
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
@@ -175,14 +175,14 @@
 	//active_force = 150 //holy...
 	active_force = 60
 	active_throwforce = 35
-	active_w_class = 5
+	active_w_class = ITEMSIZE_HUGE
 	//force = 40
 	//throwforce = 25
 	force = 20
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 5
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	flags = CONDUCT | NOBLOODY
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
@@ -217,12 +217,12 @@
 	icon_state = "sword0"
 	active_force = 30
 	active_throwforce = 20
-	active_w_class = 4
+	active_w_class = ITEMSIZE_LARGE
 	force = 3
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	flags = NOBLOODY
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
@@ -286,12 +286,12 @@
 /obj/item/melee/energy/sword/hegemony/activate(mob/living/user)
 	..()
 	icon_state = "kataphract-esword1"
-	to_chat(user, span("notice", "\The [src] is now energised."))
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/sword/hegemony/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	to_chat(user, span("notice", "\The [src] is de-energised."))
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/melee/energy/sword/knife
 	name = "energy utility knife"
@@ -321,10 +321,11 @@
 	base_reflectchance = 65
 	active_force = 40
 	base_block_chance = 65
-	active_w_class = 3
-	w_class = 3
+	active_w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 
 /obj/item/melee/energy/sword/powersword/activate(mob/living/user)
 	..()
@@ -339,7 +340,7 @@
 /obj/item/melee/energy/sword/powersword/attack_self(mob/living/user as mob)
 	..()
 	if(prob(30))
-		user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
+		user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
 		"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 		user.take_organ_damage(5,5)
 /*
@@ -358,7 +359,7 @@
 	throwforce = 1  //Throwing or dropping the item deletes it.
 	throw_speed = 1
 	throw_range = 1
-	w_class = 4.0//So you can't hide it in your pocket or some such.
+	w_class = ITEMSIZE_LARGE//So you can't hide it in your pocket or some such.
 	flags = NOBLOODY
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator

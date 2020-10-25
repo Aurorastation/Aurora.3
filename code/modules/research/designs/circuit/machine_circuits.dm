@@ -1,9 +1,5 @@
 /datum/design/circuit/machine
-	design_order = 3
-
-/datum/design/circuit/machine/AssembleDesignName()
-	..()
-	name = "Machine Circuit Design ([item_name])"
+	p_category = "Machine Circuit Designs"
 
 /datum/design/circuit/machine/arcademachine
 	name = "Battle Arcade Machine"
@@ -115,10 +111,10 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/crystelpodconsole
 
-/datum/design/circuit/machine/microwave
-	name = "Microwave"
+/datum/design/circuit/machine/stove
+	name = "Stove"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/microwave
+	build_path = /obj/item/circuitboard/stove
 
 /datum/design/circuit/machine/oven
 	name = "Oven"
@@ -162,7 +158,6 @@
 
 /datum/design/circuit/machine/smes_cell
 	name = "'SMES' Superconductive Magnetic Energy Storage"
-	desc = "Allows for the construction of circuits used to build a SMES."
 	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5)
 	build_path = /obj/item/circuitboard/smes
 
@@ -188,6 +183,7 @@
 
 /datum/design/circuit/machine/aicore
 	name = "AI Core"
+	desc = "Used in the construction of an: <b>AI core</b>, Secure housing for an AI, it provides power and protection to its inhabitant."
 	req_tech = list(TECH_DATA = 4, TECH_BIO = 3)
 	build_path = /obj/item/circuitboard/aicore
 

@@ -130,7 +130,7 @@
 	name = "Quartermaster"
 	jobtype = /datum/job/qm
 
-	uniform = /obj/item/clothing/under/rank/cargo
+	uniform = /obj/item/clothing/under/rank/quartermaster
 	pda = /obj/item/device/pda/quartermaster
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/qm
@@ -196,7 +196,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_mining
 
-	l_hand = /obj/item/storage/toolbox/ka
+	l_hand = /obj/item/coin/mining
 
 	backpack_contents = list(
 		/obj/item/storage/bag/ore = 1
@@ -296,6 +296,7 @@
 	minimal_access = list(access_library)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
+	title_accesses = list("Tech Support" = access_it)
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian
@@ -324,5 +325,6 @@
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	l_pocket = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
 	r_pocket = /obj/item/card/tech_support
+	r_hand = /obj/item/storage/bag/circuits/basic
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/wristbound/preset/advanced/generic

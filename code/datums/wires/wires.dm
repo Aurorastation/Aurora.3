@@ -13,6 +13,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 
 	var/random = 0 // Will the wires be different for every single instance.
 	var/atom/holder = null // The holder
+	var/cares_about_holder = TRUE
 	var/holder_type = null // The holder type; used to make sure that the holder is the correct type.
 	var/wire_count = 0 // Max is 16
 	var/wires_status = 0 // BITFLAG OF WIRES
@@ -30,7 +31,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	wires = list()
 	signalers = list()
 	src.holder = holder
-	if(!istype(holder, holder_type))
+	if(cares_about_holder && !istype(holder, holder_type))
 		CRASH("Our holder is null/the wrong type!")
 
 	// Generate new wires
@@ -117,7 +118,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 				var/colour = href_list["attach"]
 				// Attach
 				if(!IsAttached(colour))
-					var/obj/item/device/assembly/signaler/I = L.get_active_hand()
+					var/obj/item/device/assembly/signaler/I = L.get_type_in_hands(/obj/item/device/assembly/signaler)
 					if(!istype(I))
 						to_chat(usr, SPAN_WARNING("You do not have a signaler to attach!"))
 						return
@@ -129,22 +130,34 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 					if(O)
 						L.put_in_hands(O)
 				return
-			var/obj/item/I = L.get_active_hand()
-			if(!I)
-				return
 
-			holder.add_hiddenprint(L)
 			if(href_list["cut"]) // Toggles the cut/mend status
-				if(I.iswirecutter())
+				var/obj/item/I = L.get_active_hand()
+				if(!I || !I.iswirecutter())
+					if(isrobot(L))
+						var/mob/living/silicon/robot/R = L
+						I = R.return_wirecutter()
+					else
+						I = L.get_inactive_hand()
+				if(I?.iswirecutter())
 					var/colour = href_list["cut"]
 					CutWireColour(colour)
+					holder.add_hiddenprint(L)
 				else
 					to_chat(L, SPAN_WARNING("You need wirecutters!"))
 
 			else if(href_list["pulse"])
-				if(I.ismultitool())
+				var/obj/item/I = L.get_active_hand()
+				if(!I || !I.ismultitool())
+					if(isrobot(L))
+						var/mob/living/silicon/robot/R = L
+						I = R.return_multitool()
+					else
+						I = L.get_inactive_hand()
+				if(I?.ismultitool())
 					var/colour = href_list["pulse"]
 					PulseColour(colour)
+					holder.add_hiddenprint(L)
 				else
 					to_chat(L, SPAN_WARNING("You need a multitool!"))
 			
@@ -155,6 +168,9 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	if(href_list["close"])
 		usr << browse(null, "window=wires")
 		usr.unset_machine(holder)
+
+/datum/wires/proc/get_wire_diagram(var/mob/user)
+	return
 
 //
 // Overridable Procs

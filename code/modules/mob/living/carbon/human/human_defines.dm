@@ -44,7 +44,6 @@
 	var/citizenship = ""
 	var/employer_faction = ""
 	var/religion = ""
-	var/accent = ""
 
 	//Equipment slots
 	var/obj/item/wear_suit = null
@@ -103,7 +102,7 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
-	var/bodyfall_sound = "bodyfall"
+	var/bodyfall_sound = /decl/sound_category/bodyfall_sound
 
 	var/last_x = 0
 	var/last_y = 0

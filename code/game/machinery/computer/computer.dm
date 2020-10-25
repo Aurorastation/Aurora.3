@@ -7,7 +7,7 @@
 	use_power = 1
 	idle_power_usage = 300
 	active_power_usage = 300
-	clicksound = "keyboard"
+	clicksound = /decl/sound_category/keyboard_sound
 
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0

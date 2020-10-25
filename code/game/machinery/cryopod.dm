@@ -18,6 +18,7 @@ var/global/list/frozen_crew = list()
 	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
 	interact_offline = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 
 	icon_screen = "cryo"
 	icon_scanline = "altcomputerw-scanline"
@@ -59,16 +60,17 @@ var/global/list/frozen_crew = list()
 	if(!(ROUND_IS_STARTED))
 		return
 
-	dat += "<hr/><br/><b>[storage_name]</b><br/>"
-	dat += "<i>Welcome, [user.real_name].</i><br/><br/><hr/>"
-	dat += "<a href='?src=\ref[src];log=1'>View Storage Log</a>.<br>"
+	dat += "<hr><b>[storage_name]</b><br>"
+	dat += "<i>Welcome, [user.real_name].</i><br><hr><br>"
+	dat += "<a href='?src=\ref[src];log=1'>View Storage Log</a><br>"
 	if(allow_items)
-		dat += "<a href='?src=\ref[src];view=1'>View Objects</a>.<br>"
-		dat += "<a href='?src=\ref[src];item=1'>Recover Object</a>.<br>"
-		dat += "<a href='?src=\ref[src];allitems=1'>Recover All Objects</a>.<br>"
+		dat += "<a href='?src=\ref[src];view=1'>View Objects</a><br>"
+		dat += "<a href='?src=\ref[src];item=1'>Recover Object</a><br>"
+		dat += "<a href='?src=\ref[src];allitems=1'>Recover All Objects</a><br>"
 
-	user << browse(dat, "window=cryopod_console")
-	onclose(user, "cryopod_console")
+	var/datum/browser/cryocon_win = new(user, "cryopod_console", "Cryogenic Oversight Console")
+	cryocon_win.set_content(dat)
+	cryocon_win.open()
 
 /obj/machinery/computer/cryopod/Topic(href, href_list)
 	if(..())
@@ -82,12 +84,14 @@ var/global/list/frozen_crew = list()
 		if(!length(frozen_crew))
 			to_chat(user, SPAN_WARNING("Nothing has been stored recently."))
 			return
-		var/dat = "<center><b>Recently Stored [storage_type]</b></center><br/><hr/>"
+		var/dat = "<center><b>Recently Stored [storage_type]</b></center><hr>"
 		for(var/person in frozen_crew)
-			dat += " - [person]<br/>"
-		dat += "<hr/>"
+			dat += " - [person]<br>"
+		dat += "<hr>"
 
-		user << browse(dat, "window=cryolog")
+		var/datum/browser/cryolog_win = new(user, "cryolog", "Cryogenic Storage Log")
+		cryolog_win.set_content(dat)
+		cryolog_win.open()
 
 	if(href_list["view"])
 		if(!allow_items)
@@ -96,19 +100,21 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_WARNING("There are no stored objects."))
 			return
 
-		var/dat = "<center><b>Recently Stored Objects</b></center><br/><hr/>"
+		var/dat = "<center><b>Recently Stored Objects</b></center><br><hr>"
 		for(var/obj/item/I in frozen_items)
-			dat += " - [I.name]<br/>"
-		dat += "<hr/>"
+			dat += " - [I.name]<br>"
+		dat += "<hr>"
 
-		user << browse(dat, "window=cryoitems")
+		var/datum/browser/cryoitems_win = new(user, "cryoitems", "Cryogenic Storage Log")
+		cryoitems_win.set_content(dat)
+		cryoitems_win.open()
 
 	else if(href_list["item"])
 		if(!allow_items)
 			return
 
 		if(frozen_items.len <= 0)
-			to_chat(user, SPAN_NOTICE("There is nothing to recover from storage."))
+			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
 		var/obj/item/I = input(user, "Please choose which object to retrieve.", "Object recovery", null) as null|anything in frozen_items
@@ -116,12 +122,14 @@ var/global/list/frozen_crew = list()
 			return
 
 		if(!(I in frozen_items))
-			to_chat(user, SPAN_NOTICE("\The [I] is no longer in storage."))
+			to_chat(user, SPAN_WARNING("\The [I] is no longer in storage."))
 			return
 
 		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges \the [I]."), range = 3)
 
 		I.forceMove(get_turf(src))
+		if(Adjacent(user))
+			user.put_in_hands(I)
 		frozen_items -= I
 		log_and_message_admins("has retrieved \an [I] from \the [src]", user, get_turf(src))
 
@@ -130,7 +138,7 @@ var/global/list/frozen_crew = list()
 			return
 
 		if(frozen_items.len <= 0)
-			to_chat(user, SPAN_NOTICE("There is nothing to recover from storage."))
+			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
 		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges the desired objects."), range = 3)
@@ -145,12 +153,12 @@ var/global/list/frozen_crew = list()
 
 /obj/item/circuitboard/cryopodcontrol
 	name = "Circuit board (Cryogenic Oversight Console)"
-	build_path = "/obj/machinery/computer/cryopod"
+	build_path = /obj/machinery/computer/cryopod
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/robotstoragecontrol
 	name = "Circuit board (Robotic Storage Console)"
-	build_path = "/obj/machinery/computer/cryopod/robot"
+	build_path = /obj/machinery/computer/cryopod/robot
 	origin_tech = list(TECH_DATA = 3)
 
 //Decorative structures to go alongside cryopods.
@@ -190,21 +198,21 @@ var/global/list/frozen_crew = list()
 	var/last_no_computer_message = 0
 
 	// These items are preserved when the process() despawn proc occurs.
-	var/list/preserve_items = list(
-		/obj/item/hand_tele,
-		/obj/item/card/id/captains_spare,
-		/obj/item/aicard,
-		/obj/item/device/mmi,
-		/obj/item/device/paicard,
-		/obj/item/storage,
-		/obj/item/rig,
-		/obj/item/gun,
-		/obj/item/pinpointer,
-		/obj/item/clothing/suit,
-		/obj/item/clothing/shoes/magboots,
-		/obj/item/blueprints,
-		/obj/item/clothing/head/helmet/space
+	var/list/items_blacklist = list(
+		/obj/item/organ,
+		/obj/item/implant,
+		/obj/item/card/id,
+		/obj/item/modular_computer,
+		/obj/item/device/pda,
+		/obj/item/cartridge,
+		/obj/item/device/radio/headset,
+		/obj/item/device/encryptionkey
 	)
+
+	//For subtypes of the blacklist that are allowed to be kept
+	var/list/items_whitelist = list(
+		/obj/item/card/id/captains_spare
+		)
 
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
@@ -234,7 +242,10 @@ var/global/list/frozen_crew = list()
 /obj/machinery/cryopod/examine(mob/user)
 	..(user)
 	if(occupant)
-		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [gender_datums[occupant.gender].is] inside \the [src]."))
+		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [src]."))
+
+/obj/machinery/cryopod/can_hold_dropped_items()
+	return FALSE
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
 	for(var/obj/machinery/computer/cryopod/C in get_area(src))
@@ -300,32 +311,20 @@ var/global/list/frozen_crew = list()
 // This function can not be undone; do not call this unless you are sure
 // Also make sure there is a valid control computer
 /obj/machinery/cryopod/proc/despawn_occupant()
+	var/list/items = occupant.get_contents()
+	var/turf/T = get_turf(src)
 	//Drop all items into the pod.
 	for(var/obj/item/W in occupant)
 		occupant.drop_from_inventory(W, src)
-
-		if(W.contents.len) //Make sure we catch anything not handled by qdel() on the items.
-			for(var/obj/item/O in W.contents)
-				if(istype(O,/obj/item/storage/internal)) //Stop eating pockets, you fuck!
-					continue
-				if(istype(O.loc, /obj/item/storage)) // keep stuff inside storage containers
-					continue
-				O.forceMove(src)
-
-	//Delete all items not on the preservation list.
-	var/list/items = src.contents.Copy()
-	items -= occupant // Don't delete the occupant
-
+	//Prepare items tnat require modification before dropping
 	for(var/obj/item/W in items)
-		var/preserve = FALSE
-		// Snowflaaaake.
 		if(istype(W, /obj/item/device/mmi))
 			var/obj/item/device/mmi/brain = W
 			if(brain.brainmob && brain.brainmob.client && brain.brainmob.key)
-				brain.forceMove(get_turf(src))
+				brain.forceMove(T)
+				items -= brain
 				continue
-			else
-				preserve = TRUE
+
 		else if(istype(W, /obj/item/rig))
 			var/obj/item/rig/R = W
 			R.open = FALSE
@@ -333,21 +332,18 @@ var/global/list/frozen_crew = list()
 			R.offline = TRUE
 			R.sealing = FALSE
 			R.canremove = TRUE
-			preserve = TRUE
-		else
-			if(is_type_in_list(W, preserve_items))
-				preserve = TRUE
-			if(is_type_in_list(W.loc, preserve_items)) // keep stuff in storage safe
-				preserve = TRUE
 
-		if(!preserve)
+		if(!is_type_in_list(W, items_whitelist) && is_type_in_list(W, items_blacklist))
+			items.Remove(W)
 			qdel(W)
-		else
+
+	for(var/obj/item/W in items)
+		if(W.loc == src)
 			if(control_computer?.allow_items)
 				control_computer.frozen_items += W
 				W.forceMove(control_computer)
 			else
-				W.forceMove(get_turf(src))
+				W.forceMove(T)
 
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] into storage."))
@@ -394,25 +390,12 @@ var/global/list/frozen_crew = list()
 					M.client.eye = src
 
 			update_icon()
-
 			to_chat(M, SPAN_NOTICE("[on_enter_occupant_message]"))
-			to_chat(M, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
 
 			if(isipc(M))
-				var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
-				if(choice == "Yes")
-					var/mob/living/carbon/human/H = M
-					var/obj/item/organ/internal/ipc_tag/tag = H.organs_by_name[BP_IPCTAG]
-					if(tag)
-						M.client.prefs.machine_ownership_status = tag.ownership_info
-						M.client.prefs.machine_serial_number = tag.serial_number
-						M.client.prefs.citizenship = tag.citizenship_info
-						M.client.prefs.machine_tag_status = TRUE
-					else if(isnull(tag) || !tag)
-						M.client.prefs.machine_tag_status = FALSE
-					M.client.prefs.save_character()
-					M.client.prefs.save_preferences()
+				save_ipc_tag(M)
 
 			// Book keeping!
 			var/turf/location = get_turf(src)
@@ -441,7 +424,7 @@ var/global/list/frozen_crew = list()
 		return
 	for(var/mob/living/carbon/slime/M in range(1, L))
 		if(M.victim == L)
-			to_chat(usr, span("warning", "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."))
+			to_chat(usr, SPAN_WARNING("[L.name] will not fit into the cryo pod because they have a slime latched onto their head."))
 			return
 
 	var/willing = FALSE //We don't want to allow people to be forced into despawning.
@@ -475,24 +458,12 @@ var/global/list/frozen_crew = list()
 			return
 
 		to_chat(L, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
-		to_chat(L, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(L, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 		set_occupant(L)
 		update_icon()
 
 		if(isipc(L))
-			var/choice = alert(L, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
-			if(choice == "Yes")
-				var/mob/living/carbon/human/H = L
-				var/obj/item/organ/internal/ipc_tag/tag = H.organs_by_name[BP_IPCTAG]
-				if(tag)
-					L.client.prefs.machine_ownership_status = tag.ownership_info
-					L.client.prefs.machine_serial_number = tag.serial_number
-					L.client.prefs.citizenship = tag.citizenship_info
-					L.client.prefs.machine_tag_status = TRUE
-				else if(isnull(tag) || !tag)
-					L.client.prefs.machine_tag_status = FALSE
-				L.client.prefs.save_character()
-				L.client.prefs.save_preferences()
+			save_ipc_tag(L)
 
 		// Book keeping!
 		var/turf/location = get_turf(src)
@@ -540,7 +511,7 @@ var/global/list/frozen_crew = list()
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.victim == usr)
-			to_chat(usr, span("warning", "You cannot do this while a slime is latched onto you!"))
+			to_chat(usr, SPAN_WARNING("You cannot do this while a slime is latched onto you!"))
 			return
 
 	usr.visible_message(SPAN_NOTICE("[usr] starts climbing into [src]."), SPAN_NOTICE("You start climbing into [src]."), range = 3)
@@ -558,7 +529,7 @@ var/global/list/frozen_crew = list()
 		update_icon()
 
 		to_chat(usr, SPAN_NOTICE("[on_enter_occupant_message]"))
-		to_chat(usr, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(usr, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 
 		if(isipc(usr))
 			var/choice = alert(usr, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
@@ -608,3 +579,18 @@ var/global/list/frozen_crew = list()
 
 /obj/machinery/cryopod/relaymove(var/mob/user)
 	go_out()
+
+/obj/machinery/cryopod/proc/save_ipc_tag(var/mob/M)
+	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
+	if(choice == "Yes")
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(tag)
+			M.client.prefs.machine_ownership_status = tag.ownership_info
+			M.client.prefs.machine_serial_number = tag.serial_number
+			M.client.prefs.citizenship = tag.citizenship_info
+			M.client.prefs.machine_tag_status = TRUE
+		else if(isnull(tag) || !tag)
+			M.client.prefs.machine_tag_status = FALSE
+		M.client.prefs.save_character()
+		M.client.prefs.save_preferences()

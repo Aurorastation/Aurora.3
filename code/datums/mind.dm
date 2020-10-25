@@ -137,7 +137,9 @@
 			output += "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++
 
-	recipient << browse(output,"window=memory")
+	var/datum/browser/memory_win = new(recipient, "memory")
+	memory_win.set_content(output)
+	memory_win.open()
 
 /datum/mind/proc/edit_memory()
 	if(!ROUND_IS_STARTED)
@@ -160,9 +162,9 @@
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
 			if(O.completed)
-				out += "(<font color='green'>complete</font>)"
+				out += "(<span class='good'>complete</span>)"
 			else
-				out += "(<font color='red'>incomplete</font>)"
+				out += "(<span class='warning'>incomplete</span>)"
 			out += " <a href='?src=\ref[src];obj_completed=\ref[O]'>\[toggle\]</a>"
 			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++
@@ -382,7 +384,7 @@
 				if (istype(R))
 					R.emagged = 0
 					if (R.activated(R.module.emag))
-						R.module_active = null
+						R.set_module_active(null)
 					if(R.module_state_1 == R.module.emag)
 						R.module_state_1 = null
 						R.contents -= R.module.emag
@@ -401,7 +403,7 @@
 						R.emagged = 0
 						if (R.module)
 							if (R.activated(R.module.emag))
-								R.module_active = null
+								R.set_module_active(null)
 							if(R.module_state_1 == R.module.emag)
 								R.module_state_1 = null
 								R.contents -= R.module.emag
@@ -457,11 +459,12 @@
 // have to call this periodically for the duration to work properly
 /datum/mind/proc/is_brigged(duration)
 	var/turf/T = current.loc
-	if(!istype(T))
+	if(isnull(T))
 		brigged_since = -1
 		return 0
+	var/area/A = T.loc
 	var/is_currently_brigged = 0
-	if(istype(T.loc,/area/security/brig))
+	if(A?.is_prison())
 		is_currently_brigged = 1
 		for(var/obj/item/card/id/card in current)
 			is_currently_brigged = 0
@@ -572,15 +575,10 @@
 	mind.assigned_role = "Wraith"
 	mind.special_role = "Cultist"
 
-/mob/living/simple_animal/construct/armoured/mind_initialize()
+/mob/living/simple_animal/construct/armored/mind_initialize()
 	..()
 	mind.assigned_role = "Juggernaut"
 	mind.special_role = "Cultist"
-
-/mob/living/carbon/human/voxarmalis/mind_initialize()
-	..()
-	mind.assigned_role = "Armalis"
-	mind.special_role = "Vox Raider"
 
 /mob/living/silicon/robot/syndicate/mind_initialize()
 	..()

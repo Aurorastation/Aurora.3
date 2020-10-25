@@ -4,7 +4,7 @@
 	icon_state = "clipboard"
 	item_state = "clipboard"
 	throwforce = 0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 10
 	var/obj/item/pen/haspen		//The stored pen.
@@ -106,7 +106,7 @@
 			haspen = W
 			to_chat(user, "<span class='notice'>You slot the pen into \the [src].</span>")
 	else
-		to_chat(user, span("notice", "This clipboard already has a pen!"))
+		to_chat(user, SPAN_NOTICE("This clipboard already has a pen!"))
 
 /obj/item/clipboard/Topic(href, href_list)
 	..()

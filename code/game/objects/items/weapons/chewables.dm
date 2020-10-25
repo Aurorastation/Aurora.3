@@ -15,7 +15,7 @@
 /obj/item/clothing/mask/chewable/attack_self(mob/user)
 	if(wrapped)
 		wrapped = FALSE
-		to_chat(user, span("notice", "You unwrap \the [name]."))
+		to_chat(user, SPAN_NOTICE("You unwrap \the [name]."))
 		playsound(src.loc, 'sound/items/drop/wrapper.ogg', 50, 1)
 		slot_flags = SLOT_EARS | SLOT_MASK
 		update_icon()
@@ -42,7 +42,7 @@ obj/item/clothing/mask/chewable/Initialize()
 		if(C.check_has_mouth())
 			START_PROCESSING(SSprocessing, src)
 		else
-			to_chat(user, span("notice", "You don't have a mouth, and can't make much use of \the [src]."))
+			to_chat(user, SPAN_NOTICE("You don't have a mouth, and can't make much use of \the [src]."))
 
 /obj/item/clothing/mask/chewable/dropped()
 	STOP_PROCESSING(SSprocessing, src)
@@ -73,7 +73,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	throw_speed = 0.5
 	icon_state = "chew"
 	type_butt = /obj/item/trash/spitwad
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
@@ -84,20 +84,31 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A disgusting spitwad."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "spit-chew"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	slot_flags = SLOT_EARS | SLOT_MASK
 
-/obj/item/clothing/mask/chewable/proc/spitout(var/mob/user, var/no_message)
-	STOP_PROCESSING(SSprocessing, src)
-	if (type_butt)
-		var/obj/item/butt = new type_butt(get_turf(src))
+/obj/item/clothing/mask/chewable/proc/spitout(var/transfer_color = 1, var/no_message = 0)
+	if(type_butt)
+		var/obj/item/butt = new type_butt(src.loc)
 		transfer_fingerprints_to(butt)
-		butt.color = color
+		if(transfer_color)
+			butt.color = color
 		if(brand)
 			butt.desc += " This one is \a [brand]."
 		if(ismob(loc))
 			var/mob/living/M = loc
-			if (!no_message)
-				to_chat(M, span("notice", "You spit out the [name]."))
-		qdel(src)
+			if(!no_message)
+				to_chat(M, SPAN_NOTICE("The [name] runs out of flavor."))
+			if(M.wear_mask)
+				M.remove_from_mob(src) //un-equip it so the overlays can update
+				M.update_inv_wear_mask(0)
+				if(!M.equip_to_slot_if_possible(butt, slot_wear_mask))
+					M.update_inv_l_hand(0)
+					M.update_inv_r_hand(1)
+					M.put_in_hands(butt)
+	STOP_PROCESSING(SSprocessing, src)
+	qdel(src)
 
 /obj/item/clothing/mask/chewable/tobacco/bad
 	name = "chewing tobacco"
@@ -128,7 +139,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	throw_speed = 0.5
 	icon_state = "chew"
 	type_butt = /obj/item/trash/spitgum
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
@@ -139,6 +150,9 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A disgusting chewed up wad of gum."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "spit-gum"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	slot_flags = SLOT_EARS | SLOT_MASK
 
 /obj/item/clothing/mask/chewable/candy/gum
 	name = "chewing gum"
@@ -153,36 +167,47 @@ obj/item/clothing/mask/chewable/Destroy()
 	color = reagents.get_color()
 	update_icon()
 
-/obj/item/storage/box/gum
+/obj/item/storage/box/fancy/gum
 	name = "\improper Chewy Fruit flavored gum"
 	desc = "A small pack of chewing gum in various flavors."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "gum_pack"
 	item_state = "candy"
+	icon_type = "gum stick"
+	storage_type = "packaging"
 	slot_flags = SLOT_EARS
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
-	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum,
-					/obj/item/trash/spitgum)
-	use_sound = 'sound/items/drop/wrapper.ogg'
+	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum, /obj/item/trash/spitgum)
+	max_storage_space = 5
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
-	max_storage_space = 5
-	foldable = null
+
+	trash = /obj/item/trash/gum
+	closable = FALSE
+	icon_overlays = FALSE
 
 /obj/item/clothing/mask/chewable/candy/lolli
 	name = "lollipop"
-	desc = "A simple artificially flavored sphere of sugar on a handle. Colloquially known as a sucker. Allegedly one is born every minute."
+	desc = "A simple artificially flavored sphere of sugar on a handle, colloquially known as a sucker. Allegedly one is born every minute."
 	type_butt = /obj/item/trash/lollibutt
 	icon_state = "lollipop"
 	item_state = "lollipop"
 	wrapped = TRUE
 
 /obj/item/trash/lollibutt
-	name = "popsicle stick"
-	desc = "A popsicle stick devoid of pop."
+	name = "lollipop stick"
+	desc = "A lollipop stick devoid of pop."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "lollipop_stick"
+	slot_flags = SLOT_EARS | SLOT_MASK
+
+/obj/item/clothing/mask/chewable/candy/lolli/process()
+	chew()
+	if(chewtime < 1)
+		spitout(0)
 
 /obj/item/clothing/mask/chewable/candy/lolli/update_icon()
 	cut_overlays()
@@ -207,8 +232,8 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/candy/lolli/meds/Initialize()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
-				/datum/reagent/paracetamol,
-				/datum/reagent/tramadol,
+				/datum/reagent/perconol,
+				/datum/reagent/mortaphenyl,
 				/datum/reagent/dylovene))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
@@ -223,7 +248,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
 				/datum/reagent/dylovene,
-				/datum/reagent/norepinephrine))
+				/datum/reagent/inaprovaline))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."

@@ -70,9 +70,9 @@
 	var/next_mecha_move = 0
 	var/list/hud_elements = list()
 	var/list/hardpoint_hud_elements = list()
-	var/obj/screen/movable/mecha/health/hud_health
-	var/obj/screen/movable/mecha/toggle/hatch_open/hud_open
-	var/obj/screen/movable/mecha/power/hud_power
+	var/obj/screen/mecha/health/hud_health
+	var/obj/screen/mecha/toggle/hatch_open/hud_open
+	var/obj/screen/mecha/power/hud_power
 
 /mob/living/heavy_vehicle/Destroy()
 
@@ -254,7 +254,7 @@
 	remote = TRUE
 	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
 	if(!remote_network)
-		remote_network = "remotemechs"
+		remote_network = REMOTE_GENERIC_MECH
 	SSvirtualreality.add_mech(src, remote_network)
 
 	if(hatch_closed)

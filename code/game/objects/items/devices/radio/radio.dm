@@ -10,6 +10,7 @@ var/global/list/default_internal_channels = list(
 	num2text(MED_I_FREQ)=list(access_medical_equip),
 	num2text(SEC_FREQ) = list(access_security),
 	num2text(SEC_I_FREQ)=list(access_security),
+	num2text(PEN_FREQ) = list(access_armory),
 	num2text(SCI_FREQ) = list(access_tox,access_robotics,access_xenobiology),
 	num2text(SUP_FREQ) = list(access_cargo),
 	num2text(SRV_FREQ) = list(access_janitor, access_hydroponics)
@@ -44,11 +45,11 @@ var/global/list/default_medbay_channels = list(
 	slot_flags = SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
 	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
-	var/clicksound = "button" //played sound on usage
+	var/clicksound = /decl/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
 
@@ -126,7 +127,7 @@ var/global/list/default_medbay_channels = list(
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/item/device/radio/proc/setupRadioDescription()
+/obj/item/device/radio/proc/setupRadioDescription(var/additional_radio_desc)
 	var/radio_text = ""
 	for(var/i = 1 to channels.len)
 		var/channel = channels[i]
@@ -136,6 +137,8 @@ var/global/list/default_medbay_channels = list(
 			radio_text += ", "
 
 	radio_desc = radio_text
+	if(additional_radio_desc)
+		radio_desc += additional_radio_desc
 
 /obj/item/device/radio/proc/list_channels(var/mob/user)
 	return list_internal_channels(user)
@@ -202,7 +205,7 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/CouldUseTopic(var/mob/user)
 	..()
 	if(clicksound && iscarbon(user))
-		playsound(src, clicksound, clickvol)
+		playsound(loc, clicksound, clickvol)
 
 /obj/item/device/radio/Topic(href, href_list)
 	if(..())
@@ -311,7 +314,7 @@ var/global/list/default_medbay_channels = list(
 	if (iscarbon(M))
 		var/mob/living/carbon/C = M
 		if (CE_UNDEXTROUS in C.chem_effects)
-			to_chat(M, span("warning", "Your can't move your arms enough to activate the radio..."))
+			to_chat(M, SPAN_WARNING("Your can't move your arms enough to activate the radio..."))
 			return
 
 	if(istype(M))

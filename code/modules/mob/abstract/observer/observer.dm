@@ -163,11 +163,11 @@ Works together with spawning an observer, noted above.
 	//Check if they are a staff member
 	if(check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
 		return FALSE
-	
+
 	//Check if the z level is in the restricted list
 	if (!(check in current_map.restricted_levels))
 		return FALSE
-	
+
 	return TRUE
 
 /mob/abstract/observer/proc/teleport_to_spawn(var/message)
@@ -186,9 +186,10 @@ Works together with spawning an observer, noted above.
 		return
 
 	if(following)
-		if(!iscarbon(following)) //If they are following something other than a carbon mob, teleport them
+		if(!isliving(following) || isanimal(following)) //If they are following something other than a living non-animal mob, teleport them
+			var/message = "You can not follow \the [following] on this level."
 			stop_following()
-			teleport_to_spawn("You can not follow \the [following] on this level.")
+			teleport_to_spawn(message)
 		else
 			return
 	//If they are moving around freely, teleport them
@@ -286,7 +287,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				found_rune = TRUE
 				break
 		if(!found_rune)
-			to_chat(usr, span("cult", "The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
+			to_chat(usr, SPAN_CULT("The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
 			return
 	stop_following()
 	mind.current.ajourn=0
@@ -407,7 +408,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		moved_event.unregister(following, src)
 		destroyed_event.unregister(following, src)
 		following = null
-	
+
 
 /mob/abstract/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
@@ -442,7 +443,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			forceMove(T)
 		else
 			to_chat(src, "This mob is not located in the game world.")
-		
+
 		teleport_if_needed()
 
 /mob/abstract/observer/memory()
@@ -512,6 +513,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 		var/turf/T = get_turf(testvent)
 
+		//Skip areas that contain turrets
+		var/area/A = T.loc
+		if (A && A.turrets.len)
+			continue
 
 
 		//We test the environment of the tile, to see if its habitable for a mouse
@@ -532,11 +537,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				atmos_suitable = 0
 			else if (Environment.temperature < mintemp)
 				atmos_suitable = 0
-			else if(Environment.gas["oxygen"] < min_oxy)
+			else if(Environment.gas[GAS_OXYGEN] < min_oxy)
 				atmos_suitable = 0
-			else if(Environment.gas["phoron"] > max_phoron)
+			else if(Environment.gas[GAS_PHORON] > max_phoron)
 				atmos_suitable = 0
-			else if(Environment.gas["carbon_dioxide"] > max_co2)
+			else if(Environment.gas[GAS_CO2] > max_co2)
 				atmos_suitable = 0
 			else if(Environment.return_pressure() < min_pressure)
 				atmos_suitable = 0
@@ -577,15 +582,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	else
 		return bestvent
 
-/mob/abstract/observer/verb/view_manfiest()
+/mob/abstract/observer/verb/view_manifest()
 	set name = "Show Crew Manifest"
 	set category = "Ghost"
-
-	var/dat
-	dat += "<h4>Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(OOC = 1)
-
-	src << browse(dat, "window=manifest;size=370x420;can_close=1")
+	open_crew_manifest(src, OOC = TRUE)
 
 //This is called when a ghost is drag clicked to something.
 /mob/abstract/observer/MouseDrop(atom/over)
@@ -704,7 +704,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		toggle_visibility(1)
 	else
 		user.visible_message ( \
-			"<span class='warning'>\The [user] just tried to smash \his book into that ghost!  It's not very effective.</span>", \
+			"<span class='warning'>\The [user] just tried to smash [user.get_pronoun("his")] book into that ghost!  It's not very effective.</span>", \
 			"<span class='warning'>You get the feeling that the ghost can't become any more visible.</span>" \
 		)
 
@@ -924,7 +924,7 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 /mob/abstract/observer/verb/ghost_spawner()
 	set category = "Ghost"
 	set name = "Ghost Spawner"
-	
+
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return

@@ -9,13 +9,13 @@
 
 	var/turf/T = get_turf(A)
 	if(isNotStationLevel(T.z))
-		to_chat(user, span("warning", "You are too far from the station, Nar'sie can not be summoned here."))
+		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie can not be summoned here."))
 		return fizzle(user, A)
 
 	var/list/cultists = list()
 	for(var/mob/M in range(1, A))
 		if(istype(M, /mob/living/carbon/human/apparition))
-			to_chat(M, span("warning", "Apparitions cannot partake in the summoning of the Great Dark One! Clear the area and defend the cultists!"))
+			to_chat(M, SPAN_WARNING("Apparitions cannot partake in the summoning of the Great Dark One! Clear the area and defend the cultists!"))
 			continue
 		if(iscultist(M) && !M.stat)
 			M.say("Tok-lyr rqa'nap! Qur'man-ze! Gi'lt-lu-nulotf!")
@@ -31,5 +31,5 @@
 		for(var/mob/M in cultists)
 			if(!iscultist(M))
 				continue
-			to_chat(M, span("warning", "Not enough cultists are around to summon the Great Dark One!"))
+			to_chat(M, SPAN_WARNING("Not enough cultists are around to summon the Great Dark One!"))
 		return fizzle(user, A)

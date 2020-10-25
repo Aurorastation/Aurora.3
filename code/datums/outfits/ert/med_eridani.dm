@@ -11,7 +11,7 @@
 	belt = /obj/item/storage/belt/medical
 	back = /obj/item/storage/backpack/satchel_med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/tramadol = 1)
+	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/mortaphenyl = 1)
 	id = /obj/item/card/id/distress/iac
 
 	l_ear = /obj/item/device/radio/headset/distress
@@ -33,7 +33,7 @@
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/reagent_containers/syringe = 1,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = 1
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1
 	)
 
 /datum/outfit/admin/ert/med_eridani/get_id_access()
@@ -57,7 +57,7 @@
 	name = "Eridani Contractor Bodyguard"
 
 	accessory = /obj/item/clothing/accessory/storage/black_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 2, /obj/item/reagent_containers/hypospray/autoinjector/survival = 1)
+	accessory_contents = list(/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2, /obj/item/reagent_containers/hypospray/autoinjector/survival = 1)
 	suit = /obj/item/clothing/suit/space/void/cruiser
 	head = /obj/item/clothing/head/helmet/space/void/cruiser
 	mask = /obj/item/clothing/mask/gas/alt

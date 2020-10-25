@@ -193,10 +193,10 @@
 		occupant.adjustCloneLoss(-2 * heal_rate)
 
 		//So clones don't die of oxyloss in a running pod.
-		if(occupant.reagents.get_reagent_amount(/datum/reagent/norepinephrine) < 30)
-			occupant.reagents.add_reagent(/datum/reagent/norepinephrine, 60)
+		if(occupant.reagents.get_reagent_amount(/datum/reagent/inaprovaline) < 30)
+			occupant.reagents.add_reagent(/datum/reagent/inaprovaline, 60)
 		occupant.Sleeping(30)
-		//Also heal some oxyloss ourselves because norepinephrine is so bad at preventing it!!
+		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
 
 		use_power(7500) //This might need tweaking.
@@ -219,8 +219,8 @@
 			return
 		if(default_part_replacement(user, W))
 			return
-	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
-		if(!check_access(W))
+	if(W.GetID())
+		if(!check_access(W.GetID()))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return
 		if((!locked) || (isnull(occupant)))
@@ -400,7 +400,7 @@
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	item_state = "card-id"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	var/datum/dna2/record/buf = null
 	var/read_only = 0 //Well,it's still a floppy disk
 

@@ -28,7 +28,7 @@
 	if(shattered)	return
 	shattered = 1
 	icon_state = "mirror_broke"
-	playsound(src, "shatter", 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	desc = "Oh no, seven years of bad luck!"
 
 
@@ -74,34 +74,6 @@
 	ui_users.Cut()
 	return ..()
 
-// The following mirror is ~special~.
-/obj/structure/mirror/raider
-	name = "cracked mirror"
-	desc = "Something seems strange about this old, dirty mirror. Your reflection doesn't look like you remember it."
-	icon_state = "mirror_broke"
-	shattered = 1
-
-/obj/structure/mirror/raider/attack_hand(var/mob/living/carbon/human/user)
-	if(istype(get_area(src),/area/syndicate_mothership))
-		if(istype(user) && user.mind && user.mind.special_role == "Raider" && user.species.name != "Vox")
-			var/choice = input("Do you wish to become a true Vox of the Shoal? This is not reversible.") as null|anything in list("No","Yes")
-			if(choice && choice == "Yes")
-				var/mob/living/carbon/human/vox/vox = new(get_turf(src),"Vox")
-				vox.gender = user.gender
-				raiders.equip(vox)
-				if(user.mind)
-					user.mind.transfer_to(vox)
-				spawn(1)
-					var/newname = sanitizeSafe(input(vox,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
-					if(!newname || newname == "")
-						newname = user.species.get_random_name()
-					vox.real_name = newname
-					vox.name = vox.real_name
-					raiders.update_access(vox)
-					vox.faction = "syndicate"	//so the vox is not attacked by viscerator
-				qdel(user)
-	..()
-
 /obj/item/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
@@ -129,25 +101,3 @@
 		qdel(AC)
 	ui_users.Cut()
 	return ..()
-
-
-//merchant mirror, turns you into a vox
-/obj/structure/mirror/merchant
-	name = "cracked mirror"
-	desc = "Something seems strange about this old, dirty mirror. Your reflection doesn't look like you remember it."
-	icon_state = "mirror_broke"
-	shattered = 1
-
-/obj/structure/mirror/merchant/attack_hand(var/mob/living/carbon/human/user)
-	if(istype(get_area(src),/area/merchant_station))
-		if(istype(user) && user.mind && (user.mind.assigned_role == "Merchant" || user.mind.assigned_role == "Merchants Assistant")  && user.species.name != "Vox")
-			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
-			if(choice == "Yes")
-				user.set_species("Vox")
-				user.species.before_equip(user)
-
-				var/newname = sanitizeSafe(input(user,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
-				if(!newname || newname == "")
-					newname = user.species.get_random_name()
-				user.fully_replace_character_name(user.real_name,newname)
-	..()

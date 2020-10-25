@@ -33,33 +33,7 @@
 	var/datum/robot_component/C = components["surge"]
 	C.installed = TRUE
 	C.wrapped = new C.external_type
-
-/mob/living/silicon/robot/syndicate/updateicon() //because this was the only way I found out how to make their eyes and etc works
-	cut_overlays()
-
-	if(stat == CONSCIOUS)
-		if(a_intent == I_HELP)
-			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
-		else
-			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
-
-	if(opened)
-		var/panelprefix = custom_sprite ? src.ckey : "ov"
-		if(wires_exposed)
-			add_overlay("[panelprefix]-openpanel +w")
-		else if(cell)
-			add_overlay("[panelprefix]-openpanel +c")
-		else
-			add_overlay("[panelprefix]-openpanel -c")
-
-	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
-		add_overlay("[icon_state]-shield")
-
-	if(mod_type == "Combat")
-		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
-			icon_state = "[icon_state]-roll"
-		else
-			icon_state = module_sprites[icontype]
+	setup_icon_cache()
 
 /mob/living/silicon/robot/syndicate/death()
 	..()
@@ -68,17 +42,17 @@
 	explosion(get_turf(src), 1, 2, 3, 5)
 	qdel(src)
 
-/mob/living/silicon/robot/syndicate/proc/spawn_into_syndiborg(var/mob/user)
+/mob/living/silicon/robot/syndicate/assign_player(var/mob/user)
 	if(src.ckey)
 		return
 	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("syndiborg", src)
 	if(assigned_antagonist)
 		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
 		if(assigned_antagonist.get_antag_radio())
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
 			radio.recalculateChannels()
 	say("Boot sequence complete!")
+	return src
 
 //syndicate borg gear
 

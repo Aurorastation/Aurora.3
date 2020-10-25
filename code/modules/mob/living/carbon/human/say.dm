@@ -1,11 +1,3 @@
-/mob/living/carbon/human/say(var/message)
-	var/alt_name = ""
-	if(name != GetVoice())
-		alt_name = "(as [get_id_name("Unknown")])"
-
-	message = sanitize(message)
-	..(message, alt_name = alt_name)
-
 /mob/living/carbon/human/proc/forcesay(list/append)
 	if(stat == CONSCIOUS)
 		if(client)
@@ -67,7 +59,6 @@
 	return ..()
 
 /mob/living/carbon/human/GetVoice()
-
 	var/voice_sub
 	if(istype(back,/obj/item/rig))
 		var/obj/item/rig/rig = back
@@ -83,7 +74,10 @@
 				voice_sub = changer.voice
 	if(voice_sub)
 		return voice_sub
-	if(mind && mind.changeling && mind.changeling.mimicing)
+	var/obj/item/organ/external/head/face = organs_by_name[BP_HEAD]
+	if(face?.disfigured) // if your face is ruined, your ability to vocalize is also ruined
+		return "Unknown" // above ling voice mimicing so they don't get caught out immediately
+	if(mind?.changeling?.mimicing)
 		return mind.changeling.mimicing
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
@@ -112,18 +106,13 @@
 */
 
 /mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null)
-	var/verb = "says"
 	var/ending = copytext(message, length(message))
+	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
 	if(speaking)
-		verb = speaking.get_spoken_verb(ending)
+		. = speaking.get_spoken_verb(ending, pre_ending)
 	else
-		if(ending == "!")
-			verb=pick("exclaims","shouts","yells")
-		else if(ending == "?")
-			verb="asks"
-
-	return verb
+		. = ..()
 
 /mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
 	message = handle_speech_muts(message,verb)
@@ -307,7 +296,7 @@
 				if(prob(50))
 					emote("gasp")
 				else
-					emote("chokes!")
+					emote("choke")
 
 
 			message = "[prefix][jointext(words," ")]"

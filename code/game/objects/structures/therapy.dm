@@ -81,7 +81,7 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/closed = FALSE
 
 /obj/item/pocketwatch/AltClick(mob/user)
@@ -116,9 +116,9 @@
 	set src in usr
 
 	if(closed)
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes, not noticing it's closed."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes, not noticing it's closed."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/mesmetron
 	name = "mesmetron pocketwatch"
@@ -128,7 +128,7 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 	var/closed = FALSE
@@ -476,7 +476,7 @@
 
 /obj/machinery/chakraconsole
 	name = "Therapy Pod Console"
-	desc = "A control panel for some kind of medical device."
+	desc = "An advanced control panel that can be used to interface with a connected therapy pod."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "sleeper_s_scannerconsole"
 	density = 0

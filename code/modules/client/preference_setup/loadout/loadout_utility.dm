@@ -68,35 +68,21 @@
 	path = /obj/item/device/paicard
 
 /datum/gear/utility/wallet
-	display_name = "wallet, orange"
+	display_name = "wallet selection"
 	path = /obj/item/storage/wallet
-
-/datum/gear/utility/wallet_colourable
-	display_name = "wallet, colourable"
-	path = /obj/item/storage/wallet/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/utility/wallet_purse
-	display_name = "wallet, purse"
-	path = /obj/item/storage/wallet/purse
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+/datum/gear/utility/wallet/New()
+	..()
+	var/wallet = list()
+	wallet["wallet, colourable"] = /obj/item/storage/wallet/colourable
+	wallet["wallet, purse"] = /obj/item/storage/wallet/purse
+	gear_tweaks += new/datum/gear_tweak/path(wallet)
 
 /datum/gear/utility/lanyard
 	display_name = "lanyard"
-	path = /obj/item/storage/wallet/lanyard
+	path = 	/obj/item/storage/wallet/lanyard
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/*
-/datum/gear/utility/cheaptablet
-	display_name = "cheap tablet computer"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
-	cost = 3
-
-/datum/gear/utility/normaltablet
-	display_name = "tablet computer"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
-	cost = 4
-*/
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
@@ -124,3 +110,8 @@
 	cost = 0
 	path = /obj/item/storage/belt/utility/alt
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
+
+/datum/gear/utility/himeo_kit
+	display_name = "himean voidsuit kit"
+	path = /obj/item/himeo_kit
+	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel")

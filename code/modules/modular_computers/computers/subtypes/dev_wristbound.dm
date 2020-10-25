@@ -14,6 +14,11 @@
 	light_strength = 1
 	menu_light_color = COLOR_GREEN
 
+/obj/item/modular_computer/CouldUseTopic(var/mob/user)
+	..()
+	if(iscarbon(user))
+		playsound(src, 'sound/machines/pda_click.ogg', 20)
+
 /obj/item/modular_computer/wristbound/Initialize()
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state

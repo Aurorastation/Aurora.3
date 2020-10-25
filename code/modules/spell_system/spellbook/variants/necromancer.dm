@@ -3,7 +3,7 @@
 
 
 /datum/spellbook/necromancer
-	name = "\improper necromancer's grimoire"
+	name = "necromancer's grimoire"
 	feedback = "NG"
 	desc = "A grimoire full of spells dealing with the death and the afterlife."
 	book_desc = "A spellbook full of dark magic dealing mostly with the afterlife."
@@ -15,7 +15,6 @@
 	spells = list(/spell/targeted/projectile/dumbfire/fireball =	1,
 				/spell/targeted/torment =							1,
 				/spell/targeted/subjugation =						1,
-				/spell/targeted/lichdom =							2,
 				/spell/aoe_turf/conjure/mirage =					1,
 				/spell/aoe_turf/conjure/summon/bats =				1,
 				/spell/targeted/shapeshift/corrupt_form =			1,

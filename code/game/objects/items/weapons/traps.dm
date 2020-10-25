@@ -99,7 +99,7 @@
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
 	if(!ignore_armor)
-		//armour
+		//armor
 		var/blocked = L.run_armor_check(target_zone, "melee")
 		if(blocked >= 100)
 			return
@@ -117,7 +117,7 @@
 		var/obj/item/organ/external/limb = H.get_organ(check_zone(target_zone))
 		if(!limb || limb.is_stump()) // oops, we took the limb clean off
 			did_trap = FALSE
-	
+
 	if(did_trap)
 		//trap the victim in place
 		can_buckle = TRUE
@@ -169,7 +169,7 @@
 	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
 	throwforce = 2
 	force = 1
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = FALSE
@@ -190,7 +190,7 @@
 
 	if(!captured)
 		if(!is_type_in_list(M, allowed_mobs))
-			to_chat(user, span("warning", "[M] won't fit in there!"))
+			to_chat(user, SPAN_WARNING("[M] won't fit in there!"))
 		else if(do_after(user, 5 SECONDS))
 			capture(M)
 	else
@@ -208,7 +208,7 @@
 			to_chat(user, "<span class='warning'>[L] is trapped inside!</span>")
 			return
 	else if(deployed)
-		to_chat(user, span("warning", "It's set up and ready to capture something."))
+		to_chat(user, SPAN_WARNING("It's set up and ready to capture something."))
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty and un-deployed.</span>")
 
@@ -382,13 +382,13 @@
 		var/mob/living/M = G.affecting
 
 		if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
-			to_chat(user, span("notice", "You need a better grip on \the [M]!"))
+			to_chat(user, SPAN_NOTICE("You need a better grip on \the [M]!"))
 			return
 
 		user.visible_message("<span class='notice'>[user] starts putting [M] into \the [src].</span>", "<span class='notice'>You start putting [M] into \the [src].</span>")
 
 		if (!is_type_in_list(M, allowed_mobs))
-			to_chat(user, span("warning", "[M] won't fit in there!"))
+			to_chat(user, SPAN_WARNING("[M] won't fit in there!"))
 			return
 
 		if (do_mob(user, M, 3 SECONDS, needhand = 0))
@@ -399,7 +399,7 @@
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if(!WT.welding)
-			to_chat(user, span("warning", "Your \the [W] is off!"))
+			to_chat(user, SPAN_WARNING("Your \the [W] is off!"))
 			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
 							 "<span class='notice'>You are trying to slice \the [src] open!</span>")
@@ -450,7 +450,7 @@
 		return
 
 	if(anchored && deployed)
-		to_chat(user, span("notice", "\The [src] is already anchored and set!"))
+		to_chat(user, SPAN_NOTICE("\The [src] is already anchored and set!"))
 	else if(anchored)
 		deploy(user)
 	else
@@ -533,7 +533,7 @@
 	icon_state = "medium0"
 	throwforce = 4
 	force = 5
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_ENGINEERING = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = FALSE
@@ -573,9 +573,9 @@
 	if(user == buckled_mob)
 		return
 	else if(!anchored)
-		to_chat(user, span("warning", "You need to anchor \the [src] first!"))
+		to_chat(user, SPAN_WARNING("You need to anchor \the [src] first!"))
 	else if(captured)
-		to_chat(user, span("warning", "You can't deploy \the [src] with something caught!"))
+		to_chat(user, SPAN_WARNING("You can't deploy \the [src] with something caught!"))
 	else
 		..()
 
@@ -587,7 +587,7 @@
 			return
 
 		if(anchored && deployed)
-			to_chat(user, span("warning", "You can't do that while \the [src] is deployed! Undeploy it first."))
+			to_chat(user, SPAN_WARNING("You can't do that while \the [src] is deployed! Undeploy it first."))
 			return
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
@@ -607,7 +607,7 @@
 
 /obj/item/trap/animal/large/MouseDrop(over_object, src_location, over_location)
 	if(captured)
-		to_chat(usr, span("warning", "The trap door's down, you can't get through there!"))
+		to_chat(usr, SPAN_WARNING("The trap door's down, you can't get through there!"))
 		return
 
 	if(!src.Adjacent(usr))
@@ -637,7 +637,7 @@
 	icon = 'icons/obj/items.dmi'
 	throwforce = 4
 	force = 5
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 
 /obj/item/large_trap_foundation/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/stack/rods))

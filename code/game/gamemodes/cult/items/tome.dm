@@ -5,7 +5,7 @@
 	item_state = "tome"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	unique = TRUE
 	slot_flags = SLOT_BELT
 
@@ -27,13 +27,13 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	M.take_organ_damage(0, rand(5,20)) //really lucky - 5 hits for a crit
-	visible_message(span("warning", "\The [user] beats \the [M] with \the [src]!"))
-	to_chat(M, span("danger", "You feel searing heat inside!"))
+	visible_message(SPAN_WARNING("\The [user] beats \the [M] with \the [src]!"))
+	to_chat(M, SPAN_DANGER("You feel searing heat inside!"))
 	attack_admins(M, user)
 
 /obj/item/book/tome/proc/attack_admins(var/mob/living/M, var/mob/living/user)
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used [name] on [M.name] ([M.ckey])</span>")
 	msg_admin_attack("[key_name_admin(user)] used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 
@@ -47,32 +47,35 @@
 
 	if(iscultist(scribe))
 		if(!isturf(scribe.loc))
-			to_chat(scribe, span("warning", "You do not have enough space to write a proper rune."))
+			to_chat(scribe, SPAN_WARNING("You do not have enough space to write a proper rune."))
 			return
 
 		var/turf/T = get_turf(scribe)
 
 		if(T.is_hole || T.is_space())
-			to_chat(scribe, span("warning", "You are unable to write a rune here."))
+			to_chat(scribe, SPAN_WARNING("You are unable to write a rune here."))
 			return
 
-		// This counts how many runes exist in the game, for some sort of arbitrary rune limit. I trust the old devs had their reasons. - Geeves
-		if(SScult.check_rune_limit())
-			to_chat(scribe, span("warning", "The cloth of reality can't take that much of a strain. Remove some runes first!"))
-			return
-		else
-			switch(alert("What shall you do with the tome?", "Tome of Nar'sie", "Read it", "Scribe a rune", "Cancel"))
-				if("Cancel")
+		switch(alert("What shall you do with the tome?", "Tome of Nar'sie", "Read it", "Scribe a rune", "Cancel"))
+			if("Cancel")
+				return
+			if("Read it")
+				if(use_check_and_message(user))
 					return
-				if("Read it")
-					if(use_check_and_message(user))
-						return
-					user << browse("[SScult.tome_data]", "window=Arcane Tome")
+				var/datum/browser/tome_win = new(user, "Arcane Tome", "Nar'Sie's Runes")
+				tome_win.set_content(SScult.tome_data)
+				tome_win.add_stylesheet("cult", 'html/browser/cult.css')
+				tome_win.open()
+				return
+			if("Scribe a rune")
+				// This counts how many runes exist in the game, for some sort of arbitrary rune limit. I trust the old devs had their reasons. - Geeves
+				if(SScult.check_rune_limit())
+					to_chat(scribe, SPAN_WARNING("The cloth of reality can't take that much of a strain. Remove some runes first!"))
 					return
 
 		//only check if they want to scribe a rune, so they can still read if standing on a rune
 		if(locate(/obj/effect/rune) in scribe.loc)
-			to_chat(scribe, span("warning", "There is already a rune in this location."))
+			to_chat(scribe, SPAN_WARNING("There is already a rune in this location."))
 			return
 
 		if(use_check_and_message(scribe))
@@ -95,10 +98,10 @@
 			var/area/A = get_area(scribe)
 			if(use_check_and_message(scribe))
 				return
-			
+
 			//prevents using multiple dialogs to layer runes.
 			if(locate(/obj/effect/rune) in get_turf(scribe)) //This is check is done twice. once when choosing to scribe a rune, once here
-				to_chat(scribe, span("warning", "There is already a rune in this location."))
+				to_chat(scribe, SPAN_WARNING("There is already a rune in this location."))
 				return
 
 			log_and_message_admins("created \an [chosen_rune] at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
@@ -108,8 +111,9 @@
 			R.blood_DNA = list()
 			R.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
 			R.color = scribe.species.blood_color
+			R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = scribe.species.blood_color)
 	else
-		to_chat(user, span("cult", "The book seems full of illegible scribbles."))
+		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 
 /obj/item/book/tome/examine(mob/user)
 	..(user)

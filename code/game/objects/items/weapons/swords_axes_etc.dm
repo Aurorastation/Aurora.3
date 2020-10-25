@@ -40,7 +40,7 @@
 	icon_state = "telebaton_0"
 	item_state = "telebaton_0"
 	slot_flags = SLOT_BELT
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	force = 3
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
@@ -54,7 +54,7 @@
 		"You hear an ominous click.")
 		icon_state = "telebaton_1"
 		item_state = "telebaton_1"
-		w_class = 3
+		w_class = ITEMSIZE_NORMAL
 		force = 15//quite robust
 		attack_verb = list("smacked", "struck", "slapped")
 	else
@@ -63,7 +63,7 @@
 		"You hear a click.")
 		icon_state = "telebaton_0"
 		item_state = "telebaton_0"
-		w_class = 2
+		w_class = ITEMSIZE_SMALL
 		force = 3//not so robust now
 		attack_verb = list("hit", "punched")
 
@@ -72,7 +72,7 @@
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 	add_fingerprint(user)
 
 	if(blood_overlay && blood_DNA && (blood_DNA.len >= 1)) //updates blood overlay, if any

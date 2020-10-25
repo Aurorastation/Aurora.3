@@ -20,6 +20,13 @@
 	if(!motivator)
 		to_chat(user, "<span class='warning'>It is missing an actuator.</span>")
 
+/obj/item/mech_component/manipulators/return_diagnostics(mob/user)
+	..()
+	if(motivator)
+		to_chat(user, SPAN_NOTICE(" Actuator Integrity: <b>[round(((motivator.max_dam - motivator.total_dam) / motivator.max_dam)) * 100]%</b>"))
+	else
+		to_chat(user, SPAN_WARNING(" Actuator Missing or Non-functional."))
+
 /obj/item/mech_component/manipulators/ready_to_install()
 	return motivator
 

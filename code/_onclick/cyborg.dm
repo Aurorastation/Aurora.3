@@ -77,6 +77,7 @@
 		//If the gripper contains something, then we will use its contents to attack
 		if (G.wrapped && (G.wrapped.loc == G))
 			GripperClickOn(A, params, G)
+			G.update_icon() //We may need to update our gripper based on a change in the wrapped item
 			return
 
 	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)

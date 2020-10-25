@@ -3,7 +3,7 @@
 	desc = "An antique and delicate looking instrument used to study the stars."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "starscope"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -27,7 +27,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
-			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to \his eye and peers at something unseen.</span>",
+			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to [H.get_pronoun("his")] eye and peers at something unseen.</span>",
 							"<span class='notice'>You see the starry edge of srom floating on the void of space.</span>")
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
@@ -83,7 +83,7 @@
 	desc = "A projector meant to help Federation Skrell feel like theyre carrying home with them wherever they go. It looks very complex."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "projector"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -185,14 +185,14 @@
 
 // Could add some stuff to this in the future? I dunno. I just couldn't figure out how to callback to_chat LOL - geeves
 /obj/item/jargontag/proc/do_loyalty(var/mob/wearer)
-	to_chat(wearer, span("good", "You feel an intense feeling of loyalty towards the Jargon Federation surge through your brain."))
+	to_chat(wearer, SPAN_GOOD("You feel an intense feeling of loyalty towards the Jargon Federation surge through your brain."))
 
 /obj/item/jargontag/proc/clamp_on(var/mob/wearer)
 	if(fried)
 		return
 	canremove = FALSE
 	icon_state = "[initial(icon_state)]_active"
-	to_chat(wearer, span("warning", "\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
+	to_chat(wearer, SPAN_WARNING("\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
 	addtimer(CALLBACK(src, .proc/do_loyalty, wearer), 15)
 
 /obj/item/jargontag/proc/unclamp()
@@ -200,7 +200,7 @@
 		return
 	if(!canremove)
 		icon_state = initial(icon_state)
-		visible_message(span("warning", "\The [src] fizzles loudly, then clicks open!"))
+		visible_message(SPAN_WARNING("\The [src] fizzles loudly, then clicks open!"))
 		canremove = TRUE
 		fried = TRUE
 
@@ -212,5 +212,5 @@
 		unclamp()
 		return TRUE
 	else
-		to_chat(user, span("notice", "\The [src] isn't locked down, your e-mag has no effect!"))
+		to_chat(user, SPAN_NOTICE("\The [src] isn't locked down, your e-mag has no effect!"))
 		return FALSE

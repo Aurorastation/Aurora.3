@@ -11,10 +11,7 @@
 	if(stat)
 		return
 
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending])
-		message += "."
+	message = formalize_text(message)
 
 	if(copytext(message, 1, 2) == "*")
 		return emote(copytext(message, 2))
@@ -31,7 +28,7 @@
 				continue
 			viable_sayers += H
 		if(!length(viable_sayers))
-			to_chat(src, span("notice", "There are no viable hosts to speak with."))
+			to_chat(src, SPAN_NOTICE("There are no viable hosts to speak with."))
 		else
 			var/mob/living/carbon/human/chosen_sayer = pick(viable_sayers)
 			log_say("[key_name(src)] : ([name]) [message]", ckey=key_name(src))

@@ -54,7 +54,7 @@
 	desc = "Commonly worn by Preimmients, these robes are meant to catch pheromones, obfuscating hive affiliation."
 	icon_state = "shaper_robes"
 	item_state = "shaper_robes"
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 
 /obj/item/clothing/suit/vaurca/mantle
 	name = "vaurcan mantle"
@@ -70,5 +70,5 @@
 	item_state = "representative_clothes"
 	icon_state = "representative_clothes"
 	contained_sprite = FALSE
-	species_restricted = list("Vaurca Breeder")
-	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi')
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi')

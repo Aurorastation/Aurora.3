@@ -33,10 +33,10 @@
 
 	if(!src.incorporeal_move)
 		src.incorporeal_move = 2
-		to_chat(src, span("notice", "You will now phase through solid matter."))
+		to_chat(src, SPAN_NOTICE("You will now phase through solid matter."))
 	else
 		src.incorporeal_move = 0
-		to_chat(src, span("notice", "You will no-longer phase through solid matter."))
+		to_chat(src, SPAN_NOTICE("You will no-longer phase through solid matter."))
 	return
 
 /mob/living/silicon/robot/bluespace/verb/bstrecover()
@@ -52,7 +52,7 @@
 	set desc = "Activate bluespace to leave and return to your original mob (if you have one)."
 	set category = "BST"
 
-	src.custom_emote(1, "politely beeps as its lights start to flash.")
+	src.custom_emote(VISIBLE_MESSAGE, "politely beeps as its lights start to flash.")
 	spark(src, 5, alldirs)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
@@ -74,4 +74,4 @@
 	set category = "BST"
 
 	status_flags ^= GODMODE
-	to_chat(src, span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
+	to_chat(src, SPAN_NOTICE("God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))

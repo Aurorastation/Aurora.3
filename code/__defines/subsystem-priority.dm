@@ -22,7 +22,8 @@
 #define SS_INIT_SUNLIGHT    2	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
 #define SS_INIT_LIGHTING    1	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
 #define SS_INIT_ZCOPY       0	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
-#define SS_INIT_LOBBY      -1	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last.
+#define SS_INIT_LOBBY      -1	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
+#define SS_INIT_CHAT       -2	// To ensure chat remains smooth during init.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
@@ -47,6 +48,7 @@
 #define SS_PRIORITY_LIGHTING    50	// Queued lighting engine updates.
 #define SS_PRIORITY_MOB         30	// Mob Life().
 #define SS_PRIORITY_AIR         30	// ZAS processing.
+#define SS_PRIORITY_CHAT        30  // Chat
 #define SS_PRIORITY_NANOUI      20	// UI updates.
 #define SS_PRIORITY_VOTE        20
 #define SS_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
@@ -60,6 +62,7 @@
 #define SS_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
 #define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
+#define SS_PRIORITY_PING        10
 #define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
 
 // SS_BACKGROUND

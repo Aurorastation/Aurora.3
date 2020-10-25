@@ -20,7 +20,7 @@
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/wristbound/preset/advanced/cargo
-	icon_state = "wristbound_supply"
+	icon_state = "wristbound_cargo"
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
 	enrolled = 1
 

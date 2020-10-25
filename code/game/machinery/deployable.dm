@@ -60,6 +60,8 @@ for reference:
 	desc = "This space is blocked off by a barricade."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "barricade"
+
+	build_amt = 5
 	anchored = 1.0
 	density = 1.0
 	var/health = 100
@@ -111,11 +113,6 @@ for reference:
 			qdel(src)
 			return
 		..()
-
-/obj/structure/barricade/proc/dismantle()
-	material.place_dismantled_product(get_turf(src))
-	qdel(src)
-	return
 
 /obj/structure/barricade/ex_act(severity)
 	switch(severity)
@@ -279,22 +276,22 @@ for reference:
 	var/assembly_time = 8 SECONDS
 
 /obj/item/deployable_kit/attack_self(mob/user)
-	to_chat(user, span("notice","You start assembling \the [src]..."))
+	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
 	if(do_after(user, assembly_time))
 		assemble_kit(user)
 		qdel(src)
 
 /obj/item/deployable_kit/proc/assemble_kit(mob/user)
-	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
+	playsound(src.loc, 'sound/items/screwdriver.ogg', 25, 1)
 	var/atom/A = new kit_product(user.loc)
-	user.visible_message(span("notice","[user] assembles \a [A]."),span("notice","You assemble \a [A]."))
+	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), SPAN_NOTICE("You assemble \a [A]."))
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier
 	name = "legion barrier kit"
 	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
 	icon_state = "barrier_kit"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
@@ -303,7 +300,7 @@ for reference:
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	item_state = "table_parts"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/machinery/optable
 	assembly_time = 20 SECONDS
 
@@ -328,7 +325,7 @@ for reference:
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
 
@@ -338,7 +335,7 @@ for reference:
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_box"
 	item_state = "syringe_kit"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
 
@@ -350,6 +347,13 @@ for reference:
 	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/structure/bed/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
+
+/obj/item/deployable_kit/remote_mech/attack_self(mob/user)
+	var/area/A = get_area(user)
+	if(!A.powered(EQUIP))
+		to_chat(user, SPAN_WARNING("\The [src] can not be deployed in an unpowered area."))
+		return FALSE
+	..()
 
 /obj/item/deployable_kit/remote_mech/brig
 	name = "brig mech control centre assembly kit"

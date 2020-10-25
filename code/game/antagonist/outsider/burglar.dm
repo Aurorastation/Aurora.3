@@ -46,8 +46,8 @@ var/datum/antagonist/burglar/burglars
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/raider/burglar, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/raider/burglar, FALSE)
+	player.preEquipOutfit(/datum/outfit/admin/syndicate/burglar, FALSE)
+	player.equipOutfit(/datum/outfit/admin/syndicate/burglar, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

@@ -87,8 +87,8 @@
 
 /obj/screen/ai/crew_manifest/Click()
 	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.show_station_manifest()
+		var/windowname = open_crew_manifest(usr)
+		onclose(usr, windowname)
 
 /obj/screen/ai/alerts
 	name = "Show Alerts"
@@ -188,7 +188,10 @@
 /obj/screen/ai/remote_mech/Click()
 	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.remote_control_mech()
+		if(AI.anchored)
+			AI.remote_control_mech()
+		else
+			to_chat(AI, SPAN_WARNING("You are unable to get a good connection while unanchored from the station systems."))
 
 /obj/screen/ai/move_up
 	name = "Move Up"

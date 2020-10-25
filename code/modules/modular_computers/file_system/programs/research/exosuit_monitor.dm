@@ -1,6 +1,6 @@
 /datum/computer_file/program/exosuit_monitor
 	filename = "exosuitmonitor"
-	filedesc = "Exosuit monitoring and control"
+	filedesc = "Exosuit Monitoring and Control"
 	nanomodule_path = /datum/nano_module/exosuit_control
 	program_icon_state = "mecha"
 	extended_desc = "This program allows remote monitoring and administration of exosuits with tracking beacons installed."

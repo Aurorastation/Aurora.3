@@ -68,7 +68,7 @@
 
 				if (reagents.get_reagent_amount(/datum/reagent/blood) < 1)
 					break
-			user.visible_message("<span class='warning'>[user] licks \his fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
+			user.visible_message("<span class='warning'>[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
 			being_feed = FALSE
 	else
 		..()

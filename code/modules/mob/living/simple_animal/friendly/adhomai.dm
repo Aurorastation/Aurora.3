@@ -11,6 +11,7 @@
 	emote_see = list("whistles")
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	meat_amount = 2
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	hunger_enabled = FALSE
 	canbrush = TRUE
 	var/eggsleft = 0
@@ -21,8 +22,8 @@
 		if(G.seed && G.seed.kitchen_tag == "nfrihi")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					span("notice", "\The [user] feeds \the [O] to \the [name]! It whistles happily."),
-					span("notice", "You feed \the [O] to \the [name]! It whistles happily."),
+					SPAN_NOTICE("\The [user] feeds \the [O] to \the [name]! It whistles happily."),
+					SPAN_NOTICE("You feed \the [O] to \the [name]! It whistles happily."),
 					"You hear a cluck.")
 				user.drop_from_inventory(O,get_turf(src))
 				qdel(O)
@@ -57,6 +58,7 @@
 	turns_per_move = 5
 	see_in_dark = 6
 	meat_amount = 30
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -88,6 +90,7 @@
 	stop_automated_movement_when_pulled = 0
 	mob_size = 12
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 
 	maxHealth = 150
 	health = 150
@@ -126,6 +129,7 @@
 	milk_type = /datum/reagent/drink/milk
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
+	organ_names = list("head", "chest", "fatty core", "blubberous torso", "thick centre", "left leg", "right leg")
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 5)
 
 	holder_type = /obj/item/holder/schlorrgo
@@ -147,3 +151,8 @@
 	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
 	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)
 	make_noise()
+
+/mob/living/simple_animal/schlorrgo/fall_impact()
+	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
+	step(src, pick(alldirs), 1)
+	return FALSE

@@ -12,6 +12,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/crabmeat
+	organ_names = list("head", "carapace")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"

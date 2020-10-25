@@ -657,6 +657,34 @@ default behaviour is:
 		for(var/mob/living/carbon/slime/M in view(1,src))
 			M.UpdateFeed(src)
 
+	// Other viewers only need to update their vision for this moving mob, not their entire cone, as they are stationary
+	for(var/viewer in oviewers(world.view, src))
+		var/mob/living/M = viewer
+		if(M.client && istype(M) && M.can_have_vision_cone)
+			if(M.client.view != world.view && get_dist(M, src) > M.client.view)
+				continue
+			else
+				var/turf/T = get_turf(M)
+				var/turf/Ts = get_turf(src)
+				if(Ts.InConeDirection(T, reverse_direction(M.dir)))
+					if(!(src in M.client.hidden_mobs))
+						if(M.InCone(T, M.dir))
+							M.add_to_mobs_hidden_atoms(src)
+					Ts.show_footsteps(M, T, src)
+				else
+					if(src in M.client.hidden_mobs)
+						M.client.hidden_mobs -= src
+						for(var/image in M.client.hidden_atoms)
+							var/image/I = image
+							if(I.loc == src)
+								I.override = FALSE
+								M.client.hidden_atoms -= I
+								M.client.images -= I
+								QDEL_IN(I, 1 SECONDS)
+								break
+
+	update_vision_cone()
+
 /mob/living/verb/resist()
 	set name = "Resist"
 	set category = "IC"
@@ -707,6 +735,8 @@ default behaviour is:
 		to_chat(src, "<span class='warning'>You struggle free of \the [H.loc].</span>")
 		H.forceMove(get_turf(H))
 
+	can_have_vision_cone = initial(can_have_vision_cone)
+
 /mob/living/proc/escape_buckle()
 	if(buckled)
 		buckled.user_unbuckle_mob(src)
@@ -736,27 +766,27 @@ default behaviour is:
 					resist_chance = 30 * resist_power
 				else
 					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
-				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
 				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 50 * resist_power
-				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
 				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 3 * resist_power
-				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
+				resist_msg = SPAN_DANGER("[src] has broken free of [G.assailant]'s headlock!")
 
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
 
 	if(resisting)
-		visible_message(span("warning", "[src] resists!"))
+		visible_message(SPAN_WARNING("[src] resists!"))
 		setClickCooldown(25)
 
 /mob/living/verb/lay_down()
@@ -764,7 +794,8 @@ default behaviour is:
 	set category = "IC"
 
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
+	update_vision_cone()
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
@@ -924,7 +955,10 @@ default behaviour is:
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
 
-/mob/living/update_icons()
+/mob/living/proc/InStasis()
+	return FALSE
+
+/mob/living/update_icon()
 	for(var/aura in auras)
 		var/obj/aura/A = aura
 		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
@@ -932,13 +966,23 @@ default behaviour is:
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
 	LAZYDISTINCTADD(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/remove_aura(var/obj/aura/aura)
 	LAZYREMOVE(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
+
+/mob/living/proc/apply_radiation_effects()
+	var/area/A = get_area(src)
+	if(!A)
+		return FALSE
+	if(isNotStationLevel(A.z))
+		return FALSE
+	if(A.flags & RAD_SHIELDED)
+		return FALSE
+	. = TRUE
 
 /mob/living/Destroy()
 	if(auras)
@@ -948,3 +992,13 @@ default behaviour is:
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE
+
+//called when the mob receives a bright flash
+/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(override_blindness_check || !(disabilities & BLIND))
+		..()
+		overlay_fullscreen("flash", type)
+		spawn(25)
+			if(src)
+				clear_fullscreen("flash", 25)
+		return 1

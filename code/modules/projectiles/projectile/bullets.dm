@@ -5,7 +5,7 @@
 	damage_type = BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	nodamage = FALSE
-	check_armour = "bullet"
+	check_armor = "bullet"
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
@@ -67,7 +67,6 @@
 	name = "shrapnel" //'shrapnel' sounds more dangerous (i.e. cooler) than 'pellet'
 	icon_state = "pellets"
 	damage = 20
-	//icon_state = "bullet" //TODO: would be nice to have it's own icon state
 	var/pellets = 4			//number of pellets
 	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
@@ -128,15 +127,15 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong
-	damage = 60
+	damage = 30
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/revolver
-	damage = 45
-	armor_penetration = 15
+	damage = 30
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 5
 	agony = 40
 	embed = 0
@@ -149,7 +148,7 @@
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 10
 	agony = 60
 	embed = 0
@@ -157,12 +156,28 @@
 
 /obj/item/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 5
 	agony = 0
 	embed = 0
 	sharp = 0
 	incinerate = 10
+
+/obj/item/projectile/bullet/tracking
+	name = "tracking shot"
+	damage = 20
+	embed_chance = 60 // this thing was designed to embed, so it has a 80% base chance to embed (damage + this flat increase)
+	agony = 20
+	shrapnel_type = /obj/item/implant/tracking
+
+/obj/item/projectile/bullet/tracking/do_embed(obj/item/organ/external/organ)
+	. = ..()
+	if(.)
+		var/obj/item/implant/tracking/T = .
+		T.implanted = TRUE
+		T.imp_in = organ.owner
+		T.part = organ
+		LAZYADD(organ.implants, T)
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
@@ -181,17 +196,17 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	armor_penetration = 20
 	penetrating = 1
+	armor_penetration = 20
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 25
+	damage = 35
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 25
+	damage = 30
 	armor_penetration = 25
 
 /obj/item/projectile/bullet/rifle/a145
@@ -324,7 +339,7 @@
 	icon_state = "flechette_bullet"
 	damage = 40
 	damage_type = BRUTE
-	check_armour = "bullet"
+	check_armor = "bullet"
 	embed = 1
 	sharp = 1
 	penetrating = 1
@@ -339,7 +354,7 @@
 /obj/item/projectile/bullet/gauss
 	name = "slug"
 	icon_state = "heavygauss"
-	damage = 30
+	damage = 45
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
 
@@ -390,3 +405,12 @@
 	new /obj/effect/temp_visual/nuke(A.loc)
 	explosion(A,2,5,9)
 	..()
+
+/obj/item/projectile/bullet/shard
+	name = "shard"
+	icon_state = "shard"
+	damage = 15
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
+/obj/item/projectile/bullet/shard/heavy
+	damage = 30

@@ -13,6 +13,7 @@
 	amt_dam_fire = -50
 	amt_dam_oxy = -50
 	amt_dam_tox = -50
+	amt_organ = -15
 
 	hud_state = "gen_dissolve"
 
@@ -26,5 +27,6 @@
 	amt_dam_fire *= 2
 	amt_dam_oxy *= 2
 	amt_dam_tox *= 2
+	amt_organ *= 2
 
 	return "You will now heal twice as much, but take twice as much damage. It will probably kill you."

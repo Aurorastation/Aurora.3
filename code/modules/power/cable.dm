@@ -97,12 +97,12 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/hide(var/i)
 	if(istype(loc, /turf))
 		invisibility = i ? 101 : 0
-	updateicon()
+	update_icon()
 
 /obj/structure/cable/hides_under_flooring()
 	return TRUE
 
-/obj/structure/cable/proc/updateicon()
+/obj/structure/cable/update_icon()
 	icon_state = "[d1]-[d2]"
 	alpha = invisibility ? 127 : 255
 
@@ -148,7 +148,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 		for(var/mob/O in viewers(src, null))
 			O.show_message(SPAN_WARNING("[user] cuts the cable."), 1)
-			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 
 		if(d1 == 11 || d2 == 11)
 			var/turf/turf = GetBelow(src)
@@ -567,7 +567,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
+		if(M.isSynthetic() && M == user && !(M.get_species() == SPECIES_IPC_TERMINATOR))
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
@@ -598,7 +598,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			)
 			affecting.heal_damage(burn = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_NOTICE("\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."))
-			playsound(target, 'sound/items/Wirecutter.ogg', 15)
+			playsound(target, 'sound/items/wirecutter.ogg', 15)
 			repair_organ(user, target, affecting)
 		else
 			to_chat(user, SPAN_WARNING("You don't have enough cable for this!"))
@@ -653,26 +653,27 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil/examine(mob/user)
 	..()
-	to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s of cable in the coil.")
+	to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
 
-/obj/item/stack/cable_coil/verb/make_restraint(mob/user)
+/obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
 	set category = "Object"
-	var/mob/M = user
 
-	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
-		if(!istype(user.loc,/turf)) return
-		if(src.amount <= 14)
-			to_chat(user, SPAN_WARNING("You need at least 15 lengths to make restraints!"))
+	if(ishuman(usr) && !usr.restrained() && !usr.stat && !usr.paralysis && ! usr.stunned)
+		if(!isturf(usr.loc))
 			return
-		to_chat(user, SPAN_NOTICE("You start winding some cable together to make some restraints."))
-		if(do_after(user, 150))
-			new/obj/item/handcuffs/cable(user.loc, color)
-			to_chat(user, SPAN_NOTICE("You wind some cable together to make some restraints."))
+		if(src.amount <= 14)
+			to_chat(usr, SPAN_WARNING("You need at least 15 lengths to make restraints!"))
+			return
+		to_chat(usr, SPAN_NOTICE("You start winding some cable together to make some restraints."))
+		if(do_after(usr, 150))
+			var/obj/item/handcuffs/cable/cuffs = new /obj/item/handcuffs/cable(usr.loc, color)
+			to_chat(usr, SPAN_NOTICE("You wind some cable together to make some restraints."))
 			playsound(src.loc, 'sound/weapons/cablecuff.ogg', 30, 1, -2)
-			src.use(15)
+			use(15)
+			usr.put_in_hands(cuffs)
 	else
-		to_chat(user, SPAN_WARNING("You cannot do that."))
+		to_chat(usr, SPAN_WARNING("You cannot do that."))
 
 /obj/item/stack/cable_coil/cyborg
 	name = "cable coil synthesizer"
@@ -767,7 +768,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			C.d1 = 11
 			C.d2 = dirn
 			C.add_fingerprint(user)
-			C.updateicon()
+			C.update_icon()
 
 			var/datum/powernet/PN = new()
 			PN.add_cable(C)
@@ -780,7 +781,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			D.d1 = 12
 			D.d2 = 0
 			D.add_fingerprint(user)
-			D.updateicon()
+			D.update_icon()
 
 			PN.add_cable(D)
 			D.mergeConnectedNetworksOnTurf()
@@ -801,7 +802,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			C.d1 = 0 //it's a O-X node cable
 			C.d2 = dirn
 			C.add_fingerprint(user)
-			C.updateicon()
+			C.update_icon()
 
 			//create a new powernet with the cable, if needed it will be merged later
 			var/datum/powernet/PN = new()
@@ -865,7 +866,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			NC.d1 = 0
 			NC.d2 = fdirn
 			NC.add_fingerprint()
-			NC.updateicon()
+			NC.update_icon()
 
 			//create a new powernet with the cable, if needed it will be merged later
 			var/datum/powernet/newPN = new()
@@ -912,7 +913,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		C.d2 = nd2
 
 		C.add_fingerprint()
-		C.updateicon()
+		C.update_icon()
 
 
 		C.mergeConnectedNetworks(C.d1) //merge the powernets...
@@ -1019,7 +1020,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(I.iswirecutter())
 		user.visible_message("[user] cuts the noose.",
 							 SPAN_NOTICE("You cut the noose."))
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		if(buckled_mob)
 			buckled_mob.visible_message(SPAN_DANGER("[buckled_mob] falls over and hits the ground!"),\
 										SPAN_DANGER("You fall over and hit the ground!"))

@@ -38,7 +38,7 @@
 		R = new /obj/structure/closet/airbubble(user.loc)
 	if(!used)
 		internal_tank = new /obj/item/tank/emergency_oxygen/engi(src)
-		internal_tank.air_contents.adjust_gas("oxygen", (42*ONE_ATMOSPHERE)/(R_IDEAL_GAS_EQUATION*T20C))
+		internal_tank.air_contents.adjust_gas(GAS_OXYGEN, (42*ONE_ATMOSPHERE)/(R_IDEAL_GAS_EQUATION*T20C))
 	R.internal_tank = internal_tank
 	if(!isnull(internal_tank))
 		internal_tank.forceMove(R)
@@ -81,6 +81,7 @@
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
+	slowdown = 0
 
 // Examine to see tank pressure
 /obj/structure/closet/airbubble/examine(mob/user)
@@ -449,7 +450,7 @@
 		"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
-		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 			return
 		zipped = !zipped
@@ -611,7 +612,7 @@
 	inside_air = new
 	inside_air.temperature = T20C
 	inside_air.volume = 2
-	inside_air.adjust_multi("oxygen", O2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature), "nitrogen", N2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature))
+	inside_air.adjust_multi(GAS_OXYGEN, O2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature), GAS_NITROGEN, N2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature))
 	return inside_air
 
 // Syndicate airbubble

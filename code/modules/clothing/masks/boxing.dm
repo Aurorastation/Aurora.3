@@ -5,7 +5,7 @@
 	item_state = "balaclava_black"
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|HEAD
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	action_button_name = "Toggle Face Concealing"
 
 /obj/item/clothing/mask/balaclava/attack_self(mob/user as mob)
@@ -64,7 +64,7 @@
 	item_state = "luchag"
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/mask/luchador/tecnicos

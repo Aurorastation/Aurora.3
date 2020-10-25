@@ -995,7 +995,7 @@
 /area/tcommsat/computer)
 "dp" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "dq" = (

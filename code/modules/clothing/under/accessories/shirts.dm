@@ -66,6 +66,24 @@
 	icon_state = "dressshirt_r"
 	item_state = "dressshirt_r"
 
+/obj/item/clothing/accessory/dressshirt_crop
+	name = "cropped dress shirt"
+	desc = "A casual cropped dress shirt."
+	icon_state = "dressshirt_crop"
+	item_state = "dressshirt_crop"
+
+/obj/item/clothing/accessory/dressshirt_crop_r
+	name = "cropped dress shirt"
+	desc = "A casual cropped dress shirt. This one has its sleeves rolled up."
+	icon_state = "dressshirt_crop_r"
+	item_state = "dressshirt_crop_r"
+
+/obj/item/clothing/accessory/blouse
+	name = "blouse"
+	desc = "A loose fitting garment."
+	icon_state = "blouse"
+	item_state = "blouse"
+
 //Legacy
 /obj/item/clothing/accessory/wcoat
 	name = "waistcoat"
@@ -104,6 +122,12 @@
 	icon_state = "tshirt"
 	item_state = "tshirt"
 
+/obj/item/clothing/accessory/tshirt_crop
+	name = "cropped t-shirt"
+	desc = "A simple, cheap cropped t-shirt."
+	icon_state = "tshirt_crop"
+	item_state = "tshirt_crop"
+
 /obj/item/clothing/accessory/silversun
 	name = "silversun floral shirt"
 	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is cyan."
@@ -130,7 +154,7 @@
 	open = !open
 	icon_state = "[initial(icon_state)][open ? "_open" : ""]"
 	item_state = icon_state
-	to_chat(user, span("notice", "You [open ? "open" : "close"] \the [src]."))
+	to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
 	// the below forces the shirt to hard reset its image so it resets later its fucking weird ok
 	inv_overlay = null
 	mob_overlay = null

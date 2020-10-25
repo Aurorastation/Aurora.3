@@ -15,11 +15,11 @@
 /obj/item/storage
 	name = "storage"
 	icon = 'icons/obj/storage.dmi'
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
 	var/list/cant_hold //List of objects which this item can't store (in effect only if can_hold isn't set)
 	var/list/is_seeing //List of mobs which are currently seeing the contents of this item's storage
-	var/max_w_class = 3 //Max size of objects that this object can store (in effect only if can_hold isn't set)
+	var/max_w_class = ITEMSIZE_NORMAL //Max size of objects that this object can store (in effect only if can_hold isn't set)
 	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
 	var/storage_slots //The number of storage slots in this container.
 	var/obj/screen/storage/boxes
@@ -37,7 +37,7 @@
 	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
 	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
-	var/use_sound = "rustle"	//sound played when used. null for no sound.
+	var/use_sound = /decl/sound_category/rustle_sound	//sound played when used. null for no sound.
 	var/list/starts_with // for pre-filled items
 	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
 
@@ -52,6 +52,11 @@
 	QDEL_NULL(stored_end)
 	QDEL_NULL(closer)
 	return ..()
+
+/obj/item/storage/examine(mob/user)
+	. = ..()
+	if(isobserver(user))
+		to_chat(user, "It contains: [counting_english_list(contents)]")
 
 /obj/item/storage/MouseDrop(obj/over_object)
 	if(!canremove)
@@ -362,6 +367,8 @@
 		user.prepare_for_slotmove(W)
 	W.forceMove(src)
 	W.on_enter_storage(src)
+	if(use_sound)
+		playsound(src.loc, src.use_sound, 50, 0, -5)
 	if(user)
 		W.dropped(user)
 		if(!istype(W, /obj/item/forensics))
@@ -373,7 +380,7 @@
 					to_chat(usr, "<span class='notice'>You put \the [W] into [src].</span>")
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
 					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
-				else if (W && W.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
+				else if (W && W.w_class >= ITEMSIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
 					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
 
 		orient2hud(user)
@@ -397,7 +404,7 @@
 
 /obj/item/storage/proc/handle_storage_deferred(mob/user)
 	add_fingerprint(user)
-	user.update_icons()
+	user.update_icon()
 	orient2hud(user)
 	if (user.s_active)
 		user.s_active.show_to(user)
@@ -408,8 +415,8 @@
 	if(!istype(W))
 		return FALSE
 
-	if(istype(src, /obj/item/storage/fancy))
-		var/obj/item/storage/fancy/F = src
+	if(istype(src, /obj/item/storage/box/fancy))
+		var/obj/item/storage/box/fancy/F = src
 		F.update_icon(TRUE)
 
 	for(var/mob/M in range(1, get_turf(src)))
@@ -472,7 +479,7 @@
 		user.s_active.show_to(user)
 
 	// who knows what the fuck this does
-	if (istype(src, /obj/item/storage/fancy))
+	if (istype(src, /obj/item/storage/box/fancy))
 		update_icon(1)
 	else
 		update_icon()
@@ -484,7 +491,6 @@
 		return
 
 	return handle_item_insertion(W, prevent_messages)
-
 
 /obj/item/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -515,6 +521,11 @@
 		if(T.current_weight > 0)
 			T.spill(user)
 			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
+			return
+
+	if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if(HL.mode == 1)
 			return
 
 	W.add_fingerprint(user)
@@ -734,15 +745,15 @@
 	if (storage_cost)
 		return storage_cost
 	else
-		if(w_class == 1)
+		if(w_class == ITEMSIZE_TINY)
 			return 1
-		if(w_class == 2)
+		if(w_class == ITEMSIZE_SMALL)
 			return 2
-		if(w_class == 3)
+		if(w_class == ITEMSIZE_NORMAL)
 			return 4
-		if(w_class == 4)
+		if(w_class == ITEMSIZE_LARGE)
 			return 8
-		if(w_class == 5)
+		if(w_class == ITEMSIZE_HUGE)
 			return 16
 		else
 			return 1000

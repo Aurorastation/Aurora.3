@@ -15,7 +15,7 @@
 		else
 			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Artificer")
 
-		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armoured,
+		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armored,
 											   "Wraith"     = /mob/living/simple_animal/construct/wraith,
 											   "Artificer"  = /mob/living/simple_animal/construct/builder,
 											   "Harvester"  = /mob/living/simple_animal/construct/harvester)
@@ -42,11 +42,11 @@
 /datum/rune/armor/proc/construct_msg(mob/living/construct, var/type)
 	switch(type)
 		if("Juggernaut")
-			to_chat(construct, span("cult", "You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike."))
+			to_chat(construct, SPAN_CULT("You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike."))
 		if("Wraith")
-			to_chat(construct, span("cult", "You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls."))
+			to_chat(construct, SPAN_CULT("You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls."))
 		if("Artificer")
-			to_chat(construct, span("cult", "You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs"))
+			to_chat(construct, SPAN_CULT("You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs"))
 		if("Harvester")
-			to_chat(construct, span("cult", "You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer."))
-	to_chat(construct, span("cult", "You are still bound to serve your creator, follow their orders and help them complete their goals at all costs."))
+			to_chat(construct, SPAN_CULT("You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer."))
+	to_chat(construct, SPAN_CULT("You are still bound to serve your creator, follow their orders and help them complete their goals at all costs."))
