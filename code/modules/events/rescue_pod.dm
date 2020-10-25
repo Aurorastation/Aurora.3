@@ -26,9 +26,6 @@
     if(prob(33)) // Make a silent drop more likely since they're spooky burglar
         ..()
 
-/datum/event/rescue_pod/burglar/setup()
-    . = ..()
-
 /datum/event/rescue_pod/burglar/start()
     if(istype(spawner))
         spawner.enable()

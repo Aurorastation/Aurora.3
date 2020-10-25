@@ -2,9 +2,9 @@
     no_fake = 1
     var/datum/ghostspawner/human/visitor/spawner
 
-/datum/event/rescue_pod/setup()
+/datum/event/visitor/setup()
     spawner = SSghostroles.get_spawner("visitor")
 
-/datum/event/rescue_pod/start()
+/datum/event/visitor/start()
     if(istype(spawner))
         spawner.enable()
