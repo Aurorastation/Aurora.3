@@ -49,22 +49,14 @@
 		),
 		"theatre" = new /datum/holodeck_program(/area/holodeck/source_theatre),
 		"meetinghall" = new /datum/holodeck_program(/area/holodeck/source_meetinghall),
-		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom, 
+		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom,
 			list('sound/music/traitor.ogg')
 		),
 		"burntest" = new /datum/holodeck_program(/area/holodeck/source_burntest, list()),
 		"wildlifecarp" = new /datum/holodeck_program(/area/holodeck/source_wildlife, list()),
-		"chapel" = new /datum/holodeck_program(/area/holodeck/source_chapel,
-			list(
-				'sound/ambience/ambicha1.ogg',
-				'sound/ambience/ambicha2.ogg',
-				'sound/ambience/ambicha3.ogg',
-				'sound/ambience/ambicha4.ogg',
-				'sound/music/traitor.ogg'
-			)
-		),
+		"chapel" = new /datum/holodeck_program(/area/holodeck/source_chapel, list()),
 		"gym" = new /datum/holodeck_program(/area/holodeck/source_gym),
-		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters, 
+		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters,
 			list(
 				'sound/music/battlemonsters_theme.ogg'
 			),
