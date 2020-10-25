@@ -515,8 +515,10 @@
 /obj/machinery/porta_turret/proc/scan_for_targets(var/list/targets, var/list/secondarytargets)
 	for(var/v in view(world.view, src))
 		if(isliving(v))
-			var/mob/living/L = v
-			assess_and_assign(L, targets, secondarytargets)
+			assess_and_assign_living(v, targets, secondarytargets)
+
+		else if(istype(v,/obj/structure/closet))
+			assess_and_assign_closet(v, targets, secondarytargets)
 
 /obj/machinery/porta_turret/proc/reset()
 	if(!targets.len && !secondarytargets.len)
@@ -683,6 +685,9 @@
 	density = raised || raising
 
 /obj/machinery/porta_turret/proc/check_line_of_fire(var/atom/target)
+	if (!target)
+		return FALSE
+
 	for (var/V in check_trajectory(target, src, pass_flags=flags))
 		for (var/type in types_to_avoid)
 			if (istype(V, type))
