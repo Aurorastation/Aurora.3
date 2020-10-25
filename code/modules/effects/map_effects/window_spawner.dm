@@ -2,6 +2,7 @@
 	name = "window grille spawner"
 	icon_state = "wingrille"
 	var/win_path = /obj/structure/window/basic
+	var/grill_path = /obj/structure/grille
 	var/spawn_firedoor = FALSE
 	var/activated
 
@@ -33,8 +34,8 @@
 		return
 	if(spawn_firedoor)
 		new /obj/machinery/door/firedoor(loc)
-	if (!locate(/obj/structure/grille) in get_turf(src))
-		var/obj/structure/grille/G = new /obj/structure/grille(src.loc)
+	if (!locate(grill_path) in get_turf(src))
+		var/obj/structure/grille/G = new grill_path(src.loc)
 		handle_grille_spawn(G)
 	var/list/neighbours = list()
 	for (var/dir in cardinal)
@@ -42,7 +43,7 @@
 		var/obj/effect/map_effect/wingrille_spawn/other = locate(/obj/effect/map_effect/wingrille_spawn) in T
 		if(!other)
 			var/found_connection
-			if(locate(/obj/structure/grille) in T)
+			if(locate(grill_path) in T)
 				for(var/obj/structure/window/W in T)
 					if(W.type == win_path && W.dir == get_dir(T,src))
 						found_connection = 1
@@ -73,6 +74,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent
 	name = "Crescent window grille spawner"
 	win_path = /obj/structure/window/reinforced/crescent
+	grill_path = /obj/structure/grille/crescent
 
 /obj/effect/map_effect/wingrille_spawn/phoron
 	name = "phoron window grille spawner"
