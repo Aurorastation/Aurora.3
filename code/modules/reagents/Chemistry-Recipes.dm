@@ -794,6 +794,17 @@
 /datum/chemical_reaction/plastication/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/stack/material/plastic(get_turf(holder.my_atom), created_volume)
 	return
+	
+/datum/chemical_reaction/uraniumsolidification
+    name = "Uranium"
+    id = "soliduranium"
+    result = null
+    required_reagents = list(/datum/reagent/potassium = 5, /datum/reagent/frostoil = 5, /datum/reagent/uranium = 20)
+    result_amount = 1
+
+/datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+    new /obj/item/stack/material/uranium(get_turf(holder.my_atom), created_volume)
+    return
 
 /* Grenade reactions */
 
@@ -1333,7 +1344,6 @@
 		/mob/living/simple_animal/hostile/commanded/dog/columbo,
 		/mob/living/simple_animal/hostile/commanded/dog/pug,
 		/mob/living/simple_animal/hostile/commanded/bear,
-		/mob/living/simple_animal/hostile/commanded/baby_harvester,
 		/mob/living/simple_animal/hostile/greatworm,
 		/mob/living/simple_animal/hostile/lesserworm,
 		/mob/living/simple_animal/hostile/greatwormking,
