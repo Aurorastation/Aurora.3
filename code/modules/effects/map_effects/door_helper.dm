@@ -6,7 +6,8 @@
 
 /obj/effect/map_effect/door_helper/unres/Initialize(mapload, ...)
 	..()
-	var/obj/machinery/door/D = locate() in loc
-	if(D)
+	for(var/obj/machinery/door/D in loc)
+		if(istype(D, /obj/machinery/door/blast) || istype(D, /obj/machinery/door/firedoor))
+			continue
 		D.unres_dir ^= dir
 	return INITIALIZE_HINT_QDEL
