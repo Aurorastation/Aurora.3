@@ -81,6 +81,7 @@
 	if (!id_tag)
 		assign_uid()
 		id_tag = num2text(uid)
+	setup_radio()
 
 /obj/machinery/atmospherics/unary/vent_pump/proc/setup_radio()
 	//some vents work his own special way
