@@ -5,7 +5,8 @@
 	icon_state = "unres_door"
 
 /obj/effect/map_effect/door_helper/unres/Initialize(mapload, ...)
-	. = ..()
+	..()
 	var/obj/machinery/door/D = locate() in loc
 	if(D)
 		D.unres_dir ^= dir
+	return INITIALIZE_HINT_QDEL
