@@ -27,7 +27,7 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/pistol
-	damage = 50
+	damage = 30
 
 /obj/item/projectile/beam/pistol/hegemony
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
@@ -339,7 +339,7 @@
 
 /obj/item/projectile/beam/thermaldrill/turret
 	name = "thermal drill turret"
-	damage = 35
+	damage = 50
 
 /obj/item/projectile/beam/thermaldrill/on_impact(var/atom/A)
 	if(isturf(A))
