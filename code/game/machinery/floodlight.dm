@@ -1,14 +1,15 @@
 
 /obj/machinery/floodlight
-	name = "Emergency Floodlight"
+	name = "emergency floodlight"
 	icon = 'icons/obj/machines/floodlight.dmi'
 	icon_state = "flood00"
-	density = 1
-	var/on = 0
+	density = TRUE
+	obj_flags = OBJ_FLAG_ROTATABLE
+	var/on = FALSE
 	var/obj/item/cell/high/cell = null
 	var/use = 200 // 200W light
-	var/unlocked = 0
-	var/open = 0
+	var/unlocked = FALSE
+	var/open = FALSE
 	var/brightness_on = 12		//can't remember what the maxed out value is
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_wedge = LIGHT_WIDE
@@ -44,16 +45,16 @@
 // Returns 0 on failure and 1 on success
 /obj/machinery/floodlight/proc/turn_on(var/loud = 0)
 	if(!cell)
-		return 0
+		return FALSE
 	if(cell.charge < (use * CELLRATE))
-		return 0
+		return FALSE
 
 	on = 1
 	set_light(brightness_on, 1)
 	update_icon()
 	if(loud)
 		visible_message("\The [src] turns on.")
-	return 1
+	return TRUE
 
 /obj/machinery/floodlight/proc/turn_off(var/loud = 0)
 	on = 0
