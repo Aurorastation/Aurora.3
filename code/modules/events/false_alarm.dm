@@ -31,6 +31,7 @@
 	var/fake_allowed = 0
 	while (!fake_allowed)
 		if (E)
+			E.end()
 			E.kill()
 			qdel(E)
 			E = null
@@ -46,5 +47,6 @@
 		two_part = 1
 		E.start()
 
+	E.end()
 	E.kill()
 	E.announce()
