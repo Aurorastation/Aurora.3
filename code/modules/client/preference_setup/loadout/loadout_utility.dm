@@ -82,6 +82,7 @@
 /datum/gear/utility/lanyard
 	display_name = "lanyard"
 	path = 	/obj/item/storage/wallet/lanyard
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
