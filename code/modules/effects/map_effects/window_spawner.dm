@@ -2,6 +2,7 @@
 	name = "window grille spawner"
 	icon_state = "wingrille"
 	var/win_path = /obj/structure/window/basic
+	var/spawn_firedoor = FALSE
 	var/activated
 
 // stops ZAS expanding zones past us, the windows will block the zone anyway
@@ -28,7 +29,10 @@
 	return INITIALIZE_HINT_LATEQDEL
 
 /obj/effect/map_effect/wingrille_spawn/proc/activate()
-	if(activated) return
+	if(activated)
+		return
+	if(spawn_firedoor)
+		new /obj/machinery/door/firedoor(loc)
 	if (!locate(/obj/structure/grille) in get_turf(src))
 		var/obj/structure/grille/G = new /obj/structure/grille(src.loc)
 		handle_grille_spawn(G)
@@ -63,6 +67,9 @@
 	icon_state = "r-wingrille"
 	win_path = /obj/structure/window/reinforced
 
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor
+	spawn_firedoor = TRUE
+
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent
 	name = "Crescent window grille spawner"
 	win_path = /obj/structure/window/reinforced/crescent
@@ -76,6 +83,9 @@
 	name = "reinforced phoron window grille spawner"
 	icon_state = "pr-wingrille"
 	win_path = /obj/structure/window/phoronreinforced
+
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron/firedoor
+	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized
 	name = "polarized window grille spawner"
