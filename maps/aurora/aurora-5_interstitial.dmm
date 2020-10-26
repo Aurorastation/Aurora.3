@@ -1251,14 +1251,14 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/low{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/security/range)
@@ -3205,14 +3205,14 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "gM" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/low{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
@@ -3303,12 +3303,12 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/csi,
-/obj/machinery/power/apc{
+/obj/structure/cable/green,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/power/apc/low{
 	name = "south bump";
 	pixel_y = -24
 	},
-/obj/structure/cable/green,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "gT" = (
@@ -3361,11 +3361,11 @@
 	},
 /obj/machinery/light,
 /obj/item/device/reagent_scanner,
-/obj/machinery/power/apc{
+/obj/structure/cable/green,
+/obj/machinery/power/apc/low{
 	name = "south bump";
 	pixel_y = -24
 	},
-/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "gY" = (
@@ -3410,11 +3410,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -3422,6 +3417,11 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Training Division 1";
 	dir = 4
+	},
+/obj/machinery/power/apc/low{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
@@ -3783,12 +3783,12 @@
 /obj/machinery/light_switch{
 	pixel_x = -24
 	},
-/obj/machinery/power/apc{
+/obj/structure/cable/green,
+/obj/machinery/power/apc/low{
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24
 	},
-/obj/structure/cable/green,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/security/forensics_morgue)
 "hD" = (
@@ -3823,11 +3823,11 @@
 "hI" = (
 /obj/structure/table/standard,
 /obj/item/folder/sec,
-/obj/machinery/power/apc{
+/obj/structure/cable/green,
+/obj/machinery/power/apc/low{
 	name = "south bump";
 	pixel_y = -24
 	},
-/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/security/training_theoretical)
 "hK" = (
@@ -4636,7 +4636,7 @@
 /obj/machinery/light,
 /obj/item/storage/box/fancy/csi_markers,
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/low{
 	name = "south bump";
 	pixel_y = -24
 	},
