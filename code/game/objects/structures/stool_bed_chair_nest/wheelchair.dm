@@ -206,6 +206,7 @@
 		var/obj/structure/bed/chair/wheelchair/R = new /obj/structure/bed/chair/wheelchair(user.loc)
 		R.add_fingerprint(user)
 		R.name = src.name
+		R.desc = src.desc
 		R.color = src.color
 		qdel(src)
 
@@ -217,6 +218,7 @@
 		visible_message("[usr] collapses \the [src.name].")
 		var/obj/item/wheelchair/R = new/obj/item/wheelchair(get_turf(src))
 		R.name = src.name
+		R.desc = src.desc
 		R.color = src.color
 		spawn(0)
 			qdel(src)
