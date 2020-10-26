@@ -221,7 +221,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		create_holo(M)
 
 /obj/machinery/hologram/holopad/proc/create_holo(mob/M)
-	var/obj/effect/overlay/hologram/H = new(get_turf(src), M)
+	var/obj/effect/overlay/hologram/H = new(get_turf(src))
 	if(!isAI(M) && connected_pad)
 		H.x = src.x - (connected_pad.x - M.x)
 		H.y = src.y - (connected_pad.y - M.y)
