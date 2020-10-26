@@ -205,9 +205,7 @@
 	if(!M)
 		return
 	if(dbcon.IsConnected())
-		var/isadmin = 0
-		if(M.client && M.client.holder)
-			isadmin = 1
+		var/isadmin = M.client && M.client.holder
 		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
 		query.Execute()
 		var/newpoll = query.NextRow()
