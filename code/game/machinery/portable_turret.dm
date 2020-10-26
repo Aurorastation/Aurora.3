@@ -1184,7 +1184,7 @@
 	use_power = FALSE
 	cover_set = "mining"
 	icon_state = "cover_mining"
-	req_access = list(access_mining)
+	req_access = list(access_mining, access_heads, access_qm)
 	eprojectile = /obj/item/projectile/beam/thermaldrill/turret
 	types_to_avoid = list(/obj, /turf/simulated/wall, /turf/unsimulated/wall, /mob/living)
 
