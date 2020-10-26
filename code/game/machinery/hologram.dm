@@ -90,7 +90,8 @@ Possible to do for anyone motivated enough:
 			to_chat(user, SPAN_NOTICE("You request an AI's presence."))
 			var/area/area = get_area(src)
 			for(var/mob/living/silicon/ai/AI in silicon_mob_list)
-				if(!AI.client)	continue
+				if(!AI.client)
+					continue
 				to_chat(AI, "<span class='info'>Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>.</span>")
 		if("Holocomms")
 			last_request = world.time
@@ -246,11 +247,13 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/hologram/holopad/proc/clear_holos(var/clear_ai = TRUE)
 	for(var/M in active_holograms)
-		if(!clear_ai && istype(M, /mob/living/silicon/ai))
+		if(!clear_ai && isAI(M))
 			continue
 		clear_holo(M)
 
 /obj/machinery/hologram/holopad/proc/clear_holo(var/mob/M)
+	if(!length(active_holograms))
+		return
 	qdel(active_holograms[M])
 	LAZYREMOVE(active_holograms, M)
 	update_icon()
@@ -316,16 +319,14 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(1.0)
 			qdel(src)
 		if(2.0)
-			if (prob(50))
+			if(prob(50))
 				qdel(src)
 		if(3.0)
-			if (prob(5))
+			if(prob(5))
 				qdel(src)
-	return
 
 /obj/machinery/hologram/holopad/Destroy()
-	for(var/mob/living/master in active_holograms)
-		clear_holo(master)
+	clear_holos()
 	return ..()
 
 /obj/effect/overlay/hologram
