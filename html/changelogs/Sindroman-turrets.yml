@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: ChangeMe
+author: PoZe
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "T-comms turret controllers are now properly mapped and connect to turrets."
-  - bugfix: "KA AOE now properly works for asteroid mining and deals proper damage."
+  - rscadd: "Added mining turret. It can be purchased at the mining vendor and will be delivered via shuttle. The turret can be attached to the mining trolley while active."
+  - tweak: "All vechiles cargo are no longer inside. They are now loaded on the same tile as vehicle and can be interacted with while loaded."
+  - bugfix: "Fixed certain turret sprites."

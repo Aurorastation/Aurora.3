@@ -1215,6 +1215,22 @@
 			if (H.health > 0)
 				targets += H
 
+/obj/machinery/porta_turret/thermal/mining/attackby(obj/item/I, mob/user)
+	if(stat & BROKEN)
+		if(I.iscrowbar())
+			to_chat(user, "<span class='notice'>You begin prying the metal coverings off.</span>")
+			if(do_after(user, 20/I.toolspeed))
+				if(prob(70) && !no_salvage)
+					to_chat(user, "<span class='notice'>You remove the turret and salvage some components.</span>")
+					new /obj/item/stack/material/steel(loc, rand(1,4))
+					if(prob(50))
+						new /obj/item/device/assembly/prox_sensor(loc)
+				else
+					to_chat(user, "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>")
+				qdel(src) // qdel
+	else
+		..()
+
 /obj/machinery/porta_turret/thermal/mining/CanUseTopic(var/mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE
