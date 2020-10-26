@@ -221,3 +221,8 @@
 	name = "Weapons Analyzer"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 3, TECH_COMBAT = 2)
 	build_path = /obj/item/circuitboard/weapons_analyzer
+
+/datum/design/circuit/machine/slime_extractor
+	name = "Slime Extractor"
+	req_tech = list(TECH_BIO = 2, TECH_ENGINEERING = 1, TECH_BLUESPACE = 1)
+	build_path = /obj/item/circuitboard/slime_extractor

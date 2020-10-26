@@ -16787,6 +16787,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/item/storage/bag/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aHP" = (
@@ -20430,7 +20432,6 @@
 /area/rnd/xenobiology)
 "aPZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/bag/slimes,
 /obj/item/storage/bag/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -30462,6 +30463,10 @@
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"lgq" = (
+/obj/machinery/slime_extractor,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
 "lht" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
@@ -63188,7 +63193,7 @@ aEQ
 wbr
 aGK
 aHO
-aHM
+lgq
 aJU
 aKQ
 aKQ
