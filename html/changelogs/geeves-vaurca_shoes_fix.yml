@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixes a sprite issue where vaurca warrior's left feet were one pixel too far to the left, causing their feet to appear outside their shoes."
