@@ -1,0 +1,7 @@
+author: Amunak
+delete-after: True
+changes:
+  - maptweak: "Camera in Consular Office and Representative's Office has been removed for their privacy. Instead the Diplomatic Reception has additional camera so that the AI can still see inside both rooms as long as the window tint is off. Even with the tint on with open doors the AI can see at least the chairs of the representatives."
+  - maptweak: "Added missing bolt buttons for toilettes: engineering, command, patient."
+  - maptweak: "Replaced regular bed in ICU with a roller bed."
+  - maptweak: "Added a bucket to medical custodial storage."
