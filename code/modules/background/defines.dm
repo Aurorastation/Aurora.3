@@ -71,7 +71,7 @@
 #define ACCENT_JUPITER "Jovian"
 #define ACCENT_EUROPA "Europan"
 #define ACCENT_EARTH "Earther"
-#define ACCENT_NONCOALITIONFRONTIER "Non-Coalition Frontier"
+#define ACCENT_NCF "Non-Coalition Frontier"
 #define ACCENT_FISANDUH "Fisanduhian"
 #define ACCENT_GADPATHUR "Gadpathurian"
 

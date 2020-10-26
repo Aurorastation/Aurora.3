@@ -139,7 +139,7 @@
 	tag_icon = "earth"
 
 /datum/accent/noncoalitionfrontier
-	name = ACCENT_NONCOALITIONFRONTIER
+	name = ACCENT_NCF
 	description = "The non-Coalition frontier 'accent' is not a true accent in of itself, but is instead used as a catch-all term for human accents originating outside of the frontier controlled by the Coalition of Colonies. \
 	These planets and systems vary wildly, and all sorts of people and places can be found within them."
 	tag_icon = "noncoalitionfrontier"
