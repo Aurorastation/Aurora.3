@@ -210,10 +210,7 @@
 			isadmin = 1
 		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
 		query.Execute()
-		var/newpoll = 0
-		while(query.NextRow())
-			newpoll = 1
-			break
+		var/newpoll = query.NextRow()
 
 		if(newpoll)
 			icon_state = "polls_new"
