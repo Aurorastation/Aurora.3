@@ -97,8 +97,8 @@
 /obj/vehicle/train/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(user.buckled || user.stat || user.restrained() || !Adjacent(user) || !user.Adjacent(C) || !istype(C) || (user == C && !user.canmove))
 		return
-	if(istype(C,/obj/vehicle/train))
-		latch(C, user)
+	if(istype(C, /obj/vehicle/train))
+		attach_to(C, user)
 	else
 		if(!load(C))
 			to_chat(user, "<span class='warning'>You were unable to load [C] on [src].</span>")
