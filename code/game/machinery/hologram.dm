@@ -100,7 +100,7 @@ Possible to do for anyone motivated enough:
 				return
 			var/forced_call = FALSE
 			if(access_heads in I.access) //Special functions for command level people
-				switch(alert(user,"Command level authorization detected. Additional functions available.", "Command Level Menu", "Forced Call", "Regular call"))
+				switch(alert(user,"Command level authorization detected. Additional functions available.", "Command Level Menu", "Forced Call", "Regular Call"))
 					if("Forced Call")
 						forced_call = TRUE
 			var/list/holopadlist = list()
