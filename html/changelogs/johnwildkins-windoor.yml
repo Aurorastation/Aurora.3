@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Items can no longer be placed through closed windoors, nor can mobs be attacked past them."
-  - tweak: "Windoors are now affected by power loss; non-secure (brig) windoors no longer check for access, but must be pushed open. Brig windoors lock shut and cannot be moved without power."
