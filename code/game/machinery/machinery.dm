@@ -335,18 +335,18 @@ Class Procs:
 
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || !S.isscrewdriver())
-		return 0
-	playsound(src.loc,  S.usesound, 50, 1)
+		return FALSE
+	playsound(src.loc, S.usesound, 50, 1)
 	panel_open = !panel_open
 	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()
-	return 1
+	return TRUE
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!istype(R))
-		return 0
+		return FALSE
 	if(!LAZYLEN(component_parts))
-		return 0
+		return FALSE
 	var/parts_replaced = FALSE
 	if(panel_open)
 		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
