@@ -87,7 +87,7 @@ Possible to do for anyone motivated enough:
 	switch(alert(user, "Would you like to request an AI's presence or establish communications with another pad?", "Holopad", "AI", "Holocomms", "Cancel"))
 		if("AI")
 			last_request = world.time
-			to_chat(user, "<span class='notice'>You request an AI's presence.</span>")
+			to_chat(user, SPAN_NOTICE("You request an AI's presence."))
 			var/area/area = get_area(src)
 			for(var/mob/living/silicon/ai/AI in silicon_mob_list)
 				if(!AI.client)	continue
@@ -123,13 +123,13 @@ Possible to do for anyone motivated enough:
 
 	if(forced_call)
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"")
-		to_chat(user, "<span class='notice'>Establishing forced connection to the holopad in [connected_pad.holopad_id].</span>")
+		to_chat(user, SPAN_NOTICE("Establishing forced connection to the holopad in [connected_pad.holopad_id]."))
 		connected_pad.forced = TRUE
 		sleep(80)
 		connected_pad.take_call()
 	else
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [connected_pad.connected_pad.holopad_id].\"")
-		to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [connected_pad.holopad_id]... Please await confirmation from recipient.</span>")
+		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected_pad.holopad_id]... Please await confirmation from recipient."))
 
 /obj/machinery/hologram/holopad/proc/take_call()
 	incoming_connection = FALSE
@@ -147,7 +147,7 @@ Possible to do for anyone motivated enough:
 	update_icon()
 
 /obj/machinery/hologram/holopad/check_eye(mob/user)
-	if(check_if_hologram(user))
+	if(LAZYISIN(active_holograms, user))
 		return 0
 	return -1
 
@@ -225,6 +225,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(!isAI(M) && connected_pad)
 		H.x = src.x - (connected_pad.x - M.x)
 		H.y = src.y - (connected_pad.y - M.y)
+	H.assume_form(M)
 	LAZYSET(active_holograms, M, H)
 
 	update_icon()
@@ -250,17 +251,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		clear_holo(M)
 
 /obj/machinery/hologram/holopad/proc/clear_holo(var/mob/M)
-	var/obj/effect/overlay/hologram/H = active_holograms[M]
-	if(H)
-		qdel(H)
+	qdel(active_holograms[M])
 	LAZYREMOVE(active_holograms, M)
-
 	update_icon()
-
-/obj/machinery/hologram/holopad/proc/check_if_hologram(var/mob/M)
-	if(M in active_holograms)
-		return TRUE
-	return FALSE
 
 /obj/machinery/hologram/holopad/machinery_process()
 	for(var/thing in active_holograms)
@@ -340,11 +333,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	layer = FLY_LAYER
 	anchored = TRUE //So space wind cannot drag it.
 	no_clean = TRUE
-
-/obj/effect/overlay/hologram/Initialize(mapload, var/atom/A)
-	. = ..()
-
-	assume_form(A)
 
 /obj/effect/overlay/hologram/proc/assume_form(var/atom/A)
 	if(isAI(A))
