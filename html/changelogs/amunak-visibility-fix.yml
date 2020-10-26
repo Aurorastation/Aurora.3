@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - bugfix: "All opacity changes (like when you toggle tinted windows) should now trigger camera visibility update (so that the AI can't spy through tinted windows until something else triggers the update)."
