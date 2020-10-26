@@ -165,7 +165,8 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",				/datum/event/random_antag,		 			0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1),0,10,125, list("Extended")),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rogue Drones",						/datum/event/rogue_drone, 					50,		list(ASSIGNMENT_SECURITY = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation",		/datum/event/spider_infestation/moderate,	50,		list(ASSIGNMENT_SECURITY = 25)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation",		/datum/event/infestation/moderate, 			30,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15))
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation",		/datum/event/infestation/moderate, 			30,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15)),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Appendicitis", 						/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_MEDICAL = 5))
 	)
 
 /datum/event_container/major
@@ -178,8 +179,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Downed Ship",					/datum/event/meteor_wave/downed_ship,	5,	list(ASSIGNMENT_ENGINEER =  10),1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",					/datum/event/spacevine, 				75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",			/datum/event/spider_infestation,		25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 		15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Appendicitis", 				/datum/event/spontaneous_appendicitis, 	0,	list(ASSIGNMENT_MEDICAL = 5))
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 		15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5))
 	)
 
 #undef ASSIGNMENT_ANY
