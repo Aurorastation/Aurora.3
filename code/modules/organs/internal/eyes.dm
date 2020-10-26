@@ -10,6 +10,7 @@
 	relative_size = 5
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
+	possible_modifications = list ("Normal","Assisted","Mechanical","Removed")
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
