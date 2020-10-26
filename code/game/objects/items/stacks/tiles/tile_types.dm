@@ -12,6 +12,7 @@
 	desc = "A non-descript floor tile"
 	w_class = ITEMSIZE_NORMAL
 	max_amount = 60
+	recyclable = TRUE
 	icon = 'icons/obj/stacks/tiles.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_tiles.dmi',

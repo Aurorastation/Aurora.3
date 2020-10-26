@@ -30,6 +30,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 1875)
+	recyclable = TRUE
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
