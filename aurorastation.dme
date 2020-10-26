@@ -1248,6 +1248,7 @@
 #include "code\modules\background\citizenship\tajara.dm"
 #include "code\modules\background\citizenship\unathi.dm"
 #include "code\modules\background\citizenship\vaurca.dm"
+#include "code\modules\background\religion\diona.dm"
 #include "code\modules\background\religion\human.dm"
 #include "code\modules\background\religion\religion.dm"
 #include "code\modules\background\religion\skrell.dm"
