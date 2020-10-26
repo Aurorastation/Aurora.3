@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Holocalls now send holograms of people in the vicinity to whichever pad it's connected to, instead of just sending the caller's hologram. You no longer have to stand on the holopad to talk. Give it a try."
