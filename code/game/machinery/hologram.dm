@@ -80,7 +80,7 @@ Possible to do for anyone motivated enough:
 		end_call()
 		return
 
-	if(last_request + 200 > world.time)
+	if(last_request + 20 SECONDS > world.time)
 		to_chat(user, SPAN_WARNING("\The [src] is still cooling down since the last transmission."))
 		return
 
