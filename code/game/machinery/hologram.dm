@@ -105,7 +105,7 @@ Possible to do for anyone motivated enough:
 						forced_call = TRUE
 			var/list/holopadlist = list()
 			for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines)
-				if(H != src && (H.z in current_map.map_levels) && H.operable())
+				if(H != src && ARE_Z_CONNECTED(H.z, z) && H.operable())
 					holopadlist["[H.holopad_id]"] = H	//Define a list and fill it with the area of every holopad in the world
 			holopadlist = sortAssoc(holopadlist)
 			var/chosen_pad = input(user, "Which holopad would you like to contact?", "Holopad List") as null|anything in holopadlist
@@ -215,7 +215,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		master.show_message(rendered, type)
 
 /obj/machinery/hologram/holopad/proc/create_holos()
-	for(var/mob/living/M in view(world.view, connected_pad))
+	for(var/mob/living/M in viewers(world.view, connected_pad))
 		if(LAZYISIN(active_holograms, M))
 			continue
 		create_holo(M)
@@ -283,7 +283,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 	use_power(power_per_hologram * length(active_holograms))
 
-	if(last_request + 200 < world.time && incoming_connection)
+	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
 		clear_holos(FALSE)
 		if(connected_pad)
