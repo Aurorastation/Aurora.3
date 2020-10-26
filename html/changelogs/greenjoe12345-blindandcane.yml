@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds blindness as a disability to the character setup screen. Adds a white cane. also adds this white cane and the already exsisting crutch item to the loadout."
+  - rscadd: "Adds blindness as a disability to the character setup screen. Adds the ability to remove your character's eyes in the character setup screen. Adds a white cane. Also adds this white cane and the already exsisting crutch item to the loadout."
 
