@@ -115,3 +115,12 @@
 	display_name = "himean voidsuit kit"
 	path = /obj/item/himeo_kit
 	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel")
+
+/datum/gear/utility/wheelchair/color
+	display_name = "wheelchair"
+	path = /obj/item/wheelchair
+	cost = 4
+
+/datum/gear/utility/wheelchair/color/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
