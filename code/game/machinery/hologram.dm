@@ -123,7 +123,7 @@ Possible to do for anyone motivated enough:
 
 	if(forced_call)
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"")
-		to_chat(user, "<span class='notice'>Establishing forced connection to the holopad in [connected_pad.holopad_id]</span>")
+		to_chat(user, "<span class='notice'>Establishing forced connection to the holopad in [connected_pad.holopad_id].</span>")
 		connected_pad.forced = TRUE
 		sleep(80)
 		connected_pad.take_call()
@@ -144,6 +144,7 @@ Possible to do for anyone motivated enough:
 	established_connection = FALSE
 	connected_pad.established_connection = FALSE
 	connected_pad = null
+	update_icon()
 
 /obj/machinery/hologram/holopad/check_eye(mob/user)
 	if(check_if_hologram(user))
@@ -186,10 +187,10 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		var/message
 		if(speaking)
 			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
-			connected_pad.audible_message(message)
-			connected_pad.last_message = message
 		else
 			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
+		connected_pad.audible_message(message)
+		connected_pad.last_message = message
 
 /obj/machinery/hologram/holopad/see_emote(mob/living/M, text)
 	for(var/mob/living/silicon/ai/master in active_holograms)
