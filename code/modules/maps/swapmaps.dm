@@ -489,7 +489,7 @@ atom
 
 
 // set this up (at runtime) as follows:
-// list(\
+// list(
 //     'player.dmi'="player",
 //     'monster.dmi'="monster",
 //     ...
