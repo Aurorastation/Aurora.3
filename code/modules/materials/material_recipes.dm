@@ -48,8 +48,8 @@
 	..()
 	recipes += new /datum/stack_recipe_list("construction recipes",
 		list(
-			new /datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 4, 20),
-			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
+			new /datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 2, 20),
+			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 1, 60),
 			new /datum/stack_recipe("table frame", /obj/structure/table, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("computer frame", /obj/structure/computerframe, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),
@@ -138,7 +138,7 @@
 			new /datum/stack_recipe("AI core", /obj/structure/AIcore, BUILD_AMT, time = 50, one_per_turf = 1),
 			new /datum/stack_recipe("Metal crate", /obj/structure/closet/crate, BUILD_AMT, time = 50, one_per_turf = 1),,,
 			new /datum/stack_recipe("knife grip", /obj/item/material/butterflyhandle, 4, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("dark floor tile", /obj/item/stack/tile/floor_dark, 1, 4, 20)
+			new /datum/stack_recipe("dark floor tile", /obj/item/stack/tile/floor_dark, 1, 2, 20)
 		))
 
 /material/plastic/generate_recipes()
@@ -152,8 +152,8 @@
 			new /datum/stack_recipe("reagent dispenser cartridge (large)", /obj/item/reagent_containers/chem_disp_cartridge,        5, on_floor=0), // 500u
 			new /datum/stack_recipe("reagent dispenser cartridge (med)",   /obj/item/reagent_containers/chem_disp_cartridge/medium, 3, on_floor=0), // 250u
 			new /datum/stack_recipe("reagent dispenser cartridge (small)", /obj/item/reagent_containers/chem_disp_cartridge/small,  1, on_floor=0), // 100u
-			new /datum/stack_recipe("white floor tile", /obj/item/stack/tile/floor_white, 1, 4, 20),
-			new /datum/stack_recipe("freezer floor tile", /obj/item/stack/tile/floor_freezer, 1, 4, 20),
+			new /datum/stack_recipe("white floor tile", /obj/item/stack/tile/floor_white, 1, 2, 20),
+			new /datum/stack_recipe("freezer floor tile", /obj/item/stack/tile/floor_freezer, 1, 2, 20),
 			new /datum/stack_recipe("plastic flaps", /obj/structure/plasticflaps, BUILD_AMT, 1, 1)
 		))
 
@@ -163,7 +163,7 @@
 		list(
 			new /datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandal, 1),
 			new /datum/stack_recipe("wood circlet", /obj/item/woodcirclet, 1),
-			new /datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20),
+			new /datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 2, 20),
 			new /datum/stack_recipe("wooden chair", /obj/structure/bed/chair/wood, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("crossbow frame", /obj/item/crossbowframe, 5, time = 25, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("coffin", /obj/structure/closet/coffin, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
@@ -246,35 +246,35 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("silver floor tile", /obj/item/stack/tile/silver, 1, 4, 20)
+			new /datum/stack_recipe("silver floor tile", /obj/item/stack/tile/silver, 1, 2, 20)
 		))
 
 /material/gold/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("golden floor tile", /obj/item/stack/tile/gold, 1, 4, 20)
+			new /datum/stack_recipe("golden floor tile", /obj/item/stack/tile/gold, 1, 2, 20)
 		))
 
 /material/uranium/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("uranium floor tile", /obj/item/stack/tile/uranium, 1, 4, 20)
+			new /datum/stack_recipe("uranium floor tile", /obj/item/stack/tile/uranium, 1, 2, 20)
 		))
 
 /material/phoron/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("phoron floor tile", /turf/simulated/floor/phoron, 1, 4, 20)
+			new /datum/stack_recipe("phoron floor tile", /obj/item/stack/tile/phoron, 1, 2, 20)
 		))
 
 /material/diamond/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("diamond floor tile", /turf/simulated/floor/diamond, 1, 4, 20)
+			new /datum/stack_recipe("diamond floor tile", /obj/item/stack/tile/diamond, 1, 2, 20)
 		))
 
 /material/leather/generate_recipes()
