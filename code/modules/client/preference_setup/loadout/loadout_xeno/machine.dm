@@ -82,6 +82,8 @@
 	antenna["antenna, double"] = /obj/item/clothing/head/antenna/double
 	antenna["antenna, left"] = /obj/item/clothing/head/antenna/double/left
 	antenna["antenna, right"] = /obj/item/clothing/head/antenna/double/right
+	antenna["antenna, left horn"] = /obj/item/clothing/head/antenna/double/left/horn
+	antenna["antenna, right horn"] = /obj/item/clothing/head/antenna/double/right/horn
 	antenna["antenna, circle"] = /obj/item/clothing/head/antenna/circle
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
 

@@ -572,6 +572,11 @@
 	icon_state = "dual_robot_antennae"
 	item_state = "dual_robot_antennae"
 
+/obj/item/clothing/head/antenna/double/left/horn
+	name = "left antenna horn"
+	icon_state = "left_horn"
+	item_state = "left_horn"
+
 /obj/item/clothing/head/antenna/double/left
 	name = "left antenna ear"
 	icon_state = "left_robot_antennae"
@@ -581,6 +586,11 @@
 	name = "right antenna ear"
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/right/horn
+	name = "right antenna horn"
+	icon_state = "right_horn"
+	item_state = "right_horn"
 
 /obj/item/clothing/head/antenna/circle
 	name = "circle antenna"
