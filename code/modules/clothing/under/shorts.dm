@@ -222,3 +222,17 @@
 	desc = "A pair of rugged camo pants. Pairs well with canned rations and an SKS."
 	icon_state = "tacticoolpants"
 	item_state = "tacticoolpants"
+
+/obj/item/clothing/under/pants/ripped
+	name = "ripped jeans"
+	desc = "A pair of ripped denim jeans. Likely overpriced."
+	icon = 'icons/obj/pants.dmi'
+	icon_state = "jeansripped"
+	item_state = "jeansripped"
+
+/obj/item/clothing/under/pants/blackripped
+	name = "black ripped jeans"
+	desc = "A pair of ripped black jeans. Likely overpriced."
+	icon = 'icons/obj/pants.dmi'
+	icon_state = "jeansblackripped"
+	item_state = "jeansblackripped"

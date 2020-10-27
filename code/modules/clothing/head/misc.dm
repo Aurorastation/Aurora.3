@@ -548,6 +548,12 @@
 	icon_state = "horncrown"
 	item_state = "horncrown"
 
+/obj/item/clothing/head/antenna/spiked/small
+	name = "small chassis horns"
+	desc = "Two small mounts holding up chassis protrusions on either side of the head, sans head crown."
+	icon_state = "horn"
+	item_state = "horncrown"
+
 /obj/item/clothing/head/antenna/side
 	name = "side chassis mounts"
 	desc = "Two large mounts holding up chassis protrusions on either side of the head."
@@ -575,6 +581,11 @@
 	name = "right antenna ear"
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
+
+/obj/item/clothing/head/antenna/circle
+	name = "circle antenna"
+	icon_state = "circleantenna"
+	item_state = "dish"
 
 /obj/item/clothing/head/antenna/trinary_halo
 	name = "trinary perfection antenna"

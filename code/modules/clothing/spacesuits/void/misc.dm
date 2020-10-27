@@ -354,3 +354,83 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
+<<<<<<< Updated upstream
+=======
+
+//himeo voidsuits
+
+/obj/item/clothing/head/helmet/space/void/mining/himeo
+	name = "himeo mining voidsuit helmet"
+	desc = "A rugged polymer and alloy space helmet with a ballistic glass and polycarbonate visor commonly used by astronauts from Himeo."
+	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
+	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
+	icon_state = "rig0-himeo"
+	item_state = "rig0-himeo"
+	item_state_slots = list(
+		slot_l_hand_str = "mining_helm",
+		slot_r_hand_str = "mining_helm"
+		)
+
+/obj/item/clothing/suit/space/void/mining/himeo
+	name = "himeo mining voidsuit"
+	item_state_slots = list(
+		slot_l_hand_str = "mining_hardsuit",
+		slot_r_hand_str = "mining_hardsuit"
+	)
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch."
+	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
+	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
+	item_state = "rig-himeo"
+	icon_state = "rig-himeo"
+
+/obj/item/clothing/head/helmet/space/void/engineering/himeo
+	name = "himeo engineering voidsuit helmet"
+	desc = "A rugged polymer and alloy space helmet with a reinforced ballistic glass and polycarbonate goggle-type visor commonly used by astronauts from Himeo."
+	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
+	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
+	icon_state = "rig0-himeo-engineering"
+	item_state = "rig0-himeo-engineering"
+	item_state_slots = list(
+		slot_l_hand_str = "engineering_helm",
+		slot_r_hand_str = "engineering_helm"
+		)
+
+/obj/item/clothing/suit/space/void/engineering/himeo
+	name = "himeo engineering voidsuit"
+	item_state_slots = list(
+		slot_l_hand_str = "engineering_hardsuit",
+		slot_r_hand_str = "engineering_hardsuit"
+	)
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model seems to have lead lining in it."
+	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
+	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
+	item_state = "rig-himeo-engineering"
+	icon_state = "rig-himeo-engineering"
+
+/obj/item/clothing/head/helmet/space/void/atmos/himeo
+	name = "himeo atmospherics voidsuit helmet"
+	desc = "A rugged polymer and alloy space helmet with a reinforced ballistic glass and polycarbonate goggle-type visor commonly used by astronauts from Himeo. This particular model appears to have a thicker layer of insulation on it."
+	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
+	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
+	icon_state = "rig0-himeo-engineering"
+	item_state = "rig0-himeo-engineering"
+	item_state_slots = list(
+		slot_l_hand_str = "atmos_helm",
+		slot_r_hand_str = "atmos_helm"
+		)
+
+/obj/item/clothing/suit/space/void/atmos/himeo
+	name = "himeo atmospherics voidsuit"
+	item_state_slots = list(
+		slot_l_hand_str = "atmos_hardsuit",
+		slot_r_hand_str = "atmos_hardsuit"
+	)
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model seems to have better insulation in it."
+	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
+	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
+	item_state = "rig-himeo-engineering"
+	icon_state = "rig-himeo-engineering"
+>>>>>>> Stashed changes
