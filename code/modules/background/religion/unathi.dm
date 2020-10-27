@@ -27,7 +27,7 @@
 
 /datum/religion/autakh
 	name = RELIGION_AUTAKH
-	description = "Coming from radicalized and sidelined views of former warriors, the Aut'akh are a religious commune of cybernetic-augmented Unathi. They live in the relative safety \
+	description = "Coming from radicalized and sidelined views of former warriors, the Aut'akh are a religious commune of cybernetically-augmented Unathi. They live in the relative safety \
 	 of their communes scattered across various towns, planets, and systems, though have yet to truly attain their perfect leaderless society, as their own supposedly-defeated prejudice \
 	 still runs in quiet circles within communes. Meanwhile, society often rebukes and ridicules these fanatical trans-speciests. Their lives are gently guided by the shamans or \"paradigms,\" \
 	 which sometimes act as the biomechanical engineers of these groups. The Aut'akh believe that spirits inhabit all things, much like the Th'akh religion. However, they also believe the flesh's \
