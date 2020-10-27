@@ -1031,7 +1031,7 @@
 
 /mob/living/silicon/robot/proc/self_destruct()
 	density = FALSE
-	fragem(src, 50, 100, 2, 1, 5, 1, 0)
+	fragem(src, 50, 100, 2, 1, 5, 1, FALSE)
 	gib()
 
 /mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
