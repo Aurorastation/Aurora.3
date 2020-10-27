@@ -768,3 +768,10 @@
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
 	update_tool()
 	return TRUE
+
+/obj/item/steelwool
+	name = "steel wool"
+	desc = "Harvested from the finest NanoTrasen steel sheep."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "steel_wool"
+	w_class = ITEMSIZE_SMALL

@@ -1,9 +1,10 @@
+#define LETHAL_FUEL_CAPACITY 21 // this many units of fuel will cause a harmful explosion
+
 /obj/item/reagent_containers/food/drinks/cans
 	var/fuselength = 0
 	var/lastcablecolor
 	var/fuselit
-	var/list/can_size_overrides = list()
-	#define LETHAL_FUEL_CAPACITY 21 // this many units of fuel will cause a harmful explosion
+	var/list/can_size_overrides = list() // make sure this gets added to new drink cans. 
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
@@ -34,18 +35,14 @@
 	var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
 	switch(fuselength)
 		if(1 to 5)
-			if("x" in can_size_overrides)
-				fuseoverlay.pixel_x = can_size_overrides["x"]
-			if("y" in can_size_overrides)
-				fuseoverlay.pixel_y = can_size_overrides["y"]
 			add_overlay(fuseoverlay)
 		if(6 to INFINITY)
 			fuseoverlay.icon_state = "fuse_long"
-			if("x" in can_size_overrides)
-				fuseoverlay.pixel_x = can_size_overrides["x"]
-			if("y" in can_size_overrides)
-				fuseoverlay.pixel_y = can_size_overrides["y"]
 			add_overlay(fuseoverlay)
+	if("x" in can_size_overrides)
+		fuseoverlay.pixel_x = can_size_overrides["x"]
+	if("y" in can_size_overrides)
+		fuseoverlay.pixel_y = can_size_overrides["y"]
 
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
 	if(W.iscoil())
@@ -406,9 +403,11 @@
 	icon_state = "dyncan"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/datum/reagent/drink/dynjuice/cold = 30)
+
 /obj/item/reagent_containers/food/drinks/cans/threetowns
 	name = "\improper Three Towns Cider"
 	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
 	icon_state = "three_towns_cider"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/datum/reagent/alcohol/butanol/threetownscider = 30)
+	can_size_overrides = list("x" = 1, "y" = 1)
