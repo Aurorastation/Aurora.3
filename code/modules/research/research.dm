@@ -82,26 +82,12 @@ var/global/list/designs_imprinter_categories = list()
 	designs = list()
 	for(var/T in subtypesof(/datum/design))
 		var/datum/design/D = new T
-		CheckDesignMaterialCosts(D)
 		designs[D.type] = D
 		if(D.build_type & PROTOLATHE)
 			designs_protolathe_categories |= D.p_category
 		if(D.build_type & IMPRINTER)
 			designs_imprinter_categories |= D.p_category
 
-// makes sure that design price doesn't allow for infinite resource exploits
-/datum/research/proc/CheckDesignMaterialCosts(var/datum/design/D)
-	if(ispath(D.build_path, /obj/item))
-		var/obj/item/I = D.Fabricate()
-		if(islist(I.matter) && islist(D.materials) && I.recyclable) // non-recyclable items can't be exploited
-			for(var/mat in I.matter)
-				if(mat in D.materials)
-					if(I.matter[mat] > D.materials[mat])
-						error("Design '[D.name]' costs less material '[mat]' ([D.materials[mat]]) than the product is worth ([I.matter[mat]]).")
-						D.materials[mat] = I.matter[mat] // set the design cost
-				else
-					error("Design '[D.name]' does not require material '[mat]' even though the product is worth [I.matter[mat]].")
-		qdel(I)
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
 /datum/research/proc/DesignHasReqs(var/datum/design/D)

@@ -2873,6 +2873,7 @@
 #include "code\unit_tests\object_tests.dm"
 #include "code\unit_tests\observation_tests.dm"
 #include "code\unit_tests\overmap_tests.dm"
+#include "code\unit_tests\research_tests.dm"
 #include "code\unit_tests\spawner_tests.dm"
 #include "code\unit_tests\sql_tests.dm"
 #include "code\unit_tests\ss_test.dm"
