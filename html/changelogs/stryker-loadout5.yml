@@ -1,0 +1,6 @@
+author: The Stryker, NiennaB
+delete-after: True
+changes: 
+  - rscadd: "Adds circle and horn antennas to the loadout (Xenowear - IPC, antenna selection)."
+  - rscadd: "Adds ripped jeans under the pants selection in the loadout, as well as a colorable jumpsuit in the uniforms tab."
+  - rscadd: "Adds a Himeo engineering and atmos voidsuit that can be made with the Himeo voidsuit kit and an existing engineering/atmos voidsuit."
