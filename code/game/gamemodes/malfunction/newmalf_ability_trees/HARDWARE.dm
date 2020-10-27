@@ -100,8 +100,8 @@
 		return
 
 	//Lets find the first self destruct terminal
-	var/obj/machinery/nuclearbomb/station/N = locate() in SSmachinery.all_machines
-	nuke = WEAKREF(N)
+	var/obj/machinery/nuclearbomb/station/found_nuke = locate() in SSmachinery.all_machines
+	nuke = WEAKREF(found_nuke)
 
 	if(!nuke.resolve())
 		to_chat(user, "Self-destruct could not be initiated - No Self-Destruct Terminal available.")
