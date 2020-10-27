@@ -46,6 +46,7 @@
 
 	var/incinerate = 0
 	var/embed = 0 // whether or not the projectile can embed itself in the mob
+	var/embed_chance = 0 // a flat bonus to the % chance to embed
 	var/shrapnel_type //type of shrapnel the projectile leaves in its target.
 
 	var/p_x = 16
@@ -134,6 +135,16 @@
 	if(!embed || damage_type != BRUTE)
 		return FALSE
 	return TRUE
+
+/obj/item/projectile/proc/do_embed(var/obj/item/organ/external/organ)
+	var/obj/item/SP = new shrapnel_type(organ)
+	SP.edge = TRUE
+	SP.sharp = TRUE
+	SP.name = (name != "shrapnel") ? "[initial(name)] shrapnel" : "shrapnel"
+	SP.desc += " It looks like it was fired from [shot_from]."
+	SP.forceMove(organ)
+	organ.embed(SP)
+	return SP
 
 /obj/item/projectile/proc/get_structure_damage()
 	if(damage_type == BRUTE || damage_type == BURN)

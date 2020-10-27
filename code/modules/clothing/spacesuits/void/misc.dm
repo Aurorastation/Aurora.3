@@ -429,4 +429,3 @@
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
 	item_state = "rig-himeo-engineering"
 	icon_state = "rig-himeo-engineering"
-

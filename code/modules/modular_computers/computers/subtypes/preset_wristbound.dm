@@ -21,25 +21,21 @@
 
 /obj/item/modular_computer/wristbound/preset/advanced/cargo
 	icon_state = "wristbound_cargo"
-	item_state = "wristbound_cargo"
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
 	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/engineering
 	icon_state = "wristbound_engineering"
-	item_state = "wristbound_engineering"
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
 	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/medical
 	icon_state = "wristbound_medical"
-	item_state = "wristbound_medical"
 	_app_preset_type = /datum/modular_computer_app_presets/medical
 	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/security
 	icon_state = "wristbound_security"
-	item_state = "wristbound_security"
 	_app_preset_type = /datum/modular_computer_app_presets/security
 	enrolled = 1
 
@@ -49,13 +45,11 @@
 
 /obj/item/modular_computer/wristbound/preset/advanced/research
 	icon_state = "wristbound_science"
-	item_state = "wristbound_science"
 	_app_preset_type = /datum/modular_computer_app_presets/research
 	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/command
 	icon_state = "wristbound_command"
-	item_state = "wristbound_command"
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	enrolled = 1
 

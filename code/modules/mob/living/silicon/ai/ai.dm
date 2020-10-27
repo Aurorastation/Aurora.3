@@ -379,7 +379,8 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/ai_roster()
 	set category = "AI Commands"
 	set name = "Show Crew Manifest"
-	show_station_manifest()
+	var/windowname = open_crew_manifest(src)
+	onclose(src, windowname)
 
 //AI Examine code
 /mob/living/silicon/ai/proc/ai_examine(atom/A as mob|obj|turf in view(src.eyeobj))
@@ -649,7 +650,7 @@ var/list/ai_verbs_default = list(
 				if (H.near_camera())
 					character_icon = new('icons/mob/human.dmi', "blank")
 					for(var/renderdir in cardinal)
-						character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir, always_use_defdir=1)), dir = renderdir)
+						character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir)), dir = renderdir)
 				else
 					character_icon = getHologramIcon(icon(selection["image"]))
 			if(selection && istype(selection, /icon))

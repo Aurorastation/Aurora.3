@@ -90,5 +90,3 @@
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
-
-	simple_asset_ensure_is_sent(client, /datum/asset/simple/accents)

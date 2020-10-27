@@ -8,7 +8,7 @@
 	..(newloc)
 	if(supplied)
 		copy_evidence(supplied)
-		name = "[initial(name)] (\the [supplied])"
+		name = "[initial(name)] (\the [initial(supplied.name)])"
 
 /obj/item/sample/print/New(var/newloc, var/atom/supplied)
 	..(newloc, supplied)
@@ -25,7 +25,7 @@
 		return 0
 	evidence |= supplied.evidence
 	name = "[initial(name)] (combined)"
-	to_chat(user, "<span class='notice'>You transfer the contents of \the [supplied] into \the [src].</span>")
+	to_chat(user, "<span class='notice'>You transfer the contents of \the [initial(supplied.name)] into \the [src].</span>")
 	return 1
 
 /obj/item/sample/print/merge_evidence(var/obj/item/sample/supplied, var/mob/user)
@@ -37,7 +37,7 @@
 		else
 			evidence[print] = supplied.evidence[print]
 	name = "[initial(name)] (combined)"
-	to_chat(user, "<span class='notice'>You overlay \the [src] and \the [supplied], combining the print records.</span>")
+	to_chat(user, "<span class='notice'>You overlay \the [src] and \the [initial(supplied.name)], combining the print records.</span>")
 	return 1
 
 /obj/item/sample/attackby(var/obj/O, var/mob/user)

@@ -542,6 +542,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/research/dock
 	name = "Away Site"
 	landmark_tag = "nav_research_away"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //-// Distress Team Shuttle //-//
 

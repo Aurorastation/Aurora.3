@@ -195,6 +195,8 @@ note dizziness decrements automatically in the mob's Life() proc.
 	..()
 	is_floating = 0 // If we were without gravity, the bouncing animation got stopped, so we make sure we restart the bouncing after the next movement.
 
+	if(attack_item == FIST_ATTACK_ANIMATION) // only play the physical movement
+		return
 	// What icon do we use for the attack?
 	var/image/I
 	if(attack_item)

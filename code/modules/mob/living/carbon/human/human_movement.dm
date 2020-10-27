@@ -87,7 +87,7 @@
 		tally = max(0, tally-3)
 
 	var/turf/T = get_turf(src)
-	if(T)
+	if(T && !mind.changeling) // changelings don't get movement costs
 		tally += T.movement_cost
 
 	tally += config.human_delay

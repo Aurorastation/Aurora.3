@@ -210,7 +210,7 @@
 	marker.filters += filter(type = "ripple", x=rand(-RIPPLE_POSITION_BOUNDS, RIPPLE_POSITION_BOUNDS), y=rand(-RIPPLE_POSITION_BOUNDS, RIPPLE_POSITION_BOUNDS), radius = RIPPLE_START_RADIUS, size = RIPPLE_START_SIZE, falloff = 0)
 
 	viewer.client.images += marker
-	QDEL_IN(marker, 1.5 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, marker), 1.5 SECONDS, TIMER_CLIENT_TIME)
 	animate(marker.filters[marker.filters.len], time = 1.5 SECONDS, radius = RIPPLE_END_RADIUS, size = RIPPLE_END_SIZE)
 
 #undef ALWAYS_FOOTSTEP_DISTANCE

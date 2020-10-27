@@ -80,8 +80,8 @@
 	},
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
@@ -104,8 +104,8 @@
 	pixel_y = 23
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -113,7 +113,9 @@
 /obj/machinery/power/smes/buildable{
 	charge = 1e+006;
 	input_attempt = 1;
-	output_attempt = 1
+	input_level = 200000;
+	output_attempt = 1;
+	output_level = 200000
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -133,6 +135,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Master Grid";
+	name_tag = "Master"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -170,10 +176,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ay" = (
-/obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/decal/warning_stripes,
+/obj/machinery/power/smes/magical{
+	output_attempt = 1
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -318,6 +327,10 @@
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
+/obj/item/device/radio/intercom{
+	name = "Common Channel";
+	pixel_x = -27
+	},
 /turf/simulated/floor/plating,
 /area/engineering)
 "aP" = (
@@ -425,6 +438,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Engine Airlock";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "be" = (
@@ -443,9 +460,9 @@
 	pixel_x = -24
 	},
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
 /obj/machinery/light,
 /obj/item/device/analyzer,
@@ -484,6 +501,10 @@
 /obj/item/screwdriver,
 /obj/item/wirecutters,
 /obj/structure/table/standard,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Technical Storage";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
@@ -558,9 +579,9 @@
 	},
 /obj/structure/cable,
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
 /obj/machinery/alarm{
 	locked = 0;
@@ -598,9 +619,9 @@
 	pixel_x = -24
 	},
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
 /obj/structure/closet/secure_closet/captains,
 /obj/effect/floor_decal/corner/blue{
@@ -679,9 +700,9 @@
 	pixel_x = -24
 	},
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/corner/blue{
@@ -888,6 +909,7 @@
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/item/modular_computer/console/preset/ai,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cm" = (
@@ -901,6 +923,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/machinery/account_database,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "co" = (
@@ -977,6 +1000,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/ai_status_display{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "cA" = (
@@ -1002,6 +1028,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -1357,6 +1386,18 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"eI" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Corridor 1";
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -21
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "ie" = (
 /obj/effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
@@ -1374,6 +1415,48 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/gravity_gen)
+"kc" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Engine Output";
+	name_tag = "Engine Output"
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering)
+"kM" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Airlock"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/engineering)
+"mn" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Bridge";
+	departmentType = 5;
+	name = "Bridge RC";
+	pixel_y = -30
+	},
+/obj/machinery/computer/security,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "ob" = (
 /obj/machinery/light{
 	dir = 8
@@ -1395,12 +1478,52 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"tT" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/bridge)
+"wk" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/item/modular_computer/console/preset/command,
+/turf/simulated/floor/tiled,
+/area/bridge)
+"yC" = (
+/obj/structure/lattice,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"zP" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Corridor 2";
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -21
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "Bd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
 /area/construction)
+"FZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_one)
 "Go" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1435,6 +1558,42 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"Kz" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/blue{
+	dir = 4
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Atmospherics";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"Ly" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Corridor 3";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"RL" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge";
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -21
+	},
+/obj/machinery/computer/station_alert/all,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "TP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1444,6 +1603,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"UF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"YP" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/item/modular_computer/console/preset/command/captain,
+/turf/simulated/floor/tiled,
+/area/bridge)
 
 (1,1,1) = {"
 aa
@@ -2379,7 +2557,7 @@ ae
 af
 ak
 ax
-aL
+Kz
 aL
 bk
 af
@@ -2389,7 +2567,7 @@ ck
 bB
 cx
 bB
-bB
+eI
 cK
 cV
 de
@@ -2486,7 +2664,7 @@ ad
 ab
 ab
 ab
-ab
+yC
 ab
 ab
 ab
@@ -2547,7 +2725,7 @@ ab
 bs
 bE
 cb
-cm
+wk
 bs
 cA
 bB
@@ -2601,7 +2779,7 @@ ab
 bs
 bE
 cb
-cm
+mn
 br
 cA
 bB
@@ -2654,7 +2832,7 @@ ab
 ab
 bs
 bF
-cb
+tT
 cm
 cs
 cA
@@ -2709,7 +2887,7 @@ aa
 bs
 bG
 cb
-cm
+RL
 br
 cA
 bB
@@ -2763,7 +2941,7 @@ aa
 bs
 bH
 cb
-cm
+YP
 bs
 cA
 bB
@@ -2810,7 +2988,7 @@ ad
 aa
 aa
 ah
-aC
+kM
 ah
 aa
 aa
@@ -2819,9 +2997,9 @@ bI
 cc
 cn
 br
-cA
+UF
 bB
-bB
+zP
 cP
 cP
 cP
@@ -2923,7 +3101,7 @@ aO
 ba
 bl
 bt
-bJ
+FZ
 ce
 cp
 bJ
@@ -3026,7 +3204,7 @@ ac
 ae
 ah
 ap
-aC
+kc
 aC
 bc
 bm
@@ -3251,7 +3429,7 @@ bP
 bY
 ck
 bB
-cx
+Ly
 bB
 bB
 cS

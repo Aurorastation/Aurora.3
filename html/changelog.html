@@ -35,7 +35,309 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">27 October 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Spontaneous appendicitis should be rarer now.</li>
+			</ul>
+
+			<h2 class="date">26 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">All opacity changes (like when you toggle tinted windows) should now trigger camera visibility update (so that the AI can't spy through tinted windows until something else triggers the update).</li>
+				<li class="maptweak">Camera in Consular Office and Representative's Office has been removed for their privacy. Instead the Diplomatic Reception has additional camera so that the AI can still see inside both rooms as long as the window tint is off. Even with the tint on with open doors the AI can see at least the chairs of the representatives.</li>
+				<li class="maptweak">Added missing bolt buttons for toilettes: engineering, command, patient.</li>
+				<li class="maptweak">Replaced regular bed in ICU with a roller bed.</li>
+				<li class="maptweak">Added a bucket to medical custodial storage.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes a sprite issue where vaurca warrior's left feet were one pixel too far to the left, causing their feet to appear outside their shoes.</li>
+				<li class="bugfix">Lights, air alarms, and APCs can now be placed in areas that don't necessarily require power.</li>
+				<li class="bugfix">Industrial Smelters can be upgraded with the part replacer again.</li>
+				<li class="bugfix">Unlatched trolleys can now be hitched again by dragging from the trolley you want to hitch to, to the unhitched trolley.</li>
+				<li class="bugfix">Fixes the gas names on air alarms.</li>
+				<li class="bugfix">Floodlights can now be rotated with alt-click.</li>
+				<li class="bugfix">Grilles no longer play an attack message after being unscrewed.</li>
+				<li class="rscadd">Added and mapped in a Slime Extractor to the Xenobio level, which extract all the cores within a slime, it will deposit them into a slime core bag if one is next to it. It can be upgraded.</li>
+				<li class="rscadd">Added the above's machine circuit to circuit imprinters.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Items can no longer be placed through closed windoors, nor can mobs be attacked past them.</li>
+				<li class="tweak">Windoors are now affected by power loss; non-secure (brig) windoors no longer check for access, but must be pushed open. Brig windoors lock shut and cannot be moved without power.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes some emotes such as pain dropping items not working.</li>
+			</ul>
+			<h3 class="author">Snakebittenn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds some fishnet underwear options.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the eternal as a religion choice for Dionae.</li>
+				<li class="rscadd">Changes the Dionae blurb to be more up to date.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Footstep animations from vision cones should now remove themselves a bit more promptly.</li>
+			</ul>
+
+			<h2 class="date">25 October 2020</h2>
+			<h3 class="author">Snakebittenn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds some blindfolds to the loadout.</li>
+			</ul>
+
+			<h2 class="date">24 October 2020</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes some shuttles sometimes bringing bluespace turfs with them.</li>
+				<li class="bugfix">Fixed Icarus drones sometimes spawning indoors.</li>
+				<li class="bugfix">Fixed carp and Icarus drones not seeing in the dark.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Made some of the UI warnings more obvious (oxygen, pressure, temperature).</li>
+				<li class="rscadd">Replaced the chemical/tracking computer's HTML UI with a VueUI. It should feel a bit smoother now.</li>
+				<li class="rscadd">The computer in the armory area has been replaced with a proper modular console.</li>
+			</ul>
+
+			<h2 class="date">23 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">End of round summary will now show antagonists as 'apprehended' if they end the round in brig or in cuffs (in 'regular' areas like station, centcom or shuttle) instead of 'fled the station'.</li>
+				<li class="backend">Added two area flags: PRISON and NO_CREW_EXPECTED. The former marks prison areas while the latter marks areas where crew is never present unless for extraordinary circumstances. They are used to detect brigged people and antag status at end of round.</li>
+				<li class="tweak">Unified crew manifest pop-ups, made them all look nicer. Changed printed manifest format a bit.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Hostile mobs no longer attack turrets that aren't raised.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">When you check yourself for injuries, you will now be able to feel if they contain shrapnel/implants.</li>
+				<li class="rscadd">Added various trash piles to maintenance, holding loot for anyone to discover.</li>
+				<li class="rscadd">Added a basic circuit kit to Tech Support to tinker with while no one visits the library.</li>
+				<li class="bugfix">The Tech Support card no longer bricks devices.</li>
+				<li class="tweak">Wristbound sprites have been reverted, and their on-mob sprites have been removed.</li>
+				<li class="rscadd">Knives can now dig out implants as well, via the Extract Embedded right click verb.</li>
+				<li class="rscadd">Extracting embedded objects with a knife now deals damage to the specified organ.</li>
+				<li class="tweak">The knife shrapnel removal menu now requires you to choose the specific external organ you're extracting from as well.</li>
+				<li class="rscadd">Implanting someone now visually reports to which organ you'll be doing so.</li>
+				<li class="rscadd">Added tracking slugs, shotgun rounds that contain tracking implants, to be shot into things.</li>
+				<li class="rscadd">Added a box of four tracking slugs to the armory. Allowed RnD to produce them as well.</li>
+				<li class="tweak">Tracker implant IDs can no longer be configured, instead they spawn with their ID set to the correct next index.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Renames Medical Resident to Medical Intern, lowers required age to 18.</li>
+			</ul>
+			<h3 class="author">Lady Fowl updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Stationbounds can no longer be flushed.</li>
+			</ul>
+
+			<h2 class="date">22 October 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed roboticist alt titles.</li>
+			</ul>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">SMES now show whether the maintenance hatch is open, they visibly show (in short range) that the hatch was opened/closed, and when open you can examine the SMES and see what coils are inside.</li>
+				<li class="rscadd">SMES coils, when examined closely, will now show a label with the charge capacity and I/O rating. Also tweaked descriptions of SMES coils and fixed some typos.</li>
+				<li class="rscadd">Added pretty listing of storage contents for ghosts. Applies to all bags, boxes, satchels, ... (every descendant of /obj/item/storage).</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Ultra heavy kinetic accelerators can now only be used by unathi or other large mobs and the vaurca kinetic accelerator can only be used by vaurca.</li>
+				<li class="tweak">Being thrown by sudden acceleration now also makes you fall over.</li>
+				<li class="tweak">Moving a shuttle between two places that are both in close proximity to the station now takes a shorter amount of time than travelling to the station in the first place.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Ported various map effects from Virgo and Polaris, which can be used by mappers in the future to do cool things, such as portals, permanent lights, smoke emitters, screen shakers, and sound emitters.</li>
+			</ul>
+			<h3 class="author">The Stryker updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a swept NanoTrasen skirt suit to the loadout under suit selection.</li>
+				<li class="rscadd">Adds two new lighters to the zippo collection: Gadpathur and Asoral.</li>
+			</ul>
+
+			<h2 class="date">21 October 2020</h2>
+			<h3 class="author">Alberyk, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Added new sprites for the battle rifle and the naval shotgun.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The track laying rfd now fits in the suit storage of mining voidsuits and rigs.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Ethernet connections no longer allow computers to connect to an NTNet relay that's offline or doesn't exist.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Hand labelers set 'on' will no longer go inside storage containers (backpacks, closets, crates), and will instead label them.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Nearsightedness has been fixed.</li>
+			</ul>
+
+			<h2 class="date">20 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Mapped (somewhat minimalistic) Telecomms, AI core, AI upload with robot charger + spawners and messaging server room to Runtime-2 for easier debugging of AI and radio related things. Also added most important consoles to bridge, some cameras and intercoms.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">You can now examine C4 planted on walls to see when it detonates, you can also hit it with tools to access its wires.</li>
+				<li class="tweak">C4 is no longer visible from the other side of the wall, instead its true location is where you're standing on the moment you plant it.</li>
+				<li class="bugfix">Planting C4 no longer forces you to touch the wall before the slap it down. It also doesn't play a dropping sound the moment you apply it.</li>
+				<li class="tweak">You now only do the attack animation once you place the C4, instead of before the timer starts.</li>
+			</ul>
+			<h3 class="author">Geeves, Petrichor updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a canned unathi cider, Three Towns Cider, to the booze-o-mat.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Large groups of images are now sent via spritesheets, improving performance gains. Currently used on goonchat accent icons.</li>
+				<li class="bugfix">Labels on an item no longer transfer their labeled name to collected clothing fibers.</li>
+				<li class="bugfix">Fixed certain accents having incorrect or missing icons in chat.</li>
+			</ul>
+
+			<h2 class="date">19 October 2020</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The sensors of the remote warden's uniform now default to off and it can't be removed.</li>
+			</ul>
+
+			<h2 class="date">18 October 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the spy bug's radio function. You can toggle broadcasting by using the bug while it is on the active hand.</li>
+			</ul>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added pretty listing of closet contents for ghosts (incl. fullness and attached teleporter info).</li>
+				<li class="bugfix">Allows observers (ghosts) to follow all living things on restricted levels, which should allow for following exosuits and similar equipment.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Changes the CCIA Recorder, so it can be used to interview other ccia agents.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Odin bartenders and chefs that are tajara or unathi no longer spawn shoeless.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Improved the performance of one of the laggiest functions we use.</li>
+			</ul>
+
+			<h2 class="date">17 October 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Phoron bolts no longer deal organ damage.</li>
+				<li class="bugfix">Fixed being unable to activate low light vision while cuffed.</li>
+			</ul>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Cigarette packs can now be opened and closed; they behave more like matchboxes and they spawn in closed. You cannot pull a cigarette out of a closed pack.</li>
+				<li class="tweak">Fancy storage boxes will open before inserting anything.</li>
+				<li class="bugfix">Fancy storage boxes (donuts, matchboxes, ...) can no longer be opened/closed from anywhere - they require adjacency.</li>
+				<li class="bugfix">Other minor fixes to fancy storage boxes: sprites should behave better, stuff that shouldn't close doesn't close, etc.</li>
+			</ul>
+			<h3 class="author">The Stryker, Mwahahahaha updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Himeo voidsuit kit that can be used to reskin a mining suit into one to the loadout.</li>
+			</ul>
+			<h3 class="author">TheDocOct updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Increased round end time by 60 seconds to allow Odin ghost roles a bit more RP time. But not too much.</li>
+			</ul>
+
+			<h2 class="date">16 October 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Shields can now block simple mob attacks, such as carp and spiders, as long as the attack does less than 15 damage. You won't block juggernauts or spider queens.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Moves firearm control sorting to clientside, hopefully alleviating issues.</li>
+			</ul>
+			<h3 class="author">TheDocOct updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes the depreciated crystal therapy pod and metronome room from the psychiatric ward of medical.</li>
+			</ul>
+
+			<h2 class="date">15 October 2020</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Minor backend tweaks to the firearm control program to hopefully narrow down reported issues.</li>
+				<li class="rscadd">Vending machines now have a graphical, icon-based item interface based in VueUI.</li>
+				<li class="tweak">Vending machines now have a search bar.</li>
+				<li class="bugfix">Vending machines with large inventories (Booze-o-mat) should no longer cause excessive client lag.</li>
+			</ul>
+			<h3 class="author">Snakebittenn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds kinetic analyzers, hand teleporters, gravity guns to the protolathe.</li>
+				<li class="rscadd">Adds brass knuckles to the autolathe's hacked section.</li>
+				<li class="rscdel">Removes RFDs from the autolathe, look in the protolathe.</li>
+			</ul>
+
+			<h2 class="date">14 October 2020</h2>
+			<h3 class="author">Alberyk, Happyfox updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new Tajaran food and recipe: m'sai scout ration.</li>
+				<li class="rscadd">Added new items to Tajaran consular officers.</li>
+				<li class="tweak">Changed Tajaran consular officer directives to be more of a guideline instead of objectives.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Added a super meat locker for admins to spawn, comes with all the ingredients needed for a grilling party.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">pAIs can now actually use the atmospherics sensor program.</li>
+			</ul>
+
+			<h2 class="date">13 October 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Being inside something will no longer allow you to teleport through floors by attempting to move up or down a level.</li>
+				<li class="bugfix">Diona that spawn from cryo no longer have randomized names.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Makes UI titles white again for better contrast.</li>
+			</ul>
+
 			<h2 class="date">12 October 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed all medical alt titles with the exception of psychologist.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a number of ghostspawners to the odin.</li>
+				<li class="bugfix">Fixed a bug that caused all NT ghostspawners roles to have complete access to everything.</li>
+				<li class="tweak">Reworked the access on the Odin.</li>
+				<li class="rscadd">The Odin now responds differently depending on the alert level present at transfer/evac.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Morphs now have HUDs, move intent, health, zone selection, resist.</li>
+				<li class="rscadd">Morphs now have the ability to put down flesh sac tendril nodes, gore nests, and toggle darkvision (the latter is in the abilities tab).</li>
+				<li class="rscadd">Morphs can now rest. Resting on flesh tendrils will heal them, albeit quite slowly.</li>
+				<li class="rscadd">Tendrils slow people walking over them down, unless they're a changeling.</li>
+			</ul>
 			<h3 class="author">JohnWildkins updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">Camera monitoring is no longer available on tablets or wristbound computers.</li>
