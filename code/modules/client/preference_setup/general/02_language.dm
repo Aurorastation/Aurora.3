@@ -46,6 +46,7 @@
 
 	if (sql_load)
 		pref.alternate_languages = params2list(pref.alternate_languages)
+		pref.autohiss_setting = text2num(pref.autohiss_setting)
 
 	if(!islist(pref.alternate_languages))
 		pref.alternate_languages = list()
