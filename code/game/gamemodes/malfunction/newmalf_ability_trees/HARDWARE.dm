@@ -102,7 +102,7 @@
 	//Lets find the first self destruct terminal
 	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.all_machines)
 		nuke = WEAKREF(N)
-		continue
+		break
 
 	if(!nuke.resolve())
 		to_chat(user, "Self-destruct could not be initiated - No Self-Destruct Terminal available.")

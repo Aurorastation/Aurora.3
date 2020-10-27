@@ -385,7 +385,7 @@
 	to_chat(user, "The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!")
 	sleep(300) //Allows the AI to reset its borgs into combat units
 	to_chat(user, "Bypassing crisis module safeties.")
-	command_announcement.Announce("Brute force attack located in NTNet emergency crisis operations.", "Network Monitoring")
+	command_announcement.Announce("Brute force attack located in NTNet emergency crisis operations, source packets have stationbound synthetic signatures.", "Network Monitoring")
 	sleep(600)
 	command_announcement.Announce("Crisis operations bypassed. Firewall breached. NTNet compr0m1s3d#-.", "Network Monitoring")
 	if(user.is_dead()) // check if the AI is still alive

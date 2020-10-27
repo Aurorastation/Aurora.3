@@ -238,7 +238,8 @@
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("Warning: Automatic countermeasures ineffective. Breach of primary network firewall imminent.", "Network Monitoring")
+			var/area/A = get_area(user)
+			command_announcement.Announce("Warning: Automatic countermeasures ineffective. Breach of primary network firewall imminent. Source of hack triangulated to [A.name].", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
@@ -269,7 +270,7 @@
 
 	log_ability_use(user, "system override (FINISHED)")
 	to_chat(user, "## PRIMARY FIREWALL BYPASSED. YOU NOW HAVE FULL SYSTEM CONTROL.")
-	command_announcement.Announce("Our system administrators just reported that we've been locked out from your control network. Whoever did this now has full access to the station's systems.", "Network Administration Center")
+	command_announcement.Announce("Our system administrators just reported that we've been locked out from your control network. Before we got locked out, we picked up binary snippets pointing towards stationbound synthetic interference. You're on your own now, good luck.", "Network Administration Center")
 	user.hack_can_fail = 0
 	user.hacking = 0
 	user.system_override = 2

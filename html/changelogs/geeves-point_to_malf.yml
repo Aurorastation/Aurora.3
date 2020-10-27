@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Various late-game malf abilities have been tweaked to point towards the malfunctioning AI."
