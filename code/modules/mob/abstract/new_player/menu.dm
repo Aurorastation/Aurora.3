@@ -12,35 +12,35 @@
 	adding = list()
 	var/obj/screen/using
 
-	using = new /obj/screen/new_player/title()
+	using = new /obj/screen/new_player/title(FALSE, src)
 	using.name = "Title"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/join_game(src)
+	using = new /obj/screen/new_player/selection/join_game(FALSE, src)
 	using.name = "Join Game"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/settings()
+	using = new /obj/screen/new_player/selection/settings(FALSE, src)
 	using.name = "Setup Character"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/manifest()
+	using = new /obj/screen/new_player/selection/manifest(FALSE, src)
 	using.name = "Crew Manifest"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/observe()
+	using = new /obj/screen/new_player/selection/observe(FALSE, src)
 	using.name = "Observe"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/changelog()
+	using = new /obj/screen/new_player/selection/changelog(FALSE, src)
 	using.name = "Changelog"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/polls()
+	using = new /obj/screen/new_player/selection/polls(FALSE, src)
 	using.name = "Polls"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/lore_summary()
+	using = new /obj/screen/new_player/selection/lore_summary(FALSE, src)
 	using.name = "Current Lore Summary"
 	adding += using
 
@@ -57,7 +57,7 @@
 	screen_loc = "WEST,SOUTH"
 	var/lobby_index = 1
 
-/obj/screen/new_player/title/Initialize()
+/obj/screen/new_player/title/Initialize(mapload, var/datum/hud/H)
 	if(!current_map.lobby_icon)
 		current_map.lobby_icon = pick(current_map.lobby_icons)
 	if(!length(current_map.lobby_screens))
@@ -131,9 +131,10 @@
 
 //SELECTION
 
-/obj/screen/new_player/selection/New(var/desired_loc)
+/obj/screen/new_player/selection/Initialize(mapload, var/datum/hud/H)
+	. = ..()
 	color = null
-	return ..()
+	hud = H
 
 /obj/screen/new_player/selection/MouseEntered(location,control,params) //Yellow color for the font
 	color = "#ffb200"
@@ -147,8 +148,8 @@
 	animate(src, transform = null, time = 1, easing = CUBIC_EASING)
 	return ..()
 
-/obj/screen/new_player/selection/join_game/New(var/datum/hud/H)
-	hud = H
+/obj/screen/new_player/selection/join_game/Initialize(mapload, var/datum/hud/H)
+	. = ..()
 	var/mob/abstract/new_player/player = hud.mymob
 	update_icon(player)
 
@@ -178,6 +179,9 @@
 /obj/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, 'sound/effects/menu_click.ogg')
+	if(SSticker.current_state < GAME_STATE_PLAYING)
+		to_chat(player, SPAN_WARNING("The game hasn't started yet!"))
+		return
 	player.ViewManifest()
 
 /obj/screen/new_player/selection/observe/Click()
@@ -194,6 +198,20 @@
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, 'sound/effects/menu_click.ogg')
 	player.client.changes()
+
+/obj/screen/new_player/selection/polls/Initialize()
+	. = ..()
+	var/mob/M = hud.mymob
+	if(!M)
+		return
+	if(dbcon.IsConnected())
+		var/isadmin = M.client && M.client.holder
+		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
+		query.Execute()
+		var/newpoll = query.NextRow()
+
+		if(newpoll)
+			icon_state = "polls_new"
 
 /obj/screen/new_player/selection/polls/Click()
 	var/mob/abstract/new_player/player = usr
