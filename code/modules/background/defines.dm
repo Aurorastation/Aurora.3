@@ -48,6 +48,8 @@
 #define RELIGION_PREIMMINENNCE "Preimminennce"
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
+#define RELIGION_ETERNAL "The Eternal"
+
 //accent defines
 
 #define ACCENT_CETI "Biesellite"

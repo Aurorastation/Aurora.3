@@ -37,6 +37,8 @@
 #define LEFT  1
 #define RIGHT 2
 
+#define FIST_ATTACK_ANIMATION -1
+
 // Pulse levels, very simplified.
 #define PULSE_NONE    0 // So !M.pulse checks would be possible.
 #define PULSE_SLOW    1 // <60     bpm

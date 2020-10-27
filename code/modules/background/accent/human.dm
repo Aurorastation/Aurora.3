@@ -128,7 +128,7 @@
 /datum/accent/europa
 	name = ACCENT_EUROPA
 	description = "Europans are known to be much quieter and speak at a slower pace than their counterparts on Callisto, despite the close proximity of the two moons. Solarian linguists have \
-	traced the whisper-like nature of the accent origins to the planet’s submarines: crews believed that quieter voices interfered less with sonar, and were less likely to be heard by whatever was \
+	traced the whisper-like nature of the accent origins to the planet's submarines: crews believed that quieter voices interfered less with sonar, and were less likely to be heard by whatever was \
 	outside the hull. Europans that have succumbed to \"Deep Crazy\", a psychological phenomenon found on the moon, are known to abandon the typically hushed nature of Europan speech for screaming hysterically."
 	tag_icon = "europa"
 

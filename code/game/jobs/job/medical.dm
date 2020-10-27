@@ -59,17 +59,11 @@
 	selection_color = "#FF97D1"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = 25
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Trauma Physician","Nurse")
-	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
-	alt_outfits = list(
-		"Trauma Physician"=/datum/outfit/job/doctor/trauma_physician,
-		"Nurse"=/datum/outfit/job/doctor/nurse
-		)
 
 /datum/job/surgeon
 	title = "Surgeon"
@@ -108,16 +102,6 @@
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
-/datum/outfit/job/doctor/trauma_physician
-	name = "Trauma Physician"
-	jobtype = /datum/job/doctor
-
-	uniform = /obj/item/clothing/under/rank/medical/black
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
-	shoes = /obj/item/clothing/shoes/trauma
-	mask = /obj/item/clothing/mask/surgical
-	l_hand = /obj/item/storage/firstaid/adv
-
 /datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
 	jobtype = /datum/job/doctor
@@ -152,11 +136,7 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	alt_titles = list("Chemist")
 	outfit = /datum/outfit/job/pharmacist
-	alt_outfits = list(
-		"Chemist"=/datum/outfit/job/pharmacist/chemist
-		)
 
 /datum/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -173,19 +153,6 @@
 	satchel = /obj/item/storage/backpack/satchel_pharm
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
-
-/datum/outfit/job/pharmacist/chemist
-	name = "Chemist"
-	jobtype = /datum/job/pharmacist
-
-	uniform = /obj/item/clothing/under/rank/biochemist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
-	shoes = /obj/item/clothing/shoes/biochem
-
-	backpack = /obj/item/storage/backpack/virology
-	satchel = /obj/item/storage/backpack/satchel_vir
-	dufflebag = /obj/item/storage/backpack/duffel/vir
-	messengerbag = /obj/item/storage/backpack/messenger/viro
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
@@ -236,14 +203,10 @@
 	economic_modifier = 4
 
 	minimum_character_age = 20
-	alt_ages = list("Paramedic" = 24)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_emt)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_emt)
-	alt_titles = list("Paramedic")
 	outfit = /datum/outfit/job/med_tech
-	alt_outfits = list("Paramedic" = /datum/outfit/job/med_tech/paramed)
-
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_IPC_G2)
 
 /datum/outfit/job/med_tech
@@ -267,11 +230,8 @@
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
-/datum/outfit/job/med_tech/paramed
-	name = "Paramedic"
-
 /datum/job/intern_med
-	title = "Medical Resident"
+	title = "Medical Intern"
 	flag = INTERN_MED
 	department_flag = MEDSCI
 	faction = "Station"
@@ -281,13 +241,11 @@
 	selection_color = "#FF97D1"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
-	minimum_character_age = 25
-	alt_titles = list("Medical Intern")
-	alt_ages = list("Medical Intern" = 18)
+	minimum_character_age = 18
 	outfit = /datum/outfit/job/intern_med
 
 /datum/outfit/job/intern_med
-	name = "Medical Resident"
+	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical/intern

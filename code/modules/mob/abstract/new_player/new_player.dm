@@ -406,12 +406,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	var/dat = "<html><body>"
-	dat += "<h4>Show Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(OOC = 1)
-
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, dat), "window=manifest;size=370x420;can_close=1")
+	open_crew_manifest(src, OOC = TRUE)
 
 /mob/abstract/new_player/Move()
 	return 0

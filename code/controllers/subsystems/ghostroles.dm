@@ -205,3 +205,9 @@
 	if(G)
 		return G.spawn_atoms
 	return list()
+
+//Returns the spawner with the specified (short) name or null
+/datum/controller/subsystem/ghostroles/proc/get_spawner(var/spawner_name)
+	if(spawner_name in spawners)
+		return spawners[spawner_name]
+	return null
