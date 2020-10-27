@@ -1,5 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - rscdel: "Removed some unused scarfs in code."
-  - tweak: "Put winterboots in the loadout under boots, removed duplicate cowboy boots selection as these were already present under boot selection."
