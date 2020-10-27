@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Creating stacks from material recipes will now update their icons to display their true fullness, such as making rods out of steel."
