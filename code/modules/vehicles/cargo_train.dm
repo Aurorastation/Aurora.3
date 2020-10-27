@@ -122,6 +122,7 @@
 //-------------------------------------------
 /obj/vehicle/train/cargo/engine/turn_on()
 	if(!key)
+		audible_message("\The [src] whirrs, but the lack of a key causes it to shut down.")
 		return
 	else
 		..()
@@ -220,7 +221,7 @@
 	set category = "Vehicle"
 	set src in view(0)
 
-	if(!istype(usr, /mob/living/carbon/human))
+	if(!ishuman(usr))
 		return
 
 	if(on)
@@ -228,13 +229,10 @@
 		return
 
 	turn_on()
-	if (on)
+	if(on)
 		to_chat(usr, "You start [src]'s engine.")
-	else
-		if(cell.charge < charge_use)
-			to_chat(usr, "[src] is out of power.")
-		else
-			to_chat(usr, "[src]'s engine won't start.")
+	else if(cell.charge < charge_use)
+		to_chat(usr, "[src] is out of power.")
 
 /obj/vehicle/train/cargo/engine/verb/stop_engine()
 	set name = "Stop engine"
@@ -260,7 +258,10 @@
 	if(!istype(usr, /mob/living/carbon/human))
 		return
 
-	if(!key || (load && load != usr))
+	if(!key)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a key inserted!"))
+		return
+	if(load && load != usr)
 		return
 
 	if(on)

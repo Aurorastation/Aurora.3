@@ -21,6 +21,7 @@
 	. = ..()
 	cell = new /obj/item/cell/high(src)
 	key = null
+	verbs -= /obj/vehicle/train/cargo/engine/verb/remove_key
 	update_icon()
 	turn_off()	//so engine verbs are correctly set
 
@@ -35,6 +36,7 @@
 
 /obj/vehicle/train/cargo/engine/pussywagon/turn_on()
 	if(!key)
+		audible_message("\The [src] whirrs, but the lack of a key causes the engine to shut down.")
 		return
 	else
 		..()
@@ -47,12 +49,10 @@
 	..()
 
 	if(tow)
-		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
+		if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
-			if(PW.mopping)
-				PW.mop_toggle()
-			if(PW.hoover)
-				PW.hoover_toggle()
+			PW.engine_off()
+
 	verbs -= /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_mop
 	verbs -= /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_hoover
 
@@ -133,22 +133,34 @@
 	var/hoover = 0
 
 
-/obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/reagent_containers) && open)
+/obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/reagent_containers))
+		if(!open)
+			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
+			return
 		if(!bucket)
 			user.drop_from_inventory(W,src)
 			bucket = W
 			to_chat(user, "<span class='notice'>You replace \the [src]'s reagent reservoir.</span>")
 			return
 
-	if(W.iswrench() && open)
+	if(W.iswrench())
+		if(!open)
+			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
+			return
 		if(bucket)
 			bucket.forceMove(user.loc)
 			bucket = null
 			to_chat(user, "<span class='notice'>You remove \the [src]'s reagent reservoir.</span>")
 			return
+		else
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have a reagent reservoir installed."))
+			return
 
-	if(W.iscrowbar() && !open)
+	if(W.iscrowbar())
+		if(!open)
+			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
+			return
 		if(bucket)
 			for(var/obj/item/I in hoovered)
 				I.forceMove(user.loc)
@@ -156,6 +168,8 @@
 			vacuum_capacity = 125
 			to_chat(user, "<span class='notice'>You empty \the [src]'s vacuum cleaner.</span>")
 			return
+		else
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have a hoovered item container installed."))
 	..()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/Move(var/turf/destination)
@@ -182,25 +196,30 @@
 				playsound(src, 'sound/machines/disposalflush.ogg', 100, 1)
 	return ..()
 
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/engine_off()
+	if(mopping)
+		mop_toggle()
+	if(hoover)
+		hoover_toggle()
+
 /obj/vehicle/train/cargo/trolley/pussywagon/proc/mop_toggle()
 	if(!mopping)
 		mopping = 1
-		src.visible_message("\The [src]'s mop-o-matic rumbles to life.", "You hear something rumble deeply.")
+		audible_message("\The [src]'s mop-o-matic rumbles to life.", "You hear something rumble deeply.")
 		playsound(src, 'sound/machines/hydraulic_long.ogg', 100, 1)
 	else
 		mopping = 0
-		src.visible_message("\The [src]'s mop-o-matic putters before turning off.", "You hear something putter slowly.")
+		audible_message("\The [src]'s mop-o-matic putters before turning off.", "You hear something putter slowly.")
 	update_icon()
-
 
 /obj/vehicle/train/cargo/trolley/pussywagon/proc/hoover_toggle()
 	if(!hoover)
 		hoover = 1
-		src.visible_message("\The [src]'s space hoover rumbles to life.", "You hear something rumble deeply.")
+		audible_message("\The [src]'s space hoover rumbles to life.", "You hear something rumble deeply.")
 		playsound(src, 'sound/machines/hydraulic_long.ogg', 100, 1)
 	else
 		hoover = 0
-		src.visible_message("\The [src]'s space hoover putters before turning off.", "You hear something putter slowly.")
+		audible_message("\The [src]'s space hoover putters before turning off.", "You hear something putter slowly.")
 	update_icon()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/update_icon()
