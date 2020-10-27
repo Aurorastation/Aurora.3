@@ -239,7 +239,7 @@
 			if(!user || user.stat == DEAD)
 				return
 			var/area/A = get_area(user)
-			command_announcement.Announce("Warning: Automatic countermeasures ineffective. Breach of primary network firewall imminent. Source of hack triangulated to [A.name].", "Network Monitoring")
+			command_announcement.Announce("Warning: Automatic countermeasures ineffective. Breach of primary network firewall imminent. Source of hack traced to [A.name].", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
