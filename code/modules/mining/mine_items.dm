@@ -1353,8 +1353,6 @@ var/list/total_extraction_beacons = list()
 	for(var/turf/simulated/mineral/M in range(7,drill_loc))
 		if(prob(75))
 			M.GetDrilled(1)
-<<<<<<< Updated upstream
-=======
 
 /****************Himeo Voidsuit Kit*****************/
 /obj/item/himeo_kit
