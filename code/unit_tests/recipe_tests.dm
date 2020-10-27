@@ -3,13 +3,10 @@
  *
  */
 
-#define SUCCESS 1
-#define FAILURE 0
-
-datum/unit_test/research_design_cost
+/datum/unit_test/research_design_cost
 	name = "RECIPES: Design Cost"
 
-datum/unit_test/research_design_cost/start_test()
+/datum/unit_test/research_design_cost/start_test()
 	var/tested_count = 0
 	var/error_count = 0
 	for(var/T in subtypesof(/datum/design))
@@ -37,15 +34,15 @@ datum/unit_test/research_design_cost/start_test()
 	return 1
 
 
-datum/unit_test/stack_recipe_cost
+/datum/unit_test/stack_recipe_cost
 	name = "RECIPES: Stack Recipes"
 
-datum/unit_test/stack_recipe_cost/start_test()
+/datum/unit_test/stack_recipe_cost/start_test()
 	var/tested_count = 0
 	var/error_count = 0
 	for(var/T in subtypesof(/material))
 		var/material/D = new T
-		var/list/recipe_lists = D.get_recipes()
+		var/list/datum/stack_recipe_list/recipe_lists = D.get_recipes()
 		var/list/temp_matter = D.get_matter()
 		for(var/datum/stack_recipe_list/L in recipe_lists)
 			for(var/datum/stack_recipe/R in L.recipes)
@@ -72,6 +69,3 @@ datum/unit_test/stack_recipe_cost/start_test()
 		pass("All [tested_count] stack recipes with recyclable /obj/item products have correct material costs.")
 
 	return 1
-
-#undef SUCCESS
-#undef FAILURE
