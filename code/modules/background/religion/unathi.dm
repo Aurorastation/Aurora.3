@@ -34,4 +34,4 @@
 	 weakness hampers the soul, thus evil spirits can manipulate people's minds and souls to commit evil acts. These malicious spirits are given power within a being when the person succumbs to greed, \
 	 anger, or other emotional vices. Aut'akh preach that the Contact War was the result of sinta being so misled by evil spirits that they brought the world to ruin, and all power, whether a government, \
 	 religion, or corporation, is inherently corrupt due to the influence of evil spirits."
-	book_name = "Oss codex"
+	book_name = "Rituals and Regiments of the Ancient Mador"
