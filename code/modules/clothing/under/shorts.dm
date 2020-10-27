@@ -225,14 +225,14 @@
 
 /obj/item/clothing/under/pants/ripped
 	name = "ripped jeans"
-	desc = "A pair of ripped denim jeans. Likely overpriced."
-	icon = 'icons/obj/pants.dmi'
+	desc = "A  pair of ripped denim jeans. Probably sold for more than they're worth."
 	icon_state = "jeansripped"
 	item_state = "jeansripped"
+	body_parts_covered = LOWER_TORSO
 
-/obj/item/clothing/under/pants/blackripped
+/obj/item/clothing/under/panths/blackripped
 	name = "black ripped jeans"
-	desc = "A pair of ripped black jeans. Likely overpriced."
-	icon = 'icons/obj/pants.dmi'
+	desc = "A pair of ripped black jeans. The brown belt is an interesting touch."
 	icon_state = "jeansblackripped"
 	item_state = "jeansblackripped"
+	body_parts_covered = LOWER_TORSO

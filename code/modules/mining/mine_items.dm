@@ -1493,4 +1493,3 @@ var/list/total_extraction_beacons = list()
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/suit/space/void/atmos/P = new /obj/item/clothing/head/helmet/space/void/atmos(user.loc)
 		user.put_in_hands(P)
->>>>>>> Stashed changes

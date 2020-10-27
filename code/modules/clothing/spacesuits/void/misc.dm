@@ -359,6 +359,8 @@
 
 //himeo voidsuits
 
+//himeo voidsuits
+
 /obj/item/clothing/head/helmet/space/void/mining/himeo
 	name = "himeo mining voidsuit helmet"
 	desc = "A rugged polymer and alloy space helmet with a ballistic glass and polycarbonate visor commonly used by astronauts from Himeo."
@@ -433,4 +435,4 @@
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
 	item_state = "rig-himeo-engineering"
 	icon_state = "rig-himeo-engineering"
->>>>>>> Stashed changes
+
