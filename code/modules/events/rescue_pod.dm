@@ -5,7 +5,7 @@
 
 /datum/event/rescue_pod/announce()
     if(prob(66))
-        command_announcement.Announce("The NDV Icarus reports an escape pod inbound to the [station_name()]. Investigate and attend to the situation in accordance with NanoTrasen corporate regulations.", new_title="NDV Icarus")
+        command_announcement.Announce("The NDV Icarus reports an escape pod inbound to the [station_name()]. Investigate and attend to the situation in accordance with NanoTrasen corporate regulations.", new_title="NDV Icarus", new_sound='sound/AI/escapepod.ogg')
 
 /datum/event/rescue_pod/setup()
     for(var/datum/event/E in typesof(src))
