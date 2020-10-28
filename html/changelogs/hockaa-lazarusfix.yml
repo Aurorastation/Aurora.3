@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+  - bugfix: "Simple mobs revived by lazarus injectors now show their alive description text."
