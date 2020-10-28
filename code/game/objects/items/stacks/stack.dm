@@ -166,6 +166,7 @@
 		if (istype(O, /obj/item/stack))
 			var/obj/item/stack/S = O
 			S.amount = produced
+			S.update_icon()
 			S.add_to_stacks(user)
 
 		if (istype(O, /obj/item/storage)) //BubbleWrap - so newly formed boxes are empty
@@ -322,6 +323,7 @@
 		var/transfer = src.transfer_to(item)
 		if (transfer)
 			to_chat(user, SPAN_NOTICE("You add a new [item.singular_name] to the stack. It now contains [item.amount] [item.singular_name]\s."))
+		item.update_icon()
 		if(!amount)
 			break
 
