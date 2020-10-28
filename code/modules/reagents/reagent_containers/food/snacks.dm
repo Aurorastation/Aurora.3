@@ -1511,6 +1511,11 @@
 		if(76 to INFINITY)
 			icon_state = "steak"
 
+/obj/item/reagent_containers/food/snacks/meatsteak/grilled
+	name = "grilled steak"
+	desc = "A piece of meat grilled to absolute perfection. Sssssssip. This is the life."
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2, /datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1, /datum/reagent/spacespice = 1)
+
 /obj/item/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"
 	desc = "Jello gelatin, from Alfred Hubbard's cookbook."
@@ -4814,6 +4819,33 @@
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 2))
 	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/triglyceride = 5)
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/explorer_ration
+	name = "m'sai scout ration"
+	desc = "A mixture of meat, fat and adhomian berries commonly prepared by m'sai explorers and soldiers."
+	icon_state = "scoutration_wrap"
+	reagent_data = list(/datum/reagent/nutriment = list("berries" = 1))
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/nutriment/protein = 6 , /datum/reagent/nutriment/triglyceride = 5)
+	bitesize = 1
+	var/wrap = TRUE
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/update_icon()
+	if(wrap)
+		icon_state = "scoutration_wrap"
+	else
+		icon_state = "scoutration_open"
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/attack_self(mob/user)
+	src.wrap = !src.wrap
+	to_chat(usr, "You [src.wrap ? "wrap" : "unwrap"] \the [src].")
+	update_icon()
+	return
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/standard_feed_mob(var/mob/user, var/mob/target)
+	if(wrap)
+		to_chat(user, SPAN_NOTICE("You must unwrap \the [src] first."))
+		return
+	..()
 
 /obj/item/reagent_containers/food/snacks/stew/diona
 	name = "dionae stew"

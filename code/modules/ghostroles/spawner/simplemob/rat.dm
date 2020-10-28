@@ -10,10 +10,9 @@
 
 	//Vars regarding the mob to use
 	spawn_mob = /mob/living/simple_animal/rat //The mob that should be spawned
-	
 
 //This proc selects the spawnpoint to use.
-/datum/ghostspawner/simplemob/rat/select_spawnpoint()
+/datum/ghostspawner/simplemob/rat/select_spawnlocation()
 	//find a viable mouse candidate
 	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(pick(current_map.station_levels))
 	return get_turf(spawnpoint)
@@ -26,7 +25,7 @@
 //The proc to actually spawn in the user
 /datum/ghostspawner/simplemob/rat/spawn_mob(mob/user)
 	//Select a spawnpoint (if available)
-	var/turf/T = select_spawnpoint()
+	var/turf/T = select_spawnlocation()
 	var/mob/living/simple_animal/S
 	if (T)
 		S = new spawn_mob(T)

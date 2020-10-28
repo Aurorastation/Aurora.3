@@ -184,11 +184,8 @@
 		voice_name = "Bluespace Cat"
 		real_name = "Bluespace Cat"
 		mind.name = "Bluespace Cat"
-		if(wear_id)
-			var/obj/item/card/id/id = wear_id
-			if(istype(wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = wear_id
-				id = pda.id
+		if(GetIdCard())
+			var/obj/item/card/id/id = GetIdCard()
 			id.registered_name = "Bluespace Cat"
 		gender = "female"
 		regenerate_icons()
@@ -204,11 +201,8 @@
 		voice_name = "Bluespace Bot"
 		real_name = "Bluespace Bot"
 		mind.name = "Bluespace Bot"
-		if(wear_id)
-			var/obj/item/card/id/id = wear_id
-			if(istype(wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = wear_id
-				id = pda.id
+		if(GetIdCard())
+			var/obj/item/card/id/id = GetIdCard()
 			id.registered_name = "Bluespace Bot"
 		regenerate_icons()
 	else
@@ -222,11 +216,8 @@
 		voice_name = "Bluespace Tree"
 		real_name = "Bluespace Tree"
 		mind.name = "Bluespace Tree"
-		if(wear_id)
-			var/obj/item/card/id/id = wear_id
-			if(istype(wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = wear_id
-				id = pda.id
+		if(GetIdCard())
+			var/obj/item/card/id/id = GetIdCard()
 			id.registered_name = "Bluespace Tree"
 		regenerate_icons()
 	else
@@ -241,11 +232,8 @@
 		voice_name = "Bluespace Lizard"
 		real_name = "Bluespace Lizard"
 		mind.name = "Bluespace Lizard"
-		if(wear_id)
-			var/obj/item/card/id/id = wear_id
-			if(istype(wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = wear_id
-				id = pda.id
+		if(GetIdCard())
+			var/obj/item/card/id/id = GetIdCard()
 			id.registered_name = "Bluespace Lizard"
 		regenerate_icons()
 	else
@@ -260,11 +248,8 @@
 		voice_name = "Bluespace Squid"
 		real_name = "Bluespace Squid"
 		mind.name = "Bluespace Squid"
-		if(wear_id)
-			var/obj/item/card/id/id = wear_id
-			if(istype(wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = wear_id
-				id = pda.id
+		if(GetIdCard())
+			var/obj/item/card/id/id = GetIdCard()
 			id.registered_name = "Bluespace Squid"
 		gender = "female"
 		regenerate_icons()
@@ -280,11 +265,8 @@
 		voice_name = "Bluespace Bug"
 		real_name = "Bluespace Bug"
 		mind.name = "Bluespace Bug"
-		if(wear_id)
-			var/obj/item/card/id/id = wear_id
-			if(istype(wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = wear_id
-				id = pda.id
+		if(GetIdCard())
+			var/obj/item/card/id/id = GetIdCard()
 			id.registered_name = "Bluespace Bug"
 		regenerate_icons()
 	else

@@ -158,7 +158,7 @@
 		user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
 		return
 
-	if(istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))
+	if(W.GetID())
 		add_fingerprint(user)
 		if(allowed(user))
 			locked = !locked
@@ -167,7 +167,6 @@
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 		return
-	
 	return ..()
 
 /obj/machinery/shieldwallgen/proc/alldir_cleanup()

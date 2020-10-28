@@ -598,7 +598,7 @@
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(istype(O, /obj/item/card/id) || O.ispen() || istype(O, /obj/item/device/pda))
+	if(O.GetID() || O.ispen())
 		return
 
 	target = user

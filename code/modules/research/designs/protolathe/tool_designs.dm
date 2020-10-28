@@ -108,3 +108,33 @@ datum/design/item/tool/advanced_light_replacer
 	req_tech = list(TECH_DATA = 4, TECH_MATERIAL = 4)
 	materials = list(MATERIAL_GLASS = 1000, MATERIAL_GOLD = 200)
 	build_path = /obj/item/aicard
+
+/datum/design/item/tool/hand_tele
+	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
+	req_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 6)
+	materials = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 5000, MATERIAL_GOLD = 5000, MATERIAL_DIAMOND = 2500, MATERIAL_URANIUM = 2500, MATERIAL_PHORON = 2500)
+	build_path = /obj/item/hand_tele
+
+/datum/design/item/tool/rfd
+	desc = "A RFD, modified to construct walls and floors."
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 2500, MATERIAL_SILVER = 2500, MATERIAL_GOLD = 2500)
+	build_path = /obj/item/rfd/construction
+
+/datum/design/item/tool/rfd_ammo
+	desc = "Highly compressed matter for the RFD."
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	build_path = /obj/item/rfd_ammo
+
+/datum/design/item/tool/rfd_service
+	desc = "A RFD, modified to deploy service items."
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	build_path = /obj/item/rfd/service
+
+/datum/design/item/tool/rfd_pipe
+	desc = "A heavily modified RFD, modified to construct pipes and piping accessories."
+	req_tech = list(TECH_ENGINEERING = 5, TECH_MATERIAL = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 2500, MATERIAL_SILVER = 2500)
+	build_path = /obj/item/rfd/piping

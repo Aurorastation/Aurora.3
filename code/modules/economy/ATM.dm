@@ -470,14 +470,9 @@ log transactions
 //stolen wholesale and then edited a bit from newscasters, which are awesome and by Agouri
 /obj/machinery/atm/proc/scan_user(mob/living/carbon/human/human_user as mob)
 	if(!authenticated_account)
-		if(human_user.wear_id)
-			var/obj/item/card/id/I
-			if(istype(human_user.wear_id, /obj/item/card/id) )
-				I = human_user.wear_id
-			else if(istype(human_user.wear_id, /obj/item/device/pda) )
-				var/obj/item/device/pda/P = human_user.wear_id
-				I = P.id
-			if(I)
+		if(istype(human_user))
+			var/obj/item/card/id/I = human_user.GetIdCard()
+			if(istype(I))
 				authenticated_account = SSeconomy.attempt_account_access(I.associated_account_number)
 				if(authenticated_account)
 					to_chat(human_user, "<span class='notice'>[icon2html(src, usr)] Access granted. Welcome user '[authenticated_account.owner_name].'</span>")

@@ -42,12 +42,10 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		return 0
 
 	client << browse_rsc(SSassets.cache[asset_name], asset_name)
-	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
-		if (client)
-			client.cache += asset_name
+
+	if(!verify) // Can't access the asset cache browser, rip.
+		client.cache += asset_name
 		return 1
-	if (!client)
-		return 0
 
 	client.sending |= asset_name
 	var/job = ++client.last_asset_job
@@ -63,6 +61,9 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
+	
+	if(t >= timeout_time)
+		log_admin(SPAN_DANGER("Timeout time [timeout_time] exceeded for asset: [asset_name] for client [client]. Please notify a developer."))
 
 	if(client)
 		client.sending -= asset_name
@@ -94,12 +95,10 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		if (asset in SSassets.cache)
 			client << browse_rsc(SSassets.cache[asset], asset)
 
-	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
-		if (client)
-			client.cache += unreceived
+	if(!verify) // Can't access the asset cache browser, rip.
+		client.cache += unreceived
 		return 1
-	if (!client)
-		return 0
+
 	client.sending |= unreceived
 	var/job = ++client.last_asset_job
 
@@ -284,7 +283,7 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/goonchat
-	verify = TRUE
+	verify = FALSE
 	assets = list(
 		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
