@@ -18,6 +18,9 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
 
+/obj/item/modular_computer/handheld/pda/civilian/librarian
+	icon_add = "libb"
+
 /obj/item/modular_computer/handheld/pda/civilian/librarian/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
