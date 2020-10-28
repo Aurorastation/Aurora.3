@@ -230,7 +230,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/wasteland
 	name = "wasteland goggles"
-	desc = "A common pair of goggles, usually worn by Unathi who travel the wasteland. It's invaluable for keeping radioactive sand out of eyes."
+	desc = "A pair of old goggles common in the wasteland. Often worn by sailors and fishermen on the sea to keep saltwater out of their eyes before the war, now they take on new life to keep sand out of the eyes."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "wasteland_goggles"
 	item_state = "wasteland_goggles"

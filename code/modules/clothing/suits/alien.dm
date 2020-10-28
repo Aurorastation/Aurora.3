@@ -14,7 +14,7 @@
 
 /obj/item/clothing/suit/unathi/robe/kilt
 	name = "wasteland kilt"
-	desc = "A simple kilt made out of basic fabrics. Easy to make, easy to move in, this is the ideal casual wear for patrolling a nuclear wasteland."
+	desc = "A long tunic made of old banners and other available materials, it acts as a kilt for the poorest or most free-spirited of wastelanders, who aren't afraid to let the sun and sand strike their scales."
 	icon_state = "wasteland_kilt"
 	item_state = "wasteland_kilt"
 

@@ -1,6 +1,6 @@
 /obj/item/clothing/accessory/sinta_hood
-	name = "sinta hood"
-	desc = "A large padded hood, worn by Sinta to protect them from the elements."
+	name = "clan hood"
+	desc = "A hood worn commonly by travelers, explorers, and levies. It's main purpose is to block the glare of sun when traveling, and to represent their clan. Often they have the names sewn into the inside to help identify the owner should it, or the owner, be lost."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "sinta_hood"
 	item_state = "sinta_hood_up"
