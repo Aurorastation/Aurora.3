@@ -21,7 +21,7 @@
 	item_state = "gadpathur_coat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/soft/gadpathur
+/obj/item/clothing/head/gadpathur
 	name = "cadre cap"
 	desc = "A snugly-fitting cap with the traditional Gadpathurian red-and-orange sun on its face. It has no other identifying features."
 	desc_fluff = "Soft headgear is commonly worn by cadre members while indoors on Gadpathur or while traveling abroad from the planet. \
@@ -32,7 +32,7 @@
 	item_state = "gadpathur_cap"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/soft/gadpathur/beret
+/obj/item/clothing/head/beret/gadpathur
 	name = "cadre beret"
 	desc = "A canvas beret with the traditional Gadpathurian red-and-orange sun on its badge. It has no other identifying marks."
 	desc_fluff = "Berets are commonly worn by cadre members while indoors on Gadpathur or while traveling abroad from the planet. \

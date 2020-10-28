@@ -22,7 +22,7 @@
 	var/fax_department = "Representative's Office"
 	jobtype = /datum/job/representative
 
-	head = /obj/item/clothing/head/beret/liaison
+	head = /obj/item/clothing/head/beret/centcom/liaison
 	uniform = /obj/item/clothing/under/rank/liaison
 	suit = /obj/item/clothing/suit/storage/toggle/liaison
 	pda = /obj/item/device/pda/lawyer

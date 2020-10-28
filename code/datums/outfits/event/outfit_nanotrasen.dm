@@ -44,7 +44,7 @@
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	head = /obj/item/clothing/head/beret/centcom/officer/civilprotection
+	head = /obj/item/clothing/head/beret/centcom/civilprotection
 	suit_store = /obj/item/gun/energy/gun
 	belt = /obj/item/storage/belt/security
 

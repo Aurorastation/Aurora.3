@@ -24,12 +24,12 @@
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/zavodskoi_beret
-	display_name = "brown zavodskoi beret"
+	display_name = "black zavodskoi beret"
 	path = /obj/item/clothing/head/beret/security/zavodskoi
 	faction = "Zavodskoi Interstellar"
 
 /datum/gear/faction/zavodskoi_beret/alt
-	display_name = "black zavodskoi beret"
+	display_name = "brown zavodskoi beret"
 	path = /obj/item/clothing/head/beret/security/zavodskoi/alt
 	sort_category = "Factions"
 

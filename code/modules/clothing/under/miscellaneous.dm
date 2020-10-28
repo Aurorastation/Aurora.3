@@ -493,12 +493,12 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/legion/sentinel
-	name = "Tau Ceti Foreign Legion sentinel uniform."
+	name = "Tau Ceti Foreign Legion sentinel uniform"
 	desc = "A blue uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
 	worn_state = "taucetilegion_sentinel"
 
 /obj/item/clothing/under/legion/legate
-	name = "Legate uniform"
+	name = "Tau Ceti Foreign Legion legate uniform"
 	desc = "A stark red uniform worn by senior officers of the Tau Ceti Foreign Legion."
 	icon_state = "taucetilegion_legate"
 	worn_state = "taucetilegion_legate"

@@ -288,6 +288,7 @@
 		/obj/item/clothing/head/softcap,
 		/obj/item/clothing/head/softcap/himeo,
 		/obj/item/clothing/head/softcap/red,
+		/obj/item/clothing/head/beret/red,
 		/obj/item/clothing/head/that,
 		/obj/item/clothing/head/turban,
 		/obj/item/clothing/head/turban/grey,

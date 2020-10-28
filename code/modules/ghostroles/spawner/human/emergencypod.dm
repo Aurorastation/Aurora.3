@@ -142,7 +142,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
-		/obj/item/clothing/head/beret/liaison = 1,
+		/obj/item/clothing/head/beret/centcom/liaison = 1,
 		/obj/item/device/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/device/oxycandle = 1,

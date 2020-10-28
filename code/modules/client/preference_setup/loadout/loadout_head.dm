@@ -12,6 +12,7 @@
 	display_name = "bandana selection"
 	description = "A selection of bandanas. Comes in departmental colors."
 	path = /obj/item/clothing/head/bandana
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/bandana/New()
 	..()
@@ -38,6 +39,7 @@
 	display_name = "softcap selection"
 	description = "A selection of softcaps. Comes in departmental colors."
 	path = /obj/item/clothing/head/softcap
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/softcap/New()
 	..()
@@ -62,20 +64,33 @@
 	path = /obj/item/clothing/head/softcap/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/head/beret/eng
-	display_name = "beret, engie-orange"
-	path = /obj/item/clothing/head/beret/engineering
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
+/datum/gear/head/beret
+	display_name = "beret selection"
+	description = "A selection of berets. Comes in departmental colors."
+	path = /obj/item/clothing/head/beret
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/beret/New()
+	..()
+	var/berets = list()
+	berets["beret"] = /obj/item/clothing/head/beret
+	berets["beret, red"] = /obj/item/clothing/head/beret/red
+	berets["beret, captain"] = /obj/item/clothing/head/beret/captain
+	berets["beret, security"] = /obj/item/clothing/head/beret/security
+	berets["beret, science"] = /obj/item/clothing/head/beret/science
+	berets["beret, medical"] = /obj/item/clothing/head/beret/medical
+	berets["beret, engineering"] = /obj/item/clothing/head/beret/engineering
+	berets["beret, atmospherics"] = /obj/item/clothing/head/beret/atmos
+	berets["beret, hydroponics"] = /obj/item/clothing/head/beret/hydro
+	berets["beret, cargo"] = /obj/item/clothing/head/beret/cargo
+	berets["beret, mining"] = /obj/item/clothing/head/beret/miner
+
+	gear_tweaks += new/datum/gear_tweak/path(berets)
 
 /datum/gear/head/beret/color
 	display_name = "beret (colorable)"
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/head/beret/sec
-	display_name = "beret, security"
-	path = /obj/item/clothing/head/beret/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/head/warden
 	display_name = "headwear, security (warden)"
@@ -106,11 +121,6 @@
 	hoshead["blue commander hat"] = /obj/item/clothing/head/hos/cap
 	hoshead["black commander hat"] = /obj/item/clothing/head/hos/cap/alt
 	gear_tweaks += new/datum/gear_tweak/path(hoshead)
-
-/datum/gear/head/beret/medical
-	display_name = "beret, medical"
-	path = /obj/item/clothing/head/beret/medical
-	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Emergency Medical Technician", "Chief Medial Officer", "Psychiatrist")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
@@ -267,14 +277,16 @@
 
 /datum/gear/head/tcfl
 	display_name = "tcfl hat selection"
-	path = /obj/item/clothing/head/legion_beret
+	path = /obj/item/clothing/head/beret/legion
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/tcfl/New()
 	..()
 	var/tcfl = list()
-	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/legion_beret
-	tcfl["tcfl beret, field"] = /obj/item/clothing/head/legion
+	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
+	tcfl["tcfl beret, sentinel"] = /obj/item/clothing/head/beret/legion/sentinel
+	tcfl["tcfl beret, legate"] = /obj/item/clothing/head/beret/legion/legate
+	tcfl["tcfl peaked cap, legate"] = /obj/item/clothing/head/legion/legate
 	gear_tweaks += new/datum/gear_tweak/path(tcfl)
 
 /datum/gear/head/padded_cap
@@ -300,12 +312,12 @@
 /datum/gear/head/gadpathur
 	display_name = "gadpathurian headgear selection"
 	description = "A selection of headgear from Gadpathur."
-	path = /obj/item/clothing/head/soft/gadpathur
+	path = /obj/item/clothing/head/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/gadpathur/New()
 	..()
 	var/gadpathur = list()
-	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/soft/gadpathur
-	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/soft/gadpathur/beret
+	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/gadpathur
+	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)

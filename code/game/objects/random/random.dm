@@ -1031,6 +1031,24 @@
 		/obj/item/clothing/head/softcap/captain = 1
 	)
 
+/obj/random/softcap
+	name = "random beret"
+	desc = "This is a random beret."
+	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon_state = "beret"
+	problist = list(
+		/obj/item/clothing/head/beret/colorable/random = 5,
+		/obj/item/clothing/head/beret/engineering = 3,
+		/obj/item/clothing/head/beret/atmos = 3,
+		/obj/item/clothing/head/beret/medical = 3,
+		/obj/item/clothing/head/beret/science = 3,
+		/obj/item/clothing/head/beret/hydro = 3,
+		/obj/item/clothing/head/beret/cargo = 3,
+		/obj/item/clothing/head/beret/miner = 3,
+		/obj/item/clothing/head/beret/security = 2,
+		/obj/item/clothing/head/beret/captain = 1
+	)
+
 /obj/random/highvalue
 	name = "random high valuable item"
 	desc = "This is a random high valuable item."

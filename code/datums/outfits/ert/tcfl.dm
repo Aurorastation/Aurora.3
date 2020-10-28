@@ -1,7 +1,7 @@
 /datum/outfit/admin/ert/legion
 	name = "TCFL Volunteer"
 
-	head = /obj/item/clothing/head/legion
+	head = /obj/item/clothing/head/beret/legion
 	uniform = /obj/item/clothing/under/legion
 	l_ear = /obj/item/device/radio/headset/legion
 	shoes = /obj/item/clothing/shoes/swat/ert
@@ -49,7 +49,7 @@
 
 /datum/outfit/admin/ert/legion/sentinel
 	name = "TCFL Sentinel"
-	head = /obj/item/clothing/head/legion/sentinel
+	head = /obj/item/clothing/head/beret/legion/sentinel
 	uniform = /obj/item/clothing/under/legion/sentinel
 	suit = /obj/item/clothing/suit/storage/vest/legion
 	gloves = null
