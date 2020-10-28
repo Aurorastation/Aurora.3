@@ -28,6 +28,13 @@
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
 
+/obj/vehicle/train/examine(mob/user)
+	. = ..()
+	if(lead)
+		to_chat(user, SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))]."))
+	if(tow)
+		to_chat(user, SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))]."))
+
 /obj/vehicle/train/Move()
 	var/old_loc = get_turf(src)
 	if(..())
