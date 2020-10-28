@@ -33,3 +33,12 @@
 	update_worn_icon()
 	update_clothing_icon()
 	update_icon()
+
+/obj/item/clothing/accessory/sinta_surcoat
+	name = "ghaz'ak"
+	desc = "The Ghaz'ak is common among levies and warriors alike, displaying the colors of the ruling body that they fight for. While it's main use it to keep the sun's glare off of armor, particularly patriotic sinta have taken to wearing it outside of combat."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "surcoat"
+	item_state = "surcoat"
+	slot_flags = SLOT_TIE|SLOT_OCLOTHING
+	contained_sprite = TRUE
