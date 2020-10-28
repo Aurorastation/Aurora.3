@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Lobbysitter HUDs now properly update the Ready/Join button when the round starts."
