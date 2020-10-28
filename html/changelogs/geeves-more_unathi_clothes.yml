@@ -3,6 +3,6 @@ author: Geeves, Dronz
 delete-after: True
 
 changes: 
-  - rscadd: "Added new clothes for unathi, wasteland kilts, straw hats, wasteland goggles, standalone hoods."
+  - rscadd: "Added new clothes for unathi, wasteland kilts, straw hats, wasteland goggles, standalone hoods, and a Hegemony surcoat."
   - tweak: "Roughspun robes are now recolourable. Mogazali attire is no longer recolourable."
   - rscadd: "Added footwraps and caligae to the xeno clothes closet."
