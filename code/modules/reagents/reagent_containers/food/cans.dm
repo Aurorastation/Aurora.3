@@ -2,7 +2,6 @@
 
 /obj/item/reagent_containers/food/drinks/cans
 	var/fuselength = 0
-	var/lastcablecolor
 	var/fuselit
 	var/list/can_size_overrides = list() // make sure this gets added to new drink cans. 
 	volume = 40 //just over one and a half cups
@@ -45,35 +44,23 @@
 		fuseoverlay.pixel_y = can_size_overrides["y"]
 
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
-	if(W.iscoil())
+	if(istype(W, /obj/item/steelwool))
 		if(is_open_container())
-			var/obj/item/stack/S = W
 			switch(fuselength)
-				if(0 to 2)
-					if(S.use(3 - fuselength)) // in case someone tries to game the system by intentionally getting the fuse to fizzle out to a number below 3 or something
-						user.visible_message("<b>[user]</b> feeds some cable into \the [name].", SPAN_NOTICE("You feed a cable fuse into \the [name]."))
-						fuselength = 3 // The shortest fuse you can have is 3 seconds - below that and you might get people snipping it down to be near-instant shrapnel machines.
-						lastcablecolor = W.color
-						update_icon()
-						desc += " It has some cable poking out of the opening."
-					else
-						to_chat(user, SPAN_WARNING("You do not have enough cable to do that!"))
-				if(3 to 9)
-					if(S.use(1))
-						fuselength += 1
-						to_chat(user, SPAN_NOTICE("You add more cable to the fuse. It is now [fuselength] seconds."))
-						update_icon()
-					else
-						to_chat(user, SPAN_WARNING("You do not have enough cable to do that!"))
+				if(0 to 9)
+					user.visible_message("<b>[user]</b> stuffs some steel wool into \the [name].", SPAN_NOTICE("You feed steel wool into \the [name]. It will last approximately 10 seconds."))
+					fuselength = 10
+					update_icon()
+					desc += " It has some steel wool stuffed into the opening."
 				if(10)
 					to_chat(user, SPAN_WARNING("You cannot make the fuse longer than 10 seconds!"))
 		else
-			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the cable!"))
+			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the steel wool!"))
 
 	if(W.iswirecutter() && fuselength)
 		switch(fuselength)
 			if(1 to 3) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
-				user.visible_message("<b>[user]</b> removes the cable from \the [name].", SPAN_NOTICE("You remove the cable fuse from \the [name]."))
+				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].", SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
 				FuseRemove()
 			if(4 to 10)
 				var/fchoice = alert("Do you want to shorten or remove the fuse on \the [name]?", "Shorten or Remove", "Shorten", "Remove", "Cancel")
@@ -85,7 +72,7 @@
 								to_chat(user, SPAN_NOTICE("You shorten the fuse to [short] seconds."))
 								FuseRemove(fuselength - short)
 							else if(!short && !isnull(short))
-								user.visible_message("<b>[user]</b> removes the cable from \the [name]", SPAN_NOTICE("You remove the cable fuse from \the [name]."))
+								user.visible_message("<b>[user]</b> removes the steel wool from \the [name]", SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
 								FuseRemove()
 							else if(short == fuselength || isnull(short))
 								to_chat(user, SPAN_NOTICE("You decide against modifying the fuse."))
@@ -97,7 +84,7 @@
 								return
 					if("Remove")
 						if(!use_check_and_message(user))
-							user.visible_message("<b>[user]</b> removes the cable from \the [name].", "You remove the cable fuse from \the [name].")
+							user.visible_message("<b>[user]</b> removes the steel wool from \the [name].", "You remove the steel wool fuse from \the [name].")
 							FuseRemove()
 					if("Cancel")
 						return
@@ -112,10 +99,10 @@
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
 				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade in check
 			if(fuselength in list(1, 2))
-				user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the cable on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
+				user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
 				detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
 			else
-				user.visible_message(SPAN_WARNING("<b>[user]</b> lights the cable on \the [name] with \the [W]!"), SPAN_WARNING("You light the cable on \the [name] with the [W]!"))
+				user.visible_message(SPAN_WARNING("<b>[user]</b> lights the steel wool on \the [name] with \the [W]!"), SPAN_WARNING("You light the steel wool on \the [name] with the [W]!"))
 				playsound(get_turf(src), 'sound/items/flare.ogg', 50)
 				detonate(FALSE)
 	. = ..()
@@ -129,16 +116,18 @@
 		sleep(fizzle * 10)
 		
 		fuselength -= fizzle
-		visible_message(SPAN_WARNING("The cable on \the [name] fizzles out early."))
+		visible_message(SPAN_WARNING("The fuse on \the [name] fizzles out early."))
 		playsound(get_turf(src), 'sound/items/cigs_lighters/cig_snuff.ogg', 50)
 		fuselit = FALSE
 		update_icon()
 		return
+	else
+		fuselength += rand(-2, 2)
 	sleep(fuselength * 10)
 
 	switch(fuel)
 		if(0)
-			visible_message(SPAN_NOTICE("\The [name]'s cable burns out and nothing happens."))
+			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."))
 			fuselit = FALSE
 			fuselength = 0
 			update_icon()
@@ -170,11 +159,6 @@
 		return TRUE
 
 /obj/item/reagent_containers/food/drinks/cans/proc/FuseRemove(var/CableRemoved = fuselength)
-	var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
-	newcoil.amount = CableRemoved
-	newcoil.color = lastcablecolor
-	if(Adjacent(usr))
-		usr.put_in_hands(newcoil)
 	fuselength -= CableRemoved
 	update_icon()
 	if(!fuselength)
@@ -196,7 +180,7 @@
 	if(can_light())
 		fuselit = TRUE
 		detonate(FALSE)
-		visible_message(SPAN_WARNING("<b>\The [name]'s cable catches on fire!</b>"))
+		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"))
 	. = ..()
 
 #undef LETHAL_FUEL_CAPACITY
