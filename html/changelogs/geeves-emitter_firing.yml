@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Emitters now track how many shots they've fired, which gets reset when they get activated. Examine them while adjacent to them to read the value."
