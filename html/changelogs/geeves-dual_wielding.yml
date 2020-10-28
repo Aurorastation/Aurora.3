@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added dual wielding. Firing a gun while another is in the off-hand will fire that one as well, at the cost of lost accuracy. You must be on harm intent to do this."
