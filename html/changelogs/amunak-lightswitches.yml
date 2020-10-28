@@ -1,0 +1,5 @@
+author: Amunak
+delete-after: True
+changes:
+  - admin: "Admins now have a new secret to turn all light switches on, off or to their initial state."
+  - backend: "The 'area/set_lightswitch' proc can now be passed 'null' to set the area lights to initial state."
