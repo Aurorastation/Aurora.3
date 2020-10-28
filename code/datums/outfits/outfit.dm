@@ -77,17 +77,24 @@
 		switch(H.pda_choice)
 			if (1)
 				pda = null
-			if (2)
-				pda = tab_pda
-			if (3)
+			if (7)
 				pda = tablet
-			if (4)
+			if (8)
 				pda = wristbound
 			else
 				pda = tab_pda
 
 	if(pda && !visualsOnly)
 		var/obj/item/I = new pda(H)
+		switch(H.pda_choice)
+			if(3)
+				I.icon = 'icons/obj/pda_old.dmi'
+			if(4)
+				I.icon = 'icons/obj/pda_rugged.dmi'
+			if(5)
+				I.icon = 'icons/obj/pda_slate.dmi'
+			if(6)
+				I.icon = 'icons/obj/pda_smart.dmi'
 		imprint_pda(H,I)
 		H.equip_or_collect(I, slot_wear_id)
 
@@ -290,6 +297,7 @@
 
 /datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/modular_computer/PDA)
 	PDA.name = "PDA-[H.real_name] ([get_id_assignment(H)])"
+	PDA.update_icon()
 
 /datum/outfit/proc/register_pda(obj/item/modular_computer/P, obj/item/card/id/I)
 	P.card_slot.insert_id(I)

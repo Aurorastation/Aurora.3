@@ -13,3 +13,15 @@
 		icon_state += "-[icon_add]"
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state
+
+/obj/item/modular_computer/handheld/pda/old
+	icon = 'icons/obj/pda_old.dmi'
+
+/obj/item/modular_computer/handheld/pda/rugged
+	icon = 'icons/obj/pda_rugged.dmi'
+
+/obj/item/modular_computer/handheld/pda/slate
+	icon = 'icons/obj/pda_slate.dmi'
+
+/obj/item/modular_computer/handheld/pda/smart
+	icon = 'icons/obj/pda_smart.dmi'
