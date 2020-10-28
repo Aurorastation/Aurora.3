@@ -1463,6 +1463,8 @@ About the new airlock wires panel:
 		//get the dir from the assembly
 		set_dir(assembly.dir)
 
+		unres_dir = electronics.unres_dir
+
 	if (on_admin_z)
 		secured_wires = TRUE
 

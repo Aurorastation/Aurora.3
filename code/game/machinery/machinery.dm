@@ -335,18 +335,18 @@ Class Procs:
 
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || !S.isscrewdriver())
-		return 0
-	playsound(src.loc,  S.usesound, 50, 1)
+		return FALSE
+	playsound(src.loc, S.usesound, 50, 1)
 	panel_open = !panel_open
 	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()
-	return 1
+	return TRUE
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!istype(R))
-		return 0
+		return FALSE
 	if(!LAZYLEN(component_parts))
-		return 0
+		return FALSE
 	var/parts_replaced = FALSE
 	if(panel_open)
 		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
@@ -388,9 +388,8 @@ Class Procs:
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
-		for(var/obj/item/C in component_parts)
-			to_chat(user, "<span class='notice'>    [C.name]</span>")
+		to_chat(user, "<span class='notice'>The following parts have been detected in \the [src]:</span>")
+		to_chat(user, counting_english_list(component_parts))
 	if(parts_replaced) //only play sound when RPED actually replaces parts
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	return 1

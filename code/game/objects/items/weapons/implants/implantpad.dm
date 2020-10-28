@@ -44,12 +44,6 @@
 		if(src.case.imp)
 			if(istype(src.case.imp, /obj/item/implant))
 				dat += src.case.imp.get_data()
-				if(istype(src.case.imp, /obj/item/implant/tracking))
-					dat += {"ID (1-100):
-					<A href='byond://?src=\ref[src];tracking_id=-10'>-</A>
-					<A href='byond://?src=\ref[src];tracking_id=-1'>-</A> [case.imp:id]
-					<A href='byond://?src=\ref[src];tracking_id=1'>+</A>
-					<A href='byond://?src=\ref[src];tracking_id=10'>+</A><BR>"}
 		else
 			dat += "The implant casing is empty."
 	else
@@ -65,11 +59,6 @@
 		return
 	if ((usr.contents.Find(src)) || ((in_range(src, usr) && istype(src.loc, /turf))))
 		usr.set_machine(src)
-		if (href_list["tracking_id"])
-			var/obj/item/implant/tracking/T = src.case.imp
-			T.id += text2num(href_list["tracking_id"])
-			T.id = min(100, T.id)
-			T.id = max(1, T.id)
 
 		if (istype(src.loc, /mob))
 			attack_self(src.loc)

@@ -14,6 +14,7 @@
 	var/last_configurator
 	var/locked = TRUE
 	var/is_installed = FALSE // no double-spending
+	var/unres_dir = null
 
 /obj/item/airlock_electronics/attack_self(mob/user)
 	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
@@ -28,6 +29,17 @@
 		t1 += "<a href='?src=\ref[src];login=1'>Swipe ID</a><hr>"
 	else
 		t1 += "<a href='?src=\ref[src];logout=1'>Block</a><hr>"
+
+		t1 += "<B>Unrestricted Access Settings</B><br>"
+
+	
+		for(var/direction in cardinal)
+			if(direction & unres_dir)
+				t1 += "<a style='color:#00dd12' href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
+			else
+				t1 += "<a href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
+
+		t1 += "<hr>"
 
 		t1 += "Access requirement is set to "
 		t1 += one_access ? "<a style='color:#00dd12' href='?src=\ref[src];one_access=1'>ONE</a><hr>" : "<a style='color:#f7066a' href='?src=\ref[src];one_access=1'>ALL</a><hr>"
@@ -68,6 +80,10 @@
 
 	if(locked)
 		return
+
+	if(href_list["unres_dir"])
+		var/new_unres_dir = text2num(href_list["unres_dir"])
+		unres_dir ^= new_unres_dir
 
 	if(href_list["logout"])
 		locked = TRUE

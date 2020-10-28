@@ -148,6 +148,12 @@
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = 1
 				anchored = 1
+	else if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else
+			togglelock(user)
 	else if(!opened)
 		if(!broken && istype(W,/obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/ChainSawVar = W

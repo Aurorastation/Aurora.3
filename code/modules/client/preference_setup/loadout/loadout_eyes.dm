@@ -68,7 +68,7 @@
 	display_name = "medical HUD selection"
 	description = "A selection of medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Emergency Medical Technician", "Psychiatrist", "Medical Resident")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Emergency Medical Technician", "Psychiatrist", "Medical Intern")
 
 /datum/gear/eyes/medhuds/New()
 	..()
@@ -104,3 +104,17 @@
 /datum/gear/eyes/circuitry
 	display_name = "goggles, circuitry (empty)"
 	path = /obj/item/clothing/glasses/circuitry
+
+/datum/gear/eyes/blindfolds
+	display_name = "blindfold selection"
+	description = "A selection of blindfolds."
+	path = /obj/item/clothing/glasses/sunglasses/blindfold
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/eyes/blindfolds/New()
+	..()
+	var/blindfold = list()
+	blindfold["blindfold, black"] = /obj/item/clothing/glasses/sunglasses/blindfold
+	blindfold["blindfold, white"] = /obj/item/clothing/glasses/sunglasses/blindfold/white
+	blindfold["blindfold, transparent white"] = /obj/item/clothing/glasses/sunglasses/blindfold/white/seethrough
+	gear_tweaks += new/datum/gear_tweak/path(blindfold)

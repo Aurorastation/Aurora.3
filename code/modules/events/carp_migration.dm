@@ -54,7 +54,7 @@
 		if(spawn_drones && prob(25))
 			var/drone_num = rand(1, 2)
 			for(var/d = 1, d <= drone_num, d++)
-				new /mob/living/simple_animal/hostile/icarus_drone(get_random_turf_in_range(spawn_locations[i], 10, 6, TRUE))
+				new /mob/living/simple_animal/hostile/icarus_drone(get_random_turf_in_range(spawn_locations[i], 10, 6, TRUE, TRUE))
 		for(var/j = 1, j <= group_size, j++)
 			if(prob(95))
 				var/mob/living/simple_animal/hostile/carp/carp = new(spawn_locations[i])

@@ -6774,7 +6774,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/specops)
 "azM" = (
-/obj/machinery/computer/prisoner{
+/obj/item/modular_computer/console/preset/security/armory{
 	name = "Implant Management"
 	},
 /turf/simulated/floor/shuttle/red,

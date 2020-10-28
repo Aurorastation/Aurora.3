@@ -30,8 +30,6 @@
 	destroy_surroundings = 1
 
 	emote_see = list("stares","hovers ominously","blinks")
-	see_in_dark = 8
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	min_oxy = 0
 	max_oxy = 0
@@ -46,6 +44,8 @@
 	faction = "cavern"
 
 	flying = TRUE
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
