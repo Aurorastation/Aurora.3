@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Cargo Tugs and Janicarts now get a UI when you click on them."
+  - tweak: "Made interacting with the Pussywagon a bit nicer."
