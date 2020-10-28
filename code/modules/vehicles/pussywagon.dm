@@ -7,6 +7,7 @@
 
 	mob_offset_y = 7
 	load_offset_x = -13
+	vueui_template = "pussywagon"
 
 	var/cart_icon = "janicart"
 
@@ -24,6 +25,42 @@
 	verbs -= /obj/vehicle/train/cargo/engine/verb/remove_key
 	update_icon()
 	turn_off()	//so engine verbs are correctly set
+
+/obj/vehicle/train/cargo/engine/pussywagon/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	. = ..()
+
+	data = .
+
+	data["has_proper_trolley"] = FALSE
+	if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
+		data["has_proper_trolley"] = TRUE
+		var/obj/vehicle/train/cargo/trolley/pussywagon/PT = tow
+		data["is_hoovering"] = PT.hoover
+		data["vacuum_capacity"] = PT.vacuum_capacity
+		data["max_vacuum_capacity"] = PT.max_vacuum_capacity
+		data["is_mopping"] = PT.mopping
+		data["has_bucket"] = !!PT.bucket
+		data["bucket_capacity"] = 0
+		if(PT.bucket)
+			var/obj/item/reagent_containers/B = PT.bucket
+			data["bucket_capacity"] = B.reagents.total_volume
+			data["max_bucket_capacity"] = B.volume
+
+	return data
+
+/obj/vehicle/train/cargo/engine/pussywagon/Topic(href, href_list, datum/topic_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(href_list["toggle_hoover"])
+		toggle_hoover()
+	if(href_list["empty_hoover"])
+		var/obj/vehicle/train/cargo/trolley/pussywagon/PT = tow
+		PT.empty_hoover(usr)
+	if(href_list["toggle_mops"])
+		toggle_mop()
+	SSvueui.check_uis_for_change(src)
 
 /obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/key/janicart))
@@ -68,7 +105,7 @@
 		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
 			if(!PW.bucket)
-				to_chat(usr, "<span class='warning'>You must insert a reagent container first!</span>")
+				to_chat(usr, SPAN_WARNING("You must insert a reagent container first!"))
 				return
 			PW.mop_toggle()
 
@@ -128,6 +165,7 @@
 
 	var/obj/item/reagent_containers/bucket
 	var/list/hoovered = list()
+	var/max_vacuum_capacity = 125
 	var/vacuum_capacity = 125
 	var/mopping = 0
 	var/hoover = 0
@@ -141,7 +179,7 @@
 		if(!bucket)
 			user.drop_from_inventory(W,src)
 			bucket = W
-			to_chat(user, "<span class='notice'>You replace \the [src]'s reagent reservoir.</span>")
+			to_chat(user, SPAN_NOTICE("You replace \the [src]'s reagent reservoir."))
 			return
 
 	if(W.iswrench())
@@ -151,7 +189,7 @@
 		if(bucket)
 			bucket.forceMove(user.loc)
 			bucket = null
-			to_chat(user, "<span class='notice'>You remove \the [src]'s reagent reservoir.</span>")
+			to_chat(user, SPAN_NOTICE("You remove \the [src]'s reagent reservoir."))
 			return
 		else
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a reagent reservoir installed."))
@@ -161,16 +199,16 @@
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
 			return
-		if(bucket)
-			for(var/obj/item/I in hoovered)
-				I.forceMove(user.loc)
-				hoovered -= I
-			vacuum_capacity = 125
-			to_chat(user, "<span class='notice'>You empty \the [src]'s vacuum cleaner.</span>")
-			return
-		else
-			to_chat(user, SPAN_WARNING("\The [src] doesn't have a hoovered item container installed."))
+		empty_hoover(user)
+		to_chat(user, SPAN_NOTICE("You empty \the [src]'s vacuum cleaner."))
+		return
 	..()
+
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/empty_hoover(var/mob/user)
+	for(var/obj/item/I in hoovered)
+		I.forceMove(user.loc)
+		hoovered -= I
+	vacuum_capacity = max_vacuum_capacity
 
 /obj/vehicle/train/cargo/trolley/pussywagon/Move(var/turf/destination)
 	if(lead)

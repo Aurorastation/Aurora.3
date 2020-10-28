@@ -12,6 +12,8 @@
 	load_offset_x = 0
 	mob_offset_y = 7
 
+	var/vueui_template = "trainengine"
+
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
 	active_engines = 1
 	var/obj/item/key/cargo_train/key
@@ -46,6 +48,55 @@
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()	//so engine verbs are correctly set
+
+/obj/vehicle/train/cargo/engine/attack_hand(mob/user)
+	if(use_check_and_message(user))
+		return
+	ui_interact(user)
+
+/obj/vehicle/train/cargo/engine/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+
+	if(!ui)
+		ui = new(user, src, "vehicles-[vueui_template]", 600, 400, capitalize_first_letters(initial(name)))
+		ui.auto_update_content = TRUE
+
+	ui.open()
+
+/obj/vehicle/train/cargo/engine/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	if(!length(data))
+		data = list()
+
+	data["is_on"] = on
+	data["has_key"] = !!key
+	data["has_cell"] = !!cell
+	if(cell)
+		data["cell_charge"] = cell.charge
+		data["cell_max_charge"] = cell.maxcharge
+	data["is_towing"] = !!tow
+	if(tow)
+		data["tow"] = tow.name
+
+	return data
+
+/obj/vehicle/train/cargo/engine/Topic(href, href_list, state)
+	. = ..()
+	if(.)
+		return TRUE
+
+	if(href_list["toggle_engine"])
+		if(!on)
+			start_engine()
+		else
+			stop_engine()
+	if(href_list["key"])
+		do_remove_key(usr)
+	if(href_list["unlatch"])
+		tow.unattach(usr)
+	if(href_list["latch"])
+		for(var/obj/vehicle/train/T in orange(1, src))
+			latch(T)
+	SSvueui.check_uis_for_change(src)
 
 /obj/vehicle/train/cargo/engine/Move(var/turf/destination)
 	if(on && cell.charge < charge_use)
@@ -264,12 +315,13 @@
 	if(load && load != usr)
 		return
 
+	do_remove_key(usr)
+
+/obj/vehicle/train/cargo/engine/proc/do_remove_key(var/mob/user)
 	if(on)
 		turn_off()
 
-	key.loc = usr.loc
-	if(!usr.get_active_hand())
-		usr.put_in_hands(key)
+	user.put_in_hands(key)
 	key = null
 
 	verbs -= /obj/vehicle/train/cargo/engine/verb/remove_key
