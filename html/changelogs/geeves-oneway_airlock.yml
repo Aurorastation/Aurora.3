@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Mapped in various airlocks with one-way exits, meaning that you don't need access to exit if you come from that direction. This is primarily to let people out of departments without escorts."
-  - rscadd: "Added the option to put one-way exits in airlocks via airlock electronics."

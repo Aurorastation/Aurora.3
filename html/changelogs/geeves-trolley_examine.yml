@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Examining trolleys and engines will now tell you whether they're being towed, or towing something, and what exactly those are."
