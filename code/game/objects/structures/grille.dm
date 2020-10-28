@@ -114,6 +114,7 @@
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
 								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
+		return
 	else if(istype(W,/obj/item/stack/rods) && destroyed == 1)
 		if(!shock(user, 90))
 			var/obj/item/stack/rods/ROD = W

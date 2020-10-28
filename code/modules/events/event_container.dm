@@ -129,7 +129,6 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	available_events = list(
 		// Severity level, event name, even type, base weight, role weights, one shot, min weight, max weight. Last two only used if set and non-zero
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",					/datum/event/nothing,				120),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 			/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_SURGEON = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",				/datum/event/apc_damage,			20, 	list(ASSIGNMENT_ENGINEER = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",		/datum/event/brand_intelligence,	0, 	list(ASSIGNMENT_ENGINEER = 5),	1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage",				/datum/event/camera_damage,			20, 	list(ASSIGNMENT_ENGINEER = 10)),
@@ -153,6 +152,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	severity = EVENT_LEVEL_MODERATE
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Nothing",							/datum/event/nothing,						200),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 					/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_SURGEON = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Carp School",						/datum/event/carp_migration,				25, 	list(ASSIGNMENT_SECURITY = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Communication Blackout",			/datum/event/communications_blackout,		100),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm",					/datum/event/electrical_storm, 				50,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),

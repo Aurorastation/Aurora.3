@@ -816,6 +816,7 @@
 					M.faction = initial(M.faction)
 				M.revive()
 				M.icon_state = M.icon_living
+				M.desc = initial(M.desc)
 				loaded = FALSE
 				user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
 				feedback_add_details("lazarus_injector", "[M.type]")
