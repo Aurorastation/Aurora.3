@@ -3,7 +3,7 @@
 /obj/item/reagent_containers/food/drinks/cans
 	var/fuselength = 0
 	var/fuselit
-	var/list/can_size_overrides = list() // make sure this gets added to new drink cans. 
+	var/list/can_size_overrides = list("x" = 0, "y" = -3) // position of the can's opening - make sure to take away 16 from X and 23 from Y
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
@@ -31,17 +31,14 @@
 
 /obj/item/reagent_containers/food/drinks/cans/update_icon()
 	cut_overlays()
-	var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
-	switch(fuselength)
-		if(1 to 5)
-			add_overlay(fuseoverlay)
-		if(6 to INFINITY)
-			fuseoverlay.icon_state = "fuse_long"
-			add_overlay(fuseoverlay)
-	if("x" in can_size_overrides)
+	if(fuselength)
+		var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
+		switch(fuselength)
+			if(6 to INFINITY)
+				fuseoverlay.icon_state = "fuse_long"
 		fuseoverlay.pixel_x = can_size_overrides["x"]
-	if("y" in can_size_overrides)
 		fuseoverlay.pixel_y = can_size_overrides["y"]
+		add_overlay(fuseoverlay)
 
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/steelwool))
@@ -97,7 +94,7 @@
 				msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 			if(fuselength >= 3 && fuselength <= 5 && prob(30) && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
-				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade in check
+				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
 			if(fuselength in list(1, 2))
 				user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
 				detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
@@ -279,7 +276,7 @@
 	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme!"
 	icon_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/kois/clean = 10, /datum/reagent/toxin/phoron = 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer
@@ -297,7 +294,7 @@
 	desc = "A can of cherry energy drink, with V'krexi additives. All good colas come in cherry."
 	icon_state = "zoracherry"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorakois
@@ -305,7 +302,7 @@
 	desc = "A can of K'ois flavored energy drink, with V'krexi additives. Contains no K'ois, probably contains no palatable flavor."
 	icon_state = "koistwist"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/kois = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoraphoron
@@ -313,7 +310,7 @@
 	desc = "A can of grape flavored energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound taste testers."
 	icon_state = "phoronpassion"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/phoron = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorahozm
@@ -321,7 +318,7 @@
 	desc = "A can of fizzy, acidic energy, with plenty of V'krexi additives. Tastes like impaling the bottom of your mouth with a freezing cold spear laced with bees and salt."
 	icon_state = "hozm"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/hozm = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoravenom
@@ -329,7 +326,7 @@
 	desc = "A diet can of Venom Grass flavored energy drink, with V'krexi additives. Still tastes like a cloud of stinging polytrinic bees, but calories are nowhere to be found."
 	icon_state = "sourvenomgrass"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/venomgrass = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoraklax
@@ -337,7 +334,7 @@
 	desc = "A can of orange cream flavored energy drink, with V'krexi additives. Engineered nearly to perfection."
 	icon_state = "klaxancrush"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/klax = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoracthur
@@ -345,7 +342,7 @@
 	desc = "A can of blue raspberry flavored energy drink, with V'krexi additives. You're pretty sure this was shipped by mistake, the previous K'laxan Energy Crush wrapper is still partly visible underneath the current one."
 	icon_state = "cthurberry"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/cthur = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoradrone
@@ -353,7 +350,7 @@
 	desc = "A can of some kind of industrial fluid flavored energy drink, with V'krexi additives meant for Vaurca. <span class='warning'>Known to induce vomiting in humans!</span>."
 	icon_state = "dronefuel"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/drone = 30, /datum/reagent/mental/vaam = 10)
 
 /obj/item/reagent_containers/food/drinks/cans/zorajelly
@@ -361,7 +358,7 @@
 	desc = "A can of... You aren't sure, but it smells pleasant already."
 	icon_state = "royaljelly"
 	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("y" = 2)
+	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/jelly = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
@@ -379,7 +376,7 @@
 	icon_state = "beetlemilk"
 	center_of_mass = list("x"=17, "y"=10)
 	reagents_to_add = list(/datum/reagent/drink/milk/beetle = 30)
-	can_size_overrides = list("x" = 1, "y" = 1)
+	can_size_overrides = list("x" = 1, "y" = -2)
 
 /obj/item/reagent_containers/food/drinks/cans/dyn
 	name = "Cooling Breeze"
@@ -394,4 +391,3 @@
 	icon_state = "three_towns_cider"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/datum/reagent/alcohol/butanol/threetownscider = 30)
-	can_size_overrides = list("x" = 1, "y" = 1)
