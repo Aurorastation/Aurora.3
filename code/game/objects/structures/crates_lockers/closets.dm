@@ -336,6 +336,12 @@
 			)
 		else
 			attack_hand(user)
+	else if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else
+			attack_hand(user)
 	else
 		attack_hand(user)
 	return

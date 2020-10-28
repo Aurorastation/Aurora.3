@@ -1,5 +1,4 @@
 /datum/antagonist/proc/print_player_summary()
-
 	if(!current_antagonists.len)
 		return 0
 
@@ -64,14 +63,23 @@
 	var/role = ply.assigned_role ? "\improper[ply.assigned_role]" : "\improper[ply.special_role]"
 	var/text = "<br><b>[ply.name]</b> as \a <b>[role]</b> ("
 	if(ply.current)
-		if(ply.current.stat == DEAD)
+		var/mob/living/M = ply.current
+		var/mob/living/carbon/C = M
+		var/turf/T = M.loc
+		var/area/A = T.loc
+		if(M.stat == DEAD)
 			text += "died"
-		else if(isNotStationLevel(ply.current.z))
+		else if(A?.is_prison() || (!A?.is_no_crew_expected() && C?.handcuffed))
+			// they are either imprisoned, or handcuffed in an area that can't be considered a hideout
+			text += "apprehended"
+		else if(isNotStationLevel(M.z))
 			text += "fled the station"
 		else
 			text += "survived"
-		if(ply.current.real_name != ply.name)
-			text += " as <b>[ply.current.real_name]</b>"
+		if(M.stat == UNCONSCIOUS)
+			text += " - unconscious"
+		if(M.real_name != ply.name)
+			text += " as <b>[M.real_name]</b>"
 	else
 		text += "body destroyed"
 	text += ")"

@@ -497,8 +497,8 @@
 	if(total)
 		var/pressure = environment.return_pressure()
 		environment_data[++environment_data.len] = list("name" = "Pressure", "value" = pressure, "unit" = "kPa", "danger_level" = pressure_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = GAS_OXYGEN, "value" = environment.gas[GAS_OXYGEN] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = GAS_CO2, "value" = environment.gas[GAS_CO2] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Oxygen", "value" = environment.gas[GAS_OXYGEN] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Carbon Dioxide", "value" = environment.gas[GAS_CO2] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Phoron", "value" = environment.gas[GAS_PHORON] / total * 100, "unit" = "%", "danger_level" = phoron_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Temperature", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)
 	data["total_danger"] = danger_level
