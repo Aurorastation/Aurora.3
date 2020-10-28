@@ -13290,7 +13290,7 @@
 /turf/simulated/wall,
 /area/security/armory)
 "axO" = (
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /obj/machinery/requests_console{
 	department = "Security";
 	departmentType = 5;
@@ -14577,7 +14577,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "aAa" = (
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -18900,11 +18900,6 @@
 	network = list("Rep_Office");
 	pixel_x = 31;
 	pixel_y = -2
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Consular's Office";
-	dir = 8;
-	pixel_y = 7
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
@@ -33124,6 +33119,7 @@
 /area/crew_quarters/heads/hop)
 "bfz" = (
 /obj/machinery/door/airlock{
+	id_tag = command_unit_1;
 	name = "Unit 1"
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -33929,6 +33925,13 @@
 /obj/structure/toilet{
 	dir = 8
 	},
+/obj/machinery/button/remote/airlock{
+	id = "command_unit_1";
+	name = "Door Bolt Control";
+	pixel_x = 5;
+	pixel_y = 25;
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/bridge/meeting_room)
 "bgR" = (
@@ -34536,16 +34539,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bhN" = (
-/obj/structure/bed,
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/bedsheet/medical,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bhO" = (
@@ -41944,6 +41946,10 @@
 	c_tag = "Medical - Custodial Closet";
 	dir = 4
 	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -4;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled,
 /area/medical/custodial_closet)
 "bwB" = (
@@ -48970,6 +48976,14 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/medical,
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "patient_unit_1";
+	name = "Door Bolt Control";
+	pixel_x = 22;
+	pixel_y = 8;
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medbay)
 "bLU" = (
@@ -63616,6 +63630,11 @@
 	pixel_x = -24;
 	pixel_y = 32
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diplomatic Reception";
+	network = list("Civilian Main","Rep_Office");
+	pixel_x = -10
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "mPJ" = (
@@ -63696,8 +63715,8 @@
 "mVU" = (
 /obj/machinery/button/windowtint{
 	id = "consular";
-	pixel_x = 24;
-	pixel_y = -20
+	pixel_x = -21;
+	pixel_y = -24
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
@@ -64870,8 +64889,8 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock{
+	id_tag = "patient_unit_1";
 	name = "Patient Bathroom";
-	req_access = null;
 	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -66251,10 +66270,6 @@
 	icon_state = "plant-21"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Representative's Office";
-	pixel_x = -5
-	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "sjg" = (
@@ -67001,12 +67016,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	dir = 4;
-	network = list("Civilian Main","Rep_Office");
-	pixel_y = -8
-	},
 /obj/machinery/computer/guestpass{
 	pixel_x = -27;
 	pixel_y = -2
@@ -67495,6 +67504,12 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diplomatic Reception";
+	dir = 8;
+	network = list("Civilian Main","Rep_Office");
+	pixel_y = -22
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ulG" = (

@@ -86,6 +86,11 @@
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
 	enrolled = 1
 
+/obj/item/modular_computer/console/preset/security/armory
+	name = "armory console"
+	_app_preset_type = /datum/modular_computer_app_presets/security/armory
+	enrolled = 1
+
 /obj/item/modular_computer/console/preset/security/hos
 	name = "head of security's console"
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos

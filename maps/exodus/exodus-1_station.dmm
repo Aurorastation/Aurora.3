@@ -4830,7 +4830,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aji" = (
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "ajj" = (
@@ -4978,7 +4978,7 @@
 /obj/machinery/light_switch{
 	pixel_y = -25
 	},
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "ajx" = (
@@ -23727,7 +23727,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aTQ" = (
