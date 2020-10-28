@@ -28,7 +28,7 @@
 			to_chat(src, "Auto-hiss is now OFF.")
 
 /datum/species
-	var/has_autohiss = FALSE // set in global_list.dm, line 158
+	var/has_autohiss = FALSE
 	var/list/autohiss_basic_map = null
 	var/list/autohiss_extra_map = null
 	var/list/autohiss_exempt = null
