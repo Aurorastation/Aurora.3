@@ -774,7 +774,7 @@
 	desc = "Harvested from the finest NanoTrasen steel sheep."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "steel_wool"
-	attack_verb = list("lacerated", "garroted")
+	flags = NOBLUDGEON
 	w_class = ITEMSIZE_SMALL
 	var/lit
 
@@ -791,30 +791,52 @@
 		else
 			to_chat(user, SPAN_WARNING("The cell isn't charged!"))
 
+/obj/item/steelwool/fire_act()
+	ignite()
+
+/obj/item/steelwool/afterattack(atom/A, mob/user)
+	if(istype(A, /obj) || istype(A, /turf))
+		file_down(A, user)
+	return
 
 /obj/item/steelwool/proc/ignite(var/L, mob/user)
-	if(lit)
+	if(lit && user)
 		to_chat(user, SPAN_WARNING("The steel wool is already lit!"))
 		return
 	else
 		lit = TRUE
-		user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool with \the [L]"), SPAN_NOTICE("You hear a gentle flame crackling."))
+		if(user)
+			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool with \the [L]"), SPAN_NOTICE("You hear a gentle flame crackling."))
 		playsound(get_turf(src), 'sound/items/flare.ogg', 50)
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
 		set_light(2, 2, LIGHT_COLOR_LAVA)
-		addtimer(CALLBACK(src, .proc/endburn, user), 120 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, .proc/endburn), 120 SECONDS, TIMER_UNIQUE)
 
-/obj/item/steelwool/proc/endburn(mob/living/carbon/human/user)
+/obj/item/steelwool/proc/endburn()
 	visible_message(SPAN_NOTICE("The steel wool burns out."))
-	if(!user.gloves)
-		var/UserLoc = get_equip_slot()
-		if(UserLoc == slot_l_hand)
-			user.apply_damage(5, BURN, BP_L_HAND)
-			to_chat(user, SPAN_DANGER("The steel wool burns your left hand!"))
-		else if(UserLoc == slot_r_hand)
-			user.apply_damage(5, BURN, BP_R_HAND)
-			to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
+	if(istype(loc, /mob/living))
+		var/mob/living/carbon/human/user = loc
+		if(!user.gloves)
+			var/UserLoc = get_equip_slot()
+			if(UserLoc == slot_l_hand)
+				user.apply_damage(5, BURN, BP_L_HAND)
+				to_chat(user, SPAN_DANGER("The steel wool burns your left hand!"))
+			else if(UserLoc == slot_r_hand)
+				user.apply_damage(5, BURN, BP_R_HAND)
+				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
 	
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)
+
+/obj/item/steelwool/proc/file_down(atom/target, mob/user)
+	if(target.color != initial(target.color))
+		if(lit)
+			to_chat(user, SPAN_WARNING("The steel wool is too hot to do that!"))
+			return
+		else
+			user.visible_message(SPAN_NOTICE("[user] starts filing down \the [target] with [name]."), SPAN_NOTICE("You start filing down \the [target] with [name]."))
+			if(do_after(user, 2 SECONDS))
+				target.color = initial(target.color)
+				user.visible_message(SPAN_NOTICE("[user] finishes filing down \the [target]."), SPAN_NOTICE("You finish filing down \the [target]."))
+				return
