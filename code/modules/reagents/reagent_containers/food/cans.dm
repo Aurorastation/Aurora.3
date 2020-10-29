@@ -129,7 +129,7 @@
 			fuselength = 0
 			update_icon()
 		if(1 to 10) // baby explosion
-			var/obj/item/trash/can/popped_can = new /obj/item/trash/can(get_turf(src))
+			var/obj/item/trash/can/popped_can = new(get_turf(src))
 			popped_can.icon_state = icon_state
 			popped_can.name = "popped can"
 			playsound(get_turf(src), 'sound/effects/snap.ogg', 50)
