@@ -70,6 +70,7 @@
 //#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.
 #define SS_PRIORITY_PSYCHICS      30
 #define SS_PRIORITY_ARRIVALS      30	// Centcomm arrivals shuttle auto-launch. Usually asleep.
+#define SS_PRIORITY_GRAPH          30    // Merging and splitting of graphs
 #define SS_PRIORITY_EXPLOSIVES    20	// Explosion processor. Doesn't have much effect on explosion tick-checking.
 #define SS_PRIORITY_DISPOSALS     20	// Disposal holder movement.
 #define SS_PRIORITY_MODIFIER      10
