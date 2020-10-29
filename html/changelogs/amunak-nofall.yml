@@ -6,6 +6,7 @@ changes:
   - admin: "Adds the anti-gravity verb to the Bluespace Robot preset and starts them with 'NOFALL' on."
   - admin: "When using 'GODMODE' you will no longer take damage when you fall; instead a cool message will be shown and a quiet thump will be played."
   - admin: "'GODMODE' now protects you from the awful effects of running - you can run indefinitely and won't take damage from it."
+  - admin: "BSTechs now have additional vision mode - 'darkvision' for seeing normally but without lighting."
   - refactor: "Thanks to the above changes the BST is now self-contained in a single file (well except for the robot preset)."
   - refactor: "To facilitate the above changes several godmode and incorporeal checks have been added (mostly to movement procs). It cuts on some extra proc overrides and type checks. Also results in a more 'natural' experience when using NOFALL, GODMODE or incorporeal movement."
   - refactor: "Changed incorporeal values to defines."
