@@ -459,16 +459,16 @@
 	else if (SSticker.mode && SSticker.mode.deny_respawn)
 		failure = "Respawn is disabled for this roundtype."
 	else if(!MayRespawn(1, CREW))
-		failure = TRUE
+		failure = ""
 
 	if(!isnull(failure))
 		if(check_rights(R_ADMIN, show_msg = FALSE))
-			if(!istext(failure))
+			if(failure == "")
 				failure = "You are not allowed to respawn."
 			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
 				return
 		else
-			if(istext(failure))
+			if(failure != "")
 				to_chat(usr, SPAN_DANGER(failure))
 			return
 
