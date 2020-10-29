@@ -71,14 +71,6 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/sinta_surcoat
-	display_name = "ghazak"
-	slot = slot_wear_suit
-	path = /obj/item/clothing/accessory/sinta_surcoat
-	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
-	flags = 0
-
 /datum/gear/augment/autakh_engineering
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."

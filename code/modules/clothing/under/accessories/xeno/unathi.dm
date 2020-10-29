@@ -1,6 +1,6 @@
 /obj/item/clothing/accessory/sinta_hood
 	name = "clan hood"
-	desc = "A hood worn commonly by travelers, explorers, and levies. It's main purpose is to block the glare of sun when traveling, and to represent their clan. Often they have the names sewn into the inside to help identify the owner should it, or the owner, be lost."
+	desc = "A hood worn commonly by unathi away from home. No better way of both representing your clan to foreigners and keeping the sun out of your eyes in style!"
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "sinta_hood"
 	item_state = "sinta_hood_up"
@@ -33,12 +33,3 @@
 	update_worn_icon()
 	update_clothing_icon()
 	update_icon()
-
-/obj/item/clothing/accessory/sinta_surcoat
-	name = "ghaz'ak"
-	desc = "The Ghaz'ak is common among levies and warriors alike, displaying the colors of the ruling body that they fight for. While it's main use it to keep the sun's glare off of armor, particularly patriotic sinta have taken to wearing it outside of combat."
-	icon = 'icons/obj/unathi_items.dmi'
-	icon_state = "surcoat"
-	item_state = "surcoat"
-	slot_flags = SLOT_TIE|SLOT_OCLOTHING
-	contained_sprite = TRUE

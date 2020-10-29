@@ -14,7 +14,7 @@
 
 /obj/item/clothing/suit/unathi/robe/kilt
 	name = "wasteland kilt"
-	desc = "A long tunic made of old banners and other available materials, it acts as a kilt for the poorest or most free-spirited of wastelanders, who aren't afraid to let the sun and sand strike their scales."
+	desc = "A long tunic made of old material that acts as a kilt for the poorest of unathi, who aren't afraid to let the sand and sun strike their scales."
 	icon_state = "wasteland_kilt"
 	item_state = "wasteland_kilt"
 
