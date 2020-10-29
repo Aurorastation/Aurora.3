@@ -793,13 +793,17 @@
 
 
 /obj/item/steelwool/proc/ignite(var/L, mob/user)
-	lit = TRUE
-	user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool."), SPAN_NOTICE("You hear a gentle flame crackling."))
-	playsound(get_turf(src), 'sound/items/flare.ogg', 50)
-	desc += " Watch your hands!"
-	icon_state = "burning_wool"
-	set_light(2, 2, LIGHT_COLOR_LAVA)
-	addtimer(CALLBACK(src, .proc/endburn, user), 120 SECONDS, TIMER_UNIQUE)
+	if(lit)
+		to_chat(user, SPAN_WARNING("The steel wool is already lit!"))
+		return
+	else
+		lit = TRUE
+		user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool."), SPAN_NOTICE("You hear a gentle flame crackling."))
+		playsound(get_turf(src), 'sound/items/flare.ogg', 50)
+		desc += " Watch your hands!"
+		icon_state = "burning_wool"
+		set_light(2, 2, LIGHT_COLOR_LAVA)
+		addtimer(CALLBACK(src, .proc/endburn, user), 120 SECONDS, TIMER_UNIQUE)
 
 /obj/item/steelwool/proc/endburn(mob/living/carbon/human/user)
 	visible_message(SPAN_NOTICE("The steel wool burns out."))

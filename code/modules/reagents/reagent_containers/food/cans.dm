@@ -1,4 +1,8 @@
 #define LETHAL_FUEL_CAPACITY 21 // this many units of fuel will cause a harmful explosion
+#define FUSELENGTH_MAX 10 // this is the longest a fuse can be
+#define FUSELENGTH_MIN 3 // and the minimum that the builder can intentionally make
+#define FUSELENGTH_SHORT 5 // the upper boundary of the short fuse
+#define FUSELENGTH_LONG 6 // the lower boundary of the long fuse
 
 /obj/item/reagent_containers/food/drinks/cans
 	var/fuselength = 0
@@ -34,8 +38,10 @@
 	if(fuselength)
 		var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
 		switch(fuselength)
-			if(6 to INFINITY)
+			if(FUSELENGTH_LONG to INFINITY)
 				fuseoverlay.icon_state = "fuse_long"
+		if(fuselit)
+			fuseoverlay.icon_state = "lit_fuse"
 		fuseoverlay.pixel_x = can_size_overrides["x"]
 		fuseoverlay.pixel_y = can_size_overrides["y"]
 		add_overlay(fuseoverlay)
@@ -44,28 +50,31 @@
 	if(istype(W, /obj/item/steelwool))
 		if(is_open_container())
 			switch(fuselength)
-				if(0 to 9)
-					user.visible_message("<b>[user]</b> stuffs some steel wool into \the [name].", SPAN_NOTICE("You feed steel wool into \the [name]. It will last approximately 10 seconds."))
-					fuselength = 10
+				if(-INFINITY to FUSELENGTH_MAX)
+					user.visible_message("<b>[user]</b> stuffs some steel wool into \the [name].", SPAN_NOTICE("You feed steel wool into \the [name], ruining it in the process. It will last approximately 10 seconds."))
+					fuselength = FUSELENGTH_MAX
 					update_icon()
+					qdel(W)
 					desc += " It has some steel wool stuffed into the opening."
-				if(10)
+					if(W.isFlameSource())
+						light_fuse(W, user, TRUE)
+				if(FUSELENGTH_MAX)
 					to_chat(user, SPAN_WARNING("You cannot make the fuse longer than 10 seconds!"))
 		else
 			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the steel wool!"))
 
-	if(W.iswirecutter() && fuselength)
+	else if(W.iswirecutter() && fuselength)
 		switch(fuselength)
-			if(1 to 3) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
+			if(1 to FUSELENGTH_MIN) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
 				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].", SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
 				FuseRemove()
-			if(4 to 10)
+			if(4 to FUSELENGTH_MAX)
 				var/fchoice = alert("Do you want to shorten or remove the fuse on \the [name]?", "Shorten or Remove", "Shorten", "Remove", "Cancel")
 				switch(fchoice)
 					if("Shorten")
 						var/short = input("How many seconds do you want the fuse to be?", "[name] fuse") as null|num
 						if(!use_check_and_message(user))
-							if(short < fuselength && short >= 3)
+							if(short < fuselength && short >= FUSELENGTH_MIN)
 								to_chat(user, SPAN_NOTICE("You shorten the fuse to [short] seconds."))
 								FuseRemove(fuselength - short)
 							else if(!short && !isnull(short))
@@ -87,22 +96,30 @@
 						return
 				return
 	
-	if(W.isFlameSource() && fuselength)
-		if(can_light())
-			fuselit = TRUE
-			if(reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
-				msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
-			if(fuselength >= 3 && fuselength <= 5 && prob(30) && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
-				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
-				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
-			if(fuselength < 3)
-				user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
-				detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
+	else if(W.isFlameSource() && fuselength)
+		light_fuse(W, user)
+	. = ..()
+
+/obj/item/reagent_containers/food/drinks/cans/proc/light_fuse(obj/item/W, mob/user, var/premature=FALSE)
+	if(can_light())
+		fuselit = TRUE
+		update_icon()
+		set_light(2, 2, LIGHT_COLOR_LAVA)
+		if(reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
+			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
+		if(fuselength >= FUSELENGTH_MIN && fuselength <= FUSELENGTH_SHORT && prob(30) && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
+			user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
+			detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
+		if(fuselength < FUSELENGTH_MIN)
+			user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
+			detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
+		else
+			if(premature)
+				user.visible_message(SPAN_WARNING("<b>[user]</b> prematurely starts \the [name]'s fuse!"), SPAN_WARNING("You prematurely start \the [name]'s fuse!"))
 			else
 				user.visible_message(SPAN_WARNING("<b>[user]</b> lights the steel wool on \the [name] with \the [W]!"), SPAN_WARNING("You light the steel wool on \the [name] with the [W]!"))
-				playsound(get_turf(src), 'sound/items/flare.ogg', 50)
-				detonate(FALSE)
-	. = ..()
+			playsound(get_turf(src), 'sound/items/flare.ogg', 50)
+			detonate(FALSE)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/detonate(var/instant)
 	var/fuel = reagents.get_reagent_amount(/datum/reagent/fuel)
@@ -119,35 +136,33 @@
 		update_icon()
 		return
 	else
-		fuselength += rand(-2, 2)
+		fuselength += rand(-2, 2) // if the fuse isn't fizzling out or detonating instantly, make it a little harder to predict the fuse by +2/-2 seconds
 	sleep(fuselength * 1 SECOND)
 
 	switch(fuel)
 		if(0)
 			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."))
-			fuselit = FALSE
 			fuselength = 0
 			update_icon()
-		if(1 to 10) // baby explosion
+			set_light(0, 0)
+			return
+		if(1 to FUSELENGTH_MAX) // baby explosion
 			var/obj/item/trash/can/popped_can = new(get_turf(src))
 			popped_can.icon_state = icon_state
 			popped_can.name = "popped can"
 			playsound(get_turf(src), 'sound/effects/snap.ogg', 50)
 			visible_message(SPAN_WARNING("\The [name] pops harmlessly!"))
-			fuselit = FALSE // shouldn't have to be done since it's going to get qdel'd, but in case something wacky happens in live play.
-			qdel(src)
 		if(11 to 20) // slightly less baby explosion
 			new /obj/item/material/shard/shrapnel(get_turf(src))
 			playsound(get_turf(src), 'sound/effects/bang.ogg', 50)
 			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
-			fuselit = FALSE
-			qdel(src)
 		if(LETHAL_FUEL_CAPACITY to INFINITY) // boom
 			fragem(src, 7, 7, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
 			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
 			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
-			fuselit = FALSE
-			qdel(src)
+	fuselit = FALSE
+	update_icon()
+	qdel(src)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
 	if(fuselit)
@@ -181,6 +196,10 @@
 	. = ..()
 
 #undef LETHAL_FUEL_CAPACITY
+#undef FUSELENGTH_MAX
+#undef FUSELENGTH_MIN
+#undef FUSELENGTH_SHORT
+#undef FUSELENGTH_LONG
 
 //DRINKS
 
