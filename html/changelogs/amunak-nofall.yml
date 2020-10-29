@@ -1,0 +1,11 @@
+author: Amunak
+delete-after: True
+changes:
+  - admin: "'NOFALL' is now a status flag instead of being a var specific to BSTechs. It allows the mob to move between Z-levels and through empty space; even to 'fly up' against gravity. However the tech can no longer use this to 'phase into' matter if there is something above them."
+  - admin: "For that you want to use Ruin-Everything instead: incorporeal movement now has an additional type that's just like a ninja's, but it also allows you to move between Z-levels."
+  - admin: "Adds the anti-gravity verb to the Bluespace Robot preset and starts them with 'NOFALL' on."
+  - admin: "When using 'GODMODE' you will no longer take damage when you fall; instead a cool message will be shown and a quiet thump will be played."
+  - admin: "'GODMODE' now protects you from the awful effects of running - you can run indefinitely and won't take damage from it."
+  - refactor: "Thanks to the above changes the BST is now self-contained in a single file (well except for the robot preset)."
+  - refactor: "To facilitate the above changes several godmode and incorporeal checks have been added (mostly to movement procs). It cuts on some extra proc overrides and type checks. Also results in a more 'natural' experience when using NOFALL, GODMODE or incorporeal movement."
+  - refactor: "Changed incorporeal values to defines."

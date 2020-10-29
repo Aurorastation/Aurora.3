@@ -23,7 +23,15 @@
 	overclocked = TRUE
 	law_update = FALSE
 	scrambled_codes = TRUE
-	status_flags = GODMODE
+	status_flags = GODMODE|NOFALL
+
+/mob/living/silicon/robot/bluespace/verb/antigrav()
+	set name = "Toggle Gravity"
+	set desc = "Toggles on/off falling for you."
+	set category = "BST"
+
+	status_flags ^= NOFALL
+	to_chat(src, SPAN_NOTICE("You will [status_flags & NOFALL ? "no longer fall" : "now fall normally"]."))
 
 /mob/living/silicon/robot/bluespace/verb/bstwalk()
 	set name = "Ruin Everything"
@@ -32,10 +40,10 @@
 	set popup_menu = 0
 
 	if(!src.incorporeal_move)
-		src.incorporeal_move = 2
+		src.incorporeal_move = INCORPOREAL_BSTECH
 		to_chat(src, SPAN_NOTICE("You will now phase through solid matter."))
 	else
-		src.incorporeal_move = 0
+		src.incorporeal_move = INCORPOREAL_DISABLE
 		to_chat(src, SPAN_NOTICE("You will no-longer phase through solid matter."))
 	return
 

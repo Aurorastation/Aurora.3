@@ -134,8 +134,7 @@
 
 /mob/living/carbon/human/bst
 	universal_understand = 1
-	status_flags = GODMODE
-	var/fall_override = TRUE
+	status_flags = GODMODE|NOFALL
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	to_chat(user, SPAN_ALERT("The [src] disarms you before you can inject them."))
@@ -279,12 +278,8 @@
 	set desc = "Toggles on/off falling for you."
 	set category = "BST"
 
-	if (fall_override)
-		fall_override = FALSE
-		to_chat(usr, "<span class='notice'>You will now fall normally.</span>")
-	else
-		fall_override = TRUE
-		to_chat(usr, "<span class='notice'>You will no longer fall.</span>")
+	status_flags ^= NOFALL
+	to_chat(src, SPAN_NOTICE("You will [status_flags & NOFALL ? "no longer fall" : "now fall normally"]."))
 
 /mob/living/carbon/human/bst/verb/bstwalk()
 	set name = "Ruin Everything"
@@ -293,10 +288,10 @@
 	set popup_menu = 0
 
 	if(!src.incorporeal_move)
-		src.incorporeal_move = 2
+		src.incorporeal_move = INCORPOREAL_BSTECH
 		to_chat(src, SPAN_NOTICE("You will now phase through solid matter."))
 	else
-		src.incorporeal_move = 0
+		src.incorporeal_move = INCORPOREAL_DISABLE
 		to_chat(src, SPAN_NOTICE("You will no-longer phase through solid matter."))
 	return
 

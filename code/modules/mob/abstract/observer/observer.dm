@@ -32,7 +32,7 @@
 	var/ghost_cooldown = 0
 
 	var/obj/item/device/multitool/ghost_multitool
-	incorporeal_move = 1
+	incorporeal_move = INCORPOREAL_GHOST
 
 	mob_thinks = FALSE
 
