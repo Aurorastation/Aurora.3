@@ -207,7 +207,7 @@
 		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [impacted_organ]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [impacted_organ]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	//admin logs
-	if(!firer.client && !target_mob.client)
+	if((!ismob(firer) || !firer.client) && !target_mob.client)
 		no_attack_log = TRUE
 	if(!no_attack_log)
 		if(ismob(firer))
