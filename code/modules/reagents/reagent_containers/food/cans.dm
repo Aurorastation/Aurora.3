@@ -152,7 +152,7 @@
 /obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
 	if(fuselit)
 		return FALSE
-	else if(fuselength && !fuselit)
+	else if(fuselength)
 		return TRUE
 
 /obj/item/reagent_containers/food/drinks/cans/proc/FuseRemove(var/CableRemoved = fuselength)
