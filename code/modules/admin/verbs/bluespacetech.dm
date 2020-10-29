@@ -432,13 +432,13 @@
 
 	switch (mode)
 		if ("X-Ray without Lighting")
-			vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
+			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_BLACKNESS|SEE_SELF
 			see_invisible = SEE_INVISIBLE_NOLIGHTING
 		if ("X-Ray with Lighting")
-			vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
+			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_BLACKNESS|SEE_SELF
 			see_invisible = -1
 		if ("Darkvision")
-			vision_flags = SEE_SELF
+			vision_flags = SEE_BLACKNESS|SEE_SELF
 			see_invisible = SEE_INVISIBLE_NOLIGHTING
 		if ("Normal vision")
 			vision_flags = 0
