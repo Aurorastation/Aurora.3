@@ -199,3 +199,8 @@ var/list/GPS_list = list()
 	gps_prefix = "MIN"
 	gpstag = "MIN0"
 	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
+
+/obj/item/device/gps/janitor
+	icon_state = "gps-j"
+	gps_prefix = "JAN"
+	gpstag = "JAN0"
