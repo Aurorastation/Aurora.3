@@ -795,7 +795,7 @@
 	ignite()
 
 /obj/item/steelwool/afterattack(atom/A, mob/user)
-	if(istype(A, /obj) || istype(A, /turf))
+	if(isobj(A) || isturf(A))
 		file_down(A, user)
 	return
 
