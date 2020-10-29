@@ -176,6 +176,7 @@
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
+	desc_antag = "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 	icon = 'icons/obj/guns/pestishock.dmi'
 	icon_state = "pestishock"
 	item_state = "pestishock"
