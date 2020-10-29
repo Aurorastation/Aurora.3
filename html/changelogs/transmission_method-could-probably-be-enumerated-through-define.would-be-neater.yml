@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - refactor: "Refactors transmission_method values through #define. Is neater."
