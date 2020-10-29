@@ -120,7 +120,7 @@
 		return
 	else
 		fuselength += rand(-2, 2)
-	sleep(fuselength * 10)
+	sleep(fuselength * 1 SECOND)
 
 	switch(fuel)
 		if(0)
