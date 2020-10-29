@@ -197,9 +197,12 @@
 
 /obj/item/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
-		to_chat(user, "<span class='warning'>You overload \the [src]'s shock modulator.</span>")
+		to_chat(user, SPAN_WARNING("You overload \the [src]'s shock modulator."))
+		max_shots = 10
 		projectile_type = /obj/item/projectile/beam/mousegun/emag
 		emagged = TRUE
+		QDEL_NULL(power_supply)
+		power_supply = new /obj/item/cell/device/variable(src, max_shots * charge_cost)
 		return TRUE
 
 /obj/item/gun/energy/net
