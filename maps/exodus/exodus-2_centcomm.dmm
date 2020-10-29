@@ -17487,7 +17487,7 @@
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/accessory/legion,
-/obj/item/clothing/head/beret/legion/dress,
+/obj/item/clothing/head/beret/legion,
 /obj/item/clothing/under/legion,
 /obj/item/device/radio/headset/legion,
 /obj/item/shield/energy/legion,
