@@ -655,6 +655,8 @@ var/list/diona_banned_languages = list(
 
 		D.adjustBruteLoss(4)
 		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [D].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [D]!"))
+		to_chat(D, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
+		D.reagents.add_reagent(/datum/reagent/mortaphenyl/aphrodite, 5)
 		if(D.client)
 			INVOKE_ASYNC(src, .proc/memory_transfer, user, D)
 		if(newDNA in sampled_DNA)
