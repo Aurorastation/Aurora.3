@@ -1371,122 +1371,37 @@ var/list/total_extraction_beacons = list()
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/himeo_kit/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/clothing/suit/space/void/mining))
-		if(W.contents.len)
+	var/list/suit_options = list(
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/himeo,
+		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/himeo,
+
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/suit/space/void/engineering/himeo,
+		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/himeo,
+
+		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo,
+		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo
+	)
+	var/reconverting = FALSE
+	var/voidsuit_product = suit_options[W.type]
+	if(!voidsuit_product)
+		for(var/thing in suit_options)
+			if(suit_options[thing] == W.type)
+				voidsuit_product = thing
+				reconverting = TRUE
+				break
+	if(voidsuit_product)
+		if(istype(W, /obj/item/clothing/suit/space/void) && W.contents.len)
 			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
 			return
-		else
-			user.drop_item(W)
-			qdel(W)
-			to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit, mining grade, has been processed. Enjoy!"))
-			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-			var/obj/item/clothing/suit/space/void/mining/himeo/P = new /obj/item/clothing/suit/space/void/mining/himeo(user.loc)
-			user.put_in_hands(P)
-
-	else if(istype(W, /obj/item/clothing/head/helmet/space/void/mining))
 		user.drop_item(W)
 		qdel(W)
-		to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit helmet, mining grade, has been processed. Enjoy!"))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/head/helmet/space/void/mining/himeo/P = new /obj/item/clothing/head/helmet/space/void/mining/himeo(user.loc)
+		var/obj/item/P = new voidsuit_product(user.loc)
 		user.put_in_hands(P)
-
-	if(istype(W, /obj/item/clothing/suit/space/void/mining/himeo))
-		if(W.contents.len)
-			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
-			return
+		if(!reconverting)
+			to_chat(user, SPAN_NOTICE("Your permit for a [P] has been processed. Enjoy!"))
 		else
-			user.drop_item(W)
-			qdel(W)
-			to_chat(user, SPAN_NOTICE("Your Himean voidsuit has been reconverted into a NanoTrasen mining voidsuit."))
-			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/suit/space/void/mining/P = new /obj/item/clothing/suit/space/void/mining(user.loc)
-		user.put_in_hands(P)
-
-	if(istype(W, /obj/item/clothing/head/helmet/space/void/mining/himeo))
-		user.drop_item(W)
-		qdel(W)
-		to_chat(user, SPAN_NOTICE("Your Himean voidsuit helmet has been reconverted into a NanoTrasen mining helmet."))
-		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/suit/space/void/mining/P = new /obj/item/clothing/head/helmet/space/void/mining(user.loc)
-		user.put_in_hands(P)
-
-	if(istype(W, /obj/item/clothing/suit/space/void/engineering))
-		if(W.contents.len)
-			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
-			return
-		else
-			user.drop_item(W)
-			qdel(W)
-			to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit, engineering grade, has been processed. Enjoy!"))
-			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-			var/obj/item/clothing/suit/space/void/engineering/himeo/P = new /obj/item/clothing/suit/space/void/engineering/himeo(user.loc)
-			user.put_in_hands(P)
-
-	else if(istype(W, /obj/item/clothing/head/helmet/space/void/engineering))
-		user.drop_item(W)
-		qdel(W)
-		to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit helmet, engineering grade, has been processed. Enjoy!"))
-		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/head/helmet/space/void/engineering/himeo/P = new /obj/item/clothing/head/helmet/space/void/engineering/himeo(user.loc)
-		user.put_in_hands(P)
-
-	if(istype(W, /obj/item/clothing/suit/space/void/engineering/himeo))
-		if(W.contents.len)
-			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
-			return
-		else
-			user.drop_item(W)
-			qdel(W)
-			to_chat(user, SPAN_NOTICE("Your Himean voidsuit has been reconverted into a NanoTrasen engineering voidsuit."))
-			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/suit/space/void/engineering/P = new /obj/item/clothing/suit/space/void/engineering(user.loc)
-		user.put_in_hands(P)
-
-	if(istype(W, /obj/item/clothing/head/helmet/space/void/engineering/himeo))
-		user.drop_item(W)
-		qdel(W)
-		to_chat(user, SPAN_NOTICE("Your Himean voidsuit helmet has been reconverted into a NanoTrasen engineering helmet."))
-		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/suit/space/void/engineering/P = new /obj/item/clothing/head/helmet/space/void/engineering(user.loc)
-		user.put_in_hands(P)
-
-	if(istype(W, /obj/item/clothing/suit/space/void/atmos))
-		if(W.contents.len)
-			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
-			return
-		else
-			user.drop_item(W)
-			qdel(W)
-			to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit, atmospheric grade, has been processed. Enjoy!"))
-			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-			var/obj/item/clothing/suit/space/void/atmos/himeo/P = new /obj/item/clothing/suit/space/void/atmos/himeo(user.loc)
-			user.put_in_hands(P)
-
-	else if(istype(W, /obj/item/clothing/head/helmet/space/void/atmos))
-		user.drop_item(W)
-		qdel(W)
-		to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit helmet, atmospheric grade, has been processed. Enjoy!"))
-		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/head/helmet/space/void/atmos/himeo/P = new /obj/item/clothing/head/helmet/space/void/atmos/himeo(user.loc)
-		user.put_in_hands(P)
-
-	if(istype(W, /obj/item/clothing/suit/space/void/atmos/himeo))
-		if(W.contents.len)
-			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
-			return
-		else
-			user.drop_item(W)
-			qdel(W)
-			to_chat(user, SPAN_NOTICE("Your Himean voidsuit has been reconverted into a NanoTrasen atmospheric voidsuit."))
-			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/suit/space/void/atmos/P = new /obj/item/clothing/suit/space/void/atmos(user.loc)
-		user.put_in_hands(P)
-
-	if(istype(W, /obj/item/clothing/head/helmet/space/void/atmos/himeo))
-		user.drop_item(W)
-		qdel(W)
-		to_chat(user, SPAN_NOTICE("Your Himean voidsuit helmet has been reconverted into a NanoTrasen atmospheric helmet."))
-		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/clothing/suit/space/void/atmos/P = new /obj/item/clothing/head/helmet/space/void/atmos(user.loc)
-		user.put_in_hands(P)
+			to_chat(user, SPAN_NOTICE("Your Himean voidsuit part has been reconverted into [P]."))
+		return
+	else
+		return ..()

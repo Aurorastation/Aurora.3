@@ -367,6 +367,8 @@
 		slot_r_hand_str = "mining_helm"
 		)
 
+	light_overlay = "helmet_light_dual"
+
 /obj/item/clothing/suit/space/void/mining/himeo
 	name = "himeo mining voidsuit"
 	item_state_slots = list(
@@ -392,6 +394,8 @@
 		slot_r_hand_str = "engineering_helm"
 		)
 
+	light_overlay = "helmet_light_dual"
+
 /obj/item/clothing/suit/space/void/engineering/himeo
 	name = "himeo engineering voidsuit"
 	item_state_slots = list(
@@ -416,6 +420,8 @@
 		slot_l_hand_str = "atmos_helm",
 		slot_r_hand_str = "atmos_helm"
 		)
+
+	light_overlay = "helmet_light_dual"
 
 /obj/item/clothing/suit/space/void/atmos/himeo
 	name = "himeo atmospherics voidsuit"
