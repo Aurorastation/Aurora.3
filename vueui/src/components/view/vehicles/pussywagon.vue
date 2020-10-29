@@ -55,7 +55,7 @@
       </div>
     </div>
     <div v-else>
-      This engine isn't towing anything currently. <vui-button :params="{ latch: 1}">Attempt Latch</vui-button> <vui-tooltip label="?">Attempting to latch will look for suitable trolleys or engines in range and automatically latch them together. This can be done manually by dragging from the vehicle you want to be the anchor point, to the trolley you wish to latch.</vui-tooltip>
+      This engine isn't towing anything currently. <vui-tooltip label="?">You can latch vehicles together by dragging from the vehicle you want to be the anchor point, to the trolley you wish to latch.</vui-tooltip>
     </div>
   </div>
 </template>

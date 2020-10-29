@@ -27,9 +27,7 @@
 	turn_off()	//so engine verbs are correctly set
 
 /obj/vehicle/train/cargo/engine/pussywagon/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	. = ..()
-
-	data = .
+	data = ..()
 
 	data["has_proper_trolley"] = FALSE
 	if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
@@ -65,9 +63,12 @@
 /obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/key/janicart))
 		if(!key)
-			user.drop_from_inventory(W,src)
+			user.drop_from_inventory(W, src)
 			key = W
+			to_chat(user, SPAN_NOTICE("You slide the key into the ignition."))
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
+		else
+			to_chat(user, SPAN_WARNING("\The [src] already has a key inserted."))
 		return
 	..()
 

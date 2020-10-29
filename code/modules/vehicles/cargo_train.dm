@@ -93,9 +93,6 @@
 		do_remove_key(usr)
 	if(href_list["unlatch"])
 		tow.unattach(usr)
-	if(href_list["latch"])
-		for(var/obj/vehicle/train/T in orange(1, src))
-			latch(T)
 	SSvueui.check_uis_for_change(src)
 
 /obj/vehicle/train/cargo/engine/Move(var/turf/destination)
@@ -124,9 +121,12 @@
 /obj/vehicle/train/cargo/engine/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/key/cargo_train))
 		if(!key)
-			user.drop_from_inventory(W,src)
+			user.drop_from_inventory(W, src)
 			key = W
+			to_chat(user, SPAN_NOTICE("You slide the key into the ignition."))
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
+		else
+			to_chat(user, SPAN_WARNING("\The [src] already has a key inserted."))
 		return
 	..()
 
@@ -326,6 +326,11 @@
 
 	verbs -= /obj/vehicle/train/cargo/engine/verb/remove_key
 
+/obj/vehicle/train/cargo/engine/emag_act(var/remaining_charges, mob/user)
+	. = ..()
+	if(.)
+		update_car(train_length, active_engines)
+
 //-------------------------------------------
 // Loading/unloading procs
 //-------------------------------------------
@@ -429,6 +434,8 @@
 		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
 		move_delay += config.walk_speed 													//base reference speed
 		move_delay *= config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
+		if(emagged)
+			move_delay -= 2
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length
