@@ -95,7 +95,7 @@
 			if(fuselength >= 3 && fuselength <= 5 && prob(30) && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
 				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
-			if(fuselength in list(1, 2))
+			if(fuselength < 3)
 				user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
 				detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
 			else
