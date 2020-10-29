@@ -21,7 +21,7 @@
 /obj/item/rot_sample
 	name = "rot sample"
 	desc = "A gross, wet, squishy piece of what may be a plant."
-	desc_info = "This sample can be grinded to retrieve reagents inside it."
+	desc_info = "This sample can be ground to retrieve reagents inside it."
 	icon = 'icons/effects/wallrot.dmi'
 	icon_state = "rot_sample"
 
