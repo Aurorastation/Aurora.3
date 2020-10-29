@@ -798,7 +798,7 @@
 		return
 	else
 		lit = TRUE
-		user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool."), SPAN_NOTICE("You hear a gentle flame crackling."))
+		user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool with \the [L]"), SPAN_NOTICE("You hear a gentle flame crackling."))
 		playsound(get_turf(src), 'sound/items/flare.ogg', 50)
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
