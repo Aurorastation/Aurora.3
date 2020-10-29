@@ -27,15 +27,15 @@
 
 /mob/living/silicon/robot/bluespace/verb/antigrav()
 	set name = "Toggle Gravity"
-	set desc = "Toggles on/off falling for you."
+	set desc = "Use bluespace technology to ignore gravity."
 	set category = "BST"
 
 	status_flags ^= NOFALL
 	to_chat(src, SPAN_NOTICE("You will [status_flags & NOFALL ? "no longer fall" : "now fall normally"]."))
 
 /mob/living/silicon/robot/bluespace/verb/bstwalk()
-	set name = "Ruin Everything"
-	set desc = "Uses bluespace technology to phase through solid matter and move quickly."
+	set name = "Toggle Incorporeal Movement"
+	set desc = "Use bluespace technology to phase through solid matter and move quickly."
 	set category = "BST"
 	set popup_menu = 0
 
@@ -48,8 +48,8 @@
 	return
 
 /mob/living/silicon/robot/bluespace/verb/bstrecover()
-	set name = "Rejuv"
-	set desc = "Use the bluespace within you to restore your health"
+	set name = "Restore Health"
+	set desc = "Use bluespace to teleport in a fresh, healthy body."
 	set category = "BST"
 	set popup_menu = 0
 
@@ -57,7 +57,7 @@
 
 /mob/living/silicon/robot/bluespace/verb/bstquit()
 	set name = "Teleport out"
-	set desc = "Activate bluespace to leave and return to your original mob (if you have one)."
+	set desc = "Jump into bluespace and continue wherever you left off. Deletes the BSTech and returns to your original mob if you have one."
 	set category = "BST"
 
 	src.custom_emote(VISIBLE_MESSAGE, "politely beeps as its lights start to flash.")
@@ -78,7 +78,7 @@
 
 /mob/living/silicon/robot/bluespace/verb/tgm()
 	set name = "Toggle Godmode"
-	set desc = "Enable or disable god mode. For testing things that require you to be vulnerable."
+	set desc = "For when you want to be vulnerable."
 	set category = "BST"
 
 	status_flags ^= GODMODE
