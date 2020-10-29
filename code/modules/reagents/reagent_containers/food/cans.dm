@@ -110,7 +110,7 @@
 		fuselength = 0
 	else if(prob(fuselength * 6)) // the longer the fuse, the higher chance it will fizzle out (18% chance minimum)
 		var/fizzle = rand(1, fuselength - 1)
-		sleep(fizzle * 10)
+		sleep(fizzle * 1 SECOND)
 		
 		fuselength -= fizzle
 		visible_message(SPAN_WARNING("The fuse on \the [name] fizzles out early."))
