@@ -317,6 +317,7 @@
 	color = "#a59153"
 	overdose = 10
 	scannable = TRUE
+	fallback_specific_heat = 1
 	taste_description = "euphoric acid"
 
 /datum/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
