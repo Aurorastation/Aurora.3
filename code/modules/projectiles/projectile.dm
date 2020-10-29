@@ -212,7 +212,8 @@
 		no_clients = TRUE
 		if(istype(target_mob, /mob/living/heavy_vehicle))
 			var/mob/living/heavy_vehicle/HV = target_mob
-			for(var/mob/M in HV.pilots)
+			for(var/pilot in HV.pilots)
+			    var/mob/M = pilot
 				if(M.client)
 					no_clients = TRUE
 					break
