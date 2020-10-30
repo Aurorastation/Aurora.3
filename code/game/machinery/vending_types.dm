@@ -532,7 +532,7 @@
 		/obj/item/device/flash = 5,
 		/obj/item/reagent_containers/spray/pepper = 5,
 		/obj/item/storage/box/evidence = 6,
-		/obj/item/device/holowarrant = 5
+		/obj/item/device/holowarrant = 5,
 		/obj/item/device/flashlight/maglight = 5
 	)
 	premium = list(
