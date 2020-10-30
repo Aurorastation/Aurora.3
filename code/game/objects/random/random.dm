@@ -895,6 +895,7 @@
 		/obj/random/hoodie = 0.5,
 		/obj/random/bandana = 0.5,
 		/obj/random/softcap = 0.5,
+		/obj/random/beret = 0.5,
 		/obj/random/junk = 0.4,
 		/obj/random/medical = 0.4,
 		/obj/random/pda_cart = 0.5,
