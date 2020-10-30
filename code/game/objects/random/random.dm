@@ -1031,7 +1031,7 @@
 		/obj/item/clothing/head/softcap/captain = 1
 	)
 
-/obj/random/softcap
+/obj/random/beret
 	name = "random beret"
 	desc = "This is a random beret."
 	icon = 'icons/obj/clothing/hats/berets.dmi'
