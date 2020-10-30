@@ -20,7 +20,5 @@
 
 	mob_name = null
 
-	enable_chance = 10
-
 /datum/ghostspawner/human/visitor/select_spawnlocation(var/use = TRUE)
 	return pick(latejoin)
