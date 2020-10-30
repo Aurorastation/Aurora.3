@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/rescuepodsurv
 	short_name = "rescuepodsurv"
 	name = "Rescue Pod Survivor"
-	desc = "You managed to get into a rescue pod and landed somewhere on a asteroid."
+	desc = "You managed to get into a rescue pod and landed somewhere on an asteroid."
 	tags = list("External")
 
 	enabled = FALSE
@@ -18,8 +18,6 @@
 	respawn_flag = null
 
 	mob_name = FALSE
-
-	enable_chance = 10
 
 /datum/ghostspawner/human/rescuepodsurv/New()
 	. = ..()
@@ -233,3 +231,102 @@
 /datum/outfit/admin/pod/pmc/get_id_rank()
 	return "Security Officer"
 
+/datum/ghostspawner/human/rescuepodsurv/burglar
+	short_name = "burglarpod"
+	name = "Burglar"
+	desc = "Your last attempt at petty theft went awry, and now you're heading toward an asteroid in a ratty escape pod."
+
+/datum/ghostspawner/human/rescuepodsurv/burglar/New()
+	welcome_message = "You're a petty criminal on the run from the law!<br>After a failed bit of theft and larceny, you've found yourself in an escape pod hurtling toward the [station_name()]. You'll probably end up incarcerated or dead, but...with a great risk comes great rewards. Maybe you can make a big score after all?"
+	outfit = /datum/outfit/admin/pod/burglar
+
+/datum/outfit/admin/pod/burglar
+	name = "RescuePod - Burglar"
+
+	uniform = list(
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy
+		)
+
+	belt = null
+
+	shoes = list(
+		/obj/item/clothing/shoes/laceup/all_species,
+		/obj/item/clothing/shoes/laceup/brown/all_species
+	)
+
+	glasses = list(
+		/obj/item/clothing/glasses/sunglasses,
+		/obj/item/clothing/glasses/sunglasses/aviator
+	)
+
+	gloves = list(
+		/obj/item/clothing/gloves/watch,
+		/obj/item/clothing/gloves/watch/silver,
+		/obj/item/clothing/gloves/watch/gold,
+		/obj/item/clothing/gloves/watch/spy
+	)
+
+	l_pocket = /obj/item/syndie/teleporter
+	r_pocket = /obj/item/device/special_uplink/burglar
+	id = /obj/item/storage/wallet
+
+	r_hand = /obj/item/storage/briefcase/black
+
+	backpack_contents = list()
+
+/datum/outfit/admin/pod/burglar/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	if (visualsOnly)
+		return
+
+	var/static/list/burglar_guns = list(
+		/obj/item/gun/energy/rifle/icelance,
+		/obj/item/gun/energy/retro,
+		/obj/item/gun/projectile/silenced,
+		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/revolver/deckard,
+		/obj/item/gun/projectile/revolver/lemat
+		)
+
+	var/new_gun = pick(burglar_guns)
+	var/obj/item/primary = new new_gun(H.loc)
+	var/obj/item/clothing/accessory/holster/armpit/holster
+
+	if(primary.slot_flags & SLOT_HOLSTER)
+		holster = new /obj/item/clothing/accessory/holster/armpit(H.loc)
+		holster.holstered = primary
+		primary.forceMove(holster)
+	else if(!H.belt && (primary.slot_flags & SLOT_BELT))
+		H.equip_to_slot_or_del(primary, slot_belt)
+	else if(!H.back && (primary.slot_flags & SLOT_BACK))
+		H.equip_to_slot_or_del(primary, slot_back)
+	else
+		H.put_in_any_hand_if_possible(primary)
+
+	if(istype(primary, /obj/item/gun/projectile))
+		var/obj/item/gun/projectile/bullet_thrower = primary
+		var/obj/item/storage/briefcase/B = locate() in H
+		if(bullet_thrower.magazine_type)
+			new bullet_thrower.magazine_type(B)
+			if(prob(20)) //don't want to give them too much
+				new bullet_thrower.magazine_type(B)
+		else if(bullet_thrower.ammo_type)
+			for(var/i in 1 to rand(3, 5) + rand(0, 2))
+				new bullet_thrower.ammo_type(B)
+		H.put_in_hands(B)
+
+	if(holster)
+		var/obj/item/clothing/under/uniform = H.w_uniform
+		if(istype(uniform) && uniform.can_attach_accessory(holster))
+			uniform.attackby(holster, H)
+		else
+			H.put_in_any_hand_if_possible(holster)
+
+	var/obj/item/storage/wallet/W = H.wear_id
+	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
+	passport.name = "[H.real_name]'s Passport"
+	if(W)
+		W.handle_item_insertion(passport)

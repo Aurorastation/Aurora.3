@@ -57,12 +57,10 @@
 	return used
 
 // Checks if the specified amount can be provided. If it can, it removes the amount
-// from the cell and returns 1. Otherwise does nothing and returns 0.
+// from the cell and returns 1. Otherwise drains the charge to exactly 0 and returns 0.
 /obj/item/cell/proc/checked_use(var/amount)
-	if(!check_charge(amount))
-		return 0
+	. = check_charge(amount)
 	use(amount)
-	return 1
 
 // recharge the cell
 /obj/item/cell/proc/give(var/amount)

@@ -13,6 +13,7 @@
 	response_help = "brushes"
 	response_disarm = "pushes"
 	response_harm = "hits"
+	blood_overlay_icon = null
 	speed = -1
 	maxHealth = 250
 	health = 250

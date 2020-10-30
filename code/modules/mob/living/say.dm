@@ -288,6 +288,9 @@ proc/get_radio_key_from_channel(var/channel)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
 
+	if(mind)
+		mind.last_words = message
+
 	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 	return 1
 
