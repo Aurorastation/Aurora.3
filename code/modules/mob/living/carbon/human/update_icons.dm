@@ -1156,7 +1156,12 @@ There are several things that need to be remembered:
 			r_hand.auto_adapt_species(src)
 			t_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_tag)][r_hand.item_state][WORN_RHAND]"
 
-			overlays_raw[R_HAND_LAYER] = image(r_hand.icon_override || r_hand.icon, t_state)
+			result_layer = image(r_hand.icon_override || r_hand.icon, t_state)
+
+			if(r_hand.color)
+				result_layer.color = r_hand.color
+
+			overlays_raw[R_HAND_LAYER] = result_layer
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				t_state = r_hand.item_state_slots[slot_r_hand_str]
@@ -1201,7 +1206,12 @@ There are several things that need to be remembered:
 			l_hand.auto_adapt_species(src)
 			t_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
 
-			overlays_raw[L_HAND_LAYER] = image(l_hand.icon_override || l_hand.icon, t_state)
+			result_layer = image(l_hand.icon_override || l_hand.icon, t_state)
+
+			if(l_hand.color)
+				result_layer.color = l_hand.color
+
+			overlays_raw[L_HAND_LAYER] = result_layer
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				t_state = l_hand.item_state_slots[slot_l_hand_str]
