@@ -19,6 +19,7 @@
 	desc = "An armored beret commonly used by special operations officers."
 	icon = 'icons/obj/clothing/hats/berets.dmi'
 	icon_state = "beret_sec"
+	item_state = "beret_sec"
 	contained_sprite = TRUE
 	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
 	item_flags = STOPPRESSUREDAMAGE

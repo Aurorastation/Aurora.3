@@ -3,11 +3,13 @@
 	desc = "A baguette munching, cheese eating, wine drinking artist's favorite headwear. Hon hon!"
 	icon = 'icons/obj/clothing/hats/berets.dmi'
 	icon_state = "beret"
+	item_state = "beret"
 	contained_sprite = TRUE
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/beret/colorable
 	icon_state = "beret_colorable"
+	item_state = "beret_colorable"
 
 /obj/item/clothing/head/beret/colorable/random/Initialize()
 	. = ..()
@@ -105,6 +107,7 @@
 	name = "warden beret"
 	desc = "A beret in security navy blue with a warden's rank emblem. For wardens that are more inclined towards style than safety."
 	icon_state = "beret_warden"
+	item_state = "beret_warden"
 
 // Corporate.
 
@@ -118,21 +121,25 @@
 	name = "idris security beret"
 	desc = "A beret with the Idris Incorporated insignia emblazoned on it."
 	icon_state = "idris"
+	item_state = "idris"
 
 /obj/item/clothing/head/beret/security/zavodskoi
 	name = "zavodskoi interstellar security beret"
 	desc = "A black beret with the Zavodskoi Interstellar insignia emblazoned on it."
 	icon_state = "necrosec"
+	item_state = "necrosec"
 
 /obj/item/clothing/head/beret/security/zavodskoi/alt
 	name = "zavodskoi interstellar security beret"
 	desc = "A brown beret with the Zavodskoi Interstellar insignia emblazoned on it."
 	icon_state = "necrosecalt"
+	item_state = "necrosecalt"
 
 /obj/item/clothing/head/beret/security/eri
 	name = "eridani security beret"
 	desc = "A beret with the Eridani PMC insignia emblazoned on it."
 	icon_state = "eridani"
+	item_state = "eridani"
 
 /obj/item/clothing/head/beret/iac
 	name = "IAC beret"
@@ -144,16 +151,19 @@
 	name = "zeng-hu beret"
 	desc = "A purple beret with the Zeng-Hu insignia emblazoned on it."
 	icon_state = "zenghu"
+	item_state = "zenghu"
 
 /obj/item/clothing/head/beret/zeng/alt
 	name = "zeng-hu beret"
 	desc = "A white beret with the Zeng-Hu insignia emblazoned on it."
 	icon_state = "zenghualt"
+	item_state = "zenghualt"
 
 /obj/item/clothing/head/beret/heph
 	name = "hephaestus beret"
 	desc = "A green beret with the Hephaestus insignia emblazoned on it."
 	icon_state = "heph"
+	item_state = "heph"
 
 /obj/item/clothing/head/beret/legion
 	name = "TCFL dress beret"
@@ -179,11 +189,13 @@
 	name = "corporate liaison beret"
 	desc = "A stylish beret worn by corporate liaisons."
 	icon_state = "centcomofficer"
+	item_state = "centcomofficer"
 
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"
 	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
 	icon_state = "centcomofficer"
+	item_state = "centcomofficer"
 
 /obj/item/clothing/head/beret/centcom/civilprotection
 	name = "civil protection beret"
@@ -193,10 +205,12 @@
 
 /obj/item/clothing/head/beret/centcom/captain
 	name = "captain's beret"
-	desc = "A white beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
+	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
 	icon_state = "centcomcaptain"
+	item_state = "centcomcaptain"
 
 /obj/item/clothing/head/beret/centcom/commander
 	name = "commander's beret"
-	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
+	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
 	icon_state = "centcomcaptain"
+	item_state = "centcomcaptain"
