@@ -1,8 +1,9 @@
 /var/datum/controller/subsystem/graphs_update/SSgraphs_update
 /datum/controller/subsystem/graphs_update
 	name = "Graphs (Update)"
+	init_order = SS_INIT_GRAPHS
 	priority = SS_PRIORITY_GRAPH
-	flags = SS_KEEP_TIMING
+	flags = SS_KEEP_TIMING | SS_FIRE_IN_LOBBY
 	wait = 1
 
 	var/list/pending_graphs
