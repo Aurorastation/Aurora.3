@@ -46,6 +46,14 @@
 				<li class="maptweak">From security/brig there were two rooms split: the 'control room' and 'processing'. Also added APCs.</li>
 				<li class="tweak">Added back the option to toggle lights to most Security areas (basically everything but places where prisoners are held).</li>
 				<li class="tweak">Added/modified area icons for most of the areas mentioned above for easier mapping.</li>
+				<li class="rscdel">It is no longer possible to recycle any random crap in the Autolathe. It is now limited to 'reasonable' items such as stack materials, shards, tiles, reagent containers, power cells, shields and a handful of other things. Complex devices, guns, stuff that clearly wouldn't fit or doesn't make much sense to recycle (returns almost no useful materials) is no longer possible to recycle.</li>
+				<li class="bugfix">It should be no longer possible to 'cheat' in the Autolathe by inserting items that give more materials than they cost to make in the Protolathe.</li>
+				<li class="bugfix">Fixed a handful of the remaining problematic autolathe recipes / recyclation materials to not cost less than they're worth.</li>
+				<li class="bugfix">Fixed stack material recipes to not create more product matter than they consume: metal rods and all floor tiles are now worth about half of their previous materials.</li>
+				<li class="bugfix">Fixes minor instatiation issues with hand teleporter and an organ when initialized in a non-typical way.</li>
+				<li class="refactor">Moved the list of research designs to global level. This allows only single initialization of it.</li>
+				<li class="backend">Added unit test to check if material costs of all research designs are greater than what can be gained from recycling their products.</li>
+				<li class="backend">Added unit test to check if material costs of stack recipes are greater than what can be gained from recycling their products.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
