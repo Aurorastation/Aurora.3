@@ -213,9 +213,9 @@
 		if(istype(target_mob, /mob/living/heavy_vehicle))
 			var/mob/living/heavy_vehicle/HV = target_mob
 			for(var/pilot in HV.pilots)
-			    var/mob/M = pilot
+				var/mob/M = pilot
 				if(M.client)
-					no_clients = TRUE
+					no_clients = FALSE
 					break
 	if(no_clients)
 		no_attack_log = TRUE
