@@ -101,6 +101,7 @@
 /obj/item/reagent_containers/pill/cyanide
 	icon_state = "pill5"
 	reagents_to_add = list(/datum/reagent/toxin/cyanide = 50)
+	desc_antag = "A cyanide pill. Deadly if swallowed."
 
 /obj/item/reagent_containers/pill/adminordrazine
 	name = "Adminordrazine Pill"
