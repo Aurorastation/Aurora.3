@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Small animals and nymphs can no longer wriggle out of bags or your hand when below 60% HP."
