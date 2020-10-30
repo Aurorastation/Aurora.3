@@ -1,3 +1,9 @@
+#define BLOOD_NONE "none"
+#define BLOOD_LIGHT "light"
+#define BLOOD_MEDIUM "medium"
+#define BLOOD_HEAVY "heavy"
+
+
 /mob/living/simple_animal
 	name = "animal"
 	icon = 'icons/mob/npc/animal.dmi'
@@ -13,7 +19,12 @@
 	var/icon_living = ""
 	var/icon_dead = ""
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
+
+	appearance_flags = KEEP_TOGETHER
 	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	var/blood_state = BLOOD_NONE
+	var/image/blood_overlay
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -180,6 +191,7 @@
 	if(health > maxHealth)
 		health = maxHealth
 
+	handle_blood_overlay()
 	handle_stunned()
 	handle_weakened()
 	handle_paralysed()
@@ -302,6 +314,34 @@
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
 		purge -= 1
+
+/mob/living/simple_animal/proc/handle_blood_overlay(var/force_reset = FALSE)
+	if(!blood_overlay_icon)
+		return
+
+	var/current_blood_state = blood_state
+	var/blood_mod = health / maxHealth
+	if(blood_mod > 0.9)
+		blood_state = BLOOD_NONE
+	else if(blood_mod >= 0.7)
+		blood_state = BLOOD_LIGHT
+	else if(blood_mod >= 0.4)
+		blood_state = BLOOD_MEDIUM
+	else
+		blood_state = BLOOD_HEAVY
+
+	if(force_reset || (blood_state != BLOOD_NONE && current_blood_state != blood_state))
+		if(blood_overlay)
+			cut_overlay(blood_overlay)
+		var/blood_overlay_name = get_blood_overlay_name()
+		var/image/I = image(blood_overlay_icon, src, "[blood_overlay_name]-[blood_state]")
+		I.color = blood_type
+		I.blend_mode = BLEND_INSET_OVERLAY
+		blood_overlay = I
+		add_overlay(blood_overlay)
+
+/mob/living/simple_animal/proc/get_blood_overlay_name()
+	return "blood_overlay"
 
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()
@@ -488,6 +528,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
 	user.do_attack_animation(src)
 
+/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+	. = ..()
+	handle_blood_overlay()
 
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later
@@ -532,11 +575,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	walk_to(src,0)
 	movement_target = null
-	icon_state = icon_dead
-	density = 0
+	density = FALSE
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
-	return ..(gibbed,deathmessage)
+	. = ..(gibbed, deathmessage)
+	update_icon()
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
@@ -766,3 +809,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return /obj/effect/gibspawner/robot
 	else
 		return /obj/effect/gibspawner/generic
+
+#undef BLOOD_NONE
+#undef BLOOD_LIGHT
+#undef BLOOD_MEDIUM
+#undef BLOOD_HEAVY

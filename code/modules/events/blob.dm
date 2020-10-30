@@ -22,6 +22,7 @@
 /datum/event/blob/tick()
 	if(!Blob || !Blob.loc)
 		Blob = null
+		end()
 		kill()
 		return
 	if(IsMultiple(activeFor, 3))

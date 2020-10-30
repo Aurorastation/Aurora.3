@@ -14,6 +14,7 @@
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebot"
 	blood_type = "#000000"
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	health = 15
 	maxHealth = 15
 	harm_intent_damage = 3
@@ -47,6 +48,20 @@
 
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
+
+/mob/living/simple_animal/hostile/hivebot/update_icon()
+	..()
+	if(resting || stat == DEAD)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood_overlay(TRUE)
+
+/mob/living/simple_animal/hostile/hivebot/get_blood_overlay_name()
+	if(stance == HOSTILE_STANCE_IDLE)
+		return "blood_overlay"
+	else
+		return "blood_overlay_armed"
 
 /mob/living/simple_animal/hostile/hivebot/guardian
 	health = 80
@@ -227,6 +242,7 @@
 	icon_living = "hivebotbeacon_active"
 	health = 300
 	maxHealth = 300
+	blood_type = "#000000"
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebot
 	wander = 0
@@ -505,6 +521,8 @@
 	icon_state = "hivebotharvester"
 	health = 100
 	maxHealth = 100
+	blood_type = "#000000"
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	harm_intent_damage = 3
 	melee_damage_lower = 30
 	melee_damage_upper = 30
@@ -722,6 +740,11 @@
 			icon_state = "hivebotharvester_ripping"
 	else
 		icon_state = "hivebotharvester"
+	if(resting || stat == DEAD || busy)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood_overlay(TRUE)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/prospect()
 

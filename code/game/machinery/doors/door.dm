@@ -21,6 +21,7 @@
 	var/normalspeed = 1
 	var/heat_proof = 0 // For glass airlocks/opacity firedoors
 	var/air_properties_vary_with_direction = 0
+	var/unres_dir = null // corresponds to dirs. if opened from this dir, no access is required
 	var/maxhealth = 300
 	var/health
 	var/destroy_hits = 10 //How many strong hits it takes to destroy the door
@@ -555,8 +556,15 @@
 
 /obj/machinery/door/allowed(mob/M)
 	if(!requiresID())
-		return 1 // Door doesn't require an ID. So obviously they're allowed.
+		return TRUE // Door doesn't require an ID. So obviously they're allowed.
+	if(unrestricted_side(M))
+		return TRUE
 	return ..(M)
+
+/obj/machinery/door/proc/unrestricted_side(mob/M) //Allows for specific side of airlocks to be unrestrected (IE, can exit maint freely, but need access to enter)
+	if(!unres_dir)
+		return FALSE
+	return get_dir(src, M) & unres_dir
 
 /obj/machinery/door/update_nearby_tiles(need_rebuild)
 	for(var/turf/T in locs)
