@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - bugfix: "Borers and other flips of the PASSEMOTES flag will no longer change the CANWEAKEN flag."
