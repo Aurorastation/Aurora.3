@@ -267,14 +267,14 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("phoron floor tile", /turf/simulated/floor/phoron, 1, 4, 20)
+			new /datum/stack_recipe("phoron floor tile", /obj/item/stack/tile/phoron, 1, 4, 20)
 		))
 
 /material/diamond/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("diamond floor tile", /turf/simulated/floor/diamond, 1, 4, 20)
+			new /datum/stack_recipe("diamond floor tile", /obj/item/stack/tile/diamond, 1, 4, 20)
 		))
 
 /material/leather/generate_recipes()

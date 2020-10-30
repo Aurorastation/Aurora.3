@@ -17,6 +17,7 @@
 	w_class = 3.0
 	flags = CONDUCT
 	matter = list(DEFAULT_WALL_MATERIAL = 3000)
+	recyclable = TRUE
 	hitsound = /decl/sound_category/bottle_hit_broken
 	drop_sound = /decl/sound_category/bottle_hit_broken
 	var/max_carry = 20

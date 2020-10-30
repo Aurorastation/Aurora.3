@@ -309,14 +309,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		sync = !sync
 
 	else if(href_list["protolathe_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in files.protolathe_categories+"All"
+		var/choice = input("Which category do you wish to display?") as null|anything in designs_protolathe_categories+"All"
 		if(!choice)
 			return
 		protolathe_category = choice
 		updateUsrDialog()
 
 	else if(href_list["imprinter_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in files.imprinter_categories+"All"
+		var/choice = input("Which category do you wish to display?") as null|anything in designs_protolathe_categories+"All"
 		if(!choice)
 			return
 		imprinter_category = choice
