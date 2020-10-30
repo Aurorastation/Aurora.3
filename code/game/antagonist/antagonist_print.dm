@@ -10,6 +10,8 @@
 		if(P.ambitions)
 			text += "<br><font color='purple'><b>Their goals for today were:</b></font>"
 			text += "<br>  '[P.ambitions]'"
+		if(P.current.stat == DEAD && P.last_words)
+			text += "<br><b>Their last words were:</b> '[P.last_words]'"
 		if(!global_objectives.len && P.objectives && P.objectives.len)
 			var/failed
 			var/num = 1
