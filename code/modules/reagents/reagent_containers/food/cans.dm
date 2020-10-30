@@ -54,10 +54,10 @@
 					user.visible_message("<b>[user]</b> stuffs some steel wool into \the [name].", SPAN_NOTICE("You feed steel wool into \the [name], ruining it in the process. It will last approximately 10 seconds."))
 					fuselength = FUSELENGTH_MAX
 					update_icon()
-					qdel(W)
 					desc += " It has some steel wool stuffed into the opening."
 					if(W.isFlameSource())
 						light_fuse(W, user, TRUE)
+					qdel(W)
 				if(FUSELENGTH_MAX)
 					to_chat(user, SPAN_WARNING("You cannot make the fuse longer than 10 seconds!"))
 		else
@@ -107,9 +107,9 @@
 		set_light(2, 2, LIGHT_COLOR_LAVA)
 		if(reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
 			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
-		if(fuselength >= FUSELENGTH_MIN && fuselength <= FUSELENGTH_SHORT && prob(30) && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
-			user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
-			detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
+			if(fuselength >= FUSELENGTH_MIN && fuselength <= FUSELENGTH_SHORT)
+				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
+				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
 		if(fuselength < FUSELENGTH_MIN)
 			user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
 			detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
@@ -139,14 +139,14 @@
 		fuselength += rand(-2, 2) // if the fuse isn't fizzling out or detonating instantly, make it a little harder to predict the fuse by +2/-2 seconds
 	sleep(fuselength * 1 SECOND)
 
-	switch(fuel)
+	switch(round(fuel))
 		if(0)
 			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."))
 			fuselength = 0
 			update_icon()
 			set_light(0, 0)
 			return
-		if(1 to FUSELENGTH_MAX) // baby explosion
+		if(1 to FUSELENGTH_MAX) // baby explosion.
 			var/obj/item/trash/can/popped_can = new(get_turf(src))
 			popped_can.icon_state = icon_state
 			popped_can.name = "popped can"
@@ -166,9 +166,6 @@
 
 /obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
     return !fuselit && fuselength
-		return FALSE
-	else if(fuselength)
-		return TRUE
 
 /obj/item/reagent_containers/food/drinks/cans/proc/FuseRemove(var/CableRemoved = fuselength)
 	fuselength -= CableRemoved

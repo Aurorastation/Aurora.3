@@ -794,11 +794,6 @@
 /obj/item/steelwool/fire_act()
 	ignite()
 
-/obj/item/steelwool/afterattack(atom/A, mob/user)
-	if(isobj(A) || isturf(A))
-		file_down(A, user)
-	return
-
 /obj/item/steelwool/proc/ignite(var/L, mob/user)
 	if(lit && user)
 		to_chat(user, SPAN_WARNING("The steel wool is already lit!"))
@@ -815,7 +810,7 @@
 
 /obj/item/steelwool/proc/endburn()
 	visible_message(SPAN_NOTICE("The steel wool burns out."))
-	if(istype(loc, /mob/living))
+	if(ishuman(loc))
 		var/mob/living/carbon/human/user = loc
 		if(!user.gloves)
 			var/UserLoc = get_equip_slot()
@@ -828,15 +823,3 @@
 	
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)
-
-/obj/item/steelwool/proc/file_down(atom/target, mob/user)
-	if(target.color != initial(target.color))
-		if(lit)
-			to_chat(user, SPAN_WARNING("The steel wool is too hot to do that!"))
-			return
-		else
-			user.visible_message(SPAN_NOTICE("[user] starts filing down \the [target] with [name]."), SPAN_NOTICE("You start filing down \the [target] with [name]."))
-			if(do_after(user, 2 SECONDS))
-				target.color = initial(target.color)
-				user.visible_message(SPAN_NOTICE("[user] finishes filing down \the [target]."), SPAN_NOTICE("You finish filing down \the [target]."))
-				return
