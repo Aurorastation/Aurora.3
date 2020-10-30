@@ -165,7 +165,7 @@
 	qdel(src)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
-	if(fuselit)
+    return !fuselit && fuselength
 		return FALSE
 	else if(fuselength)
 		return TRUE
