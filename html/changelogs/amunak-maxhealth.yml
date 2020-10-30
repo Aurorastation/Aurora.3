@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - bugfix: "Fixes hardcoded health checks setting to 100 instead of maxHealth (mainly in godmode checks but also pAI)."
