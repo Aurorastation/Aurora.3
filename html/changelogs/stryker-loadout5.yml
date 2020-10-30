@@ -1,0 +1,8 @@
+author: The Stryker, NiennaB
+delete-after: True
+changes: 
+  - rscadd: "Added circle and horn antennas to the loadout (Xenowear - IPC, antenna selection)."
+  - rscadd: "Added ripped jeans under the pants selection in the loadout, as well as a colorable jumpsuit in the uniforms tab."
+  - rscadd: "Added a Himeo engineering and atmos voidsuit that can be made with the Himeo voidsuit kit and an existing engineering/atmos voidsuit."
+  - tweak: "The Himeo suit sprite no longer has side views when dragged."
+  - tweak: "IPC antennae sprites have been changed to be smaller."
