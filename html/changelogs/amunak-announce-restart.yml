@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - rscadd: "All clients will now be warned just before server restarts."
