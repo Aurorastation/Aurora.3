@@ -6,7 +6,7 @@
 
 /obj/item/borg/rescue/mobility
 	name = "mobility module"
-	desc = "The Rescue Module has been outfitted with thrusters capable of retrieving injured Crew at speeds unheard of in other 'borg modules."
+	desc = "The Rescue Module has been outfitted with thrusters capable of retrieving injured Crew at speeds unheard of in other Stationbound modules."
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "shock"
 
