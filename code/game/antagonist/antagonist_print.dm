@@ -65,8 +65,7 @@
 	if(ply.current)
 		var/mob/living/M = ply.current
 		var/mob/living/carbon/C = M
-		var/turf/T = M.loc
-		var/area/A = T.loc
+		var/area/A = get(M.loc, /area)
 		if(M.stat == DEAD)
 			text += "died"
 		else if(A?.is_prison() || (!A?.is_no_crew_expected() && C?.handcuffed))
