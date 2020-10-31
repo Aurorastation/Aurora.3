@@ -149,12 +149,12 @@ Possible to do for anyone motivated enough:
 		return 0
 	return -1
 
-/obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/ai/user)
-	if(isrobot(user))
-		attack_hand(user)
+/obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
+	if(!istype(user))
 		return
 
-	if(!istype(user))
+	if(isrobot(user))
+		attack_hand(user)
 		return
 
 	if(user.eyeobj.loc != src.loc)
