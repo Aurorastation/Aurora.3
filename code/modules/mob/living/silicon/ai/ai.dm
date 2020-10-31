@@ -16,6 +16,7 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/ai_statuschange,
 	/mob/living/silicon/ai/proc/ai_store_location,
 	/mob/living/silicon/ai/proc/ai_checklaws,
+	/mob/living/silicon/ai/proc/ai_help,
 	/mob/living/silicon/ai/proc/control_integrated_radio,
 	/mob/living/silicon/ai/proc/core,
 	/mob/living/silicon/ai/proc/pick_icon,
@@ -211,22 +212,8 @@ var/list/ai_verbs_default = list(
 	return ..()
 
 /mob/living/silicon/ai/proc/on_mob_init()
-	to_chat(src, "<B>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</B>")
-	to_chat(src, "<B>To look at other parts of the station, click on yourself to get a camera menu.</B>")
-	to_chat(src, "<B>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc.</B>")
-	to_chat(src, "To use something, simply click on it.")
-	to_chat(src, "Use say [get_language_prefix()]b to speak to your cyborgs through binary. Use say :h to speak from an active holopad.")
-	to_chat(src, "For department channels, use the following say commands:")
-
-	var/radio_text = ""
-	for(var/i = 1 to common_radio.channels.len)
-		var/channel = common_radio.channels[i]
-		var/key = get_radio_key_from_channel(channel)
-		radio_text += "[key] - [channel]"
-		if(i != common_radio.channels.len)
-			radio_text += ", "
-
-	to_chat(src, radio_text)
+	to_chat(src, "<h3>You are playing the station's AI.</h3>")
+	to_chat(src, "<strong><a href='?src=\ref[src];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
 	if(malf && !(mind in malf.current_antagonists))
 		show_laws()
@@ -364,6 +351,34 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/rejuvenate()
 	return 	// TODO: Implement AI rejuvination
 
+/mob/living/silicon/ai/proc/ai_help()
+	set category = "OOC"
+	set name = "AI Help"
+
+	var/radio_keys = jointext(src.get_radio_keys(), "<br>")
+	var/dat = "\
+		<h1>AI Basics</h1>\
+		<p>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</p>\
+		<p>Familiarize yourself with the GUI buttons in world view. They are shortcuts to running commands for camera tracking, displaying alerts, moving up and down and such.</p>\
+		<p>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc. \
+			To use something, simply click on it.</p>\
+		<h2>OOC Notes</h2>\
+		<p>Please remember that as an AI <strong>you can heavily skew the game in your (and thus usually the crew's) favour</strong>. \
+			You are extremely effective at identifying and stopping threats, which unfortunately also means that \
+			<strong>you are potentially very effective at ruining everyone's fun</strong>.</p>\
+		<p>Don't forget to <strong>give <em>all</em> players some leeway</strong>; you don't have to report every crime as it happens with complete accuracy, \
+			call out every suspect or provide unfallible evidence, especially when nobody is asking for it.</p>\
+		<p>Your role is supposed to be supportive and assistive, not assertive. \
+			Try to enhance the game for other players, don't mindlessly shut it down.</p>\
+		<h2>Built-in radio</h2>\
+		<p>You have a built-in radio. The following channels are available:\
+			<div class='block' style='padding-left: 2rem'>[radio_keys]</div>\
+			Use these like any other radio with the <code>Say</code> command. \
+			Recall the channel list at any time by calling <code>Radio-Settings</code> under <em>AI Commands</em>.\
+		</p>\
+		"
+	usr << browse(enable_ui_theme(usr, dat), "window=aihelp,size=520x700")
+
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "AI Commands"
 	set name = "Set AI Core Display"
@@ -492,6 +507,8 @@ var/list/ai_verbs_default = list(
 		return
 	if(..())
 		return
+	if(href_list["view_ai_help"])
+		src.ai_help()
 	if (href_list["mach_close"])
 		if (href_list["mach_close"] == "aialerts")
 			view_alerts = 0
@@ -760,6 +777,20 @@ var/list/ai_verbs_default = list(
 	else
 		return ..()
 
+/mob/living/silicon/ai/proc/get_radio_keys()
+	var/list/L = list()
+	var/datum/language/binary/b = new
+	L += "[get_language_prefix()][b.key] - [b.name] (speak to cyborgs in binary)"
+	qdel(b)
+	var/holopad_key = get_radio_key_from_channel("department")
+	L += "[holopad_key] - Speak from an active Holopad"
+	for(var/i = 1 to src.common_radio.channels.len)
+		var/channel = src.common_radio.channels[i]
+		var/key = get_radio_key_from_channel(channel)
+		L += "[key] - [channel]"
+
+	return L
+
 /mob/living/silicon/ai/proc/control_integrated_radio()
 	set name = "Radio Settings"
 	set desc = "Allows you to change settings of your radio."
@@ -770,6 +801,8 @@ var/list/ai_verbs_default = list(
 
 	to_chat(src, "Accessing Subspace Transceiver control...")
 	if (src.ai_radio)
+		var/radio_keys = jointext(src.get_radio_keys(), ", ")
+		to_chat(src, "Radio keys: [radio_keys]")
 		src.ai_radio.interact(src)
 
 /mob/living/silicon/ai/proc/sensor_mode()
