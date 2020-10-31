@@ -1998,6 +1998,10 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
+"dN" = (
+/obj/effect/shuttle_landmark/research/yellow,
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
 "dO" = (
 /obj/structure/bed/chair,
 /obj/structure/window/reinforced{
@@ -3333,7 +3337,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "admin_shuttle_dock_airlock_outer";
+	id_tag = "yellow_shuttle_dock_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
@@ -3341,7 +3345,7 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1380;
-	master_tag = "admin_shuttle_dock_airlock";
+	master_tag = "yellow_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = -6;
 	pixel_y = -28;
@@ -3353,8 +3357,8 @@
 /obj/machinery/light/small,
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
-	id_tag = "admin_shuttle_dock_airlock_sensor";
-	master_tag = "admin_shuttle_dock_airlock";
+	id_tag = "yellow_shuttle_dock_sensor";
+	master_tag = "yellow_shuttle_dock_airlock";
 	pixel_y = 26
 	},
 /turf/simulated/floor/plating,
@@ -3363,18 +3367,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1380;
-	id_tag = "admin_shuttle_dock_airlock_pump"
+	id_tag = "yellow_shuttle_dock_airlock_pump"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
-	id_tag = "admin_shuttle_dock_airlock";
-	master_tag = "admin_shuttle_dock_airlock";
+	id_tag = "yellow_shuttle_dock_airlock";
 	pixel_y = 30;
 	req_one_access = list(13);
-	tag_airpump = "admin_shuttle_dock_airlock_pump";
-	tag_chamber_sensor = "admin_shuttle_dock_airlock_sensor";
-	tag_exterior_door = "admin_shuttle_dock_airlock_outer";
-	tag_interior_door = "admin_shuttle_dock_airlock_inner"
+	tag_airpump = "yellow_shuttle_dock_airlock_pump";
+	tag_chamber_sensor = "yellow_shuttle_dock_sensor";
+	tag_exterior_door = "yellow_shuttle_dock_outer";
+	tag_interior_door = "yellow_shuttle_dock_inner"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
@@ -3385,7 +3388,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "admin_shuttle_dock_airlock_inner";
+	id_tag = "yellow_shuttle_dock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
@@ -3396,7 +3399,7 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
-	master_tag = "admin_shuttle_dock_airlock";
+	master_tag = "yellow_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -30;
 	pixel_y = 26;
@@ -7032,7 +7035,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "mZ" = (
-/obj/machinery/computer/shuttle_control/research,
+/obj/machinery/computer/shuttle_control/multi/research,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/research)
 "na" = (
@@ -47643,7 +47646,7 @@ aa
 aa
 aa
 aa
-aa
+dN
 aa
 aa
 aa

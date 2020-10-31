@@ -616,6 +616,9 @@ var/list/diona_banned_languages = list(
 	var/restrictedlight_factor = 0.8 //A value between 0 and 1 that determines how much we nerf the strength of certain worn lights
 		//1 means flashlights work normally., 0 means they do nothing
 
+	var/list/sampled_DNA = list()
+	var/list/language_progress = list()
+
 	var/obj/item/organ/internal/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
 	var/obj/item/organ/internal/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
@@ -625,6 +628,83 @@ var/list/diona_banned_languages = list(
 	var/datum/callback/regen_extra
 	var/regen_limb_progress
 	var/pause_regen = FALSE
+
+/datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/D)
+	user.visible_message(SPAN_DANGER("[user] is trying to bite [D.name]."), SPAN_DANGER("You start biting \the [D], you both must stay still!"))
+	user.face_atom(get_turf(D))
+	if(do_mob(user, D, 40, needhand = FALSE))
+		//Attempt to find the blood vessel, but don't create a fake one if its not there.
+		//If the target doesn't have a vessel its probably due to someone not implementing it properly, like xenos
+		//We'll still allow it
+		var/datum/reagents/vessel = D.get_vessel(1)
+		var/newDNA
+		var/datum/reagent/blood/B = vessel.get_master_reagent()
+		var/total_blood = B.volume
+		var/remove_amount = total_blood * 0.05
+		if(ishuman(D))
+			var/mob/living/carbon/human/H = D
+			remove_amount = H.species.blood_volume * 0.05
+		if(remove_amount > 0)
+			vessel.remove_reagent(/datum/reagent/blood, remove_amount, TRUE)
+			user.adjustNutritionLoss(-remove_amount * 0.5)
+		var/list/data = vessel.get_data(/datum/reagent/blood)
+		newDNA = data["blood_DNA"]
+
+		if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
+			newDNA = md5("\ref[D]")
+
+		D.adjustBruteLoss(4)
+		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [D].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [D]!"))
+		to_chat(D, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
+		D.reagents.add_reagent(/datum/reagent/mortaphenyl/aphrodite, 5)
+		if(D.client)
+			INVOKE_ASYNC(src, .proc/memory_transfer, user, D)
+		if(newDNA in sampled_DNA)
+			to_chat(user, SPAN_DANGER("You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else."))
+			return
+		else
+			sampled_DNA.Add(newDNA)
+
+			var/learned = 0
+			//Learned var:
+			//0 = The target has no languages
+			//1 = We already everything they know or can't learn
+			//2 = We learned something!
+
+			//Now we sample their languages!
+			for(var/datum/language/L in D.languages)
+				learned = max(learned, 1)
+				if (!(L in user.languages) && !(L in diona_banned_languages))
+					//We don't know this language, and we can learn it!
+					var/current_progress = language_progress[L.name]
+					current_progress += 1
+					language_progress[L.name] = current_progress
+					to_chat(user, SPAN_NOTICE("<font size=3>You come a little closer to learning [L.name]!</font>"))
+					learned = 2
+
+			if(!learned)
+				to_chat(user, SPAN_DANGER("This creature doesn't know any languages at all!"))
+			else if (learned == 1)
+				to_chat(user, SPAN_DANGER("We have nothing more to learn from this creature. Perhaps try a different sample?"))
+
+			update_languages(user)
+	else
+		to_chat(user, SPAN_WARNING("Something went wrong while trying to sample [D], both you and the target must remain still."))
+
+/datum/dionastats/proc/memory_transfer(var/mob/user, var/mob/donor)
+	var/memory_drain = input(donor, "[user] just drained some of your blood, including some of your memory. What was on your mind?", "Diona Memory Transfer") as null|text
+	if(!memory_drain || memory_drain == "")
+		to_chat(user, SPAN_WARNING("\The [donor] had nothing swimming around in their brain."))
+	else
+		memory_drain = capitalize(sanitize(memory_drain))
+		to_chat(user, SPAN_NOTICE("You gather the following knowledge from \the [donor]: [memory_drain]"))
+
+/datum/dionastats/proc/update_languages(var/mob/user)
+	for(var/i in language_progress)
+		if(language_progress[i] >= LANGUAGE_POINTS_TO_LEARN)
+			user.add_language(i)
+			to_chat(user, SPAN_NOTICE("<font size=3>You have mastered the [i] language!</font>"))
+			language_progress.Remove(i)
 
 /datum/dionastats/Destroy()
 	light_organ = null //Nulling out these references to prevent GC errors

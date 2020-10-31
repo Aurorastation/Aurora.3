@@ -158,6 +158,8 @@ var/global/list/cloaking_devices = list()
 		rkey++
 		var/datum/species/S = new T
 		S.race_key = rkey //Used in mob icon caching.
+		if(length(S.autohiss_basic_map) || length(S.autohiss_extra_map) || length(S.autohiss_basic_extend) || length(S.autohiss_extra_extend))
+			S.has_autohiss = TRUE
 		all_species[S.name] = S
 
 	sortTim(all_species, /proc/cmp_text_asc)
