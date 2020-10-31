@@ -244,7 +244,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(connected_pad)
 			H.x = src.x - (connected_pad.x - M.x)
 			H.y = src.y - (connected_pad.y - M.y)
-		if(get_dist(H, src) > world.view)
+		if(get_dist(H, src) > world.view || !isInSight(H, src))
 			clear_holo(M)
 			return
 		H.assume_form(M)
