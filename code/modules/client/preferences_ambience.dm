@@ -2,7 +2,6 @@
 //	/client/proc/Toggle_asfx,
 //	/client/proc/Toggle_footsteps,
 	/client/proc/Toggle_asfx_vote,
-	/client/proc/toggle_vox_voice,
 	/client/proc/Toggle_dropsounds,
 	/client/proc/Toggle_arcadesounds,
 	/client/proc/Toggle_radiosounds,
@@ -56,15 +55,6 @@
 	else
 		to_chat(src, "<span class='warning'>You will no longer hear the vote alarm.</span>")
 	feedback_add_details("admin_verb","TSFXFV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/toggle_vox_voice()
-	set name = "Toggle VOX Voice"
-	set category = "SoundFx Prefs"
-	set desc = "Toggles the announcement voice."
-
-	prefs.asfx_togs ^= ASFX_VOX
-	prefs.save_preferences()
-	to_chat(src, "You will [(prefs.asfx_togs & ASFX_VOX) ? "now" : "no longer"] hear the VOX voice.")
 
 /client/proc/Toggle_dropsounds()
 	set name = "Hear/Silence Drop Sounds"

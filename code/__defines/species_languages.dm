@@ -53,7 +53,6 @@
 #define LANGUAGE_SIGN "Sign Language"
 
 // Antag Languages
-#define LANGUAGE_VOX "Vox-pidgin"
 #define LANGUAGE_CHANGELING "Changeling"
 #define LANGUAGE_BORER "Cortical Link"
 #define LANGUAGE_BORER_HIVEMIND "Cortical Hivemind"
@@ -62,7 +61,7 @@
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.
 
 // Lesser-form Languages
-#define LANGUAGE_GIBBERING "Gibbering"			// alberyk
+#define LANGUAGE_GIBBERING "Gibbering"		// alberyk
 #define LANGUAGE_CHIMPANZEE "Chimpanzee"	// human
 #define LANGUAGE_NEAERA "Neaera"			// skrell
 #define LANGUAGE_STOK "Stok"				// unathi
