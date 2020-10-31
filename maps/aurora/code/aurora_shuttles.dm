@@ -305,7 +305,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Skipjack"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_interim"
-	dock_target = "vox_east_control"
+	dock_target = "raider_east_control"
 	warmup_time = 10
 	move_time = 75
 	shuttle_area = /area/shuttle/skipjack

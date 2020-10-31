@@ -57,7 +57,7 @@
 		to_chat(src, "<span class='warning'>You will no longer hear the vote alarm.</span>")
 	feedback_add_details("admin_verb","TSFXFV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/toggle_vox_voice()
+/client/proc/Toggle_msg_voice()
 	set name = "Toggle Message Voice"
 	set category = "SoundFx Prefs"
 	set desc = "Toggles the announcement voice."
