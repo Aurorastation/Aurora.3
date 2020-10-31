@@ -219,6 +219,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
+	src.modules += new /obj/item/device/mass_spectrometer(src)
 	src.modules += new /obj/item/autopsy_scanner(src)
 	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
@@ -275,18 +276,20 @@ var/global/list/robot_modules = list(
 			"Unbranded-Android" = "droid",
 			)
 
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
-
 /obj/item/robot_module/medical/rescue/Initialize()
 	. = ..()
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
+	src.modules += new /obj/item/device/mass_spectrometer(src)
 	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/reagent_containers/borghypo/rescue(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
+	src.modules += new /obj/item/gripper(src)
+	src.modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	src.modules += new /obj/item/borg/rescue/mobility(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
 	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
@@ -690,7 +693,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/screwdriver/robotic(src)
 	src.modules += new /obj/item/storage/part_replacer(src)
-	src.modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	src.modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
 	synths += metal
@@ -865,9 +868,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/rfd/piping/borg(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
-
-	robot.internals = new /obj/item/tank/jetpack/carbondioxide(src)
-	src.modules += robot.internals
+	src.modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
@@ -943,10 +944,9 @@ var/global/list/robot_modules = list(
 	no_slip = TRUE
 	networks = list(NETWORK_MINE)
 
-/obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/drill = TRUE)
+/obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R)
 	modules += new /obj/item/device/flash(src)
-	if(drill)
-		modules += new /obj/item/pickaxe/drill(src)
+	modules += new /obj/item/pickaxe/drill(src)
 	modules += new /obj/item/storage/bag/ore/drone(src)
 	modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	modules += new /obj/item/gripper/miner(src)
