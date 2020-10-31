@@ -540,9 +540,6 @@ var/list/asset_datums = list()
 /datum/asset/spritesheet/vending/cola
 	v_type = /obj/machinery/vending/cola
 
-/datum/asset/spritesheet/vending/cart
-	v_type = /obj/machinery/vending/cart
-
 /datum/asset/spritesheet/vending/cigarette
 	v_type = /obj/machinery/vending/cigarette
 
