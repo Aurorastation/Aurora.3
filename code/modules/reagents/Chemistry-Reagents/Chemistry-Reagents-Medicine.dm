@@ -310,7 +310,21 @@
 	M.add_chemical_effect(CE_EMETIC, dose/6)
 	if(M.losebreath < 15)
 		M.losebreath++
-		
+
+/datum/reagent/mortaphenyl/aphrodite
+	name = "Aphrodite"
+	description = "Aphrodite is the name given to the chemical diona inject into organics soon after biting them. It serves a dual purpose of dulling the pain of the wound, and gathering deep-seated fragments of learned skills and memories, such as languages."
+	color = "#a59153"
+	overdose = 10
+	scannable = TRUE
+	fallback_specific_heat = 1
+	taste_description = "euphoric acid"
+
+/datum/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_PAINKILLER, 70)
+	M.eye_blurry = max(M.eye_blurry, 3)
+	M.confused = max(M.confused, 6)
+
 /datum/reagent/oxycomorphine
 	name = "Oxycomorphine"
 	description = "Oxycomorphine is a highly advanced, powerful analgesic medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
