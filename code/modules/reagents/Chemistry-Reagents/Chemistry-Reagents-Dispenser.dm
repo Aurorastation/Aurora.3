@@ -47,6 +47,9 @@
 	breathe_mul = 2
 	breathe_met = REM * 0.25
 	fallback_specific_heat = 1.048
+	
+/datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(removed * 1.5)
 
 /datum/reagent/carbon
 	name = "Carbon"
