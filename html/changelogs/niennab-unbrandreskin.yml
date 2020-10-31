@@ -1,0 +1,4 @@
+author: NiennaB, Stryker
+delete-after: True
+changes: 
+  - tweak: "Changed the Unbranded IPC and prosthetics sprites with one by NiennaB."
