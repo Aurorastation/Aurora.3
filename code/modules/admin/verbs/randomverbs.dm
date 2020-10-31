@@ -285,7 +285,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 /client/proc/allow_character_respawn()
 	set category = "Special Verbs"
 	set name = "Allow player to respawn"
-	set desc = "Let's the player bypass the wait to respawn or allow them to re-enter their corpse."
+	set desc = "Lets the player bypass the wait to respawn or allow them to re-enter their corpse."
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 	var/list/ghosts = get_ghosts(1,1,src)
