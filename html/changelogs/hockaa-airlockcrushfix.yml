@@ -1,6 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes: 
-  - tweak: "Airlocks now display messages when crushing people."
