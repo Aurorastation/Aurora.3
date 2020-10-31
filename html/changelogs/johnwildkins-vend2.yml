@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - rscadd: "Vending machines now have a graphical, icon-based item interface based in VueUI."
-  - tweak: "Vending machines now have a search bar."
-  - bugfix: "Icon lag when using vending machines should no longer exist."
