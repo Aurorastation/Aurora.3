@@ -46,13 +46,6 @@
 	name = "Total Colorblindness"
 	desc = "You cannot see color, only black, white, and shades of gray."
 
-/datum/character_disabilities/blindness
-	name = "Blindness"
-	desc = "You cannot see."
-
-/datum/character_disabilities/blindness/apply_self(var/mob/living/carbon/human/H)
-	H.sdisabilities |= BLIND
-
 /datum/character_disabilities/total_colorblind/apply_self(var/mob/living/carbon/human/H)
 	H.add_client_color(/datum/client_color/monochrome)
 

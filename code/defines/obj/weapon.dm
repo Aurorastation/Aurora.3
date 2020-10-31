@@ -291,7 +291,7 @@
 
 /obj/item/cane/white
 	name = "white cane"
-	desc = "A white cane, used by the blind or visually impaired."
+	desc = "A white cane, used by the visually impaired."
 	icon_state = "whitecane"
 	item_state = "whitecane"
 
