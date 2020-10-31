@@ -1,17 +1,17 @@
-/obj/item/modular_computer/proc/eject_id(mob/user = usr)
+/obj/item/modular_computer/proc/eject_id()
 	set name = "Eject ID"
 	set category = "Object"
 	set src in view(1)
 
-	if(use_check_and_message(user))
+	if(use_check_and_message(usr))
 		return
 
 	if(!card_slot)
-		to_chat(user, SPAN_WARNING("\The [src] does not have an ID card slot."))
+		to_chat(usr, SPAN_WARNING("\The [src] does not have an ID card slot."))
 		return
 
 	if(!card_slot.stored_card)
-		to_chat(user, SPAN_WARNING("There is no card in \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is no card in \the [src]."))
 		return
 
 	if(active_program)
@@ -20,90 +20,94 @@
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.event_idremoved(TRUE)
 
-	card_slot.eject_id(user)
+	card_slot.eject_id(usr)
 
 	update_uis()
-	to_chat(user, SPAN_NOTICE("You remove the card from \the [src]."))
+	to_chat(usr, SPAN_NOTICE("You remove the card from \the [src]."))
 
 
-/obj/item/modular_computer/proc/eject_usb(mob/user = usr)
+/obj/item/modular_computer/proc/eject_usb()
 	set name = "Eject Portable Storage"
 	set category = "Object"
+	set src in view(1)
 
-	if(use_check_and_message(user))
+	if(use_check_and_message(usr))
 		return
 
 	if(!portable_drive)
-		to_chat(user, SPAN_WARNING("There is no portable drive connected to \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is no portable drive connected to \the [src]."))
 		return
 
-	uninstall_component(user, portable_drive, put_in_hands = TRUE)
+	uninstall_component(usr, portable_drive, put_in_hands = TRUE)
 	verbs -= /obj/item/modular_computer/proc/eject_usb
 	update_uis()
 
-/obj/item/modular_computer/proc/eject_item(mob/user = usr)
+/obj/item/modular_computer/proc/eject_item()
 	set name = "Eject Stored Item"
 	set category = "Object"
+	set src in view(1)
 
-	if(use_check_and_message(user))
+	if(use_check_and_message(usr))
 		return
 
 	if(!card_slot)
-		to_chat(user, SPAN_WARNING("\The [src] does not have an ID card slot."))
+		to_chat(usr, SPAN_WARNING("\The [src] does not have an ID card slot."))
 		return
 
 	if(!card_slot.stored_item)
-		to_chat(user, SPAN_WARNING("There is no item stored in \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is no item stored in \the [src]."))
 		return
 
 	var/I = card_slot.stored_item.name
 
-	if(ishuman(user))
-		user.put_in_hands(card_slot.stored_item)
+	if(ishuman(usr))
+		usr.put_in_hands(card_slot.stored_item)
 	else
 		card_slot.stored_item.forceMove(get_turf(src))
 
 	card_slot.stored_item = null
 	update_uis()
 	verbs -= /obj/item/modular_computer/proc/eject_item
-	to_chat(user, SPAN_NOTICE("You remove \the [I] from \the [src]."))
+	to_chat(usr, SPAN_NOTICE("You remove \the [I] from \the [src]."))
 
-/obj/item/modular_computer/proc/eject_battery(mob/user = usr)
+/obj/item/modular_computer/proc/eject_battery(mob/usr = usr)
 	set name = "Eject Battery"
 	set category = "Object"
+	set src in view(1)
 
-	if(use_check_and_message(user))
+	if(use_check_and_message(usr))
 		return
 
 	if(!battery_module)
-		to_chat(user, SPAN_WARNING("\The [src] doesn't have a battery installed."))
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a battery installed."))
 		return
 
 	if(!battery_module.hotswappable)
-		to_chat(user, SPAN_WARNING("\The [src]'s battery isn't removable without tools!"))
+		to_chat(usr, SPAN_WARNING("\The [src]'s battery isn't removable without tools!"))
 		return
 
-	uninstall_component(user, battery_module, put_in_hands = TRUE)
+	uninstall_component(usr, battery_module, put_in_hands = TRUE)
 	verbs -= /obj/item/modular_computer/proc/eject_battery
 	update_uis()
 
-/obj/item/modular_computer/proc/eject_ai(mob/user = usr)
+/obj/item/modular_computer/proc/eject_ai()
 	set name = "Eject AI Storage"
 	set category = "Object"
+	set src in view(1)
 
-	if(use_check_and_message(user))
+	if(use_check_and_message(usr))
 		return
 
 	if(!ai_slot)
-		to_chat(user, SPAN_WARNING("\The [src] doesn't have an intellicard slot."))
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have an intellicard slot."))
 		return
 
 	if(!ai_slot.stored_card)
-		to_chat(user, SPAN_WARNING("There is no intellicard connected to \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is no intellicard connected to \the [src]."))
 		return
 
-	if(ishuman(user))
-		user.put_in_hands(ai_slot.stored_card)
+	if(ishuman(usr))
+		usr.put_in_hands(ai_slot.stored_card)
 	else
 		ai_slot.stored_card.forceMove(get_turf(src))
 	ai_slot.stored_card = null
@@ -111,18 +115,19 @@
 	verbs -= /obj/item/modular_computer/proc/eject_ai
 	update_uis()
 
-/obj/item/modular_computer/proc/eject_personal_ai(mob/user = usr)
+/obj/item/modular_computer/proc/eject_personal_ai()
 	set name = "Eject Personal AI"
 	set category = "Object"
+	set src in view(1)
 
-	if(use_check_and_message(user))
+	if(use_check_and_message(usr))
 		return
 
 	if(!personal_ai)
-		to_chat(user, SPAN_WARNING("There is no personal AI connected to \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is no personal AI connected to \the [src]."))
 		return
 
-	uninstall_component(user, personal_ai, put_in_hands = TRUE)
+	uninstall_component(usr, personal_ai, put_in_hands = TRUE)
 	verbs -= /obj/item/modular_computer/proc/eject_personal_ai
 	update_uis()
 
@@ -135,9 +140,9 @@
 		return
 
 	if(card_slot.stored_card)
-		eject_id(user)
+		eject_id()
 	else if(card_slot.stored_item)
-		eject_item(user)
+		eject_item()
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
@@ -210,7 +215,7 @@
 
 		user.drop_from_inventory(I, src)
 		if(card_slot.stored_card)
-			eject_id(user)
+			eject_id()
 
 		card_slot.insert_id(I)
 		update_uis()

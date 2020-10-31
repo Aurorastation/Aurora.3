@@ -1,6 +1,7 @@
 /obj/item/modular_computer/handheld
 	name = "tablet computer"
 	desc = "A portable device for your needs on the go."
+	desc_info = "To deploy the charging cable on this device, either drag and drop it over a nearby APC, or click on the APC with the computer in hand."
 	icon = 'icons/obj/modular_tablet.dmi'
 	icon_state = "tablet"
 	icon_state_unpowered = "tablet"

@@ -113,6 +113,11 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 400)
 	build_path = /obj/item/computer_hardware/battery_module
 
+/datum/design/item/modularcomponent/battery/hotswap
+	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 600)
+	build_path = /obj/item/computer_hardware/battery_module/hotswap
+
 /datum/design/item/modularcomponent/battery/advanced
 	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 800)

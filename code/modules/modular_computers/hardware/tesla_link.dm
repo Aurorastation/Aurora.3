@@ -19,7 +19,7 @@
 	icon_state = "wire"
 	hardware_size = 1
 	origin_tech = list(TECH_ENGINEERING = 1, TECH_POWER = 1)
-	passive_charging_rate = 1000 // mW
+	passive_charging_rate = 2500 // mW
 	var/obj/machinery/power/source
 	var/datum/beam/beam
 	var/cable_length = 3
@@ -34,7 +34,6 @@
 		to_chat(user, SPAN_NOTICE("You connect \the [src] to \the [power_source]."))
 		activate(power_source)
 	else
-		to_chat(user, SPAN_NOTICE("You disconnect \the [src]."))
 		deactivate()
 
 /obj/item/computer_hardware/tesla_link/charging_cable/proc/activate(var/power_source)

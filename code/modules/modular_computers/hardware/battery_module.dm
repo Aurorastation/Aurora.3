@@ -2,12 +2,12 @@
 // have tremendeous capacity in comparsion. Higher tier cells would provide your device with nearly infinite battery life, which is something i want to avoid.
 /obj/item/computer_hardware/battery_module
 	name = "standard battery"
-	desc = "A standard power cell, commonly seen in high-end portable microcomputers or low-end laptops. It provides 1,000 mWh of power."
+	desc = "A standard power cell, commonly seen in high-end portable microcomputers or low-end laptops. It provides 1,500 Wh of power."
 	icon_state = "battery_normal"
 	critical = TRUE
 	malfunction_probability = 1
 	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
-	var/battery_rating = 1000
+	var/battery_rating = 1500
 	var/obj/item/cell/battery
 	var/hotswappable = FALSE
 
