@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - admin: "Projectiles hitting mobs will now not display an admin log if both the firer and the target has no client connected."
