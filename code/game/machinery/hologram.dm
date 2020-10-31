@@ -37,7 +37,7 @@ Possible to do for anyone motivated enough:
 	idle_power_usage = 5
 	use_power = 1
 
-	var/holopad_id = ""
+	var/holopad_id
 
 	var/list/active_holograms
 	var/last_request = 0 //to prevent request spam. ~Carn
@@ -64,10 +64,7 @@ Possible to do for anyone motivated enough:
 		icon_state = "holopad0"
 		set_light(0)
 
-/obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
-	if(!istype(user))
-		return
-
+/obj/machinery/hologram/holopad/attack_hand(var/mob/user) //Carn: Hologram requests.
 	if(incoming_connection)
 		audible_message("The pad hums quietly as it establishes a connection.")
 		take_call()
@@ -92,7 +89,7 @@ Possible to do for anyone motivated enough:
 			for(var/mob/living/silicon/ai/AI in silicon_mob_list)
 				if(!AI.client)
 					continue
-				to_chat(AI, "<span class='info'>Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>.</span>")
+				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>."))
 		if("Holocomms")
 			last_request = world.time
 			var/obj/item/card/id/I = user.GetIdCard()
@@ -105,7 +102,7 @@ Possible to do for anyone motivated enough:
 					if("Forced Call")
 						forced_call = TRUE
 			var/list/holopadlist = list()
-			for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines)
+			for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines - src)
 				if(H != src && ARE_Z_CONNECTED(H.z, z) && H.operable())
 					holopadlist["[H.holopad_id]"] = H	//Define a list and fill it with the area of every holopad in the world
 			holopadlist = sortAssoc(holopadlist)
@@ -115,7 +112,7 @@ Possible to do for anyone motivated enough:
 			connected_pad = holopadlist[chosen_pad]
 			make_call(connected_pad, user, forced_call)
 
-/obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/connected_pad, var/mob/living/carbon/user, forced_call)
+/obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/connected_pad, var/mob/user, forced_call)
 	connected_pad.last_request = world.time
 	connected_pad.connected_pad = src //This marks the holopad you are making the call from
 	connected_pad.incoming_connection = TRUE
@@ -153,6 +150,10 @@ Possible to do for anyone motivated enough:
 	return -1
 
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/ai/user)
+	if(isrobot(user))
+		attack_hand(user)
+		return
+
 	if(!istype(user))
 		return
 
@@ -265,7 +266,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	for(var/thing in active_holograms)
 		var/mob/M = thing
 		var/is_inactive_ai = FALSE
-		if(istype(M, /mob/living/silicon/ai))
+		if(isAI(M))
 			var/mob/living/silicon/ai/master = M
 			is_inactive_ai = !(master && !master.incapacitated() && master.client && master.eyeobj) //If there is an AI with an eye attached, it's not incapacitated, and it has a client
 		if((stat & NOPOWER) || is_inactive_ai)
