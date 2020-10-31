@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Diona now absorb knowledge along with language when sucking blood, this is a user prompt that the suckee must enter, and will probably fail to."
-  - rscadd: "Diona gestalts can now also sample DNA to learn languages and gain knowledge."
-  - rscadd: "Diona now inject a medium painkiller when sucking blood, called 'Aphrodite'."
