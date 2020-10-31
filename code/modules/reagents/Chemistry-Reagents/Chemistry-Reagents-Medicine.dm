@@ -164,6 +164,10 @@
 	breathe_mul = 2
 	var/strength = 6
 
+/datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
+	holder.remove_reagent(/datum/reagent/lexorin, strength/3 * removed)
+
 //Hyperoxia causes brain and eye damage
 /datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_NEUROTOXIC, removed * (strength / 6))
