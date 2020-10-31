@@ -116,7 +116,7 @@
 /datum/design/item/beaker/noreact
 	desc = "A cryostasis beaker that allows for chemical storage without reactions. Can hold up to 50 units."
 	req_tech = list(TECH_MATERIAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 3000)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 1000)
 	build_path = /obj/item/reagent_containers/glass/beaker/noreact
 
 /datum/design/item/beaker/bluespace

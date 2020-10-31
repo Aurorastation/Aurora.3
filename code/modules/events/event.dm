@@ -143,6 +143,8 @@
 
 	if(!dummy && isRunning)
 		end()
+		var/datum/event_container/killed_ec = SSevents.event_containers[severity]
+		killed_ec.start_event()
 
 	isRunning = 0
 	endedAt = world.time

@@ -140,7 +140,7 @@ Frequency:
 
 /obj/item/hand_tele/Initialize()
 	. = ..()
-	if(ismob(loc) || ismob(loc.loc))
+	if(get(loc, /mob))
 		maptext = held_maptext
 
 /obj/item/hand_tele/attack_self(mob/user)

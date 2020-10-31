@@ -7,6 +7,7 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
+	recyclable = TRUE // Pretty much all materials should be recyclable
 
 	var/default_type = DEFAULT_WALL_MATERIAL
 	var/material/material

@@ -71,6 +71,9 @@
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
 
+/obj/machinery/power/apc/low
+	cell_type = /obj/item/cell
+
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
 

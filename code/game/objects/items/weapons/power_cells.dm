@@ -15,6 +15,7 @@
 	var/rigged = 0		// true if rigged to explode
 	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
+	recyclable = TRUE
 
 //currently only used by energy-type guns, that may change in the future.
 /obj/item/cell/device
@@ -94,7 +95,7 @@
 	origin_tech = list(TECH_POWER = 6)
 	icon_state = "hpcell"
 	maxcharge = 30000
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
+	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GOLD = 50, MATERIAL_SILVER = 50, MATERIAL_GLASS = 40)
 
 /obj/item/cell/hyper/empty/Initialize()
 	. = ..()

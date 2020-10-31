@@ -70,6 +70,7 @@
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
+	var/last_words
 	var/ambitions
 
 /datum/mind/New(var/key)

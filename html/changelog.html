@@ -35,6 +35,86 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">30 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes hardcoded health checks setting to 100 instead of maxHealth (mainly in godmode checks but also pAI).</li>
+				<li class="rscadd">Added low level APCs (with just a regular battery), to be used in offices and other smaller, less critical areas. This allows long-term power loss to be of some consequence. Mapped into the security areas.</li>
+				<li class="maptweak">Split upper security (investigations & training) into multiple per-room areas as it should be. Added light switches and APCs for those areas.</li>
+				<li class="maptweak">The room with stairs to Training is now a part of the Training area, not Brig.</li>
+				<li class="maptweak">Evidence Storage is now its own area as well.</li>
+				<li class="maptweak">From security/brig there were two rooms split: the 'control room' and 'processing'. Also added APCs.</li>
+				<li class="tweak">Added back the option to toggle lights to most Security areas (basically everything but places where prisoners are held).</li>
+				<li class="tweak">Added/modified area icons for most of the areas mentioned above for easier mapping.</li>
+				<li class="rscdel">It is no longer possible to recycle any random crap in the Autolathe. It is now limited to 'reasonable' items such as stack materials, shards, tiles, reagent containers, power cells, shields and a handful of other things. Complex devices, guns, stuff that clearly wouldn't fit or doesn't make much sense to recycle (returns almost no useful materials) is no longer possible to recycle.</li>
+				<li class="bugfix">It should be no longer possible to 'cheat' in the Autolathe by inserting items that give more materials than they cost to make in the Protolathe.</li>
+				<li class="bugfix">Fixed a handful of the remaining problematic autolathe recipes / recyclation materials to not cost less than they're worth.</li>
+				<li class="bugfix">Fixed stack material recipes to not create more product matter than they consume: metal rods and all floor tiles are now worth about half of their previous materials.</li>
+				<li class="bugfix">Fixes minor instatiation issues with hand teleporter and an organ when initialized in a non-typical way.</li>
+				<li class="refactor">Moved the list of research designs to global level. This allows only single initialization of it.</li>
+				<li class="backend">Added unit test to check if material costs of all research designs are greater than what can be gained from recycling their products.</li>
+				<li class="backend">Added unit test to check if material costs of stack recipes are greater than what can be gained from recycling their products.</li>
+				<li class="bugfix">Borers and other flips of the PASSEMOTES flag will no longer change the CANWEAKEN flag.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Headsets' object sprites have been changed to fit their departmental colours.</li>
+				<li class="rscadd">Added blood overlays to simple mobs.</li>
+				<li class="rscadd">Dead antagonists now get their last words displayed at round end.</li>
+				<li class="tweak">Small animals and nymphs can no longer wriggle out of bags or your hand when below 60% HP.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Rescue Pod and Visitor ghost spawners are now mid-round events, rather than a 10% chance to activate on round start.</li>
+				<li class="rscadd">Added a new subtype of Rescue Pod, which sends a single burglar to the Aurora on non-extended rounds.</li>
+				<li class="tweak">Decreased chances of Moderate Infestations, Carp Schools, and Rogue Drone events. Increased chances of Radiation Storm, Electrical Storm, and Communication Blackout events.</li>
+				<li class="tweak">Changed Appendicitis chance to scale off slotted Surgeons, rather than medical staff. Rampant Brand Intelligence now scales off of engineers rather than janitors.</li>
+				<li class="rscdel">Removed powergrid check event from rotation, boosted Electrical Storm chance to compensate.</li>
+			</ul>
+			<h3 class="author">The Stryker, NiennaB updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added circle and horn antennas to the loadout (Xenowear - IPC, antenna selection).</li>
+				<li class="rscadd">Added ripped jeans under the pants selection in the loadout, as well as a colorable jumpsuit in the uniforms tab.</li>
+				<li class="rscadd">Added a Himeo engineering and atmos voidsuit that can be made with the Himeo voidsuit kit and an existing engineering/atmos voidsuit.</li>
+				<li class="tweak">The Himeo suit sprite no longer has side views when dragged.</li>
+				<li class="tweak">IPC antennae sprites have been changed to be smaller.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">EPMC cap should be now lore appropriate colored.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Power cells now drain to exactly zero when it fails to completely satisfy a power demand. This will solve cases where the game thought cells with an extremely small amount of power weren't empty. e.g. Out of power robots that could not move not being able to use their Power Warning verb.</li>
+			</ul>
+
+			<h2 class="date">28 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Admins now have a new secret to turn all light switches on, off or to their initial state.</li>
+				<li class="backend">The 'area/set_lightswitch' proc can now be passed 'null' to set the area lights to initial state.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Examining trolleys and engines will now tell you whether they're being towed, or towing something, and what exactly those are.</li>
+				<li class="rscadd">Mapped in various airlocks with one-way exits, meaning that you don't need access to exit if you come from that direction. This is primarily to let people out of departments without escorts.</li>
+				<li class="rscadd">Added the option to put one-way exits in airlocks via airlock electronics.</li>
+				<li class="bugfix">Creating stacks from material recipes will now update their icons to display their true fullness, such as making rods out of steel.</li>
+				<li class="rscadd">Emitters now track how many shots they've fired, which gets reset when they get activated. Examine them while adjacent to them to read the value.</li>
+				<li class="rscadd">Science can now print cargo trolley circuitboards, built with 15 power coils and 1 capacitor.</li>
+				<li class="bugfix">Lobbysitter HUDs now properly update the Ready/Join button when the round starts.</li>
+				<li class="rscadd">Part replacers now output the contents of closed machines nicely.</li>
+				<li class="rscadd">Added dual wielding. Firing a gun while another is in the off-hand will fire that one as well, at the cost of lost accuracy. You must be on harm intent to do this.</li>
+			</ul>
+			<h3 class="author">Hocka updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Simple mobs revived by lazarus injectors now show their alive description text.</li>
+			</ul>
+			<h3 class="author">Naelynn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Uranium Solidification chemmical reaction. Mix 20 units of liquid uranium, 5 units of frost oil and 5 units of potassium to create a sheet of uranium.</li>
+			</ul>
+
 			<h2 class="date">27 October 2020</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">

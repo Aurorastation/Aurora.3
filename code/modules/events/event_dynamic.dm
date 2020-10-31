@@ -122,6 +122,7 @@ var/list/event_last_fired = list()
 	var/list/active_with_role = list()
 	active_with_role["Engineer"] = 0
 	active_with_role["Medical"] = 0
+	active_with_role["Surgeon"] = 0
 	active_with_role["Security"] = 0
 	active_with_role["Scientist"] = 0
 	active_with_role["AI"] = 0
@@ -150,6 +151,8 @@ var/list/event_last_fired = list()
 
 		if(M.mind.assigned_role in medical_positions)
 			active_with_role["Medical"]++
+			if(M.mind.assigned_role == "Surgeon")
+				active_with_role["Surgeon"]++
 
 		if(M.mind.assigned_role in security_positions)
 			active_with_role["Security"]++
