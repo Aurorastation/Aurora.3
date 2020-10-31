@@ -226,6 +226,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(!isAI(M) && connected_pad)
 		H.x = src.x - (connected_pad.x - M.x)
 		H.y = src.y - (connected_pad.y - M.y)
+	if(!isInSight(H, src))
+		qdel(H)
+		return
 	H.assume_form(M)
 	LAZYSET(active_holograms, M, H)
 
@@ -298,7 +301,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			clear_holo(user)
 			return 0
 
-		if(get_dist(user.eyeobj, src) > holo_range)
+		if(get_dist(user.eyeobj, src) > holo_range || !isInSight(H, src))
 			user.holo = null
 			clear_holo(user)
 	return TRUE
