@@ -83,7 +83,7 @@
 		/datum/shuttle/autodock/multi/antag/burglar_aurora,
 		/datum/shuttle/autodock/multi/antag/merc_aurora,
 		/datum/shuttle/autodock/multi/legion,
-		/datum/shuttle/autodock/ferry/research_aurora,
+		/datum/shuttle/autodock/multi/research_aurora,
 		/datum/shuttle/autodock/multi/distress,
 		/datum/shuttle/autodock/multi/merc_aurora_elite
 	)
