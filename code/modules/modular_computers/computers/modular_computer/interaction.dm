@@ -299,6 +299,8 @@
 	var/mob/M = usr
 	if(use_check_and_message(M))
 		return
+	if(istype(over_object, /obj/machinery/power/apc) && tesla_link)
+		return over_object.attackby(src, M)
 	if(!istype(over_object, /obj/screen) && !(over_object == src))
 		return attack_self(M)
 
