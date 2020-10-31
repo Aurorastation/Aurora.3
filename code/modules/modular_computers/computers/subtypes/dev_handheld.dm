@@ -5,7 +5,7 @@
 	icon_state = "tablet"
 	icon_state_unpowered = "tablet"
 	icon_state_menu = "menu"
-	slot_flags = SLOT_ID
+	slot_flags = SLOT_ID | SLOT_BELT
 	can_reset = TRUE
 	hardware_flag = PROGRAM_TABLET
 	max_hardware_size = 1

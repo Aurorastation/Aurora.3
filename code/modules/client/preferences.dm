@@ -470,8 +470,8 @@ datum/preferences
 	character.backbag = backbag
 	character.backbag_style = backbag_style
 
-	if(pda_choice > 4 || pda_choice < 1)
-		pda_choice = 1
+	if(pda_choice > 8 || pda_choice < 1)
+		pda_choice = 2
 
 	character.pda_choice = pda_choice
 
