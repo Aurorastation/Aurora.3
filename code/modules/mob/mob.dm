@@ -467,6 +467,7 @@
 				failure = "You are not allowed to respawn."
 			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
 				return
+			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").", admin_key=key_name(usr))
 		else
 			if(failure != "")
 				to_chat(usr, SPAN_DANGER(failure))
