@@ -93,6 +93,7 @@
 		install_default_programs()
 	handle_verbs()
 	update_icon()
+	initial_name = name
 
 /obj/item/modular_computer/Destroy()
 	kill_program(TRUE)

@@ -25,7 +25,7 @@
 	parent_computer = null
 	return ..()
 
-/obj/item/computer_hardware/card_slot/proc/insert_id(var/obj/item/card/id)
+/obj/item/computer_hardware/card_slot/proc/insert_id(var/obj/item/card/id/id)
 	if(!istype(id))
 		return
 
@@ -34,3 +34,18 @@
 
 	if(parent_computer)
 		parent_computer.verbs += /obj/item/modular_computer/proc/eject_id
+		parent_computer.initial_name = parent_computer.name
+		parent_computer.name = "[parent_computer.name] ([id.registered_name] ([id.assignment]))"
+
+/obj/item/computer_hardware/card_slot/proc/eject_id(mob/user)
+	if(!stored_card)
+		return
+	if(ishuman(user))
+		user.put_in_hands(stored_card)
+	else
+		stored_card.forceMove(get_turf(src))
+	stored_card = null
+
+	if(parent_computer)
+		parent_computer.verbs -= /obj/item/modular_computer/proc/eject_id
+		parent_computer.name = parent_computer.initial_name

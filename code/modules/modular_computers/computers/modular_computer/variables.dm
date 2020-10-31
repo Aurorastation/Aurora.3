@@ -27,6 +27,7 @@
 	var/silent = FALSE
 	var/doorcode = "smindicate"
 	var/hidden = FALSE
+	var/initial_name
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently

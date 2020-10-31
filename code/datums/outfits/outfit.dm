@@ -37,8 +37,8 @@
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
-	var/tablet = /obj/item/modular_computer/handheld/custom_loadout/cheap
-	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
+	var/tablet = /obj/item/modular_computer/handheld/preset/civilian
+	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
@@ -72,31 +72,6 @@
 	if(istype(H.back,/obj/item/storage/backpack))
 		var/obj/item/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
-
-	if(allow_pda_choice)
-		switch(H.pda_choice)
-			if (1)
-				pda = null
-			if (7)
-				pda = tablet
-			if (8)
-				pda = wristbound
-			else
-				pda = tab_pda
-
-	if(pda && !visualsOnly)
-		var/obj/item/I = new pda(H)
-		switch(H.pda_choice)
-			if(3)
-				I.icon = 'icons/obj/pda_old.dmi'
-			if(4)
-				I.icon = 'icons/obj/pda_rugged.dmi'
-			if(5)
-				I.icon = 'icons/obj/pda_slate.dmi'
-			if(6)
-				I.icon = 'icons/obj/pda_smart.dmi'
-		imprint_pda(H,I)
-		H.equip_or_collect(I, slot_wear_id)
 
 	return
 
@@ -194,6 +169,31 @@
 		H.put_in_l_hand(new l_hand(H))
 	if(r_hand)
 		H.put_in_r_hand(new r_hand(H))
+
+	if(allow_pda_choice)
+		switch(H.pda_choice)
+			if (1)
+				pda = null
+			if (7)
+				pda = tablet
+			if (8)
+				pda = wristbound
+			else
+				pda = tab_pda
+
+	if(pda)
+		var/obj/item/I = new pda(H)
+		switch(H.pda_choice)
+			if(3)
+				I.icon = 'icons/obj/pda_old.dmi'
+			if(4)
+				I.icon = 'icons/obj/pda_rugged.dmi'
+			if(5)
+				I.icon = 'icons/obj/pda_slate.dmi'
+			if(6)
+				I.icon = 'icons/obj/pda_smart.dmi'
+		I.update_icon()
+		H.equip_or_collect(I, slot_wear_id)
 
 	if(id)
 		var/obj/item/modular_computer/P = H.wear_id
@@ -294,10 +294,6 @@
 
 		if(H.mind && H.mind.initial_account)
 			C.associated_account_number = H.mind.initial_account.account_number
-
-/datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/modular_computer/PDA)
-	PDA.name = "PDA-[H.real_name] ([get_id_assignment(H)])"
-	PDA.update_icon()
 
 /datum/outfit/proc/register_pda(obj/item/modular_computer/P, obj/item/card/id/I)
 	if(!P.card_slot)

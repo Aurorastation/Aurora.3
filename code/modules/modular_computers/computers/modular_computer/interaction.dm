@@ -19,13 +19,10 @@
 
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.event_idremoved(TRUE)
-	if(ishuman(user))
-		user.put_in_hands(card_slot.stored_card)
-	else
-		card_slot.stored_card.forceMove(get_turf(src))
-	card_slot.stored_card = null
+
+	card_slot.eject_id(user)
+
 	update_uis()
-	verbs -= /obj/item/modular_computer/proc/eject_id
 	to_chat(user, SPAN_NOTICE("You remove the card from \the [src]."))
 
 
