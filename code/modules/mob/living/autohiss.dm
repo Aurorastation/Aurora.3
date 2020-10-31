@@ -1,10 +1,3 @@
-
-#define AUTOHISS_OFF 0
-#define AUTOHISS_BASIC 1
-#define AUTOHISS_FULL 2
-
-#define AUTOHISS_NUM 3
-
 /mob/living/proc/handle_autohiss(message, datum/language/L)
 	return message // no autohiss at this level
 
@@ -35,6 +28,7 @@
 			to_chat(src, "Auto-hiss is now OFF.")
 
 /datum/species
+	var/has_autohiss = FALSE
 	var/list/autohiss_basic_map = null
 	var/list/autohiss_extra_map = null
 	var/list/autohiss_exempt = null

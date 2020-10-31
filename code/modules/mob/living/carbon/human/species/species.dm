@@ -428,7 +428,8 @@
 
 // Used to update alien icons for aliens.
 /datum/species/proc/handle_login_special(var/mob/living/carbon/human/H)
-	return
+	if(has_autohiss && H.client)
+		H.client.autohiss_mode = H.client.prefs.autohiss_setting
 
 // As above.
 /datum/species/proc/handle_logout_special(var/mob/living/carbon/human/H)
