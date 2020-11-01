@@ -56,7 +56,7 @@
 		if(!channel)
 			return TRUE
 		var/mob/living/user = usr
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
 		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
 		if(!message || !channel)
