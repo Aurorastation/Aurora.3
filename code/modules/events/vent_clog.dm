@@ -44,7 +44,7 @@
 			if(temp_vent.network && temp_vent.network.normal_members.len > 20)
 				vents += temp_vent
 	if(!vents.len)
-		return kill()
+		return kill(TRUE)
 
 /datum/event/vent_clog/tick()
 	if(activeFor % interval == 0)
