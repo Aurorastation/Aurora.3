@@ -5188,8 +5188,6 @@
 	},
 /area/antag/wizard)
 "aIX" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/tank/nitrogen,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -38578,7 +38576,7 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
-"raider" = (
+"vox" = (
 /obj/structure/window/shuttle/unique/mercenary/small{
 	icon_state = "5,13";
 	outside_window = 1

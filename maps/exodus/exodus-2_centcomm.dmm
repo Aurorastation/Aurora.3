@@ -8803,8 +8803,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aHl" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/tank/nitrogen,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aHm" = (
