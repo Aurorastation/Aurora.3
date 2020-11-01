@@ -44,10 +44,26 @@
 			<ul class="changes bgimages16">
 				<li class="admin">Varedit now remembers what was in the 'search' field when you click the 'refresh' link.</li>
 				<li class="admin">Tweaked varedit styles ever so slightly: it will now likely use a more preferred monospace font. Keys are bold and also monospace.</li>
+				<li class="admin">'NOFALL' is now a status flag instead of being a var specific to BSTechs. It allows the mob to move between Z-levels and through empty space; even to 'fly up' against gravity. However the tech can no longer use this to 'phase into' matter if there is something above them.</li>
+				<li class="admin">For that you want to use Ruin-Everything instead: incorporeal movement now has an additional type that's just like a ninja's, but it also allows you to move between Z-levels.</li>
+				<li class="admin">Adds the anti-gravity verb to the Bluespace Robot preset and starts them with 'NOFALL' on.</li>
+				<li class="admin">When using 'GODMODE' you will no longer take damage when you fall; instead a cool message will be shown and a quiet thump will be played.</li>
+				<li class="admin">'GODMODE' now protects you from the awful effects of running - you can run indefinitely and won't take damage from it.</li>
+				<li class="admin">BSTechs now have additional vision mode - 'darkvision' for seeing normally but without lighting.</li>
+				<li class="admin">Some of the more arcane BSTech verbs have been renamed and descriptions improved (with some added flavour). Rejuv -> Restore Health. Toggle-Gravity -> Toggle-Falling (we now have actual gravity on the station, so let's not confuse people). And finally Ruin-Everything -> Toggle Incorporeal Movement - as lovely as the name is, it doesn't make much sense. This isn't Kill-Everyone or whatever.</li>
+				<li class="refactor">Thanks to the above changes the BST is now self-contained in a single file (well except for the robot preset).</li>
+				<li class="refactor">To facilitate the above changes several godmode and incorporeal checks have been added (mostly to movement procs). It cuts on some extra proc overrides and type checks. Also results in a more 'natural' experience when using NOFALL, GODMODE or incorporeal movement.</li>
+				<li class="refactor">Changed incorporeal values to defines.</li>
 			</ul>
 			<h3 class="author">Ferner updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">The bridge research shuttle control console will now work again.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a GPS to the janitorial closets.</li>
+				<li class="rscadd">Janitor belts now hold 8 items instead of 6.</li>
+				<li class="rscadd">Mapped in some basic materials for janitors. These materials are for simple window and table repairs, as per the janitor wiki page.</li>
 			</ul>
 			<h3 class="author">JohnWildkins updated:</h3>
 			<ul class="changes bgimages16">
