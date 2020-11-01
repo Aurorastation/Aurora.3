@@ -269,7 +269,8 @@
 		/obj/item/grown,
 		/obj/item/trash,
 		/obj/item/reagent_containers/cooking_container,
-		/obj/item/material/kitchen
+		/obj/item/material/kitchen,
+		/obj/item/reagent_containers/food/snacks
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

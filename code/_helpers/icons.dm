@@ -769,11 +769,15 @@ proc/ColorTone(rgb, tone)
 		var/list/flat_size = list(1, flat.Width(), 1, flat.Height())
 		// Dimensions of overlay being added
 		var/list/add_size[4]
+		var/blend_color = A.color ? TRUE : FALSE
 
 		for(var/V in layers)
 			var/image/I = V
 			if(I.alpha == 0)
 				continue
+
+			if(blend_color && I.appearance_flags == RESET_COLOR)
+				blend_color = FALSE
 
 			if(I == copy) // 'I' is an /image based on the object being flattened.
 				curblend = BLEND_OVERLAY
@@ -803,7 +807,7 @@ proc/ColorTone(rgb, tone)
 			// Blend the overlay into the flattened icon
 			flat.Blend(add, blendMode2iconMode(curblend), I.pixel_x + 2 - flatX1, I.pixel_y + 2 - flatY1)
 
-		if(A.color)
+		if(A.color && blend_color)
 			if(islist(A.color))
 				flat.MapColors(arglist(A.color))
 			else
