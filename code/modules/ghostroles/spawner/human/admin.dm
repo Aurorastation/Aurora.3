@@ -139,7 +139,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/odindoc
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Medical Doctor"
@@ -160,7 +160,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinpharm
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Pharmacist"
