@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "An event failing to spawn should no longer hell-spawn fifteen copies of another event."
