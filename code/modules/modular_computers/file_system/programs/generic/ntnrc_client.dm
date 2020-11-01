@@ -56,7 +56,8 @@
 		if(!channel)
 			return TRUE
 		var/mob/living/user = usr
-		user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
+		if(istype(user, /mob/living/carbon/human))
+			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
 		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
 		if(!message || !channel)
 			return
@@ -69,7 +70,8 @@
 			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
 			return
 		var/mob/living/user = usr
-		user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
+		if(istype(user, /mob/living/carbon/human))
+			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
 		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
 		if(!message)
 			return
@@ -270,8 +272,9 @@
 /datum/computer_file/program/chatclient/run_program(var/mob/user)
 	if(!computer)
 		return
-	if((!computer.registered_id && !computer.register_account(src)) && (!computer.personal_ai || !computer.personal_ai.pai))
-		return
+	if(!istype(computer, /obj/item/modular_computer/silicon))
+		if((!computer.registered_id && !computer.register_account(src)))
+			return
 	if(!(src in ntnet_global.chat_clients))
 		ntnet_global.chat_clients += src
 	if(!username)
@@ -279,9 +282,10 @@
 	return ..(user)
 
 /datum/computer_file/program/chatclient/proc/username_from_id()
-	if(!computer || !computer.registered_id)
-		if(computer.personal_ai && computer.personal_ai.pai)
-			return computer.personal_ai.pai.name
+	if(istype(computer, /obj/item/modular_computer/silicon))
+		var/obj/item/modular_computer/silicon/SC = computer
+		return SC.computer_host.name
+	if(!computer.registered_id)
 		return "Unknown"
 
 	return "[computer.registered_id.registered_name] ([computer.registered_id.assignment])"

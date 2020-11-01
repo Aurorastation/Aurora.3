@@ -181,7 +181,7 @@
 			else
 				pda = tab_pda
 
-	if(pda)
+	if(pda && !visualsOnly)
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
 			if(3)
