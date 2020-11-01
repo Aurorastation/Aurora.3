@@ -1,5 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - admin: "Varedit now remembers what was in the 'search' field when you click the 'refresh' link."
-  - admin: "Tweaked varedit styles ever so slightly: it will now likely use a more preferred monospace font. Keys are bold and also monospace."
