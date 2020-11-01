@@ -172,64 +172,139 @@
 			stop_automated_movement = 0
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/proc/GiveUp(var/C)
-	if(busy == MOVING_TO_TARGET)
-		if(cocoon_target == C && get_dist(src,cocoon_target) > 1)
-			cocoon_target = null
-		busy = 0
-		stop_automated_movement = 0
+	if(busy != MOVING_TO_TARGET)
+		return
+	if(cocoon_target == C && get_dist(src,cocoon_target) > 1)
+		cocoon_target = null
+	busy = 0
+	stop_automated_movement = 0
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_eggs()
-	if(busy == LAYING_EGGS)
-		if(!(locate(/obj/effect/spider/eggcluster) in get_turf(src)))
-			new /obj/effect/spider/eggcluster(loc, src)
-			fed--
-		busy = 0
-		stop_automated_movement = 0
+	if(busy != LAYING_EGGS)
+		return
+	if(!(locate(/obj/effect/spider/eggcluster) in get_turf(src)))
+		new /obj/effect/spider/eggcluster(loc, src)
+		fed--
+	busy = 0
+	stop_automated_movement = 0
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_web()
-	if(busy == SPINNING_WEB)
-		new /obj/effect/spider/stickyweb(src.loc)
-		busy = 0
-		stop_automated_movement = 0
+	if(busy != SPINNING_WEB)
+		return
+	new /obj/effect/spider/stickyweb(src.loc)
+	busy = 0
+	stop_automated_movement = 0
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_cocoon()
-	if(busy == SPINNING_COCOON)
-		if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
-			var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
-			var/large_cocoon = 0
-			C.pixel_x = cocoon_target.pixel_x
-			C.pixel_y = cocoon_target.pixel_y
-			for (var/A in C.loc)
-				var/atom/movable/aa = A
-				if (ismob(aa))
-					var/mob/M = aa
-					if(istype(M, /mob/living/simple_animal/hostile/giant_spider) && M.stat != DEAD)
-						continue
+	if(busy != SPINNING_COCOON)
+		return
+
+	if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
+		var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
+		var/large_cocoon = 0
+		C.pixel_x = cocoon_target.pixel_x
+		C.pixel_y = cocoon_target.pixel_y
+		for (var/A in C.loc)
+			var/atom/movable/aa = A
+			if (ismob(aa))
+				var/mob/M = aa
+				if(istype(M, /mob/living/simple_animal/hostile/giant_spider) && M.stat != DEAD)
+					continue
+				large_cocoon = 1
+				fed++
+				src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
+				playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
+				M.forceMove(C)
+				C.pixel_x = M.pixel_x
+				C.pixel_y = M.pixel_y
+				break
+			if (istype(aa, /obj/item))
+				var/obj/item/I = aa
+				I.forceMove(C)
+			if (istype(aa, /obj/structure))
+				var/obj/structure/S = aa
+				if(!S.anchored)
+					S.forceMove(C)
 					large_cocoon = 1
-					fed++
-					src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
-					playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
+			if (istype(aa, /obj/machinery))
+				var/obj/machinery/M = aa
+				if(!M.anchored)
 					M.forceMove(C)
-					C.pixel_x = M.pixel_x
-					C.pixel_y = M.pixel_y
-					break
-				if (istype(aa, /obj/item))
-					var/obj/item/I = aa
-					I.forceMove(C)
-				if (istype(aa, /obj/structure))
-					var/obj/structure/S = aa
-					if(!S.anchored)
-						S.forceMove(C)
-						large_cocoon = 1
-				if (istype(aa, /obj/machinery))
-					var/obj/machinery/M = aa
-					if(!M.anchored)
-						M.forceMove(C)
-						large_cocoon = 1
-			if(large_cocoon)
-				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
-		busy = 0
-		stop_automated_movement = 0
+					large_cocoon = 1
+		if(large_cocoon)
+			C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
+	busy = 0
+	stop_automated_movement = 0
+
+//Spider speical abilities
+/mob/living/simple_animal/hostile/giant_spider/AltClickOn(atom/movable/A)
+	//TODO: Add a speical ability to the "normal" spiders
+
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/AltClickOn(atom/movable/A)
+	//They cocoon a human and grow a spider inside of them
+	if(!ishuman(A))
+		return ..()
+
+	var/mob/living/carbon/human/T = A
+
+	src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
+
+	if(do_after(src, 50, needhand = FALSE, act_target = T))
+		busy = SPINNING_COCOON
+		cocoon_target = T
+		finalize_cocoon()
+		cocoon_target = null
+
+	//TODO: Add the spider growing thing
+
+/mob/living/simple_animal/hostile/giant_spider/hunter/AltClickOn(atom/movable/A)
+	//They can leap onto other mobs - Stolen from the human powers
+	if(!ishuman(A))
+		return ..()
+
+	var/mob/living/carbon/human/T = A
+
+	var/max_range = 4
+	if(last_special > world.time)
+		to_chat(src, "<span class='notice'>You're too tired to leap!</span>")
+		return FALSE
+
+	if(status_flags & LEAPING)
+		to_chat(src, "<span class='warning'>You're already leaping!</span>")
+		return FALSE
+
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		to_chat(src, "<span class='warning'>You cannot leap in your current state.</span>")
+		return FALSE
+
+	if(!T || QDELETED(src) || stat)
+		return FALSE
+
+	if(get_dist(get_turf(T), get_turf(src)) > max_range)
+		to_chat(src, "<span class='warning'>[T] is too far away!</span>")
+		return FALSE
+
+	last_special = world.time + 75
+
+	status_flags |= LEAPING
+
+	visible_message("<span class='danger'>[src] leaps at [T]!</span>", "<span class='danger'>You leap at [T]!</span>")
+	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
+
+	sleep(5)
+
+	if(status_flags & LEAPING)
+		status_flags &= ~LEAPING
+
+	if(!src.Adjacent(T))
+		to_chat(src, "<span class='warning'>You miss!</span>")
+		return FALSE
+
+	T.Weaken(3)
+
+	return TRUE
+
 
 #undef SPINNING_WEB
 #undef LAYING_EGGS
