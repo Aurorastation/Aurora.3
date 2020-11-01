@@ -1091,6 +1091,7 @@
 #include "code\game\turfs\simulated\shuttle_turfs.dm"
 #include "code\game\turfs\simulated\wall_attacks.dm"
 #include "code\game\turfs\simulated\wall_icon.dm"
+#include "code\game\turfs\simulated\wall_rot.dm"
 #include "code\game\turfs\simulated\wall_types.dm"
 #include "code\game\turfs\simulated\walls.dm"
 #include "code\game\turfs\simulated\water.dm"
