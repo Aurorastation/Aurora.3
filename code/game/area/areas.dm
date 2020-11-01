@@ -98,7 +98,10 @@
 /area/proc/is_no_crew_expected()
 	return flags & NO_CREW_EXPECTED
 
-/area/proc/set_lightswitch(var/state)
+/area/proc/set_lightswitch(var/state) // Set lights in area. TRUE for on, FALSE for off, NULL for initial state.
+	if(isnull(state))
+		state = initial(lightswitch)
+
 	lightswitch = state
 	var/obj/machinery/light_switch/L = locate() in src
 	if(L)

@@ -1973,6 +1973,7 @@
 /area/engineering/bathroom)
 "aeN" = (
 /obj/machinery/door/airlock/engineering{
+	id_tag = "eng_unit_1";
 	name = "Restrooms";
 	req_access = list(10)
 	},
@@ -1984,6 +1985,14 @@
 	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "eng_unit_1";
+	name = "Door Bolt Control";
+	pixel_x = 22;
+	pixel_y = 8;
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
@@ -4342,6 +4351,9 @@
 	name = "Atmosphere Control";
 	req_access = list(24)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "akd" = (
@@ -4352,6 +4364,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "ake" = (
@@ -4782,6 +4797,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -16146,6 +16164,7 @@
 	name = "Morgue";
 	req_access = list(6)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -16787,6 +16806,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/item/storage/bag/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aHP" = (
@@ -17920,6 +17941,9 @@
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -20430,7 +20454,6 @@
 /area/rnd/xenobiology)
 "aPZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/bag/slimes,
 /obj/item/storage/bag/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -27159,6 +27182,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "dPZ" = (
@@ -30462,6 +30488,10 @@
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"lgq" = (
+/obj/machinery/slime_extractor,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
 "lht" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
@@ -63188,7 +63218,7 @@ aEQ
 wbr
 aGK
 aHO
-aHM
+lgq
 aJU
 aKQ
 aKQ

@@ -18,7 +18,7 @@
 /datum/controller/subsystem/assets/Initialize(timeofday)
 	for(var/type in typesof(/datum/asset))
 		var/datum/asset/A = type
-		if (type != initial(A._abstract))
+		if (type != initial(A._abstract) && !initial(A.delayed))
 			get_asset_datum(type)
 			CHECK_TICK
 
