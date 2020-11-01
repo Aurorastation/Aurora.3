@@ -138,11 +138,13 @@
 	activeFor++
 
 //Called when start(), announce() and end() has all been called.
-/datum/event/proc/kill()
+/datum/event/proc/kill(var/failed_to_spawn = FALSE)
 	// If this event was forcefully killed run end() for individual cleanup
 
 	if(!dummy && isRunning)
 		end()
+
+	if(failed_to_spawn)
 		var/datum/event_container/killed_ec = SSevents.event_containers[severity]
 		killed_ec.start_event()
 
