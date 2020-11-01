@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - admin: "Admins can now override a Respawn verb failure for themselves without calling Allow-Player-To-Respawn first."

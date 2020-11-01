@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Emagging the pest gun now increases its shot capacity to 10."
-  - tweak: "An emagged pest gun now does 15 burn damage per shot, as well as 30 halloss damage. Changed from only doing 60 halloss."

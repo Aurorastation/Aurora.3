@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "The wall fungi event now gives GPS coordinates to the place it's growing."
-  - rscadd: "Wall fungi can now be scraped off by any sharp object, and then grinded to access some useful reagents within."
