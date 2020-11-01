@@ -10826,7 +10826,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
-/obj/machinery/computer/shuttle_control/research,
+/obj/machinery/computer/shuttle_control/multi/research,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "atE" = (
