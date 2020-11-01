@@ -36376,6 +36376,10 @@
 /area/janitor)
 "bkD" = (
 /obj/structure/table/steel,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/wood/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bkE" = (
