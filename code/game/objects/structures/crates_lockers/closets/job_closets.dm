@@ -89,6 +89,7 @@
 	new /obj/item/reagent_containers/glass/rag(src)
 	new /obj/item/soap/nanotrasen(src)
 	new /obj/item/reagent_containers/glass/rag/advanced(src)
+	new /obj/item/device/gps/janitor(src)
 
 /*
  * Lawyer
