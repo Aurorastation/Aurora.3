@@ -174,6 +174,25 @@
 		var/obj/effect/ebeam/B = beam
 		B.color = set_color
 
+/datum/beam/power
+	var/obj/item/computer_hardware/tesla_link/charging_cable/owner
+
+/datum/beam/power/End()
+	owner.beam = null
+	owner.untether(FALSE)
+	return ..()
+
+/datum/beam/power/get_x_translation_vector()
+	return (world.icon_size * target_oldloc.x) - (world.icon_size * origin_oldloc.x)
+
+/datum/beam/power/get_y_translation_vector()
+	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
+
+/datum/beam/power/afterDraw()
+	for(var/beam in elements)
+		var/obj/effect/ebeam/B = beam
+		B.color = COLOR_GRAY40
+
 /obj/effect/ebeam
 	mouse_opacity = 0
 	anchored = 1

@@ -1,9 +1,3 @@
-//CCIAA's PDA.
-/obj/item/device/pda/central
-	default_cartridge = /obj/item/cartridge/captain
-	icon_state = "pda-h"
-	detonate = 0
-
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
 	w_class = ITEMSIZE_TINY

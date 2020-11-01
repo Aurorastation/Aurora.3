@@ -867,8 +867,8 @@ proc/is_blind(A)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "feet"
-	else if (istype(loc,/obj/item/device/pda))
-		var/obj/item/device/pda/S = loc
+	else if (istype(loc,/obj/item/modular_computer))
+		var/obj/item/modular_computer/S = loc
 		newlocation = S.name
 		if (justmoved)
 			preposition = "into"

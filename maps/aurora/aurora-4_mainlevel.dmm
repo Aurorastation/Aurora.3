@@ -8128,10 +8128,6 @@
 /area/security/armory)
 "apc" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/seccarts{
-	pixel_x = -3;
-	pixel_y = 3
-	},
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/flashbangs{
 	pixel_x = 3;
@@ -29485,10 +29481,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
-"aYB" = (
-/obj/machinery/vending/cart,
-/turf/simulated/floor/wood,
-/area/crew_quarters/heads/hop)
 "aYC" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
@@ -45051,12 +45043,6 @@
 	pixel_y = -23
 	},
 /obj/item/clothing/glasses/welding/superior,
-/obj/item/cartridge/signal/science{
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/obj/item/cartridge/signal/science,
-/obj/item/cartridge/signal/science,
 /obj/item/rig/hazmat/equipped,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -111853,7 +111839,7 @@ aSR
 aUy
 aVG
 aXp
-aYB
+aYC
 aYC
 bbb
 bcy

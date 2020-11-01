@@ -29,7 +29,6 @@
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
-	new /obj/item/cartridge/captain(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
@@ -81,7 +80,6 @@
 	new /obj/item/clothing/suit/storage/vest(src)
 	new /obj/item/clothing/head/helmet(src)
 	//Tools
-	new /obj/item/cartridge/hop(src)
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
@@ -141,7 +139,6 @@
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
-	new /obj/item/cartridge/hos(src)
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
 	new /obj/item/storage/box/tranquilizer(src)
@@ -227,7 +224,6 @@
 	new /obj/item/clothing/accessory/badge/warden(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
-	new /obj/item/cartridge/security(src)
 	new /obj/item/device/radio/headset/headset_warden(src)
 	new /obj/item/device/radio/headset/headset_warden/alt(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
