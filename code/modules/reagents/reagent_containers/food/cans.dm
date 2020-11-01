@@ -3,10 +3,14 @@
 #define FUSELENGTH_MIN 3 // and the minimum that the builder can intentionally make
 #define FUSELENGTH_SHORT 5 // the upper boundary of the short fuse
 #define FUSELENGTH_LONG 6 // the lower boundary of the long fuse
+#define BOMBCASING_LOOSE 1 // it's in a grenade casing but not secured
+#define BOMBCASING_SECURE 2 // it's in a grenade casing and secured - shrapnel count increased
 
 /obj/item/reagent_containers/food/drinks/cans
 	var/fuselength = 0
 	var/fuselit
+	var/bombcasing
+	var/shrapnelcount = 7
 	var/list/can_size_overrides = list("x" = 0, "y" = -3) // position of the can's opening - make sure to take away 16 from X and 23 from Y
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
@@ -33,6 +37,18 @@
 		return TRUE
 	. = ..()
 
+/obj/item/reagent_containers/food/drinks/cans/proc/casing_interaction(var/obj/item/grenade/chem_grenade/grenade_casing, mob/user)
+	if(!grenade_casing.stage && !grenade_casing.detonator)
+		bombcasing = BOMBCASING_LOOSE
+		desc = "A grenade casing with \a [name] slotted into it."
+		if(fuselength)
+			desc += " It has some steel wool stuffed into the opening."
+		user.visible_message(SPAN_NOTICE("[user] slots \the [name] into \the [grenade_casing]."), SPAN_NOTICE("You slot \the [name] into \the [grenade_casing]."))
+		forceMove(get_turf(grenade_casing))
+		desc = "A grenade casing with \a [name] slotted into it."
+		qdel(grenade_casing)
+		update_icon()
+
 /obj/item/reagent_containers/food/drinks/cans/update_icon()
 	cut_overlays()
 	if(fuselength)
@@ -45,8 +61,39 @@
 		fuseoverlay.pixel_x = can_size_overrides["x"]
 		fuseoverlay.pixel_y = can_size_overrides["y"]
 		add_overlay(fuseoverlay)
+	if(bombcasing)
+		var/image/casingoverlay = image('icons/obj/fuses.dmi', icon_state = "pipe_bomb")
+		add_overlay(casingoverlay)
 
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/grenade/chem_grenade/large))
+		var/obj/item/grenade/chem_grenade/grenade_casing = W
+		if(!grenade_casing.detonator && !length(grenade_casing.beakers))
+			bombcasing = BOMBCASING_LOOSE
+			desc = "A grenade casing with \a [name] slotted into it."
+			if(fuselength)
+				desc += " It has some steel wool stuffed into the opening."
+			user.visible_message(SPAN_NOTICE("[user] slots \the [grenade_casing] over \the [name]."), SPAN_NOTICE("You slot \the [grenade_casing] over \the [name]."))
+			desc = "A grenade casing with \a [name] slotted into it."
+			qdel(grenade_casing)
+			update_icon()
+
+	if(W.isscrewdriver() && bombcasing)
+		if(bombcasing == BOMBCASING_LOOSE)
+			bombcasing = BOMBCASING_SECURE
+			shrapnelcount = 14
+			user.visible_message(SPAN_NOTICE("[user] tightens the grenade casing around \the [name]."), SPAN_NOTICE("You tighten the grenade casing around \the [name]."))
+		else if(bombcasing == BOMBCASING_SECURE)
+			bombcasing = 0
+			shrapnelcount = initial(shrapnelcount)
+			desc = initial(desc)
+			if(fuselength)
+				desc += " It has some steel wool stuffed into the opening."
+			user.visible_message(SPAN_NOTICE("[user] removes \the [name] from the grenade casing."), SPAN_NOTICE("You remove \the [name] from the grenade casing."))
+			new /obj/item/grenade/chem_grenade/large(get_turf(src))
+		playsound(loc, W.usesound, 50, 1)
+		update_icon()
+
 	if(istype(W, /obj/item/steelwool))
 		if(is_open_container())
 			switch(fuselength)
@@ -133,6 +180,7 @@
 		visible_message(SPAN_WARNING("The fuse on \the [name] fizzles out early."))
 		playsound(get_turf(src), 'sound/items/cigs_lighters/cig_snuff.ogg', 50)
 		fuselit = FALSE
+		set_light(0, 0)
 		update_icon()
 		return
 	else
@@ -143,6 +191,7 @@
 		if(0)
 			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."))
 			fuselength = 0
+			fuselit = FALSE
 			update_icon()
 			set_light(0, 0)
 			return
@@ -157,7 +206,7 @@
 			playsound(get_turf(src), 'sound/effects/bang.ogg', 50)
 			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
 		if(LETHAL_FUEL_CAPACITY to INFINITY) // boom
-			fragem(src, 7, 7, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
+			fragem(src, shrapnelcount, shrapnelcount, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
 			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
 			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
 	fuselit = FALSE
@@ -171,7 +220,10 @@
 	fuselength -= CableRemoved
 	update_icon()
 	if(!fuselength)
-		desc = initial(desc)
+		if(bombcasing)
+			desc = "A grenade casing with \a [name] slotted into it."
+		else
+			desc = initial(desc)
 
 /obj/item/reagent_containers/food/drinks/cans/bullet_act(obj/item/projectile/P)
 	if(P.firer && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
@@ -197,6 +249,8 @@
 #undef FUSELENGTH_MIN
 #undef FUSELENGTH_SHORT
 #undef FUSELENGTH_LONG
+#undef BOMBCASING_LOOSE
+#undef BOMBCASING_SECURE
 
 //DRINKS
 

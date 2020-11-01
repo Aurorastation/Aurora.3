@@ -777,6 +777,7 @@
 	flags = NOBLUDGEON
 	w_class = ITEMSIZE_SMALL
 	var/lit
+	matter = list(MATERIAL_STEEL = 40)
 
 /obj/item/steelwool/isFlameSource()
 	return lit
