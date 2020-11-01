@@ -431,7 +431,6 @@
 /obj/random/voidsuit
 	name = "random voidsuit"
 	var/damaged = 0
-	var/for_vox = FALSE
 	var/list/suitmap = list(
 		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,

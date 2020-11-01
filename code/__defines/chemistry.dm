@@ -35,20 +35,19 @@
 
 // Some on_mob_life() procs check for alien races.
 #define IS_DIONA   1
-#define IS_VOX     2
-#define IS_SKRELL  4
-#define IS_UNATHI  8
-#define IS_TAJARA  16
-#define IS_XENOS   32
-#define IS_MACHINE 64
-#define IS_VAURCA  128
-#define IS_UNDEAD  256
+#define IS_SKRELL  2
+#define IS_UNATHI  4
+#define IS_TAJARA  8
+#define IS_XENOS   16
+#define IS_MACHINE 32
+#define IS_VAURCA  64
+#define IS_UNDEAD  128
 
 // Apply status effects
 #define CE_ALCOHOL      "alcohol"		// Liver filtering
 #define CE_ANTIEMETIC   "antiemetic"	// suppresses vomiting
 #define CE_ITCH         "itch"          // causes itching
-#define CE_NOITCH       "noitch"        // suppresses itching 
+#define CE_NOITCH       "noitch"        // suppresses itching
 #define CE_BERSERK      "berserk"
 #define CE_CLUMSY       "clumsy"		// Peridaxon side effects, etc
 #define CE_DROPITEM     "dropitem"		// keloderm side effect

@@ -2608,14 +2608,14 @@
 /obj/machinery/door/airlock/hatch{
 	frequency = 1332;
 	icon_state = "door_locked";
-	id_tag = "vox_northeast_lock";
+	id_tag = "raider_northeast_lock";
 	locked = 1;
 	req_access = list(150)
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1332;
-	master_tag = "vox_east_control";
+	master_tag = "raider_east_control";
 	pixel_x = -26;
 	pixel_y = 12;
 	req_access = list(150)
@@ -2848,7 +2848,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 0;
 	frequency = 1332;
-	id_tag = "vox_east_vent"
+	id_tag = "raider_east_vent"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -3027,7 +3027,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1332;
-	id_tag = "vox_east_vent"
+	id_tag = "raider_east_vent"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -3181,7 +3181,7 @@
 /obj/machinery/door/airlock/hatch{
 	frequency = 1332;
 	icon_state = "door_locked";
-	id_tag = "vox_southeast_lock";
+	id_tag = "raider_southeast_lock";
 	locked = 1;
 	req_access = list(150)
 	},
@@ -5090,7 +5090,7 @@
 "aIF" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1332;
-	id_tag = "vox_east_sensor";
+	id_tag = "raider_east_sensor";
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10188,7 +10188,7 @@
 /area/shuttle/skipjack)
 "cRd" = (
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -10749,7 +10749,7 @@
 	dir = 4
 	},
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -11875,7 +11875,7 @@
 "dUK" = (
 /obj/structure/bed/chair/comfy/brown,
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -14459,7 +14459,7 @@
 	dir = 8
 	},
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -14840,7 +14840,7 @@
 	dir = 4
 	},
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -15308,7 +15308,7 @@
 "fYr" = (
 /obj/item/stool/bar/padded,
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -15440,7 +15440,7 @@
 	dir = 8
 	},
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -16520,7 +16520,7 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1332;
-	master_tag = "vox_east_control";
+	master_tag = "raider_east_control";
 	pixel_x = 22;
 	pixel_y = 24;
 	req_access = list(150)
@@ -21663,17 +21663,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1332;
-	id_tag = "vox_east_vent"
+	id_tag = "raider_east_vent"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1332;
-	id_tag = "vox_east_control";
+	id_tag = "raider_east_control";
 	pixel_x = -24;
-	tag_airpump = "vox_east_vent";
-	tag_chamber_sensor = "vox_east_sensor";
-	tag_exterior_door = "vox_northeast_lock";
-	tag_interior_door = "vox_southeast_lock"
+	tag_airpump = "raider_east_vent";
+	tag_chamber_sensor = "raider_east_sensor";
+	tag_exterior_door = "raider_northeast_lock";
+	tag_interior_door = "raider_southeast_lock"
 	},
 /obj/vehicle/bike{
 	dir = 4
@@ -37745,7 +37745,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "uOL" = (
-/obj/machinery/computer/shuttle_control/multi/vox,
+/obj/machinery/computer/shuttle_control/multi/raider,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -38578,7 +38578,7 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
-"vox" = (
+"raider" = (
 /obj/structure/window/shuttle/unique/mercenary/small{
 	icon_state = "5,13";
 	outside_window = 1
