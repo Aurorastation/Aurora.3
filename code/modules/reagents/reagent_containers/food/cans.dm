@@ -3,6 +3,7 @@
 #define FUSELENGTH_MIN 3 // and the minimum that the builder can intentionally make
 #define FUSELENGTH_SHORT 5 // the upper boundary of the short fuse
 #define FUSELENGTH_LONG 6 // the lower boundary of the long fuse
+#define BOMBCASING_EMPTY 0 // no grenade casing
 #define BOMBCASING_LOOSE 1 // it's in a grenade casing but not secured
 #define BOMBCASING_SECURE 2 // it's in a grenade casing and secured - shrapnel count increased
 
@@ -37,18 +38,6 @@
 		return TRUE
 	. = ..()
 
-/obj/item/reagent_containers/food/drinks/cans/proc/casing_interaction(var/obj/item/grenade/chem_grenade/grenade_casing, mob/user)
-	if(!grenade_casing.stage && !grenade_casing.detonator)
-		bombcasing = BOMBCASING_LOOSE
-		desc = "A grenade casing with \a [name] slotted into it."
-		if(fuselength)
-			desc += " It has some steel wool stuffed into the opening."
-		user.visible_message(SPAN_NOTICE("[user] slots \the [name] into \the [grenade_casing]."), SPAN_NOTICE("You slot \the [name] into \the [grenade_casing]."))
-		forceMove(get_turf(grenade_casing))
-		desc = "A grenade casing with \a [name] slotted into it."
-		qdel(grenade_casing)
-		update_icon()
-
 /obj/item/reagent_containers/food/drinks/cans/update_icon()
 	cut_overlays()
 	if(fuselength)
@@ -68,7 +57,7 @@
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/grenade/chem_grenade/large))
 		var/obj/item/grenade/chem_grenade/grenade_casing = W
-		if(!grenade_casing.detonator && !length(grenade_casing.beakers))
+		if(!grenade_casing.detonator && !length(grenade_casing.beakers) && bombcasing < BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_LOOSE
 			desc = "A grenade casing with \a [name] slotted into it."
 			if(fuselength)
@@ -78,13 +67,13 @@
 			qdel(grenade_casing)
 			update_icon()
 
-	if(W.isscrewdriver() && bombcasing)
+	if(W.isscrewdriver() && bombcasing > BOMBCASING_EMPTY)
 		if(bombcasing == BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_SECURE
 			shrapnelcount = 14
 			user.visible_message(SPAN_NOTICE("[user] tightens the grenade casing around \the [name]."), SPAN_NOTICE("You tighten the grenade casing around \the [name]."))
 		else if(bombcasing == BOMBCASING_SECURE)
-			bombcasing = 0
+			bombcasing = BOMBCASING_EMPTY
 			shrapnelcount = initial(shrapnelcount)
 			desc = initial(desc)
 			if(fuselength)
@@ -249,6 +238,7 @@
 #undef FUSELENGTH_MIN
 #undef FUSELENGTH_SHORT
 #undef FUSELENGTH_LONG
+#undef BOMBCASING_EMPTY
 #undef BOMBCASING_LOOSE
 #undef BOMBCASING_SECURE
 
