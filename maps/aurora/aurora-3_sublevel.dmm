@@ -20626,7 +20626,6 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "aQv" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
 	},
@@ -20636,7 +20635,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/device/flashlight/lamp,
+/obj/machinery/papershredder,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/hallway)
 "aQw" = (
@@ -21563,8 +21562,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "aSY" = (
-/obj/machinery/papershredder,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/door/airlock/maintenance{
+	req_access = null;
+	req_one_access = list(47,12)
+	},
+/turf/simulated/wall/r_wall,
 /area/outpost/research/hallway)
 "aSZ" = (
 /obj/machinery/firealarm/south,
@@ -30433,6 +30435,10 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony)
+"kZR" = (
+/obj/structure/ladder/up,
+/turf/simulated/floor/plating,
+/area/maintenance/research_xenobiology)
 "lbh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -58090,10 +58096,10 @@ aGC
 aQt
 aRm
 avN
+aww
 aSY
-azm
-bgP
 aJW
+kZR
 aQq
 bmN
 blW
