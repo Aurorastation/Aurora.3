@@ -57,7 +57,7 @@ Possible to do for anyone motivated enough:
 	desc += " Its ID is '[holopad_id]'"
 
 /obj/machinery/hologram/holopad/update_icon()
-	if(length(active_holograms) || connected_pad)
+	if(LAZYLEN(active_holograms) || connected_pad)
 		icon_state = "holopad1"
 		set_light(2)
 	else
@@ -256,7 +256,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		clear_holo(M)
 
 /obj/machinery/hologram/holopad/proc/clear_holo(var/mob/M)
-	if(!length(active_holograms))
+	if(!LAZYLEN(active_holograms))
 		return
 	qdel(active_holograms[M])
 	LAZYREMOVE(active_holograms, M)
@@ -281,7 +281,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			create_holos()
 			update_holos()
 
-	use_power(power_per_hologram * length(active_holograms))
+	use_power(power_per_hologram * LAZYLEN(active_holograms))
 
 	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
