@@ -30,8 +30,7 @@
 		return
 
 /datum/computer_file/program/chatclient/Destroy()
-	if(src in ntnet_global.chat_clients)
-		ntnet_global.chat_clients -= src
+	ntnet_global.chat_clients -= src
 	. = ..()
 
 /datum/computer_file/program/chatclient/Topic(href, href_list)
