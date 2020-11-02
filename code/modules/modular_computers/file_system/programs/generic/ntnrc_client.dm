@@ -11,7 +11,7 @@
 	available_on_ntnet = TRUE
 	nanomodule_path = /datum/nano_module/program/computer_chatclient
 	color = LIGHT_COLOR_GREEN
-	silent = TRUE
+	silent = FALSE
 
 	var/last_message				// Used to generate the toolbar icon
 	var/username
@@ -53,33 +53,18 @@
 
 	if(href_list["PRG_speak"])
 		. = TRUE
-		if(!channel)
-			return TRUE
-		var/mob/living/user = usr
-		if(ishuman(user))
-			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
-		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
-		if(!message || !channel)
-			return
-		channel.add_message(message, username, usr)
-		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
+		add_message(send_message())
 
 	if(href_list["Reply"])
 		. = TRUE
 		if(!channel || channel.title != href_list["target"])
 			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
 			return
-		var/mob/living/user = usr
-		if(ishuman(user))
-			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
-		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
-		if(!message)
-			return
+		var/message = send_message()
 		if(!channel || channel.title != href_list["target"])
 			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
 			return
-		channel.add_message(message, username, usr)
-		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
+		add_message(message)
 
 	if(href_list["PRG_joinchannel"])
 		. = TRUE
@@ -217,28 +202,48 @@
 			channel.password = newpassword
 	if(href_list["PRG_directmessage"])
 		. = TRUE
-		var/clients = list()
-		var/names = list()
-		for(var/cl in ntnet_global.chat_clients)
-			var/datum/computer_file/program/chatclient/C = cl
-			if(C.set_offline || C == src)
-				continue
-			clients[C.username] = C
-			names += C.username
-		names += "== Cancel =="
-		var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
-		if(picked == "== Cancel ==")
+		direct_message()
+
+/datum/computer_file/program/chatclient/proc/send_message()
+	if(!channel)
+		return
+	var/mob/living/user = usr
+	if(ishuman(user))
+		user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
+	var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
+	if(!message || !channel)
+		return
+	return message
+
+/datum/computer_file/program/chatclient/proc/add_message(var/message)
+	if(!message)
+		return
+	channel.add_message(message, username, usr)
+	message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
+
+/datum/computer_file/program/chatclient/proc/direct_message()
+	var/clients = list()
+	var/names = list()
+	for(var/cl in ntnet_global.chat_clients)
+		var/datum/computer_file/program/chatclient/C = cl
+		if(C.set_offline || C == src)
+			continue
+		clients[C.username] = C
+		names += C.username
+	names += "== Cancel =="
+	var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
+	if(picked == "== Cancel ==")
+		return
+	var/datum/computer_file/program/chatclient/otherClient = clients[picked]
+	if(picked)
+		if(directmessagechannels[otherClient])
+			channel = directmessagechannels[otherClient]
 			return
-		var/datum/computer_file/program/chatclient/otherClient = clients[picked]
-		if(picked)
-			if(directmessagechannels[otherClient])
-				channel = directmessagechannels[otherClient]
-				return
-			var/datum/ntnet_conversation/C = new /datum/ntnet_conversation("", TRUE)
-			C.begin_direct(src, otherClient)
-			channel = C
-			directmessagechannels[otherClient] = C
-			otherClient.directmessagechannels[src] = C
+		var/datum/ntnet_conversation/C = new /datum/ntnet_conversation("", TRUE)
+		C.begin_direct(src, otherClient)
+		channel = C
+		directmessagechannels[otherClient] = C
+		otherClient.directmessagechannels[src] = C
 
 
 /datum/computer_file/program/chatclient/process_tick()
@@ -298,9 +303,8 @@
 
 /datum/computer_file/program/chatclient/event_silentmode()
 	..()
-	if(silent == computer.silent)
-		silent = !silent
-
+	if(computer.silent != silent)
+		silent = computer.silent
 /datum/nano_module/program/computer_chatclient
 	name = "Chat Client"
 

@@ -29,7 +29,7 @@
 		deactivate()
 	return ..()
 
-/obj/item/computer_hardware/tesla_link/charging_cable/proc/toggle(var/obj/machinery/power/power_source, mob/user)
+/obj/item/computer_hardware/tesla_link/charging_cable/toggle(var/obj/machinery/power/power_source, mob/user)
 	if(!source)
 		to_chat(user, SPAN_NOTICE("You connect \the [src] to \the [power_source]."))
 		activate(power_source)

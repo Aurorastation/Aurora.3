@@ -2221,6 +2221,7 @@
 #include "code\modules\modular_computers\hardware\card_slot.dm"
 #include "code\modules\modular_computers\hardware\hard_drive.dm"
 #include "code\modules\modular_computers\hardware\hardware.dm"
+#include "code\modules\modular_computers\hardware\misc.dm"
 #include "code\modules\modular_computers\hardware\nano_printer.dm"
 #include "code\modules\modular_computers\hardware\network_card.dm"
 #include "code\modules\modular_computers\hardware\portable_hard_drive.dm"
