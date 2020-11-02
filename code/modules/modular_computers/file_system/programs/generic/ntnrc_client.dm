@@ -31,7 +31,7 @@
 
 /datum/computer_file/program/chatclient/Destroy()
 	ntnet_global.chat_clients -= src
-	. = ..()
+	return ..()
 
 /datum/computer_file/program/chatclient/Topic(href, href_list)
 	if(..())
