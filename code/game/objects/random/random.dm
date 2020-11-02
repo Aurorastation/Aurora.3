@@ -523,7 +523,6 @@
 		/obj/machinery/vending/coffee = 1,
 		/obj/machinery/vending/snack = 1,
 		/obj/machinery/vending/cola = 1,
-		/obj/machinery/vending/cart = 1.5,
 		/obj/machinery/vending/cigarette = 1,
 		/obj/machinery/vending/medical = 1.2,
 		/obj/machinery/vending/phoronresearch = 0.7,
@@ -567,16 +566,6 @@
 			V.products[content] = round(V.products[content])
 
 	V.scan_id &= scan_id
-
-/obj/random/pda_cart/item_to_spawn()
-	var/list/options = typesof(/obj/item/cartridge)
-	var/type = pick(options)
-
-	//reroll syndicate cartridge once to make it less common
-	if (type == /obj/item/cartridge/syndicate)
-		type = pick(options)
-
-	return type
 
 /obj/random/glowstick
 	name = "random glowstick"
@@ -898,7 +887,6 @@
 		/obj/random/beret = 0.5,
 		/obj/random/junk = 0.4,
 		/obj/random/medical = 0.4,
-		/obj/random/pda_cart = 0.5,
 		/obj/random/powercell = 0.8,
 		/obj/random/smalltank = 0.5,
 		/obj/random/soap = 0.5,

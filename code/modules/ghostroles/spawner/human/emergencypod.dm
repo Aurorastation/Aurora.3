@@ -115,7 +115,7 @@
 
 	uniform = /obj/item/clothing/under/rank/chaplain
 	shoes = /obj/item/clothing/shoes/black
-	pda = /obj/item/device/pda/chaplain
+	pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 
 	backpack_contents = list(
 		/obj/item/storage/bible/fluff/oscar_bible = 1,
@@ -135,7 +135,7 @@
 
 	uniform = /obj/item/clothing/under/rank/idris
 	id = /obj/item/card/id/idris
-	pda = /obj/item/device/pda/lawyer
+	pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_hand =  /obj/item/storage/briefcase
@@ -221,7 +221,7 @@
 	suit_store = /obj/item/tank/oxygen
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/eridani
-	pda = /obj/item/device/pda/security
+	pda = /obj/item/modular_computer/handheld/pda/security
 	belt = /obj/item/gun/energy/gun/nuclear
 	uniform = /obj/item/clothing/under/rank/security/eridani
 

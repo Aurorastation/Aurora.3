@@ -57,7 +57,7 @@
 
 	else
 		world.log <<  "ERROR: Could not initate grey-tide. Unable to find suitable containment area."
-		kill()
+		kill(TRUE)
 
 
 /datum/event/prison_break/tick()

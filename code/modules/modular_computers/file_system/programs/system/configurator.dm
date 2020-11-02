@@ -10,7 +10,7 @@
 	color = LIGHT_COLOR_GREEN
 	unsendable = TRUE
 	undeletable = TRUE
-	size = 4
+	size = 2
 	available_on_ntnet = FALSE
 	requires_ntnet = FALSE
 
@@ -40,7 +40,10 @@
 	var/list/hardware = computer.get_all_components()
 	VUEUI_SET_CHECK(data["disk_size"], computer.hard_drive.max_capacity, ., data)
 	VUEUI_SET_CHECK(data["disk_used"], computer.hard_drive.used_capacity, ., data)
-	VUEUI_SET_CHECK(data["power_usage"], computer.last_power_usage, ., data)
+	VUEUI_SET_CHECK(data["power_usage"], computer.last_power_usage * (CELLRATE / 2), ., data)
+	VUEUI_SET_CHECK(data["card_slot"], computer.card_slot, ., data)
+	if(computer.registered_id)
+		VUEUI_SET_CHECK(data["registered"], computer.registered_id.registered_name, ., data)
 	if(!computer.battery_module)
 		VUEUI_SET_CHECK(data["battery"], 0, ., data)
 	else
@@ -52,4 +55,8 @@
 	for(var/obj/item/computer_hardware/H in hardware)
 		LAZYINITLIST(data["hardware"][H.name])
 		for(var/v in list("name", "desc", "enabled", "critical", "power_usage"))
-			VUEUI_SET_CHECK(data["hardware"][H.name][v], H.vars[v], ., data)
+			if(v == "power_usage")
+				var/watt_usage = H.vars[v] * (CELLRATE / 2)
+				VUEUI_SET_CHECK(data["hardware"][H.name][v], watt_usage, ., data)
+			else
+				VUEUI_SET_CHECK(data["hardware"][H.name][v], H.vars[v], ., data)

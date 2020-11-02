@@ -68,7 +68,6 @@
 /obj/structure/closet/jcloset/fill()
 	new /obj/item/clothing/under/rank/janitor(src)
 	new /obj/item/device/radio/headset/headset_service(src)
-	new /obj/item/cartridge/janitor(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/head/softcap/janitor(src)
 	new /obj/item/clothing/head/bandana/janitor(src)
@@ -91,6 +90,7 @@
 	new /obj/item/reagent_containers/glass/rag(src)
 	new /obj/item/soap/nanotrasen(src)
 	new /obj/item/reagent_containers/glass/rag/advanced(src)
+	new /obj/item/device/gps/janitor(src)
 
 /*
  * Lawyer

@@ -151,6 +151,7 @@
 	belt = /obj/item/storage/belt/military
 	gloves = /obj/item/clothing/gloves/swat
 	shoes = /obj/item/clothing/shoes/jackboots
+	pda = /obj/item/modular_computer/handheld/pda/syndicate
 
 	backpack_contents = list(
 		/obj/item/storage/box/engineer = 1,

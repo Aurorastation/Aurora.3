@@ -63,7 +63,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 
 					   "clowns"    = typecacheof(list(/obj/item/clothing/under/rank/clown, /obj/item/clothing/shoes/clown_shoes,
 												 /obj/item/clothing/mask/gas/clown_hat, /obj/item/bananapeel,
-												 /obj/item/bikehorn, /obj/item/device/pda/clown)),
+												 /obj/item/bikehorn, /obj/item/modular_computer/handheld/pda/civilian/clown)),
 
 					   "cats"  = typecacheof(list(/obj/item/clothing/head/tajaran, /obj/item/clothing/suit/storage/tajaran,
 												 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran, /obj/item/clothing/suit/storage/tajaran,
