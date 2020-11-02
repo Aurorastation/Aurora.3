@@ -214,9 +214,9 @@
 	..()
 	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
 		if(!ishuman(usr))
-				return FALSE
+			return FALSE
 		if(buckled_mob)
-				return FALSE
+			return FALSE
 		visible_message("[usr] collapses \the [src.name].")
 		var/obj/item/wheelchair/R = new(get_turf(src))
 		R.name = src.name
