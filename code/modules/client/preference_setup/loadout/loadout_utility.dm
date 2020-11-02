@@ -112,16 +112,15 @@
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
 
 /datum/gear/utility/himeo_kit
-	display_name = "himean voidsuit kit"
-	path = /obj/item/himeo_kit
+    display_name = "himean voidsuit kit"
+    path = /obj/item/himeo_kit
     allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel", "Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/utility/wheelchair/color
-	display_name = "wheelchair"
-	path = /obj/item/wheelchair
-	cost = 4
+    display_name = "wheelchair"
+    path = /obj/item/wheelchair
+    cost = 4
 
 /datum/gear/utility/wheelchair/color/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
+    ..()
+    gear_tweaks += gear_tweak_free_color_choice
