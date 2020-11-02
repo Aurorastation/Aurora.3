@@ -50,7 +50,7 @@
 		fuseoverlay.pixel_x = can_size_overrides["x"]
 		fuseoverlay.pixel_y = can_size_overrides["y"]
 		add_overlay(fuseoverlay)
-	if(bombcasing)
+	if(bombcasing > BOMBCASING_EMPTY)
 		var/image/casingoverlay = image('icons/obj/fuses.dmi', icon_state = "pipe_bomb")
 		add_overlay(casingoverlay)
 
@@ -209,7 +209,7 @@
 	fuselength -= CableRemoved
 	update_icon()
 	if(!fuselength)
-		if(bombcasing)
+		if(bombcasing > BOMBCASING_EMPTY)
 			desc = "A grenade casing with \a [name] slotted into it."
 		else
 			desc = initial(desc)
