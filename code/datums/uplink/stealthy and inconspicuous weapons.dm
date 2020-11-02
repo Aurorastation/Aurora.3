@@ -19,11 +19,6 @@
 	item_cost = 2
 	path = /obj/item/storage/box/syndie_kit/toxin
 
-/datum/uplink_item/item/stealthy_weapons/detomatix
-	name = "Detomatix PDA Cartridge"
-	item_cost = 4
-	path = /obj/item/cartridge/syndicate
-
 /datum/uplink_item/item/stealthy_weapons/pens
 	name = "Pen-jector Kit"
 	desc = "A kit that contains four differently coloured pens. A blue pacifying pen, a green pen containing healing chemicals, and a yellow hyperzine pen."

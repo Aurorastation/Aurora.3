@@ -35,6 +35,25 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">02 November 2020</h2>
+			<h3 class="author">Flpfs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tajara and Unathi can now be doctors and pharmacists at the Odin.</li>
+				<li class="tweak">IPCs can now be civil protection, doctors, pharmacists, bartenders, cooks and janitors at the Odin.</li>
+			</ul>
+			<h3 class="author">Geeves, Dronz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new clothes for unathi, wasteland kilts, straw hats, wasteland goggles, standalone hoods.</li>
+				<li class="tweak">Roughspun robes are now recolourable. Mogazali attire is no longer recolourable.</li>
+				<li class="rscadd">Added footwraps and caligae to the xeno clothes closet.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Coalition and Sol voidsuits not accepting oxygen tanks.</li>
+				<li class="bugfix">Fixes invisible bandanas.</li>
+				<li class="bugfix">Adds spam limiters to coinflips, toy swords and ID cards.</li>
+			</ul>
+
 			<h2 class="date">01 November 2020</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">
@@ -44,6 +63,48 @@
 			<ul class="changes bgimages16">
 				<li class="admin">Varedit now remembers what was in the 'search' field when you click the 'refresh' link.</li>
 				<li class="admin">Tweaked varedit styles ever so slightly: it will now likely use a more preferred monospace font. Keys are bold and also monospace.</li>
+				<li class="admin">'NOFALL' is now a status flag instead of being a var specific to BSTechs. It allows the mob to move between Z-levels and through empty space; even to 'fly up' against gravity. However the tech can no longer use this to 'phase into' matter if there is something above them.</li>
+				<li class="admin">For that you want to use Ruin-Everything instead: incorporeal movement now has an additional type that's just like a ninja's, but it also allows you to move between Z-levels.</li>
+				<li class="admin">Adds the anti-gravity verb to the Bluespace Robot preset and starts them with 'NOFALL' on.</li>
+				<li class="admin">When using 'GODMODE' you will no longer take damage when you fall; instead a cool message will be shown and a quiet thump will be played.</li>
+				<li class="admin">'GODMODE' now protects you from the awful effects of running - you can run indefinitely and won't take damage from it.</li>
+				<li class="admin">BSTechs now have additional vision mode - 'darkvision' for seeing normally but without lighting.</li>
+				<li class="admin">Some of the more arcane BSTech verbs have been renamed and descriptions improved (with some added flavour). Rejuv -> Restore Health. Toggle-Gravity -> Toggle-Falling (we now have actual gravity on the station, so let's not confuse people). And finally Ruin-Everything -> Toggle Incorporeal Movement - as lovely as the name is, it doesn't make much sense. This isn't Kill-Everyone or whatever.</li>
+				<li class="refactor">Thanks to the above changes the BST is now self-contained in a single file (well except for the robot preset).</li>
+				<li class="refactor">To facilitate the above changes several godmode and incorporeal checks have been added (mostly to movement procs). It cuts on some extra proc overrides and type checks. Also results in a more 'natural' experience when using NOFALL, GODMODE or incorporeal movement.</li>
+				<li class="refactor">Changed incorporeal values to defines.</li>
+				<li class="admin">Admins can now override a Respawn verb failure for themselves without calling Allow-Player-To-Respawn first.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The bridge research shuttle control console will now work again.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a GPS to the janitorial closets.</li>
+				<li class="rscadd">Janitor belts now hold 8 items instead of 6.</li>
+				<li class="rscadd">Mapped in some basic materials for janitors. These materials are for simple window and table repairs, as per the janitor wiki page.</li>
+				<li class="rscadd">Emagging the pest gun now increases its shot capacity to 10.</li>
+				<li class="tweak">An emagged pest gun now does 15 burn damage per shot, as well as 30 halloss damage. Changed from only doing 60 halloss.</li>
+				<li class="rscadd">The wall fungi event now gives GPS coordinates to the place it's growing.</li>
+				<li class="rscadd">Wall fungi can now be scraped off by any sharp object, and then grinded to access some useful reagents within.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added modular computer versions of PDAs. Programs that were only available on PDA were ported where possible/necessary.</li>
+				<li class="rscadd">Added ability to select type of PDA (tablet, wristbound, PDA, or none) in character select.</li>
+				<li class="rscadd">Added charging cables for recharging handheld modular computers. Simply use a handheld computer on an APC to begin charging. Also added hotswappable batteries, which may be removed and slotted-in without tools.</li>
+				<li class="rscadd">Card slots on modular computers can now store items, just as PDAs once did.</li>
+				<li class="tweak">Power capacity of modular computer batteries increased across the board. Standard PDAs should last approximately two-hours (server time).</li>
+				<li class="tweak">NTIRC (messenger) now requires a registered ID to be used. NTIRC is set to autorun and will attempt to start itself at roundstart, as well as automatically register you.</li>
+				<li class="tweak">pAI Atmosphere Sensor and pAI Signaller are now open-use programs. Handheld PDAs are now universally private devices.</li>
+				<li class="tweak">Using an ID on a computer with an occupied card slot will now swap the cards, where possible.</li>
+				<li class="rscdel">Removed PDAs, cartridges, and all functionality relating to them.</li>
+				<li class="bugfix">An event failing to spawn should no longer hell-spawn fifteen copies of another event.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added five new sets of PDA-style sprites, complete with transparency / modular program support.</li>
 			</ul>
 
 			<h2 class="date">31 October 2020</h2>

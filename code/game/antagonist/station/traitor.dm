@@ -119,12 +119,12 @@ var/datum/antagonist/traitor/traitors
 	if(traitor_mob.client.prefs.uplinklocation == "Headset")
 		R = locate(/obj/item/device/radio) in traitor_mob.contents
 		if(!R)
-			R = locate(/obj/item/device/pda) in traitor_mob.contents
+			R = locate(/obj/item/modular_computer) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a Radio, installing in PDA instead!")
 		if (!R)
 			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(traitor_mob.client.prefs.uplinklocation == "PDA")
-		R = locate(/obj/item/device/pda) in traitor_mob.contents
+		R = locate(/obj/item/modular_computer) in traitor_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/radio) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
@@ -135,7 +135,7 @@ var/datum/antagonist/traitor/traitors
 		R = null
 	else
 		to_chat(traitor_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
-		R = locate(/obj/item/device/pda) in traitor_mob.contents
+		R = locate(/obj/item/modular_computer) in traitor_mob.contents
 		if (!R)
 			R = locate(/obj/item/device/radio) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
@@ -164,13 +164,12 @@ var/datum/antagonist/traitor/traitors
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
-	else if (istype(R, /obj/item/device/pda))
+	else if (istype(R, /obj/item/modular_computer))
 		// generate a passcode if the uplink is hidden in a PDA
 		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
 		R.hidden_uplink = T
-		var/obj/item/device/pda/P = R
-		P.lock_code = pda_pass
+		T.pda_code = pda_pass
 		R.autodrobe_no_remove = TRUE
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")

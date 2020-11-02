@@ -162,21 +162,16 @@
 			return
 
 	// OTHER
-	else if (can_use() && (istype(W, /obj/item/paper) || istype(W, /obj/item/device/pda)) && isliving(user))
+	else if (can_use() && (istype(W, /obj/item/paper)) && isliving(user))
 		var/info = null
 		var/mob/living/U = user
 		var/obj/item/paper/X = null
-		var/obj/item/device/pda/P = null
 
 		var/itemname = ""
 		if(istype(W, /obj/item/paper))
 			X = W
 			itemname = X.name
 			info = X.info
-		else
-			P = W
-			itemname = P.name
-			info = P.notehtml
 		to_chat(U, "You hold \a [itemname] up to the camera ...")
 		for(var/mob/living/silicon/ai/O in living_mob_list)
 			var/entry = O.addCameraRecord(itemname,info)

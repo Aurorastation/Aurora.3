@@ -50,7 +50,6 @@ var/datum/uplink_random_selection/default_uplink_selection = new/datum/uplink_ra
 
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealthy_weapons/soap, 5, 100)
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealthy_weapons/concealed_cane, 50, 10)
-	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealthy_weapons/detomatix, 20, 10)
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealthy_weapons/parapen)
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealthy_weapons/cigarette_kit)
 

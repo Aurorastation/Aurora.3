@@ -10,7 +10,7 @@
 /datum/event/rescue_pod/setup()
     for(var/datum/event/E in typesof(src))
         if(is_type_in_list(E, SSevents.finished_events))
-            kill()
+            kill(TRUE)
             return
     spawner = SSghostroles.get_spawner(spawner_name)
 
