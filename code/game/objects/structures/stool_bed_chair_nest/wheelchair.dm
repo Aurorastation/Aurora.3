@@ -216,7 +216,7 @@
 		if(!ishuman(usr))	return
 		if(buckled_mob)	return 0
 		visible_message("[usr] collapses \the [src.name].")
-		var/obj/item/wheelchair/R = new/obj/item/wheelchair(get_turf(src))
+		var/obj/item/wheelchair/R = new(get_turf(src))
 		R.name = src.name
 		R.desc = src.desc
 		R.color = src.color
