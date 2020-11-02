@@ -5,6 +5,7 @@ delete-after: True
 changes:
   - rscadd: "Handheld modular computers now use flashlights as a light source. They may be turned on/off via a button in the PC header, and have their brightness adjusted in Hardware Configuration."
   - tweak: "Chat messages are now logged to the NTNet Monitoring program."
+  - tweak: "PDA mesasge notifications should now appear much larger."
   - bugfix: "IDs are now unregistered from computers when the computer is destroyed."
   - bugfix: "Fix Eject Battery having a global view range."
   - bugfix: "Chat Clients are no longer set to 'silent' by default."
