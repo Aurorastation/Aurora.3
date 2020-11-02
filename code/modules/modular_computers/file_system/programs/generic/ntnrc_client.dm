@@ -269,8 +269,7 @@
 		if((confirm != "Yes") || (CanUseTopic(usr) != STATUS_INTERACTIVE))
 			return FALSE
 
-	if(src in ntnet_global.chat_clients)
-		ntnet_global.chat_clients -= src
+	ntnet_global.chat_clients -= src
 
 	channel = null
 	..(forced)
@@ -300,8 +299,7 @@
 /datum/computer_file/program/chatclient/event_unregistered()
 	..()
 	computer.set_autorun(filename)
-	if(src in ntnet_global.chat_clients)
-		ntnet_global.chat_clients -= src
+	ntnet_global.chat_clients -= src
 	kill_program(TRUE)
 
 /datum/computer_file/program/chatclient/event_silentmode()
