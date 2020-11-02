@@ -220,6 +220,5 @@
 		R.name = src.name
 		R.desc = src.desc
 		R.color = src.color
-		spawn(0)
-			qdel(src)
 		return
+		
