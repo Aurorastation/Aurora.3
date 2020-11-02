@@ -35,6 +35,230 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">02 November 2020</h2>
+			<h3 class="author">Flpfs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tajara and Unathi can now be doctors and pharmacists at the Odin.</li>
+				<li class="tweak">IPCs can now be civil protection, doctors, pharmacists, bartenders, cooks and janitors at the Odin.</li>
+				<li class="tweak">Added maglites to the SecTech vendors.</li>
+			</ul>
+			<h3 class="author">Geeves, Dronz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new clothes for unathi, wasteland kilts, straw hats, wasteland goggles, standalone hoods.</li>
+				<li class="tweak">Roughspun robes are now recolourable. Mogazali attire is no longer recolourable.</li>
+				<li class="rscadd">Added footwraps and caligae to the xeno clothes closet.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Coalition and Sol voidsuits not accepting oxygen tanks.</li>
+				<li class="bugfix">Fixes invisible bandanas.</li>
+				<li class="bugfix">Adds spam limiters to coinflips, toy swords and ID cards.</li>
+			</ul>
+
+			<h2 class="date">01 November 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Cyanide pills are no longer named cyanide pills.</li>
+			</ul>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Varedit now remembers what was in the 'search' field when you click the 'refresh' link.</li>
+				<li class="admin">Tweaked varedit styles ever so slightly: it will now likely use a more preferred monospace font. Keys are bold and also monospace.</li>
+				<li class="admin">'NOFALL' is now a status flag instead of being a var specific to BSTechs. It allows the mob to move between Z-levels and through empty space; even to 'fly up' against gravity. However the tech can no longer use this to 'phase into' matter if there is something above them.</li>
+				<li class="admin">For that you want to use Ruin-Everything instead: incorporeal movement now has an additional type that's just like a ninja's, but it also allows you to move between Z-levels.</li>
+				<li class="admin">Adds the anti-gravity verb to the Bluespace Robot preset and starts them with 'NOFALL' on.</li>
+				<li class="admin">When using 'GODMODE' you will no longer take damage when you fall; instead a cool message will be shown and a quiet thump will be played.</li>
+				<li class="admin">'GODMODE' now protects you from the awful effects of running - you can run indefinitely and won't take damage from it.</li>
+				<li class="admin">BSTechs now have additional vision mode - 'darkvision' for seeing normally but without lighting.</li>
+				<li class="admin">Some of the more arcane BSTech verbs have been renamed and descriptions improved (with some added flavour). Rejuv -> Restore Health. Toggle-Gravity -> Toggle-Falling (we now have actual gravity on the station, so let's not confuse people). And finally Ruin-Everything -> Toggle Incorporeal Movement - as lovely as the name is, it doesn't make much sense. This isn't Kill-Everyone or whatever.</li>
+				<li class="refactor">Thanks to the above changes the BST is now self-contained in a single file (well except for the robot preset).</li>
+				<li class="refactor">To facilitate the above changes several godmode and incorporeal checks have been added (mostly to movement procs). It cuts on some extra proc overrides and type checks. Also results in a more 'natural' experience when using NOFALL, GODMODE or incorporeal movement.</li>
+				<li class="refactor">Changed incorporeal values to defines.</li>
+				<li class="admin">Admins can now override a Respawn verb failure for themselves without calling Allow-Player-To-Respawn first.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The bridge research shuttle control console will now work again.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a GPS to the janitorial closets.</li>
+				<li class="rscadd">Janitor belts now hold 8 items instead of 6.</li>
+				<li class="rscadd">Mapped in some basic materials for janitors. These materials are for simple window and table repairs, as per the janitor wiki page.</li>
+				<li class="rscadd">Emagging the pest gun now increases its shot capacity to 10.</li>
+				<li class="tweak">An emagged pest gun now does 15 burn damage per shot, as well as 30 halloss damage. Changed from only doing 60 halloss.</li>
+				<li class="rscadd">The wall fungi event now gives GPS coordinates to the place it's growing.</li>
+				<li class="rscadd">Wall fungi can now be scraped off by any sharp object, and then grinded to access some useful reagents within.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added modular computer versions of PDAs. Programs that were only available on PDA were ported where possible/necessary.</li>
+				<li class="rscadd">Added ability to select type of PDA (tablet, wristbound, PDA, or none) in character select.</li>
+				<li class="rscadd">Added charging cables for recharging handheld modular computers. Simply use a handheld computer on an APC to begin charging. Also added hotswappable batteries, which may be removed and slotted-in without tools.</li>
+				<li class="rscadd">Card slots on modular computers can now store items, just as PDAs once did.</li>
+				<li class="tweak">Power capacity of modular computer batteries increased across the board. Standard PDAs should last approximately two-hours (server time).</li>
+				<li class="tweak">NTIRC (messenger) now requires a registered ID to be used. NTIRC is set to autorun and will attempt to start itself at roundstart, as well as automatically register you.</li>
+				<li class="tweak">pAI Atmosphere Sensor and pAI Signaller are now open-use programs. Handheld PDAs are now universally private devices.</li>
+				<li class="tweak">Using an ID on a computer with an occupied card slot will now swap the cards, where possible.</li>
+				<li class="rscdel">Removed PDAs, cartridges, and all functionality relating to them.</li>
+				<li class="bugfix">An event failing to spawn should no longer hell-spawn fifteen copies of another event.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added five new sets of PDA-style sprites, complete with transparency / modular program support.</li>
+			</ul>
+
+			<h2 class="date">31 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Starting message when joining as an AI has been moved to a separate pop-up window and expanded. It is now also available as a verb 'AI-Help'. This prevents message spam when they start while providing more information to new players. It also contains OOC info noting that players should be mindful of not ruining fun for others.</li>
+				<li class="rscadd">Airlocks hacking UI now shows pretty colors for the values. Also tweaked some messages and display of the UI. Most importantly, when power is off the message is now simplified to 'all the lights are off'.</li>
+				<li class="rscadd">Whether AIs can or cannot bolt airlocks is now determined by new states of the 'AI control' wire. It is no longer just 'off' (or cut or emagged) and 'on'. It can be 'off' (cut), 'red' (emagged), 'orange' (AI can control doors but not bolt them) or 'green' (AI can bolt or unbolt the doors). Pulsing the control wire toggles between green and orange, cutting and emagging still works the same. Some airlocks are 'locked' (can be mapped or changed by subtype; currently high security doors do this) and pulsing the control wire does nothing.</li>
+				<li class="rscadd">The 'AI control' state of most airlocks defaults to whether the airlock is locked (mappers and airlock subtypes can override this). This means that most airlocks are by default 'orange', so AIs cannot drop (or raise!) bolts on the vast majority of airlocks. The exception are secure airlocks, hatches (like on tcommsat) and external airlocks whose bolts can be controlled by the AI (in case of external airlocks most are bolted anyway, so AI would have bolt control regardless).</li>
+				<li class="rscadd">There is now an announcement and a delay of 8 seconds for raising and 4 seconds for dropping the bolts by AIs (traitor AIs are not affected by this, though they can choose to 'fake' it). High security doors have even higher delays (10/5) and vault has the highest (12/8). It is also no longer possible to spam the message - only one action can be done at a time and AIs must wait for it to complete.</li>
+				<li class="tweak">Tweaked some AI airlock action messages to facilitate the above changes. Additionally the bolt announcement message is now an audible instead of visual.</li>
+				<li class="tweak">AIs, when using 'Radio Settings', now see their radio channel keys. They are also displayed in 'AI-Help'.</li>
+				<li class="bugfix">Door now properly updates icon when it regains power.</li>
+				<li class="backend">Moved code that gathers radio channels for AI to a separate proc.</li>
+				<li class="admin">Fixes admin check in airlock VueUI. Also allows admins to actually toggle stuff like bolts, safeties and electrification. De-admin yourself if you want to actually play!</li>
+				<li class="refactor">Refactored some of the airlock code, especially stuff regarding displaying messages and toggling bolts. Some of it was necessary for these changes, other parts I think I just made more readable.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">The research shuttle can now also be docked at yellow dock.</li>
+			</ul>
+			<h3 class="author">Flpfs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Service cyborgs can now pick up clams and molluscs.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Projectiles hitting mobs will now not display an admin log if both the firer and the target has no client connected.</li>
+				<li class="rscadd">Autohissssss has been added to the character creation menu, and will now perssssisssst roundssss and logoutssss.</li>
+				<li class="rscadd">Diona now absorb knowledge along with language when sucking blood, this is a user prompt that the suckee must enter, and will probably fail to.</li>
+				<li class="rscadd">Diona gestalts can now also sample DNA to learn languages and gain knowledge.</li>
+				<li class="rscadd">Diona now inject a medium painkiller when sucking blood, called 'Aphrodite'.</li>
+			</ul>
+			<h3 class="author">Hocka updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Airlocks now display messages when crushing people.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Vending machines now have a graphical, icon-based item interface based in VueUI.</li>
+				<li class="tweak">Vending machines now have a search bar.</li>
+				<li class="bugfix">Icon lag when using vending machines should no longer exist.</li>
+				<li class="tweak">Updated the Aut'akh religion lore blurb.</li>
+			</ul>
+			<h3 class="author">Naelynn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Allows Vaurca to select generic augment loadout items.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Antagonists hiding inside something (locker, chameleon projection, etc.) at round end will now appear properly in the end-of-round antag display text.</li>
+			</ul>
+
+			<h2 class="date">30 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes hardcoded health checks setting to 100 instead of maxHealth (mainly in godmode checks but also pAI).</li>
+				<li class="rscadd">Added low level APCs (with just a regular battery), to be used in offices and other smaller, less critical areas. This allows long-term power loss to be of some consequence. Mapped into the security areas.</li>
+				<li class="maptweak">Split upper security (investigations & training) into multiple per-room areas as it should be. Added light switches and APCs for those areas.</li>
+				<li class="maptweak">The room with stairs to Training is now a part of the Training area, not Brig.</li>
+				<li class="maptweak">Evidence Storage is now its own area as well.</li>
+				<li class="maptweak">From security/brig there were two rooms split: the 'control room' and 'processing'. Also added APCs.</li>
+				<li class="tweak">Added back the option to toggle lights to most Security areas (basically everything but places where prisoners are held).</li>
+				<li class="tweak">Added/modified area icons for most of the areas mentioned above for easier mapping.</li>
+				<li class="rscdel">It is no longer possible to recycle any random crap in the Autolathe. It is now limited to 'reasonable' items such as stack materials, shards, tiles, reagent containers, power cells, shields and a handful of other things. Complex devices, guns, stuff that clearly wouldn't fit or doesn't make much sense to recycle (returns almost no useful materials) is no longer possible to recycle.</li>
+				<li class="bugfix">It should be no longer possible to 'cheat' in the Autolathe by inserting items that give more materials than they cost to make in the Protolathe.</li>
+				<li class="bugfix">Fixed a handful of the remaining problematic autolathe recipes / recyclation materials to not cost less than they're worth.</li>
+				<li class="bugfix">Fixed stack material recipes to not create more product matter than they consume: metal rods and all floor tiles are now worth about half of their previous materials.</li>
+				<li class="bugfix">Fixes minor instatiation issues with hand teleporter and an organ when initialized in a non-typical way.</li>
+				<li class="refactor">Moved the list of research designs to global level. This allows only single initialization of it.</li>
+				<li class="backend">Added unit test to check if material costs of all research designs are greater than what can be gained from recycling their products.</li>
+				<li class="backend">Added unit test to check if material costs of stack recipes are greater than what can be gained from recycling their products.</li>
+				<li class="bugfix">Borers and other flips of the PASSEMOTES flag will no longer change the CANWEAKEN flag.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Headsets' object sprites have been changed to fit their departmental colours.</li>
+				<li class="rscadd">Added blood overlays to simple mobs.</li>
+				<li class="rscadd">Dead antagonists now get their last words displayed at round end.</li>
+				<li class="tweak">Small animals and nymphs can no longer wriggle out of bags or your hand when below 60% HP.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Rescue Pod and Visitor ghost spawners are now mid-round events, rather than a 10% chance to activate on round start.</li>
+				<li class="rscadd">Added a new subtype of Rescue Pod, which sends a single burglar to the Aurora on non-extended rounds.</li>
+				<li class="tweak">Decreased chances of Moderate Infestations, Carp Schools, and Rogue Drone events. Increased chances of Radiation Storm, Electrical Storm, and Communication Blackout events.</li>
+				<li class="tweak">Changed Appendicitis chance to scale off slotted Surgeons, rather than medical staff. Rampant Brand Intelligence now scales off of engineers rather than janitors.</li>
+				<li class="rscdel">Removed powergrid check event from rotation, boosted Electrical Storm chance to compensate.</li>
+			</ul>
+			<h3 class="author">The Stryker, NiennaB updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added circle and horn antennas to the loadout (Xenowear - IPC, antenna selection).</li>
+				<li class="rscadd">Added ripped jeans under the pants selection in the loadout, as well as a colorable jumpsuit in the uniforms tab.</li>
+				<li class="rscadd">Added a Himeo engineering and atmos voidsuit that can be made with the Himeo voidsuit kit and an existing engineering/atmos voidsuit.</li>
+				<li class="tweak">The Himeo suit sprite no longer has side views when dragged.</li>
+				<li class="tweak">IPC antennae sprites have been changed to be smaller.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">EPMC cap should be now lore appropriate colored.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Power cells now drain to exactly zero when it fails to completely satisfy a power demand. This will solve cases where the game thought cells with an extremely small amount of power weren't empty. e.g. Out of power robots that could not move not being able to use their Power Warning verb.</li>
+			</ul>
+
+			<h2 class="date">28 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Admins now have a new secret to turn all light switches on, off or to their initial state.</li>
+				<li class="backend">The 'area/set_lightswitch' proc can now be passed 'null' to set the area lights to initial state.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Examining trolleys and engines will now tell you whether they're being towed, or towing something, and what exactly those are.</li>
+				<li class="rscadd">Mapped in various airlocks with one-way exits, meaning that you don't need access to exit if you come from that direction. This is primarily to let people out of departments without escorts.</li>
+				<li class="rscadd">Added the option to put one-way exits in airlocks via airlock electronics.</li>
+				<li class="bugfix">Creating stacks from material recipes will now update their icons to display their true fullness, such as making rods out of steel.</li>
+				<li class="rscadd">Emitters now track how many shots they've fired, which gets reset when they get activated. Examine them while adjacent to them to read the value.</li>
+				<li class="rscadd">Science can now print cargo trolley circuitboards, built with 15 power coils and 1 capacitor.</li>
+				<li class="bugfix">Lobbysitter HUDs now properly update the Ready/Join button when the round starts.</li>
+				<li class="rscadd">Part replacers now output the contents of closed machines nicely.</li>
+				<li class="rscadd">Added dual wielding. Firing a gun while another is in the off-hand will fire that one as well, at the cost of lost accuracy. You must be on harm intent to do this.</li>
+			</ul>
+			<h3 class="author">Hocka updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Simple mobs revived by lazarus injectors now show their alive description text.</li>
+			</ul>
+			<h3 class="author">Naelynn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Uranium Solidification chemmical reaction. Mix 20 units of liquid uranium, 5 units of frost oil and 5 units of potassium to create a sheet of uranium.</li>
+			</ul>
+
+			<h2 class="date">27 October 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Spontaneous appendicitis should be rarer now.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed some unused scarfs in code.</li>
+				<li class="tweak">Put winterboots in the loadout under boots, removed duplicate cowboy boots selection as these were already present under boot selection.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">If there are new polls, the poll button will now be highlighted.</li>
+				<li class="tweak">You can no longer open the crew manifest before the game starts.</li>
+			</ul>
+			<h3 class="author">NewOriginalSchwann updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changes Deep Frontier (DFR) to Non-Coalition Frontier (NCF).</li>
+			</ul>
+
 			<h2 class="date">26 October 2020</h2>
 			<h3 class="author">Amunak updated:</h3>
 			<ul class="changes bgimages16">

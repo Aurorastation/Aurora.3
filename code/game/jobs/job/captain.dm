@@ -35,7 +35,9 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
-	pda = /obj/item/device/pda/captain
+	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
+	tablet = /obj/item/modular_computer/handheld/preset/command/captain
 	backpack_contents = list(
 		/obj/item/storage/box/ids = 1
 	)
@@ -107,7 +109,9 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	id = /obj/item/card/id/navy
-	pda = /obj/item/device/pda/heads/hop
+	tab_pda = /obj/item/modular_computer/handheld/pda/command/hop
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
+	tablet = /obj/item/modular_computer/handheld/preset/command/hop
 	backpack_contents = list(
 		/obj/item/storage/box/ids = 1
 	)

@@ -123,7 +123,7 @@ var/list/whitelist = list()
 		return 0
 
 	if(!dbcon.IsConnected())
-		return TRUE
+		return 0
 
 	var/age_to_beat = 0
 

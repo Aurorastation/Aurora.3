@@ -118,7 +118,7 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
-	pda = /obj/item/device/pda/central
+	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
 
 	id_access = "CCIA Agent"
 
@@ -304,7 +304,7 @@
 	name = "NTCC Odin Sanitation Specialist"
 
 	uniform = /obj/item/clothing/under/rank/janitor
-	pda = /obj/item/device/pda/janitor
+	pda = /obj/item/modular_computer/handheld/pda/civilian
 	shoes = /obj/item/clothing/shoes/galoshes
 	l_ear = /obj/item/device/radio/headset/headset_service
 	l_pocket = /obj/item/grenade/chem_grenade/cleaner

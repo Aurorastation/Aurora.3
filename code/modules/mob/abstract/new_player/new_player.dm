@@ -376,6 +376,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	else
 		client.prefs.copy_to(new_character)
 
+	client.autohiss_mode = client.prefs.autohiss_setting
+
 	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
 
 	if(mind)

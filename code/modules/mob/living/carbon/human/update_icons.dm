@@ -584,10 +584,6 @@ There are several things that need to be remembered:
 			var/obj/item/card/id/id_card = wear_id
 			if(id_card.wear_over_suit == 1)
 				id_layer = ID_LAYER_ALT
-		else if(istype(wear_id, /obj/item/device/pda))
-			var/obj/item/device/pda/pda_device = wear_id
-			if(pda_device.wear_over_suit == 1)
-				id_layer = ID_LAYER_ALT
 
 		if (wear_id.color)
 			result_layer.color = wear_id.color

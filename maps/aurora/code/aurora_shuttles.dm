@@ -516,16 +516,19 @@ AURORA_ESCAPE_POD(3)
 
 //-// Research Shuttle //-//
 
-/datum/shuttle/autodock/ferry/research_aurora
+/datum/shuttle/autodock/multi/research_aurora
 	name = "Research Shuttle"
-	location = 0
+	current_location = "nav_research_dock"
 	warmup_time = 10
-	move_time = 85
+	move_time = 60
 	shuttle_area = /area/shuttle/research
 	dock_target = "science_shuttle"
-	waypoint_station = "nav_research_dock"
 	landmark_transition = "nav_research_interim"
-	waypoint_offsite = "nav_research_away"
+	destination_tags = list(
+		"nav_research_dock",
+		"nav_research_yellow",
+		"nav_research_away"
+		)
 
 /obj/effect/shuttle_landmark/research/start
 	name = "Research Dock"
@@ -533,6 +536,12 @@ AURORA_ESCAPE_POD(3)
 	docking_controller = "science_bridge"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	base_area = /area/mine/explored
+
+/obj/effect/shuttle_landmark/research/yellow
+	name = "Yellow Dock"
+	landmark_tag = "nav_research_yellow"
+	docking_controller = "yellow_shuttle_dock_airlock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/research/interim
 	name = "In Transit"

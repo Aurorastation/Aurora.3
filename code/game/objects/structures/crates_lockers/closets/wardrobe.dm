@@ -121,11 +121,13 @@
 /obj/structure/closet/wardrobe/xenos/fill()
 	..()
 	new /obj/item/clothing/suit/unathi/mantle(src)
-	new /obj/item/clothing/suit/unathi/robe(src)
+	new /obj/item/clothing/suit/unathi/robe/beige(src)
+	new /obj/item/clothing/shoes/footwraps(src)
+	new /obj/item/clothing/shoes/footwraps(src)
+	new /obj/item/clothing/shoes/caligae(src)
 	new /obj/item/clothing/shoes/sandal(src)
 	new /obj/item/clothing/shoes/sandal(src)
 	new /obj/item/clothing/shoes/sandal(src)
-	return
 
 
 /obj/structure/closet/wardrobe/orange

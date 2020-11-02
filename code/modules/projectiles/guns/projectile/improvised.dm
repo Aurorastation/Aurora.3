@@ -140,6 +140,7 @@
 	max_shells = 7
 	recoil = 2
 	accuracy = -1
+	offhand_accuracy = 1
 	fire_delay = 9
 	icon = 'icons/obj/guns/ipistol.dmi'
 	icon_state = "ipistol"
