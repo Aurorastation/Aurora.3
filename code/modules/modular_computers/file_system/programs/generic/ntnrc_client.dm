@@ -29,6 +29,11 @@
 	if(!comp)
 		return
 
+/datum/computer_file/program/chatclient/Destroy()
+	if(src in ntnet_global.chat_clients)
+		ntnet_global.chat_clients -= src
+	. = ..()
+
 /datum/computer_file/program/chatclient/Topic(href, href_list)
 	if(..())
 		return TRUE
@@ -265,6 +270,9 @@
 		if((confirm != "Yes") || (CanUseTopic(usr) != STATUS_INTERACTIVE))
 			return FALSE
 
+	if(src in ntnet_global.chat_clients)
+		ntnet_global.chat_clients -= src
+
 	channel = null
 	..(forced)
 	return TRUE
@@ -293,7 +301,8 @@
 /datum/computer_file/program/chatclient/event_unregistered()
 	..()
 	computer.set_autorun(filename)
-	ntnet_global.chat_clients -= src
+	if(src in ntnet_global.chat_clients)
+		ntnet_global.chat_clients -= src
 	kill_program(TRUE)
 
 /datum/computer_file/program/chatclient/event_silentmode()
