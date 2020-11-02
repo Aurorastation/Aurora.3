@@ -16,20 +16,21 @@
 		var/datum/node/node = n
 		if(node.graph && node.graph != previous_owner)
 			CRASH("Attempted to add a node already belonging to a network")
-	var/list/unique_nodes = list()
-	for(var/e in edges)
-		unique_nodes |= "\ref[e]"
-		if(!length(edges[e]))
-			CRASH("Invalid edge had only one vertex: [log_info_line(edges)].")
-		if(!(e in nodes))
-			CRASH("Invalid edge referenced node not in graph: [log_info_line(edges)].")
-		for(var/v in edges[e])
-			unique_nodes |= "\ref[v]"
-			if(!(v in nodes))
-				CRASH("Invalid vertex referenced node not in graph: [log_info_line(edges)].")
+	if(length(nodes) > 1)
+		var/list/unique_nodes = list()
+		for(var/e in edges)
+			unique_nodes |= "\ref[e]"
+			if(!length(edges[e]))
+				CRASH("Invalid edge had only one vertex: [log_info_line(edges)].")
+			if(!(e in nodes))
+				CRASH("Invalid edge referenced node not in graph: [log_info_line(edges)].")
+			for(var/v in edges[e])
+				unique_nodes |= "\ref[v]"
+				if(!(v in nodes))
+					CRASH("Invalid vertex referenced node not in graph: [log_info_line(edges)].")
 
-	if(length(unique_nodes) != length(uniquelist(nodes)))
-		CRASH("Graph was incoherent: [log_info_line(nodes)] [log_info_line(edges)].")
+		if(length(unique_nodes) != length(uniquelist(nodes)))
+			CRASH("Graph was incoherent: [log_info_line(nodes)] [log_info_line(edges)].")
 
 	..()
 	src.nodes = nodes
