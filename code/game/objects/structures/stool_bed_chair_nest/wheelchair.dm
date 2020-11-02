@@ -213,8 +213,10 @@
 /obj/structure/bed/chair/wheelchair/MouseDrop(over_object, src_location, over_location)
 	..()
 	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		if(!ishuman(usr))	return
-		if(buckled_mob)	return 0
+		if(!ishuman(usr))
+				return FALSE
+		if(buckled_mob)
+				return FALSE
 		visible_message("[usr] collapses \the [src.name].")
 		var/obj/item/wheelchair/R = new(get_turf(src))
 		R.name = src.name
