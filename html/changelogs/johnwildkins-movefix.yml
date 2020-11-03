@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Some subspecies (Zeng-hu IPC, Tajara subspecies) should now move at their intended speeds."
