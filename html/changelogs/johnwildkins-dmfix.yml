@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixes players entering cryo or PDAs that were destroyed not being removed from available messengers."
