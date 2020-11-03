@@ -1056,16 +1056,18 @@ var/list/wall_items = typecacheof(list(
 	if(istype(D)) // let's future proof ourselves
 		return details ? "unknown-object([D.type])" : "unknown-object"
 	// some undetectable types
-#ifdef SPACEMAN_DMM  // remove when https://github.com/SpaceManiac/SpacemanDMM/issues/227 is fixed
-	var/P = V
-#else
-	var/proc/P = V
-#endif
-	if(P) // it's a proc of some kind
-		if(istext(P?:name) && P:name != "") // procs with names are generally verbs
+	var/refType = lowertext(copytext(ref(V), 4, 6))
+	if(refType == "")
+		return "unknown"
+	if(refType == "26") // it's a proc of some kind
+		if(istext(V?:name) && V:name != "") // procs with names are generally verbs
 			return "verb"
 		return "proc"
-	return "unknown" // if you see this there are some undetectable types in Byond, or there's a small chance that there's actually a new type
+	if(refType == "53")
+		return "filters"
+	if(refType == "3a")
+		return "appearance"
+	return "unknown-object([refType])" // If you see this you found a new undetectable type. Feel free to add it here.
 
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
