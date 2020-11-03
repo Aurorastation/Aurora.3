@@ -999,6 +999,64 @@ var/list/wall_items = typecacheof(list(
 			return 1
 	return 0
 
+// Returns a variable type as string, optionally with some details:
+// Objects (datums) get their type, paths get the type name, scalars show length (text) and value (numbers), lists show length.
+/proc/get_debug_type(var/V, var/details = TRUE, var/print_numbers = TRUE, var/path_names = TRUE, var/text_lengths = TRUE, var/list_lengths = TRUE)
+	// scalars / basic types
+	if(isnull(V))
+		return "null"
+	if(ispath(V))
+		return details && path_names ? "path([V])" : "path"
+	if(istext(V))
+		return details && text_lengths ? "text([length(V) ])" : "text"
+	if(isnum(V)) // Byond doesn't really differentiate between floats and ints, but we can sort of guess here
+		// also technically we could also say that 0 and 1 are boolean but that'd be quite silly
+		if(IsInteger(V) && V < 16777216 && V > -16777216)
+			return details && print_numbers ? "int([V])" : "int"
+		if(V >= INFINITY)
+			return details ? "float(+INF)" : "float"
+		if(V <= -INFINITY)
+			return details ? "float(-INF)" : "float"
+		return details && print_numbers ? "float([V])" : "float"
+	// Resource types
+	if(isicon(V))
+		return "icon"
+	if(isfile(V))
+		return "file"
+	// Types that don't inherit from /datum (note that /world is not here because you can't hold a reference to it)
+	if(istype(V, /list))
+		return details && list_lengths ? "list([length(V)])" : "list"
+	if(istype(V, /client))
+		return "client"
+	if(istype(V, /savefile))
+		return "savefile"
+	// Finally actual objects that inherit from /datum
+	// We want to differentiate at least the basic "special" Byond types
+	var/datum/D = V
+	if(istype(V, /regex))
+		return "regex"
+	if(isarea(D))
+		return details ? "area([D.type])" : "area"
+	if(isturf(D))
+		return details ? "turf([D.type])" : "turf"
+	if(ismob(D))
+		return details ? "mob([D.type])" : "mob"
+	if(isobj(D))
+		return details ? "obj([D.type])" : "obj"
+	if(istype(D, /atom/movable)) // according to DM docs there should be no defined types under this but there certainly are some
+		return details ? "movable([D.type])" : "movable"
+	if(isatom(D))
+		return details ? "atom([D.type])" : "atom"
+	if(istype(D, /image))
+		return details ? "image([D.type])" : "image"
+	if(istype(D, /decl))
+		return details ? "decl([D.type])" : "decl"
+	if(isdatum(D))
+		return details ? "datum([D.type])" : "datum"
+	if(istype(D)) // let's future proof ourselves
+		return details ? "unknown-object([D.type])" : "unknown-object"
+	return "unknown" // if you see this there are some undetectable types in Byond, or there's a small chance that there's actually a new type
+
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
 
