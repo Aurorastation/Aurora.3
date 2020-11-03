@@ -27,6 +27,8 @@
 	bandanas["bandana, hydroponics"] = /obj/item/clothing/head/bandana/hydro
 	bandanas["bandana, cargo"] = /obj/item/clothing/head/bandana/cargo
 	bandanas["bandana, mining"] = /obj/item/clothing/head/bandana/miner
+	bandanas["bandana, janitor"] = /obj/item/clothing/head/bandana/janitor
+
 	gear_tweaks += new/datum/gear_tweak/path(bandanas)
 
 /datum/gear/head/bandana/colorable
@@ -54,6 +56,7 @@
 	softcaps["softcap, hydroponics"] = /obj/item/clothing/head/softcap/hydro
 	softcaps["softcap, cargo"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
+	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/janitor
 
 	gear_tweaks += new/datum/gear_tweak/path(softcaps)
 
