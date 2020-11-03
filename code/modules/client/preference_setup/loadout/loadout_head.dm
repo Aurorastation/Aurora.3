@@ -84,6 +84,7 @@
 	berets["beret, hydroponics"] = /obj/item/clothing/head/beret/hydro
 	berets["beret, cargo"] = /obj/item/clothing/head/beret/cargo
 	berets["beret, mining"] = /obj/item/clothing/head/beret/miner
+	berets["beret, janitor"] = /obj/item/clothing/head/beret/janitor
 
 	gear_tweaks += new/datum/gear_tweak/path(berets)
 
