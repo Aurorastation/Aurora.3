@@ -1055,6 +1055,12 @@ var/list/wall_items = typecacheof(list(
 		return details ? "datum([D.type])" : "datum"
 	if(istype(D)) // let's future proof ourselves
 		return details ? "unknown-object([D.type])" : "unknown-object"
+	// some undetectable types
+	var/proc/P = V
+	if(P) // it's a proc of some kind
+		if(istext(P?:name) && P:name != "") // procs with names are generally verbs
+			return "verb"
+		return "proc"
 	return "unknown" // if you see this there are some undetectable types in Byond, or there's a small chance that there's actually a new type
 
 /proc/format_text(text)
