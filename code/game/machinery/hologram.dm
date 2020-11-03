@@ -108,6 +108,7 @@ Possible to do for anyone motivated enough:
 			holopadlist = sortAssoc(holopadlist)
 			var/chosen_pad = input(user, "Which holopad would you like to contact?", "Holopad List") as null|anything in holopadlist
 			if(!chosen_pad)
+				last_request = world.time - 15 SECONDS
 				return
 			connected_pad = holopadlist[chosen_pad]
 			make_call(connected_pad, user, forced_call)
@@ -161,6 +162,7 @@ Possible to do for anyone motivated enough:
 		user.eyeobj.setLoc(get_turf(src))
 
 	if(!LAZYISIN(active_holograms, user)) //If there is no hologram, possibly make one.
+		visible_message("A holographic image of [user] flicks to life right before your eyes!")
 		user.holo = src
 		create_holo(user)
 	else //If there is a hologram, remove it.
