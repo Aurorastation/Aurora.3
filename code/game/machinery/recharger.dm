@@ -61,7 +61,7 @@
 			else
 				to_chat(user, "<span class='danger'>Your gripper cannot hold \the [charging].</span>")
 
-	if(!dropsafety(G))
+	if(!G.dropsafety())
 		return
 
 	if(is_type_in_list(G, allowed_devices))
@@ -121,7 +121,7 @@
 				else
 					icon_state = icon_state_charging + "80"
 				C.give(active_power_usage*CELLRATE*charging_efficiency)
-				
+
 				update_use_power(2)
 			else
 				icon_state = icon_state_charged
