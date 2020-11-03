@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - admin: "Slightly improves varedit by adding the variable type to the display."
