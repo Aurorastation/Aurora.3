@@ -1001,6 +1001,7 @@ var/list/wall_items = typecacheof(list(
 
 // Returns a variable type as string, optionally with some details:
 // Objects (datums) get their type, paths get the type name, scalars show length (text) and value (numbers), lists show length.
+var/global/known_proc = new /proc/get_type_ref_bytes
 /proc/get_debug_type(var/V, var/details = TRUE, var/print_numbers = TRUE, var/path_names = TRUE, var/text_lengths = TRUE, var/list_lengths = TRUE)
 	// scalars / basic types
 	if(isnull(V))
@@ -1047,8 +1048,18 @@ var/list/wall_items = typecacheof(list(
 		return details ? "movable([D.type])" : "movable"
 	if(isatom(D))
 		return details ? "atom([D.type])" : "atom"
+	if(istype(D, /database))
+		return details ? "database([D.type])" : "database"
+	if(istype(D, /exception))
+		return details ? "exception([D.type])" : "exception"
+	if(istype(D, /mutable_appearance)) // must come before /image
+		return details ? "mutable_appearance([D.type])" : "mutable_appearance"
 	if(istype(D, /image))
 		return details ? "image([D.type])" : "image"
+	if(istype(D, /matrix))
+		return details ? "matrix([D.type])" : "matrix"
+	if(istype(D, /sound))
+		return details ? "sound([D.type])" : "sound"
 	if(istype(D, /decl))
 		return details ? "decl([D.type])" : "decl"
 	if(isdatum(D))
@@ -1056,10 +1067,10 @@ var/list/wall_items = typecacheof(list(
 	if(istype(D)) // let's future proof ourselves
 		return details ? "unknown-object([D.type])" : "unknown-object"
 	// some undetectable types
-	var/refType = lowertext(copytext(ref(V), 4, 6))
+	var/refType = get_type_ref_bytes(V)
 	if(refType == "")
 		return "unknown"
-	if(refType == "26") // it's a proc of some kind
+	if(refType == get_type_ref_bytes(known_proc)) // it's a proc of some kind
 		if(istext(V?:name) && V:name != "") // procs with names are generally verbs
 			return "verb"
 		return "proc"
@@ -1068,6 +1079,9 @@ var/list/wall_items = typecacheof(list(
 	if(refType == "3a")
 		return "appearance"
 	return "unknown-object([refType])" // If you see this you found a new undetectable type. Feel free to add it here.
+
+/proc/get_type_ref_bytes(var/V) // returns first 4 bytes from \ref which denote the object type (for objects that is)
+	return lowertext(copytext(ref(V), 4, 6))
 
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
