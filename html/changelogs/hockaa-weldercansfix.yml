@@ -1,7 +1,0 @@
-author: Hocka, Happy_Fox
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added steel wool which can be ignited with a cell/other flame source to briefly light up an area, as well as light other things. Can be obtained via autolathe."
-  - rscadd: "Empty cans can now be turned into jury-rigged shrapnel grenades which are made by filling cans with welding fuel, adding a fuse with steel wool and lighting it using a flame source. Shorter fuses have a chance to instantly detonate and longer fuses can fizzle out prematurely. Large grenade casings can be used to increase the amount of shrapnel."
