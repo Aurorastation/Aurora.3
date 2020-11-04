@@ -32,7 +32,7 @@
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/first_responder
-	name = "Medical - Emergency Technician Storage"
+	name = "Medical - First Responder Equipment Storage"
 	icon_state = "medbay"
 
 /area/medical/temp_morgue
