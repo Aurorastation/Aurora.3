@@ -217,7 +217,7 @@
 			return FALSE
 		if(buckled_mob)
 			return FALSE
-		visible_message("[usr] collapses \the [src.name].")
+		visible_message(SPAN_NOTICE("[usr] collapses [src]."))
 		var/obj/item/wheelchair/R = new(get_turf(src))
 		R.name = src.name
 		R.desc = src.desc
