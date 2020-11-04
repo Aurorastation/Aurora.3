@@ -10,7 +10,7 @@
 
 	// The actual laptop/tablet
 	var/obj/item/modular_computer/laptop/fabricated_laptop
-	var/obj/item/modular_computer/tablet/fabricated_tablet
+	var/obj/item/modular_computer/handheld/fabricated_tablet
 
 	// Utility vars
 	var/state = 0							// 0: Select device type, 1: Select loadout, 2: Payment, 3: Thankyou screen

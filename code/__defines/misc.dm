@@ -130,10 +130,12 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED 1 //shielded from radiation, clearly
-#define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
-#define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
-#define FIRING_RANGE	8
+#define RAD_SHIELDED        1 //shielded from radiation, clearly
+#define SPAWN_ROOF          2 // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP   4 // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE        8
+#define NO_CREW_EXPECTED   16 // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define PRISON             32 // Marks prison area for purposes of checking if brigged/imprisoned
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -197,6 +199,7 @@
 #define PROGRAM_SILICON (PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT | PROGRAM_SILICON_PAI)
 #define PROGRAM_STATIONBOUND (PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT)
 #define PROGRAM_ALL_REGULAR (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN)
+#define PROGRAM_ALL_HANDHELD (PROGRAM_TABLET | PROGRAM_WRISTBOUND)
 
 #define PROGRAM_STATE_KILLED 0
 #define PROGRAM_STATE_BACKGROUND 1
@@ -213,6 +216,14 @@
 #define PROGRAM_NORMAL 1
 #define PROGRAM_SERVICE 2
 #define PROGRAM_TYPE_ALL (PROGRAM_NORMAL | PROGRAM_SERVICE)
+
+#define DEVICE_UNKNOWN 0
+#define DEVICE_COMPANY 1
+#define DEVICE_PRIVATE 2
+
+#define SCANNER_MEDICAL 1
+#define SCANNER_REAGENT 2
+#define SCANNER_GAS 4
 
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()

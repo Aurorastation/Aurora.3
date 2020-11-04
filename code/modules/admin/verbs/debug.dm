@@ -321,7 +321,7 @@
 		if("Admin")
 			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)
 			outfit_catagories["Antagonist"] = typesof(/datum/outfit/admin/syndicate)
-			outfit_catagories["Ceres Lance"] = typesof(/datum/outfit/admin/lance)
+			outfit_catagories["Event"] = typesof(/datum/outfit/admin/event)
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
 			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
 			outfit_catagories["Job"] = subtypesof(/datum/outfit/job)

@@ -38,7 +38,9 @@
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/cmo
-	pda = /obj/item/device/pda/heads/cmo
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
+	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv
 
@@ -93,7 +95,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda = /obj/item/device/pda/medical
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
 
@@ -146,7 +150,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/chemist
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/pharmacy
@@ -183,7 +189,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/psych
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
+	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
 	id = /obj/item/card/id/white
 
 /datum/outfit/job/psychiatrist/psycho
@@ -221,7 +229,9 @@
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
 	belt = /obj/item/storage/belt/medical/emt
-	pda =  /obj/item/device/pda/paramedic
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 	head = /obj/item/clothing/head/hardhat/emt
 
@@ -231,7 +241,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/intern_med
-	title = "Medical Resident"
+	title = "Medical Intern"
 	flag = INTERN_MED
 	department_flag = MEDSCI
 	faction = "Station"
@@ -241,11 +251,11 @@
 	selection_color = "#FF97D1"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
-	minimum_character_age = 25
+	minimum_character_age = 18
 	outfit = /datum/outfit/job/intern_med
 
 /datum/outfit/job/intern_med
-	name = "Medical Resident"
+	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical/intern

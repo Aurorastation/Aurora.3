@@ -23,10 +23,6 @@
 		computer_host = loc
 	else
 		return
-	// Let's remove integrated verbs for ejecting things.
-	verbs -= /obj/item/modular_computer/verb/eject_ai
-	verbs -= /obj/item/modular_computer/verb/eject_id
-	verbs -= /obj/item/modular_computer/verb/eject_usb
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle there power

@@ -39,7 +39,7 @@
 
 /mob/abstract/mental
 	universal_understand = 1
-	incorporeal_move = 1
+	incorporeal_move = INCORPOREAL_GHOST
 	density = 0
 
 /mob/abstract/mental/friend

@@ -238,7 +238,7 @@
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM)
 	var/default_citizenship = CITIZENSHIP_BIESEL
 	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
-									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_DEEPFRONTIER, ACCENT_FISANDUH, ACCENT_GADPATHUR)
+									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR)
 	var/default_accent = ACCENT_CETI
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
@@ -428,7 +428,8 @@
 
 // Used to update alien icons for aliens.
 /datum/species/proc/handle_login_special(var/mob/living/carbon/human/H)
-	return
+	if(has_autohiss && H.client)
+		H.client.autohiss_mode = H.client.prefs.autohiss_setting
 
 // As above.
 /datum/species/proc/handle_logout_special(var/mob/living/carbon/human/H)

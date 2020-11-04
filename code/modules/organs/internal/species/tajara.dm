@@ -33,7 +33,7 @@
 	if(owner.last_special > world.time)
 		return
 
-	if(use_check(user, USE_ALLOW_NON_ADJACENT))
+	if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
 		return
 
 	if(is_broken())
@@ -77,7 +77,7 @@
 			break
 			show_message = FALSE
 	if(show_message && eye_emote)
-		owner.emote("me", 1, eye_emote)
+		owner.visible_message("<b>[owner]</b>[eye_emote]")
 
 	night_vision = TRUE
 	owner.stop_sight_update = TRUE

@@ -11,6 +11,11 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_robe/kilt
+	display_name = "wasteland kilt"
+	path = /obj/item/clothing/suit/unathi/robe/kilt
 
 /datum/gear/suit/robe_coat
 	display_name = "tzirzi robe"
@@ -46,6 +51,26 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/sinta_ronin
+	display_name = "straw hat"
+	path = /obj/item/clothing/head/sinta_ronin
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/eyes/wasteland_goggles
+	display_name = "wasteland goggles"
+	path = /obj/item/clothing/glasses/safety/goggles/wasteland
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/accessory/sinta_hood
+	display_name = "clan hood"
+	slot = slot_head
+	path = /obj/item/clothing/accessory/sinta_hood
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/augment/autakh_engineering
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
@@ -73,7 +98,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Chemist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_security
@@ -103,6 +128,7 @@
 	path = /obj/item/clothing/under/unathi/mogazali
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"

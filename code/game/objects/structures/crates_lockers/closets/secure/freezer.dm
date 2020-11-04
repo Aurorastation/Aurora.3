@@ -39,6 +39,20 @@
 	for(var/i = 0, i < 8, i++)
 		new /obj/item/reagent_containers/food/snacks/meat/monkey(src)
 
+// this is enough meat to do 10 grill batches
+/obj/structure/closet/secure_closet/freezer/meat/super_meat/fill()
+	for(var/i = 0, i < 30, i++)
+		new /obj/item/reagent_containers/food/snacks/meat(src)
+	var/obj/item/reagent_containers/food/condiment/shaker/spacespice/SS = new(src)
+	SS.pixel_x = 6
+	SS.pixel_y = 12
+	var/obj/item/reagent_containers/food/condiment/shaker/salt/S = new(src)
+	S.pixel_x = 6
+	S.pixel_y = 10
+	var/obj/item/reagent_containers/food/condiment/shaker/peppermill/P = new(src)
+	P.pixel_x = 6
+	P.pixel_y = 8
+
 /obj/structure/closet/secure_closet/freezer/fridge
 	name = "refrigerator"
 	icon_state = "fridge1"

@@ -12,7 +12,9 @@
 /client/proc/debug_variables(datum/D in world)
 	set category = "Debug"
 	set name = "View Variables"
+	debug_variables_open(D)
 
+/client/proc/debug_variables_open(var/datum/D, var/search = "")
 	if(!check_rights(0))
 		return
 
@@ -34,11 +36,12 @@
 			<script src='view_variables.js'></script>
 			<title>[D] (\ref[D] - [D.type])</title>
 			<style>
-				body { font-family: Verdana, sans-serif; font-size: 9pt; }
-				.value { font-family: "Courier New", monospace; font-size: 8pt; }
+				body { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; font-size: 10pt; }
+				.key, .value { font-family: "Fira Code", Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, sans-serif; font-size: 9pt; }
+				.key { font-weight: bold }
 			</style>
 		</head>
-		<body onload='selectTextField(); updateSearch()'; onkeyup='updateSearch()'>
+		<body onload='selectTextField(); updateSearch()'>
 			<div align='center'>
 				<table width='100%'><tr>
 					<td width='50%'>
@@ -53,7 +56,7 @@
 					</td>
 					<td width='50%'>
 						<div align='center'>
-							<a href='?_src_=vars;datumrefresh=\ref[D]'>Refresh</a>
+							<a id='refresh' data-initial-href='?_src_=vars;datumrefresh=\ref[D];search=' href='?_src_=vars;datumrefresh=\ref[D];search=[search]'>Refresh</a>
 							<form>
 								<select name='file'
 								        size='1'
@@ -89,7 +92,9 @@
 					<input type='text'
 					       id='filter'
 					       name='filter_text'
-					       value=''
+					       value='[search]'
+					       onkeyup='updateSearch()'
+					       onchange='updateSearch()'
 					       style='width:100%;' />
 				</td>
 			</tr></table>
@@ -101,7 +106,7 @@
 		</html>
 		"}
 
-	usr << browse(html, "window=variables\ref[D];size=475x650")
+	usr << browse(html, "window=variables\ref[D];size=520x720")
 
 
 /proc/make_view_variables_var_list(datum/D)
@@ -166,4 +171,4 @@
 
 	var/valuestr = make_view_variables_value(value, varname)
 
-	return "<li>[ecm][varname] = [valuestr]</li>"
+	return "<li>[ecm]<span class='key'>[varname]</span> = [valuestr]</li>"

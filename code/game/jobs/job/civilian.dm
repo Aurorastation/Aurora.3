@@ -22,7 +22,9 @@
 	jobtype = /datum/job/bartender
 
 	uniform = /obj/item/clothing/under/rank/bartender
-	pda = /obj/item/device/pda/bar
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/bartender
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
 
@@ -52,7 +54,9 @@
 	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/chef
 	head = /obj/item/clothing/head/chefhat
-	pda = /obj/item/device/pda/chef
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
 
@@ -84,7 +88,9 @@
 
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	suit = /obj/item/clothing/suit/apron
-	pda = /obj/item/device/pda/botanist
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
 	suit_store = /obj/item/device/analyzer/plant_analyzer
@@ -131,7 +137,9 @@
 	jobtype = /datum/job/qm
 
 	uniform = /obj/item/clothing/under/rank/quartermaster
-	pda = /obj/item/device/pda/quartermaster
+	tab_pda = /obj/item/modular_computer/handheld/pda/supply/qm
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm
+	tablet = /obj/item/modular_computer/handheld/preset/supply/qm
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/qm
 	l_hand = /obj/item/clipboard
@@ -160,7 +168,9 @@
 	jobtype = /datum/job/cargo_tech
 
 	uniform = /obj/item/clothing/under/rank/cargo
-	pda = /obj/item/device/pda/cargo
+	tab_pda = /obj/item/modular_computer/handheld/pda/supply
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply
+	tablet = /obj/item/modular_computer/handheld/preset/supply
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/headset_cargo
@@ -191,7 +201,9 @@
 	jobtype = /datum/job/mining
 
 	uniform = /obj/item/clothing/under/rank/miner
-	pda = /obj/item/device/pda/shaftminer
+	tab_pda = /obj/item/modular_computer/handheld/pda/supply/miner
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/miner
+	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_mining
@@ -232,7 +244,9 @@
 	jobtype = /datum/job/janitor
 
 	uniform = /obj/item/clothing/under/rank/janitor
-	pda = /obj/item/device/pda/janitor
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/janitor
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/janitor
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
 
@@ -261,7 +275,9 @@
 	jobtype = /datum/job/journalist
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
-	pda = /obj/item/device/pda/librarian
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
 
@@ -274,7 +290,9 @@
 	jobtype = /datum/job/journalist
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
-	pda = /obj/item/device/pda/librarian
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 	shoes = /obj/item/clothing/shoes/black
 
 	backpack_contents = list(
@@ -304,7 +322,9 @@
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
-	pda = /obj/item/device/pda/librarian
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
 	r_pocket = /obj/item/barcodescanner
@@ -323,7 +343,8 @@
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
-	l_pocket = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
+	l_pocket = /obj/item/modular_computer/handheld/custom_loadout/advanced
 	r_pocket = /obj/item/card/tech_support
+	r_hand = /obj/item/storage/bag/circuits/basic
 	l_hand = /obj/item/modular_computer/laptop/preset
-	gloves = /obj/item/modular_computer/wristbound/preset/advanced/generic
+	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/generic

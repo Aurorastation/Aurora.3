@@ -57,7 +57,6 @@ var/global/datum/global_init/init = new ()
 	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
 	maxy = WORLD_MIN_SIZE
 
-
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs

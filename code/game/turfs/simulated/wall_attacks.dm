@@ -104,7 +104,6 @@
 	return fail_smash(user, wallbreaker)
 
 /turf/simulated/wall/attackby(obj/item/W, mob/user)
-
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!user)
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
@@ -113,6 +112,9 @@
 	//get the user's location
 	if(!istype(user.loc, /turf))
 		return	//can't do this stuff whilst inside objects and such
+
+	if(istype(W, /obj/item/plastique))
+		return
 
 	if(W)
 		radiate()
@@ -128,9 +130,18 @@
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					qdel(WR)
 				return
-		else if(!is_sharp(W) && W.force >= 10 || W.force >= 20)
-			to_chat(user, SPAN_NOTICE("\The [src] crumbles away under the force of your [W.name]."))
-			src.dismantle_wall(1)
+		else if(W.sharp)
+			user.visible_message("<b>[user]</b> starts scraping the rot away with \the [W].", SPAN_NOTICE("You start scraping the rot away with \the [W]."))
+			if(do_after(user, rand(3 SECONDS, 5 SECONDS), TRUE))
+				user.visible_message("<b>[user]</b> scrapes away the rot with \the [W].", SPAN_NOTICE("You start scraping away the rot with \the [W]."))
+				playsound(src, W.hitsound, 10, TRUE)
+				for(var/obj/effect/overlay/wallrot/WR in src)
+					WR.scrape(user)
+				return
+		else if(W.force >= 10)
+			user.do_attack_animation(src, W)
+			to_chat(user, SPAN_NOTICE("\The [src] crumbles away under the force of your [W]."))
+			dismantle_wall(TRUE)
 			return
 
 	//THERMITE related stuff. Calls src.thermitemelt() which handles melting simulated walls and the relevant effects

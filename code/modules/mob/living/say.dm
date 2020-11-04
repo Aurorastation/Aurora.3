@@ -177,11 +177,7 @@ proc/get_radio_key_from_channel(var/channel)
 			message = copytext(message,3)
 
 	message = trim(message)
-
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "*" = TRUE, "/" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending] && !(HULK in mutations))
-		message += "."
+	message = formalize_text(message)
 
 	//parse the language code and consume it
 	if(!speaking)
@@ -292,6 +288,9 @@ proc/get_radio_key_from_channel(var/channel)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
 
+	if(mind)
+		mind.last_words = message
+
 	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 	return 1
 
@@ -322,5 +321,5 @@ proc/get_radio_key_from_channel(var/channel)
 /obj/effect/speech_bubble
 	var/mob/parent
 
-/mob/living/proc/GetVoice()
+/mob/proc/GetVoice()
 	return name

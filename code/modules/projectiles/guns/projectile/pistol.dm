@@ -8,6 +8,7 @@
 	item_state = "colt"
 	caliber = ".45"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
@@ -51,6 +52,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
@@ -92,6 +94,7 @@
 	item_state = "x9"
 	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	offhand_accuracy = 1
 	load_method = MAGAZINE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shells = 16
@@ -114,6 +117,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
@@ -141,6 +145,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	offhand_accuracy = 1
 	caliber = ".45"
 	silenced = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -225,6 +230,7 @@
 	item_state = "pistol"
 	w_class = ITEMSIZE_SMALL
 	accuracy = 1
+	offhand_accuracy = 2
 	caliber = "9mm"
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)

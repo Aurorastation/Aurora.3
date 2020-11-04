@@ -160,8 +160,8 @@
 
 	//Resources are being loaded.
 	var/obj/item/eating = O
-	if(!eating.matter)
-		to_chat(user, "\The [eating] does not contain significant amounts of useful materials and cannot be accepted.")
+	if(!eating.matter || !eating.recyclable)
+		to_chat(user, SPAN_WARNING("\The [eating] cannot be recycled by \the [src]."))
 		return
 
 	var/filltype = 0       // Used to determine message.
@@ -192,7 +192,7 @@
 		mass_per_sheet += eating.matter[material]
 
 	if(!filltype)
-		to_chat(user, SPAN_NOTICE("\The [src] is full. Please remove material from the autolathe in order to insert more."))
+		to_chat(user, SPAN_WARNING("\The [src] is full. Please remove some material in order to insert more."))
 		return
 	else if(filltype == 1)
 		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with \the [eating]."))

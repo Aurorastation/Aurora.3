@@ -212,6 +212,9 @@
 	if(z in current_map.sealed_levels)
 		return
 
+	if(anchored)
+		return
+
 	if(current_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)
 		return
