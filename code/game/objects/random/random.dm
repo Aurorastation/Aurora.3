@@ -358,7 +358,7 @@
 	problist = list(
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
-		/obj/item/storage/belt/medical/emt = 0.4,
+		/obj/item/storage/belt/medical/first_responder = 0.4,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
 		/obj/item/storage/belt/janitor = 0.4

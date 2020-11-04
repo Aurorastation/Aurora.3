@@ -17,11 +17,11 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
-			access_emt, access_maint_tunnels)
+			access_first_responder, access_maint_tunnels)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
-			access_emt, access_maint_tunnels)
+			access_first_responder, access_maint_tunnels)
 
 	minimal_player_age = 10
 	ideal_character_age = 50
@@ -199,7 +199,7 @@
 	jobtype = /datum/job/psychiatrist
 
 /datum/job/med_tech
-	title = "Emergency Medical Technician"
+	title = "First Responder"
 	flag = MED_TECH
 	department = "Medical"
 	department_flag = MEDSCI
@@ -212,28 +212,28 @@
 
 	minimum_character_age = 20
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_emt)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_emt)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_first_responder)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_first_responder)
 	outfit = /datum/outfit/job/med_tech
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_IPC_G2)
 
 /datum/outfit/job/med_tech
-	name = "Emergency Medical Technician"
-	base_name = "Emergency Medical Technician"
+	name = "First Responder"
+	base_name = "First Responder"
 	jobtype = /datum/job/med_tech
 
-	uniform = /obj/item/clothing/under/rank/medical/emt
-	suit = /obj/item/clothing/suit/storage/toggle/emt_jacket
+	uniform = /obj/item/clothing/under/rank/medical/first_responder
+	suit = /obj/item/clothing/suit/storage/toggle/first_responder_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_med
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
-	belt = /obj/item/storage/belt/medical/emt
+	belt = /obj/item/storage/belt/medical/first_responder
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
-	head = /obj/item/clothing/head/hardhat/emt
+	head = /obj/item/clothing/head/hardhat/first_responder
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med

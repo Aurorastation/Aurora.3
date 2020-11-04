@@ -41846,14 +41846,14 @@
 /area/hallway/primary/central_one)
 "bwc" = (
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Central Corridor - Medical EMT Entrance";
+	c_tag = "Central Corridor - Medical First Responder Entrance";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bwd" = (
 /turf/simulated/wall,
-/area/medical/emt)
+/area/medical/first_responder)
 "bwe" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -42669,7 +42669,7 @@
 /obj/machinery/disposal,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxv" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
@@ -42689,7 +42689,7 @@
 /obj/item/storage/firstaid/o2,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxw" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -42705,7 +42705,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxx" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -42726,7 +42726,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxy" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -42746,7 +42746,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -42775,7 +42775,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -42799,7 +42799,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -42821,11 +42821,11 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
-	name = "EMT Quarters";
+	name = "First Responder Quarters";
 	req_access = list(67)
 	},
 /obj/structure/cable/green{
@@ -42844,12 +42844,12 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/medical/emt)
+/area/medical/first_responder)
 "bxD" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/effect/floor_decal/sign/emt,
+/obj/effect/floor_decal/sign/first_responder,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -43392,7 +43392,7 @@
 /area/hallway/primary/central_one)
 "byS" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "EMT Quarters";
+	name = "First Responder Quarters";
 	req_access = list(67)
 	},
 /obj/machinery/door/firedoor,
@@ -43401,14 +43401,14 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "byT" = (
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "byU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -43416,18 +43416,18 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "byV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "byW" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "byX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -43448,7 +43448,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "byZ" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -43961,15 +43961,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/first_responder)
 "bzX" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "EMT Garage Access";
+	name = "First Responder Garge Access";
 	req_access = list(67)
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bzY" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
@@ -43984,7 +43984,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/first_responder)
 "bzZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -44007,24 +44007,24 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/first_responder)
 "bAa" = (
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bAb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bAc" = (
 /obj/structure/bed/chair/office/light,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bAd" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
@@ -44341,7 +44341,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bAO" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -44396,14 +44396,14 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "emtshutter";
-	name = "EMT Garage Door"
+	id = "firstrespondershutter";
+	name = "First Responder Garge Door"
 	},
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/first_responder)
 "bAV" = (
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/first_responder)
 "bAW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -44414,7 +44414,7 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/first_responder)
 "bAZ" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/sign/securearea{
@@ -44434,7 +44434,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bBb" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -44444,7 +44444,7 @@
 /obj/item/modular_computer/console/preset/medical,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bBc" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/alarm{
@@ -44682,11 +44682,11 @@
 "bBG" = (
 /obj/structure/table/standard,
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - EMT Quarters";
+	c_tag = "Medical - First Responder Quarters";
 	dir = 1
 	},
-/obj/item/storage/belt/medical/emt,
-/obj/item/storage/belt/medical/emt,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
 /obj/item/device/gps{
 	gpstag = "MED1"
 	},
@@ -44695,7 +44695,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bBH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -44762,7 +44762,7 @@
 "bBO" = (
 /obj/machinery/light/small,
 /obj/machinery/button/remote/blast_door{
-	id = "emtshutter";
+	id = "firstrespondershutter";
 	name = "Garage Shutters Control";
 	pixel_y = -26;
 	req_access = list(5)
@@ -44771,11 +44771,11 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - EMT Garage";
+	c_tag = "Medical - First Responder Garge";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/medical/emt)
+/area/medical/first_responder)
 "bBP" = (
 /turf/simulated/wall,
 /area/crew_quarters/sleep/main)
@@ -45137,7 +45137,7 @@
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
 /turf/simulated/floor/tiled,
-/area/medical/emt)
+/area/medical/first_responder)
 "bCC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
