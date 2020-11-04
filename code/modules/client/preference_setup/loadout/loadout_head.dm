@@ -285,9 +285,7 @@
 	..()
 	var/tcfl = list()
 	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
-	tcfl["tcfl beret, sentinel"] = /obj/item/clothing/head/beret/legion/sentinel
 	tcfl["tcfl beret, legate"] = /obj/item/clothing/head/beret/legion/legate
-	tcfl["tcfl peaked cap, legate"] = /obj/item/clothing/head/legion/legate
 	gear_tweaks += new/datum/gear_tweak/path(tcfl)
 
 /datum/gear/head/padded_cap

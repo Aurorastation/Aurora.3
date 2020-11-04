@@ -502,18 +502,18 @@
 
 /obj/item/clothing/under/legion/sentinel
 	name = "Tau Ceti Foreign Legion sentinel uniform"
-	desc = "A blue uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
+	desc = "A blue field uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
 	worn_state = "taucetilegion_sentinel"
 
 /obj/item/clothing/under/legion/legate
 	name = "Tau Ceti Foreign Legion legate uniform"
-	desc = "A stark red uniform worn by senior officers of the Tau Ceti Foreign Legion."
+	desc = "A stark red field uniform worn by senior officers of the Tau Ceti Foreign Legion."
 	icon_state = "taucetilegion_legate"
 	worn_state = "taucetilegion_legate"
 
 /obj/item/clothing/under/legion/pilot
 	name = "Tau Ceti Foreign Legion flightsuit"
-	desc = "The uniform worn by Tau Ceti Foreign Legion pilots."
+	desc = "A green flightsuit worn by Tau Ceti Foreign Legion pilots."
 	icon_state = "taucetilegion_pilot"
 	worn_state = "taucetilegion_pilot"
 
@@ -548,7 +548,6 @@
 	icon_state = "lance_dress_f"
 	item_state = "lance_dress_f"
 	worn_state = "lance_dress_f"
-
 
 /obj/item/clothing/under/dress/lance_dress/male
 	name = "lance dress uniform"
