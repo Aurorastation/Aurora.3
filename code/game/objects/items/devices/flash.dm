@@ -191,7 +191,7 @@
 			if(iscarbon(loc))
 				var/mob/living/carbon/M = loc
 				M.flash_eyes()
-				to_chat(M, SPAN_WARNING("[src] goes off!"))
+				to_chat(M, SPAN_WARNING("Your [name] goes off!"))
 	..()
 
 /obj/item/device/flash/synthetic
