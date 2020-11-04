@@ -171,17 +171,17 @@
 	icon_state = "tcfl_dress"
 	item_state = "tcfl_dress"
 
+/obj/item/clothing/head/beret/legion/field
+	name = "TCFL field beret"
+	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
+	icon_state = "tcfl_field"
+	item_state = "tcfl_field"
+
 /obj/item/clothing/head/beret/legion/sentinel
 	name = "TCFL sentinel beret"
 	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
 	icon_state = "tcfl_sentinel"
 	item_state = "tcfl_sentinel"
-
-/obj/item/clothing/head/beret/legion/legate
-	name = "TCFL legate beret"
-	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "tcfl_legate"
-	item_state = "tcfl_legate"
 
 //centcom
 

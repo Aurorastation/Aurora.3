@@ -1,7 +1,7 @@
 /datum/outfit/admin/ert/legion
 	name = "TCFL Volunteer"
 
-	head = /obj/item/clothing/head/beret/legion/sentinel
+	head = /obj/item/clothing/head/beret/legion/field
 	uniform = /obj/item/clothing/under/legion
 	l_ear = /obj/item/device/radio/headset/legion
 	shoes = /obj/item/clothing/shoes/swat/ert
