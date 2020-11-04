@@ -1,8 +1,0 @@
-
-author: Chevy
-
-delete-after: True
-
-changes: 
-  - bugfix: "Swapped the buttoned and unbuttoned obj sprites for the designer red leather jacket so that it would use the buttoned sprite while buttoned and the unbuttoned sprite while unbuttoned."
-  - bugfix: "Replaced the Dominian Noble Coat 5 buttoned sprite with an actual buttoned sprite instead of it just using the unbuttoned sprite for both.  This is probably useless because I don't think it's used for anything, but I saw it while I was fixing the other thing and fixed this too."
