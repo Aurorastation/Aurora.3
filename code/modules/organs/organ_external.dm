@@ -325,7 +325,7 @@
 	var/laser = (damage_flags & DAM_LASER)
 	var/sharp = (damage_flags & DAM_SHARP)
 
-	if(laser)
+	if(laser && !BP_IS_ROBOTIC(src)) //Lasers melt through metal and shit. I dunno man.
 		return FALSE
 
 	if(BP_IS_ROBOTIC(src))
@@ -578,7 +578,7 @@ This function completely restores a damaged organ to perfect condition.
 
 /obj/item/organ/external/do_surge_effects()
 	if(prob(surge_damage))
-		owner.custom_pain("The artificial nerves in your [name] scream out in pain!", surge_damage/6, affecting = src)
+		owner.custom_pain("The artificial nerves in your [name] scream out in pain!", surge_damage/6)
 
 /obj/item/organ/external/proc/check_rigsplints()
 	if((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED))

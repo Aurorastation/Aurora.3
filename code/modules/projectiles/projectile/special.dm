@@ -3,13 +3,12 @@
 	icon_state = "ion"
 	damage = 0
 	damage_type = BURN
-	nodamage = TRUE
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_ION_ANY, BULLET_IMPACT_METAL = SOUNDS_ION_ANY)
 	check_armor = "energy"
 	var/pulse_range = 1
 
 /obj/item/projectile/ion/on_impact(var/atom/A)
 	empulse(A, pulse_range, pulse_range)
-	return TRUE
 
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
 	if(isipc(A))
@@ -25,7 +24,7 @@
 					s.broken = 1
 					s.icon_state = "surge_ipc_broken"
 					to_chat(H, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
-				return 1
+				return
 			else
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
 	if (isrobot(A))
@@ -47,8 +46,8 @@
 
 		R.emp_act(2) // Borgs emp_act is 1-2
 	else
-		A.emp_act(2)
-	return 1
+		A.emp_act(3)
+	return
 
 /obj/item/projectile/ion/small
 	name = "ion pulse"

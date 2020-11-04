@@ -727,10 +727,11 @@
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			stat = UNCONSCIOUS
-
 			adjustHalLoss(-3)
 			if (species.tail)
 				animate_tail_reset()
+			if(prob(2) && is_asystole() && isSynthetic())
+				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")]")
 
 		if(paralysis)
 			AdjustParalysis(-1)

@@ -138,11 +138,6 @@
 	H.f_style = ""
 	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
 
-/datum/species/machine/handle_death_check(mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
-		return TRUE
-	return FALSE
-
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
 

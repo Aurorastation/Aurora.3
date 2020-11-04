@@ -353,8 +353,9 @@
 				disarm_cost = M.max_stamina / 6
 				usesStamina = TRUE
 			else if(M.max_stamina <= 0)
-				if(isSynthetic(M))
+				if(M.isSynthetic())
 					disarm_cost = potato.maxcharge / 24
+				disarm_cost = M.max_nutrition / 6
 				usesStamina = FALSE
 
 			if(usesStamina)
@@ -384,11 +385,13 @@
 				M.stamina = Clamp(M.stamina, 0, M.max_stamina)
 			else if(M.isSynthetic())
 				cell.use(disarm_cost)
+			else
+				M.nutrition = Clamp(M.nutrition - disarm_cost, 0, M.max_nutrition)
 
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
-			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
 
+			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
 			var/list/holding = list(get_active_hand() = 40, get_inactive_hand() = 20)
 
 			//See if they have any weapons to retaliate with

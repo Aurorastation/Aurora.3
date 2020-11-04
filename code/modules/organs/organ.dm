@@ -355,11 +355,13 @@
 
 	switch (severity)
 		if (1.0)
-			take_surge_damage(rand(7,20) * emp_coeff * organ_fragility)
+			take_surge_damage(15 * emp_coeff * organ_fragility)
 		if (2.0)
-			take_surge_damage(rand(3,7) * emp_coeff * organ_fragility)
+			take_surge_damage(8 * emp_coeff * organ_fragility)
 		if(3.0)
-			take_surge_damage(rand(3) * emp_coeff * organ_fragility)
+			take_surge_damage(4 * emp_coeff * organ_fragility)
+
+	return TRUE
 
 #define MAXIMUM_SURGE_DAMAGE 100
 /obj/item/organ/proc/take_surge_damage(var/surge)
