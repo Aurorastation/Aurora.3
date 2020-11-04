@@ -454,24 +454,6 @@
 
 //Tau Ceti Foreign Legion
 
-/obj/item/clothing/head/legion_beret
-	name = "TCFL dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
-	icon_state = "legion_beret"
-	item_state = "legion_beret"
-
-/obj/item/clothing/head/legion
-	name = "TCFL field beret"
-	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "legion_field_beret"
-	item_state = "legion_field_beret"
-
-/obj/item/clothing/head/legion/sentinel
-	name = "TCFL sentinel beret"
-	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "legion_sentinel_beret"
-	item_state = "legion_sentinel_beret"
-
 /obj/item/clothing/head/legion/legate
 	name = "TCFL peaked cap"
 	desc = "A stark red peaked cap. Worn by senior officers of the Tau Ceti Foreign Legion."
