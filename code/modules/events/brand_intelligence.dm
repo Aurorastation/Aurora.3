@@ -17,7 +17,7 @@
 		vendingMachines.Add(V)
 
 	if(!vendingMachines.len)
-		kill()
+		kill(TRUE)
 		return
 
 	originMachine = pick(vendingMachines)

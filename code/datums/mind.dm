@@ -70,6 +70,7 @@
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
+	var/last_words
 	var/ambitions
 
 /datum/mind/New(var/key)
@@ -466,13 +467,8 @@
 	var/is_currently_brigged = 0
 	if(A?.is_prison())
 		is_currently_brigged = 1
-		for(var/obj/item/card/id/card in current)
+		if(current.GetIdCard())
 			is_currently_brigged = 0
-			break // if they still have ID they're not brigged
-		for(var/obj/item/device/pda/P in current)
-			if(P.id)
-				is_currently_brigged = 0
-				break // if they still have ID they're not brigged
 
 	if(!is_currently_brigged)
 		brigged_since = -1

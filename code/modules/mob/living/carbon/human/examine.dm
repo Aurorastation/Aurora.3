@@ -115,11 +115,6 @@
 	//gloves
 	if(gloves && !skipgloves)
 		var/gloves_name = gloves
-		if(istype(wear_id, /obj/item/modular_computer))
-			var/obj/item/modular_computer/C = wear_id
-			var/obj/item/card/id/ID = C.GetID()
-			if(ID)
-				gloves_name = "[C.name] ([ID.registered_name] ([ID.assignment]))"
 		if(gloves.blood_color)
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [icon2html(gloves, user)] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves_name]</a> on [get_pronoun("his")] hands!</span>\n"
 		else
@@ -179,11 +174,6 @@
 	//ID
 	if(wear_id)
 		var/id_name = wear_id
-		if(istype(wear_id, /obj/item/modular_computer))
-			var/obj/item/modular_computer/C = wear_id
-			var/obj/item/card/id/ID = C.GetID()
-			if(ID)
-				id_name = "[C.name] ([ID.registered_name] ([ID.assignment]))"
 		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_id, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_id]'>\a [id_name]</a>.\n"
 
 	//Jitters

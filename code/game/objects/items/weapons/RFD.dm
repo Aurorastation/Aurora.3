@@ -141,7 +141,8 @@
 	item_state = "rfdammo"
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 15000)
+	matter = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	recyclable = TRUE
 
 /*
 RFD Construction-Class

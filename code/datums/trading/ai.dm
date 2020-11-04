@@ -32,7 +32,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/assembly_holder            = TRADER_BLACKLIST_ALL,
 		/obj/item/device/encryptionkey              = TRADER_BLACKLIST_SUB, //Why should ai want NT encryption keys?
 		/obj/item/device/radio                      = TRADER_BLACKLIST_ALL,
-		/obj/item/device/pda                        = TRADER_BLACKLIST_SUB,
 		/obj/item/device/chameleon                  = TRADER_BLACKLIST, // Why should it want a chameleon projector
 		/obj/item/device/dociler                    = TRADER_BLACKLIST, //Item unobtaineable
 		/obj/item/device/flashlight/drone           = TRADER_BLACKLIST, // No drone stuff

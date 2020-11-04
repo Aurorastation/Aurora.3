@@ -71,6 +71,9 @@
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
 
+/obj/machinery/power/apc/low
+	cell_type = /obj/item/cell
+
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
 
@@ -483,6 +486,12 @@
 		return attack_hand(user)
 	if(!istype(W, /obj/item/forensics))
 		add_fingerprint(user)
+	if(istype(W, /obj/item/modular_computer))
+		var/obj/item/modular_computer/C = W
+		if(istype(C.tesla_link, /obj/item/computer_hardware/tesla_link/charging_cable))
+			var/obj/item/computer_hardware/tesla_link/charging_cable/CC = C.tesla_link
+			CC.toggle(src, user)
+			return
 	if (W.iscrowbar() && opened)
 		if (has_electronics == HAS_ELECTRONICS_CONNECT)
 			if (terminal)

@@ -35,7 +35,6 @@
 	new /obj/item/clothing/under/rank/research_director/rdalt(src)
 	new /obj/item/clothing/under/rank/research_director/dress_rd(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/cartridge/rd(src)
 	new /obj/item/clothing/shoes/science(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)

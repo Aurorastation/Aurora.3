@@ -25,6 +25,7 @@
 	var/burst_shots = 3
 	var/last_shot = 0
 	var/shot_number = 0
+	var/shot_counter = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
 
@@ -44,8 +45,10 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire."))
 		if(EMITTER_WELDED)
 			to_chat(user, SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire."))
-	if(signaler && user.Adjacent(src))
-		to_chat(user, FONT_SMALL(SPAN_WARNING("\The [src] has a hidden signaler attached to it.")))
+	if(Adjacent(user))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("The shot counter display reads: [shot_counter]")))
+		if(signaler)
+			to_chat(user, FONT_SMALL(SPAN_WARNING("\The [src] has a hidden signaler attached to it.")))
 
 /obj/machinery/power/emitter/Destroy()
 	if(special_emitter)
@@ -93,6 +96,7 @@
 			else
 				active = TRUE
 				shot_number = 0
+				shot_counter = 0
 				fire_delay = 100
 				if(user)
 					to_chat(user, SPAN_NOTICE("You activate \the [src]."))
@@ -156,6 +160,7 @@
 		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter(get_turf(src))
 		A.damage = round(power_per_shot / EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch_projectile(get_step(src, dir))
+		shot_counter++
 
 /obj/machinery/power/emitter/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/device/assembly/signaler))

@@ -14,6 +14,11 @@
 	req_access = list(access_research)
 	circuit = /obj/item/circuitboard/research_shuttle
 
+/obj/machinery/computer/shuttle_control/multi/research
+	name = "research shuttle control computer"
+	shuttle_tag = "Research Shuttle"
+	req_access = list(access_research)
+
 /datum/shuttle/autodock/ferry/research_aurora
 	var/triggered_away_sites = FALSE
 

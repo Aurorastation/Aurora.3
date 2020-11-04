@@ -138,12 +138,11 @@
 	from Luna to Xanu - are, one way or another, descended from this ancient accent."
 	tag_icon = "earth"
 
-/datum/accent/deepfrontier
-	name = ACCENT_DEEPFRONTIER
-	description = "The so-called \"Deep Frontier\" accent is not truly a unified accent at all, and instead defines a broad range of accents from the more \"wild\" frontier outside of human control. \
-	Those with these accents are almost universally looked down upon as wild savages by their counterparts in more civilized space at best. Speakers of this accent are almost always found in lower-end \
-	positions in civilized space, due to the typically impoverished and anarchic nature of the Deep Frontier."
-	tag_icon = "deepfrontier"
+/datum/accent/ncf
+	name = ACCENT_NCF
+	description = "The non-Coalition frontier 'accent' is not a true accent in of itself, but is instead used as a catch-all term for human accents originating outside of the frontier controlled by the Coalition of Colonies. \
+	These planets and systems vary wildly, and all sorts of people and places can be found within them."
+	tag_icon = "noncoalitionfrontier"
 
 /datum/accent/fisanduh
 	name = ACCENT_FISANDUH
