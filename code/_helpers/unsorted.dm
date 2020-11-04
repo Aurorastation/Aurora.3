@@ -1001,8 +1001,9 @@ var/list/wall_items = typecacheof(list(
 
 // Returns a variable type as string, optionally with some details:
 // Objects (datums) get their type, paths get the type name, scalars show length (text) and value (numbers), lists show length.
+// Also attempts some detection of otherwise undetectable types using ref IDs
 var/global/known_proc = new /proc/get_type_ref_bytes
-/proc/get_debug_type(var/V, var/details = TRUE, var/print_numbers = TRUE, var/path_names = TRUE, var/text_lengths = TRUE, var/list_lengths = TRUE)
+/proc/get_debug_type(var/V, var/details = TRUE, var/print_numbers = TRUE, var/path_names = TRUE, var/text_lengths = TRUE, var/list_lengths = TRUE, var/show_useless_subtypes = TRUE)
 	// scalars / basic types
 	if(isnull(V))
 		return "null"
@@ -1034,8 +1035,6 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 	// Finally actual objects that inherit from /datum
 	// We want to differentiate at least the basic "special" Byond types
 	var/datum/D = V
-	if(istype(V, /regex))
-		return "regex"
 	if(isarea(D))
 		return details ? "area([D.type])" : "area"
 	if(isturf(D))
@@ -1049,15 +1048,17 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 	if(isatom(D))
 		return details ? "atom([D.type])" : "atom"
 	if(istype(D, /database))
-		return details ? "database([D.type])" : "database"
+		return details && show_useless_subtypes ? "database([D.type])" : "database"
 	if(istype(D, /exception))
-		return details ? "exception([D.type])" : "exception"
+		return details && show_useless_subtypes ? "exception([D.type])" : "exception"
 	if(istype(D, /mutable_appearance)) // must come before /image
-		return details ? "mutable_appearance([D.type])" : "mutable_appearance"
+		return details && show_useless_subtypes ? "mutable_appearance([D.type])" : "mutable_appearance"
 	if(istype(D, /image))
 		return details ? "image([D.type])" : "image"
 	if(istype(D, /matrix))
-		return details ? "matrix([D.type])" : "matrix"
+		return details && show_useless_subtypes ? "matrix([D.type])" : "matrix"
+	if(istype(D, /regex))
+		return details && show_useless_subtypes ? "regex([D.type])" : "regex"
 	if(istype(D, /sound))
 		return details ? "sound([D.type])" : "sound"
 	if(istype(D, /decl))
