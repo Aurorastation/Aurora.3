@@ -1026,9 +1026,9 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 	if(isfile(V))
 		return "file"
 	// Types that don't inherit from /datum (note that /world is not here because you can't hold a reference to it)
-	if(istype(V, /list))
+	if(islist(V))
 		return details && list_lengths ? "list([length(V)])" : "list"
-	if(istype(V, /client))
+	if(isclient(V))
 		return "client"
 	if(istype(V, /savefile))
 		return "savefile"
