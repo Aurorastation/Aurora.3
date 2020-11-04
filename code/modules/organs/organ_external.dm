@@ -332,7 +332,7 @@
 		damage_amt += burn
 		cur_damage += burn_dam
 		if(laser)
-			owner.bodytemperature += burn / 5 // 30 / 5 = 6C per laser rifle shot? todomatt
+			owner.bodytemperature += burn / 5
 
 	if(!damage_amt)
 		return FALSE
