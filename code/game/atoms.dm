@@ -123,14 +123,14 @@
 
 	verbs += the_verb
 
-#define NOT_FLAG(flag) (!(flag & use_flags))
 #define HAS_FLAG(flag) (flag & use_flags)
+#define NOT_FLAG(flag) !HAS_FLAG(flag)
 
 // Checks if user can use this object. Set use_flags to customize what checks are done.
 // Returns 0 if they can use it, a value representing why they can't if not.
 // Flags are in `code/__defines/misc.dm`
 /atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
-	. = 0
+	. = USE_SUCCESS
 	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
 		// No message for ghosts.
 		return USE_FAIL_NONLIVING
