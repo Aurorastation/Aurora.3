@@ -255,7 +255,7 @@
 	overdose = REAGENTS_OVERDOSE
 	od_minimum_dose = 2
 	scannable = TRUE
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sickness"
@@ -278,7 +278,7 @@
 	overdose = 15
 	scannable = TRUE
 	od_minimum_dose = 2
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sourness"
@@ -287,8 +287,10 @@
 
 /datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
-	M.eye_blurry = max(M.eye_blurry, 5)
-	M.confused = max(M.confused, 10)
+	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
+		M.eye_blurry = max(M.eye_blurry, 5)
+	if(!locate(/datum/reagent/alkysine) in M.reagents.reagent_list)
+		M.confused = max(M.confused, 10)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -322,8 +324,10 @@
 
 /datum/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 70)
-	M.eye_blurry = max(M.eye_blurry, 3)
-	M.confused = max(M.confused, 6)
+	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
+		M.eye_blurry = max(M.eye_blurry, 3)
+	if(!locate(/datum/reagent/alkysine) in M.reagents.reagent_list)
+		M.confused = max(M.confused, 6)
 
 /datum/reagent/oxycomorphine
 	name = "Oxycomorphine"
@@ -333,7 +337,7 @@
 	overdose = 10
 	od_minimum_dose = 2
 	scannable = TRUE
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
@@ -342,8 +346,10 @@
 
 /datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
-	M.eye_blurry = max(M.eye_blurry, 5)
-	M.confused = max(M.confused, 20)
+	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
+		M.eye_blurry = max(M.eye_blurry, 5)
+	if(!locate(/datum/reagent/alkysine) in M.reagents.reagent_list)
+		M.confused = max(M.confused, 20)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -390,8 +396,10 @@
 	M.AdjustWeakened(-1)
 	holder.remove_reagent(/datum/reagent/mindbreaker, 5)
 	M.hallucination = max(0, M.hallucination - 10)
-	M.eye_blurry = max(M.eye_blurry - 5, 0)
-	M.confused = max(M.confused - 10, 0)
+	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
+		M.eye_blurry = max(M.eye_blurry - 5, 0)
+	if(!locate(/datum/reagent/alkysine) in M.reagents.reagent_list)
+		M.confused = max(M.confused - 10, 0)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
@@ -1158,7 +1166,8 @@
 
 /datum/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_chemical_effect(CE_PACIFIED, 1)
-	M.eye_blurry = max(M.eye_blurry, 30)
+	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
+		M.eye_blurry = max(M.eye_blurry, 30)
 	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list))
 		M.ear_deaf = 20
 		M.drowsyness = max(M.drowsyness, 10)

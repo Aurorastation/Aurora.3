@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Perconol, mortaphenyl, and oxycomorphine now metabolize three times faster."
+  - rscadd: "Alkysine can now be used to counteract confused moving chem side effects, while oculine can be used to counteract eyeblur chem side effects."
