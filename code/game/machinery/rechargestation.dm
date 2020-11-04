@@ -85,27 +85,38 @@
 
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()
+	if(!isrobot(occupant) && !ishuman(occupant))
+		return
+
+	var/obj/item/cell/target
 	if(isrobot(occupant))
 		var/mob/living/silicon/robot/R = occupant
 
 		if(R.module)
 			R.module.respawn_consumable(R, charging_power * CELLRATE / 250) //consumables are magical, apparently
-		if(R.cell && !R.cell.fully_charged())
-			var/diff = min(R.cell.maxcharge - R.cell.charge, charging_power * CELLRATE) // Capped by charging_power / tick
-			var/charge_used = cell.use(diff)
-			R.cell.give(charge_used*charging_efficiency)
+			target = R.cell
+			//R.cell.give(charge_used*charging_efficiency)
 
 		//Lastly, attempt to repair the cyborg if enabled
 		if(weld_rate && R.getBruteLoss() && cell.checked_use(weld_power_use * weld_rate * CELLRATE))
 			R.adjustBruteLoss(-weld_rate)
 		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
 			R.adjustFireLoss(-wire_rate)
-	else if(ishuman(occupant))
-		var/mob/living/carbon/human/H = occupant
-		if(!isnull(H.internal_organs_by_name[BP_CELL]) && H.nutrition < H.max_nutrition)
-			H.adjustNutritionLoss(-10)
-			cell.use(7000/H.max_nutrition*10)
 
+	if(ishuman(occupant))
+		var/mob/living/carbon/human/H = occupant
+		var/obj/item/organ/internal/cell/potato = H.internal_organs_by_name[BP_CELL]
+		if(potato)
+			target = potato.cell
+		if((!target || target.percent() > 95) && istype(H.back, /obj/item/rig))
+			var/obj/item/rig/R = H.back
+			if(R.cell && !R.cell.fully_charged())
+				target = R.cell
+
+	if(target && !target.fully_charged())
+		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE) // Capped by charging_power / tick
+		var/charge_used = cell.use(diff)
+		target.give(charge_used)
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
@@ -220,12 +231,12 @@
 	if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
 		if(R.cell)
-			return 1
+			return TRUE
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(!isnull(H.internal_organs_by_name[BP_CELL]))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /obj/machinery/recharge_station/proc/go_out()
 	if(!occupant)

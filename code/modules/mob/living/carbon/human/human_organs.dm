@@ -105,7 +105,9 @@
 		if(!(lying || resting))
 			if(can_feel_pain())
 				emote("scream")
-			emote("collapse")
+			if(!weakened)
+				custom_emote(VISIBLE_MESSAGE, "collapses!")
+		Weaken(3)
 
 /mob/living/carbon/human/proc/handle_grasp()
 	if(!l_hand && !r_hand)
@@ -197,7 +199,12 @@
 	return FALSE
 
 /mob/living/carbon/human/is_asystole()
-	if(species.has_organ[BP_HEART] && !isSynthetic())
+	if(isSynthetic())
+		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		if(istype(C))
+			if(!C.is_usable() || !C.percent())
+				return TRUE
+	else if(should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 		if(!istype(heart) || !heart.is_working())
 			return TRUE

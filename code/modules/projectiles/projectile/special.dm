@@ -3,13 +3,13 @@
 	icon_state = "ion"
 	damage = 0
 	damage_type = BURN
-	nodamage = 1
+	nodamage = TRUE
 	check_armor = "energy"
 	var/pulse_range = 1
 
 /obj/item/projectile/ion/on_impact(var/atom/A)
 	empulse(A, pulse_range, pulse_range)
-	return 1
+	return TRUE
 
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
 	if(isipc(A))
@@ -28,9 +28,7 @@
 				return 1
 			else
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
-		H.Weaken(5)
-		to_chat(H, "<span class='danger'>ERROR: detected low setting EMP, acutators experience temporary power loss. Attempting to restore power.</span>")
-	else if (isrobot(A))
+	if (isrobot(A))
 		var/mob/living/silicon/robot/R = A
 		var/datum/robot_component/surge/C = R.components["surge"]
 		if(C && C.installed)
@@ -49,7 +47,7 @@
 
 		R.emp_act(2) // Borgs emp_act is 1-2
 	else
-		A.emp_act(3) // Deals less EMP damage then lethal setting, and not areal pulse
+		A.emp_act(2)
 	return 1
 
 /obj/item/projectile/ion/small

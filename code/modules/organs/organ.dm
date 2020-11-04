@@ -16,7 +16,7 @@
 
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
-	var/surge_damage = 0 // EMP counter.
+	var/surge_damage = 0 // EMP damage counter.
 	var/surge_time   = 0
 	var/min_broken_damage = 30
 	var/min_bruised_damage = 10 // Damage before considered bruised
@@ -361,11 +361,12 @@
 		if(3.0)
 			take_surge_damage(rand(3) * emp_coeff * organ_fragility)
 
+#define MAXIMUM_SURGE_DAMAGE 100
 /obj/item/organ/proc/take_surge_damage(var/surge)
 	if(!(status & ORGAN_ASSISTED))
 		return //We check earlier, but just to make sure.
 
-	surge_damage = Clamp(0, surge + surge_damage, 50) //We want 5 seconds at most of hampered movement or what have you.
+	surge_damage = Clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
 	surge_time = world.time
 
 /obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)

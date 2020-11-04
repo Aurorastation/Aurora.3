@@ -57,7 +57,6 @@
 	var/overclock_available = FALSE // if the overclock is available for use
 
 	// HUD Stuff
-	var/obj/screen/cells
 	var/obj/screen/inv1
 	var/obj/screen/inv2
 	var/obj/screen/inv3

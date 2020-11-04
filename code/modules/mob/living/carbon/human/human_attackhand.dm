@@ -344,12 +344,17 @@
 		if(I_DISARM)
 			var/disarm_cost
 			var/usesStamina
+			var/obj/item/organ/internal/cell/cell = M.internal_organs_by_name[BP_CELL]
+			var/obj/item/cell/potato
+			if(cell)
+				potato = cell.cell
 
 			if(M.max_stamina > 0)
 				disarm_cost = M.max_stamina / 6
 				usesStamina = TRUE
 			else if(M.max_stamina <= 0)
-				disarm_cost = M.max_nutrition / 8
+				if(isSynthetic(M))
+					disarm_cost = potato.maxcharge / 24
 				usesStamina = FALSE
 
 			if(usesStamina)
@@ -377,9 +382,8 @@
 			if(usesStamina)
 				M.stamina = M.stamina - disarm_cost //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
 				M.stamina = Clamp(M.stamina, 0, M.max_stamina)
-			else
-				M.nutrition = M.nutrition - disarm_cost
-				M.nutrition = Clamp(M.nutrition, 0, M.max_nutrition)
+			else if(M.isSynthetic())
+				cell.use(disarm_cost)
 
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)

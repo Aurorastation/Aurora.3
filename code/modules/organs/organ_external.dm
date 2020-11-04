@@ -576,6 +576,10 @@ This function completely restores a damaged organ to perfect condition.
 	else
 		..()
 
+/obj/item/organ/external/do_surge_effects()
+	if(prob(surge_damage))
+		owner.custom_pain("The artificial nerves in your [name] scream out in pain!", surge_damage/6, affecting = src)
+
 /obj/item/organ/external/proc/check_rigsplints()
 	if((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED))
 		if(istype(owner,/mob/living/carbon/human))
@@ -588,7 +592,7 @@ This function completely restores a damaged organ to perfect condition.
 				var/obj/item/clothing/suit/space/suit = H.wear_suit
 				if(isnull(suit.supporting_limbs))
 					return
-				to_chat(owner, "You feel \the [suit] constrict about your [name], supporting it.")
+				to_chat(owner, SPAN_WARNING("You feel \the [suit] constrict about your [name], supporting it."))
 				status |= ORGAN_SPLINTED
 				suit.supporting_limbs |= src
 				owner.update_hud_hands()
@@ -1098,7 +1102,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return ..() && !is_dislocated() && !(status & ORGAN_TENDON_CUT) && (!can_feel_pain() || get_pain() < pain_disability_threshold) && brute_ratio < 1 && burn_ratio < 1
 
 /obj/item/organ/external/proc/is_malfunctioning()
-	if(BP_IS_ROBOTIC(src) && (brute_ratio + burn_ratio) >= 0.3 && prob(brute_dam + burn_dam) || surge_damage)
+	if(BP_IS_ROBOTIC(src) && (brute_ratio + burn_ratio) >= 0.3 && prob(brute_dam + burn_dam) || (surge_damage > (MAXIMUM_SURGE_DAMAGE * 0.25)))
 		return TRUE
 	if(robotize_type)
 		var/datum/robolimb/R = all_robolimbs[robotize_type]

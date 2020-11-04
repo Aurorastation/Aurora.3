@@ -81,11 +81,11 @@
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
 		BP_CELL    = /obj/item/organ/internal/cell,
-		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
 
-	vision_organ = BP_OPTICS
+	vision_organ = BP_EYES
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
@@ -131,22 +131,17 @@
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
-		H.adjustNutritionLoss(cost * sprint_charge_factor)
-		if(H.nutrition <= 0 && H.max_nutrition > 0)
-			H.Weaken(15)
-			H.m_intent = "walk"
-			H.hud_used.move_intent.update_move_icon(H)
-			to_chat(H, SPAN_DANGER("ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
-			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
-		else
-			return 1
-
-	return 0
+	return TRUE
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.f_style = ""
 	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
+
+/datum/species/machine/handle_death_check(mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
@@ -300,11 +295,6 @@
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-
-/datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
-		return TRUE
-	return FALSE
 
 /datum/species/machine/has_psi_potential()
 	return FALSE
