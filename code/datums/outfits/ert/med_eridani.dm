@@ -3,7 +3,7 @@
 
 	uniform = /obj/item/clothing/under/rank/eridani_medic
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
-	head = /obj/item/clothing/head/beret/sec/eri
+	head = /obj/item/clothing/head/beret/security/eri
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	shoes = /obj/item/clothing/shoes/jackboots
