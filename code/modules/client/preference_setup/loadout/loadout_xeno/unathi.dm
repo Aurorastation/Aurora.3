@@ -11,6 +11,11 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_robe/kilt
+	display_name = "wasteland kilt"
+	path = /obj/item/clothing/suit/unathi/robe/kilt
 
 /datum/gear/suit/robe_coat
 	display_name = "tzirzi robe"
@@ -42,6 +47,26 @@
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/sinta_ronin
+	display_name = "straw hat"
+	path = /obj/item/clothing/head/sinta_ronin
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/eyes/wasteland_goggles
+	display_name = "wasteland goggles"
+	path = /obj/item/clothing/glasses/safety/goggles/wasteland
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/accessory/sinta_hood
+	display_name = "clan hood"
+	slot = slot_head
+	path = /obj/item/clothing/accessory/sinta_hood
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -103,6 +128,7 @@
 	path = /obj/item/clothing/under/unathi/mogazali
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"

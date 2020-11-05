@@ -121,7 +121,7 @@
 		burst()
 
 /mob/living/simple_animal/hostile/hivebot/bomber/proc/burst()
-	fragem(src,10,30,2,3,5,1,0)
+	fragem(src,10,30,2,3,5,1,FALSE)
 	src.gib()
 
 /mob/living/simple_animal/hostile/hivebot/range

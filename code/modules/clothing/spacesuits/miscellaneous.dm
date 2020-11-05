@@ -17,7 +17,10 @@
 /obj/item/clothing/head/helmet/space/deathsquad/beret
 	name = "officer's beret"
 	desc = "An armored beret commonly used by special operations officers."
-	icon_state = "beret_badge"
+	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon_state = "beret_sec"
+	item_state = "beret_sec"
+	contained_sprite = TRUE
 	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
 	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = BLOCKHAIR

@@ -60807,7 +60807,7 @@
 /area/engineering/engine_waste)
 "fXR" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/beret/sec{
+/obj/item/clothing/head/beret/security{
 	desc = "A beret with the security insignia emblazoned on it. It is horribly dirty and stained.";
 	name = "Smudged security beret"
 	},
