@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - tweak: "Buckets and sinks now transfer maximum amount per use. Sinks also have new info description reminding people that they can change the amount transferred."
