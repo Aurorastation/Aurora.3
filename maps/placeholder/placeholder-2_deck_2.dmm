@@ -1635,14 +1635,6 @@
 /obj/machinery/door/airlock/glass_medical,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"gB" = (
-/obj/structure/closet/secure_closet/personal/patient,
-/obj/effect/floor_decal/corner_wide/green/full{
-	dir = 8;
-	icon_state = "wide_corner_full"
-	},
-/turf/simulated/floor/tiled/white,
-/area/janitor)
 "gE" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1;
@@ -1813,11 +1805,11 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "ij" = (
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/green{
 	dir = 5;
 	icon_state = "corner_white"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "ik" = (
@@ -2346,11 +2338,8 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "mE" = (
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
-	},
-/obj/structure/closet/secure_closet/personal/patient,
+/obj/structure/curtain/medical,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "mF" = (
@@ -2512,13 +2501,8 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "og" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
-	},
+/obj/structure/closet/secure_closet/personal/patient,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "oj" = (
@@ -3121,8 +3105,11 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "tE" = (
-/obj/machinery/door/airlock/medical,
-/turf/simulated/floor/tiled,
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/janitor)
 "tP" = (
 /obj/structure/table/reinforced,
@@ -3360,10 +3347,7 @@
 "vT" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
-	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "vV" = (
@@ -3715,13 +3699,12 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "yU" = (
-/obj/structure/bed/chair{
-	dir = 4
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
-	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "yY" = (
@@ -4320,16 +4303,11 @@
 /turf/simulated/floor/carpet,
 /area/template_noop)
 "Fj" = (
-/obj/machinery/power/apc{
-	dir = 2;
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
+/obj/structure/table/standard,
+/obj/structure/flora/pottedplant/random{
+	pixel_y = 8
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
-	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Fm" = (
@@ -4533,16 +4511,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"GU" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
-	},
-/turf/simulated/floor/tiled/white,
-/area/janitor)
 "GV" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10;
@@ -4680,7 +4648,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Id" = (
-/obj/structure/curtain/open/medical,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Ig" = (
@@ -5238,12 +5211,12 @@
 /turf/simulated/floor/wood,
 /area/template_noop)
 "Me" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5;
 	icon_state = "corner_white"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -6023,14 +5996,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"SN" = (
-/obj/structure/sink/kitchen{
-	dir = 8;
-	name = "sink";
-	pixel_x = 21
-	},
-/turf/simulated/floor/tiled/white,
-/area/janitor)
 "SP" = (
 /obj/structure/bed/psych,
 /obj/item/bedsheet/brown,
@@ -6558,17 +6523,6 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/janitor)
-"WP" = (
-/obj/structure/table/standard,
-/obj/structure/flora/pottedplant/random{
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
-	},
-/turf/simulated/floor/tiled/white,
 /area/janitor)
 "WQ" = (
 /obj/machinery/shieldwallgen,
@@ -28864,19 +28818,19 @@ ad
 ab
 ac
 ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
 ab
 ab
-ar
+ay
 ab
 ab
-ad
+ab
+ab
+ab
+ab
+dR
+ab
+ab
+Pu
 ab
 ab
 ab
@@ -29122,20 +29076,20 @@ ab
 ab
 ar
 ab
+og
+Uv
+tE
+Uv
+og
 ab
-ar
-ab
-ab
-ab
-ab
-ab
-ab
+PD
+PD
 Me
 hH
 ab
 ad
+ad
 ab
-ac
 ac
 ac
 ac
@@ -29379,20 +29333,20 @@ ab
 ad
 ad
 ab
-gB
-BO
-yU
-WP
-BO
-GU
-Fj
+vT
+Uv
+Uv
+Uv
+vT
 ab
-jK
+PD
+PD
+Me
 hH
 ab
 ad
+ad
 ab
-ac
 ac
 ac
 ac
@@ -29637,19 +29591,19 @@ ad
 ad
 ab
 mE
-ah
-ah
-ah
-ah
-SN
-ah
+mE
+Uv
+mE
+mE
 ab
-jK
+PD
+PD
+Me
 ah
-tE
+Pu
+ad
 ad
 ab
-ac
 ac
 ac
 ac
@@ -29894,19 +29848,19 @@ ad
 ad
 ab
 og
-ah
-ah
-ah
-ah
+Uv
+Uv
+Uv
+Fj
 ab
-Hg
+ab
 ab
 ij
 CY
 ab
 ab
 ab
-ac
+ab
 ac
 ac
 ac
@@ -30151,11 +30105,11 @@ ad
 ad
 ab
 vT
+Uv
+yU
 Id
-Le
-Id
-Le
-ab
+Uv
+Hg
 zD
 IM
 sj
@@ -30682,7 +30636,7 @@ Uv
 Uv
 Uv
 Xc
-ac
+ah
 ac
 ac
 ac
@@ -30939,7 +30893,7 @@ Uv
 Uv
 Uv
 Uv
-ac
+ah
 ac
 ac
 ac
@@ -43013,7 +42967,7 @@ bl
 bl
 bl
 ab
-ac
+dF
 ac
 aq
 ac
@@ -43270,7 +43224,7 @@ bl
 bl
 bl
 ab
-ac
+MN
 ac
 ab
 ab
