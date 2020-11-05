@@ -242,8 +242,10 @@
 /obj/item/projectile/beam/mousegun/emag
 	name = "diffuse electrical arc"
 
-	taser_effect = 1
-	agony = 60
+	nodamage = FALSE
+	damage_type = BURN
+	damage = 15
+	agony = 30
 
 /obj/item/projectile/beam/mousegun/emag/mousepulse(turf/epicenter, range, log=0)
 	if(!epicenter)

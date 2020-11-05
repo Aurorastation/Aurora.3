@@ -312,6 +312,7 @@
 	SearchVar(skin_styles_female_list)
 	SearchVar(body_marking_styles_list)
 	SearchVar(backbaglist)
+	SearchVar(pdalist)
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)

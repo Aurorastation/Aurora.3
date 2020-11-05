@@ -2,6 +2,7 @@
 /datum/computer_file/program
 	filetype = "PRG"
 	filename = "UnknownProgram"								// File name. FILE NAME MUST BE UNIQUE IF YOU WANT THE PROGRAM TO BE DOWNLOADABLE FROM NTNET!
+	filedesc = "Unknown Program"						// User-friendly name of this program.
 	var/program_type = PROGRAM_NORMAL						// Program type, used to determine if program runs in background or not.
 	var/required_access_run									// List of required accesses to run the program.
 	var/required_access_download							// List of required accesses to download the program.
@@ -11,7 +12,6 @@
 	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 	var/program_state = PROGRAM_STATE_KILLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
 	var/obj/item/modular_computer/computer					// Device that runs this program.
-	var/filedesc = "Unknown Program"						// User-friendly name of this program.
 	var/extended_desc = "N/A"								// Short description of this program's function.
 	var/program_icon_state									// Program-specific screen icon state
 	var/requires_ntnet = FALSE								// Set to TRUE for program to require nonstop NTNet connection to run. If NTNet connection is lost program crashes.
@@ -25,6 +25,7 @@
 	var/ui_header											// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
 	var/color = "#FFFFFF"									// The color of light the computer should emit when this program is open.
 	var/service_state = PROGRAM_STATE_KILLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
+	var/silent = FALSE
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp)
 	..()
@@ -47,8 +48,8 @@
 /datum/computer_file/program/ui_host()
 	return computer.ui_host()
 
-/datum/computer_file/program/clone()
-	var/datum/computer_file/program/temp = ..()
+/datum/computer_file/program/clone(var/rename = FALSE, var/computer)
+	var/datum/computer_file/program/temp = ..(rename, computer)
 	temp.required_access_run = required_access_run
 	temp.required_access_download = required_access_download
 	temp.nanomodule_path = nanomodule_path
@@ -250,7 +251,7 @@
 // Is called when program service is being activated
 // Returns 1 if service startup was sucessfull
 /datum/computer_file/program/proc/service_activate()
-	return 0
+	return FALSE
 
 // Is called when program service is being deactivated
 /datum/computer_file/program/proc/service_deactivate()

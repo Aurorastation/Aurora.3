@@ -11204,7 +11204,7 @@
 /obj/machinery/vending/assist{
 	contraband = null;
 	name = "Part vendor";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/cartridge/signal = 4, /obj/item/clothing/glasses/sunglasses = 4);
+	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4);
 	random_itemcount = 0
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -11469,7 +11469,7 @@
 /obj/item/clothing/head/softcap/eri,
 /obj/item/clothing/head/softcap/eri,
 /obj/item/clothing/head/softcap/eri,
-/obj/item/clothing/head/beret/sec/eri,
+/obj/item/clothing/head/beret/security/eri,
 /obj/item/clothing/under/rank/zavodskoi,
 /obj/item/clothing/under/rank/zavodskoi,
 /obj/item/clothing/under/rank/zavodskoi,
@@ -11484,14 +11484,14 @@
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec,
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec,
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec,
-/obj/item/clothing/head/beret/sec/zavodskoi/alt,
-/obj/item/clothing/head/beret/sec/zavodskoi/alt,
-/obj/item/clothing/head/beret/sec/zavodskoi/alt,
-/obj/item/clothing/head/beret/sec/zavodskoi/alt,
-/obj/item/clothing/head/beret/sec/zavodskoi,
-/obj/item/clothing/head/beret/sec/zavodskoi,
-/obj/item/clothing/head/beret/sec/zavodskoi,
-/obj/item/clothing/head/beret/sec/zavodskoi,
+/obj/item/clothing/head/beret/security/zavodskoi/alt,
+/obj/item/clothing/head/beret/security/zavodskoi/alt,
+/obj/item/clothing/head/beret/security/zavodskoi/alt,
+/obj/item/clothing/head/beret/security/zavodskoi/alt,
+/obj/item/clothing/head/beret/security/zavodskoi,
+/obj/item/clothing/head/beret/security/zavodskoi,
+/obj/item/clothing/head/beret/security/zavodskoi,
+/obj/item/clothing/head/beret/security/zavodskoi,
 /obj/item/clothing/under/rank/hephaestus/tech,
 /obj/item/clothing/under/rank/hephaestus/tech,
 /obj/item/clothing/under/rank/hephaestus,
@@ -11521,10 +11521,10 @@
 /obj/item/clothing/under/rank/security/idris,
 /obj/item/clothing/under/rank/security/idris,
 /obj/item/clothing/under/rank/security/idris,
-/obj/item/clothing/head/beret/sec/idris,
-/obj/item/clothing/head/beret/sec/idris,
-/obj/item/clothing/head/beret/sec/idris,
-/obj/item/clothing/head/beret/sec/idris,
+/obj/item/clothing/head/beret/security/idris,
+/obj/item/clothing/head/beret/security/idris,
+/obj/item/clothing/head/beret/security/idris,
+/obj/item/clothing/head/beret/security/idris,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -14480,27 +14480,27 @@
 	pixel_y = 3
 	},
 /obj/structure/table/steel,
-/obj/item/device/pda/ert{
+/obj/item/modular_computer/handheld/pda/ert{
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/device/pda/ert{
+/obj/item/modular_computer/handheld/pda/ert{
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/device/pda/ert{
+/obj/item/modular_computer/handheld/pda/ert{
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/device/pda/ert{
+/obj/item/modular_computer/handheld/pda/ert{
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/device/pda/ert{
+/obj/item/modular_computer/handheld/pda/ert{
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/device/pda/ert{
+/obj/item/modular_computer/handheld/pda/ert{
 	pixel_x = 6;
 	pixel_y = 4
 	},
@@ -21835,7 +21835,7 @@
 /area/centcom/specops)
 "kff" = (
 /obj/structure/table/reinforced,
-/obj/item/device/pda/captain,
+/obj/item/modular_computer/handheld/pda/command/captain,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -33523,7 +33523,7 @@
 /area/antag/mercenary)
 "rPi" = (
 /obj/structure/table/standard,
-/obj/item/device/pda/syndicate,
+/obj/item/modular_computer/handheld/pda/syndicate,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},

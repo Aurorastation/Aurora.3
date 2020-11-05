@@ -156,6 +156,10 @@
 	. = ..()
 	air_contents.adjust_gas(GAS_CO2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
+/obj/item/tank/jetpack/carbondioxide/synthetic/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_CO2, (15*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+
 /obj/item/tank/jetpack/carbondioxide/synthetic
 	name = "Synthetic Jetpack"
 	desc = "A chassis-mounted tank of compressed carbon dioxide for use as propulsion in zero-gravity areas."

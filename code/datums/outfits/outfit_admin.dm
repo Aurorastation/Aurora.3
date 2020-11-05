@@ -81,7 +81,7 @@
 	name = "Random Visitor"
 
 	id = /obj/item/card/id
-	pda = /obj/item/device/pda
+	pda = /obj/item/modular_computer/handheld/pda/civilian
 
 /datum/outfit/admin/random/visitor/get_id_assignment()
 	return "Visitor"

@@ -37,7 +37,9 @@
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility
-	pda = /obj/item/device/pda/heads/ce
+	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/ce
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
+	tablet = /obj/item/modular_computer/handheld/preset/engineering/ce
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/heads/ce
@@ -90,7 +92,9 @@
 	uniform = /obj/item/clothing/under/rank/engineer
 	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/storage/belt/utility
-	pda = /obj/item/device/pda/engineering
+	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
+	tablet = /obj/item/modular_computer/handheld/preset/engineering
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/headset_eng
@@ -134,7 +138,6 @@
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	belt = /obj/item/storage/belt/utility
-	pda = /obj/item/device/pda/atmos
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/headset_eng
@@ -143,6 +146,10 @@
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/atmos
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/atmos
+	tablet = /obj/item/modular_computer/handheld/preset/engineering/atmos
 
 	belt_contents = list(
 		/obj/item/weldingtool = 1,

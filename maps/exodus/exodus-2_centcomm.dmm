@@ -2244,7 +2244,7 @@
 /turf/unsimulated/wall/fakeglass,
 /area/antag/mercenary)
 "ami" = (
-/obj/item/device/pda/syndicate,
+/obj/item/modular_computer/handheld/pda/syndicate,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -3413,7 +3413,7 @@
 /obj/machinery/vending/assist{
 	contraband = null;
 	name = "AntagCorpVend";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/cartridge/signal = 4, /obj/item/clothing/glasses/sunglasses = 4)
+	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4)
 	},
 /obj/machinery/light{
 	dir = 4
@@ -5896,13 +5896,13 @@
 /area/centcom/specops)
 "axk" = (
 /obj/structure/table/reinforced,
-/obj/item/device/pda/ert,
-/obj/item/device/pda/ert,
-/obj/item/device/pda/ert,
-/obj/item/device/pda/ert,
-/obj/item/device/pda/ert,
-/obj/item/device/pda/ert,
-/obj/item/device/pda/ert,
+/obj/item/modular_computer/handheld/pda/ert,
+/obj/item/modular_computer/handheld/pda/ert,
+/obj/item/modular_computer/handheld/pda/ert,
+/obj/item/modular_computer/handheld/pda/ert,
+/obj/item/modular_computer/handheld/pda/ert,
+/obj/item/modular_computer/handheld/pda/ert,
+/obj/item/modular_computer/handheld/pda/ert,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -13618,7 +13618,7 @@
 /area/centcom/control)
 "aTQ" = (
 /obj/structure/table/reinforced,
-/obj/item/device/pda/captain,
+/obj/item/modular_computer/handheld/pda/command/captain,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13662,7 +13662,7 @@
 /area/centcom/holding)
 "aTX" = (
 /obj/structure/table/reinforced,
-/obj/item/device/pda/ert,
+/obj/item/modular_computer/handheld/pda/ert,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -17485,7 +17485,7 @@
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/accessory/legion,
-/obj/item/clothing/head/legion_beret,
+/obj/item/clothing/head/beret/legion,
 /obj/item/clothing/under/legion,
 /obj/item/device/radio/headset/legion,
 /obj/item/shield/energy/legion,
