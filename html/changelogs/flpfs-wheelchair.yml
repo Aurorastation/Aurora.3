@@ -1,5 +1,0 @@
-author: Flpfs
-delete-after: True
-changes: 
-  - rscadd: "Ports collapsible wheelchairs from Polaris."
-  - rscadd: "Wheelchairs are now available in a color-customizable form via the loadout, under utility."
