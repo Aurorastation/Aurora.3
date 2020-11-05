@@ -57,7 +57,7 @@
 	screen_loc = "WEST,SOUTH"
 	var/lobby_index = 1
 
-/obj/screen/new_player/title/Initialize(mapload, var/datum/hud/H)
+/obj/screen/new_player/title/Initialize()
 	if(!current_map.lobby_icon)
 		current_map.lobby_icon = pick(current_map.lobby_icons)
 	if(!length(current_map.lobby_screens))
@@ -131,7 +131,7 @@
 
 //SELECTION
 
-/obj/screen/new_player/selection/Initialize(mapload, var/datum/hud/H)
+/obj/screen/new_player/selection/New(mapload, var/datum/hud/H)
 	. = ..()
 	color = null
 	hud = H
@@ -148,7 +148,7 @@
 	animate(src, transform = null, time = 1, easing = CUBIC_EASING)
 	return ..()
 
-/obj/screen/new_player/selection/join_game/Initialize(mapload, var/datum/hud/H)
+/obj/screen/new_player/selection/join_game/Initialize()
 	. = ..()
 	var/mob/abstract/new_player/player = hud.mymob
 	update_icon(player)
@@ -201,11 +201,9 @@
 
 /obj/screen/new_player/selection/polls/Initialize()
 	. = ..()
-	var/mob/M = hud.mymob
-	if(!M)
-		return
 	if(dbcon.IsConnected())
-		var/isadmin = M.client && M.client.holder
+		var/mob/M = hud.mymob
+		var/isadmin = M && M.client && M.client.holder
 		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
 		query.Execute()
 		var/newpoll = query.NextRow()
