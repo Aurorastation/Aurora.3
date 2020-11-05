@@ -49,8 +49,13 @@ STOCK_ITEM_COMMON(bees, 2)
 /var/datum/cargo_master/cargo_master = new
 
 
-// Called in misc_early to generate the cargo lists (as Atoms runs before Cargo).
-/datum/cargo_master/proc/setup_cargo_stock()
+// Called in misc_early to generate the cargo lists (as Atoms runs before Cargo)
+// The procs are split to prevent reaching recursion limits (and runtiming on them) when lots of stock items are defined,
+// since every definition adds additional override of the proc and calls its parent, deepening the call stack.
+/datum/cargo_master/proc/setup_cargo_stock_common()
+/datum/cargo_master/proc/setup_cargo_stock_uncommon()
+/datum/cargo_master/proc/setup_cargo_stock_rare()
+/datum/cargo_master/proc/setup_cargo_stock_large()
 
 
 // These lists are populated by the files in `./random_stock`.

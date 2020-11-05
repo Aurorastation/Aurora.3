@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - bugfix: "Fixed runtime that happens because we have too many cargo item defines and reach the recursion limit."
