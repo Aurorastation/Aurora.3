@@ -53,7 +53,7 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 	var/area/A = get_area(src)
-	holopad_id = A.name
+	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
 	desc += " Its ID is '[holopad_id]'"
 
 /obj/machinery/hologram/holopad/update_icon()
@@ -103,8 +103,8 @@ Possible to do for anyone motivated enough:
 						forced_call = TRUE
 			var/list/holopadlist = list()
 			for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines - src)
-				if(H.operable())
-					holopadlist["[H.holopad_id]"] = H	//Define a list and fill it with the area of every holopad in the world
+				if(AreConnectedZLevels(H.z, z) && H.operable())
+					holopadlist[H.holopad_id] = H
 			holopadlist = sortAssoc(holopadlist)
 			var/chosen_pad = input(user, "Which holopad would you like to contact?", "Holopad List") as null|anything in holopadlist
 			if(!chosen_pad)
@@ -289,7 +289,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		incoming_connection = FALSE
 		clear_holos(FALSE)
 		if(connected_pad)
-			connected_pad.audible_message("<i><span class='game say'>The holopad connection timed out</span></i>")
+			connected_pad.audible_message("<i><span class='game say'>The holopad connection timed out.</span></i>")
+			connected_pad.connected_pad = null
 			connected_pad = null
 	return TRUE
 
