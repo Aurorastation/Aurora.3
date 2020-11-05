@@ -62,9 +62,9 @@
 	set category = "SoundFx Prefs"
 	set desc = "Toggles the message sounds."
 
-	prefs.asfx_togs ^= ASFX_MSG
+	prefs.asfx_togs ^= ASFX_VOX
 	prefs.save_preferences()
-	to_chat(src, "You will [(prefs.asfx_togs & ASFX_MSG) ? "now" : "no longer"] hear message sounds.")
+	to_chat(src, "You will [(prefs.asfx_togs & ASFX_VOX) ? "now" : "no longer"] hear chat voices.")
 
 /client/proc/Toggle_dropsounds()
 	set name = "Hear/Silence Drop Sounds"
