@@ -354,9 +354,10 @@
 /obj/item/projectile/bullet/gauss
 	name = "slug"
 	icon_state = "heavygauss"
-	damage = 45
+	damage = 30
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
+	armor_penetration = 35
 
 /obj/item/projectile/bullet/gauss/highex
 	name ="high-ex shell"
