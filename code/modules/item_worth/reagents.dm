@@ -271,7 +271,7 @@
 	value = 0.13
 
 /datum/reagent/alcohol/ethanol/cubalibre
-	value = 0.15
+	value = 0.16
 
 /datum/reagent/alcohol/ethanol/demonsblood
 	value = 0.15
@@ -758,3 +758,5 @@
 
 /datum/reagent/toxin/undead
 	value = 300
+/datum/reagent/alcohol/ethanol/rumandcola
+	value = 0.15
