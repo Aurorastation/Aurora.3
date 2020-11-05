@@ -222,5 +222,6 @@
 	R.name = src.name
 	R.desc = src.desc
 	R.color = src.color
+	usr.put_in_hands(R)
 	qdel(src)
 
