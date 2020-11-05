@@ -13,8 +13,7 @@
 /area/janitor)
 "af" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
-	icon_state = "pdoor1"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -23,19 +22,17 @@
 /area/janitor)
 "aj" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "ap" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/plating,
 /area/janitor)
 "aq" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 5;
-	icon_state = "warning"
+	dir = 5
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
@@ -47,41 +44,35 @@
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "ay" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1;
-	icon_state = "warningcorner"
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "az" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aA" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "aE" = (
 /obj/machinery/door/blast/regular/open{
-	dir = 4;
-	icon_state = "pdoor0"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -90,8 +81,7 @@
 /area/janitor)
 "aH" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
@@ -102,8 +92,7 @@
 /area/janitor)
 "aL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4;
-	icon_state = "warningcorner"
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
@@ -113,70 +102,59 @@
 /area/janitor)
 "aR" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "aS" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "bb" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8;
-	icon_state = "warningcorner"
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "bc" = (
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "bh" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "bj" = (
 /obj/machinery/power/emitter{
-	dir = 8;
-	icon_state = "emitter"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "bk" = (
 /turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4;
-	icon_state = "rampbot"
+	dir = 4
 	},
 /area/janitor)
 "bn" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -201,37 +179,31 @@
 /area/janitor)
 "bt" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "bu" = (
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "bv" = (
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "by" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -245,8 +217,7 @@
 /area/janitor)
 "bB" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8;
-	icon_state = "warningcorner"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -256,16 +227,14 @@
 /area/janitor)
 "bE" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 5;
-	icon_state = "warning"
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -275,16 +244,14 @@
 /area/janitor)
 "bH" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bJ" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -315,30 +282,26 @@
 /area/janitor)
 "cu" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cQ" = (
 /obj/structure/particle_accelerator/particle_emitter/center{
-	dir = 1;
-	icon_state = "emitter_center"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "cX" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cY" = (
 /obj/structure/particle_accelerator/power_box{
-	dir = 1;
-	icon_state = "power_box"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -357,8 +320,7 @@
 /area/janitor)
 "dg" = (
 /obj/structure/particle_accelerator/fuel_chamber{
-	dir = 1;
-	icon_state = "fuel_chamber"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -370,34 +332,28 @@
 /area/janitor)
 "di" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_light"
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4;
-	icon_state = "warningcorner"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_light"
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "dj" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_light"
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "dk" = (
 /obj/effect/floor_decal/corner/yellow/full{
-	dir = 1;
-	icon_state = "corner_light_full"
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -407,15 +363,13 @@
 /area/janitor)
 "dn" = (
 /obj/structure/particle_accelerator/end_cap{
-	dir = 1;
-	icon_state = "end_cap"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "dq" = (
 /obj/structure/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 5
 	},
@@ -431,8 +385,7 @@
 /area/janitor)
 "dC" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6;
-	icon_state = "corner_light"
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -446,26 +399,22 @@
 /area/janitor)
 "dG" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_light"
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_light"
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "dH" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_light"
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "dI" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 8;
-	icon_state = "corner_light"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -489,12 +438,10 @@
 /area/janitor)
 "dN" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8;
-	icon_state = "warningcorner"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -562,12 +509,10 @@
 /area/janitor)
 "ec" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -587,8 +532,7 @@
 /area/janitor)
 "eh" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -613,8 +557,7 @@
 "el" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
@@ -625,38 +568,32 @@
 /area/janitor)
 "en" = (
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eo" = (
 /obj/effect/floor_decal/corner/blue{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ep" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_light"
+	dir = 9
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_light"
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eq" = (
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -698,12 +635,10 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -715,8 +650,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -728,12 +662,10 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -746,15 +678,13 @@
 "eB" = (
 /obj/machinery/disposal,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eC" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 4;
-	icon_state = "corner_light"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -764,35 +694,30 @@
 /area/janitor)
 "eE" = (
 /obj/effect/floor_decal/corner/yellow/full{
-	dir = 8;
-	icon_state = "corner_light_full"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eF" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_light"
+	dir = 5
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eG" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 1;
-	icon_state = "corner_light"
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eH" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -801,26 +726,22 @@
 "eI" = (
 /obj/machinery/vending/zora,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eJ" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_light"
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eL" = (
 /obj/effect/floor_decal/corner/blue{
-	dir = 4;
-	icon_state = "corner_white"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -830,8 +751,7 @@
 /area/janitor)
 "eN" = (
 /obj/effect/floor_decal/corner/yellow/full{
-	dir = 4;
-	icon_state = "corner_light_full"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -841,12 +761,10 @@
 /area/janitor)
 "eP" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -854,8 +772,7 @@
 /area/janitor)
 "eQ" = (
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
@@ -887,8 +804,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/safety/goggles,
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -898,16 +814,14 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "fa" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -922,8 +836,7 @@
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/full{
-	dir = 1;
-	icon_state = "wide_corner_full"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -938,8 +851,7 @@
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/full{
-	dir = 8;
-	icon_state = "wide_corner_full"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -949,8 +861,7 @@
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/full{
-	dir = 8;
-	icon_state = "wide_corner_full"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -961,24 +872,21 @@
 "fX" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "gb" = (
 /obj/structure/bed/chair/plastic,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "gi" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
@@ -991,8 +899,7 @@
 "gV" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1007,22 +914,19 @@
 /area/janitor)
 "hB" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "hD" = (
 /obj/effect/floor_decal/corner/green/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "hF" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1037,16 +941,14 @@
 "ic" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/white/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ij" = (
 /obj/item/modular_computer/console/preset/medical,
 /obj/effect/floor_decal/corner/white/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -1057,12 +959,10 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -1081,8 +981,7 @@
 "iR" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
@@ -1110,8 +1009,7 @@
 "jX" = (
 /obj/structure/closet/secure_closet/medical_wall{
 	name = "O- Blood Locker";
-	pixel_x = -30;
-	pixel_y = 0
+	pixel_x = -30
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -1121,24 +1019,21 @@
 "kb" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "kj" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "kw" = (
 /obj/structure/closet/secure_closet/medical_wall{
 	name = "O- Blood Locker";
-	pixel_x = 29;
-	pixel_y = 0
+	pixel_x = 29
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -1148,8 +1043,7 @@
 "kX" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1176,16 +1070,14 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "lC" = (
 /obj/machinery/door/airlock/glass_medical,
 /obj/effect/floor_decal/corner/white/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -1199,8 +1091,7 @@
 /area/janitor)
 "lJ" = (
 /obj/machinery/door/blast/shutters{
-	dir = 2;
-	icon_state = "shutter1"
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -1216,16 +1107,14 @@
 "lQ" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "mb" = (
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/grass/alt,
@@ -1236,8 +1125,7 @@
 /area/janitor)
 "mB" = (
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/grass/alt,
@@ -1260,12 +1148,10 @@
 /area/janitor)
 "mL" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_light"
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4;
-	icon_state = "warningcorner"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -1293,8 +1179,7 @@
 /area/janitor)
 "no" = (
 /obj/machinery/sleeper{
-	dir = 4;
-	icon_state = "sleeper"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1309,15 +1194,13 @@
 /area/janitor)
 "nv" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ny" = (
 /obj/structure/bed/chair/comfy/black{
-	dir = 1;
-	icon_state = "comfychair_preview"
+	dir = 1
 	},
 /turf/simulated/floor/lino/grey,
 /area/janitor)
@@ -1373,16 +1256,14 @@
 /area/janitor)
 "oo" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/box/freezer/organcooler{
 	pixel_y = 3
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1403,7 +1284,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	dir = 4;
-	icon_state = "left";
 	name = "Atmospheric Voidsuits";
 	req_access = list(24)
 	},
@@ -1420,8 +1300,7 @@
 	},
 /obj/structure/closet/secure_closet/medical2,
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1432,15 +1311,13 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "pj" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
@@ -1454,8 +1331,7 @@
 /area/janitor)
 "pp" = (
 /obj/effect/floor_decal/corner/white/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -1466,8 +1342,7 @@
 /area/janitor)
 "px" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	icon_state = "door_closed"
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -1505,8 +1380,7 @@
 	pixel_x = 21
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1514,12 +1388,10 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
@@ -1534,8 +1406,7 @@
 	pixel_x = -21
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1552,17 +1423,14 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -1579,12 +1447,10 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/grass/alt,
 /area/janitor)
@@ -1597,17 +1463,14 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/sign/examroom,
 /turf/simulated/floor/plating,
@@ -1651,8 +1514,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1664,12 +1526,10 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -1681,13 +1541,11 @@
 "sy" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/full{
-	dir = 8;
-	icon_state = "wide_corner_full"
+	dir = 8
 	},
 /obj/item/device/mass_spectrometer,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1701,8 +1559,7 @@
 /area/janitor)
 "tc" = (
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /obj/effect/floor_decal/sign/ex,
 /turf/simulated/floor/tiled/white,
@@ -1713,12 +1570,10 @@
 /area/janitor)
 "tx" = (
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1743,19 +1598,16 @@
 /area/janitor)
 "tE" = (
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "tP" = (
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1765,8 +1617,7 @@
 /area/janitor)
 "uc" = (
 /obj/effect/floor_decal/corner_wide/green/full{
-	dir = 1;
-	icon_state = "wide_corner_full"
+	dir = 1
 	},
 /obj/effect/floor_decal/sign/emt,
 /turf/simulated/floor/tiled/white,
@@ -1774,12 +1625,10 @@
 "ul" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/grass/alt,
 /area/janitor)
@@ -1794,11 +1643,9 @@
 /area/janitor)
 "uD" = (
 /obj/effect/floor_decal/corner/white/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/machinery/power/apc{
-	dir = 2;
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24
@@ -1811,31 +1658,27 @@
 /area/janitor)
 "uL" = (
 /obj/effect/floor_decal/corner/green/full{
-	dir = 8;
-	icon_state = "corner_white_full"
+	dir = 8
 	},
 /obj/effect/floor_decal/sign/w,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "uX" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "uY" = (
 /obj/item/modular_computer/console/preset/medical,
 /obj/effect/floor_decal/corner/green{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "uZ" = (
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 1
@@ -1844,22 +1687,19 @@
 /obj/item/pen,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "vb" = (
 /obj/effect/floor_decal/corner/paleblue/full{
-	dir = 8;
-	icon_state = "corner_white_full"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "vi" = (
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1870,20 +1710,17 @@
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "vv" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1896,16 +1733,13 @@
 /area/janitor)
 "vG" = (
 /obj/machinery/bodyscanner{
-	dir = 4;
-	icon_state = "body_scanner"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1918,15 +1752,13 @@
 /area/janitor)
 "vT" = (
 /obj/machinery/body_scanconsole{
-	dir = 8;
-	icon_state = "body_scannerconsole"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "vX" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1938,8 +1770,7 @@
 /area/janitor)
 "wl" = (
 /obj/machinery/body_scanconsole{
-	dir = 4;
-	icon_state = "body_scannerconsole"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1960,12 +1791,10 @@
 /area/janitor)
 "wD" = (
 /obj/machinery/bodyscanner{
-	dir = 8;
-	icon_state = "body_scanner"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -1980,8 +1809,7 @@
 /area/janitor)
 "wM" = (
 /obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1;
-	icon_state = "warningcee"
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
@@ -2026,19 +1854,16 @@
 /area/janitor)
 "xM" = (
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "xU" = (
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2058,23 +1883,20 @@
 /area/janitor)
 "yF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "yI" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "yN" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1;
-	icon_state = "warningcorner"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2086,8 +1908,7 @@
 /area/janitor)
 "yU" = (
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2103,15 +1924,13 @@
 	},
 /obj/item/storage/firstaid/regular,
 /obj/effect/floor_decal/corner_wide/green/full{
-	dir = 8;
-	icon_state = "wide_corner_full"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "zi" = (
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -2123,8 +1942,7 @@
 	},
 /obj/item/storage/firstaid/o2,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2134,13 +1952,9 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/firstaid/toxin{
-	pixel_x = 0;
-	pixel_y = 0
-	},
+/obj/item/storage/firstaid/toxin,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2152,8 +1966,7 @@
 	},
 /obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner_wide/green/full{
-	dir = 1;
-	icon_state = "wide_corner_full"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2171,14 +1984,12 @@
 /area/janitor)
 "zU" = (
 /turf/simulated/floor/tiled/ramp/bottom{
-	dir = 1;
-	icon_state = "rampbot"
+	dir = 1
 	},
 /area/janitor)
 "Ad" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2191,16 +2002,14 @@
 /area/janitor)
 "Am" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Ao" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 1;
-	icon_state = "corner_white"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2218,8 +2027,7 @@
 /area/janitor)
 "Bw" = (
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
@@ -2231,19 +2039,16 @@
 /area/janitor)
 "BH" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "BO" = (
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2268,8 +2073,7 @@
 	},
 /obj/item/storage/firstaid/adv,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2281,12 +2085,10 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -2342,8 +2144,7 @@
 /area/janitor)
 "Ei" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 8;
-	icon_state = "corner_white"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2359,7 +2160,6 @@
 	dir = 1
 	},
 /obj/machinery/power/apc{
-	dir = 2;
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24
@@ -2394,8 +2194,7 @@
 /area/janitor)
 "EU" = (
 /obj/structure/bed/chair/comfy/black{
-	dir = 1;
-	icon_state = "comfychair_preview"
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/janitor)
@@ -2420,15 +2219,13 @@
 "Fq" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2438,12 +2235,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2453,14 +2248,12 @@
 /area/janitor)
 "FB" = (
 /obj/effect/floor_decal/corner/white/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "FD" = (
 /obj/machinery/power/apc{
-	dir = 2;
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24
@@ -2476,8 +2269,7 @@
 "FQ" = (
 /obj/machinery/disposal,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2491,8 +2283,7 @@
 /obj/machinery/light,
 /obj/item/storage/box/bloodpacks,
 /obj/effect/floor_decal/corner_wide/green{
-	dir = 10;
-	icon_state = "wide_corner"
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2500,8 +2291,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/freezer/organcooler,
 /obj/effect/floor_decal/corner_wide/green/full{
-	dir = 4;
-	icon_state = "wide_corner_full"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2513,27 +2303,23 @@
 "Gh" = (
 /obj/structure/stairs/west,
 /turf/simulated/floor/tiled/ramp{
-	dir = 4;
-	icon_state = "ramptop"
+	dir = 4
 	},
 /area/janitor)
 "Gz" = (
 /obj/effect/floor_decal/corner/green{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/effect/floor_decal/sign/cmo,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "GE" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/green{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2559,25 +2345,21 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/janitor)
 "Hg" = (
 /turf/simulated/floor/tiled/ramp/bottom{
-	dir = 8;
-	icon_state = "rampbot"
+	dir = 8
 	},
 /area/janitor)
 "Hh" = (
@@ -2649,8 +2431,7 @@
 /area/janitor)
 "It" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/machinery/firealarm/east,
 /obj/structure/bookcase,
@@ -2678,24 +2459,21 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "IM" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "IP" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -2706,12 +2484,10 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/grass/alt,
 /area/janitor)
@@ -2748,8 +2524,7 @@
 "JJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/chair/office/light{
-	dir = 4;
-	icon_state = "officechair_white"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2785,8 +2560,7 @@
 "Kr" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner_wide/lime/full{
-	dir = 8;
-	icon_state = "wide_corner_full"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2797,8 +2571,7 @@
 /area/janitor)
 "KE" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2843,9 +2616,7 @@
 	},
 /obj/item/reagent_containers/syringe,
 /obj/item/clothing/mask/muzzle,
-/obj/item/clothing/suit/straight_jacket{
-	layer = 3
-	},
+/obj/item/clothing/suit/straight_jacket,
 /obj/item/mesmetron,
 /obj/random/plushie,
 /turf/simulated/floor/wood,
@@ -2868,16 +2639,13 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -2891,15 +2659,13 @@
 	pixel_y = -1
 	},
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Mw" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2916,8 +2682,7 @@
 /area/janitor)
 "MN" = (
 /turf/simulated/floor/tiled/ramp{
-	dir = 8;
-	icon_state = "ramptop"
+	dir = 8
 	},
 /area/janitor)
 "MP" = (
@@ -2927,8 +2692,7 @@
 "MW" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -2938,8 +2702,7 @@
 /area/janitor)
 "Na" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /obj/effect/floor_decal/sign/p,
 /turf/simulated/floor/tiled/white,
@@ -2955,12 +2718,10 @@
 "Ni" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /obj/structure/window/phoronreinforced,
 /turf/simulated/floor/plating,
@@ -2990,12 +2751,10 @@
 /area/janitor)
 "NA" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_light"
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1;
-	icon_state = "warningcorner"
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3008,12 +2767,10 @@
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -3021,8 +2778,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/cups,
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3034,15 +2790,13 @@
 "Od" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
-	dir = 4;
-	icon_state = "ramptop"
+	dir = 4
 	},
 /area/janitor)
 "Om" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4;
-	icon_state = "rampbot"
+	dir = 4
 	},
 /area/janitor)
 "On" = (
@@ -3060,8 +2814,7 @@
 "OA" = (
 /obj/machinery/disposal,
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3070,8 +2823,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3151,30 +2903,26 @@
 /area/janitor)
 "PV" = (
 /obj/machinery/chemical_dispenser/full{
-	dir = 1;
-	icon_state = "dispenser"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Qb" = (
 /obj/machinery/chem_heater,
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Qd" = (
 /obj/structure/bed/chair/plastic{
-	dir = 4;
-	icon_state = "chair_preview"
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3182,8 +2930,7 @@
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -3213,8 +2960,7 @@
 /area/janitor)
 "Qy" = (
 /obj/effect/floor_decal/corner/white/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -3230,7 +2976,7 @@
 /area/janitor)
 "QL" = (
 /obj/structure/sign/greencross,
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/plating,
 /area/janitor)
 "QO" = (
@@ -3239,8 +2985,7 @@
 /area/janitor)
 "QQ" = (
 /obj/effect/floor_decal/corner/blue{
-	dir = 8;
-	icon_state = "corner_white"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3258,8 +3003,7 @@
 /area/janitor)
 "Ro" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3274,12 +3018,10 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 6;
-	icon_state = "wide_corner"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3309,8 +3051,7 @@
 /area/janitor)
 "Sa" = (
 /obj/machinery/door/blast/shutters{
-	dir = 2;
-	icon_state = "shutter1"
+	dir = 2
 	},
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/janitor)
@@ -3322,32 +3063,27 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "Ss" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /obj/machinery/disposal/small/east,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "St" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 4;
-	icon_state = "wide_corner"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3356,8 +3092,7 @@
 /area/janitor)
 "Sz" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 5;
-	icon_state = "wide_corner"
+	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -3382,22 +3117,13 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
-"Te" = (
-/obj/structure/bed/chair/office/light{
-	dir = 4;
-	icon_state = "officechair_white"
-	},
-/turf/simulated/floor/tiled/white,
-/area/janitor)
 "Tu" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9;
-	icon_state = "corner_light"
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3415,8 +3141,7 @@
 /area/janitor)
 "TC" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1;
-	icon_state = "door_closed"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -3442,17 +3167,14 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /obj/structure/sign/pharmacy,
 /turf/simulated/floor/plating,
@@ -3463,16 +3185,14 @@
 /area/janitor)
 "Uk" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 9;
-	icon_state = "wide_corner"
+	dir = 9
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Ul" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 10;
-	icon_state = "wide_corner"
+	dir = 10
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
@@ -3488,12 +3208,10 @@
 /area/janitor)
 "UC" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 10;
-	icon_state = "wide_corner"
+	dir = 10
 	},
 /obj/structure/bed/chair/plastic{
-	dir = 1;
-	icon_state = "chair_preview"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3502,15 +3220,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	dir = 4;
-	icon_state = "left";
 	name = "Atmospheric Voidsuits";
 	req_access = list(24)
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
@@ -3518,27 +3234,23 @@
 /area/janitor)
 "UG" = (
 /obj/structure/bed/chair/plastic{
-	dir = 1;
-	icon_state = "chair_preview"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 10;
-	icon_state = "wide_corner"
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "UK" = (
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "UO" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 10;
-	icon_state = "wide_corner"
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
@@ -3572,13 +3284,11 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+	dir = 8
 	},
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -3586,29 +3296,25 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	dir = 4;
-	icon_state = "phoronrwindow"
+	dir = 4
 	},
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "VZ" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	opacity = 0;
-	pixel_y = 0
+	opacity = 0
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Wc" = (
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/janitor)
@@ -3645,8 +3351,7 @@
 "WC" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	opacity = 0;
-	pixel_y = 0
+	opacity = 0
 	},
 /turf/simulated/floor/wood,
 /area/janitor)
@@ -3679,8 +3384,7 @@
 /area/janitor)
 "Xr" = (
 /obj/effect/floor_decal/corner/blue{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
@@ -3770,8 +3474,7 @@
 /area/janitor)
 "Zn" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_light"
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3781,8 +3484,7 @@
 /area/janitor)
 "ZG" = (
 /obj/machinery/power/emitter{
-	dir = 4;
-	icon_state = "emitter"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -3801,12 +3503,10 @@
 "ZS" = (
 /obj/machinery/mass_driver,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/structure/sign/vacuum{
 	pixel_x = 32
@@ -16639,7 +16339,7 @@ ac
 ac
 ac
 ac
-ad
+ab
 ad
 ad
 ad
@@ -16841,7 +16541,7 @@ ac
 ac
 ac
 ac
-ad
+ab
 ad
 ad
 ad
@@ -21300,7 +21000,7 @@ Lf
 Fw
 Qb
 Fw
-Te
+kY
 Fw
 VQ
 ac
