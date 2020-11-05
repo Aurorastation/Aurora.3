@@ -1,5 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - bugfix: "Fixes runtimes on HUD creation related to players joining before SSAtoms starts working."
-  - bugfix: "Fixes runtime for Runtime (the map) which has no shuttles mapped."
