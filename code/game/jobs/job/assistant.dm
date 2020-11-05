@@ -1,7 +1,7 @@
 /datum/job/assistant
 	title = "Assistant"
 	flag = ASSISTANT
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = -1
@@ -30,7 +30,7 @@
 /datum/job/visitor
 	title = "Visitor"
 	flag = VISITOR
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = -1
@@ -38,8 +38,8 @@
 	supervisors = "any authority figure"
 	selection_color = "#3d3d3d"
 	economic_modifier = 1
-	access = list()	
-	minimal_access = list()	
+	access = list()
+	minimal_access = list()
 	outfit = /datum/outfit/job/visitor
 
 /datum/outfit/job/visitor

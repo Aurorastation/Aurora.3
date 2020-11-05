@@ -108,3 +108,13 @@
 #define RECORD_LOCKED 8
 #define RECORD_WARRANT 16
 #define RECORD_VIRUS 32
+
+#define DEPARTMENT_COMMAND "Command"
+#define DEPARTMENT_SECURITY "Security"
+#define DEPARTMENT_ENGINEERING "Engineering"
+#define DEPARTMENT_MEDICAL "Medical"
+#define DEPARTMENT_SCIENCE "Science"
+#define DEPARTMENT_CARGO "Cargo"
+#define DEPARTMENT_CIVILIAN "Civilian"
+#define DEPARTMENT_EQUIPMENT "Equipment"
+#define DEPARTMENT_MISCELLANEOUS "Miscellaneous"

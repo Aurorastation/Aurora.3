@@ -10,7 +10,6 @@
 	var/list/warrants
 	var/list/viruses
 
-	var/list/nameMap
 	var/list/excluded_fields
 	var/list/localized_fields
 
@@ -38,7 +37,6 @@
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
-	nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
 	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
@@ -221,7 +219,7 @@
 	for(var/dep in manifest)
 		var/list/depI = manifest[dep]
 		if(depI.len > 0)
-			dat += "<tr><th colspan=3>[nameMap[dep]]</th></tr>"
+			dat += "<tr><th colspan=3>[dep]</th></tr>"
 			for(var/list/item in depI)
 				dat += "<tr[even ? " class='alt'" : ""]><td>[item["name"]]</td><td>[item["rank"]]</td><td>[isactive[item["name"]] ? isactive[item["name"]] : item["active"]]</td></tr>"
 				even = !even
@@ -239,56 +237,46 @@
 			var/depDat
 			for(var/list/item in depI)
 				depDat += "<li><strong>[item["name"]]</strong> - [item["rank"]] ([item["active"]])</li>"
-			dat += "<h3>[nameMap[dep]]</h3><ul>[depDat]</ul>"
+			dat += "<h3>[dep]</h3><ul>[depDat]</ul>"
 	return dat
 
 /datum/controller/subsystem/records/proc/get_manifest_list()
 	if(manifest.len)
 		return manifest
-	manifest = list(
-		"heads" = list(),
-		"sec" = list(),
-		"eng" = list(),
-		"med" = list(),
-		"sci" = list(),
-		"car" = list(),
-		"civ" = list(),
-		"bot" = list(),
-		"misc" = list()
-	)
-	var/positions = list(
-		"heads" = command_positions,
-		"sec" = security_positions,
-		"eng" = engineering_positions,
-		"med" = medical_positions,
-		"sci" = science_positions,
-		"car" = cargo_positions,
-		"civ" = civilian_positions,
-		"bot" = nonhuman_positions
-	)
+	manifest = list()
+	for(var/department in positions_by_department)  // prepare empty manifest
+		manifest[department] = list()
 	for(var/datum/record/general/t in records)
 		var/name = sanitize(t.name, encode = FALSE)
 		var/rank = sanitize(t.rank, encode = FALSE)
 		var/real_rank = make_list_rank(t.real_rank)
 
 		var/isactive = t.physical_status
-		var/department = 0
-		var/depthead = 0            // Department Heads will be placed at the top of their lists.
+		var/dept = null
+		var/depthead = FALSE
 
-		for(var/positionType in positions)
-			var/typesPositions = positions[positionType]
-			if(real_rank in typesPositions)
-				manifest[positionType][++manifest[positionType].len] = list("name" = name, "rank" = rank, "active" = isactive)
-				department = 1
-				if ((depthead || rank == "Captain") && manifest[positionType].len != 1)
-					manifest[positionType].Swap(1, manifest[positionType].len)
-					manifest[positionType][1]["head"] = TRUE
-				if(positionType == "head")
-					depthead = 1
+		for(var/department in positions_by_department)
+			if(!(real_rank in positions_by_department[department])) // search for a department with that rank
+				continue
+			dept = department
+			if(department == DEPARTMENT_COMMAND)
+				depthead = TRUE
+				continue
+			// because Command is first we have guarantee that the depthead var has been assigned and we have found the actual dept so we can safely break
+			break
 
-		if(!department && !(name in manifest["heads"]))
-			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = rank, "active" = isactive)
+		if(isnull(dept)) // no department found
+			dept = DEPARTMENT_MISCELLANEOUS
 
+		 // add them to their department
+		manifest[dept][++manifest[dept].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = depthead)
+		if(dept == DEPARTMENT_COMMAND) // they are a captain, put them on top of command
+			manifest[dept].Swap(1, manifest[dept].len)
+		else if(depthead) // Department heads go to the top and need to be added to Command as well
+			manifest[DEPARTMENT_COMMAND][++manifest[DEPARTMENT_COMMAND].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = FALSE)
+			manifest[dept].Swap(1, manifest[dept].len)
+
+	var/dept = DEPARTMENT_EQUIPMENT
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
@@ -297,12 +285,11 @@
 			var/selected_module = "Default Module"
 			if(R.module)
 				selected_module = capitalize_first_letters(R.module.name)
-			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online")
+			manifest[dept][++manifest[dept].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online", "head" = FALSE)
 		if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/ai/A = S
-			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online")
-			if(manifest["bot"].len != 1)
-				manifest["bot"].Swap(1, manifest["bot"].len)
+			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online", "head" = TRUE)
+			manifest[dept].Swap(1, manifest[dept].len)
 
 	manifest_json = json_encode(manifest)
 	return manifest

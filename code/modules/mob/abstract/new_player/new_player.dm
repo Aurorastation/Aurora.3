@@ -297,8 +297,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/proc/LateChoices()
 	var/name = client.prefs.real_name
 
-	var/dat = "<center>"
-	dat += "<b>Welcome, [name].<br></b>"
+	var/dat = "\
+		<style>\
+			a { display: block !important; }\
+			body { text-align: center; }\
+		</style>"
+	dat += "Welcome, <strong>[name]</strong>.<br>"
 	dat += "Round Duration: [get_round_duration_formatted()]<br>"
 	dat += "Alert Level: [capitalize(get_security_level())]<br>"
 
@@ -323,21 +327,37 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	if(unique_role_available)
 		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>A unique ghost role is available:</b></font><br>"
-	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A><br>"
+	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A>"
 
 	dat += "Choose from the following open/valid positions:<br>"
+	var/list/list/datum/job/jobs_by_department = list()
+	for(var/department in positions_by_department) // prepare empty list
+		jobs_by_department[department] = list()
 	for(var/datum/job/job in SSjobs.occupations)
 		if(job && IsJobAvailable(job.title))
+			var/department = job.department
+			if(!department || !(department in jobs_by_department)) // no department set or it's something weird
+				department = DEPARTMENT_MISCELLANEOUS
+			if(job.head_position) // make sure heads are first
+				jobs_by_department[department] = list(job) + jobs_by_department[department]
+				if(department != DEPARTMENT_COMMAND) // add heads to command
+					jobs_by_department[DEPARTMENT_COMMAND] += job
+			else
+				jobs_by_department[department] += job
+	for(var/department in jobs_by_department) // output it!
+		if(!jobs_by_department[department].len)
+			continue
+		dat += "<strong>[department]</strong>"
+		for(var/datum/job/job in jobs_by_department[department])
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
 			for(var/mob/M in player_list) //Added isliving check here, so it won't check ghosts and qualify them as active
 				if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 MINUTES)
 					active++
-			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[client.prefs.GetPlayerAltTitle(job)] ([job.current_positions]) (Active: [active])</a><br>"
+			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[client.prefs.GetPlayerAltTitle(job)] ([job.current_positions]) (Active: [active])</a>"
 
-	dat += "</center>"
 	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, dat), "window=latechoices;size=300x640;can_close=1")
+	src << browse(enable_ui_theme(src, dat), "window=latechoices;size=340x720")
 
 
 /mob/abstract/new_player/proc/create_character()

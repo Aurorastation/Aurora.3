@@ -1,7 +1,7 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
@@ -81,7 +81,7 @@
 /datum/job/consular
 	title = "Consular Officer"
 	flag = CONSULAR
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1

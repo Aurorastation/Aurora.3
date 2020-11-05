@@ -2,7 +2,7 @@
 /datum/job/bartender
 	title = "Bartender"
 	flag = BARTENDER
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
@@ -32,7 +32,7 @@
 /datum/job/chef
 	title = "Chef"
 	flag = CHEF
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
@@ -67,7 +67,7 @@
 /datum/job/hydro
 	title = "Gardener"
 	flag = BOTANIST
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
@@ -114,7 +114,7 @@
 	title = "Quartermaster"
 	flag = QUARTERMASTER
 	head_position = 1
-	department = "Cargo"
+	department = DEPARTMENT_CARGO
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
@@ -149,7 +149,7 @@
 /datum/job/cargo_tech
 	title = "Cargo Technician"
 	flag = CARGOTECH
-	department = "Cargo"
+	department = DEPARTMENT_CARGO
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
@@ -179,7 +179,7 @@
 /datum/job/mining
 	title = "Shaft Miner"
 	flag = MINER
-	department = "Cargo"
+	department = DEPARTMENT_CARGO
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
@@ -228,7 +228,7 @@
 /datum/job/janitor
 	title = "Janitor"
 	flag = JANITOR
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
@@ -253,7 +253,7 @@
 /datum/job/journalist
 	title = "Corporate Reporter"
 	flag = JOURNALIST
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
@@ -303,7 +303,7 @@
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
-	department = "Civilian"
+	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1

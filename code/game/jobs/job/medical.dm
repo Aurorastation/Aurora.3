@@ -2,7 +2,7 @@
 	title = "Chief Medical Officer"
 	flag = CMO
 	head_position = 1
-	department = "Medical"
+	department = DEPARTMENT_MEDICAL
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
@@ -52,7 +52,7 @@
 /datum/job/doctor
 	title = "Physician"
 	flag = DOCTOR
-	department = "Medical"
+	department = DEPARTMENT_MEDICAL
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 4
@@ -70,7 +70,7 @@
 /datum/job/surgeon
 	title = "Surgeon"
 	flag = SURGEON
-	department = "Medical"
+	department = DEPARTMENT_MEDICAL
 	department_flag = MEDSCI
 	faction = "Station"
 	supervisors = "the chief medical officer"
@@ -127,7 +127,7 @@
 /datum/job/pharmacist
 	title = "Pharmacist"
 	flag = CHEMIST
-	department = "Medical"
+	department = DEPARTMENT_MEDICAL
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
@@ -163,7 +163,7 @@
 /datum/job/psychiatrist
 	title = "Psychiatrist"
 	flag = PSYCHIATRIST
-	department = "Medical"
+	department = DEPARTMENT_MEDICAL
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
@@ -201,7 +201,7 @@
 /datum/job/med_tech
 	title = "Emergency Medical Technician"
 	flag = MED_TECH
-	department = "Medical"
+	department = DEPARTMENT_MEDICAL
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
@@ -243,6 +243,7 @@
 /datum/job/intern_med
 	title = "Medical Intern"
 	flag = INTERN_MED
+	department = DEPARTMENT_MEDICAL
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2

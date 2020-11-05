@@ -2,7 +2,7 @@
 	title = "Head of Security"
 	flag = HOS
 	head_position = 1
-	department = "Security"
+	department = DEPARTMENT_SECURITY
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -68,7 +68,7 @@
 /datum/job/warden
 	title = "Warden"
 	flag = WARDEN
-	department = "Security"
+	department = DEPARTMENT_SECURITY
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -119,7 +119,7 @@
 /datum/job/detective
 	title = "Detective"
 	flag = DETECTIVE
-	department = "Security"
+	department = DEPARTMENT_SECURITY
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -163,6 +163,7 @@
 /datum/job/forensics
 	title = "Forensic Technician"
 	flag = FORENSICS
+	department = DEPARTMENT_SECURITY
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -214,7 +215,7 @@
 /datum/job/officer
 	title = "Security Officer"
 	flag = OFFICER
-	department = "Security"
+	department = DEPARTMENT_SECURITY
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 4
@@ -263,6 +264,7 @@
 /datum/job/intern_sec
 	title = "Security Cadet"
 	flag = INTERN_SEC
+	department = DEPARTMENT_SECURITY
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 2

@@ -132,6 +132,18 @@ var/list/nonhuman_positions = list(
 	"Merchant"
 )
 
+var/list/positions_by_department = list(
+	DEPARTMENT_COMMAND = command_positions,
+	DEPARTMENT_SECURITY = security_positions,
+	DEPARTMENT_ENGINEERING = engineering_positions,
+	DEPARTMENT_MEDICAL = medical_positions,
+	DEPARTMENT_SCIENCE = science_positions,
+	DEPARTMENT_CARGO = cargo_positions,
+	DEPARTMENT_CIVILIAN = civilian_positions,
+	DEPARTMENT_EQUIPMENT = nonhuman_positions,
+	DEPARTMENT_MISCELLANEOUS = list(),
+)
+
 /proc/guest_jobbans(var/job)
 	return ((job in command_positions) || job == "Corporate Liaison" || job == "Consular Officer")
 
