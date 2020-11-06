@@ -255,7 +255,7 @@
 	overdose = REAGENTS_OVERDOSE
 	od_minimum_dose = 2
 	scannable = TRUE
-	metabolism = REM / 3.33 // 0.06ish units per tick
+	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sickness"
