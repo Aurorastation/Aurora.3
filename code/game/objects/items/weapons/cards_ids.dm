@@ -440,7 +440,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "ccia"
 	overlay_state = "ccia"
 
-/obj/item/card/id/ccia/id_flash(mob/user as mob)
+/obj/item/card/id/ccia/id_flash(mob/user)
 	user.visible_message("<b>[user]</b> flashes [user.get_pronoun("his")] ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]. Done with prejudice and professionalism, [user.get_pronoun("he")] means business.",\
 						 "You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]. Done with prejudice and professionalism, you mean business.")
 
