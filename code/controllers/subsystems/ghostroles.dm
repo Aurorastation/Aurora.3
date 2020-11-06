@@ -127,7 +127,7 @@
 			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], "[G.desc] ([cant_spawn])", ., data)
 		else
 			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], cant_spawn, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["can_edit"], G.can_edit(user), ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["enabled"], G.enabled, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["count"], G.count, ., data)
