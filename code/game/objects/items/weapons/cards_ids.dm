@@ -216,11 +216,13 @@ var/const/NO_EMAG_ACT = -50
 				return
 	if(last_flash <= world.time - 20)
 		last_flash = world.time
-		user.visible_message("<b>[user]</b> shows you: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]",\
-							 "You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]")
+		id_flash(user)
 
 	src.add_fingerprint(user)
 	return
+/obj/item/card/id/proc/id_flash(mob/user)
+	user.visible_message("<b>[user]</b> flashes [user.get_pronoun("his")] ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]",\
+						 "You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]")
 
 /obj/item/card/id/attack(var/mob/living/M, var/mob/user, proximity)
 
@@ -422,7 +424,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/centcom
 	name = "\improper CentCom. ID"
-	desc = "An ID straight from Cent. Com."
+	desc = "An ID straight from CentCom."
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	registered_name = "Central Command"
@@ -431,6 +433,21 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/centcom/New()
 	access = get_all_centcom_access()
 	..()
+
+/obj/item/card/id/ccia
+	name = "\improper CentCom. Internal Affairs ID"
+	desc = "An ID straight from CentCom. Internal Affairs."
+	icon_state = "ccia"
+	overlay_state = "ccia"
+
+/obj/item/card/id/ccia/id_flash(mob/user as mob)
+	user.visible_message("<b>[user]</b> flashes [user.get_pronoun("his")] ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]. Done with prejudice and professionalism, [user.get_pronoun("he")] means business.",\
+						 "You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]. Done with prejudice and professionalism, you mean business.")
+
+/obj/item/card/id/ccia/fib
+	name = "\improper Federal Investigations Bureau ID"
+	desc = "An ID straight from the Federal Investigations Bureau."
+	icon_state = "fib"
 
 /obj/item/card/id/ert
 	name = "\improper Nanotrasen Emergency Response Team ID"
