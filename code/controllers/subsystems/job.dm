@@ -412,6 +412,7 @@
 			var/datum/antagonist/A = all_antag_types[antag_type]
 			if(A.can_become_antag(H.mind) && (A.role_type in H.client.prefs.be_special_role) && !(A.flags & ANTAG_OVERRIDE_JOB) && antag_count < A.hard_cap_round && antag_count <= (length(player_list) / SSticker.mode.antag_scaling_coeff))
 				A.add_antagonist(H.mind)
+				break
 
 	Debug("ER/([H]): Completed.")
 
