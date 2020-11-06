@@ -336,7 +336,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	for(var/datum/job/job in SSjobs.occupations)
 		if(job && IsJobAvailable(job.title))
 			var/department = job.department
-			if(!department || !(department in jobs_by_department)) // no department set or it's something weird
+			if(!(department in jobs_by_department)) // no department set or it's something weird
 				department = DEPARTMENT_MISCELLANEOUS
 			if(job.head_position) // make sure heads are first
 				jobs_by_department[department] = list(job) + jobs_by_department[department]
@@ -351,8 +351,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		for(var/datum/job/job in jobs_by_department[department])
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
-			for(var/mob/M in player_list) //Added isliving check here, so it won't check ghosts and qualify them as active
-				if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 MINUTES)
+			for(var/mob/living/M in player_list)
+				if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 MINUTES)
 					active++
 			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[client.prefs.GetPlayerAltTitle(job)] ([job.current_positions]) (Active: [active])</a>"
 

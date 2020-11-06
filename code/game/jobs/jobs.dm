@@ -132,7 +132,7 @@ var/list/nonhuman_positions = list(
 	"Merchant"
 )
 
-var/list/positions_by_department = list(
+var/list/list/positions_by_department = list(
 	DEPARTMENT_COMMAND = command_positions,
 	DEPARTMENT_SECURITY = security_positions,
 	DEPARTMENT_ENGINEERING = engineering_positions,

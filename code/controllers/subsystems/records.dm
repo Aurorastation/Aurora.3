@@ -286,7 +286,7 @@
 			if(R.module)
 				selected_module = capitalize_first_letters(R.module.name)
 			manifest[dept][++manifest[dept].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online", "head" = FALSE)
-		if(istype(S, /mob/living/silicon/ai))
+		else if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/ai/A = S
 			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online", "head" = TRUE)
 			manifest[dept].Swap(1, manifest[dept].len)
