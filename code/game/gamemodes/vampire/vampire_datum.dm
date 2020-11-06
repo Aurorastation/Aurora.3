@@ -12,6 +12,7 @@
 
 	var/obj/screen/blood_hud
 	var/obj/screen/frenzy_hud
+	var/obj/screen/blood_suck_hud
 
 	var/list/datum/power/vampire/purchased_powers = list()			// List of power datums available for use.
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.

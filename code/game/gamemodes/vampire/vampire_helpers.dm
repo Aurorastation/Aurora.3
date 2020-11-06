@@ -70,7 +70,7 @@
 	return vampire
 
 // Checks whether or not the target can be affected by a vampire's abilities.
-/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE)
+/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE, var/affect_ipc = TRUE)
 	if (!T || !istype(T))
 		return FALSE
 	// How did you even get here?
@@ -88,7 +88,7 @@
 				to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
 			return FALSE
 
-	if (isipc(T))
+	if(!affect_ipc && isipc(T))
 		if (notify)
 			to_chat(src, "<span class='warning'>You lack the power interact with mechanical constructs.</span>")
 		return FALSE
@@ -251,6 +251,9 @@
 		if(!mind.vampire.frenzy_hud)
 			mind.vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
 			client.screen += mind.vampire.frenzy_hud
+		if(!mind.vampire.blood_suck_hud)
+			mind.vampire.blood_suck_hud = new /obj/screen/vampire/suck()
+			client.screen += mind.vampire.blood_suck_hud
 
 		mind.vampire.blood_hud.maptext = SMALL_FONTS(7, mind.vampire.blood_usable)
 		if(mind.vampire.frenzy)

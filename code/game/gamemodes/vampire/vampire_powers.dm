@@ -177,18 +177,22 @@
 
 	visible_message("<span class='danger'>[src.name]'s eyes emit a blinding flash!</span>")
 	var/list/victims = list()
-	for (var/mob/living/carbon/human/H in view(2))
-		if (H == src)
+	for(var/mob/living/L in view(2))
+		if (L == src)
 			continue
-		if (!vampire_can_affect_target(H, 0))
-			continue
+		if(ishuman(L))
+			if(!vampire_can_affect_target(L, 0, affect_ipc = TRUE))
+				continue
 
-		H.Weaken(8)
-		H.stuttering = 20
-		H.confused = 10
-		to_chat(H, "<span class='danger'>You are blinded by [src]'s glare!</span>")
-		flick("flash", H.flash)
-		victims += H
+			L.Weaken(8)
+			L.stuttering = 20
+			L.confused = 10
+			to_chat(L, "<span class='danger'>You are blinded by [src]'s glare!</span>")
+			flick("flash", L.flash)
+			victims += L
+		else if(isrobot(L))
+			L.Weaken(rand(3, 6))
+			victims += L
 
 	admin_attacker_log_many_victims(src, victims, "used glare to stun", "was stunned by [key_name(src)] using glare", "used glare to stun")
 

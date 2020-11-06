@@ -26,3 +26,14 @@
 		if(H.mind.vampire)
 			to_chat(H, SPAN_WARNING("Your frenzy counter is at [H.mind.vampire.frenzy]."))
 			to_chat(H, SPAN_WARNING("If it raises too high, you will gain incredible power, but they will be very unsubtle. You can lower your frenzy counter by getting out of holy areas and by obtaining usable blood."))
+
+/obj/screen/vampire/suck
+	name = "blood_suck"
+	icon_state = "suck"
+	screen_loc = ui_suck
+
+/obj/screen/vampire/suck/Click(var/location, var/control, var/params)
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		if(H.mind.vampire)
+			H.vampire_drain_blood()

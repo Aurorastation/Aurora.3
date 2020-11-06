@@ -6,5 +6,7 @@
 	if(mind.vampire && !(mind.vampire.status & VAMP_ISTHRALL))
 		mind.vampire.blood_hud = new /obj/screen/vampire/blood()
 		mind.vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
+		mind.vampire.blood_suck_hud = new /obj/screen/vampire/suck()
 		client.screen += mind.vampire.blood_hud
 		client.screen += mind.vampire.frenzy_hud
+		client.screen += mind.vampire.blood_suck_hud
