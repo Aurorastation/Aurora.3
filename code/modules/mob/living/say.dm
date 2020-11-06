@@ -137,8 +137,8 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	if(message_mode == "intercom")
 		for(var/obj/item/device/radio/intercom/I in view(1, null))
-			I.talk_into(src, message, verb, speaking)
-			used_radios += I
+			if(I.talk_into(src, message, verb, speaking))
+				used_radios += I
 	return 0
 
 /mob/living/proc/handle_speech_sound()

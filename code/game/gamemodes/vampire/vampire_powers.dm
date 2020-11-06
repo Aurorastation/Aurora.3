@@ -20,19 +20,24 @@
 	set desc = "Drain the blood of a humanoid creature."
 
 	var/datum/vampire/vampire = vampire_power(0, 0)
-	if (!vampire)
+	if(!vampire)
+		return
+
+	if(vampire.status & VAMP_DRAINING)
+		vampire.status &= ~VAMP_DRAINING
+		to_chat(src, SPAN_NOTICE("You will retract your fangs once the next blood draining cycle completes."))
 		return
 
 	var/obj/item/grab/G = get_active_hand()
-	if (!istype(G))
+	if(!istype(G))
 		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to drain their blood."))
 		return
-	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
+	if(G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
 		to_chat(src, SPAN_WARNING("You must have the victim pinned to the ground to drain their blood."))
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
-	if (!istype(T) || T.species.flags & NO_BLOOD)
+	if(!istype(T) || T.species.flags & NO_BLOOD)
 		//Added this to prevent vampires draining diona and IPCs
 		//Diona have 'blood' but its really green sap and shouldn't help vampires
 		//IPCs leak oil
@@ -44,9 +49,6 @@
 	var/obj/item/blocked = check_mouth_coverage()
 	if(blocked)
 		to_chat(src, SPAN_WARNING("\The [blocked] is in the way of your fangs!"))
-		return
-	if (vampire.status & VAMP_DRAINING)
-		to_chat(src, SPAN_WARNING("Your fangs are already sunk into a victim's neck!"))
 		return
 
 	var/datum/vampire/draining_vamp = null
@@ -61,7 +63,7 @@
 
 	vampire.status |= VAMP_DRAINING
 
-	visible_message("<span class='danger'>[src.name] bites [T.name]'s neck!</span>", "<span class='danger'>You bite [T.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
+	visible_message(SPAN_DANGER("[src] bites \the [T]'s neck!"), SPAN_DANGER("You bite \the [T]'s neck and begin to drain their blood."), SPAN_NOTICE("You hear a soft puncture and a wet sucking noise."))
 	var/remembrance
 	if(vampire.stealth)
 		remembrance = "forgot"
@@ -74,37 +76,36 @@
 		T.paralysis = 3400
 	else
 		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind is acutely aware of what's occuring."))
-		T.paralysis = 3400
+	T.Stun(25)
 
 	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
-
-	while (do_mob(src, T, 50))
-		if (!mind.vampire)
+	while(do_mob(src, T, 50) && vampire.status & VAMP_DRAINING)
+		if(!mind.vampire)
 			to_chat(src, SPAN_DANGER("Your fangs have disappeared!"))
 			return
 
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
-		if (!T.vessel.get_reagent_amount(/datum/reagent/blood))
+		if(!T.vessel.get_reagent_amount(/datum/reagent/blood))
 			to_chat(src, SPAN_DANGER("[T] has no more blood left to give."))
 			break
 
-		if (!T.stunned)
-			T.Stun(10)
+		if(T.stunned < 25)
+			T.Stun(25)
 
 		var/frenzy_lower_chance = 0
 
 		// Alive and not of empty mind.
-		if (check_drain_target_state(T))
+		if(check_drain_target_state(T))
 			blood = min(15, T.vessel.get_reagent_amount(/datum/reagent/blood))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
 			frenzy_lower_chance = 40
 
-			if (draining_vamp)
+			if(draining_vamp)
 				vampire.blood_vamp += blood
 				// Each point of vampire blood will increase your chance to frenzy.
 				vampire.frenzy += blood
@@ -121,32 +122,33 @@
 
 			frenzy_lower_chance = 40
 
-		if (prob(frenzy_lower_chance) && vampire.frenzy > 0)
+		if(prob(frenzy_lower_chance) && vampire.frenzy > 0)
 			vampire.frenzy--
 
-		if (blood_total != vampire.blood_total)
-			var/update_msg = "<span class='notice'>You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood</span>"
-			if (blood_usable != vampire.blood_usable)
-				update_msg += "<span class='notice'> and have [vampire.blood_usable] left to use.</span>"
-			else
-				update_msg += "<span class='notice'>.</span>"
+		if(blood_total != vampire.blood_total)
+			var/update_msg = "You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood"
+			if(blood_usable != vampire.blood_usable)
+				update_msg += " and have [vampire.blood_usable] left to use"
+			update_msg += "."
 
-			to_chat(src, update_msg)
+			to_chat(src, SPAN_NOTICE(update_msg))
 		check_vampire_upgrade()
 		T.vessel.remove_reagent(/datum/reagent/blood, 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
-	var/endsuckmsg = "You extract your fangs from [T.name]'s neck and stop draining them of blood."
+	var/endsuckmsg = "You extract your fangs from \the [T]'s neck and stop draining them of blood."
 	if(vampire.stealth)
-		endsuckmsg += "They will remember nothing of this occurance, provided they survived."
-	visible_message("<span class='danger'>[src.name] stops biting [T.name]'s neck!</span>", "<span class='notice'>[endsuckmsg]</span>")
+		endsuckmsg += " They will remember nothing of this occurance, provided they survived."
+	visible_message(SPAN_DANGER("[src] stops biting \the [T]'s neck!"), SPAN_NOTICE(endsuckmsg))
 	if(target_aware)
 		T.paralysis = 0
-		if(T.stat != DEAD && vampire.stealth)
-			to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name]."))
-		else if(T.stat != DEAD)
-			to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember everything about being fed upon. How you react to [src.name]'s actions is up to you."))
+		T.stunned = 0
+		if(T.stat != DEAD)
+			if(vampire.stealth)
+				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src]."))
+			else
+				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember everything about being fed upon. How you react to [src]'s actions is up to you."))
 
 // Check that our target is alive, logged in, and any other special cases
 /mob/living/carbon/human/proc/check_drain_target_state(var/mob/living/carbon/human/T)

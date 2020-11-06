@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Vampires with victim awareness enabled will no longer drop their victims to the floor."
+  - tweak: "Stunned people can no longer interact with radios. This means that you cannot use a radio while being bloodsucked."
+  - rscadd: "Clicking the drain blood ability whilst draining blood will now cause you to stop sucking blood at the end of the next drain cycle."
+  - rscadd: "Gaining a vampire power is now displayed a bit nicer in the chat log."
