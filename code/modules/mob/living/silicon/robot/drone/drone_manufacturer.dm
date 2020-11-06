@@ -23,6 +23,17 @@
 	var/produce_drones = 1
 	var/time_last_drone = 500
 	var/drone_type = /mob/living/silicon/robot/drone
+	var/drone_ghostrole_name = "maintdrone"
+
+/obj/machinery/drone_fabricator/Initialize()
+	. = ..()
+	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
+	LAZYADD(G.spawnpoints, get_turf(src))
+
+/obj/machinery/drone_fabricator/Destroy()
+	. = ..()
+	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
+	LAZYREMOVE(G.spawnpoints, get_turf(src))
 
 /obj/machinery/drone_fabricator/derelict
 	name = "construction drone fabricator"
