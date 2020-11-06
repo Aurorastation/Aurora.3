@@ -12,7 +12,6 @@
  * DATA CARDS - Used for the teleporter
  */
 /obj/item/card
-
 	name = "card"
 	desc = "Does card things."
 	icon = 'icons/obj/card.dmi'
@@ -151,7 +150,7 @@ var/const/NO_EMAG_ACT = -50
 	return
 
 /obj/item/card/id/proc/update_name()
-	name = "[src.registered_name]'s ID Card ([src.assignment])"
+	name = "ID Card ([src.registered_name] ([src.assignment]))"
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
 	front = getFlatIcon(M, SOUTH)
@@ -223,8 +222,8 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/proc/id_flash(var/mob/user, var/add_text = "", var/blind_add_text = "")
 	var/list/id_viewers = viewers(3, user) // or some other distance - this distance could be defined as a var on the ID
-	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] ID card: [icon2html(src, id_viewers)] [src.name], [src.assignment]"
-	var/blind_message = "You flash your ID card: [icon2html(src, id_viewers)] [src.name], [src.assignment]"
+	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] [icon2html(src, id_viewers)] [src.name]."
+	var/blind_message = "You flash your [icon2html(src, id_viewers)] [src.name]."
 	if(add_text != "")
 		message += "[add_text]"
 	if(blind_add_text != "")
@@ -450,8 +449,8 @@ var/const/NO_EMAG_ACT = -50
 	pickup_sound = /decl/sound_category/generic_pickup_sound
 
 /obj/item/card/id/ccia/id_flash(var/mob/user)
-    var/add_text = ". Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
-    var/blind_add_text = ". Done with prejudice and professionalism, you mean business."
+    var/add_text = " Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
+    var/blind_add_text = " Done with prejudice and professionalism, you mean business."
     return ..(user, add_text, blind_add_text)
 
 /obj/item/card/id/ccia/fib
