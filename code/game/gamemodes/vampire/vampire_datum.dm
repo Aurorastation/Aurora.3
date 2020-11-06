@@ -9,6 +9,10 @@
 	var/last_frenzy_message = 0					// Keeps track of when the last frenzy alert was sent.
 	var/status = 0								// Bitfield including different statuses.
 	var/stealth = TRUE							// Do you want your victims to know of your sucking?
+
+	var/obj/screen/blood_hud
+	var/obj/screen/frenzy_hud
+
 	var/list/datum/power/vampire/purchased_powers = list()			// List of power datums available for use.
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.
 	var/mob/living/carbon/human/master = null	// The vampire/thrall's master.

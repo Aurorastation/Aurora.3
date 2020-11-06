@@ -130,6 +130,7 @@
 #include "code\_onclick\hud\spell_screen_objects.dm"
 #include "code\_onclick\hud\screen_object_types\ai_screen_objs.dm"
 #include "code\_onclick\hud\screen_object_types\internals.dm"
+#include "code\_onclick\hud\screen_object_types\vampire.dm"
 #include "code\ATMOSPHERICS\_atmos_setup.dm"
 #include "code\ATMOSPHERICS\_atmospherics_helpers.dm"
 #include "code\ATMOSPHERICS\atmospherics.dm"

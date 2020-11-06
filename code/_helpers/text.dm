@@ -1,3 +1,5 @@
+#define SMALL_FONTS(FONTSIZE, MSG) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE];\">[MSG]</span>"
+
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:

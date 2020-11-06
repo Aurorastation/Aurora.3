@@ -28,6 +28,10 @@
 		to_chat(src, SPAN_NOTICE("You will retract your fangs once the next blood draining cycle completes."))
 		return
 
+	if(vampire.blood_usable > 950)
+		to_chat(src, SPAN_WARNING("You are fully loaded on usable blood, you cannot store any more!"))
+		return
+
 	var/obj/item/grab/G = get_active_hand()
 	if(!istype(G))
 		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to drain their blood."))
@@ -80,7 +84,7 @@
 
 	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
-	while(do_mob(src, T, 50) && vampire.status & VAMP_DRAINING)
+	while(do_mob(src, T, 50) && vampire.status & VAMP_DRAINING && vampire.blood_usable < 950)
 		if(!mind.vampire)
 			to_chat(src, SPAN_DANGER("Your fangs have disappeared!"))
 			return

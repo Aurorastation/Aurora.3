@@ -36,3 +36,14 @@ var/datum/antagonist/vampire/vamp = null
 /datum/antagonist/vampire/update_antag_mob(var/datum/mind/player)
 	..()
 	player.current.make_vampire()
+
+/datum/antagonist/vampire/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
+	. = ..()
+	if(.)
+		if(player.current.client)
+			player.current.client.screen -= player.vampire.blood_hud
+			player.current.client.screen -= player.vampire.frenzy_hud
+		player.current.verbs -= /datum/game_mode/vampire/verb/vampire_help
+		for(var/datum/power/vampire/P in vampirepowers)
+			player.current.verbs -= P.verbpath
+		QDEL_NULL(player.vampire)
