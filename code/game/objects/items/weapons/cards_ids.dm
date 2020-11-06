@@ -220,9 +220,16 @@ var/const/NO_EMAG_ACT = -50
 
 	src.add_fingerprint(user)
 	return
-/obj/item/card/id/proc/id_flash(mob/user)
-	user.visible_message("<b>[user]</b> flashes [user.get_pronoun("his")] ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]",\
-						 "You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]")
+
+/obj/item/card/id/proc/id_flash(var/mob/user, var/add_text = "", var/blind_add_text = "")
+	var/list/id_viewers = viewers(3, user) // or some other distance - this distance could be defined as a var on the ID
+	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] ID card: [icon2html(src, id_viewers)] [src.name], [src.assignment]"
+	var/blind_message = "You flash your ID card: [icon2html(src, id_viewers)] [src.name], [src.assignment]"
+	if(add_text != "")
+		message += "[add_text]"
+	if(blind_add_text != "")
+		blind_message += "[blind_add_text]"
+	user.visible_message(message, blind_message)
 
 /obj/item/card/id/attack(var/mob/living/M, var/mob/user, proximity)
 
@@ -440,9 +447,10 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "ccia"
 	overlay_state = "ccia"
 
-/obj/item/card/id/ccia/id_flash(mob/user as mob)
-	user.visible_message("<b>[user]</b> flashes [user.get_pronoun("his")] ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]. Done with prejudice and professionalism, [user.get_pronoun("he")] means business.",\
-						 "You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name], [src.assignment]. Done with prejudice and professionalism, you mean business.")
+/obj/item/card/id/ccia/id_flash(var/mob/user)
+    var/add_text = ". Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
+    var/blind_add_text = ". Done with prejudice and professionalism, you mean business."
+    return ..(user, add_text, blind_add_text)
 
 /obj/item/card/id/ccia/fib
 	name = "\improper Federal Investigations Bureau ID"
