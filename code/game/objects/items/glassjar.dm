@@ -7,7 +7,6 @@
 	matter = list(MATERIAL_GLASS = 200)
 	recyclable = TRUE
 	flags = NOBLUDGEON
-	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/rat)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -19,21 +18,7 @@
 /obj/item/glass_jar/afterattack(var/atom/A, var/mob/user, var/proximity)
 	if(!proximity || contains)
 		return
-	if(istype(A, /mob))
-		var/accept = 0
-		for(var/D in accept_mobs)
-			if(istype(A, D))
-				accept = 1
-		if(!accept)
-			to_chat(user, "[A] doesn't fit into \the [src].")
-			return
-		var/mob/L = A
-		user.visible_message("<span class='notice'>[user] scoops [L] into \the [src].</span>", "<span class='notice'>You scoop [L] into \the [src].</span>")
-		L.forceMove(src)
-		contains = 2
-		update_icon()
-		return
-	else if(istype(A, /obj/effect/spider/spiderling))
+	if(istype(A, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = A
 		user.visible_message("<span class='notice'>[user] scoops [S] into \the [src].</span>", "<span class='notice'>You scoop [S] into \the [src].</span>")
 		S.forceMove(src)
@@ -41,6 +26,17 @@
 		contains = 3
 		update_icon()
 		return
+	if(istype(A, /mob))
+		var/mob/L = A
+		if(L.mob_size == MOB_TINY)
+			user.visible_message("<span class='notice'>[user] scoops [L] into \the [src].</span>", "<span class='notice'>You scoop [L] into \the [src].</span>")
+			L.forceMove(src)
+			contains = 2
+			update_icon()
+			return
+		else
+			to_chat(user, "[L] doesn't fit into \the [src].")
+			return
 
 /obj/item/glass_jar/attack_self(var/mob/user)
 	switch(contains)
