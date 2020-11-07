@@ -27,13 +27,17 @@
 
 /obj/machinery/drone_fabricator/Initialize()
 	. = ..()
-	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
-	LAZYADD(G.spawnpoints, get_turf(src))
+	if(SSticker.current_state == GAME_STATE_PLAYING)
+		enable_drone_spawn()
 
 /obj/machinery/drone_fabricator/Destroy()
 	. = ..()
 	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
 	LAZYREMOVE(G.spawnpoints, get_turf(src))
+
+/obj/machinery/drone_fabricator/proc/enable_drone_spawn()
+	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
+	LAZYADD(G.spawnpoints, get_turf(src))
 
 /obj/machinery/drone_fabricator/derelict
 	name = "construction drone fabricator"
@@ -68,7 +72,7 @@
 /obj/machinery/drone_fabricator/examine(mob/user)
 	..(user)
 	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
-		to_chat(user, SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Roles' from the Ghost tab to spawn as a maintenance drone.</B>"))
+		to_chat(user, SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>"))
 
 /obj/machinery/drone_fabricator/proc/create_drone(var/client/player)
 	if(stat & NOPOWER)
