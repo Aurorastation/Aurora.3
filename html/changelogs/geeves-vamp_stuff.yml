@@ -12,3 +12,5 @@ changes:
   - tweak: "Vampires now can only suck up until 950 units of usable blood."
   - tweak: "Vampire glare now stuns IPCs and cyborgs as well."
   - bugfix: "Hulks no longer have funky punctuation."
+  - tweak: "Veil walking now uses your mob sprite instead of a generic ghost sprite."
+  - rscadd: "Triggering veil walking now breaks all grabs on you."

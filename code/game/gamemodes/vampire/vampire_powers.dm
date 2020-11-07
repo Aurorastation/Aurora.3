@@ -383,14 +383,17 @@
 	set desc = "You enter the veil, leaving only an incorporeal manifestation of you visible to the others."
 
 	var/datum/vampire/vampire = vampire_power(0, 0, 1)
-	if (!vampire)
+	if(!vampire)
 		return
 
-	if (vampire.holder)
+	for(var/thing in grabbed_by)
+		qdel(thing)
+
+	if(vampire.holder)
 		vampire.holder.deactivate()
 	else
 		vampire = vampire_power(80, 0, 1)
-		if (!vampire)
+		if(!vampire)
 			return
 
 		var/obj/effect/dummy/veil_walk/holder = new /obj/effect/dummy/veil_walk(get_turf(loc))
@@ -402,14 +405,15 @@
 
 // Veilwalk's dummy holder
 /obj/effect/dummy/veil_walk
-	name = "a red ghost"
+	name = "red shade"
 	desc = "A red, shimmering presence."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "blank"
 	density = FALSE
 
 	var/last_valid_turf = null
-	var/can_move = TRUE
+	var/ghost_last_move = 0
+	var/ghost_move_delay = 2 // 2 deciseconds
 	var/mob/owner_mob = null
 	var/datum/vampire/owner_vampire = null
 	var/warning_level = 0
@@ -429,30 +433,31 @@
 			M.reset_view(null)
 
 /obj/effect/dummy/veil_walk/relaymove(var/mob/user, direction)
-	if (!can_move)
+	if(ghost_last_move + ghost_move_delay > world.time)
 		return
+	ghost_last_move = world.time
 
 	var/turf/new_loc = get_step(src, direction)
-	if (new_loc.flags & NOJAUNT || istype(new_loc.loc, /area/chapel))
+	if(new_loc.flags & NOJAUNT || istype(new_loc.loc, /area/chapel))
 		to_chat(usr, SPAN_WARNING("Some strange aura is blocking the way!"))
 		return
 
 	forceMove(new_loc)
 	var/turf/T = get_turf(loc)
-	if (!T.contains_dense_objects())
+	if(!T.contains_dense_objects())
 		last_valid_turf = T
-
-	can_move = 0
-	addtimer(CALLBACK(src, .proc/unlock_move), 2, TIMER_UNIQUE)
+	set_dir(direction)
 
 /obj/effect/dummy/veil_walk/process()
-	if (owner_mob.stat)
-		if (owner_mob.stat == 1)
+	if(owner_mob.stat)
+		if(owner_mob.stat == UNCONSCIOUS)
 			to_chat(owner_mob, SPAN_WARNING("You cannot maintain this form while unconcious."))
 			addtimer(CALLBACK(src, .proc/kick_unconcious), 10, TIMER_UNIQUE)
 		else
 			deactivate()
 			return
+
+	get_user_appearance()
 
 	if (owner_vampire.blood_usable >= 5)
 		owner_vampire.use_blood(5)
@@ -480,29 +485,23 @@
 
 	owner_mob = owner
 	owner_vampire = owner.vampire_power()
-	if (!owner_vampire)
+	if(!owner_vampire)
 		qdel(src)
 		return
 
 	owner_vampire.holder = src
-
 	owner.vampire_phase_out(get_turf(owner.loc))
-
-	icon_state = "veil_ghost"
+	get_user_appearance()
 
 	last_valid_turf = get_turf(owner.loc)
 	owner.forceMove(src)
-
-	desc += " Its features look faintly alike [owner.name]'s."
 
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/dummy/veil_walk/proc/deactivate()
 	STOP_PROCESSING(SSprocessing, src)
 
-	can_move = 0
-
-	icon_state = "blank"
+	ghost_last_move = world.time + 500
 
 	owner_mob.vampire_phase_in(get_turf(loc))
 
@@ -515,14 +514,18 @@
 
 	qdel(src)
 
-/obj/effect/dummy/veil_walk/proc/unlock_move()
-	can_move = 1
-
 /obj/effect/dummy/veil_walk/proc/kick_unconcious()
 	if (owner_mob && owner_mob.stat == 1)
 		to_chat(owner_mob, SPAN_DANGER("You are ejected from the Veil."))
 		deactivate()
 		return
+
+/obj/effect/dummy/veil_walk/proc/get_user_appearance()
+	appearance = owner_mob
+	color = rgb(225, 125, 125)
+	alpha = 100
+	name = initial(name)
+	desc = "[initial(desc)] + Its features look faintly alike [owner.name]'s."
 
 /obj/effect/dummy/veil_walk/ex_act(vars)
 	return
@@ -677,9 +680,8 @@
 		to_chat(src, SPAN_NOTICE("You instantly dominate [T]'s mind, forcing them to obey your command."))
 
 	var/command = input(src, "Command your victim.", "Your command.") as text|null
-
-	if (!command)
-		to_chat(src, "<span class='alert'>Cancelled."))
+	if(!command)
+		to_chat(src, SPAN_NOTICE("You decide against commanding your victim."))
 		return
 
 	command = sanitizeSafe(command, extra = 0)
@@ -688,7 +690,7 @@
 
 	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
 	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
-	to_chat(T, "<span style='color: green;'><i><em>[command]</em></i>"))
+	to_chat(T, SPAN_GOOD("<i><em>[command]</em></i>"))
 	to_chat(src, SPAN_NOTICE("You command [T], and they will obey."))
 	visible_message("<b>[src]</b> whispers something.")
 
@@ -805,7 +807,7 @@
 				probability = 80
 
 			if (prob(probability))
-				to_chat(T, "<span class='good'><i>[pick(emotes)]</i>"))
+				to_chat(T, SPAN_GOOD("<i>[pick(emotes)]</i>"))
 
 		vampire.use_blood(5)
 
@@ -907,10 +909,10 @@
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
-			to_chat(src, "<span class='alert'>Your fangs have disappeared!"))
+			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
 		if (!T.vessel.get_reagent_amount(/datum/reagent/blood))
-			to_chat(src, "<span class='alert'>[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
+			to_chat(src, SPAN_NOTICE("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
 			break
 
 		T.vessel.remove_reagent(/datum/reagent/blood, 50)
