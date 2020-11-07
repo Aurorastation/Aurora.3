@@ -16,6 +16,9 @@
 	update_icon()
 
 /obj/item/glass_jar/afterattack(var/atom/A, var/mob/user, var/proximity)
+	insert_mob(A, user, proximity)
+
+/obj/item/glass_jar/proc/insert_mob(var/atom/A, var/mob/user, var/proximity)
 	if(!proximity || contains)
 		return
 	if(istype(A, /obj/effect/spider/spiderling))
@@ -28,7 +31,7 @@
 		return
 	if(istype(A, /mob))
 		var/mob/L = A
-		if(L.mob_size == MOB_TINY)
+		if(L.mob_size <= MOB_SMALL)
 			user.visible_message("<span class='notice'>[user] scoops [L] into \the [src].</span>", "<span class='notice'>You scoop [L] into \the [src].</span>")
 			L.forceMove(src)
 			contains = 2
@@ -69,16 +72,19 @@
 			qdel(src)
 			return
 
-/obj/item/glass_jar/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/spacecash))
+/obj/item/glass_jar/attackby(var/atom/A, var/mob/user, var/proximity)
+	if(istype(A, /obj/item/spacecash))
 		if(contains == 0)
 			contains = 1
 		if(contains != 1)
 			return
-		var/obj/item/spacecash/S = W
+		var/obj/item/spacecash/S = A
 		user.visible_message("<span class='notice'>[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src].</span>")
 		user.drop_from_inventory(S,src)
 		update_icon()
+		return
+	else
+		insert_mob(A, user, proximity)
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc
 	underlays.Cut()
