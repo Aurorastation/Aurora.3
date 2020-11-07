@@ -287,9 +287,9 @@
 
 /datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
-	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
+	if(!(CE_CLEARSIGHT in M.chem_effects))
 		M.eye_blurry = max(M.eye_blurry, 5)
-	if(!locate(/datum/reagent/alkysine) in M.reagents.reagent_list)
+	if(!(CE_STRAIGHTWALK in M.chem_effects))
 		M.confused = max(M.confused, 10)
 
 	var/mob/living/carbon/human/H = M
@@ -324,9 +324,9 @@
 
 /datum/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 70)
-	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
+	if(!(CE_CLEARSIGHT in M.chem_effects))
 		M.eye_blurry = max(M.eye_blurry, 3)
-	if(!locate(/datum/reagent/alkysine) in M.reagents.reagent_list)
+	if(!(CE_STRAIGHTWALK in M.chem_effects))
 		M.confused = max(M.confused, 6)
 
 /datum/reagent/oxycomorphine
@@ -346,9 +346,9 @@
 
 /datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
-	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
+	if(!(CE_CLEARSIGHT in M.chem_effects))
 		M.eye_blurry = max(M.eye_blurry, 5)
-	if(!locate(/datum/reagent/alkysine) in M.reagents.reagent_list)
+	if(!(CE_STRAIGHTWALK in M.chem_effects))
 		M.confused = max(M.confused, 20)
 
 	var/mob/living/carbon/human/H = M
@@ -396,11 +396,12 @@
 	M.AdjustWeakened(-1)
 	holder.remove_reagent(/datum/reagent/mindbreaker, 5)
 	M.hallucination = max(0, M.hallucination - 10)
-	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
-		M.eye_blurry = max(M.eye_blurry - 5, 0)
-	if(!locate(/datum/reagent/alkysine) in M.reagents.reagent_list)
-		M.confused = max(M.confused - 10, 0)
-	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
+	M.add_chemical_effect(CE_CLEARSIGHT)
+	M.eye_blurry = max(M.eye_blurry - 5, 0)
+	M.add_chemical_effect(CE_STRAIGHTWALK)
+	M.confused = max(M.confused - 10, 0)
+	if(prob(25))
+		M.add_chemical_effect(CE_HEPATOTOXIC)
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	if (!modifier)
@@ -431,9 +432,10 @@
 	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_STRAIGHTWALK)
 	if(volume < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
 		M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
-	else 
+	else
 		M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
 		M.add_chemical_effect(CE_PAINKILLER, 10)
 		M.dizziness = max(125, M.dizziness)
@@ -465,6 +467,7 @@
 	taste_description = "dull toxin"
 
 /datum/reagent/oculine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_CLEARSIGHT)
 	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
 	M.eye_blind = max(M.eye_blind - 5 * removed, 0)
 	if(ishuman(M))
@@ -588,6 +591,7 @@
 	M.dizziness = max(0, M.dizziness - DP)
 	M.drowsyness = max(0, M.drowsyness - DP)
 	M.stuttering = max(0, M.stuttering - DP)
+	M.add_chemical_effect(CE_STRAIGHTWALK)
 	M.confused = max(0, M.confused - DP)
 
 	var/datum/reagents/ingested = M.get_ingested_reagents()
@@ -1166,8 +1170,7 @@
 
 /datum/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_chemical_effect(CE_PACIFIED, 1)
-	if(!locate(/datum/reagent/oculine) in M.reagents.reagent_list)
-		M.eye_blurry = max(M.eye_blurry, 30)
+	M.eye_blurry = max(M.eye_blurry, 30)
 	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list))
 		M.ear_deaf = 20
 		M.drowsyness = max(M.drowsyness, 10)
