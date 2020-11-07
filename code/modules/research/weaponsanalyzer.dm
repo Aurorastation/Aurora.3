@@ -256,9 +256,7 @@
 		ui = new(user, src, "wanalyzer-analyzer", width, height, capitalize(name))
 
 	if(item)
-		var/icon/Icon_used
-		if(item)
-			Icon_used = new /icon(item.icon, item.icon_state)
+		var/icon/Icon_used = new /icon(item.icon, item.icon_state)
 		ui.add_asset("icon", Icon_used) 
 		ui.send_asset("icon")
 	ui.open()
