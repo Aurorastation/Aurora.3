@@ -18,6 +18,8 @@
 /datum/ghostspawner/simplemob/maintdrone/cant_spawn()
 	if(!config.allow_drone_spawn)
 		return "Spawning as drone is disabled"
+	if(count_drones() >= config.max_maint_drones)
+		return "The maximum number of active drones has been reached"
 	var/has_active_fabricator = FALSE
 	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
 		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
