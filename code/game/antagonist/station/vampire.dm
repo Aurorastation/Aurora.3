@@ -25,6 +25,8 @@ var/datum/antagonist/vampire/vamp = null
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antaghud_indicator = "hudvampire"
 
+	var/vampire_data = ""
+
 /datum/antagonist/vampire/New()
 	..()
 
@@ -32,6 +34,32 @@ var/datum/antagonist/vampire/vamp = null
 
 	for (var/type in vampirepower_types)
 		vampirepowers += new type()
+
+	vampire_data = {"
+		<p>This guide contains important OOC information on vampire related mechanics, as well as a short lore introduction.</p>
+		<h2>Backstory Synopsis</h2><br>
+		<p>Vampires are individuals who, after attempting blood magic or being converted by a vampire themselves, have been corrupted by the Veil and given insidious power. As creatures of the night they have lost all need to eat or drink and are instead consumed with an unquenching thirst for blood to sustain themselves and to grow more powerful and grow ever closer to tapping the full power of The Veil.</p>
+		<h2>Mechanics</h2><br>
+		<ol>
+				<li><b>Blood</b> - Blood comes in two forms: <b>usable</b> and <b>total</b>. The usable blood can be considered your mana pool. It gets trained as you use more powers. Total blood can be thought of as experience points. They cannot be removed, and they will move you further up the power tree. You start with 30 units of usable blood. Be careful with your initial pool: if you expend it, you will start slowly frenzying.</li>
+				<li><b>Progression</b> - Vampire's progression is linear. The more total blood you train, the more powers you unlock. As the final step, you will unlock the Veil's full power, which augments the existing powers.</li>
+				<li><b>Frenzy</b> - With the raw corruption of the Veil locked within your body, maintaining your sanity is a constant battle. Should you ever run out of usable blood, or become enraged through other means, you may find yourself frenzied. You are reverted to a snarling creature who only wants to consume blood until you are able to break out of it, and regain control. This is done by draining blood.</li>
+				<li><b>Everything Holy</b> - As a creature of the Veil to some degree, you are vulnurable to holy influence. You will very quickly find the Chaplain resistant to your blood magic, and his artifacts harmful to your sanity.</li>
+		</ol>
+		<h2>Powers</h2><br>
+		<p>Vampire's powers all come from blood magic. In essence, it's similar to the Cult of Nar'sie's magic, but instead of relying on runes and knowledge of the casters, it uses the blood of the vampire's victims as payment for the super natural acts.</p>
+		<hr>
+	"}
+
+	for(var/thing in vampirepowers)
+		var/datum/power/vampire/VP = thing
+		vampire_data += "<div class='rune-block'>"
+		vampire_data += "<b>[capitalize_first_letters(VP.name)]</b>: <i>[VP.desc]</i><br>"
+		if(VP.helptext)
+			vampire_data += "[VP.helptext]<br><hr>"
+		else
+			vampire_data += "<hr>"
+		vampire_data += "</div>"
 
 /datum/antagonist/vampire/update_antag_mob(var/datum/mind/player)
 	..()
@@ -43,7 +71,7 @@ var/datum/antagonist/vampire/vamp = null
 		if(player.current.client)
 			player.current.client.screen -= player.vampire.blood_hud
 			player.current.client.screen -= player.vampire.frenzy_hud
-		player.current.verbs -= /datum/game_mode/vampire/verb/vampire_help
+		player.current.verbs -= /datum/antagonist/vampire/proc/vampire_help
 		for(var/datum/power/vampire/P in vampirepowers)
 			player.current.verbs -= P.verbpath
 		QDEL_NULL(player.vampire)
@@ -60,3 +88,13 @@ var/datum/antagonist/vampire/vamp = null
 	user.client.screen += M.vampire.blood_hud
 	user.client.screen += M.vampire.frenzy_hud
 	user.client.screen += M.vampire.blood_suck_hud
+
+/datum/antagonist/vampire/proc/vampire_help()
+	set category = "Vampire"
+	set name = "Display Help"
+	set desc = "Opens a help window with overview of available powers and other important information."
+
+	var/datum/browser/vampire_win = new(usr, "VampirePowers", "The Veil", 600, 700)
+	vampire_win.set_content(vamp.vampire_data)
+	vampire_win.add_stylesheet("cult", 'html/browser/cult.css')
+	vampire_win.open()

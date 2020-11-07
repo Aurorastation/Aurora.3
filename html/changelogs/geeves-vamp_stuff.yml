@@ -14,3 +14,4 @@ changes:
   - bugfix: "Hulks no longer have funky punctuation."
   - tweak: "Veil walking now uses your mob sprite instead of a generic ghost sprite."
   - rscadd: "Triggering veil walking now breaks all grabs on you."
+  - rscadd: "The vampire help menu has been revamped to be more up to date and stylish."
