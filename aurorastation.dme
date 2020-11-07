@@ -2852,7 +2852,6 @@
 #include "code\modules\ventcrawl\ventcrawl.dm"
 #include "code\modules\ventcrawl\ventcrawl_atmospherics.dm"
 #include "code\modules\ventcrawl\ventcrawl_verb.dm"
-#include "code\modules\vision_cone\vision_cone.dm"
 #include "code\modules\vueui\external.dm"
 #include "code\modules\vueui\ui.dm"
 #include "code\modules\vueui\var_monitor.dm"

@@ -51,7 +51,6 @@ var/list/ai_verbs_default = list(
 	anchored = TRUE // -- TLE
 	density = TRUE
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
-	can_have_vision_cone = FALSE
 	var/carded
 
 	// Holopad and holograms
