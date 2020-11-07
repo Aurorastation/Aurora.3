@@ -97,10 +97,10 @@
 	return FALSE
 
 /mob/living/announcer/dust()
-	return
+	qdel(src)
 
 /mob/living/announcer/gib()
-	return
+	qdel(src)
 
 /mob/living/announcer/can_fall()
 	return FALSE
