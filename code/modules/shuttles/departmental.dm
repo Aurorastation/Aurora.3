@@ -19,12 +19,12 @@
 	shuttle_tag = "Research Shuttle"
 	req_access = list(access_research)
 
-/datum/shuttle/autodock/ferry/research_aurora
+/datum/shuttle/autodock/multi/research_aurora
 	var/triggered_away_sites = FALSE
 
-/datum/shuttle/autodock/ferry/research_aurora/shuttle_moved()
+/datum/shuttle/autodock/multi/research_aurora/shuttle_moved()
 	. = ..()
-	if(!triggered_away_sites)
+	if(!triggered_away_sites && !isStationLevel(next_location.loc.z))
 		for(var/s in SSghostroles.spawners)
 			var/datum/ghostspawner/G = SSghostroles.spawners[s]
 			if(G.away_site)

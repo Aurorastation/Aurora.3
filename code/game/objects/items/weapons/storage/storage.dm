@@ -308,7 +308,7 @@
 	if(usr && usr.isEquipped(W) && !usr.canUnEquip(W))
 		return 0
 
-	if(!dropsafety(W))
+	if(!W.dropsafety())
 		return 0
 
 	if(src.loc == W)
@@ -495,7 +495,7 @@
 /obj/item/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
-	if(!dropsafety(W))
+	if(!W.dropsafety())
 		return.
 
 	if(istype(W, /obj/item/device/lightreplacer))

@@ -75,7 +75,7 @@
 			continue
 
 		var/turf/AT = get_turf(A)
-		if(AT && ARE_Z_CONNECTED(AT.z, p.z))
+		if(AT && AreConnectedZLevels(AT.z, p.z))
 			dir = dir2text(get_dir(p, AT))
 		if(!dir)
 			dir = "ERR"

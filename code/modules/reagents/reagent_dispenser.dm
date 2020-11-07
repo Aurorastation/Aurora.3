@@ -59,7 +59,7 @@
 				if(is_open_container())
 					RG.standard_pour_into(user,src)
 				else
-					to_chat(user,"<span class='notice'>The top cap is wrenched on tight!</span>")
+					to_chat(user,"<span class='notice'>The inlet cap on \the [src] is wrenched on tight!</span>")
 		return
 
 	if (O.iswrench())
@@ -72,10 +72,10 @@
 				START_PROCESSING(SSprocessing,src)
 
 		else if(accept_any_reagent)
-			var/is_closed = flags & OPENCONTAINER
-			var/verb01 = is_closed ? "unwrenches" : "wrenches"
-			var/verb02 = (is_closed ? "open" : "shut")
-			user.visible_message("<span class='notice'>[user] [verb01] the top cap [verb02] from \the [src].</span>", "<span class='notice'>You [verb01] the top cap [verb02] from \the [src].</span>")
+			if(flags & OPENCONTAINER)
+				user.visible_message(SPAN_NOTICE("[user] wrenches the inlet cap on \the [src] shut."), SPAN_NOTICE("You wrench the inlet cap back on \the [src]."))
+			else
+				user.visible_message(SPAN_NOTICE("[user] unwrenches the inlet cap from \the [src]."), SPAN_NOTICE("You unwrench the inlet cap from \the [src]."))
 			flags ^= OPENCONTAINER
 			return
 

@@ -104,7 +104,7 @@ Possible to do for anyone motivated enough:
 			var/list/holopadlist = list()
 			for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines - src)
 				if(AreConnectedZLevels(H.z, z) && H.operable())
-					holopadlist[H.holopad_id] = H
+					holopadlist["[H.holopad_id]"] = H	//Define a list and fill it with the area of every holopad in the world
 			holopadlist = sortAssoc(holopadlist)
 			var/chosen_pad = input(user, "Which holopad would you like to contact?", "Holopad List") as null|anything in holopadlist
 			if(!chosen_pad)
