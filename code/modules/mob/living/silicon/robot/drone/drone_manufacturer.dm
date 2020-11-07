@@ -20,10 +20,13 @@
 
 	var/fabricator_tag = "Aurora"
 	var/drone_progress = 0
-	var/produce_drones = 1
+	var/produce_drones = TRUE
 	var/time_last_drone = 500
 	var/drone_type = /mob/living/silicon/robot/drone
 	var/drone_ghostrole_name = "maintdrone"
+
+/obj/machinery/drone_fabricator/disabled
+	produce_drones = FALSE
 
 /obj/machinery/drone_fabricator/Initialize()
 	. = ..()
