@@ -28,7 +28,7 @@
 		to_chat(src, SPAN_NOTICE("You will retract your fangs once the next blood draining cycle completes."))
 		return
 
-	if(vampire.blood_usable > 950)
+	if(vampire.blood_usable > VAMPIRE_MAX_USABLE_BLOOD)
 		to_chat(src, SPAN_WARNING("You are fully loaded on usable blood, you cannot store any more!"))
 		return
 
@@ -84,7 +84,7 @@
 
 	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
-	while(do_mob(src, T, 50) && vampire.status & VAMP_DRAINING && vampire.blood_usable < 950)
+	while(do_mob(src, T, 50) && vampire.status & VAMP_DRAINING && vampire.blood_usable < VAMPIRE_MAX_USABLE_BLOOD)
 		if(!mind.vampire)
 			to_chat(src, SPAN_DANGER("Your fangs have disappeared!"))
 			return
@@ -177,9 +177,7 @@
 
 	visible_message("<span class='danger'>[src.name]'s eyes emit a blinding flash!</span>")
 	var/list/victims = list()
-	for(var/mob/living/L in view(2))
-		if (L == src)
-			continue
+	for(var/mob/living/L in viewers(2) - src)
 		if(ishuman(L))
 			if(!vampire_can_affect_target(L, 0, affect_ipc = TRUE))
 				continue

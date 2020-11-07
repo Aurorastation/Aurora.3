@@ -47,3 +47,16 @@ var/datum/antagonist/vampire/vamp = null
 		for(var/datum/power/vampire/P in vampirepowers)
 			player.current.verbs -= P.verbpath
 		QDEL_NULL(player.vampire)
+
+/datum/antagonist/vampire/handle_latelogin(var/mob/user)
+	var/datum/mind/M = user.mind
+	if(!M)
+		return
+	if(M.vampire.status & VAMP_ISTHRALL)
+		return
+	M.vampire.blood_hud = new /obj/screen/vampire/blood()
+	M.vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
+	M.vampire.blood_suck_hud = new /obj/screen/vampire/suck()
+	user.client.screen += M.vampire.blood_hud
+	user.client.screen += M.vampire.frenzy_hud
+	user.client.screen += M.vampire.blood_suck_hud

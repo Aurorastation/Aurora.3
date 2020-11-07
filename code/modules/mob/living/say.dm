@@ -104,7 +104,6 @@ proc/get_radio_key_from_channel(var/channel)
 	var/list/returns[4]
 	var/speech_problem_flag = 0
 	if((HULK in mutations) && health >= 25 && length(message))
-		var/list/correct_punctuation = return_correct_punctuation()
 		var/ending = copytext(message, length(message), (length(message) + 1))
 		if(ending && correct_punctuation[ending])
 			message = copytext(message, 1, length(message)) // cut off the punctuation
