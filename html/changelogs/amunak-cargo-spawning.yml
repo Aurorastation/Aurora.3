@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - bugfix: "Changed how cargo spawning defines (STOCK_ITEM_*) work in order to fix an issue with deep recursion and prevent a runtime from it."

@@ -1,6 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes: 
-  - tweak: "Noticeboards now try to put paper directly into your hands instead of immediately on the floor."
