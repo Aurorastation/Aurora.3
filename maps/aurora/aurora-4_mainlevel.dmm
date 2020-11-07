@@ -63836,6 +63836,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/ringer_button{
+	id = "Representative";
+	layer = 3.3;
+	name = "Representative ringer button";
+	pixel_x = -24;
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "mPJ" = (
