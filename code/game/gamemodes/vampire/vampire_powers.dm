@@ -382,6 +382,10 @@
 	if(!vampire)
 		return
 
+	if(pulledby)
+		if(pulledby.pulling == src)
+			pulledby.pulling = null
+		pulledby = null
 	for(var/thing in grabbed_by)
 		qdel(thing)
 
