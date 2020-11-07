@@ -15,7 +15,12 @@
 		if(ishuman(parent))
 			var/mob/living/carbon/human/H = parent
 			metabolism_type = H.species.reagent_tag
-
-		for(var/datum/reagent/current in reagent_list)
-			current.on_mob_life(parent, metabolism_type, metabolism_class)
+		// run this first to get all the chem effects sorted
+		for(var/thing in reagent_list)
+			var/datum/reagent/R = thing
+			R.affect_chem_effect(parent, metabolism_type, metabolism_class)
+		// then run this to actually do what the chems do
+		for(var/thing in reagent_list)
+			var/datum/reagent/R = thing
+			R.on_mob_life(parent, metabolism_type, metabolism_class)
 		update_total()

@@ -126,6 +126,16 @@
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	return
 
+// if your chem directly affects other chems, use this to make sure all the chem_effects are applied before the standard chem affect_thing is run
+/datum/reagent/proc/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	if(!istype(M))
+		return FALSE
+	if(!affects_dead && M.stat == DEAD)
+		return FALSE
+	if(alien & unaffected_species)
+		return FALSE
+	return TRUE
+
 /datum/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting_reagent)
 	M.adjustToxLoss(removed)
 
