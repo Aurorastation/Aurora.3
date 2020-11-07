@@ -169,13 +169,13 @@
 	if (!vampire_power(0, 1))
 		return
 	if (!has_eyes())
-		to_chat(src, "<span class='warning'>You don't have eyes!</span>")
+		to_chat(src, SPAN_WARNING("You don't have eyes!"))
 		return
 	if (istype(glasses, /obj/item/clothing/glasses/sunglasses/blindfold))
-		to_chat(src, "<span class='warning'>You're blindfolded!</span>")
+		to_chat(src, SPAN_WARNING("You're blindfolded!"))
 		return
 
-	visible_message("<span class='danger'>[src.name]'s eyes emit a blinding flash!</span>")
+	visible_message(SPAN_DANGER("[src.name]'s eyes emit a blinding flash!"))
 	var/list/victims = list()
 	for(var/mob/living/L in viewers(2) - src)
 		if(ishuman(L))
@@ -185,7 +185,7 @@
 			L.Weaken(8)
 			L.stuttering = 20
 			L.confused = 10
-			to_chat(L, "<span class='danger'>You are blinded by [src]'s glare!</span>")
+			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
 			flick("flash", L.flash)
 			victims += L
 		else if(isrobot(L))
@@ -207,7 +207,7 @@
 	if (!vampire)
 		return
 	if (!has_eyes())
-		to_chat(src, "<span class='warning'>You don't have eyes!</span>")
+		to_chat(src, SPAN_WARNING("You don't have eyes!"))
 		return
 
 	var/list/victims = list()
@@ -216,7 +216,7 @@
 			continue
 		victims += H
 	if (!victims.len)
-		to_chat(src, "<span class='warning'>No suitable targets.</span>")
+		to_chat(src, SPAN_WARNING("No suitable targets."))
 		return
 
 	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
@@ -224,11 +224,11 @@
 	if (!vampire_can_affect_target(T))
 		return
 
-	to_chat(src, "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to render them useless.</span>")
+	to_chat(src, SPAN_NOTICE("You begin peering into [T.name]'s mind, looking for a way to render them useless."))
 
 	if (do_mob(src, T, 50))
-		to_chat(src, "<span class='danger'>You dominate [T.name]'s mind and render them temporarily powerless to resist.</span>")
-		to_chat(T, "<span class='danger'>You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak.</span>")
+		to_chat(src, SPAN_DANGER("You dominate [T.name]'s mind and render them temporarily powerless to resist."))
+		to_chat(T, SPAN_DANGER("You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak."))
 		T.Weaken(25)
 		T.Stun(25)
 		T.silent += 30
@@ -239,7 +239,7 @@
 		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
 		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_hypnotise, CALLBACK(src, .proc/finish_vamp_timeout))
 	else
-		to_chat(src, "<span class='warning'>You broke your gaze.</span>")
+		to_chat(src, SPAN_WARNING("You broke your gaze."))
 
 // Targeted teleportation, must be to a low-light tile.
 /mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in turfs)
@@ -248,21 +248,21 @@
 	set desc = "For a moment, move through the Veil and emerge at a shadow of your choice."
 
 	if (!T || T.density || T.contains_dense_objects())
-		to_chat(src, "<span class='warning'>You cannot do that.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that."))
 		return
 
 	var/datum/vampire/vampire = vampire_power(20, 1)
 	if (!vampire)
 		return
 	if (!istype(loc, /turf))
-		to_chat(src, "<span class='warning'>You cannot teleport out of your current location.</span>")
+		to_chat(src, SPAN_WARNING("You cannot teleport out of your current location."))
 		return
 	if (T.z != src.z || get_dist(T, get_turf(src)) > world.view)
-		to_chat(src, "<span class='warning'>Your powers are not capable of taking you that far.</span>")
+		to_chat(src, SPAN_WARNING("Your powers are not capable of taking you that far."))
 		return
 	if (T.get_lumcount() > 0.1)
 		// Too bright, cannot jump into.
-		to_chat(src, "<span class='warning'>The destination is too bright.</span>")
+		to_chat(src, SPAN_WARNING("The destination is too bright."))
 		return
 
 	vampire_phase_out(get_turf(loc))
@@ -341,19 +341,17 @@
 	if (!vampire)
 		return
 
-	visible_message("<span class='danger'>[src.name] lets out an ear piercin shriek!</span>", "<span class='danger'>You let out an ear-shattering shriek!</span>", "<span class='danger'>You hear a painfully loud shriek!</span>")
+	visible_message(SPAN_DANGER("[src] lets out an ear piercing shriek!"), SPAN_DANGER("You let out an ear-shattering shriek!"), SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	var/list/victims = list()
 
-	for (var/mob/living/carbon/human/T in hearers(4, src))
-		if (T == src)
+	for(var/mob/living/carbon/human/T in hearers(4, src) - src)
+		if(istype(T) && (T.l_ear || T.r_ear) && istype((T.l_ear || T.r_ear), /obj/item/clothing/ears/earmuffs))
 			continue
-		if (istype(T) && (T.l_ear || T.r_ear) && istype((T.l_ear || T.r_ear), /obj/item/clothing/ears/earmuffs))
-			continue
-		if (!vampire_can_affect_target(T, 0))
+		if(!vampire_can_affect_target(T, 0))
 			continue
 
-		to_chat(T, "<span class='danger'><font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font></span>")
+		to_chat(T, SPAN_DANGER("<font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font>"))
 		T.Weaken(5)
 		T.ear_deaf = 20
 		T.stuttering = 20
@@ -361,16 +359,16 @@
 
 		victims += T
 
-	for (var/obj/structure/window/W in view(7))
+	for(var/obj/structure/window/W in view(7))
 		W.shatter()
 
-	for (var/obj/machinery/light/L in view(7))
+	for(var/obj/machinery/light/L in view(7))
 		L.broken()
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 	vampire.use_blood(90)
 
-	if (victims.len)
+	if(length(victims))
 		admin_attacker_log_many_victims(src, victims, "used chriopteran screech to stun", "was stunned by [key_name(src)] using chriopteran screech", "used chiropteran screech to stun")
 	else
 		log_and_message_admins("used chiropteran screech.")
@@ -436,7 +434,7 @@
 
 	var/turf/new_loc = get_step(src, direction)
 	if (new_loc.flags & NOJAUNT || istype(new_loc.loc, /area/chapel))
-		to_chat(usr, "<span class='warning'>Some strange aura is blocking the way!</span>")
+		to_chat(usr, SPAN_WARNING("Some strange aura is blocking the way!"))
 		return
 
 	forceMove(new_loc)
@@ -450,7 +448,7 @@
 /obj/effect/dummy/veil_walk/process()
 	if (owner_mob.stat)
 		if (owner_mob.stat == 1)
-			to_chat(owner_mob, "<span class='warning'>You cannot maintain this form while unconcious.</span>")
+			to_chat(owner_mob, SPAN_WARNING("You cannot maintain this form while unconcious."))
 			addtimer(CALLBACK(src, .proc/kick_unconcious), 10, TIMER_UNIQUE)
 		else
 			deactivate()
@@ -462,15 +460,15 @@
 		switch (warning_level)
 			if (0)
 				if (owner_vampire.blood_usable <= 5 * 20)
-					to_chat(owner_mob, "<span class='notice'>Your pool of blood is diminishing. You cannot stay in the veil for too long.</span>")
+					to_chat(owner_mob, SPAN_NOTICE("Your pool of blood is diminishing. You cannot stay in the veil for too long."))
 					warning_level = 1
 			if (1)
 				if (owner_vampire.blood_usable <= 5 * 10)
-					to_chat(owner_mob, "<span class='warning'>You will be ejected from the veil soon, as your pool of blood is running dry.</span>")
+					to_chat(owner_mob, SPAN_WARNING("You will be ejected from the veil soon, as your pool of blood is running dry."))
 					warning_level = 2
 			if (2)
 				if (owner_vampire.blood_usable <= 5 * 5)
-					to_chat(owner_mob, "<span class='danger'>You cannot sustain this form for any longer!</span>")
+					to_chat(owner_mob, SPAN_DANGER("You cannot sustain this form for any longer!"))
 					warning_level = 3
 	else
 		deactivate()
@@ -522,7 +520,7 @@
 
 /obj/effect/dummy/veil_walk/proc/kick_unconcious()
 	if (owner_mob && owner_mob.stat == 1)
-		to_chat(owner_mob, "<span class='danger'>You are ejected from the Veil.</span>")
+		to_chat(owner_mob, SPAN_DANGER("You are ejected from the Veil."))
 		deactivate()
 		return
 
@@ -547,17 +545,17 @@
 		vampire.status &= ~VAMP_HEALING
 		return
 	else if (vampire.blood_usable < 15)
-		to_chat(src, "<span class='warning'>You do not have enough usable blood. 15 needed.</span>")
+		to_chat(src, SPAN_WARNING("You do not have enough usable blood. 15 needed."))
 		return
 
 	vampire.status |= VAMP_HEALING
-	to_chat(src, "<span class='notice'>You begin the process of blood healing. Do not move, and ensure that you are not interrupted.</span>")
+	to_chat(src, SPAN_NOTICE("You begin the process of blood healing. Do not move, and ensure that you are not interrupted."))
 
 	log_and_message_admins("activated blood heal.")
 
 	while (do_after(src, 20, 0))
 		if (!(vampire.status & VAMP_HEALING))
-			to_chat(src, "<span class='warning'>Your concentration is broken! You are no longer regenerating!</span>")
+			to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 			break
 
 		var/tox_loss = getToxLoss()
@@ -623,22 +621,22 @@
 									"Your body crackles, skin and bone shifting back into place.")
 
 		if (prob(20))
-			visible_message("<span class='danger'>[pick(emotes_lookers)]</span>", "<span class='notice'>[pick(emotes_self)]</span>")
+			visible_message(SPAN_DANGER("[pick(emotes_lookers)]"), SPAN_NOTICE("[pick(emotes_self)]"))
 
 		if (vampire.blood_usable <= blood_used)
 			vampire.blood_usable = 0
 			vampire.status &= ~VAMP_HEALING
-			to_chat(src, "<span class='warning'>You ran out of blood, and are unable to continue!</span>")
+			to_chat(src, SPAN_WARNING("You ran out of blood, and are unable to continue!"))
 			break
 		else if (!blood_used)
 			vampire.status &= ~VAMP_HEALING
-			to_chat(src, "<span class='notice'>Your body has finished healing. You are ready to continue.</span>")
+			to_chat(src, SPAN_NOTICE("Your body has finished healing. You are ready to continue."))
 			break
 
 	// We broke out of the loop naturally. Gotta catch that.
 	if (vampire.status & VAMP_HEALING)
 		vampire.status &= ~VAMP_HEALING
-		to_chat(src, "<span class='warning'>Your concentration is broken! You are no longer regenerating!</span>")
+		to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 
 	return
 
@@ -659,7 +657,7 @@
 		victims += H
 
 	if (!victims.len)
-		to_chat(src, "<span class='warning'>No suitable targets.</span>")
+		to_chat(src, SPAN_WARNING("No suitable targets."))
 		return
 
 	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
@@ -668,20 +666,20 @@
 		return
 
 	if (!(vampire.status & VAMP_FULLPOWER))
-		to_chat(src, "<span class='notice'>You begin peering into [T]'s mind, looking for a way to gain control.</span>")
+		to_chat(src, SPAN_NOTICE("You begin peering into [T]'s mind, looking for a way to gain control."))
 
 		if (!do_mob(src, T, 50))
-			to_chat(src, "<span class='warning'>Your concentration is broken!</span>")
+			to_chat(src, SPAN_WARNING("Your concentration is broken!"))
 			return
 
-		to_chat(src, "<span class='notice'>You succeed in dominating [T]'s mind. They are yours to command.</span>")
+		to_chat(src, SPAN_NOTICE("You succeed in dominating [T]'s mind. They are yours to command."))
 	else
-		to_chat(src, "<span class='notice'>You instantly dominate [T]'s mind, forcing them to obey your command.</span>")
+		to_chat(src, SPAN_NOTICE("You instantly dominate [T]'s mind, forcing them to obey your command."))
 
 	var/command = input(src, "Command your victim.", "Your command.") as text|null
 
 	if (!command)
-		to_chat(src, "<span class='alert'>Cancelled.</span>")
+		to_chat(src, "<span class='alert'>Cancelled."))
 		return
 
 	command = sanitizeSafe(command, extra = 0)
@@ -690,8 +688,8 @@
 
 	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
 	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
-	to_chat(T, "<span style='color: green;'><i><em>[command]</em></i></span>")
-	to_chat(src, "<span class='notice'>You command [T], and they will obey.</span>")
+	to_chat(T, "<span style='color: green;'><i><em>[command]</em></i>"))
+	to_chat(src, SPAN_NOTICE("You command [T], and they will obey."))
 	visible_message("<b>[src]</b> whispers something.")
 
 	vampire.use_blood(50)
@@ -710,42 +708,42 @@
 
 	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
-		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to enthrall them.</span>")
+		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to enthrall them."))
 		return
 	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
-		to_chat(src, "<span class='warning'>You must have the victim pinned to the ground to enthrall them.</span>")
+		to_chat(src, SPAN_WARNING("You must have the victim pinned to the ground to enthrall them."))
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
 	if(isipc(T))
-		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
+		to_chat(src, SPAN_WARNING("[T] is not a creature you can enthrall."))
 		return
 	if (!istype(T))
-		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
+		to_chat(src, SPAN_WARNING("[T] is not a creature you can enthrall."))
 		return
 	if (!vampire_can_affect_target(T, 1, 1))
 		return
 	if (!T.client || !T.mind)
-		to_chat(src, "<span class='warning'>[T]'s mind is empty and useless. They cannot be forced into a blood bond.</span>")
+		to_chat(src, SPAN_WARNING("[T]'s mind is empty and useless. They cannot be forced into a blood bond."))
 		return
 	if (vampire.status & VAMP_DRAINING)
-		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
+		to_chat(src, SPAN_WARNING("Your fangs are already sunk into a victim's neck!"))
 		return
 
-	visible_message("<span class='danger'>[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound.</span>", "<span class='warning'>You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process.</span>")
-	to_chat(T, "<span class='warning'>You feel an irresistable desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so.</span>")
+	visible_message(SPAN_DANGER("[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound."), SPAN_WARNING("You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process."))
+	to_chat(T, SPAN_WARNING("You feel an irresistable desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so."))
 
 	if (!do_mob(src, T, 50))
-		visible_message("<span class='danger'>[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!</span>", "<span class='danger'>You are interrupted!</span>")
+		visible_message(SPAN_DANGER("[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!"), SPAN_DANGER("You are interrupted!"))
 		return
 
-	to_chat(T, "<span class='danger'>Your mind blanks as you finish feeding from [src]'s wrist.</span>")
+	to_chat(T, SPAN_DANGER("Your mind blanks as you finish feeding from [src]'s wrist."))
 	thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
 	T.mind.vampire.master = src
 	vampire.thralls += T
-	to_chat(T, "<span class='notice'>You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them.</span>")
-	to_chat(src, "<span class='notice'>You have completed the thralling process. They are now your slave and will obey your commands.</span>")
+	to_chat(T, SPAN_NOTICE("You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them."))
+	to_chat(src, SPAN_NOTICE("You have completed the thralling process. They are now your slave and will obey your commands."))
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
 	vampire.use_blood(150)
@@ -764,13 +762,13 @@
 
 	if (vampire.status & VAMP_PRESENCE)
 		vampire.status &= ~VAMP_PRESENCE
-		to_chat(src, "<span class='warning'>You are no longer influencing those weak of mind.</span>")
+		to_chat(src, SPAN_WARNING("You are no longer influencing those weak of mind."))
 		return
 	else if (vampire.blood_usable < 15)
-		to_chat(src, "<span class='warning'>You do not have enough usable blood. 15 needed.</span>")
+		to_chat(src, SPAN_WARNING("You do not have enough usable blood. 15 needed."))
 		return
 
-	to_chat(src, "<span class='notice'>You begin passively influencing the weak minded.</span>")
+	to_chat(src, SPAN_NOTICE("You begin passively influencing the weak minded."))
 	vampire.status |= VAMP_PRESENCE
 
 	var/list/mob/living/carbon/human/affected = list()
@@ -789,7 +787,7 @@
 		sleep(200)
 
 		if (stat)
-			to_chat(src, "<span class='warning'>You cannot influence people around you while [stat == 1 ? "unconcious" : "dead"].</span>")
+			to_chat(src, SPAN_WARNING("You cannot influence people around you while [stat == 1 ? "unconcious" : "dead"]."))
 			vampire.status &= ~VAMP_PRESENCE
 			break
 
@@ -807,13 +805,13 @@
 				probability = 80
 
 			if (prob(probability))
-				to_chat(T, "<span class='good'><i>[pick(emotes)]</i></span>")
+				to_chat(T, "<span class='good'><i>[pick(emotes)]</i>"))
 
 		vampire.use_blood(5)
 
 		if (vampire.blood_usable < 5)
 			vampire.status &= ~VAMP_PRESENCE
-			to_chat(src, "<span class='warning'>You are no longer influencing those weak of mind.</span>")
+			to_chat(src, SPAN_WARNING("You are no longer influencing those weak of mind."))
 			break
 
 /mob/living/carbon/human/proc/vampire_touch_of_life()
@@ -827,12 +825,12 @@
 
 	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
-		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to touch them.</span>")
+		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to touch them."))
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
 	if (T.species.flags & NO_BLOOD)
-		to_chat(src, "<span class='warning'>[T] has no blood and can not be affected by your powers!</span>")
+		to_chat(src, SPAN_WARNING("[T] has no blood and can not be affected by your powers!"))
 		return
 
 	visible_message("<b>[src]</b> gently touches [T].")
@@ -855,26 +853,26 @@
 	// Re-using blood drain code.
 	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
-		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to drain their blood.</span>")
+		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to drain their blood."))
 		return
 	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
-		to_chat(src, "<span class='warning'>You must have the victim pinned to the ground to drain their blood.</span>")
+		to_chat(src, SPAN_WARNING("You must have the victim pinned to the ground to drain their blood."))
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
 	if (!vampire_can_affect_target(T, ignore_thrall = TRUE))
 		return
 	if (!T.client)
-		to_chat(src, "<span class='warning'>[T] is a mindless husk. The Veil has no purpose for them.</span>")
+		to_chat(src, SPAN_WARNING("[T] is a mindless husk. The Veil has no purpose for them."))
 		return
 	if (T.stat == 2)
-		to_chat(src, "<span class='warning'>[T]'s body is broken and damaged beyond salvation. You have no use for them.</span>")
+		to_chat(src, SPAN_WARNING("[T]'s body is broken and damaged beyond salvation. You have no use for them."))
 		return
 	if (T.species.flags & NO_BLOOD)
-		to_chat(src, "<span class='warning'>[T] has no blood and can not be affected by your powers!</span>")
+		to_chat(src, SPAN_WARNING("[T] has no blood and can not be affected by your powers!"))
 		return
 	if (vampire.status & VAMP_DRAINING)
-		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
+		to_chat(src, SPAN_WARNING("Your fangs are already sunk into a victim's neck!"))
 		return
 
 	if (T.mind.vampire)
@@ -891,28 +889,28 @@
 				denial_response = "You choose not to continue with the Embrace, and permit [T] to keep serving their master."
 
 			if (alert(src, choice_text, "Choices", "Yes", "No") == "No")
-				to_chat(src, "<span class='notice'>[denial_response]</span>")
+				to_chat(src, SPAN_NOTICE("[denial_response]"))
 				return
 
 			thralls.remove_antagonist(T.mind, 0, 0)
 			qdel(draining_vamp)
 			draining_vamp = null
 		else
-			to_chat(src, "<span class='warning'>You feel corruption running in [T]'s blood. Much like yourself, [T.get_pronoun("he")] is already a spawn of the Veil, and cannot be Embraced.</span>")
+			to_chat(src, SPAN_WARNING("You feel corruption running in [T]'s blood. Much like yourself, [T.get_pronoun("he")] is already a spawn of the Veil, and cannot be Embraced."))
 			return
 
 	vampire.status |= VAMP_DRAINING
 
-	visible_message("<span class='danger'>[src] bites [T]'s neck!</span>", "<span class='danger'>You bite [T]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise.</span>")
+	visible_message(SPAN_DANGER("[src] bites [T]'s neck!"), SPAN_DANGER("You bite [T]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them."), SPAN_NOTICE("You hear a soft puncture and a wet sucking noise."))
 
-	to_chat(T, "<span class='notice'><br>You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete.</span>")
+	to_chat(T, SPAN_NOTICE("<br>You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete."))
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
-			to_chat(src, "<span class='alert'>Your fangs have disappeared!</span>")
+			to_chat(src, "<span class='alert'>Your fangs have disappeared!"))
 			return
 		if (!T.vessel.get_reagent_amount(/datum/reagent/blood))
-			to_chat(src, "<span class='alert'>[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body.</span>")
+			to_chat(src, "<span class='alert'>[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
 			break
 
 		T.vessel.remove_reagent(/datum/reagent/blood, 50)
@@ -926,15 +924,15 @@
 				ghost.can_reenter_corpse = 1
 				ghost.reenter_corpse()
 
-				to_chat(T, "<span class='danger'>A dark force pushes you back into your body. You find yourself somehow still clinging to life.</span>")
+				to_chat(T, SPAN_DANGER("A dark force pushes you back into your body. You find yourself somehow still clinging to life."))
 
 	T.Weaken(15)
 	vamp.add_antagonist(T.mind, 1, 1, 0, 0, 1)
 
 	admin_attack_log(src, T, "successfully embraced [key_name(T)]", "was successfully embraced by [key_name(src)]", "successfully embraced and turned into a vampire")
 
-	to_chat(T, "<span class='danger'>You awaken. Moments ago, you were dead, your conciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power.</span>")
-	to_chat(src, "<span class='warning'>You have corrupted another mortal with the taint of the Veil. Beware: they will awaken hungry and maddened; not bound to any master.</span>")
+	to_chat(T, SPAN_DANGER("You awaken. Moments ago, you were dead, your conciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power."))
+	to_chat(src, SPAN_WARNING("You have corrupted another mortal with the taint of the Veil. Beware: they will awaken hungry and maddened; not bound to any master."))
 
 	T.mind.vampire.blood_usable = 0
 	T.mind.vampire.frenzy = 250
@@ -951,7 +949,7 @@
 	if (status_flags & LEAPING)
 		return
 	if (stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src, "<span class='warning'>You cannot lean in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot lean in your current state."))
 		return
 
 	var/list/targets = list()
@@ -961,12 +959,12 @@
 	targets -= src
 
 	if (!targets.len)
-		to_chat(src, "<span class='warning'>No valid targets visible or in range.</span>")
+		to_chat(src, SPAN_WARNING("No valid targets visible or in range."))
 		return
 
 	var/mob/living/carbon/human/T = pick(targets)
 
-	visible_message("<span class='danger'>[src] leaps at [T]!</span>")
+	visible_message(SPAN_DANGER("[src] leaps at [T]!"))
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src)
 
 	status_flags |= LEAPING
@@ -976,7 +974,7 @@
 	if (status_flags & LEAPING)
 		status_flags &= ~LEAPING
 	if (!src.Adjacent(T))
-		to_chat(src, "<span class='warning'>You miss!</span>")
+		to_chat(src, SPAN_WARNING("You miss!"))
 		return
 
 	T.Weaken(3)
@@ -986,12 +984,12 @@
 	var/use_hand = "left"
 	if (l_hand)
 		if (r_hand)
-			to_chat(src, "<span class='danger'>You need to have one hand free to grab someone.</span>")
+			to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
 			return
 		else
 			use_hand = "right"
 
-	src.visible_message("<span class='warning'><b>[src]</b> seizes [T] aggressively!</span>")
+	src.visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"))
 
 	var/obj/item/grab/G = new(src, T)
 	if (use_hand == "left")
