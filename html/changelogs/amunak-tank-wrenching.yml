@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - bugfix: "Fixes messages for water tank wrenching/unwrenching - they were flipped and gramatically dubious."
