@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - refactor: "Refactors worst offenders from the unsorted.dm helpers file to where they fit better (atoms.dm, mobs.dm, ...)."
