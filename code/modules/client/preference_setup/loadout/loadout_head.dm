@@ -105,10 +105,14 @@
 /datum/gear/head/warden/New()
 	..()
 	var/wardenhead = list()
-	wardenhead["blue warden hat"] = /obj/item/clothing/head/warden
-	wardenhead["black warden hat"] = /obj/item/clothing/head/warden/alt
-	wardenhead["commissar's cap"] = /obj/item/clothing/head/warden/commissar
-	wardenhead["warden beret"] = /obj/item/clothing/head/beret/security/warden
+	wardenhead["warden hat, standard"] = /obj/item/clothing/head/warden
+	wardenhead["warden hat, corporate"] = /obj/item/clothing/head/warden/corp
+	wardenhead["warden hat, dark blue"] = /obj/item/clothing/head/warden/dark_blue
+	wardenhead["warden hat, commissar"] = /obj/item/clothing/head/warden/commissar
+	wardenhead["warden beret, standard"] = /obj/item/clothing/head/beret/security/warden
+	wardenhead["warden beret, corporate"] = /obj/item/clothing/head/beret/security/warden/corp
+	wardenhead["warden beret, dark blue"] = /obj/item/clothing/head/beret/security/warden/dark_blue
+	wardenhead["warden beret, commissar"] = /obj/item/clothing/head/beret/security/warden/commissar
 	gear_tweaks += new/datum/gear_tweak/path(wardenhead)
 
 /datum/gear/head/hos

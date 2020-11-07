@@ -219,7 +219,7 @@
 	new /obj/item/clothing/head/beret/security/warden(src)
 	new /obj/item/clothing/head/warden/commissar(src)
 	new /obj/item/clothing/head/warden(src)
-	new /obj/item/clothing/head/warden/alt(src)
+	new /obj/item/clothing/head/warden/corp(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
 	new /obj/item/clothing/gloves/black_leather(src)

@@ -88,14 +88,20 @@
 
 /obj/item/clothing/head/warden
 	name = "blue warden hat"
-	desc = "A navy blue warden hat. For showing who is in charge of the brig."
+	desc = "A blue warden hat. For showing who is in charge of the brig."
 	icon_state = "wardencap"
 	flags_inv = HIDEEARS
 
-/obj/item/clothing/head/warden/alt
+/obj/item/clothing/head/warden/corp
 	name = "black warden hat"
 	desc = "A black warden hat. For showing who is in charge of the brig."
-	icon_state = "wardencap_alt"
+	icon_state = "wardencap_corp"
+
+
+/obj/item/clothing/head/warden/dark_blue
+	name = "black warden hat"
+	desc = "A navy blue warden hat. For showing who is in charge of the brig."
+	icon_state = "wardencap_darkblue"
 
 /obj/item/clothing/head/warden/commissar
 	name = "commissar's cap"
