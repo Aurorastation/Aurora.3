@@ -812,7 +812,7 @@
 	// Borgs should be handled a bit differently, since their IDs are not really IDs
 	if(istype(M, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
-		if(check_access(R.get_active_hand()) || istype(R.get_active_hand(), /obj/item/card/robot))
+		if(istype(R.get_active_hand(), /obj/item/card/robot) || check_access(R.get_active_hand()))
 			return TRUE
 	else if(istype(M, /mob/living))
 		var/id = M.GetIdCard()
@@ -828,7 +828,7 @@
 	var/list/L = req_access
 	if(!length(L)) //no requirements
 		return TRUE
-	if(!I?.access || !istype(I, /obj/item/card/id)) //not ID or no access
+	if(!istype(I, /obj/item/card/id) || !I?.access) //not ID or no access
 		return FALSE
 	for(var/req in req_access)
 		if(req in I.access) //have one of the required accesses
