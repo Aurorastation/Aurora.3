@@ -10,6 +10,9 @@
         </template>
       </tr>
     </table>
+    <div style="text-align: center; margin-top: 1em">
+      <vui-button v-if="allow_printing" :params="{ action: 'print' }" icon="print">Print current manifest</vui-button>
+    </div>
   </div>
 </template>
 
