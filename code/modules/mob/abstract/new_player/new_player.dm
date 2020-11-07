@@ -330,9 +330,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A>"
 
 	dat += "Choose from the following open/valid positions:<br>"
-	var/list/list/datum/job/jobs_by_department = list()
-	for(var/department in positions_by_department) // prepare empty list
-		jobs_by_department[department] = list()
+	var/list/list/datum/job/jobs_by_department = DEPARTMENTS_LIST_INIT
 	for(var/datum/job/job in SSjobs.occupations)
 		if(job && IsJobAvailable(job.title))
 			var/department = job.department
@@ -428,7 +426,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	open_crew_manifest(src, OOC = TRUE)
+	SSrecords.open_manifest_vueui(src)
 
 /mob/abstract/new_player/Move()
 	return 0

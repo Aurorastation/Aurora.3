@@ -1,0 +1,20 @@
+$departmental-colors: (
+  "Command": #3333ff,
+  "Security": #8e0000,
+  "Medical": #006600,
+  "Engineering": #b27300,
+  "Science": #a65ba6,
+  "Cargo": #bb9040,
+  "Civilian": #a32800,
+  "Equipment": #1d1d1d,
+  "Miscellaneous": #666666,
+);
+
+@each $dept, $color in $departmental-colors {
+  .text-dept-#{to-lower-case($dept)} {
+    color: $color;
+  }
+  .bg-dept-#{to-lower-case($dept)} {
+    background-color: $color;
+  }
+}

@@ -12,10 +12,10 @@
 	init_order = SS_INIT_JOBS
 
 	// Vars.
-	var/list/occupations = list()
-	var/list/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are types
-	var/list/unassigned = list()
+	var/list/datum/job/occupations = list()
+	var/list/datum/job/name_occupations = list()	//Dict of all jobs, keys are titles
+	var/list/datum/job/type_occupations = list()	//Dict of all jobs, keys are types
+	var/list/mob/abstract/new_player/unassigned = list()
 	var/list/job_debug = list()
 
 	var/list/factions = list()
@@ -529,7 +529,7 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = 7
 			G.autodrobe_no_remove = TRUE
-	
+
 	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
 		H.species_items_equipped = TRUE

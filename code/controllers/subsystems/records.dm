@@ -179,54 +179,26 @@
 /datum/controller/subsystem/records/proc/reset_manifest()
 	manifest.Cut()
 
-// The one and only method for showing a pop-up crew manifest (browser) window
-/proc/open_crew_manifest(var/mob/user, var/OOC = FALSE)
-	if(!user)
-		return
-	var/const/windowname = "manifest"
-	var/dat = {"<h2 style="text-align: center">Crew Manifest</h2>"}
-	dat += SSrecords.get_manifest(OOC)
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=[windowname];size=450x600")
-	return windowname
+/datum/controller/subsystem/records/CanUseTopic(var/mob/user, var/datum/topic_state/state = default_state) // this is needed because VueUI closes otherwise
+	if(isnewplayer(user))
+		return STATUS_INTERACTIVE
+	if(isobserver(user))
+		return STATUS_INTERACTIVE
+	if(issilicon(user)) // silicons have the show manifest verb
+		return STATUS_INTERACTIVE
+	return ..()
 
-/datum/controller/subsystem/records/proc/get_manifest(var/OOC = FALSE)
-	var/const/style = {"
-			.manifest {border-collapse: collapse; width: 100%}
-			.manifest td, th {border: 1px solid #DEF; background-color: white; color:black; padding: .25em}
-			.manifest th {height: 2em; background-color: #3F668F; color: white}
-			.manifest tr.head th {background-color: #006E7A;}
-			.manifest td:first-child {text-align: right}
-			.manifest tr.alt td {background-color: #DEF}
-		"}
-	var/dat = {"
-			<head><style>[style]</style></head>
-			<table class="manifest">
-			<tr class='head'><th>Name</th><th>Rank</th><th>Activity</th></tr>
-		"}
-	var/even = 0
-	var/list/isactive = new()
-	for(var/mob/M in player_list)
-		if (OOC)
-			if(M.client && M.client.inactivity <= 10 * 60 * 10)
-				isactive[M.real_name] = "Active"
-			else
-				isactive[M.real_name] = "Inactive"
-		else
-			isactive[M.real_name] = 0
+/datum/controller/subsystem/records/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	data = . || data || list()
 
-	var/manifest = get_manifest_list()
-	for(var/dep in manifest)
-		var/list/depI = manifest[dep]
-		if(depI.len > 0)
-			dat += "<tr><th colspan=3>[dep]</th></tr>"
-			for(var/list/item in depI)
-				dat += "<tr[even ? " class='alt'" : ""]><td>[item["name"]]</td><td>[item["rank"]]</td><td>[isactive[item["name"]] ? isactive[item["name"]] : item["active"]]</td></tr>"
-				even = !even
-	dat += "</table>"
-	dat = replacetext(dat, "\n", "") // so it can be placed on paper correctly
-	dat = replacetext(dat, "\t", "")
-	return dat
+	VUEUI_SET_CHECK(data["manifest"], SSrecords.get_manifest_list(), ., data)
+
+/datum/controller/subsystem/records/proc/open_manifest_vueui(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "manifest", 450, 600, "Crew Manifest")
+	ui.open()
 
 /datum/controller/subsystem/records/proc/get_manifest_text()
 	var/dat = "<h2>Crew Manifest</h2><em>as of [worlddate2text()] [worldtime2text()]</em>"
@@ -243,38 +215,30 @@
 /datum/controller/subsystem/records/proc/get_manifest_list()
 	if(manifest.len)
 		return manifest
-	manifest = list()
-	for(var/department in positions_by_department)  // prepare empty manifest
-		manifest[department] = list()
+	if(!SSjobs)
+		error("SSjobs not available, cannot build manifest")
+		return
+	manifest = DEPARTMENTS_LIST_INIT
 	for(var/datum/record/general/t in records)
 		var/name = sanitize(t.name, encode = FALSE)
 		var/rank = sanitize(t.rank, encode = FALSE)
 		var/real_rank = make_list_rank(t.real_rank)
 
+		var/datum/job/job = SSjobs.GetJob(real_rank)
 		var/isactive = t.physical_status
-		var/dept = null
+
+		var/dept = DEPARTMENT_MISCELLANEOUS
 		var/depthead = FALSE
-
-		for(var/department in positions_by_department)
-			if(!(real_rank in positions_by_department[department])) // search for a department with that rank
-				continue
-			dept = department
-			if(department == DEPARTMENT_COMMAND)
-				depthead = TRUE
-				continue
-			// because Command is first we have guarantee that the depthead var has been assigned and we have found the actual dept so we can safely break
-			break
-
-		if(isnull(dept)) // no department found
-			dept = DEPARTMENT_MISCELLANEOUS
+		if(istype(job))
+			dept = job.department
+			depthead = job.head_position
 
 		 // add them to their department
 		manifest[dept][++manifest[dept].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = depthead)
-		if(dept == DEPARTMENT_COMMAND) // they are a captain, put them on top of command
+		if(depthead) // they are a head, put them on top
 			manifest[dept].Swap(1, manifest[dept].len)
-		else if(depthead) // Department heads go to the top and need to be added to Command as well
-			manifest[DEPARTMENT_COMMAND][++manifest[DEPARTMENT_COMMAND].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = FALSE)
-			manifest[dept].Swap(1, manifest[dept].len)
+			if(dept != DEPARTMENT_COMMAND) // heads that aren't in command already (I.E anyone but Captain) need to be copied in there
+				manifest[DEPARTMENT_COMMAND][++manifest[DEPARTMENT_COMMAND].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = FALSE)
 
 	var/dept = DEPARTMENT_EQUIPMENT
 	for(var/mob/living/silicon/S in player_list)

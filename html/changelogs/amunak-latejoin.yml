@@ -2,5 +2,8 @@ author: Amunak
 delete-after: True
 changes:
   - rscadd: "Latejoin menu is now more similar to crew manifest - it is divided to sections and heads are on top."
+  - rscadd: "Crew Manifest now uses VueUI (the exact same one as the modular computers program). This means that crew manifest will no longer indicate AFK players as inactive for ghosts and lobby sitters."
+  - tweak: "Crew Manifest UI now shows heads in bold."
   - bugfix: "All departmental jobs now have a department assigned (intern jobs and forensic technician). This slightly changed the antagonist report generated, but now it's especially needed for the latejoin menu sorting to work."
   - refactor: "Department names are now defines, crew manifest logic has been simplified to accommodate this. The 'Heads' section is now called 'Command'."
+  - refactor: "Moved Vue departmental colors into a separate Sass file, making it available to all either as a universal map or as predefined classes for text color (.text-dept-medical) and background (.bg-dept-medical)."
