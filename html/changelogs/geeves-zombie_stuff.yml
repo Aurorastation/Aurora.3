@@ -13,3 +13,7 @@ changes:
   - tweak: "Zombies now take half brute and burn damage. Additionally, they move and sprint slower now."
   - tweak: "Zombies can now slip. Oh boy."
   - tweak: "Zombie bites can now only take trioxin levels up to 30u, where it plateaus."
+  - rscadd: "Zombies now regenerate broken bones, severed tendons and arteries. If they regenerate broken bones, their brute wounds will heal to prevent rebreaks. Each heal will cause the next heal to take two seconds longer, starting from 5 seconds."
+  - tweak: "You no longer automatically scream, if you cannot feel pain."
+  - tweak: "Collapsing no longer gives you a blindness overlay."
+  - tweak: "Collapsing from stance damage such as broken or missing leg and feet now only happens once every 8 to 16 seconds."

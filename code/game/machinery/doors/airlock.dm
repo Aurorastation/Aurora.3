@@ -1500,8 +1500,7 @@ About the new airlock wires panel:
 
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
-	if (can_feel_pain())
-		emote("scream")
+	emote("scream")
 
 /mob/living/silicon/robot/airlock_crush(var/crush_damage)
 	return ..(round(crush_damage / CYBORG_AIRLOCKCRUSH_RESISTANCE))
