@@ -58,7 +58,7 @@
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
 
-#define DEFAULT_TELECRYSTAL_AMOUNT 25
+#define DEFAULT_TELECRYSTAL_AMOUNT 30
 
 // Defines (NOT FLAGS) for making secret, random, and mixed secret less snowflake-string
 // and number dependant.

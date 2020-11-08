@@ -249,7 +249,7 @@
 
 /obj/item/storage/box/syndie_kit/sideeffectbegone
 	name = "box of sideeffect-be-gone injectors"
-	desc = "Comes with 2x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
+	desc = "Comes with 4x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
 	starts_with = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 2
+		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 4
 	)

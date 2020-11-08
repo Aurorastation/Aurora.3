@@ -10,7 +10,7 @@
 /datum/uplink_item/item/exosuit/heavy
 	name = "Heavy Exosuit Dropper"
 	desc = "A device that can be used to drop in a heavy exosuit. Can only be used outside station areas, unless emagged, which is hazardous."
-	item_cost = 35
+	item_cost = 30
 	path = /obj/item/device/orbital_dropper/mecha/heavy
 
 /datum/uplink_item/item/exosuit/light
