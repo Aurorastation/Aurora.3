@@ -410,7 +410,8 @@
 			antag_count += A.get_active_antag_count()
 		for(var/antag_type in SSticker.mode.antag_tags)
 			var/datum/antagonist/A = all_antag_types[antag_type]
-			if((A.role_type in H.client.prefs.be_special_role) && !(A.flags & ANTAG_OVERRIDE_JOB) && antag_count < A.hard_cap_round && antag_count <= (length(player_list) / SSticker.mode.antag_scaling_coeff))
+			A.update_current_antag_max()
+			if((A.role_type in H.client.prefs.be_special_role) && !(A.flags & ANTAG_OVERRIDE_JOB) && antag_count < A.cur_max)
 				A.add_antagonist(H.mind)
 				break
 
