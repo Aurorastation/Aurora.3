@@ -192,7 +192,7 @@
 	. = ..()
 	data = . || data || list()
 
-	VUEUI_SET_CHECK(data["manifest"], SSrecords.get_manifest_list(), ., data)
+	VUEUI_SET_CHECK_LIST(data["manifest"], SSrecords.get_manifest_list(), ., data)
 
 /datum/controller/subsystem/records/proc/open_manifest_vueui(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
