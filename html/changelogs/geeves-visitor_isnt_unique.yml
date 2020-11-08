@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "The visitor ghostrole no longer appears as a unique role on the join menu."
