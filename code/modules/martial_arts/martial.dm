@@ -138,7 +138,7 @@
 /datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
 	if(help_verb)
 		H.verbs += help_verb
-		to_chat(H, SPAN_NOTICE("You can review the combos by recalling the teaches of this art in your abilities tab."))
+		to_chat(H, SPAN_NOTICE("You can review the combos by recalling the teachings of this art in your abilities tab."))
 	LAZYADD(H.known_martial_arts, src)
 	if(!H.primary_martial_art)
 		to_chat(H, SPAN_NOTICE("Your primary martial art has been set to [src.name]. You will use this when fighting barehanded."))
