@@ -76,7 +76,6 @@ var/global/list/bantype_to_antag_age = list()
 			return antag
 		if(player in antag.pending_antagonists)
 			return antag
-	return null
 
 /**
  * This must be called after map loading is done!
