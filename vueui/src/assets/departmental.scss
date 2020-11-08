@@ -1,13 +1,13 @@
 $departmental-colors: (
-  "Command": #3333ff,
-  "Security": #8e0000,
-  "Medical": #006600,
-  "Engineering": #b27300,
-  "Science": #a65ba6,
-  "Cargo": #bb9040,
-  "Civilian": #a32800,
-  "Equipment": #1d1d1d,
-  "Miscellaneous": #666666,
+  "Command": #114dc1,
+  "Security": #991818,
+  "Engineering": #c67519,
+  "Medical": #15903a,
+  "Science": #a44799,
+  "Cargo": #593616,
+  "Civilian": #90524b,
+  "Equipment": #6c5b73,
+  "Miscellaneous": #5d6a67,
 );
 
 @each $dept, $color in $departmental-colors {
