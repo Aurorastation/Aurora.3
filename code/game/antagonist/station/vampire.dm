@@ -56,9 +56,8 @@ var/datum/antagonist/vampire/vamp = null
 		vampire_data += "<div class='rune-block'>"
 		vampire_data += "<b>[capitalize_first_letters(VP.name)]</b>: <i>[VP.desc]</i><br>"
 		if(VP.helptext)
-			vampire_data += "[VP.helptext]<br><hr>"
-		else
-			vampire_data += "<hr>"
+			vampire_data += "[VP.helptext]<br>"
+		vampire_data += "<hr>"
 		vampire_data += "</div>"
 
 /datum/antagonist/vampire/update_antag_mob(var/datum/mind/player)
