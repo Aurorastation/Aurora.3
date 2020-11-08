@@ -5,6 +5,7 @@
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
 	var/totalPlayers = 0		 //Player counts for the Lobby tab
 	var/totalPlayersReady = 0
+	var/datum/late_choices/late_choices_ui = null
 	universal_speak = 1
 
 	invisibility = 101
@@ -295,68 +296,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
 
 /mob/abstract/new_player/proc/LateChoices()
-	var/name = client.prefs.real_name
-
-	var/dat = "\
-		<style>\
-			a { display: block !important; }\
-			body { text-align: center; }\
-		</style>"
-	dat += "Welcome, <strong>[name]</strong>.<br>"
-	dat += "Round Duration: [get_round_duration_formatted()]<br>"
-	dat += "Alert Level: [capitalize(get_security_level())]<br>"
-
-	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
-		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
-			dat += "<span class='warning'><b>The station has been evacuated.</b></span><br>"
-		if(emergency_shuttle.online())
-			if (emergency_shuttle.evac)	// Emergency shuttle is past the point of no recall
-				dat += "<span class='warning'>The station is currently undergoing evacuation procedures.</span><br>"
-			else						// Crew transfer initiated
-				dat += "<span class='warning'>The station is currently undergoing crew transfer procedures.</span><br>"
-
-	var/unique_role_available = FALSE
-	for(var/ghost_role in SSghostroles.spawners)
-		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
-		if(!G.show_on_job_select)
-			continue
-		if(G.cant_see(src))
-			continue
-		unique_role_available = TRUE
-		break
-
-	if(unique_role_available)
-		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>A unique ghost role is available:</b></font><br>"
-	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A>"
-
-	dat += "Choose from the following open/valid positions:<br>"
-	var/list/list/datum/job/jobs_by_department = DEPARTMENTS_LIST_INIT
-	for(var/datum/job/job in SSjobs.occupations)
-		if(job && IsJobAvailable(job.title))
-			var/department = job.department
-			if(!(department in jobs_by_department)) // no department set or it's something weird
-				department = DEPARTMENT_MISCELLANEOUS
-			if(job.head_position) // make sure heads are first
-				jobs_by_department[department] = list(job) + jobs_by_department[department]
-				if(department != DEPARTMENT_COMMAND) // add heads to command
-					jobs_by_department[DEPARTMENT_COMMAND] += job
-			else
-				jobs_by_department[department] += job
-	for(var/department in jobs_by_department) // output it!
-		if(!jobs_by_department[department].len)
-			continue
-		dat += "<strong>[department]</strong>"
-		for(var/datum/job/job in jobs_by_department[department])
-			var/active = 0
-			// Only players with the job assigned and AFK for less than 10 minutes count as active
-			for(var/mob/living/M in player_list)
-				if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 MINUTES)
-					active++
-			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[client.prefs.GetPlayerAltTitle(job)] ([job.current_positions]) (Active: [active])</a>"
-
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, dat), "window=latechoices;size=340x720")
-
+	if(istype(late_choices_ui)) // refresh the UI
+		late_choices_ui.ui.check_for_change()
+	else
+		// This creates the latechoices UI.
+		// It is automatically created and then destroyed and unassigned when closed.
+		late_choices_ui = new(src)
 
 /mob/abstract/new_player/proc/create_character()
 	spawning = 1
@@ -432,8 +377,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return 0
 
 /mob/abstract/new_player/proc/close_spawn_windows()
-	src << browse(null, "window=latechoices") //closes late choices window)
-	src << browse(null, "window=playersetup") //closes the player setup window)
+	src << browse(null, "window=playersetup") //closes the player setup window
 
 /mob/abstract/new_player/proc/has_admin_rights()
 	return check_rights(R_ADMIN, 0, src)

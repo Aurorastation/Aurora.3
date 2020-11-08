@@ -221,11 +221,11 @@
 
 		var/list/leftovers = list()
 		var/list/used_slots = list()
-		
+
 		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
-		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)	
+		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
 			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
 
 		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)
@@ -237,11 +237,15 @@
 		else
 			mannequin.update_icon()
 
-/datum/preferences/proc/update_preview_icon()
+/datum/preferences/proc/update_mannequin()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)
 	mannequin.species.create_organs(mannequin)
 	if(gender)
 		mannequin.change_gender(gender)
 	dress_preview_mob(mannequin)
+	return mannequin
+
+/datum/preferences/proc/update_preview_icon()
+	var/mannequin = update_mannequin()
 	update_character_previews(new /mutable_appearance(mannequin))

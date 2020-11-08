@@ -10,7 +10,7 @@
         </template>
       </tr>
     </table>
-    <div v-else>
+    <div v-else class="fst-italic">
       There is no crew.
     </div>
     <div v-if="allow_printing" style="text-align: center; margin-top: 1em">

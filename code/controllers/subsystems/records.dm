@@ -198,6 +198,7 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "manifest", 450, 600, "Crew Manifest")
+		ui.header = "minimal"
 	ui.open()
 
 /datum/controller/subsystem/records/proc/get_manifest_text()
