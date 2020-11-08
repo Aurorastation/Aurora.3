@@ -13,7 +13,13 @@
       Choose from the following available positions:
     </div>
     <div v-if="unique_role_available">
-      <vui-button :params="{ ghostspawner: 1 }" class="d-block" style="color: #ffffaa" icon="ghost">Ghost Spawner Menu</vui-button>
+      <div class="gs-block">
+        <div class="dept">A unique role is available!</div>
+        <vui-button :params="{ ghostspawner: 1 }" class="d-block m-1" icon="ghost">Ghost Spawner Menu</vui-button>
+      </div>
+    </div>
+    <div v-else>
+      <vui-button :params="{ ghostspawner: 1 }" class="d-block" icon="ghost">Ghost Spawner Menu</vui-button>
     </div>
     <div v-if="jobs_available > 0">
       <div v-for="(el, dept) in fixedJobsList" :key="dept" class="mt-2 dept-block" :class="'border-dept-' + dept.toLowerCase()">
@@ -75,12 +81,20 @@ export default {
   float: left;
   height: 64px;
 }
-.dept-block {
+.gs-block, .dept-block {
   position: relative;
   border: 2px solid;
   .dept {
     text-align: center;
     font-weight: bold;
+  }
+}
+.gs-block {
+  $gs-color: #41ff41;
+  border-color: $gs-color;
+  .dept {
+    background-color: $gs-color;
+    color: black;
   }
 }
 </style>
