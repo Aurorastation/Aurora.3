@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="pmon">
+    <table v-if="fixedmanifest.length > 0" class="pmon">
       <tr v-for="(el, i) in fixedmanifest" :key="i" :class="{ deptHead: el.head }">
         <th v-if="el.header" colspan="3" :class="el.class">{{ el.header }}</th>
         <template v-else>
@@ -10,6 +10,9 @@
         </template>
       </tr>
     </table>
+    <div v-else>
+      There is no crew.
+    </div>
     <div v-if="allow_printing" style="text-align: center; margin-top: 1em">
       <vui-button :params="{ action: 'print' }" icon="print">Print current manifest</vui-button>
     </div>
