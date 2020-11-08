@@ -196,7 +196,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/item/gun/projectile/dartgun/vox
+/obj/item/gun/projectile/dartgun/alien
 	name = "alien dart gun"
 	desc = "A small gas-powered dartgun, fitted for nonhuman hands."
 

@@ -137,15 +137,12 @@
 		return 1
 
 /obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/card/id) || istype(O, /obj/item/device/pda))
+	if(O.GetID())
 
-		var/obj/item/card/id/id_card = null
+		var/obj/item/card/id/id_card = O.GetID()
 
-		if(istype(O, /obj/item/card/id))
-			id_card = O
-		else
-			var/obj/item/device/pda/pda = O
-			id_card = pda.id
+		if(!istype(id_card))
+			return
 
 		if(access_security in id_card.access || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")

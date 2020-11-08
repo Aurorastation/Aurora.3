@@ -38,7 +38,9 @@
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/cmo
-	pda = /obj/item/device/pda/heads/cmo
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
+	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv
 
@@ -59,17 +61,11 @@
 	selection_color = "#FF97D1"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = 25
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Trauma Physician","Nurse")
-	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
-	alt_outfits = list(
-		"Trauma Physician"=/datum/outfit/job/doctor/trauma_physician,
-		"Nurse"=/datum/outfit/job/doctor/nurse
-		)
 
 /datum/job/surgeon
 	title = "Surgeon"
@@ -99,7 +95,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda = /obj/item/device/pda/medical
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
 
@@ -107,16 +105,6 @@
 	satchel = /obj/item/storage/backpack/satchel_med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
-
-/datum/outfit/job/doctor/trauma_physician
-	name = "Trauma Physician"
-	jobtype = /datum/job/doctor
-
-	uniform = /obj/item/clothing/under/rank/medical/black
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
-	shoes = /obj/item/clothing/shoes/trauma
-	mask = /obj/item/clothing/mask/surgical
-	l_hand = /obj/item/storage/firstaid/adv
 
 /datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
@@ -152,11 +140,7 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	alt_titles = list("Chemist")
 	outfit = /datum/outfit/job/pharmacist
-	alt_outfits = list(
-		"Chemist"=/datum/outfit/job/pharmacist/chemist
-		)
 
 /datum/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -166,26 +150,15 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/chemist
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/pharmacy
 	satchel = /obj/item/storage/backpack/satchel_pharm
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
-
-/datum/outfit/job/pharmacist/chemist
-	name = "Chemist"
-	jobtype = /datum/job/pharmacist
-
-	uniform = /obj/item/clothing/under/rank/biochemist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
-	shoes = /obj/item/clothing/shoes/biochem
-
-	backpack = /obj/item/storage/backpack/virology
-	satchel = /obj/item/storage/backpack/satchel_vir
-	dufflebag = /obj/item/storage/backpack/duffel/vir
-	messengerbag = /obj/item/storage/backpack/messenger/viro
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
@@ -216,7 +189,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/psych
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
+	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
 	id = /obj/item/card/id/white
 
 /datum/outfit/job/psychiatrist/psycho
@@ -236,14 +211,10 @@
 	economic_modifier = 4
 
 	minimum_character_age = 20
-	alt_ages = list("Paramedic" = 24)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_emt)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_emt)
-	alt_titles = list("Paramedic")
 	outfit = /datum/outfit/job/med_tech
-	alt_outfits = list("Paramedic" = /datum/outfit/job/med_tech/paramed)
-
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_IPC_G2)
 
 /datum/outfit/job/med_tech
@@ -258,7 +229,9 @@
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
 	belt = /obj/item/storage/belt/medical/emt
-	pda =  /obj/item/device/pda/paramedic
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 	head = /obj/item/clothing/head/hardhat/emt
 
@@ -267,11 +240,8 @@
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
-/datum/outfit/job/med_tech/paramed
-	name = "Paramedic"
-
 /datum/job/intern_med
-	title = "Medical Resident"
+	title = "Medical Intern"
 	flag = INTERN_MED
 	department_flag = MEDSCI
 	faction = "Station"
@@ -281,13 +251,11 @@
 	selection_color = "#FF97D1"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
-	minimum_character_age = 25
-	alt_titles = list("Medical Intern")
-	alt_ages = list("Medical Intern" = 18)
+	minimum_character_age = 18
 	outfit = /datum/outfit/job/intern_med
 
 /datum/outfit/job/intern_med
-	name = "Medical Resident"
+	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical/intern

@@ -287,6 +287,10 @@
 /obj/item/throw_impact(atom/hit_atom)
 	..()
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
+		var/mob/living/L = hit_atom
+		if(L.in_throw_mode)
+			playsound(hit_atom, pickup_sound, PICKUP_SOUND_VOLUME, TRUE)
+			return
 		var/volume = get_volume_by_throwforce_and_or_w_class()
 		if(throwforce > 0)
 			if(mob_throw_hit_sound)
@@ -430,7 +434,7 @@ var/list/global/slot_flags_enumeration = list(
 				if(!disable_warning)
 					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
 				return 0
-			if( !(istype(src, /obj/item/device/pda) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
+			if( !(istype(src, /obj/item/modular_computer) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))
@@ -581,7 +585,7 @@ var/list/global/slot_flags_enumeration = list(
 				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
 			)
 
-		eyes.damage += rand(3,4)
+		eyes.take_damage(rand(3,4))
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(M.stat != 2)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
@@ -822,6 +826,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/attack_can_reach(var/atom/us, var/atom/them, var/range)
 	if(us.Adjacent(them))
 		return TRUE // Already adjacent.
+	else if(range <= 1)
+		return FALSE
 	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
 		return TRUE
 	return FALSE

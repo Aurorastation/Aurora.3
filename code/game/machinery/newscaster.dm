@@ -9,6 +9,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "newscaster"
+	anchored = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	var/isbroken = 0  //1 if someone banged it with something heavy
 	var/ispowered = 1 //starts powered, changes with power_change()
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
@@ -51,7 +53,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
 	var/global/list/screen_overlays
-	anchored = 1
 
 /obj/machinery/newscaster/proc/generate_overlays(var/force = 0)
 	if(LAZYLEN(screen_overlays) && !force)

@@ -46,7 +46,7 @@
 	return name
 
 /obj/item/reagent_containers/food/snacks/variable/get_name_sans_prefix()
-	return jointext(splittext(get_name_sans_prefix(), " ") - prefix, " ")
+	return jointext(splittext(..(), " ") - prefix, " ")
 
 /obj/item/reagent_containers/food/snacks/variable/proc/update_scale()
 	if (reagents && reagents.total_volume)

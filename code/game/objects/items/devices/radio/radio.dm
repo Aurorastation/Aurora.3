@@ -408,8 +408,7 @@ var/global/list/default_medbay_channels = list(
 			return
 		// First, we want to generate a new radio signal
 		var/datum/signal/signal = new
-		signal.transmission_method = 2 // 2 would be a subspace transmission.
-									   // transmission_method could probably be enumerated through #define. Would be neater.
+		signal.transmission_method = TRANSMISSION_SUBSPACE
 
 		// --- Finally, tag the actual signal with the appropriate values ---
 		signal.data = list(
@@ -466,7 +465,7 @@ var/global/list/default_medbay_channels = list(
 
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 2
+	signal.transmission_method = TRANSMISSION_SUBSPACE
 
 
 	/* --- Try to send a normal subspace broadcast first */

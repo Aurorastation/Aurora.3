@@ -17,6 +17,7 @@
 	secondary_projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 12 //12 shots stun, 8 shots lethal.
 	charge_cost = 150
+	fire_delay = 8
 	accuracy = 1
 	has_item_ratio = FALSE
 	modifystate = "disruptorpistolstun"

@@ -32,7 +32,6 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
 		)

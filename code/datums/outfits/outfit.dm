@@ -35,6 +35,11 @@
 	var/dufflebag = /obj/item/storage/backpack/duffel
 	var/messengerbag = /obj/item/storage/backpack/messenger
 
+	var/allow_pda_choice = FALSE
+	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
+	var/tablet = /obj/item/modular_computer/handheld/preset/civilian
+	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/accessory_contents = list()
@@ -45,7 +50,7 @@
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
 	if(allow_backbag_choice)
-		var/use_job_specific = H.backbag_style == 1
+		var/use_job_specific = H.backbag_style == TRUE
 		switch(H.backbag)
 			if (1)
 				back = null
@@ -165,21 +170,39 @@
 	if(r_hand)
 		H.put_in_r_hand(new r_hand(H))
 
-	if(pda && !visualsOnly) //Dont equip and imprint the PDA in visuals only (preview) to avoid duplicates
+	if(allow_pda_choice)
+		switch(H.pda_choice)
+			if (1)
+				pda = null
+			if (7)
+				pda = tablet
+			if (8)
+				pda = wristbound
+			else
+				pda = tab_pda
+
+	if(pda && !visualsOnly)
 		var/obj/item/I = new pda(H)
-		imprint_pda(H,I)
+		switch(H.pda_choice)
+			if(3)
+				I.icon = 'icons/obj/pda_old.dmi'
+			if(4)
+				I.icon = 'icons/obj/pda_rugged.dmi'
+			if(5)
+				I.icon = 'icons/obj/pda_slate.dmi'
+			if(6)
+				I.icon = 'icons/obj/pda_smart.dmi'
+		I.update_icon()
 		H.equip_or_collect(I, slot_wear_id)
 
 	if(id)
-		var/obj/item/device/pda/P = H.wear_id
+		var/obj/item/modular_computer/P = H.wear_id
 		var/obj/item/I = new id(H)
 		imprint_idcard(H,I)
-		if(istype(P))
-			I.forceMove(P)
-			P.id = I
+		if(istype(P) && P.card_slot)
+			addtimer(CALLBACK(src, .proc/register_pda, P, I), 1 SECOND)
 		else
 			H.equip_or_collect(I, slot_wear_id)
-
 
 	if(!visualsOnly) // Items in pockets or backpack don't show up on mob's icon.
 		if(l_pocket)
@@ -272,16 +295,14 @@
 		if(H.mind && H.mind.initial_account)
 			C.associated_account_number = H.mind.initial_account.account_number
 
-/datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/device/pda/PDA)
-	var/obj/item/card/id/C = PDA.id
-	PDA.owner = H.real_name
-	if(istype(PDA) && istype(C))
-		PDA.ownjob = C.assignment
-		PDA.ownrank = C.rank
-	else //As a fallback if the id isnt inside of the PDA
-		PDA.ownjob = get_id_assignment(H)
-		PDA.ownrank = get_id_rank(H)
-	PDA.name = "PDA-[H.real_name] ([PDA.ownjob])"
+/datum/outfit/proc/register_pda(obj/item/modular_computer/P, obj/item/card/id/I)
+	if(!P.card_slot)
+		return
+	P.card_slot.insert_id(I)
+	if(P.card_slot.stored_card && !P.hidden)
+		P.set_autorun("ntnrc_client")
+		P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
+		P.minimize_program()
 
 /datum/outfit/proc/get_id_access(mob/living/carbon/human/H)
 	return list()

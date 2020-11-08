@@ -269,11 +269,15 @@
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/active = 0.0
 	var/colorvar = "blue"
+	var/last_active = 0
 	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
-	attack_self(mob/user as mob)
+
+/obj/item/toy/sword/attack_self(mob/user as mob)
+	if(last_active <= world.time - 20)
+		last_active = world.time
 		src.active = !( src.active )
-		if (src.active)
+		if(src.active)
 			to_chat(user, "<span class='notice'>You extend the plastic blade with a quick flick of your wrist.</span>")
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			src.icon_state = "sword[colorvar]"

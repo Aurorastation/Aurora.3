@@ -1,6 +1,6 @@
 /datum/gear/faction
 	display_name = "idris cap"
-	path = /obj/item/clothing/head/soft/sec/idris
+	path = /obj/item/clothing/head/softcap/security/idris
 	slot = slot_head
 	sort_category = "Factions"
 	cost = 1
@@ -8,7 +8,7 @@
 
 /datum/gear/faction/idris_beret
 	display_name = "idris beret"
-	path = /obj/item/clothing/head/beret/sec/idris
+	path = /obj/item/clothing/head/beret/security/idris
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_uniform_alt
@@ -24,13 +24,13 @@
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/zavodskoi_beret
-	display_name = "brown zavodskoi beret"
-	path = /obj/item/clothing/head/beret/sec/zavodskoi
+	display_name = "black zavodskoi beret"
+	path = /obj/item/clothing/head/beret/security/zavodskoi
 	faction = "Zavodskoi Interstellar"
 
 /datum/gear/faction/zavodskoi_beret/alt
-	display_name = "black zavodskoi beret"
-	path = /obj/item/clothing/head/beret/sec/zavodskoi/alt
+	display_name = "brown zavodskoi beret"
+	path = /obj/item/clothing/head/beret/security/zavodskoi/alt
 	sort_category = "Factions"
 
 /datum/gear/faction/zavodskoi_uniform_alt
@@ -53,13 +53,13 @@
 
 /datum/gear/faction/eridani_beret
 	display_name = "eridani beret"
-	path = /obj/item/clothing/head/beret/sec/eri
+	path = /obj/item/clothing/head/beret/security/eri
 	slot = slot_head
 	faction = "Eridani Private Military Contractors"
 
 /datum/gear/faction/eridani_cap
 	display_name = "eridani cap"
-	path = /obj/item/clothing/head/soft/eri
+	path = /obj/item/clothing/head/softcap/eri
 	slot = slot_head
 	faction = "Eridani Private Military Contractors"
 

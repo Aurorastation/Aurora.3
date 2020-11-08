@@ -204,7 +204,7 @@ default behaviour is:
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
-		health = 100
+		health = maxHealth
 		stat = CONSCIOUS
 	else
 		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - getHalLoss()
@@ -710,7 +710,11 @@ default behaviour is:
 		spawn() C.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/holder/H)
-	if(H != src.loc) return
+	if(H != src.loc)
+		return
+	if(health < maxHealth * 0.6)
+		to_chat(src, SPAN_WARNING("You're too injured to escape..."))
+		return
 
 	var/mob/M = H.loc //Get our mob holder (if any).
 
@@ -794,7 +798,7 @@ default behaviour is:
 	set category = "IC"
 
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
 	update_vision_cone()
 
 /mob/living/proc/cannot_use_vents()
@@ -992,3 +996,13 @@ default behaviour is:
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE
+
+//called when the mob receives a bright flash
+/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(override_blindness_check || !(disabilities & BLIND))
+		..()
+		overlay_fullscreen("flash", type)
+		spawn(25)
+			if(src)
+				clear_fullscreen("flash", 25)
+		return 1

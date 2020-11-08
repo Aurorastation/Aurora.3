@@ -41,7 +41,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						"security" = typecacheof(list(/mob/living/bot/secbot)),
 						"lizards"  = typecacheof(list(/mob/living/simple_animal/lizard)),
 						"cats"  = typecacheof(list(/mob/living/simple_animal/cat, /mob/living/simple_animal/familiar/pet/cat, /mob/living/simple_animal/cat/kitten)),
-						"robots"  = typecacheof(list(/mob/living/silicon,/mob/living/bot, /mob/living/simple_animal/hostile/retaliate/malf_drone)),
+						"robots"  = typecacheof(list(/mob/living/silicon,/mob/living/bot, /mob/living/simple_animal/hostile/icarus_drone)),
 						"pests" = typecacheof(list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/rat, /mob/living/carbon/alien/diona)),
 						"paranormals" = typecacheof(list(/mob/living/simple_animal/hostile/scarybat, /mob/living/simple_animal/hostile/true_changeling,
 														/mob/living/simple_animal/hostile/mimic, /mob/living/simple_animal/hostile/faithless,
@@ -51,19 +51,19 @@ var/datum/controller/subsystem/traumas/SStraumas
 
 	phobia_objs = list("spiders"   = typecacheof(list(/obj/effect/spider,/obj/item/toy/plushie/spider, /obj/effect/decal/cleanable/spiderling_remains)),
 
-					   "security"  = typecacheof(list(/obj/item/clothing/under/rank/security, /obj/item/clothing/under/rank/warden, /obj/item/clothing/head/beret/sec,
+					   "security"  = typecacheof(list(/obj/item/clothing/under/rank/security, /obj/item/clothing/under/rank/warden, /obj/item/clothing/head/beret/security,
 											 	 /obj/item/clothing/under/rank/head_of_security, /obj/item/clothing/under/det, /obj/item/clothing/glasses/hud/security,
 												 /obj/item/melee/baton, /obj/item/gun/energy/taser, /obj/item/handcuffs, /obj/item/clothing/glasses/sunglasses/sechud,
 												 /obj/machinery/door/airlock/security, /obj/item/clothing/under/rank/cadet, /obj/structure/sign/directions/security,
 												 /obj/item/clothing/head/bio_hood/security, /obj/item/clothing/head/bomb_hood/security, /obj/item/clothing/head/helmet/space/void/security,
-												 /obj/item/clothing/head/soft/sec, /obj/item/clothing/suit/armor/vest/security, /obj/item/clothing/suit/bio_suit/security,
+												 /obj/item/clothing/head/softcap/security, /obj/item/clothing/suit/armor/vest/security, /obj/item/clothing/suit/bio_suit/security,
 												 /obj/item/clothing/suit/bomb_suit/security, /obj/item/clothing/suit/security/navyofficer, /obj/item/clothing/suit/space/void/security,
 												 /obj/item/clothing/suit/storage/hooded/wintercoat/security, /obj/item/device/magnetic_lock/security,/obj/item/toy/figure/secofficer,
 												 /obj/item/gun/bang/sec, /obj/item/gun/projectile/sec, /obj/item/book/manual/wiki/security_space_law)),
 
 					   "clowns"    = typecacheof(list(/obj/item/clothing/under/rank/clown, /obj/item/clothing/shoes/clown_shoes,
 												 /obj/item/clothing/mask/gas/clown_hat, /obj/item/bananapeel,
-												 /obj/item/bikehorn, /obj/item/device/pda/clown)),
+												 /obj/item/bikehorn, /obj/item/modular_computer/handheld/pda/civilian/clown)),
 
 					   "cats"  = typecacheof(list(/obj/item/clothing/head/tajaran, /obj/item/clothing/suit/storage/tajaran,
 												 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran, /obj/item/clothing/suit/storage/tajaran,
@@ -117,7 +117,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						  "cats" = typecacheof(list(/datum/species/tajaran)),
 						  "skrell"   = typecacheof(list(/datum/species/skrell)),
 						  "robots"   = typecacheof(list(/datum/species/machine)),
-						  "pests"   = typecacheof(list(/datum/species/diona, /datum/species/bug, /datum/species/vox)),
+						  "pests"   = typecacheof(list(/datum/species/diona, /datum/species/bug)),
 						  "paranormals"   = typecacheof(list(/datum/species/shadow, /datum/species/skeleton, /datum/species/golem)),
 						  "humans"   = typecacheof(list(/datum/species/human))
 						 )

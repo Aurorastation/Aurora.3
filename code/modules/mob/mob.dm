@@ -110,7 +110,7 @@
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view)
+/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	for (var/turf in view(range, get_turf(src)))
@@ -124,7 +124,7 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
+		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/A in messagemobs)
@@ -166,7 +166,7 @@
 // If drain_check is set it will not actually drain power, just return a value.
 // If surge is set, it will destroy/damage the recipient and not return any power.
 // Not sure where to define this, so it can sit here for the rest of time.
-/atom/proc/drain_power(var/drain_check,var/surge, var/amount = 0)
+/atom/proc/drain_power(var/drain_check, var/surge, var/amount = 0)
 	return -1
 
 // Show a message to all mobs and objects in earshot of this one
@@ -175,7 +175,7 @@
 // self_message (optional) is what the src mob hears.
 // deaf_message (optional) is what deaf people will see.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
-/mob/audible_message(var/message, var/deaf_message, var/hearing_distance, var/self_message)
+/mob/audible_message(var/message, var/deaf_message, var/hearing_distance, var/self_message, var/ghost_hearing = GHOSTS_ALL_HEAR)
 
 	var/range = world.view
 	if(hearing_distance)
@@ -185,7 +185,7 @@
 
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, range, mobs, objs)
+	get_mobs_and_objs_in_view_fast(T, range, mobs, objs, ghost_hearing)
 
 
 	for(var/m in mobs)
@@ -451,30 +451,35 @@
 	if (!client)
 		return//This shouldnt happen
 
+	var/failure = null
 	if (!( config.abandon_allowed ))
-		to_chat(usr, "<span class='notice'>Respawn is disabled.</span>")
-		return
-	if (stat != DEAD)
-		to_chat(usr, "<span class='notice'><B>You must be dead to use this!</B></span>")
-		return
-	if (SSticker.mode && SSticker.mode.deny_respawn) //BS12 EDIT
-		to_chat(usr, "<span class='notice'>Respawn is disabled for this roundtype.</span>")
-		return
+		failure = "Respawn is disabled."
+	else if (stat != DEAD)
+		failure = "You must be dead to use this!"
+	else if (SSticker.mode && SSticker.mode.deny_respawn)
+		failure = "Respawn is disabled for this roundtype."
 	else if(!MayRespawn(1, CREW))
-		return
+		failure = ""
+
+	if(!isnull(failure))
+		if(check_rights(R_ADMIN, show_msg = FALSE))
+			if(failure == "")
+				failure = "You are not allowed to respawn."
+			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
+				return
+			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").", admin_key=key_name(usr))
+		else
+			if(failure != "")
+				to_chat(usr, SPAN_DANGER(failure))
+			return
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
-
-	log_game("[usr.name]/[usr.key] used abandon mob.",ckey=key_name(usr))
-
+	log_game("[usr.name]/[usr.key] used abandon mob.", ckey=key_name(usr))
 	to_chat(usr, "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>")
 
+	client?.screen.Cut()
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
-		return
-	client.screen.Cut()
-	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
 		return
 
 	announce_ghost_joinleave(client, 0)
@@ -486,7 +491,7 @@
 	M.reset_death_timers()
 
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
 		qdel(M)
 		return
 
@@ -1065,20 +1070,16 @@
 
 /mob/proc/get_pressure_weakness()
 	return 1
-
-/mob/proc/flash_weak_pain()
-	flick("weak_pain", pain)
-
-/mob/living/carbon/human/flash_weak_pain()
-	if(can_feel_pain())
-		flick("weak_pain", pain)
-
 /mob/living/proc/flash_strong_pain()
 	return
 
 /mob/living/carbon/human/flash_strong_pain()
 	if(can_feel_pain())
-		flick("strong_pain", pain)
+		overlay_fullscreen("strong_pain", /obj/screen/fullscreen/strong_pain)
+		addtimer(CALLBACK(src, .proc/clear_strong_pain), 10, TIMER_UNIQUE)
+
+/mob/living/proc/clear_strong_pain()
+	clear_fullscreen("strong_pain", 10)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)

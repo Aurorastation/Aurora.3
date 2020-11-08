@@ -9,6 +9,7 @@
 	ranged = 1
 	smart = TRUE
 	turns_per_move = 3
+	organ_names = list("head", "central segment", "tail")
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
@@ -29,8 +30,6 @@
 	destroy_surroundings = 1
 
 	emote_see = list("stares","hovers ominously","blinks")
-	see_in_dark = 8
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	min_oxy = 0
 	max_oxy = 0
@@ -45,6 +44,8 @@
 	faction = "cavern"
 
 	flying = TRUE
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
@@ -85,6 +86,7 @@
 	harm_intent_damage = 5
 	ranged = 1
 	smart = TRUE
+	organ_names = list("core", "right fore wheel", "left fore wheel", "right rear wheel", "left rear wheel")
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "barrels into"

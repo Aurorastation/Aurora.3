@@ -316,9 +316,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
 		if(!G.show_on_job_select)
 			continue
-		if(!G.enabled)
-			continue
-		if(!isnull(G.req_perms))
+		if(G.cant_see(src))
 			continue
 		unique_role_available = TRUE
 		break
@@ -378,6 +376,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	else
 		client.prefs.copy_to(new_character)
 
+	client.autohiss_mode = client.prefs.autohiss_setting
+
 	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
 
 	if(mind)
@@ -408,12 +408,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	var/dat = "<html><body>"
-	dat += "<h4>Show Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(OOC = 1)
-
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, dat), "window=manifest;size=370x420;can_close=1")
+	open_crew_manifest(src, OOC = TRUE)
 
 /mob/abstract/new_player/Move()
 	return 0

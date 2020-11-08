@@ -45,7 +45,7 @@
 		)
 	light_power = 1
 	brightness_on = 4
-	light_wedge = 120
+	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
 
 /*****************************Pickaxe********************************/
@@ -744,7 +744,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] found no beacons in the world to anchor a wormhole to."))
 		return
 	var/chosen_beacon = pick(L)
-	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(src), chosen_beacon, lifespan = 100)
+	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(src), chosen_beacon, null, 100)
 	J.target = chosen_beacon
 	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
@@ -816,6 +816,7 @@
 					M.faction = initial(M.faction)
 				M.revive()
 				M.icon_state = M.icon_living
+				M.desc = initial(M.desc)
 				loaded = FALSE
 				user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
 				feedback_add_details("lazarus_injector", "[M.type]")
@@ -1321,7 +1322,7 @@ var/list/total_extraction_beacons = list()
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	target.cut_overlay(image_overlay, TRUE)
+	QDEL_NULL(effect_overlay)
 	if(location)
 		new /obj/effect/overlay/temp/explosion(location)
 		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1)
@@ -1353,3 +1354,55 @@ var/list/total_extraction_beacons = list()
 	for(var/turf/simulated/mineral/M in range(7,drill_loc))
 		if(prob(75))
 			M.GetDrilled(1)
+
+/****************Himeo Voidsuit Kit*****************/
+/obj/item/himeo_kit
+	name = "himeo voidsuit kit"
+	contained_sprite = TRUE
+	icon = 'icons/obj/mining_contained.dmi'
+	icon_state = "himeo_kit"
+	item_state = "himeo_kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
+	desc_fluff = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
+	for use by miners originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
+	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
+	desc_info = "In order to convert a mining voidsuit into a Himean voidsuit, simply click on this box with a voidsuit or helmet in hand.\
+	The same process can be used to convert a Himean voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+
+/obj/item/himeo_kit/attackby(obj/item/W as obj, mob/user as mob)
+	var/list/suit_options = list(
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/himeo,
+		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/himeo,
+
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/suit/space/void/engineering/himeo,
+		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/himeo,
+
+		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo,
+		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo
+	)
+	var/reconverting = FALSE
+	var/voidsuit_product = suit_options[W.type]
+	if(!voidsuit_product)
+		for(var/thing in suit_options)
+			if(suit_options[thing] == W.type)
+				voidsuit_product = thing
+				reconverting = TRUE
+				break
+	if(voidsuit_product)
+		if(istype(W, /obj/item/clothing/suit/space/void) && W.contents.len)
+			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
+			return
+		user.drop_item(W)
+		qdel(W)
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+		var/obj/item/P = new voidsuit_product(user.loc)
+		user.put_in_hands(P)
+		if(!reconverting)
+			to_chat(user, SPAN_NOTICE("Your permit for a [P] has been processed. Enjoy!"))
+		else
+			to_chat(user, SPAN_NOTICE("Your Himean voidsuit part has been reconverted into [P]."))
+		return
+	else
+		return ..()

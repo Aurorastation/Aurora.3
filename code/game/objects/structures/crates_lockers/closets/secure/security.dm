@@ -29,7 +29,6 @@
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
-	new /obj/item/cartridge/captain(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
@@ -81,7 +80,6 @@
 	new /obj/item/clothing/suit/storage/vest(src)
 	new /obj/item/clothing/head/helmet(src)
 	//Tools
-	new /obj/item/cartridge/hop(src)
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
@@ -136,12 +134,11 @@
 	new /obj/item/clothing/head/hos/cap(src)
 	new /obj/item/clothing/head/hos/cap/alt(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos/alt(src)
+	new /obj/item/clothing/head/beret/security/hos(src)
+	new /obj/item/clothing/head/beret/security/hos/alt(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
-	new /obj/item/cartridge/hos(src)
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
 	new /obj/item/storage/box/tranquilizer(src)
@@ -179,8 +176,8 @@
 	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos/alt(src)
+	new /obj/item/clothing/head/beret/security/hos(src)
+	new /obj/item/clothing/head/beret/security/hos/alt(src)
 	new /obj/item/clothing/head/hos/cap(src)
 	new /obj/item/clothing/head/hos/cap/alt(src)
 	new /obj/item/clothing/head/helmet/hos(src)
@@ -219,7 +216,7 @@
 	new /obj/item/clothing/under/rank/warden/corp(src)
 	new /obj/item/clothing/suit/armor/vest/warden(src)
 	new /obj/item/clothing/suit/armor/vest/warden/commissar(src)
-	new /obj/item/clothing/head/beret/sec/warden(src)
+	new /obj/item/clothing/head/beret/security/warden(src)
 	new /obj/item/clothing/head/warden/commissar(src)
 	new /obj/item/clothing/head/warden(src)
 	new /obj/item/clothing/head/warden/alt(src)
@@ -227,7 +224,6 @@
 	new /obj/item/clothing/accessory/badge/warden(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
-	new /obj/item/cartridge/security(src)
 	new /obj/item/device/radio/headset/headset_warden(src)
 	new /obj/item/device/radio/headset/headset_warden/alt(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
@@ -260,7 +256,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/head/beret/sec/cadet(src)
+	new /obj/item/clothing/head/beret/security(src)
 	new /obj/item/clothing/suit/storage/hazardvest/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	//Tools
@@ -295,7 +291,8 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/head/soft/sec/corp(src)
+	new /obj/item/clothing/head/softcap/security/corp(src)
+	new /obj/item/clothing/head/beret/security/corp(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
 	new /obj/item/clothing/head/helmet(src)

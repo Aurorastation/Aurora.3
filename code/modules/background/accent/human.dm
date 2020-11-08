@@ -128,7 +128,7 @@
 /datum/accent/europa
 	name = ACCENT_EUROPA
 	description = "Europans are known to be much quieter and speak at a slower pace than their counterparts on Callisto, despite the close proximity of the two moons. Solarian linguists have \
-	traced the whisper-like nature of the accent origins to the planet’s submarines: crews believed that quieter voices interfered less with sonar, and were less likely to be heard by whatever was \
+	traced the whisper-like nature of the accent origins to the planet's submarines: crews believed that quieter voices interfered less with sonar, and were less likely to be heard by whatever was \
 	outside the hull. Europans that have succumbed to \"Deep Crazy\", a psychological phenomenon found on the moon, are known to abandon the typically hushed nature of Europan speech for screaming hysterically."
 	tag_icon = "europa"
 
@@ -138,12 +138,11 @@
 	from Luna to Xanu - are, one way or another, descended from this ancient accent."
 	tag_icon = "earth"
 
-/datum/accent/deepfrontier
-	name = ACCENT_DEEPFRONTIER
-	description = "The so-called \"Deep Frontier\" accent is not truly a unified accent at all, and instead defines a broad range of accents from the more \"wild\" frontier outside of human control. \
-	Those with these accents are almost universally looked down upon as wild savages by their counterparts in more civilized space at best. Speakers of this accent are almost always found in lower-end \
-	positions in civilized space, due to the typically impoverished and anarchic nature of the Deep Frontier."
-	tag_icon = "deepfrontier"
+/datum/accent/ncf
+	name = ACCENT_NCF
+	description = "The non-Coalition frontier 'accent' is not a true accent in of itself, but is instead used as a catch-all term for human accents originating outside of the frontier controlled by the Coalition of Colonies. \
+	These planets and systems vary wildly, and all sorts of people and places can be found within them."
+	tag_icon = "noncoalitionfrontier"
 
 /datum/accent/fisanduh
 	name = ACCENT_FISANDUH

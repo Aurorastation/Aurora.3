@@ -9,6 +9,7 @@
 	maxHealth = 15
 	health = 15
 	meat_type = /obj/item/reagent_containers/food/snacks/tomatomeat
+	organ_names = list("head")
 	response_help  = "prods"
 	response_disarm = "pushes aside"
 	response_harm   = "smacks"

@@ -155,7 +155,7 @@ proc/get_radio_key_from_channel(var/channel)
 		return "asks"
 	return verb
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -177,11 +177,7 @@ proc/get_radio_key_from_channel(var/channel)
 			message = copytext(message,3)
 
 	message = trim(message)
-
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "*" = TRUE, "/" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending] && !(HULK in mutations))
-		message += "."
+	message = formalize_text(message)
 
 	//parse the language code and consume it
 	if(!speaking)
@@ -271,7 +267,7 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
 
 
 	var/list/hear_clients = list()
@@ -291,6 +287,9 @@ proc/get_radio_key_from_channel(var/channel)
 		spawn(0)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
+
+	if(mind)
+		mind.last_words = message
 
 	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 	return 1
@@ -322,5 +321,5 @@ proc/get_radio_key_from_channel(var/channel)
 /obj/effect/speech_bubble
 	var/mob/parent
 
-/mob/living/proc/GetVoice()
+/mob/proc/GetVoice()
 	return name

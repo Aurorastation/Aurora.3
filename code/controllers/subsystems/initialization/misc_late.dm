@@ -39,6 +39,7 @@
 	if (config.use_forumuser_api)
 		update_admins_from_api(TRUE)
 
+	click_catchers = create_click_catcher()
 
 	..(timeofday)
 

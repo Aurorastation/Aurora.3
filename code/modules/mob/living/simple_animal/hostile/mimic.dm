@@ -10,6 +10,7 @@
 	icon_living = "crate"
 
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("lid", "body")
 	response_help = "touches"
 	response_disarm = "pushes"
 	response_harm = "hits"

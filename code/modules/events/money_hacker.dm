@@ -12,7 +12,7 @@
 
 		account_hack_attempted = 1
 	else
-		kill()
+		kill(TRUE)
 
 /datum/event/money_hacker/announce()
 	var/message = "A brute force hack has been detected (in progress since [worldtime2text()]). The target of the attack is: Financial account #[affected_account.account_number], \

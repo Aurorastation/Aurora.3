@@ -95,15 +95,6 @@
 		var/mob/living/carbon/human/H = A
 		. = H.species && (H.species.flags & IS_MECHANICAL)
 
-/proc/isvox(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if (SPECIES_VOX)
-				return 1
-			if (SPECIES_VOX_ARMALIS)
-				return 1
-	return 0
-
 /mob/proc/is_diona()
 	return FALSE
 
@@ -876,8 +867,8 @@ proc/is_blind(A)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "feet"
-	else if (istype(loc,/obj/item/device/pda))
-		var/obj/item/device/pda/S = loc
+	else if (istype(loc,/obj/item/modular_computer))
+		var/obj/item/modular_computer/S = loc
 		newlocation = S.name
 		if (justmoved)
 			preposition = "into"
@@ -1184,4 +1175,14 @@ proc/is_blind(A)
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		var/final_icon = a.tag_icon
-		return "<img src=\"[final_icon].png\">"
+		var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+		return S.icon_tag(final_icon)
+
+/mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	for(var/mob/M in contents)
+		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
+		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
+
+/mob/assign_player(var/mob/user)
+  ckey = user.ckey
+  return src

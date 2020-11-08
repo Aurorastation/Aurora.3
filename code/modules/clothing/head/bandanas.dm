@@ -3,12 +3,14 @@
 	desc = "It's a bandana with some fine nanotech lining."
 	icon = 'icons/obj/clothing/hats/bandanas.dmi'
 	icon_state = "bandana"
+	item_state = "bandana"
 	flags_inv = 0
 	body_parts_covered = 0
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/bandana/colorable
 	icon_state = "bandana_colorable"
+	item_state = "bandana_colorable"
 
 /obj/item/clothing/head/bandana/colorable/random/Initialize()
 	. = ..()
@@ -18,6 +20,7 @@
 	name = "pirate bandana"
 	desc = "Yarr."
 	icon_state = "bandana_pirate"
+	item_state = "bandana_pirate"
 
 /obj/item/clothing/head/bandana/red // Antag red.
 	name = "red bandana"

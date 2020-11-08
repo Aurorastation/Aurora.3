@@ -94,13 +94,13 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/poncho
@@ -333,3 +333,8 @@
 	display_name = "submariner jacket"
 	path = /obj/item/clothing/suit/storage/toggle/overlay/submariner
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/gadpathur
+	display_name = "gadpathurian overcoat"
+	path = /obj/item/clothing/suit/storage/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION

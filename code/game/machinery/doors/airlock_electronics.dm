@@ -14,6 +14,7 @@
 	var/last_configurator
 	var/locked = TRUE
 	var/is_installed = FALSE // no double-spending
+	var/unres_dir = null
 
 /obj/item/airlock_electronics/attack_self(mob/user)
 	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
@@ -28,6 +29,17 @@
 		t1 += "<a href='?src=\ref[src];login=1'>Swipe ID</a><hr>"
 	else
 		t1 += "<a href='?src=\ref[src];logout=1'>Block</a><hr>"
+
+		t1 += "<B>Unrestricted Access Settings</B><br>"
+
+	
+		for(var/direction in cardinal)
+			if(direction & unres_dir)
+				t1 += "<a style='color:#00dd12' href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
+			else
+				t1 += "<a href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
+
+		t1 += "<hr>"
 
 		t1 += "Access requirement is set to "
 		t1 += one_access ? "<a style='color:#00dd12' href='?src=\ref[src];one_access=1'>ONE</a><hr>" : "<a style='color:#f7066a' href='?src=\ref[src];one_access=1'>ALL</a><hr>"
@@ -61,16 +73,17 @@
 			locked = FALSE
 			last_configurator = usr.name
 		else
-			var/obj/item/I = usr.get_active_hand()
-			if(istype(I, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = I
-				I = pda.id
-			if(I && src.check_access(I))
+			var/obj/item/card/id/I = usr.GetIdCard()
+			if(istype(I) && src.check_access(I))
 				locked = FALSE
 				last_configurator = I:registered_name
 
 	if(locked)
 		return
+
+	if(href_list["unres_dir"])
+		var/new_unres_dir = text2num(href_list["unres_dir"])
+		unres_dir ^= new_unres_dir
 
 	if(href_list["logout"])
 		locked = TRUE
@@ -112,24 +125,12 @@
 		src.one_access = A.one_access
 		src.last_configurator = A.last_configurator
 		to_chat(user, SPAN_NOTICE("Configuration settings copied successfully."))
-	else if(istype(W, /obj/item/card/id))
-		var/obj/item/card/id/I = W
+	else if(W.GetID())
+		var/obj/item/card/id/I = W.GetID()
 		if(check_access(I))
 			locked = !locked
 			last_configurator = I.registered_name
 			to_chat(user, SPAN_NOTICE("You swipe your ID over \the [src], [locked ? "locking" : "unlocking"] it."))
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-	else if(istype(W, /obj/item/device/pda))
-		var/obj/item/device/pda/P = W
-		var/obj/item/card/id/I = P.id
-		if(!I)
-			to_chat(user, SPAN_WARNING("Your PDA doesn't have an ID in it!"))
-			return
-		if(check_access(I))
-			locked = !locked
-			last_configurator = I.registered_name
-			to_chat(user, SPAN_NOTICE("You swipe your PDA over \the [src], [locked ? "locking" : "unlocking"] it."))
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 	else

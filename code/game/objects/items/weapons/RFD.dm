@@ -110,6 +110,8 @@
 			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // can be found in crossbow.dm
 			forceMove(CB)
 			CB.stored_matter = src.stored_matter
+			qdel(src)
+			user.put_in_hands(CB)
 			add_fingerprint(user)
 			return
 	..()
@@ -139,7 +141,8 @@
 	item_state = "rfdammo"
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 15000)
+	matter = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	recyclable = TRUE
 
 /*
 RFD Construction-Class
@@ -219,7 +222,7 @@ RFD Construction-Class
 			build_cost =  3
 			build_delay = 20
 			build_type = "window and grille section"
-			build_atom = /obj/effect/wingrille_spawn/reinforced
+			build_atom = /obj/effect/map_effect/wingrille_spawn/reinforced
 	else if(mode == RFD_AIRLOCK)
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3

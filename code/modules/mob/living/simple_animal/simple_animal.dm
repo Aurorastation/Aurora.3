@@ -1,3 +1,9 @@
+#define BLOOD_NONE "none"
+#define BLOOD_LIGHT "light"
+#define BLOOD_MEDIUM "medium"
+#define BLOOD_HEAVY "heavy"
+
+
 /mob/living/simple_animal
 	name = "animal"
 	icon = 'icons/mob/npc/animal.dmi'
@@ -13,7 +19,12 @@
 	var/icon_living = ""
 	var/icon_dead = ""
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
+
+	appearance_flags = KEEP_TOGETHER
 	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	var/blood_state = BLOOD_NONE
+	var/image/blood_overlay
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -35,6 +46,7 @@
 	var/turns_since_scan = 0
 
 	//Interaction
+	var/list/organ_names = list("chest")
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
@@ -179,6 +191,7 @@
 	if(health > maxHealth)
 		health = maxHealth
 
+	handle_blood_overlay()
 	handle_stunned()
 	handle_weakened()
 	handle_paralysed()
@@ -302,6 +315,34 @@
 	if(purge)
 		purge -= 1
 
+/mob/living/simple_animal/proc/handle_blood_overlay(var/force_reset = FALSE)
+	if(!blood_overlay_icon)
+		return
+
+	var/current_blood_state = blood_state
+	var/blood_mod = health / maxHealth
+	if(blood_mod > 0.9)
+		blood_state = BLOOD_NONE
+	else if(blood_mod >= 0.7)
+		blood_state = BLOOD_LIGHT
+	else if(blood_mod >= 0.4)
+		blood_state = BLOOD_MEDIUM
+	else
+		blood_state = BLOOD_HEAVY
+
+	if(force_reset || (blood_state != BLOOD_NONE && current_blood_state != blood_state))
+		if(blood_overlay)
+			cut_overlay(blood_overlay)
+		var/blood_overlay_name = get_blood_overlay_name()
+		var/image/I = image(blood_overlay_icon, src, "[blood_overlay_name]-[blood_state]")
+		I.color = blood_type
+		I.blend_mode = BLEND_INSET_OVERLAY
+		blood_overlay = I
+		add_overlay(blood_overlay)
+
+/mob/living/simple_animal/proc/get_blood_overlay_name()
+	return "blood_overlay"
+
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()
 	for(var/obj/item/reagent_containers/food/snacks/S in get_turf(src))
@@ -363,11 +404,13 @@
 /mob/living/simple_animal/proc/speak_audio()
 	return
 
-/mob/living/simple_animal/proc/visible_emote(var/act_desc, var/log_emote=1)
-	custom_emote(VISIBLE_MESSAGE, act_desc, log_emote)
+/mob/living/simple_animal/proc/visible_emote(var/act_desc)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	custom_emote(VISIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
 /mob/living/simple_animal/proc/audible_emote(var/act_desc)
-	custom_emote(AUDIBLE_MESSAGE, act_desc)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	custom_emote(AUDIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
 /*
 mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
@@ -485,6 +528,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
 	user.do_attack_animation(src)
 
+/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+	. = ..()
+	handle_blood_overlay()
 
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later
@@ -529,11 +575,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	walk_to(src,0)
 	movement_target = null
-	icon_state = icon_dead
-	density = 0
+	density = FALSE
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
-	return ..(gibbed,deathmessage)
+	. = ..(gibbed, deathmessage)
+	update_icon()
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
@@ -602,7 +648,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			sound_chance = prob(50)
 		make_noise(sound_chance)
 
-	..(message, null, verb)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	..(message, null, verb, ghost_hearing = can_ghosts_hear)
 
 /mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
@@ -692,7 +739,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
 	update_icon()
 
@@ -753,14 +800,17 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				B.transform = M.Scale(scale)
 				B.update_icon()
 
-/mob/living/simple_animal/proc/spawn_into_wizard_familiar(var/mob/user)
-	if(src.ckey)
-		return
-	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("wizard_familiar", src)
-	if(wizard_master)
-		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
-	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
-
 /mob/living/simple_animal/get_resist_power()
 	return resist_mod
+
+
+/mob/living/simple_animal/get_gibs_type()
+	if(isSynthetic())
+		return /obj/effect/gibspawner/robot
+	else
+		return /obj/effect/gibspawner/generic
+
+#undef BLOOD_NONE
+#undef BLOOD_LIGHT
+#undef BLOOD_MEDIUM
+#undef BLOOD_HEAVY

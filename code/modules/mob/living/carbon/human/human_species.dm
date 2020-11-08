@@ -27,14 +27,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	h_style = "Unathi Horns"
 	. = ..(mapload, SPECIES_UNATHI)
 
-/mob/living/carbon/human/vox/Initialize(mapload)
-	h_style = "Short Vox Quills"
-	. = ..(mapload, SPECIES_VOX)
-
-/mob/living/carbon/human/voxarmalis/Initialize(mapload)
-	h_style = "Bald"
-	. = ..(mapload, SPECIES_VOX_ARMALIS)
-
 /mob/living/carbon/human/diona/Initialize(mapload)
 	. = ..(mapload, SPECIES_DIONA)
 	src.gender = NEUTER
@@ -245,7 +237,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	src.set_id_info(ID)
 	ID.access = list(access_armory)
 	equip_to_slot_or_del(ID, slot_wear_id)
-	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden(src), slot_w_uniform)
+	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden/remote(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_warden(src), slot_l_ear)
 

@@ -154,7 +154,7 @@
 		to_chat(user, "You can't place that item inside the disposal unit.")
 		return
 
-	if(istype(I, /obj/item/storage) && user.a_intent != I_HURT)
+	if(istype(I, /obj/item/storage) && length(I.contents) && user.a_intent != I_HURT)
 		var/obj/item/storage/S = I
 		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", SPAN_NOTICE("You empty \the [S] into \the [src]."), range = 3)
 		for(var/obj/item/O in S.contents)
@@ -199,7 +199,7 @@
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
 				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return
-	if(!dropsafety(I))
+	if(!I.dropsafety())
 		return
 
 	if(!I)
@@ -224,6 +224,11 @@
 
 	if(!check_mob_size(target))
 		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
+		return
+
+/// makes it so synths can't be flushed
+	if (istype(target, /mob/living/silicon/robot))
+		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
 		return
 
 	src.add_fingerprint(user)

@@ -93,7 +93,7 @@
 
 /datum/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien & IS_SKRELL)
-		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
@@ -293,7 +293,7 @@
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (!(alien & (IS_SKRELL | IS_VAURCA)))
-		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
 /datum/reagent/lithium
 	name = "Lithium"
@@ -553,7 +553,7 @@
 
 /datum/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien & IS_VAURCA)
-		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
 /datum/reagent/tungsten
 	name = "Tungsten"

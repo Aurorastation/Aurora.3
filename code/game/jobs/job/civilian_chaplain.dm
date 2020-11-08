@@ -20,7 +20,9 @@
 	uniform = /obj/item/clothing/under/rank/chaplain
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
-	pda = /obj/item/device/pda/chaplain
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/chaplain
 
 /datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

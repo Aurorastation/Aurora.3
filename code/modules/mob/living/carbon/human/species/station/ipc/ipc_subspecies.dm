@@ -466,6 +466,7 @@
 	brute_mod = 1.2
 	grab_mod = 1.1
 	resist_mod = 4
+	num_alternate_languages = 3
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 

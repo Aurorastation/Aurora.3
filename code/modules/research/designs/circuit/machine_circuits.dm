@@ -217,7 +217,17 @@
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	build_path = /obj/item/circuitboard/miningdrillbrace
 
+/datum/design/circuit/machine/cargo_trolley
+	name = "Cargo Trolley"
+	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
+	build_path = /obj/item/circuitboard/cargo_trolley
+
 /datum/design/circuit/machine/weapons_analyzer
 	name = "Weapons Analyzer"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 3, TECH_COMBAT = 2)
 	build_path = /obj/item/circuitboard/weapons_analyzer
+
+/datum/design/circuit/machine/slime_extractor
+	name = "Slime Extractor"
+	req_tech = list(TECH_BIO = 2, TECH_ENGINEERING = 1, TECH_BLUESPACE = 1)
+	build_path = /obj/item/circuitboard/slime_extractor

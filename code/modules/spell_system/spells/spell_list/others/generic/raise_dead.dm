@@ -36,9 +36,6 @@
 
 		var/mob/living/carbon/human/skeleton/F = new /mob/living/carbon/human/skeleton(get_turf(target))
 		SSghostroles.add_spawn_atom("skeleton", F)
-		var/area/A = get_area(F)
-		if(A)
-			say_dead_direct("A skeleton has been created in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 		target.visible_message("<span class='cult'>\The [target] explodes in a shower of gore, a skeleton emerges from the remains!</span>")
 		target.gib()
 		

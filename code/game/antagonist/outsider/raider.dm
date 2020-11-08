@@ -128,32 +128,13 @@ var/datum/antagonist/raider/raiders
 		if(I.loc != player)
 			qdel(I)
 
-	if(player.species && player.species.get_bodytype() == BODYTYPE_VOX)
-		equip_vox(player)
-	else
-		player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
-		player.equipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
-		player.force_update_limbs()
-		player.update_eyes()
-		player.regenerate_icons()
+	player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
+	player.equipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
+	player.force_update_limbs()
+	player.update_eyes()
+	player.regenerate_icons()
 
 	give_codewords(player)
-
-	return 1
-
-/datum/antagonist/raider/proc/equip_vox(var/mob/living/carbon/human/player)
-
-	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/vox(player), slot_shoes) // REPLACE THESE WITH CODED VOX ALTERNATIVES.
-	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/vox(player), slot_gloves) // AS ABOVE.
-	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat/vox(player), slot_wear_mask)
-	player.equip_to_slot_or_del(new /obj/item/tank/nitrogen(player), slot_back)
-	player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_r_store)
-	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/raider(player), slot_l_ear)
-	player.equip_to_slot_or_del(new /obj/item/card/id/syndicate/raider(player), slot_wear_id)
-
-	player.internal = locate(/obj/item/tank) in player.contents
-	if(istype(player.internal,/obj/item/tank) && player.internals)
-		player.internals.icon_state = "internal1"
 
 	return 1
 

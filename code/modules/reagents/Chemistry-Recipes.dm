@@ -629,7 +629,7 @@
 	name = "Saline Plus"
 	id = "saline"
 	result = /datum/reagent/saline
-	required_reagents = list(/datum/reagent/sugar = 0.4, /datum/reagent/water = 1, /datum/reagent/sodiumchloride = 0.9)
+	required_reagents = list(/datum/reagent/water = 2, /datum/reagent/sugar = 0.2, /datum/reagent/sodiumchloride = 0.4)
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 
@@ -794,6 +794,17 @@
 /datum/chemical_reaction/plastication/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/stack/material/plastic(get_turf(holder.my_atom), created_volume)
 	return
+	
+/datum/chemical_reaction/uraniumsolidification
+    name = "Uranium"
+    id = "soliduranium"
+    result = null
+    required_reagents = list(/datum/reagent/potassium = 5, /datum/reagent/frostoil = 5, /datum/reagent/uranium = 20)
+    result_amount = 1
+
+/datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+    new /obj/item/stack/material/uranium(get_turf(holder.my_atom), created_volume)
+    return
 
 /* Grenade reactions */
 
@@ -835,7 +846,7 @@
 					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
 						continue
 
-				flick("e_flash", M.flash)
+				M.flash_eyes()
 				M.Weaken(15)
 
 			if(4 to 5)
@@ -843,7 +854,7 @@
 					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
 						continue
 
-				flick("e_flash", M.flash)
+				M.flash_eyes()
 				M.Stun(5)
 
 /datum/chemical_reaction/emp_pulse
@@ -1333,6 +1344,7 @@
 		/mob/living/simple_animal/hostile/commanded/dog/columbo,
 		/mob/living/simple_animal/hostile/commanded/dog/pug,
 		/mob/living/simple_animal/hostile/commanded/bear,
+		/mob/living/simple_animal/hostile/commanded/baby_harvester,
 		/mob/living/simple_animal/hostile/greatworm,
 		/mob/living/simple_animal/hostile/lesserworm,
 		/mob/living/simple_animal/hostile/greatwormking,
@@ -1350,7 +1362,7 @@
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck(TRUE) <= 0)
-			flick("e_flash", M.flash)
+			M.flash_eyes()
 
 	for(var/i = 1, i <= 5, i++)
 		var/chosen = pick(critters)
@@ -1410,7 +1422,7 @@
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-			flick("e_flash", M.flash)
+			M.flash_eyes()
 
 	for(var/i = 1, i <= 4 + rand(1,2), i++)
 		var/chosen = pick(borks)
@@ -3595,7 +3607,7 @@
 	name = "RMT"
 	id = "rmt"
 	result = /datum/reagent/rmt
-	result_amount = 1
+	result_amount = 2
 	required_reagents = list(/datum/reagent/potassium = 1, /datum/reagent/inaprovaline = 1)
 
 /datum/chemical_reaction/gunpowder

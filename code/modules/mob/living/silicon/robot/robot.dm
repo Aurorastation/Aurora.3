@@ -82,7 +82,6 @@
 	var/obj/item/device/radio/borg/radio
 	var/obj/machinery/camera/camera
 	var/obj/item/device/mmi/mmi
-	var/obj/item/device/pda/ai/pda
 	var/obj/item/stock_parts/matter_bin/storage
 	var/obj/item/tank/jetpack/carbondioxide/synthetic/jetpack
 
@@ -258,14 +257,6 @@
 		return amount
 	return FALSE
 
-// setup the PDA and its name
-/mob/living/silicon/robot/proc/setup_PDA()
-	if(!has_pda)
-		return
-	if(!pda)
-		pda = new /obj/item/device/pda/ai(src)
-	pda.set_name_and_job(custom_name, "[mod_type] [braintype]")
-
 //If there's an MMI in the robot, have it ejected when the mob goes away. --NEO
 //Improved /N
 /mob/living/silicon/robot/Destroy()
@@ -369,9 +360,6 @@
 		mmi.brainmob.real_name = src.name
 		mmi.name = "[initial(mmi.name)]: [src.name]"
 
-	// if we've changed our name, we also need to update the display name for our PDA
-	setup_PDA()
-
 	// We also need to update our internal ID
 	if(id_card)
 		id_card.assignment = prefix
@@ -412,7 +400,8 @@
 /mob/living/silicon/robot/verb/cmd_station_manifest()
 	set category = "Robot Commands"
 	set name = "Show Crew Manifest"
-	show_station_manifest()
+	var/windowname = open_crew_manifest(src)
+	onclose(src, windowname)
 
 /mob/living/silicon/robot/proc/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))
@@ -751,7 +740,7 @@
 			else
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
-		else if(istype(W, /obj/item/card/id) ||istype(W, /obj/item/device/pda) || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
+		else if(W.GetID())			// trying to unlock the interface with an ID card
 			if(emagged) //still allow them to open the cover
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
@@ -1030,7 +1019,7 @@
 
 /mob/living/silicon/robot/proc/self_destruct()
 	density = FALSE
-	fragem(src, 50, 100, 2, 1, 5, 1, 0)
+	fragem(src, 50, 100, 2, 1, 5, 1, FALSE)
 	gib()
 
 /mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs

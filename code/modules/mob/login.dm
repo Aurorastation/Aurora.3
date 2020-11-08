@@ -82,12 +82,11 @@
 		eyeobj.possess(src)
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
-	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
+	winset(src, null, "mainwindow.macro=macro input.focus=true input.background-color=#D3B5B5")
 	MOB_STOP_THINKING(src)
 
 	update_client_color()
+	add_click_catcher()
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
-
-	simple_asset_ensure_is_sent(client, /datum/asset/simple/accents)

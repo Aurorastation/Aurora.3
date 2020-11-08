@@ -110,6 +110,8 @@
 							I.mechassist()
 						if ("mechanical")
 							I.robotize()
+						if ("removed")
+							qdel(I)
 
 	if (apply_markings)
 		for(var/N in organs_by_name)

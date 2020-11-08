@@ -4,6 +4,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
 	w_class = ITEMSIZE_SMALL
+	recyclable = TRUE
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
@@ -60,7 +61,7 @@
 
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if((speed >= fragile) && shatter)
+	if((speed >= fragile) && shatter && !ismob(loc))
 		shatter()
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)

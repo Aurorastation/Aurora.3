@@ -1,4 +1,5 @@
 // This is the base type that handles everything. Subtypes can be easily created by tweaking variables in this file to your liking.
+
 /obj/item/modular_computer
 	name = "Modular Computer"
 	desc = "A modular computer. You shouldn't see this."
@@ -21,6 +22,12 @@
 	var/_app_preset_type									// Used for specifying the software preset of the console
 	var/ambience_last_played								// Last time sound was played
 	var/pAI_lock = FALSE									// Toggles whether pAI can interact with the modular computer while installed in it
+	var/obj/item/card/id/registered_id = null 				// ID used for chat client registering
+	var/scan_mode = null									// Mode used for health/reagent scanners
+	var/silent = FALSE
+	var/doorcode = "smindicate"
+	var/hidden = FALSE
+	var/initial_name
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
