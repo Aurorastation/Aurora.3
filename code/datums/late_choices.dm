@@ -20,10 +20,10 @@
 	ui_open(NP)
 
 /datum/late_choices/proc/ui_open(mob/user)
-	ui = new(user, src, "late-choices", 400, 720, "Late-Join Choices")
+	ui = new(user, src, "late-choices", 330, 720, "Late-Join Choices")
 	ui.header = "minimal"
 	var/mob/mannequin = user.client.prefs.update_mannequin()
-	ui.add_asset("character", getFlatIcon(mannequin, NORTH))
+	ui.add_asset("character", getFlatIcon(mannequin, SOUTH))
 	ui.open()
 
 /datum/late_choices/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -34,7 +34,7 @@
 	VUEUI_SET_CHECK(data["alert_level"], capitalize(get_security_level()), ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["character_name"], user.client.prefs.real_name, ., data)
 
-	var/shuttle_status = null
+	var/shuttle_status = ""
 	if(emergency_shuttle) //In case Nanotrasen decides to reposess CentComm's shuttles.
 		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
 			shuttle_status = "post-evac"

@@ -1,19 +1,19 @@
 <template>
   <div>
     <div class="clear-both">
-      <vui-img name="character" class="character-image"></vui-img>
+      <vui-img name="character" class="character-image"/>
       <p>
         Welcome, <strong>{{ character_name }}</strong>.<br>
         Round duration: <strong>{{ round_duration }}</strong><br>
-        Alert level: <strong class="alert-level" :class="alertLevelClass">{{ alert_level }}</strong><br>
+        Alert level: <strong :style="{color: alertLevelColor }">{{ alert_level }}</strong><br>
       </p>
     </div>
     <div class="clear-both">
-      <strong v-if="shuttle_status" class="warning">{{ shuttleStatusMessage }}</strong>
+      <strong v-if="shuttleStatusMessage">{{ shuttleStatusMessage }}</strong><br>
       Choose from the following available positions:
     </div>
     <div v-if="unique_role_available">
-        <vui-button :params="{ ghostspawner: 1 }" style="color: #ffffaa" icon="ghost">Ghost Spawner Menu</vui-button>
+      <vui-button :params="{ ghostspawner: 1 }" style="color: #ffffaa" icon="ghost">Ghost Spawner Menu</vui-button>
     </div>
     <div v-if="jobs_available > 0">
       <div v-for="(el, dept) in fixedJobsList" :key="dept" class="mt-2 dept-block">
@@ -23,7 +23,7 @@
         <div v-for="job in el" :key="job.title">
           <vui-button :params="{ SelectedJob: job.title }">
             <span :class="{ 'fw-bold': job.head}">{{ job.title }}</span>
-            <span v-if="job.total_positions != 1">({{ job.current_positions }}<span v-if="job.total_positions > 1"> / {{ job.total_positions }}</span>)</span>
+            <span v-if="job.total_positions != 1"> ({{ job.current_positions }}<span v-if="job.total_positions > 1"> / {{ job.total_positions }}</span>)</span>
           </vui-button>
         </div>
       </div>
@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     fixedJobsList() {
-      return Object.fromEntries(Object.entries(this.jobs_list).filter(([dept, jobs]) => Object.entries(jobs).length > 0))
+      return Object.fromEntries(Object.entries(this.jobs_list).filter(([, jobs]) => Object.entries(jobs).length > 0))
     },
     shuttleStatusMessage() {
       switch(this.shuttle_status) {
@@ -53,12 +53,12 @@ export default {
         case 'transfer':
           return 'The station is currently undergoing crew transfer procedures.'
       }
-      return null
+        return null
     },
-    alertLevelClass() {
-      switch(this.alert_level) {
-        case 'Green':
-          return ''
+    alertLevelColor() {
+      switch(this.alert_level.toLowerCase()) {
+        case 'green':
+          return 'inherit'
         case 'blue':
           return 'blue'
         case 'yellow':
