@@ -284,7 +284,7 @@
 	var/uniform = list()
 	uniform["warden uniform, standard"] = /obj/item/clothing/under/rank/warden
 	uniform["warden uniform, corporate"] = /obj/item/clothing/under/rank/warden/corp
-	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
+	uniform["warden uniform, blue"] = /obj/item/clothing/under/rank/warden/blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/hos

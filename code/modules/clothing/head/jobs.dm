@@ -87,34 +87,35 @@
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
 /obj/item/clothing/head/warden
-	name = "blue warden hat"
+	name = "warden hat"
 	desc = "A blue warden hat. For showing who is in charge of the brig."
-	icon_state = "wardencap"
+	icon = 'icons/obj/clothing/hats/security.dmi'
+	icon_state = "warden"
+	icon_state = "warden"
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/warden/corp
-	name = "black warden hat"
-	desc = "A black warden hat. For showing who is in charge of the brig."
-	icon_state = "wardencap_corp"
-
-
-/obj/item/clothing/head/warden/dark_blue
-	name = "black warden hat"
-	desc = "A navy blue warden hat. For showing who is in charge of the brig."
-	icon_state = "wardencap_darkblue"
+	name = "corporate warden hat"
+	desc = "A black warden parade hat. For showing who is in charge of the brig."
+	icon_state = "corp"
+	item_state = "corp"
 
 /obj/item/clothing/head/warden/commissar
 	name = "commissar's cap"
 	desc = "A security commissar's cap."
-	icon_state = "commissarcap"
+	icon_state = "commissar"
+	item_state = "commissar"
 
 /obj/item/clothing/head/hos/cap
-	name = "blue commander hat"
-	desc = "The navy blue hat of the Head of Security. For showing the officers who's in charge."
-	icon_state = "hoscap"
+	name = "commander hat"
+	desc = "The navy blue parade hat of the Head of Security. For showing the officers who's in charge."
+	icon = 'icons/obj/clothing/hats/security.dmi'
+	icon_state = "hos"
+	item_state = "hos"
 	flags_inv = HIDEEARS
 
-/obj/item/clothing/head/hos/cap/alt
-	name = "black commander hat"
-	desc = "The black hat of the Head of Security. For showing the officers who's in charge."
-	icon_state = "hoscap_alt"
+/obj/item/clothing/head/hos/cap/corp
+	name = "corporate commander hat"
+	desc = "The black parade hat of the Head of Security. For showing the officers who's in charge."
+	icon_state = "corp"
+	item_state = "corp"

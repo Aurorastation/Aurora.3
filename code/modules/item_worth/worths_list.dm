@@ -525,7 +525,7 @@ var/list/worths = list(
 					/obj/item/clothing/head/helmet/ert = 1000,
 					/obj/item/clothing/head/helmet/hos = 800,
 					/obj/item/clothing/head/hos/cap = 100,
-					/obj/item/clothing/head/hos/cap/alt = 100,
+					/obj/item/clothing/head/hos/cap/corp = 100,
 					/obj/item/clothing/head/helmet = 250,
 					/obj/item/clothing/head/culthood = 150,
 					/obj/item/clothing/head/caphat/hop = 100,
@@ -885,4 +885,3 @@ var/list/worths = list(
 					/obj/vehicle/bike = 1500,
 					/obj/vehicle = 1000
 					) //Must be in descending order. Child before parents, otherwise it doesn't work.,
-

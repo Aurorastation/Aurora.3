@@ -45,9 +45,9 @@
 	icon_state = "warden_corporate"
 	worn_state = "warden_corporate"
 
-/obj/item/clothing/under/rank/warden/dark_blue
-	icon_state = "warden_darkblue"
-	worn_state = "warden_darkblue"
+/obj/item/clothing/under/rank/warden/blue
+	icon_state = "warden_blue"
+	worn_state = "warden_blue"
 
 /obj/item/clothing/under/rank/warden/remote
 	name = "remote warden's uniform"
