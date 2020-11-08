@@ -90,7 +90,7 @@
 
 	if(!affect_ipc && isipc(T))
 		if (notify)
-			to_chat(src, "<span class='warning'>You lack the power to interact with mechanical constructs.</span>")
+			to_chat(src, SPAN_WARNING("You lack the power to interact with mechanical constructs."))
 		return FALSE
 	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
 		if (notify)
