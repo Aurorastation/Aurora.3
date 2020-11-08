@@ -13,15 +13,15 @@
       Choose from the following available positions:
     </div>
     <div v-if="unique_role_available">
-      <vui-button :params="{ ghostspawner: 1 }" style="color: #ffffaa" icon="ghost">Ghost Spawner Menu</vui-button>
+      <vui-button :params="{ ghostspawner: 1 }" class="d-block" style="color: #ffffaa" icon="ghost">Ghost Spawner Menu</vui-button>
     </div>
     <div v-if="jobs_available > 0">
-      <div v-for="(el, dept) in fixedJobsList" :key="dept" class="mt-2 dept-block">
+      <div v-for="(el, dept) in fixedJobsList" :key="dept" class="mt-2 dept-block" :class="'border-dept-' + dept.toLowerCase()">
         <div class="dept mb-1" :class="'bg-dept-' + dept.toLowerCase()">
           {{ dept }}
         </div>
         <div v-for="job in el" :key="job.title">
-          <vui-button :params="{ SelectedJob: job.title }">
+          <vui-button :params="{ SelectedJob: job.title }" class="d-block mx-1">
             <span :class="{ 'fw-bold': job.head}">{{ job.title }}</span>
             <span v-if="job.total_positions != 1"> ({{ job.current_positions }}<span v-if="job.total_positions > 1"> / {{ job.total_positions }}</span>)</span>
           </vui-button>
@@ -77,12 +77,10 @@ export default {
 }
 .dept-block {
   position: relative;
+  border: 2px solid;
   .dept {
     text-align: center;
     font-weight: bold;
   }
-}
-.button {
-  display: block;
 }
 </style>
