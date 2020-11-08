@@ -33,7 +33,7 @@
 /datum/martial_art/zombie/proc/strong_bite(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	var/atk_verb = pick("chomps", "bites")
-	D.visible_message(SPAN_DANGER("[A] [atk_verb] down hard on [D]!"), SPAN_DANGER("[A] [atk_verb] down hard you!"))
+	D.visible_message(SPAN_DANGER("[A] [atk_verb] down hard on [D]!"), SPAN_DANGER("[A] [atk_verb] down hard on you!"))
 	D.apply_damage(rand(5, 10), BRUTE, damage_flags = DAM_SHARP)
 	playsound(get_turf(D), 'sound/weapons/slash.ogg', 25, 1, -1)
 	return TRUE

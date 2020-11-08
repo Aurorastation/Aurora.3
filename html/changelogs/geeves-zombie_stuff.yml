@@ -12,3 +12,4 @@ changes:
   - rscadd: "Zombies have gained their own martial art. Three attacks in a row will provide an armor piercing bite, whilst their grabs automatically put someone into an aggressive grab."
   - tweak: "Zombies now take half brute and burn damage. Additionally, they move and sprint slower now."
   - tweak: "Zombies can now slip. Oh boy."
+  - tweak: "Zombie bites can now only take trioxin levels up to 30u, where it plateaus."

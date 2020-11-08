@@ -187,8 +187,12 @@
 	infection_chance -= target.run_armor_check(zone,"melee")
 	if(prob(infection_chance))
 		if(target.reagents)
-			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, 10)
-
+			var/max_trioxin_amount = 30
+			var/inject_amount = 10
+			var/trioxin_amount = target.reagents.get_reagent_amount(/datum/reagent/toxin/trioxin)
+			if(inject_amount + trioxin_amount > max_trioxin_amount)
+				inject_amount = max_trioxin_amount - trioxin_amount
+			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, inject_amount)
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")
