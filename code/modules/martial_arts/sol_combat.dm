@@ -108,3 +108,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	to_chat(usr, "<span class='notice'>Neck Chop</span>: Harm Harm Disarm. Injures the neck, stopping the victim from speaking for a while.")
 	to_chat(usr, "<span class='notice'>Leg Sweep</span>: Disarm Harm Disarm. Trips the victim, rendering them prone and unable to move for a short time.")
 	to_chat(usr, "<span class='notice'>Lung Punch</span>: Harm Disarm Harm. Delivers a strong punch just above the victim's abdomen, constraining the lungs. The victim will be unable to breathe for a short time.")
+
+#undef NECK_CHOP
+#undef LEG_SWEEP
+#undef QUICK_CHOKE

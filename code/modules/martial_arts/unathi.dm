@@ -104,3 +104,7 @@
 	icon_state = "scroll"
 	item_state = "scroll"
 	martial_art = /datum/martial_art/kis_khan
+
+#undef TAIL_SWEEP
+#undef SWIFT_DISARM
+#undef HAMMERING_STRIKE

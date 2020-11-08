@@ -111,6 +111,20 @@
 		return 1
 	return 0
 
+/proc/iszombie(A)
+	if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_ZOMBIE)
+				return TRUE
+			if(SPECIES_ZOMBIE_TAJARA)
+				return TRUE
+			if(SPECIES_ZOMBIE_UNATHI)
+				return TRUE
+			if(SPECIES_ZOMBIE_SKRELL)
+				return TRUE
+	return FALSE
+
 /proc/isundead(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())

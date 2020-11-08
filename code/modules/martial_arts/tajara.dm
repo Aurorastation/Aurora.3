@@ -108,3 +108,6 @@
 	support their claws to avoid serious bodily damage. Modern Baghrar matches are decided upon with a point scoring system over three 10 minute rounds of fighting, but historical \
 	victories were secured by knocking opponents onto the ground."
 
+#undef EYE_RAKE
+#undef CLAW_PUNCH
+#undef RRAKNARR_STAB

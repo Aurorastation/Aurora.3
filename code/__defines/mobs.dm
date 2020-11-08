@@ -129,6 +129,9 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
+// Zombie organ
+#define BP_ZOMBIE_PARASITE "zombieparasite"
+
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_TOOL         "retractable combitool"

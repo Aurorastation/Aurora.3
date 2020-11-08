@@ -1812,6 +1812,7 @@
 #include "code\modules\martial_arts\unathi.dm"
 #include "code\modules\martial_arts\vaurca.dm"
 #include "code\modules\martial_arts\wrestling.dm"
+#include "code\modules\martial_arts\zombie.dm"
 #include "code\modules\materials\_material_def.dm"
 #include "code\modules\materials\material_recipes.dm"
 #include "code\modules\materials\material_sheets.dm"

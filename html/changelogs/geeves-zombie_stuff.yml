@@ -1,0 +1,14 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The bodyscanner console now reports in which external they are, such as 'Chest' or 'Groin'."
+  - rscadd: "The bodyscanner now reports parasites growing within the body."
+  - rscadd: "The bodyscanner now periodically updates its UI."
+  - tweak: "The zombie parasite now grows inside the head, instead of the chest."
+  - tweak: "Zombies can no longer pick up items. If they somehow pick up a gun, they can no longer fire it."
+  - tweak: "Zombies can no longer operate radios."
+  - rscadd: "Zombies have gained their own martial art. Three attacks in a row will provide an armor piercing bite, whilst their grabs automatically put someone into an aggressive grab."
+  - tweak: "Zombies now take half brute and burn damage. Additionally, they move and sprint slower now."
+  - tweak: "Zombies can now slip. Oh boy."

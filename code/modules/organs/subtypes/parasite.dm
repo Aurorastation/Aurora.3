@@ -215,9 +215,9 @@
 	icon_state = "blacktumor"
 	dead_icon = "blacktumor"
 
-	organ_tag = "zombie"
+	organ_tag = BP_ZOMBIE_PARASITE
 
-	parent_organ = BP_CHEST
+	parent_organ = BP_HEAD
 	stage_interval = 150
 
 /obj/item/organ/internal/parasite/zombie/process()
