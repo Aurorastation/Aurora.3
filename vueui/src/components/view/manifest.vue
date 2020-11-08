@@ -1,15 +1,17 @@
 <template>
   <div>
-    <table v-if="fixedmanifest.length > 0" class="pmon">
-      <tr v-for="(el, i) in fixedmanifest" :key="i" :class="{ deptHead: el.head }">
-        <th v-if="el.header" colspan="3" :class="el.class">{{ el.header }}</th>
-        <template v-else>
-          <td>{{ el.name }}</td>
-          <td>{{ el.rank }}</td>
-          <td>{{ el.active }}</td>
-        </template>
-      </tr>
-    </table>
+    <div v-if="manifestLen(fixedmanifest) > 0">
+      <table v-for="(el, dept) in fixedmanifest" :key="dept" class="mt-2" :class="'border-dept-' + dept.toLowerCase()">
+        <tr :class="'bg-dept-' + dept.toLowerCase()">
+          <th colspan="3" class="fw-bold">{{ dept }}</th>
+        </tr>
+        <tr v-for="entry in el" :key="entry.name" :class="{fwBold: entry.head}">
+          <td class="pl-2">{{ entry.name }}</td>
+          <td class="px-1">{{ entry.rank }}</td>
+          <td class="pr-2 text-right">{{ entry.active }}</td>
+        </tr>
+      </table>
+    </div>
     <div v-else class="fst-italic">
       There is no crew.
     </div>
@@ -22,22 +24,17 @@
 <script>
 export default {
   data() {
-    return this.$root.$data.state
+    let ret = this.$root.$data.state
+    ret.manifestLen = function(manif) {
+      let len = 0
+      Object.values(manif).forEach((val) => len += val.length)
+      return len
+    }
+    return ret
   },
   computed: {
     fixedmanifest() {
-      var entries = Object.entries(this.manifest)
-        .filter(([, crew]) => !!crew.length)
-        .flatMap(([name, crew]) =>
-          [
-            {
-              header: name,
-              class: "bg-dept-" + name.toLowerCase(),
-            },
-            crew,
-          ].flat()
-        )
-      return entries
+      return Object.fromEntries(Object.entries(this.manifest).filter(([, crew]) => Object.entries(crew).length > 0))
     },
   },
 }
@@ -45,24 +42,10 @@ export default {
 
 <style lang="scss" scoped>
 table {
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 2px solid RoyalBlue;
   width: 100%;
-
-  td,
-  th {
-    border-bottom: 1px dotted black;
-    padding: 0px 5px;
-    width: auto;
-  }
-
-  th {
-    font-weight: bold;
-    color: #ffffff;
-  }
-
-  .dept-head {
-    font-weight: bold;
-  }
+  border-collapse: collapse;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid;
 }
 </style>
