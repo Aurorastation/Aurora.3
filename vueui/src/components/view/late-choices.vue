@@ -21,8 +21,9 @@
           {{ dept }}
         </div>
         <div v-for="job in el" :key="job.title">
-          <vui-button :params="{ SelectedJob: job.title }" :class="{ deptHead: job.head}">
-            {{ job.title }} <span v-if="job.total_positions != 1">({{ job.current_positions }}<span v-if="job.total_positions > 1"> / {{ job.total_positions }}</span>)</span>
+          <vui-button :params="{ SelectedJob: job.title }">
+            <span :class="{ 'fw-bold': job.head}">{{ job.title }}</span>
+            <span v-if="job.total_positions != 1">({{ job.current_positions }}<span v-if="job.total_positions > 1"> / {{ job.total_positions }}</span>)</span>
           </vui-button>
         </div>
       </div>
@@ -78,9 +79,6 @@ export default {
   position: relative;
   .dept {
     text-align: center;
-    font-weight: bold;
-  }
-  .dept-head {
     font-weight: bold;
   }
 }

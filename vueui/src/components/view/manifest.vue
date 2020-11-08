@@ -13,7 +13,7 @@
     <div v-else class="fst-italic">
       There is no crew.
     </div>
-    <div v-if="allow_printing" style="text-align: center; margin-top: 1em">
+    <div v-if="allow_printing" class="text-center mt-2">
       <vui-button :params="{ action: 'print' }" icon="print">Print current manifest</vui-button>
     </div>
   </div>
