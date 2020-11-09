@@ -1,6 +1,7 @@
 /obj/structure/reagent_dispensers
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
+	desc_info = "You can right-click this and change the amount transferred per use."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
 	density = 1
@@ -18,6 +19,7 @@
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
+		desc_info = ""
 
 /obj/structure/reagent_dispensers/examine(mob/user)
 	if(!..(user, 2))
@@ -94,7 +96,7 @@
 	name = "extinguisher tank"
 	desc = "A tank filled with extinguisher fluid."
 	icon_state = "extinguisher_tank"
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 30
 	reagents_to_add = list(/datum/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
 
 // Tanks
@@ -102,14 +104,14 @@
 	name = "water tank"
 	desc = "A tank filled with water."
 	icon_state = "watertank"
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 100
 	reagents_to_add = list(/datum/reagent/water = 1000)
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
 	desc = "A tank filled with a silly amount of lube."
 	icon_state = "lubetank"
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 30
 	reagents_to_add = list(/datum/reagent/lube = 1000)
 
 /obj/structure/reagent_dispensers/fueltank
@@ -117,7 +119,7 @@
 	desc = "A tank filled with welding fuel."
 	icon_state = "weldtank"
 	accept_any_reagent = FALSE
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 30
 	var/defuse = 0
 	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null

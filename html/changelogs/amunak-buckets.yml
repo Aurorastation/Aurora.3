@@ -1,0 +1,5 @@
+author: Amunak
+delete-after: True
+changes:
+  - tweak: "Buckets and sinks now transfer maximum amount per use. Water tanks transfer 100 by default, extinguisher, lube and fuel tank 30."
+  - tweak: "Sinks and water/extinguisher/etc tanks now also have new info description reminding people that they can change the amount transferred."
