@@ -1,13 +1,13 @@
-/datum/psionic_faculty/energistics
+/decl/psionic_faculty/energistics
 	id = PSI_ENERGISTICS
 	name = "Energistics"
 	associated_intent = I_HURT
 	armor_types = list("bomb", "laser", "energy")
 
-/datum/psionic_power/energistics
+/decl/psionic_power/energistics
 	faculty = PSI_ENERGISTICS
 
-/datum/psionic_power/energistics/electropulse
+/decl/psionic_power/energistics/electropulse
 	name =            "Electropulse"
 	cost =            40
 	cooldown =        100
@@ -15,7 +15,7 @@
 	min_rank =        PSI_RANK_MASTER
 	use_description = "Target the right hand while on harm intent and click an object to use a melee attack that causes a localized EMP. This activates the EMP function on things, but it takes a while and applies a long cooldown, in addition to being expensive."
 
-/datum/psionic_power/energistics/electropulse/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/energistics/electropulse/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != BP_R_HAND)
 		return FALSE
 	if(istype(target, /turf) || ismob(target))
@@ -30,7 +30,7 @@
 			target.emp_act(severity)
 			return TRUE
 
-/datum/psionic_power/energistics/electrocute
+/decl/psionic_power/energistics/electrocute
 	name =            "Electrocute"
 	cost =            15
 	cooldown =        25
@@ -38,7 +38,7 @@
 	min_rank =        PSI_RANK_GRANDMASTER
 	use_description = "Target the chest or groin while on harm intent to use a melee attack that electrocutes a victim."
 
-/datum/psionic_power/energistics/electrocute/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/energistics/electrocute/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != BP_CHEST && user.zone_sel.selecting != BP_GROIN)
 		return FALSE
 	if(istype(target, /turf))
@@ -55,7 +55,7 @@
 				charging_cell.give(rand(15,45))
 			return TRUE
 
-/datum/psionic_power/energistics/lightning
+/decl/psionic_power/energistics/lightning
 	name =             "Lightning"
 	cost =             20
 	cooldown =         20
@@ -63,7 +63,7 @@
 	min_rank =         PSI_RANK_MASTER
 	use_description = "Use this ranged lightning attack while on harm intent. Your mastery of Energistics will determine how powerful the lightning is. Be wary of overuse, and try not to fry your own brain."
 
-/datum/psionic_power/energistics/lightning/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/energistics/lightning/invoke(var/mob/living/user, var/mob/living/target)
 	. = ..()
 	if(.)
 		user.visible_message(SPAN_DANGER("\The [user] suddenly holds their hand out!"))
@@ -92,7 +92,7 @@
 			pew.launch_projectile(target)
 			return TRUE
 
-/datum/psionic_power/energistics/spark
+/decl/psionic_power/energistics/spark
 	name =            "Spark"
 	cost =            1
 	cooldown =        1
@@ -100,7 +100,7 @@
 	min_rank =        PSI_RANK_OPERANT
 	use_description = "Target a non-living target in melee range on harm intent to cause some sparks to appear. This can light fires."
 
-/datum/psionic_power/energistics/spark/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/energistics/spark/invoke(var/mob/living/user, var/mob/living/target)
 	if(isnull(target) || istype(target)) return FALSE
 	. = ..()
 	if(.)

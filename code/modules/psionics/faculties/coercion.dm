@@ -1,19 +1,19 @@
-/datum/psionic_faculty/coercion
+/decl/psionic_faculty/coercion
 	id = PSI_COERCION
 	name = "Coercion"
 	associated_intent = I_DISARM
 
-/datum/psionic_power/coercion
+/decl/psionic_power/coercion
 	faculty = PSI_COERCION
 
-/datum/psionic_power/coercion/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/invoke(var/mob/living/user, var/mob/living/target)
 	if (!istype(target))
 		to_chat(user, SPAN_WARNING("You cannot mentally attack \the [target]."))
 		return FALSE
 
 	. = ..()
 
-/datum/psionic_power/coercion/blindstrike
+/decl/psionic_power/coercion/blindstrike
 	name =           "Blindstrike"
 	cost =           8
 	cooldown =       120
@@ -22,7 +22,7 @@
 	min_rank =       PSI_RANK_GRANDMASTER
 	use_description = "Target the eyes on disarm intent and click anywhere to use a radial attack that blinds, deafens and disorients everyone near you."
 
-/datum/psionic_power/coercion/blindstrike/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/blindstrike/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != BP_EYES)
 		return FALSE
 	. = ..()
@@ -42,7 +42,7 @@
 				M.confused = max(M.confused, rand(3,8))
 		return TRUE
 
-/datum/psionic_power/coercion/mindread
+/decl/psionic_power/coercion/mindread
 	name =            "Read Mind"
 	cost =            30
 	cooldown =        150 //It should take a good bit to be able to use this again.
@@ -50,7 +50,7 @@
 	min_rank =        PSI_RANK_OPERANT
 	use_description = "Target the head on disarm intent at melee range to attempt to read a victim's surface thoughts."
 
-/datum/psionic_power/coercion/mindread/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/mindread/invoke(var/mob/living/user, var/mob/living/target)
 	if(!isliving(target) || !istype(target) || user.zone_sel.selecting != BP_HEAD)
 		return FALSE
 	. = ..()
@@ -84,7 +84,7 @@
 	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
 	return TRUE
 
-/datum/psionic_power/coercion/agony
+/decl/psionic_power/coercion/agony
 	name =          "Agony"
 	cost =          8
 	cooldown =      50
@@ -92,7 +92,7 @@
 	min_rank =      PSI_RANK_MASTER
 	use_description = "Target the chest or groin on disarm intent to use a melee attack equivalent to a strike from a stun baton."
 
-/datum/psionic_power/coercion/agony/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/agony/invoke(var/mob/living/user, var/mob/living/target)
 	if(!istype(target))
 		return FALSE
 	if(user.zone_sel.selecting != BP_CHEST && user.zone_sel.selecting != BP_GROIN)
@@ -104,7 +104,7 @@
 		target.stun_effect_act(0, 60, user.zone_sel.selecting)
 		return TRUE
 
-/datum/psionic_power/coercion/spasm
+/decl/psionic_power/coercion/spasm
 	name =           "Spasm"
 	cost =           15
 	cooldown =       100
@@ -113,7 +113,7 @@
 	min_rank =       PSI_RANK_MASTER
 	use_description = "Target the arms or hands on disarm intent to use a ranged attack that may rip the weapons away from the target."
 
-/datum/psionic_power/coercion/spasm/invoke(var/mob/living/user, var/mob/living/carbon/human/target)
+/decl/psionic_power/coercion/spasm/invoke(var/mob/living/user, var/mob/living/carbon/human/target)
 	if(!istype(target))
 		return FALSE
 
@@ -133,7 +133,7 @@
 			target.visible_message(SPAN_DANGER("\The [target] drops what they were holding as their right hand spasms!"))
 		return TRUE
 
-/datum/psionic_power/coercion/mindslave
+/decl/psionic_power/coercion/mindslave
 	name =          "Mindslave"
 	cost =          28
 	cooldown =      200
@@ -141,7 +141,7 @@
 	min_rank =      PSI_RANK_PARAMOUNT
 	use_description = "Grab a victim, target the eyes, then use the grab on them while on disarm intent, in order to convert them into a loyal mind-slave. The process takes some time, and failure is punished harshly."
 
-/datum/psionic_power/coercion/mindslave/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/mindslave/invoke(var/mob/living/user, var/mob/living/target)
 	if(!istype(target) || user.zone_sel.selecting != BP_EYES)
 		return FALSE
 	. = ..()
@@ -168,7 +168,7 @@
 		thralls.add_antagonist(target.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 		return TRUE
 
-/datum/psionic_power/coercion/assay
+/decl/psionic_power/coercion/assay
 	name =            "Assay"
 	cost =            15
 	cooldown =        100
@@ -176,7 +176,7 @@
 	min_rank =        PSI_RANK_OPERANT
 	use_description = "Grab a patient, target the head, then use the grab on them while on disarm intent, in order to perform a deep coercive-redactive probe of their psionic potential."
 
-/datum/psionic_power/coercion/assay/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/assay/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != BP_HEAD)
 		return FALSE
 	. = ..()
@@ -192,7 +192,7 @@
 		target.show_psi_assay(user)
 		return TRUE
 
-/datum/psionic_power/coercion/focus
+/decl/psionic_power/coercion/focus
 	name =          "Focus"
 	cost =          10
 	cooldown =      80
@@ -200,7 +200,7 @@
 	min_rank =      PSI_RANK_MASTER
 	use_description = "Grab a patient, target the mouth, then use the grab on them while on disarm intent, in order to cure ailments of the mind."
 
-/datum/psionic_power/coercion/focus/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/focus/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != "mouth")
 		return FALSE
 	. = ..()
@@ -223,7 +223,7 @@
 			M.hallucination = max(M.hallucination, 10)
 		return TRUE
 
-/datum/psionic_power/coercion/commune
+/decl/psionic_power/coercion/commune
 	name =              "Commune"
 	cost =              15
 	cooldown =          10
@@ -234,7 +234,7 @@
 	use_description =   "Target the mouth and click on a creature on disarm intent to psionically send them a message."
 	admin_log = FALSE
 
-/datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
 	if((target == user) || user.zone_sel.selecting != BP_MOUTH)
 		return FALSE
 	. = ..()
@@ -277,7 +277,7 @@
 		else
 			to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness slips into your mind:</b> [text]"))
 
-/datum/psionic_power/coercion/psiping
+/decl/psionic_power/coercion/psiping
 	name =              "Psi Ping"
 	cost =              5
 	cooldown =          30
@@ -288,7 +288,7 @@
 	use_description =   "Activate an empty hand on help intent to detect nearby psionic signatures."
 	admin_log = FALSE
 
-/datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
 	if((target && user != target) || user.a_intent != I_HELP)
 		return FALSE
 	. = ..()

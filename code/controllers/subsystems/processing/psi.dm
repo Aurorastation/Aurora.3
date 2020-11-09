@@ -24,17 +24,17 @@ var/global/list/psychic_ranks_to_strings = list("Latent", "Operant", "Masterclas
 /datum/controller/subsystem/processing/psi/Initialize()
 	. = ..()
 
-	var/list/faculties = subtypesof(/datum/psionic_faculty)
+	var/list/faculties = decls_repository.get_decls_of_subtype(/decl/psionic_faculty)
 	for(var/ftype in faculties)
-		var/datum/psionic_faculty/faculty = new ftype
+		var/decl/psionic_faculty/faculty = faculties[ftype]
 		faculties_by_id[faculty.id] = faculty
 		faculties_by_name[faculty.name] = faculty
 		faculties_by_intent[faculty.associated_intent] = faculty.id
 
-	var/list/powers = subtypesof(/datum/psionic_power)
+	var/list/powers = decls_repository.get_decls_of_subtype(/decl/psionic_power)
 	for(var/ptype in powers)
-		var/datum/psionic_power/power = new ptype
+		var/decl/psionic_power/power = powers[ptype]
 		if(power.faculty)
-			var/datum/psionic_faculty/faculty = get_faculty(power.faculty)
+			var/decl/psionic_faculty/faculty = get_faculty(power.faculty)
 			if(faculty)
 				faculty.powers |= power

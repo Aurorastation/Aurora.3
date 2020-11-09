@@ -10,7 +10,7 @@
 	var/faculty = pick(latencies)
 	var/new_rank = rand(2,5)
 	owner.set_psi_rank(faculty, new_rank)
-	var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
+	var/decl/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
 	to_chat(owner, SPAN_DANGER("You scream internally as your [faculty_decl.name] faculty is forced into operancy by [source]!"))
 	next_latency_trigger = world.time + rand(600, 1800) * new_rank
 	if(!redactive) owner.adjustBrainLoss(rand(trigger_strength * 2, trigger_strength * 4))

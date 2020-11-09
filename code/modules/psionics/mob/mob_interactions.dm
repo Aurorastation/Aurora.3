@@ -1,7 +1,7 @@
 #define INVOKE_PSI_POWERS(holder, powers, target, return_on_invocation) \
 	if(holder && holder.psi && holder.psi.can_use()) { \
 		for(var/thing in powers) { \
-			var/datum/psionic_power/power = thing; \
+			var/decl/psionic_power/power = thing; \
 			var/obj/item/result = power.invoke(holder, target); \
 			if(result) { \
 				power.handle_post_power(holder, target); \

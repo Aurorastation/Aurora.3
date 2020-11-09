@@ -1,15 +1,15 @@
-/datum/psionic_faculty/psychokinesis
+/decl/psionic_faculty/psychokinesis
 	id = PSI_PSYCHOKINESIS
 	name = "Psychokinesis"
 	associated_intent = I_GRAB
 	armor_types = list("melee", "bullet")
 
-/datum/psionic_power/psychokinesis
+/decl/psionic_power/psychokinesis
 	faculty = PSI_PSYCHOKINESIS
 	use_manifest = TRUE
 	use_sound = null
 
-/datum/psionic_power/psychokinesis/psiblade
+/decl/psionic_power/psychokinesis/psiblade
 	name =            "Psiblade"
 	cost =            10
 	cooldown =        30
@@ -17,7 +17,7 @@
 	use_description = "Click on or otherwise activate an empty hand while on harm intent to manifest a psychokinetic cutting blade. The power the blade will vary based on your mastery of the faculty."
 	admin_log = FALSE
 
-/datum/psionic_power/psychokinesis/psiblade/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/psychokinesis/psiblade/invoke(var/mob/living/user, var/mob/living/target)
 	if((target && user != target) || user.a_intent != I_HURT)
 		return FALSE
 	. = ..()
@@ -32,7 +32,7 @@
 			else
 				return new /obj/item/psychic_power/psiblade(user, user)
 
-/datum/psionic_power/psychokinesis/tinker
+/decl/psionic_power/psychokinesis/tinker
 	name =            "Tinker"
 	cost =            5
 	cooldown =        10
@@ -40,14 +40,14 @@
 	use_description = "Click on or otherwise activate an empty hand while on grab intent to manifest a psychokinetic tool. Use it in-hand to switch between tool types."
 	admin_log = FALSE
 
-/datum/psionic_power/psychokinesis/tinker/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/psychokinesis/tinker/invoke(var/mob/living/user, var/mob/living/target)
 	if((target && user != target) || user.a_intent != I_GRAB)
 		return FALSE
 	. = ..()
 	if(.)
 		return new /obj/item/psychic_power/tinker(user)
 
-/datum/psionic_power/psychokinesis/telekinesis
+/decl/psionic_power/psychokinesis/telekinesis
 	name =            "Telekinesis"
 	cost =            5
 	cooldown =        10
@@ -61,7 +61,7 @@
 		/obj/machinery/door
 	)
 
-/datum/psionic_power/psychokinesis/telekinesis/invoke(var/mob/living/user, var/mob/living/target)
+/decl/psionic_power/psychokinesis/telekinesis/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.a_intent != I_GRAB)
 		return FALSE
 	. = ..()

@@ -110,7 +110,7 @@ proc/admin_notice(var/message, var/rights)
 			body += "<a href='?src=\ref[src];trigger_psi_latencies\ref[psyker.psi]'>Trigger latencies.</a><br/>"
 		body += "<table width = '100%'>"
 		for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
-			var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
+			var/decl/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
 			var/faculty_rank = psyker.psi ? psyker.psi.get_rank(faculty) : 0
 			body += "<tr><td><b>[faculty_decl.name]</b></td>"
 			for(var/i = 1 to LAZYLEN(psychic_ranks_to_strings))
