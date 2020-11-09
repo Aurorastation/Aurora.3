@@ -20,7 +20,7 @@
 /obj/item/contraband/poster/Initialize(mapload, given_serial = 0)
 	. = ..()
 	if(given_serial == 0)
-		serial_number = rand(1, poster_designs.len)
+		serial_number = rand(1, length(decls_repository.get_decls_of_subtype(/decl/poster)))
 	else
 		serial_number = given_serial
 	name += " - No. [serial_number]"
@@ -93,16 +93,16 @@
 	. = ..()
 
 	if(!serial)
-		serial = rand(1, poster_designs.len) //use a random serial if none is given
+		serial = rand(1, length(decls_repository.get_decls_of_subtype(/decl/poster))) //use a random serial if none is given
 
 	serial_number = serial
 
-	var/datum/poster/design
-	if (poster_type)
-		var/path = text2path(poster_type)
-		design = new path
+	var/decl/poster/design
+	if (ispath(poster_type))
+		design = decls_repository.get_decl(poster_type)
 	else
-		design = poster_designs[serial_number]
+		var/list/posters = decls_repository.get_decls_of_subtype(/decl/poster)
+		design = posters[serial_number]
 
 	set_poster(design)
 
@@ -121,10 +121,10 @@
 			pixel_y = 0
 
 
-/obj/structure/sign/poster/proc/set_poster(var/datum/poster/design)
+/obj/structure/sign/poster/proc/set_poster(var/decl/poster/design)
 	name = "[initial(name)] - [design.name]"
 	desc = "[initial(desc)] [design.desc]"
-	icon_state = design.icon_state // poster[serial_number]
+	icon_state = design.icon_state
 
 /obj/structure/sign/poster/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswirecutter())
@@ -161,7 +161,7 @@
 	src.forceMove(P)
 	qdel(src)
 
-/datum/poster
+/decl/poster
 	// Name suffix. Poster - [name]
 	var/name = ""
 	// Description suffix
