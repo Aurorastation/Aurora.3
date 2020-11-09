@@ -38,7 +38,7 @@
 			update_icon()
 			return
 		else
-			to_chat(user, "[L] doesn't fit into \the [src].")
+			to_chat(user, "\The [L] doesn't fit into \the [src].")
 			return
 
 /obj/item/glass_jar/attack_self(var/mob/user)
