@@ -32,7 +32,7 @@
 	if(istype(A, /mob))
 		var/mob/L = A
 		if(L.mob_size <= MOB_SMALL)
-			user.visible_message("<span class='notice'>[user] scoops [L] into \the [src].</span>", "<span class='notice'>You scoop [L] into \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("[user] scoops [L] into \the [src]."), SPAN_NOTICE("You scoop [L] into \the [src]."))
 			L.forceMove(src)
 			contains = 2
 			update_icon()
