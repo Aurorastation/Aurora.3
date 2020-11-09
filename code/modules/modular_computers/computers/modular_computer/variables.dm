@@ -47,8 +47,8 @@
 	var/message_output_range = 0							// Adds onto the output_message proc's range
 	var/max_hardware_size = 0								// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
 	var/steel_sheet_cost = 5								// Amount of steel sheets refunded when disassembling an empty frame of this computer.
-	light_range = 0									// Intensity of light this computer emits. Comparable to numbers light fixtures use.
-	light_power = 0
+	light_range = 0											// Tile range of lighting emitted by the computer.
+	light_power = 0											// Intensity of lighting emitted by the computer. Valid range between 0 and 1.
 	var/list/idle_threads = list()							// Idle programs on background. They still receive process calls but can't be interacted with.
 	var/list/enabled_services = list()						// Enabled services that run in background and handle things pasively. Supported on all CPUs.
 	var/power_has_failed = FALSE
