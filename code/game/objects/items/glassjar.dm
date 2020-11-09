@@ -82,7 +82,6 @@
 		user.visible_message("<span class='notice'>[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src].</span>")
 		user.drop_from_inventory(S,src)
 		update_icon()
-		return
 	else
 		insert_mob(A, user, proximity)
 
