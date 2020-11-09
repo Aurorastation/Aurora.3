@@ -276,9 +276,7 @@
 /area/derelict/ship)
 "aN" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = null
-	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "aO" = (
@@ -517,9 +515,10 @@
 /area/derelict/ship)
 "bz" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/wood,
 /obj/machinery/firealarm/east,
-/obj/machinery/reagentgrinder,
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bA" = (
@@ -590,7 +589,7 @@
 "bI" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/wood,
-/obj/machinery/microwave,
+/obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bJ" = (

@@ -11,7 +11,7 @@
 		)
 	icon_state = "soap"
 	item_state = "soap"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20

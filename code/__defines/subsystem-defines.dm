@@ -78,17 +78,11 @@
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
 
-// -- SSmachinery --
-#define RECIPE_LIST(T) (SSmachinery.recipe_datums["[T]"])
-
 // -- SSlistener --
 #define GET_LISTENERS(id) (id ? SSlistener.listeners["[id]"] : null)
 
 // Connection prefixes for player-editable fields
 #define WP_ELECTRONICS "elec_"
-
-// -- SSatlas --
-#define ARE_Z_CONNECTED(ZA, ZB) ((ZA == ZB) || ((SSatlas.connected_z_cache.len >= ZA && SSatlas.connected_z_cache[ZA]) ? SSatlas.connected_z_cache[ZA][ZB] : AreConnectedZLevels(ZA, ZB)))
 
 // -- SSicon_cache --
 #define LIGHT_FIXTURE_CACHE(icon,state,color) SSicon_cache.light_fixture_cache["[icon]_[state]_[color]"] || (SSicon_cache.light_fixture_cache["[icon]_[state]_[color]"] = SSicon_cache.generate_color_variant(icon,state,color))

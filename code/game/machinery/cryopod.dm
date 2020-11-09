@@ -18,6 +18,7 @@ var/global/list/frozen_crew = list()
 	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
 	interact_offline = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 
 	icon_screen = "cryo"
 	icon_scanline = "altcomputerw-scanline"
@@ -202,8 +203,6 @@ var/global/list/frozen_crew = list()
 		/obj/item/implant,
 		/obj/item/card/id,
 		/obj/item/modular_computer,
-		/obj/item/device/pda,
-		/obj/item/cartridge,
 		/obj/item/device/radio/headset,
 		/obj/item/device/encryptionkey
 	)

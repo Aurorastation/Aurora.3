@@ -63,11 +63,13 @@
 				dat += "No battery inserted.<BR>"
 	else
 		dat += "<B><font color=red>Unable to locate analysis pad.</font><BR></b>"
-	//
+
 	dat += "<HR>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh</A> <A href='?src=\ref[src];close=1'>Close<BR>"
-	user << browse(dat, "window=artharvester;size=450x500")
-	onclose(user, "artharvester")
+
+	var/datum/browser/harvester_win = new(user, "artharvester", capitalize_first_letters(name), 500, 500)
+	harvester_win.set_content(dat)
+	harvester_win.open()
 
 /obj/machinery/artifact_harvester/machinery_process()
 	if(stat & (NOPOWER|BROKEN))

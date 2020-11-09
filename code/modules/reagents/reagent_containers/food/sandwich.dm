@@ -1,6 +1,6 @@
-/obj/item/reagent_containers/food/snacks/breadslice/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/breadslice/attackby(obj/item/W as obj, mob/user)
 
-	if(istype(W,/obj/item/material/shard) || istype(W,/obj/item/reagent_containers/food/snacks))
+	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/S = new(get_turf(src))
 		S.attackby(W,user)
 		qdel(src)
@@ -15,7 +15,7 @@
 
 	var/list/ingredients = list()
 
-/obj/item/reagent_containers/food/snacks/csandwich/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/csandwich/attackby(obj/item/W as obj, mob/user)
 
 	var/sandwich_limit = 4
 	for(var/obj/item/O in ingredients)
@@ -23,15 +23,10 @@
 			sandwich_limit += 4
 
 	if(src.contents.len > sandwich_limit)
-		to_chat(user, "<span class='warning'>If you put anything else on \the [src] it's going to collapse.</span>")
-		return
-	else if(istype(W,/obj/item/material/shard))
-		to_chat(user, "<span class='notice'>You hide [W] in \the [src].</span>")
-		user.drop_from_inventory(W,src)
-		update()
+		to_chat(user, SPAN_WARNING("If you put anything else on \the [src] it's going to collapse."))
 		return
 	else if(istype(W,/obj/item/reagent_containers/food/snacks))
-		to_chat(user, "<span class='notice'>You layer [W] over \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You layer [W] over \the [src]."))
 		var/obj/item/reagent_containers/F = W
 		F.reagents.trans_to_obj(src, F.reagents.total_volume)
 		user.drop_from_inventory(W,src)
@@ -41,26 +36,19 @@
 	..()
 
 /obj/item/reagent_containers/food/snacks/csandwich/proc/update()
-	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
+	var/list/words = list()
 
 	cut_overlays()
 	var/list/ovr = list()
-
 	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
-
+		words += O.ingredient_name || O.name
 		i++
-		if(i == 1)
-			fullname += "[O.name]"
-		else if(i == ingredients.len)
-			fullname += " and [O.name]"
-		else
-			fullname += ", [O.name]"
-
 		var/image/I = new(src.icon, "sandwich_filling")
 		I.color = O.filling_color
 		I.pixel_x = pick(list(-1,0,1))
 		I.pixel_y = (i*2)+1
+		I.appearance_flags |= RESET_COLOR // You grill the bread, not the ingredients.
 		ovr += I
 
 	var/image/T = new(src.icon, "sandwich_top")
@@ -70,33 +58,15 @@
 
 	add_overlay(ovr)
 
-	name = lowertext("[fullname] sandwich")
+	name = lowertext("[english_list(words)] sandwich")
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous"))] sandwich"
 	w_class = n_ceil(Clamp((ingredients.len/2),2,4))
 
 /obj/item/reagent_containers/food/snacks/csandwich/Destroy()
-	for(var/obj/item/O in ingredients)
-		qdel(O)
+	QDEL_NULL_LIST(ingredients)
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/csandwich/examine(mob/user)
 	..(user)
 	var/obj/item/O = pick(contents)
-	to_chat(user, "<span class='notice'>You think you can see [O.name] in there.</span>")
-
-/obj/item/reagent_containers/food/snacks/csandwich/attack(mob/M as mob, mob/user as mob, def_zone)
-
-	var/obj/item/shard
-	for(var/obj/item/O in contents)
-		if(istype(O,/obj/item/material/shard))
-			shard = O
-			break
-
-	var/mob/living/H
-	if(istype(M,/mob/living))
-		H = M
-
-	if(H && shard && M == user) //This needs a check for feeding the food to other people, but that could be abusable.
-		to_chat(H, "<span class='warning'>You lacerate your mouth on a [shard.name] in the sandwich!</span>")
-		H.adjustBruteLoss(5) //TODO: Target head if human.
-	..()
+	to_chat(user, SPAN_NOTICE("You think you can see [O.name] in there."))

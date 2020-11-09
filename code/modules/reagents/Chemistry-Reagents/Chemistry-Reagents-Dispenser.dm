@@ -56,13 +56,14 @@
 
 /datum/reagent/carbon
 	name = "Carbon"
-	description = "A chemical element, the builing block of life."
+	description = "A chemical element, the building block of life."
 	reagent_state = SOLID
 	color = "#1C1300"
 	ingest_met = REM * 5
 	taste_description = "sour chalk"
 	taste_mult = 1.5
 	fallback_specific_heat = 0.018
+	scannable = TRUE
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
@@ -88,10 +89,11 @@
 	color = "#6E3B08"
 	taste_description = "copper"
 	fallback_specific_heat = 1.148
+	scannable = TRUE
 
 /datum/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien & IS_SKRELL)
-		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
@@ -285,12 +287,13 @@
 	reagent_state = SOLID
 	color = "#353535"
 	taste_description = "metal"
+	scannable = TRUE
 
 	fallback_specific_heat = 1.181
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (!(alien & (IS_SKRELL | IS_VAURCA)))
-		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
 /datum/reagent/lithium
 	name = "Lithium"
@@ -309,21 +312,36 @@
 
 /datum/reagent/mercury
 	name = "Mercury"
-	description = "A chemical element."
+	description = "A poisonous chemical element, one of two that is a liquid at human room temperature and pressure."
 	reagent_state = LIQUID
 	color = "#484848"
-	ingest_met = REM*0.2
+	ingest_met = REM*0.1
+	breathe_met = REM*0.4 
+	breathe_mul = 2 //mercury vapours and skin absorption more dangerous than eating mercury.
+	touch_met = REM*0.1
+	touch_mul = 1.25
 	taste_mult = 0 //mercury apparently is tasteless
+	scannable = TRUE
 
 	fallback_specific_heat = 0.631
 
-/datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
-		step(M, pick(cardinal))
-	if(prob(5))
-		M.emote(pick("twitch", "drool", "moan"))
-
-	M.adjustBrainLoss(removed)
+/datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)	
+	M.add_chemical_effect(CE_NEUROTOXIC, 2*removed)
+	if(dose > 1)
+		if(prob(dose/2))
+			to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.", "You hear a faint white-noise that's gradually getting louder.")))
+		M.confused = max(M.confused, 10)
+	if(dose > 4)
+		M.add_chemical_effect(CE_CLUMSY, 1)
+		if(prob(dose/4))			
+			M.emote(pick("twitch", "shiver", "drool"))
+		if(prob(dose/4))
+			M.visible_message("<b>[M]</b> chuckles spontaneously.", "You chuckle spontaneously.")
+	if(dose > 8)
+		if(prob(2))
+			to_chat(M, SPAN_WARNING("You can't feel any sensation in your extremities."))
+		M.add_chemical_effect(CE_UNDEXTROUS, 1) //A budget dextrotoxin that's a tad more dangerous and slower to take effect.
+		M.Weaken(10)
 
 /datum/reagent/phosphorus
 	name = "Phosphorus"
@@ -372,7 +390,7 @@
 			return
 
 /datum/reagent/acid
-	name = "Sulphuric acid"
+	name = "Sulphuric Acid"
 	description = "A very corrosive mineral acid with the molecular formula H2SO4."
 	reagent_state = LIQUID
 	color = "#DB5008"
@@ -455,9 +473,9 @@
 	if(O.unacidable)
 		return
 	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (volume > meltdose))
-		var/obj/effect/decal/cleanable/molten_item/I = new/obj/effect/decal/cleanable/molten_item(O.loc)
+		var/obj/effect/decal/cleanable/molten_item/I = new/obj/effect/decal/cleanable/molten_item(get_turf(O))
 		I.desc = "Looks like this was \an [O] some time ago."
-		for(var/mob/M in viewers(5, O))
+		for(var/mob/M in viewers(get_turf(O), 5))
 			to_chat(M, "<span class='warning'>\The [O] melts.</span>")
 		qdel(O)
 		remove_self(meltdose) // 10 units of acid will not melt EVERYTHING on the tile
@@ -473,7 +491,7 @@
 	fallback_specific_heat = 1.710
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here
-	name = "Polytrinic acid"
+	name = "Polytrinic Acid"
 	description = "Polytrinic acid is a an extremely corrosive chemical substance."
 	reagent_state = LIQUID
 	color = "#8E18A9"
@@ -482,7 +500,7 @@
 	taste_description = "acid"
 
 /datum/reagent/acid/stomach
-	name = "stomach acid"
+	name = "Stomach Acid"
 	taste_description = "coppery foulness"
 	power = 2
 	color = "#d8ff00"
@@ -513,7 +531,7 @@
 
 	glass_icon_state = "iceglass"
 	glass_name = "glass of sugar"
-	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
+	glass_desc = "You can feel your blood sugar rising just looking at this."
 
 	fallback_specific_heat = 0.332
 	condiment_name = "sugar sack"
@@ -529,12 +547,13 @@
 	reagent_state = SOLID
 	color = "#BF8C00"
 	taste_description = "rotten eggs"
+	scannable = TRUE
 
 	fallback_specific_heat = 0.503
 
 /datum/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien & IS_VAURCA)
-		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
 /datum/reagent/tungsten
 	name = "Tungsten"

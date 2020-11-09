@@ -10,6 +10,7 @@
 	var/list/warrants
 	var/list/viruses
 
+	var/list/nameMap
 	var/list/excluded_fields
 	var/list/localized_fields
 
@@ -37,6 +38,7 @@
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
+	nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
 	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
@@ -179,21 +181,31 @@
 /datum/controller/subsystem/records/proc/reset_manifest()
 	manifest.Cut()
 
-/datum/controller/subsystem/records/proc/get_manifest(var/monochrome = 0, var/OOC = 0)
-	if(!manifest.len)
-		get_manifest_json()
+// The one and only method for showing a pop-up crew manifest (browser) window
+/proc/open_crew_manifest(var/mob/user, var/OOC = FALSE)
+	if(!user)
+		return
+	var/const/windowname = "manifest"
+	var/dat = {"<h2 style="text-align: center">Crew Manifest</h2>"}
+	dat += SSrecords.get_manifest(OOC)
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=[windowname];size=450x600")
+	return windowname
+
+/datum/controller/subsystem/records/proc/get_manifest(var/OOC = FALSE)
+	var/const/style = {"
+			.manifest {border-collapse: collapse; width: 100%}
+			.manifest td, th {border: 1px solid #DEF; background-color: white; color:black; padding: .25em}
+			.manifest th {height: 2em; background-color: #3F668F; color: white}
+			.manifest tr.head th {background-color: #006E7A;}
+			.manifest td:first-child {text-align: right}
+			.manifest tr.alt td {background-color: #DEF}
+		"}
 	var/dat = {"
-	<head><style>
-		.manifest {border-collapse:collapse;}
-		.manifest td, th {border:1px solid [monochrome?"black":"#DEF; background-color:white; color:black"]; padding:.25em}
-		.manifest th {height: 2em; [monochrome?"border-top-width: 3px":"background-color: #48C; color:white"]}
-		.manifest tr.head th { [monochrome?"border-top-width: 1px":"background-color: #488;"] }
-		.manifest td:first-child {text-align:right}
-		.manifest tr.alt td {[monochrome?"border-top-width: 2px":"background-color: #DEF"]}
-	</style></head>
-	<table class="manifest" width='350px'>
-	<tr class='head'><th>Name</th><th>Rank</th><th>Activity</th></tr>
-	"}
+			<head><style>[style]</style></head>
+			<table class="manifest">
+			<tr class='head'><th>Name</th><th>Rank</th><th>Activity</th></tr>
+		"}
 	var/even = 0
 	var/list/isactive = new()
 	for(var/mob/M in player_list)
@@ -205,7 +217,7 @@
 		else
 			isactive[M.real_name] = 0
 
-	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
+	var/manifest = get_manifest_list()
 	for(var/dep in manifest)
 		var/list/depI = manifest[dep]
 		if(depI.len > 0)
@@ -216,6 +228,18 @@
 	dat += "</table>"
 	dat = replacetext(dat, "\n", "") // so it can be placed on paper correctly
 	dat = replacetext(dat, "\t", "")
+	return dat
+
+/datum/controller/subsystem/records/proc/get_manifest_text()
+	var/dat = "<h2>Crew Manifest</h2><em>as of [worlddate2text()] [worldtime2text()]</em>"
+	var/manifest = get_manifest_list()
+	for(var/dep in manifest)
+		var/list/depI = manifest[dep]
+		if(depI.len > 0)
+			var/depDat
+			for(var/list/item in depI)
+				depDat += "<li><strong>[item["name"]]</strong> - [item["rank"]] ([item["active"]])</li>"
+			dat += "<h3>[nameMap[dep]]</h3><ul>[depDat]</ul>"
 	return dat
 
 /datum/controller/subsystem/records/proc/get_manifest_list()
@@ -243,8 +267,8 @@
 		"bot" = nonhuman_positions
 	)
 	for(var/datum/record/general/t in records)
-		var/name = sanitize(t.name)
-		var/rank = sanitize(t.rank)
+		var/name = sanitize(t.name, encode = FALSE)
+		var/rank = sanitize(t.rank, encode = FALSE)
 		var/real_rank = make_list_rank(t.real_rank)
 
 		var/isactive = t.physical_status

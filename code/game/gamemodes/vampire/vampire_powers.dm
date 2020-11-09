@@ -684,7 +684,7 @@
 	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
 	to_chat(T, "<span style='color: green;'><i><em>[command]</em></i></span>")
 	to_chat(src, "<span class='notice'>You command [T], and they will obey.</span>")
-	emote("me", 1, "whispers.")
+	visible_message("<b>[src]</b> whispers something.")
 
 	vampire.use_blood(50)
 	verbs -= /mob/living/carbon/human/proc/vampire_dominate
@@ -799,7 +799,7 @@
 				probability = 80
 
 			if (prob(probability))
-				to_chat(T, "<font color='green'><i>[pick(emotes)]</i></font>")
+				to_chat(T, "<span class='good'><i>[pick(emotes)]</i></span>")
 
 		vampire.use_blood(5)
 

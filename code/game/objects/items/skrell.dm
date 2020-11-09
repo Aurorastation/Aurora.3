@@ -3,7 +3,7 @@
 	desc = "An antique and delicate looking instrument used to study the stars."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "starscope"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -83,7 +83,7 @@
 	desc = "A projector meant to help Federation Skrell feel like theyre carrying home with them wherever they go. It looks very complex."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "projector"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'

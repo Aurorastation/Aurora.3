@@ -32,7 +32,7 @@
 	var/ghost_cooldown = 0
 
 	var/obj/item/device/multitool/ghost_multitool
-	incorporeal_move = 1
+	incorporeal_move = INCORPOREAL_GHOST
 
 	mob_thinks = FALSE
 
@@ -186,9 +186,10 @@ Works together with spawning an observer, noted above.
 		return
 
 	if(following)
-		if(!iscarbon(following)) //If they are following something other than a carbon mob, teleport them
+		if(!isliving(following) || isanimal(following)) //If they are following something other than a living non-animal mob, teleport them
+			var/message = "You can not follow \the [following] on this level."
 			stop_following()
-			teleport_to_spawn("You can not follow \the [following] on this level.")
+			teleport_to_spawn(message)
 		else
 			return
 	//If they are moving around freely, teleport them
@@ -581,15 +582,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	else
 		return bestvent
 
-/mob/abstract/observer/verb/view_manfiest()
+/mob/abstract/observer/verb/view_manifest()
 	set name = "Show Crew Manifest"
 	set category = "Ghost"
-
-	var/dat
-	dat += "<h4>Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(OOC = 1)
-
-	src << browse(dat, "window=manifest;size=370x420;can_close=1")
+	open_crew_manifest(src, OOC = TRUE)
 
 //This is called when a ghost is drag clicked to something.
 /mob/abstract/observer/MouseDrop(atom/over)
@@ -892,7 +888,7 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 		var/timedifference = world.time- get_death_time(respawn_type)
 		var/respawn_time = 0
 		if (respawn_type == CREW)
-			respawn_time = config.respawn_delay *600
+			respawn_time = config.respawn_delay MINUTES
 		else if (respawn_type == ANIMAL)
 			respawn_time = RESPAWN_ANIMAL
 		else if (respawn_type == MINISYNTH)

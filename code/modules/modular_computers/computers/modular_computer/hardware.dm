@@ -7,6 +7,7 @@
 			return
 		found = TRUE
 		portable_drive = H
+		verbs += /obj/item/modular_computer/proc/eject_usb
 	else if(istype(H, /obj/item/computer_hardware/hard_drive))
 		if(hard_drive)
 			to_chat(user, SPAN_WARNING("\The [src]'s hard drive slot is already occupied by \the [hard_drive]."))
@@ -39,6 +40,8 @@
 			return
 		found = TRUE
 		battery_module = H
+		if(battery_module.hotswappable)
+			verbs += /obj/item/modular_computer/proc/eject_battery
 	else if(istype(H, /obj/item/computer_hardware/processor_unit))
 		if(processor_unit)
 			to_chat(user, SPAN_WARNING("\The [src]'s processor slot is already occupied by \the [processor_unit]."))
@@ -51,6 +54,7 @@
 			return
 		found = TRUE
 		ai_slot = H
+		verbs += /obj/item/modular_computer/proc/eject_ai
 	else if(istype(H, /obj/item/computer_hardware/tesla_link))
 		if(tesla_link)
 			to_chat(user, SPAN_WARNING("\The [src]'s tesla link slot is already occupied by \the [tesla_link]."))
@@ -63,6 +67,7 @@
 			return
 		personal_ai = H
 		to_chat(user, SPAN_NOTICE("You install \the [H] into \the [src]."))
+		verbs += /obj/item/modular_computer/proc/eject_personal_ai
 		personal_ai.pai.parent_computer = src
 		personal_ai.pai.verbs += /mob/living/silicon/pai/proc/personal_computer_interact
 		to_chat(personal_ai.pai, SPAN_NOTICE("You gain access to \the [src]'s computronics."))

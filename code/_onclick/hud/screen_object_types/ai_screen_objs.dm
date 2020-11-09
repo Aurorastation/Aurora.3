@@ -87,8 +87,8 @@
 
 /obj/screen/ai/crew_manifest/Click()
 	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.show_station_manifest()
+		var/windowname = open_crew_manifest(usr)
+		onclose(usr, windowname)
 
 /obj/screen/ai/alerts
 	name = "Show Alerts"
@@ -129,26 +129,6 @@
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
 		AI.subsystem_law_manager()
-
-/obj/screen/ai/pda_msg
-	name = "PDA - Send Message"
-	icon_state = "pda_send"
-	screen_loc = ui_ai_pda_send
-
-/obj/screen/ai/pda_msg/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.ai_pda.cmd_send_pdamesg(usr)
-
-/obj/screen/ai/pda_log
-	name = "PDA - Show Message Log"
-	icon_state = "pda_receive"
-	screen_loc = ui_ai_pda_log
-
-/obj/screen/ai/pda_log/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.ai_pda.cmd_show_message_log(usr)
 
 /obj/screen/ai/take_image
 	name = "Take Image"

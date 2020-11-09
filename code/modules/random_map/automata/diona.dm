@@ -3,16 +3,59 @@
 
 /obj/structure/diona
 	icon = 'icons/obj/diona.dmi'
-	anchored = 1
-	density = 1
-	opacity = 0
+	anchored = TRUE
+	density = TRUE
+	opacity = FALSE
 	layer = TURF_LAYER + 0.01
+	var/max_health = 50
+	var/health
+	var/destroy_spawntype = /mob/living/carbon/alien/diona
+
+/obj/structure/diona/Initialize(mapload)
+	. = ..()
+	health = max_health
+
+/obj/structure/diona/attackby(obj/item/W, mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(W.iswelder())
+		var/obj/item/weldingtool/WT = W
+		if (!WT.welding)
+			to_chat(user, SPAN_WARNING("\The [WT] must be turned on!"))
+			return
+		else if (WT.remove_fuel(0,user))
+			user.visible_message("<b>[user]</b> begins slicing through the skin of \the [src].", SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
+			if(!do_after(user, 20/W.toolspeed, act_target = src))
+				return
+			if(QDELETED(src) || !WT.isOn())
+				return
+			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
+			user.visible_message("<b>[user]</b> slices through the skin of \the [src].", SPAN_NOTICE("You slice through \the [src]."))
+		qdel(src)
+	else
+		user.do_attack_animation(src)
+		if(W.force)
+			user.visible_message(SPAN_DANGER("\The [user] [pick(W.attack_verb)] \the [src] with \the [W]!"), SPAN_NOTICE("You [pick(W.attack_verb)] \the [src] with \the [W]!"))
+			playsound(loc, W.hitsound, 60, TRUE)
+			playsound(loc, /decl/sound_category/wood_break_sound, 50, TRUE)
+			health -= W.force
+			if(health <= 0)
+				qdel(src)
+
+/obj/structure/diona/Destroy()
+	if(destroy_spawntype)
+		if(ispath(destroy_spawntype, /mob/living/carbon/alien/diona))
+			var/turf/T = get_turf(src)
+			T.spawn_diona_nymph()
+		else
+			new destroy_spawntype(get_turf(src))
+	return ..()
 
 /obj/structure/diona/vines
-	name = "alien vines"
-	desc = "Thick, heavy vines of some sort."
+	name = "biomass vines"
+	desc = "Thick, heavy vines made of some sort of biomass."
 	icon_state = "vines3"
-	density = 0
+	density = FALSE
+	destroy_spawntype = null
 	var/growth = 0
 
 /obj/structure/diona/vines/proc/spread()
@@ -42,27 +85,8 @@
 	light_power = 3
 	light_range = 3
 	light_color = "#557733"
-	density = 0
-
-/obj/structure/diona/bulb/attackby(obj/item/W, mob/user)
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
-		if (!WT.welding)
-			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
-			return
-		else if (WT.remove_fuel(0,user))
-			to_chat(user, "<span class='notice'>You begin slicing through the skin of \the [src].</span>")
-			if(do_after(user, 20/W.toolspeed, act_target = src))
-				if(QDELETED(src) || !WT.isOn())
-					return
-				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-				user.visible_message("<span class='notice'>\ [user] slices through the skin of \the [src], revealing a confused diona nymph.</span>")
-			else
-				return
-		if(isturf(loc))
-			var/turf/T = loc
-			T.spawn_diona_nymph()
-		qdel(src)
+	density = FALSE
+	destroy_spawntype = /mob/living/carbon/alien/diona
 
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"
@@ -75,6 +99,7 @@
 	if(istype(W, /obj/item/cell))
 		to_chat(user, SPAN_NOTICE("You jack the power cell into the glow bulb."))
 		new /obj/structure/diona/bulb(get_turf(src))
+		destroy_spawntype = null
 		qdel(W)
 		qdel(src)
 	..()

@@ -24,17 +24,17 @@
 /obj/item/reagent_containers/food/condiment/proc/shake(var/mob/user)
 	if(world.time >= next_shake)
 		if(reagents.total_volume > 0)
-			user.visible_message(pick(SPAN_NOTICE("[user] shakes \the [src]."), SPAN_NOTICE("[user] gives \the [src] a good shake.")), SPAN_NOTICE("You give \the [src] a good shake."))
+			user.visible_message(pick(SPAN_NOTICE("[user] shakes [src]."), SPAN_NOTICE("[user] gives [src] a good shake.")), SPAN_NOTICE("You give [src] a good shake."))
 			playsound(get_turf(src),'sound/items/condiment_shaking.ogg', rand(10,50), 1)
 		else
-			user.visible_message(pick(SPAN_NOTICE("[user] shakes \the [src], but it makes no noise."), SPAN_NOTICE("[user] gives \the [src] a good shake, but it makes no noise.")), SPAN_NOTICE("You give \the [src] a good shake, but it makes no noise."))
+			user.visible_message(pick(SPAN_NOTICE("[user] shakes [src], but it makes no noise."), SPAN_NOTICE("[user] gives [src] a good shake, but it makes no noise.")), SPAN_NOTICE("You give [src] a good shake, but it makes no noise."))
 		next_shake = world.time + 30
 
 /obj/item/reagent_containers/food/condiment/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/reagent_containers/food/condiment/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You swallow some of contents of \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You swallow some of the contents of [src]."))
 
 /obj/item/reagent_containers/food/condiment/on_reagent_change(var/force = FALSE)
 	if(fixed_state && !force)
@@ -47,18 +47,18 @@
 		return
 
 	var/datum/reagent/master = reagents.get_master_reagent()
-	name = master.condiment_name || (reagents.reagent_list.len == 1) ? "[master.condiment_name]" : "condiment bottle"
-	// if no condiment_name, use generic bottle. master reagent names aren't used, because their capitalization doesn't play nice with grammar.
-	desc = master.condiment_desc ? "[master.condiment_desc]" : master.condiment_name ? "[master.description]" : (reagents.reagent_list.len == 1) ? "Looks like it is [reagents.get_master_reagent_name()], but you are not sure." : "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them."
-	// usually uses condiment_desc. if no condiment_desc, but there's a condiment_name, use reagent name as an interim. else use the generic bottle description.
+	name = master.condiment_name || (reagents.reagent_list.len == 1 ? "[lowertext(master.name)] bottle" : "condiment bottle")
+	desc = master.condiment_desc || (reagents.reagent_list.len == 1 ? master.description : "A mixture of various condiments. [master.name] is one of them.")
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 
 /obj/item/reagent_containers/food/condiment/enzyme
+	icon_state = "enzyme" // for map preview
 	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/enzyme = 50)
 
 /obj/item/reagent_containers/food/condiment/sugar
+	icon_state = "sugar"
 	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/sugar = 50)
 
@@ -68,6 +68,7 @@
 	fixed_state = TRUE
 	center_of_mass = list("x"=17, "y"=11)
 	amount_per_transfer_from_this = 1
+	volume = 20
 	fixed_state = TRUE
 
 /obj/item/reagent_containers/food/condiment/shaker/Initialize()
@@ -78,12 +79,15 @@
 	shake(user)
 
 /obj/item/reagent_containers/food/condiment/shaker/salt
+	icon_state = "saltshakersmall"
 	reagents_to_add = list(/datum/reagent/sodiumchloride = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/peppermill
+	icon_state = "peppermillsmall"
 	reagents_to_add = list(/datum/reagent/blackpepper = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/diona
+	icon_state = "dionaepowder"
 	reagents_to_add = list(/datum/reagent/diona_powder = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/spacespice
@@ -92,6 +96,8 @@
 	reagents_to_add = list(/datum/reagent/spacespice = 40)
 
 /obj/item/reagent_containers/food/condiment/flour
+	name = "flour sack"
+	desc = "A big bag of flour. Good for baking!"
 	icon_state = "flour"
 	center_of_mass = list("x"=16, "y"=8)
 	volume = 220

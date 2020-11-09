@@ -53,4 +53,19 @@
 
 /mob/abstract/hivemind/emote()
 	to_chat(src, SPAN_WARNING("You cannot emote."))
-	return 
+	return
+
+/mob/abstract/hivemind/proc/release_as_morph()
+	relay_hivemind("<font color=[COLOR_LING_HIVEMIND]>Hivemind member [src] has been released into the outside world as a morph!</font>", changeling_mob)
+	log_and_message_admins("has released [src] as a morph.", changeling_mob, get_turf(changeling_mob))
+
+	var/mob/living/simple_animal/hostile/morph/M = new /mob/living/simple_animal/hostile/morph(get_turf(changeling_mob))
+	M.stop_thinking = TRUE // prevent the AI from taking over when the player ghosts
+	M.ckey = ckey
+	changeling_mob.mind.changeling.hivemind_members -= src
+
+	to_chat(M, SPAN_DANGER(FONT_LARGE("You are a morph, released by [changeling_mob]!")))
+	to_chat(M, SPAN_DANGER("As a morph, you can disguise as objects by alt-clicking on them."))
+	to_chat(M, SPAN_DANGER("You can eat people and items by clicking on them, but only if they're dead."))
+
+	qdel(src)

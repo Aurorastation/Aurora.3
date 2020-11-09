@@ -331,7 +331,7 @@
 /turf/simulated/floor/tiled,
 /area/security/range)
 "aaS" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -3263,10 +3263,6 @@
 /area/security/warden)
 "agi" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/seccarts{
-	pixel_x = 3;
-	pixel_y = 2
-	},
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/flashbangs{
 	pixel_x = -2;
@@ -4834,7 +4830,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aji" = (
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "ajj" = (
@@ -4982,7 +4978,7 @@
 /obj/machinery/light_switch{
 	pixel_y = -25
 	},
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "ajx" = (
@@ -8028,7 +8024,7 @@
 "aoK" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westright,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -11651,15 +11647,17 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awj" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets{
-	pixel_x = -3;
-	pixel_y = -3
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -11667,7 +11665,7 @@
 /obj/structure/table/standard,
 /obj/item/material/minihoe,
 /obj/item/device/analyzer/plant_analyzer,
-/obj/item/clothing/head/greenbandana,
+/obj/item/clothing/head/bandana/hydro,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awl" = (
@@ -11687,7 +11685,6 @@
 /obj/structure/closet{
 	name = "Prisoner's Locker"
 	},
-/obj/item/clothing/head/soft/orange,
 /obj/item/clothing/shoes/sandal,
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -23730,7 +23727,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aTQ" = (
@@ -23753,10 +23750,6 @@
 	},
 /obj/item/device/gps,
 /obj/item/device/gps,
-/obj/item/storage/box/PDAs{
-	pixel_x = 4;
-	pixel_y = 4
-	},
 /obj/item/storage/box/ids,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -23960,17 +23953,13 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aUq" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
-	},
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
 	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aUr" = (
@@ -26014,7 +26003,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "aYy" = (
-/obj/item/clothing/head/soft/grey{
+/obj/item/clothing/head/softcap{
 	pixel_x = -2;
 	pixel_y = 3
 	},
@@ -26496,16 +26485,16 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aZe" = (
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
@@ -33183,7 +33172,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "blU" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -33192,7 +33181,7 @@
 /obj/structure/sign/securearea{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -33531,7 +33520,7 @@
 /turf/simulated/wall,
 /area/quartermaster/office)
 "bmE" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -35273,12 +35262,12 @@
 /area/maintenance/locker)
 "bqe" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "bqf" = (
@@ -36300,7 +36289,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -39147,7 +39136,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -39901,7 +39890,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "byw" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -42448,7 +42437,7 @@
 	opacity = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -43464,7 +43453,7 @@
 /area/quartermaster/loading)
 "bEJ" = (
 /obj/machinery/light,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -43624,7 +43613,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_three)
 "bEZ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -47534,15 +47523,6 @@
 /area/crew_quarters/heads/hor)
 "bMd" = (
 /obj/structure/table/standard,
-/obj/item/cartridge/signal/science,
-/obj/item/cartridge/signal/science{
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/obj/item/cartridge/signal/science{
-	pixel_x = 4;
-	pixel_y = 6
-	},
 /obj/item/clothing/glasses/welding/superior,
 /obj/machinery/camera/network/research{
 	c_tag = "Research - RD's Office";
@@ -48439,15 +48419,6 @@
 /area/quartermaster/qm)
 "bNL" = (
 /obj/structure/table/standard,
-/obj/item/cartridge/quartermaster{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/item/cartridge/quartermaster,
-/obj/item/cartridge/quartermaster{
-	pixel_x = -4;
-	pixel_y = 7
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -63378,8 +63349,6 @@
 	pixel_x = 5
 	},
 /obj/item/device/radio/headset/headset_eng,
-/obj/item/cartridge/atmos,
-/obj/item/cartridge/atmos,
 /obj/item/device/pipe_painter,
 /obj/machinery/requests_console{
 	department = "Atmospherics";
@@ -70170,23 +70139,11 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
-"cDh" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/white,
-/area/maintenance/medbay)
 "cDi" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
@@ -70855,15 +70812,13 @@
 /area/engineering/engine_monitoring)
 "cEz" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "cEA" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = 32
@@ -75204,7 +75159,7 @@
 "ljp" = (
 /obj/structure/bed/chair,
 /obj/effect/landmark/start{
-	name = "Medical Resident"
+	name = "Medical Intern"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/surgeryobs)
@@ -116967,7 +116922,7 @@ czd
 czU
 cAW
 cCa
-cDh
+cvn
 czX
 cvn
 cvn

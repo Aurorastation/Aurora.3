@@ -111,7 +111,7 @@
 	icon_state = "black"
 	item_state = "bl_suit"
 	worn_state = "black"
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -188,6 +188,14 @@
 	icon_state = "red_suit"
 	item_state = "r_suit"
 	worn_state = "red_suit"
+
+/obj/item/clothing/under/suit_jacket/nt_skirtsuit
+	name = "nanotrasen skirtsuit"
+	desc = "A black coat with an NT blue kerchief accompanied by a swept skirt with a tasteful blue stripe. Works for every occasion."
+	icon_state = "nt_skirtsuit"
+	item_state = "bl_suit"
+	worn_state = "nt_skirtsuit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/kilt
 	name = "kilt"
@@ -493,19 +501,19 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/legion/sentinel
-	name = "Tau Ceti Foreign Legion sentinel uniform."
-	desc = "A blue uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
+	name = "Tau Ceti Foreign Legion sentinel uniform"
+	desc = "A blue field uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
 	worn_state = "taucetilegion_sentinel"
 
 /obj/item/clothing/under/legion/legate
-	name = "Legate uniform"
-	desc = "A stark red uniform worn by senior officers of the Tau Ceti Foreign Legion."
+	name = "Tau Ceti Foreign Legion legate uniform"
+	desc = "A stark red field uniform worn by senior officers of the Tau Ceti Foreign Legion."
 	icon_state = "taucetilegion_legate"
 	worn_state = "taucetilegion_legate"
 
 /obj/item/clothing/under/legion/pilot
 	name = "Tau Ceti Foreign Legion flightsuit"
-	desc = "The uniform worn by Tau Ceti Foreign Legion pilots."
+	desc = "A green flightsuit worn by Tau Ceti Foreign Legion pilots."
 	icon_state = "taucetilegion_pilot"
 	worn_state = "taucetilegion_pilot"
 
@@ -541,7 +549,6 @@
 	item_state = "lance_dress_f"
 	worn_state = "lance_dress_f"
 
-
 /obj/item/clothing/under/dress/lance_dress/male
 	name = "lance dress uniform"
 	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest."
@@ -549,34 +556,3 @@
 	item_state = "lance_dress_m"
 	worn_state = "lance_dress_m"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-
-
-/obj/item/clothing/under/dress/bluedress
-	name = "blue dress"
-	desc = "A plain blue dress with a white belt."
-	icon_state = "bluedress"
-	item_state = "bluedress_s"
-	worn_state = "bluedress"
-
-
-/obj/item/clothing/under/dress/darkreddress
-	name = "dark red dress"
-	desc = "A short, red dress with a black belt. Fancy."
-	icon_state = "darkreddress"
-	item_state = "darkreddress_s"
-	worn_state = "darkreddress"
-
-
-/obj/item/clothing/under/cropdress
-	name = "crop dress"
-	desc = "A red skirt and longsleeved button-up crop top."
-	icon_state = "cropdress"
-	item_state = "cropdress_s"
-	worn_state = "cropdress"
-
-/obj/item/clothing/under/croptop
-	name = "crop top"
-	desc = "Light shirt which shows the midsection of the wearer."
-	icon_state = "croptop"
-	item_state = "croptop_s"
-	worn_state = "croptop"

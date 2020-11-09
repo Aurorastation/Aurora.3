@@ -20,6 +20,9 @@
 	var/drytime
 	var/dries = TRUE
 
+/obj/effect/decal/cleanable/blood/no_dry
+	dries = FALSE
+
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
 		fluorescent = 1
@@ -54,6 +57,11 @@
 		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
 	else if (dries)
 		dry()
+
+/obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/gun/energy/rifle/cult))
+		return
+	..()
 
 /obj/effect/decal/cleanable/blood/update_icon()
 	if(basecolor == "rainbow") basecolor = get_random_colour(1)

@@ -3,8 +3,9 @@
 	desc = "A glass jar. You can remove the lid and use it as a reagent container."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "jar_lid"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	matter = list(MATERIAL_GLASS = 200)
+	recyclable = TRUE
 	flags = NOBLUDGEON
 	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/rat)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling

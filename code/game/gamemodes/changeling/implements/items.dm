@@ -5,7 +5,7 @@
 	icon_state = "arm_blade"
 	item_state = "arm_blade"
 	contained_sprite = TRUE
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 30
 	sharp = TRUE
 	edge = TRUE
@@ -49,7 +49,8 @@
 		QDEL_IN(src, 1)
 
 /obj/item/melee/arm_blade/iscrowbar()
-	if(creator.a_intent == I_HELP) return TRUE
+	if(creator.a_intent == I_HELP)
+		return TRUE
 	return FALSE
 
 /obj/item/melee/arm_blade/resolve_attackby(atom/A, mob/living/user, var/click_parameters)
@@ -103,7 +104,7 @@
 			host.embedded -= src
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
-		
+
 /obj/item/shield/riot/changeling/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
 		var/obj/item/projectile/P = damage_source
@@ -120,4 +121,4 @@
 	sharp = TRUE
 	edge = FALSE
 	throwforce = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL

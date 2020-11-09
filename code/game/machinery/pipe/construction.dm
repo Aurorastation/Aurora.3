@@ -63,7 +63,7 @@ Buildable meters
 	icon_state = "simple"
 	item_state = "buildpipe"
 	randpixel = 5
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -1194,7 +1194,7 @@ Buildable meters
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "meter"
 	item_state = "buildpipe"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/pipe_meter/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	..()

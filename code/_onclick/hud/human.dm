@@ -19,6 +19,11 @@
 	var/obj/screen/using
 	var/obj/screen/inventory/inv_box
 
+	if(target.can_have_vision_cone)
+		var/mob/living/carbon/human/H = mymob
+		H.vision_cone_overlay = new /obj/screen/fov()
+		hud_elements |= H.vision_cone_overlay
+
 	// Draw the various inventory equipment slots.
 	var/has_hidden_gear
 	for(var/gear_slot in hud_data.gear)
@@ -249,18 +254,18 @@
 			mymob.internals.icon_state = "internal1"
 
 	if(hud_data.has_warnings)
-		mymob.oxygen = new /obj/screen()
-		mymob.oxygen.icon = ui_style
+		mymob.oxygen = new /obj/screen/oxygen()
+		mymob.oxygen.icon = 'icons/mob/status_indicators.dmi'
 		mymob.oxygen.icon_state = "oxy0"
 		mymob.oxygen.name = "oxygen"
-		mymob.oxygen.screen_loc = ui_oxygen
+		mymob.oxygen.screen_loc = ui_temp
 		hud_elements |= mymob.oxygen
 
-		mymob.toxin = new /obj/screen()
-		mymob.toxin.icon = ui_style
+		mymob.toxin = new /obj/screen/toxins()
+		mymob.toxin.icon = 'icons/mob/status_indicators.dmi'
 		mymob.toxin.icon_state = "tox0"
 		mymob.toxin.name = "toxin"
-		mymob.toxin.screen_loc = ui_toxin
+		mymob.toxin.screen_loc = ui_temp
 		hud_elements |= mymob.toxin
 
 		mymob.fire = new /obj/screen()
@@ -275,38 +280,42 @@
 		mymob.healths.icon_state = "health0"
 		mymob.healths.name = "health"
 		mymob.healths.screen_loc = ui_health
+		if(target.species.healths_x)
+			var/ui_health_loc = replacetext(ui_health, ui_health_east_loc, "[ui_health_east_template][target.species.healths_x]")
+			mymob.healths.screen_loc = ui_health_loc
 		hud_elements |= mymob.healths
 
 	if(hud_data.has_pressure)
-		mymob.pressure = new /obj/screen()
-		mymob.pressure.icon = ui_style
+		mymob.pressure = new /obj/screen/pressure()
+		mymob.pressure.icon = 'icons/mob/status_indicators.dmi'
 		mymob.pressure.icon_state = "pressure0"
 		mymob.pressure.name = "pressure"
-		mymob.pressure.screen_loc = ui_pressure
+		mymob.pressure.screen_loc = ui_temp
 		hud_elements |= mymob.pressure
 
 	if(hud_data.has_bodytemp)
-		mymob.bodytemp = new /obj/screen()
-		mymob.bodytemp.icon = ui_style
+		mymob.bodytemp = new /obj/screen/bodytemp()
+		mymob.bodytemp.icon = 'icons/mob/status_indicators.dmi'
 		mymob.bodytemp.icon_state = "temp1"
 		mymob.bodytemp.name = "body temperature"
 		mymob.bodytemp.screen_loc = ui_temp
 		hud_elements |= mymob.bodytemp
 
 	if(hud_data.has_nutrition)
-		mymob.nutrition_icon = new /obj/screen()
-		mymob.nutrition_icon.icon = ui_style
+		mymob.nutrition_icon = new /obj/screen/food()
+		mymob.nutrition_icon.icon = 'icons/mob/status_hunger.dmi'
+		mymob.nutrition_icon.pixel_w = 8
 		mymob.nutrition_icon.icon_state = "nutrition0"
 		mymob.nutrition_icon.name = "nutrition"
 		mymob.nutrition_icon.screen_loc = ui_nutrition
 		hud_elements |= mymob.nutrition_icon
 
 	if(hud_data.has_hydration)
-		mymob.hydration_icon = new /obj/screen()
-		mymob.hydration_icon.icon = ui_style
+		mymob.hydration_icon = new /obj/screen/thirst()
+		mymob.hydration_icon.icon = 'icons/mob/status_hunger.dmi'
 		mymob.hydration_icon.icon_state = "thirst0"
 		mymob.hydration_icon.name = "thirst"
-		mymob.hydration_icon.screen_loc = ui_hydration
+		mymob.hydration_icon.screen_loc = ui_nutrition
 		hud_elements |= mymob.hydration_icon
 
 	if(hud_data.has_up_hint)
@@ -317,42 +326,10 @@
 		mymob.up_hint.screen_loc = ui_up_hint
 		hud_elements |= mymob.up_hint
 
-	mymob.blind = new /obj/screen()
-	mymob.blind.icon = 'icons/mob/screen/full.dmi'
-	mymob.blind.icon_state = "blackimageoverlay"
-	mymob.blind.name = " "
-	mymob.blind.screen_loc = "1,1"
-	mymob.blind.mouse_opacity = 0
-	mymob.blind.invisibility = 101
-	hud_elements |= mymob.blind
-
-	mymob.damageoverlay = new /obj/screen()
-	mymob.damageoverlay.icon = 'icons/mob/screen/full.dmi'
-	mymob.damageoverlay.icon_state = "oxydamageoverlay0"
-	mymob.damageoverlay.name = "dmg"
-	mymob.damageoverlay.screen_loc = "1,1"
-	mymob.damageoverlay.mouse_opacity = 0
-	mymob.damageoverlay.layer = 18.1 //The black screen overlay sets layer to 18 to display it, this one has to be just on top.
-	hud_elements |= mymob.damageoverlay
-
-	mymob.flash = new /obj/screen()
-	mymob.flash.icon = ui_style
-	mymob.flash.icon_state = "blank"
-	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = ui_entire_screen
-	mymob.flash.layer = 17
-	mymob.flash.mouse_opacity = 0
-	hud_elements |= mymob.flash
-
-	mymob.pain = new /obj/screen()
-	mymob.pain.icon = 'icons/mob/screen/full.dmi'
-	mymob.pain.icon_state = null
-	mymob.pain.name = "pain"
-	mymob.pain.screen_loc = "1,1"
-	mymob.pain.mouse_opacity = 0
+	mymob.pain = new /obj/screen/fullscreen/pain(null)
 	hud_elements |= mymob.pain
 
-	mymob.zone_sel = new /obj/screen/zone_sel( null )
+	mymob.zone_sel = new /obj/screen/zone_sel(null)
 	mymob.zone_sel.icon = ui_style
 	mymob.zone_sel.color = ui_color
 	mymob.zone_sel.alpha = ui_alpha
@@ -410,3 +387,98 @@
 		h_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
 	all_underwear.Cut()
 	regenerate_icons()
+
+// Yes, these use icon state. Yes, these are terrible. The alternative is duplicating 
+// a bunch of fairly blobby logic for every click override on these objects.
+
+/obj/screen/food/Click(var/location, var/control, var/params)
+	if(istype(usr) && usr.nutrition_icon == src)
+		switch(icon_state)
+			if("nutrition0")
+				to_chat(usr, SPAN_WARNING("You are completely stuffed."))
+			if("nutrition1")
+				to_chat(usr, SPAN_NOTICE("You are not hungry."))
+			if("nutrition2")
+				to_chat(usr, SPAN_NOTICE("You are a bit peckish."))
+			if("nutrition3")
+				to_chat(usr, SPAN_WARNING("You are quite hungry."))
+			if("nutrition4")
+				to_chat(usr, SPAN_WARNING("You are really hungry."))
+			if("nutrition5")
+				to_chat(usr, SPAN_DANGER("You are starving!"))
+			if("charge0")
+				to_chat(usr, SPAN_GOOD("You are fully charged."))
+			if("charge1")
+				to_chat(usr, SPAN_NOTICE("You're almost topped up."))
+			if("charge2")
+				to_chat(usr, SPAN_NOTICE("You could go for a recharge."))
+			if("charge3")
+				to_chat(usr, SPAN_WARNING("You're running a bit low."))
+			if("charge4")
+				to_chat(usr, SPAN_WARNING("You're getting close to running out."))
+			if("charge5")
+				to_chat(usr, SPAN_DANGER("You have almost no charge left!"))
+
+/obj/screen/thirst/Click(var/location, var/control, var/params)
+	if(istype(usr) && usr.hydration_icon == src)
+		switch(icon_state)
+			if("thirst0")
+				to_chat(usr, SPAN_WARNING("You are completely hydrated."))
+			if("thirst1")
+				to_chat(usr, SPAN_NOTICE("You are not thirsty"))
+			if("thirst2")
+				to_chat(usr, SPAN_NOTICE("You are a bit thirsty."))
+			if("thirst3")
+				to_chat(usr, SPAN_WARNING("You are quite thirsty."))
+			if("thirst4")
+				to_chat(usr, SPAN_DANGER("Your are entirely dehydrated!"))
+
+/obj/screen/bodytemp/Click(var/location, var/control, var/params)
+	if(istype(usr) && usr.bodytemp == src)
+		switch(icon_state)
+			if("temp4")
+				to_chat(usr, SPAN_DANGER("You are being cooked alive!"))
+			if("temp3")
+				to_chat(usr, SPAN_DANGER("Your body is burning up!"))
+			if("temp2")
+				to_chat(usr, SPAN_DANGER("You are overheating."))
+			if("temp1")
+				to_chat(usr, SPAN_WARNING("You are uncomfortably hot."))
+			if("temp-4")
+				to_chat(usr, SPAN_DANGER("You are being frozen solid!"))
+			if("temp-3")
+				to_chat(usr, SPAN_DANGER("You are freezing cold!"))
+			if("temp-2")
+				to_chat(usr, SPAN_WARNING("You are dangerously chilled"))
+			if("temp-1")
+				to_chat(usr, SPAN_NOTICE("You are uncomfortably cold."))
+			else
+				to_chat(usr, SPAN_NOTICE("Your body is at a comfortable temperature."))
+
+/obj/screen/pressure/Click(var/location, var/control, var/params)
+	if(istype(usr) && usr.pressure == src)
+		switch(icon_state)
+			if("pressure2")
+				to_chat(usr, SPAN_DANGER("The air pressure here is crushing!"))
+			if("pressure1")
+				to_chat(usr, SPAN_WARNING("The air pressure here is dangerously high."))
+			if("pressure-1")
+				to_chat(usr, SPAN_WARNING("The air pressure here is dangerously low."))
+			if("pressure-2")
+				to_chat(usr, SPAN_DANGER("There is nearly no air pressure here!"))
+			else
+				to_chat(usr, SPAN_NOTICE("The local air pressure is comfortable."))
+
+/obj/screen/toxins/Click(var/location, var/control, var/params)
+	if(istype(usr) && usr.toxin == src)
+		if(icon_state == "tox0")
+			to_chat(usr, SPAN_NOTICE("The air is clear of toxins."))
+		else
+			to_chat(usr, SPAN_DANGER("The air is eating away at your skin!"))
+
+/obj/screen/oxygen/Click(var/location, var/control, var/params)
+	if(istype(usr) && usr.oxygen == src)
+		if(icon_state == "oxy0")
+			to_chat(usr, SPAN_NOTICE("You are breathing easy."))
+		else
+			to_chat(usr, SPAN_DANGER("You cannot breathe!"))

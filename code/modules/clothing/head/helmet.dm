@@ -7,17 +7,45 @@
 		slot_r_hand_str = "helmet"
 		)
 	item_flags = THICKMATERIAL
-	armor = list(melee = 50, bullet = 15, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 	cold_protection = HEAD
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HEAD
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
+	var/obj/machinery/camera/camera
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+
+/obj/item/clothing/head/helmet/Initialize()
+	. = ..()
+	if(camera)
+		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
+
+/obj/item/clothing/head/helmet/proc/toggle_camera()
+	set name = "Toggle Helmet Camera"
+	set category = "Object"
+	set src in usr
+
+	if(ispath(camera))
+		camera = new camera(src)
+		camera.set_status(0)
+
+	if(camera)
+		camera.set_status(!camera.status)
+		if(camera.status)
+			camera.c_tag = FindNameFromID(usr)
+			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
+		else
+			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
+
+/obj/item/clothing/head/helmet/space/examine(var/mob/user)
+	if(..(user, 1) && camera)
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
+		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()
 	set name = "Toggle Helmet Hair Coverage"
@@ -26,24 +54,6 @@
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
 		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
-
-/obj/item/clothing/head/helmet/warden
-	name = "warden's hat"
-	desc = "It's a special helmet issued to the Warden of a security force. Protects the head from impacts."
-	icon_state = "policehelm"
-	flags_inv = 0
-
-/obj/item/clothing/head/helmet/warden/commissar
-	name = "commissar's cap"
-	desc = "A security commissar's cap."
-	icon_state = "commissarcap"
-
-/obj/item/clothing/head/helmet/hos/cap
-	name = "head of security hat"
-	desc = "The hat of the Head of Security. For showing the officers who's in charge."
-	icon_state = "hoscap"
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
@@ -99,7 +109,7 @@
 	name = "ablative helmet"
 	desc = "A helmet made from advanced materials which protects against concentrated energy weapons."
 	icon_state = "helmet_reflect"
-	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 25, bullet = 25, laser = 80, energy = 40, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0
 
 /obj/item/clothing/head/helmet/ballistic
@@ -300,6 +310,7 @@
 	light_overlay = "helmet_light_dual"
 	brightness_on = 6
 	light_wedge = LIGHT_WIDE
+	camera = /obj/machinery/camera/network/tcfl
 	on = 0
 
 /obj/item/clothing/head/helmet/legion_pilot
@@ -309,6 +320,7 @@
 	body_parts_covered = null
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 40, bio = 0, rad = 0)
+	camera = /obj/machinery/camera/network/tcfl
 	siemens_coefficient = 0.35
 	action_button_name = "Flip Pilot Visor"
 

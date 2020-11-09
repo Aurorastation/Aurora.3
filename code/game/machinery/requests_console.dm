@@ -26,7 +26,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console
 	name = "Requests Console"
 	desc = "A console intended to send requests to different departments on the station."
-	anchored = 1
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp"
 	component_types = list(
@@ -34,6 +33,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			/obj/item/stock_parts/capacitor,
 			/obj/item/stock_parts/console_screen,
 		)
+	anchored = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
 	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
@@ -63,7 +64,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/lid = 0
 	//End Form Integration
 	var/datum/announcement/announcement = new
-	var/list/obj/item/device/pda/alert_pdas = list() //The PDAs we alert upon a request receipt.
+	var/list/obj/item/modular_computer/alert_pdas = list() //The PDAs we alert upon a request receipt.
 	var/global/list/screen_overlays
 
 /obj/machinery/requests_console/proc/generate_overlays(var/force = 0)
@@ -143,11 +144,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if (departmentType & RC_INFO)
 			req_console_information -= department
 
-	if (LAZYLEN(alert_pdas))
-		for (var/pp in alert_pdas)
-			var/obj/item/device/pda/P = pp
-			P.linked_consoles -= src
-
 		alert_pdas.Cut()
 	return ..()
 
@@ -199,7 +195,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["pda_list"] = list()
 
 	for (var/A in alert_pdas)
-		var/obj/item/device/pda/pda = A
+		var/obj/item/modular_computer/pda = A
 		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "\ref[pda]"))
 
 	data["lid"] = lid
@@ -250,11 +246,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(!MS.active) continue
 			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority)
 			pass = 1
+		for (var/obj/item/modular_computer/P in alert_pdas)
+			P.get_notification(log_msg, 1, "[href_list["department"]] ([src])")
+			pass = 1
 		if(pass)
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
 		else
-			audible_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
+			audible_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
 
 	//Handle screen switching
 	if(href_list["setScreen"])
@@ -277,25 +276,24 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	// Link a PDA
 	if(href_list["linkpda"])
-		var/obj/item/device/pda/pda = usr.get_active_hand()
+		var/obj/item/modular_computer/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
-			to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
+			to_chat(usr, "<span class='warning'>You need to be holding a handheld computer to link it.</span>")
 		else if (pda in alert_pdas)
 			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
-			LAZYADD(pda.linked_consoles, src)
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
-			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
+			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine.</span>")
 
 	// Unlink a PDA.
 	if(href_list["unlink"])
-		var/obj/item/device/pda/pda = locate(href_list["unlink"])
+		var/obj/item/modular_computer/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
+				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new requests.</span>")
 				alert_pdas -= pda
 
 	// Sort the forms.
@@ -386,7 +384,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
-			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
+			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
 			updateUsrDialog()
 	else if (istype(O, /obj/item/paper_bundle))
 		if(lid)	//More of that restocking business
@@ -395,7 +393,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'"))
 		else
 			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
 	else if (istype(O, /obj/item/paper))
@@ -405,7 +403,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			qdel(C)
 			paperstock++
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'"))
 		else if(screen == 0)	//Faxing them papers
 			var/pass = 0
 			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
@@ -453,12 +451,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 						P.set_content_unsafe(pname, info)
 						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))
-							player.show_message(text("\icon[Console] *The Requests Console beeps: 'Fax received'"))
+							player.show_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Fax received'"))
 						Console.paperstock--
 				if(sent == 1)
-					user.show_message(text("\icon[src] *The Requests Console beeps: 'Message Sent.'"))
+					user.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Message Sent.'"))
 			else
-				user.show_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"))
+				user.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'"))
 
 	return
 

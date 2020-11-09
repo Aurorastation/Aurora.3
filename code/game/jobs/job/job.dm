@@ -156,12 +156,8 @@
 	var/wealth = (loyalty + economic_modifier + species_modifier)
 
 	switch(wealth)
-		if(-INFINITY to 2)
+		if(-INFINITY to 6)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
-		if(3 to 6)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		if(7 to 9)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
@@ -188,6 +184,7 @@
 
 	var/allow_loadout = TRUE
 	allow_backbag_choice = TRUE
+	allow_pda_choice = TRUE
 	var/jobtype = null
 
 	uniform = /obj/item/clothing/under/color/grey
@@ -195,7 +192,9 @@
 	l_ear = /obj/item/device/radio/headset
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
-	pda = /obj/item/device/pda
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian
 
 	var/box = /obj/item/storage/box/survival
 

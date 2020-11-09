@@ -399,7 +399,7 @@
 	activate_pin(3)
 
 	for(var/mob/O in hearers(1, get_turf(src)))
-		O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+		O.show_message(text("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*"), 3, "*beep* *beep*", 2)
 
 //This circuit gives information on where the machine is.
 /obj/item/integrated_circuit/input/gps

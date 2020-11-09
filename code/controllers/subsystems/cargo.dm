@@ -35,12 +35,16 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/datum/money_account/supply_account
 
 	//shuttle movement
-	var/movetime = 1200
-	var/min_movetime = 1200
+	var/movetime = 300
+	var/min_movetime = 300
+	var/max_movetime = 2400
 	var/datum/shuttle/autodock/ferry/supply/shuttle
 
 	//Item vars
 	var/last_item_id = 0 //The ID of the last item that has been added
+
+	//Bool to indicate if orders have been dumped
+	var/dumped_orders = FALSE
 
 	//Exports and bounties
 	var/list/exports_list = list()
@@ -547,10 +551,14 @@ var/datum/controller/subsystem/cargo/SScargo
 				log_debug("SScargo: Shuttle Time less than [min_movetime]: [current_shipment.shuttle_time] - Setting to [min_movetime]")
 				current_shipment.shuttle_time = min_movetime
 
+			if(current_shipment.shuttle_time > max_movetime)
+				log_debug("SScargo: Shuttle Time larger than [max_movetime]: [current_shipment.shuttle_time] - Setting to [max_movetime]")
+				current_shipment.shuttle_time = max_movetime
+
 			movetime = current_shipment.shuttle_time
 			//Launch it
 			shuttle.launch(src)
-			. = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,1)] minutes."
+			. = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,2)] minutes."
 			current_shipment.shuttle_called_by = caller_name
 
 //Cancels the shuttle. Can return a status message
@@ -707,3 +715,75 @@ var/datum/controller/subsystem/cargo/SScargo
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)
 
 	return 1
+
+//Dumps the cargo orders to the database when the round ends
+/datum/controller/subsystem/cargo/proc/dump_orders()
+	if(dumped_orders)
+		log_debug("SScargo: Order Data Dump Aborted - Orders already dumped")
+		return
+	if(config.cargo_load_items_from != "sql")
+		log_debug("SScargo: Order Data Dump Aborted - Cargo not loaded from database")
+		return
+	if(!establish_db_connection(dbcon))
+		log_debug("SScargo: SQL ERROR - Failed to connect. - Unable to dump order data")
+		return
+
+	dumped_orders = TRUE
+
+	// Loop through all the orders and dump them all
+	var/DBQuery/dump_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
+	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
+	var/DBQuery/dump_item_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog_items` (`cargo_orderlog_id`, `cargo_item_id`, `amount`) \
+	VALUES (:cargo_orderlog_id:, :cargo_item_id:, :amount:)")
+	var/DBQuery/log_id = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+	for(var/datum/cargo_order/co in all_orders)
+		//Iterate over the items in the order and build the a list with the item count
+		var/list/itemcount = list()
+		for(var/datum/cargo_order_item/coi in co.items)
+			if(!isnull(itemcount["[coi.ci.id]"]))
+				itemcount["[coi.ci.id]"] = itemcount["[coi.ci.id]"] + 1
+			else
+				itemcount["[coi.ci.id]"] = 1
+
+		if(!dump_query.Execute(list(
+			"game_id"=game_id,
+			"order_id"=co.order_id,
+			"status"=co.status,
+			"price"=co.price,
+			"ordered_by_id"=co.ordered_by_id,
+			"ordered_by"=co.ordered_by,
+			"authorized_by_id"=co.authorized_by_id,
+			"authorized_by"=co.authorized_by,
+			"received_by_id"=co.received_by_id,
+			"received_by"=co.received_by,
+			"paid_by_id"=co.paid_by_id,
+			"paid_by"=co.paid_by,
+			"time_submitted"=co.time_submitted,
+			"time_approved"=co.time_approved,
+			"time_shipped"=co.time_shipped,
+			"time_delivered"=co.time_delivered,
+			"time_paid"=co.time_paid,
+			"reason"=co.reason
+			)))
+			log_debug("SScargo: SQL ERROR - Cound not write order to database")
+			continue
+
+		//Run the query to get the inserted id
+		log_id.Execute()
+
+		var/db_log_id = null
+		if (log_id.NextRow())
+			db_log_id = text2num(log_id.item[1])
+
+		if(db_log_id)
+			for(var/item_id in itemcount)
+				dump_item_query.Execute(list(
+					"cargo_orderlog_id"=db_log_id,
+					"cargo_item_id"=item_id,
+					"amount"=itemcount[item_id]
+				))
+		CHECK_TICK
+
+
+/hook/roundend/proc/dump_cargoorders()
+	SScargo.dump_orders()

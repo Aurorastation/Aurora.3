@@ -8,6 +8,7 @@
 	var/toxin_type = "undefined"
 	var/relative_size = 25 //Used for size calcs
 	var/on_mob_icon
+	var/list/possible_modifications = list("Normal","Assisted","Mechanical") //this is used in the character setup
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 

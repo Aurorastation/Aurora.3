@@ -168,7 +168,7 @@
 		if(pulling)
 			occupant.visible_message("<span class='danger'>[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!</span>")
 
-			pulling.attack_log += "\[[time_stamp()]\]<font color='red'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</font>"
+			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
 			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
 			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
@@ -193,3 +193,35 @@
 		pulling = null
 		usr.pulledby = null
 	..()
+
+/obj/item/wheelchair
+	name = "wheelchair"
+	desc = "A folded wheelchair that can be carried around."
+	icon = 'icons/obj/furniture.dmi'
+	icon_state = "wheelchair_folded"
+	item_state = "wheelchair"
+	w_class = ITEMSIZE_HUGE // Can't be put in backpacks. Oh well.
+
+/obj/item/wheelchair/attack_self(mob/user)
+	var/obj/structure/bed/chair/wheelchair/R = new /obj/structure/bed/chair/wheelchair(user.loc)
+	R.add_fingerprint(user)
+	R.name = src.name
+	R.desc = src.desc
+	R.color = src.color
+	qdel(src)
+
+/obj/structure/bed/chair/wheelchair/MouseDrop(over_object, src_location, over_location)
+	..()
+	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
+		if(!ishuman(usr))
+			return FALSE
+		if(buckled_mob)
+			return FALSE
+	visible_message(SPAN_NOTICE("[usr] collapses [src]."))
+	var/obj/item/wheelchair/R = new(get_turf(src))
+	R.name = src.name
+	R.desc = src.desc
+	R.color = src.color
+	usr.put_in_hands(R)
+	qdel(src)
+

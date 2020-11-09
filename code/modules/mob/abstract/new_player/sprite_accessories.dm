@@ -1730,7 +1730,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell,/datum/species/vox)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell)
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -1933,6 +1933,10 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "unathi_bighorn"
 			length = 5
 			chatname = "horns"
+
+			una_bighorns_noside
+				name = "Unathi Big Horns (No Sides)"
+				icon_state = "unathi_bighorn_nosides"
 
 		una_chinhorn
 			name = "Unathi Chin Horn"
@@ -2346,42 +2350,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "msai_victory"
 			chatname = "curls"
 
-//vox hair
-
-	vox_quills_kingly
-		icon = 'icons/mob/human_face/vox_hair.dmi'
-		name = "Kingly Vox Quills"
-		icon_state = "vox_kingly"
-		species_allowed = list(/datum/species/vox)
-		chatname = "quills"
-
-		vox_braid_long
-			name = "Vox Braid Long"
-			icon_state = "vox_braid_long"
-			chatname = "quills"
-
-		vox_braid_short
-			name = "Vox Braid Short"
-			icon_state = "vox_braid_short"
-			chatname = "quills"
-
-		vox_quills_short
-			name = "Short Vox Quills"
-			icon_state = "vox_shortquills"
-			chatname = "quills"
-
-		vox_quills_mohawk
-			name = "Quill Mohawk"
-			icon_state = "vox_mohawk"
-			chatname = "quills"
-
-		vox_stubble
-			name = "Vox Stubble"
-			icon_state = "vox_stubble"
-			chatname = "quills"
-
 //vaurca antennae
-
 	vaurca_classic
 		icon = 'icons/mob/human_face/vaurca_hair.dmi'
 		name = "Classic Antennae"
@@ -2842,6 +2811,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	una_paw_socks
 		name = "Socks Coloration (Unathi)"
+		icon = 'icons/mob/human_races/markings_unathi.dmi'
 		icon_state = "una_pawsocks"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
@@ -2922,37 +2892,37 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Face Color"
 		icon_state = "una_face"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		icon = 'icons/mob/human_races/markings_unathi.dmi'
+		species_allowed = list(/datum/species/unathi, /datum/species/zombie/unathi)
 
-	una_facelow
-		name = "Face Color Low"
-		icon_state = "una_facelow"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		paint
+			name = "Face Paint"
+			icon_state = "una_facepaint"
 
-	una_scutes
-		name = "Scutes"
-		icon_state = "una_scutes"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_facelow
+			name = "Face Color Low"
+			icon_state = "una_facelow"
+			body_parts = list(BP_HEAD)
 
-	una_maswaist
-		name = "Masculine Waist (For Females)"
-		icon_state = "una_maswaist"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_scutes
+			name = "Scutes"
+			icon_state = "una_scutes"
+			body_parts = list(BP_CHEST)
 
-	una_clawshand
-		name = "Claws (Hands)"
-		icon_state = "una_claws"
-		body_parts = list(BP_L_HAND,BP_R_HAND)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_maswaist
+			name = "Masculine Waist (For Females)"
+			icon_state = "una_maswaist"
+			body_parts = list(BP_CHEST)
 
-	una_clawsfoot
-		name = "Claws (Feet)"
-		icon_state = "una_claws"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_clawshand
+			name = "Claws (Hands)"
+			icon_state = "una_claws"
+			body_parts = list(BP_L_HAND,BP_R_HAND)
+
+		una_clawsfoot
+			name = "Claws (Feet)"
+			icon_state = "una_claws"
+			body_parts = list(BP_L_FOOT,BP_R_FOOT)
 
 	spelunker
 		name = "Spelunker"

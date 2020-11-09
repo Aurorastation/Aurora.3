@@ -304,21 +304,19 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
 		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
-			dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
+			dat += "<span class='warning'><b>The station has been evacuated.</b></span><br>"
 		if(emergency_shuttle.online())
 			if (emergency_shuttle.evac)	// Emergency shuttle is past the point of no recall
-				dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
+				dat += "<span class='warning'>The station is currently undergoing evacuation procedures.</span><br>"
 			else						// Crew transfer initiated
-				dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
+				dat += "<span class='warning'>The station is currently undergoing crew transfer procedures.</span><br>"
 
 	var/unique_role_available = FALSE
 	for(var/ghost_role in SSghostroles.spawners)
 		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
 		if(!G.show_on_job_select)
 			continue
-		if(!G.enabled)
-			continue
-		if(!isnull(G.req_perms))
+		if(G.cant_see(src))
 			continue
 		unique_role_available = TRUE
 		break
@@ -378,6 +376,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	else
 		client.prefs.copy_to(new_character)
 
+	client.autohiss_mode = client.prefs.autohiss_setting
+
 	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
 
 	if(mind)
@@ -408,12 +408,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	var/dat = "<html><body>"
-	dat += "<h4>Show Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(OOC = 1)
-
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, dat), "window=manifest;size=370x420;can_close=1")
+	open_crew_manifest(src, OOC = TRUE)
 
 /mob/abstract/new_player/Move()
 	return 0
@@ -456,7 +451,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
 	return
 
-/mob/abstract/new_player/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0)
+/mob/abstract/new_player/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	return
 
 /mob/abstract/new_player/MayRespawn()

@@ -60,7 +60,7 @@
 		H.emote(pick("scratch","jump","roll","tail"))
 
 	if(H.get_shock() && H.shock_stage < 40 && prob(3))
-		H.custom_emote("chimpers pitifully")
+		H.custom_emote(AUDIBLE_MESSAGE, "chimpers pitifully")
 
 	if(H.shock_stage > 10 && prob(3))
 		H.emote(pick("cry","whimper"))
@@ -69,7 +69,7 @@
 		H.emote("scream")
 
 	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
-		H.custom_emote("thrashes in agony")
+		H.custom_emote(AUDIBLE_MESSAGE, "thrashes in agony")
 
 /datum/species/monkey/get_random_name()
 	return "[lowertext(name)] ([rand(100,999)])"
@@ -92,16 +92,10 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+
 /datum/species/monkey/tajaran/get_random_name()
 	return "farwa ([rand(100,999)])" // HACK HACK HACK, oh lords of coding please forgive me!
-
-/datum/species/monkey/tajaran/m_sai
-	name = SPECIES_MONKEY_TAJARA_MSAI
-	greater_form = SPECIES_TAJARA_MSAI
-
-/datum/species/monkey/tajaran/zhan_khazan
-	name = SPECIES_MONKEY_TAJARA_ZHAN
-	greater_form = SPECIES_TAJARA_ZHAN
 
 /datum/species/monkey/skrell
 	name = SPECIES_MONKEY_SKRELL

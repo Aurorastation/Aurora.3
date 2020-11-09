@@ -11,11 +11,11 @@
 		)
 	icon_state = null
 	item_state = "bottle"
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	flags = 0
 	volume = 60
-	fragile = 4
+	fragile = 2
 
 /obj/item/reagent_containers/glass/bottle/on_reagent_change()
 	update_icon()
@@ -96,6 +96,12 @@
 	desc = "A small bottle of dylovene. Counters poisons, and repairs damage. A wonder drug."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/datum/reagent/dylovene = 60)
+
+/obj/item/reagent_containers/glass/bottle/saline
+	name = "saline bottle"
+	desc = "A small bottle of saline for attaching to drips. Re-hydrates a patient and helps with increasing blood volume."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/datum/reagent/saline = 60)
 
 /obj/item/reagent_containers/glass/bottle/mutagen
 	name = "unstable mutagen bottle"
@@ -205,3 +211,9 @@
 	desc = "A small bottle. Contains mortaphenyl - treats mild-severe pain as a result of severe, physical injury."
 	icon_state = "bottle-3"
 	reagents_to_add = list(/datum/reagent/mortaphenyl = 60)
+
+/obj/item/reagent_containers/glass/bottle/perconol
+	name = "perconol bottle"
+	desc = "A small bottle. Contains perconol - treats minor-moderate pain as a result of physical injury."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/datum/reagent/perconol = 60)

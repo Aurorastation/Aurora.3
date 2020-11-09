@@ -165,7 +165,7 @@
 			update_material()
 		return 1
 
-	if(!material && can_plate && istype(W, /obj/item/reagent_containers/glass/beaker/bowl))
+	if(!material && can_plate && istype(W, /obj/item/reagent_containers/cooking_container/plate/bowl))
 		new /obj/structure/chemkit(loc)
 		qdel(W)
 		qdel(src)

@@ -143,10 +143,6 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message("<span class='danger'>[src] leaps at [T]!</span>", "<span class='danger'>You leap at [T]!</span>")
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
 
-	// Only Vox get to shriek. Seriously.
-	if (isvox(src))
-		playsound(loc, 'sound/voice/shriek1.ogg', 50, 1)
-
 	sleep(5)
 
 	if(status_flags & LEAPING)
@@ -336,6 +332,9 @@ mob/living/carbon/human/proc/change_monitor()
 	set name = "Bite"
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
+	do_bugbite()
+
+/mob/living/carbon/human/proc/do_bugbite(var/ignore_grab = FALSE)
 	if(last_special > world.time)
 		to_chat(src, SPAN_WARNING("Your mandibles still ache!"))
 		return
@@ -356,7 +355,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(G.state < GRAB_KILL)
+	if(!ignore_grab && G.state < GRAB_KILL)
 		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
 		return
 
@@ -727,7 +726,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
-		attack_log += "\[[time_stamp()]\]<font color='red'>crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </font>"
+		attack_log += "\[[time_stamp()]\]<span class='warning'>crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </span>"
 		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 	if (!done && target.Enter(src, null))
@@ -752,7 +751,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if (istype(A, /mob/living))
 		var/mob/living/M = A
-		attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]</font>"
+		attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed into [key_name(M)]</span>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [key_name(src)]</font>"
 		msg_admin_attack("[key_name(src)] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
 
@@ -1149,7 +1148,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_NOTICE("You can't flick your tongue out with something covering your face."))
 		return
 	else
-		custom_emote(1, "flicks their tongue out.")
+		custom_emote(VISIBLE_MESSAGE, "flicks their tongue out.")
 
 	var/datum/gas_mixture/mixture = src.loc.return_air()
 	var/total_moles = mixture.total_moles
@@ -1184,46 +1183,3 @@ mob/living/carbon/human/proc/change_monitor()
 		for(var/line in airInfo)
 			to_chat(src, SPAN_NOTICE("[line]"))
 		return
-
-/mob/living/carbon/human/proc/crush()
-	set category = "Abilities"
-	set name = "Crush"
-	set desc = "While grabbing someone in a neck grab, crush them with your arms."
-
-	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your arms are still recovering!</span>")
-		return
-
-	if(use_check_and_message(usr))
-		return
-
-	var/obj/item/grab/G = src.get_active_hand()
-	if(!istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
-		return
-
-	if(G.state < GRAB_NECK)
-		to_chat(src, "<span class='warning'>You must have a stronger grab to crush your prey!</span>")
-		return
-
-	if(ishuman(G.affecting))
-		var/mob/living/carbon/human/H = G.affecting
-		var/hit_zone = zone_sel.selecting
-		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
-
-		if(!affected || affected.is_stump())
-			to_chat(H, "<span class='danger'>They are missing that limb!</span>")
-			return
-
-		H.apply_damage(40, BRUTE, hit_zone)
-		visible_message("<span class='warning'><b>[src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
-		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
-	else
-		var/mob/living/M = G.affecting
-		if(!istype(M))
-			return
-		M.apply_damage(40,BRUTE)
-		visible_message("<span class='warning'><b>[src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
-		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
-	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
-	last_special = world.time + 100

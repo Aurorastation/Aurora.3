@@ -57,6 +57,17 @@
 /proc/sanitizeSafe(var/input, var/max_length = MAX_MESSAGE_LEN, var/encode = 1, var/trim = 1, var/extra = 1)
 	return sanitize(replace_characters(input, list(">"=" ","<"=" ", "\""="'")), max_length, encode, trim, extra)
 
+/proc/sanitize_simple(t,list/repl_chars = list("\n"="#","\t"="#"))
+	for(var/char in repl_chars)
+		var/index = findtext(t, char)
+		while(index)
+			t = copytext(t, 1, index) + repl_chars[char] + copytext(t, index + length(char))
+			index = findtext(t, char, index + length(char))
+	return t
+
+/proc/sanitize_filename(t)
+	return sanitize_simple(t, list("\n"="", "\t"="", "/"="", "\\"="", "?"="", "%"="", "*"="", ":"="", "|"="", "\""="", "<"="", ">"=""))
+
 #define NO_CHARS_DETECTED 0
 #define SPACES_DETECTED 1
 #define SYMBOLS_DETECTED 2
@@ -376,10 +387,25 @@
 //For generating neat chat tag-images
 //The icon var could be local in the proc, but it's a waste of resources
 //	to always create it and then throw it out.
-/proc/create_text_tag(var/tagname, var/tagdesc = tagname, var/client/C = null)
+/proc/create_text_tag(var/tagname, var/client/C = null)
 	if(C && (C.prefs.toggles & CHAT_NOICONS))
-		return tagdesc
-	return "<IMG src='\ref['./icons/chattags.dmi']' class='text_tag' iconstate='[tagname]'" + (tagdesc ? " alt='[tagdesc]'" : "") + ">"
+		return tagname
+
+	var/list/tagname_to_class = list(
+		"OOC" = "ooc",
+		"LOOC" = "looc",
+		"DEV" = "dev",
+		"ADMIN" = "admin",
+		"MOD" = "mod",
+		"DEAD" = "dead",
+		"PM ->" = "pmin",
+		"PM <-" = "pmout",
+		"PM <->" = "pmother",
+		"HELP" = "help",
+		"A-OOC" = "aooc"
+	)
+
+	return "<span class=\"tag [tagname_to_class[tagname]]_tag\">[tagname]</span>"
 
 // For processing simple markup, similar to what Skype and Discord use.
 // Enabled from a config setting.
@@ -597,3 +623,12 @@
 	for(var/word in text)
 		finalized_text += capitalize(word)
 	return jointext(finalized_text, " ")
+
+// makes text uppercase, makes sure it has a correct line-end symbol (ie fullstop)
+/proc/formalize_text(var/string)
+	string = capitalize(string)
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "\"" = TRUE)
+	var/ending = copytext(string, length(string), (length(string) + 1))
+	if(ending && !correct_punctuation[ending])
+		string += "."
+	return string

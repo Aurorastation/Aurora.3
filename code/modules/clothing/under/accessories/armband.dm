@@ -61,3 +61,14 @@
 	name = "medical exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is white and green."
 	icon_state = "ribbon_med"
+
+/obj/item/clothing/accessory/armband/idris
+	name = "\improper Idris Incorporated armband"
+	desc = "A armband, worn by contractors to denote which company they're from. This one shows the Idris Incorporated logo  displayed on a cyan background."
+	icon_state = "idris_armband"
+	overlay_state = "idris_armband"
+
+/obj/item/clothing/accessory/armband/colourable
+	name = "armband"
+	desc = "An armband in 16,777,216 designer colors."
+	icon_state = "armband_colour"

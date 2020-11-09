@@ -12,7 +12,6 @@
 	name = "mounted ion rifle"
 	desc = "An exosuit-mounted ion rifle. Handle with care."
 	icon_state = "mecha_ion"
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	holding_type = /obj/item/gun/energy/rifle/ionrifle/mounted/mech
 
 /obj/item/mecha_equipment/mounted_system/taser/laser
@@ -31,7 +30,7 @@
 /obj/item/mecha_equipment/mounted_system/pulse
 	name = "heavy pulse cannon"
 	desc = "A weapon for combat exosuits. The eZ-13 mk2 heavy pulse rifle shoots powerful pulse-based beams, capable of destroying structures."
-	icon_state = "railauto"
+	icon_state = "pulse"
 	holding_type = /obj/item/gun/energy/pulse/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
@@ -41,7 +40,7 @@
 	desc = "A weapon for combat exosuits. Shoots armor penetrating xray beams."
 	icon_state = "mecha_xray"
 	holding_type = /obj/item/gun/energy/xray/mounted/mech
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
 /obj/item/mecha_equipment/mounted_system/blaster
@@ -68,22 +67,22 @@
 /obj/item/gun/energy/rifle/ionrifle/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
-	has_safety = FALSE	
+	has_safety = FALSE
 
 /obj/item/gun/energy/laser/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
-	has_safety = FALSE	
+	has_safety = FALSE
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
-	has_safety = FALSE	
+	has_safety = FALSE
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
-	has_safety = FALSE	
+	has_safety = FALSE
 
 /*Launchers*/
 
@@ -98,7 +97,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadefrag
 	name = "frag grenade launcher"
 	desc = "The SGL-6FR grenade launcher is designed to launch primed fragmentation grenades."
-	icon_state = "mecha_fraglnchr"
+	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
@@ -106,7 +105,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadeflash
 	name = "flashbang launcher"
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
-	icon_state = "mecha_grenadelnchr"
+	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedfl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
@@ -114,7 +113,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadetear
 	name = "teargas launcher"
 	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
-	icon_state = "mecha_grenadelnchr"
+	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedtgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
@@ -122,7 +121,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadesmoke
 	name = "smoke grenade launcher"
 	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
-	icon_state = "mecha_grenadelnchr"
+	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedsgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
@@ -363,7 +362,7 @@
 	if((world.time - last_recharge) < cooldown)
 		return
 	var/obj/item/cell/cell = owner.get_cell()
-	
+
 	var/actual_required_power = Clamp(max_charge - charge, 0, charging_rate)
 	charge += cell.use(actual_required_power)
 
@@ -396,7 +395,7 @@
 		user.vis_contents -= src
 	shields = null
 	. = ..()
-	
+
 /obj/aura/mechshield/proc/toggle()
 	active = !active
 
@@ -406,7 +405,7 @@
 		flick("shield_raise", src)
 	else
 		flick("shield_drop", src)
-	
+
 
 /obj/aura/mechshield/update_icon()
 	. = ..()

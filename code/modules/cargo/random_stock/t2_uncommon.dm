@@ -178,10 +178,6 @@ STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
 	new /obj/item/clothing/head/hardhat/red/atmos(L)
 	new /obj/item/clothing/suit/fire/atmos(L)
 
-STOCK_ITEM_UNCOMMON(pdacart, 3)
-	for(var/i in 1 to rand(1, 3))
-		new /obj/random/pda_cart(L)
-
 STOCK_ITEM_UNCOMMON(debugger, 2)
 	new /obj/item/device/debugger(L)
 
@@ -279,7 +275,7 @@ STOCK_ITEM_UNCOMMON(spystuff, 1)
 
 STOCK_ITEM_UNCOMMON(seeds, 1)
 	for(var/i in 1 to rand(1, 3))
-		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds))
+		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds) - /obj/item/seeds/cutting)
 		new SP(L)
 
 STOCK_ITEM_UNCOMMON(rped, 2)
@@ -367,7 +363,7 @@ STOCK_ITEM_UNCOMMON(apiary, 1)
 		new /obj/item/honey_frame(L)
 
 STOCK_ITEM_UNCOMMON(wristbound, 0.5)
-	var/obj/item/modular_computer/wristbound/preset/P = pick(subtypesof(/obj/item/modular_computer/wristbound/preset))
+	var/obj/item/modular_computer/handheld/wristbound/preset/P = pick(subtypesof(/obj/item/modular_computer/handheld/wristbound/preset))
 	new P(L)
 
 STOCK_ITEM_UNCOMMON(pops, 0.5)

@@ -25,7 +25,7 @@
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
 	item_state = "obrez"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	recoil = 2
 	accuracy = -2
 	slot_flags &= ~SLOT_BACK
@@ -46,7 +46,7 @@
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
 	item_state = "obrez"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	recoil = 2
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -227,7 +227,7 @@
 /obj/item/gun/projectile/gauss
 	name = "gauss thumper"
 	desc = "An outdated gauss weapon which sees sparing use in modern times."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	slot_flags = 0
 	magazine_type = /obj/item/ammo_magazine/gauss
 	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
@@ -239,6 +239,8 @@
 	fire_sound = /decl/sound_category/gauss_fire_sound
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
+
+	slot_flags = SLOT_BACK
 
 	fire_delay = 25
 	accuracy = -1
