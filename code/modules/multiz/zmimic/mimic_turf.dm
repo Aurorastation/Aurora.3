@@ -75,8 +75,8 @@
 
 	QDEL_NULL(shadower)
 
-	for (var/atom/movable/openspace/overlay/OO in src)
-		OO.owning_turf_changed()
+	for (var/atom/movable/openspace/overlay/OwO in src) 	// wats this~?
+		OwO.owning_turf_changed()
 
 	if (above)
 		above.update_mimic()
