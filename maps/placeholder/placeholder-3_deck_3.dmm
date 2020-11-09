@@ -1020,9 +1020,6 @@
 	},
 /turf/simulated/floor,
 /area/janitor)
-"oU" = (
-/turf/simulated/wall/elevator,
-/area/janitor)
 "oX" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -21395,11 +21392,11 @@ aE
 eh
 eh
 ac
-oU
-oU
-oU
-oU
-oU
+UV
+UV
+UV
+UV
+UV
 ac
 ah
 ah
@@ -21597,11 +21594,11 @@ aE
 eh
 eh
 ac
-oU
 UV
 UV
 UV
-ad
+UV
+UV
 ad
 ah
 ah
@@ -21799,11 +21796,11 @@ aE
 eh
 eh
 ac
-oU
 UV
 UV
 UV
-ad
+UV
+UV
 ad
 ah
 ah
@@ -22001,11 +21998,11 @@ aE
 eh
 eh
 ac
-oU
 UV
 UV
 UV
-ad
+UV
+UV
 ad
 ah
 ah
@@ -22203,11 +22200,11 @@ aE
 eh
 eh
 ac
-oU
-oU
-oU
-oU
-oU
+UV
+UV
+UV
+UV
+UV
 ac
 ah
 ah

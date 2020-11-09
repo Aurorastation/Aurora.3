@@ -78,6 +78,10 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/janitor)
+"gZ" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "hr" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
@@ -213,7 +217,8 @@
 	},
 /area/janitor)
 "up" = (
-/turf/simulated/open,
+/obj/effect/decal/fake_object/light_source,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "uR" = (
 /obj/structure/railing/mapped,
@@ -239,6 +244,10 @@
 /obj/machinery/conveyor{
 	dir = 10
 	},
+/turf/simulated/floor/plating,
+/area/janitor)
+"xv" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/janitor)
 "xC" = (
@@ -19259,11 +19268,11 @@ dN
 dN
 dN
 Vh
-cC
+xv
 ci
 ci
 ci
-cC
+xv
 Vh
 Vh
 Vh
@@ -19455,17 +19464,17 @@ oG
 Vh
 Vh
 Vh
-cC
+xv
 Vh
 dN
 dN
 dN
 Vh
-cC
+xv
 ci
 ci
 ci
-cC
+xv
 Vh
 Vh
 Vh
@@ -19663,11 +19672,11 @@ dN
 dN
 dN
 Vh
-cC
+xv
 ci
 ci
 ci
-cC
+xv
 Vh
 Vh
 Vh
@@ -19859,17 +19868,17 @@ oG
 Vh
 Vh
 Vh
-cC
+xv
 Vh
 dN
 dN
 dN
 Vh
-cC
+xv
 ci
 ci
 ci
-cC
+xv
 Vh
 Vh
 Vh
@@ -20058,20 +20067,20 @@ oG
 oG
 oG
 oG
-Vh
-Vh
-Vh
+gZ
+gZ
+gZ
 oG
 Vh
 Vh
 Vh
 Vh
 Vh
-cC
+xv
 ci
 ci
 ci
-cC
+xv
 Vh
 Vh
 Vh
@@ -20270,9 +20279,9 @@ oG
 Ud
 Ud
 oG
-cC
-cC
-cC
+xv
+xv
+xv
 oG
 Vh
 Vh
@@ -20454,9 +20463,9 @@ Vh
 Vh
 oG
 QU
-up
-up
-up
+ci
+ci
+ci
 aU
 aU
 Vh
@@ -20656,15 +20665,15 @@ Vh
 Vh
 oG
 QU
+ci
 up
-up
-up
+ci
 aU
 aU
 Vh
 Vh
 Vh
-Vh
+vI
 Vh
 Vh
 bq
@@ -20858,9 +20867,9 @@ Vh
 Vh
 oG
 QU
-up
-up
-up
+ci
+ci
+ci
 aU
 aU
 Vh
