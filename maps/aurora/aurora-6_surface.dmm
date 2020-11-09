@@ -1998,6 +1998,10 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
+"dN" = (
+/obj/effect/shuttle_landmark/research/yellow,
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
 "dO" = (
 /obj/structure/bed/chair,
 /obj/structure/window/reinforced{
@@ -5704,6 +5708,10 @@
 	},
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
+"kA" = (
+/obj/effect/floor_decal/corner/purple,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "kB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
@@ -10656,6 +10664,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"uc" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "ud" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -12280,10 +12293,6 @@
 	name = "survey shuttle"
 	},
 /area/shuttle/research)
-"xn" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
 "xo" = (
 /obj/effect/decal/cleanable/generic,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12708,11 +12717,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"yh" = (
-/obj/structure/bed/chair/shuttle,
-/obj/effect/floor_decal/corner/purple/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/research)
 "yi" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -12825,16 +12829,9 @@
 /turf/simulated/floor/wood,
 /area/store)
 "yt" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/vending/wallmed1{
-	pixel_x = -1;
-	pixel_y = 29;
-	req_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/research)
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/turret_protected/tcomsat)
 "yu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -12847,6 +12844,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"yv" = (
+/obj/structure/bed/chair/shuttle,
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "yw" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -14260,10 +14262,6 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/escape_pod/pod3)
-"AH" = (
-/obj/effect/shuttle_landmark/research/yellow,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
 "AI" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -14330,14 +14328,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
-"AM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor{
-	layer = 2.8;
-	open_layer = 2.8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research)
 "AN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -19770,6 +19760,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
+"KZ" = (
+/obj/machinery/iv_drip{
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "La" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 1;
@@ -21323,10 +21319,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"NX" = (
-/obj/effect/floor_decal/corner/purple,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/research)
 "NY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -22581,15 +22573,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"Qz" = (
-/obj/effect/floor_decal/corner/purple{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/research)
 "QA" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
@@ -22829,6 +22812,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"QZ" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "Ra" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -22870,12 +22857,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
-"Rf" = (
-/obj/machinery/iv_drip{
-	pixel_x = 7
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/research)
 "Rg" = (
 /obj/machinery/porta_turret{
 	dir = 6
@@ -24960,6 +24941,17 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"Vi" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/vending/wallmed1{
+	pixel_x = -1;
+	pixel_y = 29;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "Vj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -25780,11 +25772,6 @@
 /obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/storage/tools)
-"WK" = (
-/obj/structure/bed/roller,
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/research)
 "WL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -26019,6 +26006,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"Xh" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "Xi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -26237,10 +26233,6 @@
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled,
 /area/storage/tools)
-"XG" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/turret_protected/tcomsat)
 "XH" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -26950,6 +26942,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"YW" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor{
+	layer = 2.8;
+	open_layer = 2.8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research)
 "YX" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -36913,7 +36913,7 @@ aP
 aa
 bg
 bg
-XG
+yt
 bW
 cr
 cI
@@ -41053,7 +41053,7 @@ bg
 Of
 Mp
 cl
-xn
+QZ
 Nc
 ag
 ag
@@ -47646,7 +47646,7 @@ aa
 aa
 aa
 aa
-AH
+dN
 aa
 aa
 aa
@@ -69522,9 +69522,9 @@ Pl
 Qj
 Zx
 kE
-yt
-Rf
-WK
+Vi
+KZ
+uc
 AY
 UF
 WO
@@ -70544,7 +70544,7 @@ Qv
 mZ
 YJ
 xY
-Qz
+Xh
 RU
 DA
 DA
@@ -70803,10 +70803,10 @@ Ut
 Pd
 yK
 kC
-yh
-NX
-NX
-NX
+yv
+kA
+kA
+kA
 DA
 Sy
 Ea
@@ -71321,7 +71321,7 @@ BH
 wL
 xl
 Bb
-AM
+YW
 Ik
 Dd
 Pm

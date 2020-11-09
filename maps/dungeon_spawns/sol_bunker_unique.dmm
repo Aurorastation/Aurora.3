@@ -57,20 +57,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
-"am" = (
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/sol_outpost)
-"an" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/door_assembly,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/sol_outpost)
 "ao" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
@@ -329,6 +315,10 @@
 	},
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
+"bh" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
 "bi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/porta_turret/pulse,
@@ -353,10 +343,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/turf/simulated/floor,
-/area/dungeon/sol_outpost)
-"bn" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
 "bo" = (
@@ -488,13 +474,6 @@
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/wood,
-/area/dungeon/sol_outpost)
-"bE" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/landmine/frag{
-	deployed = 1
-	},
-/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bF" = (
 /obj/random/junk,
@@ -664,7 +643,9 @@
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "cc" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/door_assembly{
+	anchored = 1
+	},
 /turf/simulated/floor/wood{
 	nitrogen = 0;
 	oxygen = 0
@@ -688,10 +669,6 @@
 	nitrogen = 0;
 	oxygen = 0
 	},
-/area/dungeon/sol_outpost)
-"cf" = (
-/obj/effect/overlay/burnt_wall/steel,
-/turf/simulated/floor/airless,
 /area/dungeon/sol_outpost)
 "cg" = (
 /obj/structure/table/rack,
@@ -1030,15 +1007,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
-"cV" = (
-/obj/structure/door_assembly{
-	anchored = 1
-	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/sol_outpost)
 "cW" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
@@ -1047,14 +1015,6 @@
 "cX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/dungeon/sol_outpost)
-"cZ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
 /area/dungeon/sol_outpost)
 "da" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1154,24 +1114,6 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
-"do" = (
-/obj/structure/bed/padded,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/sol_outpost)
-"dp" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	icon = 'icons/obj/turrets.dmi';
-	icon_state = "turret_frame_2_0";
-	name = "broken turret"
-	},
-/turf/simulated/floor/tiled/airless,
-/area/dungeon/sol_outpost)
 "dq" = (
 /obj/structure/sign/flag/sol/left{
 	pixel_y = -32
@@ -1212,23 +1154,81 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
-"ds" = (
-/obj/item/landmine/frag{
-	deployed = 1
-	},
-/turf/simulated/floor/tiled/airless,
-/area/dungeon/sol_outpost)
 "dt" = (
 /obj/item/reagent_containers/toothbrush,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
-"ky" = (
+"pb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"tn" = (
+/obj/effect/overlay/burnt_wall/steel,
+/turf/simulated/floor/airless,
+/area/dungeon/sol_outpost)
+"tV" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/launcher/grenade{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"vX" = (
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"ze" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/dungeon/sol_outpost)
+"Ec" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/door_assembly,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"Hv" = (
+/obj/structure/bed/padded,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"OV" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/dungeon/sol_outpost)
+"QN" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"XU" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	icon = 'icons/obj/turrets.dmi';
+	icon_state = "turret_frame_2_0";
+	name = "broken turret"
+	},
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 
 (1,1,1) = {"
@@ -1412,8 +1412,8 @@ cA
 cA
 cA
 aZ
-bn
-bn
+bh
+bh
 bA
 aN
 bZ
@@ -1552,7 +1552,7 @@ aQ
 aN
 ba
 bO
-bE
+ze
 aN
 cs
 aQ
@@ -1565,7 +1565,7 @@ ac
 ac
 ac
 ac
-cf
+tn
 ac
 ac
 dc
@@ -1599,7 +1599,7 @@ ac
 ac
 ac
 ac
-cf
+tn
 ac
 ac
 dc
@@ -1660,7 +1660,7 @@ bQ
 cD
 cJ
 bj
-dp
+XU
 aQ
 ac
 cW
@@ -1762,7 +1762,7 @@ bx
 cH
 br
 aQ
-ds
+OV
 aQ
 cT
 cX
@@ -1833,7 +1833,7 @@ aQ
 aN
 ba
 ac
-ky
+tV
 dg
 cX
 cX
@@ -1892,7 +1892,7 @@ bk
 aN
 aQ
 aQ
-bE
+ze
 aQ
 aQ
 aN
@@ -1904,7 +1904,7 @@ ac
 ac
 ac
 ac
-cf
+tn
 ac
 ac
 ac
@@ -1938,7 +1938,7 @@ ac
 ac
 ac
 ac
-cf
+tn
 ac
 ac
 ac
@@ -1994,8 +1994,8 @@ aA
 aA
 aA
 ac
+QN
 cc
-cV
 aA
 aA
 aA
@@ -2026,9 +2026,9 @@ aT
 bb
 aA
 bu
-cc
-an
-cc
+QN
+Ec
+QN
 cl
 cz
 cG
@@ -2063,9 +2063,9 @@ bv
 bI
 bI
 bJ
-cc
-cc
-cc
+QN
+QN
+QN
 cN
 ac
 dc
@@ -2093,15 +2093,15 @@ aJ
 aV
 aJ
 bl
-cc
+QN
 bJ
-cc
-cc
-cc
-cc
-am
-cc
-cf
+QN
+QN
+QN
+QN
+vX
+QN
+tn
 cA
 cA
 cA
@@ -2127,10 +2127,10 @@ aJ
 aW
 dt
 bl
-am
+vX
 bI
 bW
-cc
+QN
 bI
 cB
 cB
@@ -2162,12 +2162,12 @@ aY
 be
 aA
 by
-am
-cc
+vX
+QN
 cd
-cc
-cc
-cZ
+QN
+QN
+pb
 cO
 ac
 dc
@@ -2196,13 +2196,13 @@ cP
 bf
 aA
 bu
-cc
-cc
+QN
+QN
 ce
 cm
 cC
 cC
-do
+Hv
 ac
 dc
 dc

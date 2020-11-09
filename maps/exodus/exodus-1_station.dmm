@@ -1454,19 +1454,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/security/main)
-"acK" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "RD"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "RD"
-	},
-/turf/simulated/floor/plating,
-/area/rnd/research)
 "acL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
@@ -3375,6 +3362,19 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/hos)
+"ags" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "RD"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "RD"
+	},
+/turf/simulated/floor/plating,
+/area/rnd/research)
 "agt" = (
 /obj/structure/grille,
 /obj/structure/cable/green{
@@ -70139,14 +70139,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
-"cDi" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
-/turf/simulated/floor/tiled/white,
-/area/maintenance/medbay)
 "cDj" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -71021,6 +71013,10 @@
 /area/maintenance/medbay)
 "cES" = (
 /obj/structure/table/standard,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cET" = (
@@ -75156,6 +75152,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
+"lhy" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medbay)
 "ljp" = (
 /obj/structure/bed/chair,
 /obj/effect/landmark/start{
@@ -116153,10 +116153,10 @@ cmi
 cmi
 cDf
 cEe
-cES
+lhy
 cvn
 cGm
-cES
+lhy
 cFm
 aaa
 aaa
@@ -116410,10 +116410,10 @@ cAU
 cBY
 cDg
 cEe
-cES
+lhy
 cvn
 cER
-cES
+lhy
 clX
 aaa
 aaa
@@ -116670,7 +116670,7 @@ cEd
 cER
 cvn
 cER
-cES
+lhy
 clX
 aaa
 aaa
@@ -116927,7 +116927,7 @@ czX
 cvn
 cvn
 cER
-cES
+lhy
 clX
 aaa
 aaa
@@ -117179,12 +117179,12 @@ cze
 cmi
 cmi
 cmi
-cDi
+cES
 cEf
 cET
 cFy
 cGn
-cES
+lhy
 cvh
 aaa
 aaa
@@ -123564,7 +123564,7 @@ bwz
 bzD
 bBt
 bCI
-acK
+ags
 bFZ
 bFZ
 bJa

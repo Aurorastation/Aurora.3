@@ -12866,15 +12866,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/explored)
-"yR" = (
-/obj/structure/table/standard,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/dorms)
 "yS" = (
 /obj/structure/cable/blue{
 	d2 = 4;
@@ -16081,6 +16072,15 @@
 "SL" = (
 /turf/template_noop,
 /area/space)
+"Vn" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/dorms)
 
 (1,1,1) = {"
 aa
@@ -48128,7 +48128,7 @@ ab
 wx
 yr
 yr
-yR
+Vn
 wx
 ab
 cS
