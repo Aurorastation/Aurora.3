@@ -1,6 +1,7 @@
 /obj/structure/reagent_dispensers
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
+	desc_info = "You can right-click this and change the amount transferred per use."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
 	density = 1
@@ -18,6 +19,7 @@
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
+		desc_info = ""
 
 /obj/structure/reagent_dispensers/examine(mob/user)
 	if(!..(user, 2))
@@ -59,7 +61,7 @@
 				if(is_open_container())
 					RG.standard_pour_into(user,src)
 				else
-					to_chat(user,"<span class='notice'>The top cap is wrenched on tight!</span>")
+					to_chat(user,"<span class='notice'>The inlet cap on \the [src] is wrenched on tight!</span>")
 		return
 
 	if (O.iswrench())
@@ -72,10 +74,10 @@
 				START_PROCESSING(SSprocessing,src)
 
 		else if(accept_any_reagent)
-			var/is_closed = flags & OPENCONTAINER
-			var/verb01 = is_closed ? "unwrenches" : "wrenches"
-			var/verb02 = (is_closed ? "open" : "shut")
-			user.visible_message("<span class='notice'>[user] [verb01] the top cap [verb02] from \the [src].</span>", "<span class='notice'>You [verb01] the top cap [verb02] from \the [src].</span>")
+			if(flags & OPENCONTAINER)
+				user.visible_message(SPAN_NOTICE("[user] wrenches the inlet cap on \the [src] shut."), SPAN_NOTICE("You wrench the inlet cap back on \the [src]."))
+			else
+				user.visible_message(SPAN_NOTICE("[user] unwrenches the inlet cap from \the [src]."), SPAN_NOTICE("You unwrench the inlet cap from \the [src]."))
 			flags ^= OPENCONTAINER
 			return
 
@@ -94,7 +96,7 @@
 	name = "extinguisher tank"
 	desc = "A tank filled with extinguisher fluid."
 	icon_state = "extinguisher_tank"
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 30
 	reagents_to_add = list(/datum/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
 
 // Tanks
@@ -102,14 +104,14 @@
 	name = "water tank"
 	desc = "A tank filled with water."
 	icon_state = "watertank"
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 100
 	reagents_to_add = list(/datum/reagent/water = 1000)
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
 	desc = "A tank filled with a silly amount of lube."
 	icon_state = "lubetank"
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 30
 	reagents_to_add = list(/datum/reagent/lube = 1000)
 
 /obj/structure/reagent_dispensers/fueltank
@@ -117,7 +119,7 @@
 	desc = "A tank filled with welding fuel."
 	icon_state = "weldtank"
 	accept_any_reagent = FALSE
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 30
 	var/defuse = 0
 	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null

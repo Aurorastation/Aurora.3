@@ -134,8 +134,8 @@
 	new /obj/item/clothing/head/hos/cap(src)
 	new /obj/item/clothing/head/hos/cap/alt(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos/alt(src)
+	new /obj/item/clothing/head/beret/security/hos(src)
+	new /obj/item/clothing/head/beret/security/hos/alt(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
@@ -176,8 +176,8 @@
 	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos/alt(src)
+	new /obj/item/clothing/head/beret/security/hos(src)
+	new /obj/item/clothing/head/beret/security/hos/alt(src)
 	new /obj/item/clothing/head/hos/cap(src)
 	new /obj/item/clothing/head/hos/cap/alt(src)
 	new /obj/item/clothing/head/helmet/hos(src)
@@ -216,7 +216,7 @@
 	new /obj/item/clothing/under/rank/warden/corp(src)
 	new /obj/item/clothing/suit/armor/vest/warden(src)
 	new /obj/item/clothing/suit/armor/vest/warden/commissar(src)
-	new /obj/item/clothing/head/beret/sec/warden(src)
+	new /obj/item/clothing/head/beret/security/warden(src)
 	new /obj/item/clothing/head/warden/commissar(src)
 	new /obj/item/clothing/head/warden(src)
 	new /obj/item/clothing/head/warden/alt(src)
@@ -256,7 +256,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/head/beret/sec/cadet(src)
+	new /obj/item/clothing/head/beret/security(src)
 	new /obj/item/clothing/suit/storage/hazardvest/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	//Tools
@@ -292,6 +292,7 @@
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/head/softcap/security/corp(src)
+	new /obj/item/clothing/head/beret/security/corp(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
 	new /obj/item/clothing/head/helmet(src)

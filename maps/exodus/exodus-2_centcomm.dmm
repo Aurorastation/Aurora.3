@@ -4204,7 +4204,7 @@
 	},
 /area/shuttle/administration)
 "aqN" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/plating,
 /area/shuttle/administration)
 "aqQ" = (
@@ -5018,7 +5018,7 @@
 	},
 /area/centcom/specops)
 "atU" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor,
 /area/centcom/living)
 "auc" = (
@@ -10638,7 +10638,7 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "aMO" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/living)
 "aMP" = (
@@ -11035,7 +11035,7 @@
 	},
 /area/centcom/holding)
 "aNM" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -11339,7 +11339,7 @@
 	},
 /area/centcom/control)
 "aOv" = (
-/obj/effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /turf/unsimulated/floor{
 	icon_state = "whiteshiny"
 	},
@@ -11949,7 +11949,7 @@
 	},
 /area/centcom/spawning)
 "aPT" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aPU" = (
@@ -12514,7 +12514,7 @@
 	},
 /area/centcom/specops)
 "aRn" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aRo" = (
@@ -13626,7 +13626,7 @@
 	},
 /area/centcom/control)
 "aTR" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor,
 /area/centcom/control)
 "aTT" = (
@@ -13967,7 +13967,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "aUH" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aUI" = (
@@ -15138,7 +15138,7 @@
 	},
 /area/centcom/living)
 "aXs" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "aXt" = (
@@ -15287,7 +15287,7 @@
 	},
 /area/centcom/spawning)
 "aXP" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
 "aXQ" = (
@@ -15916,7 +15916,7 @@
 	},
 /area/centcom/control)
 "aZo" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "vault"
@@ -16555,7 +16555,7 @@
 	},
 /area/centcom/holding)
 "cXm" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/template_noop,
 /area/centcom/holding)
 "daC" = (
@@ -16677,7 +16677,7 @@
 /area/shuttle/legion)
 "dAB" = (
 /obj/structure/lattice,
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/template_noop,
 /area/centcom/holding)
 "dDS" = (
@@ -16761,7 +16761,7 @@
 	},
 /area/centcom/shared_dream)
 "efu" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor,
 /area/tdome)
 "egp" = (
@@ -17487,7 +17487,7 @@
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/accessory/legion,
-/obj/item/clothing/head/legion_beret,
+/obj/item/clothing/head/beret/legion,
 /obj/item/clothing/under/legion,
 /obj/item/device/radio/headset/legion,
 /obj/item/shield/energy/legion,
@@ -17622,7 +17622,7 @@
 	},
 /area/centcom/spawning)
 "hnE" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
@@ -18034,7 +18034,7 @@
 	},
 /area/centcom/spawning)
 "iEK" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -18347,7 +18347,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion)
 "kWr" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor,
 /area/tdome)
@@ -18877,7 +18877,7 @@
 	},
 /area/centcom/spawning)
 "okH" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor,
 /area/tdome)
@@ -18912,7 +18912,7 @@
 	},
 /area/centcom/shared_dream)
 "oxQ" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/wall/riveted,
 /area/centcom/holding)
 "oGc" = (
@@ -18987,7 +18987,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "oXD" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/door/blast/odin{
 	id = "CentComArrivalsAftChkpt";
 	name = "Security Doors"
@@ -19430,7 +19430,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "rgE" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "rgL" = (
@@ -19729,7 +19729,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "sSH" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "sWB" = (
@@ -20076,7 +20076,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "upZ" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/door/blast/odin{
 	id = "CentComArrivalsForeChkpt";
 	name = "Security Doors"
@@ -20602,7 +20602,7 @@
 	},
 /area/centcom/spawning)
 "xaM" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/tdome)
 "xcE" = (

@@ -29,6 +29,10 @@
 	if(!comp)
 		return
 
+/datum/computer_file/program/chatclient/Destroy()
+	ntnet_global.chat_clients -= src
+	return ..()
+
 /datum/computer_file/program/chatclient/Topic(href, href_list)
 	if(..())
 		return TRUE
@@ -269,6 +273,8 @@
 		var/confirm = alert("Are you sure you want to close the NTNRC Client? You will not be reachable via messaging if you do so.", "Close?", "Yes", "No")
 		if((confirm != "Yes") || (CanUseTopic(usr) != STATUS_INTERACTIVE))
 			return FALSE
+
+	ntnet_global.chat_clients -= src
 
 	channel = null
 	..(forced)

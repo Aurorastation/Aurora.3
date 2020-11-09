@@ -31,29 +31,30 @@
 
 /obj/item/computer_hardware/tesla_link/charging_cable/toggle(var/obj/machinery/power/power_source, mob/user)
 	if(!source)
-		to_chat(user, SPAN_NOTICE("You connect \the [src] to \the [power_source]."))
-		activate(power_source)
+		if(in_range(power_source, src))
+			to_chat(user, SPAN_NOTICE("You connect \the [src] to \the [power_source]."))
+			activate(power_source)
+		else
+			to_chat(SPAN_NOTICE("\The [src] is too far from \the [power_source] to connect."))
 	else
 		deactivate()
 
-/obj/item/computer_hardware/tesla_link/charging_cable/proc/activate(var/power_source)
-	var/obj/machinery/power/P = power_source
-	if(!istype(P))
-		return
-	tether(P)
+/obj/item/computer_hardware/tesla_link/charging_cable/proc/activate(var/obj/machinery/power/power_source)
+	if(istype(power_source))
+		tether(power_source)
 
 /obj/item/computer_hardware/tesla_link/charging_cable/proc/deactivate()
 	untether()
 
 /obj/item/computer_hardware/tesla_link/charging_cable/check_functionality()
-	. = ..()
+	..()
 	if(!source || !enabled)
 		return FALSE
 	return TRUE
 
 /obj/item/computer_hardware/tesla_link/charging_cable/proc/tether(var/obj/machinery/power/P)
 	source = P
-	var/datum/beam/power/B = new/datum/beam/power(src, source, beam_icon_state = "explore_beam", time = -1, maxdistance = cable_length)
+	var/datum/beam/power/B = new(src, source, beam_icon_state = "explore_beam", time = -1, maxdistance = cable_length)
 	B.owner = src
 	B.Start()
 	beam = B

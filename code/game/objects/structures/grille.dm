@@ -261,3 +261,21 @@
 	if(air_group)
 		return 0 //Make sure air doesn't drain
 	..()
+
+/obj/structure/grille/crescent/attack_hand()
+	return
+
+/obj/structure/grille/crescent/attackby()
+	return
+
+/obj/structure/grille/crescent/attack_generic()
+	return
+
+/obj/structure/grille/crescent/ex_act(var/severity = 2.0)
+	return
+
+/obj/structure/grille/crescent/hitby()
+	return
+
+/obj/structure/grille/crescent/bullet_act()
+	return

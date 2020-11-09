@@ -22,8 +22,8 @@
 		)
 	w_class = ITEMSIZE_TINY
 	var/associated_account_number = 0
-
 	var/list/files = list(  )
+	var/last_flash = 0 //Spam limiter.
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
@@ -197,7 +197,7 @@ var/const/NO_EMAG_ACT = -50
 	return dat
 
 /obj/item/card/id/attack_self(mob/user as mob)
-	if (dna_hash == "\[UNSET\]" && ishuman(user))
+	if(dna_hash == "\[UNSET\]" && ishuman(user))
 		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
 		if (response == "Yes")
 			var/mob/living/carbon/human/H = user
@@ -214,9 +214,10 @@ var/const/NO_EMAG_ACT = -50
 				age = H.age
 				to_chat(user, "<span class='notice'>Biometric Imprinting successful!</span>")
 				return
-
-	user.visible_message("<b>[user]</b> shows you: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]",\
-		"You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]")
+	if(last_flash <= world.time - 20)
+		last_flash = world.time
+		user.visible_message("<b>[user]</b> shows you: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]",\
+							 "You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]")
 
 	src.add_fingerprint(user)
 	return

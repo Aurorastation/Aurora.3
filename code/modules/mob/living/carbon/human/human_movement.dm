@@ -95,7 +95,7 @@
 	if(!isnull(facing_dir) && facing_dir != dir)
 		tally += 3
 
-	tally = round(tally,1)
+	tally = round(tally, 0.1)
 
 	return tally
 

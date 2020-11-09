@@ -306,7 +306,7 @@
 				"<span class='notice'>You hear rustling of clothes.</span>"
 			)
 			return
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		if(W)
 			user.drop_from_inventory(W,loc)
