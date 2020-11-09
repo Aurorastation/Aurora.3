@@ -1,14 +1,13 @@
-/datum/observ
+/decl/observ
 	var/name = "Unnamed Event"
 	var/expected_type = /datum
 	var/list/listeners_assoc
 
-/datum/observ/New()
-	all_observable_events.events += src
+/decl/observ/New()
 	listeners_assoc = list()
 	..()
 
-/datum/observ/proc/is_listening(var/eventSource, var/datum/procOwner, var/proc_call)
+/decl/observ/proc/is_listening(var/eventSource, var/datum/procOwner, var/proc_call)
 	var/listeners = listeners_assoc[eventSource]
 	if(!listeners)
 		return FALSE
@@ -16,14 +15,14 @@
 	var/stored_proc_call = listeners[procOwner]
 	return stored_proc_call && (!proc_call || stored_proc_call == proc_call)
 
-/datum/observ/proc/has_listeners(var/eventSource)
+/decl/observ/proc/has_listeners(var/eventSource)
 	var/list/listeners = listeners_assoc[eventSource]
 	return LAZYLEN(listeners)
 
-/datum/observ/proc/register(var/eventSource, var/datum/procOwner, var/proc_call)
+/decl/observ/proc/register(var/eventSource, var/datum/procOwner, var/proc_call)
 	if(!(eventSource && procOwner && procOwner))
 		return FALSE
-	if(istype(eventSource, /datum/observ))
+	if(istype(eventSource, /decl/observ))
 		return FALSE
 
 	if(!istype(eventSource, expected_type))
@@ -31,13 +30,13 @@
 
 	LAZYINITLIST(listeners_assoc[eventSource])
 	listeners_assoc[eventSource][procOwner] = proc_call
-	destroyed_event.register(procOwner, src, /datum/observ/proc/unregister)
+	REGISTER_EVENT(destroyed, procOwner, src, /decl/observ/proc/unregister)
 	return TRUE
 
-/datum/observ/proc/unregister(var/eventSource, var/datum/procOwner)
+/decl/observ/proc/unregister(var/eventSource, var/datum/procOwner)
 	if(!(eventSource && procOwner))
 		return FALSE
-	if(istype(eventSource, /datum/observ))
+	if(istype(eventSource, /decl/observ))
 		return FALSE
 
 	var/list/listeners = listeners_assoc[eventSource]
@@ -47,10 +46,10 @@
 	listeners -= procOwner
 	if (!listeners.len)
 		listeners_assoc -= eventSource
-	destroyed_event.unregister(procOwner, src)
+	UNREGISTER_EVENT(destroyed, procOwner, src)
 	return TRUE
 
-/datum/observ/proc/raise_event(...)
+/decl/observ/proc/raise_event(...)
 	if(!args.len)
 		return
 	var/listeners = listeners_assoc[args[1]]

@@ -23,7 +23,7 @@
 	SHOULD_CALL_PARENT(1)
 
 	weakref = null
-	destroyed_event.raise_event(src)
+	RAISE_EVENT(destroyed, src)
 	SSnanoui.close_uis(src)
 	SSvueui.close_uis(src)
 	tag = null

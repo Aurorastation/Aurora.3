@@ -76,14 +76,14 @@
 
 /obj/item/mecha_equipment/mounted_system/proc/forget_holding()
 	if(holding) //It'd be strange for this to be called with this var unset
-		destroyed_event.unregister(holding, src, .proc/forget_holding)
+		UNREGISTER_EVENT(destroyed, holding, src, .proc/forget_holding)
 		holding = null
 
 /obj/item/mecha_equipment/mounted_system/Initialize()
 	. = ..()
 	if(holding_type)
 		holding = new holding_type(src)
-		destroyed_event.register(holding, src, .proc/forget_holding)
+		REGISTER_EVENT(destroyed, holding, src, .proc/forget_holding)
 	if(holding)
 		if(!icon_state)
 			icon = holding.icon

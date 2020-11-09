@@ -37,7 +37,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/machinery/computer/ship/attack_hand(mob/user)
 	if(use_check_and_message(user))
 		return
-	
+
 	user.set_machine(src)
 	ui_interact(user)
 
@@ -58,14 +58,14 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		user.reset_view(linked)
 	if(user.client)
 		user.client.view = world.view + extra_view
-	moved_event.register(user, src, /obj/machinery/computer/ship/proc/unlook)
+	REGISTER_EVENT(moved, user, src, /obj/machinery/computer/ship/proc/unlook)
 	LAZYDISTINCTADD(viewers, WEAKREF(user))
 
 /obj/machinery/computer/ship/proc/unlook(var/mob/user)
 	user.reset_view()
 	if(user.client)
 		user.client.view = world.view
-	moved_event.unregister(user, src, /obj/machinery/computer/ship/proc/unlook)
+	UNREGISTER_EVENT(moved, user, src, /obj/machinery/computer/ship/proc/unlook)
 	LAZYREMOVE(viewers, WEAKREF(user))
 
 /obj/machinery/computer/ship/proc/viewing_overmap(mob/user)

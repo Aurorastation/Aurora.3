@@ -89,11 +89,11 @@
 	core_landmark = master
 	name = _name
 	landmark_tag = master.shuttle_name + _name
-	destroyed_event.register(master, src, /proc/qdel)
+	REGISTER_EVENT(destroyed, master, src, /proc/qdel)
 	. = ..()
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Destroy()
-	destroyed_event.unregister(core_landmark, src)
+	UNREGISTER_EVENT(destroyed, core_landmark, src)
 	LAZYREMOVE(core_landmark.visitors, src)
 	core_landmark = null
 	. = ..()

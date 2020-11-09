@@ -44,7 +44,7 @@
 	if(target == selected_hardpoint)
 		clear_selected_hardpoint()
 
-	destroyed_event.unregister(module_to_forget, src, .proc/forget_module)
+	UNREGISTER_EVENT(destroyed, module_to_forget, src, .proc/forget_module)
 
 	var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[target]
 	H.holding = null
@@ -88,7 +88,7 @@
 			if(!found)
 				return FALSE
 		ME.installed(src)
-		destroyed_event.register(system, src, .proc/forget_module)
+		REGISTER_EVENT(destroyed, system, src, .proc/forget_module)
 
 
 	system.forceMove(src)
@@ -129,7 +129,7 @@
 	system.forceMove(get_turf(src))
 	system.screen_loc = null
 	system.layer = initial(system.layer)
-	destroyed_event.unregister(system, src, .proc/forget_module)
+	UNREGISTER_EVENT(destroyed, system, src, .proc/forget_module)
 
 	var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[system_hardpoint]
 	H.holding = null

@@ -37,34 +37,34 @@ var/list/GPS_list = list()
 		implanted_into = loc.loc
 
 	if(held_by)
-		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
+		REGISTER_EVENT(moved, held_by, src, /obj/item/device/gps/proc/update_position)
 	if(implanted_into)
-		moved_event.register(implanted_into, src, /obj/item/device/gps/proc/update_position)
-	moved_event.register(src, src, /obj/item/device/gps/proc/update_position)
+		REGISTER_EVENT(moved, implanted_into, src, /obj/item/device/gps/proc/update_position)
+	REGISTER_EVENT(moved, src, src, /obj/item/device/gps/proc/update_position)
 
 	for(var/gps in GPS_list)
 		tracking += GPS_list[gps]["tag"]
 
 /obj/item/device/gps/Destroy()
 	GPS_list -= GPS_list[gpstag]
-	moved_event.unregister(src, src)
+	UNREGISTER_EVENT(moved, src, src)
 	if(held_by)
-		moved_event.unregister(held_by, src)
+		UNREGISTER_EVENT(moved, held_by, src)
 		held_by = null
 	if(implanted_into)
-		moved_event.unregister(implanted_into, src)
+		UNREGISTER_EVENT(moved, implanted_into, src)
 		implanted_into = null
 	return ..()
 
 /obj/item/device/gps/pickup(var/mob/user)
 	..()
 	held_by = user
-	moved_event.register(user, src, /obj/item/device/gps/proc/update_position)
+	REGISTER_EVENT(moved, user, src, /obj/item/device/gps/proc/update_position)
 
 /obj/item/device/gps/dropped(var/mob/user)
 	..()
 	held_by = null
-	moved_event.unregister(user, src)
+	UNREGISTER_EVENT(moved, user, src)
 
 /obj/item/device/gps/emp_act(severity)
 	emped = 1

@@ -304,8 +304,8 @@
 	. = ..()
 	if (.)
 		// Events.
-		if (moved_event.listeners_assoc[src])
-			moved_event.raise_event(src, old_loc, loc)
+		if (EVENT_IS_LISTENING(moved, src))
+			RAISE_EVENT(moved, src, old_loc, loc)
 
 		// Parallax.
 		if (contained_mobs)

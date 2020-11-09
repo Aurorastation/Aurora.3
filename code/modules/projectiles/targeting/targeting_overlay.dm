@@ -177,9 +177,9 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
-	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
-	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+	REGISTER_EVENT(moved, owner, src, /obj/aiming_overlay/proc/update_aiming)
+	REGISTER_EVENT(moved, aiming_at, src, /obj/aiming_overlay/proc/target_moved)
+	REGISTER_EVENT(destroyed, aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
 
 /obj/aiming_overlay/proc/aim_cooldown(var/seconds)
 	aimcooldown = world.time + seconds SECONDS
@@ -218,10 +218,10 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
 
-	moved_event.unregister(owner, src)
+	UNREGISTER_EVENT(moved, owner, src)
 	if(aiming_at)
-		moved_event.unregister(aiming_at, src)
-		destroyed_event.unregister(aiming_at, src)
+		UNREGISTER_EVENT(moved, aiming_at, src)
+		UNREGISTER_EVENT(destroyed, aiming_at, src)
 		aiming_at.aimed -= src
 		aiming_at = null
 

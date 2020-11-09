@@ -73,7 +73,7 @@
 		to_chat(user, "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>")
 		rings_pdas += C
 		// WONT FIX: This requires callbacks fuck my dick.
-		destroyed_event.register(C, src, .proc/remove_pda)
+		REGISTER_EVENT(destroyed, C, src, .proc/remove_pda)
 		update_icon()
 
 	else
