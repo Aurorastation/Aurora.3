@@ -66,7 +66,7 @@
 	set category = "AI IM"
 	set name = "Send Direct Message"
 	set src in usr
-	if (usr.stat == 2)
+	if (usr.stat == DEAD)
 		to_chat(usr, "You can't send PDA messages because you are dead!")
 		return
 	var/datum/computer_file/program/chatclient/CL = hard_drive.find_file_by_name("ntnrc_client")
@@ -79,4 +79,3 @@
 	CL.direct_message()
 	if(CL.channel)
 		CL.add_message(CL.send_message())
-
