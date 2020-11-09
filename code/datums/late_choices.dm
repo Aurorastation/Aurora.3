@@ -61,7 +61,7 @@
 	var/jobs_available = 0
 	var/list/list/datum/job/jobs_by_department = DEPARTMENTS_LIST_INIT
 	for(var/datum/job/job in SSjobs.occupations)
-		if(job && NP.IsJobAvailable(job.title))
+		if(NP.IsJobAvailable(job.title))
 			jobs_available++
 			var/department = job.department
 			if(!(department in jobs_by_department)) // no department set or it's something weird
