@@ -95,6 +95,19 @@
 				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
 					src.throw_impact(A,speed)
 
+// Prevents robots dropping their modules
+/atom/movable/proc/dropsafety()
+	if(!istype(src.loc))
+		return TRUE
+
+	if (issilicon(src.loc))
+		return FALSE
+
+	if (istype(src.loc, /obj/item/rig_module))
+		return FALSE
+
+	return TRUE
+
 /atom/movable/proc/throw_at(atom/target, range, speed, thrower, var/do_throw_animation = TRUE)
 	if(!target || !src)	return 0
 	//use a modified version of Bresenham's algorithm to get from the atom's current position to that of the target

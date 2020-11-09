@@ -1,5 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-
 /*
  * A large number of misc global procs.
  */
@@ -279,92 +277,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/format_frequency(var/f)
 	return "[round(f / 10)].[f % 10]"
 
-
-
-//This will update a mob's name, real_name, mind.name, SSrecords records, pda and id
-//Calling this proc without an oldname will only update the mob and skip updating the pda, id and records ~Carn
-/mob/proc/fully_replace_character_name(var/oldname,var/newname)
-	if(!newname)	return 0
-	real_name = newname
-	name = newname
-	if(mind)
-		mind.name = newname
-	if(dna)
-		dna.real_name = real_name
-
-	if(oldname)
-		//update the datacore records! This is goig to be a bit costly.
-		for(var/datum/record/general/R in list(SSrecords.records, SSrecords.records_locked))
-			if(R.name == oldname)
-				R.name = newname
-				break
-
-		//update our pda and id if we have them on our person
-		var/list/searching = GetAllContents(searchDepth = 3)
-		var/search_id = 1
-		var/search_pda = 1
-
-		for(var/A in searching)
-			if( search_id && istype(A,/obj/item/card/id) )
-				var/obj/item/card/id/ID = A
-				if(ID.registered_name == oldname)
-					ID.registered_name = newname
-					ID.name = "[newname]'s ID Card ([ID.assignment])"
-					if(!search_pda)	break
-					search_id = 0
-
-			else if(search_pda && istype(A,/obj/item/modular_computer))
-				var/obj/item/modular_computer/PDA = A
-				if(!PDA.registered_id)
-					continue
-				if(PDA.registered_id.name == oldname)
-					PDA.name = "PDA-[newname] ([PDA.registered_id.assignment])"
-					if(!search_id)	break
-					search_pda = 0
-	return 1
-
-
-
-//Generalised helper proc for letting mobs rename themselves. Used to be clname() and ainame()
-//Last modified by Carn
-/mob/proc/rename_self(var/role, var/allow_numbers=0)
-	set waitfor = FALSE
-	var/oldname = real_name
-
-	var/time_passed = world.time
-	var/newname
-
-	for(var/i=1,i<=3,i++)	//we get 3 attempts to pick a suitable name.
-		newname = input(src,"You are \a [role]. Would you like to change your name to something else?", "Name change",oldname) as text
-		if((world.time-time_passed)>3000)
-			return	//took too long
-		newname = sanitizeName(newname, ,allow_numbers)	//returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
-
-		for(var/mob/living/M in player_list)
-			if(M == src)
-				continue
-			if(!newname || M.real_name == newname)
-				newname = null
-				break
-		if(newname)
-			break	//That's a suitable name!
-		to_chat(src, "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken.")
-
-	if(!newname)	//we'll stick with the oldname then
-		return
-
-	if(cmptext("ai",role))
-		if(isAI(src))
-			var/mob/living/silicon/ai/A = src
-			oldname = null//don't bother with the records update crap
-			// Set eyeobj name
-			A.SetName(newname)
-
-
-	fully_replace_character_name(oldname,newname)
-
-
-
 //Picks a string of symbols to display as the law number for hacked or ion laws
 /proc/ionnum()
 	return "[pick("1","2","3","4","5","6","7","8","9","0")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")]"
@@ -558,7 +470,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	return max(min(middle, high), low)
 
 //returns random gauss number
-proc/GaussRand(var/sigma)
+/proc/GaussRand(var/sigma)
   var/x,y,rsq
   do
     x=2*rand()-1
@@ -568,19 +480,8 @@ proc/GaussRand(var/sigma)
   return sigma*y*sqrt(-2*log(rsq)/rsq)
 
 //returns random gauss number, rounded to 'roundto'
-proc/GaussRandRound(var/sigma,var/roundto)
+/proc/GaussRandRound(var/sigma,var/roundto)
 	return round(GaussRand(sigma),roundto)
-
-//Will return the contents of an atom recursivly to a depth of 'searchDepth'
-/atom/proc/GetAllContents(searchDepth = 5)
-	var/list/toReturn = list()
-
-	for(var/atom/part in contents)
-		toReturn += part
-		if(part.contents.len && searchDepth)
-			toReturn += part.GetAllContents(searchDepth - 1)
-
-	return toReturn
 
 //Step-towards method of determining whether one atom can see another. Similar to viewers()
 /proc/can_see(var/atom/source, var/atom/target, var/length=5) // I couldn't be arsed to do actual raycasting :I This is horribly inaccurate.
@@ -726,7 +627,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	if(A.vars.Find(lowertext(varname))) return 1
 	else return 0
 
-proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
+/proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 	if(!original)
 		return null
 
@@ -744,16 +645,16 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 					O.vars[V] = original.vars[V]
 	return O
 
-proc/get_cardinal_dir(atom/A, atom/B)
+/proc/get_cardinal_dir(atom/A, atom/B)
 	var/dx = abs(B.x - A.x)
 	var/dy = abs(B.y - A.y)
 	return get_dir(A, B) & (rand() * (dx+dy) < dy ? 3 : 12)
 
 //chances are 1:value. anyprob(1) will always return true
-proc/anyprob(value)
+/proc/anyprob(value)
 	return (rand(1,value)==value)
 
-proc/view_or_range(distance = world.view , center = usr , type)
+/proc/view_or_range(distance = world.view , center = usr , type)
 	switch(type)
 		if("view")
 			. = view(distance,center)
@@ -761,7 +662,7 @@ proc/view_or_range(distance = world.view , center = usr , type)
 			. = range(distance,center)
 	return
 
-proc/oview_or_orange(distance = world.view , center = usr , type)
+/proc/oview_or_orange(distance = world.view , center = usr , type)
 	switch(type)
 		if("view")
 			. = oview(distance,center)
@@ -769,7 +670,7 @@ proc/oview_or_orange(distance = world.view , center = usr , type)
 			. = orange(distance,center)
 	return
 
-proc/get_mob_with_client_list()
+/proc/get_mob_with_client_list()
 	var/list/mobs = list()
 	for(var/mob/M in mob_list)
 		if (M.client)
@@ -821,7 +722,7 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-proc/is_hot(obj/item/W as obj)
+/proc/is_hot(obj/item/W as obj)
 	switch(W.type)
 		if(/obj/item/weldingtool)
 			var/obj/item/weldingtool/WT = W
@@ -868,15 +769,6 @@ proc/is_hot(obj/item/W as obj)
 	if (O.edge)
 		return 1
 	return 0
-
-/obj/proc/damage_flags()
-	. = 0
-	if(has_edge(src))
-		. |= DAM_EDGE
-	if(is_sharp(src))
-		. |= DAM_SHARP
-		if(damtype == BURN)
-			. |= DAM_LASER
 
 //Returns 1 if the given item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
 /proc/can_puncture(obj/item/W as obj)		// For the record, WHAT THE HELL IS THIS METHOD OF DOING IT?
@@ -1019,36 +911,9 @@ var/list/wall_items = typecacheof(list(
 			colour += temp_col
 	return "#[colour]"
 
-
-
-/atom/proc/get_light_and_color(var/atom/origin)
-	if(origin)
-		color = origin.color
-		set_light(origin.light_range, origin.light_power, origin.light_color)
-
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)
 	CRASH(msg)
-
-/atom/proc/find_up_hierarchy(var/atom/target)
-	//This function will recurse up the hierarchy containing src, in search of the target
-	//It will stop when it reaches an area, as areas have no loc
-	var/x = 0//As a safety, we'll crawl up a maximum of ten layers
-	var/atom/a = src
-	while (x < 10)
-		x++
-		if (isnull(a))
-			return 0
-
-		if (a == target)//we found it!
-			return 1
-
-		if (istype(a, /area))
-			return 0//Can't recurse any higher than this.
-
-		a = a.loc
-
-	return 0//If we get here, we must be buried many layers deep in nested containers. Shouldn't happen
 
 //similar function to RANGE_TURFS(), but will search spiralling outwards from the center (like the above, but only turfs)
 /proc/spiral_range_turfs(dist=0, center=usr, orange=0)
@@ -1126,93 +991,3 @@ var/list/wall_items = typecacheof(list(
 	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))
 
 #undef DELTA_CALC
-
-// Helper for adding verbs with timers.
-/atom/proc/add_verb(the_verb, datum/callback/callback)
-	if (callback && !callback.Invoke())
-		return
-
-	verbs += the_verb
-
-
-
-#define NOT_FLAG(flag) (!(flag & use_flags))
-#define HAS_FLAG(flag) (flag & use_flags)
-
-// Checks if user can use this object. Set use_flags to customize what checks are done.
-// Returns 0 if they can use it, a value representing why they can't if not.
-// Flags are in `code/__defines/misc.dm`
-/atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
-	. = 0
-	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
-		// No message for ghosts.
-		return USE_FAIL_NONLIVING
-
-	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
-		if (show_messages)
-			to_chat(user, "<span class='notice'>You're too far away from [src] to do that.</span>")
-		return USE_FAIL_NON_ADJACENT
-
-	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
-		if (show_messages)
-			to_chat(user, "<span class='notice'>How do you expect to do that when you're dead?</span>")
-		return USE_FAIL_DEAD
-
-	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
-		if (show_messages)
-			to_chat(user, "<span class='notice'>You cannot do that in your current state.</span>")
-		return USE_FAIL_INCAPACITATED
-
-	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
-		if (show_messages)
-			to_chat(user, "<span class='notice'>You don't know how to operate [src].</span>")
-		return USE_FAIL_NON_ADV_TOOL_USR
-
-	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
-		if (show_messages)
-			to_chat(user, "<span class='notice'>How do you propose doing that without hands?</span>")
-		return USE_FAIL_IS_SILICON
-
-	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
-		if (show_messages)
-			to_chat(user, "<span class='notice'>You need to be holding [src] to do that.</span>")
-		return USE_FAIL_NOT_IN_USER
-
-/atom/proc/use_check_and_message(mob/user, use_flags = 0)
-	. = use_check(user, use_flags, TRUE)
-
-/obj/proc/iswrench()
-	return FALSE
-
-/obj/proc/isscrewdriver()
-	return FALSE
-
-/obj/proc/iswirecutter()
-	return FALSE
-
-/obj/proc/ismultitool()
-	return FALSE
-
-/obj/proc/iscrowbar()
-	return FALSE
-
-/obj/proc/iswelder()
-	return FALSE
-
-/obj/proc/iscoil()
-	return FALSE
-
-/obj/proc/ispen()
-	return FALSE
-
-#undef NOT_FLAG
-#undef HAS_FLAG
-
-//Prevents robots dropping their modules.
-/proc/dropsafety(var/atom/movable/A)
-	if (istype(A.loc, /mob/living/silicon))
-		return 0
-
-	else if (istype(A.loc, /obj/item/rig_module))
-		return 0
-	return 1

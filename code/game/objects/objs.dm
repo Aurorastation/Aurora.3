@@ -246,3 +246,12 @@
 // whether mobs can unequip and drop items into us or not
 /obj/proc/can_hold_dropped_items()
 	return TRUE
+
+/obj/proc/damage_flags()
+	. = 0
+	if(has_edge(src))
+		. |= DAM_EDGE
+	if(is_sharp(src))
+		. |= DAM_SHARP
+		if(damtype == BURN)
+			. |= DAM_LASER

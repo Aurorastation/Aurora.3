@@ -23,9 +23,8 @@
 	target = beam_target
 	target_oldloc = get_turf(target)
 
-	if(get_dist(origin_oldloc, target_oldloc) >= max_distance || origin_oldloc.z != target_oldloc.z)
+	if(!origin || !target || !target_oldloc || !origin_oldloc || get_dist(origin_oldloc, target_oldloc) >= max_distance || origin_oldloc.z != target_oldloc.z)
 		qdel(src)
-		crash_with("Tried to create a new beam with length beyond its maximum distance limit.")
 		return
 
 	sleep_time = beam_sleep_time
