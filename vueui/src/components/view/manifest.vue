@@ -5,7 +5,7 @@
         <tr :class="'bg-dept-' + dept.toLowerCase()">
           <th colspan="3" class="fw-bold">{{ dept }}</th>
         </tr>
-        <tr v-for="entry in el" :key="entry.name" :class="{fwBold: entry.head}">
+        <tr v-for="entry in el" :key="entry.name" :class="{'fw-bold': entry.head}">
           <td class="pl-2">{{ entry.name }}</td>
           <td class="px-1">{{ entry.rank }}</td>
           <td class="pr-2 text-right">{{ entry.active }}</td>
