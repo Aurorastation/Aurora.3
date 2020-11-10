@@ -48,7 +48,7 @@
 #define CE_ALCOHOL      "alcohol"		// Liver filtering
 #define CE_ANTIEMETIC   "antiemetic"	// suppresses vomiting
 #define CE_ITCH         "itch"          // causes itching
-#define CE_NOITCH       "noitch"        // suppresses itching 
+#define CE_NOITCH       "noitch"        // suppresses itching
 #define CE_BERSERK      "berserk"
 #define CE_CLUMSY       "clumsy"		// Peridaxon side effects, etc
 #define CE_DROPITEM     "dropitem"		// keloderm side effect
@@ -105,3 +105,7 @@
 
 #define	BASE_VOMIT_CHANCE 10 //Base chance
 #define	VOMIT_CHANCE_SCALE 2.5 //Percent change added for every 0.01 percent over the VOMIT limit
+
+#define REAGENTS_FREE_SPACE(R) (R.maximum_volume - R.total_volume)
+#define REAGENT_VOLUME(REAGENT_HOLDER, REAGENT_TYPE) (REAGENT_HOLDER?.reagent_volumes && REAGENT_HOLDER.reagent_volumes[REAGENT_TYPE])
+#define REAGENT_DATA(REAGENT_HOLDER, REAGENT_TYPE)   (REAGENT_HOLDER?.reagent_data    && REAGENT_HOLDER.reagent_data[REAGENT_TYPE])

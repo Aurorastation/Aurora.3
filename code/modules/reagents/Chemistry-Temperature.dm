@@ -7,22 +7,23 @@
 
 /datum/reagents/proc/get_thermal_energy()
 	var/returning = 0
-	for(var/datum/reagent/R in reagent_list)
+	for(var/_R in reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
 		returning += R.get_thermal_energy()
 	return returning
 
-/datum/reagent/proc/get_thermal_energy()
-	return thermal_energy
+/datum/reagent/proc/get_thermal_energy(var/datum/reagents/holder)
+	return LAZYACCESS(REAGENT_DATA(holder), type, "thermal_energy")
 
 /datum/reagents/proc/get_heat_capacity()
 	var/returning = 0
 	for(var/datum/reagent/R in reagent_list)
 		if(total_volume)
-			returning += R.get_heat_capacity()
+			returning += R.get_heat_capacity(src)
 	return returning
 
-/datum/reagent/proc/get_heat_capacity()
-	return specific_heat * volume
+/decl/reagent/proc/get_heat_capacity(var/datum/reagents/holder)
+	return specific_heat * REAGENT_VOLUME(holder, type)
 
 /datum/reagents/proc/get_temperature()
 	var/HC = get_heat_capacity()
@@ -32,9 +33,9 @@
 	else
 		return T0C + 20
 
-/datum/reagent/proc/get_temperature()
-	var/HC = get_heat_capacity()
-	var/TE = get_thermal_energy()
+/datum/reagent/proc/get_temperature(var/datum/reagents/holder)
+	var/HC = get_heat_capacity(holder)
+	var/TE = get_thermal_energy(holder)
 	if(HC && TE)
 		return TE / HC
 	else
@@ -43,21 +44,25 @@
 /datum/reagents/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature)
 	return get_heat_capacity()*(max(new_temperature, TCMB) - old_temperature)
 
-/datum/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature)
-	return get_heat_capacity()*(max(new_temperature, TCMB) - old_temperature)
+/datum/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature, var/datum/reagents/holder)
+	return get_heat_capacity(holder)*(max(new_temperature, TCMB) - old_temperature)
 
-/datum/reagent/proc/add_thermal_energy(var/added_energy)
-	thermal_energy = max(0,thermal_energy + added_energy)
+/datum/reagent/proc/add_thermal_energy(var/added_energy, var/datum/reagents/holder)
+	LAZYSET(REAGENT_DATA(holder, type, "thermal_energy"), max(0,thermal_energy + added_energy))
 	return added_energy
 
-/datum/reagent/proc/set_thermal_energy(var/set_energy)
-	return add_thermal_energy(-get_thermal_energy() + set_energy)
+/decl/reagent/proc/set_thermal_energy(var/set_energy, var/datum/reagents/holder)
+	return add_thermal_energy(-get_thermal_energy(holder) + set_energy)
+
+/decl/reagent/proc/set_thermal_energy_safe(var/set_energy, var/datum/reagents/holder) // This stops nitroglycerin from exploding
+	LAZYSET(REAGENT_DATA(holder, type, "thermal_energy"), set_energy)
+	return 0
 
 /datum/reagents/proc/set_thermal_energy(var/set_energy)
 	return add_thermal_energy(-get_thermal_energy() + set_energy)
 
-/datum/reagent/proc/set_temperature(var/new_temperature)
-	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
+/datum/reagent/proc/set_temperature(var/new_temperature, var/datum/reagents/holder)
+	return add_thermal_energy(-get_thermal_energy(holder) + get_thermal_energy_change(0,new_temperature, holder), holder )
 
 /datum/reagents/proc/set_temperature(var/new_temperature)
 	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
@@ -68,15 +73,17 @@
 	var/total_heat_capacity = 0
 	var/was_changed = FALSE
 
-	for(var/datum/reagent/R in reagent_list)
-		total_thermal_energy += R.get_thermal_energy()
-		total_heat_capacity += R.get_heat_capacity()
+	for(var/_R in reagent_data)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		total_thermal_energy += R.get_thermal_energy(src)
+		total_heat_capacity += R.get_heat_capacity(src)
 
-	for(var/datum/reagent/R in reagent_list)
-		var/old_thermal_energy = R.get_thermal_energy()
-		var/new_thermal_energy = total_thermal_energy * (R.get_heat_capacity()/total_heat_capacity)
+	for(var/_R in reagent_data)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/old_thermal_energy = R.get_thermal_energy(src)
+		var/new_thermal_energy = total_thermal_energy * (R.get_heat_capacity(src)/total_heat_capacity)
 		if(round(old_thermal_energy,1) != round(new_thermal_energy,1))
-			R.set_thermal_energy( new_thermal_energy )
+			R.set_thermal_energy( new_thermal_energy, src )
 			was_changed = TRUE
 
 	return was_changed
@@ -86,39 +93,22 @@
 	var/total_energy_added = 0
 	var/total_heat_capacity = 0
 
-	for(var/datum/reagent/R in reagent_list)
-		total_heat_capacity += R.get_heat_capacity()
+	for(var/_R in reagent_data)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		total_heat_capacity += R.get_heat_capacity(src)
 
-	for(var/datum/reagent/R in reagent_list)
-		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (R.get_heat_capacity()/total_heat_capacity) )
+	for(var/_R in reagent_data)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (R.get_heat_capacity()/total_heat_capacity), src )
 
 	return total_energy_added
 
-/*
-/datum/reagents/proc/add_thermal_energy(var/thermal_energy_to_add)
-
-	if (total_volume == 0)
-		return 0
-
-	var/returning_energy_used = 0
-
-	for(var/datum/reagent/R in reagent_list)
-		var/local_thermal_energy = thermal_energy_to_add / reagent_list.len
-		if (local_thermal_energy < 0)
-			if (R.get_temperature() < TCMB)
-				return 0
-			var/thermal_energy_limit = -(R.get_temperature() - TCMB) * R.get_heat_capacity()	//ensure temperature does not go below TCMB
-			local_thermal_energy = max( local_thermal_energy, thermal_energy_limit )	//thermal_energy and thermal_energy_limit are negative here.
-		returning_energy_used += R.add_thermal_energy(local_thermal_energy)
-
-	return returning_energy_used
-*/
-
 /datum/reagents/proc/has_all_temperatures(var/list/required_temperatures_min, var/list/required_temperatures_max)
 
-	for(var/datum/reagent/current in reagent_list)
+	for(var/_current in reagent_data)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 
-		var/current_temperature = current.get_temperature()
+		var/current_temperature = current.get_temperature(src)
 
 		if(current.type in required_temperatures_min) //The current temperature must be greater than this temperature
 			var/required_temperature = required_temperatures_min[current.type]

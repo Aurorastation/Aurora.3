@@ -17,7 +17,7 @@
 	var/dose = 0
 	var/max_dose = 0
 	var/overdose = 0 // Volume of a chemical required in the blood to meet overdose criteria.
-	var/od_minimum_dose = 5 // Metabolised dose of a chemical required to meet overdose criteria. 
+	var/od_minimum_dose = 5 // Metabolised dose of a chemical required to meet overdose criteria.
 	var/scannable = 0 // Shows up on health analyzers.
 	var/affects_dead = 0
 	var/glass_icon_state = null
@@ -34,7 +34,7 @@
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
-	var/default_temperature = T0C + 20 //This is it's default spawning temperature, if none is provided.
+	var/default_temperature = T0C + 20 //This is its default spawning temperature, if none is provided.
 	var/thermal_energy = 0 //Internal value, should never change.
 	var/specific_heat = -1 //The higher, the more difficult it is to change its temperature. 0 or lower values indicate that the specific heat has yet to be assigned.
 	var/fallback_specific_heat = -1 //Setting this value above 0 will set the specific heat to this value only if the system could not find an appropriate specific heat to assign using the recipe system.

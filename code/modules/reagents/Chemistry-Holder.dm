@@ -1,14 +1,16 @@
 #define PROCESS_REACTION_ITER 5 //when processing a reaction, iterate this many times
 
 /datum/reagents
-	var/list/datum/reagent/reagent_list = list()
+	var/primary_reagent
+	var/list/reagent_volumes
+	var/list/reagent_data
 	var/total_volume = 0
 	var/maximum_volume = 100
-	var/atom/my_atom = null
+	var/atom/my_atom
 
 	var/temperature = T20C
 
-/datum/reagents/New(var/max = 100, atom/A = null)
+/datum/reagents/New(var/max = 100, atom/A)
 	..()
 	maximum_volume = max
 	my_atom = A
@@ -31,8 +33,13 @@
 	for (var/datum/reagent/A in reagent_list)
 		A.apply_force(force)
 
-/datum/reagents/proc/get_free_space() // Returns free space.
-	return maximum_volume - total_volume
+/datum/reagents/proc/get_primary_reagent_name() // Returns the name of the reagent with the biggest volume.
+	var/decl/reagent/reagent = get_primary_reagent_decl()
+	if(reagent)
+		. = reagent.name
+
+/datum/reagents/proc/get_primary_reagent_decl()
+	. = primary_reagent && decls_repository.get_decl(primary_reagent)
 
 /datum/reagents/proc/get_master_reagent() // Returns reference to the reagent with the biggest volume.
 	var/the_reagent = null
@@ -76,12 +83,18 @@
 
 	total_volume = 0
 
-	for(var/datum/reagent/R in reagent_list)
-		if(R.volume < MINIMUM_CHEMICAL_VOLUME)
-			del_reagent(R.type)
+	primary_reagent = null
+	for(var/R in reagent_volumes)
+		var/vol = reagent_volumes[R]
+		if(vol < MINIMUM_CHEMICAL_VOLUME)
+			LAZYREMOVE(reagent_volumes, R)
+			LAZYREMOVE(reagent_data, R)
 		else
-			total_volume += R.volume
-
+			total_volume += vol
+			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
+				primary_reagent = R
+	if(total_volume > maximum_volume)
+		remove_any(maximum_volume - total_volume)
 	return max(total_volume,0)
 
 /datum/reagents/proc/update_holder(var/reactions = TRUE)
@@ -103,7 +116,9 @@
 
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()
-	if(!my_atom || !my_atom.loc || my_atom.flags & NOREACT)
+	if(!my_atom?.loc)
+		return 0
+	if(my_atom.flags & NOREACT)
 		return 0
 
 	var/reaction_occured
@@ -113,7 +128,8 @@
 		reaction_occured = 0
 
 		//need to rebuild this to account for chain reactions
-		for(var/datum/reagent/R in reagent_list)
+		for(var/thing in reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(thing)
 			eligible_reactions |= SSchemistry.chemical_reactions[R.type]
 
 		for(var/datum/chemical_reaction/C in eligible_reactions)
@@ -139,108 +155,82 @@
 
 /datum/reagents/proc/add_reagent(var/rtype, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/thermal_energy = 0)
 	if(!isnum(amount) || amount <= 0)
-		return 0
+		return FALSE
 
 	update_total() //Does this need to be here? It's called in update_holder.
 	var/old_amount = amount
-	amount = min(amount, get_free_space())
-
-	for(var/datum/reagent/R in reagent_list)
-		if(R.type == rtype) //Existing reagent
-			R.volume += amount
-			if(thermal_energy > 0 && old_amount > 0)
-				R.add_thermal_energy(thermal_energy * (amount/old_amount) )
-			else
-				if(temperature <= 0)
-					temperature = R.default_temperature
-				R.add_thermal_energy(temperature * R.specific_heat * amount)
-			if(!isnull(data)) // For all we know, it could be zero or empty string and meaningful
-				R.mix_data(data, amount)
-			update_holder(!safety)
-			return 1
-
-	var/datum/reagent/D = SSchemistry.chemical_reagents[rtype] //New reagent
-	if(D)
-		var/datum/reagent/R = new D.type()
-		reagent_list += R
-		R.holder = src
-		R.volume = amount
-		R.specific_heat = SSchemistry.check_specific_heat(R)
-		R.thermal_energy = 0
+	amount = min(amount, REAGENTS_FREE_SPACE(src))
+	var/decl/reagent/newreagent = decls_repository.get_decl(rtype)
+	if(!newreagent)
+		warning("[my_atom] attempted to add a reagent called '[rtype]' which doesn't exist. ([usr])")
+		return FALSE
+	LAZYINITLIST(reagent_volumes)
+	if(!reagent_volumes[rtype])
+		reagent_volumes[rtype] = amount
+		var/tmp_data = newreagent.initialize_data(data)
+		if(tmp_data)
+			LAZYSET(reagent_data, rtype, tmp_data)
+		if(!newreagent.get_thermal_energy(src))
+			set_thermal_energy_safe(default_temperature * specific_heat * amount)
+	else // existing reagent
+		reagent_volumes[rtype] += amount
 		if(thermal_energy > 0 && old_amount > 0)
-			R.set_thermal_energy(thermal_energy * (amount/old_amount) )
+			newreagent.add_thermal_energy(thermal_energy * (amount/old_amount), src)
 		else
 			if(temperature <= 0)
-				temperature = R.default_temperature
-			R.set_temperature(temperature)
-		R.initialize_data(data)
+				temperature = newreagent.default_temperature
+			newreagent.add_thermal_energy(temperature * R.specific_heat * amount)
+		if(!isnull(data))
+			LAZYSET(reagent_data, reagent_type, newreagent.mix_data(src, data, amount))
 		update_holder(!safety)
-		return 1
-	else
-		warning("[my_atom] attempted to add a reagent called '[rtype]' which doesn't exist. ([usr])")
-	return 0
+		return TRUE
+	return FALSE
 
 /datum/reagents/proc/remove_reagent(var/rtype, var/amount, var/safety = 0)
-	if(!isnum(amount))
-		return 0
-
-	for(var/datum/reagent/current in reagent_list)
-		if(current.type == rtype)
-			amount = min(amount,current.volume)
-			var/old_volume = current.volume
-			current.volume -= amount
-			current.add_thermal_energy( -(current.thermal_energy * (amount/old_volume)) )
-			update_holder(!safety)
-			return 1
-	return 0
+	var/old_volume = REAGENT_VOLUME(src, rtype)
+	if(!isnum(amount) || old_volume <= 0)
+		return FALSE
+	amount = min(amount, old_volume)
+	reagent_volumes[reagent_type] -= amount
+	var/decl/reagent/current = decls_repository.get_decl(rtype)
+	current.add_thermal_energy( -(current.thermal_energy * (amount/old_volume)), src )
+	update_holder(!safety)
+	return TRUE
 
 /datum/reagents/proc/del_reagent(var/rtype)
-	for(var/datum/reagent/current in reagent_list)
-		if (current.type == rtype)
-			if(ismob(my_atom))
-				current.final_effect(my_atom)
-			reagent_list -= current
-			qdel(current)
-			update_holder(FALSE)
-			return 0
+	if(REAGENT_VOLUME(src, rtype) <= 0)
+		return FALSE
+	var/decl/reagent/current = decls_repository.get_decl(rtype)
+	if(ismob(my_atom))
+		current.final_effect(my_atom, src)
+	LAZYREMOVE(reagent_data, rtype)
+	LAZYREMOVE(reagent_volumes, rtype)
+	update_holder(FALSE)
+	return FALSE
 
 /datum/reagents/proc/has_reagent(var/rtype, var/amount = 0)
-	for(var/datum/reagent/current in reagent_list)
-		if(current.type == rtype)
-			if(current.volume >= amount)
-				return 1
-			else
-				return 0
-	return 0
+	return REAGENT_VOLUME(src, rtype) >= amount
 
 /datum/reagents/proc/has_any_reagent(var/list/check_reagents)
-	for(var/datum/reagent/current in reagent_list)
-		if(current.type in check_reagents)
-			if(current.volume >= check_reagents[current.type])
-				return 1
-			else
-				return 0
-	return 0
+	for(var/current in check_reagents)
+		if(has_reagent(current))
+			return TRUE
+	return FALSE
 
 /datum/reagents/proc/has_all_reagents(var/list/check_reagents)
-	//this only works if check_reagents has no duplicate entries... hopefully okay since it expects an associative list
-	var/missing = check_reagents.len
-	for(var/datum/reagent/current in reagent_list)
-		if(current.type in check_reagents)
-			if(current.volume >= check_reagents[current.type])
-				missing--
-	return !missing
+	for(var/current in check_reagents)
+		if(!has_reagent(current))
+			return FALSE
+	return TRUE
 
 /datum/reagents/proc/clear_reagents()
-	for(var/datum/reagent/current in reagent_list)
-		del_reagent(current.type)
-	return
-
-/datum/reagents/proc/get_reagent_amount(var/rtype)
-	for(var/datum/reagent/current in reagent_list)
-		if(current.type == rtype)
-			return current.volume
-	return 0
+	if(ismob(my_atom))
+		for(var/_current in reagent_volumes)
+			var/decl/reagent/current = decls_repository.get_decl(_current)
+			current.final_effect(my_atom, src)
+	LAZYCLEARLIST(reagent_volumes)
+	LAZYCLEARLIST(reagent_data)
+	update_holder(FALSE)
 
 /datum/reagents/proc/get_data(var/rtype)
 	for(var/datum/reagent/current in reagent_list)
