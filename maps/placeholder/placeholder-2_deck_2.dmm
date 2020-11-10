@@ -141,10 +141,9 @@
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "bb" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/machinery/atmospherics/portables_connector,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/plating,
 /area/janitor)
 "bc" = (
 /obj/structure/window/phoronreinforced{
@@ -202,10 +201,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "br" = (
-/obj/structure/plasticflaps/mining,
-/obj/machinery/conveyor{
-	dir = 4
-	},
+/obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bs" = (
@@ -584,8 +580,9 @@
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "dI" = (
-/turf/simulated/floor/plating,
-/area/template_noop)
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 "dJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -659,7 +656,7 @@
 /area/janitor)
 "ee" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "eu" = (
@@ -687,9 +684,9 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "eQ" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "eR" = (
@@ -1696,9 +1693,8 @@
 /turf/simulated/floor/grass/alt,
 /area/janitor)
 "up" = (
-/turf/simulated/floor/tiled/ramp{
-	dir = 1
-	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/carpet/rubber,
 /area/janitor)
 "uC" = (
 /obj/machinery/door/blast/regular,
@@ -1881,7 +1877,7 @@
 /obj/effect/decal/fake_object{
 	pixel_y = 25
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/janitor)
 "wL" = (
 /obj/structure/table/stone/marble,
@@ -1983,7 +1979,7 @@
 /area/janitor)
 "yr" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/janitor)
 "yw" = (
@@ -2120,11 +2116,6 @@
 /obj/machinery/smartfridge/secure,
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/carpet/rubber,
-/area/janitor)
-"zU" = (
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 1
-	},
 /area/janitor)
 "Ad" = (
 /obj/effect/floor_decal/corner/green{
@@ -2796,13 +2787,6 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/janitor)
-"IV" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/janitor)
 "IX" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled/white,
@@ -3153,12 +3137,6 @@
 "NZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/janitor)
-"Od" = (
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
 /area/janitor)
 "Om" = (
 /obj/structure/railing/mapped,
@@ -15036,7 +15014,7 @@ VL
 wE
 VL
 MP
-Od
+MP
 ac
 ap
 ac
@@ -15238,7 +15216,7 @@ VL
 wE
 VL
 MP
-Om
+MP
 ac
 ap
 ac
@@ -21467,7 +21445,7 @@ ad
 ad
 ad
 ab
-ac
+sY
 ac
 rP
 oy
@@ -21684,7 +21662,7 @@ NZ
 NZ
 NZ
 NZ
-NZ
+bb
 tN
 XX
 hw
@@ -21870,7 +21848,7 @@ ad
 ad
 ad
 ad
-ab
+bs
 ac
 ac
 rP
@@ -22275,7 +22253,7 @@ ad
 ad
 ad
 ab
-Od
+MP
 kg
 XX
 az
@@ -22469,7 +22447,7 @@ aa
 aa
 aa
 ar
-ad
+ab
 ad
 ad
 ad
@@ -22477,7 +22455,7 @@ ad
 ad
 ad
 ab
-Om
+MP
 Sv
 XX
 Zl
@@ -22670,9 +22648,9 @@ aa
 aa
 aa
 aa
+aW
 ar
-dI
-ad
+yr
 ab
 ab
 ab
@@ -22690,12 +22668,12 @@ Zl
 XX
 HA
 HA
-HA
+up
 HA
 XX
-rD
+WS
 XX
-rD
+WS
 XX
 ab
 ab
@@ -22872,11 +22850,11 @@ aa
 aa
 aa
 aa
-ar
-ar
-dI
-ar
-db
+aW
+im
+it
+im
+AN
 cP
 cP
 ab
@@ -23075,9 +23053,9 @@ aa
 aa
 aa
 aW
-ar
+im
 ee
-ar
+im
 AN
 aa
 aa
@@ -23300,7 +23278,7 @@ uI
 No
 az
 ac
-ac
+br
 ac
 ab
 WO
@@ -23891,21 +23869,21 @@ aa
 az
 qN
 NZ
+bb
 NZ
 NZ
 NZ
 NZ
-NZ
-NZ
+bb
 NZ
 XX
 XX
 kg
 ac
+br
 ac
 ac
-ac
-ac
+br
 ac
 ac
 ac
@@ -24110,7 +24088,7 @@ ac
 ac
 ac
 ac
-ac
+br
 ac
 az
 wN
@@ -24288,7 +24266,7 @@ aa
 aa
 aW
 im
-it
+ee
 im
 AN
 aa
@@ -24503,7 +24481,7 @@ af
 aS
 aU
 WO
-WO
+eQ
 XX
 XX
 XX
@@ -24705,8 +24683,8 @@ aK
 WO
 WO
 WO
-WO
-sf
+eQ
+XX
 IE
 VL
 VL
@@ -24905,10 +24883,10 @@ Kv
 ab
 aP
 WO
+dI
 WO
 WO
-bb
-XX
+sf
 IE
 VL
 VL
@@ -25102,14 +25080,14 @@ db
 aa
 az
 qN
-NZ
+bb
 tN
 ab
 aP
 WO
 WO
 WO
-bb
+WO
 XX
 IE
 VL
@@ -25119,7 +25097,7 @@ VL
 VL
 rW
 ac
-ac
+br
 ac
 ac
 Ko
@@ -25298,7 +25276,7 @@ aa
 aa
 aW
 im
-it
+ee
 im
 AN
 cP
@@ -25919,14 +25897,14 @@ WO
 WO
 Yl
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 ab
 du
 dE
@@ -26112,7 +26090,7 @@ ad
 ad
 ab
 qN
-NZ
+bb
 tN
 Ni
 WO
@@ -26121,10 +26099,10 @@ QF
 WO
 Yl
 ab
-ac
-ac
-ac
-ac
+ad
+ad
+ad
+ad
 ab
 ab
 ab
@@ -26318,15 +26296,15 @@ NZ
 zr
 ab
 WO
-wp
-aG
+VL
+VL
 TO
 Yl
 ab
 wH
-ac
-ac
-ac
+ad
+ad
+ad
 ab
 cw
 cw
@@ -26525,10 +26503,10 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
+ab
+ad
+ad
+ad
 jE
 ac
 ac
@@ -26724,13 +26702,13 @@ ab
 ac
 ac
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+ad
+ad
+ad
+ab
+ab
+ad
+ad
 ab
 cT
 cv
@@ -26779,8 +26757,8 @@ tX
 ac
 tX
 ab
-zU
-up
+VL
+VL
 ac
 ac
 Ko
@@ -26920,19 +26898,19 @@ ac
 ac
 ab
 ac
-ac
-ac
-ab
-ac
+br
 ac
 ab
 ac
 ac
-ac
-ac
-ac
-ac
-ac
+ab
+ad
+ad
+ad
+ad
+XS
+ad
+ad
 ab
 cX
 ai
@@ -27128,10 +27106,10 @@ ab
 ac
 ac
 ab
-ac
-ac
-ac
-ac
+ad
+ad
+ad
+ad
 ab
 ab
 ab
@@ -27330,10 +27308,10 @@ ac
 ac
 ac
 ab
-ac
-ac
+ad
+ad
 ab
-br
+ab
 bE
 bK
 bN
@@ -27532,8 +27510,8 @@ ac
 ac
 ac
 ab
-ac
-ac
+ad
+ad
 ab
 lF
 bG
@@ -27734,8 +27712,8 @@ ac
 ac
 ac
 ab
-ac
-ac
+ad
+ad
 ab
 lF
 bH
@@ -27936,8 +27914,8 @@ ac
 ab
 ab
 ab
-ac
-ac
+ad
+ad
 ab
 lF
 bH
@@ -28138,8 +28116,8 @@ ac
 ac
 ac
 ab
-ac
-ac
+ad
+ad
 bp
 bu
 bJ
@@ -28340,8 +28318,8 @@ ac
 ac
 ac
 ab
-ac
-ac
+ad
+ad
 ab
 ab
 ab
@@ -28542,8 +28520,8 @@ cQ
 zC
 ac
 ab
-ac
-ac
+ad
+ad
 ab
 bv
 Jh
@@ -28744,8 +28722,8 @@ ac
 ac
 ac
 ab
-ac
-ac
+ad
+ad
 ab
 bz
 Jh
@@ -28946,8 +28924,8 @@ ac
 ac
 ac
 ab
-ac
-ac
+ad
+ad
 ab
 bA
 Jh
@@ -29148,8 +29126,8 @@ ab
 ab
 ab
 ab
-ac
-ac
+ad
+ad
 ab
 bB
 Jh
@@ -29349,9 +29327,9 @@ ac
 ab
 ac
 ac
-ac
-ac
-ac
+ab
+ab
+ab
 ab
 ab
 ab
@@ -33193,14 +33171,14 @@ aa
 aa
 az
 az
-IV
-IV
-IV
-IV
-IV
+ed
+ed
+ed
+ed
+ed
 WO
-eQ
-eQ
+WO
+WO
 ab
 Om
 ac
