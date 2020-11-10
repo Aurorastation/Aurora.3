@@ -1,0 +1,17 @@
+author: Geeves, Happy Fox
+
+delete-after: True
+
+changes: 
+  - tweak: "Vampires with victim awareness enabled will no longer drop their victims to the floor."
+  - tweak: "Stunned people can no longer interact with radios. This means that you cannot use a radio while being bloodsucked."
+  - rscadd: "Clicking the drain blood ability whilst draining blood will now cause you to stop sucking blood at the end of the next drain cycle."
+  - rscadd: "Gaining a vampire power is now displayed a bit nicer in the chat log."
+  - rscadd: "Vampires now have a UI element on the HUD for how much usable blood they have, what their frenzy counter is at, and to suck people."
+  - bugfix: "Removing vampire status from a player now removes their vampire abilities and such."
+  - tweak: "Vampires now can only suck up until 950 units of usable blood."
+  - tweak: "Vampire glare now stuns IPCs and cyborgs as well."
+  - bugfix: "Hulks no longer have funky punctuation."
+  - tweak: "Veil walking now uses your mob sprite instead of a generic ghost sprite."
+  - rscadd: "Triggering veil walking now breaks all grabs on you."
+  - rscadd: "The vampire help menu has been revamped to be more up to date and stylish."
