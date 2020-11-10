@@ -55,14 +55,14 @@
 			contains = NOTHING
 			update_icon()
 			return
-		if(2)
+		if(ANIMAL)
 			for(var/mob/M in src)
 				M.forceMove(user.loc)
 				user.visible_message(SPAN_NOTICE("[user] releases [M] from \the [src]."), SPAN_NOTICE("You release [M] from \the [src]."))
 			contains = NOTHING
 			update_icon()
 			return
-		if(3)
+		if(SPIDERLING)
 			for(var/obj/effect/spider/spiderling/S in src)
 				S.forceMove(user.loc)
 				user.visible_message(SPAN_NOTICE("[user] releases [S] from \the [src]."), SPAN_NOTICE("You release [S] from \the [src]."))
@@ -70,7 +70,7 @@
 			contains = NOTHING
 			update_icon()
 			return
-		if(0)
+		if(NOTHING)
 			to_chat(user, SPAN_NOTICE("You remove the lid from \the [src].")
 			user.drop_from_inventory(src)
 			user.put_in_hands(new /obj/item/reagent_containers/glass/beaker/jar) //found in jar.dm
@@ -81,7 +81,7 @@
 	if(istype(A, /obj/item/spacecash))
 		if(contains == NOTHING)
 			contains = MONEY
-		if(contains != 1)
+		if(contains != MONEY)
 			return
 		var/obj/item/spacecash/S = A
 		user.visible_message(SPAN_NOTICE("[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
@@ -94,10 +94,10 @@
 	underlays.Cut()
 	cut_overlays()
 	switch(contains)
-		if(0)
+		if(NOTHING)
 			name = initial(name)
 			desc = initial(desc)
-		if(1)
+		if(MONEY)
 			name = "tip jar"
 			desc = "A small jar with money inside."
 			for(var/obj/item/spacecash/S in src)
@@ -108,7 +108,7 @@
 				underlays += money
 				for (var/A in S.overlays)
 					underlays += A
-		if(2)
+		if(ANIMAL)
 			for(var/mob/M in src)
 				var/image/victim = new()
 				victim.appearance = M
@@ -119,7 +119,7 @@
 				underlays += victim
 				name = "glass jar with [M]"
 				desc = "A small jar with [M] inside."
-		if(3)
+		if(SPIDERLING)
 			for(var/obj/effect/spider/spiderling/S in src)
 				var/image/victim = image(S.icon, S.icon_state)
 				underlays += victim
