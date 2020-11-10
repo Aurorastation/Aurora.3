@@ -181,6 +181,8 @@ var/global/list/cloaking_devices = list()
 
 	return 1
 
+var/global/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "\"" = TRUE)
+
 /* // Uncomment to debug chemical reaction list.
 /client/verb/debug_chemical_list()
 

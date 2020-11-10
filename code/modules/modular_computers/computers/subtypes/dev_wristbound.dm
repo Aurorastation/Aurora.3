@@ -11,7 +11,6 @@
 	slot_flags = SLOT_GLOVES|SLOT_ID
 	can_reset = TRUE
 	max_hardware_size = 1
-	light_strength = 1
 	menu_light_color = COLOR_GREEN
 
 /obj/item/modular_computer/handheld/wristbound/set_icon()

@@ -44,12 +44,22 @@
 	VUEUI_SET_CHECK(data["card_slot"], computer.card_slot, ., data)
 	if(computer.registered_id)
 		VUEUI_SET_CHECK(data["registered"], computer.registered_id.registered_name, ., data)
+	else
+		VUEUI_SET_CHECK(data["registered"], 0, ., data)
 	if(!computer.battery_module)
 		VUEUI_SET_CHECK(data["battery"], 0, ., data)
 	else
 		LAZYINITLIST(data["battery"])
 		VUEUI_SET_CHECK(data["battery"]["rating"], computer.battery_module.battery.maxcharge, ., data)
 		VUEUI_SET_CHECK(data["battery"]["percent"], round(computer.battery_module.battery.percent()), ., data)
+
+	if(computer.flashlight)
+		var/brightness = Clamp(0, round(computer.flashlight.power) * 10, 10)
+		VUEUI_SET_CHECK_IFNOTSET(data["brightness"], brightness, ., data)
+
+		if(data["brightness"])
+			var/new_brightness = Clamp(0, data["brightness"]/10, 1)
+			computer.flashlight.tweak_brightness(new_brightness)
 
 	LAZYINITLIST(data["hardware"])
 	for(var/obj/item/computer_hardware/H in hardware)
