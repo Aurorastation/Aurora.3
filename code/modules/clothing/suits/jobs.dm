@@ -98,26 +98,50 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = 0
 
 //Security
-/obj/item/clothing/suit/security/navyofficer
+/obj/item/clothing/suit/security/officer
 	name = "security officer's jacket"
 	desc = "This jacket is for those special occasions when a security officer actually feels safe."
 	icon_state = "officerbluejacket"
 	item_state = "officerbluejacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/navywarden
+/obj/item/clothing/suit/security/officer/dnavy
+	icon_state = "officerdnavyjacket"
+	item_state = "officerdnavyjacket"
+
+/obj/item/clothing/suit/security/officer/tan
+	icon_state = "officertanjacket"
+	item_state = "officertanjacket"
+
+/obj/item/clothing/suit/security/warden
 	name = "warden's jacket"
 	desc = "Perfectly suited for the warden that wants to leave an impression of style on those who visit the brig."
 	icon_state = "wardenbluejacket"
 	item_state = "wardenbluejacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/navyhos
+/obj/item/clothing/suit/security/warden/dnavy
+	icon_state = "wardendnavyjacket"
+	item_state = "wardendnavyjacket"
+
+/obj/item/clothing/suit/security/warden/tan
+	icon_state = "wardentanjacket"
+	item_state = "wardentanjacket"
+
+/obj/item/clothing/suit/security/hos
 	name = "head of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
 	icon_state = "hosbluejacket"
 	item_state = "hosbluejacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/security/hos/dnavy
+	icon_state = "hosdnavyjacket"
+	item_state = "hosdnavyjacket"
+
+/obj/item/clothing/suit/security/hos/tan
+	icon_state = "hostanjacket"
+	item_state = "hostanjacket"
 
 //Detective
 
@@ -139,7 +163,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "detective"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
@@ -148,23 +172,29 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "detective2"
 
 //Forensics
-/obj/item/clothing/suit/storage/forensics
-	name = "jacket"
-	desc = "A forensics technician jacket."
-	item_state = "det_suit"
+/obj/item/clothing/suit/storage/toggle/forensics_armored
+	name = "armored forensic technician's jacket"
+	desc = "A lightly armored jacket for the slick on the beat sleuth looking for the next case to crack."
+	icon_state = "forensics"
+	item_state = "forensics"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/taperecorder)
 	armor = list(melee = 10, bullet = 10, laser = 15, energy = 10, bomb = 0, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/storage/forensics/red
-	name = "red jacket"
-	desc = "A red forensics technician jacket."
-	icon_state = "forensics_red"
+/obj/item/clothing/suit/storage/toggle/forensics
+	name = "forensic technician's jacket"
+	desc = "A lightly armored jacket for a slick, on the beat sleuth."
+	icon_state = "forensicsblue"
+	item_state = "forensicsblue"
+	body_parts_covered = UPPER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/forensics/blue
-	name = "blue jacket"
-	desc = "A blue forensics technician jacket."
-	icon_state = "forensics_blue"
+/obj/item/clothing/suit/storage/toggle/forensics/dnavy
+	icon_state = "forensicsdnavy"
+	item_state = "forensicsdnavy"
+
+/obj/item/clothing/suit/storage/toggle/forensics/tan
+	icon_state = "forensicstan"
+	item_state = "forensicstan"
 
 //Engineering
 /obj/item/clothing/suit/storage/hazardvest

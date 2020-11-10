@@ -294,8 +294,9 @@
 		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/head/softcap/security/corp(src)
 	new /obj/item/clothing/head/beret/security/corp(src)
-	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
+	new /obj/item/clothing/under/rank/security/corp(src)
+	new /obj/item/clothing/suit/armor/vest/security(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	//Tools
@@ -381,8 +382,7 @@
 /obj/structure/closet/secure_closet/csi/fill()
 	//Appearance
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/suit/storage/forensics/blue(src)
-	new /obj/item/clothing/suit/storage/forensics/red(src)
+	new /obj/item/clothing/suit/storage/toggle/forensics_armored(src)
 	new /obj/item/clothing/suit/storage/vest/csi(src)
 	new /obj/item/clothing/under/det/forensics(src)
 	new /obj/item/clothing/under/det/black(src)

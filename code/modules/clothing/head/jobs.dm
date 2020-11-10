@@ -107,7 +107,7 @@
 	item_state = "commissar"
 
 /obj/item/clothing/head/hos/cap
-	name = "head of security hat"
+	name = "Head of Security hat"
 	desc = "The navy blue parade hat of the Head of Security. For showing the officers who's in charge."
 	icon = 'icons/obj/clothing/hats/security.dmi'
 	icon_state = "hos"
@@ -115,7 +115,7 @@
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/hos/cap/corp
-	name = "corporate head of security hat"
+	name = "corporate Head of Security hat"
 	desc = "The black parade hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "corp"
 	item_state = "corp"
