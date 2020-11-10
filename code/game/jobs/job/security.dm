@@ -1,7 +1,7 @@
 /datum/job/hos
 	title = "Head of Security"
 	flag = HOS
-	department = list(DEPARTMENT_SECURITY = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
+	departments = list(DEPARTMENT_SECURITY = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -67,7 +67,7 @@
 /datum/job/warden
 	title = "Warden"
 	flag = WARDEN
-	department = SIMPLEDEPT(DEPARTMENT_SECURITY)
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -118,7 +118,7 @@
 /datum/job/detective
 	title = "Detective"
 	flag = DETECTIVE
-	department = SIMPLEDEPT(DEPARTMENT_SECURITY)
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -162,7 +162,7 @@
 /datum/job/forensics
 	title = "Forensic Technician"
 	flag = FORENSICS
-	department = SIMPLEDEPT(DEPARTMENT_SECURITY)
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -214,7 +214,7 @@
 /datum/job/officer
 	title = "Security Officer"
 	flag = OFFICER
-	department = SIMPLEDEPT(DEPARTMENT_SECURITY)
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 4
@@ -263,7 +263,7 @@
 /datum/job/intern_sec
 	title = "Security Cadet"
 	flag = INTERN_SEC
-	department = SIMPLEDEPT(DEPARTMENT_SECURITY)
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 2

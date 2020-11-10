@@ -1,7 +1,7 @@
 /datum/job/assistant
 	title = "Assistant"
 	flag = ASSISTANT
-	department = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = -1
@@ -30,7 +30,7 @@
 /datum/job/visitor
 	title = "Visitor"
 	flag = VISITOR
-	department = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = -1

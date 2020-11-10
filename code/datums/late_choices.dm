@@ -64,8 +64,8 @@
 		if(NP.IsJobAvailable(job.title))
 			jobs_available++
 			var/list/departments
-			if(job.department.len > 0 && all_in_list(job.department, jobs_by_department))
-				departments = job.department
+			if(job.departments.len > 0 && all_in_list(job.departments, jobs_by_department))
+				departments = job.departments
 			else // no department set or there's something weird
 				departments = list(DEPARTMENT_MISCELLANEOUS = JOBROLE_DEFAULT)
 
@@ -82,7 +82,7 @@
 		for(var/datum/job/job in jobs_by_department[department])
 			LAZYINITLIST(data["jobs_list"][department][job.title])
 			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["title"], job.title, ., data)
-			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["head"], job.department[department] & JOBROLE_SUPERVISOR, ., data)
+			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["head"], job.departments[department] & JOBROLE_SUPERVISOR, ., data)
 			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["total_positions"], job.get_total_positions(), ., data)
 			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["current_positions"], job.current_positions, ., data)
 

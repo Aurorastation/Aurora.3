@@ -1,7 +1,7 @@
 /datum/job/cmo
 	title = "Chief Medical Officer"
 	flag = CMO
-	department = list(DEPARTMENT_MEDICAL = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
+	departments = list(DEPARTMENT_MEDICAL = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
@@ -51,7 +51,7 @@
 /datum/job/doctor
 	title = "Physician"
 	flag = DOCTOR
-	department = SIMPLEDEPT(DEPARTMENT_MEDICAL)
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 4
@@ -69,7 +69,7 @@
 /datum/job/surgeon
 	title = "Surgeon"
 	flag = SURGEON
-	department = SIMPLEDEPT(DEPARTMENT_MEDICAL)
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	supervisors = "the chief medical officer"
@@ -126,7 +126,7 @@
 /datum/job/pharmacist
 	title = "Pharmacist"
 	flag = CHEMIST
-	department = SIMPLEDEPT(DEPARTMENT_MEDICAL)
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
@@ -162,7 +162,7 @@
 /datum/job/psychiatrist
 	title = "Psychiatrist"
 	flag = PSYCHIATRIST
-	department = SIMPLEDEPT(DEPARTMENT_MEDICAL)
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
@@ -200,7 +200,7 @@
 /datum/job/med_tech
 	title = "Emergency Medical Technician"
 	flag = MED_TECH
-	department = SIMPLEDEPT(DEPARTMENT_MEDICAL)
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
@@ -242,7 +242,7 @@
 /datum/job/intern_med
 	title = "Medical Intern"
 	flag = INTERN_MED
-	department = SIMPLEDEPT(DEPARTMENT_MEDICAL)
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2

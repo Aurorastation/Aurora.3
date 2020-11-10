@@ -1,7 +1,7 @@
 /datum/job/ai
 	title = "AI"
 	flag = AI
-	department = list(DEPARTMENT_EQUIPMENT = JOBROLE_SUPERVISOR)
+	departments = list(DEPARTMENT_EQUIPMENT = JOBROLE_SUPERVISOR)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = null // Not used by AI, see get_total_positions and is_position_available below
@@ -42,7 +42,7 @@
 /datum/job/cyborg
 	title = "Cyborg"
 	flag = CYBORG
-	department = SIMPLEDEPT(DEPARTMENT_EQUIPMENT)
+	departments = SIMPLEDEPT(DEPARTMENT_EQUIPMENT)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 2
