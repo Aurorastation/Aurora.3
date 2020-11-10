@@ -8,7 +8,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -38,7 +38,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -73,7 +73,7 @@
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -119,7 +119,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 5
 
 	minimum_character_age = 22
@@ -154,7 +154,7 @@
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -184,7 +184,7 @@
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 5
 
 	minimum_character_age = 18
@@ -233,7 +233,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
@@ -258,7 +258,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 20
 
@@ -308,7 +308,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
 	alt_titles = list("Curator", "Tech Support")

@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 
@@ -87,7 +87,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "your embassy"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 

@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#FF56B4"
+	selection_color = "#15903a"
 	economic_modifier = 10
 
 	minimum_character_age = 35
@@ -57,7 +57,7 @@
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	economic_modifier = 7
 
 	minimum_character_age = 25
@@ -73,7 +73,7 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	economic_modifier = 7
 
 	spawn_positions = 2
@@ -132,7 +132,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	economic_modifier = 5
 
 	minimum_character_age = 26
@@ -172,7 +172,7 @@
 	minimum_character_age = 30
 
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
 	alt_titles = list("Psychologist")
@@ -206,7 +206,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	economic_modifier = 4
 
 	minimum_character_age = 20
@@ -248,7 +248,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 	minimum_character_age = 18

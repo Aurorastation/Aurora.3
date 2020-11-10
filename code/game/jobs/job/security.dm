@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#FF6363"
+	selection_color = "#991818"
 	economic_modifier = 10
 
 	minimum_character_age = 30
@@ -73,7 +73,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -124,7 +124,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -168,7 +168,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -220,7 +220,7 @@
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	economic_modifier = 4
 
 	minimum_character_age = 18
@@ -269,7 +269,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec

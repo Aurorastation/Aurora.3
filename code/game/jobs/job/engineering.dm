@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#FFD737"
+	selection_color = "#c67519"
 	economic_modifier = 10
 
 	minimum_character_age = 30
@@ -75,7 +75,7 @@
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the chief engineer"
-	selection_color = "#FFEA95"
+	selection_color = "#c67519"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -122,7 +122,7 @@
 	spawn_positions = 2
 	intro_prefix = "an"
 	supervisors = "the chief engineer"
-	selection_color = "#FFEA95"
+	selection_color = "#c67519"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -170,7 +170,7 @@
 	spawn_positions = 2
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
-	selection_color = "#FFEA95"
+	selection_color = "#c67519"
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	outfit = /datum/outfit/job/intern_eng

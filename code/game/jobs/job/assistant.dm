@@ -8,7 +8,7 @@
 	spawn_positions = -1
 	intro_prefix = "an"
 	supervisors = "absolutely everyone"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 1
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
@@ -36,7 +36,7 @@
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "any authority figure"
-	selection_color = "#3d3d3d"
+	selection_color = "#90524b"
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()

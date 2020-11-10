@@ -156,20 +156,16 @@
 	)
 	var/index = -1
 
-	//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
-	var/datum/job/lastJob
-
 	var/datum/faction/faction = SSjobs.name_factions[pref.faction] || SSjobs.default_faction
-
 	for(var/datum/job/job in faction.get_occupations())
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
 			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 			index = 0
 
-		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
 		var/rank = job.title
-		lastJob = job
+		var/head = (rank in command_positions) || (rank == "AI")
+		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, head ? 1 : 0.6)];'><td width='60%' align='right'>"
 
 		var/list/available = pref.GetValidTitles(job)
 		var/dispRank = LAZYLEN(available) ? LAZYACCESS(available, 1) : rank
@@ -197,11 +193,11 @@
 			dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 			continue
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
-			dispRank = "<span style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];' width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
+			dispRank = "<span width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<font color=orange>[dispRank]</font></td><td></td></tr>"
 			continue
-		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
+		if(head)//Bold head jobs
 			dat += "<b>[dispRank]</b>"
 		else
 			dat += "[dispRank]"
