@@ -54,7 +54,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(O.reagents.get_reagent_amount(/datum/reagent/fuel) >= 750)
+	if(REAGENT_VOLUME(O.reagents, /datum/reagent/fuel) >= 750)
 		return TRUE
 	return FALSE
 

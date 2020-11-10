@@ -25,7 +25,7 @@
 /datum/bounty/reagent/ship(obj/O)
 	if(!applies_to(O))
 		return
-	shipped_volume += O.reagents.get_reagent_amount(wanted_reagent.type)
+	shipped_volume += REAGENT_VOLUME(O.reagents, wanted_reagent.type)
 	if(shipped_volume > required_volume)
 		shipped_volume = required_volume
 
@@ -121,7 +121,7 @@
 		/datum/reagent/alcohol/butanol/wastelandheat,
 		/datum/reagent/alcohol/butanol/contactwine,
 		/datum/reagent/alcohol/butanol/crocodile_booze)
-		
+
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name

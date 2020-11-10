@@ -65,18 +65,18 @@
 			(max_product/result_amount) / reaction_limit == yield/(1-yield)
 
 			We make use of the fact that:
-			reaction_limit = (holder.get_reagent_amount(reactant) / required_reagents[reactant]) of the limiting reagent.
+			reaction_limit = (REAGENT_VOLUME(holder, reactant) / required_reagents[reactant]) of the limiting reagent.
 		*/
 		var/yield_ratio = yield/(1-yield)
 		var/max_product = yield_ratio * reaction_limit * result_amount //rearrange to obtain max_product
-		var/yield_limit = max(0, max_product - holder.get_reagent_amount(result))/result_amount
+		var/yield_limit = max(0, max_product - REAGENT_VOLUME(holder, result))/result_amount
 
 		progress = min(progress, yield_limit) //apply yield limit
 
 	//apply min reaction progress - wasn't sure if this should go before or after applying yield
 	//I guess people can just have their miniscule reactions go to completion regardless of yield.
 	for(var/reactant in required_reagents)
-		var/remainder = holder.get_reagent_amount(reactant) - progress*required_reagents[reactant]
+		var/remainder = REAGENT_VOLUME(holder, reactant) - progress*required_reagents[reactant]
 		if(remainder <= min_reaction*required_reagents[reactant])
 			progress = reaction_limit
 			break
@@ -87,7 +87,7 @@
 	//determine how far the reaction can proceed
 	var/list/reaction_limits = list()
 	for(var/reactant in required_reagents)
-		reaction_limits += holder.get_reagent_amount(reactant) / required_reagents[reactant]
+		reaction_limits += REAGENT_VOLUME(holder, reactant) / required_reagents[reactant]
 
 	//determine how far the reaction proceeds
 	var/reaction_limit = min(reaction_limits)
@@ -794,7 +794,7 @@
 /datum/chemical_reaction/plastication/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/stack/material/plastic(get_turf(holder.my_atom), created_volume)
 	return
-	
+
 /datum/chemical_reaction/uraniumsolidification
     name = "Uranium"
     id = "soliduranium"

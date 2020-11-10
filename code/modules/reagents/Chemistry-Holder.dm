@@ -233,10 +233,7 @@
 	update_holder(FALSE)
 
 /datum/reagents/proc/get_data(var/rtype)
-	for(var/datum/reagent/current in reagent_list)
-		if(current.type == rtype)
-			return current.get_data()
-	return 0
+	return REAGENT_DATA(src, rtype)
 
 /datum/reagents/proc/get_reagents()
 	. = list()

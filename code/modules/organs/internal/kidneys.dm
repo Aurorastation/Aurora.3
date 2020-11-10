@@ -30,10 +30,10 @@
 			owner.adjustToxLoss(0.3 * PROCESS_ACCURACY)
 
 	if(is_bruised())
-		if(prob(5) && reagents.get_reagent_amount(/datum/reagent/potassium) < 5)
+		if(prob(5) && REAGENT_VOLUME(reagents, /datum/reagent/potassium) < 5)
 			reagents.add_reagent(/datum/reagent/potassium, REM*5)
 	if(is_broken())
-		if(owner.reagents.get_reagent_amount(/datum/reagent/potassium) < 15)
+		if(REAGENT_VOLUME(owner.reagents, /datum/reagent/potassium) < 15)
 			owner.reagents.add_reagent(/datum/reagent/potassium, REM*2)
 
 	//If your kidneys aren't working, your body's going to have a hard time cleaning your blood.

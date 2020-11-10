@@ -443,7 +443,7 @@
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
-	return reagents.get_reagent_amount(/datum/reagent/fuel)
+	return REAGENT_VOLUME(reagents, /datum/reagent/fuel)
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
 /obj/item/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
@@ -821,6 +821,6 @@
 			else if(UserLoc == slot_r_hand)
 				user.apply_damage(5, BURN, BP_R_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
-	
+
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)

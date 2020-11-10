@@ -83,9 +83,6 @@
 	if(istype(M) && !istype(M, /mob/abstract)) //painting ghosts: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
 
-/datum/reagent/paint/get_data()
-	return color
-
 /datum/reagent/paint/initialize_data(var/newdata)
 	color = newdata
 	return

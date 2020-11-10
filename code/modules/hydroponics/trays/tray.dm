@@ -254,7 +254,7 @@
 
 	for(var/datum/reagent/R in temp_chem_holder.reagents.reagent_list)
 
-		var/reagent_total = temp_chem_holder.reagents.get_reagent_amount(R.type)
+		var/reagent_total = REAGENT_VOLUME(temp_chem_holder.reagents, R.type)
 
 		if(seed && !dead)
 			//Handle some general level adjustments.

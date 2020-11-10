@@ -210,7 +210,7 @@
 //rag must have a minimum of 2 units welder fuel and at least 80% of the reagents must be welder fuel.
 //maybe generalize flammable reagents someday
 /obj/item/reagent_containers/glass/rag/proc/can_ignite()
-	var/fuel = reagents.get_reagent_amount(/datum/reagent/fuel)
+	var/fuel = REAGENT_VOLUME(reagents, /datum/reagent/fuel)
 	return (fuel >= 2 && fuel >= reagents.total_volume*0.8)
 
 /obj/item/reagent_containers/glass/rag/proc/ignite()
@@ -220,10 +220,10 @@
 		return
 
 	//also copied from matches
-	if(reagents.get_reagent_amount(/datum/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
+	if(REAGENT_VOLUME(reagents, /datum/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 		visible_message(SPAN_DANGER("\The [src] conflagrates violently!"))
 		var/datum/effect/effect/system/reagents_explosion/e = new()
-		e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
+		e.set_up(round(REAGENT_VOLUME(reagents, /datum/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 		e.start()
 		qdel(src)
 		return

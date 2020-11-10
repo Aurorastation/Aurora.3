@@ -29,11 +29,11 @@
 		return
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		if(A.reagents && A.reagents.has_reagent(/datum/reagent/water)) //blesses all the water in the holder
-			if(A.reagents.get_reagent_amount(/datum/reagent/water) > 60)
+			if(REAGENT_VOLUME(A.reagents, /datum/reagent/water) > 60)
 				to_chat(user, SPAN_NOTICE("There's too much water for you to bless at once!"))
 			else
 				to_chat(user, SPAN_NOTICE("You bless the water in [A], turning it into holy water."))
-				var/water2holy = A.reagents.get_reagent_amount(/datum/reagent/water)
+				var/water2holy = REAGENT_VOLUME(A.reagents, /datum/reagent/water)
 				A.reagents.del_reagent(/datum/reagent/water)
 				A.reagents.add_reagent(/datum/reagent/water/holywater, water2holy)
 

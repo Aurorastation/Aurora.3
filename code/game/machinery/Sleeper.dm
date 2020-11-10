@@ -139,7 +139,7 @@
 				var/list/blood_reagent = list()
 				var/datum/reagent/R = A
 				blood_reagent["name"] = initial(R.name)
-				blood_reagent["amount"] = round(occupant.reagents.get_reagent_amount(R.type), 0.1)
+				blood_reagent["amount"] = round(REAGENT_VOLUME(occupant.reagents, R.type), 0.1)
 				blood_reagents += list(blood_reagent)
 			if(length(blood_reagents))
 				data["bloodreagents"] = blood_reagents.Copy()
@@ -154,7 +154,7 @@
 					var/list/stomach_reagent = list()
 					var/datum/reagent/R = A
 					stomach_reagent["name"] = initial(R.name)
-					stomach_reagent["amount"] = round(S.ingested.get_reagent_amount(R.type), 0.1)
+					stomach_reagent["amount"] = round(REAGENT_VOLUME(S.ingested, R.type), 0.1)
 					stomach_reagents += list(stomach_reagent)
 				if(length(stomach_reagents))
 					data["stomachreagents"] = stomach_reagents.Copy()
@@ -363,13 +363,13 @@
 		return
 
 	if(occupant?.reagents)
-		var/chemical_amount = occupant.reagents.get_reagent_amount(chemical)
+		var/chemical_amount = REAGENT_VOLUME(occupant.reagents, chemical)
 		var/is_dylo = ispath(chemical, /datum/reagent/dylovene)
 		var/is_inaprov = ispath(chemical, /datum/reagent/inaprovaline)
 		if(is_dylo || is_inaprov)
-			var/dylo_amount = occupant.reagents.get_reagent_amount(/datum/reagent/dylovene)
-			var/inaprov_amount = occupant.reagents.get_reagent_amount(/datum/reagent/inaprovaline)
-			var/tricord_amount = occupant.reagents.get_reagent_amount(/datum/reagent/tricordrazine)
+			var/dylo_amount = REAGENT_VOLUME(occupant.reagents, /datum/reagent/dylovene)
+			var/inaprov_amount = REAGENT_VOLUME(occupant.reagents, /datum/reagent/inaprovaline)
+			var/tricord_amount = REAGENT_VOLUME(occupant.reagents, /datum/reagent/tricordrazine)
 			if(tricord_amount > 20)
 				if(is_dylo && inaprov_amount)
 					to_chat(user, SPAN_WARNING("The subject has too much tricordrazine."))

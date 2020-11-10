@@ -131,7 +131,7 @@
 					if("Cancel")
 						return
 				return
-	
+
 	else if(W.isFlameSource() && fuselength)
 		light_fuse(W, user)
 	. = ..()
@@ -141,7 +141,7 @@
 		fuselit = TRUE
 		update_icon()
 		set_light(2, 2, LIGHT_COLOR_LAVA)
-		if(reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
+		if(REAGENT_VOLUME(reagents, /datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
 			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 			if(fuselength >= FUSELENGTH_MIN && fuselength <= FUSELENGTH_SHORT)
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
@@ -158,13 +158,13 @@
 			detonate(FALSE)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/detonate(var/instant)
-	var/fuel = reagents.get_reagent_amount(/datum/reagent/fuel)
+	var/fuel = REAGENT_VOLUME(reagents, /datum/reagent/fuel)
 	if(instant)
 		fuselength = 0
 	else if(prob(fuselength * 6)) // the longer the fuse, the higher chance it will fizzle out (18% chance minimum)
 		var/fizzle = rand(1, fuselength - 1)
 		sleep(fizzle * 1 SECOND)
-		
+
 		fuselength -= fizzle
 		visible_message(SPAN_WARNING("The fuse on \the [name] fizzles out early."))
 		playsound(get_turf(src), 'sound/items/cigs_lighters/cig_snuff.ogg', 50)
@@ -215,7 +215,7 @@
 			desc = initial(desc)
 
 /obj/item/reagent_containers/food/drinks/cans/bullet_act(obj/item/projectile/P)
-	if(P.firer && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
+	if(P.firer && REAGENT_VOLUME(reagents, /datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
 		visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
 		log_and_message_admins("shot an improvised [name] explosive", P.firer)
 		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(P.firer))

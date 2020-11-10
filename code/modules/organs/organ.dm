@@ -269,7 +269,7 @@
 	if(!owner)
 		return
 
-	var/antibiotics = owner.reagents?.get_reagent_amount(/datum/reagent/thetamycin)
+	var/antibiotics = REAGENT_DATA(owner.reagents, /datum/reagent/thetamycin)
 
 	if (!germ_level || antibiotics < 5)
 		return

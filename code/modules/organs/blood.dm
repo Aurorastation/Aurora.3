@@ -93,7 +93,7 @@
 #undef BLOOD_SPRAY_DISTANCE
 
 /mob/living/carbon/human/proc/get_blood_volume()
-	return round((vessel.get_reagent_amount(/datum/reagent/blood)/species.blood_volume)*100)
+	return round((REAGENT_VOLUME(vessel, /datum/reagent/blood)/species.blood_volume)*100)
 
 /mob/living/carbon/human/proc/get_blood_circulation()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
@@ -185,7 +185,7 @@
 	if(species && species.flags & NO_BLOOD)
 		return null
 
-	if(vessel.get_reagent_amount(/datum/reagent/blood) < amount)
+	if(REAGENT_VOLUME(vessel, /datum/reagent/blood) < amount)
 		return null
 
 	. = ..()

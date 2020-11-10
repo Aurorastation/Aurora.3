@@ -3,10 +3,7 @@
 	var/description = "A non-descript chemical."
 	var/taste_description = "old rotten bandaids"
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
-	var/datum/reagents/holder = null
 	var/reagent_state = SOLID
-	var/list/data = null
-	var/volume = 0
 	var/metabolism = REM // This would be 0.2 normally
 	var/ingest_met = 0
 	var/touch_met = 0
@@ -14,8 +11,6 @@
 	var/ingest_mul = 0.5
 	var/touch_mul = 0
 	var/breathe_mul = 0.75
-	var/dose = 0
-	var/max_dose = 0
 	var/overdose = 0 // Volume of a chemical required in the blood to meet overdose criteria.
 	var/od_minimum_dose = 5 // Metabolised dose of a chemical required to meet overdose criteria.
 	var/scannable = 0 // Shows up on health analyzers.
@@ -35,7 +30,6 @@
 	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
 	var/default_temperature = T0C + 20 //This is its default spawning temperature, if none is provided.
-	var/thermal_energy = 0 //Internal value, should never change.
 	var/specific_heat = -1 //The higher, the more difficult it is to change its temperature. 0 or lower values indicate that the specific heat has yet to be assigned.
 	var/fallback_specific_heat = -1 //Setting this value above 0 will set the specific heat to this value only if the system could not find an appropriate specific heat to assign using the recipe system.
 	//Never ever ever ever change this value for datum/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
@@ -147,15 +141,9 @@
 /datum/reagent/proc/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return
 
-/datum/reagent/proc/get_data() // Just in case you have a reagent that handles data differently.
-	if(islist(data))
-		return data.Copy()
-	else if(data)
-		return data
-
-/datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
-	. = ..()
-	holder = null
+/decl/reagent/proc/get_data(var/datum/reagents/holder) // Just in case you have a reagent that handles data differently.
+	var/data = REAGENT_DATA(holder, type)
+	return islist(data) ? data.Copy() : data
 
 /* DEPRECATED - TODO: REMOVE EVERYWHERE */
 

@@ -51,7 +51,7 @@
 	smoke_at(A)
 
 /obj/item/bee_smoker/proc/get_fuel()
-	return reagents.get_reagent_amount(/datum/reagent/fuel)
+	return REAGENT_VOLUME(reagents, /datum/reagent/fuel)
 
 /obj/item/bee_smoker/proc/remove_fuel(var/amount = 1, var/mob/M = null)
 	if(get_fuel() >= amount)

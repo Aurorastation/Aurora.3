@@ -294,8 +294,8 @@
 					occupant.heal_organ_damage(heal_brute,heal_fire)
 				else
 					occupant.adjustFireLoss(3)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
-		var/has_cryo = occupant.reagents.get_reagent_amount(/datum/reagent/cryoxadone) >= 1
-		var/has_clonexa = occupant.reagents.get_reagent_amount(/datum/reagent/clonexadone) >= 1
+		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /datum/reagent/cryoxadone) >= 1
+		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /datum/reagent/clonexadone) >= 1
 		var/has_cryo_medicine = has_cryo || has_clonexa
 		if(beaker && !has_cryo_medicine)
 			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD)

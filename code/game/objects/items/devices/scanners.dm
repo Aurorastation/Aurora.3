@@ -257,7 +257,7 @@ BREATH ANALYZER
 			var/datum/reagent/R = A
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				reagentdata["[R.type]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.type), 1)]u [R.name]</span>"
+				reagentdata["[R.type]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, R.type), 1)]u [R.name]</span>"
 			else
 				unknown++
 		if(reagentdata.len)

@@ -113,7 +113,7 @@
 
 		dat += "<br>This sample contains: "
 		for(var/datum/reagent/R in grown_reagents.reagent_list)
-			dat += "<br>- [R.name], [grown_reagents.get_reagent_amount(R.type)] unit(s)"
+			dat += "<br>- [R.name], [REAGENT_VOLUME(grown_reagents, R.type)] unit(s)"
 
 	dat += "<h2>Other Data</h2>"
 

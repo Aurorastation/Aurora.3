@@ -116,7 +116,7 @@
 		return
 
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
-		var/blood_volume = round(owner.vessel.get_reagent_amount(/datum/reagent/blood))
+		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /datum/reagent/blood))
 
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)

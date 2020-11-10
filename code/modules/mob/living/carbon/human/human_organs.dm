@@ -191,7 +191,7 @@
 		O.set_dna(dna)
 
 /mob/living/carbon/human/proc/get_blood_alcohol()
-	return round(intoxication/max(vessel.get_reagent_amount(/datum/reagent/blood),1),0.01)
+	return round(intoxication/max(REAGENT_VOLUME(vessel, /datum/reagent/blood),1),0.01)
 
 /mob/living/proc/is_asystole()
 	return FALSE
