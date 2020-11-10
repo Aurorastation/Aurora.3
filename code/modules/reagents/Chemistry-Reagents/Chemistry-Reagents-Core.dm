@@ -26,7 +26,7 @@
 				my_chems[chem] = my_chems[chem] + other_chems[chem]
 	. = data
 
-/decl/reagent/blood/touch_turf(var/turf/simulated/T)
+/decl/reagent/blood/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 
 	if(!istype(T) || volume < 3)
 		return
@@ -45,7 +45,7 @@
 		if(B)
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
 
-/decl/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		if (M.mind && M.mind.vampire)
 			if(M.dna.unique_enzymes == data["blood_DNA"]) //so vampires can't drink their own blood
@@ -59,11 +59,11 @@
 	if(dose > 15)
 		M.adjustToxLoss(removed)
 
-/decl/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_MACHINE)
 		return
 
-/decl/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.inject_blood(src, volume)
 	remove_self(volume)
 
@@ -88,12 +88,12 @@
 
 	germ_adjust = 0.05 // i mean, i guess you could try...
 
-/decl/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	M.adjustHydrationLoss(-6*removed)
 
-/decl/reagent/water/touch_turf(var/turf/simulated/T)
+/decl/reagent/water/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 
@@ -117,13 +117,13 @@
 	else if(volume >= 10)
 		T.wet_floor(WET_TYPE_WATER,volume)
 
-/decl/reagent/water/touch_obj(var/obj/O)
+/decl/reagent/water/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		var/obj/item/reagent_containers/food/snacks/monkeycube/cube = O
 		if(!cube.wrapped)
 			cube.Expand()
 
-/decl/reagent/water/touch_mob(var/mob/M, var/amount)
+/decl/reagent/water/touch_mob(var/mob/M, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
@@ -134,7 +134,7 @@
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
 
-/decl/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
+/decl/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(S))
 		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
@@ -145,7 +145,7 @@
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), SPAN_DANGER("Your flesh burns in the water!"))
 
 
-/decl/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(M, /mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
@@ -168,19 +168,19 @@
 
 	fallback_specific_heat = 0.605
 
-/decl/reagent/fuel/touch_turf(var/turf/T)
+/decl/reagent/fuel/touch_turf(var/turf/T, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
 	return
 
-/decl/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
 	if(aug && !aug.is_broken())
 		M.adjustNutritionLoss(-8 * removed)
 	else
 		M.adjustToxLoss(2 * removed)
 
-/decl/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+/decl/reagent/fuel/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!

@@ -12,7 +12,7 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 
-/decl/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
 
@@ -33,7 +33,7 @@
 	fallback_specific_heat = 1
 	taste_mult = 3
 
-/decl/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(5 * removed, 0)
 	if((locate(/decl/reagent/butazoline) in M.reagents.reagent_list))
 		M.add_chemical_effect(CE_ITCH, M.chem_doses[type] * 2)
@@ -63,7 +63,7 @@
 	taste_description = "bitterness"
 	taste_mult = 3
 
-/decl/reagent/butazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/butazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(8 * removed, 0)
 	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])
 	M.adjustHydrationLoss(1*removed)
@@ -78,7 +78,7 @@
 	metabolism = REM * 0.5
 	taste_description = "bitterness"
 
-/decl/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(0, 6 * removed)
 	if((locate(/decl/reagent/dermaline) in M.reagents.reagent_list))
 		M.add_chemical_effect(CE_ITCH, M.chem_doses[type] * 2)
@@ -107,7 +107,7 @@
 	overdose = 15
 	taste_mult = 1.5
 
-/decl/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(0, 12 * removed)
 	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])
 	M.adjustHydrationLoss(1*removed)
@@ -127,7 +127,7 @@
 		/decl/reagent/toxin/zombiepowder
 	)
 
-/decl/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		return
 
@@ -164,7 +164,7 @@
 	breathe_mul = 2
 	var/strength = 6
 
-/decl/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_VOX)
 		M.adjustToxLoss(removed * strength)
 	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
@@ -202,7 +202,7 @@
 	breathe_mul = 0
 	metabolism = REM * 0.25
 
-/decl/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/power = 1 + Clamp((get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
 	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
 	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
@@ -220,7 +220,7 @@
 	scannable = TRUE
 	taste_description = "sludge"
 
-/decl/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
@@ -237,7 +237,7 @@
 	scannable = TRUE
 	taste_description = "slime"
 
-/decl/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
@@ -262,7 +262,7 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/decl/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
 	M.add_chemical_effect(CE_NOFEVER, ((max_dose/2)^2-(dose-max_dose/2))/(max_dose/4)) // creates a smooth curve peaking at half the dose metabolised
 
@@ -285,7 +285,7 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
 	M.eye_blurry = max(M.eye_blurry, 5)
 	M.confused = max(M.confused, 10)
@@ -320,7 +320,7 @@
 	fallback_specific_heat = 1
 	taste_description = "euphoric acid"
 
-/decl/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 70)
 	M.eye_blurry = max(M.eye_blurry, 3)
 	M.confused = max(M.confused, 6)
@@ -340,7 +340,7 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/decl/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	M.eye_blurry = max(M.eye_blurry, 5)
 	M.confused = max(M.confused, 20)
@@ -382,7 +382,7 @@
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.0125
 
-/decl/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.drowsyness = max(M.drowsyness - 5, 0)
 	if(!(volume > 10)) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
 		M.AdjustParalysis(-1)
@@ -422,7 +422,7 @@
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.075
 
-/decl/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(volume < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
 		M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
 	else
@@ -456,7 +456,7 @@
 	taste_mult = 0.33 //Specifically to cut the dull toxin taste out of foods using carrot
 	taste_description = "dull toxin"
 
-/decl/reagent/oculine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/oculine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
 	M.eye_blind = max(M.eye_blind - 5 * removed, 0)
 	if(ishuman(M))
@@ -479,7 +479,7 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 
-/decl/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.add_chemical_effect(CE_CLUMSY, 1)
@@ -507,7 +507,7 @@
 	metabolism = 1
 	metabolism_min = 0.25
 
-/decl/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/needs_update = M.mutations.len > 0
 
 	M.mutations = list()
@@ -531,7 +531,7 @@
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
 
-/decl/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
@@ -572,7 +572,7 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 
-/decl/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/P = removed * ETHYL_REAGENT_POWER
 	var/DP = dose * ETHYL_REAGENT_POWER//tiny optimisation
 
@@ -620,7 +620,7 @@
 	unaffected_species = IS_MACHINE
 	var/last_taste_time = -10000
 
-/decl/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.is_diona())
 		if(last_taste_time + 950 < world.time) // Not to spam message
 			to_chat(M, SPAN_DANGER("Your body withers as you feel a searing pain throughout."))
@@ -646,7 +646,7 @@
 	unaffected_species = IS_MACHINE
 	var/last_taste_time = -10000
 
-/decl/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.is_diona())
 		if(last_taste_time + 450 < world.time) // Not to spam message
 			to_chat(M, SPAN_DANGER("Your body withers as you feel a searing pain throughout."))
@@ -677,7 +677,7 @@
 	taste_description = "bitter gauze soaked in rubbing alcohol"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
-/decl/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, dose/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5 to be effective. takes 50 seconds to work
 
@@ -694,7 +694,7 @@
 	metabolism = REM * 0.25
 	fallback_specific_heat = 1
 
-/decl/reagent/asinodryl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/asinodryl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		return
 	M.add_chemical_effect(CE_ANTIEMETIC, dose/4) // 1u should suppress 2u thetamycin
@@ -713,7 +713,7 @@
 	glass_name = "glass of cough syrup"
 	glass_desc = "You'd better not."
 
-/decl/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
 /decl/reagent/coughsyrup/overdose(var/mob/living/carbon/human/M, var/alien, var/removed) // effects based loosely on DXM
@@ -741,7 +741,7 @@
 	ingest_mul = 1
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
-/decl/reagent/cetahydramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/cetahydramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NOITCH, dose * 2) // 5 units of cetahydramine will counter 10 units of dermaline/butazoline itching.
 	if(prob(dose/2))
 		M.drowsyness += 2
@@ -755,7 +755,7 @@
 	taste_description = "burning bleach"
 	germ_adjust = 20
 
-/decl/reagent/sterilizine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/sterilizine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.germ_level -= min(removed*20, M.germ_level)
 	for(var/obj/item/I in M.contents)
 		I.was_bloodied = null
@@ -768,11 +768,11 @@
 				if (W.germ_level <= 0)
 					W.disinfected = 1//The wound becomes disinfected if fully cleaned
 
-/decl/reagent/sterilizine/touch_obj(var/obj/O)
+/decl/reagent/sterilizine/touch_obj(var/obj/O, var/datum/reagents/holder)
 	O.germ_level -= min(volume*20, O.germ_level)
 	O.was_bloodied = null
 
-/decl/reagent/sterilizine/touch_turf(var/turf/T)
+/decl/reagent/sterilizine/touch_turf(var/turf/T, var/datum/reagents/holder)
 	T.germ_level -= min(volume*20, T.germ_level)
 	for(var/obj/item/I in T.contents)
 		I.was_bloodied = null
@@ -788,7 +788,7 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 
-/decl/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!(volume > 20))
 		if(M.bodytemperature > 310)
 			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -831,7 +831,7 @@
 
 	fallback_specific_heat = 1.5
 
-/decl/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 
 	if(!istype(H) || max_dose < min_dose || (world.time < data && volume > removed) || messagedelay == -1)
 		return
@@ -909,7 +909,7 @@
 	min_dose = 0.0064 * REM
 	var/datum/modifier/modifier
 
-/decl/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 
@@ -943,7 +943,7 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
-/decl/reagent/mental/corophenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mental/corophenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	..()
 
@@ -1143,7 +1143,7 @@
 		/decl/reagent/mental/minaphobin = 20
 	)
 
-/decl/reagent/mental/neurapan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mental/neurapan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
@@ -1196,7 +1196,7 @@
 		/decl/reagent/mental/minaphobin = 20
 	)
 
-/decl/reagent/mental/nerospectan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mental/nerospectan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
@@ -1244,7 +1244,7 @@
 	)
 	var/datum/modifier/modifier
 
-/decl/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 	M.drowsyness = 0
@@ -1280,7 +1280,7 @@
 	min_dose = 0.0064 * REM
 	var/datum/modifier/modifier
 
-/decl/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -1309,7 +1309,7 @@
 		/datum/brain_trauma/severe/aphasia/
 	)
 
-/decl/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.dizziness = max(100, M.dizziness)
 	M.make_dizzy(5)
@@ -1352,7 +1352,7 @@
 	taste_description = "thick salt"
 	reagent_state = SOLID
 
-/decl/reagent/fluvectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/fluvectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/is_overdosed = overdose && (volume > overdose) && (dose > od_minimum_dose)
 	if(is_overdosed)
 		removed *= 2
@@ -1386,7 +1386,7 @@
 	taste_description = "coarse dust"
 	reagent_state = SOLID
 
-/decl/reagent/pulmodeiectionem/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/pulmodeiectionem/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(H))
 		var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
 		if(istype(L) && !L.robotic && !L.is_broken())
@@ -1406,7 +1406,7 @@
 				H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
 	. = ..()
 
-/decl/reagent/pulmodeiectionem/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/pulmodeiectionem/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(volume > 5)
 		if(prob(50))
 			H.visible_message("<b>[H]</b> splutters, coughing up a cloud of purple dust.", "You cough up a cloud of purple dust.")
@@ -1415,7 +1415,7 @@
 			H.adjustOxyLoss(2)
 			H.add_chemical_effect(CE_PNEUMOTOXIC, 0.1)
 
-/decl/reagent/pulmodeiectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/pulmodeiectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(2 * removed)
 	M.add_chemical_effect(CE_ITCH, dose)
 
@@ -1428,7 +1428,7 @@
 	taste_description = "fine dust"
 	reagent_state = SOLID
 
-/decl/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
 	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
 	H.add_chemical_effect(CE_PULSE, -1)
@@ -1452,7 +1452,7 @@
 	scannable = TRUE
 	taste_description = "sickness"
 
-/decl/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustCloneLoss(-20 * removed)
 	M.adjustOxyLoss(-2 * removed)
 	M.heal_organ_damage(20 * removed, 20 * removed)
@@ -1472,13 +1472,13 @@
 	scannable = TRUE
 	taste_description = "sweet syrup"
 
-/decl/reagent/verunol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/verunol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (prob(10+dose))
 		to_chat(M, pick("You feel nauseous!", "Your stomach churns uncomfortably.", "You feel like you're about to throw up.", "You feel queasy.", "You feel bile in your throat."))
 
 	M.add_chemical_effect(CE_EMETIC, dose)
 
-/decl/reagent/verunol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/verunol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
 
 /decl/reagent/azoth
@@ -1490,7 +1490,7 @@
 	overdose = 5
 	fallback_specific_heat = 1.2
 
-/decl/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -1521,7 +1521,7 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 
-/decl/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
 	var/obj/item/organ/internal/heart/H = M.internal_organs_by_name[BP_HEART]
 	if(istype(H) && !BP_IS_ROBOTIC(H))
@@ -1548,7 +1548,7 @@
 	ingest_mul = 0
 	breathe_mul = 0
 
-/decl/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if((M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
 		M.adjustHydrationLoss(-removed*2)
 	else
@@ -1576,7 +1576,7 @@
 	breathe_mul = 0
 	ingest_mul = 0
 
-/decl/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		return
 	if(dose < 1)	//not that effective after initial rush
@@ -1602,7 +1602,7 @@
 	taste_description = "eternal blissfulness"
 	fallback_specific_heat = 2
 
-/decl/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
@@ -1617,7 +1617,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "numbness"
 
-/decl/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
+/decl/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.add_chemical_effect(CE_PACIFIED, 1)
 
 /decl/reagent/pacifier/overdose(var/mob/living/carbon/H, var/alien)

@@ -59,11 +59,11 @@
 	taste_description = "chalk"
 	fallback_specific_heat = 0.2
 
-/decl/reagent/paint/touch_turf(var/turf/T)
+/decl/reagent/paint/touch_turf(var/turf/T, var/datum/reagents/holder)
 	if(istype(T) && !istype(T, /turf/space))
 		T.color = color
 
-/decl/reagent/paint/touch_obj(var/obj/O)
+/decl/reagent/paint/touch_obj(var/obj/O, var/datum/reagents/holder)
 	//special checks for special items
 	if(istype(O, /obj/item/reagent_containers))
 		return
@@ -78,7 +78,7 @@
 	else if(istype(O))
 		O.color = color
 
-/decl/reagent/paint/touch_mob(var/mob/M)
+/decl/reagent/paint/touch_mob(var/mob/M, var/datum/reagents/holder)
 	. = ..()
 	if(istype(M) && !istype(M, /mob/abstract)) //painting ghosts: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
@@ -130,10 +130,10 @@
 	fallback_specific_heat = 10 //Magical.
 
 
-/decl/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	affect_blood(M, alien, removed)
 
-/decl/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.setCloneLoss(0)
 	M.setOxyLoss(0)
 	M.total_radiation = 0
@@ -181,13 +181,13 @@
 	taste_description = "the inside of a reactor"
 	fallback_specific_heat = 2.286
 
-/decl/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	affect_ingest(M, alien, removed)
 
-/decl/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
 
-/decl/reagent/uranium/touch_turf(var/turf/T)
+/decl/reagent/uranium/touch_turf(var/turf/T, var/datum/reagents/holder)
 	if(volume >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
@@ -212,7 +212,7 @@
 	glass_name = "glass of holy water"
 	glass_desc = "An ashen-obsidian-water mix, this solution will alter certain sections of the brain's rationality."
 
-/decl/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(ishuman(M))
 		if (M.mind && M.mind.vampire)
@@ -224,12 +224,12 @@
 		M.adjust_fire_stacks(10)
 		M.IgniteMob()
 
-/decl/reagent/water/holywater/touch_turf(var/turf/T)
+/decl/reagent/water/holywater/touch_turf(var/turf/T, var/datum/reagents/holder)
 	if(volume >= 5)
 		T.holy = 1
 	return
 
-/decl/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNDEAD)
 		M.adjust_fire_stacks(5)
 		M.IgniteMob()
@@ -263,7 +263,7 @@
 	touch_met = 50
 	taste_description = "sweet tasting metal"
 
-/decl/reagent/thermite/touch_turf(var/turf/T)
+/decl/reagent/thermite/touch_turf(var/turf/T, var/datum/reagents/holder)
 	. = ..()
 	if(volume >= 5)
 		if(istype(T, /turf/simulated/wall))
@@ -273,11 +273,11 @@
 			remove_self(5)
 	return
 
-/decl/reagent/thermite/touch_mob(var/mob/living/L, var/amount)
+/decl/reagent/thermite/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
-/decl/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustFireLoss(3 * removed)
 
 /decl/reagent/spacecleaner
@@ -289,17 +289,17 @@
 	taste_description = "sourness"
 	germ_adjust = 10
 
-/decl/reagent/spacecleaner/touch_obj(var/obj/O)
+/decl/reagent/spacecleaner/touch_obj(var/obj/O, var/datum/reagents/holder)
 	O.clean_blood()
 
-/decl/reagent/spacecleaner/touch_turf(var/turf/T)
+/decl/reagent/spacecleaner/touch_turf(var/turf/T, var/datum/reagents/holder)
 	if(volume >= 1)
 		if(istype(T, /turf/simulated))
 			var/turf/simulated/S = T
 			S.dirt = 0
 		T.clean_blood()
 
-/decl/reagent/spacecleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/spacecleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.r_hand)
 		M.r_hand.clean_blood()
 	if(M.l_hand)
@@ -344,7 +344,7 @@
 	color = "#009CA8"
 	taste_description = "cherry"
 
-/decl/reagent/lube/touch_turf(var/turf/simulated/T)
+/decl/reagent/lube/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 	if(volume >= 1)
@@ -357,7 +357,7 @@
 	color = "#C7FFFF"
 	taste_description = "plastic"
 
-/decl/reagent/silicate/touch_obj(var/obj/O)
+/decl/reagent/silicate/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if(istype(O, /obj/structure/window))
 		var/obj/structure/window/W = O
 		W.apply_silicate(volume)
@@ -403,19 +403,19 @@
 	if(prob(force * 6))
 		explode()
 
-/decl/reagent/nitroglycerin/touch_turf(var/turf/T)
+/decl/reagent/nitroglycerin/touch_turf(var/turf/T, var/datum/reagents/holder)
 	. = ..()
 	explode()
 
-/decl/reagent/nitroglycerin/touch_obj(var/obj/O)
+/decl/reagent/nitroglycerin/touch_obj(var/obj/O, var/datum/reagents/holder)
 	. = ..()
 	explode()
 
-/decl/reagent/nitroglycerin/touch_mob(var/mob/M)
+/decl/reagent/nitroglycerin/touch_mob(var/mob/M, var/datum/reagents/holder)
 	. = ..()
 	explode()
 
-/decl/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(H) || alien == IS_DIONA)
 		return
 	H.add_chemical_effect(CE_PULSE, 2)
@@ -450,10 +450,10 @@
 	color = "#F2F3F4"
 	taste_description = "metal"
 
-/decl/reagent/luminol/touch_obj(var/obj/O)
+/decl/reagent/luminol/touch_obj(var/obj/O, var/datum/reagents/holder)
 	O.reveal_blood()
 
-/decl/reagent/luminol/touch_mob(var/mob/living/L)
+/decl/reagent/luminol/touch_mob(var/mob/living/L, var/datum/reagents/holder)
 	. = ..()
 	L.reveal_blood()
 
@@ -485,7 +485,7 @@
 /decl/reagent/mutone/initial_effect(var/mob/living/carbon/M, var/alien)
 	stored_value = metabolism
 
-/decl/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	stored_value += removed
 	if(stored_value >= 5)
 		to_chat(M, SPAN_NOTICE("You feel strange..."))
@@ -508,7 +508,7 @@
 /decl/reagent/plexium/initial_effect(var/mob/living/carbon/M, var/alien)
 	stored_value = metabolism
 
-/decl/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	if(B && H.species && H.species.has_organ[BP_BRAIN] && !isipc(H))
 		stored_value += removed
@@ -540,7 +540,7 @@
 	stored_dna = M.dna.Clone()
 	to_chat(M, SPAN_WARNING("Your skin starts crawling..."))
 
-/decl/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	stored_value += removed
 	if(stored_value >= 1)
 		M.visible_message(\
@@ -579,7 +579,7 @@
 	touch_met = 50
 	taste_description = "fiery death"
 
-/decl/reagent/fuel/napalm/touch_turf(var/turf/T)
+/decl/reagent/fuel/napalm/touch_turf(var/turf/T, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, volume/3)
 	for(var/mob/living/L in T)
 		L.adjust_fire_stacks(volume / 10)
@@ -587,7 +587,7 @@
 	remove_self(volume)
 	return
 
-/decl/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount)
+/decl/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
@@ -610,19 +610,19 @@
 	fallback_specific_heat = 2.75
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
+/decl/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
-/decl/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed)
+/decl/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
-/decl/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed)
+/decl/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isundead(M))
@@ -638,13 +638,13 @@
 	fallback_specific_heat = 20 //This holds a ton of heat.
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(istype(M))
 		M.adjust_fire_stacks(10)
 		M.IgniteMob()
 
-/decl/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
+/decl/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	if(istype(L))
 		L.adjust_fire_stacks(10)
 		L.IgniteMob()
@@ -657,7 +657,7 @@
 	fallback_specific_heat = 100 //Yeah...
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/black_matter/touch_turf(var/turf/T)
+/decl/reagent/black_matter/touch_turf(var/turf/T, var/datum/reagents/holder)
 	var/obj/effect/portal/P = new /obj/effect/portal(T)
 	P.creator = null
 	P.icon = 'icons/obj/objects.dmi'
@@ -681,7 +681,7 @@
 	fallback_specific_heat = 0.1
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(25))
 		M.make_jittery(5)
 		to_chat(M, SPAN_WARNING("You feel unstable..."))
@@ -689,7 +689,7 @@
 	if(prob(10))
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
 
-/decl/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount)
+/decl/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	do_teleport(L, get_turf(L), amount, asoundin = 'sound/effects/phasein.ogg')
 
@@ -708,7 +708,7 @@
 	taste_description = "horses"
 	fallback_specific_heat = 1.25
 
-/decl/reagent/sglue/touch_obj(var/obj/O)
+/decl/reagent/sglue/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = 0
@@ -724,7 +724,7 @@
 	taste_description = "alcohol"
 	fallback_specific_heat = 1.75
 
-/decl/reagent/usolve/touch_obj(var/obj/O)
+/decl/reagent/usolve/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
@@ -740,7 +740,7 @@
 	taste_description = "sand"
 	fallback_specific_heat = 0.75
 
-/decl/reagent/shapesand/touch_obj(var/obj/O)
+/decl/reagent/shapesand/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/shapesand/mimic = new /obj/item/shapesand(O.loc)
 		mimic.name = O.name
@@ -776,7 +776,7 @@
 	taste_description = "sickly sweet candy"
 	fallback_specific_heat = 2 //Thicc
 
-/decl/reagent/love_potion/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/love_potion/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 
 	if(!istype(H))
 		return
@@ -794,7 +794,7 @@
 	fallback_specific_heat = 10
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
 
@@ -806,7 +806,7 @@
 	taste_description = "dust"
 	specific_heat = 1
 
-/decl/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(istype(H))
 		if(prob(15))

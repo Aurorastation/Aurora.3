@@ -13,7 +13,7 @@
 	var/target_organ // needs to be null by default
 	var/strength = 2 // How much damage it deals per unit
 
-/decl/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(strength && alien != IS_DIONA)
 		var/dam = (strength * removed)
 		if(target_organ && ishuman(M))
@@ -56,7 +56,7 @@
 	taste_description = "fish"
 	target_organ = BP_BRAIN
 
-/decl/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
 		return
 	..()
@@ -69,7 +69,7 @@
 	strength = 0
 	taste_description = "stinging needles"
 
-/decl/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustHalLoss(removed*15)
 
 /decl/reagent/toxin/phoron
@@ -83,7 +83,7 @@
 	breathe_mul = 2
 	fallback_specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
 
-/decl/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 
@@ -115,12 +115,12 @@
 	else
 		..()
 
-/decl/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
+/decl/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
-/decl/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
@@ -131,7 +131,7 @@
 	if(prob(50))
 		M.pl_effects()
 
-/decl/reagent/toxin/phoron/touch_turf(var/turf/simulated/T)
+/decl/reagent/toxin/phoron/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 	T.assume_gas(GAS_PHORON, volume, T20C)
@@ -156,7 +156,7 @@
 	conflicting_reagent = /decl/reagent/toxin/phoron
 	strength = 1
 
-/decl/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 
@@ -166,11 +166,11 @@
 	else
 		M.add_chemical_effect(CE_TOXIN, removed * strength)
 
-/decl/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/decl/reagent/conflicting)
+/decl/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/decl/reagent/conflicting, var/datum/reagents/holder)
 	var/amount = min(removed, conflicting.volume)
 	holder.remove_reagent(conflicting.type, amount)
 
-/decl/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount)
+/decl/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 1)
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(amount*10)
@@ -200,7 +200,7 @@
 	taste_mult = 1.5
 	target_organ = BP_HEART
 
-/decl/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
@@ -239,7 +239,7 @@
 	od_minimum_dose = 20
 	taste_description = "salt"
 
-/decl/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
@@ -261,7 +261,7 @@
 	taste_description = "death"
 	target_organ = BP_BRAIN
 
-/decl/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
@@ -289,7 +289,7 @@
 	taste_mult = 0.5
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		M.adjustNutritionLoss(-removed*3)
 		//Fertilizer is good for plants
@@ -315,7 +315,7 @@
 	touch_met = REM * 10
 	breathe_mul = 0
 
-/decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T)
+/decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 
@@ -332,14 +332,14 @@
 	remove_self(amount_to_remove)
 	return
 
-/decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
+/decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		var/needed = min(L.fire_stacks, amount)
 		L.ExtinguishMob(3* needed) // Foam is 3 times more efficient at extinguishing
 		remove_self(needed)
 
-/decl/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
+/decl/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(S))
 		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
@@ -359,7 +359,7 @@
 	taste_mult = 1
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/toxin/plantbgone/touch_turf(var/turf/T)
+/decl/reagent/toxin/plantbgone/touch_turf(var/turf/T, var/datum/reagents/holder)
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/W = T
 		if(locate(/obj/effect/overlay/wallrot) in W)
@@ -372,17 +372,17 @@
 		F.make_plating()
 		playsound(F, 'sound/species/diona/gestalt_grow.ogg', 30, TRUE)
 
-/decl/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
+/decl/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume, var/datum/reagents/holder)
 	if(istype(O, /obj/effect/plant))
 		qdel(O)
 
-/decl/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(alien == IS_DIONA)
 		M.adjustToxLoss(30 * removed)
 
 //Affect touch automatically transfers to affect_blood, so we'll apply the damage there, after accounting for permeability
-/decl/reagent/toxin/plantbgone/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/plantbgone/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	removed *= M.reagent_permeability()
 	affect_blood(M, alien, removed*0.5)
 
@@ -394,7 +394,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "acid"
 
-/decl/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -410,15 +410,15 @@
 	taste_description = "slime"
 	taste_mult = 0.9
 
-/decl/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(33))
 		affect_blood(M, alien, removed)
 
-/decl/reagent/mutagen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mutagen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(67))
 		affect_blood(M, alien, removed)
 
-/decl/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
@@ -442,7 +442,7 @@
 	taste_description = "slime"
 	taste_mult = 1.3
 
-/decl/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -464,7 +464,7 @@
 	breathe_met = REM * 0.5 * 0.33
 	var/total_strength = 0
 
-/decl/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
 		return
@@ -493,7 +493,7 @@
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.5
 
-/decl/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -532,7 +532,7 @@
 	color = "#13BC5E"
 	taste_description = "sludge"
 
-/decl/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
+/decl/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
 		return
 	to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
@@ -572,7 +572,7 @@
 	strength = 25
 	taste_description = "ashes"
 
-/decl/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNDEAD)
 		M.heal_organ_damage(10 * removed, 15 * removed)
 		return
@@ -588,7 +588,7 @@
 	taste_mult = 10
 	var/nicotine = 0.2
 
-/decl/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.reagents.add_reagent(/decl/reagent/mental/nicotine, removed * nicotine)
 
 /decl/reagent/toxin/tobacco/rich
@@ -616,7 +616,7 @@
 	unaffected_species = IS_DIONA | IS_MACHINE
 	var/datum/modifier/modifier
 
-/decl/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed)
+/decl/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
 	if(!modifier)
 		modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
@@ -644,7 +644,7 @@
 	unaffected_species = IS_DIONA | IS_MACHINE
 	var/datum/modifier/modifier
 
-/decl/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
+/decl/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
 	if(!(volume > 5))
 		M.hallucination = max(M.hallucination, 20)
@@ -688,7 +688,7 @@
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
 	affects_dead = TRUE
 
-/decl/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed)
+/decl/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
@@ -732,7 +732,7 @@
 	strength = 0
 	taste_description = "danger"
 
-/decl/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))

@@ -9,7 +9,7 @@
 	taste_mult = 0.4
 	breathe_met = REM * 0.5 * 0.5
 
-/decl/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -52,7 +52,7 @@
 	taste_description = "bitterness"
 	fallback_specific_heat = 1.2
 
-/decl/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -69,7 +69,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sourness"
 
-/decl/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -86,7 +86,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "numbness"
 
-/decl/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.jitteriness = max(M.jitteriness - 5, 0)
 	M.confused = max(M.confused, 10)
 	if(prob(80))
@@ -105,7 +105,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sourness"
 
-/decl/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 100)
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
 	if(prob(10))
@@ -120,7 +120,7 @@
 	taste_description = "mushroom"
 	fallback_specific_heat = 1.2
 
-/decl/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -160,17 +160,17 @@
 	breathe_met = REM * 0.2
 	ingest_met = REM * 0.3
 
-/decl/reagent/raskara_dust/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/raskara_dust/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.drowsyness += 1 * removed
 
-/decl/reagent/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
 	M.drowsyness += 2 * removed
 	if(prob(5))
 		M.emote("cough")
 
-/decl/reagent/raskara_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/raskara_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
 	M.drowsyness += 3 * removed
 	if(prob(5))
@@ -188,7 +188,7 @@
 	ingest_mul = 0.125
 	var/special_counter = 0
 
-/decl/reagent/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/reagent/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 
@@ -217,10 +217,10 @@
 	overdose = 10
 	fallback_specific_heat = 1
 
-/decl/reagent/guwan_painkillers/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/guwan_painkillers/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	affect_ingest(M,alien,removed*0.5)
 
-/decl/reagent/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/dose = M.chem_doses[type]
 	if(dose > 5 && volume <= 3)
 		M.adjustHalLoss(removed*300) //So oxycomorphine can't be used with it.
@@ -243,7 +243,7 @@
 	overdose = 10
 	strength = 3
 
-/decl/reagent/toxin/stimm/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/stimm/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_TAJARA)
 		removed *= 1.25
 	..()
@@ -273,7 +273,7 @@
 	glass_name = "glass of purple drank"
 	glass_desc = "Bottoms up."
 
-/decl/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_PAINKILLER, 40) // basically like Perconol, but a bit worse
 	// doesn't make you vomit, though
@@ -293,7 +293,7 @@
 	metabolism = REM
 	overdose = 15
 
-/decl/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -323,7 +323,7 @@
 	fallback_specific_heat = 1
 	overdose = 10
 
-/decl/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)
 

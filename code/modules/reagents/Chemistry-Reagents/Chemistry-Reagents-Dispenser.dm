@@ -7,10 +7,10 @@
 	taste_description = "acid"
 	fallback_specific_heat = 0.567
 
-/decl/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(removed * 3)
 
-/decl/reagent/acetone/touch_obj(var/obj/O)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
+/decl/reagent/acetone/touch_obj(var/obj/O, var/datum/reagents/holder)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()
@@ -48,7 +48,7 @@
 	breathe_met = REM * 0.25
 	fallback_specific_heat = 1.048
 
-/decl/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_VOX)
 		M.adjustOxyLoss(-removed * 10)
 	else
@@ -65,7 +65,7 @@
 	fallback_specific_heat = 0.018
 	scannable = TRUE
 
-/decl/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	if(ingested && ingested.reagent_list.len > 1) // Need to have at least 2 reagents - cabon and something to remove
 		var/effect = 1 / (ingested.reagent_list.len - 1)
@@ -74,7 +74,7 @@
 				continue
 			ingested.remove_reagent(R.type, removed * effect)
 
-/decl/reagent/carbon/touch_turf(var/turf/T)
+/decl/reagent/carbon/touch_turf(var/turf/T, var/datum/reagents/holder)
 	if(!istype(T, /turf/space))
 		var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate(/obj/effect/decal/cleanable/dirt, T)
 		if (!dirtoverlay)
@@ -91,7 +91,7 @@
 	fallback_specific_heat = 1.148
 	scannable = TRUE
 
-/decl/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (alien & IS_SKRELL)
 		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
@@ -134,19 +134,19 @@
 
 	return ..()
 
-/decl/reagent/alcohol/touch_mob(mob/living/L, amount)
+/decl/reagent/alcohol/touch_mob(mob/living/L, amount, var/datum/reagents/holder)
 	. = ..()
 	if (istype(L) && strength > 40)
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 
-/decl/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
+/decl/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
 	if(prob(10*(strength/100)))
 		to_chat(M, SPAN_DANGER("Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
 	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
 	affect_ingest(M,alien,removed * blood_to_ingest_scale)
 	return
 
-/decl/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
+/decl/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
 
 	if(alien != IS_DIONA)
 		M.intoxication += (strength / 100) * removed * 3.5
@@ -182,7 +182,7 @@
 
 	distillation_point = T0C + 78.37
 
-/decl/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
@@ -197,7 +197,7 @@
 
 	..()
 
-/decl/reagent/alcohol/ethanol/touch_obj(var/obj/O)
+/decl/reagent/alcohol/ethanol/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()
@@ -235,7 +235,7 @@
 
 	distillation_point = T0C + 117.7
 
-/decl/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
@@ -261,23 +261,23 @@
 
 	fallback_specific_heat = 0.549 //Unknown
 
-/decl/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
 	if(aug && !aug.is_broken())
 		M.adjustNutritionLoss(-12 * removed)
 	else
 		M.adjustToxLoss(4 * removed)
 
-/decl/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // Hydrazine is both toxic and flammable.
+/decl/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // Hydrazine is both toxic and flammable.
 	M.adjust_fire_stacks(removed / 12)
 	M.adjustToxLoss(0.2 * removed)
 
-/decl/reagent/hydrazine/touch_turf(var/turf/T)
+/decl/reagent/hydrazine/touch_turf(var/turf/T, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
 	return
 
-/decl/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	H.add_chemical_effect(CE_PNEUMOTOXIC, removed * 0.5)
 
@@ -291,7 +291,7 @@
 
 	fallback_specific_heat = 1.181
 
-/decl/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (!(alien & (IS_SKRELL | IS_VAURCA)))
 		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
@@ -304,7 +304,7 @@
 
 	fallback_specific_heat = 0.633
 
-/decl/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 		step(M, pick(cardinal))
 	if(prob(5))
@@ -325,7 +325,7 @@
 
 	fallback_specific_heat = 0.631
 
-/decl/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, 2*removed)
 	var/dose = M.chem_doses[type]
 	if(dose > 1)
@@ -362,7 +362,7 @@
 
 	fallback_specific_heat = 0.214
 
-/decl/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(volume > 3)
 		M.add_chemical_effect(CE_PULSE, 1)
 	if(volume > 10)
@@ -379,10 +379,10 @@
 	fallback_specific_heat = 0.220
 	var/message_shown = FALSE
 
-/decl/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
 
-/decl/reagent/radium/touch_turf(var/turf/T)
+/decl/reagent/radium/touch_turf(var/turf/T, var/datum/reagents/holder)
 	if(volume >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
@@ -403,14 +403,14 @@
 
 	fallback_specific_heat = 0.815
 
-/decl/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.take_organ_damage(0, removed * power)
 
-/decl/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	H.add_chemical_effect(CE_PNEUMOTOXIC, removed * power * 0.5)
 
-/decl/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // This is the most interesting
+/decl/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // This is the most interesting
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.head)
@@ -470,7 +470,7 @@
 		else
 			M.take_organ_damage(0, removed * power * 0.1) // Balance. The damage is instant, so it's weaker. 10 units -> 5 damage, double for pacid. 120 units beaker could deal 60, but a) it's burn, which is not as dangerous, b) it's a one-use weapon, c) missing with it will splash it over the ground and d) clothes give some protection, so not everything will hit
 
-/decl/reagent/acid/touch_obj(var/obj/O)
+/decl/reagent/acid/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if(O.unacidable)
 		return
 	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (volume > meltdose))
@@ -539,7 +539,7 @@
 	condiment_desc = "Tasty space sugar!"
 	condiment_icon_state = "sugar"
 
-/decl/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(-removed*3)
 
 /decl/reagent/sulfur
@@ -552,7 +552,7 @@
 
 	fallback_specific_heat = 0.503
 
-/decl/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (alien & IS_VAURCA)
 		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
