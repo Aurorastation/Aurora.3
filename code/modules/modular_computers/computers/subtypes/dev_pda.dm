@@ -1,5 +1,5 @@
 /obj/item/modular_computer/handheld/pda
-	name = "\improper PDA"
+	name = "PDA"
 	desc = "The latest in portable microcomputer solutions from Thinktronic Systems, LTD."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
