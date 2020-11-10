@@ -502,7 +502,7 @@ var/global/list/additional_antag_types = list()
 			var/evil = 0
 			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED || man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL)
 				evil = 1
-				if(DEPARTMENT_CIVILIAN in job.departments || DEPARTMENT_CARGO in job.departments)
+				if((DEPARTMENT_CIVILIAN in job.departments) || (DEPARTMENT_CARGO in job.departments))
 					civ += 1
 					if(evil)
 						civ_suspect += 1
