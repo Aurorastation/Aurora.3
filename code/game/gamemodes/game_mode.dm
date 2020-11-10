@@ -197,15 +197,19 @@ var/global/list/additional_antag_types = list()
 				var/datum/antagonist/antag = all_antag_types[antag_tag]
 				if(!antag)
 					continue
-				var/list/potential = antag.candidates
+				var/list/potential = list()
+				if(antag.flags & ANTAG_OVERRIDE_JOB)
+					potential = antag.pending_antagonists
+				else
+					potential = antag.candidates
 				if(potential.len)
-					log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text]. [english_list(potential)]")
+					log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 					total_enemies |= potential //Only count candidates once for our total enemy pool
 					if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
 						log_debug("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
 						returning |= GAME_FAILURE_NO_ANTAGS
 
-			log_debug("GAMEMODE: Found [total_enemies.len] total enemies for [name]. [english_list(total_enemies)]")
+			log_debug("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
 
 			if(required_enemies && total_enemies.len < required_enemies)
 				log_debug("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
