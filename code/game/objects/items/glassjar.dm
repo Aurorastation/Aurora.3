@@ -48,7 +48,7 @@
 
 /obj/item/glass_jar/attack_self(var/mob/user)
 	switch(contains)
-		if(1)
+		if(MONEY)
 			for(var/obj/O in src)
 				O.forceMove(user.loc)
 			to_chat(user, SPAN_NOTICE("You take money out of \the [src]."))
