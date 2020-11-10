@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed the maintenance drone ghost spawner."
-  - rscadd: "Added more info as to why certain ghost spawners are disabled to the ghost spawner menu."

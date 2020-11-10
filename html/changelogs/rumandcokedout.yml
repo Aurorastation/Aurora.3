@@ -1,8 +1,0 @@
-author: Chevy
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added a new cocktail and associated sprite, the Rum and Cola.  Uses the existing Cuba Libre recipe of 2 parts rum and 1 part space cola."
-  - rscadd: "Added a new recipe for the Cuba Libre.  Mix 5 parts Rum and Cola with 1 part lime juice."
-  - tweak: "Cuba Libre is now worth .01 more when you ship it via cargo to reflect the fact that you have to make it out of another cocktail now."

@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Mortaphenyl and oxycomorphine now metabolize three times faster."
-  - rscadd: "Alkysine can now be used to counteract confused moving chem side effects, while oculine can be used to counteract eyeblur chem side effects."
-  - tweak: "Synaptizine no longer wildly damages all organs, instead having a chance each time it metabolizes to damage the liver, which is fine, unless the liver has been damaged already, or is taking damage from multiple sources."
