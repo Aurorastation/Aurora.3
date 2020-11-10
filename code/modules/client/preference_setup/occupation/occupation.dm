@@ -233,7 +233,7 @@
 		if(BE_ASSISTANT)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'>Be assistant if preference unavailable</a></u></center><br>"
 		if(RETURN_TO_LOBBY)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><span class='high'>Return to lobby if preference unavailable</font></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><span class='high'>Return to lobby if preference unavailable</span></a></u></center><br>"
 
 	dat += "<center><a href='?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
 	dat += "</tt>"
