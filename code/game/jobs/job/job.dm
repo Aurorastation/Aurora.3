@@ -124,8 +124,15 @@
 	if (LAZYLEN(title_accesses) && title_accesses[selected_title])
 		. += title_accesses[selected_title]
 
+/datum/job/proc/get_total_positions()
+	return total_positions
+
+/datum/job/proc/get_spawn_positions()
+	return spawn_positions
+
 /datum/job/proc/is_position_available()
-	return (current_positions < total_positions) || (total_positions == -1)
+	var/total = get_total_positions()
+	return (current_positions < total) || (total == -1)
 
 /datum/job/proc/fetch_age_restriction()
 	if (!config.age_restrictions_from_file)

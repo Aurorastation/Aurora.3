@@ -81,7 +81,7 @@
 			LAZYINITLIST(data["jobs_list"][department][job.title])
 			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["title"], job.title, ., data)
 			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["head"], job.head_position, ., data)
-			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["total_positions"], job.total_positions, ., data)
+			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["total_positions"], job.get_total_positions(), ., data)
 			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["current_positions"], job.current_positions, ., data)
 
 /datum/late_choices/vueui_on_close(var/datum/vueui/ui)

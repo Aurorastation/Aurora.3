@@ -104,9 +104,9 @@
 			to_chat(player, "<span class='warning'>Your character is too young!</span>")
 			return FALSE
 
-		var/position_limit = job.total_positions
+		var/position_limit = job.get_total_positions()
 		if(!latejoin)
-			position_limit = job.spawn_positions
+			position_limit = job.get_spawn_positions()
 		if((job.current_positions < position_limit) || position_limit == -1)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 			player.mind.assigned_role = rank
@@ -117,14 +117,12 @@
 	Debug("AR has failed, Player: [player], Rank: [rank]")
 	return FALSE
 
-/datum/controller/subsystem/jobs/proc/FreeRole(rank)
+/datum/controller/subsystem/jobs/proc/FreeRole(var/rank)
 	var/datum/job/job = GetJob(rank)
+	if(!istype(job))
+		return
 
-	if (job && job.current_positions >= job.total_positions && job.total_positions != -1)
-		job.total_positions++
-		return TRUE
-
-	return FALSE
+	job.current_positions--
 
 /datum/controller/subsystem/jobs/proc/FindOccupationCandidates(datum/job/job, level, flag)
 	Debug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
@@ -278,7 +276,7 @@
 				if(player.client.prefs.GetJobDepartment(job, level) & job.flag)
 
 					// If the job isn't filled
-					if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
+					if((job.current_positions < job.get_spawn_positions()) || job.get_spawn_positions() == -1)
 						Debug("DO pass, Player: [player], Level:[level], Job:[job.title]")
 						AssignRole(player, job.title)
 						unassigned -= player
@@ -381,7 +379,7 @@
 		if(H.needs_wheelchair())
 			H.equip_wheelchair()
 
-	to_chat(H, "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
+	to_chat(H, "<B>You are [job.get_total_positions() == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
 
 	if(job.supervisors)
 		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
@@ -573,11 +571,10 @@
 
 		if(name && value)
 			var/datum/job/J = GetJob(name)
-			if(!J)	continue
+			if(!istype(J))
+				continue
 			J.total_positions = text2num(value)
 			J.spawn_positions = text2num(value)
-			if(name == "AI" || name == "Cyborg")//I dont like this here but it will do for now    // 6 years later and it's still not changed. Hue.
-				J.total_positions = 0
 
 	return TRUE
 
