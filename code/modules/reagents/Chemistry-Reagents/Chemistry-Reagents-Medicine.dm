@@ -679,7 +679,7 @@
 
 /datum/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_EMETIC, dose/8) // chance per 2 second tick to cause vomiting
-	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5u dose to begin to be effective which'll take 5 minutes to metabolise. need >10u dose if administered via tablets.
+	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5u dose to begin to be effective which'll take ~5 minutes to metabolise. need >10u dose if administered orally.
 
 /datum/reagent/thetamycin/overdose(var/mob/living/carbon/M, var/alien)
 	M.dizziness = max(150, M.dizziness)
