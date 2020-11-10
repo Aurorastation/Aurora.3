@@ -939,6 +939,8 @@
 
 /datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
 	var/uniform = job.get_outfit(H)
+	if(!uniform) // silicons don't have uniforms or gear
+		return
 	var/datum/outfit/U = new uniform
 	for(var/item in prefs.gear)
 		var/datum/gear/L = gear_datums[item]
