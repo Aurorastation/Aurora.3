@@ -12,12 +12,14 @@
 		returning += R.get_thermal_energy()
 	return returning
 
-/datum/reagent/proc/get_thermal_energy(var/datum/reagents/holder)
-	return LAZYACCESS(REAGENT_DATA(holder), type, "thermal_energy")
+/decl/reagent/proc/get_thermal_energy(var/datum/reagents/holder)
+	var/list/data = REAGENT_DATA(holder, type)
+	return LAZYACCESS(data, "thermal_energy")
 
 /datum/reagents/proc/get_heat_capacity()
 	var/returning = 0
-	for(var/datum/reagent/R in reagent_list)
+	for(var/_R in reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
 		if(total_volume)
 			returning += R.get_heat_capacity(src)
 	return returning
@@ -33,7 +35,7 @@
 	else
 		return T0C + 20
 
-/datum/reagent/proc/get_temperature(var/datum/reagents/holder)
+/decl/reagent/proc/get_temperature(var/datum/reagents/holder)
 	var/HC = get_heat_capacity(holder)
 	var/TE = get_thermal_energy(holder)
 	if(HC && TE)
@@ -44,24 +46,24 @@
 /datum/reagents/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature)
 	return get_heat_capacity()*(max(new_temperature, TCMB) - old_temperature)
 
-/datum/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature, var/datum/reagents/holder)
+/decl/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature, var/datum/reagents/holder)
 	return get_heat_capacity(holder)*(max(new_temperature, TCMB) - old_temperature)
 
-/datum/reagent/proc/add_thermal_energy(var/added_energy, var/datum/reagents/holder)
-	LAZYSET(REAGENT_DATA(holder, type, "thermal_energy"), max(0,thermal_energy + added_energy))
+/decl/reagent/proc/add_thermal_energy(var/added_energy, var/datum/reagents/holder)
+	LAZYSET(REAGENT_DATA(holder, type), "thermal_energy", max(0,thermal_energy + added_energy))
 	return added_energy
 
 /decl/reagent/proc/set_thermal_energy(var/set_energy, var/datum/reagents/holder)
 	return add_thermal_energy(-get_thermal_energy(holder) + set_energy)
 
 /decl/reagent/proc/set_thermal_energy_safe(var/set_energy, var/datum/reagents/holder) // This stops nitroglycerin from exploding
-	LAZYSET(REAGENT_DATA(holder, type, "thermal_energy"), set_energy)
+	LAZYSET(REAGENT_DATA(holder, type), "thermal_energy", set_energy)
 	return 0
 
 /datum/reagents/proc/set_thermal_energy(var/set_energy)
 	return add_thermal_energy(-get_thermal_energy() + set_energy)
 
-/datum/reagent/proc/set_temperature(var/new_temperature, var/datum/reagents/holder)
+/decl/reagent/proc/set_temperature(var/new_temperature, var/datum/reagents/holder)
 	return add_thermal_energy(-get_thermal_energy(holder) + get_thermal_energy_change(0,new_temperature, holder), holder )
 
 /datum/reagents/proc/set_temperature(var/new_temperature)

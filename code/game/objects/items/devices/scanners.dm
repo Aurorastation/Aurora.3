@@ -254,7 +254,7 @@ BREATH ANALYZER
 		var/unknown = 0
 		var/reagentdata[0]
 		for(var/A in H.reagents.reagent_list)
-			var/datum/reagent/R = A
+			var/decl/reagent/R = A
 			if(R.scannable)
 				print_reagent_default_message = FALSE
 				reagentdata["[R.type]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, R.type), 1)]u [R.name]</span>"
@@ -272,7 +272,7 @@ BREATH ANALYZER
 	var/datum/reagents/ingested = H.get_ingested_reagents()
 	if(ingested && ingested.total_volume)
 		var/unknown = 0
-		for(var/datum/reagent/R in ingested.reagent_list)
+		for(var/decl/reagent/R in ingested.reagent_list)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
 				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
@@ -378,8 +378,8 @@ BREATH ANALYZER
 		return
 	if(reagents.total_volume)
 		var/list/blood_traces = list()
-		for(var/datum/reagent/R in reagents.reagent_list)
-			if(R.type != /datum/reagent/blood)
+		for(var/decl/reagent/R in reagents.reagent_list)
+			if(R.type != /decl/reagent/blood)
 				reagents.clear_reagents()
 				to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
 				return
@@ -388,7 +388,7 @@ BREATH ANALYZER
 				break
 		var/dat = "Trace Chemicals Found: "
 		for(var/R in blood_traces)
-			var/datum/reagent/C = new R()
+			var/decl/reagent/C = new R()
 			if(details)
 				dat += "[C] ([blood_traces[R]] units) "
 			else
@@ -435,7 +435,7 @@ BREATH ANALYZER
 		var/dat = ""
 		if(O.reagents.reagent_list.len > 0)
 			var/one_percent = O.reagents.total_volume / 100
-			for (var/datum/reagent/R in O.reagents.reagent_list)
+			for (var/decl/reagent/R in O.reagents.reagent_list)
 				dat += "\n \t <span class='notice'>[R][details ? ": [R.volume / one_percent]%" : ""]"
 		if(dat)
 			to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
@@ -606,7 +606,7 @@ BREATH ANALYZER
 
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0
-		for(var/datum/reagent/R in H.breathing.reagent_list)
+		for(var/decl/reagent/R in H.breathing.reagent_list)
 			if(R.scannable)
 				to_chat(user,"<span class='notice'>[R.name] found in subject's respitory system.</span>")
 			else

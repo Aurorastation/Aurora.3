@@ -25,7 +25,7 @@ About the Holder:
 	currently in the object.It also has all the procs needed to manipulate reagents
 
 	Vars:
-		list/datum/reagent/reagent_list
+		list/decl/reagent/reagent_list
 			List of reagent datums.
 
 		total_volume
@@ -71,12 +71,6 @@ About the Holder:
 
 		clear_reagents()
 			Removes all reagents.
-
-		get_reagent_amount(var/id)
-			Returns reagent volume. Returns 0 if reagent is not found.
-
-		get_data(var/id)
-			Returns get_data() of the reagent.
 
 		get_reagents()
 			Returns a string containing all reagent ids and volumes, e.g. "carbon(4),nittrogen(5)".
@@ -251,10 +245,7 @@ About Reagents:
 		mix_data(var/newdata, var/newamount)
 			Called when [newamount] of reagent with [newdata] data is added to the current reagent. Used by paint.
 
-		get_data()
-			Returns data. Can be overriden.
-
-		affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting_reagent)
+		affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/decl/reagent/conflicting_reagent)
 			Called when a reagent conflicts with another reagent in the system.
 
 About Recipes:

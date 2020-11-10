@@ -16,7 +16,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/on_reagent_change()
 	if (reagents.reagent_list.len > 0)
-		var/datum/reagent/R = reagents.get_master_reagent()
+		var/decl/reagent/R = reagents.get_master_reagent()
 
 		if(R.glass_icon_state)
 			icon_state = R.glass_icon_state
@@ -43,13 +43,13 @@
 		desc = "Your standard drinking glass."
 		center_of_mass = list("x"=16, "y"=10)
 
-// for /obj/machinery/vending/sovietsoda	
+// for /obj/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/sodawater, 50)
+	reagents.add_reagent(/decl/reagent/drink/sodawater, 50)
 	on_reagent_change()
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/cola/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/space_cola, 50)
+	reagents.add_reagent(/decl/reagent/drink/space_cola, 50)
 	on_reagent_change()

@@ -34,10 +34,10 @@
 
 /decl/recipe
 	var/display_name
-	var/list/reagents // example: = list(/datum/reagent/drink/berryjuice = 5) // do not list same reagent twice
+	var/list/reagents // example: = list(/decl/reagent/drink/berryjuice = 5) // do not list same reagent twice
 	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
 	var/list/fruit    // example: = list("fruit" = 3)
-	var/datum/reagent/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
+	var/decl/reagent/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
 	//A value of -1 is permissive and cares not for any coatings
 	//Any typepath indicates a specific coating that should be present
 	//Coatings are used for batter, breadcrumbs, beer-batter, colonel's secret coating, etc
@@ -100,7 +100,7 @@
 		else
 			return COOK_CHECK_FAIL
 
-	if ((reagents?length(reagents):0) < length(avail_reagents.reagent_list))
+	if ((reagents?length(reagents):0) < length(avail_reagents.reagent_volumes))
 		return COOK_CHECK_EXTRA
 	return .
 
@@ -258,7 +258,8 @@
 		if (RECIPE_REAGENT_MAX)
 			//We want the highest of each.
 			//Iterate through everything in buffer. If the target has less than the buffer, then top it up
-			for (var/datum/reagent/R in buffer.reagent_list)
+			for (var/_R in buffer.reagent_volumes)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				var/rvol = REAGENT_VOLUME(holder, R.type)
 				if (rvol < R.volume)
 					//Transfer the difference
@@ -267,7 +268,8 @@
 		if (RECIPE_REAGENT_MIN)
 			//Min is slightly more complex. We want the result to have the lowest from each side
 			//But zero will not count. Where a side has zero its ignored and the side with a nonzero value is used
-			for (var/datum/reagent/R in buffer.reagent_list)
+			for (var/_R in buffer.reagent_volumes)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				var/rvol = REAGENT_VOLUME(holder, R.type)
 				if (rvol == 0) //If the target has zero of this reagent
 					buffer.trans_type_to(holder, R.type, R.volume)

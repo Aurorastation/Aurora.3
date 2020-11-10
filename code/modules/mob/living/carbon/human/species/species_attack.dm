@@ -187,7 +187,7 @@
 	infection_chance -= target.run_armor_check(zone,"melee")
 	if(prob(infection_chance))
 		if(target.reagents)
-			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, 10)
+			target.reagents.add_reagent(/decl/reagent/toxin/trioxin, 10)
 
 
 /datum/unarmed_attack/golem

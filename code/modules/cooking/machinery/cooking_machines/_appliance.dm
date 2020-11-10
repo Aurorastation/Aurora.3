@@ -254,12 +254,12 @@
 		oilwork(J, CI)
 
 	for (var/r in CI.container.reagents.reagent_list)
-		var/datum/reagent/R = r
-		if (istype(R, /datum/reagent/nutriment))
+		var/decl/reagent/R = r
+		if (istype(R, /decl/reagent/nutriment))
 			CI.max_cookwork += R.volume *2//Added reagents contribute less than those in food items due to granular form
 
 			//Nonfat reagents will soak oil
-			if (!istype(R, /datum/reagent/nutriment/triglyceride))
+			if (!istype(R, /decl/reagent/nutriment/triglyceride))
 				CI.max_oil += R.volume * 0.25
 		else
 			CI.max_cookwork += R.volume
@@ -275,12 +275,12 @@
 	var/work = 0
 	if (istype(S) && S.reagents)
 		for (var/r in S.reagents.reagent_list)
-			var/datum/reagent/R = r
-			if (istype(R, /datum/reagent/nutriment))
+			var/decl/reagent/R = r
+			if (istype(R, /decl/reagent/nutriment))
 				work += R.volume *3//Core nutrients contribute much more than peripheral chemicals
 
 				//Nonfat reagents will soak oil
-				if (!istype(R, /datum/reagent/nutriment/triglyceride))
+				if (!istype(R, /decl/reagent/nutriment/triglyceride))
 					CI.max_oil += R.volume * 0.35
 			else
 				work += R.volume
@@ -575,13 +575,13 @@
 		result.kitchen_tag = SA.kitchen_tag
 		if (SA.meat_amount)
 			reagent_amount = SA.meat_amount*9 // at a rate of 9 protein per meat
-	var/datum/reagent/digest_product = victim.get_digestion_product()
+	var/decl/reagent/digest_product = victim.get_digestion_product()
 	var/list/data
 	var/meat_name = result.kitchen_tag || victim.name
 	if(ishuman(victim))
 		var/mob/living/carbon/human/CH = victim
 		meat_name = CH.species?.name || meat_name
-	if(istype(digest_product, /datum/reagent/nutriment/protein))
+	if(istype(digest_product, /decl/reagent/nutriment/protein))
 		data = list("[meat_name] meat" = reagent_amount)
 	result.reagents.add_reagent(victim.get_digestion_product(), reagent_amount, data)
 

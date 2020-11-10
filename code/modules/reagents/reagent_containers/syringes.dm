@@ -153,7 +153,7 @@
 				return
 
 			if(ismob(target))//Blood!
-				if(reagents.has_reagent(/datum/reagent/blood))
+				if(reagents.has_reagent(/decl/reagent/blood))
 					to_chat(user, SPAN_NOTICE("There is already a blood sample in this syringe."))
 					return
 				if(istype(target, /mob/living/carbon))
@@ -169,21 +169,8 @@
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
 						return
 
-					var/datum/reagent/B
-					if(istype(T, /mob/living/carbon/human))
-						var/mob/living/carbon/human/H = T
-						if(H.species && H.species.flags & NO_BLOOD)
-							H.reagents.trans_to_obj(src, amount)
-						else
-							B = T.take_blood(src, amount)
-					else
-						B = T.take_blood(src,amount)
+					T.take_blood(src,amount)
 
-					if (B)
-						reagents.reagent_list += B
-						reagents.update_total()
-						on_reagent_change()
-						reagents.handle_reactions()
 					to_chat(user, SPAN_NOTICE("You take a blood sample from [target]."))
 					for(var/mob/O in viewers(4, user))
 						O.show_message(SPAN_NOTICE("[user] takes a blood sample from [target]."), 1)
@@ -398,7 +385,7 @@
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"
 	desc = "Contains inaprovaline - used to stabilize patients."
-	reagents_to_add = list(/datum/reagent/inaprovaline = 15)
+	reagents_to_add = list(/decl/reagent/inaprovaline = 15)
 
 /obj/item/reagent_containers/syringe/inaprovaline/Initialize()
 	. = ..()
@@ -408,7 +395,7 @@
 /obj/item/reagent_containers/syringe/dylovene
 	name = "Syringe (dylovene)"
 	desc = "Contains anti-toxins."
-	reagents_to_add = list(/datum/reagent/dylovene = 15)
+	reagents_to_add = list(/decl/reagent/dylovene = 15)
 
 /obj/item/reagent_containers/syringe/dylovene/Initialize()
 	. = ..()
@@ -418,7 +405,7 @@
 /obj/item/reagent_containers/syringe/antibiotic
 	name = "Syringe (thetamycin)"
 	desc = "Contains antibiotics."
-	reagents_to_add = list(/datum/reagent/thetamycin = 15)
+	reagents_to_add = list(/decl/reagent/thetamycin = 15)
 
 /obj/item/reagent_containers/syringe/antibiotic/Initialize()
 	. = ..()
@@ -428,7 +415,7 @@
 /obj/item/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
-	reagents_to_add = list(/datum/reagent/toxin/panotoxin = 5, /datum/reagent/mindbreaker = 10)
+	reagents_to_add = list(/decl/reagent/toxin/panotoxin = 5, /decl/reagent/mindbreaker = 10)
 
 /obj/item/reagent_containers/syringe/drugs/Initialize()
 	. = ..()
@@ -438,7 +425,7 @@
 /obj/item/reagent_containers/syringe/fluvectionem
 	name = "Syringe (fluvectionem)"
 	desc = "Contains purging medicine."
-	reagents_to_add = list(/datum/reagent/fluvectionem = 15)
+	reagents_to_add = list(/decl/reagent/fluvectionem = 15)
 
 /obj/item/reagent_containers/syringe/fluvectionem/Initialize()
 	. = ..()
@@ -447,7 +434,7 @@
 
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral
-	reagents_to_add = list(/datum/reagent/polysomnine = 60)
+	reagents_to_add = list(/decl/reagent/polysomnine = 60)
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
 	. = ..()

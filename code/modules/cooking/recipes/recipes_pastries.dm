@@ -3,7 +3,7 @@
 
 /decl/recipe/cookie
 	appliance = OVEN
-	reagents = list(/datum/reagent/drink/milk = 10, /datum/reagent/sugar = 10)
+	reagents = list(/decl/reagent/drink/milk = 10, /decl/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/chocolatebar
@@ -14,7 +14,7 @@
 
 /decl/recipe/fortunecookie
 	appliance = OVEN
-	reagents = list(/datum/reagent/sugar = 5)
+	reagents = list(/decl/reagent/sugar = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice,
 		/obj/item/paper
@@ -62,13 +62,13 @@
 
 /decl/recipe/brownies
 	appliance = OVEN
-	reagents = list(/datum/reagent/browniemix = 10, /datum/reagent/nutriment/protein/egg = 3)
+	reagents = list(/decl/reagent/browniemix = 10, /decl/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
 	result = /obj/item/reagent_containers/food/snacks/sliceable/brownies
 
 /decl/recipe/cosmicbrownies
 	appliance = OVEN
-	reagents = list(/datum/reagent/browniemix = 10, /datum/reagent/nutriment/protein/egg = 3)
+	reagents = list(/decl/reagent/browniemix = 10, /decl/reagent/nutriment/protein/egg = 3)
 	fruit = list("ambrosia" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cosmicbrownies
@@ -77,7 +77,7 @@
 //============
 /decl/recipe/cake
 	appliance = OVEN
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/nutriment/flour = 15, /datum/reagent/sugar = 15, /datum/reagent/nutriment/protein/egg = 9)
+	reagents = list(/decl/reagent/drink/milk = 5, /decl/reagent/nutriment/flour = 15, /decl/reagent/sugar = 15, /decl/reagent/nutriment/protein/egg = 9)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/plain
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
@@ -134,12 +134,12 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
-	reagents = list(/datum/reagent/nutriment/honey = 5)
+	reagents = list(/decl/reagent/nutriment/honey = 5)
 	result = /obj/item/reagent_containers/food/snacks/honeybun
 
 /decl/recipe/truffle
 	appliance = OVEN
-	reagents = list(/datum/reagent/nutriment/coco = 2, /datum/reagent/drink/milk/cream = 5)
+	reagents = list(/decl/reagent/nutriment/coco = 2, /decl/reagent/drink/milk/cream = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/chocolatebar
 	)
@@ -177,7 +177,7 @@
 /decl/recipe/pie
 	appliance = OVEN
 	fruit = list("banana" = 1)
-	reagents = list(/datum/reagent/sugar = 5)
+	reagents = list(/decl/reagent/sugar = 5)
 	items = list(/obj/item/reagent_containers/food/snacks/sliceable/flatdough)
 	result = /obj/item/reagent_containers/food/snacks/pie
 
@@ -187,12 +187,12 @@
 
 /decl/recipe/pie/cherry
 	fruit = list("cherries" = 1)
-	reagents = list(/datum/reagent/sugar = 10)
+	reagents = list(/decl/reagent/sugar = 10)
 	result = /obj/item/reagent_containers/food/snacks/cherrypie
 
 /decl/recipe/pie/amanita
 	fruit = null
-	reagents = list(/datum/reagent/toxin/amatoxin = 5)
+	reagents = list(/decl/reagent/toxin/amatoxin = 5)
 	result = /obj/item/reagent_containers/food/snacks/amanita_pie
 
 /decl/recipe/pie/plump
@@ -202,21 +202,21 @@
 
 /decl/recipe/pie/pumpkin
 	fruit = null
-	reagents = list(/datum/reagent/sugar = 5, /datum/reagent/nutriment/pumpkinpulp = 5, /datum/reagent/spacespice/pumpkinspice = 2)
+	reagents = list(/decl/reagent/sugar = 5, /decl/reagent/nutriment/pumpkinpulp = 5, /decl/reagent/spacespice/pumpkinspice = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pumpkinpie
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /decl/recipe/appletart
 	appliance = OVEN
 	fruit = list("goldapple" = 1)
-	reagents = list(/datum/reagent/sugar = 5, /datum/reagent/drink/milk = 5, /datum/reagent/nutriment/flour = 10, /datum/reagent/nutriment/protein/egg = 3)
+	reagents = list(/decl/reagent/sugar = 5, /decl/reagent/drink/milk = 5, /decl/reagent/nutriment/flour = 10, /decl/reagent/nutriment/protein/egg = 3)
 	result = /obj/item/reagent_containers/food/snacks/appletart
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /decl/recipe/keylimepie
 	appliance = OVEN
 	fruit = list("lime" = 2)
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/sugar = 5, /datum/reagent/nutriment/protein/egg = 3, /datum/reagent/nutriment/flour = 10)
+	reagents = list(/decl/reagent/drink/milk = 5, /decl/reagent/sugar = 5, /decl/reagent/nutriment/protein/egg = 3, /decl/reagent/nutriment/flour = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/keylimepie
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 

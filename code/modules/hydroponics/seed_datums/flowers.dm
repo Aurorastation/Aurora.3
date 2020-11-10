@@ -3,7 +3,7 @@
 	name = "harebells"
 	seed_name = "harebell"
 	display_name = "harebells"
-	chems = list(/datum/reagent/nutriment = list(1,20))
+	chems = list(/decl/reagent/nutriment = list(1,20))
 
 /obj/item/seeds/harebell
 	seed_type = "harebells"
@@ -23,7 +23,7 @@
 	name = "poppies"
 	seed_name = "poppy"
 	display_name = "poppies"
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/bicaridine = list(1,10))
+	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/bicaridine = list(1,10))
 	kitchen_tag = "poppy"
 
 /datum/seed/flower/poppy/setup_traits()

@@ -1,4 +1,4 @@
-/datum/reagent/space_drugs
+/decl/reagent/space_drugs
 	name = "Space Drugs"
 	description = "Mercury Monolithium Sucrose, or space drugs, is a potent relaxant commonly found in Ambrosia plants. Lasts twice as long when inhaled."
 	reagent_state = LIQUID
@@ -9,13 +9,13 @@
 	taste_mult = 0.4
 	breathe_met = REM * 0.5 * 0.5
 
-/datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.add_chemical_effect(CE_PULSE, -1)
 
-	var/power = (dose + volume)/2 //Larger the dose and volume, the more affected you are by the chemical.
+	var/power = (M.chem_doses[type] + volume)/2 //Larger the dose and volume, the more affected you are by the chemical.
 
 	M.druggy = max(M.druggy, power)
 	M.add_chemical_effect(CE_PAINKILLER, 5 + round(power,5))
@@ -38,11 +38,11 @@
 	if(prob(3))
 		M.emote(pick("smile","giggle","moan","yawn","laugh","drool","twitch"))
 
-/datum/reagent/space_drugs/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
+/decl/reagent/space_drugs/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
 	. = ..()
 	M.hallucination = max(M.hallucination, 30 * scale)
 
-/datum/reagent/serotrotium
+/decl/reagent/serotrotium
 	name = "Serotrotium"
 	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans."
 	reagent_state = LIQUID
@@ -52,7 +52,7 @@
 	taste_description = "bitterness"
 	fallback_specific_heat = 1.2
 
-/datum/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -60,7 +60,7 @@
 		M.emote(pick("twitch", "drool", "moan", "gasp"))
 	return
 
-/datum/reagent/cryptobiolin
+/decl/reagent/cryptobiolin
 	name = "Cryptobiolin"
 	description = "Cryptobiolin causes confusion and dizzyness."
 	reagent_state = LIQUID
@@ -69,7 +69,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sourness"
 
-/datum/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -78,7 +78,7 @@
 	M.add_chemical_effect(CE_HALLUCINATE, 1)
 	M.confused = max(M.confused, 20)
 
-/datum/reagent/impedrezene
+/decl/reagent/impedrezene
 	name = "Impedrezene"
 	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
 	reagent_state = LIQUID
@@ -86,7 +86,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "numbness"
 
-/datum/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.jitteriness = max(M.jitteriness - 5, 0)
 	M.confused = max(M.confused, 10)
 	if(prob(80))
@@ -96,7 +96,7 @@
 	if(prob(10))
 		M.emote("drool")
 
-/datum/reagent/mindbreaker
+/decl/reagent/mindbreaker
 	name = "Mindbreaker Toxin"
 	description = "An incredibly potent hallucinogen designed to wreak havoc on the brain, resulting in disturbing hallucinations with long-term impacts on those given the drug - this drug is not pleasant, thus the name, and only hardcore addicts use the drug recreationally."
 	reagent_state = LIQUID
@@ -105,13 +105,13 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sourness"
 
-/datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 100)
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
 	if(prob(10))
 		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
 
-/datum/reagent/psilocybin
+/decl/reagent/psilocybin
 	name = "Psilocybin"
 	description = "A strong psychotropic derived from certain species of mushroom."
 	color = "#E700E7"
@@ -120,12 +120,13 @@
 	taste_description = "mushroom"
 	fallback_specific_heat = 1.2
 
-/datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.druggy = max(M.druggy, 30)
 	M.add_chemical_effect(CE_HALLUCINATE, 1)
+	var/dose = M.chem_doses[type]
 	if(dose < 1)
 		M.apply_effect(3, STUTTER)
 		M.make_dizzy(5)
@@ -148,7 +149,7 @@
 		if(prob(15))
 			M.emote(pick("twitch", "giggle"))
 
-/datum/reagent/raskara_dust
+/decl/reagent/raskara_dust
 	name = "Raskara Dust"
 	description = "A powdery narcotic found in the gang-ridden slums of Biesel and Sol. Known for it's relaxing poperties that cause trance-like states when inhaled. Casual users tend to snort or inhale, while hardcore users inject."
 	reagent_state = SOLID
@@ -159,23 +160,23 @@
 	breathe_met = REM * 0.2
 	ingest_met = REM * 0.3
 
-/datum/reagent/raskara_dust/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/raskara_dust/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.drowsyness += 1 * removed
 
-/datum/reagent/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
 	M.drowsyness += 2 * removed
 	if(prob(5))
 		M.emote("cough")
 
-/datum/reagent/raskara_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/raskara_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
 	M.drowsyness += 3 * removed
 	if(prob(5))
 		M.emote("twitch")
 
-/datum/reagent/night_juice
+/decl/reagent/night_juice
 	name = "Nightlife"
 	description = "A liquid narcotic commonly used by the more wealthy drug-abusing citizens of the Eridani Federation. Works as a potent stimulant that causes extreme awakefulness. Lethal in high doses."
 	reagent_state = LIQUID
@@ -187,7 +188,7 @@
 	ingest_mul = 0.125
 	var/special_counter = 0
 
-/datum/reagent/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/reagent/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
 		return
 
@@ -206,7 +207,7 @@
 		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
 		H.take_damage(special_counter * removed * 0.025)
 
-/datum/reagent/guwan_painkillers
+/decl/reagent/guwan_painkillers
 	name = "Tremble"
 	description = "An ancient tribal Unathi narcotic based on the outer gel layer of the seeds of a poisonous flower. The chemical itself acts as a very potent omni-healer when consumed, however as the chemical metabolizes, it causes immense and cripling pain."
 	reagent_state = LIQUID
@@ -216,10 +217,11 @@
 	overdose = 10
 	fallback_specific_heat = 1
 
-/datum/reagent/guwan_painkillers/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/guwan_painkillers/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_ingest(M,alien,removed*0.5)
 
-/datum/reagent/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	var/dose = M.chem_doses[type]
 	if(dose > 5 && volume <= 3)
 		M.adjustHalLoss(removed*300) //So oxycomorphine can't be used with it.
 	else
@@ -230,7 +232,7 @@
 			M.add_chemical_effect(CE_PAINKILLER, 10)
 			M.heal_organ_damage(2 * removed,2 * removed)
 
-/datum/reagent/toxin/stimm	//Homemade Hyperzine, ported from Polaris
+/decl/reagent/toxin/stimm	//Homemade Hyperzine, ported from Polaris
 	name = "Stimm"
 	description = "A homemade stimulant with some serious side-effects."
 	taste_description = "sweetness"
@@ -241,7 +243,7 @@
 	overdose = 10
 	strength = 3
 
-/datum/reagent/toxin/stimm/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/stimm/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_TAJARA)
 		removed *= 1.25
 	..()
@@ -254,11 +256,11 @@
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/toxin/stimm/Destroy()
+/decl/reagent/toxin/stimm/Destroy()
 	QDEL_NULL(modifier)
 	return ..()
 
-/datum/reagent/toxin/lean
+/decl/reagent/toxin/lean
 	name = "Lean"
 	description = "A mixture of cough syrup, space-up, and sugar."
 	taste_description = "sickly-sweet soda"
@@ -271,7 +273,7 @@
 	glass_name = "glass of purple drank"
 	glass_desc = "Bottoms up."
 
-/datum/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_PAINKILLER, 40) // basically like Perconol, but a bit worse
 	// doesn't make you vomit, though
@@ -284,14 +286,14 @@
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 
-/datum/reagent/toxin/krok
+/decl/reagent/toxin/krok
 	name = "Krok Juice"
 	description = "An advanced Eridanian variant of ancient krokodil, known for causing prosthetic malfunctions."
 	strength = 3
 	metabolism = REM
 	overdose = 15
 
-/datum/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -313,7 +315,7 @@
 	if(eyes.status & ORGAN_ROBOT)
 		M.hallucination = max(M.hallucination, 40)
 
-/datum/reagent/wulumunusha
+/decl/reagent/wulumunusha
 	name = "Wulumunusha Extract"
 	description = "The extract of the wulumunusha fruit, it can cause hallucinations and muteness."
 	color = "#61E2EC"
@@ -321,10 +323,10 @@
 	fallback_specific_heat = 1
 	overdose = 10
 
-/datum/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)
 
-/datum/reagent/wulumunusha/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
+/decl/reagent/wulumunusha/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
 	if(isskrell(M))
 		M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict skrell

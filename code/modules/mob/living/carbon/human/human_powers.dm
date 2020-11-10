@@ -849,7 +849,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent(/datum/reagent/fuel/napalm, 200)
+			D.reagents.add_reagent(/decl/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -894,7 +894,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent(/datum/reagent/blood,20*O.amount)
+				vessel.add_reagent(/decl/reagent/blood,20*O.amount)
 			qdel(O)
 			last_special = world.time + 50
 

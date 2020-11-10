@@ -141,10 +141,10 @@
 					if(!do_mob(user, M, W.damage/10)) // takes twice as long as a normal bandage
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 						break
-					for(var/datum/reagent/R in reagents.reagent_list)
+					for(var/decl/reagent/R in reagents.reagent_list)
 						var/strength = R.germ_adjust * R.volume/4
-						if(istype(R, /datum/reagent/alcohol))
-							var/datum/reagent/alcohol/A = R
+						if(istype(R, /decl/reagent/alcohol))
+							var/decl/reagent/alcohol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
 						if (W.germ_level <= 0)
@@ -210,7 +210,7 @@
 //rag must have a minimum of 2 units welder fuel and at least 80% of the reagents must be welder fuel.
 //maybe generalize flammable reagents someday
 /obj/item/reagent_containers/glass/rag/proc/can_ignite()
-	var/fuel = REAGENT_VOLUME(reagents, /datum/reagent/fuel)
+	var/fuel = REAGENT_VOLUME(reagents, /decl/reagent/fuel)
 	return (fuel >= 2 && fuel >= reagents.total_volume*0.8)
 
 /obj/item/reagent_containers/glass/rag/proc/ignite()
@@ -220,10 +220,10 @@
 		return
 
 	//also copied from matches
-	if(REAGENT_VOLUME(reagents, /datum/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
+	if(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 		visible_message(SPAN_DANGER("\The [src] conflagrates violently!"))
 		var/datum/effect/effect/system/reagents_explosion/e = new()
-		e.set_up(round(REAGENT_VOLUME(reagents, /datum/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
+		e.set_up(round(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 		e.start()
 		qdel(src)
 		return
@@ -267,7 +267,7 @@
 		qdel(src)
 		return
 
-	reagents.remove_reagent(/datum/reagent/fuel, reagents.maximum_volume/25)
+	reagents.remove_reagent(/decl/reagent/fuel, reagents.maximum_volume/25)
 	update_name()
 	update_icon()
 	burn_time--

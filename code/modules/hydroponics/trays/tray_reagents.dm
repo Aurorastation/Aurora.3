@@ -106,14 +106,14 @@
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "bottle of E-Z-Nutrient"
 	icon_state = "bottle16"
-	reagents_to_add = list(/datum/reagent/toxin/fertilizer/eznutrient = 60)
+	reagents_to_add = list(/decl/reagent/toxin/fertilizer/eznutrient = 60)
 
 /obj/item/reagent_containers/glass/fertilizer/l4z
 	name = "bottle of Left 4 Zed"
 	icon_state = "bottle18"
-	reagents_to_add = list(/datum/reagent/toxin/fertilizer/left4zed = 60)
+	reagents_to_add = list(/decl/reagent/toxin/fertilizer/left4zed = 60)
 
 /obj/item/reagent_containers/glass/fertilizer/rh
 	name = "bottle of Robust Harvest"
 	icon_state = "bottle15"
-	reagents_to_add = list(/datum/reagent/toxin/fertilizer/robustharvest = 60)
+	reagents_to_add = list(/decl/reagent/toxin/fertilizer/robustharvest = 60)

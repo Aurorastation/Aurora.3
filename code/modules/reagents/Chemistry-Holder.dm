@@ -20,18 +20,17 @@
 	if(SSchemistry)
 		SSchemistry.active_holders -= src
 
-	for(var/datum/reagent/R in reagent_list)
-		qdel(R)
-	reagent_list.Cut()
-	reagent_list = null
+	LAZYCLEARLIST(reagent_data)
+	LAZYCLEARLIST(reagent_volumes)
 	if(my_atom && my_atom.reagents == src)
 		my_atom.reagents = null
 
 /* Internal procs */
 
 /datum/reagents/proc/apply_force(var/force) // applies force to the reagents inside it
-	for (var/datum/reagent/A in reagent_list)
-		A.apply_force(force)
+	for (var/_A in reagent_volumes)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
+		A.apply_force(force, src)
 
 /datum/reagents/proc/get_primary_reagent_name() // Returns the name of the reagent with the biggest volume.
 	var/decl/reagent/reagent = get_primary_reagent_decl()
@@ -45,7 +44,8 @@
 	var/the_reagent = null
 	var/the_volume = 0
 
-	for(var/datum/reagent/A in reagent_list)
+	for(var/_A in reagent_volumes)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
 		if(A.volume > the_volume)
 			the_volume = A.volume
 			the_reagent = A
@@ -53,7 +53,8 @@
 	return the_reagent
 
 /datum/reagents/proc/get_reagent(var/rtype) // Returns reference to reagent matching passed type
-	for(var/datum/reagent/A in reagent_list)
+	for(var/_A in reagent_volumes)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
 		if (A.type == rtype)
 			return A
 
@@ -62,7 +63,8 @@
 /datum/reagents/proc/get_master_reagent_name() // Returns the name of the reagent with the biggest volume.
 	var/the_name = null
 	var/the_volume = 0
-	for(var/datum/reagent/A in reagent_list)
+	for(var/_A in reagent_volumes)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
 		if(A.volume > the_volume)
 			the_volume = A.volume
 			the_name = A.name
@@ -72,7 +74,8 @@
 /datum/reagents/proc/get_master_reagent_type() // Returns the type of the reagent with the biggest volume.
 	var/the_type = null
 	var/the_volume = 0
-	for(var/datum/reagent/A in reagent_list)
+	for(var/_A in reagent_volumes)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
 		if(A.volume > the_volume)
 			the_volume = A.volume
 			the_type = A.type
@@ -105,7 +108,8 @@
 		my_atom.on_reagent_change()
 
 /datum/reagents/proc/delete()
-	for(var/datum/reagent/R in reagent_list)
+	for(var/_R in reagent_list)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
 		R.holder = null
 	if(my_atom)
 		my_atom.reagents = null
@@ -171,7 +175,7 @@
 		if(tmp_data)
 			LAZYSET(reagent_data, rtype, tmp_data)
 		if(!newreagent.get_thermal_energy(src))
-			set_thermal_energy_safe(default_temperature * specific_heat * amount)
+			newreagent.set_thermal_energy_safe(newreagent.default_temperature * specific_heat * amount)
 	else // existing reagent
 		reagent_volumes[rtype] += amount
 		if(thermal_energy > 0 && old_amount > 0)
@@ -232,18 +236,17 @@
 	LAZYCLEARLIST(reagent_data)
 	update_holder(FALSE)
 
-/datum/reagents/proc/get_data(var/rtype)
-	return REAGENT_DATA(src, rtype)
-
 /datum/reagents/proc/get_reagents()
 	. = list()
-	for(var/datum/reagent/current in reagent_list)
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		. += "[current.name] ([current.volume])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
 /datum/reagents/proc/get_ids_by_phase(var/phase) // this proc will probably need to be changed if you can have one reagent in multiple states at the same time
 	. = list()
-	for(var/datum/reagent/current in reagent_list)
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		if(phase == current.reagent_state)
 			. += current.type
 
@@ -257,7 +260,8 @@
 
 	var/part = amount / total_volume
 
-	for(var/datum/reagent/current in reagent_list)
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		var/amount_to_remove = current.volume * part
 		remove_reagent(current.type, amount_to_remove, 1)
 
@@ -279,10 +283,11 @@
 
 	var/part = amount / total_volume
 
-	for(var/datum/reagent/current in reagent_list)
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		var/amount_to_transfer = current.volume * part
 		var/energy_to_transfer = current.get_thermal_energy() * (amount_to_transfer / current.volume)
-		target.add_reagent(current.type, amount_to_transfer * multiplier, current.get_data(), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
+		target.add_reagent(current.type, amount_to_transfer * multiplier, REAGENT_DATA(src, current), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(current.type, amount_to_transfer, TRUE)
 
@@ -325,7 +330,7 @@
 	if (!target)
 		return
 
-	var/datum/reagent/transfering_reagent = get_reagent(rtype)
+	var/decl/reagent/transfering_reagent = get_reagent(rtype)
 
 	if (istype(target, /atom))
 		var/atom/A = target
@@ -339,7 +344,7 @@
 
 
 	var/datum/reagents/F = new /datum/reagents(amount)
-	var/tmpdata = get_data(rtype)
+	var/tmpdata = REAGENT_DATA(src, rtype)
 	var/transfering_thermal_energy = transfering_reagent.get_thermal_energy() * (amount/transfering_reagent.volume)
 	F.add_reagent(rtype, amount, tmpdata, thermal_energy = transfering_thermal_energy)
 	remove_reagent(rtype, amount)
@@ -386,7 +391,8 @@
 		target.adjustFireLoss(burn_damage)
 		target.visible_message(SPAN_DANGER("The freezing liquid burns \the [target]!"))
 
-	for(var/datum/reagent/current in reagent_list)
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		current.touch_mob(target, current.volume)
 
 	update_holder()
@@ -395,7 +401,8 @@
 	if(!target || !istype(target) || !target.simulated)
 		return
 
-	for(var/datum/reagent/current in reagent_list)
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		current.touch_turf(target, current.volume)
 
 	update_holder()
@@ -404,7 +411,8 @@
 	if(!target || !istype(target) || !target.simulated)
 		return
 
-	for(var/datum/reagent/current in reagent_list)
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		current.touch_obj(target, current.volume)
 
 	update_holder()

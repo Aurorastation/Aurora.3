@@ -90,8 +90,8 @@
 			var/dat = ""
 			if(!condi)
 				if(href_list["name"] == "Blood")
-					var/datum/reagent/blood/G
-					for(var/datum/reagent/F in R.reagent_list)
+					var/decl/reagent/blood/G
+					for(var/decl/reagent/F in R.reagent_list)
 						if(F.name == href_list["name"])
 							G = F
 							break
@@ -247,7 +247,7 @@
 			dat += "Beaker is empty."
 		else
 			dat += "Add to buffer:<BR>"
-			for(var/datum/reagent/G in R.reagent_list)
+			for(var/decl/reagent/G in R.reagent_list)
 				dat += "[G.name] , [G.volume] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[G.description];name=[G.name]'>(Analyze)</A> "
 				dat += "<A href='?src=\ref[src];add=[G.type];amount=1'>(1)</A> "
@@ -258,7 +258,7 @@
 
 		dat += "<HR>Transfer to <A href='?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
 		if(reagents.total_volume)
-			for(var/datum/reagent/N in reagents.reagent_list)
+			for(var/decl/reagent/N in reagents.reagent_list)
 				dat += "[N.name] , [N.volume] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[N.description];name=[N.name]'>(Analyze)</A> "
 				dat += "<A href='?src=\ref[src];remove=[N.type];amount=1'>(1)</A> "
@@ -303,18 +303,18 @@
 	var/limit = 10
 	var/list/holdingitems = list()
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list(/datum/reagent/iron),
-		/obj/item/stack/material/uranium = list(/datum/reagent/uranium),
-		/obj/item/stack/material/phoron = list(/datum/reagent/toxin/phoron),
-		/obj/item/stack/material/gold = list(/datum/reagent/gold),
-		/obj/item/stack/material/silver = list(/datum/reagent/silver),
-		/obj/item/stack/material/platinum = list(/datum/reagent/platinum),
-		/obj/item/stack/material/mhydrogen = list(/datum/reagent/hydrazine), // i guess
-		/obj/item/stack/material/steel = list(/datum/reagent/iron, /datum/reagent/carbon),
-		/obj/item/stack/material/plasteel = list(/datum/reagent/iron, /datum/reagent/iron, /datum/reagent/carbon, /datum/reagent/carbon, /datum/reagent/platinum), //8 iron, 8 carbon, 4 platinum,
-		/obj/item/stack/material/sandstone = list(/datum/reagent/silicon, /datum/reagent/acetone),
-		/obj/item/stack/material/glass = list(/datum/reagent/silicate),
-		/obj/item/stack/material/glass/phoronglass = list(/datum/reagent/platinum, /datum/reagent/silicate, /datum/reagent/silicate, /datum/reagent/silicate), //5 platinum, 15 silicate,
+		/obj/item/stack/material/iron = list(/decl/reagent/iron),
+		/obj/item/stack/material/uranium = list(/decl/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/decl/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/decl/reagent/gold),
+		/obj/item/stack/material/silver = list(/decl/reagent/silver),
+		/obj/item/stack/material/platinum = list(/decl/reagent/platinum),
+		/obj/item/stack/material/mhydrogen = list(/decl/reagent/hydrazine), // i guess
+		/obj/item/stack/material/steel = list(/decl/reagent/iron, /decl/reagent/carbon),
+		/obj/item/stack/material/plasteel = list(/decl/reagent/iron, /decl/reagent/iron, /decl/reagent/carbon, /decl/reagent/carbon, /decl/reagent/platinum), //8 iron, 8 carbon, 4 platinum,
+		/obj/item/stack/material/sandstone = list(/decl/reagent/silicon, /decl/reagent/acetone),
+		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
+		/obj/item/stack/material/glass/phoronglass = list(/decl/reagent/platinum, /decl/reagent/silicate, /decl/reagent/silicate, /decl/reagent/silicate), //5 platinum, 15 silicate,
 		)
 
 /obj/machinery/reagentgrinder/Initialize()
@@ -409,7 +409,7 @@
 			is_beaker_ready = 1
 			beaker_contents = "<B>The beaker contains:</B><br>"
 			var/anything = 0
-			for(var/datum/reagent/R in beaker.reagents.reagent_list)
+			for(var/decl/reagent/R in beaker.reagents.reagent_list)
 				anything = 1
 				beaker_contents += "[R.volume] - [R.name]<br>"
 			if(!anything)

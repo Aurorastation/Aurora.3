@@ -1,6 +1,6 @@
 /decl/recipe/friedegg_easy
 	appliance = SKILLET
-	reagents = list(/datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1)
+	reagents = list(/decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg
 	)
@@ -15,7 +15,7 @@
 
 /decl/recipe/poachedegg
 	appliance = SKILLET | SAUCEPAN
-	reagents = list(/datum/reagent/spacespice = 1, /datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1, /datum/reagent/water = 5)
+	reagents = list(/decl/reagent/spacespice = 1, /decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1, /decl/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg
 	)
@@ -24,7 +24,7 @@
 
 /decl/recipe/honeytoast
 	appliance = SKILLET
-	reagents = list(/datum/reagent/nutriment/honey = 5)
+	reagents = list(/decl/reagent/nutriment/honey = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
@@ -52,7 +52,7 @@
 
 /decl/recipe/boiledegg
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 5)
+	reagents = list(/decl/reagent/water = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg
@@ -65,13 +65,13 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
-	reagents = list(/datum/reagent/nutriment/protein/egg = 6)
+	reagents = list(/decl/reagent/nutriment/protein/egg = 6)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/omelette
 
 /decl/recipe/muffin
 	appliance = OVEN
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/sugar = 5)
+	reagents = list(/decl/reagent/drink/milk = 5, /decl/reagent/sugar = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
@@ -80,7 +80,7 @@
 
 /decl/recipe/berrymuffin
 	appliance = OVEN
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/sugar = 5)
+	reagents = list(/decl/reagent/drink/milk = 5, /decl/reagent/sugar = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
@@ -90,7 +90,7 @@
 
 /decl/recipe/quiche
 	appliance = OVEN
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/nutriment/protein/egg = 9, /datum/reagent/nutriment/flour = 10)
+	reagents = list(/decl/reagent/drink/milk = 5, /decl/reagent/nutriment/protein/egg = 9, /decl/reagent/nutriment/flour = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/quiche
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
@@ -107,7 +107,7 @@
 
 /decl/recipe/waffles
 	appliance = SKILLET
-	reagents = list(/datum/reagent/sugar = 10)
+	reagents = list(/decl/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough

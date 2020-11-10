@@ -28,6 +28,6 @@
 /obj/item/rot_sample/Initialize(mapload)
 	. = ..()
 	create_reagents(15)
-	var/list/possible_reagents = list(/datum/reagent/bicaridine, /datum/reagent/kelotane, /datum/reagent/dexalin, /datum/reagent/mortaphenyl, /datum/reagent/oculine, /datum/reagent/peridaxon)
+	var/list/possible_reagents = list(/decl/reagent/bicaridine, /decl/reagent/kelotane, /decl/reagent/dexalin, /decl/reagent/mortaphenyl, /decl/reagent/oculine, /decl/reagent/peridaxon)
 	reagents.add_reagent(pick(possible_reagents), 15)
 	color = reagents.get_color()

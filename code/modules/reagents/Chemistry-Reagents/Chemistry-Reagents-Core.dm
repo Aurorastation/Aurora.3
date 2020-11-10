@@ -1,13 +1,4 @@
-/datum/reagent/blood
-	data = list(
-		"donor" = null,
-		"species" = SPECIES_HUMAN,
-		"blood_DNA" = null,
-		"blood_type" = null,
-		"blood_colour" = "#A10808",
-		"resistances" = null,
-		"trace_chem" = null
-	)
+/decl/reagent/blood
 	name = "Blood"
 	reagent_state = LIQUID
 	metabolism = REM * 5
@@ -21,13 +12,21 @@
 
 	fallback_specific_heat = 3.617
 
-/datum/reagent/blood/initialize_data(var/newdata)
-	..()
-	if(data && data["blood_colour"])
-		color = data["blood_colour"]
-	return
+/decl/reagent/blood/mix_data(var/datum/reagents/reagents, var/list/newdata, var/amount)
+	var/list/data = REAGENT_DATA(reagents, type)
+	if(LAZYACCESS(newdata, "trace_chem"))
+		var/list/other_chems = LAZYACCESS(newdata, "trace_chem")
+		if(!data)
+			data = newdata.Copy()
+		else if(!data["trace_chem"])
+			data["trace_chem"] = other_chems.Copy()
+		else
+			var/list/my_chems = data["trace_chem"]
+			for(var/chem in other_chems)
+				my_chems[chem] = my_chems[chem] + other_chems[chem]
+	. = data
 
-/datum/reagent/blood/touch_turf(var/turf/simulated/T)
+/decl/reagent/blood/touch_turf(var/turf/simulated/T)
 
 	if(!istype(T) || volume < 3)
 		return
@@ -46,7 +45,7 @@
 		if(B)
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
 
-/datum/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		if (M.mind && M.mind.vampire)
 			if(M.dna.unique_enzymes == data["blood_DNA"]) //so vampires can't drink their own blood
@@ -54,21 +53,22 @@
 			M.mind.vampire.blood_usable += removed
 			to_chat(M, "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 			return
+	var/dose = M.chem_doses[type]
 	if(dose > 5)
 		M.adjustToxLoss(removed)
 	if(dose > 15)
 		M.adjustToxLoss(removed)
 
-/datum/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_MACHINE)
 		return
 
-/datum/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.inject_blood(src, volume)
 	remove_self(volume)
 
 #define WATER_LATENT_HEAT 19000 // How much heat is removed when applied to a hot turf, in J/unit (19000 makes 120 u of water roughly equivalent to 4L)
-/datum/reagent/water
+/decl/reagent/water
 	name = "Water"
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
@@ -88,12 +88,12 @@
 
 	germ_adjust = 0.05 // i mean, i guess you could try...
 
-/datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
 		return
 	M.adjustHydrationLoss(-6*removed)
 
-/datum/reagent/water/touch_turf(var/turf/simulated/T)
+/decl/reagent/water/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return
 
@@ -117,13 +117,13 @@
 	else if(volume >= 10)
 		T.wet_floor(WET_TYPE_WATER,volume)
 
-/datum/reagent/water/touch_obj(var/obj/O)
+/decl/reagent/water/touch_obj(var/obj/O)
 	if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		var/obj/item/reagent_containers/food/snacks/monkeycube/cube = O
 		if(!cube.wrapped)
 			cube.Expand()
 
-/datum/reagent/water/touch_mob(var/mob/M, var/amount)
+/decl/reagent/water/touch_mob(var/mob/M, var/amount)
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
@@ -134,18 +134,18 @@
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
 
-/datum/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
+/decl/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
 		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
 			if(S.target) // Like cats
 				S.target = null
 				++S.discipline
-		if(dose == removed)
+		if(M.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), SPAN_DANGER("Your flesh burns in the water!"))
 
 
-/datum/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M, /mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
@@ -154,7 +154,7 @@
 			++S.discipline
 
 
-/datum/reagent/fuel
+/decl/reagent/fuel
 	name = "Welding Fuel"
 	description = "Required for welders. Flammable."
 	reagent_state = LIQUID
@@ -168,19 +168,19 @@
 
 	fallback_specific_heat = 0.605
 
-/datum/reagent/fuel/touch_turf(var/turf/T)
+/decl/reagent/fuel/touch_turf(var/turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
 	return
 
-/datum/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
 	if(aug && !aug.is_broken())
 		M.adjustNutritionLoss(-8 * removed)
 	else
 		M.adjustToxLoss(2 * removed)
 
-/datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+/decl/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!

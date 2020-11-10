@@ -33,9 +33,9 @@
 
 /obj/item/reagent_containers/food/snacks/honeycomb/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/honey,10)
-	reagents.add_reagent(/datum/reagent/nutriment, 0.5)
-	reagents.add_reagent(/datum/reagent/sugar, 2)
+	reagents.add_reagent(/decl/reagent/nutriment/honey,10)
+	reagents.add_reagent(/decl/reagent/nutriment, 0.5)
+	reagents.add_reagent(/decl/reagent/sugar, 2)
 	bitesize = 2
 
 /obj/item/book/manual/hydroponics_beekeeping

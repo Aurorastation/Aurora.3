@@ -86,18 +86,16 @@
 
 	if(src.attached && src.beaker)
 
-		var/mob/living/carbon/human/T = attached
-
-		if(!istype(T))
+		if(!istype(attached))
 			return
 
-		if(!T.dna)
+		if(!attached.dna)
 			return
 
-		if(NOCLONE in T.mutations)
+		if(NOCLONE in attached.mutations)
 			return
 
-		if(T.species.flags & NO_BLOOD)
+		if(attached.species.flags & NO_BLOOD)
 			return
 
 		// Give blood
@@ -112,22 +110,16 @@
 			amount = min(amount, 4)
 			// If the beaker is full, ping
 			if(amount == 0)
-				if(prob(5)) 
+				if(prob(5))
 					visible_message("\The [src] pings.")
 				return
 
-			if(T.get_blood_volume() < 90 && !blood_message_sent)
+			if(attached.get_blood_volume() < 90 && !blood_message_sent)
 				visible_message("[icon2html(src, viewers(get_turf(src)))] \The <b>[src]</b> flashes a warning light!")
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
 				blood_message_sent = TRUE
 
-			var/datum/reagent/B = T.take_blood(beaker,amount)
-
-			if(B)
-				beaker.reagents.reagent_list |= B
-				beaker.reagents.update_total()
-				beaker.on_reagent_change()
-				beaker.reagents.handle_reactions()
+			if(attached.take_blood(beaker,amount))
 				update_icon()
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)

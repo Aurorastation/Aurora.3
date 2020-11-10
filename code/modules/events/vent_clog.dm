@@ -6,31 +6,31 @@
 	var/interval 	= 2
 	var/list/vents  = list()
 	var/list/gunk = list(
-		/datum/reagent/water,
-		/datum/reagent/carbon,
-		/datum/reagent/nutriment/flour,
-		/datum/reagent/spacecleaner,
-		/datum/reagent/nutriment,
-		/datum/reagent/capsaicin/condensed,
-		/datum/reagent/mindbreaker,
-		/datum/reagent/lube,
-		/datum/reagent/paint,
-		/datum/reagent/paint,
-		/datum/reagent/drink/banana,
-		/datum/reagent/space_drugs,
-		/datum/reagent/water/holywater,
-		/datum/reagent/drink/hot_coco,
-		/datum/reagent/hyperzine,
-		/datum/reagent/paint,
-		/datum/reagent/luminol,
-		/datum/reagent/fuel,
-		/datum/reagent/blood,
-		/datum/reagent/sterilizine,
-		/datum/reagent/verunol,
-		/datum/reagent/toxin/fertilizer/monoammoniumphosphate
+		/decl/reagent/water,
+		/decl/reagent/carbon,
+		/decl/reagent/nutriment/flour,
+		/decl/reagent/spacecleaner,
+		/decl/reagent/nutriment,
+		/decl/reagent/capsaicin/condensed,
+		/decl/reagent/mindbreaker,
+		/decl/reagent/lube,
+		/decl/reagent/paint,
+		/decl/reagent/paint,
+		/decl/reagent/drink/banana,
+		/decl/reagent/space_drugs,
+		/decl/reagent/water/holywater,
+		/decl/reagent/drink/hot_coco,
+		/decl/reagent/hyperzine,
+		/decl/reagent/paint,
+		/decl/reagent/luminol,
+		/decl/reagent/fuel,
+		/decl/reagent/blood,
+		/decl/reagent/sterilizine,
+		/decl/reagent/verunol,
+		/decl/reagent/toxin/fertilizer/monoammoniumphosphate
 	)
 	var/list/gunk_data = list(
-		/datum/reagent/paint = list("#FE191A", "FDFE7D")
+		/decl/reagent/paint = list("#FE191A", "FDFE7D")
 	)
 
 

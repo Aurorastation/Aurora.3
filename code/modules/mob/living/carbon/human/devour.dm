@@ -39,7 +39,7 @@
 
 /mob/living/carbon/human/proc/do_gradual_devour(var/mob/living/victim, var/eat_speed)
 	set waitfor = FALSE
-	
+
 	//This function will start consuming the victim by taking bites out of them.
 	//Victim or attacker moving will interrupt it
 	//A bite will be taken every 4 seconds
@@ -50,7 +50,6 @@
 	var/turf/ourloc = src.loc
 	var/turf/victimloc = victim.loc
 	var/messes = 0 //Number of bloodstains we've placed
-	var/datum/reagents/vessel = victim.get_vessel(1)
 	if(!victim.composition_reagent_quantity)
 		victim.calculate_composition()
 	var/dam_multiplier = 1
@@ -89,10 +88,10 @@
 				S.ingested.add_reagent(victim.composition_reagent, (victim.composition_reagent_quantity * 0.5) * PEPB)
 			visible_message("<span class='danger'>[src] bites a chunk out of [victim]!</span>","<span class='danger'>[bitemessage(victim)]</span>")
 			if(messes < victim.mob_size - 1 && prob(50))
-				handle_devour_mess(src, victim, vessel)
+				handle_devour_mess(src, victim)
 			if(victim.getBruteLoss() >= victim_maxhealth)
 				visible_message("<span class='danger'>[src] finishes devouring [victim].</span>","<span class='warning'>You finish devouring [victim].</span>")
-				handle_devour_mess(src, victim, vessel, 1)
+				handle_devour_mess(src, victim, TRUE)
 				qdel(victim)
 		else
 			if(nutrition >= (max_nutrition - 60))
@@ -119,67 +118,29 @@
 		"You chow down on \the [victim].",
 		"You gobble \the [victim]'s flesh.")
 
-/proc/handle_devour_mess(var/mob/user, var/mob/living/victim, var/datum/reagents/vessel, var/finish = 0)
-	//The maximum number of blood placements is equal to the mob size of the victim
-	//We will use one blood placement on each of the following, in this order
-		//Bloodying the victim's tile
-		//Bloodying the attacker, if possible
-		//Bloodying the attacker's tile
-	//After that, we will allocate the remaining blood placements to random tiles around the victim and attacker, until either all are used or victim is dead
-	var/datum/reagent/blood/B = vessel.get_master_reagent()
-
+/proc/handle_devour_mess(var/mob/user, var/mob/living/victim, var/finish = 0)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.add_blood(victim)
 	if (!turf_hasblood(get_turf(victim)))
-		devour_add_blood(victim, get_turf(victim), vessel)
-		return 1
-
-	else if (istype(user, /mob/living/carbon/human) && !user.blood_DNA)
-		//if this blood isn't already in the list, add it
-		user.blood_DNA = list(B.data["blood_DNA"])
-		user.blood_color = B.data["blood_color"]
-		user.update_inv_gloves()	//handles bloody hands overlays and updating
-		user.verbs += /mob/living/carbon/human/proc/bloody_doodle
-		return 1
-
-	else if (!turf_hasblood(get_turf(user)))
-		devour_add_blood(victim, get_turf(user), vessel)
-		return 1
+		blood_splatter(get_turf(victim), victim, TRUE)
 
 	if (finish)
 		//A bigger victim makes more gibs
-		if (victim.mob_size >= 3)
+		if (victim.mob_size >= MOB_TINY)
 			new /obj/effect/decal/cleanable/blood/gibs(get_turf(victim))
-		if (victim.mob_size >= 5)
+		if (victim.mob_size >= MOB_SMALL)
 			new /obj/effect/decal/cleanable/blood/gibs(get_turf(victim))
-		if (victim.mob_size >= 7)
+		if (victim.mob_size >= MOB_MEDIUM)
 			new /obj/effect/decal/cleanable/blood/gibs(get_turf(victim))
-		if (victim.mob_size >= 9)
+		if (victim.mob_size >= MOB_LARGE)
 			new /obj/effect/decal/cleanable/blood/gibs(get_turf(victim))
-		return 1
-	return 0
-
-/proc/devour_add_blood(var/mob/living/M, var/turf/location, var/datum/reagents/vessel)
-	for(var/datum/reagent/blood/source in vessel.reagent_list)
-		var/obj/effect/decal/cleanable/blood/B = new /obj/effect/decal/cleanable/blood(location)
-
-		// Update appearance.
-		if(source.data["blood_colour"])
-			B.basecolor = source.data["blood_colour"]
-			B.update_icon()
-
-		// Update blood information.
-		if(source.data["blood_DNA"])
-			B.blood_DNA = list()
-			if(source.data["blood_type"])
-				B.blood_DNA[source.data["blood_DNA"]] = source.data["blood_type"]
-			else
-				B.blood_DNA[source.data["blood_DNA"]] = "O+"
-
-		B.fluorescent  = 0
-		B.invisibility = 0
+		return TRUE
+	return FALSE
 
 /proc/turf_hasblood(var/turf/test)
 	for (var/obj/effect/decal/cleanable/blood/b in test)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 #undef PPM

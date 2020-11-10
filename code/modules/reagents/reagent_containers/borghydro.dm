@@ -13,24 +13,24 @@
 	var/charge_tick = 0
 	var/recharge_time = 5 //Time it takes for shots to recharge (in seconds)
 
-	var/list/reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline)
+	var/list/reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/inaprovaline)
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
 	center_of_mass = null
 
 /obj/item/reagent_containers/borghypo/medical
-	reagent_ids = list(/datum/reagent/bicaridine, /datum/reagent/kelotane, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/inaprovaline, /datum/reagent/perconol, /datum/reagent/mortaphenyl, /datum/reagent/thetamycin)
+	reagent_ids = list(/decl/reagent/bicaridine, /decl/reagent/kelotane, /decl/reagent/dylovene, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/thetamycin)
 
 /obj/item/reagent_containers/borghypo/rescue
-	reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline, /datum/reagent/dylovene, /datum/reagent/perconol, /datum/reagent/mortaphenyl, /datum/reagent/dexalin, /datum/reagent/adrenaline)
+	reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/dexalin, /decl/reagent/adrenaline)
 
 /obj/item/reagent_containers/borghypo/Initialize()
 	. = ..()
 
 	for(var/T in reagent_ids)
 		reagent_volumes[T] = volume
-		var/datum/reagent/R = SSchemistry.chemical_reagents[T]
+		var/decl/reagent/R = SSchemistry.chemical_reagents[T]
 		reagent_names += R.name
 
 	START_PROCESSING(SSprocessing, src)
@@ -107,14 +107,14 @@
 		if(t)
 			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
 			mode = t
-			var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
+			var/decl/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
 			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>")
 
 /obj/item/reagent_containers/borghypo/examine(mob/user)
 	if(!..(user, 2))
 		return
 
-	var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
+	var/decl/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
 
 	to_chat(user, "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>")
 
@@ -127,7 +127,7 @@
 	recharge_time = 3
 	volume = 60
 	possible_transfer_amounts = list(5, 10, 20, 30)
-	reagent_ids = list(/datum/reagent/alcohol/ethanol/beer, /datum/reagent/alcohol/ethanol/coffee/kahlua, /datum/reagent/alcohol/ethanol/whiskey, /datum/reagent/alcohol/ethanol/wine, /datum/reagent/alcohol/ethanol/vodka, /datum/reagent/alcohol/ethanol/gin, /datum/reagent/alcohol/ethanol/rum, /datum/reagent/alcohol/ethanol/tequila, /datum/reagent/alcohol/ethanol/vermouth, /datum/reagent/alcohol/ethanol/cognac, /datum/reagent/alcohol/ethanol/ale, /datum/reagent/alcohol/ethanol/mead, /datum/reagent/water, /datum/reagent/sugar, /datum/reagent/drink/ice, /datum/reagent/drink/tea, /datum/reagent/drink/icetea, /datum/reagent/drink/space_cola, /datum/reagent/drink/spacemountainwind, /datum/reagent/drink/dr_gibb, /datum/reagent/drink/spaceup, /datum/reagent/drink/tonic, /datum/reagent/drink/sodawater, /datum/reagent/drink/lemon_lime, /datum/reagent/drink/orangejuice, /datum/reagent/drink/limejuice, /datum/reagent/drink/watermelonjuice, /datum/reagent/drink/coffee, /datum/reagent/drink/coffee/espresso)
+	reagent_ids = list(/decl/reagent/alcohol/ethanol/beer, /decl/reagent/alcohol/ethanol/coffee/kahlua, /decl/reagent/alcohol/ethanol/whiskey, /decl/reagent/alcohol/ethanol/wine, /decl/reagent/alcohol/ethanol/vodka, /decl/reagent/alcohol/ethanol/gin, /decl/reagent/alcohol/ethanol/rum, /decl/reagent/alcohol/ethanol/tequila, /decl/reagent/alcohol/ethanol/vermouth, /decl/reagent/alcohol/ethanol/cognac, /decl/reagent/alcohol/ethanol/ale, /decl/reagent/alcohol/ethanol/mead, /decl/reagent/water, /decl/reagent/sugar, /decl/reagent/drink/ice, /decl/reagent/drink/tea, /decl/reagent/drink/icetea, /decl/reagent/drink/space_cola, /decl/reagent/drink/spacemountainwind, /decl/reagent/drink/dr_gibb, /decl/reagent/drink/spaceup, /decl/reagent/drink/tonic, /decl/reagent/drink/sodawater, /decl/reagent/drink/lemon_lime, /decl/reagent/drink/orangejuice, /decl/reagent/drink/limejuice, /decl/reagent/drink/watermelonjuice, /decl/reagent/drink/coffee, /decl/reagent/drink/coffee/espresso)
 
 /obj/item/reagent_containers/borghypo/service/attack(var/mob/M, var/mob/user)
 	return
@@ -148,7 +148,7 @@
 		return
 
 	var/rid = reagent_ids[mode]
-	var/datum/reagent/R = SSchemistry.chemical_reagents[rid]
+	var/decl/reagent/R = SSchemistry.chemical_reagents[rid]
 	var/temp = R.default_temperature
 	var/amt = min(amount_per_transfer_from_this, reagent_volumes[rid])
 	target.reagents.add_reagent(rid, amt, temperature = temp)

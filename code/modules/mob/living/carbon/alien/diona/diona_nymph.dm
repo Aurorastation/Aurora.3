@@ -9,7 +9,7 @@
 	density = 0
 	mouth_size = 2 //how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
 	eat_types = 0 //This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
-	composition_reagent = /datum/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /decl/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
 	voice_name = "diona nymph"
 	accent = ACCENT_ROOTSONG
@@ -191,12 +191,12 @@
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent(/datum/reagent/blood, 560)
+	vessel.add_reagent(/decl/reagent/blood, 560)
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
-	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.type == /datum/reagent/blood)
+	for(var/decl/reagent/blood/B in vessel.reagent_list)
+		if(B.type == /decl/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
 				"species" = species.name,

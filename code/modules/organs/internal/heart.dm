@@ -116,14 +116,14 @@
 		return
 
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
-		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /datum/reagent/blood))
+		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /decl/reagent/blood))
 
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)
-			var/datum/reagent/blood/B = locate() in owner.vessel.reagent_list //Grab some blood
+			var/decl/reagent/blood/B = locate() in owner.vessel.reagent_list //Grab some blood
 			if(B) // Make sure there's some blood at all
 				if(weakref && B.data["donor"] != weakref) //If it's not theirs, then we look for theirs - donor is a weakref here, but it should be safe to just directly compare it.
-					for(var/datum/reagent/blood/D in owner.vessel.reagent_list)
+					for(var/decl/reagent/blood/D in owner.vessel.reagent_list)
 						if(weakref && D.data["donor"] == weakref)
 							B = D
 							break
@@ -160,7 +160,7 @@
 						blood_max += bleed_amount
 						do_spray += "[temp.name]"
 					else
-						owner.vessel.remove_reagent(/datum/reagent/blood, bleed_amount)
+						owner.vessel.remove_reagent(/decl/reagent/blood, bleed_amount)
 
 		switch(pulse)
 			if(PULSE_SLOW)

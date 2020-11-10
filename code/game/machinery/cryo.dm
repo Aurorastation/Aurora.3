@@ -142,7 +142,7 @@
 	if(beaker)
 		data["beakerLabel"] = beaker.label_text ? beaker.label_text : null
 		if (beaker.reagents && beaker.reagents.reagent_list.len)
-			for(var/datum/reagent/R in beaker.reagents.reagent_list)
+			for(var/decl/reagent/R in beaker.reagents.reagent_list)
 				data["beakerVolume"] += R.volume
 
 	// update the ui if it exists, returns null if no ui is passed/found
@@ -294,8 +294,8 @@
 					occupant.heal_organ_damage(heal_brute,heal_fire)
 				else
 					occupant.adjustFireLoss(3)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
-		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /datum/reagent/cryoxadone) >= 1
-		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /datum/reagent/clonexadone) >= 1
+		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /decl/reagent/cryoxadone) >= 1
+		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /decl/reagent/clonexadone) >= 1
 		var/has_cryo_medicine = has_cryo || has_clonexa
 		if(beaker && !has_cryo_medicine)
 			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD)

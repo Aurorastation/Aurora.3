@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/snacks/fish
 	icon_state = "fishfillet"
 	filling_color = "#FFDEFE"
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
 	bitesize = 6
 	var/fish_type = "fish"
 
@@ -16,7 +16,7 @@
 /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	name = "carp fillet"
 	desc = "A fillet of space carp meat."
-	reagents_to_add = list(/datum/reagent/toxin/carpotoxin = 3, /datum/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/decl/reagent/toxin/carpotoxin = 3, /decl/reagent/nutriment/protein/seafood = 3)
 	fish_type = "space carp"
 
 /obj/item/reagent_containers/food/snacks/fish/fishfillet
@@ -27,7 +27,7 @@
 	name = "slimy meat"
 	desc = "Some slimy meat from clams or molluscs."
 	fish_type = "mollusc"
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood/mollusc = 3)
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood/mollusc = 3)
 
 /obj/item/reagent_containers/food/snacks/fish/mollusc/clam
 	fish_type = "clam"

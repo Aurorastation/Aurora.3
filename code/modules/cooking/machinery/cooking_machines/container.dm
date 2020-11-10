@@ -119,7 +119,7 @@
 		var/obj/O = locate() in contents
 		return . + O.name //Just append the name of the first object
 	else if (reagents && reagents.total_volume > 0)
-		var/datum/reagent/R = reagents.get_master_reagent()
+		var/decl/reagent/R = reagents.get_master_reagent()
 		return . + R.name//Append name of most voluminous reagent
 	return . + "empty"
 

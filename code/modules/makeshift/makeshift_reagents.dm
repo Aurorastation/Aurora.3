@@ -15,14 +15,14 @@
 	var/list/forbidden = list(/obj/item/reagent_containers/inhaler, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/glass, /obj/item/extinguisher)
 	// duplicate from blender code, since it's not really worth a define. also, it has fewer things.
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list(/datum/reagent/iron),
-		/obj/item/stack/material/uranium = list(/datum/reagent/uranium),
-		/obj/item/stack/material/phoron = list(/datum/reagent/toxin/phoron),
-		/obj/item/stack/material/gold = list(/datum/reagent/gold),
-		/obj/item/stack/material/silver = list(/datum/reagent/silver),
-		/obj/item/stack/material/steel = list(/datum/reagent/iron, /datum/reagent/carbon),
-		/obj/item/stack/material/sandstone = list(/datum/reagent/silicon, /datum/reagent/acetone),
-		/obj/item/stack/material/glass = list(/datum/reagent/silicate),
+		/obj/item/stack/material/iron = list(/decl/reagent/iron),
+		/obj/item/stack/material/uranium = list(/decl/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/decl/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/decl/reagent/gold),
+		/obj/item/stack/material/silver = list(/decl/reagent/silver),
+		/obj/item/stack/material/steel = list(/decl/reagent/iron, /decl/reagent/carbon),
+		/obj/item/stack/material/sandstone = list(/decl/reagent/silicon, /decl/reagent/acetone),
+		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
 		) // removed borosilicate glass, platinum, and plasteel, too tough. just steal a grinder if you need it
 
 /obj/structure/chemkit/Initialize()
@@ -214,15 +214,15 @@
 /obj/structure/distillery/proc/distill()
 	if(!reagents || !reagents.total_volume) // can't distill nothing
 		return
-	for(var/datum/reagent/R in src.reagents.reagent_list)
-		if(!istype(R, /datum/reagent/alcohol))
+	for(var/decl/reagent/R in src.reagents.reagent_list)
+		if(!istype(R, /decl/reagent/alcohol))
 			return
-		var/datum/reagent/alcohol/AR = R
-		reagents.add_reagent(/datum/reagent/water, (1-(AR.strength/100))*AR.volume)
-		if(istype(AR, /datum/reagent/alcohol/ethanol))
-			reagents.add_reagent(/datum/reagent/alcohol/ethanol, (AR.strength/100)*AR.volume)
-		if(istype(AR, /datum/reagent/alcohol/butanol))
-			reagents.add_reagent(/datum/reagent/alcohol/butanol, (AR.strength/100)*AR.volume)
+		var/decl/reagent/alcohol/AR = R
+		reagents.add_reagent(/decl/reagent/water, (1-(AR.strength/100))*AR.volume)
+		if(istype(AR, /decl/reagent/alcohol/ethanol))
+			reagents.add_reagent(/decl/reagent/alcohol/ethanol, (AR.strength/100)*AR.volume)
+		if(istype(AR, /decl/reagent/alcohol/butanol))
+			reagents.add_reagent(/decl/reagent/alcohol/butanol, (AR.strength/100)*AR.volume)
 		reagents.remove_reagent(AR.type, AR.volume)
 	src.icon_state = "distillery-off"
 

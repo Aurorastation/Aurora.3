@@ -30,7 +30,7 @@
 		return
 	if(reagents && reagents.reagent_list.len)
 		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
-		for(var/datum/reagent/T in reagents.reagent_list)
+		for(var/decl/reagent/T in reagents.reagent_list)
 			if(T.reagent_state == SOLID)
 				to_chat(user, "<span class='notice'>You see something solid in the beaker.</span>")
 				break // to stop multiple messages of this
@@ -41,7 +41,7 @@
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
-	var/datum/reagent/blood/B = locate() in reagents.reagent_list
+	var/decl/reagent/blood/B = locate() in reagents.reagent_list
 	if(B)
 		additional_evidence["type"] = EVIDENCE_TYPE_BLOOD
 		additional_evidence["sample_type"] = "blood"
@@ -191,9 +191,9 @@
 	flags = OPENCONTAINER
 	fragile = 1
 
-/obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/datum/reagent/cryoxadone = 30)
+/obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/decl/reagent/cryoxadone = 30)
 
-/obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/datum/reagent/acid = 60)
+/obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/decl/reagent/acid = 60)
 
 /obj/item/reagent_containers/glass/bucket
 	desc = "A blue plastic bucket."

@@ -74,7 +74,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return return_name
 
 /obj/machinery/computer/rdconsole/proc/CallReagentName(ID)
-	var/datum/reagent/R = SSchemistry.chemical_reagents[ID]
+	var/decl/reagent/R = SSchemistry.chemical_reagents[ID]
 	return R ? R.name : "(none)"
 
 /obj/machinery/computer/rdconsole/proc/SyncRDevices() //Makes sure it is properly sync'ed up with the devices attached to it (if any).
@@ -738,7 +738,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><HR>"
 			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
-			for(var/datum/reagent/R in linked_lathe.reagents.reagent_list)
+			for(var/decl/reagent/R in linked_lathe.reagents.reagent_list)
 				dat += "Name: [R.name] | Units: [R.volume] "
 				dat += "<A href='?src=\ref[src];disposeP=[R.type]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallP=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
@@ -806,7 +806,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=4.1'>Imprinter Menu</A><HR>"
 			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
-			for(var/datum/reagent/R in linked_imprinter.reagents.reagent_list)
+			for(var/decl/reagent/R in linked_imprinter.reagents.reagent_list)
 				dat += "Name: [R.name] | Units: [R.volume] "
 				dat += "<A href='?src=\ref[src];disposeI=[R.type]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallI=1'><U>Disposal All Chemicals in Storage</U></A><BR>"

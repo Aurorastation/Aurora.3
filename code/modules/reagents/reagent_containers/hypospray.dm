@@ -164,7 +164,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
 	. =..()
-	reagents.add_reagent(/datum/reagent/inaprovaline, 5)
+	reagents.add_reagent(/decl/reagent/inaprovaline, 5)
 	update_icon()
 	return
 
@@ -174,7 +174,7 @@
 	volume = 30
 	amount_per_transfer_from_this = 15
 
-	reagents_to_add = list(/datum/reagent/synaptizine = 5, /datum/reagent/cetahydramine = 10, /datum/reagent/oculine = 5, /datum/reagent/ethylredoxrazine = 10)
+	reagents_to_add = list(/decl/reagent/synaptizine = 5, /decl/reagent/cetahydramine = 10, /decl/reagent/oculine = 5, /decl/reagent/ethylredoxrazine = 10)
 
 /obj/item/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"
@@ -182,7 +182,7 @@
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-	reagents_to_add = list(/datum/reagent/hyperzine = 12, /datum/reagent/mortaphenyl = 6, /datum/reagent/synaptizine = 2)
+	reagents_to_add = list(/decl/reagent/hyperzine = 12, /decl/reagent/mortaphenyl = 6, /decl/reagent/synaptizine = 2)
 
 /obj/item/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
@@ -190,7 +190,7 @@
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/inaprovaline = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycomorphine = 3, /datum/reagent/synaptizine = 2, /datum/reagent/mental/corophenidate = 5)
+	reagents_to_add = list(/decl/reagent/tricordrazine = 15, /decl/reagent/inaprovaline = 5, /decl/reagent/dexalin/plus = 5, /decl/reagent/oxycomorphine = 3, /decl/reagent/synaptizine = 2, /decl/reagent/mental/corophenidate = 5)
 
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"
@@ -201,4 +201,4 @@
 	armorcheck = 0
 	time = 0
 
-	reagents_to_add = list(/datum/reagent/oxycomorphine = 5, /datum/reagent/synaptizine = 5, /datum/reagent/hyperzine = 5, /datum/reagent/arithrazine = 5)
+	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)

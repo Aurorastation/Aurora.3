@@ -1,4 +1,4 @@
-/datum/reagent
+/decl/reagent
 	var/name = "Reagent"
 	var/description = "A non-descript chemical."
 	var/taste_description = "old rotten bandaids"
@@ -32,33 +32,33 @@
 	var/default_temperature = T0C + 20 //This is its default spawning temperature, if none is provided.
 	var/specific_heat = -1 //The higher, the more difficult it is to change its temperature. 0 or lower values indicate that the specific heat has yet to be assigned.
 	var/fallback_specific_heat = -1 //Setting this value above 0 will set the specific heat to this value only if the system could not find an appropriate specific heat to assign using the recipe system.
-	//Never ever ever ever change this value for datum/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
+	//Never ever ever ever change this value for decl/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
 
 	var/germ_adjust = 0 // for makeshift bandages/disinfectant
 	var/carbonated = FALSE // if it's carbonated or not
 
-/datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
+/decl/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
 		data = newdata
 	metabolism = round(metabolism,0.001)
 
-/datum/reagent/proc/remove_self(var/amount) // Shortcut
+/decl/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
 		return
 
 	holder.remove_reagent(type, amount)
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
-/datum/reagent/proc/touch_mob(var/mob/living/M, var/amount)
+/decl/reagent/proc/touch_mob(var/mob/living/M, var/amount)
 	return
 
-/datum/reagent/proc/touch_obj(var/obj/O, var/amount) // Acid melting, cleaner cleaning, etc
+/decl/reagent/proc/touch_obj(var/obj/O, var/amount) // Acid melting, cleaner cleaning, etc
 	return
 
-/datum/reagent/proc/touch_turf(var/turf/T, var/amount) // Cleaner cleaning, lube lubbing, etc, all go here
+/decl/reagent/proc/touch_turf(var/turf/T, var/amount) // Cleaner cleaning, lube lubbing, etc, all go here
 	return
 
-/datum/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
+/decl/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/holder) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
 	if(!istype(M))
 		return
 	if(!affects_dead && M.stat == DEAD)
@@ -75,70 +75,71 @@
 		removed = breathe_met
 
 	removed = M.get_metabolism(removed)
-	max_dose = max(volume, max_dose)
 
-	if(overdose && (volume > overdose) && (dose > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
-		overdose(M, alien, removed, dose/overdose) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
+	if(overdose && (volume > overdose) && (M.chem_doses[type] > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
+		overdose(M, alien, removed, M.chem_doses[type]/overdose) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
-	if(dose == 0)
+	if(M.chem_doses[type] == 0)
 		initial_effect(M,alien)
 
-	dose = min(dose + removed, max_dose)
+	M.chem_doses[type] += removed
 
-	var/bodytempchange = Clamp((get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
+	var/bodytempchange = Clamp((get_temperature(holder) - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
 	if(abs(bodytempchange) >= REAGENTS_BODYTEMP_MIN)
 		M.bodytemperature += round(bodytempchange,REAGENTS_BODYTEMP_MIN)
 
-	for(var/datum/reagent/R in M.bloodstr.reagent_list)
+	for(var/_R in M.bloodstr.reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
 		if(istype(R, conflicting_reagent))
-			affect_conflicting(M,alien,removed,R)
+			affect_conflicting(M,alien,removed,R, holder)
+
 	if(removed >= metabolism_min)
 		switch(location)
 			if(CHEM_BLOOD)
-				affect_blood(M, alien, removed)
+				affect_blood(M, alien, removed, holder)
 			if(CHEM_INGEST)
-				affect_ingest(M, alien, removed)
+				affect_ingest(M, alien, removed, holder)
 			if(CHEM_TOUCH)
-				affect_touch(M, alien, removed)
+				affect_touch(M, alien, removed, holder)
 			if(CHEM_BREATHE)
-				affect_breathe(M, alien, removed)
+				affect_breathe(M, alien, removed, holder)
 
 	remove_self(removed)
 
 // Called when a beaker is thrown or something is hit with it, AND the beaker doesn't break.
-/datum/reagent/proc/apply_force(var/force)
+/decl/reagent/proc/apply_force(var/force, var/datum/reagents/holder)
 	return force
 
 //Initial effect is called once when the reagent first starts affecting a mob.
-/datum/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien)
+/decl/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	return
 
 //Final effect is called once when the reagent finishes affecting a mob.
-/datum/reagent/proc/final_effect(var/mob/living/carbon/M)
+/decl/reagent/proc/final_effect(var/mob/living/carbon/M, var/datum/reagents/holder)
 	return
 
-/datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	return
 
-/datum/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting_reagent)
+/decl/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/decl/reagent/conflicting_reagent, var/datum/reagents/holder)
 	M.adjustToxLoss(removed)
 
-/datum/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ingest_mul)
 		affect_blood(M, alien, removed * ingest_mul)
 
-/datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(touch_mul)
 		affect_blood(M, alien, removed * touch_mul)
 
-/datum/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(breathe_mul)
 		affect_blood(M, alien, removed * breathe_mul)
 
-/datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
+/decl/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
 
-/datum/reagent/proc/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
+/decl/reagent/proc/mix_data(var/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return
 
 /decl/reagent/proc/get_data(var/datum/reagents/holder) // Just in case you have a reagent that handles data differently.
@@ -147,13 +148,13 @@
 
 /* DEPRECATED - TODO: REMOVE EVERYWHERE */
 
-/datum/reagent/proc/reaction_turf(var/turf/target)
+/decl/reagent/proc/reaction_turf(var/turf/target)
 	touch_turf(target)
 
-/datum/reagent/proc/reaction_obj(var/obj/target)
+/decl/reagent/proc/reaction_obj(var/obj/target)
 	touch_obj(target)
 
-/datum/reagent/proc/reaction_mob(var/mob/target)
+/decl/reagent/proc/reaction_mob(var/mob/target)
 	touch_mob(target)
 
 

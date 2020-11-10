@@ -20,11 +20,11 @@
 
 	var/mob/living/carbon/human/occupant = null
 	var/list/available_chemicals = list(
-		/datum/reagent/inaprovaline,
-		/datum/reagent/soporific,
-		/datum/reagent/perconol,
-		/datum/reagent/dylovene,
-		/datum/reagent/dexalin
+		/decl/reagent/inaprovaline,
+		/decl/reagent/soporific,
+		/decl/reagent/perconol,
+		/decl/reagent/dylovene,
+		/decl/reagent/dexalin
 		)
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = FALSE
@@ -62,7 +62,7 @@
 		if(beaker)
 			if(beaker.reagents.total_volume < beaker.reagents.maximum_volume)
 				var/pumped = 0
-				for(var/datum/reagent/x in occupant.reagents.reagent_list)
+				for(var/decl/reagent/x in occupant.reagents.reagent_list)
 					occupant.reagents.trans_to_obj(beaker, 3)
 					pumped++
 				if(ishuman(occupant))
@@ -74,7 +74,7 @@
 			if(beaker.reagents.total_volume < beaker.reagents.maximum_volume)
 				var/datum/reagents/ingested = occupant.get_ingested_reagents()
 				if(ingested)
-					for(var/datum/reagent/x in ingested.reagent_list)
+					for(var/decl/reagent/x in ingested.reagent_list)
 						ingested.trans_to_obj(beaker, 1)
 		else
 			toggle_pump()
@@ -137,7 +137,7 @@
 			var/list/blood_reagents = list()
 			for(var/A in occupant.reagents.reagent_list)
 				var/list/blood_reagent = list()
-				var/datum/reagent/R = A
+				var/decl/reagent/R = A
 				blood_reagent["name"] = initial(R.name)
 				blood_reagent["amount"] = round(REAGENT_VOLUME(occupant.reagents, R.type), 0.1)
 				blood_reagents += list(blood_reagent)
@@ -152,7 +152,7 @@
 				var/list/stomach_reagents = list()
 				for(var/A in S.ingested.reagent_list)
 					var/list/stomach_reagent = list()
-					var/datum/reagent/R = A
+					var/decl/reagent/R = A
 					stomach_reagent["name"] = initial(R.name)
 					stomach_reagent["amount"] = round(REAGENT_VOLUME(S.ingested, R.type), 0.1)
 					stomach_reagents += list(stomach_reagent)
@@ -166,7 +166,7 @@
 		for(var/T in available_chemicals)
 			var/list/reagent = list()
 			reagent["type"] = T
-			var/datum/reagent/C = T
+			var/decl/reagent/C = T
 			reagent["name"] = initial(C.name)
 			reagents += list(reagent)
 		data["reagents"] = reagents.Copy()
@@ -364,12 +364,12 @@
 
 	if(occupant?.reagents)
 		var/chemical_amount = REAGENT_VOLUME(occupant.reagents, chemical)
-		var/is_dylo = ispath(chemical, /datum/reagent/dylovene)
-		var/is_inaprov = ispath(chemical, /datum/reagent/inaprovaline)
+		var/is_dylo = ispath(chemical, /decl/reagent/dylovene)
+		var/is_inaprov = ispath(chemical, /decl/reagent/inaprovaline)
 		if(is_dylo || is_inaprov)
-			var/dylo_amount = REAGENT_VOLUME(occupant.reagents, /datum/reagent/dylovene)
-			var/inaprov_amount = REAGENT_VOLUME(occupant.reagents, /datum/reagent/inaprovaline)
-			var/tricord_amount = REAGENT_VOLUME(occupant.reagents, /datum/reagent/tricordrazine)
+			var/dylo_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/dylovene)
+			var/inaprov_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/inaprovaline)
+			var/tricord_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/tricordrazine)
 			if(tricord_amount > 20)
 				if(is_dylo && inaprov_amount)
 					to_chat(user, SPAN_WARNING("The subject has too much tricordrazine."))

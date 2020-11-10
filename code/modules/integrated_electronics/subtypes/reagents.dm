@@ -145,21 +145,7 @@
 					else
 						activate_pin(3)
 					return
-				var/datum/reagent/B
-				if(istype(T, /mob/living/carbon/human))
-					var/mob/living/carbon/human/H = T
-					if(H.species && !H.has_organ(BP_HEART))
-						H.reagents.trans_to_obj(src, tramount)
-					else
-						B = T.take_blood(src, tramount)
-				else
-					B = T.take_blood(src,tramount)
-				if (B)
-					reagents.reagent_list |= B
-					reagents.update_total()
-					on_reagent_change()
-					reagents.handle_reactions()
-					B = null
+				T.take_blood(src,tramount)
 				visible_message( "<span class='notice'>[assembly] takes a blood sample from [target].</span>")
 			else
 				activate_pin(3)
@@ -296,7 +282,7 @@
 
 /obj/item/integrated_circuit/reagent/storage/scan/do_work()
 	var/list/cont = list()
-	for(var/datum/reagent/RE in reagents.reagent_list)
+	for(var/decl/reagent/RE in reagents.reagent_list)
 		cont += RE.name
 	set_pin_data(IC_OUTPUT, 3, cont)
 	set_pin_data(IC_OUTPUT, 4, reagents.generate_taste_message(src))
@@ -350,7 +336,7 @@
 			return
 		if(!target.reagents.get_free_space())
 			return
-		for(var/datum/reagent/G in source.reagents.reagent_list)
+		for(var/decl/reagent/G in source.reagents.reagent_list)
 			if (!direc)
 				if(lowertext(G.name) in demand)
 					source.reagents.trans_type_to(target, G.type, transfer_amount)

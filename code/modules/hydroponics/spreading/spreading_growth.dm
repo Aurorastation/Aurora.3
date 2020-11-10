@@ -17,7 +17,7 @@
 		if((locate(/obj/effect/plant) in floor.contents) || (locate(/obj/effect/dead_plant) in floor.contents) )
 			continue
 		if(floor.density)
-			if(seed && seed.chems[/datum/reagent/acid/polyacid])
+			if(seed && seed.chems[/decl/reagent/acid/polyacid])
 				addtimer(CALLBACK(floor, /atom/.proc/ex_act, 3), rand(5, 25))
 			continue
 		if(!Adjacent(floor) || !floor.Enter(src))
@@ -39,7 +39,7 @@
 		return 0
 
 	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
-		if(smoke.reagents.has_reagent(/datum/reagent/toxin/plantbgone))
+		if(smoke.reagents.has_reagent(/decl/reagent/toxin/plantbgone))
 			die_off()
 			return
 
@@ -85,7 +85,7 @@
 	if(is_mature() && neighbors.len && prob(spread_chance))
 		//spread to 1-3 adjacent turfs depending on yield trait.
 		var/max_spread = between(1, round(seed.get_trait(TRAIT_YIELD)*3/14), 3)
-		
+
 		do_spread(spread_chance, max_spread)
 
 	// We shouldn't have spawned if the controller doesn't exist.

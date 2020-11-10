@@ -22,7 +22,7 @@
 	name = "sugarcane"
 	seed_name = "sugarcane"
 	display_name = "sugarcanes"
-	chems = list(/datum/reagent/sugar = list(4,5))
+	chems = list(/decl/reagent/sugar = list(4,5))
 
 /datum/seed/sugarcane/setup_traits()
 	..()
@@ -44,7 +44,7 @@
 	name = "grass"
 	seed_name = "grass"
 	display_name = "grass"
-	chems = list(/datum/reagent/nutriment = list(1,20))
+	chems = list(/decl/reagent/nutriment = list(1,20))
 	kitchen_tag = "grass"
 
 /datum/seed/grass/setup_traits()
@@ -81,7 +81,7 @@
 	name = "peppercorn"
 	seed_name = "peppercorn"
 	display_name = "black pepper"
-	chems = list(/datum/reagent/blackpepper = list(10,10))
+	chems = list(/decl/reagent/blackpepper = list(10,10))
 
 /datum/seed/peppercorn/setup_traits()
 	..()
@@ -102,7 +102,7 @@
 	name = "kudzu"
 	seed_name = "kudzu"
 	display_name = "kudzu vines"
-	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/dylovene = list(1,25))
+	chems = list(/decl/reagent/nutriment = list(1,50), /decl/reagent/dylovene = list(1,25))
 
 /datum/seed/kudzu/setup_traits()
 	..()

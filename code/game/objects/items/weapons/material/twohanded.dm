@@ -348,7 +348,7 @@
 	applies_material_colour = FALSE
 	default_material = "steel"
 	parry_chance = 5
-	var/fuel_type = /datum/reagent/fuel
+	var/fuel_type = /decl/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -494,7 +494,7 @@
 		PowerDown(user)
 	else if(!wielded)
 		to_chat(user, SPAN_WARNING("You need to hold this with two hands to turn this on."))
-	else if(REAGENT_VOLUME(reagents, /datum/reagent/fuel) <= 0)
+	else if(REAGENT_VOLUME(reagents, /decl/reagent/fuel) <= 0)
 		user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src], but nothing happens."), SPAN_WARNING("You pull the cord on \the [src], but nothing happens."), SPAN_NOTICE("You hear a cord being pulled."))
 	else
 		var/max = rand(3,6)

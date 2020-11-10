@@ -1,6 +1,6 @@
 /decl/recipe/dionae_soup
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 10)
+	reagents = list(/decl/reagent/water = 10)
 	fruit = list("cabbage" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/dionanymph
@@ -10,7 +10,7 @@
 
 /decl/recipe/dionae_stew
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/water = 10)
+	reagents = list(/decl/reagent/water = 10)
 	fruit = list("potato" = 1, "carrot" = 1, "mushroom" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/dionanymph

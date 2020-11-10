@@ -10,7 +10,7 @@
 	. = ..()
 	if(reagents)
 		for(var/a in reagents.reagent_list)
-			var/datum/reagent/reg = a
+			var/decl/reagent/reg = a
 			. += reg.value * reg.volume
 	. = round(.)
 

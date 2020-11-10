@@ -226,7 +226,7 @@ it should be avoided in favour of manual removal where possible
 				return invalid_creation("Item type requires a source")
 
 		if (MODIFIER_REAGENT)
-			if (!istype(target, /mob) || !istype(source, /datum/reagent))
+			if (!istype(target, /mob) || !istype(source, /decl/reagent))
 				return invalid_creation("Reagent type requires a mob target and a reagent source")
 
 		if (MODIFIER_AURA)
@@ -314,12 +314,12 @@ it should be avoided in favour of manual removal where possible
 				return validity_fail("Not found in parent hierarchy")
 		if (MODIFIER_REAGENT)
 			var/totaldose = 0
-			if (!istype(source, /datum/reagent))//this shouldnt happen
+			if (!istype(source, /decl/reagent))//this shouldnt happen
 				return validity_fail("Source is not a reagent!")
 
 			var/ourtype = source.type
 
-			for (var/datum/reagent/R in target.reagents.reagent_list)
+			for (var/decl/reagent/R in target.reagents.reagent_list)
 				if (istype(R, ourtype))
 					totaldose += R.dose
 
@@ -329,22 +329,22 @@ it should be avoided in favour of manual removal where possible
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
 
-					for (var/datum/reagent/R in H.get_ingested_reagents())
+					for (var/decl/reagent/R in H.get_ingested_reagents())
 						if(istype(R, ourtype))
 							totaldose += R.dose
 
 				if (istype(target, /mob/living/carbon))
 					var/mob/living/carbon/C = target
 
-					for (var/datum/reagent/R in C.bloodstr.reagent_list)
+					for (var/decl/reagent/R in C.bloodstr.reagent_list)
 						if (istype(R, ourtype))
 							totaldose += R.dose
 
-					for (var/datum/reagent/R in C.touching.reagent_list)
+					for (var/decl/reagent/R in C.touching.reagent_list)
 						if (istype(R, ourtype))
 							totaldose += R.dose
 
-					for (var/datum/reagent/R in C.breathing.reagent_list)
+					for (var/decl/reagent/R in C.breathing.reagent_list)
 						if (istype(R, ourtype))
 							totaldose += R.dose
 
