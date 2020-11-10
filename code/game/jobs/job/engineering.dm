@@ -1,8 +1,7 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
 	flag = CHIEF
-	head_position = TRUE
-	department = DEPARTMENT_ENGINEERING
+	department = list(DEPARTMENT_ENGINEERING = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
@@ -70,7 +69,7 @@
 /datum/job/engineer
 	title = "Station Engineer"
 	flag = ENGINEER
-	department = DEPARTMENT_ENGINEERING
+	department = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 5
@@ -116,7 +115,7 @@
 /datum/job/atmos
 	title = "Atmospheric Technician"
 	flag = ATMOSTECH
-	department = DEPARTMENT_ENGINEERING
+	department = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
@@ -164,7 +163,7 @@
 /datum/job/intern_eng
 	title = "Engineering Apprentice"
 	flag = INTERN_ENG
-	department = DEPARTMENT_ENGINEERING
+	department = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 2

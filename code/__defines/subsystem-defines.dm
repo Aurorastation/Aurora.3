@@ -106,6 +106,9 @@
 #define RECORD_WARRANT 16
 #define RECORD_VIRUS 32
 
+
+// - SSjobs --
+// departments
 #define DEPARTMENT_COMMAND "Command"
 #define DEPARTMENT_SECURITY "Security"
 #define DEPARTMENT_ENGINEERING "Engineering"
@@ -126,3 +129,8 @@
 	DEPARTMENT_EQUIPMENT = list(),\
 	DEPARTMENT_MISCELLANEOUS = list(),\
 )
+
+// job roles within departments
+#define JOBROLE_DEFAULT 0                    // This is the default "job role", no special meaning.
+#define JOBROLE_SUPERVISOR (1 << 0)          // Indicates that the job is a supervisory position, i.e a head of department.
+#define SIMPLEDEPT(dept) list(dept = JOBROLE_DEFAULT)

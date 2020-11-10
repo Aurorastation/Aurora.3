@@ -5,7 +5,7 @@
 	var/list/access = list()              // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
 
 	var/flag = 0                          // Bitflags for the job
-	var/department_flag = 0
+	var/department_flag = 0               // Used to tell which set of job bitflags to use to determine the actual job (since there are too many jobs to fit in a single bit flag)
 	var/faction = "None"	              // Players will be allowed to spawn in as jobs that are set to "Station"
 
 	var/total_positions = 0               // How many players can be this job
@@ -15,8 +15,7 @@
 	var/intro_prefix = "a"
 	var/supervisors = null                // Supervisors, who this person answers to directly
 	var/selection_color = "#888888"     // Selection screen color
-	var/department = null                 // Does this position have a department tag?
-	var/head_position = FALSE             // Is this position Command?
+	var/list/department = list()         // List of departments this job is a part of. Keys are departments, values are a bit field that indicate special roles of that job within the department (like whether they are a head/supervisor of that department).
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)

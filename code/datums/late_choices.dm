@@ -63,15 +63,17 @@
 	for(var/datum/job/job in SSjobs.occupations)
 		if(NP.IsJobAvailable(job.title))
 			jobs_available++
-			var/department = job.department
-			if(!(department in jobs_by_department)) // no department set or it's something weird
-				department = DEPARTMENT_MISCELLANEOUS
-			if(job.head_position) // make sure heads are first
-				jobs_by_department[department] = list(job) + jobs_by_department[department]
-				if(department != DEPARTMENT_COMMAND) // add heads to command
-					jobs_by_department[DEPARTMENT_COMMAND] += job
-			else
-				jobs_by_department[department] += job
+			var/list/departments
+			if(job.department.len > 0 && all_in_list(job.department, jobs_by_department))
+				departments = job.department
+			else // no department set or there's something weird
+				departments = list(DEPARTMENT_MISCELLANEOUS = JOBROLE_DEFAULT)
+
+			for(var/department in departments)
+				if(departments[department] & JOBROLE_SUPERVISOR) // they are a supervisor/head, put them on top
+					jobs_by_department[department] = list(job) + jobs_by_department[department]
+				else
+					jobs_by_department[department] += job // add them to their departments
 
 	VUEUI_SET_CHECK(data["jobs_available"], jobs_available, ., data)
 	LAZYINITLIST(data["jobs_list"])
@@ -80,7 +82,7 @@
 		for(var/datum/job/job in jobs_by_department[department])
 			LAZYINITLIST(data["jobs_list"][department][job.title])
 			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["title"], job.title, ., data)
-			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["head"], job.head_position, ., data)
+			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["head"], job.department[department] & JOBROLE_SUPERVISOR, ., data)
 			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["total_positions"], job.get_total_positions(), ., data)
 			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["current_positions"], job.current_positions, ., data)
 

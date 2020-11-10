@@ -2,7 +2,7 @@
 /datum/job/bartender
 	title = "Bartender"
 	flag = BARTENDER
-	department = DEPARTMENT_CIVILIAN
+	department = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
@@ -32,7 +32,7 @@
 /datum/job/chef
 	title = "Chef"
 	flag = CHEF
-	department = DEPARTMENT_CIVILIAN
+	department = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
@@ -67,7 +67,7 @@
 /datum/job/hydro
 	title = "Gardener"
 	flag = BOTANIST
-	department = DEPARTMENT_CIVILIAN
+	department = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
@@ -113,8 +113,7 @@
 /datum/job/qm
 	title = "Quartermaster"
 	flag = QUARTERMASTER
-	head_position = 1
-	department = DEPARTMENT_CARGO
+	department = list(DEPARTMENT_CARGO = JOBROLE_SUPERVISOR)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
@@ -149,7 +148,7 @@
 /datum/job/cargo_tech
 	title = "Cargo Technician"
 	flag = CARGOTECH
-	department = DEPARTMENT_CARGO
+	department = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
@@ -179,7 +178,7 @@
 /datum/job/mining
 	title = "Shaft Miner"
 	flag = MINER
-	department = DEPARTMENT_CARGO
+	department = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
@@ -228,7 +227,7 @@
 /datum/job/janitor
 	title = "Janitor"
 	flag = JANITOR
-	department = DEPARTMENT_CIVILIAN
+	department = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
@@ -253,7 +252,7 @@
 /datum/job/journalist
 	title = "Corporate Reporter"
 	flag = JOURNALIST
-	department = DEPARTMENT_CIVILIAN
+	department = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
@@ -303,7 +302,7 @@
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
-	department = DEPARTMENT_CIVILIAN
+	department = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1

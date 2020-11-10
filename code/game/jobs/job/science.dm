@@ -1,8 +1,7 @@
 /datum/job/rd
 	title = "Research Director"
 	flag = RD
-	head_position = 1
-	department = DEPARTMENT_SCIENCE
+	department = list(DEPARTMENT_SCIENCE = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
@@ -53,7 +52,7 @@
 /datum/job/scientist
 	title = "Scientist"
 	flag = SCIENTIST
-	department = DEPARTMENT_SCIENCE
+	department = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 5
@@ -97,7 +96,7 @@
 /datum/job/xenobiologist
 	title = "Xenobiologist"
 	flag = XENOBIOLOGIST
-	department = DEPARTMENT_SCIENCE
+	department = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 3
@@ -129,7 +128,7 @@
 /datum/job/roboticist
 	title = "Roboticist"
 	flag = ROBOTICIST
-	department = DEPARTMENT_SCIENCE
+	department = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
@@ -179,7 +178,7 @@
 /datum/job/intern_sci
 	title = "Lab Assistant"
 	flag = INTERN_SCI
-	department = DEPARTMENT_SCIENCE
+	department = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2

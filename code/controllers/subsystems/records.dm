@@ -228,19 +228,19 @@
 		var/datum/job/job = SSjobs.GetJob(real_rank)
 		var/isactive = t.physical_status
 
-		var/dept = DEPARTMENT_MISCELLANEOUS
-		var/depthead = FALSE
-		if(istype(job))
-			dept = job.department
-			depthead = job.head_position
+		var/list/departments
+		if(job.department.len > 0 && all_in_list(job.department, manifest))
+			departments = job.department
+		else // no department set or there's something weird
+			departments = list(DEPARTMENT_MISCELLANEOUS = JOBROLE_DEFAULT)
 
-		 // add them to their department
-		manifest[dept][++manifest[dept].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = depthead)
-		if(depthead) // they are a head, put them on top
-			manifest[dept].Swap(1, manifest[dept].len)
-			if(dept != DEPARTMENT_COMMAND) // heads that aren't in command already (I.E anyone but Captain) need to be copied in there
-				manifest[DEPARTMENT_COMMAND][++manifest[DEPARTMENT_COMMAND].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = FALSE)
+		for(var/department in departments) // add them to their departments
+			var/supervisor = departments[department] & JOBROLE_SUPERVISOR
+			manifest[department][++manifest[department].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = supervisor)
+			if(supervisor) // they are a supervisor/head, put them on top
+				manifest[department].Swap(1, manifest[department].len)
 
+	// silicons are not in records, we need to add them manually
 	var/dept = DEPARTMENT_EQUIPMENT
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))
