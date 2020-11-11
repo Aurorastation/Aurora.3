@@ -37,8 +37,9 @@
 			<title>[D] (\ref[D] - [D.type])</title>
 			<style>
 				body { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; font-size: 10pt; }
-				.key, .value { font-family: "Fira Code", Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, sans-serif; font-size: 9pt; }
+				.key, .type, .value { font-family: "Fira Code", Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, sans-serif; font-size: 9pt; }
 				.key { font-weight: bold }
+				.type { text-decoration: underline; color: gray }
 			</style>
 		</head>
 		<body onload='selectTextField(); updateSearch()'>
@@ -50,7 +51,7 @@
 							<td><div align='center'>[D.get_view_variables_header()]</div></td>
 						</tr></table>
 						<div align='center'>
-							<b><font size='1'>[replacetext("[D.type]", "/", "/<wbr>")]</font></b>
+							<b><font size='1'>[replacetext("[get_debug_type(D)]", "/", "/<wbr>")]</font></b>
 							[holder.marked_datum == D ? "<br/><font size='1' color='red'><b>Marked Object</b></font>" : ""]
 						</div>
 					</td>
@@ -124,10 +125,12 @@
 
 /proc/make_view_variables_value(value, varname = "*")
 	var/vtext = ""
+	var/debug_type = get_debug_type(value, FALSE)
 	var/extra = list()
 	if(isnull(value))
-		vtext = "null"
+		// get_debug_type displays this
 	else if(istext(value))
+		debug_type = null // it's kinda annoying here; we can tell the type by the quotes
 		vtext = "\"[value]\""
 	else if(isicon(value))
 		vtext = "[value]"
@@ -144,7 +147,7 @@
 		vtext = "<a href='?_src_=vars;Vars=\ref[C]'>\ref[C]</a> - [C] ([C.type])"
 	else if(islist(value))
 		var/list/L = value
-		vtext = "/list ([L.len])"
+		vtext = "([L.len])"
 		if(!(varname in view_variables_dont_expand) && L.len > 0 && L.len < 100)
 			extra += "<ul>"
 			for (var/index = 1 to L.len)
@@ -157,7 +160,7 @@
 	else
 		vtext = "[value]"
 
-	return "<span class=value>[vtext]</span>[jointext(extra, "")]"
+	return "<span class=type>[debug_type]</span> <span class=value>[vtext]</span>[jointext(extra, "")]"
 
 /proc/make_view_variables_var_entry(datum/D, varname, value, level=0)
 	var/ecm = null
