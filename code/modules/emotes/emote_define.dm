@@ -31,7 +31,9 @@
 	return emote_message_3p
 
 /decl/emote/proc/can_do_emote(var/atom/user)
-	return
+	if(conscious && user.stat != CONSCIOUS)
+		return FALSE
+	return TRUE
 
 /decl/emote/proc/do_emote(var/atom/user, var/extra_params)
 	if(ismob(user) && check_restraints)

@@ -228,7 +228,7 @@
 	if (!owner)
 		return
 
-	if(length(owner.bad_external_organs) && last_heal + heal_rate < world.time && isundead(owner))
+	if(length(owner.bad_external_organs) && last_heal + heal_rate < world.time && iszombie(owner))
 		var/list/organs_to_heal = owner.bad_external_organs
 		shuffle(organs_to_heal)
 		for(var/thing in organs_to_heal)

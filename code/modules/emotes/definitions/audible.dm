@@ -179,11 +179,11 @@
 	emote_message_3p = "USER screams!"
 
 /decl/emote/audible/scream/can_do_emote(var/mob/living/user)
-	if(ishuman(user))
+	. = ..()
+	if(. && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.can_feel_pain())
 			return FALSE
-	return TRUE
 
 /decl/emote/audible/grunt
 	key = "grunt"
