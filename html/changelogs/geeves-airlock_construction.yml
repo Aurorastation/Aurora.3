@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Revamped airlock construction messages, you will no longer keep hitting it like an orangutan if you do it out of sequence."
