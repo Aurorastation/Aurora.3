@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added Magiclash, a gamemode where a wizard and a team of raider mages spawn."
