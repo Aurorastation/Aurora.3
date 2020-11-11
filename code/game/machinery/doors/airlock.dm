@@ -947,21 +947,6 @@ About the new airlock wires panel:
 					user.visible_message(SPAN_WARNING("[user] headbutts the airlock. Good thing they're wearing a helmet."))
 				return
 
-		if(H.a_intent == I_HURT && isgolem(H))
-			if(!density || locked || welded)
-				to_chat(H, SPAN_WARNING("You can't force open \the [src]!"))
-				return
-
-			H.visible_message("<b>[H]</b> starts forcing \the [src]!", SPAN_NOTICE("You start forcing \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
-
-			if(!do_after(H, 120, 1, act_target = src))
-				return
-
-			open(TRUE)
-			
-			H.visible_message("<b>[H]</b> forces \the [src] open!", SPAN_NOTICE("You force \the [src] open!"), SPAN_WARNING("You hear an airlock whine, before opening."))
-			return
-
 		if(H.species.can_shred(H))
 
 			if(!src.density)

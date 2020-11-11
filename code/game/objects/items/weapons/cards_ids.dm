@@ -594,8 +594,6 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A bizarre imitation of Nanotrasen identification cards. It seems to function normally as well."
 	desc_antag = "Access can be copied from other ID cards by clicking on them."
 	icon_state = "crystalid"
-	can_copy_access = TRUE
-	access_copy_msg = "The crystal container hums gently as the new access is incorporated."
 
 /obj/item/card/id/bluespace/update_name()
 	return
