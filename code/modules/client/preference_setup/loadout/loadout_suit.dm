@@ -219,7 +219,7 @@
 	var/secjacket = list()
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/warden
 	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/warden/dnavy
-	secjacket["security jacket, tan"] = = /obj/item/clothing/suit/security/warden/tan
+	secjacket["security jacket, tan"] = /obj/item/clothing/suit/security/warden/tan
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjackethos
@@ -232,7 +232,7 @@
 	var/secjacket = list()
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/hos
 	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/hos/dnavy
-	secjacket["security jacket, tan"] = = /obj/item/clothing/suit/security/hos/tan
+	secjacket["security jacket, tan"] = /obj/item/clothing/suit/security/hos/tan
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjacketforensictech
@@ -245,7 +245,7 @@
 	var/secjacket = list()
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/toggle/forensics
 	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/toggle/forensics/dnavy
-	secjacket["security jacket, tan"] = = /obj/item/clothing/suit/storage/toggle/forensics/tan
+	secjacket["security jacket, tan"] = /obj/item/clothing/suit/storage/toggle/forensics/tan
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/dominia_cape
