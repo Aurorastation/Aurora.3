@@ -740,7 +740,7 @@
 			else
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
-		else if(W.GetID())			// trying to unlock the interface with an ID card
+		else if(W.GetID() || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
 			if(emagged) //still allow them to open the cover
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
@@ -812,7 +812,7 @@
 	// Borgs should be handled a bit differently, since their IDs are not really IDs
 	if(istype(M, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
-		if(check_access(R.get_active_hand()) || istype(R.get_active_hand(), /obj/item/card/robot))
+		if(istype(R.get_active_hand(), /obj/item/card/robot) || check_access(R.get_active_hand()))
 			return TRUE
 	else if(istype(M, /mob/living))
 		var/id = M.GetIdCard()
@@ -828,7 +828,7 @@
 	var/list/L = req_access
 	if(!length(L)) //no requirements
 		return TRUE
-	if(!I?.access || !istype(I, /obj/item/card/id)) //not ID or no access
+	if(!istype(I, /obj/item/card/id) || !I?.access) //not ID or no access
 		return FALSE
 	for(var/req in req_access)
 		if(req in I.access) //have one of the required accesses
@@ -1111,6 +1111,12 @@
 	set category = "Robot Commands"
 	set desc = "Augment visual feed with internal sensor overlays."
 	toggle_sensor_mode()
+
+/mob/living/silicon/robot/proc/sensor_mode_sec()
+	return sensor_mode == SEC_HUD
+
+/mob/living/silicon/robot/proc/sensor_mode_med()
+	return sensor_mode == MED_HUD
 
 /mob/living/silicon/robot/proc/add_robot_verbs()
 	src.verbs |= robot_verbs_default

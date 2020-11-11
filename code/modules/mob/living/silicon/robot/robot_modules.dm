@@ -202,7 +202,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/general/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
 	src.modules += new /obj/item/surgery/scalpel(src)
@@ -284,7 +283,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/rescue/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/device/mass_spectrometer(src)
@@ -293,7 +291,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/reagent_containers/borghypo/rescue(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
-	src.modules += new /obj/item/gripper(src)
+	src.modules += new /obj/item/gripper/chemistry(src)
 	src.modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	src.modules += new /obj/item/borg/rescue/mobility(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
@@ -858,7 +856,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/combat/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/gun/energy/laser/mounted(src)
 	src.modules += new /obj/item/melee/hammer/powered(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
@@ -1048,8 +1045,6 @@ var/global/list/robot_modules = list(
 	. = ..()
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
-	src.modules += new /obj/item/borg/sight/hud/med(src)
-	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/rfd/construction/borg/infinite(src)
 	src.modules += new /obj/item/extinguisher(src)
 	src.modules += new /obj/item/weldingtool/largetank(src)

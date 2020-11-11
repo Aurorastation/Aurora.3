@@ -142,7 +142,7 @@
 
 //Handles all validity checking and error messages for inserting things
 /obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
-	if(!dropsafety(I))
+	if(!I.dropsafety())
 		return CANNOT_INSERT
 
 	// We are trying to cook a grabbed mob.
