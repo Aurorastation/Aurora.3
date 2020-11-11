@@ -24,10 +24,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	dead_mob_list -= src
 
 /mob/abstract/new_player/Destroy()
-	if(istype(late_choices_ui))
-		// this kills the latejoin UI which runs vueui_on_close
-		// that in turn nulls the late_choices datum in here and it is then garbage collected (so no need to qdel() it)
-		late_choices_ui.ui.close()
+	QDEL_NULL(late_choices_ui)
 	return ..()
 
 /mob/abstract/new_player/Stat()
@@ -303,12 +300,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
 
 /mob/abstract/new_player/proc/LateChoices()
-	if(istype(late_choices_ui)) // refresh the UI
-		late_choices_ui.ui.check_for_change()
-	else
-		// This creates the latechoices UI.
-		// It is automatically created and then destroyed and unassigned when closed.
+	if(!istype(late_choices_ui))
 		late_choices_ui = new(src)
+	else // if the UI exists force refresh it
+		late_choices_ui.ui_refresh()
+	late_choices_ui.ui_open()
 
 /mob/abstract/new_player/proc/create_character()
 	spawning = 1

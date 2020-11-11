@@ -1,8 +1,19 @@
 // This datum holds the late choices UI for a new player
-// It should exist only as long as the menu is open
 /datum/late_choices
-	var/datum/vueui/ui
+	var/datum/vueui/ui = null
+	var/update_icon_on_next_open = TRUE
 	var/mob/abstract/new_player/NP
+
+/datum/late_choices/New(var/mob/abstract/new_player/NP)
+	if(!istype(NP))
+		return
+	src.NP = NP
+
+/datum/late_choices/Destroy(force)
+	NP.late_choices_ui = null
+	ui.close()
+	QDEL_NULL(ui)
+	return ..()
 
 /datum/late_choices/CanUseTopic(var/mob/user, var/datum/topic_state/state = default_state) // this is needed because VueUI closes otherwise
 	if(isnewplayer(user))
@@ -13,26 +24,41 @@
 	// proxy Topic calls back to the user
 	NP.Topic(href, href_list)
 
-/datum/late_choices/New(var/mob/abstract/new_player/NP)
-	if(!istype(NP))
-		return
-	src.NP = NP
-	ui_open(NP)
+/datum/late_choices/proc/ui_open()
+	if(!istype(ui))
+		ui = new(NP, src, "late-choices", 330, 720, "Late-Join Choices")
+		ui.header = "minimal"
+		ui.auto_update_content = TRUE
 
-/datum/late_choices/proc/ui_open(mob/user)
-	ui = new(user, src, "late-choices", 330, 720, "Late-Join Choices")
-	ui.header = "minimal"
-	var/mob/mannequin = user.client.prefs.update_mannequin()
-	ui.add_asset("character", getFlatIcon(mannequin, SOUTH))
+	if (update_icon_on_next_open)
+		do_update_character_icon(FALSE)
+
 	ui.open()
+
+/datum/late_choices/proc/ui_refresh()
+	ui.check_for_change()
+
+/datum/late_choices/proc/update_character_icon()
+	if(ui.status > STATUS_CLOSE)
+		do_update_character_icon(TRUE)
+	else
+		update_icon_on_next_open = TRUE
+
+/datum/late_choices/proc/do_update_character_icon(var/send)
+	update_icon_on_next_open = FALSE
+	var/mob/mannequin = NP.client.prefs.update_mannequin()
+	ui.add_asset("character", getFlatIcon(mannequin, SOUTH))
+	if(send)
+		ui.send_asset("character")
+		ui.push_change(null)
 
 /datum/late_choices/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
 
-	VUEUI_SET_CHECK(data["round_duration"], get_round_duration_formatted(), ., data)
-	VUEUI_SET_CHECK(data["alert_level"], capitalize(get_security_level()), ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["character_name"], user.client.prefs.real_name, ., data)
+	data["round_duration"] = get_round_duration_formatted()
+	data["alert_level"] = capitalize(get_security_level())
+	data["character_name"] = user.client.prefs.real_name
 
 	var/shuttle_status = ""
 	if(emergency_shuttle) //In case Nanotrasen decides to reposess CentComm's shuttles.
@@ -43,8 +69,7 @@
 				shuttle_status = "evac"
 			else // Crew transfer initiated
 				shuttle_status = "transfer"
-	VUEUI_SET_CHECK(data["shuttle_status"], shuttle_status, ., data)
-	VUEUI_SET_CHECK(data["alert_level"], capitalize(get_security_level()), ., data)
+	data["shuttle_status"] = shuttle_status
 
 	var/unique_role_available = FALSE
 	for(var/ghost_role in SSghostroles.spawners)
@@ -56,7 +81,7 @@
 		unique_role_available = TRUE
 		break
 
-	VUEUI_SET_CHECK(data["unique_role_available"], unique_role_available, ., data)
+	data["unique_role_available"] = unique_role_available
 
 	var/jobs_available = 0
 	var/list/list/datum/job/jobs_by_department = DEPARTMENTS_LIST_INIT
@@ -75,18 +100,15 @@
 				else
 					jobs_by_department[department] += job // add them to their departments
 
-	VUEUI_SET_CHECK(data["jobs_available"], jobs_available, ., data)
+	data["jobs_available"] = jobs_available
 	LAZYINITLIST(data["jobs_list"])
 	for(var/department in jobs_by_department)
 		LAZYINITLIST(data["jobs_list"][department])
 		for(var/datum/job/job in jobs_by_department[department])
 			LAZYINITLIST(data["jobs_list"][department][job.title])
-			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["title"], job.title, ., data)
-			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["head"], job.departments[department] & JOBROLE_SUPERVISOR, ., data)
-			VUEUI_SET_CHECK_IFNOTSET(data["jobs_list"][department][job.title]["total_positions"], job.get_total_positions(), ., data)
-			VUEUI_SET_CHECK(data["jobs_list"][department][job.title]["current_positions"], job.current_positions, ., data)
+			data["jobs_list"][department][job.title]["title"] = job.title
+			data["jobs_list"][department][job.title]["head"] = job.departments[department] & JOBROLE_SUPERVISOR
+			data["jobs_list"][department][job.title]["total_positions"] = job.get_total_positions()
+			data["jobs_list"][department][job.title]["current_positions"] = job.current_positions
 
-/datum/late_choices/vueui_on_close(var/datum/vueui/ui)
-	// We must remove self from the holding mob when the UI closes.
-	// That should be enough for us to get garbage collected.
-	NP.late_choices_ui = null
+	return data
