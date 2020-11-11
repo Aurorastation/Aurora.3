@@ -40,18 +40,6 @@
 /datum/reagents/proc/get_primary_reagent_decl()
 	. = primary_reagent && decls_repository.get_decl(primary_reagent)
 
-/datum/reagents/proc/get_master_reagent() // Returns reference to the reagent with the biggest volume.
-	var/the_reagent = null
-	var/the_volume = 0
-
-	for(var/_A in reagent_volumes)
-		var/decl/reagent/A = decls_repository.get_decl(_A)
-		if(A.volume > the_volume)
-			the_volume = A.volume
-			the_reagent = A
-
-	return the_reagent
-
 /datum/reagents/proc/get_reagent(var/rtype) // Returns reference to reagent matching passed type
 	for(var/_A in reagent_volumes)
 		var/decl/reagent/A = decls_repository.get_decl(_A)
@@ -59,28 +47,6 @@
 			return A
 
 	return null
-
-/datum/reagents/proc/get_master_reagent_name() // Returns the name of the reagent with the biggest volume.
-	var/the_name = null
-	var/the_volume = 0
-	for(var/_A in reagent_volumes)
-		var/decl/reagent/A = decls_repository.get_decl(_A)
-		if(A.volume > the_volume)
-			the_volume = A.volume
-			the_name = A.name
-
-	return the_name
-
-/datum/reagents/proc/get_master_reagent_type() // Returns the type of the reagent with the biggest volume.
-	var/the_type = null
-	var/the_volume = 0
-	for(var/_A in reagent_volumes)
-		var/decl/reagent/A = decls_repository.get_decl(_A)
-		if(A.volume > the_volume)
-			the_volume = A.volume
-			the_type = A.type
-
-	return the_type
 
 /datum/reagents/proc/update_total() // Updates volume and temperature.
 
@@ -108,9 +74,6 @@
 		my_atom.on_reagent_change()
 
 /datum/reagents/proc/delete()
-	for(var/_R in reagent_list)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		R.holder = null
 	if(my_atom)
 		my_atom.reagents = null
 
@@ -175,7 +138,7 @@
 		if(tmp_data)
 			LAZYSET(reagent_data, rtype, tmp_data)
 		if(!newreagent.get_thermal_energy(src))
-			newreagent.set_thermal_energy_safe(newreagent.default_temperature * specific_heat * amount)
+			newreagent.set_thermal_energy_safe(newreagent.default_temperature * newreagent.specific_heat * amount)
 	else // existing reagent
 		reagent_volumes[rtype] += amount
 		if(thermal_energy > 0 && old_amount > 0)
@@ -183,9 +146,9 @@
 		else
 			if(temperature <= 0)
 				temperature = newreagent.default_temperature
-			newreagent.add_thermal_energy(temperature * R.specific_heat * amount)
+			newreagent.add_thermal_energy(temperature * newreagent.specific_heat * amount)
 		if(!isnull(data))
-			LAZYSET(reagent_data, reagent_type, newreagent.mix_data(src, data, amount))
+			LAZYSET(reagent_data, rtype, newreagent.mix_data(src, data, amount))
 		update_holder(!safety)
 		return TRUE
 	return FALSE
@@ -195,9 +158,9 @@
 	if(!isnum(amount) || old_volume <= 0)
 		return FALSE
 	amount = min(amount, old_volume)
-	reagent_volumes[reagent_type] -= amount
+	reagent_volumes[rtype] -= amount
 	var/decl/reagent/current = decls_repository.get_decl(rtype)
-	current.add_thermal_energy( -(current.thermal_energy * (amount/old_volume)), src )
+	current.add_thermal_energy( -(current.get_thermal_energy(src) * (amount/old_volume)), src )
 	update_holder(!safety)
 	return TRUE
 
@@ -240,7 +203,7 @@
 	. = list()
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		. += "[current.name] ([current.volume])"
+		. += "[current.name] ([reagent_volumes[_current]])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
 /datum/reagents/proc/get_ids_by_phase(var/phase) // this proc will probably need to be changed if you can have one reagent in multiple states at the same time
@@ -262,7 +225,7 @@
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		var/amount_to_remove = current.volume * part
+		var/amount_to_remove = reagent_volumes[_current] * part
 		remove_reagent(current.type, amount_to_remove, 1)
 
 	update_holder()
@@ -276,7 +239,7 @@
 	if (amount <= 0 || multiplier <= 0)
 		return 0
 
-	amount = max(0, min(amount, total_volume, target.get_free_space() / multiplier))
+	amount = max(0, min(amount, total_volume, REAGENTS_FREE_SPACE(target) / multiplier))
 
 	if(!amount)
 		return 0
@@ -285,11 +248,11 @@
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		var/amount_to_transfer = current.volume * part
-		var/energy_to_transfer = current.get_thermal_energy() * (amount_to_transfer / current.volume)
-		target.add_reagent(current.type, amount_to_transfer * multiplier, REAGENT_DATA(src, current), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
+		var/amount_to_transfer = reagent_volumes[_current] * part
+		var/energy_to_transfer = current.get_thermal_energy(src) * (amount_to_transfer / reagent_volumes[_current])
+		target.add_reagent(_current, amount_to_transfer * multiplier, REAGENT_DATA(src, current), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
 		if(!copy)
-			remove_reagent(current.type, amount_to_transfer, TRUE)
+			remove_reagent(_current, amount_to_transfer, TRUE)
 
 	if(!copy)
 		update_holder()
@@ -330,14 +293,14 @@
 	if (!target)
 		return
 
-	var/decl/reagent/transfering_reagent = get_reagent(rtype)
+	var/decl/reagent/transfering_reagent = decls_repository.get_decl(rtype)
 
 	if (istype(target, /atom))
 		var/atom/A = target
 		if (!A.reagents || !A.simulated)
 			return
 
-	amount = min(amount, transfering_reagent.volume)
+	amount = min(amount, REAGENT_VOLUME(src, rtype))
 
 	if(!amount)
 		return
@@ -345,7 +308,7 @@
 
 	var/datum/reagents/F = new /datum/reagents(amount)
 	var/tmpdata = REAGENT_DATA(src, rtype)
-	var/transfering_thermal_energy = transfering_reagent.get_thermal_energy() * (amount/transfering_reagent.volume)
+	var/transfering_thermal_energy = transfering_reagent.get_thermal_energy(src) * (amount/REAGENT_VOLUME(src, rtype))
 	F.add_reagent(rtype, amount, tmpdata, thermal_energy = transfering_thermal_energy)
 	remove_reagent(rtype, amount)
 
@@ -393,7 +356,7 @@
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		current.touch_mob(target, current.volume)
+		current.touch_mob(target, reagent_volumes[_current])
 
 	update_holder()
 
@@ -403,7 +366,7 @@
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		current.touch_turf(target, current.volume)
+		current.touch_turf(target, reagent_volumes[_current])
 
 	update_holder()
 
@@ -413,7 +376,7 @@
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		current.touch_obj(target, current.volume)
+		current.touch_obj(target, reagent_volumes[_current])
 
 	update_holder()
 

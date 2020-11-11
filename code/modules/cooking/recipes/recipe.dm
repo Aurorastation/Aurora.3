@@ -259,26 +259,26 @@
 			//We want the highest of each.
 			//Iterate through everything in buffer. If the target has less than the buffer, then top it up
 			for (var/_R in buffer.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
-				var/rvol = REAGENT_VOLUME(holder, R.type)
-				if (rvol < R.volume)
+				var/rvol = REAGENT_VOLUME(holder, _R)
+				var/bvol = REAGENT_VOLUME(buffer, _R)
+				if (rvol < bvol)
 					//Transfer the difference
-					buffer.trans_type_to(holder, R.type, R.volume-rvol)
+					buffer.trans_type_to(holder, _R, bvol-rvol)
 
 		if (RECIPE_REAGENT_MIN)
 			//Min is slightly more complex. We want the result to have the lowest from each side
 			//But zero will not count. Where a side has zero its ignored and the side with a nonzero value is used
 			for (var/_R in buffer.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
-				var/rvol = REAGENT_VOLUME(holder, R.type)
+				var/rvol = REAGENT_VOLUME(holder, _R)
+				var/bvol = REAGENT_VOLUME(buffer, _R)
 				if (rvol == 0) //If the target has zero of this reagent
-					buffer.trans_type_to(holder, R.type, R.volume)
+					buffer.trans_type_to(holder, _R, bvol)
 					//Then transfer all of ours
 
-				else if (rvol > R.volume)
+				else if (rvol > bvol)
 					//if the target has more than ours
 					//Remove the difference
-					holder.remove_reagent(R.type, rvol-R.volume)
+					holder.remove_reagent(_R, rvol-bvol)
 
 
 	if (length(results) > 1)

@@ -181,7 +181,7 @@
 //Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()
 	//New are added for reagents to random organs.
-	for(var/_A in reagents.reagent_list)
+	for(var/_A in reagents.reagent_volumes)
 		var/decl/reagent/A = decls_repository.get_decl(_A)
 		var/obj/item/organ/O = pick(organs)
 		O.trace_chemicals[A.name] = 100

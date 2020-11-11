@@ -195,18 +195,9 @@
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
-	for(var/decl/reagent/blood/B in vessel.reagent_list)
-		if(B.type == /decl/reagent/blood)
-			B.data = list(
-				"donor" = WEAKREF(src),
-				"species" = species.name,
-				"blood_DNA" = name,
-				"blood_colour" = species.blood_color,
-				"blood_type" = null,
-				"resistances" = null,
-				"trace_chem" = null
-			)
-			B.color = B.data["blood_colour"]
+	if(!REAGENT_DATA(vessel, /decl/reagent/blood))
+		return
+	vessel.reagent_data[/decl/reagent/blood] = get_blood_data()
 
 /mob/living/carbon/alien/diona/proc/setup_dionastats()
 	var/MLS = (1.5 / 2.1) //Maximum energy lost per second, in total darkness

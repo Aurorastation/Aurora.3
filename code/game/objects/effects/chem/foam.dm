@@ -99,8 +99,8 @@
 	// bit of a hack here. Foam carries along any reagent also present in the glass it is mixed with (defaults to water if none is present). Rather than actually transfer the reagents, this makes a list of the reagent ids and spawns 1 unit of that reagent when the foam disolves.
 
 	if(carry && !metal)
-		for(var/decl/reagent/R in carry.reagent_list)
-			carried_reagents += R.type
+		for(var/_R in carry.reagent_volumes)
+			carried_reagents += _R
 
 /datum/effect/effect/system/foam_spread/start()
 	set waitfor = FALSE

@@ -134,8 +134,8 @@
 /decl/reagent/toxin/phoron/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 	if(!istype(T))
 		return
-	T.assume_gas(GAS_PHORON, volume, T20C)
-	remove_self(volume)
+	T.assume_gas(GAS_PHORON, REAGENT_VOLUME(holder, type), T20C)
+	remove_self(REAGENT_VOLUME(holder, type))
 
 /decl/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
 	name = "Phoron Salts"
@@ -167,7 +167,7 @@
 		M.add_chemical_effect(CE_TOXIN, removed * strength)
 
 /decl/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/decl/reagent/conflicting, var/datum/reagents/holder)
-	var/amount = min(removed, conflicting.volume)
+	var/amount = min(removed, REAGENT_VOLUME(holder, conflicting.type))
 	holder.remove_reagent(conflicting.type, amount)
 
 /decl/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
@@ -273,9 +273,8 @@
 	M.silent = max(M.silent, 10)
 	M.tod = worldtime2text()
 
-/decl/reagent/toxin/zombiepowder/Destroy()
-	if(holder && holder.my_atom && ismob(holder.my_atom))
-		var/mob/M = holder.my_atom
+/decl/reagent/toxin/zombiepowder/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	if(istype(M))
 		M.status_flags &= ~FAKEDEATH
 	return ..()
 
@@ -326,7 +325,7 @@
 		lowertemp.react()
 		qdel(hotspot)
 
-	var/amount_to_remove = max(1,round(volume * 0.5))
+	var/amount_to_remove = max(1,round(REAGENT_VOLUME(holder, type) * 0.5))
 
 	new /obj/effect/decal/cleanable/foam(T, amount_to_remove)
 	remove_self(amount_to_remove)
@@ -341,12 +340,12 @@
 
 /decl/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(S))
-		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
+		S.adjustToxLoss( REAGENT_VOLUME(holder, type) * (removed/REM) * 0.23 )
 		if(!S.client)
 			if(S.target) // Like cats
 				S.target = null
 				++S.discipline
-		if(dose == removed)
+		if(S.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), SPAN_DANGER("Your flesh burns in the foam!"))
 
 /decl/reagent/toxin/plantbgone
@@ -469,6 +468,7 @@
 	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
 		return
 	M.add_chemical_effect(CE_PULSE, -2)
+	var/dose = M.chem_doses[type]
 	if(dose < 1)
 		if(dose == metabolism * 2 || prob(5))
 			M.emote("yawn")
@@ -497,6 +497,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
+	var/dose = M.chem_doses[type]
 	if(dose == metabolism)
 		M.confused += 2
 		M.drowsyness += 2
@@ -646,11 +647,11 @@
 
 /decl/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(!(volume > 5))
+	if(!(REAGENT_VOLUME(holder, type) > 5))
 		M.hallucination = max(M.hallucination, 20)
 		if(prob(20))
 			M.see_invisible = SEE_INVISIBLE_CULT
-		if(dose < 5)
+		if(M.chem_doses[type] < 5)
 			if(prob(10))
 				M.emote("shiver")
 				to_chat(M, SPAN_GOOD(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
@@ -658,7 +659,7 @@
 /decl/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M)
 	M.see_invisible = SEE_INVISIBLE_CULT
 	M.make_jittery(5)
-	if(dose < 5)
+	if(M.chem_doses[type] < 5)
 		if(prob(5))
 			M.visible_message("<b>[M]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
 			to_chat(M, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
@@ -741,11 +742,21 @@
 		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
-	if(dose > 0.2)
+	if(M.chem_doses[type] > 0.2)
 		M.Weaken(10)
 
-/decl/reagent/toxin/dextrotoxin/Destroy()
-	if(holder && holder.my_atom && ismob(holder.my_atom))
-		var/mob/M = holder.my_atom
-		to_chat(M, SPAN_WARNING("You can feel sensation creeping back into your limbs..."))
+/decl/reagent/toxin/dextrotoxin/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	to_chat(M, SPAN_WARNING("You can feel sensation creeping back into your limbs..."))
 	return ..()
+
+/decl/reagent/toxin/coagulated_blood
+	name = "Hemoglobin"
+	description = "A protein that works to carry oxygen. If freely floating in the bloodstream, however, it is toxic to the kidneys."
+	reagent_state = SOLID
+	color = "#C80000"
+	metabolism = REM * 0.1
+	taste_description = "iron"
+	taste_mult = 1.3
+	fallback_specific_heat = 3.617
+	strength = 1 // equivalent to amount * 0.5 units of toxin, which is what was used before
+	target_organ = BP_KIDNEYS

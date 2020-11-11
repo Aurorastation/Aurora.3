@@ -87,7 +87,7 @@
 	color = newdata
 	return
 
-/decl/reagent/paint/mix_data(var/newdata, var/newamount)
+/decl/reagent/paint/mix_data(var/newdata, var/newamount, var/datum/reagents/holder)
 	var/list/colors = list(0, 0, 0, 0)
 	var/tot_w = 0
 
@@ -99,11 +99,11 @@
 		hex2 += "FF"
 	if(length(hex1) != 9 || length(hex2) != 9)
 		return
-	colors[1] += hex2num(copytext(hex1, 2, 4)) * volume
-	colors[2] += hex2num(copytext(hex1, 4, 6)) * volume
-	colors[3] += hex2num(copytext(hex1, 6, 8)) * volume
-	colors[4] += hex2num(copytext(hex1, 8, 10)) * volume
-	tot_w += volume
+	colors[1] += hex2num(copytext(hex1, 2, 4)) * REAGENT_VOLUME(holder, type)
+	colors[2] += hex2num(copytext(hex1, 4, 6)) * REAGENT_VOLUME(holder, type)
+	colors[3] += hex2num(copytext(hex1, 6, 8)) * REAGENT_VOLUME(holder, type)
+	colors[4] += hex2num(copytext(hex1, 8, 10)) * REAGENT_VOLUME(holder, type)
+	tot_w += REAGENT_VOLUME(holder, type)
 	colors[1] += hex2num(copytext(hex2, 2, 4)) * newamount
 	colors[2] += hex2num(copytext(hex2, 4, 6)) * newamount
 	colors[3] += hex2num(copytext(hex2, 6, 8)) * newamount
@@ -188,7 +188,7 @@
 	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
 
 /decl/reagent/uranium/touch_turf(var/turf/T, var/datum/reagents/holder)
-	if(volume >= 3)
+	if(REAGENT_VOLUME(holder, type) >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
@@ -225,7 +225,7 @@
 		M.IgniteMob()
 
 /decl/reagent/water/holywater/touch_turf(var/turf/T, var/datum/reagents/holder)
-	if(volume >= 5)
+	if(REAGENT_VOLUME(holder, type) >= 5)
 		T.holy = 1
 	return
 
@@ -265,7 +265,7 @@
 
 /decl/reagent/thermite/touch_turf(var/turf/T, var/datum/reagents/holder)
 	. = ..()
-	if(volume >= 5)
+	if(REAGENT_VOLUME(holder, type) >= 5)
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
 			W.thermite = 1
@@ -293,7 +293,7 @@
 	O.clean_blood()
 
 /decl/reagent/spacecleaner/touch_turf(var/turf/T, var/datum/reagents/holder)
-	if(volume >= 1)
+	if(REAGENT_VOLUME(holder, type) >= 1)
 		if(istype(T, /turf/simulated))
 			var/turf/simulated/S = T
 			S.dirt = 0
@@ -329,12 +329,12 @@
 
 	if(istype(M,/mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss( volume * (removed/REM) * 0.5 )
+		S.adjustToxLoss( REAGENT_VOLUME(holder, type) * (removed/REM) * 0.5 )
 		if(!S.client)
 			if(S.target) // Like cats
 				S.target = null
 				++S.discipline
-		if(dose == removed)
+		if(M.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), SPAN_DANGER("Your flesh burns in the space cleaner!"))
 
 /decl/reagent/lube
@@ -347,8 +347,8 @@
 /decl/reagent/lube/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 	if(!istype(T))
 		return
-	if(volume >= 1)
-		T.wet_floor(WET_TYPE_LUBE,volume)
+	if(REAGENT_VOLUME(holder, type) >= 1)
+		T.wet_floor(WET_TYPE_LUBE,REAGENT_VOLUME(holder, type))
 
 /decl/reagent/silicate
 	name = "Silicate"
@@ -360,8 +360,8 @@
 /decl/reagent/silicate/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if(istype(O, /obj/structure/window))
 		var/obj/structure/window/W = O
-		W.apply_silicate(volume)
-		remove_self(volume)
+		W.apply_silicate(REAGENT_VOLUME(holder, type))
+		remove_self(REAGENT_VOLUME(holder, type))
 	return
 
 /decl/reagent/glycerol
@@ -379,9 +379,9 @@
 	taste_description = "oil"
 	var/temp_set = FALSE
 
-/decl/reagent/nitroglycerin/proc/explode()
+/decl/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
-	e.set_up(round (src.volume/2, 1), holder.my_atom, 0, 0)
+	e.set_up(round (REAGENT_VOLUME(holder, type)/2, 1), holder.my_atom, 0, 0)
 	if(isliving(holder.my_atom))
 		e.amount *= 0.5
 		var/mob/living/L = holder.my_atom
@@ -390,12 +390,9 @@
 	e.start()
 	holder.clear_reagents()
 
-/decl/reagent/nitroglycerin/add_thermal_energy(var/added_energy)
+/decl/reagent/nitroglycerin/add_thermal_energy(var/added_energy, var/datum/reagents/holder)
 	. = ..()
-	if(!temp_set) // so initial temperature-setting doesn't make stuff explode
-		temp_set = TRUE
-		return
-	if(abs(added_energy) > (specific_heat * 5 / volume)) // can explode via cold or heat shock
+	if(abs(added_energy) > (specific_heat * 5 / REAGENT_VOLUME(holder, type))) // can explode via cold or heat shock
 		explode()
 
 /decl/reagent/nitroglycerin/apply_force(var/force)
@@ -580,11 +577,11 @@
 	taste_description = "fiery death"
 
 /decl/reagent/fuel/napalm/touch_turf(var/turf/T, var/datum/reagents/holder)
-	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, volume/3)
+	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, REAGENT_VOLUME(holder, type)/3)
 	for(var/mob/living/L in T)
-		L.adjust_fire_stacks(volume / 10)
+		L.adjust_fire_stacks(REAGENT_VOLUME(holder, type) / 10)
 		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
-	remove_self(volume)
+	remove_self(REAGENT_VOLUME(holder, type))
 	return
 
 /decl/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
@@ -593,7 +590,7 @@
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
 		L.adjustFireLoss(amount / 10)
-		remove_self(volume)
+		remove_self(REAGENT_VOLUME(holder, type))
 		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
 
 //Secret chems.
@@ -670,7 +667,7 @@
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))
-	remove_self(volume)
+	remove_self(REAGENT_VOLUME(holder, type))
 	return
 
 /decl/reagent/bluespace_dust
@@ -709,7 +706,7 @@
 	fallback_specific_heat = 1.25
 
 /decl/reagent/sglue/touch_obj(var/obj/O, var/datum/reagents/holder)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (REAGENT_VOLUME(holder, type) > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
@@ -725,7 +722,7 @@
 	fallback_specific_heat = 1.75
 
 /decl/reagent/usolve/touch_obj(var/obj/O, var/datum/reagents/holder)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (REAGENT_VOLUME(holder, type) > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
@@ -741,7 +738,7 @@
 	fallback_specific_heat = 0.75
 
 /decl/reagent/shapesand/touch_obj(var/obj/O, var/datum/reagents/holder)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (REAGENT_VOLUME(holder, type) > 10*O.w_class))
 		var/obj/item/shapesand/mimic = new /obj/item/shapesand(O.loc)
 		mimic.name = O.name
 		mimic.desc = O.desc

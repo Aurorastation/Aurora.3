@@ -50,14 +50,16 @@
 	return get_heat_capacity(holder)*(max(new_temperature, TCMB) - old_temperature)
 
 /decl/reagent/proc/add_thermal_energy(var/added_energy, var/datum/reagents/holder)
-	LAZYSET(REAGENT_DATA(holder, type), "thermal_energy", max(0,thermal_energy + added_energy))
+	var/list/data = REAGENT_DATA(holder, type)
+	LAZYSET(data, "thermal_energy", max(0, LAZYACCESS(data, "thermal_energy") + added_energy))
 	return added_energy
 
 /decl/reagent/proc/set_thermal_energy(var/set_energy, var/datum/reagents/holder)
 	return add_thermal_energy(-get_thermal_energy(holder) + set_energy)
 
 /decl/reagent/proc/set_thermal_energy_safe(var/set_energy, var/datum/reagents/holder) // This stops nitroglycerin from exploding
-	LAZYSET(REAGENT_DATA(holder, type), "thermal_energy", set_energy)
+	var/data = REAGENT_DATA(holder, type)
+	LAZYSET(data, "thermal_energy", set_energy)
 	return 0
 
 /datum/reagents/proc/set_thermal_energy(var/set_energy)

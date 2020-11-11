@@ -57,7 +57,7 @@
 	..()//In addition to parent temperature calculation
 	//Fryer efficiency also drops when oil levels arent optimal
 	var/oil_level = 0
-	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_master_reagent()
+	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
 	if (OL && istype(OL))
 		oil_level = OL.volume
 
@@ -97,7 +97,7 @@
 	var/total_oil = 0
 	var/total_our_oil = 0
 	var/total_removed = 0
-	var/decl/reagent/our_oil = oil.get_master_reagent()
+	var/decl/reagent/our_oil = oil.get_primary_reagent_decl()
 
 	for (var/obj/item/I in CI.container)
 		if (I.reagents && I.reagents.total_volume)
@@ -149,7 +149,7 @@
 	var/damage = rand(7,13)
 	//Though this damage seems reduced, some hot oil is transferred to the victim and will burn them for a while after
 
-	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_master_reagent()
+	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
 	damage *= OL.heatdamage(victim)
 
 	var/obj/item/organ/external/E

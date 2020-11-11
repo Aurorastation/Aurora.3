@@ -37,12 +37,11 @@
 	var/germ_adjust = 0 // for makeshift bandages/disinfectant
 	var/carbonated = FALSE // if it's carbonated or not
 
-/decl/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
+/decl/reagent/proc/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.
 	if(!isnull(newdata))
-		data = newdata
-	metabolism = round(metabolism,0.001)
+		return newdata
 
-/decl/reagent/proc/remove_self(var/amount) // Shortcut
+/decl/reagent/proc/remove_self(var/amount, var/datum/reagents/holder) // Shortcut
 	if (!holder)
 		return
 
@@ -58,7 +57,7 @@
 /decl/reagent/proc/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
 	return
 
-/decl/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/holder) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
+/decl/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
 	if(!istype(M))
 		return
 	if(!affects_dead && M.stat == DEAD)
@@ -76,7 +75,7 @@
 
 	removed = M.get_metabolism(removed)
 
-	if(overdose && (volume > overdose) && (M.chem_doses[type] > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
+	if(overdose && (REAGENT_VOLUME(holder, type) > overdose) && (M.chem_doses[type] > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
 		overdose(M, alien, removed, M.chem_doses[type]/overdose) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
 	if(M.chem_doses[type] == 0)
@@ -143,7 +142,7 @@
 	return
 
 /decl/reagent/proc/get_data(var/datum/reagents/holder) // Just in case you have a reagent that handles data differently.
-	var/data = REAGENT_DATA(holder, type)
+	var/list/data = REAGENT_DATA(holder, type)
 	return islist(data) ? data.Copy() : data
 
 /* DEPRECATED - TODO: REMOVE EVERYWHERE */

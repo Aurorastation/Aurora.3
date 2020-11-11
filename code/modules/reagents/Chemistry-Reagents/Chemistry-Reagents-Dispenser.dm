@@ -17,7 +17,7 @@
 		to_chat(usr, "The solution dissolves the ink on the paper.")
 		return
 	if(istype(O, /obj/item/book))
-		if(volume < 5)
+		if(REAGENT_VOLUME(holder, type) < 5)
 			return
 		if(istype(O, /obj/item/book/tome))
 			to_chat(usr, "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>")
@@ -67,21 +67,21 @@
 
 /decl/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
-	if(ingested && ingested.reagent_list.len > 1) // Need to have at least 2 reagents - cabon and something to remove
-		var/effect = 1 / (ingested.reagent_list.len - 1)
-		for(var/decl/reagent/R in ingested.reagent_list)
-			if(R == src)
+	if(LAZYLEN(ingested?.reagent_volumes) > 1) // Need to have at least 2 reagents - cabon and something to remove
+		var/effect = 1 / (ingested.reagent_volumes.len - 1)
+		for(var/_R in ingested.reagent_volumes)
+			if(_R == type)
 				continue
-			ingested.remove_reagent(R.type, removed * effect)
+			ingested.remove_reagent(_R, removed * effect)
 
 /decl/reagent/carbon/touch_turf(var/turf/T, var/datum/reagents/holder)
 	if(!istype(T, /turf/space))
 		var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate(/obj/effect/decal/cleanable/dirt, T)
 		if (!dirtoverlay)
 			dirtoverlay = new/obj/effect/decal/cleanable/dirt(T)
-			dirtoverlay.alpha = volume * 30
+			dirtoverlay.alpha = REAGENT_VOLUME(holder, type) * 30
 		else
-			dirtoverlay.alpha = min(dirtoverlay.alpha + volume * 30, 255)
+			dirtoverlay.alpha = min(dirtoverlay.alpha + REAGENT_VOLUME(holder, type) * 30, 255)
 
 /decl/reagent/copper
 	name = "Copper"
@@ -204,7 +204,7 @@
 		to_chat(usr, "The solution dissolves the ink on the paper.")
 		return
 	if(istype(O, /obj/item/book))
-		if(volume < 5)
+		if(REAGENT_VOLUME(holder, type) < 5)
 			return
 		if(istype(O, /obj/item/book/tome))
 			to_chat(usr, "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>")
@@ -273,8 +273,8 @@
 	M.adjustToxLoss(0.2 * removed)
 
 /decl/reagent/hydrazine/touch_turf(var/turf/T, var/datum/reagents/holder)
-	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
-	remove_self(volume)
+	new /obj/effect/decal/cleanable/liquid_fuel(T, REAGENT_VOLUME(holder, type))
+	remove_self(REAGENT_VOLUME(holder, type))
 	return
 
 /decl/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
@@ -363,9 +363,9 @@
 	fallback_specific_heat = 0.214
 
 /decl/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(volume > 3)
+	if(REAGENT_VOLUME(holder, type) > 3)
 		M.add_chemical_effect(CE_PULSE, 1)
-	if(volume > 10)
+	if(REAGENT_VOLUME(holder, type) > 10)
 		M.add_chemical_effect(CE_PULSE, 1)
 
 /decl/reagent/radium
@@ -383,7 +383,7 @@
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
 
 /decl/reagent/radium/touch_turf(var/turf/T, var/datum/reagents/holder)
-	if(volume >= 3)
+	if(REAGENT_VOLUME(holder, type) >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
@@ -416,7 +416,7 @@
 		if(H.head)
 			if(H.head.unacidable)
 				to_chat(H, "<span class='danger'>Your [H.head] protects you from the acid.</span>")
-				remove_self(volume)
+				remove_self(REAGENT_VOLUME(holder, type))
 				return
 			else if(removed > meltdose)
 				to_chat(H, "<span class='danger'>Your [H.head] melts away!</span>")
@@ -430,7 +430,7 @@
 		if(H.wear_mask)
 			if(H.wear_mask.unacidable)
 				to_chat(H, "<span class='danger'>Your [H.wear_mask] protects you from the acid.</span>")
-				remove_self(volume)
+				remove_self(REAGENT_VOLUME(holder, type))
 				return
 			else if(removed > meltdose)
 				to_chat(H, "<span class='danger'>Your [H.wear_mask] melts away!</span>")
@@ -453,11 +453,11 @@
 		if(removed <= 0)
 			return
 
-	if(volume < meltdose) // Not enough to melt anything
+	if(REAGENT_VOLUME(holder, type) < meltdose) // Not enough to melt anything
 		M.take_organ_damage(0, removed * power * 0.2) //burn damage, since it causes chemical burns. Acid doesn't make bones shatter, like brute trauma would.
 		return
 	if(!M.unacidable && removed > 0)
-		if(istype(M, /mob/living/carbon/human) && volume >= meltdose)
+		if(istype(M, /mob/living/carbon/human) && REAGENT_VOLUME(holder, type) >= meltdose)
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 			if(affecting)
@@ -473,7 +473,7 @@
 /decl/reagent/acid/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if(O.unacidable)
 		return
-	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (volume > meltdose))
+	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (REAGENT_VOLUME(holder, type) > meltdose))
 		var/obj/effect/decal/cleanable/molten_item/I = new/obj/effect/decal/cleanable/molten_item(get_turf(O))
 		I.desc = "Looks like this was \an [O] some time ago."
 		for(var/mob/M in viewers(get_turf(O), 5))

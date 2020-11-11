@@ -19,18 +19,9 @@
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
-	for(var/decl/reagent/blood/B in vessel.reagent_list)
-		if(B.type == /decl/reagent/blood)
-			B.data = list(
-				"donor" = WEAKREF(src),
-				"species" = species.bodytype,
-				"blood_DNA" = dna.unique_enzymes,
-				"blood_colour" = species.blood_color,
-				"blood_type" = dna.b_type,
-				"resistances" = null,
-				"trace_chem" = null
-			)
-			B.color = B.data["blood_colour"]
+	if(!REAGENT_DATA(vessel, /decl/reagent/blood))
+		return
+	vessel.reagent_data[/decl/reagent/blood] = get_blood_data()
 
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(var/amt as num, var/tar = src, var/spraydir)
@@ -148,7 +139,7 @@
 ****************************************************/
 
 //Gets blood from mob to the container, preserving all data in it.
-/mob/living/carbon/proc/take_blood(obj/item/reagent_container/container, var/amount)
+/mob/living/carbon/proc/take_blood(obj/item/reagent_containers/container, var/amount)
 	container.reagents.add_reagent(/decl/reagent/blood, amount, get_blood_data())
 	return TRUE
 
@@ -170,7 +161,7 @@
 
 //Transfers blood from container ot vessels
 /mob/living/carbon/proc/inject_blood(var/amount, var/datum/reagents/donor)
-	var/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
+	var/list/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
 	var/chems = LAZYACCESS(injected_data, "trace_chem")
 	for(var/C in chems)
 		src.reagents.add_reagent(C, (text2num(chems[C]) / species.blood_volume) * amount)//adds trace chemicals to owner's blood
@@ -180,9 +171,9 @@
 	if(!should_have_organ(BP_HEART))
 		reagents.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood))
 		return
-	var/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
+	var/list/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
 	if(blood_incompatible(LAZYACCESS(injected_data, "blood_type"), LAZYACCESS(injected_data, "species")))
-		reagents.add_reagent(/decl/material/liquid/coagulated_blood, amount * 0.5)
+		reagents.add_reagent(/decl/reagent/toxin, amount * 0.5)
 	else
 		vessel.add_reagent(/decl/reagent/blood, amount, injected_data)
 	..()
@@ -212,17 +203,16 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 
 /mob/living/carbon/proc/get_blood_data()
 	var/data = list()
-	data["donor"] = weakref(src)
+	data["donor"] = WEAKREF(src)
 	data["blood_DNA"] = dna.unique_enzymes
 	data["blood_type"] = dna.b_type
-	data["species"] = species.name
-	data["has_oxy"] = species.blood_oxy
+	data["species"] = species.bodytype
 	var/list/temp_chem = list()
 	for(var/R in reagents.reagent_volumes)
 		temp_chem[R] = REAGENT_VOLUME(reagents, R)
 	data["trace_chem"] = temp_chem
 	data["dose_chem"] = chem_doses.Copy()
-	data["blood_colour"] = species.get_blood_colour(src)
+	data["blood_colour"] = species.blood_color
 	return data
 
 proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
@@ -283,5 +273,5 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
 			splatter.blood_DNA[blood_data["blood_DNA"]] = "O+"
 
 	splatter.fluorescent  = 0
-	splatter.set_invisibility(0)
+	splatter.invisibility = 0
 	return splatter

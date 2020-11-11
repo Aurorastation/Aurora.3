@@ -15,7 +15,7 @@
 		return
 	M.add_chemical_effect(CE_PULSE, -1)
 
-	var/power = (M.chem_doses[type] + volume)/2 //Larger the dose and volume, the more affected you are by the chemical.
+	var/power = (M.chem_doses[type] + REAGENT_VOLUME(holder, type))/2 //Larger the dose and volume, the more affected you are by the chemical.
 
 	M.druggy = max(M.druggy, power)
 	M.add_chemical_effect(CE_PAINKILLER, 5 + round(power,5))
@@ -192,7 +192,7 @@
 	if(!istype(M))
 		return
 
-	special_counter += (volume/10)*removed
+	special_counter += (REAGENT_VOLUME(holder, type)/10)*removed
 
 	M.make_jittery(5 + special_counter)
 	M.drowsyness = max(0,M.drowsyness - (1 + special_counter*0.1))
@@ -222,7 +222,7 @@
 
 /decl/reagent/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/dose = M.chem_doses[type]
-	if(dose > 5 && volume <= 3)
+	if(dose > 5 && REAGENT_VOLUME(holder, type) <= 3)
 		M.adjustHalLoss(removed*300) //So oxycomorphine can't be used with it.
 	else
 		if(dose > 5)

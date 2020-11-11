@@ -253,11 +253,11 @@ BREATH ANALYZER
 	if(H.reagents.total_volume)
 		var/unknown = 0
 		var/reagentdata[0]
-		for(var/A in H.reagents.reagent_list)
-			var/decl/reagent/R = A
+		for(var/_R in H.reagents.reagent_list)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				reagentdata["[R.type]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, R.type), 1)]u [R.name]</span>"
+				reagentdata["[_R]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, R.type), 1)]u [R.name]</span>"
 			else
 				unknown++
 		if(reagentdata.len)
@@ -272,7 +272,8 @@ BREATH ANALYZER
 	var/datum/reagents/ingested = H.get_ingested_reagents()
 	if(ingested && ingested.total_volume)
 		var/unknown = 0
-		for(var/decl/reagent/R in ingested.reagent_list)
+		for(var/_R in ingested.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
 				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
@@ -377,20 +378,17 @@ BREATH ANALYZER
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 	if(reagents.total_volume)
-		var/list/blood_traces = list()
-		for(var/decl/reagent/R in reagents.reagent_list)
-			if(R.type != /decl/reagent/blood)
-				reagents.clear_reagents()
-				to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
-				return
-			else
-				blood_traces = params2list(R.data["trace_chem"])
-				break
+		if(LAZYLEN(reagents.reagent_volumes) > 1 || !REAGENT_VOLUME(reagents, /decl/reagent/blood))
+			reagents.clear_reagents()
+			to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
+			return
+		var/bdata = reagents.reagent_data
+		var/list/blood_traces = params2list(reagents.reagent_data[/decl/reagent/blood]["trace_chem"])
 		var/dat = "Trace Chemicals Found: "
-		for(var/R in blood_traces)
-			var/decl/reagent/C = new R()
+		for(var/_C in blood_traces)
+			var/decl/reagent/C = decls_repository.get_decl(_C)
 			if(details)
-				dat += "[C] ([blood_traces[R]] units) "
+				dat += "[C] ([blood_traces[_C]] units) "
 			else
 				dat += "[C] "
 		to_chat(user, "[dat]")
@@ -435,8 +433,9 @@ BREATH ANALYZER
 		var/dat = ""
 		if(O.reagents.reagent_list.len > 0)
 			var/one_percent = O.reagents.total_volume / 100
-			for (var/decl/reagent/R in O.reagents.reagent_list)
-				dat += "\n \t <span class='notice'>[R][details ? ": [R.volume / one_percent]%" : ""]"
+			for (var/_R in O.reagents.reagent_volumes)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
+				dat += "\n \t <span class='notice'>[R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
 		if(dat)
 			to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
 		else

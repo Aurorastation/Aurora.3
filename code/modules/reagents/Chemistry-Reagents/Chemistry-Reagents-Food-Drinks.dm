@@ -85,16 +85,17 @@
 	nutriment_factor = 10
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
-/decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
+/decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	if(!islist(newdata) || !newdata.len)
 		return
+	var/list/data = holder.reagent_data[type]
 	for(var/i in newdata)
-		if(!(i in data))
+		if(!(i in data[type]))
 			data[i] = 0
 			continue
 		data[i] += newdata[i]
 	var/totalFlavor = 1
-	for(var/i in 1 to data.len)
+	for(var/i in 1 to length(data))
 		totalFlavor += data[data[i]]
 
 	if (!totalFlavor)
@@ -107,7 +108,7 @@
 
 /decl/reagent/nutriment/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(injectable)
-		affect_ingest(M, alien, removed)
+		affect_ingest(M, alien, removed, holder)
 
 /decl/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
@@ -116,9 +117,9 @@
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(1.5 * removed)
 	else if(alien != IS_UNATHI)
-		digest(M,removed)
+		digest(M,removed, holder)
 
-/decl/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
+/decl/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.adjustNutritionLoss(-nutriment_factor * removed)
 	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
@@ -134,51 +135,46 @@
 */
 /decl/reagent/nutriment/coating
 	nutriment_factor = 6 //Less dense than the food itself, but coatings still add extra calories
-	var/messaged = 0
 	var/icon_raw
 	var/icon_cooked
 	var/coated_adj = "coated"
 	var/cooked_name = "coating"
 	taste_description = "some sort of frying coating"
 
+/decl/reagent/nutriment/coating/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	to_chat(M, "Ugh, this raw [name] tastes disgusting.")
+
+/decl/reagent/nutriment/coating/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+	var/nut_fact = holder.reagent_data[type]["cooked"] == TRUE ? nutriment_factor : nutriment_factor / 2 // it's the nut fact
+	M.heal_organ_damage(regen_factor * removed, 0)
+	M.adjustNutritionLoss(-nut_fact * removed)
+	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
+	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
+	M.intoxication -= min(M.intoxication,nut_fact*removed*0.05) //Nutrients can absorb alcohol.
+
 /decl/reagent/nutriment/coating/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-
-	//We'll assume that the batter isnt going to be regurgitated and eaten by someone else. Only show this once
-	if (data["cooked"] != 1)
-		if (!messaged)
-			to_chat(M, "Ugh, this raw [name] tastes disgusting.")
-			nutriment_factor *= 0.5
-			messaged = 1
-
+	if (holder.reagent_data[type]["cooked"] != 1)
 		//Raw coatings will sometimes cause vomiting
 		if (ishuman(M) && prob(1))
 			var/mob/living/carbon/human/H = M
 			H.delayed_vomit()
-	..()
+	. = ..()
 
-/decl/reagent/nutriment/coating/initialize_data(var/newdata) // Called when the reagent is created.
-	..()
-	if (!data)
-		data = list()
-	else
-		if (isnull(data["cooked"]))
-			data["cooked"] = 0
-		return
-	data["cooked"] = 0
+/decl/reagent/nutriment/coating/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.
+	var/list/data = ..()
+	data["cooked"] = FALSE
 	if (holder && holder.my_atom && istype(holder.my_atom,/obj/item/reagent_containers/food/snacks))
-		data["cooked"] = 1
+		data["cooked"] = TRUE
 		name = cooked_name
+	return data
 
 		//Batter which is part of objects at compiletime spawns in a cooked state
 
 
 //Handles setting the temperature when oils are mixed
-/decl/reagent/nutriment/coating/mix_data(var/newdata, var/newamount)
-	if (!data)
-		data = list()
-
-	data["cooked"] = newdata["cooked"]
-
+/decl/reagent/nutriment/coating/mix_data(var/newdata, var/newamount, var/datum/reagents/holder)
+	holder.reagent_data[type]["cooked"] = newdata["cooked"]
 	return ..()
 
 
@@ -215,7 +211,7 @@
 
 /decl/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
-		digest(M,removed)
+		digest(M,removed, holder)
 		return
 	..()
 
@@ -282,8 +278,8 @@
 /decl/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 	if(!istype(T))
 		return
-	if(volume >= 3)
-		T.wet_floor(WET_TYPE_LUBE,volume)
+	if(REAGENT_VOLUME(holder, type) >= 3)
+		T.wet_floor(WET_TYPE_LUBE,REAGENT_VOLUME(holder, type))
 
 //Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
 /decl/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M)
@@ -309,7 +305,7 @@
 	var/dfactor = heatdamage(M)
 	if (dfactor)
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
-		set_temperature(get_temperature() - (6 * removed) / (1 + volume*0.1))//Cools off as it burns you
+		set_temperature(get_temperature() - (6 * removed) / (1 + REAGENT_VOLUME(holder, type)*0.1))//Cools off as it burns you
 		if (lastburnmessage+100 < world.time)
 			to_chat(M, SPAN_DANGER("Searing hot oil burns you, wash it off quick!"))
 			lastburnmessage = world.time

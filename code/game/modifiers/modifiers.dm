@@ -319,9 +319,10 @@ it should be avoided in favour of manual removal where possible
 
 			var/ourtype = source.type
 
-			for (var/decl/reagent/R in target.reagents.reagent_list)
+			for (var/_R in target.reagents.reagent_volumes)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				if (istype(R, ourtype))
-					totaldose += R.dose
+					totaldose += target.chem_doses[R]
 
 			if (istype(target, /mob/living))
 				var/mob/living/L = target
@@ -329,24 +330,28 @@ it should be avoided in favour of manual removal where possible
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
 
-					for (var/decl/reagent/R in H.get_ingested_reagents())
+					for (var/_R in H.get_ingested_reagents())
+						var/decl/reagent/R = decls_repository.get_decl(_R)
 						if(istype(R, ourtype))
-							totaldose += R.dose
+							totaldose += H.chem_doses[R]
 
 				if (istype(target, /mob/living/carbon))
 					var/mob/living/carbon/C = target
 
-					for (var/decl/reagent/R in C.bloodstr.reagent_list)
+					for (var/_R in C.bloodstr.reagent_volumes)
+						var/decl/reagent/R = decls_repository.get_decl(_R)
 						if (istype(R, ourtype))
-							totaldose += R.dose
+							totaldose += C.chem_doses[R]
 
-					for (var/decl/reagent/R in C.touching.reagent_list)
+					for (var/_R in C.touching.reagent_volumes)
+						var/decl/reagent/R = decls_repository.get_decl(_R)
 						if (istype(R, ourtype))
-							totaldose += R.dose
+							totaldose += C.chem_doses[R]
 
-					for (var/decl/reagent/R in C.breathing.reagent_list)
+					for (var/_R in C.breathing.reagent_volumes)
+						var/decl/reagent/R = decls_repository.get_decl(_R)
 						if (istype(R, ourtype))
-							totaldose += R.dose
+							totaldose += C.chem_doses[R]
 
 			if (totaldose < source_data)
 				return validity_fail("Dose is too low!")
