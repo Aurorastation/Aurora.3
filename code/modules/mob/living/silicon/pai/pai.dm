@@ -110,8 +110,6 @@
 	light_color = COLOR_BRIGHT_GREEN
 	light_wedge = 45
 
-	can_have_vision_cone = FALSE
-
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
 
@@ -353,9 +351,6 @@
 	canmove = TRUE
 	resting = FALSE
 
-	can_have_vision_cone = TRUE
-	check_fov()
-
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
 	set name = "Collapse Chassis"
@@ -467,9 +462,6 @@
 
 	//stop resting
 	resting = 0
-
-	hide_cone()
-	can_have_vision_cone = initial(can_have_vision_cone)
 
 	// If we are being held, handle removing our holder from their inv.
 	var/obj/item/holder/H = loc

@@ -10,7 +10,13 @@
 
 	mind.vampire.blood_usable += 30
 
-	verbs += new/datum/game_mode/vampire/verb/vampire_help
+	if(client)
+		mind.vampire.blood_hud = new /obj/screen/vampire/blood()
+		mind.vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
+		client.screen += mind.vampire.blood_hud
+		client.screen += mind.vampire.frenzy_hud
+
+	verbs += new /datum/antagonist/vampire/proc/vampire_help
 
 	for(var/datum/power/vampire/P in vampirepowers)
 		if(!(P in mind.vampire.purchased_powers))
@@ -64,7 +70,7 @@
 	return vampire
 
 // Checks whether or not the target can be affected by a vampire's abilities.
-/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE)
+/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE, var/affect_ipc = TRUE)
 	if (!T || !istype(T))
 		return FALSE
 	// How did you even get here?
@@ -82,9 +88,9 @@
 				to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
 			return FALSE
 
-	if (isipc(T))
+	if(!affect_ipc && isipc(T))
 		if (notify)
-			to_chat(src, "<span class='warning'>You lack the power interact with mechanical constructs.</span>")
+			to_chat(src, SPAN_WARNING("You lack the power to interact with mechanical constructs."))
 		return FALSE
 	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
 		if (notify)
@@ -222,6 +228,9 @@
 		vampire_stop_frenzy(1)
 
 /mob/proc/handle_vampire()
+	if(mind.vampire.status & VAMP_ISTHRALL)
+		return
+
 	// Apply frenzy while in the chapel.
 	if (istype(get_area(loc), /area/chapel))
 		mind.vampire.frenzy += 3
@@ -231,11 +240,30 @@
 	else if (mind.vampire.frenzy > 0)
 		mind.vampire.frenzy = max(0, mind.vampire.frenzy -= Clamp(mind.vampire.blood_usable * 0.1, 1, 10))
 
-	mind.vampire.frenzy = min(mind.vampire.frenzy, 450)
+	mind.vampire.frenzy = round(min(mind.vampire.frenzy, 450))
 
 	vampire_check_frenzy()
 
-	return
+	if(client)
+		if(!mind.vampire.blood_hud)
+			mind.vampire.blood_hud = new /obj/screen/vampire/blood()
+			client.screen += mind.vampire.blood_hud
+		if(!mind.vampire.frenzy_hud)
+			mind.vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
+			client.screen += mind.vampire.frenzy_hud
+		if(!mind.vampire.blood_suck_hud)
+			mind.vampire.blood_suck_hud = new /obj/screen/vampire/suck()
+			client.screen += mind.vampire.blood_suck_hud
+
+		mind.vampire.blood_hud.maptext = SMALL_FONTS(7, mind.vampire.blood_usable)
+		if(mind.vampire.frenzy)
+			if(!mind.vampire.frenzy_hud.alpha)
+				animate(mind.vampire.frenzy_hud, 1 SECOND, alpha = 255, LINEAR_EASING)
+			mind.vampire.frenzy_hud.maptext = SMALL_FONTS(7, mind.vampire.frenzy)
+		else
+			if(mind.vampire.frenzy_hud.alpha)
+				animate(mind.vampire.frenzy_hud, 1 SECOND, alpha = 0, LINEAR_EASING)
+			mind.vampire.frenzy_hud.maptext = null
 
 /mob/living/carbon/human/proc/finish_vamp_timeout(vamp_flags = 0)
 	if (!mind || !mind.vampire)

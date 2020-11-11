@@ -63,6 +63,12 @@
 					to_chat(usr, SPAN_WARNING("You have nothing to drop in your hand."))
 					return
 				drop_item()
+			else if(isrobot(src))
+				var/mob/living/silicon/robot/R = usr
+				var/I = R.get_active_hand()
+				if(istype(I, /obj/item/gripper))
+					var/obj/item/gripper/G = I
+					G.drop_item()
 			else
 				to_chat(usr, SPAN_WARNING("This mob type cannot drop items."))
 			return

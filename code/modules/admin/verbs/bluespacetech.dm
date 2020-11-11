@@ -124,13 +124,11 @@
 
 	feedback_add_details("admin_verb","BST")
 
-	bst.verbs |= /mob/living/proc/toggle_vision_cone
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
 	spark(bst, 3, alldirs)
 	bst.anchored = FALSE
-	bst.can_have_vision_cone = FALSE
 
 /mob/living/carbon/human/bst
 	universal_understand = 1

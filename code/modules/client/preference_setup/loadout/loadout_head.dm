@@ -187,7 +187,8 @@
 	hats["hat, fez"] = /obj/item/clothing/head/fez
 	hats["hat, tophat"] = /obj/item/clothing/head/that
 	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
-	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
+	hats["hat, striped black fedora"] = /obj/item/clothing/head/fedora
+	hats["hat, black fedora"] = /obj/item/clothing/head/fedora/black
 	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
 	hats["hat, dark brown fedora"] = /obj/item/clothing/head/fedora/brown/dark
 	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
