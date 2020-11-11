@@ -158,9 +158,9 @@
 
 /obj/item/reagent_crystal/Initialize(mapload, reagent_i, amount)
 	. = ..()
-	create_reagents(5)
+	create_reagents(max(5, amount))
 	reagents.add_reagent(reagent_i, amount)
-	var/decl/reagent/R = new reagent_i
+	var/decl/reagent/R = decls_repository.get_decl(reagent_i)
 	name = "[lowertext(R.name)] crystal"
 	desc = "A [lowertext(R.name)] crystal. It looks rough, unprocessed."
 	desc_info = "This crystal can be grinded to obtain the chemical material locked within."

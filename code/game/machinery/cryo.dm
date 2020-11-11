@@ -141,9 +141,8 @@
 	data["beakerVolume"] = 0
 	if(beaker)
 		data["beakerLabel"] = beaker.label_text ? beaker.label_text : null
-		if (beaker.reagents && beaker.reagents.reagent_list.len)
-			for(var/decl/reagent/R in beaker.reagents.reagent_list)
-				data["beakerVolume"] += R.volume
+		for(var/_R in beaker.reagents?.reagent_volumes)
+			data["beakerVolume"] += beaker.reagents.reagent_volumes[_R]
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)

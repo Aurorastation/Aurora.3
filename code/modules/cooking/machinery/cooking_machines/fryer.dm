@@ -59,7 +59,7 @@
 	var/oil_level = 0
 	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
 	if (OL && istype(OL))
-		oil_level = OL.volume
+		oil_level = oil.reagent_volumes[OL.type]
 
 	var/oil_efficiency = 0
 	if (oil_level)
@@ -101,14 +101,15 @@
 
 	for (var/obj/item/I in CI.container)
 		if (I.reagents && I.reagents.total_volume)
-			for (var/decl/reagent/R in I.reagents.reagent_list)
+			for (var/_R in I.reagents.reagent_volumes)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				if (istype(R, /decl/reagent/nutriment/triglyceride/oil))
-					total_oil += R.volume
+					total_oil += I.reagents.reagent_volumes[_R]
 					if (R.type != our_oil.type)
-						total_removed += R.volume
-						I.reagents.remove_reagent(R.type, R.volume)
+						total_removed += I.reagents.reagent_volumes[_R]
+						I.reagents.remove_reagent(_R, I.reagents.reagent_volumes[_R])
 					else
-						total_our_oil += R.volume
+						total_our_oil += I.reagents.reagent_volumes[_R]
 
 	if (total_removed > 0 || total_oil != CI.max_oil)
 		total_oil = min(total_oil, CI.max_oil)
@@ -125,10 +126,9 @@
 			for (var/thing in CI.container)
 				var/obj/item/I = thing
 				if (I.reagents && I.reagents.total_volume)
-					for (var/reagent in I.reagents.reagent_list)
-						var/decl/reagent/R = reagent
-						if (istype(R, /decl/reagent/nutriment/triglyceride/oil) && R.type == our_oil.type)
-							I.reagents.remove_reagent(R.type, R.volume*portion)
+					for (var/_R in I.reagents.reagent_volumes)
+						if (_R == our_oil.type)
+							I.reagents.remove_reagent(_R, I.reagents.reagent_volumes[_R]*portion)
 					I.reagents.set_temperature(T0C + 40 + rand(-5, 5)) // warm, but not hot; avoiding aftereffects of the hot oil
 
 /obj/machinery/appliance/cooker/fryer/cook_mob(var/mob/living/victim, var/mob/user)
@@ -204,13 +204,13 @@
 	//That would really require coding some sort of filter or better replacement mechanism first
 	//So for now, restrict to oil only
 		var/amount = 0
-		for (var/reagent in I.reagents.reagent_list)
-			var/decl/reagent/R = reagent
+		for (var/_R in I.reagents.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if (istype(R, /decl/reagent/nutriment/triglyceride/oil))
 				var/delta = REAGENTS_FREE_SPACE(oil)
-				delta = min(delta, R.volume)
-				oil.add_reagent(R.type, delta)
-				I.reagents.remove_reagent(R.type, delta)
+				delta = min(delta, I.reagents.reagent_volumes[_R])
+				oil.add_reagent(_R, delta)
+				I.reagents.remove_reagent(_R, delta)
 				amount += delta
 		if (amount > 0)
 			user.visible_message("[user] pours some oil into [src].", SPAN_NOTICE("You pour [amount]u of oil into [src]."), SPAN_NOTICE("You hear something viscous being poured into a metal container."))

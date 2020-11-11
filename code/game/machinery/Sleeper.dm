@@ -62,7 +62,7 @@
 		if(beaker)
 			if(beaker.reagents.total_volume < beaker.reagents.maximum_volume)
 				var/pumped = 0
-				for(var/decl/reagent/x in occupant.reagents.reagent_list)
+				for(var/_x in occupant.reagents.reagent_volumes)
 					occupant.reagents.trans_to_obj(beaker, 3)
 					pumped++
 				if(ishuman(occupant))
@@ -74,7 +74,7 @@
 			if(beaker.reagents.total_volume < beaker.reagents.maximum_volume)
 				var/datum/reagents/ingested = occupant.get_ingested_reagents()
 				if(ingested)
-					for(var/decl/reagent/x in ingested.reagent_list)
+					for(var/_x in ingested.reagent_volumes)
 						ingested.trans_to_obj(beaker, 1)
 		else
 			toggle_pump()
@@ -133,31 +133,29 @@
 		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
 		data["blood_o2"] = occupant.get_blood_oxygenation()
 		data["bloodreagents"] = FALSE
-		if(length(occupant.reagents.reagent_list))
-			var/list/blood_reagents = list()
-			for(var/A in occupant.reagents.reagent_list)
-				var/list/blood_reagent = list()
-				var/decl/reagent/R = A
-				blood_reagent["name"] = initial(R.name)
-				blood_reagent["amount"] = round(REAGENT_VOLUME(occupant.reagents, R.type), 0.1)
-				blood_reagents += list(blood_reagent)
-			if(length(blood_reagents))
-				data["bloodreagents"] = blood_reagents.Copy()
+		var/list/blood_reagents
+		for(var/_R in occupant.reagents.reagent_volumes)
+			var/list/blood_reagent = list()
+			var/decl/reagent/R = decls_repository.get_decl(_R)
+			blood_reagent["name"] = R.name
+			blood_reagent["amount"] = round(REAGENT_VOLUME(occupant.reagents, _R), 0.1)
+			LAZYADD(blood_reagents, list(blood_reagent))
+		if(LAZYLEN(blood_reagents))
+			data["bloodreagents"] = blood_reagents.Copy()
 		data["hasstomach"] = FALSE
 		data["stomachreagents"] = FALSE
 		var/obj/item/organ/internal/stomach/S = occupant.internal_organs_by_name[BP_STOMACH]
 		if(S)
 			data["hasstomach"] = TRUE
-			if(length(S.ingested.reagent_list))
-				var/list/stomach_reagents = list()
-				for(var/A in S.ingested.reagent_list)
-					var/list/stomach_reagent = list()
-					var/decl/reagent/R = A
-					stomach_reagent["name"] = initial(R.name)
-					stomach_reagent["amount"] = round(REAGENT_VOLUME(S.ingested, R.type), 0.1)
-					stomach_reagents += list(stomach_reagent)
-				if(length(stomach_reagents))
-					data["stomachreagents"] = stomach_reagents.Copy()
+			var/list/stomach_reagents
+			for(var/_R in S.ingested.reagent_volumes)
+				var/list/stomach_reagent = list()
+				var/decl/reagent/R = decls_repository.get_decl(_R)
+				stomach_reagent["name"] = R.name
+				stomach_reagent["amount"] = round(REAGENT_VOLUME(S.ingested, _R), 0.1)
+				LAZYADD(stomach_reagents, list(stomach_reagent))
+			if(LAZYLEN(stomach_reagents))
+				data["stomachreagents"] = stomach_reagents.Copy()
 		if(ishuman(occupant))
 			var/mob/living/carbon/human/H = occupant
 			data["pulse"] = H.get_pulse(GETPULSE_TOOL)
@@ -174,7 +172,7 @@
 	else
 		data["occupant"] = FALSE
 	if(beaker)
-		data["beaker"] = beaker.reagents.get_free_space()
+		data["beaker"] = REAGENTS_FREE_SPACE(beaker.reagents)
 	else
 		data["beaker"] = -1
 	data["filtering"] = filtering

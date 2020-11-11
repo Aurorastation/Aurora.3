@@ -90,14 +90,11 @@
 			var/dat = ""
 			if(!condi)
 				if(href_list["name"] == "Blood")
-					var/decl/reagent/blood/G
-					for(var/decl/reagent/F in R.reagent_list)
-						if(F.name == href_list["name"])
-							G = F
-							break
+					var/decl/reagent/blood/G = decls_repository.get_decl(/decl/reagent/blood)
+					var/Gdata = REAGENT_DATA(R, /decl/reagent/blood)
 					var/A = G.name
-					var/B = G.data["blood_type"]
-					var/C = G.data["blood_DNA"]
+					var/B = Gdata["blood_type"]
+					var/C = Gdata["blood_DNA"]
 					dat += "<TITLE>Chemmaster 3000</TITLE>Chemical infos:<BR><BR>Name:<BR>[A]<BR><BR>Description:<BR>Blood Type: [B]<br>DNA: [C]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
 				else
 					dat += "<TITLE>Chemmaster 3000</TITLE>Chemical infos:<BR><BR>Name:<BR>[href_list["name"]]<BR><BR>Description:<BR>[href_list["desc"]]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
@@ -166,13 +163,13 @@
 			var/amount_per_pill = reagents.total_volume/count
 			if (amount_per_pill > 60) amount_per_pill = 60
 
-			var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_master_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
+			var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_primary_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
 
 			if(reagents.total_volume/count < 1) //Sanity checking.
 				return
 			while (count-- && count >= 0)
 				var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(src.loc)
-				if(!name) name = reagents.get_master_reagent_name()
+				if(!name) name = reagents.get_primary_reagent_name()
 				P.name = "[name] pill"
 				P.pixel_x = rand(-7, 7) //random position
 				P.pixel_y = rand(-7, 7)
@@ -183,9 +180,9 @@
 
 		else if (href_list["createbottle"])
 			if(!condi)
-				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_master_reagent_name()), MAX_NAME_LEN)
+				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_primary_reagent_name()), MAX_NAME_LEN)
 				var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(src.loc)
-				if(!name) name = reagents.get_master_reagent_name()
+				if(!name) name = reagents.get_primary_reagent_name()
 				P.name = "[name] bottle"
 				P.pixel_x = rand(-7, 7) //random position
 				P.pixel_y = rand(-7, 7)
@@ -247,25 +244,27 @@
 			dat += "Beaker is empty."
 		else
 			dat += "Add to buffer:<BR>"
-			for(var/decl/reagent/G in R.reagent_list)
-				dat += "[G.name] , [G.volume] Units - "
+			for(var/_G in R.reagent_volumes)
+				var/decl/reagent/G = decls_repository.get_decl(_G)
+				dat += "[G.name] , [REAGENT_VOLUME(reagents, _G)] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[G.description];name=[G.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.type];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.type];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.type];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.type];amount=[G.volume]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];addcustom=[G.type]'>(Custom)</A><BR>"
+				dat += "<A href='?src=\ref[src];add=[_G];amount=1'>(1)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=5'>(5)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=[REAGENT_VOLUME(reagents, _G)]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];addcustom=[_G]'>(Custom)</A><BR>"
 
 		dat += "<HR>Transfer to <A href='?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
 		if(reagents.total_volume)
-			for(var/decl/reagent/N in reagents.reagent_list)
-				dat += "[N.name] , [N.volume] Units - "
+			for(var/_N in reagents.reagent_volumes)
+				var/decl/reagent/N = decls_repository.get_decl(_N)
+				dat += "[N.name] , [REAGENT_VOLUME(reagents, _N)] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[N.description];name=[N.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.type];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.type];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.type];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.type];amount=[N.volume]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];removecustom=[N.type]'>(Custom)</A><BR>"
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=1'>(1)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=5'>(5)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=[REAGENT_VOLUME(reagents, _N)]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];removecustom=[_N]'>(Custom)</A><BR>"
 		else
 			dat += "Empty<BR>"
 		if(!condi)
@@ -408,13 +407,12 @@
 		else
 			is_beaker_ready = 1
 			beaker_contents = "<B>The beaker contains:</B><br>"
-			var/anything = 0
-			for(var/decl/reagent/R in beaker.reagents.reagent_list)
-				anything = 1
-				beaker_contents += "[R.volume] - [R.name]<br>"
-			if(!anything)
+			if(!LAZYLEN(beaker.reagents?.reagent_volumes))
 				beaker_contents += "Nothing<br>"
-
+			else
+				for(var/_R in beaker.reagents.reagent_volumes)
+					var/decl/reagent/R = decls_repository.get_decl(_R)
+					beaker_contents += "[beaker.reagents.reagent_volumes[_R]] - [R.name]<br>"
 
 		dat = {"
 	<b>Processing Chamber contains:</b><br>

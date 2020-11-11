@@ -295,8 +295,8 @@
 	var/id = C.type
 
 	//First make sure there's space for our batter
-	if (reagents.get_free_space() < req+5)
-		var/extra = req+5 - reagents.get_free_space()
+	if (REAGENTS_FREE_SPACE(reagents) < req+5)
+		var/extra = req+5 - REAGENTS_FREE_SPACE(reagents)
 		reagents.maximum_volume += extra
 
 	//Suck the coating out of the holder

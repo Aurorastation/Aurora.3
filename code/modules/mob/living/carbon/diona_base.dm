@@ -637,8 +637,7 @@ var/list/diona_banned_languages = list(
 		var/newDNA
 		var/datum/reagents/vessel
 
-		var/decl/reagent/blood/B = D.vessel.get_master_reagent()
-		var/total_blood = B.volume
+		var/total_blood = REAGENT_VOLUME(vessel, /decl/reagent/blood)
 		var/remove_amount = total_blood * 0.05
 		if(ishuman(D))
 			var/mob/living/carbon/human/H = D

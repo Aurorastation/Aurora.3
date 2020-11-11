@@ -156,7 +156,7 @@
 	to_chat(user, "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>")
 
 	if(beaker)
-		if(beaker.reagents && beaker.reagents.reagent_list.len)
+		if(LAZYLEN(beaker.reagents?.reagent_volumes))
 			to_chat(usr, "<span class='notice'>Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid.</span>")
 		else
 			to_chat(usr, "<span class='notice'>Attached is an empty [beaker].</span>")

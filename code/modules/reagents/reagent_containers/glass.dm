@@ -28,7 +28,7 @@
 /obj/item/reagent_containers/glass/examine(var/mob/user)
 	if(!..(user, 2))
 		return
-	if(reagents && reagents.reagent_list.len)
+	if(LAZYLEN(reagents?.reagent_volumes))
 		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
 		for(var/decl/reagent/T in reagents.reagent_list)
 			if(T.reagent_state == SOLID)

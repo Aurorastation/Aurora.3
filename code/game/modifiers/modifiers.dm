@@ -319,11 +319,6 @@ it should be avoided in favour of manual removal where possible
 
 			var/ourtype = source.type
 
-			for (var/_R in target.reagents.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
-				if (istype(R, ourtype))
-					totaldose += target.chem_doses[R]
-
 			if (istype(target, /mob/living))
 				var/mob/living/L = target
 

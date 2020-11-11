@@ -88,7 +88,7 @@
 		return
 
 	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass))
-		if(!reagents.get_free_space())
+		if(!REAGENTS_FREE_SPACE(reagents))
 			return
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))

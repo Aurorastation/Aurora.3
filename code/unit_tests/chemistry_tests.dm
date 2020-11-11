@@ -12,13 +12,11 @@ datum/unit_test/specific_heat/start_test()
 
 	var/error_count = 0
 
-	for(var/type_found in subtypesof(/decl/reagent/))
-		var/decl/reagent/R = new type_found
-		if(istype(R) && R.name)
+	for(var/decl/reagent/R in decls_repository.get_decls_of_subtype(/decl/reagent/))
+		if(R.name)
 			if(!SSchemistry.has_valid_specific_heat(R))
 				log_unit_test("[ascii_red][R.type] lacks a proper specific heat value![ascii_reset]")
 				error_count++
-		qdel(R)
 
 	if(error_count)
 		fail("[error_count] reagents(s) found without a proper specific heat value. Assign a specific heat value or make a recipe with these reagents as the final product.")

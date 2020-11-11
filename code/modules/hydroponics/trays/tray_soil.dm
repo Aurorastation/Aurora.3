@@ -13,7 +13,7 @@
 	//A special case for if the container has only water, for manual watering with buckets
 	if (istype(O,/obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RC = O
-		if (RC.reagents.reagent_list.len == 1)
+		if (LAZYLEN(RC.reagents.reagent_volumes) == 1)
 			if (RC.reagents.has_reagent(/decl/reagent/water, 1))
 				if (waterlevel < maxWaterLevel)
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)

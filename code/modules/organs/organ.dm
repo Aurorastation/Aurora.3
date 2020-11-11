@@ -169,11 +169,10 @@
 			log_debug("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
 			create_reagents(5)
 
-		var/decl/reagent/blood/B = locate(/decl/reagent/blood) in reagents.reagent_list
-		if(B && !(status & ORGAN_ROBOT) && prob(40))
+		if(REAGENT_VOLUME(reagents, /decl/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))
 			reagents.remove_reagent(/decl/reagent/blood,0.1)
 			if (isturf(loc))
-				blood_splatter(src,B,1)
+				blood_splatter(src,src,TRUE)
 		if(config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
@@ -361,8 +360,8 @@
 	if (!reagents)
 		create_reagents(5)
 
-	var/decl/reagent/blood/organ_blood = locate(/decl/reagent/blood) in reagents.reagent_list
-	if(!organ_blood || !organ_blood.data["blood_DNA"])
+	var/blood_data = reagents?.reagent_data[/decl/reagent/blood]
+	if(!("blood_DNA" in blood_data))
 		owner.vessel.trans_to(src, 5, 1, 1)
 
 	if(owner && vital)

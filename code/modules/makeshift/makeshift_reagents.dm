@@ -80,13 +80,13 @@
 		var/amt = 0
 		switch(phase_filter)
 			if("solid")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(SOLID), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(SOLID), REAGENTS_FREE_SPACE(reagents))
 			if("liquid")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(LIQUID), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(LIQUID), REAGENTS_FREE_SPACE(reagents))
 			if("gas")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(GAS), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(GAS), REAGENTS_FREE_SPACE(reagents))
 			else
-				amt = reagents.trans_to_holder(I.reagents, reagents.get_free_space())
+				amt = reagents.trans_to_holder(I.reagents, REAGENTS_FREE_SPACE(reagents))
 		if(amt)
 			to_chat(user, SPAN_NOTICE("You fill \the [I] with [amt] units from \the [src]."))
 	else if(I.reagents && I.reagents.total_volume)
@@ -97,7 +97,7 @@
 	if(!istype(stack))
 		return
 	var/list/sheet_components = sheet_reagents[stack.type]
-	var/amount_to_take = max(0,min(stack.amount,round(reagents.get_free_space()/REAGENTS_PER_SHEET)))
+	var/amount_to_take = max(0,min(stack.amount,round(REAGENTS_FREE_SPACE(reagents)/REAGENTS_PER_SHEET)))
 	if(!amount_to_take)
 		return
 	stack.use(amount_to_take)
@@ -214,17 +214,18 @@
 /obj/structure/distillery/proc/distill()
 	if(!reagents || !reagents.total_volume) // can't distill nothing
 		return
-	for(var/decl/reagent/R in src.reagents.reagent_list)
-		if(!istype(R, /decl/reagent/alcohol))
+	for(var/_R in reagents.reagent_volumes)
+		var/decl/reagent/alcohol/AR = decls_repository.get_decl(_R)
+		if(!istype(AR))
 			return
-		var/decl/reagent/alcohol/AR = R
-		reagents.add_reagent(/decl/reagent/water, (1-(AR.strength/100))*AR.volume)
+		var/ARvol = REAGENT_VOLUME(reagents, AR.type)
+		reagents.add_reagent(/decl/reagent/water, (1-(AR.strength/100))*ARvol)
 		if(istype(AR, /decl/reagent/alcohol/ethanol))
-			reagents.add_reagent(/decl/reagent/alcohol/ethanol, (AR.strength/100)*AR.volume)
+			reagents.add_reagent(/decl/reagent/alcohol/ethanol, (AR.strength/100)*ARvol)
 		if(istype(AR, /decl/reagent/alcohol/butanol))
-			reagents.add_reagent(/decl/reagent/alcohol/butanol, (AR.strength/100)*AR.volume)
-		reagents.remove_reagent(AR.type, AR.volume)
-	src.icon_state = "distillery-off"
+			reagents.add_reagent(/decl/reagent/alcohol/butanol, (AR.strength/100)*ARvol)
+		reagents.remove_reagent(AR.type, ARvol)
+	icon_state = "distillery-off"
 
 /obj/structure/distillery/attackby(obj/item/W, mob/user)
 	if(W.iscrowbar())

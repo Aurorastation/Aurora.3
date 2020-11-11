@@ -45,7 +45,7 @@ About the Holder:
 		get_master_reagent()
 			Returns the reference to the reagent with the largest volume
 
-		get_master_reagent_name()
+		get_primary_reagent_name()
 			Ditto, but returns the name.
 
 		get_master_reagent_type()

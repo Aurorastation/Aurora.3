@@ -83,7 +83,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	NEW_SS_GLOBAL(SSchemistry)
 
 /datum/controller/subsystem/chemistry/Initialize()
-	initialize_chemical_reagents()
 	initialize_chemical_reactions()
 	initialize_codex_data()
 	var/pre_secret_len = chemical_reactions.len
@@ -123,7 +122,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/Recover()
 	src.active_holders = SSchemistry.active_holders
 	src.chemical_reactions = SSchemistry.chemical_reactions
-	src.chemical_reagents = SSchemistry.chemical_reagents
 
 /datum/controller/subsystem/chemistry/proc/load_secret_chemicals()
 	var/list/chemconfig = list()
@@ -142,13 +140,15 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		cc.required_reagents = chemconfig[chemical]["required_reagents"]
-		if(!(cc.result in chemical_reagents))
+		if(!istype(cc.result, /decl/reagent))
 			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 			break
 
-		for(var/A in cc.required_reagents)
-			if(!(A in chemical_reagents))
+		for(var/i in cc.required_reagents.len)
+			var/A = text2path(cc.required_reagents[i])
+			cc.required_reagents[i] = text2path(cc.required_reagents[i])
+			if(!istype(A, /decl/reagent))
 				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] required reagents list.")
 				qdel(cc)
 				break
@@ -157,19 +157,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			var/rtype = cc.required_reagents[1]
 			LAZYINITLIST(chemical_reactions[rtype])
 			chemical_reactions[rtype] += cc
-
-//Chemical Reagents - Initialises all /decl/reagent into a list indexed by reagent type
-/datum/controller/subsystem/chemistry/proc/initialize_chemical_reagents()
-	var/paths = subtypesof(/decl/reagent)
-	chemical_reagents = list()
-	for(var/path in paths)
-		var/decl/reagent/D = new path()
-		if(!D.name)
-			continue
-		chemical_reagents[D.type] = D
-
-	sortTim(chemical_reagents, /proc/cmp_text_asc)
-
 
 //Chemical Reactions - Initialises all /datum/chemical_reaction into a list
 // It is filtered into multiple lists within a list.
@@ -202,7 +189,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			continue
 		if(codex_ignored_result_path && is_path_in_list(CR.result, codex_ignored_result_path))
 			continue
-		var/decl/reagent/R = new CR.result
+		var/decl/reagent/R = decls_repository.get_decl(CR.result)
 		var/reactionData = list(id = CR.id)
 		reactionData["result"] = list(
 			name = R.name,

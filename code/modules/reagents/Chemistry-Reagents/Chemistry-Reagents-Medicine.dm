@@ -601,7 +601,7 @@
 		for(var/_R in M.bloodstr.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(istype(R, /decl/reagent/alcohol/ethanol))
-				var/amount = min(P, REAGENT_VOLUME(bloodstr, _R))
+				var/amount = min(P, REAGENT_VOLUME(M.bloodstr, _R))
 				M.bloodstr.remove_reagent(_R, amount)
 				P -= amount
 				if (P <= 0)
@@ -1382,7 +1382,7 @@
 			continue
 		if(_selected == /decl/reagent/blood && !is_overdosed)
 			continue
-		var/local_amount = min(amount_to_purge, REAGENT_VOLUME(H.reagents, _selected))
+		var/local_amount = min(amount_to_purge, REAGENT_VOLUME(M.reagents, _selected))
 		M.reagents.remove_reagent(selected.type, local_amount)
 		amount_to_purge -= local_amount
 		amount_purged += local_amount
