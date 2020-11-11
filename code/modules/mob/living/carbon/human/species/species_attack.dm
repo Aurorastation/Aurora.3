@@ -178,7 +178,7 @@
 
 /datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
-	if(target?.stat == DEAD)
+	if(!target || target.stat == DEAD)
 		return
 	if(target.internal_organs_by_name[BP_ZOMBIE_PARASITE])
 		to_chat(user, SPAN_WARNING("You feel that \the [target] has been already infected!"))
