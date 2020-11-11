@@ -37,16 +37,8 @@
 		underlays += can
 
 /obj/item/storage/box/fancy/yoke/MouseDrop(mob/user)
-	if(user != usr || !ishuman(user) || use_check_and_message(user) || user.get_active_hand())
+	if(use_check_and_message(user))
 		return
-	var/mob/living/carbon/human/H = user
-	var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
-	if(H.hand)
-		temp = H.organs_by_name[BP_L_HAND]
-	if(temp && !temp.is_usable())
-		to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
-		return
-
 	to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
 	user.put_in_hands(src)
 
@@ -54,14 +46,8 @@
 	if(!length(contents)) // no more cans, continue as normal
 		return ..()
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
-		if(H.hand)
-			temp = H.organs_by_name[BP_L_HAND]
-		if(temp && !temp.is_usable())
-			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
-			return
+	if(use_check_and_message(user))
+		return
 	
 	var/obj/item/reagent_containers/food/drinks/cans/C = cans[length(cans)]
 	cans -= C
@@ -97,7 +83,7 @@
 	starts_with = list()
 
 /obj/item/storage/box/fancy/yoke/random/fill()
-	for(var/i = 1; i <= 6, i++)
+	for(var/i = 1 to 6)
 		var/list/energy_options = list(
 			/obj/item/reagent_containers/food/drinks/cans/zorasoda,
 			/obj/item/reagent_containers/food/drinks/cans/zorakois,
