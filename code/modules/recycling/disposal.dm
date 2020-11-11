@@ -227,7 +227,7 @@
 		return
 
 /// makes it so synths can't be flushed
-	if (istype(target, /mob/living/silicon/robot))
+	if (isrobot(target) && !isDrone(target))
 		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
 		return
 
