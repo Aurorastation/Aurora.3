@@ -948,8 +948,6 @@
 	else if( lying != lying_prev )
 		update_icon()
 
-	update_vision_cone()
-
 	return canmove
 
 
@@ -1348,7 +1346,7 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
-	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || (viewer.client && (src in viewer.client.hidden_mobs)))
+	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility)
 
 //Admin helpers
 /mob/proc/wind_mob(var/mob/admin)
