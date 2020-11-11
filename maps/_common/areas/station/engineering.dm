@@ -123,3 +123,8 @@
 	name = "Engineering - Backup Power Storage"
 	icon_state = "substation"
 	sound_env = SMALL_ENCLOSED
+
+/area/engineering/radiator_outpost
+	name = "Engineering - Radiator Outpost"
+	icon_state = "engine_monitoring"
+	sound_env = SMALL_ENCLOSED

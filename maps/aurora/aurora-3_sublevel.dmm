@@ -9080,8 +9080,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -9105,6 +9108,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -9115,15 +9121,13 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/engsublevel)
 "aqU" = (
@@ -31648,6 +31652,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_gym)
+"nqx" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/maintenance/engsublevel)
 "nqY" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -34218,6 +34232,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"tnA" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/maintenance/engsublevel)
 "tnK" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/junction/yjunction{
@@ -49562,7 +49592,7 @@ aaa
 aaa
 akx
 aqQ
-akx
+nqx
 akx
 akx
 akx
@@ -49818,9 +49848,9 @@ aaa
 aaa
 aaa
 akx
-aqQ
+tnA
 akx
-aaa
+akG
 aaa
 aaa
 aaa
@@ -50075,7 +50105,7 @@ aaa
 aaa
 aaa
 akx
-aqQ
+tnA
 akx
 aaa
 aaa
@@ -50332,7 +50362,7 @@ aaa
 aaa
 aaa
 akx
-aqQ
+tnA
 akx
 aaa
 aaa
