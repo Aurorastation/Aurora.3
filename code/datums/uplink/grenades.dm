@@ -30,7 +30,7 @@
 	
 /datum/uplink_item/item/grenades/frag
 	name = "5xFrag Grenades"
-	item_cost = 10
+	item_cost = 12
 	path = /obj/item/storage/box/frags
 
 /datum/uplink_item/item/grenades/cardox
