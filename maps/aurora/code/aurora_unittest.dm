@@ -35,6 +35,4 @@
 		,/area/medical/cryo
 		,/area/medical/patient_c
 		,/area/security/penal_colony
-		,/area/security/prison/remote
-		,/area/security/warden/remote
 	)

@@ -114,8 +114,8 @@
 		dat+= ""
 		dat+= "<Font color ='black'><B>Maintenance panel controls</B></font><HR>"
 		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.<BR><BR></font>"
-		dat+= text("<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='blue'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR></font>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
-		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(src.safetieson? "<font color='green'><B>GREEN</B></font>" : "<font color='red'><B>RED</B></font>"),src)
+		dat+= text("<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <span class='notice'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR></span>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
+		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(src.safetieson? "<font color='green'><B>GREEN</B></font>" : "<span class='warning'><B>RED</B></span>"),src)
 		dat+= text("<HR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close panel</A>", user)
 		//user << browse(dat, "window=ssu_m_panel;size=400x500")
 		//onclose(user, "ssu_m_panel")
@@ -129,7 +129,7 @@
 	else
 		if(!src.isbroken)
 			dat+= ""
-			dat+= "<font color='blue'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></FONT><BR>"
+			dat+= "<span class='notice'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></span><BR>"
 			dat+= "<B>Welcome to the Unit control panel.</B></FONT><HR>"
 			dat+= text("<font color='black'>Helmet storage compartment: <B>[]</B></font><BR>",(src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected.") )
 			if(HELMET && src.isopen)
@@ -227,7 +227,7 @@
 
 	if(!protected)
 		playsound(src.loc, /decl/sound_category/spark_sound, 75, 1, -1)
-		to_chat(user, "<font color='red'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</font>")
+		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
 		return*/
 	else  //welp, the guy is protected, we can continue
 		if(src.issuperUV)
@@ -253,7 +253,7 @@
 
 	if(!protected)
 		playsound(src.loc, /decl/sound_category/spark_sound, 75, 1, -1)
-		to_chat(user, "<font color='red'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</font>")
+		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
 		return*/
 	else
 		to_chat(user, "You push the button. The coloured LED next to it changes.")
@@ -305,7 +305,7 @@
 
 /obj/machinery/suit_storage_unit/proc/toggle_open(mob/user as mob)
 	if(src.islocked || src.isUV)
-		to_chat(user, "<font color='red'>Unable to open unit.</font>")
+		to_chat(user, "<span class='warning'>Unable to open unit.</span>")
 		return
 	if(src.OCCUPANT)
 		src.eject_occupant(user)
@@ -316,7 +316,7 @@
 
 /obj/machinery/suit_storage_unit/proc/toggle_lock(mob/user as mob)
 	if(src.OCCUPANT && src.safetieson)
-		to_chat(user, "<font color='red'>The Unit's safety protocols disallow locking when a biological form is detected inside its compartments.</font>")
+		to_chat(user, "<span class='warning'>The Unit's safety protocols disallow locking when a biological form is detected inside its compartments.</span>")
 		return
 	if(src.isopen)
 		return
@@ -328,10 +328,10 @@
 	if(src.isUV || src.isopen) //I'm bored of all these sanity checks
 		return
 	if(src.OCCUPANT && src.safetieson)
-		to_chat(user, "<font color='red'><B>WARNING:</B> Biological entity detected in the confines of the Unit's storage. Cannot initiate cycle.</font>")
+		to_chat(user, "<span class='warning'><B>WARNING:</B> Biological entity detected in the confines of the Unit's storage. Cannot initiate cycle.</span>")
 		return
 	if(!src.HELMET && !src.MASK && !src.SUIT && !src.OCCUPANT ) //shit's empty yo
-		to_chat(user, "<font color='red'>Unit storage bays empty. Nothing to disinfect -- Aborting.</font>")
+		to_chat(user, "<span class='warning'>Unit storage bays empty. Nothing to disinfect -- Aborting.</span>")
 		return
 	to_chat(user, "You start the Unit's cauterisation cycle.")
 	src.cycletime_left = 20
@@ -372,7 +372,7 @@
 					src.SUIT = null
 				if(src.MASK)
 					src.MASK = null
-				visible_message("<font color='red'>With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber.</font>", range = 3)
+				visible_message("<span class='warning'>With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber.</span>", range = 3)
 				src.isbroken = 1
 				src.isopen = 1
 				src.islocked = 0
@@ -396,9 +396,9 @@
 
 	if (src.OCCUPANT.client)
 		if(user != OCCUPANT)
-			to_chat(OCCUPANT, "<font color='blue'>The machine kicks you out!</font>")
+			to_chat(OCCUPANT, "<span class='notice'>The machine kicks you out!</span>")
 		if(user.loc != src.loc)
-			to_chat(OCCUPANT, "<font color='blue'>You leave the not-so-cozy confines of the SSU.</font>")
+			to_chat(OCCUPANT, "<span class='notice'>You leave the not-so-cozy confines of the SSU.</span>")
 
 		src.OCCUPANT.client.eye = src.OCCUPANT.client.mob
 		src.OCCUPANT.client.perspective = MOB_PERSPECTIVE
@@ -432,13 +432,13 @@
 	if (usr.stat != 0)
 		return
 	if (!src.isopen)
-		to_chat(usr, "<font color='red'>The unit's doors are shut.</font>")
+		to_chat(usr, "<span class='warning'>The unit's doors are shut.</span>")
 		return
 	if (!src.ispowered || src.isbroken)
-		to_chat(usr, "<font color='red'>The unit is not operational.</font>")
+		to_chat(usr, "<span class='warning'>The unit is not operational.</span>")
 		return
 	if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) )
-		to_chat(usr, "<font color='red'>It's too cluttered inside for you to fit in!</font>")
+		to_chat(usr, "<span class='warning'>It's too cluttered inside for you to fit in!</span>")
 		return
 	usr.visible_message("<span class='notice'>[usr] starts squeezing into [src]!</span>", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
 	if(do_after(usr, 10))
@@ -464,7 +464,7 @@
 	if(I.isscrewdriver())
 		src.panelopen = !src.panelopen
 		playsound(src.loc, I.usesound, 100, 1)
-		to_chat(user, text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") ))
+		to_chat(user, text("<span class='notice'>You [] the unit's maintenance panel.</span>",(src.panelopen ? "open up" : "close") ))
 		update_icon()
 		src.updateUsrDialog()
 		return
@@ -473,13 +473,13 @@
 		if( !(ismob(G.affecting)) )
 			return
 		if (!src.isopen)
-			to_chat(usr, "<font color='red'>The unit's doors are shut.</font>")
+			to_chat(usr, "<span class='warning'>The unit's doors are shut.</span>")
 			return
 		if (!src.ispowered || src.isbroken)
-			to_chat(usr, "<font color='red'>The unit is not operational.</font>")
+			to_chat(usr, "<span class='warning'>The unit is not operational.</span>")
 			return
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
-			to_chat(user, "<font color='red'>The unit's storage area is too cluttered.</font>")
+			to_chat(user, "<span class='warning'>The unit's storage area is too cluttered.</span>")
 			return
 		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 		if(do_after(user, 20))
@@ -502,7 +502,7 @@
 			return
 		var/obj/item/clothing/suit/space/S = I
 		if(src.SUIT)
-			to_chat(user, "<font color='blue'>The unit already contains a suit.</font>")
+			to_chat(user, "<span class='notice'>The unit already contains a suit.</span>")
 			return
 		to_chat(user, "You load the [S.name] into the storage compartment.")
 		user.drop_from_inventory(S,src)
@@ -515,7 +515,7 @@
 			return
 		var/obj/item/clothing/head/helmet/H = I
 		if(src.HELMET)
-			to_chat(user, "<font color='blue'>The unit already contains a helmet.</font>")
+			to_chat(user, "<span class='notice'>The unit already contains a helmet.</span>")
 			return
 		to_chat(user, "You load the [H.name] into the storage compartment.")
 		user.drop_from_inventory(H,src)
@@ -528,7 +528,7 @@
 			return
 		var/obj/item/clothing/mask/M = I
 		if(src.MASK)
-			to_chat(user, "<font color='blue'>The unit already contains a mask.</font>")
+			to_chat(user, "<span class='notice'>The unit already contains a mask.</span>")
 			return
 		to_chat(user, "You load the [M.name] into the storage compartment.")
 		user.drop_from_inventory(M,src)

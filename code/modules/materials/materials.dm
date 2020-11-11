@@ -400,7 +400,7 @@
 	return
 
 /material/diona/place_dismantled_girder(var/turf/target)
-	target.spawn_diona_nymph(target)
+	new /obj/structure/diona/vines(target)
 
 /material/steel/holographic
 	name = "holo" + DEFAULT_WALL_MATERIAL

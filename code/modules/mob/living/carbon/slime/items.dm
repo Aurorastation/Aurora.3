@@ -4,7 +4,7 @@
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
 	force = 1.0
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 6
@@ -230,7 +230,6 @@
 /obj/effect/golemrune/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	announce_to_ghosts()
 	SSghostroles.add_spawn_atom("golem", src)
 
 /obj/effect/golemrune/random_type/Initialize()
@@ -255,7 +254,7 @@
 	else
 		icon_state = "golem"
 
-/obj/effect/golemrune/proc/spawn_golem(var/mob/user)
+/obj/effect/golemrune/assign_player(var/mob/user)
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O?.amount >= 10)
 		if(O.material.golem)
@@ -273,13 +272,11 @@
 	G.accent = G.species.default_accent
 	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
 	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
-	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, provided you have one, and assist them in completing their goals at any cost."))
+	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
+
 	qdel(src)
 
-/obj/effect/golemrune/proc/announce_to_ghosts()
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("A golem rune has been created in [A.name]! Access using the ghost spawner menu in the ghost tab.")
+	return G
 
 /obj/effect/golemrune/wizard
 	wizardy = TRUE

@@ -17,7 +17,7 @@
  * Twohanded
  */
 /obj/item/material/twohanded
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
@@ -157,7 +157,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/material/twohanded/offhand
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	icon_state = "offhand"
 	name = "offhand"
 	default_material = "placeholder"
@@ -195,7 +195,7 @@
 	force_divisor = 0.7 // 10/42 with hardness 60 (steel) and 0.25 unwielded divisor
 	sharp = 1
 	edge = 1
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
@@ -231,7 +231,7 @@
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
 	force = 10
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_divisor = 0.35 // 21 damage for steel (hardness 60)
 	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
@@ -340,12 +340,12 @@
 	force_wielded = 20
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
-	sharp = 1
-	edge = 1
+	sharp = TRUE
+	edge = TRUE
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
-	can_embed = 0
-	applies_material_colour = 0
+	can_embed = FALSE
+	applies_material_colour = FALSE
 	default_material = "steel"
 	parry_chance = 5
 	var/fuel_type = /datum/reagent/fuel
@@ -353,8 +353,8 @@
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
 
-	var/cutting = 0 //Ignore
-	var/powered = 0 //Ignore
+	var/cutting = FALSE //Ignore
+	var/powered = FALSE //Ignore
 	use_material_sound = FALSE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
@@ -383,29 +383,34 @@
 	var/turf/T = get_turf(src)
 	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
 	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
-	force = 15
 	force_unwielded = 30
+	force = force_unwielded
 	force_wielded = 60
+	if(wielded)
+		force = force_wielded
 	throwforce = 20
 	icon_state = "chainsaw_on"
 	base_icon = "chainsaw_on"
 	slot_flags = null
 	START_PROCESSING(SSfast_process, src)
-	powered = 1
+	powered = TRUE
 	update_held_icon()
 
 /obj/item/material/twohanded/chainsaw/proc/PowerDown()
 	var/turf/T = get_turf(src)
 	T.audible_message(SPAN_NOTICE("\The [src] slowly powers down."))
-	force = initial(force)
+	force_unwielded = initial(force_unwielded)
+	force = force_unwielded
 	force_wielded = initial(force_wielded)
+	if(wielded)
+		force = force_wielded
 	throwforce = initial(throwforce)
 	hitsound = initial(hitsound)
 	icon_state = initial(icon_state)
 	base_icon = initial(base_icon)
 	slot_flags = initial(slot_flags)
 	STOP_PROCESSING(SSfast_process, src)
-	powered = 0
+	powered = FALSE
 	update_held_icon()
 
 /obj/item/material/twohanded/chainsaw/shatter(var/consumed)
@@ -445,7 +450,9 @@
 
 /obj/item/material/twohanded/chainsaw/examine(mob/user)
 	if(..(user, 1))
-		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.get_reagent_amount(fuel_type))] unit\s of fuel.")
+		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(reagents.get_reagent_amount(fuel_type))]</b> unit\s of fuel.")
+		if(powered)
+			to_chat(user, SPAN_NOTICE("It is currently powered on."))
 
 /obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
@@ -457,21 +464,15 @@
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !powered)
 		O.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>[src] refueled</span>")
+		to_chat(user, SPAN_NOTICE("You refuel \the [src]."))
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(powered)
 		if(!istype(O))
-			user.visible_message(\
-				"<span class='warning'>[user] revs the chainsaw!.</span>",\
-				"<span class='warning'>You rev the chainsaw!.</span>",\
-				"<span class='warning'>You hear a machine rev.</span>"\
-			)
-
+			user.visible_message(SPAN_DANGER("[user] revs the chainsaw!"), SPAN_WARNING("You rev the chainsaw!"), SPAN_WARNING("You hear a chainsaw rev!"))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
 			RemoveFuel(3)
-
 	. = ..()
 
 /obj/item/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
@@ -488,34 +489,23 @@
 	if(eye_damage > 0)
 		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
 
-/obj/item/material/twohanded/chainsaw/AltClick(mob/user as mob)
-
+/obj/item/material/twohanded/chainsaw/AltClick(mob/user)
 	if(powered)
 		PowerDown(user)
 	else if(!wielded)
-		to_chat(user, "<span class='notice'>You need to hold this with two hands to turn this on.</span>")
+		to_chat(user, SPAN_WARNING("You need to hold this with two hands to turn this on."))
 	else if(reagents.get_reagent_amount(/datum/reagent/fuel) <= 0)
-		user.visible_message(\
-			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
-			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\
-			"<span class='notice'>You hear a cord being pulled.</span>"\
-		)
+		user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src], but nothing happens."), SPAN_WARNING("You pull the cord on \the [src], but nothing happens."), SPAN_NOTICE("You hear a cord being pulled."))
 	else
 		var/max = rand(3,6)
 		for(var/i in 1 to max)
-			user.visible_message(\
-				"<span class='notice'>[user] pulls the cord on the [src]...</span>",\
-				"<span class='notice'>You pull the cord on the [src]...</span>",\
-				"<span class='notice'>You hear a cord being pulled and an engine sputtering...</span>"\
-			)
+			user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src]..."), SPAN_NOTICE("You pull the cord on \the [src]..."), SPAN_NOTICE("You hear a cord being pulled and an engine sputtering..."))
 			if(i == max)
 				PowerUp(user)
 			else
 				playsound(loc, 'sound/weapons/saw/chainsawpull.ogg', 50, 0, 15)
 				if(!do_after(user, 2 SECONDS, act_target = user))
 					break
-
-
 
 /obj/item/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)
 	if(istype(target) && wielded && powered)
@@ -541,7 +531,7 @@
 	unwielded_force_divisor = 0.2
 	force_divisor = 0.3
 	edge = 1
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
 	default_material = "steel"
@@ -570,10 +560,10 @@
 	desc = "An old farming tool, not something you would find at hydroponics."
 
 /obj/item/material/twohanded/pike/flag
-	icon_state = "flag_biesel0"
-	base_icon = "flag_biesel"
 	name = "republic of biesel flag"
 	desc = "For the republic!"
+	icon_state = "flag_biesel0"
+	base_icon = "flag_biesel"
 	default_material = "bronze"
 	can_embed = 1
 	use_material_name = FALSE
@@ -612,13 +602,24 @@
 /obj/item/material/twohanded/pike/flag/ui_action_click()
 	plant()
 
+/obj/item/material/twohanded/pike/flag/hegemony
+	name = "izweski hegemony flag"
+	desc = "For the Hegemon!"
+	desc_info = "This is a flagpole with an energy axe attached to it. Sheer strength and stubborness overcomes the unwieldiness."
+	desc_fluff = "\"Honor, Fire, Burn thy Fear\" - the famous motto of the Izweski, the clan that leads the largest nation of Unathi."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "flag_hegemony0"
+	base_icon = "flag_hegemony"
+	contained_sprite = TRUE
+	damtype = BURN
+
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"
 	base_icon = "zweihander"
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
 	force = 20
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30
 	unwielded_force_divisor = 1

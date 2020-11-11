@@ -18,11 +18,9 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_VOX,BODYTYPE_GOLEM)
+	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_GOLEM)
 	flash_protection = FLASH_PROTECTION_MAJOR
 	allow_hair_covering = FALSE
-
-	var/obj/machinery/camera/camera
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
@@ -30,40 +28,13 @@
 	light_wedge = LIGHT_WIDE
 	on = 0
 
-/obj/item/clothing/head/helmet/space/Initialize()
-	. = ..()
-	if(camera)
-		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_camera
-
-/obj/item/clothing/head/helmet/space/proc/toggle_camera()
-	set name = "Toggle Helmet Camera"
-	set category = "Object"
-	set src in usr
-
-	if(ispath(camera))
-		camera = new camera(src)
-		camera.set_status(0)
-
-	if(camera)
-		camera.set_status(!camera.status)
-		if(camera.status)
-			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, "<span class='notice'>User scanned as [camera.c_tag]. Camera activated.</span>")
-		else
-			to_chat(usr, "<span class='notice'>Camera deactivated.</span>")
-
-/obj/item/clothing/head/helmet/space/examine(var/mob/user)
-	if(..(user, 1) && camera)
-		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
-
 /obj/item/clothing/suit/space
 	name = "space suit"
 	desc = "A suit that protects against low pressure environments. \"NSS AURORA\" is written in large block letters on the back."
 	icon_state = "space"
-	item_state = "s_suit"
 	randpixel = 0
 	center_of_mass = null
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
@@ -75,7 +46,7 @@
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_VOX,BODYTYPE_GOLEM)
+	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_GOLEM)
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
 

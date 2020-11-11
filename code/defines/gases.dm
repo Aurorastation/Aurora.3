@@ -1,6 +1,6 @@
 /decl/xgm_gas/oxygen
 	id = GAS_OXYGEN
-	name = GAS_OXYGEN
+	name = "Oxygen"
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.032	// kg/mol
 
@@ -8,7 +8,7 @@
 
 /decl/xgm_gas/nitrogen
 	id = GAS_NITROGEN
-	name = GAS_NITROGEN
+	name = "Nitrogen"
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.028	// kg/mol
 

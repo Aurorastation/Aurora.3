@@ -5,7 +5,7 @@
 		tally = species.slowdown
 
 	tally += get_pulling_movement_delay()
-    
+
 	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
 			return 0
@@ -13,11 +13,13 @@
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 
-	var/health_deficiency = (100 - health)
-	if(health_deficiency >= 40) tally += (health_deficiency / 25)
+	var/health_deficiency = maxHealth - health
+	if(health_deficiency >= 40)
+		tally += (health_deficiency / 25)
 
 	if(can_feel_pain())
-		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
+		if(get_shock() >= 10)
+			tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
 	tally += ClothesSlowdown()
 
@@ -63,9 +65,11 @@
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 
-	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
+	if(aiming && aiming.aiming_at)
+		tally += 5 // Iron sights make you slower, it's a well-known fact.
 
-	if (drowsyness) tally += 6
+	if (drowsyness)
+		tally += 6
 
 	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
 		if(FAT in src.mutations)
@@ -83,12 +87,15 @@
 		tally = max(0, tally-3)
 
 	var/turf/T = get_turf(src)
-	if(T)
+	if(T && !mind.changeling) // changelings don't get movement costs
 		tally += T.movement_cost
 
 	tally += config.human_delay
 
-	tally = round(tally,1)
+	if(!isnull(facing_dir) && facing_dir != dir)
+		tally += 3
+
+	tally = round(tally, 0.1)
 
 	return tally
 
@@ -126,7 +133,7 @@
 		return 1
 	return 0
 
-/mob/living/carbon/human/set_dir(var/new_dir)
+/mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
 	if(. && species.tail)
 		update_tail_showing(1)

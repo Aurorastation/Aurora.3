@@ -18,13 +18,39 @@ code {
     font-family: 'Courier New', Courier, monospace;
 }
 
+.table.border {
+    border-collapse: collapse;
+    border: 1px solid black;
+    border-radius: 0.15em;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header.border {
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #556d99;
+    border-radius: 0.15em;
+}
+
+.item.border {
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.15em;
+}
+
 input, textarea, button, select, .button {
     box-sizing: border-box;
     padding: 4px 6px;
-    border: 1px solid black;
     border-radius: 4px;
     display: inline-block;
 }
+
+button, .button {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input, textarea, select {
+    border: 1px solid black;
+}
+
 
 a, .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
     user-select: none;
@@ -60,7 +86,8 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
     display: inline-block;
     background: #ffffff;
     margin: 0 5px 0 0;
-    border: 1px solid #cecece;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.15em;
     overflow: hidden;
     width: 236px;
     height: 16px;
@@ -110,7 +137,7 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
 }
 
 .blue {
-    color: green;
+    color: blue;
 }
 
 .highlight {

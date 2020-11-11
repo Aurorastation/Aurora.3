@@ -20,6 +20,9 @@
 	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
 	zippolighters["bieselite zippo"] = /obj/item/flame/lighter/zippo/tcfl
 	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
+	zippolighters["europan zippo"] = /obj/item/flame/lighter/zippo/europa
+	zippolighters["gadpathurian zippo"] = /obj/item/flame/lighter/zippo/gadpathur
+	zippolighters["asoral jet lighter"] = /obj/item/flame/lighter/zippo/asoral
 	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter
@@ -92,6 +95,11 @@
 	pipe["smoking pipe"] = /obj/item/clothing/mask/smokable/pipe
 	pipe["smoking pipe, corn"] = /obj/item/clothing/mask/smokable/pipe/cobpipe
 	gear_tweaks += new/datum/gear_tweak/path(pipe)
+
+/datum/gear/smoking/bonepipe
+	display_name = "Europan bone pipe"
+	path = /obj/item/clothing/mask/smokable/pipe/bonepipe
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/cigfilters
 	display_name = "cigarette filters"

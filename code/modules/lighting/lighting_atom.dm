@@ -79,7 +79,7 @@
 			light = new/datum/light_source/sunlight(src, .)
 		else
 			light = new/datum/light_source(src, .)
-#else 
+#else
 		if (light)
 			light.update(.)
 		else
@@ -91,7 +91,7 @@
 	var/turf/T = loc
 
 	. = ..()
-	
+
 	if (opacity && istype(T))
 		T.recalc_atom_opacity()
 		T.reconsider_lights()
@@ -101,14 +101,14 @@
 // It notifies (potentially) affected light sources so they can update (if needed).
 /atom/proc/set_opacity(var/new_opacity)
 	if (new_opacity == opacity)
-		return
+		return FALSE
 
 	//L_PROF(src, "atom_setopacity")
 
 	opacity = new_opacity
 	var/turf/T = loc
 	if (!isturf(T))
-		return
+		return FALSE
 
 	if (new_opacity == TRUE)
 		T.has_opaque_atom = TRUE
@@ -121,6 +121,7 @@
 		T.recalc_atom_opacity()
 		if (old_has_opaque_atom != T.has_opaque_atom)
 			T.reconsider_lights()
+	return TRUE
 
 /atom/movable/forceMove()
 	. = ..()

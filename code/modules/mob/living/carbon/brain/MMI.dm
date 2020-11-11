@@ -20,7 +20,7 @@
 	desc = "The Warrior's bland acronym, MMI, obscures the true horror of this monstrosity."
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "mmi_empty"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
 	req_access = list(access_robotics)
@@ -71,7 +71,7 @@
 
 			return
 
-		if((istype(O,/obj/item/card/id)||istype(O,/obj/item/device/pda)) && brainmob)
+		if(O.GetID() && brainmob)
 			if(allowed(user))
 				locked = !locked
 				to_chat(user, "<span class='notice'>You [locked ? "lock" : "unlock"] the brain holder.</span>")

@@ -5,7 +5,7 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = null
 	center_of_mass = list("x"=16, "y"=16)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	is_liquid = FALSE
 	var/slice_path
 	var/slices_num
@@ -122,7 +122,7 @@
 
 			var/contained = reagentlist()
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [name] to [key_name(target)] Reagents: [contained]</font>")
+			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(target)] Reagents: [contained]</span>")
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 
@@ -950,10 +950,9 @@
 	reagent_data = list(/datum/reagent/nutriment = list("warm heartiness" = 1, "dough" = 2))
 
 /obj/item/reagent_containers/food/snacks/donkpocket/sinpocket
-	name = "\improper Sin-pocket"
-	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume. Use it in hand to heat and release chemicals."
 	reagent_data = list(/datum/reagent/nutriment = list("delicious cruelty" = 1, "dough" = 2))
 	filling_color = "#6D6D00"
+	desc_antag = "Use it in hand to heat and release chemicals."
 	var/has_been_heated = FALSE
 
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 1, /datum/reagent/nutriment = 3)
@@ -964,8 +963,8 @@
 		return
 	has_been_heated = TRUE
 	user.visible_message(SPAN_NOTICE("[user] crushes \the [src] package."), "You crush \the [src] package and feel it rapidly heat up.")
-	name = "cooked Sin-pocket"
-	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
+	name = "cooked Donk-pocket"
+	desc = "The cooked, reheatable food of choice for the seasoned spaceman."
 	reagents.add_reagent(/datum/reagent/drink/doctorsdelight, 5)
 	reagents.add_reagent(/datum/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/datum/reagent/synaptizine, 1.25)
@@ -1511,6 +1510,11 @@
 			icon_state = "steak_75"
 		if(76 to INFINITY)
 			icon_state = "steak"
+
+/obj/item/reagent_containers/food/snacks/meatsteak/grilled
+	name = "grilled steak"
+	desc = "A piece of meat grilled to absolute perfection. Sssssssip. This is the life."
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2, /datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1, /datum/reagent/spacespice = 1)
 
 /obj/item/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"
@@ -2479,7 +2483,7 @@
 // sliceable is just an organization type path, it doesn't have any additional code or variables tied to it.
 
 /obj/item/reagent_containers/food/snacks/sliceable
-	w_class = 3 //Whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
+	w_class = ITEMSIZE_NORMAL //Whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
 
 /obj/item/reagent_containers/food/snacks/sliceable/meatbread
 	name = "meatbread loaf"
@@ -3617,6 +3621,65 @@
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("stale bread" = 4))
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 6, /datum/reagent/sodiumchloride = 3)
 
+/obj/item/reagent_containers/food/snacks/ricetub
+	name = "packed rice bowl"
+	desc = "Boiled rice packed in a sealed plastic tub with the Nojosuru Foods logo on it. There appears to be a pair of chopsticks clipped to the side."
+	icon_state = "ricetub"
+	trash = /obj/item/trash/ricetub
+	filling_color = "#A66829"
+	center_of_mass = list("x"=17, "y"=16)
+	reagents_to_add = list(/datum/reagent/nutriment = 5)
+	reagent_data = list(/datum/reagent/nutriment = list("rice" = 1))
+
+/obj/item/reagent_containers/food/snacks/ricetub/update_icon()
+	var/percent = round((reagents.total_volume / 5) * 100)
+	switch(percent)
+		if(0 to 90)
+			icon_state = "ricetub_90"
+		if(91 to INFINITY)
+			icon_state = "ricetub"
+
+/obj/item/reagent_containers/food/snacks/seaweed
+	name = "Go-Go Gwok! Authentic Konyanger moss"
+	desc = "Genuine Konyanger moss packaged into a neat bag for easy consumption. A light amount of salt has been applied to this moss, to enhance the natural flavour. The box features Gwok herself on the \
+	box's cover, smiling broadly and giving a thumbs up!"
+	desc_fluff = "Go-Go Gwok! is one of the most unusual brands on Konyang, as it is owned by an IPC rather than a human. Gwok-0783, originally produced by Terraneus Diagnostics as a baseline hydroponicist and now \
+	the shell Go-Go Gwok! lovers throughout the Orion Spur know and love, has - through a series of legal technicalities and loopholes that would make an Eridanian Suit blush with envy - managed to become the CEO \
+	and majority shareholder in this fairly small Solarian corporation.	Through her headquarters on Xanu Prime, Gwok-0783 revels in her existence as one of the Orion Spur's wealthiest IPCs, her image now plastered \
+	on delicious (yet affordable) moss packets consumed across the Orion Spur."
+	icon_state = "seaweed"
+	trash = /obj/item/trash/seaweed
+	filling_color = "#A66829"
+	center_of_mass = list("x"=17, "y"=16)
+	reagents_to_add = list(/datum/reagent/nutriment = 4)
+	reagent_data = list(/datum/reagent/nutriment = list("seaweed" = 1))
+
+/obj/item/reagent_containers/food/snacks/seaweed/update_icon()
+	var/percent = round((reagents.total_volume / 4) * 100)
+	switch(percent)
+		if(0 to 90)
+			icon_state = "seaweed_90"
+		if(91 to INFINITY)
+			icon_state = "seaweed"
+
+/obj/item/reagent_containers/food/snacks/riceball
+	name = "rice ball"
+	desc = "A bundle of rice wrapped in seaweed. This one seems to have a fish flake filling inside."
+	icon_state = "riceball"
+	filling_color = "#A66829"
+	center_of_mass = list("x"=17, "y"=16)
+	reagents_to_add = list(/datum/reagent/nutriment = 3)
+	reagent_data = list(/datum/reagent/nutriment = list("seaweed" = 0.5, "rice" = 0.5, "soysauce" = 0.5))
+
+/obj/item/reagent_containers/food/snacks/riceball/update_icon()
+	var/percent = round((reagents.total_volume / 3) * 100)
+	switch(percent)
+		if(0 to 90)
+			icon_state = "riceball_90"
+		if(91 to INFINITY)
+			icon_state = "riceball"
+
+
 /obj/item/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
 	desc = "Cured eki shipped all the way from Jargon 4, almost like jerky! Almost."
@@ -3640,6 +3703,7 @@
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), "squid")
 			reagents.trans_to(sashimi, transfer_amt)
+		qdel(src)
 
 /obj/item/reagent_containers/food/snacks/lortl
 	name = "lortl"
@@ -3852,13 +3916,13 @@
 	name = "chicken nugget"
 	icon_state = "nugget_lump"
 	bitesize = 3
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 4)
 
 /obj/item/reagent_containers/food/snacks/nugget/Initialize()
 	. = ..()
 	var/shape = pick("lump", "star", "lizard", "corgi")
 	desc = "A chicken nugget vaguely shaped like a [shape]."
 	icon_state = "nugget_[shape]"
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 4)
 
 /obj/item/reagent_containers/food/snacks/icecreamsandwich
 	name = "ice cream sandwich"
@@ -4594,7 +4658,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 4, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
 	bitesize = 2
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb02
 	name = "hundred thousand credit bar"
@@ -4605,7 +4669,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 4, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
 	bitesize = 2
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb03
 	name = "spacewind bar"
@@ -4615,7 +4679,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 4, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("chocolate" = 4))
 	bitesize = 2
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb04
 	name = "crunchy crisp"
@@ -4625,7 +4689,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 4, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("chocolate" = 3, "almonds" = 1))
 	bitesize = 2
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb05
 	name = "hearsay bar"
@@ -4636,7 +4700,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 3, /datum/reagent/sugar = 3)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("chocolate" = 2, "vomit" = 1))
 	bitesize = 3
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb06
 	name = "latte crunch"
@@ -4646,7 +4710,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 4, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
 	bitesize = 3
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb07
 	name = "martian bar"
@@ -4656,7 +4720,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 4, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
 	bitesize = 3
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb08
 	name = "crisp bar"
@@ -4666,7 +4730,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 4, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("chocolate" = 2, "puffed rice" = 1))
 	bitesize = 3
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb09
 	name = "oh daddy bar"
@@ -4677,7 +4741,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 6, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("chocolate" = 3, "caramel" = 1, "peanuts" = 2))
 	bitesize = 3
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/cb10
 	name = "laughter bar"
@@ -4688,7 +4752,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 5, /datum/reagent/sugar = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "peanuts" = 1, "nougat" = 1))
 	bitesize = 3
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/hardbread
 	name = "adhomian hard bread"
@@ -4699,7 +4763,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("crusty bread" = 2))
 	throw_range = 5
 	throwforce = 10
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	desc_fluff = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
 	It is known for its hard crust, bland taste and for being long lasting. The hard bread was usually prepared for long journeys, hard winters or military campaigns, \
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
@@ -4755,6 +4819,33 @@
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 2))
 	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/triglyceride = 5)
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/explorer_ration
+	name = "m'sai scout ration"
+	desc = "A mixture of meat, fat and adhomian berries commonly prepared by m'sai explorers and soldiers."
+	icon_state = "scoutration_wrap"
+	reagent_data = list(/datum/reagent/nutriment = list("berries" = 1))
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/nutriment/protein = 6 , /datum/reagent/nutriment/triglyceride = 5)
+	bitesize = 1
+	var/wrap = TRUE
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/update_icon()
+	if(wrap)
+		icon_state = "scoutration_wrap"
+	else
+		icon_state = "scoutration_open"
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/attack_self(mob/user)
+	src.wrap = !src.wrap
+	to_chat(usr, "You [src.wrap ? "wrap" : "unwrap"] \the [src].")
+	update_icon()
+	return
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/standard_feed_mob(var/mob/user, var/mob/target)
+	if(wrap)
+		to_chat(user, SPAN_NOTICE("You must unwrap \the [src] first."))
+		return
+	..()
 
 /obj/item/reagent_containers/food/snacks/stew/diona
 	name = "dionae stew"

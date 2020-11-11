@@ -13,6 +13,7 @@
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 10
 	nano_printer.stored_paper = 5
+	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 
 /obj/item/modular_computer/laptop/preset/install_default_programs()
 	..()
@@ -75,7 +76,7 @@
 /obj/item/modular_computer/laptop/preset/command/captain
 	name = "captain's laptop"
 	desc = "A portable computer belonging to the captain."
-	_app_preset_type = /datum/modular_computer_app_presets/captain
+	_app_preset_type = /datum/modular_computer_app_presets/command/captain
 
 /obj/item/modular_computer/laptop/preset/command/captain/install_default_hardware()
 	..()

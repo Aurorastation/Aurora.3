@@ -135,11 +135,12 @@
 /atom/proc/AICtrlClick(mob/user)
 	return
 
-/obj/machinery/door/airlock/AICtrlClick() // Bolts doors
+/obj/machinery/door/airlock/AICtrlClick(mob/user) // Bolts doors
+	var/command = player_is_antag(user.mind) ? "bolts_override" : "bolts"
 	if(locked)
-		Topic(src, list("command"="bolts", "activate" = "0"))
+		Topic(src, list("command"=command, "activate" = "0"))
 	else
-		Topic(src, list("command"="bolts", "activate" = "1"))
+		Topic(src, list("command"=command, "activate" = "1"))
 	return 1
 
 /obj/machinery/power/apc/AICtrlClick() // turns off/on APCs.
@@ -170,7 +171,6 @@
 	return 0
 
 /obj/machinery/door/airlock/AIMiddleClick() // Toggles door bolt lights.
-
 	if(..())
 		return
 

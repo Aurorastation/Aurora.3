@@ -5,7 +5,7 @@
 	name = "tomato"
 	seed_name = "tomato"
 	display_name = "tomato plant"
-	mutants = list("bluetomato","bloodtomato") // no killer :(
+	mutants = list("bluetomato","bloodtomato") // no killer :[
 	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/tomatojuice = list(10,10))
 	kitchen_tag = "tomato"
 
@@ -49,7 +49,7 @@
 	display_name = "killer tomato plant"
 	mutants = null
 	can_self_harvest = 1
-	has_mob_product = /mob/living/simple_animal/tomato
+	product_type = /mob/living/simple_animal/tomato
 
 /datum/seed/tomato/killer/setup_traits()
 	..()

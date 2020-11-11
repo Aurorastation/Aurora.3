@@ -56,7 +56,7 @@ var/list/radiochannels = list(
 
 // central command channels, i.e deathsquid & response teams
 var/list/CENT_FREQS = list(
-	ERT_FREQ, 
+	ERT_FREQ,
 	DTH_FREQ
 )
 
@@ -106,8 +106,9 @@ var/list/DEPT_FREQS_ASSOC = list(
 	"[ENT_FREQ]" = TRUE
 )
 
-#define TRANSMISSION_WIRE	0
-#define TRANSMISSION_RADIO	1
+#define TRANSMISSION_WIRE        0 // Wired transmission, unused at the moment
+#define TRANSMISSION_RADIO       1
+#define TRANSMISSION_SUBSPACE    2
 
 /* filters */
 //When devices register with the radio controller, they might register under a certain filter.

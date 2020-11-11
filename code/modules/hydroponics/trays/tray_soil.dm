@@ -1,5 +1,6 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil
 	name = "soil"
+	desc = "A mound of earth. You could plant some seeds here."
 	icon_state = "soil"
 	density = 0
 	use_power = 0
@@ -47,6 +48,7 @@
 // Hence using a blank icon.
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
 	name = "plant"
+	desc = null
 	icon = 'icons/obj/seeds.dmi'
 	icon_state = "blank"
 

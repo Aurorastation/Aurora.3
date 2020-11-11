@@ -51,6 +51,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/active = 0
 	var/datum/uplink_category/category 	= 0		// The current category we are in
 	var/exploit_id								// Id of the current exploit record we are viewing
+	var/pda_code = ""
 
 
 // The hidden uplink MUST be inside an obj/item's contents.
@@ -350,7 +351,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	flags = CONDUCT
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/contract_uplink/New(var/loc, var/mind)
 	..()
@@ -369,7 +370,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 	desc_antag = "This device allows you to create a single central command report. It has only one use."
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/announcer/attack_self(mob/user as mob)
 	if(!player_is_antag(user.mind))

@@ -1,61 +1,66 @@
-/obj/machinery/appliance/grill
+/obj/machinery/appliance/cooker/grill
 	name = "grill"
 	desc = "Backyard grilling, IN SPACE."
 	icon_state = "grill_off"
 	cook_type = "grilled"
+	appliancetype = GRILL
+	stat = POWEROFF
 	food_color = "#a34719"
 	on_icon = "grill_on"
 	off_icon = "grill_off"
-	stat = POWEROFF
+	finish_verb = "sizzles to completion!"
+	cooked_sound = 'sound/effects/meatsizzle.ogg'
+	min_temp = 100 + T0C
+	optimal_temp = 150 + T0C
+	temp_settings = 1
+	max_contents = 1
+	resistance = 500 // assuming it's a fired grill, it shouldn't take very long to heat
 
-/obj/machinery/appliance/grill/attempt_toggle_power(var/mob/user, ranged = FALSE)
-	. = ..(user, ranged)
-	if(use_power)
-		get_cooking_work(cooking_objs[1])
+	idle_power_usage = 0
+	active_power_usage = 0
 
-/obj/machinery/appliance/grill/Initialize()
-	. = ..()
-	cooking_objs += new /datum/cooking_item(new /obj/item/reagent_containers/cooking_container(src))
-	cooking = 0
+	cooking_coeff = 0.3 // cook it nice and slow
 
-/obj/machinery/appliance/grill/has_space(var/obj/item/I)
-	var/datum/cooking_item/CI = cooking_objs[1]
-	if (!CI || !CI.container)
-		return FALSE
+	starts_with = list(
+		/obj/item/reagent_containers/cooking_container/grill_grate
+	)
 
-	if (CI.container.can_fit(I))
-		return CI
+/obj/machinery/appliance/cooker/grill/RefreshParts()
+	..()
+	cooking_coeff = 0.3 // we will always cook nice and slow
 
+/obj/machinery/appliance/cooker/grill/get_efficiency()
+	return (temperature / optimal_temp) * 100
+
+/obj/machinery/appliance/cooker/grill/activation_message(var/mob/user)
+	user.visible_message("<b>[user]</b> [stat ? "turns off" : "fires up"] \the [src].", "You [stat ? "turn off" : "fire up"] \the [src].")
+
+/obj/machinery/appliance/cooker/grill/has_space(var/obj/item/I)
+	if(istype(I, /obj/item/reagent_containers/cooking_container))
+		if(length(cooking_objs) < max_contents)
+			return TRUE
+	else
+		if(length(cooking_objs))
+			var/datum/cooking_item/CI = cooking_objs[1]
+			var/obj/item/reagent_containers/cooking_container/grill_grate/G = CI.container
+			if(G?.can_fit(I))
+				return CI
 	return FALSE
 
-//Container is not removable
-/obj/machinery/appliance/grill/removal_menu(var/mob/user)
-	if (!can_remove_items(user))
-		return FALSE
-	var/list/menuoptions = list()
-	for (var/datum/cooking_item/CI in cooking_objs)
-		if (CI.container?.check_contents() == CONTAINER_EMPTY)
-			to_chat(user, SPAN_WARNING("There's nothing in [src] to remove!"))
-			return
-		for (var/obj/item/I in CI.container)
-			menuoptions[I.name] = I
-
-	var/selection = show_radial_menu(user, src, menuoptions, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
-	if (!selection)
-		return FALSE
-	var/obj/item/I = menuoptions[selection]
-	if (!user?.put_in_hands(I))
-		I.forceMove(get_turf(src))
-	update_icon()
-	return TRUE
-
-/obj/machinery/appliance/grill/update_icon()
-	if (!stat)
+/obj/machinery/appliance/cooker/grill/update_icon()
+	. = ..()
+	cut_overlays()
+	if(!stat)
 		icon_state = on_icon
 	else
 		icon_state = off_icon
-
-/obj/machinery/appliance/grill/machinery_process()
-	if (!stat)
-		for (var/i in cooking_objs)
-			do_cooking_tick(i)
+	if(length(cooking_objs))
+		var/datum/cooking_item/CI = cooking_objs[1]
+		var/obj/item/reagent_containers/cooking_container/grill_grate/G = CI.container
+		if(G)
+			add_overlay(image('icons/obj/cooking_machines.dmi', "grill"))
+			var/contents_len = length(G.contents)
+			if(!contents_len)
+				return
+			for(var/i = 1 to contents_len)
+				add_overlay(image('icons/obj/cooking_machines.dmi', "meat[i]"))

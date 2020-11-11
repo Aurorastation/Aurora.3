@@ -27,7 +27,6 @@ datum/preferences
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
-	var/skin_theme = "Light"
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
@@ -43,6 +42,7 @@ datum/preferences
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1
+	var/pda_choice = 2
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -66,6 +66,7 @@ datum/preferences
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
+	var/autohiss_setting = AUTOHISS_OFF
 	var/list/gear						// Custom/fluff item loadout.
 	var/list/gear_list = list()			//Custom/fluff item loadouts.
 	var/gear_slot = 1					//The current gear save slot
@@ -158,7 +159,19 @@ datum/preferences
 	var/datum/category_collection/player_setup_collection/player_setup
 
 	var/bgstate = "000"
-	var/list/bgstate_options = list("000", "FFF", "steel", "white", "plating", "reinforced")
+	var/list/bgstate_options = list(
+		"fffff",
+		"000",
+		"new_steel",
+		"dark2",
+		"wood",
+		"wood_light",
+		"grass_alt",
+		"new_reinforced",
+		"new_white"
+		)
+
+	var/fov_cone_alpha = 255
 
 /datum/preferences/New(client/C)
 	new_setup()
@@ -276,8 +289,9 @@ datum/preferences
 	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
 	if(!BG)
 		BG = new
+		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/effects/128x48.dmi'
+		BG.icon = 'icons/turf/total_floors.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
@@ -455,6 +469,11 @@ datum/preferences
 		backbag = 1 //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
+
+	if(pda_choice > 8 || pda_choice < 1)
+		pda_choice = 2
+
+	character.pda_choice = pda_choice
 
 	if(icon_updates)
 		character.force_update_limbs()

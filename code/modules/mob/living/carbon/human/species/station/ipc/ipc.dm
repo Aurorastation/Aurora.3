@@ -4,7 +4,7 @@
 	name_plural = "Baselines"
 	bodytype = BODYTYPE_IPC
 	age_min = 1
-	age_max = 30
+	age_max = 60
 	economic_modifier = 3
 	default_genders = list(NEUTER)
 
@@ -117,6 +117,8 @@
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
 							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+
+	alterable_internal_organs = list()
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15

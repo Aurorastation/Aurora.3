@@ -38,7 +38,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/rd
-	pda = /obj/item/device/pda/heads/rd
+	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
+	tablet = /obj/item/modular_computer/handheld/preset/research/rd
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
 
@@ -78,7 +80,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
-	pda = /obj/item/device/pda/science
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
+	tablet = /obj/item/modular_computer/handheld/preset/research
 	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/toxins
@@ -104,8 +108,8 @@
 
 	minimum_character_age = 30
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
-	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage)
+	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
+	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
 	alt_titles = list("Xenobotanist")
 
 	minimal_player_age = 14
@@ -116,7 +120,7 @@
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
-	pda = /obj/item/device/pda/xenobio
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
 
 /datum/outfit/job/scientist/xenobiologist/xenobotanist
 	name = "Xenobotanist"
@@ -138,7 +142,6 @@
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-	alt_titles = list("Biomechanical Engineer","Mechatronic Engineer")
 
 	minimal_player_age = 7
 
@@ -152,7 +155,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_sci
-	pda = /obj/item/device/pda/roboticist
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
+	tablet = /obj/item/modular_computer/handheld/preset/research
 	id = /obj/item/card/id/white
 	belt = /obj/item/storage/belt/utility
 

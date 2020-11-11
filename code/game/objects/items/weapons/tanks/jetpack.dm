@@ -36,7 +36,7 @@
 	icon_state = "jetpack"
 	item_state = "jetpack"
 	gauge_icon = null
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	var/datum/effect_system/ion_trail/ion_trail
 	var/on = 0.0
@@ -155,6 +155,10 @@
 /obj/item/tank/jetpack/carbondioxide/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_CO2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+
+/obj/item/tank/jetpack/carbondioxide/synthetic/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_CO2, (15*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/jetpack/carbondioxide/synthetic
 	name = "Synthetic Jetpack"

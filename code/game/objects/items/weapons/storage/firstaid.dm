@@ -155,7 +155,7 @@
 		)
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/dice,/obj/item/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1
@@ -246,5 +246,5 @@ obj/item/storage/pill_bottle/butazoline
 
 /obj/item/storage/pill_bottle/rmt
 	name = "bottle of 15u RMT pills"
-	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations."
-	starts_with = list(/obj/item/reagent_containers/pill/rmt = 7)
+	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations. Do not exceed 30u dosage."
+	starts_with = list(/obj/item/reagent_containers/pill/rmt = 10) // 10x 15u RMT pills will last 4 hours.

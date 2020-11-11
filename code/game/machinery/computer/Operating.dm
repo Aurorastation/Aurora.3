@@ -43,7 +43,6 @@
 
 	user.set_machine(src)
 	var/dat = "<HEAD><TITLE>Operating Computer</TITLE><META HTTP-EQUIV='Refresh' CONTENT='10'></HEAD><BODY>\n"
-	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
 	if(src.table && (src.table.check_victim()))
 		src.victim = src.table.victim
 		var/brain_result = victim.get_brain_status()
@@ -63,8 +62,9 @@ Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
 <BR>
 <B>No Patient Detected</B>
 "}
-	user << browse(dat, "window=op")
-	onclose(user, "op")
+	var/datum/browser/op_win = new(user, "op", capitalize_first_letters(name), 200, 200)
+	op_win.set_content(dat)
+	op_win.open()
 
 /obj/machinery/computer/operating/Topic(href, href_list)
 	if(..())

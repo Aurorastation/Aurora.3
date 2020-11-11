@@ -61,7 +61,7 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = ".45"
-	max_ammo = 7
+	max_ammo = 9
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c45m/empty
@@ -114,7 +114,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	caliber = "9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm
-	max_ammo = 10
+	max_ammo = 12
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc9mm/empty
@@ -191,7 +191,7 @@
 	caliber = "a556"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a556
-	max_ammo = 10
+	max_ammo = 30
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a556/empty
@@ -316,7 +316,7 @@
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
-	w_class = 3 // Bulky ammo doesn't fit in your pockets!
+	w_class = ITEMSIZE_NORMAL // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
@@ -447,7 +447,7 @@
 /obj/item/ammo_magazine/nuke
 	name = "nuclear launcher cartridge"
 	icon_state = "nukemag"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	mag_type = MAGAZINE
 	caliber = "nuke"
 	ammo_type = /obj/item/ammo_casing/nuke

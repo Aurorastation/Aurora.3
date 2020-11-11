@@ -418,7 +418,7 @@
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)
 			return 0
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		user.drop_item()
 	else if(istype(W, /obj/item/handcuffs/cable))

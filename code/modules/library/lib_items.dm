@@ -200,7 +200,7 @@
 	description_cult = "This can be reforged to become a cult tome."
 	throw_speed = 1
 	throw_range = 5
-	w_class = 3		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
+	w_class = ITEMSIZE_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
 	attack_verb = list("bashed", "whacked", "educated")
 	var/dat			 // Actual page content
 	var/due_date = 0 // Game time in 1/10th seconds
@@ -333,7 +333,7 @@
 	icon_state ="scanner"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	var/obj/machinery/librarycomp/computer // Associated computer - Modes 1 to 3 use this
 	var/obj/item/book/book	 //  Currently scanned book
 	var/mode = 0 					// 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
@@ -359,6 +359,6 @@
 		if(src.computer)
 			to_chat(user, "<font color=green>Computer has been associated with this unit.</font>")
 		else
-			to_chat(user, "<font color=red>No associated computer found. Only local scans will function properly.</font>")
+			to_chat(user, "<span class='attack'>No associated computer found. Only local scans will function properly.</span>")
 		to_chat(user, "\n")
 

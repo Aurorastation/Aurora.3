@@ -7,7 +7,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "soulstone"
 	item_state = "electronic"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
 	appearance_flags = NO_CLIENT_COLOR
@@ -27,7 +27,7 @@
 		return..()
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to capture the soul of [M.name] ([M.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] to capture the soul of [M.name] ([M.ckey])</span>")
 	msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to capture the soul of [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 
 	transfer_soul("VICTIM", M, user)
@@ -47,7 +47,7 @@
 		dat += "<A href='byond://?src=\ref[src];choice=Summon'>Summon Shade</A><br>"
 		dat += "<i>This will summon the spirit of [A.name] in a pure energy form. Be cautious, for they will be weak without a protective construct to house them.</i><hr>"
 	dat += "<a href='byond://?src=\ref[src];choice=Close'>Close</a>"
-	
+
 	var/datum/browser/soulstone_win = new(user, "soulstone", capitalize_first_letters(name))
 	soulstone_win.set_content(dat)
 	soulstone_win.add_stylesheet("cult", 'html/browser/cult.css')

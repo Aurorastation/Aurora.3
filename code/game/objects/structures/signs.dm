@@ -4,7 +4,7 @@
 	opacity = 0
 	density = 0
 	layer = 3.5
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/structure/sign/ex_act(severity)
 	switch(severity)
@@ -40,7 +40,7 @@
 	name = "sign"
 	desc = ""
 	icon = 'icons/obj/decals.dmi'
-	w_class = 5		//big
+	w_class = ITEMSIZE_HUGE		//big
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
@@ -249,6 +249,16 @@
 	name = "\improper Telecommunications"
 	desc = "A direction sign, pointing out which way Telecommunications is."
 	icon_state = "direction_tcom"
+
+/obj/structure/sign/directions/tram
+	name = "\improper Tram Station"
+	desc = "A direction sign, pointing out which way the Tram is."
+	icon_state = "direction_tram"
+
+/obj/structure/sign/directions/mndl
+	name = "\improper Mendell Transport Shuttle"
+	desc = "A direction sign, pointing out which way the Mendell City Transport Shuttle is."
+	icon_state = "direction_mndl"
 
 /obj/structure/sign/directions/all
 	name = "\improper All directions"

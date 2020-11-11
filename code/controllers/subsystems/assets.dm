@@ -16,10 +16,11 @@
 	..("C:[target_clients.len]")
 
 /datum/controller/subsystem/assets/Initialize(timeofday)
-	for(var/type in typesof(/datum/asset) - list(/datum/asset, /datum/asset/simple))
-		var/datum/asset/A = new type()
-		A.register()
-		CHECK_TICK
+	for(var/type in typesof(/datum/asset))
+		var/datum/asset/A = type
+		if (type != initial(A._abstract) && !initial(A.delayed))
+			get_asset_datum(type)
+			CHECK_TICK
 
 	for (var/client/C in global.clients)
 		handle_connect(C)

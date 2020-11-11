@@ -21,7 +21,7 @@
 	name = "Seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
 	icon = 'icons/obj/vending.dmi'
-	icon_state = "seeds"
+	icon_state = SEED_NOUN_SEEDS
 	density = 1
 	anchored = 1
 	use_power = 1
@@ -44,6 +44,7 @@
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
@@ -90,7 +91,10 @@
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 2,
-		/obj/item/seeds/ylpha = 2
+		/obj/item/seeds/ylpha = 2,
+		/obj/item/seeds/clam = 15,
+		/obj/item/seeds/barnacle = 15,
+		/obj/item/seeds/mollusc = 15
 	)
 
 /obj/machinery/seed_storage/xenobotany
@@ -102,6 +106,7 @@
 		/obj/item/seeds/amanitamycelium = 2,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
@@ -170,7 +175,7 @@
 
 	var/dat = "<center><h1>Seed storage contents</h1></center>"
 	if (piles.len == 0)
-		dat += "<font color='red'>No seeds</font>"
+		dat += "<span class='warning'>No seeds</span>"
 	else
 		dat += "<table style='text-align:center;border-style:solid;border-width:1px;padding:4px'><tr><td>Name</td>"
 		dat += "<td>Variety</td>"
@@ -225,12 +230,12 @@
 				if(1)
 					dat += "CARN "
 				if(2)
-					dat	+= "<font color='red'>CARN </font>"
+					dat	+= "<span class='warning'>CARN </span>"
 			switch(seed.get_trait(TRAIT_SPREAD))
 				if(1)
 					dat += "VINE "
 				if(2)
-					dat	+= "<font color='red'>VINE </font>"
+					dat	+= "<span class='warning'>VINE </span>"
 			if ("pressure" in scanner)
 				if(seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
 					dat += "LP "

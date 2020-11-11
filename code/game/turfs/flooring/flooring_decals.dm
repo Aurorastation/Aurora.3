@@ -417,6 +417,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow
 	color = "#CFCF55"
 
+/obj/effect/floor_decal/industrial/hatch/grey
+	color = "#808080"
+
 /obj/effect/floor_decal/industrial/hatch/red
 	color = "#990C0C"
 
@@ -443,6 +446,12 @@
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"
 	icon_state = "loadingarea"
+
+/obj/effect/floor_decal/industrial/loading/yellow
+	color = "#CFCF55"
+
+/obj/effect/floor_decal/industrial/loading/grey
+	color = "#808080"
 
 /obj/effect/floor_decal/plaque
 	name = "plaque"
@@ -530,6 +539,30 @@
 /obj/effect/floor_decal/ss13/l14
 	name = "L14"
 	icon_state = "L14"
+
+/obj/effect/floor_decal/ss13/odin1
+	name = "odin1"
+	icon_state = "odin1"
+
+/obj/effect/floor_decal/ss13/odin2
+	name = "odin2"
+	icon_state = "odin2"
+
+/obj/effect/floor_decal/ss13/odin3
+	name = "odin3"
+	icon_state = "odin3"
+
+/obj/effect/floor_decal/ss13/odin4
+	name = "odin4"
+	icon_state = "odin4"
+
+/obj/effect/floor_decal/ss13/odin5
+	name = "odin5"
+	icon_state = "odin5"
+
+/obj/effect/floor_decal/ss13/odin6
+	name = "odin6"
+	icon_state = "odin6"
 
 // Medbay floor signs
 

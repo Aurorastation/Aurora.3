@@ -10,8 +10,7 @@
 		spawn(0)
 			spawn_meteor()
 
-/proc/spawn_meteor()
-
+/proc/spawn_meteor(var/ship_debris_only = FALSE)
 	var/startx
 	var/starty
 	var/endx
@@ -48,38 +47,38 @@
 	if(max_i<=0) return
 
 	var/obj/effect/meteor/M
-	switch(rand(1, 100))
-
-		if(1 to 10)
-			M = new /obj/effect/meteor/big( pickedstart )
-		if(11 to 50)
-			M = new /obj/effect/meteor( pickedstart )
-		if(51 to 55)
-			M = new /obj/effect/meteor/flaming( pickedstart )
-		if(56 to 59)
-			M = new /obj/effect/meteor/irradiated( pickedstart )
-		if(60 to 64)
-			M = new /obj/effect/meteor/golden( pickedstart )
-		if(65 to 69)
-			M = new /obj/effect/meteor/silver( pickedstart )
-		if(70 to 73)
-			M = new /obj/effect/meteor/emp( pickedstart )
-		if(74 to 76)
-			M = new /obj/effect/meteor/diamond( pickedstart )
-		if(77 to 78)
-			M = new /obj/effect/meteor/artifact( pickedstart )
-		if(79 to 80)
-			M = new /obj/effect/meteor/supermatter( pickedstart )
-		if(81 to 82)
-			M = new /obj/effect/meteor/meaty( pickedstart )
-		if(83 to 100)
-			M = new /obj/effect/meteor/small( pickedstart )
+	if(ship_debris_only)
+		M = new /obj/effect/meteor/ship_debris(pickedstart)
+	else
+		switch(rand(1, 100))
+			if(1 to 10)
+				M = new /obj/effect/meteor/big(pickedstart)
+			if(11 to 50)
+				M = new /obj/effect/meteor(pickedstart)
+			if(51 to 55)
+				M = new /obj/effect/meteor/flaming(pickedstart)
+			if(56 to 59)
+				M = new /obj/effect/meteor/irradiated(pickedstart)
+			if(60 to 64)
+				M = new /obj/effect/meteor/golden(pickedstart)
+			if(65 to 69)
+				M = new /obj/effect/meteor/silver(pickedstart)
+			if(70 to 73)
+				M = new /obj/effect/meteor/emp(pickedstart)
+			if(74 to 76)
+				M = new /obj/effect/meteor/diamond(pickedstart)
+			if(77 to 78)
+				M = new /obj/effect/meteor/artifact(pickedstart)
+			if(79 to 80)
+				M = new /obj/effect/meteor/supermatter(pickedstart)
+			if(81 to 82)
+				M = new /obj/effect/meteor/meaty(pickedstart)
+			if(83 to 100)
+				M = new /obj/effect/meteor/small(pickedstart)
 
 	M.dest = pickedgoal
 	spawn(1)
 		walk_towards(M, M.dest, 2)
-
-	return
 
 /obj/effect/meteor
 	name = "meteor"
@@ -95,7 +94,7 @@
 	var/shieldsoundrange = 260 // The maximum number of tiles away the sound can be heard, falls off over distance, so it will be quiet near the limit
 	pass_flags = PASSTABLE
 	var/done = 0//This is set to 1 when the meteor is done colliding, and is used to ignore additional bumps while waiting for deletion
-	var/meteordrop = /obj/item/ore/iron //the thing that the meteors will drop when it explodes
+	var/meteor_loot = list(/obj/item/ore/iron) //the thing that the meteors will drop when it explodes
 	var/dropamt = 3 //amount of said thing
 
 /obj/effect/meteor/small
@@ -166,7 +165,12 @@
 
 /obj/effect/meteor/proc/make_debris()
 	for(var/throws = dropamt, throws > 0, throws--)
-		var/obj/O = new meteordrop(get_turf(src))
+		var/loot_path = pickweight(meteor_loot)
+		var/obj/O = new loot_path(get_turf(src))
+		if(istype(O, /obj/item/stack))
+			var/obj/item/stack/S = O
+			S.amount = rand(1, dropamt)
+			S.update_icon()
 		O.throw_at(dest, 5, 10)
 
 /obj/effect/meteor/proc/meteor_effect()
@@ -241,19 +245,19 @@
 	icon_state = "dust"
 	pass_flags = PASSTABLE | PASSGRILLE
 	hits = 1
-	meteordrop = /obj/item/ore/glass
+	meteor_loot = list(/obj/item/ore/glass)
 	dropamt = 1
 
 /obj/effect/meteor/flaming
 	name = "flaming meteor"
 	icon_state = "flaming"
 	hits = 3
-	meteordrop = /obj/item/ore/phoron
+	meteor_loot = list(/obj/item/ore/phoron)
 
 /obj/effect/meteor/irradiated
 	name = "glowing meteor"
 	icon_state = "glowing"
-	meteordrop = /obj/item/ore/uranium
+	meteor_loot = list(/obj/item/ore/uranium)
 
 /obj/effect/meteor/irradiated/meteor_effect()
 	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
@@ -263,22 +267,22 @@
 /obj/effect/meteor/golden
 	name = "golden meteor"
 	icon_state = "sharp"
-	meteordrop = /obj/item/ore/gold
+	meteor_loot = list(/obj/item/ore/gold)
 
 /obj/effect/meteor/silver
 	name = "silver meteor"
 	icon_state = "glowing_blue"
-	meteordrop = /obj/item/ore/silver
+	meteor_loot = list(/obj/item/ore/silver)
 
 /obj/effect/meteor/diamond
 	name = "diamond meteor"
 	icon_state = "glowing_blue"
-	meteordrop = /obj/item/ore/diamond
+	meteor_loot = list(/obj/item/ore/diamond)
 
 /obj/effect/meteor/emp
 	name = "conducting meteor"
 	icon_state = "glowing_blue"
-	meteordrop = /obj/item/ore/osmium
+	meteor_loot = list(/obj/item/ore/osmium)
 	dropamt = 2
 
 /obj/effect/meteor/emp/meteor_effect()
@@ -286,7 +290,7 @@
 
 /obj/effect/meteor/artifact
 	icon_state = "sharp"
-	meteordrop = /obj/item/archaeological_find
+	meteor_loot = list(/obj/item/archaeological_find)
 	dropamt = 1
 
 /obj/effect/meteor/supermatter
@@ -297,7 +301,7 @@
 /obj/effect/meteor/supermatter/New()
 	..()
 	if(prob(5))
-		meteordrop = /obj/machinery/power/supermatter/shard
+		meteor_loot = list(/obj/machinery/power/supermatter/shard)
 		dropamt = 1
 
 /obj/effect/meteor/supermatter/meteor_effect()
@@ -308,12 +312,43 @@
 /obj/effect/meteor/meaty
 	name = "meaty ore"
 	icon_state = "meateor"
-	meteordrop = /obj/item/reagent_containers/food/snacks/meat/monkey
+	meteor_loot = list(/obj/item/reagent_containers/food/snacks/meat/monkey)
 	dropamt = 10
 
 /obj/effect/meteor/meaty/meteor_effect()
 	gibs(loc)
 
+/obj/effect/meteor/ship_debris
+	name = "ship debris"
+	icon_state = "dust"
+	meteor_loot = list(
+		/obj/item/stack/material/plasteel = 19,
+		/obj/item/stack/material/steel = 19,
+		/obj/item/material/shard = 20,
+		/obj/item/material/shard/shrapnel = 20,
+		/obj/item/stack/rods = 20,
+		/obj/structure/closet/crate/loot = 2
+		)
+	dropamt = 10
+
+/obj/effect/meteor/ship_debris/meteor_effect()
+	for(var/eligible_turf in RANGE_TURFS(2, src))
+		if(prob(15))
+			new /obj/effect/gibspawner/robot(eligible_turf)
+		if(prob(10))
+			var/turf/T = eligible_turf
+			T.ChangeTurf(/turf/simulated/floor/airless)
+		if(prob(10))
+			new /obj/structure/lattice(eligible_turf)
+		if(prob(5))
+			if(turf_clear(eligible_turf))
+				new /obj/structure/grille/broken(eligible_turf)
+		if(prob(5))
+			if(turf_clear(eligible_turf))
+				new /obj/structure/girder/displaced(eligible_turf)
+		if(prob(0.25))
+			new /obj/effect/gibspawner/human(eligible_turf)
+			new /obj/random/voidsuit/no_nanotrasen(eligible_turf)
 
 //This function takes a turf to prevent race conditions, as the object calling it will probably be deleted in the same frame
 /proc/meteor_shield_impact_sound(var/turf/T, var/range)
@@ -330,4 +365,3 @@
 		if(mobloc && mobloc.z == T.z)
 			if(!isdeaf(M))
 				M.playsound_simple(T, 'sound/effects/meteorimpact.ogg', range, use_random_freq = TRUE, use_pressure = FALSE)
-

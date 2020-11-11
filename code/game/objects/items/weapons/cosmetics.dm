@@ -4,7 +4,7 @@
 	desc = "A generic brand of lipstick."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "lipstick"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	var/colour = "red"
 	var/open = 0
@@ -75,7 +75,7 @@
 /obj/item/haircomb //sparklysheep's comb
 	name = "plastic comb"
 	desc = "A pristine comb made from flexible plastic."
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "comb"
@@ -93,7 +93,7 @@
 	desc = "The latest and greatest power razor born from the science of shaving."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "razor"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/razor/proc/shave(mob/living/carbon/human/H, location)
 	if(location == BP_HEAD)

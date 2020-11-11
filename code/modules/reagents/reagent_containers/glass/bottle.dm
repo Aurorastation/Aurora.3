@@ -15,7 +15,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	flags = 0
 	volume = 60
-	fragile = 4
+	fragile = 2
 
 /obj/item/reagent_containers/glass/bottle/on_reagent_change()
 	update_icon()
@@ -211,3 +211,9 @@
 	desc = "A small bottle. Contains mortaphenyl - treats mild-severe pain as a result of severe, physical injury."
 	icon_state = "bottle-3"
 	reagents_to_add = list(/datum/reagent/mortaphenyl = 60)
+
+/obj/item/reagent_containers/glass/bottle/perconol
+	name = "perconol bottle"
+	desc = "A small bottle. Contains perconol - treats minor-moderate pain as a result of physical injury."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/datum/reagent/perconol = 60)

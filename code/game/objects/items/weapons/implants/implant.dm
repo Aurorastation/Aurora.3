@@ -6,7 +6,7 @@
 	name = "implant"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "implant"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/implanted = null
 	var/mob/imp_in = null
 	var/obj/item/organ/external/part = null
@@ -83,6 +83,12 @@
 	desc = "Track with this."
 	var/id = 1.0
 
+/obj/item/implant/tracking/Initialize()
+	var/list/tracking_list = list()
+	for(var/obj/item/implant/tracking/T in implants)
+		tracking_list += T
+	id = length(tracking_list) + 1
+	. = ..()
 
 /obj/item/implant/tracking/get_data()
 	. = {"<b>Implant Specifications:</b><BR>
@@ -489,7 +495,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 <b>Implant Specifications:</b><BR>
 <b>Name:</b> Cybersun Industries Adrenalin Implant<BR>
 <b>Life:</b> Five days.<BR>
-<b>Important Notes:</b> <font color='red'>Illegal</font><BR>
+<b>Important Notes:</b> <span class='warning'>Illegal</span><BR>
 <HR>
 <b>Implant Details:</b> Subjects injected with implant can activate a massive injection of adrenalin.<BR>
 <b>Function:</b> Contains nanobots to stimulate body to mass-produce Adrenalin.<BR>

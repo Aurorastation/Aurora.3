@@ -325,7 +325,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			CHECK_TICK
 			continue
 
-		if (!ARE_Z_CONNECTED(T.z, epicenter.z))
+		if (!AreConnectedZLevels(T.z, epicenter.z))
 			CHECK_TICK
 			continue
 

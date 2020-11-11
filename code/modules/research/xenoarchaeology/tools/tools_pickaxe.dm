@@ -15,7 +15,7 @@
 	excavation_amount = 0.5
 	drill_sound = 'sound/weapons/thudswoosh.ogg'
 	drill_verb = "brushing"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_wield = 0
 
 	action_button_name = null
@@ -33,7 +33,7 @@
 	excavation_amount = 1
 	drill_sound = 'sound/items/screwdriver.ogg'
 	drill_verb = "delicately picking"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_wield = 0
 
 	action_button_name = null
@@ -51,7 +51,7 @@
 	excavation_amount = 2
 	drill_sound = 'sound/items/screwdriver.ogg'
 	drill_verb = "delicately picking"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_wield = 0
 
 	action_button_name = null
@@ -69,7 +69,7 @@
 	excavation_amount = 3
 	drill_sound = 'sound/items/screwdriver.ogg'
 	drill_verb = "delicately picking"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_wield = 0
 
 	action_button_name = null
@@ -87,7 +87,7 @@
 	excavation_amount = 4
 	drill_sound = 'sound/items/screwdriver.ogg'
 	drill_verb = "delicately picking"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_wield = 0
 
 	action_button_name = null
@@ -105,7 +105,7 @@
 	excavation_amount = 5
 	drill_sound = 'sound/items/screwdriver.ogg'
 	drill_verb = "delicately picking"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_wield = 0
 
 	action_button_name = null
@@ -123,7 +123,7 @@
 	excavation_amount = 6
 	drill_sound = 'sound/items/screwdriver.ogg'
 	drill_verb = "delicately picking"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_wield = 0
 
 	action_button_name = null
@@ -141,7 +141,7 @@
 	excavation_amount = 15
 	drill_sound = /decl/sound_category/pickaxe_sound
 	drill_verb = "clearing"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	can_wield = 0
 
 	action_button_name = null
@@ -157,7 +157,7 @@
 	item_state = "box"
 	foldable = /obj/item/stack/material/cardboard //BubbleWrap
 	storage_slots = 7
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/pickaxe/brush,\
 	/obj/item/pickaxe/one_pick,\
 	/obj/item/pickaxe/two_pick,\
@@ -166,7 +166,7 @@
 	/obj/item/pickaxe/five_pick,\
 	/obj/item/pickaxe/six_pick)
 	max_storage_space = 18
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
 
 /obj/item/storage/box/excavation/fill()
