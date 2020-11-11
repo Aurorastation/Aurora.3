@@ -124,7 +124,12 @@ Possible to do for anyone motivated enough:
 			if(!chosen_pad)
 				last_request = world.time - 15 SECONDS
 				return
-			connected_pad = holopadlist[chosen_pad]
+			var/obj/machinery/hologram/holopad/HP = holopadlist[chosen_pad]
+			if(HP.has_established_connection() || HP.incoming_connection)
+				audible_message("The selected holopad is already in, or is waiting to accept, a call.")
+				last_request = world.time - 15 SECONDS
+				return
+			connected_pad = HP
 			make_call(connected_pad, user, forced_call)
 
 /obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/connected_pad, var/mob/user, forced_call)
