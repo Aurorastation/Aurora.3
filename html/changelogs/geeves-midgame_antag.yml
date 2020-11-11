@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "People who latejoin can now be turned into antags as well, provided they have the role preference selected, it's a station antag, and amount of antags is lower than or equal to the living player count divided by the antag count coeff."
