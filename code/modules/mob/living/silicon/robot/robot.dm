@@ -1112,6 +1112,12 @@
 	set desc = "Augment visual feed with internal sensor overlays."
 	toggle_sensor_mode()
 
+/mob/living/silicon/robot/proc/sensor_mode_sec()
+	return sensor_mode == SEC_HUD
+
+/mob/living/silicon/robot/proc/sensor_mode_med()
+	return sensor_mode == MED_HUD
+
 /mob/living/silicon/robot/proc/add_robot_verbs()
 	src.verbs |= robot_verbs_default
 	src.verbs |= silicon_subsystems

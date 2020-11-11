@@ -175,15 +175,11 @@
 		see_invisible = SEE_INVISIBLE_LIVING // This is normal vision (25), setting it lower for normal vision means you don't "see" things like darkness since darkness
 							 // has a "invisible" value of 15
 
-	var/obj/item/borg/sight/hud/hud = (locate(/obj/item/borg/sight/hud) in src)
-	if(hud?.hud)
-		hud.hud.process_hud(src)
-	else
-		switch(sensor_mode)
-			if(SEC_HUD)
-				process_sec_hud(src, FALSE)
-			if(MED_HUD)
-				process_med_hud(src, FALSE)
+	switch(sensor_mode)
+		if(SEC_HUD)
+			process_sec_hud(src, FALSE)
+		if(MED_HUD)
+			process_med_hud(src, FALSE)
 
 	if(healths)
 		if(stat != DEAD)
