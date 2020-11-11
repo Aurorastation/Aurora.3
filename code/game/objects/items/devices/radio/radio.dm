@@ -313,7 +313,7 @@ var/global/list/default_medbay_channels = list(
 
 	if (iscarbon(M))
 		var/mob/living/carbon/C = M
-		if (CE_UNDEXTROUS in C.chem_effects)
+		if ((CE_UNDEXTROUS in C.chem_effects) || C.stunned >= 10)
 			to_chat(M, SPAN_WARNING("Your can't move your arms enough to activate the radio..."))
 			return
 		if(iszombie(M))

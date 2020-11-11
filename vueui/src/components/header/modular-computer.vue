@@ -6,6 +6,7 @@
       <img img class="valign" v-if="state._PC.ntneticon" :src="state._PC.ntneticon">
       <img img class="valign" v-if="state._PC.apclinkicon" :src="state._PC.apclinkicon">
       <div style="float: right;">
+        <vui-button :params="{ PC_togglelight: 1}" icon="lightbulb"/>
         <template v-if="state._PC.showexitprogram">
           <vui-button :params="{ PC_minimize: 1}" icon="chevron-down">Minimize</vui-button>
           <vui-button class="danger" :params="{ PC_exit: 1}" icon="window-close">Exit</vui-button>
