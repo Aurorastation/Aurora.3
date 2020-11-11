@@ -112,7 +112,7 @@
 "lo" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Radiator Outpost";
-	req_one_access = list(11,48)
+	req_one_access = list(11,48,65)
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -179,7 +179,7 @@
 	name = "exterior access button";
 	pixel_x = -8;
 	pixel_y = 25;
-	req_one_access = list(11,48)
+	req_one_access = list(11,48,65)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
@@ -570,7 +570,7 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(11,48)
+	req_access = list(11,48,65)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
