@@ -1,7 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"am" = (
-/turf/simulated/wall/r_wall,
-/area/template_noop)
 "aw" = (
 /obj/structure/lattice,
 /obj/random/loot,
@@ -335,7 +332,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/template_noop)
+/area/engineering/radiator_outpost)
 "Hh" = (
 /obj/effect/shuttle_landmark/skipjack/under,
 /turf/template_noop,
@@ -13040,8 +13037,8 @@ CN
 CN
 mc
 Ar
-am
-am
+st
+st
 UG
 nO
 WA
@@ -13297,7 +13294,7 @@ CN
 CN
 mc
 CN
-am
+st
 FK
 UG
 Zi
