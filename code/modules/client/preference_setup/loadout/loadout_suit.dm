@@ -201,7 +201,7 @@
 	path = /obj/item/clothing/suit/security/officer
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 
-/datum/gear/suit/secjacketofficer
+/datum/gear/suit/secjacketofficer/New()
 	..()
 	var/secjacket = list()
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/officer
@@ -214,7 +214,7 @@
 	path = /obj/item/clothing/suit/security/warden
 	allowed_roles = list("Head of Security", "Warden")
 
-/datum/gear/suit/secjacketwarden
+/datum/gear/suit/secjacketwarden/New()
 	..()
 	var/secjacket = list()
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/warden
@@ -227,7 +227,7 @@
 	path = /obj/item/clothing/suit/security/hos
 	allowed_roles = list("Head of Security")
 
-/datum/gear/suit/secjackethos
+/datum/gear/suit/secjackethos/New()
 	..()
 	var/secjacket = list()
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/hos
@@ -240,7 +240,7 @@
 	path = /obj/item/clothing/suit/storage/toggle/forensics
 	allowed_roles = list("Forensic Technician")
 
-/datum/gear/suit/secjacketforensictech
+/datum/gear/suit/secjacketforensictech/New()
 	..()
 	var/secjacket = list()
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/toggle/forensics
