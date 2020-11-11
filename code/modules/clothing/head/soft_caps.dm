@@ -127,9 +127,9 @@
 	icon_state = "idris"
 	item_state = "idris"
 
-/obj/item/clothing/head/softcap/iacberet
-	name = "IAC soft cap"
-	desc = "An IAC soft cap. Standard issue and utilitarian."
+/obj/item/clothing/head/softcap/iac
+	name = "IAC cap"
+	desc = "An IAC cap. Standard issue and utilitarian."
 	icon_state = "iac"
 	item_state = "iac"
 

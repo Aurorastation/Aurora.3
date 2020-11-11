@@ -46,6 +46,7 @@
 
 	var/incinerate = 0
 	var/embed = 0 // whether or not the projectile can embed itself in the mob
+	var/embed_chance = 0 // a flat bonus to the % chance to embed
 	var/shrapnel_type //type of shrapnel the projectile leaves in its target.
 
 	var/p_x = 16
@@ -135,6 +136,16 @@
 		return FALSE
 	return TRUE
 
+/obj/item/projectile/proc/do_embed(var/obj/item/organ/external/organ)
+	var/obj/item/SP = new shrapnel_type(organ)
+	SP.edge = TRUE
+	SP.sharp = TRUE
+	SP.name = (name != "shrapnel") ? "[initial(name)] shrapnel" : "shrapnel"
+	SP.desc += " It looks like it was fired from [shot_from]."
+	SP.forceMove(organ)
+	organ.embed(SP)
+	return SP
+
 /obj/item/projectile/proc/get_structure_damage()
 	if(damage_type == BRUTE || damage_type == BURN)
 		return damage
@@ -195,7 +206,19 @@
 	else
 		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [impacted_organ]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [impacted_organ]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
+	var/no_clients = FALSE
 	//admin logs
+	if((!ismob(firer) || !firer.client) && !target_mob.client)
+		no_clients = TRUE
+		if(istype(target_mob, /mob/living/heavy_vehicle))
+			var/mob/living/heavy_vehicle/HV = target_mob
+			for(var/pilot in HV.pilots)
+				var/mob/M = pilot
+				if(M.client)
+					no_clients = FALSE
+					break
+	if(no_clients)
+		no_attack_log = TRUE
 	if(!no_attack_log)
 		if(ismob(firer))
 

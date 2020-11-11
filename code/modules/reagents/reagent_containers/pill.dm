@@ -99,10 +99,9 @@
 	reagents_to_add = list(/datum/reagent/toxin = 50)
 
 /obj/item/reagent_containers/pill/cyanide
-	name = "Cyanide Pill"
-	desc = "Don't swallow this."
 	icon_state = "pill5"
 	reagents_to_add = list(/datum/reagent/toxin/cyanide = 50)
+	desc_antag = "A cyanide pill. Deadly if swallowed."
 
 /obj/item/reagent_containers/pill/adminordrazine
 	name = "Adminordrazine Pill"
@@ -139,7 +138,7 @@
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
 	reagents_to_add = list(/datum/reagent/mental/corophenidate = 5)
-  
+
 /obj/item/reagent_containers/pill/minaphobin
 	name = "5u Minaphobin Pill"
 	desc = "Used to treat anxiety disorders and depression."

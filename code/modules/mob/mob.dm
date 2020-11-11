@@ -166,7 +166,7 @@
 // If drain_check is set it will not actually drain power, just return a value.
 // If surge is set, it will destroy/damage the recipient and not return any power.
 // Not sure where to define this, so it can sit here for the rest of time.
-/atom/proc/drain_power(var/drain_check,var/surge, var/amount = 0)
+/atom/proc/drain_power(var/drain_check, var/surge, var/amount = 0)
 	return -1
 
 // Show a message to all mobs and objects in earshot of this one
@@ -451,30 +451,35 @@
 	if (!client)
 		return//This shouldnt happen
 
+	var/failure = null
 	if (!( config.abandon_allowed ))
-		to_chat(usr, "<span class='notice'>Respawn is disabled.</span>")
-		return
-	if (stat != DEAD)
-		to_chat(usr, "<span class='notice'><B>You must be dead to use this!</B></span>")
-		return
-	if (SSticker.mode && SSticker.mode.deny_respawn) //BS12 EDIT
-		to_chat(usr, "<span class='notice'>Respawn is disabled for this roundtype.</span>")
-		return
+		failure = "Respawn is disabled."
+	else if (stat != DEAD)
+		failure = "You must be dead to use this!"
+	else if (SSticker.mode && SSticker.mode.deny_respawn)
+		failure = "Respawn is disabled for this roundtype."
 	else if(!MayRespawn(1, CREW))
-		return
+		failure = ""
+
+	if(!isnull(failure))
+		if(check_rights(R_ADMIN, show_msg = FALSE))
+			if(failure == "")
+				failure = "You are not allowed to respawn."
+			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
+				return
+			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").", admin_key=key_name(usr))
+		else
+			if(failure != "")
+				to_chat(usr, SPAN_DANGER(failure))
+			return
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
-
-	log_game("[usr.name]/[usr.key] used abandon mob.",ckey=key_name(usr))
-
+	log_game("[usr.name]/[usr.key] used abandon mob.", ckey=key_name(usr))
 	to_chat(usr, "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>")
 
+	client?.screen.Cut()
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
-		return
-	client.screen.Cut()
-	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
 		return
 
 	announce_ghost_joinleave(client, 0)
@@ -486,7 +491,7 @@
 	M.reset_death_timers()
 
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
 		qdel(M)
 		return
 
@@ -943,8 +948,6 @@
 	else if( lying != lying_prev )
 		update_icon()
 
-	update_vision_cone()
-
 	return canmove
 
 
@@ -1343,7 +1346,7 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
-	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || (viewer.client && (src in viewer.client.hidden_mobs)))
+	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility)
 
 //Admin helpers
 /mob/proc/wind_mob(var/mob/admin)

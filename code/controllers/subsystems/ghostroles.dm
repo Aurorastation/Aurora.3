@@ -120,10 +120,14 @@
 			if(data["spawners"][G.short_name])
 				data["spawners"] -= G.short_name
 			continue
+		var/cant_spawn = G.cant_spawn(user)
 		LAZYINITLIST(data["spawners"][G.short_name])
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["name"], G.name, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., data)
+		if(cant_spawn)
+			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], "[G.desc] ([cant_spawn])", ., data)
+		else
+			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], cant_spawn, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["can_edit"], G.can_edit(user), ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["enabled"], G.enabled, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["count"], G.count, ., data)
@@ -205,3 +209,9 @@
 	if(G)
 		return G.spawn_atoms
 	return list()
+
+//Returns the spawner with the specified (short) name or null
+/datum/controller/subsystem/ghostroles/proc/get_spawner(var/spawner_name)
+	if(spawner_name in spawners)
+		return spawners[spawner_name]
+	return null
