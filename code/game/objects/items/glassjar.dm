@@ -1,7 +1,7 @@
-#define NOTHING 0
-#define MONEY 1
-#define ANIMAL 2
-#define SPIDERLING 3
+#define JAR_NOTHING 0
+#define JAR_MONEY 1
+#define JAR_ANIMAL 2
+#define JAR_SPIDERLING 3
 
 /obj/item/glass_jar
 	name = "glass jar"
@@ -12,7 +12,7 @@
 	matter = list(MATERIAL_GLASS = 200)
 	recyclable = TRUE
 	flags = NOBLUDGEON
-	var/contains = NOTHING // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
+	var/contains = JAR_NOTHING // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
@@ -31,7 +31,7 @@
 		user.visible_message(SPAN_NOTICE("[user] scoops [S] into \the [src]."), SPAN_NOTICE("You scoop [S] into \the [src]."))
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)	// No growing inside jars
-		contains = SPIDERLING
+		contains = JAR_SPIDERLING
 		update_icon()
 		return
 	if(istype(A, /mob))
@@ -39,7 +39,7 @@
 		if(L.mob_size <= MOB_SMALL)
 			user.visible_message(SPAN_NOTICE("[user] scoops [L] into \the [src]."), SPAN_NOTICE("You scoop [L] into \the [src]."))
 			L.forceMove(src)
-			contains = ANIMAL
+			contains = JAR_ANIMAL
 			update_icon()
 			return
 		else
@@ -48,30 +48,30 @@
 
 /obj/item/glass_jar/attack_self(var/mob/user)
 	switch(contains)
-		if(MONEY)
+		if(JAR_MONEY)
 			for(var/obj/O in src)
 				O.forceMove(user.loc)
 			to_chat(user, SPAN_NOTICE("You take money out of \the [src]."))
-			contains = NOTHING
+			contains = JAR_NOTHING
 			update_icon()
 			return
-		if(ANIMAL)
+		if(JAR_ANIMAL)
 			for(var/mob/M in src)
 				M.forceMove(user.loc)
 				user.visible_message(SPAN_NOTICE("[user] releases [M] from \the [src]."), SPAN_NOTICE("You release [M] from \the [src]."))
-			contains = NOTHING
+			contains = JAR_NOTHING
 			update_icon()
 			return
-		if(SPIDERLING)
+		if(JAR_SPIDERLING)
 			for(var/obj/effect/spider/spiderling/S in src)
 				S.forceMove(user.loc)
 				user.visible_message(SPAN_NOTICE("[user] releases [S] from \the [src]."), SPAN_NOTICE("You release [S] from \the [src]."))
 				START_PROCESSING(SSprocessing, S) // They can grow after being let out though
-			contains = NOTHING
+			contains = JAR_NOTHING
 			update_icon()
 			return
-		if(NOTHING)
-			to_chat(user, SPAN_NOTICE("You remove the lid from \the [src].")
+		if(JAR_NOTHING)
+			to_chat(user, SPAN_NOTICE("You remove the lid from \the [src]."))
 			user.drop_from_inventory(src)
 			user.put_in_hands(new /obj/item/reagent_containers/glass/beaker/jar) //found in jar.dm
 			qdel(src)
@@ -79,9 +79,9 @@
 
 /obj/item/glass_jar/attackby(var/atom/A, var/mob/user, var/proximity)
 	if(istype(A, /obj/item/spacecash))
-		if(contains == NOTHING)
-			contains = MONEY
-		if(contains != MONEY)
+		if(contains == JAR_NOTHING)
+			contains = JAR_MONEY
+		if(contains != JAR_MONEY)
 			return
 		var/obj/item/spacecash/S = A
 		user.visible_message(SPAN_NOTICE("[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
@@ -94,10 +94,10 @@
 	underlays.Cut()
 	cut_overlays()
 	switch(contains)
-		if(NOTHING)
+		if(JAR_NOTHING)
 			name = initial(name)
 			desc = initial(desc)
-		if(MONEY)
+		if(JAR_MONEY)
 			name = "tip jar"
 			desc = "A small jar with money inside."
 			for(var/obj/item/spacecash/S in src)
@@ -108,7 +108,7 @@
 				underlays += money
 				for (var/A in S.overlays)
 					underlays += A
-		if(ANIMAL)
+		if(JAR_ANIMAL)
 			for(var/mob/M in src)
 				var/image/victim = new()
 				victim.appearance = M
@@ -119,7 +119,7 @@
 				underlays += victim
 				name = "glass jar with [M]"
 				desc = "A small jar with [M] inside."
-		if(SPIDERLING)
+		if(JAR_SPIDERLING)
 			for(var/obj/effect/spider/spiderling/S in src)
 				var/image/victim = image(S.icon, S.icon_state)
 				underlays += victim
@@ -135,11 +135,11 @@
 	S.name = "Peter"
 	S.desc = "The journalist's pet spider, Peter. It has a miniature camera around its neck and seems to glow faintly."
 	S.forceMove(src)
-	contains = SPIDERLING
+	contains = JAR_SPIDERLING
 	STOP_PROCESSING(SSprocessing, S)
 	update_icon()
-	
-#undef NOTHING
-#undef MONEY
-#undef ANIMAL
-#undef SPIDERLING
+
+#undef JAR_NOTHING
+#undef JAR_MONEY
+#undef JAR_ANIMAL
+#undef JAR_SPIDERLING
