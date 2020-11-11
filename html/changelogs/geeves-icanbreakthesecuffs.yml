@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Breaking cuffs is now per species, instead of per species per sex. This means that female unathi can break cuffs now."
