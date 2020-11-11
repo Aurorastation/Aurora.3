@@ -30,7 +30,7 @@
 		return emote_message_3p_target
 	return emote_message_3p
 
-/decl/emote/proc/can_do_emote(var/atom/user)
+/decl/emote/proc/can_do_emote(var/mob/user)
 	if(conscious && user.stat != CONSCIOUS)
 		return FALSE
 	return TRUE

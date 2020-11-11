@@ -128,7 +128,7 @@
 /proc/isundead(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		switch(A.get_species())
+		switch(H.get_species())
 			if(SPECIES_SKELETON)
 				return TRUE
 			if(SPECIES_CULTGHOST)
