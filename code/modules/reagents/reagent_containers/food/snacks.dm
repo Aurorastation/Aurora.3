@@ -257,42 +257,40 @@
 
 //Code for dipping food in batter
 /obj/item/reagent_containers/food/snacks/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(O.is_open_container() && O.reagents && !(istype(O, /obj/item/reagent_containers/food)) && proximity)
-		for (var/r in O.reagents.reagent_list)
+	if(O.is_open_container() && !(istype(O, /obj/item/reagent_containers/food)) && proximity)
+		for (var/r in O.reagents?.reagent_volumes)
 
 			var/decl/reagent/R = r
 			if (istype(R, /decl/reagent/nutriment/coating))
-				if (apply_coating(R, user))
-					return 1
+				if (apply_coating(O.reagents, R, user))
+					return TRUE
 
 	return ..()
 
 //This proc handles drawing coatings out of a container when this food is dipped into it
-/obj/item/reagent_containers/food/snacks/proc/apply_coating(var/decl/reagent/nutriment/coating/C, var/mob/user)
+/obj/item/reagent_containers/food/snacks/proc/apply_coating(var/datum/reagents/holder, var/decl/reagent/nutriment/coating/C, var/mob/user)
 	if (coating)
 		to_chat(user, "The [src] is already coated in [coating.name]!")
-		return 0
+		return FALSE
 
 	//Calculate the reagents of the coating needed
 	var/req = 0
-	for (var/r in reagents.reagent_list)
+	for (var/r in reagents.reagent_volumes)
 		var/decl/reagent/R = r
 		if (istype(R, /decl/reagent/nutriment))
-			req += R.volume * 0.2
+			req += reagents.reagent_volumes[r] * 0.2
 		else
-			req += R.volume * 0.1
+			req += reagents.reagent_volumes[r] * 0.1
 
 	req += w_class*0.5
 
 	if (!req)
-		//the food has no reagents left, its probably getting deleted soon
-		return 0
+		//the food has no reagents left, it's probably getting deleted soon
+		return FALSE
 
-	if (C.volume < req)
+	if (holder.reagent_volumes[C.type] < req)
 		to_chat(user, SPAN_WARNING("There's not enough [C.name] to coat the [src]!"))
-		return 0
-
-	var/id = C.type
+		return FALSE
 
 	//First make sure there's space for our batter
 	if (REAGENTS_FREE_SPACE(reagents) < req+5)
@@ -300,11 +298,9 @@
 		reagents.maximum_volume += extra
 
 	//Suck the coating out of the holder
-	C.holder.trans_to_holder(reagents, req)
+	holder.trans_to_holder(reagents, req)
 
-	//We're done with C now, repurpose the var to hold a reference to our local instance of it
-	C = reagents.get_reagent(id)
-	if (!C)
+	if (!REAGENT_VOLUME(reagents, C.type))
 		return
 
 	coating = C
@@ -324,9 +320,9 @@
 	add_overlay(J)
 
 	if (user)
-		user.visible_message(SPAN_NOTICE("[user] dips \the [src] into \the [coating.name]"), SPAN_NOTICE("You dip \the [src] into \the [coating.name]"))
+		user.visible_message(SPAN_NOTICE("[user] dips [src] into \the [coating.name]"), SPAN_NOTICE("You dip [src] into \the [coating.name]"))
 
-	return 1
+	return TRUE
 
 //Called by cooking machines. This is mainly intended to set properties on the food that differ between raw/cooked
 /obj/item/reagent_containers/food/snacks/proc/cook()
@@ -356,11 +352,13 @@
 		if (do_coating_prefix == 1)
 			name = "[coating.coated_adj] [name]"
 
-	for (var/r in reagents.reagent_list)
+	for (var/r in reagents.reagent_volumes)
 		var/decl/reagent/R = r
 		if (istype(R, /decl/reagent/nutriment/coating))
 			var/decl/reagent/nutriment/coating/C = R
-			C.data["cooked"] = 1
+			LAZYINITLIST(reagents.reagent_data)
+			LAZYINITLIST(reagents.reagent_data[r])
+			reagents.reagent_data[r]["cooked"] = TRUE
 			C.name = C.cooked_name
 
 // A proc for setting various flavors of the same type of food instead of creating new foods with the only difference being a flavor
@@ -917,7 +915,7 @@
 
 /obj/item/reagent_containers/food/snacks/sausage/battered/Initialize()
 	. = ..()
-	coating = reagents.get_reagent(/decl/reagent/nutriment/coating/batter)
+	coating = decls_repository.get_decl(/decl/reagent/nutriment/coating/batter)
 
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
 	name = "jalapeno popper"
@@ -932,7 +930,7 @@
 
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers/Initialize()
 	. = ..()
-	coating = reagents.get_reagent(/decl/reagent/nutriment/coating/batter)
+	coating = decls_repository.get_decl(/decl/reagent/nutriment/coating/batter)
 
 /obj/item/reagent_containers/food/snacks/donkpocket
 	name = "Donk-pocket"
@@ -3172,7 +3170,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch/Initialize()
 	. = ..()
-	coating = reagents.get_reagent(/decl/reagent/nutriment/coating/batter)
+	coating = decls_repository.get_decl(/decl/reagent/nutriment/coating/batter)
 
 /obj/item/reagent_containers/food/snacks/pizzacrunchslice
 	name = "pizza crunch"
@@ -3186,7 +3184,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch/Initialize()
 	. = ..()
-	coating = reagents.get_reagent(/decl/reagent/nutriment/coating/batter)
+	coating = decls_repository.get_decl(/decl/reagent/nutriment/coating/batter)
 
 /obj/item/pizzabox
 	name = "pizza box"

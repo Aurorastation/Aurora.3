@@ -253,11 +253,11 @@ BREATH ANALYZER
 	if(H.reagents.total_volume)
 		var/unknown = 0
 		var/reagentdata[0]
-		for(var/_R in H.reagents.reagent_list)
+		for(var/_R in H.reagents.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				reagentdata["[_R]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, R.type), 1)]u [R.name]</span>"
+				reagentdata["[_R]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]</span>"
 			else
 				unknown++
 		if(reagentdata.len)
@@ -382,7 +382,6 @@ BREATH ANALYZER
 			reagents.clear_reagents()
 			to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
 			return
-		var/bdata = reagents.reagent_data
 		var/list/blood_traces = params2list(reagents.reagent_data[/decl/reagent/blood]["trace_chem"])
 		var/dat = "Trace Chemicals Found: "
 		for(var/_C in blood_traces)
@@ -428,21 +427,16 @@ BREATH ANALYZER
 		return
 	if(!istype(O))
 		return
+	if(isemptylist(O.reagents?.reagent_volumes))
+		to_chat(user, "<span class='notice'>No active chemical agents found in [O].</span>")
+		return
 
-	if(!isnull(O.reagents))
-		var/dat = ""
-		if(O.reagents.reagent_list.len > 0)
-			var/one_percent = O.reagents.total_volume / 100
-			for (var/_R in O.reagents.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
-				dat += "\n \t <span class='notice'>[R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
-		if(dat)
-			to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
-		else
-			to_chat(user, "<span class='notice'>No active chemical agents found in [O].</span>")
-	else
-		to_chat(user, "<span class='notice'>No significant chemical agents found in [O].</span>")
-
+	var/dat = ""
+	var/one_percent = O.reagents.total_volume / 100
+	for (var/_R in O.reagents.reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		dat += "\n \t <span class='notice'>[R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
+	to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
 	return
 
 /obj/item/device/reagent_scanner/adv
@@ -605,7 +599,8 @@ BREATH ANALYZER
 
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0
-		for(var/decl/reagent/R in H.breathing.reagent_list)
+		for(var/_R in H.breathing.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				to_chat(user,"<span class='notice'>[R.name] found in subject's respitory system.</span>")
 			else

@@ -15,8 +15,8 @@
 	shatter = TRUE
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/on_reagent_change()
-	if (reagents.reagent_list.len > 0)
-		var/decl/reagent/R = reagents.get_master_reagent()
+	if (LAZYLEN(reagents?.reagent_volumes))
+		var/decl/reagent/R = reagents.get_primary_reagent_decl()
 
 		if(R.glass_icon_state)
 			icon_state = R.glass_icon_state

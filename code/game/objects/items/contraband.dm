@@ -40,7 +40,8 @@
 		reagents.add_reagent(reagent, picked_reagents[reagent])
 
 	var/list/names = new
-	for(var/decl/reagent/R in reagents.reagent_list)
+	for(var/_R in reagents.reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
 		names += R.name
 
 	desc = "Contains [english_list(names)]."

@@ -74,7 +74,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return return_name
 
 /obj/machinery/computer/rdconsole/proc/CallReagentName(ID)
-	var/decl/reagent/R = SSchemistry.chemical_reagents[ID]
+	var/decl/reagent/R = decls_repository.get_decl(ID)
 	return R ? R.name : "(none)"
 
 /obj/machinery/computer/rdconsole/proc/SyncRDevices() //Makes sure it is properly sync'ed up with the devices attached to it (if any).

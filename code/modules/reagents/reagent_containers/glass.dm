@@ -30,7 +30,8 @@
 		return
 	if(LAZYLEN(reagents?.reagent_volumes))
 		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
-		for(var/decl/reagent/T in reagents.reagent_list)
+		for(var/_T in reagents.reagent_volumes)
+			var/decl/reagent/T = decls_repository.get_decl(_T)
 			if(T.reagent_state == SOLID)
 				to_chat(user, "<span class='notice'>You see something solid in the beaker.</span>")
 				break // to stop multiple messages of this
@@ -41,12 +42,12 @@
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
-	var/decl/reagent/blood/B = locate() in reagents.reagent_list
-	if(B)
+	var/list/Bdata = REAGENT_DATA(reagents, /decl/reagent/blood/)
+	if(Bdata)
 		additional_evidence["type"] = EVIDENCE_TYPE_BLOOD
 		additional_evidence["sample_type"] = "blood"
-		additional_evidence["dna"] += B.data["blood_DNA"]
-		additional_evidence["sample_message"] = "You dip the swab inside \the [src.name] to sample its contents."
+		additional_evidence["dna"] += Bdata["blood_DNA"]
+		additional_evidence["sample_message"] = "You dip the swab inside [src] to sample its contents."
 
 	return additional_evidence
 

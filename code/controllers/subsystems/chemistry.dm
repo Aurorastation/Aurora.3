@@ -8,25 +8,21 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/list/active_holders = list()
 	var/list/chemical_reactions
 	var/list/chemical_reactions_clean = list()
-	var/list/decl/reagent/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
 	var/list/codex_data = list()
 	var/list/codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
 	var/list/codex_ignored_result_path = list(/decl/reagent/drink, /decl/reagent/alcohol, /decl/reagent/paint)
 
-/datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/decl/reagent/R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
-
+/datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/_R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
+	var/decl/reagent/R = decls_repository.get_decl(_R)
 	if(R.specific_heat > 0)
 		return TRUE
 
-	if(chemical_reagents[R.type].specific_heat > 0) //Don't think this will happen but you never know.
-		return TRUE
-
-	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.type)
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(_R)
 	if(recipe)
 		for(var/chem in recipe.required_reagents)
-			if(!has_valid_specific_heat(chemical_reagents[chem]))
+			if(!has_valid_specific_heat(chem))
 				log_ss("chemistry", "ERROR: [recipe.type] has an improper recipe!")
 				return R.fallback_specific_heat > 0
 
@@ -35,23 +31,23 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if(R.fallback_specific_heat > 0)
 			return TRUE
 		else
-			log_ss("chemistry", "ERROR: [R.type] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
+			log_ss("chemistry", "ERROR: [_R] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
 			return FALSE
 
-/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/decl/reagent/R)
-
+/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/_R)
+	var/decl/reagent/R = decls_repository.get_decl(_R)
 	if(R.specific_heat > 0)
 		return R.specific_heat
 
-	if(chemical_reagents[R.type].specific_heat > 0) //Don't think this will happen but you never know.
-		return chemical_reagents[R.type].specific_heat
+	if(R.specific_heat > 0) //Don't think this will happen but you never know.
+		return R.specific_heat
 
-	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.type)
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(_R)
 	if(recipe)
 		var/final_heat = 0
 		var/result_amount = recipe.result_amount
 		for(var/chem in recipe.required_reagents)
-			var/chem_specific_heat = check_specific_heat(chemical_reagents[chem])
+			var/chem_specific_heat = check_specific_heat(chem)
 			if(chem_specific_heat <= 0)
 				log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 				final_heat = 0
@@ -59,15 +55,15 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
 
 		if(final_heat > 0)
-			chemical_reagents[R.type].specific_heat = final_heat
+			R.specific_heat = final_heat
 			return final_heat
 
 	if(R.fallback_specific_heat > 0)
-		chemical_reagents[R.type].specific_heat = R.fallback_specific_heat
+		R.specific_heat = R.fallback_specific_heat
 		return R.fallback_specific_heat
 
-	log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
-	chemical_reagents[R.type].specific_heat = 1
+	log_ss("chemistry", "ERROR: [_R] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+	R.specific_heat = 1
 	return 1
 
 /datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id)
@@ -86,7 +82,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	initialize_chemical_reactions()
 	initialize_codex_data()
 	var/pre_secret_len = chemical_reactions.len
-	log_ss("chemistry", "Found [chemical_reagents.len] reagents, [pre_secret_len] reactions.")
+	log_ss("chemistry", "Found [pre_secret_len] reactions.")
 	load_secret_chemicals()
 	log_ss("chemistry", "Loaded [chemical_reactions.len - pre_secret_len] secret reactions.")
 	..()

@@ -30,7 +30,7 @@
 
 	for(var/T in reagent_ids)
 		reagent_volumes[T] = volume
-		var/decl/reagent/R = SSchemistry.chemical_reagents[T]
+		var/decl/reagent/R = decls_repository.get_decl(T)
 		reagent_names += R.name
 
 	START_PROCESSING(SSprocessing, src)
@@ -107,14 +107,14 @@
 		if(t)
 			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
 			mode = t
-			var/decl/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
+			var/decl/reagent/R = decls_repository.get_decl(reagent_ids[mode])
 			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>")
 
 /obj/item/reagent_containers/borghypo/examine(mob/user)
 	if(!..(user, 2))
 		return
 
-	var/decl/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
+	var/decl/reagent/R = decls_repository.get_decl(reagent_ids[mode])
 
 	to_chat(user, "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>")
 
@@ -148,7 +148,7 @@
 		return
 
 	var/rid = reagent_ids[mode]
-	var/decl/reagent/R = SSchemistry.chemical_reagents[rid]
+	var/decl/reagent/R = decls_repository.get_decl(rid)
 	var/temp = R.default_temperature
 	var/amt = min(amount_per_transfer_from_this, reagent_volumes[rid])
 	target.reagents.add_reagent(rid, amt, temperature = temp)

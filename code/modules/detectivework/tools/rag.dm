@@ -140,23 +140,24 @@
 					to_chat(user, SPAN_NOTICE("You begin to bandage \a [W.desc] on [M]'s [affecting.name] with a rag."))
 					if(!do_mob(user, M, W.damage/10)) // takes twice as long as a normal bandage
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
-						break
-					for(var/decl/reagent/R in reagents.reagent_list)
-						var/strength = R.germ_adjust * R.volume/4
+						return
+					for(var/_R in reagents.reagent_volumes)
+						var/decl/reagent/R = decls_repository.get_decl(_R)
+						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
 						if(istype(R, /decl/reagent/alcohol))
 							var/decl/reagent/alcohol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
 						if (W.germ_level <= 0)
-							W.disinfected = 1//The wound becomes disinfected if fully cleaned
+							W.disinfected = TRUE//The wound becomes disinfected if fully cleaned
 							break
 					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
 					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
-					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with a rag, tying it in place."), \
-					                     SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with a rag, tying it in place."))
+					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."), \
+					                     SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
 					W.bandage()
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
-					break // we can only do one at a time
+					return // we can only do one at a time
 			else if(reagents.total_volume)
 				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
 					user.do_attack_animation(src)

@@ -163,7 +163,7 @@
 
 /decl/reagent/nutriment/coating/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.
 	var/list/data = ..()
-	data["cooked"] = FALSE
+	LAZYSET(data, "cooked", FALSE)
 	if (holder && holder.my_atom && istype(holder.my_atom,/obj/item/reagent_containers/food/snacks))
 		data["cooked"] = TRUE
 		name = cooked_name

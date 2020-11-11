@@ -61,7 +61,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
 			return
 		if(shaken)
-			for(var/decl/reagent/R in reagents.reagent_list)
+			for(var/_R in reagents.reagent_volumes)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				if(R.carbonated)
 					boom(user)
 					return

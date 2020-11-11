@@ -1,7 +1,6 @@
 #define PROCESS_REACTION_ITER 5 //when processing a reaction, iterate this many times
 
 /datum/reagents
-	var/primary_reagent
 	var/list/reagent_volumes
 	var/list/reagent_data
 	var/total_volume = 0
@@ -38,21 +37,13 @@
 		. = reagent.name
 
 /datum/reagents/proc/get_primary_reagent_decl()
-	. = primary_reagent && decls_repository.get_decl(primary_reagent)
-
-/datum/reagents/proc/get_reagent(var/rtype) // Returns reference to reagent matching passed type
-	for(var/_A in reagent_volumes)
-		var/decl/reagent/A = decls_repository.get_decl(_A)
-		if (A.type == rtype)
-			return A
-
-	return null
+	var/primary = max(reagent_volumes)
+	. = primary && decls_repository.get_decl(primary)
 
 /datum/reagents/proc/update_total() // Updates volume and temperature.
 
 	total_volume = 0
 
-	primary_reagent = null
 	for(var/R in reagent_volumes)
 		var/vol = reagent_volumes[R]
 		if(vol < MINIMUM_CHEMICAL_VOLUME)
@@ -60,8 +51,6 @@
 			LAZYREMOVE(reagent_data, R)
 		else
 			total_volume += vol
-			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
-				primary_reagent = R
 	if(total_volume > maximum_volume)
 		remove_any(maximum_volume - total_volume)
 	return max(total_volume,0)
@@ -96,8 +85,7 @@
 
 		//need to rebuild this to account for chain reactions
 		for(var/thing in reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(thing)
-			eligible_reactions |= SSchemistry.chemical_reactions[R.type]
+			eligible_reactions |= SSchemistry.chemical_reactions[thing]
 
 		for(var/datum/chemical_reaction/C in eligible_reactions)
 			if(C.can_happen(src) && C.process(src))
@@ -176,7 +164,7 @@
 	return FALSE
 
 /datum/reagents/proc/has_reagent(var/rtype, var/amount = 0)
-	return REAGENT_VOLUME(src, rtype) >= amount
+	return (rtype in reagent_volumes) && reagent_volumes[rtype] >= amount
 
 /datum/reagents/proc/has_any_reagent(var/list/check_reagents)
 	for(var/current in check_reagents)

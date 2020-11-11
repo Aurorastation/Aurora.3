@@ -39,16 +39,16 @@
 /obj/item/reagent_containers/food/condiment/on_reagent_change(var/force = FALSE)
 	if(fixed_state && !force)
 		return
-	if(!LAZYLEN(reagents.reagent_list))
+	if(isemptylist(reagents.reagent_volumes))
 		icon_state = "emptycondiment"
 		name = "condiment bottle"
 		desc = "An empty condiment bottle."
 		center_of_mass = list("x"=16, "y"=6)
 		return
 
-	var/decl/reagent/master = reagents.get_master_reagent()
-	name = master.condiment_name || (reagents.reagent_list.len == 1 ? "[lowertext(master.name)] bottle" : "condiment bottle")
-	desc = master.condiment_desc || (reagents.reagent_list.len == 1 ? master.description : "A mixture of various condiments. [master.name] is one of them.")
+	var/decl/reagent/master = reagents.get_primary_reagent_decl()
+	name = master.condiment_name || (reagents.reagent_volumes.len == 1 ? "[lowertext(master.name)] bottle" : "condiment bottle")
+	desc = master.condiment_desc || (reagents.reagent_volumes.len == 1 ? master.description : "A mixture of various condiments. [master.name] is one of them.")
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 

@@ -42,7 +42,7 @@ About the Holder:
 		get_free_space()
 			Returns the remaining free volume in the holder.
 
-		get_master_reagent()
+		get_primary_reagent_decl()
 			Returns the reference to the reagent with the largest volume
 
 		get_primary_reagent_name()

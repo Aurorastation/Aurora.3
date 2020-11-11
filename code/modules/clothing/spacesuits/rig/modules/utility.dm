@@ -218,7 +218,7 @@
 			var/datum/rig_charge/charge = charges[chargetype]
 			if(charge.product_type == _R)
 
-				var/chems_to_transfer = _R.volume
+				var/chems_to_transfer = input_item.reagents.reagent_volumes[_R]
 
 				if((charge.charges + chems_to_transfer) > max_reagent_volume)
 					chems_to_transfer = max_reagent_volume - charge.charges

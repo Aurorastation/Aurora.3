@@ -102,8 +102,8 @@
 	var/total_thermal_energy = 0
 	for(var/reactant in required_reagents)
 		var/amt_used = required_reagents[reactant] * reaction_progress
-		var/decl/reagent/removing_reagent = holder.get_reagent(reactant)
-		var/energy_transfered = removing_reagent.get_thermal_energy(holder) * (amt_used / removing_reagent.volume)
+		var/decl/reagent/removing_reagent = decls_repository.get_decl(reactant)
+		var/energy_transfered = removing_reagent.get_thermal_energy(holder) * (amt_used / holder.reagent_volumes[reactant])
 		total_thermal_energy += energy_transfered
 		holder.remove_reagent(reactant, amt_used, safety = 1)
 
