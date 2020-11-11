@@ -49,24 +49,22 @@
 /decl/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature, var/datum/reagents/holder)
 	return get_heat_capacity(holder)*(max(new_temperature, TCMB) - old_temperature)
 
-/decl/reagent/proc/add_thermal_energy(var/added_energy, var/datum/reagents/holder)
+/decl/reagent/proc/add_thermal_energy(var/added_energy, var/datum/reagents/holder, var/safety = FALSE)
 	var/list/data = REAGENT_DATA(holder, type)
-	LAZYSET(data, "thermal_energy", max(0, LAZYACCESS(data, "thermal_energy") + added_energy))
+	added_energy = max(-get_thermal_energy(holder), added_energy)
+	LAZYSET(data, "thermal_energy", LAZYACCESS(data, "thermal_energy") + added_energy)
+	if(!safety)
+		on_heat_change(added_energy, holder)
 	return added_energy
 
 /decl/reagent/proc/set_thermal_energy(var/set_energy, var/datum/reagents/holder)
 	return add_thermal_energy(-get_thermal_energy(holder) + set_energy)
 
-/decl/reagent/proc/set_thermal_energy_safe(var/set_energy, var/datum/reagents/holder) // This stops nitroglycerin from exploding
-	var/data = REAGENT_DATA(holder, type)
-	LAZYSET(data, "thermal_energy", set_energy)
-	return 0
+/datum/reagents/proc/set_thermal_energy(var/set_energy, var/safety = FALSE)
+	return add_thermal_energy(-get_thermal_energy() + set_energy, safety)
 
-/datum/reagents/proc/set_thermal_energy(var/set_energy)
-	return add_thermal_energy(-get_thermal_energy() + set_energy)
-
-/decl/reagent/proc/set_temperature(var/new_temperature, var/datum/reagents/holder)
-	return add_thermal_energy(-get_thermal_energy(holder) + get_thermal_energy_change(0,new_temperature, holder), holder )
+/decl/reagent/proc/set_temperature(var/new_temperature, var/datum/reagents/holder, var/safety = FALSE)
+	return add_thermal_energy(-get_thermal_energy(holder) + get_thermal_energy_change(0,new_temperature, holder), holder, safety)
 
 /datum/reagents/proc/set_temperature(var/new_temperature)
 	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
@@ -125,3 +123,6 @@
 				return FALSE
 
 	return TRUE
+
+/decl/reagent/proc/on_heat_change(var/energy_change, var/datum/reagents/holder)
+	return // stub for heat effects

@@ -10,13 +10,14 @@
 		parent = parent_mob
 
 /datum/reagents/metabolism/proc/metabolize()
-	if(parent)
-		var/metabolism_type = 0 //non-human mobs
-		if(ishuman(parent))
-			var/mob/living/carbon/human/H = parent
-			metabolism_type = H.species.reagent_tag
+	if(!parent)
+		return
+	var/metabolism_type = 0 //non-human mobs
+	if(ishuman(parent))
+		var/mob/living/carbon/human/H = parent
+		metabolism_type = H.species.reagent_tag
 
-		for(var/_current in reagent_volumes)
-			var/decl/reagent/current = decls_repository.get_decl(_current)
-			current.on_mob_life(parent, metabolism_type, metabolism_class)
-		update_total()
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
+		current.on_mob_life(parent, metabolism_type, metabolism_class, src)
+	update_total()

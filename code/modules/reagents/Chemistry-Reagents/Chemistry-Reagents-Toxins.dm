@@ -383,7 +383,7 @@
 //Affect touch automatically transfers to affect_blood, so we'll apply the damage there, after accounting for permeability
 /decl/reagent/toxin/plantbgone/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	removed *= M.reagent_permeability()
-	affect_blood(M, alien, removed*0.5)
+	affect_blood(M, alien, removed*0.5, holder)
 
 /decl/reagent/lexorin
 	name = "Lexorin"
@@ -411,11 +411,11 @@
 
 /decl/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(33))
-		affect_blood(M, alien, removed)
+		affect_blood(M, alien, removed, holder)
 
 /decl/reagent/mutagen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(67))
-		affect_blood(M, alien, removed)
+		affect_blood(M, alien, removed, holder)
 
 /decl/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M

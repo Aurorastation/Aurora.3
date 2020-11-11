@@ -131,7 +131,7 @@
 
 
 /decl/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	affect_blood(M, alien, removed)
+	affect_blood(M, alien, removed, holder)
 
 /decl/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.setCloneLoss(0)
@@ -377,7 +377,6 @@
 	reagent_state = LIQUID
 	color = "#808080"
 	taste_description = "oil"
-	var/temp_set = FALSE
 
 /decl/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)
 	var/datum/effect/effect/system/reagents_explosion/e = new()

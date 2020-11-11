@@ -1,6 +1,7 @@
 #define PROCESS_REACTION_ITER 5 //when processing a reaction, iterate this many times
 
 /datum/reagents
+	var/primary_reagent
 	var/list/reagent_volumes
 	var/list/reagent_data
 	var/total_volume = 0
@@ -37,13 +38,11 @@
 		. = reagent.name
 
 /datum/reagents/proc/get_primary_reagent_decl()
-	var/primary = max(reagent_volumes)
-	. = primary && decls_repository.get_decl(primary)
+	. = primary_reagent && decls_repository.get_decl(primary_reagent)
 
 /datum/reagents/proc/update_total() // Updates volume and temperature.
-
 	total_volume = 0
-
+	primary_reagent = null
 	for(var/R in reagent_volumes)
 		var/vol = reagent_volumes[R]
 		if(vol < MINIMUM_CHEMICAL_VOLUME)
@@ -51,6 +50,8 @@
 			LAZYREMOVE(reagent_data, R)
 		else
 			total_volume += vol
+			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
+				primary_reagent = R
 	if(total_volume > maximum_volume)
 		remove_any(maximum_volume - total_volume)
 	return max(total_volume,0)
@@ -112,7 +113,6 @@
 	if(!isnum(amount) || amount <= 0)
 		return FALSE
 
-	update_total() //Does this need to be here? It's called in update_holder.
 	var/old_amount = amount
 	amount = min(amount, REAGENTS_FREE_SPACE(src))
 	var/decl/reagent/newreagent = decls_repository.get_decl(rtype)
@@ -125,21 +125,24 @@
 		var/tmp_data = newreagent.initialize_data(data)
 		if(tmp_data)
 			LAZYSET(reagent_data, rtype, tmp_data)
-		if(!newreagent.get_thermal_energy(src))
-			newreagent.set_thermal_energy_safe(newreagent.default_temperature * newreagent.specific_heat * amount)
-	else // existing reagent
-		reagent_volumes[rtype] += amount
 		if(thermal_energy > 0 && old_amount > 0)
-			newreagent.add_thermal_energy(thermal_energy * (amount/old_amount), src)
+			newreagent.set_thermal_energy(thermal_energy * (amount/old_amount), src, TRUE)
 		else
 			if(temperature <= 0)
 				temperature = newreagent.default_temperature
-			newreagent.add_thermal_energy(temperature * newreagent.specific_heat * amount)
+			newreagent.set_temperature(temperature, src, TRUE)
+	else // existing reagent
+		reagent_volumes[rtype] += amount
+		if(thermal_energy > 0 && old_amount > 0)
+			newreagent.add_thermal_energy(thermal_energy * (amount/old_amount), src, TRUE)
+		else
+			if(temperature <= 0)
+				temperature = newreagent.default_temperature
+			newreagent.add_thermal_energy(temperature * newreagent.specific_heat * amount, src, TRUE)
 		if(!isnull(data))
 			LAZYSET(reagent_data, rtype, newreagent.mix_data(src, data, amount))
-		update_holder(!safety)
-		return TRUE
-	return FALSE
+	update_holder(!safety)
+	return TRUE
 
 /datum/reagents/proc/remove_reagent(var/rtype, var/amount, var/safety = 0)
 	var/old_volume = REAGENT_VOLUME(src, rtype)
@@ -160,6 +163,8 @@
 		current.final_effect(my_atom, src)
 	LAZYREMOVE(reagent_data, rtype)
 	LAZYREMOVE(reagent_volumes, rtype)
+	if(primary_reagent == rtype)
+		primary_reagent = null
 	update_holder(FALSE)
 	return FALSE
 
