@@ -2,8 +2,8 @@
 
 /mob/abstract/new_player
 	var/ready = 0
-	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
-	var/totalPlayers = 0		 //Player counts for the Lobby tab
+	var/spawning = 0 //Referenced when you want to delete the new_player later on in the code
+	var/totalPlayers = 0 //Player counts for the Lobby tab
 	var/totalPlayersReady = 0
 	var/datum/late_choices/late_choices_ui = null
 	universal_speak = 1
@@ -22,6 +22,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/Initialize()
 	. = ..()
 	dead_mob_list -= src
+
+/mob/abstract/new_player/Destroy()
+	if(istype(late_choices_ui))
+		// this kills the latejoin UI which runs vueui_on_close
+		// that in turn nulls the late_choices datum in here and it is then garbage collected (so no need to qdel() it)
+		late_choices_ui.ui.close()
+	return ..()
 
 /mob/abstract/new_player/Stat()
 	..()
