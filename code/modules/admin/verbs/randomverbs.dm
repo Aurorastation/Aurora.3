@@ -680,7 +680,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	for(var/datum/job/job in SSjobs.occupations)
-		to_chat(src, "[job.title]: [job.total_positions]")
+		to_chat(src, "[job.title]: [job.get_total_positions() == -1 ? "unlimited" : job.get_total_positions()]")
 	feedback_add_details("admin_verb","LFS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_explosion(atom/O as obj|mob|turf in range(world.view))

@@ -1,13 +1,13 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 
@@ -81,13 +81,13 @@
 /datum/job/consular
 	title = "Consular Officer"
 	flag = CONSULAR
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "your embassy"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 

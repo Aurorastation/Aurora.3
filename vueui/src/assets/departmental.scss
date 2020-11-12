@@ -1,0 +1,23 @@
+$departmental-colors: (
+  "Command": #114dc1,
+  "Security": #991818,
+  "Engineering": #c67519,
+  "Medical": #15903a,
+  "Science": #a44799,
+  "Cargo": #593616,
+  "Civilian": #90524b,
+  "Equipment": #6c5b73,
+  "Miscellaneous": #5d6a67,
+);
+
+@each $dept, $color in $departmental-colors {
+  .text-dept-#{to-lower-case($dept)} {
+    color: $color !important;
+  }
+  .bg-dept-#{to-lower-case($dept)} {
+    background-color: $color !important;
+  }
+  .border-dept-#{to-lower-case($dept)} {
+    border-color: $color !important;
+  }
+}

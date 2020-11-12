@@ -33,6 +33,7 @@
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
 	bleed_mod = 2.2
+	injection_mod = 2
 
 	grab_mod = 1.1
 	resist_mod = 1.75

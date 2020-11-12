@@ -35,6 +35,30 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">12 November 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Latejoin menu is now VueUI and more similar to crew manifest - it is divided to sections and uses crew manifest colors. It shows a preview of your character. It no longer distinguishes active but AFK players.</li>
+				<li class="rscadd">Crew Manifest now uses VueUI (the exact same one as the modular computers program). This means that crew manifest will no longer indicate AFK players as inactive for ghosts and lobby sitters.</li>
+				<li class="rscadd">Crew Manifest program can now print the manifest with a button in the UI.</li>
+				<li class="rscdel">The ID modification program no longer shows the crew manifest or is able to print it.</li>
+				<li class="tweak">Crew Manifest, Latejoin menu and occupation selection in character creation have been made prettier and more readable with a common color palette for departments.</li>
+				<li class="bugfix">All departmental jobs now have a department assigned (intern jobs and forensic technician). This slightly changed the antagonist report generated, but now it's especially needed for the latejoin menu sorting to work.</li>
+				<li class="bugfix">Leaving the round now actually decreases the job count for a given job, freeing up the slot for others. This also fixes wrong people counters in latejoin menu. As a result AIs now use different logic to check if they can spawn/latejoin and their numbers are also correct.</li>
+				<li class="backend">Added SCSS style utilities inspired by Bootstrap for easier UI styling with the use of just classes.</li>
+				<li class="refactor">Department names are now defines, crew manifest logic has been simplified to accommodate this. The 'Heads' section is now called 'Command'.</li>
+				<li class="refactor">Jobs now store departments as a list so Command is no longer magic. Flags can be assigned to each department (like 'this is a supervisor/head of this department).'</li>
+				<li class="refactor">Moved Vue departmental colors into a separate Sass file, making it available to all either as a universal map or as predefined classes for text color (.text-dept-medical) and background (.bg-dept-medical).</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Show held item now shows an icon beside the item.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Borg Hyposprays now act like normal hyposprays, can inject people in spacesuits and are non-instantaneous.</li>
+			</ul>
+
 			<h2 class="date">11 November 2020</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">

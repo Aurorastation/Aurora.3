@@ -203,7 +203,7 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/medical/general/Initialize()
 	. = ..()
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
 	src.modules += new /obj/item/surgery/scalpel(src)
 	src.modules += new /obj/item/surgery/hemostat(src)
 	src.modules += new /obj/item/surgery/retractor(src)
@@ -288,7 +288,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/mass_spectrometer(src)
 	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.modules += new /obj/item/roller_holder(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/rescue(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/rescue(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/gripper/chemistry(src)
@@ -635,7 +635,7 @@ var/global/list/robot_modules = list(
 	src.modules += L
 
 	src.modules += new /obj/item/tray/robotray(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/service(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/service(src)
 	src.emag = new /obj/item/reagent_containers/food/drinks/bottle/small/beer(src)
 
 	var/datum/reagents/RG = new /datum/reagents(50)
@@ -838,7 +838,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
 	src.modules += new /obj/item/plastique/cyborg(src)
 	src.modules += new /obj/item/grenade/smokebomb/cyborg(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -1062,7 +1062,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/inflatable_dispenser(src)
 	// Medical
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
 	src.modules += new /obj/item/surgery/scalpel(src)
 	src.modules += new /obj/item/surgery/hemostat(src)
 	src.modules += new /obj/item/surgery/retractor(src)
@@ -1075,7 +1075,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/chemistry(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/rescue(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/rescue(src)
 	src.modules += new /obj/item/roller_holder(src)
 	// Security
 	src.modules += new /obj/item/handcuffs/cyborg(src)
