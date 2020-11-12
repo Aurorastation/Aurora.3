@@ -126,7 +126,6 @@ var/list/DEPT_FREQS_ASSOC = list(
 #define RADIO_MAGNETS "radio_magnet"
 #define RADIO_ARRIVALS "radio_arrvl"
 
-#define JAMMER_BINARY -1 // can only be OFF or ALL
-#define JAMMER_OFF 0
+#define JAMMER_OFF -1
 #define JAMMER_ALL 1 // affects ALL wireless streams
 #define JAMMER_SYNTHETIC 2 // affects only synthetic wireless connections (attack_ai)

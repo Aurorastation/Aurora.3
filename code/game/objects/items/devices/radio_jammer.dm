@@ -23,7 +23,6 @@ var/list/active_radio_jammers = list()
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	w_class = ITEMSIZE_SMALL
-	var/selected_active_level = JAMMER_ALL
 	var/active = JAMMER_OFF
 	var/radius = 7
 	var/icon_state_active = "shield1"
@@ -40,28 +39,27 @@ var/list/active_radio_jammers = list()
 	active_radio_jammers -= src
 	return ..()
 
-/obj/item/device/radiojammer/examine(mob/user, distance)
-	. = ..()
-	if(selected_active_level != JAMMER_BINARY && Adjacent(user))
-		var/output_message = "\The [src] will block <b>[selected_active_level == JAMMER_ALL ? "all" : "synthetic"]</b> wireless radio signals."
-		to_chat(user, SPAN_NOTICE(output_message))
-
-/obj/item/device/radiojammer/AltClick(mob/user)
-	if(!Adjacent(user) || selected_active_level == JAMMER_BINARY)
-		return
-	var/choice = alert(user, "Do you want \the [src] to block all wireless signals, or only remote synthetic (AI, borgs) signals.", "Signal Selection", "All", "Only Synthetic")
-	if(!choice)
-		return
-	if(choice == "All")
-		selected_active_level = JAMMER_ALL
-	else
-		selected_active_level = JAMMER_SYNTHETIC
-	if(active)
-		active = selected_active_level
-	to_chat(user, SPAN_NOTICE("You set \the [src] to block [lowertext(choice)] wireless signals."))
-
 /obj/item/device/radiojammer/attack_self(mob/user)
-	toggle(user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "devices-jammer", 200, 200, capitalize_first_letters(name))
+	ui.open()
+
+/obj/item/device/radiojammer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		data = list()
+
+	VUEUI_SET_CHECK(data["active"], active, ., data)
+
+/obj/item/device/radiojammer/Topic(href, href_list)
+	..()
+
+	if(href_list["set_active"])
+		active = text2num(href_list["set_active"])
+		update_icon()
+
+	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
+	ui.check_for_change()
 
 /obj/item/device/radiojammer/emp_act()
 	toggle()
@@ -74,14 +72,11 @@ var/list/active_radio_jammers = list()
 	else
 		if(user)
 			to_chat(user, SPAN_NOTICE("You activate \the [src]."))
-		if(selected_active_level != JAMMER_BINARY)
-			active = selected_active_level
-		else
-			active = JAMMER_ALL
+		active = JAMMER_ALL
 	update_icon()
 
 /obj/item/device/radiojammer/update_icon()
-	if(active)
+	if(active > 0)
 		active_radio_jammers += src
 		icon_state = icon_state_active
 	else
@@ -98,7 +93,6 @@ var/list/active_radio_jammers = list()
 	// 10 seconds of operation on a standard cell. 200 (roughly 3 minutes) on a super cap.
 	var/power_drain_per_second = 100
 	var/last_updated = null
-	selected_active_level = JAMMER_BINARY
 	radius = 5
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "improvised_jammer_inactive"
@@ -153,7 +147,7 @@ var/list/active_radio_jammers = list()
 	return ..()
 
 /obj/item/device/radiojammer/improvised/update_icon()
-	if(active)
+	if(active > 0)
 		active_radio_jammers += src
 		icon_state = icon_state_active
 		START_PROCESSING(SSprocessing, src)
