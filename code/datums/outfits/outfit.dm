@@ -200,18 +200,16 @@
 		H.equip_or_collect(I, slot_wear_id)
 
 	if(allow_headset_choice)
-		switch(H.headset_choice)
+		var/use_job_specific = H.headset_style == TRUE
+		switch(H.headset)
 			if (1)
 				headset = null
 			if (2)
-				headset = headset
+				headset = use_job_specific ? headset : /obj/item/storage/backpack
+			if (3)
+				headset = use_job_specific ? bowman : /obj/item/storage/backpack/satchel_norm
 			else
-				headset = bowman
-
-	if(headset && !visualsOnly)
-		var/obj/item/I = new headset(H)
-		I.update_icon()
-		H.equip_or_collect(I, slot_wear_id)
+				headset = headset
 
 	if(id)
 		var/obj/item/modular_computer/P = H.wear_id
