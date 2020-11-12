@@ -64,6 +64,10 @@
 	if(..())
 		return TRUE
 
+	if(issilicon(usr) && !computer.Adjacent(usr))
+		to_chat(usr, SPAN_WARNING("Remote transmissions to this program is prohibited!"))
+		return TRUE
+
 	//Try and get the pin if a pin is passed
 	var/obj/item/device/firing_pin/wireless/P = null
 	if(href_list["pin"])
