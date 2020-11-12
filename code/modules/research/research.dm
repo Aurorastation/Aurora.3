@@ -11,7 +11,6 @@ with these since they should be the default version of the datums. They're actua
 refer to them since it makes it a bit easier to search through them for specific information.
 - know_tech is the companion list to possible_tech. It's the tech you can actually research and improve. Until it's added to this
 list, it can't be improved. All the tech in this list are visible to the player.
-- possible_designs is functionally identical to possbile_tech except it's for /datum/design.
 - known_designs is functionally identical to known_tech except it's for /datum/design
 
 Procs:
@@ -23,7 +22,7 @@ it doesn't have it, it adds it. Note: It does NOT check possible_tech at all. So
 a player made tech?) you can.
 - AddDesign2Known: Same as AddTech2Known except for /datum/design and known_designs.
 - RefreshResearch: This is the workhorse of the R&D system. It updates the /datum/research holder and adds any unlocked tech paths
-and designs you have reached the requirements for. It only checks through possible_tech and possible_designs, however, so it won't
+and designs you have reached the requirements for. It only checks through possible_tech and designs, however, so it won't
 accidentally add "secret" tech to it.
 - UpdateTech is used as part of the actual researching process. It takes an ID and finds techs with that same ID in known_tech. When
 it finds it, it checks to see whether it can improve it at all. If the known_tech's level is less then or equal to
@@ -44,11 +43,13 @@ research holder datum.
 **	Includes all the helper procs and basic tech processing.  **
 ***************************************************************/
 
+// Global design lists
+var/global/list/designs = null
+var/global/list/designs_protolathe_categories = list()
+var/global/list/designs_imprinter_categories = list()
+
 /datum/research								//Holder for all the existing, archived, and known tech. Individual to console.
 	var/list/known_tech = list()			//List of locally known tech. Datum/tech go here.
-	var/list/possible_designs = list()		//List of all designs.
-	var/list/protolathe_categories = list()
-	var/list/imprinter_categories = list()
 	var/list/known_designs = list()			//List of available designs.
 
 	var/standard_start_level				// The level non-antag techs are set at
@@ -67,14 +68,8 @@ research holder datum.
 			else
 				if(antag_start_level)
 					T.level = antag_start_level
-	if(load_designs)
-		for(var/design_path in subtypesof(/datum/design))
-			var/datum/design/D = new design_path(src)
-			if(D.build_type & PROTOLATHE)
-				protolathe_categories |= D.p_category
-			if(D.build_type & IMPRINTER)
-				imprinter_categories |= D.p_category
-			possible_designs[D.type] = D
+	if(load_designs && isnull(designs))
+		InitializeDesigns()
 	RefreshResearch()
 
 /datum/research/techonly
@@ -82,6 +77,16 @@ research holder datum.
 
 /datum/research/hightech
 	standard_start_level = 3
+
+/datum/research/proc/InitializeDesigns()
+	designs = list()
+	for(var/T in subtypesof(/datum/design))
+		var/datum/design/D = new T
+		designs[D.type] = D
+		if(D.build_type & PROTOLATHE)
+			designs_protolathe_categories |= D.p_category
+		if(D.build_type & IMPRINTER)
+			designs_imprinter_categories |= D.p_category
 
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
@@ -123,10 +128,11 @@ research holder datum.
 //Input/Output: n/a
 /datum/research/proc/RefreshResearch()
 	known_designs.Cut() // this is to refresh the ordering of the designs, the alternative is an expensive insertion or sorting proc
-	for(var/path in possible_designs)
-		var/datum/design/PD = possible_designs[path]
-		if(DesignHasReqs(PD))
-			AddDesign2Known(PD)
+	if(load_designs)
+		for(var/path in designs)
+			var/datum/design/PD = designs[path]
+			if(DesignHasReqs(PD))
+				AddDesign2Known(PD)
 	for(var/id in known_tech)
 		var/datum/tech/T = known_tech[id]
 		T.level = between(0, T.level, MAX_TECH_LEVEL)

@@ -31,7 +31,7 @@ var/hadevent    = 0
 
 	var/list/area/areas = list()
 	for(var/area/A in the_station_areas)
-		if(istype(A, /area/security/prison) || istype(A, /area/security/brig))
+		if(A.is_prison())
 			areas += A
 
 	if(areas && areas.len > 0)

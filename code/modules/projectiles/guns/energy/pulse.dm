@@ -39,4 +39,5 @@
 	icon = 'icons/obj/guns/pulse_pistol.dmi'
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
+	offhand_accuracy = 1
 	max_shots = 5

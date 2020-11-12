@@ -15,7 +15,8 @@
 	return 0
 
 /obj/item/proc/GetAccess()
-	return list()
+	var/obj/item/card/id = GetID()
+	return istype(id) ? id.GetAccess() : list()
 
 /obj/proc/GetID()
 	return null

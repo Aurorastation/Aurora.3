@@ -12,6 +12,7 @@ var/list/floor_light_cache = list()
 	active_power_usage = 20
 	power_channel = LIGHT
 	matter = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 2750)
+	recyclable = TRUE
 
 	var/on
 	var/on_state = "on"

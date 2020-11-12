@@ -205,8 +205,6 @@ var/global/list/frozen_crew = list()
 		/obj/item/implant,
 		/obj/item/card/id,
 		/obj/item/modular_computer,
-		/obj/item/device/pda,
-		/obj/item/cartridge,
 		/obj/item/device/radio/headset,
 		/obj/item/device/encryptionkey
 	)

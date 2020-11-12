@@ -42,6 +42,7 @@ datum/preferences
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1
+	var/pda_choice = 2
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -65,6 +66,7 @@ datum/preferences
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
+	var/autohiss_setting = AUTOHISS_OFF
 	var/list/gear						// Custom/fluff item loadout.
 	var/list/gear_list = list()			//Custom/fluff item loadouts.
 	var/gear_slot = 1					//The current gear save slot
@@ -284,6 +286,10 @@ datum/preferences
 	if(!client)
 		return
 
+	var/mob/abstract/new_player/NP = client.mob
+	if(istype(NP) && istype(NP.late_choices_ui)) // update character icon in late-choices UI
+		NP.late_choices_ui.update_character_icon()
+
 	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
 	if(!BG)
 		BG = new
@@ -467,6 +473,11 @@ datum/preferences
 		backbag = 1 //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
+
+	if(pda_choice > 8 || pda_choice < 1)
+		pda_choice = 2
+
+	character.pda_choice = pda_choice
 
 	if(icon_updates)
 		character.force_update_limbs()

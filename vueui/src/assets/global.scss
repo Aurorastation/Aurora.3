@@ -1,6 +1,9 @@
 @import 'icons.scss';
+@import 'variables.scss';
+@import 'utilities.scss';
 @import 'theme-basic.scss';
 @import 'theme-nano.scss';
+@import 'departmental.scss';
 
 .dark-theme {
     color: #ffffff;
@@ -8,7 +11,7 @@
 
 // A global stylesheet to make all thing look decent
 body {
-    font-size: 14px;
+    font-size: map-get($font-sizes, 'normal');
     margin: 0px;
     padding: 8px;
     font-family: Arial, Helvetica, sans-serif;

@@ -22,6 +22,11 @@
 	origin_oldloc = get_turf(origin)
 	target = beam_target
 	target_oldloc = get_turf(target)
+
+	if(!origin || !target || !target_oldloc || !origin_oldloc || get_dist(origin_oldloc, target_oldloc) >= max_distance || origin_oldloc.z != target_oldloc.z)
+		qdel(src)
+		return
+
 	sleep_time = beam_sleep_time
 	if(origin_oldloc == origin && target_oldloc == target)
 		static_beam = TRUE
@@ -88,7 +93,7 @@
 	return ..()
 
 /datum/beam/proc/Draw()
-	var/Angle = round(Get_Angle(get_turf(origin), get_turf(target)))
+	var/Angle = round(Get_Angle(origin.x ? origin : get_turf(origin), target.x ? target : get_turf(target)))
 	var/matrix/rot_matrix = matrix()
 	rot_matrix.Turn(Angle)
 
@@ -99,45 +104,32 @@
 	var/length = round(sqrt((DX)**2+(DY)**2)) //hypotenuse of the triangle formed by target and origin's displacement
 
 	for(N in 0 to length-1 step world.icon_size)//-1 as we want < not <=, but we want the speed of X in Y to Z and step X
-		var/obj/effect/ebeam/X = new beam_type(origin_oldloc)
-		X.owner = src
-		elements += X
+		var/obj/effect/ebeam/segment = new beam_type(origin_oldloc)
+		segment.owner = src
+		elements += segment
 
 		//Assign icon, for main segments it's base_icon, for the end, it's icon+icon_state
 		//cropped by a transparent box of length-N pixel size
-		if(N+world.icon_size>length)
+		if(N + world.icon_size > length)
 			var/icon/II = new(icon, icon_state)
-			II.DrawBox(null,1,(length-N),world.icon_size,world.icon_size)
-			X.icon = II
+			II.DrawBox(null, 1, (length-N), world.icon_size, world.icon_size)
+			segment.icon = II
 		else
-			X.icon = base_icon
-		X.transform = rot_matrix
+			segment.icon = base_icon
+		segment.transform = rot_matrix
 
 		//Calculate pixel offsets (If necessary)
-		var/Pixel_x
-		var/Pixel_y
-		if(DX == 0)
-			Pixel_x = 0
-		else
-			Pixel_x = round(sin(Angle)+world.icon_size*sin(Angle)*(N+16)/world.icon_size)
-		if(DY == 0)
-			Pixel_y = 0
-		else
-			Pixel_y = round(cos(Angle)+world.icon_size*cos(Angle)*(N+16)/world.icon_size)
+		var/x_offset = round(sin(Angle) * (N + world.icon_size/2))
+		var/y_offset = round(cos(Angle) * (N + world.icon_size/2))
+		//Position the effect so the beam is one continuous line
+		segment.x += SIMPLE_SIGN(x_offset) * Floor(abs(x_offset)/world.icon_size)
+		x_offset %= world.icon_size
 
-		//Position the effect so the beam is one continous line
-		var/a
-		if(abs(Pixel_x)>world.icon_size)
-			a = Pixel_x > 0 ? round(Pixel_x/world.icon_size) : Ceiling(Pixel_x/world.icon_size)
-			X.x += a
-			Pixel_x %= world.icon_size
-		if(abs(Pixel_y)>world.icon_size)
-			a = Pixel_y > 0 ? round(Pixel_y/world.icon_size) : Ceiling(Pixel_y/world.icon_size)
-			X.y += a
-			Pixel_y %= world.icon_size
+		segment.y += SIMPLE_SIGN(y_offset) * Floor(abs(y_offset)/world.icon_size)
+		y_offset %= world.icon_size
 
-		X.pixel_x = Pixel_x
-		X.pixel_y = Pixel_y
+		segment.pixel_x = x_offset
+		segment.pixel_y = y_offset
 		CHECK_TICK
 	afterDraw()
 
@@ -173,6 +165,25 @@
 	for(var/beam in elements)
 		var/obj/effect/ebeam/B = beam
 		B.color = set_color
+
+/datum/beam/power
+	var/obj/item/computer_hardware/tesla_link/charging_cable/owner
+
+/datum/beam/power/End()
+	owner.beam = null
+	owner.untether(FALSE)
+	return ..()
+
+/datum/beam/power/get_x_translation_vector()
+	return (world.icon_size * target_oldloc.x + target.pixel_x) - (world.icon_size * origin_oldloc.x + origin.pixel_x)
+
+/datum/beam/power/get_y_translation_vector()
+	return (world.icon_size * target_oldloc.y + target.pixel_y) - (world.icon_size * origin_oldloc.y + origin.pixel_y)
+
+/datum/beam/power/afterDraw()
+	for(var/beam in elements)
+		var/obj/effect/ebeam/B = beam
+		B.color = COLOR_GRAY40
 
 /obj/effect/ebeam
 	mouse_opacity = 0

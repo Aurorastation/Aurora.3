@@ -167,26 +167,27 @@
 					if(component_check)
 						playsound(get_turf(src), P.usesound, 50, TRUE)
 						var/obj/machinery/new_machine = new circuit.build_path(loc, dir, FALSE)
-						if(new_machine.component_parts)
-							new_machine.component_parts.Cut()
-						else
-							new_machine.component_parts = list()
-						circuit.construct(new_machine)
-
-						for(var/obj/O in src)
-							if(circuit.contain_parts) // things like disposal don't want their parts in them
-								O.forceMove(new_machine)
+						if(istype(new_machine))
+							if(new_machine.component_parts)
+								new_machine.component_parts.Cut()
 							else
-								O.forceMove(null)
-							new_machine.component_parts += O
+								new_machine.component_parts = list()
+							circuit.construct(new_machine)
 
-						if(circuit.contain_parts)
-							circuit.forceMove(new_machine)
-						else
-							circuit.forceMove(null)
+							for(var/obj/O in src)
+								if(circuit.contain_parts) // things like disposal don't want their parts in them
+									O.forceMove(new_machine)
+								else
+									O.forceMove(null)
+								new_machine.component_parts += O
 
-						new_machine.RefreshParts()
-						new_machine.anchored = TRUE
+							if(circuit.contain_parts)
+								circuit.forceMove(new_machine)
+							else
+								circuit.forceMove(null)
+
+							new_machine.RefreshParts()
+							new_machine.anchored = TRUE
 						qdel(src)
 				else
 					if(istype(P, /obj/item))

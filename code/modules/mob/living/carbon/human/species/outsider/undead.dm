@@ -29,7 +29,7 @@
 	siemens_coefficient = 0
 	ethanol_resistance = -1 //no drunk skeletons
 	taste_sensitivity = TASTE_NUMB
-	breakcuffs = list(MALE, FEMALE, NEUTER)
+	break_cuffs = TRUE
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
@@ -174,7 +174,7 @@
 
 	ethanol_resistance = -1
 	taste_sensitivity = TASTE_NUMB
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 
 	has_organ = list(
 		"zombie" =    /obj/item/organ/internal/parasite/zombie,

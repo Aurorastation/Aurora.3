@@ -5,8 +5,4 @@
 	. = ..()
 	if(!.)
 		return
-	var/dat
-	dat += "<h4>Crew Manifest</h4>"
-	dat += SSrecords.get_manifest()
-
-	user << browse(dat, "window=manifest;size=370x420;can_close=1")
+	SSrecords.open_manifest_vueui(user)

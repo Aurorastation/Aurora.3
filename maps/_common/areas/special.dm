@@ -5,6 +5,7 @@
 	name = "CentComm Solitary Confinement"
 	icon_state = "brig"
 	centcomm_area = 1
+	flags = PRISON
 
 /area/centcom
 	name = "Centcom"
@@ -78,6 +79,7 @@
 /area/centcom/legion
 	name = "BLV The Tower - Deck 1"
 	icon_state = "blvtower"
+	flags = NO_CREW_EXPECTED
 
 /area/centcom/legion/hangar5
 	name = "BLV The Tower - Hangar 5"
@@ -96,6 +98,7 @@
 	dynamic_lighting = 1
 	no_light_control = 1
 	centcomm_area = 1
+	flags = NO_CREW_EXPECTED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/merchant_station/warehouse
@@ -111,6 +114,7 @@
 	requires_power = FALSE
 	no_light_control = TRUE
 	centcomm_area = TRUE
+	flags = NO_CREW_EXPECTED
 
 /area/antag/mercenary
 	name = "Mercenary Barracks"
@@ -143,6 +147,7 @@
 	sound_env = ARENA
 	no_light_control = 1
 	centcomm_area = 1
+	flags = NO_CREW_EXPECTED
 
 /area/tdome/tdome1
 	name = "Thunderdome (Team 1)"
@@ -169,6 +174,7 @@
 	dynamic_lighting = 1
 	no_light_control = 0
 	base_turf = /turf/space
+	flags = NO_CREW_EXPECTED
 
 /area/kataphract_chapter/bridge
 	name = "Kataphract Chapter - Bridge"

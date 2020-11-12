@@ -67,7 +67,6 @@
 	name = "shrapnel" //'shrapnel' sounds more dangerous (i.e. cooler) than 'pellet'
 	icon_state = "pellets"
 	damage = 20
-	//icon_state = "bullet" //TODO: would be nice to have it's own icon state
 	var/pellets = 4			//number of pellets
 	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
@@ -163,6 +162,22 @@
 	embed = 0
 	sharp = 0
 	incinerate = 10
+
+/obj/item/projectile/bullet/tracking
+	name = "tracking shot"
+	damage = 20
+	embed_chance = 60 // this thing was designed to embed, so it has a 80% base chance to embed (damage + this flat increase)
+	agony = 20
+	shrapnel_type = /obj/item/implant/tracking
+
+/obj/item/projectile/bullet/tracking/do_embed(obj/item/organ/external/organ)
+	. = ..()
+	if(.)
+		var/obj/item/implant/tracking/T = .
+		T.implanted = TRUE
+		T.imp_in = organ.owner
+		T.part = organ
+		LAZYADD(organ.implants, T)
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding

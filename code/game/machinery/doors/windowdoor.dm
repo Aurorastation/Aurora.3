@@ -9,7 +9,6 @@
 	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
 	health = 150
 	visible = 0.0
-	use_power = 0
 	flags = ON_BORDER
 	opacity = 0
 	var/obj/item/airlock_electronics/electronics = null
@@ -73,6 +72,14 @@
 		var/time = check_access(null) ? 50 : 20
 		addtimer(CALLBACK(src, .proc/close), time)
 
+/obj/machinery/door/window/allowed(mob/M)
+	. = ..()
+	if(inoperable()) // Unpowered windoors can just be slid open
+		return TRUE
+	use_power(50) // Just powering the RFID and maybe a weak motor
+	if(operable() && . == FALSE)
+		flick("[base_state]deny", src)
+
 /obj/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASSGLASS))
 		return 1
@@ -90,35 +97,34 @@
 	else
 		return 1
 
-/obj/machinery/door/window/open()
-	if (!ROUND_IS_STARTED)
+/obj/machinery/door/window/open(var/forced=FALSE)
+	if(!can_open() && !forced)
 		return FALSE
-	if(can_open())
-		operating = TRUE
-		flick("[base_state]opening", src)
-		playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-		icon_state = "[base_state]open"
-		sleep(10)
+	operating = TRUE
+	flick("[base_state]opening", src)
+	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
+	icon_state = "[base_state]open"
+	sleep(1 SECOND)
 
-		explosion_resistance = 0
-		src.density = FALSE
-		update_nearby_tiles()
-		operating = FALSE
-		return 1
+	explosion_resistance = 0
+	density = FALSE
+	update_nearby_tiles()
+	operating = FALSE
+	return TRUE
 
-/obj/machinery/door/window/close()
-	if (operating || emagged == 1)
+/obj/machinery/door/window/close(var/forced=FALSE)
+	if (!can_close() && !forced)
 		return FALSE
 	operating = TRUE
 	flick("[base_state]closing", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	src.icon_state = src.base_state
+	icon_state = base_state
 
-	src.density = TRUE
+	density = TRUE
 	explosion_resistance = initial(explosion_resistance)
 	update_nearby_tiles()
 
-	sleep(10)
+	sleep(1 SECOND)
 
 	operating = FALSE
 	return 1
@@ -129,22 +135,16 @@
 		shatter()
 		return
 
-/obj/machinery/door/window/attack_ai(mob/user as mob)
-	if(!ai_can_interact(user))
-		return
-	return src.attack_hand(user)
-
 /obj/machinery/door/window/attack_hand(mob/user as mob)
-
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		if(H.species.can_shred(H))
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-			user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
-			take_damage(25)
-			return
-	return src.attackby(user, user)
+	var/mob/living/carbon/human/H = user
+	if(istype(H) && H.species.can_shred(H))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
+		user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
+		take_damage(25)
+		return
+	else if(operable())
+		return attackby(user, user)
 
 /obj/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
 	if (density && operable())
@@ -197,14 +197,17 @@
 	if(!istype(I, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if (src.allowed(user))
+	if(allowed(user))
+		if(inoperable())
+			user.visible_message("\The [user] begins to manually [density ? "push" : "pull"] \the [src] [density ? "open" : "closed"]!",
+				"You begin to manually [density ? "push" : "pull"] \the [src] [density ? "open" : "closed"]!", "You hear the sound of a glass door [density ? "opening" : "closing"].")
+			if(!do_after(user, 1 SECOND, TRUE, src))
+				return
+			visible_message("\The [user] [density ? "pulls" : "pushes"] \the [src] [density ? "closed" : "open"].")
 		if (src.density)
 			open()
 		else
 			close()
-
-	else if (src.density)
-		flick("[base_state]deny", src)
 
 /obj/machinery/door/window/brigdoor
 	name = "secure door"
@@ -216,6 +219,17 @@
 	maxhealth = 300
 	health = 300.0 //Stronger doors for prison (regular window door health is 150)
 
+
+/obj/machinery/door/window/brigdoor/allowed(mob/M)
+	if(inoperable()) // Brigdoors are the exception to the "fail open" windoor - they lock closed
+		to_chat(M, SPAN_WARNING("\The [src] refuses to budge in its unpowered state."))
+		return FALSE
+	. = ..()
+
+/obj/machinery/door/window/brigdoor/power_change()
+	..()
+	if((stat & NOPOWER) && !density)
+		close(TRUE)
 
 /obj/machinery/door/window/northleft
 	dir = NORTH
