@@ -253,10 +253,7 @@
 /turf/simulated/wall,
 /area/janitor)
 "bF" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "bG" = (
 /obj/machinery/r_n_d/circuit_imprinter,
@@ -428,6 +425,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cP" = (
+/obj/structure/grille,
 /obj/structure/lattice,
 /turf/simulated/open/airless,
 /area/template_noop)
@@ -461,7 +459,7 @@
 /area/janitor)
 "db" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10
+	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
@@ -575,7 +573,7 @@
 /area/janitor)
 "dH" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9
+	dir = 5
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
@@ -584,10 +582,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "dJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
+/obj/structure/lattice,
+/obj/structure/grille/broken,
+/turf/simulated/open/airless,
 /area/template_noop)
 "dK" = (
 /obj/structure/window/reinforced{
@@ -646,7 +643,7 @@
 /area/janitor)
 "dZ" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
@@ -655,9 +652,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "ee" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/plating,
+/obj/structure/lattice,
+/turf/simulated/open/airless,
 /area/template_noop)
 "eu" = (
 /obj/structure/bed/chair/office/dark,
@@ -984,6 +980,11 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/janitor)
+"je" = (
+/obj/structure/railing/mapped,
+/obj/structure/closet/secure_closet/atmos_personal,
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 "jr" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1186,6 +1187,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/lino/grey,
+/area/janitor)
+"nz" = (
+/obj/machinery/door/airlock/atmos,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "nB" = (
 /obj/machinery/shower,
@@ -1433,6 +1438,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/grass/alt,
+/area/janitor)
+"ro" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "rp" = (
 /obj/machinery/door/airlock/medical,
@@ -2191,7 +2202,7 @@
 /area/janitor)
 "AT" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6
+	dir = 9
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
@@ -2301,6 +2312,10 @@
 "CL" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
+/area/janitor)
+"CM" = (
+/obj/effect/decal/fake_object,
+/turf/simulated/open,
 /area/janitor)
 "CY" = (
 /obj/machinery/door/airlock/engineering,
@@ -2990,6 +3005,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"Mv" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 "Mw" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
@@ -3082,7 +3101,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Ni" = (
-/obj/machinery/door/airlock/glass_atmos,
+/obj/machinery/door/airlock/atmos,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Nk" = (
@@ -3483,6 +3502,12 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"SA" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "SE" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
@@ -3518,6 +3543,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
+/area/janitor)
+"Tv" = (
+/obj/structure/closet/secure_closet/atmos_personal,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Tx" = (
 /obj/structure/table/reinforced,
@@ -3556,11 +3585,11 @@
 	},
 /area/janitor)
 "TO" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/janitor)
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "TR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3868,9 +3897,10 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Yl" = (
-/obj/structure/closet/secure_closet/atmos_personal,
-/turf/simulated/floor/tiled/dark,
-/area/janitor)
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Ym" = (
 /obj/machinery/vending/battlemonsters,
 /turf/simulated/floor/wood,
@@ -21436,11 +21466,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 Cm
-ad
+bF
+bF
+bF
+XX
 ad
 ad
 ad
@@ -21638,11 +21668,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 Cm
-ad
+bF
+bF
+bF
+XX
 ad
 ad
 ad
@@ -21840,11 +21870,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 Cm
-ad
+bF
+bF
+bF
+XX
 ad
 ad
 ad
@@ -22042,11 +22072,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 Cm
-ad
+bF
+bF
+bF
+XX
 ad
 ad
 ad
@@ -22244,13 +22274,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 Cm
-ad
-ad
-ad
+bF
+bF
+bF
+XX
+XX
+XX
 ad
 ad
 ad
@@ -22446,13 +22476,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 Cm
+Cm
+bF
+bF
+Uf
+ad
 XX
-ad
-ad
 ad
 ad
 ad
@@ -22649,9 +22679,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aW
+Cm
+Cm
+Cm
 Cm
 yr
 XX
@@ -22851,15 +22881,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aW
-im
-it
-im
-AN
 cP
-ar
+aa
+ee
+aa
+it
+aa
+ee
+aa
+Cm
 ad
 ad
 ad
@@ -23053,15 +23083,15 @@ aa
 aa
 aa
 aa
+cP
 aa
-aa
-aW
-im
+AT
+TO
+it
+TO
+SA
 ee
-im
-AN
-aa
-ar
+Cm
 ad
 ad
 ad
@@ -23255,15 +23285,15 @@ aa
 aa
 aa
 aa
-aa
+cP
 aa
 aW
 im
 it
 im
 AN
-cP
-ar
+aa
+Cm
 ad
 ad
 ad
@@ -23457,19 +23487,19 @@ aa
 aa
 aa
 aa
+cP
 aa
+aW
+im
+Yl
+im
+AN
 aa
-bF
-dJ
-it
-dJ
-AT
-aa
-ab
-ab
-ab
+XX
+XX
+XX
 bD
-ab
+XX
 XX
 XX
 XX
@@ -23659,15 +23689,15 @@ aa
 aa
 aa
 aa
+cP
 aa
-aa
-aa
-aa
+aW
+im
 it
+im
+AN
 aa
-aa
-aa
-ab
+XX
 Op
 pl
 cn
@@ -23861,14 +23891,14 @@ aa
 aa
 aa
 aa
-aa
+cP
 aa
 dH
 dZ
 it
 dZ
 db
-aa
+ee
 az
 qN
 NZ
@@ -24063,15 +24093,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aW
-im
-it
-im
-AN
 cP
-ab
+aa
+ee
+aa
+it
+aa
+ee
+aa
+XX
 qN
 NZ
 pt
@@ -24265,24 +24295,24 @@ aa
 aa
 aa
 aa
+cP
 aa
-aa
-aW
-im
+AT
+TO
+it
+TO
+SA
 ee
-im
-AN
-aa
 az
 qN
 NZ
 tN
-ab
-ab
-ab
-ab
+XX
+XX
+XX
+XX
 Rx
-ab
+XX
 XX
 XX
 sJ
@@ -24467,19 +24497,19 @@ aa
 aa
 aa
 aa
-aa
+cP
 aa
 aW
 im
 it
 im
 AN
-cP
-ab
+aa
+XX
 Hv
 NZ
 zr
-ab
+XX
 af
 aS
 aU
@@ -24669,19 +24699,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-bF
 dJ
-it
-dJ
-AT
 aa
-ab
+aW
+im
+Yl
+im
+AN
+aa
+XX
 Sc
 Sc
 Sc
-ab
+XX
 aK
 WO
 WO
@@ -24871,19 +24901,19 @@ aa
 aa
 aa
 aa
+cP
 aa
-aa
-aa
-aa
+aW
+im
 it
+im
+AN
 aa
-aa
-aa
-ab
+XX
 Op
 NZ
 Kv
-ab
+XX
 aP
 WO
 dI
@@ -25073,19 +25103,19 @@ aa
 aa
 aa
 aa
-aa
+cP
 aa
 dH
 dZ
 it
 dZ
 db
-aa
+ee
 az
 qN
 bb
 tN
-ab
+XX
 aP
 WO
 WO
@@ -25275,15 +25305,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aW
-im
-ee
-im
-AN
 cP
-ab
+aa
+ee
+aa
+it
+aa
+ee
+aa
+XX
 qN
 NZ
 tN
@@ -25477,19 +25507,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aW
-ar
+Cm
+Cm
+Cm
+Cm
 yr
-ab
-ab
-ab
-ab
+XX
+XX
+XX
+XX
 qN
 NZ
 tN
-ab
+XX
 aR
 aR
 WO
@@ -25678,25 +25708,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ar
-ab
+Cm
+Cm
+bF
+bF
+XX
 ad
-ad
+Uf
 ad
 ad
 WS
 qN
 NZ
 tN
-ab
-ab
-ab
-ab
-Rx
-ab
+XX
+XX
+XX
+XX
+nz
+XX
 XX
 bq
 XX
@@ -25880,26 +25910,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ar
+Cm
+bF
+bF
+bF
+XX
+XX
+XX
 ad
 ad
-ad
-ad
-ad
-ab
+XX
 qN
 NZ
 tN
-ab
+XX
+Mv
+Mv
+ro
 WO
 WO
-WO
-WO
-Yl
-ab
+XX
 ad
 ad
 ad
@@ -26082,26 +26112,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ar
+Cm
+bF
+bF
+bF
 ad
 ad
 ad
 ad
 ad
-ab
+XX
 qN
 bb
 tN
 Ni
 WO
+WO
 QF
 QF
 WO
-Yl
-ab
+XX
 ad
 ad
 ad
@@ -26284,26 +26314,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ar
+Cm
+bF
+bF
+bF
 ad
 ad
 ad
 ad
 ad
-ab
+XX
 Hv
 NZ
 zr
-ab
+XX
+Tv
+je
+CM
+VL
 WO
-VL
-VL
-TO
-Yl
-ab
+XX
 wH
 ad
 ad
@@ -26486,26 +26516,26 @@ ar
 ar
 ar
 ar
-ar
-ar
-ar
-ar
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Cm
+Cm
+Cm
+Cm
+XX
+XX
+XX
+XX
+XX
+XX
+XX
 WS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+XX
+XX
+XX
+XX
+XX
+XX
+XX
+XX
 ab
 ab
 ad
