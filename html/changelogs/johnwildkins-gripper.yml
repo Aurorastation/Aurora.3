@@ -3,4 +3,4 @@ author: JohnWildkins
 delete-after: True
 
 changes:
-  - bugfix: "Drop hotkey (Q) should not properly work to drop things held by robotic grippers."
+  - bugfix: "Drop hotkey (Q) should now properly work to drop things held by robotic grippers."
