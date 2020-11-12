@@ -93,6 +93,15 @@
 				return TRUE
 	return FALSE
 
+// Checks that all of the values are in the given list
+/proc/all_in_list(var/list/values, var/list/L)
+	if(!istype(values) || !istype(L))
+		return FALSE
+	for(var/value in values)
+		if(!(value in L))
+			return FALSE
+	return TRUE
+
 /proc/is_path_in_list(var/check_path, var/list/L)
 	for(var/path in L)
 		if(ispath(check_path, path))

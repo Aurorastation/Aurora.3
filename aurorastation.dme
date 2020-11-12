@@ -268,6 +268,7 @@
 #include "code\datums\computerfiles.dm"
 #include "code\datums\datum.dm"
 #include "code\datums\feedback.dm"
+#include "code\datums\late_choices.dm"
 #include "code\datums\mind.dm"
 #include "code\datums\mixed.dm"
 #include "code\datums\modules.dm"
