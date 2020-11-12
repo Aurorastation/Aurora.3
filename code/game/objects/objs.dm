@@ -1,12 +1,12 @@
 /obj
 	animate_movement = 2
 
-	
 	var/list/matter //Used to store information about the contents of the object.
+	var/recyclable = FALSE //Whether the object can be recycled (eaten) by something like the Autolathe
 	var/w_class // Size of the object.
 	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
 	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
-	
+
 	var/obj_flags //Special flags such as whether or not this object can be rotated.
 	var/throwforce = 1
 	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
@@ -50,7 +50,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>\icon[src]Access Denied!</span>")
+	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -159,13 +159,6 @@
 /obj/proc/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	if(talking_atom)
 		talking_atom.catchMessage(text, M)
-/*
-	var/mob/mo = locate(/mob) in src
-	if(mo)
-		var/rendered = "<span class='game say'><span class='name'>[M.name]: </span> <span class='message'>[text]</span></span>"
-		mo.show_message(rendered, 2)
-		*/
-	return
 
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
@@ -228,11 +221,11 @@
 /obj/proc/rotate(var/mob/user, var/anchored_ignore = FALSE)
 	if(use_check_and_message(user))
 		return
-	
+
 	if(anchored && !anchored_ignore)
 		to_chat(user, SPAN_WARNING("\The [src] is bolted down to the floor!"))
 		return
-	
+
 	set_dir(turn(dir, 90))
 	update_icon()
 
@@ -253,3 +246,12 @@
 // whether mobs can unequip and drop items into us or not
 /obj/proc/can_hold_dropped_items()
 	return TRUE
+
+/obj/proc/damage_flags()
+	. = 0
+	if(has_edge(src))
+		. |= DAM_EDGE
+	if(is_sharp(src))
+		. |= DAM_SHARP
+		if(damtype == BURN)
+			. |= DAM_LASER

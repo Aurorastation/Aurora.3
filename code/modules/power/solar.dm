@@ -204,7 +204,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "sp_base"
 	item_state = "electropack"
-	w_class = 4 // Pretty big!
+	w_class = ITEMSIZE_LARGE // Pretty big!
 	anchored = 0
 	var/tracker = 0
 	var/glass_type = null
@@ -399,7 +399,7 @@
 
 /obj/machinery/power/solar_control/attackby(var/obj/I, user as mob)
 	if(I.isscrewdriver())
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")

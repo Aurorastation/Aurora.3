@@ -4,6 +4,7 @@
 	icon_state = "coffin"
 	icon_closed = "coffin"
 	icon_opened = "coffin_open"
+	build_amt = 5
 
 /obj/structure/closet/coffin/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
@@ -11,7 +12,7 @@
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		if(W)
 			user.drop_from_inventory(W,loc)

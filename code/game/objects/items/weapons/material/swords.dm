@@ -7,7 +7,7 @@
 	item_state = "claymore"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
 	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
 	sharp = 1
@@ -17,7 +17,8 @@
 	can_embed = 0
 	var/parry_chance = 40
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 
 /obj/item/material/sword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1

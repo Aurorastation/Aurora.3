@@ -7,10 +7,11 @@
 	anchored = 1
 	density = 1
 	layer = ABOVE_CABLE_LAYER
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	var/state = 0
 	var/health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.
+	build_amt = 2
 	var/material/reinf_material
 	var/reinforcing = 0
 
@@ -150,7 +151,7 @@
 			return
 
 	else if(W.iswirecutter() && state == 1)
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
 		if(do_after(user,40/W.toolspeed))
 			if(!src) return
@@ -159,7 +160,7 @@
 			reset_girder()
 
 	else if(W.iscrowbar() && state == 0 && anchored)
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
@@ -264,11 +265,6 @@
 	state = 2
 	icon_state = "reinforced"
 	reinforcing = 0
-
-/obj/structure/girder/proc/dismantle()
-	new /obj/item/stack/material/steel(get_turf(src))
-	new /obj/item/stack/material/steel(get_turf(src))
-	qdel(src)
 
 /obj/structure/girder/attack_hand(mob/user as mob)
 	if (HULK in user.mutations)

@@ -231,7 +231,10 @@
 		/obj/item/material/minihoe,//Farmbots and xenoflora
 		/obj/item/computer_hardware,
 		/obj/item/slimesteroid,
-		/obj/item/slimesteroid2
+		/obj/item/slimesteroid2,
+		/obj/item/slimepotion,
+		/obj/item/slimepotion2,
+		/obj/item/remote_mecha
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
@@ -266,7 +269,8 @@
 		/obj/item/grown,
 		/obj/item/trash,
 		/obj/item/reagent_containers/cooking_container,
-		/obj/item/material/kitchen
+		/obj/item/material/kitchen,
+		/obj/item/reagent_containers/food/snacks
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

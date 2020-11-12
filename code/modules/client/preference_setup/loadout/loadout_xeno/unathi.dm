@@ -2,28 +2,33 @@
 	display_name = "hide mantle"
 	path = /obj/item/clothing/suit/unathi/mantle
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_robe/kilt
+	display_name = "wasteland kilt"
+	path = /obj/item/clothing/suit/unathi/robe/kilt
 
 /datum/gear/suit/robe_coat
 	display_name = "tzirzi robe"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi
 	display_name = "unathi gloves selection"
 	description = "A selection of unathi colored gloves."
 	path = /obj/item/clothing/gloves/black/unathi
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi/New()
@@ -42,7 +47,27 @@
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/sinta_ronin
+	display_name = "straw hat"
+	path = /obj/item/clothing/head/sinta_ronin
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/eyes/wasteland_goggles
+	display_name = "wasteland goggles"
+	path = /obj/item/clothing/glasses/safety/goggles/wasteland
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/accessory/sinta_hood
+	display_name = "clan hood"
+	slot = slot_head
+	path = /obj/item/clothing/accessory/sinta_hood
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -50,7 +75,7 @@
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
@@ -60,7 +85,7 @@
 	display_name = "mining grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Shaft Miner")
@@ -70,17 +95,17 @@
 	display_name = "medical grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Chemist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_security
 	display_name = "security grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
@@ -89,37 +114,38 @@
 /datum/gear/uniform/unathi/jizixi
 	display_name = "jizixi dress"
 	path = /obj/item/clothing/under/unathi/jizixi
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"
 	path = /obj/item/clothing/under/unathi/sashes
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/mogazali
 	display_name = "mogazali attire"
 	path = /obj/item/clothing/under/unathi/mogazali
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
 	path = /obj/item/clothing/under/unathi/zazali
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/huytai
 	display_name = "huytai outfit"
 	path = /obj/item/clothing/under/unathi/huytai
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/zozo
 	display_name = "zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi/wrapping_head
@@ -127,7 +153,7 @@
 	description = "Head wrappings with a breath mask. Only very traditional Th'akh Shamans would wear these."
 	path = /obj/item/clothing/mask/gas/wrapping
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -136,7 +162,7 @@
 	description = "Closed body wrappings. Only very traditional Th'akh Shamans would wear these."
 	path = /obj/item/clothing/suit/unathi/mantle/wrapping
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -145,7 +171,7 @@
 	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to be the 'Window to the Soul' and house the concentrated spirit of an individual."
 	path = /obj/item/organ/internal/anchor
 	cost = 1
-	whitelisted = list("Unathi")
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/augment/autakh/calf_override

@@ -3,7 +3,7 @@
 	desc = "A window."
 	icon = 'icons/obj/structures.dmi'
 	density = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	layer = 3.2//Just above doors
 	anchored = 1.0
 	flags = ON_BORDER
@@ -60,13 +60,13 @@
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, "glasscrack", 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, "glasscrack", 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, "glasscrack", 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -87,7 +87,7 @@
 	add_overlay(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
-	playsound(src, "shatter", 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(dir == SOUTHWEST)

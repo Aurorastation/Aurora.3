@@ -149,7 +149,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 					if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf))//Dont play sounds to deaf people
 						// If inside the blast radius + world.view - 2
 						if(dist <= closedist)
-							M.playsound_simple(epicenter, get_sfx("explosion"), min(100, volume), use_random_freq = TRUE, falloff = 5)
+							M.playsound_simple(epicenter, get_sfx(/decl/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
 							//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 
 						else
@@ -313,7 +313,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	var/close_dist = round(power + world.view - 2, 1)
 
-	var/sound/explosion_sound = sound(get_sfx("explosion"))
+	var/sound/explosion_sound = sound(get_sfx(/decl/sound_category/explosion_sound))
 
 	for (var/thing in player_list)
 		var/mob/M = thing
@@ -325,7 +325,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			CHECK_TICK
 			continue
 
-		if (!ARE_Z_CONNECTED(T.z, epicenter.z))
+		if (!AreConnectedZLevels(T.z, epicenter.z))
 			CHECK_TICK
 			continue
 

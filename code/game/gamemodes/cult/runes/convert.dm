@@ -65,7 +65,7 @@
 		if(!target.can_feel_pain())
 			target.visible_message(SPAN_WARNING("The markings below [target] glow a bloody red."))
 		else
-			target.visible_message(SPAN_WARNING("[target] writhes in pain as the markings below \him glow a bloody red."), SPAN_DANGER("AAAAAAHHHH!"))
+			target.visible_message(SPAN_WARNING("[target] writhes in pain as the markings below [target.get_pronoun("him")] glow a bloody red."), SPAN_DANGER("AAAAAAHHHH!"))
 
 		if(!waiting_for_input[target]) //so we don't spam them with dialogs if they hesitate
 			waiting_for_input[target] = TRUE

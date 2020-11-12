@@ -8,11 +8,32 @@
 	. = ..()
 
 /mob/living/carbon/Life()
-	..()
+	if(!..())
+		return
+
+	UpdateStasis()
 
 	// Increase germ_level regularly
 	if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
 		germ_level++
+
+	if(stat != DEAD && !InStasis())
+		//Breathing, if applicable
+		handle_breathing()
+
+		//Chemicals in the body
+		handle_chemicals_in_body()
+
+		//Random events (vomiting etc)
+		handle_random_events()
+
+		// eye, ear, brain damages
+		handle_disabilities()
+
+		//all special effects, stunned, weakened, jitteryness, hallucination, sleeping, etc
+		handle_statuses()
+
+		. = 1
 
 /mob/living/carbon/Destroy()
 	QDEL_NULL(touching)
@@ -86,7 +107,7 @@
 
 	if(M.a_intent != I_HELP)
 		var/action
-		switch(a_intent)
+		switch(M.a_intent)
 			if(I_GRAB)
 				action = "grabbed"
 			if(I_DISARM)
@@ -112,7 +133,6 @@
 			visible_message(SPAN_NOTICE("[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
-	return
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	if(status_flags & GODMODE)
@@ -123,7 +143,7 @@
 		return 0
 
 	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
-	playsound(loc, "sparks", 50, 1, -1)
+	playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			SPAN_WARNING("[src] was shocked by the [source]!"), \
@@ -235,10 +255,14 @@
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
 					status += SPAN_DANGER("bleeding")
-				if(status.len)
-					src.show_message("My [org.name] is [SPAN_WARNING("[english_list(status)].")]", 1)
+				var/output = ""
+				if(length(status))
+					output = "My [org.name] is [SPAN_WARNING("[english_list(status)].")]"
 				else
-					src.show_message("My [org.name] feels [SPAN_NOTICE("OK.")]" ,1)
+					output = "My [org.name] feels [SPAN_NOTICE("OK.")]"
+				if(length(org.implants))
+					output += " [SPAN_WARNING("I can feel something inside it.")]"
+				to_chat(src, output)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -446,3 +470,26 @@
 
 /mob/living/carbon/proc/should_have_organ(var/organ_check)
 	return 0
+
+/mob/living/carbon/proc/SetStasis(var/factor, var/source = "misc")
+	if((species && (species.flags & NO_SCAN)) || isSynthetic())
+		return
+	stasis_sources[source] = factor
+
+/mob/living/carbon/InStasis()
+	if(!stasis_value)
+		return FALSE
+	return life_tick % stasis_value
+
+// call only once per run of life
+/mob/living/carbon/proc/UpdateStasis()
+	stasis_value = 0
+	if((species && (species.flags & NO_SCAN)) || isSynthetic())
+		return
+	for(var/source in stasis_sources)
+		stasis_value += stasis_sources[source]
+	stasis_sources.Cut()
+
+/mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(eyecheck() < intensity || override_blindness_check)
+		return ..()

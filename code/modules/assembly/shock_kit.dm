@@ -4,17 +4,16 @@
 	icon_state = "shock_kit"
 	var/obj/item/clothing/head/helmet/part1 = null
 	var/obj/item/device/radio/electropack/part2 = null
-	var/status = 0
-	w_class = 5.0
+	var/status = FALSE
+	w_class = ITEMSIZE_HUGE
 	flags = CONDUCT
 
 /obj/item/assembly/shock_kit/Destroy()
 	qdel(part1)
 	qdel(part2)
-
 	return ..()
 
-/obj/item/assembly/shock_kit/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/assembly/shock_kit/attackby(obj/item/W, mob/user)
 	if(W.iswrench() && !status)
 		var/turf/T = loc
 		if(ismob(T))
@@ -29,18 +28,17 @@
 		return
 	if(W.isscrewdriver())
 		status = !status
-		to_chat(user, "<span class='notice'>[src] is now [status ? "secured" : "unsecured"]!</span>")
+		var/msg = "[src] is now [status ? "secured" : "unsecured"]!"
+		to_chat(user, SPAN_NOTICE(msg))
 	add_fingerprint(user)
 	return
 
-/obj/item/assembly/shock_kit/attack_self(mob/user as mob)
+/obj/item/assembly/shock_kit/attack_self(mob/user)
 	part1.attack_self(user, status)
 	part2.attack_self(user, status)
 	add_fingerprint(user)
-	return
 
 /obj/item/assembly/shock_kit/receive_signal()
 	if(istype(loc, /obj/structure/bed/chair/e_chair))
 		var/obj/structure/bed/chair/e_chair/C = loc
 		C.shock()
-	return

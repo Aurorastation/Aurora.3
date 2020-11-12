@@ -13,7 +13,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	item_state = "pen"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	flags = CONDUCT
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	attack_verb = list("poked")
 	var/emagged = FALSE
 	var/fail_message = "<span class='warning'>INVALID USER.</span>"
@@ -30,6 +30,10 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	if(istype(loc, /obj/item/gun))
 		gun = loc
 
+/obj/item/device/firing_pin/proc/examine_info() // Part of what allows people to see what firing mode  their wireless control pin is in. Returns nothing here if there's no wireless-control firing pin.
+		return
+
+
 /obj/item/device/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)
 		if(istype(target, /obj/item/gun))
@@ -45,10 +49,10 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 			else
 				to_chat(user, "<span class ='notice'>This firearm already has a firing pin installed.</span>")
 
-/obj/item/device/firing_pin/emag_act(mob/user)
+/obj/item/device/firing_pin/emag_act()
 	if(!emagged)
 		emagged = TRUE
-		to_chat(user, "<span class='notice'>You override the authentication mechanism.</span>")
+		to_chat(get_holding_mob(src), "<span class='notice'>You override the authentication mechanism.</span>")
 
 /obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
@@ -223,3 +227,134 @@ Pins Below.
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)
 	return !isStationLevel(T.z)
+
+var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+
+/obj/item/device/firing_pin/wireless
+	name = "wireless-control firing pin"
+	desc = "This firing pin is wirelessly controlled. On automatic mode it allow allows weapons to be fired on stun unless the alert level is elevated. Otherwise, it can be controlled from a firearm control console."
+	fail_message = "<span class='warning'>The wireless-control firing pin clicks!</span>"
+	var/registered_user = null
+	var/lockstatus = WIRELESS_PIN_AUTOMATIC
+
+/obj/item/device/firing_pin/wireless/examine_info(mob/user)
+	var/wireless_description
+	switch(lockstatus)
+		if(WIRELESS_PIN_AUTOMATIC)
+			wireless_description = "is in automatic mode"
+		if(WIRELESS_PIN_DISABLED)
+			wireless_description = "has locked the trigger"
+		if(WIRELESS_PIN_STUN)
+			wireless_description = "is in stun-only mode"
+		if(WIRELESS_PIN_LETHAL)
+			wireless_description = "is in unrestricted mode"
+	to_chat(user, "The wireless-control firing pin [wireless_description].")
+
+/obj/item/device/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
+	wireless_firing_pins += src
+	return ..()
+
+/obj/item/device/firing_pin/wireless/Destroy() //Removes the wireless pins from the list of initialized wireless firing pins.
+	wireless_firing_pins -= src
+	return ..()
+
+/*
+	The return of this pin_auth is dependent on the wireless pin's lockstatus. For the purposes of this, only energy projectiles
+	that have a taser_effect are considered "stun" projectiles. All ballistic firearms are considered as being lethal, regardless
+	of ammunition loaded. Behaviours should be as follows:
+	Automatic: The weapon will only fire on stun while the security level is Green or Blue. On Yellow, Red & Delta alert the weapon is unrestricted
+	Disabled: The weapon will not fire under any circumstance.
+	Stun-Only: The weapon will only fire on stun regardless of the current security level.
+	Lethal: The weapon will fire on all modes regardless of the current security level.
+*/
+/obj/item/device/firing_pin/wireless/pin_auth(mob/living/user)
+	if(!registered_user)
+		fail_message = "Unable to fire - User not registered"
+		return FALSE
+
+	if(emagged)
+		return TRUE
+
+	if(lockstatus == WIRELESS_PIN_DISABLED)
+		fail_message = "Unable to fire - Weapon Disabled"
+		return FALSE
+
+	else if(lockstatus == WIRELESS_PIN_LETHAL)
+		return TRUE
+
+	else if(lockstatus == WIRELESS_PIN_STUN)
+		if(istype(gun, /obj/item/gun/energy))
+			var/obj/item/gun/energy/EG = gun
+			var/obj/item/projectile/energy/P = new EG.projectile_type
+			if(!P)
+				fail_message = "Unable to fire - Internal Error"
+				return FALSE
+			if(!P.taser_effect)
+				fail_message = "Unable to fire - Weapon not in stun-mode"
+				return FALSE
+			return TRUE
+		else
+			fail_message = "Unable to fire - Weapon has not stun-mode"
+			return FALSE
+
+	else //Automatic Mode
+		if(istype(gun, /obj/item/gun/energy))
+			var/obj/item/gun/energy/EG = gun
+			var/obj/item/projectile/energy/P = new EG.projectile_type
+			if(!P)
+				fail_message = "Unable to fire - Internal Error"
+				return FALSE
+			if(P.taser_effect) //The gun can always be used on stun
+				return TRUE
+			else if (security_level == SEC_LEVEL_YELLOW || security_level == SEC_LEVEL_RED)
+				return TRUE
+			else
+				fail_message = "Unable to fire - Insufficient security level for lethal mode"
+				return FALSE
+		else
+			if (security_level == SEC_LEVEL_YELLOW || security_level == SEC_LEVEL_RED)
+				return TRUE
+			else
+				fail_message = "Unable to fire - Insufficient security level for lethal mode"
+				return FALSE
+
+
+/obj/item/device/firing_pin/wireless/proc/set_mode(var/new_mode) // Changes the current lockstatus of the weapon, and sends a message and sfx to whoever is holding it.
+	var/mob/user = get_holding_mob(src)
+
+	if(new_mode == lockstatus)
+		return
+
+	else if(new_mode == WIRELESS_PIN_AUTOMATIC)
+		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to automatic.</b>"))
+		lockstatus = WIRELESS_PIN_AUTOMATIC
+
+	else if(new_mode == WIRELESS_PIN_DISABLED)
+		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
+		to_chat(user, SPAN_WARNING("<b>\The wireless-control firing pin locks \the [gun.name]'s trigger!</b>"))
+		lockstatus = WIRELESS_PIN_DISABLED
+
+	else if(new_mode == WIRELESS_PIN_STUN)
+		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to stun only.</b>"))
+		lockstatus = WIRELESS_PIN_STUN
+
+	else if(new_mode == WIRELESS_PIN_LETHAL)
+		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now unrestricted.</b>"))
+		lockstatus = WIRELESS_PIN_LETHAL
+
+	return
+
+/obj/item/device/firing_pin/wireless/attackby(obj/item/C, mob/user) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
+	if(istype(C, /obj/item/card/id))
+		var/obj/item/card/id/idcard = C
+		if(idcard.registered_name == registered_user)
+			to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it deregisters your identity."))
+			registered_user = null
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it chimes as it registers your identity."))
+		registered_user = idcard.registered_name
+		return TRUE
+	return FALSE

@@ -8,6 +8,7 @@
 	item_state = "colt"
 	caliber = ".45"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
@@ -51,6 +52,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
@@ -90,8 +92,9 @@
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "x9tactical"
 	item_state = "x9"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	offhand_accuracy = 1
 	load_method = MAGAZINE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shells = 16
@@ -114,6 +117,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
@@ -139,8 +143,9 @@
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	offhand_accuracy = 1
 	caliber = ".45"
 	silenced = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -223,8 +228,9 @@
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	accuracy = 1
+	offhand_accuracy = 2
 	caliber = "9mm"
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
@@ -276,7 +282,7 @@
 			to_chat(user, "<span class='notice'>You unscrew [silenced] from [src].</span>")
 			user.put_in_hands(silenced)
 			silenced = 0
-			w_class = 2
+			w_class = ITEMSIZE_SMALL
 			update_icon()
 			return
 	..()
@@ -289,7 +295,7 @@
 		user.drop_from_inventory(I,src)
 		to_chat(user, "<span class='notice'>You screw [I] onto [src].</span>")
 		silenced = I	//dodgy?
-		w_class = 3
+		w_class = ITEMSIZE_NORMAL
 		update_icon()
 		return
 	..()
@@ -315,7 +321,7 @@
 	desc = "A silencer"
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "silencer"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
@@ -354,19 +360,13 @@
 	icon_state = "leyon"
 	item_state = "leyon"
 	caliber = "10mm"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	ammo_type = /obj/item/ammo_casing/c10mm
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
-
-/obj/item/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)
-	user.visible_message("[user] begins reloading \the [src].", "You begin reloading \the [src].")
-	if(!do_after(user, 20, act_target = src))
-		return
-	return ..()
 
 /obj/item/gun/projectile/leyon/update_icon()
 	..()

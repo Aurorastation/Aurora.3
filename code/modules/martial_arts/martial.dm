@@ -69,7 +69,7 @@
 			if(!D.lying)
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
-				attack_message = "[A] attempted to strike [D], but \he rolled out of the way!"
+				attack_message = "[A] attempted to strike [D], but [D.get_pronoun("he")] rolled out of the way!"
 				D.set_dir(pick(cardinal))
 			miss_type = 1
 
@@ -89,7 +89,7 @@
 		D.visible_message("<span class='danger'>[attack_message]</span>")
 
 	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
-	A.attack_log += text("\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</font>")
+	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</span>")
 	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [A.name] ([A.ckey])</font>")
 	msg_admin_attack("[key_name(A)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
@@ -161,7 +161,7 @@
 		if(!A)
 			break
 		A.set_dir(i)
-		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
+		playsound(A.loc, "punch", 15, 1, -1)
 
 /obj/item/martial_manual
 	name = "SolCom manual"

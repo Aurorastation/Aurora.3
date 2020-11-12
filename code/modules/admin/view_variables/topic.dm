@@ -501,7 +501,7 @@
 			if("brute")	L.adjustBruteLoss(amount)
 			if("fire")	L.adjustFireLoss(amount)
 			if("toxin")	L.adjustToxLoss(amount)
-			if("oxygen")L.adjustOxyLoss(amount)
+			if("oxygen")   L.adjustOxyLoss(amount)
 			if(BP_BRAIN)	L.adjustBrainLoss(amount)
 			if("clone")	L.adjustCloneLoss(amount)
 			else
@@ -521,6 +521,6 @@
 	if(href_list["datumrefresh"])
 		var/datum/DAT = locate(href_list["datumrefresh"])
 		if(istype(DAT, /datum) || istype(DAT, /client))
-			debug_variables(DAT)
+			debug_variables_open(DAT, href_list["search"])
 
 	return

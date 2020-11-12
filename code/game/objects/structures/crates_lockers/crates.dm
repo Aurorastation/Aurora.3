@@ -8,10 +8,12 @@
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 	climbable = 1
-//	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
+	build_amt = 10
 	var/rigged = 0
 	var/tablestatus = 0
 	pass_flags = PASSTABLE
+
+	slowdown = 0
 
 
 /obj/structure/closet/crate/can_open()
@@ -110,9 +112,15 @@
 	else if(W.iswirecutter())
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
-			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
+	else if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else
+			attack_hand(user)
 	else return attack_hand(user)
 
 /obj/structure/closet/crate/ex_act(severity)
@@ -338,7 +346,14 @@
 		return ..()
 	if(istype(W, /obj/item/melee/energy/blade))
 		emag_act(INFINITY, user)
-	if(!opened)
+	if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else if(!opened)
+			togglelock(user)
+			return
+	else if(!opened)
 		togglelock(user)
 		return
 	return ..()
@@ -349,7 +364,7 @@
 		add_overlay(emag)
 		add_overlay(sparks)
 		CUT_OVERLAY_IN(sparks, 6)
-		playsound(loc, "sparks", 60, 1)
+		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
 		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
@@ -533,6 +548,15 @@
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
 
+/obj/structure/closet/crate/secure/aimodules
+	name = "AI modules crate"
+	desc = "A secure crate full of AI modules."
+	req_access = list(access_cent_specops)
+
+/obj/structure/closet/crate/secure/aimodules/fill()
+	for(var/moduletype in subtypesof(/obj/item/aiModule))
+		new moduletype(src)
+
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate."
@@ -690,7 +714,10 @@
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
 		"medicalcrate" = "medicalcrateopen",
-		"tcflcrate" = "tcflcrateopen"
+		"tcflcrate" = "tcflcrateopen",
+		"necrocrate" = "necrocrateopen",
+		"zenghucrate" = "zenghucrateopen",
+		"hephcrate" = "hephcrateopen"
 	)
 
 

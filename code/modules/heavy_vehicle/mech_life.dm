@@ -19,7 +19,6 @@
 				pilot.client.screen -= hud_elements
 				LAZYREMOVE(pilots, pilot)
 				UNSETEMPTY(pilots)
-		update_pilot_overlay()
 
 	if(radio)
 		radio.on = (head?.radio && head.radio.is_functional())
@@ -44,7 +43,7 @@
 
 /mob/living/heavy_vehicle/get_cell()
 	RETURN_TYPE(/obj/item/cell)
-	return body.cell
+	return body?.cell
 
 /mob/living/heavy_vehicle/proc/calc_power_draw()
 	var/total_draw = 0
@@ -128,13 +127,6 @@
 	explosion(T, -1, 0, 2)
 	qdel(src)
 	return
-
-/mob/living/heavy_vehicle/handle_status_effects()
-	..()
-	if(hallucination > 0)
-		hallucination--
-	else if(hallucination < 0)
-		hallucination = 0
 
 /mob/living/heavy_vehicle/handle_vision()
 	if(head)

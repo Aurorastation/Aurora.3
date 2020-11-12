@@ -1,7 +1,7 @@
 /obj/item
 	name = "item"
 	icon = 'icons/obj/items.dmi'
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/randpixel = 6
@@ -10,7 +10,7 @@
 	var/health
 	var/burn_point
 	var/burning
-	var/hitsound
+	var/hitsound = /decl/sound_category/swing_hit_sound//generic hit sound.
 	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
@@ -51,11 +51,11 @@
 	///Used when thrown into a mob
 	var/mob_throw_hit_sound
 	///Sound used when equipping the item into a valid slot
-	var/equip_sound
+	var/equip_sound = null
 	///Sound uses when picking the item up (into your hands)
-	var/pickup_sound = 'sound/items/pickup/device.ogg'
+	var/pickup_sound = /decl/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = 'sound/items/drop/device.ogg' // drop sound - this is the default
+	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -75,7 +75,7 @@
 	/* Species-specific sprites, concept stolen from Paradise//vg/.
 	ex:
 	sprite_sheets = list(
-		"Tajara" = 'icons/cat/are/bad'
+		BODYTYPE_TAJARA = 'icons/cat/are/bad'
 		)
 	If index term exists and icon_override is not set, this sprite sheet will be used.
 	*/
@@ -111,6 +111,8 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
 		)
+	pickup_sound = 'sound/items/pickup/device.ogg'
+	drop_sound = 'sound/items/drop/device.ogg'
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
@@ -285,9 +287,13 @@
 /obj/item/throw_impact(atom/hit_atom)
 	..()
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
+		var/mob/living/L = hit_atom
+		if(L.in_throw_mode)
+			playsound(hit_atom, pickup_sound, PICKUP_SOUND_VOLUME, TRUE)
+			return
 		var/volume = get_volume_by_throwforce_and_or_w_class()
-		if (throwforce > 0)
-			if (mob_throw_hit_sound)
+		if(throwforce > 0)
+			if(mob_throw_hit_sound)
 				playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
 			else if(hitsound)
 				playsound(hit_atom, hitsound, volume, TRUE, -1)
@@ -339,13 +345,13 @@
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
-	if((slot_flags & slot))
+	if(slot == slot_l_hand || slot == slot_r_hand)
+		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+	else if(slot_flags && slot)
 		if(equip_sound)
 			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
 		else
-			playsound(src, drop_sound, EQUIP_SOUND_VOLUME)
-	else if(slot == slot_l_hand || slot == slot_r_hand)
-		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+			playsound(src, drop_sound, DROP_SOUND_VOLUME)
 	return
 
 //Defines which slots correspond to which slot flags
@@ -428,7 +434,7 @@ var/list/global/slot_flags_enumeration = list(
 				if(!disable_warning)
 					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
 				return 0
-			if( !(istype(src, /obj/item/device/pda) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
+			if( !(istype(src, /obj/item/modular_computer) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))
@@ -579,7 +585,7 @@ var/list/global/slot_flags_enumeration = list(
 				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
 			)
 
-		eyes.damage += rand(3,4)
+		eyes.take_damage(rand(3,4))
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(M.stat != 2)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
@@ -663,7 +669,8 @@ var/list/global/slot_flags_enumeration = list(
 
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
-		M.show_message("<b>[user]</b> holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+		if(!user.is_invisible_to(M))
+			M.show_message("<b>[user]</b> holds up  [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -813,6 +820,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/attack_can_reach(var/atom/us, var/atom/them, var/range)
 	if(us.Adjacent(them))
 		return TRUE // Already adjacent.
+	else if(range <= 1)
+		return FALSE
 	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
 		return TRUE
 	return FALSE

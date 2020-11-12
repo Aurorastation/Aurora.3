@@ -71,6 +71,9 @@
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
 
+/obj/machinery/power/apc/low
+	cell_type = /obj/item/cell
+
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
 
@@ -118,7 +121,7 @@
 	use_power = 0
 	req_access = list(access_engine_equip)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	clicksound = "switch"
+	clicksound = /decl/sound_category/switch_sound
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell
@@ -483,12 +486,18 @@
 		return attack_hand(user)
 	if(!istype(W, /obj/item/forensics))
 		add_fingerprint(user)
+	if(istype(W, /obj/item/modular_computer))
+		var/obj/item/modular_computer/C = W
+		if(istype(C.tesla_link, /obj/item/computer_hardware/tesla_link/charging_cable))
+			var/obj/item/computer_hardware/tesla_link/charging_cable/CC = C.tesla_link
+			CC.toggle(src, user)
+			return
 	if (W.iscrowbar() && opened)
 		if (has_electronics == HAS_ELECTRONICS_CONNECT)
 			if (terminal)
 				to_chat(user, SPAN_WARNING("Disconnect wires first."))
 				return
-			playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(loc, W.usesound, 50, 1)
 			to_chat(user, "You are trying to remove the power control board...")
 			if(do_after(user, 50/W.toolspeed))
 				if (has_electronics == HAS_ELECTRONICS_CONNECT)
@@ -572,7 +581,7 @@
 			to_chat(user, "The wires have been [wiresexposed ? "exposed" : "unexposed"]")
 			update_icon()
 
-	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))			// trying to unlock the interface with an ID card
+	else if (W.GetID())			// trying to unlock the interface with an ID card
 		if(emagged)
 			to_chat(user, "The interface is broken.")
 		else if(opened != COVER_CLOSED)
@@ -653,9 +662,9 @@
 		user.visible_message(SPAN_WARNING("[user.name] welds [src]."), \
 							"You start welding the APC frame...", \
 							"You hear welding.")
-		playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+		playsound(loc, 'sound/items/welder.ogg', 50, 1)
 		if(do_after(user, 50/W.toolspeed))
-			if(!src || !WT.remove_fuel(3, user)) 
+			if(!src || !WT.remove_fuel(3, user))
 				return
 			if (emagged || (stat & BROKEN) || opened == COVER_REMOVED)
 				new /obj/item/stack/material/steel(loc)
@@ -737,9 +746,9 @@
 			if (WT.get_fuel() <1)
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return
-			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+			playsound(loc, 'sound/items/welder.ogg', 50, 1)
 			if(do_after(user, 10/W.toolspeed))
-				if(!src || !WT.remove_fuel(1, user)) 
+				if(!src || !WT.remove_fuel(1, user))
 					return
 				if ((stat & BROKEN))
 					new /obj/item/stack/material/steel(loc)

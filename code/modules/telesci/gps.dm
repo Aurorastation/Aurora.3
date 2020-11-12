@@ -5,7 +5,7 @@ var/list/GPS_list = list()
 	desc = "Helping lost spacemen find their way through the planets since 2016."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	var/gps_prefix = "COM"
@@ -199,3 +199,8 @@ var/list/GPS_list = list()
 	gps_prefix = "MIN"
 	gpstag = "MIN0"
 	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
+
+/obj/item/device/gps/janitor
+	icon_state = "gps-j"
+	gps_prefix = "JAN"
+	gpstag = "JAN0"

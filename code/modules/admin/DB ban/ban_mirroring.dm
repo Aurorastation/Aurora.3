@@ -342,7 +342,7 @@
 	data += list(list(C.ckey, C.address, C.computer_id))
 
 	var/data_str = json_encode(data)
-	to_chat(C, output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie"))
+	send_output(C, list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie")
 
 #undef BAD_CID
 #undef BAD_IP

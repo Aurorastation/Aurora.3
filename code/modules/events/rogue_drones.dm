@@ -12,7 +12,7 @@
 
 	var/num = rand(2,10)
 	for(var/i=0, i<num, i++)
-		var/mob/living/simple_animal/hostile/retaliate/malf_drone/D = new(get_turf(pick(possible_spawns)))
+		var/mob/living/simple_animal/hostile/icarus_drone/malf/D = new(get_turf(pick(possible_spawns)))
 		drones_list.Add(D)
 		if(prob(25))
 			D.disabled = rand(15, 60)
@@ -29,15 +29,13 @@
 
 /datum/event/rogue_drone/end()
 	var/num_recovered = 0
-	for(var/mob/living/simple_animal/hostile/retaliate/malf_drone/D in drones_list)
+	for(var/drone in drones_list)
+		var/mob/living/simple_animal/hostile/icarus_drone/malf/D = drone
 		spark(D.loc, 3)
-		D.z = current_map.admin_levels[1]
-		D.has_loot = 0
-
-		qdel(D)
+		D.beam_out()
 		num_recovered++
 
-	if(num_recovered > drones_list.len * 0.75)
+	if(num_recovered > length(drones_list) * 0.75)
 		command_announcement.Announce("Icarus drone control reports the malfunctioning wing has been recovered safely.", "Rogue drone alert")
 	else
 		command_announcement.Announce("Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered.", "Rogue drone alert")

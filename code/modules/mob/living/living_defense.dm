@@ -19,24 +19,16 @@
 	var/armor = getarmor(def_zone, attack_flag)
 
 	if(armor_pen >= armor)
-		return 0 //effective_armor is going to be 0, fullblock is going to be 0, blocked is going to 0, let's save ourselves the trouble
+		return 0 //effective_armor is going to be 0
 
-	var/effective_armor = (armor - armor_pen)/100
-	var/fullblock = (effective_armor*effective_armor) * ARMOR_BLOCK_CHANCE_MULT
+	var/blocked = (armor - armor_pen)
 
-	if(fullblock >= 1 || prob(fullblock*100))
+	if(blocked >= 100)
 		if(absorb_text)
 			show_message("<span class='warning'>[absorb_text]</span>")
 		else
 			show_message("<span class='warning'>Your armor absorbs the blow!</span>")
 		return 100
-
-	//this makes it so that X armor blocks X% damage, when including the chance of hard block.
-	//I double checked and this formula will also ensure that a higher effective_armor
-	//will always result in higher (non-fullblock) damage absorption too, which is also a nice property
-	//In particular, blocked will increase from 0 to 50 as effective_armor increases from 0 to 0.999 (if it is 1 then we never get here because ofc)
-	//and the average damage absorption = (blocked/100)*(1-fullblock) + 1.0*(fullblock) = effective_armor
-	var/blocked = (effective_armor - fullblock)/(1 - fullblock)*100
 
 	if(blocked > 20)
 		//Should we show this every single time?
@@ -135,7 +127,7 @@
 
 //Handles the effects of "stun" weapons
 /mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon=null)
-	flash_pain()
+	flash_pain(stun_amount)
 
 	if(stun_amount)
 		Stun(stun_amount)
@@ -208,6 +200,7 @@
 
 		if (prob(miss_chance))
 			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			playsound(src, 'sound/effects/throw_miss.ogg', 50, 1)
 			return
 
 		src.visible_message("<span class='warning'>[src] has been hit by [O].</span>")
@@ -223,7 +216,7 @@
 			var/client/assailant = M.client
 			if(assailant)
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
-				M.attack_log += text("\[[time_stamp()]\] <font color='red'>Hit [src.name] ([src.ckey]) with a thrown [O]</font>")
+				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>Hit [src.name] ([src.ckey]) with a thrown [O]</span>")
 				if(!istype(src,/mob/living/simple_animal/rat))
 					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
@@ -285,7 +278,7 @@
 		return
 
 	adjustBruteLoss(damage)
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
 	if (attack_message)
 		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
@@ -341,7 +334,7 @@
 		return 1
 
 	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
-	if(G.gas["oxygen"] < 1)
+	if(G.gas[GAS_OXYGEN] < 1)
 		ExtinguishMobCompletely() //If there's no oxygen in the tile we're on, put out the fire
 		return 1
 

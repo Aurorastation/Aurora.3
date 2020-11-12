@@ -11,7 +11,7 @@
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	throw_range = 1
 	throw_speed = 1
 	layer = 4
@@ -316,8 +316,8 @@
 	if(!use_check_and_message(user))
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
-			
-		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
+
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")
@@ -579,6 +579,4 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 
 /obj/item/paper/nka_pledge
 	name = "imperial volunteer Alam'ardii corps pledge"
-
-/obj/item/paper/nka_pledge/New()
 	info = "<center><b><u>Imperial Volunteer Alam'ardii Corps Pledge</u></b></center> <hr> <center><i><u>May the Gods bless his Kingdom and Dynasty</u></i></center> <hr> I, <field>, hereby declare, under a vow of loyalty and compromise, that I shall serve as a volunteer in the Imperial Volunteer Alam'ardii Corps, for the mininum duration of three years or until discharge. I accept the duty of aiding the New Kingdom of Adhomai and His Majesty, King Vahzirthaamro Azunja, in this struggle and I shall not relinquish this pledge. <hr> Volunteer Signature: <field> <hr> Recruiting Officer Stamp:"

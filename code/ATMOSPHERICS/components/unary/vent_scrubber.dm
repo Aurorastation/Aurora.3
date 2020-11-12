@@ -21,7 +21,7 @@
 
 	var/hibernate = 0 //Do we even process?
 	var/scrubbing = 1 //0 = siphoning, 1 = scrubbing
-	var/list/scrubbing_gas = list("carbon_dioxide")
+	var/list/scrubbing_gas = list(GAS_CO2)
 
 	var/panic = 0 //is this scrubber panicked?
 
@@ -30,6 +30,8 @@
 	var/radio_filter_in
 
 	var/welded = 0
+
+	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = 1
@@ -102,7 +104,7 @@
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 	signal.data = list(
 		"area" = area_uid,
@@ -112,11 +114,11 @@
 		"power" = use_power,
 		"scrubbing" = scrubbing,
 		"panic" = panic,
-		"filter_o2" = ("oxygen" in scrubbing_gas),
-		"filter_n2" = ("nitrogen" in scrubbing_gas),
-		"filter_co2" = ("carbon_dioxide" in scrubbing_gas),
-		"filter_phoron" = ("phoron" in scrubbing_gas),
-		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
+		"filter_o2" = (GAS_OXYGEN in scrubbing_gas),
+		"filter_n2" = (GAS_NITROGEN in scrubbing_gas),
+		"filter_co2" = (GAS_CO2 in scrubbing_gas),
+		"filter_phoron" = (GAS_PHORON in scrubbing_gas),
+		"filter_n2o" = (GAS_N2O in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -138,7 +140,11 @@
 
 	if (!node)
 		use_power = 0
-	//broadcast_status()
+
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	if(!use_power || (stat & (NOPOWER|BROKEN)))
 		return 0
 	if(welded)
@@ -186,7 +192,7 @@
 	if(signal.data["power_toggle"] != null)
 		use_power = !use_power
 
-	if(signal.data["panic_siphon"]) //must be before if("scrubbing" thing
+	if(signal.data["panic_siphon"]) //must be before if("scrubbing") thing
 		panic = text2num(signal.data["panic_siphon"])
 		if(panic)
 			use_power = 1
@@ -212,30 +218,30 @@
 
 	var/list/toggle = list()
 
-	if(!isnull(signal.data["o2_scrub"]) && text2num(signal.data["o2_scrub"]) != ("oxygen" in scrubbing_gas))
-		toggle += "oxygen"
+	if(!isnull(signal.data["o2_scrub"]) && text2num(signal.data["o2_scrub"]) != (GAS_OXYGEN in scrubbing_gas))
+		toggle += GAS_OXYGEN
 	else if(signal.data["toggle_o2_scrub"])
-		toggle += "oxygen"
+		toggle += GAS_OXYGEN
 
-	if(!isnull(signal.data["n2_scrub"]) && text2num(signal.data["n2_scrub"]) != ("nitrogen" in scrubbing_gas))
-		toggle += "nitrogen"
+	if(!isnull(signal.data["n2_scrub"]) && text2num(signal.data["n2_scrub"]) != (GAS_NITROGEN in scrubbing_gas))
+		toggle += GAS_NITROGEN
 	else if(signal.data["toggle_n2_scrub"])
-		toggle += "nitrogen"
+		toggle += GAS_NITROGEN
 
-	if(!isnull(signal.data["co2_scrub"]) && text2num(signal.data["co2_scrub"]) != ("carbon_dioxide" in scrubbing_gas))
-		toggle += "carbon_dioxide"
+	if(!isnull(signal.data["co2_scrub"]) && text2num(signal.data["co2_scrub"]) != (GAS_CO2 in scrubbing_gas))
+		toggle += GAS_CO2
 	else if(signal.data["toggle_co2_scrub"])
-		toggle += "carbon_dioxide"
+		toggle += GAS_CO2
 
-	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != ("phoron" in scrubbing_gas))
-		toggle += "phoron"
+	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != (GAS_PHORON in scrubbing_gas))
+		toggle += GAS_PHORON
 	else if(signal.data["toggle_tox_scrub"])
-		toggle += "phoron"
+		toggle += GAS_PHORON
 
-	if(!isnull(signal.data["n2o_scrub"]) && text2num(signal.data["n2o_scrub"]) != ("sleeping_agent" in scrubbing_gas))
-		toggle += "sleeping_agent"
+	if(!isnull(signal.data["n2o_scrub"]) && text2num(signal.data["n2o_scrub"]) != (GAS_N2O in scrubbing_gas))
+		toggle += GAS_N2O
 	else if(signal.data["toggle_n2o_scrub"])
-		toggle += "sleeping_agent"
+		toggle += GAS_N2O
 
 	scrubbing_gas ^= toggle
 
@@ -244,11 +250,10 @@
 		return
 
 	if(signal.data["status"] != null)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-//			log_debug("DEBUG \[[world.timeofday]\]: vent_scrubber/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 	return
 
@@ -290,13 +295,13 @@
 			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, SPAN_NOTICE("Now welding \the [src]."))
-			playsound(src, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			if(do_after(user, 20/W.toolspeed, act_target = src))
-				if(!src || !WT.isOn()) 
+				if(!src || !WT.isOn())
 					return
 				welded = !welded
 				update_icon()
-				playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
 									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
 									 "You hear welding.")
@@ -305,6 +310,28 @@
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return 1
+
+	if(istype(W, /obj/item/melee/arm_blade))
+		if(!welded)
+			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded scrubbers!"))
+			return
+		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
+		user.do_attack_animation(src, W)
+		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
+		var/cut_amount = 3
+		for(var/i = 0; i <= cut_amount; i++)
+			if(!W || !do_after(user, 30, src))
+				return
+			user.do_attack_animation(src, W)
+			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
+			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
+			if(i == cut_amount)
+				welded = FALSE
+				spark(get_turf(src), 3, alldirs)
+				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
+				update_icon()
+		return
+
 	return ..()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user)
@@ -314,5 +341,3 @@
 		to_chat(user, "You are too far away to read the gauge.")
 	if(welded)
 		to_chat(user, "It seems welded shut.")
-
-

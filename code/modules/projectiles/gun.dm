@@ -53,7 +53,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 5
@@ -73,6 +73,7 @@
 	var/silenced = 0
 	var/muzzle_flash = 3
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
+	var/offhand_accuracy = 0 // the higher this number, the more accurate this weapon is when fired from the off-hand
 	var/scoped_accuracy = null
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
@@ -104,6 +105,8 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
+	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/unwield_sound = null
 
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
@@ -113,6 +116,10 @@
 	var/safety_state = TRUE
 	var/has_safety = TRUE
 	var/image/safety_overlay
+
+	// sounds n shit
+	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
+	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
 
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -192,7 +199,7 @@
 			if(process_projectile(P, user, user, pick(BP_L_FOOT, BP_R_FOOT)))
 				handle_post_fire(user, user)
 				user.visible_message(
-					SPAN_DANGER("\The [user] shoots \himself in the foot with \the [src]!"),
+					SPAN_DANGER("\The [user] shoots [user.get_pronoun("himself")] in the foot with \the [src]!"),
 					SPAN_DANGER("You shoot yourself in the foot with \the [src]!")
 					)
 				M.drop_item()
@@ -205,6 +212,7 @@
 			return TRUE
 		else
 			pin.auth_fail(user)
+			handle_click_empty(user)
 			return FALSE
 	else
 		if(needspin)
@@ -290,20 +298,26 @@
 		return FALSE
 
 	if(world.time < next_fire_time)
-		if (world.time % 3) //to prevent spam
+		if(world.time % 3 && !can_autofire) //to prevent spam
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = (burst - 1) * burst_delay
+	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
 	return TRUE
 
-/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=0)
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
 		return FALSE
+
+	if(!is_offhand && user.a_intent == I_HURT) // no recursion
+		var/obj/item/gun/SG = user.get_inactive_hand()
+		if(istype(SG))
+			var/decreased_accuracy = (SG.w_class * 2) - SG.offhand_accuracy
+			addtimer(CALLBACK(SG, .proc/Fire, target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -313,14 +327,15 @@
 			handle_click_empty(user)
 			break
 
-		var/acc = burst_accuracy[min(i, burst_accuracy.len)]
+		var/acc = burst_accuracy[min(i, burst_accuracy.len)] - accuracy_decrease
 		var/disp = dispersion[min(i, dispersion.len)]
 		process_accuracy(projectile, user, target, acc, disp)
 
 		if(pointblank)
 			process_point_blank(projectile, user, target)
 
-		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
+		var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
+		if(process_projectile(projectile, user, target, selected_zone, clickparams))
 			var/show_emote = TRUE
 			if(i > 1 && burst_delay < 3 && burst < 5)
 				show_emote = FALSE
@@ -336,9 +351,7 @@
 
 	update_held_icon()
 
-	//update timing
-	var/delay = max(burst_delay+1, fire_delay)
-	user.setClickCooldown(min(delay, DEFAULT_QUICK_COOLDOWN))
+	user.setClickCooldown(max(burst_delay+1, fire_delay))
 	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
@@ -528,11 +541,11 @@
 	if (istype(in_chamber))
 		user.visible_message(SPAN_WARNING("\The [user] pulls the trigger."))
 		if (!pin && needspin)//Checks the pin of the gun.
-			user.visible_message(SPAN_WARNING("*click click*"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if (!pin.pin_auth() && needspin)
-			user.visible_message(SPAN_WARNING("*click click*"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if(safety() && user.a_intent != I_HURT)
@@ -603,6 +616,7 @@
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
+			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
 		else
 			to_chat(user, "It doesn't have a firing pin installed, and won't fire.")
 	if(firemodes.len > 1)
@@ -610,6 +624,7 @@
 		to_chat(user, "The fire selector is set to [current_mode.name].")
 	if(has_safety)
 		to_chat(user, "The safety is [safety() ? "on" : "off"].")
+	return TRUE
 
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
@@ -626,10 +641,12 @@
 
 	return new_mode
 
-/obj/item/gun/attack_self(mob/user)
+/obj/item/gun/attack_self(mob/user, var/list/message_mobs)
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
 
 // Safety Procs
 
@@ -638,17 +655,20 @@
 	update_icon()
 	if(user)
 		to_chat(user, SPAN_NOTICE("You switch the safety [safety_state ? "on" : "off"] on \the [src]."))
-		playsound(src, 'sound/weapons/safety_click.ogg', 30, 1)
+		if(!safety_state)
+			playsound(src, safetyon_sound, 30, 1)
+		else
+			playsound(src, safetyoff_sound, 30, 1)
 
 /obj/item/gun/verb/toggle_safety_verb()
 	set src in usr
 	set category = "Object"
 	set name = "Toggle Gun Safety"
-	if(usr == loc)
+	if(has_safety && usr == loc)
 		toggle_safety(usr)
 
 /obj/item/gun/CtrlClick(var/mob/user)
-	if(user == loc)
+	if(has_safety && user == loc)
 		toggle_safety(user)
 		return TRUE
 	. = ..()
@@ -708,6 +728,8 @@
 		recoil = initial(recoil)
 	if(accuracy_wielded)
 		accuracy = initial(accuracy)
+	if(unwield_sound)
+		playsound(src.loc, unwield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
@@ -720,6 +742,8 @@
 		recoil = recoil_wielded
 	if(accuracy_wielded)
 		accuracy = accuracy_wielded
+	if(wield_sound)
+		playsound(src.loc, wield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
@@ -762,11 +786,14 @@
 
 ///////////OFFHAND///////////////
 /obj/item/offhand
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = "nothing"
 	name = "offhand"
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
 
 /obj/item/offhand/proc/unwield()
 	if(ismob(loc))
@@ -842,6 +869,9 @@
 		update_icon()
 		return
 
+	if(istype(pin) && pin.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
+		return
+
 	if(istype(I, /obj/item/ammo_display))
 		if(!can_ammo_display)
 			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))
@@ -905,8 +935,12 @@
 		if(!ismob(loc) && !ismob(loc.loc))
 			maptext = ""
 			return
-		if(get_ammo() > 9)
-			maptext_x = 18
+		var/ammo = get_ammo()
+		if(ammo > 9)
+			if(ammo < 20)
+				maptext_x = 20
+			else
+				maptext_x = 18
 		else
 			maptext_x = 22
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"

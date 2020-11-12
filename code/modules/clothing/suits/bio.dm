@@ -20,7 +20,7 @@
 	item_state = "bio_suit"
 	randpixel = 0
 	center_of_mass = null
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS

@@ -106,16 +106,28 @@
 		return
 
 	// this is the data which will be sent to the ui
-	var/data[0]
+	var/list/data = list()
 	data["isOperating"] = on
 	data["hasOccupant"] = occupant ? 1 : 0
 
-	var/occupantData[0]
+	var/list/occupantData = list()
 	if (occupant)
 		occupantData["name"] = occupant.name
 		occupantData["stat"] = occupant.stat
 		occupantData["bodyTemperature"] = occupant.bodytemperature
-	data["occupant"] = occupantData;
+		occupantData["cryostasis"] = "[occupant.stasis_value]x"
+		var/cloneloss = "none"
+		var/amount = occupant.getCloneLoss()
+		if(amount > 50)
+			cloneloss = "severe"
+		else if(amount > 25)
+			cloneloss = "significant"
+		else if(amount > 10)
+			cloneloss = "moderate"
+		else if(amount)
+			cloneloss = "minor"
+		occupantData["cloneloss"] = "<br><br>Genetic degradation: [cloneloss]"
+	data["occupant"] = occupantData
 
 	data["cellTemperature"] = round(air_contents.temperature)
 	data["cellTemperatureStatus"] = "good"
@@ -125,13 +137,6 @@
 		data["cellTemperatureStatus"] = "average"
 
 	data["isBeakerLoaded"] = beaker ? 1 : 0
-	/* // Removing beaker contents list from front-end, replacing with a total remaining volume
-	var beakerContents[0]
-	if(beaker && beaker.reagents && beaker.reagents.reagent_list.len)
-		for(var/datum/reagent/R in beaker.reagents.reagent_list)
-			beakerContents.Add(list(list("name" = R.name, "volume" = R.volume))) // list in a list because Byond merges the first list...
-	data["beakerContents"] = beakerContents
-	*/
 	data["beakerLabel"] = null
 	data["beakerVolume"] = 0
 	if(beaker)
@@ -143,14 +148,9 @@
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "cryo.tmpl", "Cryo Cell Control System", 520, 410)
-		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
-		// open the new ui window
 		ui.open()
-		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
 /obj/machinery/atmospherics/unary/cryo_cell/Topic(href, href_list)
@@ -286,12 +286,6 @@
 		occupant.bodytemperature = max(occupant.bodytemperature, air_contents.temperature) // this is so ugly i'm sorry for doing it i'll fix it later i promise
 		occupant.stat = 1
 		if(occupant.bodytemperature < T0C)
-			occupant.sleeping = max(5, (1/occupant.bodytemperature)*2000)
-			occupant.Paralyse(max(5, (1/occupant.bodytemperature)*3000))
-			if(air_contents.gas["oxygen"] > 2)
-				if(occupant.getOxyLoss()) occupant.adjustOxyLoss(-1)
-			else
-				occupant.adjustOxyLoss(-1)
 			//severe damage should heal waaay slower without proper chemicals
 			if(occupant.bodytemperature < 225)
 				if(!occupant.is_diona())
@@ -304,7 +298,7 @@
 		var/has_clonexa = occupant.reagents.get_reagent_amount(/datum/reagent/clonexadone) >= 1
 		var/has_cryo_medicine = has_cryo || has_clonexa
 		if(beaker && !has_cryo_medicine)
-			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD, 10)
+			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD)
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/heat_gas_contents()
 	if(air_contents.total_moles < 1)
@@ -337,12 +331,11 @@
 	occupant.forceMove(get_step(loc, SOUTH))	//this doesn't account for walls or anything, but i don't forsee that being a problem.
 	if (occupant.bodytemperature < 261 && occupant.bodytemperature >= 70) //Patch by Aranclanos to stop people from taking burn damage after being ejected
 		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
-//	occupant.metabslow = 0
 	occupant = null
 	current_heat_capacity = initial(current_heat_capacity)
 	update_use_power(1)
 	update_icon()
-	return
+
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
 	if (stat & (NOPOWER|BROKEN))
 		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")

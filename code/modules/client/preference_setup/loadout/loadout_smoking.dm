@@ -4,8 +4,26 @@
 	sort_category = "Smoking"
 
 /datum/gear/smoking/zippo
-	display_name = "zippo"
+	display_name = "zippo lighter selection"
 	path = /obj/item/flame/lighter/zippo
+
+/datum/gear/smoking/zippo/New()
+	..()
+	var/zippolighters = list()
+	zippolighters["regular zippo"] = /obj/item/flame/lighter/zippo
+	zippolighters["black zippo"] = /obj/item/flame/lighter/zippo/black
+	zippolighters["black cross zippo"] = /obj/item/flame/lighter/zippo/black/cross
+	zippolighters["golden zippo"] = /obj/item/flame/lighter/zippo/gold
+	zippolighters["royal zippo"] = /obj/item/flame/lighter/zippo/royal
+	zippolighters["dominian zippo"] = /obj/item/flame/lighter/zippo/dominia
+	zippolighters["coalition zippo"] = /obj/item/flame/lighter/zippo/coalition
+	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
+	zippolighters["bieselite zippo"] = /obj/item/flame/lighter/zippo/tcfl
+	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
+	zippolighters["europan zippo"] = /obj/item/flame/lighter/zippo/europa
+	zippolighters["gadpathurian zippo"] = /obj/item/flame/lighter/zippo/gadpathur
+	zippolighters["asoral jet lighter"] = /obj/item/flame/lighter/zippo/asoral
+	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter
 	display_name = "cheap lighter"
@@ -26,7 +44,7 @@
 /datum/gear/smoking/cigarettes/New()
 	..()
 	var/cigarettes = list()
-	cigarettes["Lucky Strike cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/rugged
+	cigarettes["Laissez-Faires cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/rugged
 	cigarettes["Trans-Stellar Duty Free cigarette packet"] = /obj/item/storage/box/fancy/cigarettes
 	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dromedaryco
 	cigarettes["Nico-Tine cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nicotine
@@ -77,6 +95,11 @@
 	pipe["smoking pipe"] = /obj/item/clothing/mask/smokable/pipe
 	pipe["smoking pipe, corn"] = /obj/item/clothing/mask/smokable/pipe/cobpipe
 	gear_tweaks += new/datum/gear_tweak/path(pipe)
+
+/datum/gear/smoking/bonepipe
+	display_name = "Europan bone pipe"
+	path = /obj/item/clothing/mask/smokable/pipe/bonepipe
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/cigfilters
 	display_name = "cigarette filters"

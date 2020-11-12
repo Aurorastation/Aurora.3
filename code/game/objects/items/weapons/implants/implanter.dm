@@ -9,7 +9,7 @@
 	item_state = "syringe_0"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
@@ -25,43 +25,42 @@
 	return
 
 /obj/item/implanter/proc/update()
-	if (src.imp)
-		src.icon_state = "implanter1"
+	if (imp)
+		icon_state = "implanter1"
 	else
-		src.icon_state = "implanter0"
+		icon_state = "implanter0"
 	return
 
-/obj/item/implanter/attack(mob/M as mob, mob/user as mob, var/target_zone)
-	if (!istype(M, /mob/living/carbon))
+/obj/item/implanter/attack(mob/living/carbon/human/M, mob/user, var/target_zone)
+	if(!istype(M))
 		return
-	if (user && src.imp)
-		M.visible_message("<span class='warning'>[user] is attemping to implant [M].</span>")
+
+	var/obj/item/organ/external/affected = M.get_organ(target_zone)
+
+	if(user && imp && affected)
+		M.visible_message("<span class='warning'>[user] is attempting to implant [M] in \the [affected.name].</span>")
 
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
 
 		var/turf/T1 = get_turf(M)
 		if (T1 && ((M == user) || do_after(user, 50)))
-			if(user && M && (get_turf(M) == T1) && src && src.imp)
-				M.visible_message("<span class='warning'>[M] has been implanted by [user].</span>")
+			if(user && M && (get_turf(M) == T1) && src && imp)
+				M.visible_message("<span class='warning'>[M] has been implanted by [user] in the [affected.name].</span>")
 
-				admin_attack_log(user, M, "Implanted using \the [src.name] ([src.imp.name])", "Implanted with \the [src.name] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
+				admin_attack_log(user, M, "Implanted using \the [name] ([imp.name])", "Implanted with \the [name] ([imp.name])", "used an implanter, [name] ([imp.name]), on")
 
-				if(src.imp.implanted(M, user))
-					src.imp.forceMove(M)
-					src.imp.imp_in = M
-					src.imp.implanted = 1
-					if (ishuman(M))
-						var/mob/living/carbon/human/H = M
-						var/obj/item/organ/external/affected = H.get_organ(target_zone)
-						affected.implants += src.imp
-						imp.part = affected
-
-						BITSET(H.hud_updateflag, IMPLOYAL_HUD)
-					if(istype(src.imp, /obj/item/implanter/loyalty))
+				if(imp.implanted(M, user))
+					imp.forceMove(M)
+					imp.imp_in = M
+					imp.implanted = TRUE
+					affected.implants += imp
+					imp.part = affected
+					BITSET(M.hud_updateflag, IMPLOYAL_HUD)
+					if(istype(imp, /obj/item/implanter/loyalty))
 						to_chat(M, "<span class ='notice'You feel a sudden surge of loyalty to [current_map.company_name]!</span>")
 
-				src.imp = null
+				imp = null
 				update()
 
 	return
@@ -70,7 +69,7 @@
 	name = "implanter-loyalty"
 
 /obj/item/implanter/loyalty/New()
-	src.imp = new /obj/item/implant/mindshield( src )
+	imp = new /obj/item/implant/mindshield(src)
 	..()
 	update()
 	return
@@ -79,7 +78,7 @@
 	name = "implanter (E)"
 
 /obj/item/implanter/explosive/New()
-	src.imp = new /obj/item/implant/explosive( src )
+	imp = new /obj/item/implant/explosive(src)
 	..()
 	update()
 	return
@@ -88,7 +87,7 @@
 	name = "implanter-adrenalin"
 
 /obj/item/implanter/adrenalin/New()
-	src.imp = new /obj/item/implant/adrenalin(src)
+	imp = new /obj/item/implant/adrenalin(src)
 	..()
 	update()
 	return
@@ -127,8 +126,11 @@
 		return
 	if(istype(A,/obj/item) && imp)
 		var/obj/item/implant/compressed/c = imp
+		if(istype(A,/obj/item/implant/compressed))
+			to_chat(user, SPAN_NOTICE("The implant is loaded into the implanter."))
+			return
 		if (c.scanned)
-			to_chat(user, "<span class='warning'>Something is already scanned inside the implant!</span>")
+			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!"))
 			return
 		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))
@@ -157,7 +159,7 @@
 	name = "implanter-augmentation disrupter"
 
 /obj/item/implanter/anti_augment/New()
-	src.imp = new /obj/item/implant/anti_augment(src)
+	imp = new /obj/item/implant/anti_augment(src)
 	..()
 	update()
 	return
@@ -198,9 +200,9 @@
 
 	user.visible_message(SPAN_WARNING("\The [user] tags \the [M] with \the [src]!"), SPAN_NOTICE("You tag \the [M] with \the [src]."), range = 3)
 
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [src.name] ([src.ipc_tag.name])  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] ([src.ipc_tag.name]) to implant [M.name] ([M.ckey])</font>")
-	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(M)] with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+	M.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [name] ([ipc_tag.name])  by [user.name] ([user.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] ([ipc_tag.name]) to implant [M.name] ([M.ckey])</span>")
+	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(M)] with [name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 	ipc_tag.replaced(H, H.organs_by_name[BP_HEAD])
 	ipc_tag.forceMove(M)

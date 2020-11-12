@@ -1,9 +1,7 @@
-/mob/proc/flash_pain()
-	flick("pain", pain)
-
-/mob/living/carbon/human/flash_pain()
-	if(can_feel_pain())
-		flick("pain", pain)
+/mob/proc/flash_pain(var/target)
+	if(pain)
+		animate(pain, alpha = target, time = 15, easing = ELASTIC_EASING)
+		animate(pain, alpha = 0, time = 20)
 
 mob/var/list/pain_stored = list()
 mob/var/last_pain_message = ""
@@ -25,6 +23,8 @@ mob/var/next_pain_time = 0
 		else
 			affecting.add_pain(Ceiling(power/2))
 
+	flash_pain(min(round(2*power)+55, 255))
+
 	// Anti message spam checks
 	if(force || (message != last_pain_message) || (world.time >= next_pain_time))
 		last_pain_message = message
@@ -32,13 +32,10 @@ mob/var/next_pain_time = 0
 			flash_strong_pain()
 			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
 		else if(power >= 70)
-			flash_pain()
 			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
 		else if(power >= 40)
-			flash_pain()
 			to_chat(src, "<span class='danger'><font size=2>[message]</font></span>")
 		else if(power >= 10)
-			flash_weak_pain()
 			to_chat(src, "<span class='danger'>[message]</span>")
 		else
 			to_chat(src, "<span class='warning'>[message]</span>")
@@ -49,7 +46,7 @@ mob/var/next_pain_time = 0
 			if(!(use_emote.message_type == AUDIBLE_MESSAGE && silent))
 				emote(force_emote)
 
-	next_pain_time = world.time + (100-power)
+	next_pain_time = world.time + 5 SECONDS
 
 /mob/living/carbon/human/proc/handle_pain()
 	if(!can_feel_pain())
@@ -94,13 +91,13 @@ mob/var/next_pain_time = 0
 		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5)
 			var/obj/item/organ/external/parent = get_organ(I.parent_organ)
 			var/pain = 10
-			var/message = "You feel a dull pain in your [parent.name]..."
+			var/message = I.unknown_pain_location ? "You feel a dull pain in your [parent.name]..." : "You feel a dull pain radiating from your [I.name]..."
 			if(I.is_bruised())
 				pain = 25
-				message = "You feel a stinging pain in your [parent.name]."
+				message = I.unknown_pain_location ? "You feel a stinging pain in your [parent.name]." : "You feel a stinging pain radiating from your [I.name]."
 			if(I.is_broken())
 				pain = 50
-				message = "You feel a sharp pain in your [parent.name]!"
+				message = I.unknown_pain_location ? "You feel a sharp pain in your [parent.name]!" : "You feel a sharp pain radiating from your [I.name]!"
 			src.custom_pain(message, pain, affecting = parent)
 
 	if(prob(1))

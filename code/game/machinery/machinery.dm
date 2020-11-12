@@ -96,7 +96,7 @@ Class Procs:
 /obj/machinery
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
-	w_class = 10
+	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
 
 	var/stat = 0
@@ -286,7 +286,7 @@ Class Procs:
 
 /obj/machinery/proc/state(var/msg)
 	for(var/mob/O in hearers(src, null))
-		O.show_message("\icon[src] <span class = 'notice'>[msg]</span>", 2)
+		O.show_message("[icon2html(src, O)] <span class = 'notice'>[msg]</span>", 2)
 
 /obj/machinery/proc/ping(text=null)
 	if (!text)
@@ -335,19 +335,19 @@ Class Procs:
 
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || !S.isscrewdriver())
-		return 0
-	playsound(src.loc,  S.usesound, 50, 1)
+		return FALSE
+	playsound(src.loc, S.usesound, 50, 1)
 	panel_open = !panel_open
 	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()
-	return 1
+	return TRUE
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!istype(R))
-		return 0
+		return FALSE
 	if(!LAZYLEN(component_parts))
-		return 0
-
+		return FALSE
+	var/parts_replaced = FALSE
 	if(panel_open)
 		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
 		var/P
@@ -383,17 +383,19 @@ Class Procs:
 						component_parts += B
 						B.forceMove(src)
 						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
-		for(var/obj/item/C in component_parts)
-			to_chat(user, "<span class='notice'>    [C.name]</span>")
+		to_chat(user, "<span class='notice'>The following parts have been detected in \the [src]:</span>")
+		to_chat(user, counting_english_list(component_parts))
+	if(parts_replaced) //only play sound when RPED actually replaces parts
+		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+	playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -403,7 +405,7 @@ Class Procs:
 	qdel(src)
 	return 1
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10, var/message)
 	if( printing )
 		return 0
 
@@ -412,7 +414,9 @@ Class Procs:
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
 
-	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
+	if(!message)
+		message = "\The [src] rattles to life and spits out a paper titled [paper]."
+	visible_message(SPAN_NOTICE(message))
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 

@@ -2,7 +2,7 @@
 	display_name = "headtail chain selection"
 	path = /obj/item/clothing/ears/skrell/chain
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 
 /datum/gear/ears/skrell/chains/New()
 	..()
@@ -16,7 +16,7 @@
 	display_name = "headtail band selection"
 	path = /obj/item/clothing/ears/skrell/band
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 
 /datum/gear/ears/skrell/bands/New()
 	..()
@@ -30,7 +30,7 @@
 	display_name = "short headtail cloth"
 	path = /obj/item/clothing/ears/skrell/cloth_short/black
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 
 /datum/gear/ears/skrell/cloth/short/New()
 	..()
@@ -44,7 +44,7 @@
 	display_name = "average headtail cloth"
 	path = /obj/item/clothing/ears/skrell/cloth_average/black
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 
 /datum/gear/ears/skrell/cloth/average/New()
 	..()
@@ -57,7 +57,7 @@
 /datum/gear/accessory/capes
 	display_name = "shoulder capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/accessory/capes/New()
@@ -72,26 +72,26 @@
 /datum/gear/uniform/skrell
 	display_name = "qeblak ceremonial garment"
 	path = /obj/item/clothing/under/skrell/qeblak
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/stellascope
 	display_name = "stellascope"
 	path = /obj/item/stellascope
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/skrell_projector
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/ears/skrell/goop
 	display_name = "glowing algae"
 	path = /obj/item/clothing/ears/skrell/goop
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -106,5 +106,5 @@
 /datum/gear/mask/skrell
 	display_name = "skrell gill cover"
 	path = /obj/item/clothing/mask/breath/skrell
-	whitelisted = list("Skrell")
+	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"

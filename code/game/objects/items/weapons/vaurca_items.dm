@@ -17,7 +17,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
-	species_restricted = list("Vaurca", "Vaurca Breeder")
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BREEDER)
 	item_state = 0
 
 /obj/item/clothing/head/shaper
@@ -27,7 +27,7 @@
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
 	contained_sprite = TRUE
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/expression
@@ -81,12 +81,12 @@
 	item_state = "eknife0"
 	active_force = 20
 	active_throwforce = 20
-	active_w_class = 5
+	active_w_class = ITEMSIZE_HUGE
 	force = 5
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
@@ -143,15 +143,6 @@
 				user.put_in_hands(X)
 				qdel(src)
 
-	else if(isvox(user))
-		to_chat(user, "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>")
-		if(do_after(user, 100))
-			to_chat(user, "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>")
-			var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
-			user.remove_from_mob(src)
-			user.put_in_hands(X)
-			qdel(src)
-
 	else
 		to_chat(user, "<span class='notice'>You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)</span>")
 		if(do_after(user, 60))
@@ -174,7 +165,7 @@
 	icon_state = "harddisk"
 	force = 10
 	throwforce = 5
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	contained_sprite = 1
 
 /obj/item/melee/vaurca/rock
@@ -184,7 +175,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 15
 	throwforce = 30
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	contained_sprite = 1
 
 /obj/item/grenade/spawnergrenade/vaurca
@@ -197,7 +188,7 @@
 	icon_state = "beacon"
 	force = 15
 	throwforce = 30
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/grenade/spawnergrenade/vaurca/prime()
 
@@ -206,7 +197,7 @@
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		for(var/mob/living/carbon/human/M in viewers(T, null))
 			if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-				flick("e_flash", M.flash)
+				M.flash_eyes()
 
 		for(var/i=1, i<=deliveryamt, i++)
 			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new /datum/seed/koisspore())
@@ -223,9 +214,9 @@
 	desc = "A lightweight Zo'rane designed Vaurcae softsuit, for extremely extended EVA operations."
 	slowdown = 0
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 
-	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
+	boots = /obj/item/clothing/shoes/magboots/vaurca
 	helmet = /obj/item/clothing/head/helmet/space/void/vaurca
 
 /obj/item/clothing/head/helmet/space/void/vaurca
@@ -236,13 +227,12 @@
 	icon_state = "helm_void"
 	item_state = "helm_void"
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/clothing/shoes/magboots/vox/vaurca
-
+/obj/item/clothing/shoes/magboots/vaurca
 	desc = "A pair of heavy mag-claws designed for a Vaurca."
 	name = "mag-claws"
 	item_state = "boots_void"
@@ -250,9 +240,9 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list("Vaurca","Vaurca Warform")
+	species_restricted = list(BODYTYPE_VAURCA,BODYTYPE_VAURCA_WARFORM)
 	sprite_sheets = list(
-		"Vaurca Warform" = 'icons/mob/species/warriorform/shoes.dmi'
+		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi'
 		)
 
 	action_button_name = "Toggle the magclaws"
@@ -266,7 +256,7 @@
 	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
 	slowdown = -1
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(melee = 50, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
 
 /obj/item/clothing/head/helmet/space/void/scout
@@ -277,7 +267,7 @@
 	icon_state = "helm_scout"
 	item_state = "helm_scout"
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(melee = 40, bullet = 20, laser = 40, energy = 30, bomb = 45, bio = 100, rad = 10)
 
 	light_overlay = "helmet_light_dual_green"
@@ -291,7 +281,7 @@
 	item_state = "commando"
 	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(melee = 40, bullet = 40, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
 
 /obj/item/clothing/head/helmet/space/void/commando
@@ -302,7 +292,7 @@
 	icon_state = "helm_commando"
 	item_state = "helm_commando"
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(melee = 30, bullet = 30, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
 
 	light_overlay = "helmet_light_dual_green"
@@ -315,8 +305,8 @@
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
-	w_class = 2.0
-	filtered_gases = list("nitrogen", "sleeping_agent")
+	w_class = ITEMSIZE_SMALL
+	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"
@@ -332,12 +322,12 @@
 	active_force = 30
 	armor_penetration = 30
 	active_throwforce = 20
-	active_w_class = 5
+	active_w_class = ITEMSIZE_HUGE
 	force = 10
 	throwforce = 10
 	throw_speed = 5
 	throw_range = 10
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
@@ -385,7 +375,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = 'sound/effects/Explosion2.ogg'
+	fire_sound = /decl/sound_category/gauss_fire_sound
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK
@@ -420,7 +410,7 @@
 	pump(user)
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
+	playsound(M, 'sound/weapons/shotgun_pump.ogg', 60, 1)
 
 	if(bolt)
 		if(tension < max_tension)

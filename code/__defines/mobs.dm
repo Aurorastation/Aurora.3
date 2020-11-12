@@ -9,12 +9,20 @@
 #define CANPARALYSE 0x4
 #define CANPUSH     0x8
 #define LEAPING     0x10
-#define PASSEMOTES  0x32    // Mob has a cortical borer or holders inside of it that need to see emotes.
+#define PASSEMOTES  0x20    // Mob has a cortical borer or holders inside of it that need to see emotes.
+#define NOFALL      0x800
 #define GODMODE     0x1000
 #define FAKEDEATH   0x2000  // Replaces stuff like changeling.changeling_fakedeath.
 #define DISFIGURED  0x4000  // Set but never checked. Remove this sometime and replace occurences with the appropriate organ code
 #define XENO_HOST   0x8000  // Tracks whether we're gonna be a baby alien's mummy.
 #define NO_ANTAG    0x10000  // Players are restricted from gaining antag roles when occupying this mob
+
+// Incorporeal movement
+#define INCORPOREAL_DISABLE 0 // Disabled
+#define INCORPOREAL_GHOST   1 // Pass through matter like a ghost
+#define INCORPOREAL_NINJA   2 // Pass through matter with a cool effect
+#define INCORPOREAL_BSTECH  3 // Like ninja, but also go across Z-levels and move in space freely
+#define INCORPOREAL_SHADE   4 // Shady
 
 // Grab levels.
 #define GRAB_PASSIVE    1
@@ -36,6 +44,8 @@
 
 #define LEFT  1
 #define RIGHT 2
+
+#define FIST_ATTACK_ANIMATION -1
 
 // Pulse levels, very simplified.
 #define PULSE_NONE    0 // So !M.pulse checks would be possible.
@@ -101,6 +111,14 @@
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
 
+//Vaurca organs
+#define BP_NEURAL_SOCKET "neural socket"
+#define BP_PHORON_RESERVE "phoron reserve tank"
+#define BP_FILTRATION_BIT "filtration bit"
+#define BP_PHORON_RESERVOIR "phoron reservoir"
+#define BP_VAURCA_LIVER "mechanical liver"
+#define BP_VAURCA_KIDNEYS "mechanical kidneys"
+
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
 #define BP_HAEMO    "haemodynamic"
@@ -113,7 +131,6 @@
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
-#define BP_AUG_PDA          "integrated pda"
 #define BP_AUG_TOOL         "retractable combitool"
 #define BP_AUG_PEN          "retractable combipen"
 #define BP_AUG_LIGHTER      "retractable lighter"
@@ -357,12 +374,26 @@
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
 
+#define STASIS_MISC     "misc"
+#define STASIS_CRYOBAG  "cryobag"
+#define STASIS_COLD     "cold"
+
 #define AURA_CANCEL 1
 #define AURA_FALSE  2
 #define AURA_TYPE_BULLET "Bullet"
 #define AURA_TYPE_WEAPON "Weapon"
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
+
+// Remote Control defines
+#define REMOTE_GENERIC_MECH "remotemechs"
+#define REMOTE_AI_MECH "aimechs"
+#define REMOTE_PRISON_MECH "prisonmechs"
+
+#define REMOTE_GENERIC_ROBOT "remoterobots"
+#define REMOTE_BUNKER_ROBOT "bunkerrobots"
+#define REMOTE_PRISON_ROBOT "prisonrobots"
+#define REMOTE_WARDEN_ROBOT "wardenrobots"
 
 // Robot Overlay Defines
 #define ROBOT_PANEL_EXPOSED  "exposed"

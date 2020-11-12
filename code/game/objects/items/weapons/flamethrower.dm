@@ -10,7 +10,7 @@
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 1, TECH_PHORON = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
 	var/status = 0
@@ -125,7 +125,7 @@
 	if(!ptank)
 		to_chat(user, "<span class='notice'>Attach a phoron tank first!</span>")
 		return
-	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[lit ? "<font color='red'>Lit</font>" : "Unlit"]</a>)</B><BR>\n Tank Pressure: [ptank.air_contents.return_pressure()]<BR>\nAmount to throw: <A HREF='?src=\ref[src];amount=-100'>-</A> <A HREF='?src=\ref[src];amount=-10'>-</A> <A HREF='?src=\ref[src];amount=-1'>-</A> [throw_amount] <A HREF='?src=\ref[src];amount=1'>+</A> <A HREF='?src=\ref[src];amount=10'>+</A> <A HREF='?src=\ref[src];amount=100'>+</A><BR>\n<A HREF='?src=\ref[src];remove=1'>Remove phorontank</A> - <A HREF='?src=\ref[src];close=1'>Close</A></TT>")
+	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[lit ? "<span class='warning'>Lit</span>" : "Unlit"]</a>)</B><BR>\n Tank Pressure: [ptank.air_contents.return_pressure()]<BR>\nAmount to throw: <A HREF='?src=\ref[src];amount=-100'>-</A> <A HREF='?src=\ref[src];amount=-10'>-</A> <A HREF='?src=\ref[src];amount=-1'>-</A> [throw_amount] <A HREF='?src=\ref[src];amount=1'>+</A> <A HREF='?src=\ref[src];amount=10'>+</A> <A HREF='?src=\ref[src];amount=100'>+</A><BR>\n<A HREF='?src=\ref[src];remove=1'>Remove phorontank</A> - <A HREF='?src=\ref[src];close=1'>Close</A></TT>")
 	user << browse(dat, "window=flamethrower;size=600x300")
 	onclose(user, "flamethrower")
 	return
@@ -140,7 +140,7 @@
 	usr.set_machine(src)
 	if(href_list["light"])
 		if(!ptank)	return
-		if(ptank.air_contents.gas["phoron"] < 1)	return
+		if(ptank.air_contents.gas[GAS_PHORON] < 1)	return
 		if(!status)	return
 		lit = !lit
 		if(lit)
@@ -189,8 +189,8 @@
 	//TODO: DEFERRED Consider checking to make sure tank pressure is high enough before doing this...
 	//Transfer 5% of current tank air contents to turf
 	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
-	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["phoron"]*15,get_dir(loc,target))
-	air_transfer.gas["phoron"] = 0
+	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas[GAS_PHORON]*15,get_dir(loc,target))
+	air_transfer.gas[GAS_PHORON] = 0
 	target.assume_air(air_transfer)
 	//Burn it based on transfered gas
 	//target.hotspot_expose(part4.air_contents.temperature*2,300)

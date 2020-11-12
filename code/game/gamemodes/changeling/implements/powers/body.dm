@@ -69,10 +69,16 @@
 		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
 		return
 
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
 	if(H.handcuffed)
 		var/cuffs = H.handcuffed
 		H.u_equip(H.handcuffed)
 		qdel(cuffs)
+
+	if(H.buckled)
+		H.buckled.unbuckle_mob()
 
 	changeling.chem_charges--
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
@@ -255,6 +261,7 @@
 	C.lying = FALSE
 	C.reagents.add_reagent(/datum/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
 	C.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.10)
+	C.reagents.add_reagent(/datum/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun
@@ -450,7 +457,10 @@
 	if(!changeling)
 		return FALSE
 
-	var/mob/living/M = src
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
+	var/mob/living/carbon/human/M = src
 
 	if(alert("Are we sure we wish to reveal ourselves? This will only revert after ten minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
@@ -470,10 +480,18 @@
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
 
 	if(istype(M,/mob/living/carbon/human))
+		if(M.handcuffed)
+			var/cuffs = M.handcuffed
+			M.u_equip(M.handcuffed)
+			qdel(cuffs)
+
 		for(var/obj/item/I in M.contents)
 			if(isorgan(I))
 				continue
 			M.drop_from_inventory(I)
+
+	if(M.buckled)
+		M.buckled.unbuckle_mob()
 
 	if(M.mind)
 		M.mind.transfer_to(ling)

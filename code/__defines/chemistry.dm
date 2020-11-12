@@ -18,8 +18,7 @@
 #define REAGENTS_PER_SHEET 20
 #define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
 
-#define REAGENTS_OVERDOSE 30
-
+#define REAGENTS_OVERDOSE 20
 #define REAGENTS_BURNING_TEMP_HIGH T0C + 65 //Temperature at which high temperature burns occur
 #define REAGENTS_BURNING_TEMP_HIGH_DAMAGE 0.0001 //Damage per celcius per unit above the REAGENTS_BURNING_TEMP_HIGH define per unit.
 #define REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP 20 //Maximum amount of burn damage to deal due to high temperature reagents.
@@ -48,6 +47,8 @@
 // Apply status effects
 #define CE_ALCOHOL      "alcohol"		// Liver filtering
 #define CE_ANTIEMETIC   "antiemetic"	// suppresses vomiting
+#define CE_ITCH         "itch"          // causes itching
+#define CE_NOITCH       "noitch"        // suppresses itching 
 #define CE_BERSERK      "berserk"
 #define CE_CLUMSY       "clumsy"		// Peridaxon side effects, etc
 #define CE_DROPITEM     "dropitem"		// keloderm side effect
@@ -63,15 +64,18 @@
 #define CE_PACIFIED     "pacified"
 #define CE_PAINKILLER   "painkiller"
 #define CE_PULSE        "xcardic"		// increases or decreases heartrate
-#define CE_UNDEXTROUS "undextrous" // arms no work right
+#define CE_UNDEXTROUS   "undextrous"    // arms no work right
 #define CE_HALLUCINATE  "hallucinogen"	//Makes hallucinations stronger or weaker
+#define CE_CRYO 	    "cryogenic"     // Prevents damage from being frozen
+#define CE_CLEARSIGHT   "clearsight"    // prevents the blurry eye chem side effect
+#define CE_STRAIGHTWALK "straightwalk"  // prevents the confused walking chem side effect
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
 #define CE_ANTITOXIN    "antitoxin"		// Dylovene and stuff
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
-#define CE_OXYGENATED   "oxygen"		// Dexalin
+#define CE_OXYGENATED   "oxygenated"	// Dexalin
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"

@@ -106,18 +106,13 @@
 */
 
 /mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null)
-	var/verb = "says"
 	var/ending = copytext(message, length(message))
+	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
 	if(speaking)
-		verb = speaking.get_spoken_verb(ending)
+		. = speaking.get_spoken_verb(ending, pre_ending)
 	else
-		if(ending == "!")
-			verb=pick("exclaims","shouts","yells")
-		else if(ending == "?")
-			verb="asks"
-
-	return verb
+		. = ..()
 
 /mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
 	message = handle_speech_muts(message,verb)
@@ -156,18 +151,18 @@
 			if("intercom")
 				if(!src.restrained())
 					for(var/obj/item/device/radio/intercom/I in view(1))
-						I.talk_into(src, message, null, verb, speaking)
-						I.add_fingerprint(src)
-						used_radios += I
+						if(I.talk_into(src, message, null, verb, speaking))
+							I.add_fingerprint(src)
+							used_radios += I
 			if("headset")
 				if(l_ear && istype(l_ear,/obj/item/device/radio))
 					var/obj/item/device/radio/R = l_ear
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += l_ear
+					if(R.talk_into(src,message,null,verb,speaking))
+						used_radios += l_ear
 				else if(r_ear && istype(r_ear,/obj/item/device/radio))
 					var/obj/item/device/radio/R = r_ear
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += r_ear
+					if(R.talk_into(src,message,null,verb,speaking))
+						used_radios += r_ear
 			if("right ear")
 				var/obj/item/device/radio/R
 				var/has_radio = 0
@@ -178,8 +173,8 @@
 					R = r_hand
 					has_radio = 1
 				if(has_radio)
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += R
+					if(R.talk_into(src,message,null,verb,speaking))
+						used_radios += R
 			if("left ear")
 				var/obj/item/device/radio/R
 				var/has_radio = 0
@@ -190,19 +185,19 @@
 					R = l_hand
 					has_radio = 1
 				if(has_radio)
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += R
+					if(R.talk_into(src,message,null,verb,speaking))
+						used_radios += R
 			if("whisper")
 				whisper_say(message, speaking, alt_name)
 				return 1
 			else
 				if(message_mode)
 					if(l_ear && istype(l_ear,/obj/item/device/radio))
-						l_ear.talk_into(src,message, message_mode, verb, speaking)
-						used_radios += l_ear
+						if(l_ear.talk_into(src,message, message_mode, verb, speaking))
+							used_radios += l_ear
 					else if(r_ear && istype(r_ear,/obj/item/device/radio))
-						r_ear.talk_into(src,message, message_mode, verb, speaking)
-						used_radios += r_ear
+						if(r_ear.talk_into(src,message, message_mode, verb, speaking))
+							used_radios += r_ear
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()
@@ -301,7 +296,7 @@
 				if(prob(50))
 					emote("gasp")
 				else
-					emote("chokes!")
+					emote("choke")
 
 
 			message = "[prefix][jointext(words," ")]"

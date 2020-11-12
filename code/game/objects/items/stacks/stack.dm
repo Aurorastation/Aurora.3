@@ -80,6 +80,8 @@
 
 	var/t1 = "<html><head><title>Constructions from [capitalize_first_letters(src.name)]</title></head><body><tt>Amount Left: [src.get_amount()]<br>"
 
+	if(sublist)
+		t1 += "<a href='?src=\ref[src];go_back=1'>Back</a><br>"
 	if(locate(/datum/stack_recipe_list) in recipes_sublist)
 		t1 += "<h2>Recipe Categories</h2>"
 	for(var/datum/stack_recipe_list/srl in recipes_sublist)
@@ -153,26 +155,15 @@
 			return
 
 	if (use(required))
-		var/atom/O
-		if(recipe.use_material)
-			O = new recipe.result_type(user.loc, recipe.use_material)
-		else
-			O = new recipe.result_type(user.loc)
-		O.set_dir(user.dir)
-		O.add_fingerprint(user)
-
-		if (istype(O, /obj/item/stack))
-			var/obj/item/stack/S = O
-			S.amount = produced
-			S.add_to_stacks(user)
-
-		if (istype(O, /obj/item/storage)) //BubbleWrap - so newly formed boxes are empty
-			for (var/obj/item/I in O)
-				qdel(I)
+		recipe.Produce(produced, user.loc, user.dir, user)
 
 /obj/item/stack/Topic(href, href_list)
 	..()
 	if((usr.restrained() || usr.stat || usr.get_active_hand() != src))
+		return
+
+	if(href_list["go_back"])
+		list_recipes(usr, recipes)
 		return
 
 	if(href_list["sublist"] && !href_list["make"])
@@ -316,6 +307,7 @@
 		var/transfer = src.transfer_to(item)
 		if (transfer)
 			to_chat(user, SPAN_NOTICE("You add a new [item.singular_name] to the stack. It now contains [item.amount] [item.singular_name]\s."))
+		item.update_icon()
 		if(!amount)
 			break
 
@@ -368,13 +360,41 @@
 /datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null)
 	src.title = title
 	src.result_type = result_type
-	src.req_amount = req_amount
+	if(ispath(result_type, /obj/structure))
+		var/obj/structure/S = result_type
+		src.req_amount = initial(S.build_amt) ? initial(S.build_amt) : req_amount
+	else
+		src.req_amount = req_amount
 	src.res_amount = res_amount
 	src.max_res_amount = max_res_amount
 	src.time = time
 	src.one_per_turf = one_per_turf
 	src.on_floor = on_floor
 	src.use_material = supplied_material
+
+/datum/stack_recipe/proc/Produce(var/amount = 1, var/loc = null, var/dir = NORTH, var/user = null)
+	if(amount < 1)
+		return null
+
+	var/atom/O
+	if(use_material)
+		O = new result_type(loc, use_material)
+	else
+		O = new result_type(loc)
+	O.set_dir(dir)
+	O.add_fingerprint(user)
+
+	if (istype(O, /obj/item/stack))
+		var/obj/item/stack/S = O
+		S.amount = amount
+		S.update_icon()
+		if(user)
+			S.add_to_stacks(user)
+
+	if (istype(O, /obj/item/storage)) //BubbleWrap - so newly formed boxes are empty
+		for (var/obj/item/I in O)
+			qdel(I)
+	return O
 
 /*
  * Recipe list datum

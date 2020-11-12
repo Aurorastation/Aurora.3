@@ -20,6 +20,8 @@
 		var/datum/robolimb/R = all_robolimbs[robotize_type]
 		if(R.paintable)
 			limb_exception = TRUE
+		if(R.company == PROSTHETIC_SYNTHSKIN)
+			limb_exception = TRUE
 	if(status & ORGAN_ROBOT && !(isipc(human)) && !limb_exception)
 		return
 	if(species && human.species && species.name != human.species.name)
@@ -142,8 +144,13 @@
 
 	if(force_icon)
 		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
-		if(painted && skin_color)
+		if((painted && skin_color) || robotize_type == PROSTHETIC_SYNTHSKIN)
 			mob_icon.Blend(skin_color, ICON_ADD)
+		if(!isnull(s_tone))
+			if(s_tone >= 0)
+				mob_icon.Blend(rgb(s_tone, s_tone, s_tone), ICON_ADD)
+			else
+				mob_icon.Blend(rgb(-s_tone, -s_tone, -s_tone), ICON_SUBTRACT)
 		apply_markings(restrict_to_robotic = TRUE)
 		get_internal_organs_overlay()
 	else

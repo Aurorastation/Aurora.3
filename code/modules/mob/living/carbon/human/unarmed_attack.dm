@@ -5,8 +5,8 @@ var/global/list/sparring_attack_cache = list()
 	var/attack_verb = list("attack")	// Empty hand hurt intent verb.
 	var/attack_noun = list("fist")
 	var/damage = 0						// Extra empty hand attack damage.
-	var/attack_sound = "punch"
-	var/miss_sound = 'sound/weapons/punchmiss.ogg'
+	var/attack_sound = /decl/sound_category/punch_sound
+	var/miss_sound = /decl/sound_category/punchmiss_sound
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
 	var/sharp = 0
 	var/edge = 0
@@ -85,7 +85,7 @@ var/global/list/sparring_attack_cache = list()
 					target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
 			if(BP_GROIN)
 				if(pain_message)
-					target.visible_message("<span class='warning'>[target] looks like \he [gender_datums[target.gender].is] in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your [pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!"]</span>")
+					target.visible_message("<span class='warning'>[target] looks like [target.get_pronoun("he")] [target.get_pronoun("is")] in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your [pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!"]</span>")
 				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = armor)
 			if(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 				if(!target.lying)
@@ -112,7 +112,7 @@ var/global/list/sparring_attack_cache = list()
 	var/obj/item/organ/internal/eyes/eyes = target.get_eyes()
 	eyes.take_damage(rand(3,4), 1)
 
-	user.visible_message("<span class='danger'>[user] presses \his [eye_attack_text] into [target]'s [eyes.name]!</span>")
+	user.visible_message("<span class='danger'>[user] presses [user.get_pronoun("his")] [eye_attack_text] into [target]'s [eyes.name]!</span>")
 	to_chat(target, "<span class='danger'>You experience[(!target.can_feel_pain())? "" : " immense pain as you feel" ] [eye_attack_text_victim] being pressed into your [eyes.name][(!target.can_feel_pain())? "." : "!"]</span>")
 
 /datum/unarmed_attack/proc/damage_flags()
@@ -159,7 +159,7 @@ var/global/list/sparring_attack_cache = list()
 	attack_damage = Clamp(attack_damage, 1, 5) // We expect damage input of 1 to 5 for this proc. But we leave this check juuust in case.
 
 	if(target == user)
-		user.visible_message("<span class='danger'>[user] [pick(attack_verb)] \himself in the [organ]!</span>")
+		user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [user.get_pronoun("himself")] in the [organ]!</span>")
 		return 0
 
 	if(!target.lying)
@@ -168,7 +168,7 @@ var/global/list/sparring_attack_cache = list()
 				// ----- HEAD ----- //
 				switch(attack_damage)
 					if(1 to 2)
-						user.visible_message("<span class='danger'>[user] slapped [target] across \his cheek!</span>")
+						user.visible_message("<span class='danger'>[user] slapped [target] across [target.get_pronoun("his")] cheek!</span>")
 					if(3 to 4)
 						user.visible_message(pick(
 							40; "<span class='danger'>[user] [pick(attack_verb)] [target] in the head!</span>",
@@ -178,17 +178,17 @@ var/global/list/sparring_attack_cache = list()
 					if(5)
 						user.visible_message(pick(
 							30; "<span class='danger'>[user] gave [target] a resounding [pick("slap", "punch")] to the face!</span>",
-							40; "<span class='danger'>[user] smashed \his [pick(attack_noun)] into [target]'s face!</span>",
+							40; "<span class='danger'>[user] smashed [user.get_pronoun("his")] [pick(attack_noun)] into [target]'s face!</span>",
 							30; "<span class='danger'>[user] gave a strong blow against [target]'s jaw!</span>"
 							))
 			else
 				// ----- BODY ----- //
 				switch(attack_damage)
 					if(1 to 2)	user.visible_message("<span class='danger'>[user] threw a glancing punch at [target]'s [organ]!</span>")
-					if(1 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target] in \his [organ]!</span>")
+					if(1 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target] in [target.get_pronoun("his")] [organ]!</span>")
 					if(5)
 						user.visible_message(pick(
-							50; "<span class='danger'>[user] smashed \his [pick(attack_noun)] into [target]'s [organ]!</span>",
+							50; "<span class='danger'>[user] smashed [user.get_pronoun("his")] [pick(attack_noun)] into [target]'s [organ]!</span>",
 							50; "<span class='danger'>[user] landed a striking [pick(attack_noun)] on [target]'s [organ]!</span>"
 							))
 	else
@@ -197,7 +197,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/kick
 	attack_verb = list("kicked", "kicked", "kicked", "kneed")
 	attack_noun = list("kick", "kick", "kick", "knee strike")
-	attack_sound = "swing_hit"
+	attack_sound = /decl/sound_category/swing_hit_sound
 	damage = 0
 	attack_name = "kick"
 
@@ -236,13 +236,13 @@ var/global/list/sparring_attack_cache = list()
 
 	switch(attack_damage)
 		if(1 to 2)	user.visible_message("<span class='danger'>[user] threw [target] a glancing [pick(attack_noun)] to the [organ]!</span>") //it's not that they're kicking lightly, it's that the kick didn't quite connect
-		if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target] in \his [organ]!</span>")
+		if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target] in [target.get_pronoun("his")] [organ]!</span>")
 		if(5)		user.visible_message("<span class='danger'>[user] landed a strong [pick(attack_noun)] against [target]'s [organ]!</span>")
 
 /datum/unarmed_attack/stomp
 	attack_verb = null
 	attack_noun = list("stomp")
-	attack_sound = "swing_hit"
+	attack_sound = /decl/sound_category/swing_hit_sound
 	damage = 0
 	attack_name = "stomp"
 
@@ -282,8 +282,8 @@ var/global/list/sparring_attack_cache = list()
 	attack_damage = Clamp(attack_damage, 1, 5)
 
 	switch(attack_damage)
-		if(1 to 4)	user.visible_message("<span class='danger'>[pick("[user] stomped on", "[user] slammed \his [shoes ? copytext(shoes.name, 1, -1) : "foot"] down onto")] [target]'s [organ]!</span>")
-		if(5)		user.visible_message("<span class='danger'>[pick("[user] landed a powerful stomp on", "[user] stomped down hard on", "[user] slammed \his [shoes ? copytext(shoes.name, 1, -1) : "foot"] down hard onto")] [target]'s [organ]!</span>") //Devastated lol. No. We want to say that the stomp was powerful or forceful, not that it /wrought devastation/
+		if(1 to 4)	user.visible_message("<span class='danger'>[pick("[user] stomped on", "[user] slammed [user.get_pronoun("his")] [shoes ? copytext(shoes.name, 1, -1) : "foot"] down onto")] [target]'s [organ]!</span>")
+		if(5)		user.visible_message("<span class='danger'>[pick("[user] landed a powerful stomp on", "[user] stomped down hard on", "[user] slammed [user.get_pronoun("his")] [shoes ? copytext(shoes.name, 1, -1) : "foot"] down hard onto")] [target]'s [organ]!</span>") //Devastated lol. No. We want to say that the stomp was powerful or forceful, not that it /wrought devastation/
 
 /datum/unarmed_attack/light_strike
 	damage_type = PAIN

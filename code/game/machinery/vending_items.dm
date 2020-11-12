@@ -14,7 +14,7 @@
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	var/charges = 0
 
 /obj/item/vending_refill/examine(mob/user)
@@ -63,11 +63,6 @@
 	vend_id = "cola"
 	charges = 50
 
-/obj/item/vending_refill/pda
-	name = "pdas resupply canister"
-	vend_id = "pdas"
-	charges = 38
-
 /obj/item/vending_refill/smokes
 	name = "smokes resupply canister"
 	vend_id = "smokes"
@@ -90,7 +85,7 @@
 
 /obj/item/vending_refill/seeds
 	name = "resupply canister"
-	vend_id = "seeds"
+	vend_id = SEED_NOUN_SEEDS
 	charges = 175
 
 /obj/item/vending_refill/cutlery

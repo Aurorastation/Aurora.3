@@ -1,5 +1,5 @@
 /datum/species/monkey
-	name = "Monkey"
+	name = SPECIES_MONKEY
 	short_name = "mon"
 	name_plural = "Monkeys"
 	blurb = "Ook."
@@ -10,8 +10,8 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_monkey.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_monkey.dmi'
 	language = null
-	default_language = "Chimpanzee"
-	greater_form = "Human"
+	default_language = LANGUAGE_CHIMPANZEE
+	greater_form = SPECIES_HUMAN
 	mob_size = MOB_SMALL
 	has_fine_manipulation = 0
 	show_ssd = null
@@ -60,7 +60,7 @@
 		H.emote(pick("scratch","jump","roll","tail"))
 
 	if(H.get_shock() && H.shock_stage < 40 && prob(3))
-		H.custom_emote("chimpers pitifully")
+		H.custom_emote(AUDIBLE_MESSAGE, "chimpers pitifully")
 
 	if(H.shock_stage > 10 && prob(3))
 		H.emote(pick("cry","whimper"))
@@ -69,13 +69,13 @@
 		H.emote("scream")
 
 	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
-		H.custom_emote("thrashes in agony")
+		H.custom_emote(AUDIBLE_MESSAGE, "thrashes in agony")
 
 /datum/species/monkey/get_random_name()
 	return "[lowertext(name)] ([rand(100,999)])"
 
 /datum/species/monkey/tajaran
-	name = "Farwa"
+	name = SPECIES_MONKEY_TAJARA
 	short_name = "far"
 	name_plural = "Farwa"
 	fall_mod = 0.25
@@ -83,8 +83,8 @@
 	icobase = 'icons/mob/human_races/monkeys/r_farwa.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_farwa.dmi'
 
-	greater_form = "Tajara"
-	default_language = "Farwa"
+	greater_form = SPECIES_TAJARA
+	default_language = LANGUAGE_FARWA
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 	tail = "farwatail"
@@ -92,27 +92,21 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+
 /datum/species/monkey/tajaran/get_random_name()
 	return "farwa ([rand(100,999)])" // HACK HACK HACK, oh lords of coding please forgive me!
 
-/datum/species/monkey/tajaran/m_sai
-	name = "M'sai Farwa"
-	greater_form = "M'sai Tajara"
-
-/datum/species/monkey/tajaran/zhan_khazan
-	name = "Zhan-Khazan Farwa"
-	greater_form = "Zhan-Khazan Tajara"
-
 /datum/species/monkey/skrell
-	name = "Neaera"
+	name = SPECIES_MONKEY_SKRELL
 	short_name = "nea"
 	name_plural = "Neaera"
 
 	icobase = 'icons/mob/human_races/monkeys/r_neaera.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_neaera.dmi'
 
-	greater_form = "Skrell"
-	default_language = "Neaera"
+	greater_form = SPECIES_SKRELL
+	default_language = LANGUAGE_NEAERA
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
 	reagent_tag = IS_SKRELL
@@ -121,16 +115,16 @@
 	fall_mod = 0.25
 
 /datum/species/monkey/unathi
-	name = "Stok"
+	name = SPECIES_MONKEY_UNATHI
 	short_name = "sto"
-	name_plural = "Stok"
+	name_plural = LANGUAGE_STOK
 
 	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_stok.dmi'
 
 	tail = "stoktail"
-	greater_form = "Unathi"
-	default_language = "Stok"
+	greater_form = SPECIES_UNATHI
+	default_language = LANGUAGE_STOK
 	flesh_color = "#34AF10"
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI
@@ -140,7 +134,7 @@
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 /datum/species/monkey/bug
-	name = "V'krexi"
+	name = SPECIES_MONKEY_VAURCA
 	short_name = "kre"
 	name_plural = "V'krexi"
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
@@ -153,8 +147,8 @@
 		)
 
 	tail = "vkrexitail"
-	greater_form = "Vaurca Worker"
-	default_language = "V'krexi"
+	greater_form = SPECIES_VAURCA_WORKER
+	default_language = LANGUAGE_BUG
 	blood_color = "#E6E600"
 	flesh_color = "#E6E600"
 	//base_color = "#E6E600"

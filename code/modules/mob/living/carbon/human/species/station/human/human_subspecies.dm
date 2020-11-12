@@ -1,5 +1,5 @@
 /datum/species/human/offworlder
-	name = "Off-Worlder Human"
+	name = SPECIES_HUMAN_OFFWORLD
 	name_plural = "Off-Worlder Humans"
 	blurb = "The Offworlders are humans that have adapted to zero-G conditions through a lifetime of conditioning, exposure, and physical modification. \
 	They thrive in thinner atmosphere and weightlessness, more often than not utilizing advanced life support and body-bracing equipment to sustain themselves in normal Human environments."
@@ -21,13 +21,13 @@
 	hazard_low_pressure = 10
 
 	examine_color = "#C2AE95"
-	allowed_accents = list(ACCENT_SCARAB, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_HIMEO, ACCENT_ERIDANIDREG, ACCENT_DOMINIA)
+	allowed_accents = list(ACCENT_SCARAB, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_HIMEO, ACCENT_ERIDANIDREG, ACCENT_DOMINIA, ACCENT_NCF)
 
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack)
-	else
-		H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H), slot_r_hand)
+	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack) && H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack))
+		return
+	var/obj/item/storage/pill_bottle/rmt/PB = new /obj/item/storage/pill_bottle/rmt(get_turf(H))
+	H.put_in_hands(PB)
 
 /datum/species/human/offworlder/get_species_tally(var/mob/living/carbon/human/H)
 

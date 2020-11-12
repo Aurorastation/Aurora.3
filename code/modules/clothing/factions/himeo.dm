@@ -5,12 +5,14 @@
 	icon = 'icons/clothing/suits/coats/himeo_coat.dmi'
 	icon_state = "coat_himeo"
 	item_state = "coat_himeo"
-	icon_open = "coat_himeo_open"
-	icon_closed = "coat_himeo"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/soft/himeo
+/obj/item/clothing/suit/storage/toggle/himeo/grey
+	icon = 'icons/clothing/suits/coats/himeo_coat_grey.dmi'
+	icon_state = "coat_himeo_grey"
+	item_state = "coat_himeo_grey"
 
+/obj/item/clothing/head/softcap/himeo
 	name = "himean cap"
 	desc = "A field cap of Himean origin. This particular cap has the United Syndicates of Himeo's typical symbol - a white hexagon surrounded by red triangles - on its face."
 	desc_fluff = "The M372 field cap is a standard-issue cap of Himeo's military, and a common sight throughout the planet and the space around it. This particular model is a reproduction, due to its lack of the traditional ear covers on the Himean model."

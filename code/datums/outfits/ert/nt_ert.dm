@@ -21,7 +21,7 @@
 	)
 
 /datum/outfit/admin/ert/nanotrasen/get_id_access()
-	return get_all_accesses() | get_centcom_access("Emergency Response Team")
+	return get_all_station_access() | get_centcom_access("Emergency Response Team")
 
 /datum/outfit/admin/ert/nanotrasen/specialist
 	name = "Nanotrasen ERT Engineer Specialist"

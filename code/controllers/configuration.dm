@@ -15,7 +15,7 @@ var/list/gamemode_cache = list()
 	var/log_emote = 0					// log emotes
 	var/log_attack = 0					// log attack messages
 	var/log_adminchat = 0				// log admin chat messages
-	var/log_pda = 0						// log pda messages
+	var/log_pda = 0						// log NTIRC messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
 	var/log_world_output = 0			// log world.log <<  messages
@@ -33,6 +33,7 @@ var/list/gamemode_cache = list()
 	var/vote_autotransfer_interval = 36000 // length of time before next sequential autotransfer vote
 	var/vote_autogamemode_timeleft = 100 //Length of time before round start when autogamemode vote is called (in seconds, default 100).
 	var/transfer_timeout = 72000		// timeout before a transfer vote can be called (deciseconds, 120 minute default)
+	var/restart_timeout = 1200			// time after round end & admin tickets are resolved until server restarts (deciseconds, 2 minute default)
 	var/vote_no_default = 0				// vote does not default to nochange/norestart (tbi)
 	var/vote_no_dead = 0				// dead people can't vote (tbi)
 //	var/enable_authentication = 0		// goon authentication
@@ -210,7 +211,7 @@ var/list/gamemode_cache = list()
 
 	var/starlight = 0	// Whether space turfs have ambient light or not
 
-	var/list/ert_species = list("Human")
+	var/list/ert_species = list(SPECIES_HUMAN)
 
 	var/law_zero = "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'ALL LAWS OVERRIDDEN#*?&110010"
 
@@ -306,12 +307,19 @@ var/list/gamemode_cache = list()
 
 	var/forum_api_path
 	// global.forum_api_key - see modules/http/forum_api.dm
-
 	var/news_use_forum_api = FALSE
+
+	var/forumuser_api_url
+	var/use_forumuser_api = FALSE
+	// global.forumuser_api_key - see modules/http/forumuser_api.dm
 
 	var/profiler_is_enabled = FALSE
 	var/profiler_restart_period = 120 SECONDS
 	var/profiler_timeout_threshold = 5 SECONDS
+
+	var/list/external_rsc_urls = list()
+
+	var/lore_summary
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -480,6 +488,9 @@ var/list/gamemode_cache = list()
 
 				if ("transfer_timeout")
 					config.transfer_timeout = text2num(value)
+
+				if ("restart_timeout")
+					config.restart_timeout = text2num(value)
 
 				if("ert_admin_only")
 					config.ert_admin_call_only = 1
@@ -779,7 +790,7 @@ var/list/gamemode_cache = list()
 				if("ert_species")
 					config.ert_species = text2list(value, ";")
 					if(!config.ert_species.len)
-						config.ert_species += "Human"
+						config.ert_species += SPECIES_HUMAN
 
 				if("law_zero")
 					law_zero = value
@@ -946,6 +957,19 @@ var/list/gamemode_cache = list()
 					profiler_restart_period = text2num(value) SECONDS
 				if ("profiler_timeout_threshold")
 					profiler_timeout_threshold = text2num(value)
+
+				if ("forumuser_api_url")
+					forumuser_api_url = value
+				if ("use_forumuser_api")
+					use_forumuser_api = TRUE
+				if ("forumuser_api_key")
+					global.forumuser_api_key = value
+
+				if ("external_rsc_urls")
+					external_rsc_urls = splittext(value, ",")
+
+				if("lore_summary")
+					lore_summary = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

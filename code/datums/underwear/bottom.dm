@@ -113,5 +113,6 @@
 	has_color = TRUE
 
 /datum/category_item/underwear/bottom/fishnet_lower
-	name = "Fishnets"
+	name = "Fishnet Bottoms"
 	icon_state = "fishnet_lower"
+	has_color = TRUE

@@ -67,9 +67,9 @@
 				/obj/item/clothing/glasses/eyepatch,
 				/obj/item/clothing/glasses/regular,
 				/obj/item/clothing/glasses/regular/hipster,
-				/datum/gear/eyes/glasses/monocle,
-				/datum/gear/eyes/shades/aviator,
-				/datum/gear/eyes/glasses/fakesun
+				/obj/item/clothing/glasses/monocle,
+				/obj/item/clothing/glasses/sunglasses/aviator,
+				/obj/item/clothing/glasses/sunglasses/prescription
 			))
 			H.equip_or_collect(new path(), slot_glasses)
 
@@ -81,7 +81,7 @@
 	name = "Random Visitor"
 
 	id = /obj/item/card/id
-	pda = /obj/item/device/pda
+	pda = /obj/item/modular_computer/handheld/pda/civilian
 
 /datum/outfit/admin/random/visitor/get_id_assignment()
 	return "Visitor"

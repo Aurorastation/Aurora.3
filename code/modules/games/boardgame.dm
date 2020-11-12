@@ -111,7 +111,7 @@
 
 		if(board["[i]"])
 			var/obj/item/I = board["[i]"]
-			to_chat(user, browse_rsc(board_icons["[I.icon] [I.icon_state]"],"[I.icon_state].png"))
+			send_rsc(user, board_icons["[I.icon] [I.icon_state]"],"[I.icon_state].png")
 			dat += " style='background-image:url([I.icon_state].png)'>"
 		else
 			dat+= ">"
@@ -192,7 +192,7 @@
 	desc = "It is plastic and shiny."
 	icon = 'icons/obj/pieces.dmi'
 	icon_state = "checker_black"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/piece_color ="black"
 
 /obj/item/checker/Initialize()
@@ -208,7 +208,7 @@
 	desc = "This box holds a nifty portion of checkers."
 	icon_state = "checkers"
 	max_storage_space = 24
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	can_hold = list(/obj/item/checker)
 
 /obj/item/storage/box/checkers/fill()
@@ -278,7 +278,7 @@
 	desc = "This box holds all the pieces needed for the black side of the chess board."
 	icon_state = "chess_b"
 	max_storage_space = 24
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/checker)
 
 /obj/item/storage/box/chess/fill()

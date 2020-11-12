@@ -1,7 +1,7 @@
 /datum/outfit/admin/ert/legion
 	name = "TCFL Volunteer"
 
-	head = /obj/item/clothing/head/legion
+	head = /obj/item/clothing/head/beret/legion/field
 	uniform = /obj/item/clothing/under/legion
 	l_ear = /obj/item/device/radio/headset/legion
 	shoes = /obj/item/clothing/shoes/swat/ert
@@ -16,7 +16,7 @@
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name["phoron reserve tank"]
+		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 
@@ -49,7 +49,7 @@
 
 /datum/outfit/admin/ert/legion/sentinel
 	name = "TCFL Sentinel"
-	head = /obj/item/clothing/head/legion/sentinel
+	head = /obj/item/clothing/head/beret/legion/sentinel
 	uniform = /obj/item/clothing/under/legion/sentinel
 	suit = /obj/item/clothing/suit/storage/vest/legion
 	gloves = null

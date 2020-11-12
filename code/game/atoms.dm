@@ -49,6 +49,13 @@
 	else
 		return null
 
+//Will return the contents of an atom recursivly to a depth of 'searchDepth'
+/atom/proc/GetAllContents(searchDepth = 5)
+	var/list/L = list()
+	recursive_content_check(src, L, recursion_limit = searchDepth)
+
+	return L
+
 //return flags that should be added to the viewer's sight var.
 //Otherwise return a negative number to indicate that the view should be cancelled.
 /atom/proc/check_eye(user as mob)
@@ -109,6 +116,86 @@
 		return 1
 	return
 
+// Helper for adding verbs with timers.
+/atom/proc/add_verb(the_verb, datum/callback/callback)
+	if (callback && !callback.Invoke())
+		return
+
+	verbs += the_verb
+
+#define HAS_FLAG(flag) (flag & use_flags)
+#define NOT_FLAG(flag) !HAS_FLAG(flag)
+
+// Checks if user can use this object. Set use_flags to customize what checks are done.
+// Returns 0 if they can use it, a value representing why they can't if not.
+// Flags are in `code/__defines/misc.dm`
+/atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
+	. = USE_SUCCESS
+	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
+		// No message for ghosts.
+		return USE_FAIL_NONLIVING
+
+	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>You're too far away from [src] to do that.</span>")
+		return USE_FAIL_NON_ADJACENT
+
+	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
+		if (show_messages)
+			to_chat(user, "<span class='notice'>How do you expect to do that when you're dead?</span>")
+		return USE_FAIL_DEAD
+
+	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>You cannot do that in your current state.</span>")
+		return USE_FAIL_INCAPACITATED
+
+	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
+		if (show_messages)
+			to_chat(user, "<span class='notice'>You don't know how to operate [src].</span>")
+		return USE_FAIL_NON_ADV_TOOL_USR
+
+	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>How do you propose doing that without hands?</span>")
+		return USE_FAIL_IS_SILICON
+
+	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>You need to be holding [src] to do that.</span>")
+		return USE_FAIL_NOT_IN_USER
+
+/atom/proc/use_check_and_message(mob/user, use_flags = 0)
+	. = use_check(user, use_flags, TRUE)
+
+#undef NOT_FLAG
+#undef HAS_FLAG
+
+/atom/proc/get_light_and_color(var/atom/origin)
+	if(origin)
+		color = origin.color
+		set_light(origin.light_range, origin.light_power, origin.light_color)
+
+/atom/proc/find_up_hierarchy(var/atom/target)
+	//This function will recurse up the hierarchy containing src, in search of the target
+	//It will stop when it reaches an area, as areas have no loc
+	var/x = 0//As a safety, we'll crawl up a maximum of ten layers
+	var/atom/a = src
+	while (x < 10)
+		x++
+		if (isnull(a))
+			return 0
+
+		if (a == target)//we found it!
+			return 1
+
+		if (istype(a, /area))
+			return 0//Can't recurse any higher than this.
+
+		a = a.loc
+
+	return 0//If we get here, we must be buried many layers deep in nested containers. Shouldn't happen
+
 /*
  *	atom/proc/search_contents_for(path,list/filter_path=null)
  * Recursevly searches all atom contens (including contents contents and so on).
@@ -149,7 +236,7 @@
 		else
 			f_name += "oil-stained [name][infix]."
 
-	to_chat(user, "\icon[src] That's [f_name] [suffix]")
+	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]")
 	to_chat(user, desc)
 
 	if(ishuman(user))
@@ -381,6 +468,20 @@
 	. = 1
 	return 1
 
+//For any objects that may require additional handling when swabbed, e.g. a beaker may need to provide information about its contents, not just itself
+//Children must return additional_evidence list
+/atom/proc/get_additional_forensics_swab_info()
+	SHOULD_CALL_PARENT(TRUE)
+	var/list/additional_evidence = list(
+		"type" = "",
+		"dna" = list(),
+		"gsr" = "",
+		"sample_type" = "",
+		"sample_message" = ""
+	)
+
+	return additional_evidence
+
 /atom/proc/add_vomit_floor(var/mob/living/carbon/M, var/toxvomit = 0, var/datum/reagents/inject_reagents)
 	if(istype(src, /turf/simulated))
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
@@ -402,7 +503,11 @@
 	src.germ_level = 0
 	if(istype(blood_DNA, /list))
 		blood_DNA = null
-		return 1
+		return TRUE
+
+/atom/proc/on_rag_wipe(var/obj/item/reagent_containers/glass/rag/R)
+	clean_blood()
+	R.reagents.splash(src, 1)
 
 /atom/proc/get_global_map_pos()
 	if(!islist(global_map) || isemptylist(global_map)) return
@@ -491,3 +596,8 @@
 
 /atom/movable/onDropInto(var/atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
+
+// This proc is used by ghost spawners to assign a player to a specific atom
+// It receives the curent mob of the player s argument and MUST return the mob the player has been assigned.
+/atom/proc/assign_player(var/mob/user)
+	return
