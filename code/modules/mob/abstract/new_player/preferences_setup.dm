@@ -23,6 +23,7 @@
 
 	backbag = 2
 	pda_choice = 2
+	headset_choice = 2
 	age = rand(getMinAge(),getMaxAge())
 	if(H)
 		copy_to(H,1)
@@ -221,11 +222,11 @@
 
 		var/list/leftovers = list()
 		var/list/used_slots = list()
-		
+
 		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
-		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)	
+		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
 			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
 
 		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)

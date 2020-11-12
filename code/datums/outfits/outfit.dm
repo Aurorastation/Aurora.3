@@ -36,9 +36,13 @@
 	var/messengerbag = /obj/item/storage/backpack/messenger
 
 	var/allow_pda_choice = FALSE
+	var/allow_headset_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	var/tablet = /obj/item/modular_computer/handheld/preset/civilian
 	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+
+	var/headset = /obj/item/device/radio/headset
+	var/bowman = /obj/item/device/radio/headset/alt
 
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
@@ -192,6 +196,20 @@
 				I.icon = 'icons/obj/pda_slate.dmi'
 			if(6)
 				I.icon = 'icons/obj/pda_smart.dmi'
+		I.update_icon()
+		H.equip_or_collect(I, slot_wear_id)
+
+	if(allow_headset_choice)
+		switch(H.headset_choice)
+			if (1)
+				headset = null
+			if (2)
+				headset = headset
+			else
+				headset = bowman
+
+	if(headset && !visualsOnly)
+		var/obj/item/I = new headset(H)
 		I.update_icon()
 		H.equip_or_collect(I, slot_wear_id)
 

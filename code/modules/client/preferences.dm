@@ -43,6 +43,7 @@ datum/preferences
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1
 	var/pda_choice = 2
+	var/headset_choice = 2
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -474,6 +475,11 @@ datum/preferences
 		pda_choice = 2
 
 	character.pda_choice = pda_choice
+
+	if(pda_choice > 3 || pda_choice < 1)
+		headset_choice = 2
+
+	character.headset_choice = headset_choice
 
 	if(icon_updates)
 		character.force_update_limbs()
