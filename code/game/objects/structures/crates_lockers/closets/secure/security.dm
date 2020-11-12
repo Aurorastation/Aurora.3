@@ -129,7 +129,7 @@
 	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
 	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
-	new /obj/item/clothing/suit/armor/hos(src)
+	new /obj/item/clothing/suit/security/hos(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
 	new /obj/item/clothing/head/hos/cap(src)
 	new /obj/item/clothing/head/hos/cap/corp(src)
@@ -296,7 +296,7 @@
 	new /obj/item/clothing/head/beret/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
-	new /obj/item/clothing/suit/armor/vest/security(src)
+	new /obj/item/clothing/suit/security(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	//Tools
@@ -382,7 +382,7 @@
 /obj/structure/closet/secure_closet/csi/fill()
 	//Appearance
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/suit/storage/toggle/forensics_armored(src)
+	new /obj/item/clothing/suit/storage/toggle/forensics(src)
 	new /obj/item/clothing/suit/storage/vest/csi(src)
 	new /obj/item/clothing/under/det/forensics(src)
 	new /obj/item/clothing/under/det/black(src)

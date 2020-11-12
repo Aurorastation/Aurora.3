@@ -65,31 +65,6 @@
 	blood_overlay_type = "armor"
 	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/armor/vest/security
-	name = "armored officer's jacket"
-	desc = "An armored jacket with silver rank pips and livery."
-	icon_state = "officerjacket"
-	item_state = "officerjacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	pocket_slots = 4//Jackets have more slots
-
-/obj/item/clothing/suit/armor/vest/warden
-	name = "armored warden's jacket"
-	desc = "An armored jacket with silver rank pips and livery."
-	icon_state = "wardenjacket"
-	item_state = "wardenjacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	pocket_slots = 4//Jackets have more slots
-
-/obj/item/clothing/suit/armor/hos
-	name = "armored head of security's jacket"
-	desc = "An armored jacket with golden rank pips and livery."
-	icon_state = "hosjacket"
-	item_state = "hosjacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = list(melee = 65, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
-	pocket_slots = 4//More slots because coat
-
 /obj/item/clothing/suit/armor/vest/warden/commissar
 	name = "commissar's jacket"
 	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
