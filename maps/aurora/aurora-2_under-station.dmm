@@ -13,16 +13,9 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "dJ" = (
 /obj/machinery/atmospherics/pipe/zpipe/up,
-/obj/structure/cable{
-	icon_state = "12-0"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "dR" = (
@@ -42,12 +35,12 @@
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "eu" = (
 /obj/structure/table/standard,
 /obj/item/storage/briefcase/inflatable,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "gY" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
@@ -65,7 +58,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "hv" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -87,13 +80,13 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "jK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "jT" = (
 /obj/structure/table/standard,
 /obj/structure/closet/medical_wall{
@@ -110,7 +103,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "li" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -134,7 +127,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "mc" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -144,7 +137,7 @@
 /obj/structure/table/standard,
 /obj/item/ladder_mobile,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "mE" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
 /obj/structure/lattice/catwalk/indoor,
@@ -159,8 +152,8 @@
 /area/template_noop)
 "nO" = (
 /obj/structure/ladder/up,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -174,7 +167,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "pp" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -198,7 +191,7 @@
 "pw" = (
 /obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "pK" = (
 /obj/machinery/light{
 	dir = 8;
@@ -207,7 +200,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "qj" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
@@ -219,11 +212,6 @@
 /obj/machinery/light/small/emergency,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/green,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -246,9 +234,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"st" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/radiator_outpost)
 "sQ" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/green,
 /turf/simulated/floor/plating{
@@ -265,7 +250,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "yz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -323,22 +308,29 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "Dq" = (
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "DN" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/engineering,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "FK" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
+/obj/structure/cable{
+	icon_state = "12-0"
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "Hh" = (
 /obj/effect/shuttle_landmark/skipjack/under,
 /turf/template_noop,
@@ -353,7 +345,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "Js" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -409,11 +401,6 @@
 /area/engineering/cooling)
 "KF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -430,7 +417,7 @@
 /obj/machinery/chemical_dispenser/coffee/full,
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "NA" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
@@ -447,16 +434,11 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "Qj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Engineering - Engine Cooling";
@@ -478,38 +460,38 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "UG" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/cooling)
 "UI" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "Vg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/wall,
-/area/engineering/cooling)
-"Vv" = (
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/structure/grille,
+/turf/simulated/floor/plating{
+	roof_type = null
 	},
+/area/engineering/cooling)
+"Vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -524,14 +506,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "WG" = (
@@ -543,7 +517,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/rubber,
-/area/engineering/radiator_outpost)
+/area/engineering/cooling)
 "Xz" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/black,
 /turf/simulated/floor/plating{
@@ -559,17 +533,16 @@
 /turf/template_noop,
 /area/engineering/cooling)
 "Zi" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -13050,8 +13023,8 @@ CN
 CN
 mc
 Ar
-st
-st
+UG
+UG
 UG
 nO
 WA
@@ -13307,7 +13280,7 @@ CN
 CN
 mc
 CN
-st
+UG
 FK
 Vg
 Zi
@@ -13564,12 +13537,12 @@ CN
 CN
 mc
 CN
-st
-st
-st
-st
+UG
+UG
+UG
+UG
 lo
-st
+UG
 CN
 li
 qj
@@ -13821,12 +13794,12 @@ CN
 CN
 mc
 CN
-st
+UG
 oa
 pK
 CZ
 dR
-st
+UG
 Ar
 li
 hv
@@ -14849,12 +14822,12 @@ CN
 CN
 mc
 CN
-st
+UG
 jT
 pw
 pw
 Og
-st
+UG
 CN
 mc
 CN
@@ -15106,12 +15079,12 @@ CN
 CN
 mc
 Ar
-st
-st
+UG
+UG
 he
 he
-st
-st
+UG
+UG
 Ar
 mc
 CN
