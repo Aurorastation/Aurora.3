@@ -26,6 +26,7 @@
 	var/r_hand = null
 	var/id = null
 	var/pda = null
+	var/radio = null
 
 	// Must be paths, used to allow player-pref backpack choice
 	var/allow_backbag_choice = FALSE
@@ -39,6 +40,10 @@
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	var/tablet = /obj/item/modular_computer/handheld/preset/civilian
 	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+
+	var/allow_headset_choice = FALSE
+	var/headset = /obj/item/device/radio/headset
+	var/bowman = /obj/item/device/radio/headset/alt
 
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
@@ -72,6 +77,19 @@
 	if(istype(H.back,/obj/item/storage/backpack))
 		var/obj/item/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
+
+	if(allow_headset_choice)
+		switch(H.headset_choice)
+			if (1)
+				l_ear = null
+			if (2)
+				l_ear = headset
+			if (3)
+				l_ear = bowman
+			else
+				l_ear = headset //Department headset
+	if(l_ear)
+		equip_item(H, l_ear, slot_l_ear)
 
 	return
 

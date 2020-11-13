@@ -243,7 +243,8 @@
 	shoes = /obj/item/clothing/shoes/trauma
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
 
 	gloves = /obj/item/clothing/gloves/white
 	belt = /obj/item/storage/belt/medical
@@ -276,7 +277,8 @@
 	uniform = /obj/item/clothing/under/rank/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
 
 	backpack = /obj/item/storage/backpack/pharmacy
 	satchel = /obj/item/storage/backpack/satchel_pharm
@@ -290,7 +292,8 @@
 
 	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/laceup/all_species
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 	id_access = "Service"
 
@@ -301,7 +304,8 @@
 	suit = /obj/item/clothing/suit/chef
 	head = /obj/item/clothing/head/chefhat
 	shoes = /obj/item/clothing/shoes/laceup/all_species
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 	id_access = "Service"
 
@@ -311,7 +315,8 @@
 	uniform = /obj/item/clothing/under/rank/janitor
 	pda = /obj/item/modular_computer/handheld/pda/civilian
 	shoes = /obj/item/clothing/shoes/galoshes
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 	l_pocket = /obj/item/grenade/chem_grenade/cleaner
 	r_pocket = /obj/item/grenade/chem_grenade/cleaner
 

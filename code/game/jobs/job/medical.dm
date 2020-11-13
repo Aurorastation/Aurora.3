@@ -36,7 +36,8 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/cmo
+	bowman = /obj/item/device/radio/headset/heads/cmo
+	headset = /obj/item/device/radio/headset/heads/cmo/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
@@ -93,7 +94,8 @@
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
@@ -148,7 +150,8 @@
 	uniform = /obj/item/clothing/under/rank/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
@@ -187,7 +190,8 @@
 	uniform = /obj/item/clothing/under/rank/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
 	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
@@ -224,7 +228,8 @@
 	uniform = /obj/item/clothing/under/rank/medical/emt
 	suit = /obj/item/clothing/suit/storage/toggle/emt_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
 	belt = /obj/item/storage/belt/medical/emt
@@ -260,7 +265,8 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/intern
 	shoes = /obj/item/clothing/shoes/medical
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med
