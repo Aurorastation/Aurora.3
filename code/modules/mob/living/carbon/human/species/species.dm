@@ -79,6 +79,7 @@
 	var/metabolism_mod = 1					 // Reagent metabolism modifier
 	var/bleed_mod = 1						 // How fast this species bleeds.
 	var/blood_volume = DEFAULT_BLOOD_AMOUNT // Blood volume.
+	var/injection_mod = 1                    // Multiplicative time modifier on syringe injections
 
 	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
@@ -633,3 +634,6 @@
 			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
 			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
 			return E.key
+
+/datum/species/proc/get_injection_modifier()
+	return injection_mod

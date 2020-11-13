@@ -400,8 +400,7 @@
 /mob/living/silicon/robot/verb/cmd_station_manifest()
 	set category = "Robot Commands"
 	set name = "Show Crew Manifest"
-	var/windowname = open_crew_manifest(src)
-	onclose(src, windowname)
+	SSrecords.open_manifest_vueui(usr)
 
 /mob/living/silicon/robot/proc/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))
