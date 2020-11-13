@@ -26,6 +26,11 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000, MATERIAL_DIAMOND = 2000)
 	build_path = /obj/item/pickaxe/diamonddrill
 
+/datum/design/item/mining/kinetic_analyzer
+	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000)
+	build_path = /obj/item/device/kinetic_analyzer
+
 //Frames
 /datum/design/item/mining/ka_frame01
 	req_tech = "{'materials':1,'engineering':1}"

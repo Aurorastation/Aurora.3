@@ -41,7 +41,7 @@
 	exhaust_threshold = 65
 
 	rarity_value = 3
-	breakcuffs = list(MALE)
+	break_cuffs = TRUE
 	mob_size = 10
 	climb_coeff = 1.35
 

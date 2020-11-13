@@ -12,6 +12,7 @@
 	throw_range = 5
 	origin_tech = "{'materials':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
+	recyclable = TRUE
 	var/elastic
 	var/dispenser = 0
 	var/breakouttime = 1200 //Deciseconds = 120s = 2 minutes

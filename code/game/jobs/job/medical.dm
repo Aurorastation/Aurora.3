@@ -1,15 +1,14 @@
 /datum/job/cmo
 	title = "Chief Medical Officer"
 	flag = CMO
-	head_position = 1
-	department = "Medical"
+	departments = list(DEPARTMENT_MEDICAL = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#FF56B4"
+	selection_color = "#15903a"
 	economic_modifier = 10
 
 	minimum_character_age = 35
@@ -38,7 +37,9 @@
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/cmo
-	pda = /obj/item/device/pda/heads/cmo
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
+	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv
 
@@ -50,13 +51,13 @@
 /datum/job/doctor
 	title = "Physician"
 	flag = DOCTOR
-	department = "Medical"
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	economic_modifier = 7
 
 	minimum_character_age = 25
@@ -68,11 +69,11 @@
 /datum/job/surgeon
 	title = "Surgeon"
 	flag = SURGEON
-	department = "Medical"
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	economic_modifier = 7
 
 	spawn_positions = 2
@@ -93,7 +94,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda = /obj/item/device/pda/medical
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
 
@@ -123,13 +126,13 @@
 /datum/job/pharmacist
 	title = "Pharmacist"
 	flag = CHEMIST
-	department = "Medical"
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	economic_modifier = 5
 
 	minimum_character_age = 26
@@ -146,7 +149,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/chemist
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/pharmacy
@@ -157,7 +162,7 @@
 /datum/job/psychiatrist
 	title = "Psychiatrist"
 	flag = PSYCHIATRIST
-	department = "Medical"
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
@@ -167,7 +172,7 @@
 	minimum_character_age = 30
 
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
 	alt_titles = list("Psychologist")
@@ -183,7 +188,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/psych
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
+	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
 	id = /obj/item/card/id/white
 
 /datum/outfit/job/psychiatrist/psycho
@@ -193,13 +200,13 @@
 /datum/job/med_tech
 	title = "Emergency Medical Technician"
 	flag = MED_TECH
-	department = "Medical"
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	economic_modifier = 4
 
 	minimum_character_age = 20
@@ -221,7 +228,9 @@
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
 	belt = /obj/item/storage/belt/medical/emt
-	pda =  /obj/item/device/pda/paramedic
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 	head = /obj/item/clothing/head/hardhat/emt
 
@@ -231,21 +240,22 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/intern_med
-	title = "Medical Resident"
+	title = "Medical Intern"
 	flag = INTERN_MED
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
-	selection_color = "#FF97D1"
+	selection_color = "#15903a"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
-	minimum_character_age = 25
+	minimum_character_age = 18
 	outfit = /datum/outfit/job/intern_med
 
 /datum/outfit/job/intern_med
-	name = "Medical Resident"
+	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical/intern

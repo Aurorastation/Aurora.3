@@ -30,25 +30,27 @@
 					say(temp)
 				winset(client, "input", "text=[null]")
 
-/mob/living/carbon/human/say_understands(var/mob/other,var/datum/language/speaking = null)
+/mob/living/carbon/human/say_understands(var/mob/other, var/datum/language/speaking = null)
 
 	if(has_brain_worms()) //Brain worms translate everything. Even rat and alien speak.
-		return 1
+		return TRUE
 
 	if(species.can_understand(other))
-		return 1
+		return TRUE
 
 	//These only pertain to common. Languages are handled by mob/say_understands()
 	if (!speaking)
 		if (istype(other, /mob/living/carbon/alien/diona))
 			if(other.languages.len >= 2) //They've sucked down some blood and can speak common now.
-				return 1
+				return TRUE
 		if (istype(other, /mob/living/silicon))
-			return 1
+			return TRUE
+		if (istype(other, /mob/living/announcer))
+			return TRUE
 		if (istype(other, /mob/living/carbon/brain))
-			return 1
+			return TRUE
 		if (istype(other, /mob/living/carbon/slime))
-			return 1
+			return TRUE
 
 	//This is already covered by mob/say_understands()
 	//if (istype(other, /mob/living/simple_animal))
@@ -151,18 +153,18 @@
 			if("intercom")
 				if(!src.restrained())
 					for(var/obj/item/device/radio/intercom/I in view(1))
-						I.talk_into(src, message, null, verb, speaking)
-						I.add_fingerprint(src)
-						used_radios += I
+						if(I.talk_into(src, message, null, verb, speaking))
+							I.add_fingerprint(src)
+							used_radios += I
 			if("headset")
 				if(l_ear && istype(l_ear,/obj/item/device/radio))
 					var/obj/item/device/radio/R = l_ear
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += l_ear
+					if(R.talk_into(src,message,null,verb,speaking))
+						used_radios += l_ear
 				else if(r_ear && istype(r_ear,/obj/item/device/radio))
 					var/obj/item/device/radio/R = r_ear
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += r_ear
+					if(R.talk_into(src,message,null,verb,speaking))
+						used_radios += r_ear
 			if("right ear")
 				var/obj/item/device/radio/R
 				var/has_radio = 0
@@ -173,8 +175,8 @@
 					R = r_hand
 					has_radio = 1
 				if(has_radio)
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += R
+					if(R.talk_into(src,message,null,verb,speaking))
+						used_radios += R
 			if("left ear")
 				var/obj/item/device/radio/R
 				var/has_radio = 0
@@ -185,19 +187,19 @@
 					R = l_hand
 					has_radio = 1
 				if(has_radio)
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += R
+					if(R.talk_into(src,message,null,verb,speaking))
+						used_radios += R
 			if("whisper")
 				whisper_say(message, speaking, alt_name)
 				return 1
 			else
 				if(message_mode)
 					if(l_ear && istype(l_ear,/obj/item/device/radio))
-						l_ear.talk_into(src,message, message_mode, verb, speaking)
-						used_radios += l_ear
+						if(l_ear.talk_into(src,message, message_mode, verb, speaking))
+							used_radios += l_ear
 					else if(r_ear && istype(r_ear,/obj/item/device/radio))
-						r_ear.talk_into(src,message, message_mode, verb, speaking)
-						used_radios += r_ear
+						if(r_ear.talk_into(src,message, message_mode, verb, speaking))
+							used_radios += r_ear
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()

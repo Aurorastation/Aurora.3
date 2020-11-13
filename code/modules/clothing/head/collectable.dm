@@ -50,10 +50,7 @@
 	name = "collectable captain's hat"
 	desc = "A Collectable Hat that'll make you look just like a real comdom!"
 	icon_state = "captain"
-	item_state_slots = list(
-		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat"
-		)
+	item_state = "caphat"
 
 /obj/item/clothing/head/collectable/police
 	name = "collectable police officer's hat"
@@ -62,8 +59,11 @@
 
 /obj/item/clothing/head/collectable/beret
 	name = "collectable beret"
-	desc = "A Collectable red Beret. It smells faintly of Garlic."
-	icon_state = "beret"
+	desc = "A Collectable red Beret. It smells faintly of garlic."
+	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon_state = "beret_red"
+	item_state = "beret_red"
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/collectable/welding
 	name = "collectable welding helmet"

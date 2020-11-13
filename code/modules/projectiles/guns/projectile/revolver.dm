@@ -5,6 +5,7 @@
 	icon_state = "revolver"
 	item_state = "revolver"
 	accuracy = 1
+	offhand_accuracy = 1
 	caliber = "357"
 	origin_tech = "{'combat':2,'materials':2}"
 	handle_casings = CYCLE_CASINGS

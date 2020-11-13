@@ -37,6 +37,7 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_shield.dmi'
 		)
 	var/base_block_chance = 50
+	recyclable = TRUE
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())

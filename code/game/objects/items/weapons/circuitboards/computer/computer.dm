@@ -90,10 +90,6 @@
 	name = T_BOARD("Magix")
 	build_path = /obj/machinery/computer/pod/old/swf
 
-/obj/item/circuitboard/prisoner
-	name = T_BOARD("prisoner management console")
-	build_path = /obj/machinery/computer/prisoner
-
 /obj/item/circuitboard/rdservercontrol
 	name = T_BOARD("R&D server control console")
 	build_path = /obj/machinery/computer/rdservercontrol

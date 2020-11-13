@@ -71,7 +71,7 @@
 /datum/outfit/admin/syndicate/officer
 	name = "Syndicate Officer"
 
-	head = /obj/item/clothing/head/beret
+	head = /obj/item/clothing/head/beret/red
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/havana
 	belt = /obj/item/gun/projectile/deagle
 	l_ear = /obj/item/device/radio/headset/syndicate
@@ -151,6 +151,7 @@
 	belt = /obj/item/storage/belt/military
 	gloves = /obj/item/clothing/gloves/swat
 	shoes = /obj/item/clothing/shoes/jackboots
+	pda = /obj/item/modular_computer/handheld/pda/syndicate
 
 	backpack_contents = list(
 		/obj/item/storage/box/engineer = 1,
@@ -288,6 +289,7 @@
 		/obj/item/clothing/head/softcap,
 		/obj/item/clothing/head/softcap/himeo,
 		/obj/item/clothing/head/softcap/red,
+		/obj/item/clothing/head/beret/red,
 		/obj/item/clothing/head/that,
 		/obj/item/clothing/head/turban,
 		/obj/item/clothing/head/turban/grey,
@@ -464,7 +466,7 @@
 	name = "Highlander"
 
 	uniform = /obj/item/clothing/under/kilt
-	head = /obj/item/clothing/head/beret
+	head = /obj/item/clothing/head/beret/red
 	shoes = /obj/item/clothing/shoes/combat
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	l_hand = /obj/item/material/sword

@@ -141,7 +141,8 @@
 	item_state = "rfdammo"
 	w_class = ITEMSIZE_SMALL
 	origin_tech = "{'materials':2}"
-	matter = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 15000)
+	matter = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	recyclable = TRUE
 
 /*
 RFD Construction-Class
@@ -221,7 +222,7 @@ RFD Construction-Class
 			build_cost =  3
 			build_delay = 20
 			build_type = "window and grille section"
-			build_atom = /obj/effect/wingrille_spawn/reinforced
+			build_atom = /obj/effect/map_effect/wingrille_spawn/reinforced
 	else if(mode == RFD_AIRLOCK)
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3

@@ -231,36 +231,17 @@
 					return
 
 			if(ismob(target) && target != user)
-
-				var/injtime = time //Injecting through a voidsuit takes longer due to needing to find a port.
-
-				if(istype(H))
-					if(H.wear_suit)
-						if(istype(H.wear_suit, /obj/item/clothing/suit/space))
-							injtime = injtime * 2
-						else if(!H.can_inject(user, 1))
-							return
-					if(isvaurca(H))
-						injtime = injtime * 2
-
-				else if(isliving(target))
-
-					var/mob/living/M = target
-					if(!M.can_inject(user, 1))
+				if(isliving(target))
+					var/mob/living/L = target
+					var/injtime = L.can_inject(user, TRUE, user.zone_sel.selecting)
+					if(!injtime)
 						return
-
-				if(injtime == time)
-					user.visible_message(SPAN_WARNING("[user] is trying to inject [target] with [visible_name]!"))
-				else
-					if(isvaurca(H))
-						user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [target]'s carapace!"))
-					else
-						user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [target]'s suit!"))
+					time *= injtime
 
 				user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 				user.do_attack_animation(target)
 
-				if(!do_mob(user, target, injtime))
+				if(!do_mob(user, target, time))
 					return
 
 				user.visible_message(SPAN_WARNING("[user] injects [target] with the syringe!"))

@@ -11,10 +11,7 @@
 	if(stat)
 		return
 
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "*" = TRUE, "/" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending])
-		message += "."
+	message = formalize_text(message)
 
 	if(copytext(message, 1, 2) == "*")
 		return emote(copytext(message, 2))

@@ -19,6 +19,7 @@
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
 	maxHealth = 300
+	blood_type = "#000000"
 	speed = 8
 	projectiletype = /obj/item/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
@@ -54,6 +55,8 @@
 	tameable = FALSE
 
 	flying = TRUE
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/hostile/icarus_drone/Initialize()
 	. = ..()

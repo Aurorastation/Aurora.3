@@ -289,6 +289,12 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
+/obj/item/cane/white
+	name = "white cane"
+	desc = "A white cane, used by the visually impaired."
+	icon_state = "whitecane"
+	item_state = "whitecane"
+
 /obj/item/cane/shillelagh
 	name = "adhomian shillelagh"
 	desc = "A sturdy walking stick made from adhomian wood."

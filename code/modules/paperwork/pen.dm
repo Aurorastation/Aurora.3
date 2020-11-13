@@ -138,7 +138,7 @@ Pen exclusive commands
 	icon_state = "pen_fountain"
 	throwforce = 1 //pointy
 	colour = "#1c1713" //dark ashy brownish
-	var/cursive = TRUE
+	var/cursive = FALSE
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)

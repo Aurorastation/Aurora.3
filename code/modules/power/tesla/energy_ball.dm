@@ -311,8 +311,8 @@
 	))
 
 	var/rods_count = 0
-
-	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
+	var/beam_range = zap_range + 2
+	for(var/A in typecache_filter_multi_list_exclusion(oview(source, beam_range), things_to_shock, blacklisted_types))
 
 		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))
 			var/obj/machinery/power/singularity_beacon/emergency/E = A
@@ -320,7 +320,7 @@
 			if(!E.active)
 				return
 			B.visible_message("\The [B] discharges entirely at [A] until it dissapears and [A] melts down")
-			B.Beam(E, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
+			B.Beam(E, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2, maxdistance=beam_range)
 			E.tesla_act(0, TRUE)
 			qdel(B)
 			return

@@ -45,7 +45,7 @@
 		deactivate(user)
 
 /obj/item/melee/energy/attack_self(mob/living/user as mob)
-	if (active)
+	if(active)
 		if ((user.is_clumsy()) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
 			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")

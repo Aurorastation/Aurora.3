@@ -127,7 +127,7 @@
 
 	if(!check_rights(R_ADMIN, TRUE))
 		return
-	
+
 	var/list/mob/message_mobs = list()
 	var/choice = alert(usr, "Local narrate will send a plain message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", "In my view", "In range of me", "Cancel")
 	if(choice != "Cancel")
@@ -288,7 +288,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 /client/proc/allow_character_respawn()
 	set category = "Special Verbs"
 	set name = "Allow player to respawn"
-	set desc = "Let's the player bypass the 30 minute wait to respawn or allow them to re-enter their corpse."
+	set desc = "Lets the player bypass the wait to respawn or allow them to re-enter their corpse."
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 	var/list/ghosts = get_ghosts(1,1,src)
@@ -316,15 +316,15 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 		to_chat(src, "Something went wrong, couldn't find the target's preferences datum")
 		return 0
 
-	for (var/entry in P.time_of_death)//Set all the prefs' times of death to a huge negative value so any respawn timers will be fine
+	for (var/entry in P.time_of_death) //Set all the prefs' times of death to a huge negative value so any respawn timers will be fine
 		P.time_of_death[entry] = -99999
 
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(text("<span class='notice'><B>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
-	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the 30 minute respawn limit",admin_key=key_name(usr),ckey=key_name(G))
-	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit", 1)
+	G:show_message(text("<span class='notice'><B>You may now respawn. You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
+	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the [config.respawn_delay] minute respawn limit", admin_key=key_name(usr), ckey=key_name(G))
+	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the [config.respawn_delay] minute respawn limit", 1)
 
 /client/proc/allow_stationbound_reset(mob/living/silicon/robot/R in range(world.view))
 	set category = "Special Verbs"
@@ -683,7 +683,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	for(var/datum/job/job in SSjobs.occupations)
-		to_chat(src, "[job.title]: [job.total_positions]")
+		to_chat(src, "[job.title]: [job.get_total_positions() == -1 ? "unlimited" : job.get_total_positions()]")
 	feedback_add_details("admin_verb","LFS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_explosion(atom/O as obj|mob|turf in range(world.view))

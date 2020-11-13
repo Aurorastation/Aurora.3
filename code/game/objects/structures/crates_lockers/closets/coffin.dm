@@ -12,7 +12,7 @@
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		if(W)
 			user.drop_from_inventory(W,loc)

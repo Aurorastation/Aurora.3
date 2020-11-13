@@ -90,10 +90,10 @@
 	origin_tech = "{'magnets':2,'engineering':2}"
 	board_type = "other" // change this to machine if you want it to be buildable
 	req_components = list(
-							/obj/item/stock_parts/capacitor = 2,
-							/obj/item/stock_parts/scanning_module = 1,
-							/obj/item/stock_parts/matter_bin = 1,
-							/obj/item/stock_parts/micro_laser = 2)
+							"/obj/item/stock_parts/capacitor" = 2,
+							"/obj/item/stock_parts/scanning_module" = 1,
+							"/obj/item/stock_parts/matter_bin" = 1,
+							"/obj/item/stock_parts/micro_laser" = 2)
 
 /obj/item/circuitboard/oven
 	name = T_BOARD("oven")

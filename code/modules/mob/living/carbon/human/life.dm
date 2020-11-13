@@ -84,7 +84,7 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if(mind && mind.vampire)
+	if(mind?.vampire)
 		handle_vampire()
 
 /mob/living/carbon/human/think()

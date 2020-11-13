@@ -11,6 +11,7 @@
 	force = 5
 	origin_tech = "{'combat':2,'magnets':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	offhand_accuracy = 1
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 6
 
@@ -73,6 +74,7 @@
 	item_state = "blaster_carbine"
 	max_shots = 12
 	origin_tech = "{'combat':3,'magnets':2}"
+	offhand_accuracy = 0
 	projectile_type = /obj/item/projectile/energy/blaster
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
@@ -85,6 +87,7 @@
 	item_state = "blaster_rifle"
 	max_shots = 20
 	origin_tech = "{'combat':4,'magnets':3}"
+	offhand_accuracy = 0
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
 
 	slot_flags = SLOT_BACK

@@ -90,7 +90,7 @@
 	var/lying_prev = 0
 	var/canmove = 1
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.
-	var/incorporeal_move = 0 //0 is off, 1 is normal, 2 is for ninjas.
+	var/incorporeal_move = INCORPOREAL_DISABLE
 	var/lastpuke = 0
 	var/unacidable = 0
 	var/list/pinned = null              // List of things pinning this creature to walls (see living_defense.dm)
@@ -145,8 +145,6 @@
 	var/seer = 0 //for cult//Carbon, probably Human
 
 	var/datum/hud/hud_used = null
-	var/obj/screen/vision_cone_overlay = null
-	var/can_have_vision_cone = FALSE
 
 	var/list/grabbed_by = list(  )
 

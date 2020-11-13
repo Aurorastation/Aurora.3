@@ -60,19 +60,19 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
-		owner.emote("me",1,"winces slightly.")
+		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
 		owner.emote("cough")
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
-		owner.emote("me", 1, "coughs up blood!")
+		owner.visible_message("<b>[owner]</b> coughs up blood!")
 		owner.drip(10)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
+			owner.visible_message("<b>[owner]</b> gasps for air!")
 			owner.losebreath += 5
 
 	if(stage >= 3)
@@ -130,12 +130,12 @@
 			to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
 		else
 			to_chat(owner, "<span class='warning'>You feel a stinging pain in your head!</span>")
-		owner.emote("me",1,"winces slightly.")
+		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
+			owner.visible_message("<b>[owner]</b> gasps for air!")
 			owner.losebreath += 5
 
 	if(stage >= 3)
