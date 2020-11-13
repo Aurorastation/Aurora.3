@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - imageadd: "Gave the Captain's uniform new sprites."
