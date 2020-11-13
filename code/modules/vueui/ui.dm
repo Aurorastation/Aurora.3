@@ -83,7 +83,7 @@ main ui datum.
 	if(!status || status == STATUS_CLOSE)
 		return
 
-	var/params = "window=[windowid];file=[windowid];"
+	var/params = "window=[windowid];file=[windowid];titlebar=0;can_resize=0;"
 	if(width && height)
 		params += "size=[width]x[height];"
 	send_resources_and_assets(user.client, load_asset)
@@ -133,14 +133,16 @@ main ui datum.
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="vueui.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta charset="UTF-8"/>
+		<meta id="vueui:windowId" content="[windowid]"/>
+		<link rel="stylesheet" type="text/css" href="vueui.css"/>
 		[css_tag]
 	</head>
 	<body class="[get_theme_class()]">
 		<div id="header">
 			<header-[header]></header-[header]>
+			<header-handles></header-handles>
 		</div>
 		<div id="app">
 			Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
@@ -156,6 +158,9 @@ main ui datum.
 	</body>
 	<script type="application/json" id="initialstate">
 		[generate_data_json()]
+	</script>
+	<script type="text/javascript">
+		window.__windowId__ = document.getElementById('vueui:windowId').getAttribute('content');
 	</script>
 	<script type="text/javascript" src="vueui.js"></script>
 </html>
@@ -175,6 +180,11 @@ main ui datum.
 	sdata["status"] = status
 	sdata["title"] = title
 	sdata["wtime"] = world.time
+#ifdef UIDEBUG
+	sdata["debug"] = TRUE
+#else
+	sdata["debug"] = FALSE
+#endif
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		sdata["assets"][asset_name] = list("ref" = ckey("\ref[asset["img"]]"))
@@ -243,6 +253,12 @@ main ui datum.
   */
 /datum/vueui/Topic(href, href_list)
 	. = update_status(FALSE)
+	if(href_list["vueuihrefjson"])
+		// this has to be up here or you can't close windows you're too far from
+		var/json_href = json_decode(href_list["vueuihrefjson"])
+		if(json_href && json_href["vueuiclose"])
+			close()
+			return
 	if(status < STATUS_INTERACTIVE || user != usr)
 		return
 	if(href_list["vueuiforceresource"])

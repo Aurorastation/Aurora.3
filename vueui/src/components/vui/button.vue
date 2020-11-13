@@ -1,6 +1,6 @@
 <template>
   <div @click="senddata()" class="button" :disabled="$root.$data.status < 2 || this.disabled">
-    <div v-if="icon" class="uiIcon16" :class="'ic-' + icon"/>
+    <div v-if="icon" class="uiIcon16" :class="[this.iconOnly ? '' : 'mr4', 'ic-' + icon]"/>
     <span><slot/></span>
   </div>
 </template>
@@ -29,6 +29,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    iconOnly: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -53,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.uiIcon16 {
+.uiIcon16.mr4 {
   margin-right: 4px;
 }
 </style>

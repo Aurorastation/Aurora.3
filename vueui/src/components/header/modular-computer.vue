@@ -6,13 +6,13 @@
       <img img class="valign" v-if="state._PC.ntneticon" :src="state._PC.ntneticon">
       <img img class="valign" v-if="state._PC.apclinkicon" :src="state._PC.apclinkicon">
       <div style="float: right;">
-        <vui-button :params="{ PC_togglelight: 1}" icon="lightbulb"/>
+        <vui-button :params="{ PC_togglelight: 1}" :class="{selected: state._PC.flashlight}" icon="lightbulb" iconOnly />
         <template v-if="state._PC.showexitprogram">
-          <vui-button :params="{ PC_minimize: 1}" icon="chevron-down">Minimize</vui-button>
-          <vui-button class="danger" :params="{ PC_exit: 1}" icon="window-close">Exit</vui-button>
+          <vui-button :params="{ PC_minimize: 1}" icon="window-minimize" iconOnly />
+          <vui-button class="danger" :params="{ PC_exit: 1}" icon="window-close" iconOnly />
         </template>
         <template v-else>
-          <vui-button class="danger" :params="{ PC_shutdown: 1}" icon="bolt">Shutdown</vui-button>
+          <vui-button class="danger" :params="{ PC_shutdown: 1}" icon="power-off" iconOnly />
         </template>
       </div>
     </div>
@@ -23,6 +23,11 @@
 export default {
   data() {
     return this.$root.$data
+  },
+  mounted: function() {
+    this.$nextTick(function() {
+      document.getElementById('content').style.height = 'calc(100vh - 72px)';
+    })
   }
 }
 </script>
@@ -33,9 +38,10 @@ button, .button {
 }
 .maincont {
   padding: 4px;
-  padding-top: 10px;
-  padding-bottom: 0px;
-  margin-bottom: -4px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: -8px;
+  background-color: #202020;
   .valign {
     vertical-align: middle;
   }

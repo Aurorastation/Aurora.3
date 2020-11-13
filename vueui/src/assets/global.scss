@@ -9,9 +9,29 @@
 // A global stylesheet to make all thing look decent
 body {
     font-size: 14px;
-    margin: 0px;
-    padding: 8px;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+#content {
+    height: calc(100vh - 36px);
+}
+
+#debug {
+    height: 50vh;
+    display: none;
+}
+
+#content, #debug {
+    overflow-y: auto;
+    margin-right: -8px;
+    margin-top: -8px;
+}
+
+#content > div {
+    margin-right: 8px;
+    margin-top: 8px;
 }
 
 code {
@@ -54,6 +74,7 @@ input, textarea, select {
 
 a, .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
     user-select: none;
+    -ms-user-select: none;
     background-color: #d8d8d8;
     cursor: pointer;
     padding: 2px 4px;
@@ -112,10 +133,6 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
     &.highlight .displayBarFill {
         background: #9dc7d6;
     }
-}
-
-.uiTitleFluff {
-    display: none;
 }
 
 .csserror {

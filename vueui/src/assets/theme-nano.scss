@@ -1,4 +1,14 @@
 // Theme that emulates nanoui look
+
+@use 'sass:color';
+
+$scrollbar-color-multiplier: 1 !default;
+$color-bg: #202020 !default;
+$text-color: rgba(255, 255, 255, 0.75) !default;
+$header-bg: #363636 !default;
+$shadow-color-core: #161616 !default;
+$shadow-color: rgba(0, 0, 0, 0.1) !default;
+
 .theme-nano {
     font-size: 12px;
     line-height: 1.9em;
@@ -9,6 +19,28 @@
         background-color: #40628a;
         height: 1px;
     }
+
+    scrollbar-base-color: color.scale(
+        $color-bg,
+        $lightness: -25% * $scrollbar-color-multiplier);
+    scrollbar-face-color: color.scale(
+        $color-bg,
+        $lightness: 10% * $scrollbar-color-multiplier);
+    scrollbar-3dlight-color: color.scale(
+        $color-bg,
+        $lightness: 0% * $scrollbar-color-multiplier);
+    scrollbar-highlight-color: color.scale(
+        $color-bg,
+        $lightness: 0% * $scrollbar-color-multiplier);
+    scrollbar-track-color: color.scale(
+        $color-bg,
+        $lightness: -25% * $scrollbar-color-multiplier);
+    scrollbar-arrow-color: color.scale(
+        $color-bg,
+        $lightness: 50% * $scrollbar-color-multiplier);
+    scrollbar-shadow-color: color.scale(
+        $color-bg,
+        $lightness: 10% * $scrollbar-color-multiplier);
 
     a, .button, button, input[type=submit], input[type=button], input[type=reset]{
         display: inline-block;
@@ -130,22 +162,32 @@
     }
     
     .uiTitleWrapper {
-        background: url(resources/theme-nano/uiTitleBackground.png) repeat center;
+        background-color: $header-bg;
         box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
         .uiTitleText {
             color: #E9C183;
         }
     }
 
-    .uiTitleFluff {
-        display: block;
-        position: relative;
-        float: right;
-        top: 4px;
-        right: 10px;
-        width: 42px;
-        height: 24px;
-        background: url(resources/theme-nano/uiTitleFluff.png) 50% 50% no-repeat;
+    .uiTitleClose {
+        position: absolute;
+        top: -1px;
+        right: 0;
+        width: 45px;
+        height: 32px;
+        font-size: 20px;
+        line-height: 31px;
+        text-align: center;
+
+        color: color.change($text-color, $alpha: 0.5);
+        background-color: $header-bg;
+        transition: color 250ms, background-color 250ms;
+
+        &:hover {
+          color: rgba(255, 255, 255, 1.0);
+          background-color: #cc0000;
+          transition: color 0ms, background-color 0ms;
+        }
     }
 
     .uiStatusIcon {
@@ -209,9 +251,6 @@
         .uiTitleText {
             color: #4C401C;
         }
-    }
-    .uiTitleFluff {
-        background: url(resources/theme-nano/uiTitleFluff-light.png) 50% 50% no-repeat;
     }
 
     .good {
