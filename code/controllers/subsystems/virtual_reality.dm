@@ -111,10 +111,11 @@
 	if(target.client)
 		target.client.screen |= global_hud.vr_control
 
-	if(istype(target, /mob/living/simple_animal/spiderbot) && M.GetIdCard())
+	if(istype(target, /mob/living/simple_animal/spiderbot))
 		var/obj/item/card/id/original_id = M.GetIdCard()
-		var/mob/living/simple_animal/spiderbot/SB = target
-		SB.internal_id.access = original_id.access
+		if(original_id)
+			var/mob/living/simple_animal/spiderbot/SB = target
+			SB.internal_id.access = original_id.access
 
 	to_chat(target, SPAN_NOTICE("Connection established, system suite active and calibrated."))
 	to_chat(target, SPAN_WARNING("To exit this mode, use the \"Return to Body\" verb in the IC tab."))
