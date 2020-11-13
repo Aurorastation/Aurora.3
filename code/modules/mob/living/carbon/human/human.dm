@@ -2034,3 +2034,21 @@
 	if(!(accent in species.allowed_accents))
 		accent = species.default_accent
 	return TRUE
+
+/mob/living/carbon/human/verb/click_belt()
+	set hidden = 1
+	set name = "click_belt"
+	if(belt)
+		belt.Click()
+
+/mob/living/carbon/human/verb/click_uniform()
+	set hidden = 1
+	set name = "click_uniform"
+	if(w_uniform)
+		w_uniform.Click()
+
+/mob/living/carbon/human/verb/click_back()
+	set hidden = 1
+	set name = "click_back"
+	if(back)
+		back.Click()
