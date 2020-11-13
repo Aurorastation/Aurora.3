@@ -26,7 +26,7 @@ export default {
   },
   mounted: function() {
     this.$nextTick(function() {
-      document.getElementById('content').style.height = 'calc(100vh - 72px)';
+      document.getElementById('content').classList.add("mcomputer");
     })
   }
 }

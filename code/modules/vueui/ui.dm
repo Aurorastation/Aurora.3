@@ -124,11 +124,9 @@ main ui datum.
   * @return html code - text
   */
 /datum/vueui/proc/generate_html(var/css_tag)
-#ifdef UIDEBUG
-	var/debugtxt = "<div id=\"dapp\"></div>"
-#else
 	var/debugtxt = ""
-#endif
+	if(user && check_rights(R_DEV, user=user))
+		debugtxt = "<div id=\"dapp\"></div>"
 	return {"
 <!DOCTYPE html>
 <html>
@@ -140,7 +138,7 @@ main ui datum.
 		[css_tag]
 	</head>
 	<body class="[get_theme_class()]">
-		<div id="header">
+		<div id="header">	
 			<header-[header]></header-[header]>
 			<header-handles></header-handles>
 		</div>
@@ -180,11 +178,10 @@ main ui datum.
 	sdata["status"] = status
 	sdata["title"] = title
 	sdata["wtime"] = world.time
-#ifdef UIDEBUG
-	sdata["debug"] = TRUE
-#else
-	sdata["debug"] = FALSE
-#endif
+	if(user && check_rights(R_DEV, user=user))
+		sdata["debug"] = TRUE
+	else
+		sdata["debug"] = FALSE
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		sdata["assets"][asset_name] = list("ref" = ckey("\ref[asset["img"]]"))

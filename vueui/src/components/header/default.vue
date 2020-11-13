@@ -1,6 +1,6 @@
 <template>
   <div class="uiTitleWrapper" draggable v-on:dragstart="startDragging($event)">
-    <div style="clear: both;">
+    <div class="titleBar">
       <div class="uiStatusIcon uiIcon24" :class="statusClass" unselectable="on"/>
       <i class="fas ic-bug uiIcon24 uiDebugIcon" :class="debugClass" unselectable="on" @click="activateDebug()"/>
       <div class="uiTitleText" unselectable="on">{{ d.title }}</div>
@@ -32,9 +32,6 @@ export default {
         if (this.debug_flip == 0) return 'uiDebugOff';
       }
       return 'uiNoDebug';
-    },
-    modularComputer() {
-      return this.d.active.includes("mcomputer") ? true : false;
     }
   },
   methods: {
@@ -45,14 +42,17 @@ export default {
       dragStartHandler($event);
     },
     activateDebug() {
-      var offset = this.modularComputer ? '72px' : '36px';
       if(this.debug_flip == 0) {
-        document.getElementById("content").style.height = "calc(50vh - " + offset + ")";
-        document.getElementById("debug").style.display = "inherit";
+        // document.getElementById("content").style.height = "calc(50vh - " + offset + ")";
+        // document.getElementById("debug").style.display = "inherit";
+        document.getElementById("content").classList.add("uiDebug");
+        document.getElementById("debug").classList.add("uiDebug");
         this.debug_flip = 1;
       } else if (this.debug_flip == 1) {
-        document.getElementById("content").style.height = "calc(100vh - " + offset + ")";
-        document.getElementById("debug").style.display = "none";
+        // document.getElementById("content").style.height = "calc(100vh - " + offset + ")";
+        // document.getElementById("debug").style.display = "none";
+        document.getElementById("content").classList.remove("uiDebug");
+        document.getElementById("debug").classList.remove("uiDebug");
         this.debug_flip = 0;
       }
     }
@@ -61,6 +61,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/_mixins.scss';
+
 .uiTitleWrapper {
   margin: -8px -8px 10px;
   position: relative;
@@ -70,45 +72,33 @@ export default {
   user-select: none;
   -ms-user-select: none;
   cursor: default;
-}
-
-.uiTitleWrapper > div:nth-child(1) {
-  height: 32px;
-}
-
-.uiTitleText {
-  position: relative;
-  display: inline-block;
-  left: 20px;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-.uiTitle.icon {
-  padding: 6px 8px 6px 42px;
-  background-position: 2px 50%;
-  background-repeat: no-repeat;
-}
-
-.uiStatusIcon {
-  position: relative;
-  display: inline-block;
-  top: 2px;
-  left: 12px;
-}
-
-.uiDebugIcon {
-  position: relative;
-  left: 16px;
-  top: 2px;
-  &.uiDebugOn {
-    color: #4e7428;
-  }
-  &.uiDebugOff {
-    color: #a70000;
-  }
-  &.uiNoDebug {
-    display: none;
+  & > .titleBar {
+    height: 32px;
+    @include vertical-align(middle, 24px);
+    & > * {
+      display: inline-block;
+      margin-left: 8px;
+    }
+    & > .uiTitleText {
+      font-size: 16px;
+    }
+    & > .uiDebugIcon {
+      cursor: pointer;
+      transition: color 250ms;
+      &.uiDebugOn {
+        color: #4e7428;
+      }
+      &.uiDebugOff {
+        color: #a70000;
+      }
+      &.uiNoDebug {
+        display: none;
+      }
+      &:hover {
+        color: #507aac;
+        transition: color 0ms;
+      }
+    }
   }
 }
 </style>
