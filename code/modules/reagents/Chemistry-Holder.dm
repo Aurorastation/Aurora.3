@@ -74,15 +74,15 @@
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()
 	if(!my_atom?.loc)
-		return 0
+		return FALSE
 	if(my_atom.flags & NOREACT)
-		return 0
+		return FALSE
 
 	var/reaction_occured
 	var/list/effect_reactions = list()
 	var/list/eligible_reactions = list()
 	for(var/i in 1 to PROCESS_REACTION_ITER)
-		reaction_occured = 0
+		reaction_occured = FALSE
 
 		//need to rebuild this to account for chain reactions
 		for(var/thing in reagent_volumes)
@@ -91,10 +91,8 @@
 		for(var/datum/chemical_reaction/C in eligible_reactions)
 			if(C.can_happen(src) && C.process(src))
 				effect_reactions |= C
-				reaction_occured = 1
-
+				reaction_occured = TRUE
 		eligible_reactions.Cut()
-
 		if(!reaction_occured)
 			break
 
@@ -102,45 +100,47 @@
 		C.post_reaction(src)
 
 	var/temps_updated = equalize_temperature()
-
 	update_holder(reactions = reaction_occured)
-
 	return temps_updated
 
 /* Holder-to-chemical */
 
 /datum/reagents/proc/add_reagent(var/rtype, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/thermal_energy = 0)
-	if(!isnum(amount) || amount <= 0)
+	if(amount <= 0)
 		return FALSE
-
-	var/old_amount = amount
+	thermal_energy /= amount // Re-multiplied later
 	amount = min(amount, REAGENTS_FREE_SPACE(src))
+	thermal_energy *= amount
 	var/decl/reagent/newreagent = decls_repository.get_decl(rtype)
-	if(!newreagent)
-		warning("[my_atom] attempted to add a reagent called '[rtype]' which doesn't exist. ([usr])")
-		return FALSE
 	LAZYINITLIST(reagent_volumes)
-	if(!reagent_volumes[rtype])
+	if(!reagent_volumes[rtype])	// New reagent
 		reagent_volumes[rtype] = amount
 		var/tmp_data = newreagent.initialize_data(data)
 		if(tmp_data)
 			LAZYSET(reagent_data, rtype, tmp_data)
-		if(thermal_energy > 0 && old_amount > 0)
-			newreagent.set_thermal_energy(thermal_energy * (amount/old_amount), src, TRUE)
+		if(temperature <= 0)
+			temperature = newreagent.default_temperature
+		if(thermal_energy > 0)
+			newreagent.set_thermal_energy(thermal_energy, src, TRUE)
 		else
-			if(temperature <= 0)
-				temperature = newreagent.default_temperature
 			newreagent.set_temperature(temperature, src, TRUE)
-	else // existing reagent
+		if(!thermal_energy && temperature != newreagent.get_temperature(src))
+			world.log << ("Temperature [temperature] did not match [newreagent.get_temperature(src)] for NEW reagent [newreagent.type]!")
+	else	// Existing reagent
+		var/old_energy = newreagent.get_thermal_energy(src)
 		reagent_volumes[rtype] += amount
-		if(thermal_energy > 0 && old_amount > 0)
-			newreagent.add_thermal_energy(thermal_energy * (amount/old_amount), src, TRUE)
-		else
-			if(temperature <= 0)
-				temperature = newreagent.default_temperature
-			newreagent.add_thermal_energy(temperature * newreagent.specific_heat * amount, src, TRUE)
 		if(!isnull(data))
 			LAZYSET(reagent_data, rtype, newreagent.mix_data(src, data, amount))
+		if(temperature <= 0)
+			temperature = newreagent.default_temperature
+		newreagent.add_thermal_energy(old_energy, src, TRUE) // This part has the safety var set because thermal shock shouldn't occur due to it.
+		if(thermal_energy > 0) // This if-else is for the change from the current temperature.
+			newreagent.add_thermal_energy(thermal_energy - old_energy, src, FALSE)
+		else
+			newreagent.add_thermal_energy(newreagent.default_temperature*newreagent.specific_heat*amount - old_energy, src, FALSE)
+		if(!thermal_energy && temperature != newreagent.get_temperature(src))
+			world.log << ("Temperature [temperature] did not match [newreagent.get_temperature(src)] for EXISTING reagent [newreagent.type]!")
+	UNSETEMPTY(reagent_volumes)
 	update_holder(!safety)
 	return TRUE
 
@@ -204,7 +204,7 @@
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
 		if(phase == current.reagent_state)
-			. += current.type
+			. += _current
 
 /* Holder-to-holder and similar procs */
 
@@ -341,11 +341,11 @@
 	if(temperature >= REAGENTS_BURNING_TEMP_HIGH)
 		var/burn_damage = Clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP)
 		target.adjustFireLoss(burn_damage)
-		target.visible_message(SPAN_DANGER("The hot liquid burns \the [target]!"))
+		target.visible_message(SPAN_DANGER("The hot liquid burns [target]!"))
 	else if(temperature <= REAGENTS_BURNING_TEMP_LOW)
 		var/burn_damage = Clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP)
 		target.adjustFireLoss(burn_damage)
-		target.visible_message(SPAN_DANGER("The freezing liquid burns \the [target]!"))
+		target.visible_message(SPAN_DANGER("The freezing liquid burns [target]!"))
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)

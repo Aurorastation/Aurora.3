@@ -186,26 +186,29 @@
 	breathe_met = REM * 0.1
 	breathe_mul = 0.5
 	ingest_mul = 0.125
-	var/special_counter = 0
+
+/decl/reagent/night_juice/initialize_data(newdata, datum/reagents/holder)
+	. = ..()
+	LAZYSET(., "special", 0)
 
 /decl/reagent/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 
-	special_counter += (REAGENT_VOLUME(holder, type)/10)*removed
+	holder.reagent_data["special"] += (REAGENT_VOLUME(holder, type)/10)*removed
 
-	M.make_jittery(5 + special_counter)
-	M.drowsyness = max(0,M.drowsyness - (1 + special_counter*0.1))
-	if(special_counter > 5)
+	M.make_jittery(5 + holder.reagent_data["special"])
+	M.drowsyness = max(0,M.drowsyness - (1 + holder.reagent_data["special"]*0.1))
+	if(holder.reagent_data["special"] > 5)
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
-		M.apply_effect(1 + special_counter*0.25, STUTTER)
-		M.druggy = max(M.druggy, special_counter*0.25)
-		M.hallucination = max(M.hallucination, special_counter*5 - 100)
-		M.make_jittery(special_counter)
-		if(prob(special_counter))
+		M.apply_effect(1 + holder.reagent_data["special"]*0.25, STUTTER)
+		M.druggy = max(M.druggy, holder.reagent_data["special"]*0.25)
+		M.hallucination = max(M.hallucination, holder.reagent_data["special"]*5 - 100)
+		M.make_jittery(holder.reagent_data["special"])
+		if(prob(holder.reagent_data["special"]))
 			M.emote("twitch")
 		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
-		H.take_damage(special_counter * removed * 0.025)
+		H.take_damage(holder.reagent_data["special"] * removed * 0.025)
 
 /decl/reagent/guwan_painkillers
 	name = "Tremble"
@@ -238,7 +241,6 @@
 	taste_description = "sweetness"
 	taste_mult = 1.8
 	color = "#d0583a"
-	var/datum/modifier = null
 	metabolism = REM * 3
 	overdose = 10
 	strength = 3
@@ -252,13 +254,7 @@
 	if(prob(5)) // average of 6 brute every 20 seconds.
 		M.visible_message("[M] shudders violently.", "You shudder uncontrollably, it hurts.")
 		M.take_organ_damage(6 * removed, 0)
-	M.add_chemical_effect(CE_SPEEDBOOST, 1)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
-
-/decl/reagent/toxin/stimm/Destroy()
-	QDEL_NULL(modifier)
-	return ..()
+	M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
 
 /decl/reagent/toxin/lean
 	name = "Lean"

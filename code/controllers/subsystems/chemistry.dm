@@ -72,6 +72,13 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if(CR.result == result_id && CR.result_amount > 0)
 			return CR
 
+/datum/controller/subsystem/chemistry/proc/initialize_specific_heats()
+	for(var/_R in subtypesof(/decl/reagent/))
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		if(!R.name)
+			continue
+		check_specific_heat(_R)
+
 /datum/controller/subsystem/chemistry/stat_entry()
 	..("AH:[active_holders.len]")
 
@@ -85,6 +92,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	log_ss("chemistry", "Found [pre_secret_len] reactions.")
 	load_secret_chemicals()
 	log_ss("chemistry", "Loaded [chemical_reactions.len - pre_secret_len] secret reactions.")
+	initialize_specific_heats() // must be after reactions
 	..()
 
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)

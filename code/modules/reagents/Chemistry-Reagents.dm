@@ -79,7 +79,7 @@
 		overdose(M, alien, removed, M.chem_doses[type]/overdose) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
 	if(M.chem_doses[type] == 0)
-		initial_effect(M,alien)
+		initial_effect(M,alien, holder)
 
 	M.chem_doses[type] += removed
 

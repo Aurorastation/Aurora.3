@@ -274,6 +274,7 @@
 	return
 
 /decl/reagent/thermite/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
@@ -389,27 +390,27 @@
 	e.start()
 	holder.clear_reagents()
 
-/decl/reagent/nitroglycerin/add_thermal_energy(var/added_energy, var/datum/reagents/holder)
+/decl/reagent/nitroglycerin/on_heat_change(var/added_energy, var/datum/reagents/holder)
 	. = ..()
 	if(abs(added_energy) > (specific_heat * 5 / REAGENT_VOLUME(holder, type))) // can explode via cold or heat shock
-		explode()
+		explode(holder)
 
-/decl/reagent/nitroglycerin/apply_force(var/force)
+/decl/reagent/nitroglycerin/apply_force(var/force, var/datum/reagents/holder)
 	..()
 	if(prob(force * 6))
-		explode()
+		explode(holder)
 
 /decl/reagent/nitroglycerin/touch_turf(var/turf/T, var/datum/reagents/holder)
 	. = ..()
-	explode()
+	explode(holder)
 
 /decl/reagent/nitroglycerin/touch_obj(var/obj/O, var/datum/reagents/holder)
 	. = ..()
-	explode()
+	explode(holder)
 
 /decl/reagent/nitroglycerin/touch_mob(var/mob/M, var/datum/reagents/holder)
 	. = ..()
-	explode()
+	explode(holder)
 
 /decl/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(H) || alien == IS_DIONA)
@@ -579,8 +580,7 @@
 	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, REAGENT_VOLUME(holder, type)/3)
 	for(var/mob/living/L in T)
 		L.adjust_fire_stacks(REAGENT_VOLUME(holder, type) / 10)
-		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
-	remove_self(REAGENT_VOLUME(holder, type))
+	remove_self(REAGENT_VOLUME(holder, type), holder)
 	return
 
 /decl/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
@@ -589,8 +589,7 @@
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
 		L.adjustFireLoss(amount / 10)
-		remove_self(REAGENT_VOLUME(holder, type))
-		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
+		remove_self(REAGENT_VOLUME(holder, type), holder)
 
 //Secret chems.
 //Shhh don't tell no one.
@@ -602,25 +601,26 @@
 	scannable = TRUE
 	metabolism = REM * 0.25
 	taste_description = "bottled fire"
-	var/datum/modifier/modifier
 	fallback_specific_heat = 2.75
 	unaffected_species = IS_MACHINE
 
+/decl/reagent/estus/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	M.set_light(REAGENT_VOLUME(holder, type), 4, LIGHT_COLOR_FIRE)
+
+/decl/reagent/estus/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	. = ..()
+	M.set_light(FALSE)
+
 /decl/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /decl/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
 /decl/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
@@ -641,6 +641,7 @@
 		M.IgniteMob()
 
 /decl/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(10)
 		L.IgniteMob()

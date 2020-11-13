@@ -380,7 +380,6 @@
 	overdose = 10
 	od_minimum_dose = 1
 	scannable = TRUE
-	var/datum/modifier/modifier
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.0125
 
@@ -397,8 +396,7 @@
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
 
 /decl/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien)
 	if(prob(M.chem_doses[type] / 2))
@@ -408,10 +406,6 @@
 			M.emote(pick("twitch", "shiver"))
 		else
 			M.seizure()
-
-/decl/reagent/synaptizine/Destroy()
-	QDEL_NULL(modifier)
-	return ..()
 
 /decl/reagent/alkysine
 	name = "Alkysine"
@@ -538,8 +532,6 @@
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 	M.add_chemical_effect(CE_PULSE, 1)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 	if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline))
 		if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
@@ -923,7 +915,6 @@
 	)
 	conflicting_reagent = null
 	min_dose = 0.0064 * REM
-	var/datum/modifier/modifier
 
 /decl/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -1258,7 +1249,6 @@
 	suppress_traumas  = list(
 		/datum/brain_trauma/mild/muscle_weakness/ = 0.01
 	)
-	var/datum/modifier/modifier
 
 /decl/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -1294,7 +1284,6 @@
 	suppress_traumas  = list()
 	conflicting_reagent = null
 	min_dose = 0.0064 * REM
-	var/datum/modifier/modifier
 
 /decl/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -1304,8 +1293,7 @@
 /decl/reagent/mental/kokoreed/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	. = ..()
 	if(isunathi(M))
-		if (!modifier)
-			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+		M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
 
 /decl/reagent/cataleptinol
 	name = "Cataleptinol"

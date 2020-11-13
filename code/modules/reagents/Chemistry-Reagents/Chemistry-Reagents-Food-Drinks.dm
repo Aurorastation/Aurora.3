@@ -705,15 +705,9 @@
 	var/adj_sleepy = 0
 	var/adj_temp = 0 //do NOT use for temp changes based on the temperature of the drinks, only for things such as spices.
 	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
-	var/datum/modifier/modifier = null
 	unaffected_species = IS_MACHINE
 	var/blood_to_ingest_scale = 2
 	fallback_specific_heat = 1.75
-
-/decl/reagent/drink/Destroy()
-	if (modifier)
-		QDEL_NULL(modifier)
-	return ..()
 
 /decl/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
@@ -724,8 +718,7 @@
 /decl/reagent/drink/proc/digest(var/mob/living/carbon/M, var/alien, var/removed, var/add_nutrition = TRUE)
 	if(alien != IS_DIONA)
 		if (caffeine)
-			if(!modifier)
-				modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
 			M.add_chemical_effect(CE_PULSE, 1)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)

@@ -110,7 +110,6 @@
 	var/adj_temp = 0
 	var/targ_temp = 310
 	var/halluci = 0
-	var/datum/modifier/caffeine_mod
 	var/caffeine  = 0
 
 	var/flammability_divisor = 10
@@ -127,12 +126,6 @@
 	glass_desc = "A glass of distilled maintainer tears."
 
 	var/blood_to_ingest_scale = 2
-
-/decl/reagent/alcohol/Destroy()
-	if (caffeine_mod)
-		QDEL_NULL(caffeine_mod)
-
-	return ..()
 
 /decl/reagent/alcohol/touch_mob(mob/living/L, amount, var/datum/reagents/holder)
 	. = ..()
@@ -159,8 +152,7 @@
 
 		if(caffeine)
 			M.add_chemical_effect(CE_PULSE, caffeine*2)
-			if(!caffeine_mod)
-				caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+			M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
 
 	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))

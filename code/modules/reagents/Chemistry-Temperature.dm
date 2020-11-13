@@ -9,7 +9,7 @@
 	var/returning = 0
 	for(var/_R in reagent_volumes)
 		var/decl/reagent/R = decls_repository.get_decl(_R)
-		returning += R.get_thermal_energy()
+		returning += R.get_thermal_energy(src)
 	return returning
 
 /decl/reagent/proc/get_thermal_energy(var/datum/reagents/holder)
@@ -33,7 +33,7 @@
 	if(HC && TE)
 		return TE / HC
 	else
-		return T0C + 20
+		return T20C
 
 /decl/reagent/proc/get_temperature(var/datum/reagents/holder)
 	var/HC = get_heat_capacity(holder)
@@ -41,33 +41,35 @@
 	if(HC && TE)
 		return TE / HC
 	else
-		return T0C + 20
+		return T20C
 
-/datum/reagents/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature)
+/datum/reagents/proc/get_thermal_energy_change(old_temperature, new_temperature)
 	return get_heat_capacity()*(max(new_temperature, TCMB) - old_temperature)
 
-/decl/reagent/proc/get_thermal_energy_change(var/old_temperature, var/new_temperature, var/datum/reagents/holder)
+/decl/reagent/proc/get_thermal_energy_change(old_temperature, new_temperature, var/datum/reagents/holder)
 	return get_heat_capacity(holder)*(max(new_temperature, TCMB) - old_temperature)
 
-/decl/reagent/proc/add_thermal_energy(var/added_energy, var/datum/reagents/holder, var/safety = FALSE)
+/decl/reagent/proc/add_thermal_energy(added_energy, var/datum/reagents/holder, safety = FALSE)
 	var/list/data = REAGENT_DATA(holder, type)
 	added_energy = max(-get_thermal_energy(holder), added_energy)
-	LAZYSET(data, "thermal_energy", LAZYACCESS(data, "thermal_energy") + added_energy)
+	LAZYINITLIST(holder.reagent_data)
+	LAZYINITLIST(holder.reagent_data[type])
+	holder.reagent_data[type]["thermal_energy"] = LAZYACCESS(data, "thermal_energy") + added_energy
 	if(!safety)
 		on_heat_change(added_energy, holder)
 	return added_energy
 
-/decl/reagent/proc/set_thermal_energy(var/set_energy, var/datum/reagents/holder)
-	return add_thermal_energy(-get_thermal_energy(holder) + set_energy)
+/decl/reagent/proc/set_thermal_energy(set_energy, var/datum/reagents/holder, safety = FALSE)
+	return add_thermal_energy(-get_thermal_energy(holder) + set_energy, holder, safety)
 
-/datum/reagents/proc/set_thermal_energy(var/set_energy, var/safety = FALSE)
+/datum/reagents/proc/set_thermal_energy(set_energy, safety = FALSE)
 	return add_thermal_energy(-get_thermal_energy() + set_energy, safety)
 
-/decl/reagent/proc/set_temperature(var/new_temperature, var/datum/reagents/holder, var/safety = FALSE)
+/decl/reagent/proc/set_temperature(new_temperature, var/datum/reagents/holder, safety = FALSE)
 	return add_thermal_energy(-get_thermal_energy(holder) + get_thermal_energy_change(0,new_temperature, holder), holder, safety)
 
-/datum/reagents/proc/set_temperature(var/new_temperature)
-	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature) )
+/datum/reagents/proc/set_temperature(new_temperature, safety = FALSE)
+	return add_thermal_energy(-get_thermal_energy() + get_thermal_energy_change(0,new_temperature), safety )
 
 /datum/reagents/proc/equalize_temperature()
 
@@ -90,7 +92,7 @@
 
 	return was_changed
 
-/datum/reagents/proc/add_thermal_energy(var/thermal_energy_to_add)
+/datum/reagents/proc/add_thermal_energy(thermal_energy_to_add, safety = FALSE)
 
 	var/total_energy_added = 0
 	var/total_heat_capacity = 0
@@ -101,7 +103,7 @@
 
 	for(var/_R in reagent_data)
 		var/decl/reagent/R = decls_repository.get_decl(_R)
-		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (R.get_heat_capacity()/total_heat_capacity), src )
+		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (R.get_heat_capacity(src)/total_heat_capacity), src, safety = safety )
 
 	return total_energy_added
 
@@ -124,5 +126,5 @@
 
 	return TRUE
 
-/decl/reagent/proc/on_heat_change(var/energy_change, var/datum/reagents/holder)
+/decl/reagent/proc/on_heat_change(energy_change, var/datum/reagents/holder)
 	return // stub for heat effects

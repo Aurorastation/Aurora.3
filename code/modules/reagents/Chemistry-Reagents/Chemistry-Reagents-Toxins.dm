@@ -606,6 +606,28 @@
 	strength = 0.008
 	nicotine = 0.1
 
+/mob/living/carbon/human/proc/berserk_start()
+	to_chat(src, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
+	add_client_color(/datum/client_color/berserk)
+	shock_stage = 0
+	SetParalysis(0)
+	SetStunned(0)
+	SetWeakened(0)
+	setHalLoss(0)
+	lying = 0
+	update_canmove()
+
+/mob/living/carbon/human/proc/berserk_process()
+	drowsyness = max(drowsyness - 5, 0)
+	AdjustParalysis(-1)
+	AdjustStunned(-1)
+	AdjustWeakened(-1)
+	adjustHalLoss(-1)
+
+/mob/living/carbon/human/proc/berserk_stop()
+	to_chat(src, SPAN_DANGER("Your rage fades away, your thoughts are clear once more!"))
+	remove_client_color(/datum/client_color/berserk)
+
 /decl/reagent/toxin/berserk
 	name = "Red Nightshade"
 	description = "An illegal combat performance enhancer originating from the criminal syndicates of Mars. The drug stimulates regions of the brain responsible for violence and rage, inducing a feral, berserk state in users."
@@ -615,22 +637,30 @@
 	taste_description = "bitterness"
 	metabolism = REM * 2
 	unaffected_species = IS_DIONA | IS_MACHINE
-	var/datum/modifier/modifier
+
+/decl/reagent/toxin/berserk/initial_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
+	. = ..()
+	if(!istype(H))
+		return .
+	H.berserk_start()
+
+/decl/reagent/toxin/berserk/final_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
+	. = ..()
+	if(!istype(H))
+		return .
+	H.berserk_stop()
 
 /decl/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(!modifier)
-		modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	if(istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		H.berserk_process()
 	M.make_jittery(20)
 	M.add_chemical_effect(CE_BERSERK, 1)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 	if(prob(10))
 		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
-
-/decl/reagent/toxin/berserk/Destroy()
-	QDEL_NULL(modifier)
-	return ..()
 
 /decl/reagent/toxin/spectrocybin
 	name = "Spectrocybin"
@@ -643,7 +673,6 @@
 	taste_description = "acid"
 	metabolism = REM * 0.5
 	unaffected_species = IS_DIONA | IS_MACHINE
-	var/datum/modifier/modifier
 
 /decl/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
@@ -664,8 +693,12 @@
 			M.visible_message("<b>[M]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
 			to_chat(M, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 	else
-		if(!modifier)
-			modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+		if(istype(M, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if(M.chem_doses[type] <= (overdose + metabolism))
+				H.berserk_start()
+			else
+				H.berserk_process()
 		M.hallucination = 0 //Brings down hallucination quickly to prevent message spam from being switched between harm and help by hallucinoatory pacification and berserk.
 		M.add_chemical_effect(CE_BERSERK, 1)
 		if(M.a_intent != I_HURT)
@@ -674,9 +707,12 @@
 			M.emote(pick("shiver", "twitch"))
 			to_chat(M, SPAN_CULT(pick("You feel a cold and threatening air wrapping around you.", "Whispering shadows, ceaseless in their demands, twist your thoughts...", "The whispering, anything to make them stop!", "Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.", "You feel vestiges of decaying souls cling to you, trying to re-enter the world of the living.")))
 
-/decl/reagent/toxin/spectrocybin/Destroy()
-	QDEL_NULL(modifier)
-	return ..()
+/decl/reagent/toxin/spectrocybin/final_effect(mob/living/carbon/human/H, datum/reagents/holder)
+	. = ..()
+	if(!istype(H))
+		return .
+	if(H.chem_doses[type] >= overdose)
+		H.berserk_stop()
 
 /decl/reagent/toxin/trioxin
 	name = "Trioxin"
