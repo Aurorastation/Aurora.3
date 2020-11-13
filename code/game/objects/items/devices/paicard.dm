@@ -53,30 +53,55 @@
 			to_chat(user, SPAN_WARNING("\The [src] already has the full number of possible encryption keys installed!"))
 			return
 		var/obj/item/device/encryptionkey/EK = C
-		var/list/added_channels = list()
+		var/added_channels = FALSE
 		for(var/thing in EK.channels)
 			if(!radio.channels[thing])
-				radio.channels[thing] = TRUE
-				added_channels += thing
-		for(var/thing in EK.additional_channels)
-			if(!radio.channels[thing])
-				radio.channels[thing] = TRUE
-				added_channels += thing
-		if(length(added_channels))
+				added_channels = TRUE
+				break
+		if(!added_channels)
+			for(var/thing in EK.additional_channels)
+				if(!radio.channels[thing])
+					added_channels = TRUE
+					break
+		if(added_channels)
 			installed_encryptionkeys += EK
 			user.drop_from_inventory(EK, src)
 			user.visible_message("<b>[user]</b> slides \the [EK] into \the [src]'s encryption key slot.", SPAN_NOTICE("You slide \the [EK] into \the [src]'s encryption key slot, granting it access to the radio channels."))
-			for(var/ch_name in added_channels)
-				if(!SSradio)
-					sleep(30) // Waiting for the SSradio to be created.
-				if(!SSradio)
-					name = "broken radio"
-					return
-				radio.secure_radio_connections[ch_name] = SSradio.add_object(radio, radiochannels[ch_name], RADIO_CHAT)
+			recalculateChannels()
 			if(pai)
-				to_chat(pai, SPAN_NOTICE("You gain access to new radio channels: [english_list(added_channels)]."))
+				to_chat(pai, SPAN_NOTICE("You now have access to these radio channels: [english_list(radio.channels)]."))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
+	else if(C.isscrewdriver())
+		if(!length(installed_encryptionkeys))
+			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
+			return
+		user.visible_message("<b>[user]</b> uses \the [C] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src].", SPAN_NOTICE("You use \the [C] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src]."))
+		for(var/key in installed_encryptionkeys)
+			var/obj/item/device/encryptionkey/EK = key
+			EK.forceMove(get_turf(src))
+			installed_encryptionkeys -= EK
+		recalculateChannels()
+
+/obj/item/device/paicard/proc/recalculateChannels()
+	radio.channels = list()
+
+	for(var/keyslot in installed_encryptionkeys)
+		var/obj/item/device/encryptionkey/EK = keyslot
+
+		for(var/ch_name in EK.channels)
+			radio.channels[ch_name] = radio.FREQ_LISTENING
+
+		for(var/ch_name in EK.additional_channels)
+			radio.channels[ch_name] = radio.FREQ_LISTENING
+
+	for(var/ch_name in radio.channels)
+		if(!SSradio)
+			sleep(30) // Waiting for the SSradio to be created.
+		if(!SSradio)
+			radio.name = "broken radio headset"
+			return
+		radio.secure_radio_connections[ch_name] = SSradio.add_object(radio, radiochannels[ch_name], RADIO_CHAT)
 
 //This proc is called when the user scans their ID on the pAI card.
 //It registers their ID and copies their access to the pai, allowing it to use airlocks the owner can
