@@ -448,7 +448,7 @@
 	M.adjustNutritionLoss(10*removed)
 	M.overeatduration = 0
 
-/decl/reagent/lipozine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/lipozine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(10*removed)
 	if(prob(2))
 		to_chat(M, SPAN_DANGER("You feel yourself wasting away."))
@@ -1375,7 +1375,7 @@
 		M.sleeping = max(0, M.sleeping - 2)
 		M.intoxication = max(0, (M.intoxication - (removed*0.25)))
 
-/decl/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
 		M.make_jittery(5)
 
@@ -2184,7 +2184,7 @@
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/decl/reagent/alcohol/ethanol/coffee/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/alcohol/ethanol/coffee/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
 		M.make_jittery(5)
 
@@ -4431,7 +4431,7 @@
 	condiment_icon_state = "dionaepowder"
 	condiment_center_of_mass = list("x"=16, "y"=10)
 
-/datum/reagent/alcohol/ethanol/rumandcola
+/decl/reagent/alcohol/ethanol/rumandcola
 	name = "Rum and Cola"
 	description = "A classic cocktail consisting of rum and cola."
 	color = "#3E1B00"

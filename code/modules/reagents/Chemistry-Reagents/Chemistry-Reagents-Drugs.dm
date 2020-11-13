@@ -38,7 +38,7 @@
 	if(prob(3))
 		M.emote(pick("smile","giggle","moan","yawn","laugh","drool","twitch"))
 
-/decl/reagent/space_drugs/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
+/decl/reagent/space_drugs/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder)
 	. = ..()
 	M.hallucination = max(M.hallucination, 30 * scale)
 
@@ -323,6 +323,6 @@
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)
 
-/decl/reagent/wulumunusha/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
+/decl/reagent/wulumunusha/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder)
 	if(isskrell(M))
 		M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict skrell

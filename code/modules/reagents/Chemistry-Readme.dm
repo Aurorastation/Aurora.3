@@ -236,7 +236,7 @@ About Reagents:
 		affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
 			Ditto, breathing. Defaults to affect_blood with 75% dose.
 
-		overdose(var/mob/living/carbon/M, var/alien)
+		overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 			Called when volume is above overdose and dose is greater than a minimum dose. Defaults to M.adjustToxLoss(REM).
 
 		initialize_data(var/newdata)

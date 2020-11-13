@@ -217,7 +217,7 @@
 	od_minimum_dose = 20
 	taste_description = "salt"
 
-/decl/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
@@ -685,7 +685,7 @@
 				M.emote("shiver")
 				to_chat(M, SPAN_GOOD(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
 
-/decl/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M)
+/decl/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	M.see_invisible = SEE_INVISIBLE_CULT
 	M.make_jittery(5)
 	if(M.chem_doses[type] < 5)
