@@ -30,10 +30,18 @@
 		data["_PC"] = headerdata
 		. = data
 
-	VUEUI_SET_CHECK(data["manifest"], SSrecords.get_manifest_list(), ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["allow_printing"], !isnull(computer?.nano_printer), ., data)
+	VUEUI_SET_CHECK_LIST(data["manifest"], SSrecords.get_manifest_list(), ., data)
 
 /datum/computer_file/program/manifest/Topic(href, href_list)
 	. = ..()
+
+	if(href_list["action"] == "print" && can_run(usr, 1) && !isnull(computer?.nano_printer))
+		if(!computer.nano_printer.print_text(SSrecords.get_manifest_text(), text("crew manifest ([])", worldtime2text())))
+			to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It might be out of paper."))
+			return
+		else
+			computer.visible_message(SPAN_NOTICE("\The [computer] prints out a paper."))
 
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
