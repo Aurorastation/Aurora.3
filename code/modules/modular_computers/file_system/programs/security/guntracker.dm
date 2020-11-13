@@ -65,7 +65,7 @@
 		return TRUE
 
 	if(issilicon(usr) && !computer.Adjacent(usr))
-		to_chat(usr, SPAN_WARNING("Remote transmissions to this program is prohibited!"))
+		to_chat(usr, SPAN_WARNING("Remote transmissions to this program are prohibited!"))
 		return TRUE
 
 	//Try and get the pin if a pin is passed
