@@ -138,7 +138,7 @@ main ui datum.
 		[css_tag]
 	</head>
 	<body class="[get_theme_class()]">
-		<div id="header">	
+		<div id="header">
 			<header-[header]></header-[header]>
 			<header-handles></header-handles>
 		</div>
@@ -178,10 +178,7 @@ main ui datum.
 	sdata["status"] = status
 	sdata["title"] = title
 	sdata["wtime"] = world.time
-	if(user && check_rights(R_DEV, user=user))
-		sdata["debug"] = TRUE
-	else
-		sdata["debug"] = FALSE
+	sdata["debug"] = user && check_rights(R_DEV, user)
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		sdata["assets"][asset_name] = list("ref" = ckey("\ref[asset["img"]]"))
