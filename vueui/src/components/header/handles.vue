@@ -1,9 +1,9 @@
 <template>
-    <div id="resizehandles">
-        <div class="resizeHandle__e" @mousedown.left="startResizing(1, 0, $event)" />
-        <div class="resizeHandle__s" @mousedown.left="startResizing(0, 1, $event)" />
-        <div class="resizeHandle__se" @mousedown.left="startResizing(1, 1, $event)" />
-    </div>
+  <div id="resizehandles">
+    <div class="resizeHandle__e" @mousedown.left="startResizing(1, 0, $event)" />
+    <div class="resizeHandle__s" @mousedown.left="startResizing(0, 1, $event)" />
+    <div class="resizeHandle__se" @mousedown.left="startResizing(1, 1, $event)" />
+  </div>
 </template>
 
 <script>

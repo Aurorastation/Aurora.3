@@ -162,7 +162,9 @@ class StorageProxy {
           await backend.dbPromise;
           return backend;
         }
-        catch {}
+        catch {
+          return
+        }
       }
       if (testLocalStorage()) {
         return new LocalStorageBackend();

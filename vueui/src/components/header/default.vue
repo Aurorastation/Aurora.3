@@ -27,9 +27,11 @@ export default {
       return 'uiStatusBad'
     },
     debugClass() {
-      if (this.d.debug < 1) return 'uiNoDebug';
-      if (this.debug_flip == 1) return 'uiDebugOn';
-      if (this.debug_flip == 0) return 'uiDebugOff';
+      if (this.d.debug == 1) {
+        if (this.debug_flip == 1) return 'uiDebugOn';
+        if (this.debug_flip == 0) return 'uiDebugOff';
+      }
+      return 'uiNoDebug';
     },
     modularComputer() {
       return this.d.active.includes("mcomputer") ? true : false;

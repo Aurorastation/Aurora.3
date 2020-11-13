@@ -6,13 +6,13 @@
       <img img class="valign" v-if="state._PC.ntneticon" :src="state._PC.ntneticon">
       <img img class="valign" v-if="state._PC.apclinkicon" :src="state._PC.apclinkicon">
       <div style="float: right;">
-        <vui-button :params="{ PC_togglelight: 1}" :class="{selected: state._PC.flashlight}" icon="lightbulb" iconOnly />
+        <vui-button :params="{ PC_togglelight: 1}" :class="{selected: state._PC.flashlight}" icon="lightbulb" icon-only />
         <template v-if="state._PC.showexitprogram">
-          <vui-button :params="{ PC_minimize: 1}" icon="window-minimize" iconOnly />
-          <vui-button class="danger" :params="{ PC_exit: 1}" icon="window-close" iconOnly />
+          <vui-button :params="{ PC_minimize: 1}" icon="window-minimize" icon-only />
+          <vui-button class="danger" :params="{ PC_exit: 1}" icon="window-close" icon-only />
         </template>
         <template v-else>
-          <vui-button class="danger" :params="{ PC_shutdown: 1}" icon="power-off" iconOnly />
+          <vui-button class="danger" :params="{ PC_shutdown: 1}" icon="power-off" icon-only />
         </template>
       </div>
     </div>

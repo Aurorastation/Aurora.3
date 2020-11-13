@@ -45,20 +45,7 @@ window.Byond = (function () {
   
     // Callbacks for asynchronous calls
     Byond.__callbacks__ = [];
-  
-    // Reviver for BYOND JSON
-    // IE8: No reviver for you!
-    // See: https://stackoverflow.com/questions/1288962
-    var byondJsonReviver;
-    if (!Byond.IS_LTE_IE8) {
-      byondJsonReviver = function (key, value) {
-        if (typeof value === 'object' && value !== null && value.__number__) {
-          return parseFloat(value.__number__);
-        }
-        return value;
-      };
-    }
-  
+
     // Makes a BYOND call.
     // See: https://secure.byond.com/docs/ref/skinparams.html
     Byond.call = function (path, params) {
@@ -179,13 +166,13 @@ window.Byond = (function () {
   
   export const setWindowPosition = vec => {
     const byondPos = vecAdd(vec, screenOffset);
-    return Byond.winset(window.__windowId__, {
+    return window.Byond.winset(window.__windowId__, {
       pos: byondPos[0] + ',' + byondPos[1],
     });
   };
   
   export const setWindowSize = vec => {
-    return Byond.winset(window.__windowId__, {
+    return window.Byond.winset(window.__windowId__, {
       size: vec[0] + 'x' + vec[1],
     });
   };
@@ -254,10 +241,6 @@ window.Byond = (function () {
     // Set window position
     if (pos) {
       await screenOffsetPromise;
-      // Constraint window position if monitor lock was set in preferences.
-      // if (size && options.locked) {
-      //   pos = constraintPosition(pos, size)[1];
-      // }
       setWindowPosition(pos);
     }
     // Set window position at the center of the screen.
@@ -277,36 +260,12 @@ window.Byond = (function () {
   
   export const setupDrag = async () => {
     // Calculate screen offset caused by the windows taskbar
-    screenOffsetPromise = Byond.winget(window.__windowId__, 'pos')
+    screenOffsetPromise = window.Byond.winget(window.__windowId__, 'pos')
       .then(pos => [
         pos.x - window.screenLeft,
         pos.y - window.screenTop,
       ]);
     screenOffset = await screenOffsetPromise;
-  };
-  
-  /**
-   * Constraints window position to safe screen area, accounting for safe
-   * margins which could be a system taskbar.
-   */
-  const constraintPosition = (pos, size) => {
-    const screenPos = getScreenPosition();
-    const screenSize = getScreenSize();
-    const nextPos = [pos[0], pos[1]];
-    let relocated = false;
-    for (let i = 0; i < 2; i++) {
-      const leftBoundary = screenPos[i];
-      const rightBoundary = screenPos[i] + screenSize[i];
-      if (pos[i] < leftBoundary) {
-        nextPos[i] = leftBoundary;
-        relocated = true;
-      }
-      else if (pos[i] + size[i] > rightBoundary) {
-        nextPos[i] = rightBoundary - size[i];
-        relocated = true;
-      }
-    }
-    return [relocated, nextPos];
   };
   
   export const dragStartHandler = event => {

@@ -8,6 +8,7 @@ import camelCase from 'lodash/camelCase'
 
 import Store from './store.js'
 import './assets/global.scss'
+import {setWindowKey, recallWindowGeometry} from './drag.js';
 
 const requireComponent = require.context(
   './components', // The relative path of the components folder
@@ -76,7 +77,7 @@ if (document.getElementById("app")) {
         };
         if (window.innerHeight && window.innerWidth) {
           options.size = [window.innerWidth, window.innerHeight];
-        };
+        }
         setWindowKey(document.getElementById('vueui:windowId').getAttribute('content'));
         recallWindowGeometry(options);
       })
