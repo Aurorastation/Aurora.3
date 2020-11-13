@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscdel: ".click, .dblclick, and .mouse macros have been disabled."
+  - rscdel: "Pick-up macros have been disabled."
+  - rscadd: "Added a replacement verb for clicking your mov_intent. Simply make a macro with 'mov_intent' as the command."
