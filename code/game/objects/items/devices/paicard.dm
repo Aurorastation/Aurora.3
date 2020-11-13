@@ -47,7 +47,27 @@
 /obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
 	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
-
+	else if(istype(C, /obj/item/device/encryptionkey))
+		user.visible_message("<b>[user]</b> briefly presses \the [C] into \the [src]'s dataport.", SPAN_NOTICE("You briefly press \the [C] into \the [src]'s dataport, granting it access to the radio channels."))
+		var/obj/item/device/encryptionkey/EK = C
+		var/list/added_channels = list()
+		for(var/thing in EK.channels)
+			if(!radio.channels[thing])
+				radio.channels[thing] = TRUE
+				added_channels += thing
+		for(var/thing in EK.additional_channels)
+			if(!radio.channels[thing])
+				radio.channels[thing] = TRUE
+				added_channels += thing
+		for(var/ch_name in added_channels)
+			if(!SSradio)
+				sleep(30) // Waiting for the SSradio to be created.
+			if(!SSradio)
+				name = "broken radio"
+				return
+			radio.secure_radio_connections[ch_name] = SSradio.add_object(radio, radiochannels[ch_name], RADIO_CHAT)
+		if(pai)
+			to_chat(pai, SPAN_NOTICE("You gain access to new radio channels: [english_list(added_channels)]"))
 
 //This proc is called when the user scans their ID on the pAI card.
 //It registers their ID and copies their access to the pai, allowing it to use airlocks the owner can

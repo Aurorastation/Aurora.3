@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Clicking on a folded up pAI with an encryption key will now allow the pAI to copy the encryption codes of that key, thus allowing them to speak on those channels."
