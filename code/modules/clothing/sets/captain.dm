@@ -54,6 +54,7 @@
 		to_chat(usr, SPAN_NOTICE("You fold the collar of \the [src] open."))
 		icon_state = "[initial(icon_state)]_open"
 		item_state = "[initial(item_state)]_open"
+	update_clothing_icon()
 
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"
@@ -87,6 +88,7 @@
 		to_chat(usr, SPAN_NOTICE("You fold the collar of \the [src] open."))
 		icon_state = "[initial(icon_state)]_open"
 		item_state = "[initial(item_state)]_open"
+	update_clothing_icon()
 
 /obj/item/clothing/suit/captunic/capjacket
 	name = "captain's uniform jacket"
