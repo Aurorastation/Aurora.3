@@ -275,16 +275,15 @@ window.Byond = (function () {
       window.screenTop - event.screenY,
     ];
     // Focus click target
+    event.target?.setCapture();
     event.target?.focus();
-    document.addEventListener('mousemove', dragMoveHandler);
-    document.addEventListener('mouseup', dragEndHandler);
     dragMoveHandler(event);
+    event.target.addEventListener('mousemove', dragMoveHandler);
   };
   
-  const dragEndHandler = event => {
-    dragMoveHandler(event);
-    document.removeEventListener('mousemove', dragMoveHandler);
-    document.removeEventListener('mouseup', dragEndHandler);
+  export const dragEndHandler = event => {
+    event.target.removeEventListener('mousemove', dragMoveHandler);
+    event.target.releaseCapture();
     dragging = false;
     storeWindowGeometry();
   };

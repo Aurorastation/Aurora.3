@@ -1,6 +1,7 @@
 // Theme that emulates nanoui look
 
 @use 'sass:color';
+@import './_mixins.scss';
 
 $scrollbar-color-multiplier: 1 !default;
 $color-bg: #202020 !default;
@@ -160,44 +161,57 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
         margin: 4px 0 4px 0;
         border: 1px solid #c2a26f;
     }
-    
+
     .uiTitleWrapper {
+        margin: -8px -8px 10px;
+        position: relative;
+        float: none;
         background-color: $header-bg;
         box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
-        .uiTitleText {
-            color: #E9C183;
-        }
-    }
+        clear: both;
+        user-select: none;
+        -ms-user-select: none;
+        cursor: default;
+        & > .titleBar {
+            height: 32px;
+            @include vertical-align(middle, 24px);
+            & > * {
+                display: inline-block;
+                margin-left: 8px;
+                line-height: 32px;
+            }
 
-    .uiTitleClose {
-        position: absolute;
-        top: -1px;
-        right: 0;
-        width: 45px;
-        height: 32px;
-        font-size: 20px;
-        line-height: 31px;
-        text-align: center;
+            & > .uiTitleText {
+                font-size: 16px;
+                color: #E9C183;
+            }
 
-        color: color.change($text-color, $alpha: 0.5);
-        transition: color 250ms, background-color 250ms;
+            & > .uiDebugIcon {
+                cursor: pointer;
+                transition: color 250ms;
+                &.uiNoDebug {
+                    display: none;
+                }
+                &:hover {
+                    color: #507aac;
+                    transition: color 0ms;
+                }
+            }
 
-        &:hover {
-          color: rgba(255, 255, 255, 1.0);
-          background-color: #cc0000;
-          transition: color 0ms, background-color 0ms;
-        }
-    }
-
-    .uiStatusIcon {
-        &.uiStatusGood {
-            color: #4e7428;
-        }
-        &.uiStatusAverage {
-            color: #cb6400;
-        }
-        &.uiStatusBad {
-            color: #a70000;
+            & > .uiTitleClose {
+                display: block;
+                float: right;
+                width: 45px;
+                font-size: 20px;
+                text-align: center;
+                color: color.change($text-color, $alpha: 0.5);
+                transition: color 250ms, background-color 250ms;
+                &:hover {
+                    color: rgba(255, 255, 255, 1.0);
+                    background-color: #cc0000;
+                    transition: color 0ms, background-color 0ms;
+                }
+            }
         }
     }
 
