@@ -64,7 +64,7 @@
 	if(..())
 		return TRUE
 
-	if(issilicon(usr) && !computer.Adjacent(usr))
+	if(issilicon(usr) && !computer.Adjacent(usr) && !player_is_antag(usr.mind))
 		to_chat(usr, SPAN_WARNING("Remote transmissions to this program are prohibited!"))
 		return TRUE
 

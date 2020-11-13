@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes:
-  - tweak: "AIs and stationbounds can no longer remotely use the buttons on the guntracker program."
+  - tweak: "Non-antag AIs and stationbounds can no longer remotely use the buttons on the guntracker program."
