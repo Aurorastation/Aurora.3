@@ -44,6 +44,7 @@
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	id = /obj/item/card/id/ccia
 	head = /obj/item/clothing/head/beret/centcom/civilprotection
 	suit_store = /obj/item/gun/energy/gun
 	belt = /obj/item/storage/belt/security
@@ -58,7 +59,7 @@
 	implants = list(
 		/obj/item/implant/mindshield
 	)
-
+	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -119,7 +120,9 @@
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
 	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
+	id = /obj/item/card/id/ccia
 
+	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/odinsec
@@ -196,6 +199,7 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa/fib
+	id = /obj/item/card/id/ccia/fib
 
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
@@ -206,6 +210,7 @@
 		/obj/item/handcuffs = 1
 	)
 
+	id_icon = "fib"
 	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/fib/guard

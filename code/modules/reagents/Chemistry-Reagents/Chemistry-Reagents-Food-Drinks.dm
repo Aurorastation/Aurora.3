@@ -2641,15 +2641,15 @@
 
 /decl/reagent/alcohol/ethanol/cubalibre
 	name = "Cuba Libre"
-	description = "Rum, mixed with cola. Viva la revolucion."
+	description = "A rum and coke with lime. Viva la revolucion."
 	color = "#3E1B00"
 	strength = 10
-	taste_description = "cola"
+	taste_description = "cola and a hint of lime"
 	carbonated = TRUE
 
 	glass_icon_state = "cubalibreglass"
 	glass_name = "glass of Cuba Libre"
-	glass_desc = "A classic mix of rum and cola."
+	glass_desc = "A classic mix of rum, cola, and lime."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/alcohol/ethanol/demonsblood
@@ -4430,3 +4430,16 @@
 	condiment_desc = "A vegetarian friendly way to add a little extra pizazz to any dish."
 	condiment_icon_state = "dionaepowder"
 	condiment_center_of_mass = list("x"=16, "y"=10)
+
+/datum/reagent/alcohol/ethanol/rumandcola
+	name = "Rum and Cola"
+	description = "A classic cocktail consisting of rum and cola."
+	color = "#3E1B00"
+	strength = 10
+	taste_description = "cola"
+	carbonated = TRUE
+
+	glass_icon_state = "rumandcolaglass"
+	glass_name = "glass of Rum and Cola"
+	glass_desc = "A classic mix of rum and cola."
+	glass_center_of_mass = list("x"=16, "y"=8)

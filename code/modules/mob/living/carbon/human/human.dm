@@ -29,9 +29,6 @@
 		if(mind)
 			mind.name = real_name
 
-	if(species.have_vision_cone)
-		can_have_vision_cone = TRUE
-
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)
 		nutrition = rand(CREW_MINIMUM_NUTRITION*100, CREW_MAXIMUM_NUTRITION*100) * max_nutrition * 0.01
@@ -1540,8 +1537,12 @@
 		W.message = message
 		W.add_fingerprint(src)
 
+#define INJECTION_FAIL     0
+#define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
+#define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
+
 /mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone)
-	. = 1
+	. = BASE_INJECTION_MOD
 
 	if(!target_zone)
 		if(!user)
@@ -1549,26 +1550,39 @@
 		else
 			target_zone = user.zone_sel.selecting
 
+	. *= species.get_injection_modifier()
+
+	if(isvaurca(src))
+		user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s carapace!"))
+
 	var/obj/item/organ/external/affecting = get_organ(target_zone)
 	var/fail_msg
 	if(!affecting)
-		. = 0
+		. = INJECTION_FAIL
 		fail_msg = "They are missing that limb."
 	else if (affecting.status & ORGAN_ROBOT)
-		. = 0
+		. = INJECTION_FAIL
 		fail_msg = "That limb is robotic."
 	else
 		switch(target_zone)
 			if(BP_HEAD)
 				if(head && head.item_flags & THICKMATERIAL)
-					. = 0
+					. = INJECTION_FAIL
 			else
 				if(wear_suit && wear_suit.item_flags & THICKMATERIAL)
-					. = 0
+					if(istype(wear_suit, /obj/item/clothing/suit/space))
+						user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s suit!"))
+						. *= SUIT_INJECTION_MOD
+					else
+						. = INJECTION_FAIL
 	if(!. && error_msg && user)
 		if(!fail_msg)
 			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
 		to_chat(user, SPAN_ALERT("[fail_msg]"))
+
+#undef INJECTION_FAIL
+#undef BASE_INJECTION_MOD
+#undef SUIT_INJECTION_MOD
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
 	var/list/equipment = list(src.head,src.wear_mask,src.glasses,src.w_uniform,src.wear_suit,src.gloves,src.shoes)

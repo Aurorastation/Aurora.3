@@ -46,13 +46,16 @@
 
 /obj/item/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
 	. = ..()
-	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [M] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [M] with \the [src]."))
+	if(isliving(M))
+		var/mob/living/L = M
 		var/inj_time = time
-		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
+		inj_time *= L.can_inject(user, TRUE)
+		if(!inj_time)
+			return
+		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
+		if(armorcheck && L.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			inj_time += 6 SECONDS
-		if(!do_mob(user, M, inj_time))
+		if(!do_mob(user, L, inj_time))
 			return 1
 
 /obj/item/reagent_containers/hypospray/update_icon()

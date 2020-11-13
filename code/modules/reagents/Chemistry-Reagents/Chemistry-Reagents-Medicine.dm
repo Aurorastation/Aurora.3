@@ -16,7 +16,7 @@
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
 
-/decl/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(2))
 		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.", "You have a stabbing pain in your chest.")))
 		M.adjustHalLoss(5)
@@ -40,7 +40,7 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
-/decl/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.dizziness = max(100, M.dizziness)
 	M.make_dizzy(5)
 	M.adjustHydrationLoss(5*removed)
@@ -85,7 +85,7 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) //Cell regeneration spiralling out of control resulting in genetic damage.
 
-/decl/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 	if(!(head.disfigured))
@@ -149,7 +149,7 @@
 			M.reagents.remove_reagent(_R, removing)
 			return
 
-/decl/reagent/dylovene/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/dylovene/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5 * removed)
 	M.adjustHydrationLoss(5 * removed)
 
@@ -173,7 +173,7 @@
 	holder.remove_reagent(/decl/reagent/lexorin, strength/3 * removed)
 
 //Hyperoxia causes brain and eye damage
-/decl/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, removed * (strength / 6))
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -210,7 +210,7 @@
 	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
 
-/decl/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])
 
 /decl/reagent/cryoxadone
@@ -268,7 +268,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 50)
 	M.add_chemical_effect(CE_NOFEVER, ((M.chem_doses[type]/2)^2-(REAGENT_VOLUME(holder, type)-M.chem_doses[type]/2))/(M.chem_doses[type]/4)) // creates a smooth curve peaking at half the dose metabolised
 
-/decl/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
 	M.hallucination = max(M.hallucination, 25)
 
@@ -280,7 +280,7 @@
 	overdose = 15
 	scannable = TRUE
 	od_minimum_dose = 2
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sourness"
@@ -289,8 +289,10 @@
 
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
-	M.eye_blurry = max(M.eye_blurry, 5)
-	M.confused = max(M.confused, 10)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 5)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 10)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -306,7 +308,7 @@
 	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine))
 		overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
 
-/decl/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
@@ -324,8 +326,10 @@
 
 /decl/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 70)
-	M.eye_blurry = max(M.eye_blurry, 3)
-	M.confused = max(M.confused, 6)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 3)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 6)
 
 /decl/reagent/oxycomorphine
 	name = "Oxycomorphine"
@@ -335,7 +339,7 @@
 	overdose = 10
 	od_minimum_dose = 2
 	scannable = TRUE
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
@@ -344,8 +348,10 @@
 
 /decl/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
-	M.eye_blurry = max(M.eye_blurry, 5)
-	M.confused = max(M.confused, 20)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 5)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 20)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -361,7 +367,7 @@
 		if(M.losebreath < 15)
 			M.losebreath++
 
-/decl/reagent/oxycomorphine/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/oxycomorphine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
 	M.druggy = max(M.druggy, 20)
 	M.hallucination = max(M.hallucination, 60)
@@ -385,7 +391,7 @@
 
 /decl/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.drowsyness = max(M.drowsyness - 5, 0)
-	if(!(REAGENT_VOLUME(holder, type) > 10)) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
+	if(REAGENT_VOLUME(holder, type) < 10) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
 		M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
@@ -393,12 +399,19 @@
 	M.hallucination = max(0, M.hallucination - 10)
 	M.eye_blurry = max(M.eye_blurry - 5, 0)
 	M.confused = max(M.confused - 10, 0)
-	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
-	M.add_chemical_effect(CE_PAINKILLER, 40)
-	M.add_chemical_effect(CE_HALLUCINATE, -1)
-	M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
 
-/decl/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/synaptizine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_CLEARSIGHT)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+		if(prob(25))
+			M.add_chemical_effect(CE_HEPATOTOXIC)
+		M.add_chemical_effect(CE_PAINKILLER, 40)
+		M.add_chemical_effect(CE_HALLUCINATE, -1)
+		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
+
+/decl/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(prob(M.chem_doses[type] / 2))
 		to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
 	if(prob(M.chem_doses[type] / 3))
@@ -419,11 +432,7 @@
 	metabolism_min = REM * 0.075
 
 /decl/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(REAGENT_VOLUME(holder, type) < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
-		M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
-	else
-		M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
-		M.add_chemical_effect(CE_PAINKILLER, 10)
+	if(REAGENT_VOLUME(holder, type) >= 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
 		M.dizziness = max(125, M.dizziness)
 		M.make_dizzy(5)
 		if(!(REAGENT_VOLUME(holder, type) > 10))
@@ -432,7 +441,17 @@
 				if(prob(M.chem_doses[type]/5) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
 					B.gain_trauma_type(pick(/datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind)) //Handpicked suggested traumas considered less disruptive and conducive to roleplay.
 
-/decl/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/alkysine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+		if(REAGENT_VOLUME(holder, type) < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
+			M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
+		else
+			M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
+			M.add_chemical_effect(CE_PAINKILLER, 10)
+
+/decl/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 15)
 	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
@@ -462,7 +481,12 @@
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
 
-/decl/reagent/oculine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/oculine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_CLEARSIGHT)
+
+/decl/reagent/oculine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 15)
 	..()
 
@@ -486,7 +510,7 @@
 			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
 				I.damage = max(I.damage - removed, 0)
 
-/decl/reagent/peridaxon/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/peridaxon/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
 	if(prob(M.chem_doses[type] / 2))
@@ -537,7 +561,7 @@
 		if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
 			overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
 
-/decl/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5*removed)
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(prob(5))
@@ -604,6 +628,11 @@
 		M.intoxication = max(0, (M.intoxication - (amount / ETHYL_INTOX_COST)))
 		P -= amount
 
+/decl/reagent/ethylredoxrazine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+
 /decl/reagent/hyronalin
 	name = "Hyronalin"
 	description = "Hyronalin is a complex anti-radiation medication which specifically targets ionised cells, reducing their cell division rate to prevent their growth before gradually destroying these afflicted cells."
@@ -631,7 +660,7 @@
 	else
 		M.apply_radiation(-30 * removed)
 
-/decl/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(60))
 		M.take_organ_damage(4 * removed, 0) //Hyronaline OD deals brute damage to the same degree as Arithrazine
 
@@ -664,7 +693,7 @@
 		if(prob(60))
 			M.take_organ_damage(4 * removed, 0)
 
-/decl/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(50))
 		M.take_organ_damage(6 * removed, 0) //Even more collateral damage dealt by arithrazine when overdosed.
 
@@ -686,7 +715,7 @@
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, M.chem_doses[type]) // strength of antibiotics; amount absorbed, need >5 to be effective. takes 50 seconds to work
 
-/decl/reagent/thetamycin/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/thetamycin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
 
@@ -721,7 +750,7 @@
 /decl/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
-/decl/reagent/coughsyrup/overdose(var/mob/living/carbon/human/M, var/alien, var/removed) // effects based loosely on DXM
+/decl/reagent/coughsyrup/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder) // effects based loosely on DXM
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
 	if(prob(M.chem_doses[type]))
@@ -800,7 +829,7 @@
 		else if(M.bodytemperature < 311)
 			M.bodytemperature = min(310, M.bodytemperature + (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/decl/reagent/leporazine/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/leporazine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.bodytemperature = max(M.bodytemperature - 2 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(2))
 		M.emote("shiver")
@@ -920,7 +949,7 @@
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 
-/decl/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+/decl/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)
 	M.Weaken(10 * removed * scale)
@@ -954,7 +983,7 @@
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	..()
 
-/decl/reagent/mental/corophendiate/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/corophendiate/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/neurostabin
@@ -982,7 +1011,7 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
-/decl/reagent/mental/neurostabin/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/neurostabin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/parvosil
@@ -1008,7 +1037,7 @@
 	)
 	suppressing_reagents = list(/decl/reagent/mental/neurostabin = 5)
 
-/decl/reagent/mental/parvosil/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/parvosil/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/minaphobin
@@ -1038,7 +1067,7 @@
 		/decl/reagent/mental/parvosil = 5
 	)
 
-/decl/reagent/mental/minaphobin/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/minaphobin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/emoxanyl
@@ -1072,7 +1101,7 @@
 		/decl/reagent/mental/parvosil = 10
 	)
 
-/decl/reagent/mental/emoxanyl/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/emoxanyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/orastabin
@@ -1107,7 +1136,7 @@
 		/decl/reagent/mental/parvosil = 10
 	)
 
-/decl/reagent/mental/orastabin/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/orastabin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/neurapan
@@ -1154,7 +1183,7 @@
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
-/decl/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PACIFIED, 1)
 	M.eye_blurry = max(M.eye_blurry, 30)
 	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine))
@@ -1207,7 +1236,7 @@
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
-/decl/reagent/mental/nerospectan/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/nerospectan/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/truthserum
@@ -1230,7 +1259,7 @@
 	messagedelay = 30
 	ingest_mul = 1
 
-/decl/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/vaam
@@ -1255,7 +1284,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 	M.drowsyness = 0
 
-/decl/reagent/mental/vaam/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale)
+/decl/reagent/mental/vaam/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	M.adjustOxyLoss(1 * removed * scale)
 	M.Weaken(10 * removed * scale)
@@ -1290,7 +1319,7 @@
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/decl/reagent/mental/kokoreed/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+/decl/reagent/mental/kokoreed/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	if(isunathi(M))
 		M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
@@ -1327,7 +1356,7 @@
 	if(prob(chance))
 		M.cure_trauma_type(pick(curable_traumas))
 
-/decl/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/decl/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 15)
 	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
@@ -1446,7 +1475,7 @@
 
 	. = ..()
 
-/decl/reagent/pneumalin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed)
+/decl/reagent/pneumalin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.add_chemical_effect(CE_PULSE, -H.chem_doses[type] * 0.33)
 
 /decl/reagent/rezadone
@@ -1515,7 +1544,7 @@
 				E.stage = 0
 				return 1
 
-/decl/reagent/azoth/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/azoth/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.adjustBruteLoss(5)
 
 /decl/reagent/adipemcina
@@ -1534,7 +1563,7 @@
 		H.damage = max(H.damage - (removed * 2), 0)
 	..()
 
-/decl/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
+/decl/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 	if(istype(M))
 		if(prob(25))
@@ -1562,7 +1591,7 @@
 	if(REAGENT_VOLUME(holder, type) < 3)
 		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
 
-/decl/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
+/decl/reagent/saline/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.confused = max(M.confused, 20)
 	M.make_jittery(5)
 	if(prob(2))
@@ -1626,7 +1655,7 @@
 /decl/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.add_chemical_effect(CE_PACIFIED, 1)
 
-/decl/reagent/pacifier/overdose(var/mob/living/carbon/H, var/alien)
+/decl/reagent/pacifier/overdose(var/mob/living/carbon/H, var/alien, var/datum/reagents/holder)
 	H.add_chemical_effect(CE_EMETIC, H.chem_doses[type] / 6)
 
 /decl/reagent/rmt
@@ -1640,6 +1669,6 @@
 	taste_description = "sourness"
 	fallback_specific_heat = 1
 
-/decl/reagent/rmt/overdose(var/mob/living/carbon/H, var/alien)
+/decl/reagent/rmt/overdose(var/mob/living/carbon/H, var/alien, var/datum/reagents/holder)
 	if(prob(2))
 		to_chat(H, SPAN_WARNING(pick("Your muscles are stinging a bit.", "Your muscles ache.")))

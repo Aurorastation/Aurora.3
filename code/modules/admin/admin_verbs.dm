@@ -1034,16 +1034,19 @@ var/list/admin_verbs_cciaa = list(
 	if(holder)
 		var/list/jobs = list()
 		for (var/datum/job/J in SSjobs.occupations)
-			if (J.current_positions >= J.total_positions && J.total_positions != -1)
+			if (J.current_positions >= J.get_total_positions() && J.get_total_positions() != -1)
 				jobs += J.title
 		if (!jobs.len)
-			to_chat(usr, "There are no fully staffed jobs.")
+			to_chat(usr, SPAN_NOTICE("There are no fully staffed jobs."))
 			return
-		var/job = input("Please select job slot to free", "Free job slot")  as null|anything in jobs
+		var/job = input("Please select job slot to free", "Free job slot") as null|anything in jobs
 		if (job)
-			SSjobs.FreeRole(job)
-			message_admins("A job slot for [job] has been opened by [key_name_admin(usr)]")
-			return
+			var/datum/job/J = SSjobs.GetJob(job)
+			if(istype(J))
+				J.total_positions++
+				message_admins("A job slot for [job] has been added by [key_name_admin(usr)]. The total is now [J.get_total_positions()] with [J.current_positions] positions occupied.")
+			else
+				to_chat(usr, SPAN_DANGER("Failed to increase total positions in job [job]."))
 
 /client/proc/toggleattacklogs()
 	set name = "Toggle Attack Log Messages"

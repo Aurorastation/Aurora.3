@@ -2,9 +2,10 @@
 
 /mob/abstract/new_player
 	var/ready = 0
-	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
-	var/totalPlayers = 0		 //Player counts for the Lobby tab
+	var/spawning = 0 //Referenced when you want to delete the new_player later on in the code
+	var/totalPlayers = 0 //Player counts for the Lobby tab
 	var/totalPlayersReady = 0
+	var/datum/late_choices/late_choices_ui = null
 	universal_speak = 1
 
 	invisibility = 101
@@ -21,6 +22,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/Initialize()
 	. = ..()
 	dead_mob_list -= src
+
+/mob/abstract/new_player/Destroy()
+	QDEL_NULL(late_choices_ui)
+	return ..()
 
 /mob/abstract/new_player/Stat()
 	..()
@@ -295,50 +300,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
 
 /mob/abstract/new_player/proc/LateChoices()
-	var/name = client.prefs.real_name
-
-	var/dat = "<center>"
-	dat += "<b>Welcome, [name].<br></b>"
-	dat += "Round Duration: [get_round_duration_formatted()]<br>"
-	dat += "Alert Level: [capitalize(get_security_level())]<br>"
-
-	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
-		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
-			dat += "<span class='warning'><b>The station has been evacuated.</b></span><br>"
-		if(emergency_shuttle.online())
-			if (emergency_shuttle.evac)	// Emergency shuttle is past the point of no recall
-				dat += "<span class='warning'>The station is currently undergoing evacuation procedures.</span><br>"
-			else						// Crew transfer initiated
-				dat += "<span class='warning'>The station is currently undergoing crew transfer procedures.</span><br>"
-
-	var/unique_role_available = FALSE
-	for(var/ghost_role in SSghostroles.spawners)
-		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
-		if(!G.show_on_job_select)
-			continue
-		if(G.cant_see(src))
-			continue
-		unique_role_available = TRUE
-		break
-
-	if(unique_role_available)
-		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>A unique ghost role is available:</b></font><br>"
-	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A><br>"
-
-	dat += "Choose from the following open/valid positions:<br>"
-	for(var/datum/job/job in SSjobs.occupations)
-		if(job && IsJobAvailable(job.title))
-			var/active = 0
-			// Only players with the job assigned and AFK for less than 10 minutes count as active
-			for(var/mob/M in player_list) //Added isliving check here, so it won't check ghosts and qualify them as active
-				if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 MINUTES)
-					active++
-			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[client.prefs.GetPlayerAltTitle(job)] ([job.current_positions]) (Active: [active])</a><br>"
-
-	dat += "</center>"
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, dat), "window=latechoices;size=300x640;can_close=1")
-
+	if(!istype(late_choices_ui))
+		late_choices_ui = new(src)
+	else // if the UI exists force refresh it
+		late_choices_ui.ui_refresh()
+	late_choices_ui.ui_open()
 
 /mob/abstract/new_player/proc/create_character()
 	spawning = 1
@@ -408,14 +374,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	open_crew_manifest(src, OOC = TRUE)
+	SSrecords.open_manifest_vueui(src)
 
 /mob/abstract/new_player/Move()
 	return 0
 
 /mob/abstract/new_player/proc/close_spawn_windows()
-	src << browse(null, "window=latechoices") //closes late choices window)
-	src << browse(null, "window=playersetup") //closes the player setup window)
+	src << browse(null, "window=playersetup") //closes the player setup window
 
 /mob/abstract/new_player/proc/has_admin_rights()
 	return check_rights(R_ADMIN, 0, src)

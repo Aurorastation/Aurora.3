@@ -1142,9 +1142,10 @@ proc/is_blind(A)
 	var/used_accent = force_accent ? force_accent : accent
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
-		var/final_icon = a.tag_icon
-		var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-		return S.icon_tag(final_icon)
+		if(istype(a))
+			var/final_icon = a.tag_icon
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			return S.icon_tag(final_icon)
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	for(var/mob/M in contents)

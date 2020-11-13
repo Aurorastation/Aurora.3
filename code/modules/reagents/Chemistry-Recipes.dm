@@ -2020,10 +2020,10 @@
 	required_reagents = list(/decl/reagent/alcohol/ethanol/gin = 2, /decl/reagent/drink/tonic = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/drink/cuba_libre
-	name = "Cuba Libre"
-	id = "cubalibre"
-	result = /decl/reagent/alcohol/ethanol/cubalibre
+/datum/chemical_reaction/drink/rumandcola
+	name = "Rum and Cola"
+	id = "rumandcola"
+	result = /decl/reagent/alcohol/ethanol/rumandcola
 	required_reagents = list(/decl/reagent/alcohol/ethanol/rum = 2, /decl/reagent/drink/space_cola = 1)
 	result_amount = 3
 
@@ -3669,3 +3669,10 @@
 	required_reagents = list(/decl/reagent/spacespice/pumpkinspice = 2, /decl/reagent/drink/syrup_simple = 3)
 	result_amount = 5
 	mix_message = "The solution takes on an orange hue and the aroma of pumpkin spice."
+
+/datum/chemical_reaction/drink/cuba_libre
+	name = "Cuba Libre"
+	id = "cubalibre"
+	result = /decl/reagent/alcohol/ethanol/cubalibre
+	required_reagents = list(/decl/reagent/alcohol/ethanol/rumandcola = 5, /decl/reagent/drink/limejuice = 1)
+	result_amount = 6

@@ -270,8 +270,11 @@
 /decl/reagent/alcohol/ethanol/corkpopper
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/cubalibre
+/decl/reagent/alcohol/ethanol/rumandcola
 	value = 0.15
+
+/decl/reagent/alcohol/ethanol/cubalibre
+	value = 0.16
 
 /decl/reagent/alcohol/ethanol/demonsblood
 	value = 0.15

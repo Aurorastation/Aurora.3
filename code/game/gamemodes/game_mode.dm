@@ -197,15 +197,19 @@ var/global/list/additional_antag_types = list()
 				var/datum/antagonist/antag = all_antag_types[antag_tag]
 				if(!antag)
 					continue
-				var/list/potential = antag.candidates
+				var/list/potential = list()
+				if(antag.flags & ANTAG_OVERRIDE_JOB)
+					potential = antag.pending_antagonists
+				else
+					potential = antag.candidates
 				if(potential.len)
-					log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text]. [english_list(potential)]")
+					log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 					total_enemies |= potential //Only count candidates once for our total enemy pool
 					if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
 						log_debug("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
 						returning |= GAME_FAILURE_NO_ANTAGS
 
-			log_debug("GAMEMODE: Found [total_enemies.len] total enemies for [name]. [english_list(total_enemies)]")
+			log_debug("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
 
 			if(required_enemies && total_enemies.len < required_enemies)
 				log_debug("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
@@ -498,24 +502,23 @@ var/global/list/additional_antag_types = list()
 			var/evil = 0
 			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED || man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL)
 				evil = 1
-			switch(job.department)
-				if("Civilian" || "Cargo")
+				if((DEPARTMENT_CIVILIAN in job.departments) || (DEPARTMENT_CARGO in job.departments))
 					civ += 1
 					if(evil)
 						civ_suspect += 1
-				if("Engineering")
+				if(DEPARTMENT_ENGINEERING in job.departments)
 					eng += 1
 					if(evil)
 						eng_suspect += 1
-				if("Security")
+				if(DEPARTMENT_SECURITY in job.departments)
 					sec += 1
 					if(evil)
 						sec_suspect += 1
-				if("Medical")
+				if(DEPARTMENT_MEDICAL in job.departments)
 					med +=1
 					if(evil)
 						med_suspect += 1
-				if("Science")
+				if(DEPARTMENT_SCIENCE in job.departments)
 					sci += 1
 					if(evil)
 						sci_suspect += 1

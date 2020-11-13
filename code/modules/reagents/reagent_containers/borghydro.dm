@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/borghypo
+/obj/item/reagent_containers/hypospray/borghypo
 	name = "cyborg hypospray"
 	desc = "An advanced chemical synthesizer and injection system, designed for heavy-duty medical equipment."
 	icon = 'icons/obj/syringe.dmi'
@@ -19,13 +19,13 @@
 
 	center_of_mass = null
 
-/obj/item/reagent_containers/borghypo/medical
+/obj/item/reagent_containers/hypospray/borghypo/medical
 	reagent_ids = list(/decl/reagent/bicaridine, /decl/reagent/kelotane, /decl/reagent/dylovene, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/thetamycin)
 
-/obj/item/reagent_containers/borghypo/rescue
+/obj/item/reagent_containers/hypospray/borghypo/rescue
 	reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/dexalin, /decl/reagent/adrenaline)
 
-/obj/item/reagent_containers/borghypo/Initialize()
+/obj/item/reagent_containers/hypospray/borghypo/Initialize()
 	. = ..()
 
 	for(var/T in reagent_ids)
@@ -35,11 +35,14 @@
 
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/borghypo/Destroy()
+/obj/item/reagent_containers/hypospray/borghypo/update_icon()
+	return
+
+/obj/item/reagent_containers/hypospray/borghypo/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/reagent_containers/borghypo/process() //Every [recharge_time] seconds, recharge some reagents for the cyborg+
+/obj/item/reagent_containers/hypospray/borghypo/process() //Every [recharge_time] seconds, recharge some reagents for the cyborg+
 	if(++charge_tick < recharge_time)
 		return 0
 	charge_tick = 0
@@ -53,7 +56,7 @@
 					reagent_volumes[T] = min(reagent_volumes[T] + 5, volume)
 	return 1
 
-/obj/item/reagent_containers/borghypo/afterattack(var/mob/living/M, var/mob/user, proximity)
+/obj/item/reagent_containers/hypospray/borghypo/afterattack(var/mob/living/M, var/mob/user, proximity)
 
 	if(!proximity)
 		return
@@ -87,7 +90,7 @@
 			to_chat(user,"<span class='notice'>[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining.</span>")
 	return
 
-/obj/item/reagent_containers/borghypo/attack_self(mob/user as mob) //Change the mode
+/obj/item/reagent_containers/hypospray/borghypo/attack_self(mob/user as mob) //Change the mode
 	var/t = ""
 	for(var/i = 1 to reagent_ids.len)
 		if(t)
@@ -101,7 +104,7 @@
 
 	return
 
-/obj/item/reagent_containers/borghypo/Topic(var/href, var/list/href_list)
+/obj/item/reagent_containers/hypospray/borghypo/Topic(var/href, var/list/href_list)
 	if(href_list["reagent"])
 		var/t = reagent_ids.Find(text2path(href_list["reagent"]))
 		if(t)
@@ -110,7 +113,7 @@
 			var/decl/reagent/R = decls_repository.get_decl(reagent_ids[mode])
 			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>")
 
-/obj/item/reagent_containers/borghypo/examine(mob/user)
+/obj/item/reagent_containers/hypospray/borghypo/examine(mob/user)
 	if(!..(user, 2))
 		return
 
@@ -118,7 +121,7 @@
 
 	to_chat(user, "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>")
 
-/obj/item/reagent_containers/borghypo/service
+/obj/item/reagent_containers/hypospray/borghypo/service
 	name = "cyborg drink synthesizer"
 	desc = "A portable drink dispenser."
 	icon = 'icons/obj/drinks.dmi'
@@ -129,10 +132,10 @@
 	possible_transfer_amounts = list(5, 10, 20, 30)
 	reagent_ids = list(/decl/reagent/alcohol/ethanol/beer, /decl/reagent/alcohol/ethanol/coffee/kahlua, /decl/reagent/alcohol/ethanol/whiskey, /decl/reagent/alcohol/ethanol/wine, /decl/reagent/alcohol/ethanol/vodka, /decl/reagent/alcohol/ethanol/gin, /decl/reagent/alcohol/ethanol/rum, /decl/reagent/alcohol/ethanol/tequila, /decl/reagent/alcohol/ethanol/vermouth, /decl/reagent/alcohol/ethanol/cognac, /decl/reagent/alcohol/ethanol/ale, /decl/reagent/alcohol/ethanol/mead, /decl/reagent/water, /decl/reagent/sugar, /decl/reagent/drink/ice, /decl/reagent/drink/tea, /decl/reagent/drink/icetea, /decl/reagent/drink/space_cola, /decl/reagent/drink/spacemountainwind, /decl/reagent/drink/dr_gibb, /decl/reagent/drink/spaceup, /decl/reagent/drink/tonic, /decl/reagent/drink/sodawater, /decl/reagent/drink/lemon_lime, /decl/reagent/drink/orangejuice, /decl/reagent/drink/limejuice, /decl/reagent/drink/watermelonjuice, /decl/reagent/drink/coffee, /decl/reagent/drink/coffee/espresso)
 
-/obj/item/reagent_containers/borghypo/service/attack(var/mob/M, var/mob/user)
+/obj/item/reagent_containers/hypospray/borghypo/service/attack(var/mob/M, var/mob/user)
 	return
 
-/obj/item/reagent_containers/borghypo/service/afterattack(var/obj/target, var/mob/user, var/proximity)
+/obj/item/reagent_containers/hypospray/borghypo/service/afterattack(var/obj/target, var/mob/user, var/proximity)
 	if(!proximity)
 		return
 
