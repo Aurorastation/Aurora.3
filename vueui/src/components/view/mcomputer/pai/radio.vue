@@ -11,8 +11,8 @@
         <span>{{ frequency }}</span>
         <vui-button :params="{freq:2, nowindow:1}">+</vui-button>
         <vui-button :params="{freq:10, nowindow:1}">++</vui-button>
-      <hr>
       </vui-group-item>
+      <hr>
       <vui-group-item v-for="channel in channels" :label="channel.name" :key="channel.name">
         <vui-button
           :class="{selected: channel.listening}"
