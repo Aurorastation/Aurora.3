@@ -179,7 +179,7 @@
 
 	else if(W.iswelder())
 		if(!(istext(glass) || glass == TRUE || !anchored))
-			to_chat(user, SPAN_WARNING("\The [src] isn't ready to be welded yet. It has to have glass installed to remove the glass, or it has to be unsecured to deconstruct."))
+			to_chat(user, SPAN_WARNING("\The [src] isn't ready to be welded yet. It doesn't have any installed material to remove, and it has to be unsecured to deconstruct it."))
 			return
 		var/obj/item/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
@@ -214,7 +214,7 @@
 
 	else if(W.iswrench())
 		if(state != STATE_UNWIRED)
-			to_chat(user, SPAN_WARNING("\The [src] can only be wrenched once it's in an unwired state."))
+			to_chat(user, SPAN_WARNING("You have to remove the wiring before you can use the wrench on \the [src]."))
 			return
 
 		playsound(src.loc, W.usesound, 100, 1)
@@ -240,12 +240,12 @@
 			to_chat(user, SPAN_WARNING("\The [src] must be anchored before it can be wired."))
 			return
 		var/obj/item/stack/cable_coil/C = W
-		if (C.get_amount() < 1)
-			to_chat(user, SPAN_WARNING("You need one length of coil to wire the airlock assembly."))
+		if (C.get_amount() < 3)
+			to_chat(user, SPAN_WARNING("You need three lengths of coil to wire the airlock assembly."))
 			return
 		user.visible_message("<b>[user]</b> starts wiring the airlock assembly.", SPAN_NOTICE("You start wiring the airlock assembly."))
 		if(do_after(user, 40) && state == STATE_UNWIRED && anchored)
-			if(C.use(1))
+			if(C.use(3))
 				state = STATE_WIRED
 				to_chat(user, SPAN_NOTICE("You wire the airlock."))
 
@@ -269,22 +269,22 @@
 
 	else if(istype(W, /obj/item/airlock_electronics))
 		if(state == STATE_UNWIRED)
-			to_chat(user, SPAN_WARNING("\The [src] doesn't have any wires, use some cable coil on it first."))
+			to_chat(user, SPAN_WARNING("\The [src] must be wired before you can install electronics into it."))
 			return
 		else if(state > STATE_WIRED)
-			to_chat(user, SPAN_WARNING("\The [src] already has airlock electronics installed."))
+			to_chat(user, SPAN_WARNING("\The [src] already has electronics installed."))
 			return
 		var/obj/item/airlock_electronics/EL = W
 		if(!EL.is_installed)
 			playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
-			user.visible_message("<b>[user]</b> starts installing the electronics into the airlock assembly.", SPAN_NOTICE("You start installing electronics into the airlock assembly."))
+			user.visible_message("<b>[user]</b> starts installing \the [EL] into the airlock assembly.", SPAN_NOTICE("You start installing \the [EL] into the airlock assembly."))
 			EL.is_installed = TRUE
 			if(do_after(user, 40 / W.toolspeed) && state == STATE_WIRED)
 				EL.is_installed = FALSE
 				if(!src)
 					return
 				user.drop_from_inventory(EL, src)
-				to_chat(user, SPAN_NOTICE("You install the airlock electronics."))
+				to_chat(user, SPAN_NOTICE("You finish installing \the [EL]."))
 				state = STATE_ELECTRONICS_INSTALLED
 				electronics = EL
 			else
@@ -298,16 +298,17 @@
 		//This should never happen, but just in case I guess
 		if(!electronics)
 			to_chat(user, SPAN_WARNING("There was nothing to remove."))
+			log_debug("[src] had the ELECTRONICS_INSTALLED state, but didn't actually have electronics installed")
 			state = STATE_WIRED
 			return
 
 		playsound(src.loc, W.usesound, 100, 1)
-		user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
+		user.visible_message("<b>[user]</b> starts removing the electronics from \the [src].", SPAN_NOTICE("You start removing the electronics from \the [src]."))
 
 		if(do_after(user, 40 / W.toolspeed))
 			if(!src)
 				return
-			to_chat(user, SPAN_NOTICE("You remove the airlock electronics."))
+			to_chat(user, SPAN_NOTICE("You remove \the [electronics]."))
 			state = STATE_WIRED
 			electronics.forceMove(src.loc)
 			electronics = null
@@ -322,7 +323,7 @@
 			if(S.get_amount() >= 1)
 				if(material_name == "rglass")
 					playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
-					user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", "You start installing \the [S] into the airlock assembly.")
+					user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
 					if(do_after(user, 40) && !glass)
 						if(S.use(1))
 							to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
@@ -330,11 +331,11 @@
 				else if(material_name)
 					// Ugly hack, will suffice for now. Need to fix it upstream as well, may rewrite mineral walls. ~Z
 					if(!(material_name in list("gold", "silver", "diamond", "uranium", "phoron", "sandstone")))
-						to_chat(user, SPAN_WARNING("You cannot make an airlock out of that material."))
+						to_chat(user, SPAN_WARNING("You cannot make an airlock out of [S]."))
 						return
 					if(S.get_amount() >= 2)
 						playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
-						user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", "You start installing \the [S] into the airlock assembly.")
+						user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))
 								to_chat(user, SPAN_NOTICE("You install [SSmaterials.material_display_name(material_name)] plating into the airlock assembly."))
@@ -370,11 +371,11 @@
 		else if(ChainSawVar.cutting)
 			to_chat(user, SPAN_WARNING("You are already cutting an airlock open."))
 		else if(!ChainSawVar.powered)
-			to_chat(user, SPAN_WARNING("The [W] needs to be on in order to tear \the [src] apart."))
+			to_chat(user, SPAN_WARNING("\The [W] needs to be on in order to tear \the [src] apart."))
 		else
 			ChainSawVar.cutting = TRUE
 			user.visible_message(\
-				SPAN_DANGER("[user] starts cutting \the [src] apart with the [W]!"), \
+				SPAN_DANGER("[user] starts cutting \the [src] apart with \the [W]!"), \
 				SPAN_NOTICE("You start cutting \the [src] apart..."), \
 				SPAN_WARNING("You hear a loud buzzing sound and metal grinding on metal...") \
 			)
