@@ -67,7 +67,7 @@
 				return
 			radio.secure_radio_connections[ch_name] = SSradio.add_object(radio, radiochannels[ch_name], RADIO_CHAT)
 		if(pai)
-			to_chat(pai, SPAN_NOTICE("You gain access to new radio channels: [english_list(added_channels)]"))
+			to_chat(pai, SPAN_NOTICE("You gain access to new radio channels: [english_list(added_channels)]."))
 
 //This proc is called when the user scans their ID on the pAI card.
 //It registers their ID and copies their access to the pai, allowing it to use airlocks the owner can
