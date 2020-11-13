@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - tweak: "Added a new 'announcer' mob and used it instead of AI for 'autosay' as an optimization."
