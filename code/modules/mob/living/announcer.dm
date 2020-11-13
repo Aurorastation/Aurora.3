@@ -18,7 +18,6 @@
 	mob_thinks = FALSE
 
 	universal_understand = TRUE
-	can_have_vision_cone = FALSE
 	tesla_ignore = TRUE
 	stop_sight_update = TRUE
 	density = FALSE
@@ -36,11 +35,13 @@
 		add_language(K)
 	default_language = all_languages[LANGUAGE_TCB]
 
+	return INITIALIZE_HINT_NORMAL
+
 /mob/living/announcer/Destroy()
-	// again not calling parent because it shouldn't be needed and makes this faster
-	SHOULD_CALL_PARENT(FALSE)
-	for(var/C in contents)
+	for(var/C in contents) // make doubly sure the contents don't get dropped on ground or something
 		qdel(C)
+	// calling parent shouldn't be required, but let's do it just in case; contains cleanup stuff
+	return ..()
 
 /mob/living/announcer/proc/PrepareBroadcast(var/name = "", var/datum/language/lang = null, var/voice_name = null, var/accent = null)
 	src.name = name
