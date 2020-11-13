@@ -301,16 +301,6 @@
 	. /= step
 	. = min(., 2.5)//Cap multiplier at 2.5
 
-/decl/reagent/nutriment/triglyceride/oil/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/dfactor = heatdamage(M)
-	if (dfactor)
-		M.take_organ_damage(0, removed * 1.5 * dfactor)
-		set_temperature(get_temperature() - (6 * removed) / (1 + REAGENT_VOLUME(holder, type)*0.1))//Cools off as it burns you
-		if (lastburnmessage+100 < world.time)
-			to_chat(M, SPAN_DANGER("Searing hot oil burns you, wash it off quick!"))
-			lastburnmessage = world.time
-
-
 /decl/reagent/nutriment/triglyceride/oil/corn
 	name = "Corn Oil"
 	description = "An oil derived from various types of corn."
