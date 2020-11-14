@@ -60,7 +60,7 @@
 	if(M && loc == M)
 		to_chat(M, SPAN_DANGER("[src] locks up!"))
 		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
-	sleep(severity * 10)
+	sleep(severity * 20)
 	power_supply.give(initial_charge)
 	update_maptext()
 	update_icon()

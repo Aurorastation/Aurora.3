@@ -50,3 +50,4 @@ changes:
   - rscadd: "Ion bolts now have a hit sound."
   - rscdel: "Removed the ion rifle lethal mode."
   - tweak: "The ion rifle now has four shots."
+  - tweak: "EMP'd guns no longer get discharged. Instead, they lock up for an amount of time depending on the strength of the EMP."
