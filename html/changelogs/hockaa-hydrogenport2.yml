@@ -5,3 +5,4 @@ delete-after: True
 
 changes:
   - rscadd: "Added Hydrogen gas, canisters, tanks and a new atmos tank to contain Hydrogen. Hydrogen can be used as a slightly less effective alternative gas for Phoron in the Supermatter. Or for making fires."
+  - maptweak: "Removed the four nitrogen canisters in Engineering Hard Storage with four hydrogen canisters. Removes two phoron canisters in toxins with Hydrogen canisters."
