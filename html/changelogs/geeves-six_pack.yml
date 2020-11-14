@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added six pack yokes for energy drinks, a storage item for moving a fast amount of energy drinks quickly. Currently adminspawn only."
