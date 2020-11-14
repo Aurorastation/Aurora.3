@@ -218,6 +218,8 @@
 	return
 
 /obj/machinery/chem_master/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/chem_master/attack_hand(mob/user as mob)
@@ -381,6 +383,8 @@
 	return 0
 
 /obj/machinery/reagentgrinder/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	interact(user)
 
 /obj/machinery/reagentgrinder/attack_hand(mob/user as mob)

@@ -188,6 +188,8 @@
 			set_light(4, 1, LIGHT_COLOR_LAVA)
 
 /obj/machinery/mining/drill/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/mining/drill/attackby(obj/item/O, mob/user)

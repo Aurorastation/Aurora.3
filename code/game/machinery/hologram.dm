@@ -183,6 +183,9 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
 	if(!istype(user))
 		return
+	
+	if(!ai_can_interact(user))
+		return
 
 	if(isrobot(user))
 		attack_hand(user)

@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Radiojammers now also block wireless access to various objects stationbounds (AIs, Cyborgs) can access, such as doors, firedoors, and so forth. Being adjacent to the object will negate this."
+  - rscadd: "Non-improvised radiojammers can now be configured to only block stationbound signals. When set to all, it stops everything it did before, as well as stationbounds."
