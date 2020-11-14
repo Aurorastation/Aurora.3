@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a small outpost to the engine radiator area."
+  - tweak: "Gave mining and xenoarch access to the engine radiator airlocks, because they keep getting stuck there. Which is hilarious."
