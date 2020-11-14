@@ -396,16 +396,12 @@ var/global/list/click_catchers
 	. = 1
 
 // Suppress the mouse macros
-/client/var/next_mouse_macro_warning
+/client/var/has_mouse_macro_warning
 /mob/proc/LogMouseMacro(verbused, params)
 	if(!client)
 		return
-	if(!client.next_mouse_macro_warning) // Log once
+	if(!client.has_mouse_macro_warning) // Log once
 		log_admin("[key_name(usr)] attempted to use a mouse macro: [verbused] [params]")
-		message_admins("[key_name_admin(usr)] attempted to use a mouse macro: [verbused] [html_encode(params)]")
-	if(client.next_mouse_macro_warning < world.time) // Warn occasionally
-		usr.playsound_to(get_turf(usr), sound('sound/misc/sadtrombone.ogg'), FALSE)
-		client.next_mouse_macro_warning = world.time + 600
 /mob/verb/ClickSubstitute(params as command_text)
 	set hidden = 1
 	set name = ".click"
