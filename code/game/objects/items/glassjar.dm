@@ -34,7 +34,7 @@
 		contains = JAR_SPIDERLING
 		update_icon()
 		return
-	if(istype(A, /mob))
+	if(ismob(A))
 		var/mob/L = A
 		if(L.mob_size <= MOB_SMALL)
 			user.visible_message(SPAN_NOTICE("\The [user] scoops \the [L] into \the [src]."), SPAN_NOTICE("You scoop \the [L] into \the [src]."))
