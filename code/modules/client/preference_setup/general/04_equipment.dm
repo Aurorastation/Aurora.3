@@ -19,6 +19,7 @@
 	S["all_underwear_metadata"] << pref.all_underwear_metadata
 	S["backbag"]       << pref.backbag
 	S["backbag_style"] << pref.backbag_style
+	S["pda_choice"] << pref.pda_choice
 	S["headset_choice"] << pref.headset_choice
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
