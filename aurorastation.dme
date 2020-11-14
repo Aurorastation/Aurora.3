@@ -434,6 +434,7 @@
 #include "code\game\antagonist\station\thrall.dm"
 #include "code\game\antagonist\station\traitor.dm"
 #include "code\game\antagonist\station\vampire.dm"
+#include "code\game\antagonist\station\wizard_golem.dm"
 #include "code\game\area\ai_monitored.dm"
 #include "code\game\area\areas.dm"
 #include "code\game\dna\dna2.dm"
