@@ -37,7 +37,7 @@
 	if(istype(A, /mob))
 		var/mob/L = A
 		if(L.mob_size <= MOB_SMALL)
-			user.visible_message(SPAN_NOTICE("[user] scoops [L] into \the [src]."), SPAN_NOTICE("You scoop [L] into \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] scoops \the [L] into \the [src]."), SPAN_NOTICE("You scoop \the [L] into \the [src]."))
 			L.forceMove(src)
 			contains = JAR_ANIMAL
 			update_icon()
