@@ -134,7 +134,6 @@
 	icon_state = "lore_summary"
 	screen_loc = "LEFT+1,CENTER-6"
 
-//SELECTION
 /obj/screen/new_player/selection/MouseEntered(location,control,params) //Yellow color for the font
 	color = "#ffb200"
 	var/matrix/M = matrix()
