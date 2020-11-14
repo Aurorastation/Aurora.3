@@ -28,7 +28,7 @@
 		return
 	if(istype(A, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = A
-		user.visible_message(SPAN_NOTICE("\The [user] scoops \the [S] into \the [src]."), SPAN_NOTICE("You scoop \the [S] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [S] into \the [src]."), SPAN_NOTICE("You scoop \the [S] into \the [src]."))
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)	// No growing inside jars
 		contains = JAR_SPIDERLING
@@ -37,7 +37,7 @@
 	if(ismob(A))
 		var/mob/L = A
 		if(L.mob_size <= MOB_SMALL)
-			user.visible_message(SPAN_NOTICE("\The [user] scoops \the [L] into \the [src]."), SPAN_NOTICE("You scoop \the [L] into \the [src]."))
+			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [L] into \the [src]."), SPAN_NOTICE("You scoop \the [L] into \the [src]."))
 			L.forceMove(src)
 			contains = JAR_ANIMAL
 			update_icon()
@@ -87,7 +87,7 @@
 		user.visible_message(SPAN_NOTICE("\The [user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
-	else
+	if(istype(A, /mob/living/simple_animal))
 		insert_mob(A, user, proximity)
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc

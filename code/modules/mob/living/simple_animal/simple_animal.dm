@@ -509,8 +509,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(O, /obj/item/glass_jar))
 		var/obj/item/glass_jar/jar = O
 		jar.insert_mob(src, user, proximity)
+		return
 	if(!O.force)
-		visible_message("<b>\The [user]</b> gently taps \the [src] with \the [O].")
+		visible_message(SPAN_NOTICE("<b>\The [user]</b> gently taps \the [src] with \the [O]."))
 		poke()
 		return FALSE
 
