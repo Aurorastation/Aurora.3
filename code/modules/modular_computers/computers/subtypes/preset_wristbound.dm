@@ -1,27 +1,29 @@
 /obj/item/modular_computer/handheld/wristbound/preset/cheap/install_default_hardware()
+	preset_components = list(
+		MC_CPU = /obj/item/computer_hardware/processor_unit/small,
+		MC_HDD = /obj/item/computer_hardware/hard_drive/micro,
+		MC_NET = /obj/item/computer_hardware/network_card,
+		MC_BAT = /obj/item/computer_hardware/battery_module/nano,
+		MC_PWR = /obj/item/computer_hardware/tesla_link/charging_cable,
+		MC_FLSH = /obj/item/computer_hardware/flashlight
+	)
 	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/micro(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	battery_module = new /obj/item/computer_hardware/battery_module/nano(src)
-	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
-	flashlight = new /obj/item/computer_hardware/flashlight(src)
-	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/install_default_hardware()
+	preset_components = list(
+		MC_CPU = /obj/item/computer_hardware/processor_unit/small,
+		MC_HDD = /obj/item/computer_hardware/hard_drive/small,
+		MC_NET = /obj/item/computer_hardware/network_card,
+		MC_PRNT = /obj/item/computer_hardware/nano_printer,
+		MC_CARD = /obj/item/computer_hardware/card_slot,
+		MC_BAT = /obj/item/computer_hardware/battery_module/hotswap,
+		MC_PWR = /obj/item/computer_hardware/tesla_link/charging_cable,
+		MC_FLSH = /obj/item/computer_hardware/flashlight
+	)
 	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/small(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
-	battery_module = new /obj/item/computer_hardware/battery_module/hotswap(src)
-	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
-	flashlight = new /obj/item/computer_hardware/flashlight(src)
-	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
 	icon_state = "wristbound_cargo"
@@ -81,26 +83,30 @@
 	enrolled = DEVICE_PRIVATE
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/install_default_hardware()
+	preset_components = list(
+		MC_CPU = /obj/item/computer_hardware/processor_unit/small,
+		MC_HDD = /obj/item/computer_hardware/hard_drive/small,
+		MC_NET = /obj/item/computer_hardware/network_card,
+		MC_CARD = /obj/item/computer_hardware/card_slot,
+		MC_BAT = /obj/item/computer_hardware/battery_module,
+		MC_PWR = /obj/item/computer_hardware/tesla_link/charging_cable,
+		MC_FLSH = /obj/item/computer_hardware/flashlight
+	)
 	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/small(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	battery_module = new /obj/item/computer_hardware/battery_module(src)
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen
-	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
-	flashlight = new /obj/item/computer_hardware/flashlight(src)
-	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/fountain
 	silence_notifications()
 
@@ -109,10 +115,12 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/fountain
 
 // Engineering
@@ -125,6 +133,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/silver
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/atmos
@@ -142,10 +151,12 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/silver
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/miner
@@ -161,10 +172,12 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/white
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/fountain/white
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
@@ -180,6 +193,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/white
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
@@ -209,6 +223,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/fountain/head
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/cciaa
@@ -222,6 +237,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain/Initialize()
 	. = ..()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	card_slot.stored_item = new /obj/item/pen/fountain/captain
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/bst
@@ -252,5 +268,5 @@
 	hidden = TRUE
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/syndicate/install_default_hardware()
+	preset_components[MC_NET] = /obj/item/computer_hardware/network_card/signaler
 	..()
-	network_card = new /obj/item/computer_hardware/network_card/signaler(src)

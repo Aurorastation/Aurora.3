@@ -20,15 +20,19 @@
 /datum/nano_module/program/civilian/cargodelivery/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 
+	var/obj/item/computer_hardware/card_slot/card_slot = program?.computer?.hardware_by_slot(MC_CARD)
+	var/obj/item/computer_hardware/nano_printer/nano_printer = program?.computer?.hardware_by_slot(MC_PRNT)
+	var/obj/item/computer_hardware/network_card/network_card = program?.computer?.hardware_by_slot(MC_NET)
+
 	if(program && program.computer)
-		data["have_id_slot"] = !!program.computer.card_slot
-		data["have_printer"] = !!program.computer.nano_printer
+		data["have_id_slot"] = !!card_slot
+		data["have_printer"] = !!nano_printer
 		data["authenticated"] = program.can_run(user)
-		if(!program.computer.card_slot || !program.computer.network_card)
+		if(!card_slot || !network_card)
 			mod_mode = FALSE //We can't pay for orders when there is no card reader or no network card
 
-	if(program && program.computer && program.computer.card_slot)
-		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
+	if(program && program.computer && card_slot)
+		var/obj/item/card/id/id_card = card_slot.stored_card
 		data["has_id"] = !!id_card
 		data["id_account_number"] = id_card ? id_card.associated_account_number : null
 		data["id_owner"] = id_card && id_card.registered_name ? id_card.registered_name : "-----"
@@ -60,6 +64,8 @@
 		return TRUE
 
 	var/obj/item/card/id/I = usr.GetIdCard()
+	var/obj/item/computer_hardware/card_slot/card_slot = program?.computer?.hardware_by_slot(MC_CARD)
+	var/obj/item/computer_hardware/network_card/network_card = program?.computer?.hardware_by_slot(MC_NET)
 
 	//Check if we want to deliver or pay
 	//If we are at the status shipped, then only the confirm delivery and pay button should be shown (deliver)
@@ -73,8 +79,8 @@
 			status_message = "Unable to Deliver - Order has already been delivered and paid for."
 			return TRUE
 
-		if(program && program.computer && program.computer.card_slot && program.computer.network_card)
-			var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
+		if(program && program.computer && card_slot && network_card)
+			var/obj/item/card/id/id_card = card_slot.stored_card
 			if(!id_card?.registered_name)
 				status_message = "Card Error: Invalid ID Card in Card Reader"
 				return TRUE
@@ -83,7 +89,7 @@
 			if(order_details["needs_payment"])
 				var/transaction_amount = order_details["price_customer"]
 				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]"
-				var/transaction_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
+				var/transaction_terminal = "Modular Computer #[network_card.identification_id]"
 
 				var/status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 

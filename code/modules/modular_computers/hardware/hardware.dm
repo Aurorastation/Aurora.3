@@ -2,11 +2,12 @@
 	name = "Hardware"
 	desc = "Unknown Hardware."
 	icon = 'icons/obj/modular_components.dmi'
-	var/obj/item/modular_computer/parent_computer
+	var/obj/item/modular_computer/computer
+	var/hw_type							// Hardware type flag, matches defines in code/__defines/mcomputer.dm
 	var/power_usage = 0					// If the hardware uses extra power, change this.
 	var/enabled = TRUE					// If the hardware is turned off set this to 0.
 	var/critical = TRUE					// Prevent disabling for important component, like the HDD.
-	var/hardware_size = 1				// Limits which devices can contain this component. 1: Tablets/Laptops/Consoles, 2: Laptops/Consoles, 3: Consoles only
+	var/hardware_size = HW_MICRO				// Limits which devices can contain this component. 1: Tablets/Laptops/Consoles, 2: Laptops/Consoles, 3: Consoles only
 	var/damage = 0						// Current damage level
 	var/max_damage = 100				// Maximal damage level.
 	var/damage_malfunction = 20			// "Malfunction" threshold. When damage exceeds this value the hardware piece will semi-randomly fail and do !!FUN!! things
@@ -25,6 +26,18 @@
 	if(enabled)
 		return disable()
 	return enable()
+
+// Default handling of hardware installation / removal. Should be overriden for hardware-specific functionality. Should not be called directly - use install/uninstall on modular computers instead.
+/obj/item/computer_hardware/proc/install_component(var/obj/item/modular_computer/MC)
+	computer = MC
+	update_verbs()
+
+/obj/item/computer_hardware/proc/uninstall_component(var/obj/item/modular_computer/MC)
+	computer = null
+	update_verbs()
+
+/obj/item/computer_hardware/proc/update_verbs()
+	return // this literally just exists to be overriden
 
 /obj/item/computer_hardware/attackby(obj/item/W, mob/living/user)
 	// Multitool. Runs diagnostics
@@ -62,11 +75,11 @@
 	. = ..()
 	w_class = hardware_size
 	if(istype(loc, /obj/item/modular_computer))
-		parent_computer = loc
+		computer = loc
 		return .
 
 /obj/item/computer_hardware/Destroy()
-	parent_computer = null
+	computer = null
 	return ..()
 
 // Handles damage checks

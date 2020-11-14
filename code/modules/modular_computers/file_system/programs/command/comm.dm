@@ -51,6 +51,7 @@
 
 /datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
+	var/obj/item/computer_hardware/nano_printer/nano_printer = program?.computer?.hardware_by_slot(MC_PRNT)
 
 	if(program)
 		data["emagged"] = program.computer_emagged
@@ -59,7 +60,7 @@
 		var/datum/computer_file/program/comm/P = program
 		data["message_printing_intercepts"] = P.intercept
 		if(program.computer)
-			data["have_printer"] = !!program.computer.nano_printer
+			data["have_printer"] = !!nano_printer
 		else
 			data["have_printer"] = FALSE
 	else
@@ -273,14 +274,16 @@
 			current_status = STATE_MESSAGELIST
 		if("printmessage")
 			if(is_authenticated(user) && ntn_comm)
-				if(program && program.computer && program.computer.nano_printer)
-					if(!program.computer.nano_printer.print_text(current_viewing_message["contents"],current_viewing_message["title"]))
+				var/obj/item/computer_hardware/nano_printer/nano_printer = program?.computer?.hardware_by_slot(MC_PRNT)
+				if(program && program.computer && nano_printer)
+					if(!nano_printer.print_text(current_viewing_message["contents"],current_viewing_message["title"]))
 						to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					else
-						program.computer.visible_message(SPAN_NOTICE("\The [program.computer] prints out paper."))
+						program.computer.output_notice("\The [program.computer] prints out paper.")
 		if("toggleintercept")
 			if(is_authenticated(user) && ntn_comm)
-				if(program?.computer?.nano_printer)
+				var/obj/item/computer_hardware/nano_printer/nano_printer = program?.computer?.hardware_by_slot(MC_PRNT)
+				if(nano_printer)
 					var/datum/computer_file/program/comm/P = program
 					P.intercept = !P.intercept
 
@@ -313,10 +316,12 @@ var/last_message_id = 0
 		l.Add(message)
 
 	for (var/obj/item/modular_computer/computer in get_listeners_by_type(LISTENER_MODULAR_COMPUTER, /obj/item/modular_computer))
-		if(computer?.working && !!computer.nano_printer && computer.hard_drive?.stored_files.len)
-			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
+		var/obj/item/computer_hardware/nano_printer/nano_printer = computer?.hardware_by_slot(MC_PRNT)
+		var/obj/item/computer_hardware/hard_drive/hard_drive = computer?.hardware_by_slot(MC_HDD)
+		if(computer?.working && !!nano_printer && hard_drive?.stored_files.len)
+			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in hard_drive.stored_files
 			if(C?.intercept)
-				computer.nano_printer.print_text(message_text, message_title, "#deebff")
+				nano_printer.print_text(message_text, message_title, "#deebff")
 
 
 /datum/comm_message_listener

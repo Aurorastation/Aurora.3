@@ -1,9 +1,10 @@
 /obj/item/computer_hardware/hard_drive
 	name = "basic hard drive"
 	desc = "A small power efficient solid state drive, with 128GQ of storage capacity for use in basic computers where power efficiency is desired."
+	hw_type = MC_HDD
 	power_usage = 20					// SSD or something with low power usage
 	icon_state = "hdd_normal"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	var/max_capacity = 128
 	var/used_capacity = 0
@@ -17,7 +18,7 @@
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	power_usage = 50					// Hybrid, medium capacity and medium power storage
 	icon_state = "hdd_advanced"
-	hardware_size = 3
+	hardware_size = HW_CONSOLE
 
 /obj/item/computer_hardware/hard_drive/super
 	name = "super hard drive"
@@ -26,7 +27,7 @@
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	power_usage = 100					// High-capacity but uses lots of power, shortening battery life. Best used with APC link.
 	icon_state = "hdd_super"
-	hardware_size = 3
+	hardware_size = HW_CONSOLE
 
 /obj/item/computer_hardware/hard_drive/cluster
 	name = "cluster hard drive"
@@ -35,7 +36,7 @@
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
 	max_capacity = 2048
 	icon_state = "hdd_cluster"
-	hardware_size = 3
+	hardware_size = HW_CONSOLE
 
 // For tablets, etc. - highly power efficient.
 /obj/item/computer_hardware/hard_drive/small
@@ -45,7 +46,7 @@
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	max_capacity = 64
 	icon_state = "hdd_small"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 
 /obj/item/computer_hardware/hard_drive/micro
 	name = "micro hard drive"
@@ -54,7 +55,7 @@
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	max_capacity = 32
 	icon_state = "hdd_micro"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 
 /obj/item/computer_hardware/hard_drive/diagnostics(var/mob/user)
 	..()
@@ -82,12 +83,16 @@
 	recalculate_size()
 	return TRUE
 
+/obj/item/computer_hardware/hard_drive/install_component()
+	install_default_programs()
+	..()
+
 // Use this proc to add file to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/install_default_programs()
-	if(parent_computer)
-		store_file(new /datum/computer_file/program/computerconfig(parent_computer))		// Computer configuration utility, allows hardware control and displays more info than status bar
-		store_file(new /datum/computer_file/program/clientmanager(parent_computer))			// Client Manager to Enroll the Device
-		store_file(new /datum/computer_file/program/pai_access_lock(parent_computer))		// pAI access control, to stop pesky pAI from messing with computers
+	if(computer)
+		store_file(new /datum/computer_file/program/computerconfig(computer))		// Computer configuration utility, allows hardware control and displays more info than status bar
+		store_file(new /datum/computer_file/program/clientmanager(computer))			// Client Manager to Enroll the Device
+		store_file(new /datum/computer_file/program/pai_access_lock(computer))		// pAI access control, to stop pesky pAI from messing with computers
 
 // Use this proc to remove file from the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F)
@@ -148,8 +153,9 @@
 	return null
 
 /obj/item/computer_hardware/hard_drive/Destroy()
-	if(parent_computer?.hard_drive == src)
-		parent_computer.hard_drive = null
+	var/obj/item/computer_hardware/hard_drive/H = computer?.hardware_by_slot(MC_HDD)
+	if(H == src)
+		computer.remove_component(src)
 	stored_files = null
 	return ..()
 

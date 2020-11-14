@@ -30,7 +30,7 @@
 
 	if(href_list["PRG_execfile"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
+		var/obj/item/computer_hardware/hard_drive/HDD = computer.hardware_by_slot(MC_HDD)
 		var/datum/computer_file/data/F = HDD.find_file_by_name(href_list["PRG_execfile"])
 		if(istype(F))
 			var/oldtext = html_decode(F.stored_data)
@@ -72,15 +72,14 @@
 	else
 		return
 
-	var/obj/item/computer_hardware/hard_drive/HDD
+	var/obj/item/computer_hardware/hard_drive/HDD = PRG.computer?.hardware_by_slot(MC_HDD)
 
-	if(!PRG.computer || !PRG.computer.hard_drive)
+	if(!HDD)
 		data["error"] = "I/O ERROR: Unable to access hard drive."
 	else if(istype(PRG.running))
 		data["running"] = PRG.running.name
 		data["terminal"] = PRG.running.get_terminal()
 	else
-		HDD = PRG.computer.hard_drive
 		var/list/files[0]
 		for(var/datum/computer_file/F in HDD.stored_files)
 			if(F.filetype == "TXT" && !F.password)

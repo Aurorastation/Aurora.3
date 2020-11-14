@@ -109,7 +109,8 @@
 		to_chat(user, SPAN_WARNING("You can't download this program as queued items exceed hard drive capacity."))
 		return TRUE
 
-	if(!computer?.hard_drive?.try_store_file(PRG))
+	var/obj/item/computer_hardware/hard_drive/HDD = computer?.hardware_by_slot(MC_HDD)
+	if(!HDD?.try_store_file(PRG))
 		return FALSE
 
 	if(!computer_emagged && !PRG.can_download(user) && PRG.requires_access_to_download)
@@ -156,7 +157,8 @@
 	var/datum/computer_file/program/PRG = download_files[name]
 	var/hacked_download = PRG.available_on_syndinet && !PRG.available_on_ntnet
 	generate_network_log("Completed download of file [hacked_download ? "**ENCRYPTED**" : PRG.filename].[PRG.filetype].")
-	if(!computer?.hard_drive?.store_file(PRG))
+	var/obj/item/computer_hardware/hard_drive/hard_drive = computer?.hardware_by_slot(MC_HDD)
+	if(!hard_drive?.store_file(PRG))
 		download_queue[name] = -1
 		for(var/i in SSvueui.get_open_uis(src))
 			var/datum/vueui/ui = i

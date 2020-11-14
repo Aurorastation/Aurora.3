@@ -59,7 +59,7 @@
 	set name = "Access Local Computer"
 	set category = "Subsystems"
 
-	parent_computer.attack_self(src)
+	computer.attack_self(src)
 
 /********************
 *	Alarm Monitor	*

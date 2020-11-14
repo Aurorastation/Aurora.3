@@ -173,57 +173,6 @@
 #define BOMBCAP_HEAVY_RADIUS (max_explosion_range/2)
 #define BOMBCAP_LIGHT_RADIUS max_explosion_range
 #define BOMBCAP_FLASH_RADIUS (max_explosion_range*1.5)
-									// NTNet module-configuration values. Do not change these. If you need to add another use larger number (5..6..7 etc)
-#define NTNET_SOFTWAREDOWNLOAD 1 	// Downloads of software from NTNet
-#define NTNET_PEERTOPEER 2			// P2P transfers of files between devices
-#define NTNET_COMMUNICATION 3		// Communication (messaging)
-#define NTNET_SYSTEMCONTROL 4		// Control of various systems, RCon, air alarm control, etc.
-
-// NTNet transfer speeds, used when downloading/uploading a file/program.
-#define NTNETSPEED_LOWSIGNAL 0.05	// GQ/s transfer speed when the device is wirelessly connected and on Low signal
-#define NTNETSPEED_HIGHSIGNAL 0.25	// GQ/s transfer speed when the device is wirelessly connected and on High signal
-#define NTNETSPEED_ETHERNET 1	  // GQ/s transfer speed when the device is using wired connection
-#define NTNETSPEED_DOS_AMPLIFICATION 20	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
-
-// Program bitflags
-#define PROGRAM_CONSOLE 1
-#define PROGRAM_LAPTOP 2
-#define PROGRAM_TABLET 4
-#define PROGRAM_TELESCREEN 8
-#define PROGRAM_SILICON_AI 16
-#define PROGRAM_WRISTBOUND 32
-#define PROGRAM_SILICON_ROBOT 64
-#define PROGRAM_SILICON_PAI 128
-
-#define PROGRAM_ALL (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN | PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT | PROGRAM_SILICON_PAI)
-#define PROGRAM_SILICON (PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT | PROGRAM_SILICON_PAI)
-#define PROGRAM_STATIONBOUND (PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT)
-#define PROGRAM_ALL_REGULAR (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN)
-#define PROGRAM_ALL_HANDHELD (PROGRAM_TABLET | PROGRAM_WRISTBOUND)
-
-#define PROGRAM_STATE_KILLED 0
-#define PROGRAM_STATE_BACKGROUND 1
-#define PROGRAM_STATE_ACTIVE 2
-
-// Caps for NTNet logging. Less than 10 would make logging useless anyway, more than 500 may make the log browser too laggy. Defaults to 100 unless user changes it.
-#define MAX_NTNET_LOGS 500
-#define MIN_NTNET_LOGS 10
-
-#define PROGRAM_ACCESS_ONE 1
-#define PROGRAM_ACCESS_LIST_ONE 2
-#define PROGRAM_ACCESS_LIST_ALL 3
-
-#define PROGRAM_NORMAL 1
-#define PROGRAM_SERVICE 2
-#define PROGRAM_TYPE_ALL (PROGRAM_NORMAL | PROGRAM_SERVICE)
-
-#define DEVICE_UNKNOWN 0
-#define DEVICE_COMPANY 1
-#define DEVICE_PRIVATE 2
-
-#define SCANNER_MEDICAL 1
-#define SCANNER_REAGENT 2
-#define SCANNER_GAS 4
 
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
@@ -466,4 +415,3 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_FAIL		-1
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
-

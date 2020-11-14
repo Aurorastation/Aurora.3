@@ -4,6 +4,7 @@
 	name = "standard battery"
 	desc = "A standard power cell, commonly seen in high-end portable microcomputers or low-end laptops. It provides 1,500 Wh of power."
 	icon_state = "battery_normal"
+	hw_type = MC_BAT
 	critical = TRUE
 	malfunction_probability = 1
 	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
@@ -16,20 +17,24 @@
 	desc = "A standard power cell, providing 1000 mWh of power. This is a slightly more expensive model, designed to be replaced and recharged separately."
 	hotswappable = TRUE
 
+/obj/item/computer_hardware/battery_module/hotswap/update_verbs()
+	if(computer)
+		computer.verbs += /obj/item/modular_computer/proc/eject_battery
+
 /obj/item/computer_hardware/battery_module/advanced
 	name = "advanced battery"
 	desc = "An advanced power cell, often used in higher-end laptops and other large devices. It provides 2,000 mWh of power."
 	icon_state = "battery_advanced"
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
 	battery_rating = 2000
-	hardware_size = 2
+	hardware_size = HW_STANDARD
 
 /obj/item/computer_hardware/battery_module/super
 	name = "super battery"
 	desc = "A very advanced power cell, often used in high-end devices, or as uninterruptable power supply for important consoles or servers. It provides a sizable 2,500 mWh worth of power."
 	icon_state = "battery_super"
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
-	hardware_size = 3
+	hardware_size = HW_CONSOLE
 	battery_rating = 2500
 
 /obj/item/computer_hardware/battery_module/ultra
@@ -37,7 +42,7 @@
 	desc = "A very advanced large power cell. Its often used as uninterruptable power supply for critical consoles or servers. It provides a staggering 4,000 mWh worth of power."
 	icon_state = "battery_ultra"
 	origin_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 4)
-	hardware_size = 3
+	hardware_size = HW_CONSOLE
 	battery_rating = 4000
 
 /obj/item/computer_hardware/battery_module/micro
@@ -59,7 +64,7 @@
 	name = "lambda coil"
 	desc = "A very complex device that creates its own bluespace dimension. This dimension may be used to store massive amounts of energy."
 	icon_state = "battery_lambda"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	battery_rating = 1000000
 
 /obj/item/computer_hardware/battery_module/lambda/Initialize()

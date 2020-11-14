@@ -17,9 +17,12 @@
 	if(..())
 		return TRUE
 
+	var/obj/item/computer_hardware/hard_drive/HDD = computer?.hardware_by_slot(MC_HDD)
+	if(!HDD)
+		return TRUE
+
 	if(href_list["PRG_openfile"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
 		if(!F)
 			return
@@ -32,25 +35,19 @@
 		var/newname = sanitize(input(usr, "Enter file name or leave blank to cancel:", "File rename"))
 		if(!newname)
 			return TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if(!HDD)
-			return TRUE
 		var/datum/computer_file/data/F = new/datum/computer_file/data()
 		F.filename = newname
 		F.filetype = "TXT"
 		HDD.store_file(F)
 	if(href_list["PRG_deletefile"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if(!HDD)
-			return TRUE
 		var/datum/computer_file/file = HDD.find_file_by_name(href_list["PRG_deletefile"])
 		if(!file || file.undeletable)
 			return TRUE
 		HDD.remove_file(file)
 	if(href_list["PRG_usbdeletefile"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/RHDD = computer.portable_drive
+		var/obj/item/computer_hardware/hard_drive/RHDD = computer?.hardware_by_slot(MC_USB)
 		if(!RHDD)
 			return TRUE
 		var/datum/computer_file/file = RHDD.find_file_by_name(href_list["PRG_usbdeletefile"])
@@ -63,9 +60,6 @@
 		error = null
 	if(href_list["PRG_clone"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if(!HDD)
-			return TRUE
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_clone"])
 		if(!F || !istype(F))
 			return TRUE
@@ -73,9 +67,6 @@
 		HDD.store_file(C)
 	if(href_list["PRG_rename"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if(!HDD)
-			return TRUE
 		var/datum/computer_file/file = HDD.find_file_by_name(href_list["PRG_rename"])
 		if(!file || !istype(file))
 			return TRUE
@@ -85,9 +76,6 @@
 	if(href_list["PRG_edit"])
 		. = TRUE
 		if(!open_file)
-			return TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if(!HDD)
 			return TRUE
 		var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 		if(!F || !istype(F))
@@ -117,23 +105,20 @@
 		. = TRUE
 		if(!open_file)
 			return TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if(!HDD)
-			return TRUE
 		var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 		if(!F || !istype(F))
 			return TRUE
-		if(!computer.nano_printer)
+		var/obj/item/computer_hardware/nano_printer/NP = computer.hardware_by_slot(MC_PRNT)
+		if(!NP)
 			error = "Missing Hardware: Your computer does not have required hardware to complete this operation."
 			return TRUE
-		if(!computer.nano_printer.print_text(F.stored_data))
+		if(!NP.print_text(F.stored_data))
 			error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 			return TRUE
 	if(href_list["PRG_copytousb"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
-		if(!HDD || !RHDD)
+		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer?.hardware_by_slot(MC_USB)
+		if(!RHDD)
 			return TRUE
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_copytousb"])
 		if(!F || !istype(F))
@@ -159,9 +144,8 @@
 		RHDD.store_file(C)
 	if(href_list["PRG_copyfromusb"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
-		if(!HDD || !RHDD)
+		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer?.hardware_by_slot(MC_USB)
+		if(!RHDD)
 			return TRUE
 		var/datum/computer_file/F = RHDD.find_file_by_name(href_list["PRG_copyfromusb"])
 		if(!F || !istype(F))
@@ -187,9 +171,6 @@
 		HDD.store_file(C)
 	if(href_list["PRG_encrypt"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if (!HDD)
-			return
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
 		if(!F || F.undeletable)
 			return
@@ -198,9 +179,6 @@
 		F.password = sanitize(input(usr, "Enter an encryption key:", "Encrypt File"))
 	if(href_list["PRG_decrypt"])
 		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		if (!HDD)
-			return
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_encrypt"])
 		if(!F || F.undeletable)
 			return
@@ -220,17 +198,19 @@
 	//var/list/data = list("_PC" = program.get_header_data())
 	PRG = program
 
-	var/obj/item/computer_hardware/hard_drive/HDD
-	var/obj/item/computer_hardware/hard_drive/portable/RHDD
+	if(!PRG.computer)
+		return
+
+	var/obj/item/computer_hardware/hard_drive/HDD = PRG.computer.hardware_by_slot(MC_HDD)
+	var/obj/item/computer_hardware/hard_drive/portable/RHDD = PRG.computer.hardware_by_slot(MC_USB)
 	if(PRG.error)
 		data["error"] = PRG.error
 	if(PRG.open_file)
 		var/datum/computer_file/data/file
 
-		if(!PRG.computer || !PRG.computer.hard_drive)
+		if(!HDD)
 			data["error"] = "I/O ERROR: Unable to access hard drive."
 		else
-			HDD = PRG.computer.hard_drive
 			file = HDD.find_file_by_name(PRG.open_file)
 			if(!istype(file))
 				data["error"] = "I/O ERROR: Unable to open file."
@@ -238,11 +218,9 @@
 				data["filedata"] = pencode2html(file.stored_data)
 				data["filename"] = "[file.filename].[file.filetype]"
 	else
-		if(!PRG.computer || !PRG.computer.hard_drive)
+		if(!HDD)
 			data["error"] = "I/O ERROR: Unable to access hard drive."
 		else
-			HDD = PRG.computer.hard_drive
-			RHDD = PRG.computer.portable_drive
 			var/list/files[0]
 			for(var/datum/computer_file/F in HDD.stored_files)
 				files.Add(list(list(

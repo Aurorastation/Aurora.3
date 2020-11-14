@@ -101,7 +101,8 @@
 		if(target)
 			executed = TRUE
 			target.dos_sources.Add(src)
+			var/obj/item/computer_hardware/network_card/network_card = computer.hardware_by_slot(MC_NET)
 			if(ntnet_global.intrusion_detection_enabled)
-				ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting relay [target.uid] detected from device: [computer.network_card.get_network_tag()]")
+				ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting relay [target.uid] detected from device: [network_card.get_network_tag()]")
 				ntnet_global.intrusion_detection_alarm = TRUE
 		return TRUE

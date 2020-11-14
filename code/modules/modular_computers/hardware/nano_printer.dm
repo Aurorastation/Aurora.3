@@ -1,11 +1,12 @@
 /obj/item/computer_hardware/nano_printer
 	name = "nano printer"
 	desc = "Small integrated printer with paper recycling module."
+	hw_type = MC_PRNT
 	power_usage = 50
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	critical = FALSE
 	icon_state = "printer"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	var/stored_paper = 5
 	var/max_paper = 10
 
@@ -24,7 +25,7 @@
 	// Damaged printer causes the resulting paper to be somewhat harder to read.
 	if(damage > damage_malfunction)
 		text_to_print = stars(text_to_print, 100-malfunction_probability)
-	var/obj/item/paper/P = new /obj/item/paper(get_turf(parent_computer), text_to_print, paper_title)
+	var/obj/item/paper/P = new /obj/item/paper(get_turf(computer), text_to_print, paper_title)
 	if(paper_color)
 		P.color = paper_color
 
@@ -43,7 +44,8 @@
 		..()
 
 /obj/item/computer_hardware/nano_printer/Destroy()
-	if(parent_computer?.nano_printer == src)
-		parent_computer.nano_printer = null
-	parent_computer = null
+	var/obj/item/computer_hardware/nano_printer/nano_printer = computer?.hardware_by_slot(MC_PRNT)
+	if(nano_printer == src)
+		computer.remove_component(src)
+	computer = null
 	return ..()

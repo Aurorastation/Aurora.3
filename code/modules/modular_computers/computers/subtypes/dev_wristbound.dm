@@ -10,7 +10,7 @@
 	hardware_flag = PROGRAM_WRISTBOUND
 	slot_flags = SLOT_GLOVES|SLOT_ID
 	can_reset = TRUE
-	max_hardware_size = 1
+	max_hardware_size = HW_MICRO
 	menu_light_color = COLOR_GREEN
 
 /obj/item/modular_computer/handheld/wristbound/set_icon()

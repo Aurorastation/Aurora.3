@@ -3,11 +3,12 @@ var/global/ntnet_card_uid = 1
 /obj/item/computer_hardware/network_card
 	name = "basic NTNet network card"
 	desc = "A basic network card for usage with standard NTNet frequencies."
+	hw_type = MC_NET
 	power_usage = 25
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 1)
 	critical = FALSE
 	icon_state = "netcard_basic"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	var/identification_id			// Identification ID. Technically MAC address of this device. Can't be changed by user.
 	var/identification_string = ""	// Identification string, technically nickname seen in the network. Can be set by user.
 	var/long_range = FALSE
@@ -50,7 +51,7 @@ var/global/ntnet_card_uid = 1
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 2)
 	power_usage = 150 // Better range but higher power usage.
 	icon_state = "netcard_advanced"
-	hardware_size = 2
+	hardware_size = HW_STANDARD
 
 /obj/item/computer_hardware/network_card/advanced/Initialize()
 	. = ..()
@@ -63,7 +64,7 @@ var/global/ntnet_card_uid = 1
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 3)
 	power_usage = 150 // Better range but higher power usage.
 	icon_state = "netcard_ethernet"
-	hardware_size = 3
+	hardware_size = HW_CONSOLE
 
 /obj/item/computer_hardware/network_card/wired/Initialize()
 	. = ..()
@@ -75,7 +76,7 @@ var/global/ntnet_card_uid = 1
 
 // 0 - No signal, 1 - Low signal, 2 - High signal. 3 - Wired Connection
 /obj/item/computer_hardware/network_card/proc/get_signal(var/specific_action = 0)
-	if(!parent_computer) // Hardware is not installed in anything. No signal. How did this even get called?
+	if(!computer) // Hardware is not installed in anything. No signal. How did this even get called?
 		return 0
 	if(!enabled)
 		return 0
@@ -84,8 +85,8 @@ var/global/ntnet_card_uid = 1
 	if(!ntnet_global || !ntnet_global.check_function(specific_action))
 		return 0
 
-	if(parent_computer)
-		var/turf/T = get_turf(parent_computer)
+	if(computer)
+		var/turf/T = get_turf(computer)
 		if((T && istype(T)) && isStationLevel(T.z))
 			// Computer is on station. Low/High signal depending on what type of network card you have
 			if(ethernet)
@@ -94,7 +95,7 @@ var/global/ntnet_card_uid = 1
 				return 2
 			else
 				return 1
-		var/area/A = get_area(parent_computer)
+		var/area/A = get_area(computer)
 		if(A.centcomm_area && ethernet)
 			return 3
 
@@ -106,7 +107,8 @@ var/global/ntnet_card_uid = 1
 /obj/item/computer_hardware/network_card/Destroy()
 	if(sradio)
 		QDEL_NULL(sradio)
-	if(parent_computer?.network_card == src)
-		parent_computer.network_card = null
-	parent_computer = null
+	var/obj/item/computer_hardware/network_card/network_card = computer?.hardware_by_slot(MC_NET)
+	if(computer && network_card == src)
+		computer.remove_component(src)
+	computer = null
 	return ..()

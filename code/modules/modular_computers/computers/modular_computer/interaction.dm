@@ -6,6 +6,8 @@
 	if(use_check_and_message(usr))
 		return
 
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
+
 	if(!card_slot)
 		to_chat(usr, SPAN_WARNING("\The [src] does not have an ID card slot."))
 		return
@@ -34,6 +36,8 @@
 	if(use_check_and_message(usr))
 		return
 
+	var/obj/item/computer_hardware/hard_drive/portable/portable_drive = hardware_by_slot(MC_USB)
+
 	if(!portable_drive)
 		to_chat(usr, SPAN_WARNING("There is no portable drive connected to \the [src]."))
 		return
@@ -49,6 +53,8 @@
 
 	if(use_check_and_message(usr))
 		return
+
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 
 	if(!card_slot)
 		to_chat(usr, SPAN_WARNING("\The [src] does not have an ID card slot."))
@@ -78,6 +84,8 @@
 	if(use_check_and_message(usr))
 		return
 
+	var/obj/item/computer_hardware/battery_module/battery_module = hardware_by_slot(MC_BAT)
+
 	if(!battery_module)
 		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a battery installed."))
 		return
@@ -98,19 +106,20 @@
 	if(use_check_and_message(usr))
 		return
 
-	if(!ai_slot)
+	var/obj/item/computer_hardware/ai_slot/ai_slot = hardware_by_slot(MC_AI)
+	if(!istype(ai_slot))
 		to_chat(usr, SPAN_WARNING("\The [src] doesn't have an intellicard slot."))
 		return
 
-	if(!ai_slot.stored_card)
+	if(!ai_slot.stored_pai)
 		to_chat(usr, SPAN_WARNING("There is no intellicard connected to \the [src]."))
 		return
 
 	if(ishuman(usr))
-		usr.put_in_hands(ai_slot.stored_card)
+		usr.put_in_hands(ai_slot.stored_ai)
 	else
-		ai_slot.stored_card.forceMove(get_turf(src))
-	ai_slot.stored_card = null
+		ai_slot.stored_ai.forceMove(get_turf(src))
+	ai_slot.stored_ai = null
 	ai_slot.update_power_usage()
 	verbs -= /obj/item/modular_computer/proc/eject_ai
 	update_uis()
@@ -123,17 +132,28 @@
 	if(use_check_and_message(usr))
 		return
 
-	if(!personal_ai)
+	var/obj/item/computer_hardware/ai_slot/ai_slot = hardware_by_slot(MC_AI)
+	if(!istype(ai_slot))
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have an intellicard slot."))
+		return
+
+	if(!ai_slot.stored_pai)
 		to_chat(usr, SPAN_WARNING("There is no personal AI connected to \the [src]."))
 		return
 
-	uninstall_component(usr, personal_ai, put_in_hands = TRUE)
+	if(ishuman(usr))
+		usr.put_in_hands(ai_slot.stored_pai)
+	else
+		ai_slot.stored_pai.forceMove(get_turf(src))
+	ai_slot.stored_pai = null
 	verbs -= /obj/item/modular_computer/proc/eject_personal_ai
 	update_uis()
 
 /obj/item/modular_computer/AltClick(var/mob/user)
 	if(use_check_and_message(user, 32))
 		return
+
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 
 	if(!card_slot)
 		to_chat(user, SPAN_WARNING("\The [src] does not have an ID card slot."))
@@ -194,6 +214,9 @@
 		turn_on(user)
 
 /obj/item/modular_computer/attackby(obj/item/W, mob/user)
+	var/obj/item/computer_hardware/hard_drive/hard_drive = hardware_by_slot(MC_HDD)
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
+
 	if(istype(W, /obj/item/card/tech_support))
 		if(!can_reset)
 			to_chat(user, SPAN_WARNING("You cannot reset this type of device."))
@@ -236,21 +259,17 @@
 		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
 		return
 	if(istype(W, /obj/item/paper))
+		var/obj/item/computer_hardware/nano_printer/nano_printer = hardware_by_slot(MC_PRNT)
 		if(!nano_printer)
 			return
 		nano_printer.attackby(W, user)
-	if(istype(W, /obj/item/aicard))
+	if(istype(W, /obj/item/aicard) || istype(W, /obj/item/device/paicard))
+		var/obj/item/computer_hardware/ai_slot/ai_slot = hardware_by_slot(MC_AI)
 		if(!ai_slot)
 			return
 		ai_slot.attackby(W, user)
 	if(istype(W, /obj/item/computer_hardware))
-		var/obj/item/computer_hardware/C = W
-		if(C.hardware_size <= max_hardware_size)
-			try_install_component(user, C)
-		else
-			to_chat(user, SPAN_WARNING("This component is too large for \the [src]."))
-	if(istype(W, /obj/item/device/paicard))
-		try_install_component(user, W)
+		install_component(W)
 	if(W.iswrench())
 		var/list/components = get_all_components()
 		if(components.len)
@@ -293,7 +312,7 @@
 		if(!Adjacent(usr))
 			return
 
-		var/obj/item/computer_hardware/H = find_hardware_by_name(initial(choice.name))
+		var/obj/item/computer_hardware/H = hardware_by_slot(choice.hw_type)
 		if(!H)
 			return
 		uninstall_component(user, H)
@@ -304,11 +323,12 @@
 	var/mob/M = usr
 	if(use_check_and_message(M))
 		return
-	if(istype(over_object, /obj/machinery/power/apc) && tesla_link)
+	if(istype(over_object, /obj/machinery/power/apc) && hardware_by_slot(MC_PWR))
 		return over_object.attackby(src, M)
 	if(!istype(over_object, /obj/screen) && !(over_object == src))
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()
+	var/obj/item/computer_hardware/card_slot/card_slot = hardware_by_slot(MC_CARD)
 	if(card_slot)
 		return card_slot.stored_card

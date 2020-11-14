@@ -24,14 +24,18 @@
 	computer.shutdown_computer(0)
 	spark(get_turf(src), 10, alldirs)
 
-	if(computer.hard_drive)
-		qdel(computer.hard_drive)
+	var/obj/item/computer_hardware/hard_drive/HDD = computer.hardware_by_slot(MC_HDD)
+	var/obj/item/computer_hardware/battery_module/BAT = computer.hardware_by_slot(MC_BAT)
+	var/obj/item/computer_hardware/tesla_link/PWR = computer.hardware_by_slot(MC_PWR)
 
-	if(computer.battery_module && prob(25))
-		qdel(computer.battery_module)
+	if(HDD)
+		qdel(HDD)
 
-	if(computer.tesla_link && prob(50))
-		qdel(computer.tesla_link)
+	if(BAT && prob(25))
+		qdel(BAT)
+
+	if(PWR && prob(50))
+		qdel(PWR)
 
 /datum/computer_file/program/revelation/Topic(href, href_list)
 	if(..())

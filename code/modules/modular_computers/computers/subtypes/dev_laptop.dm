@@ -14,7 +14,7 @@
 	base_idle_power_usage = 25
 	base_active_power_usage = 200
 	message_output_range = 1
-	max_hardware_size = 2
+	max_hardware_size = HW_STANDARD
 	light_range = 3
 	max_damage = 50
 	broken_damage = 25

@@ -38,28 +38,33 @@
 		return
 
 	var/list/hardware = computer.get_all_components()
-	VUEUI_SET_CHECK(data["disk_size"], computer.hard_drive.max_capacity, ., data)
-	VUEUI_SET_CHECK(data["disk_used"], computer.hard_drive.used_capacity, ., data)
+	var/obj/item/computer_hardware/hard_drive/hard_drive = computer.hardware_by_slot(MC_HDD)
+	var/obj/item/computer_hardware/card_slot/card_slot = computer.hardware_by_slot(MC_CARD)
+	var/obj/item/computer_hardware/battery_module/battery_module = computer.hardware_by_slot(MC_BAT)
+	var/obj/item/computer_hardware/flashlight/flashlight = computer.hardware_by_slot(MC_FLSH)
+
+	VUEUI_SET_CHECK(data["disk_size"], hard_drive.max_capacity, ., data)
+	VUEUI_SET_CHECK(data["disk_used"], hard_drive.used_capacity, ., data)
 	VUEUI_SET_CHECK(data["power_usage"], computer.last_power_usage * (CELLRATE / 2), ., data)
-	VUEUI_SET_CHECK(data["card_slot"], computer.card_slot, ., data)
+	VUEUI_SET_CHECK(data["card_slot"], card_slot, ., data)
 	if(computer.registered_id)
 		VUEUI_SET_CHECK(data["registered"], computer.registered_id.registered_name, ., data)
 	else
 		VUEUI_SET_CHECK(data["registered"], 0, ., data)
-	if(!computer.battery_module)
+	if(!battery_module)
 		VUEUI_SET_CHECK(data["battery"], 0, ., data)
 	else
 		LAZYINITLIST(data["battery"])
-		VUEUI_SET_CHECK(data["battery"]["rating"], computer.battery_module.battery.maxcharge, ., data)
-		VUEUI_SET_CHECK(data["battery"]["percent"], round(computer.battery_module.battery.percent()), ., data)
+		VUEUI_SET_CHECK(data["battery"]["rating"], battery_module.battery.maxcharge, ., data)
+		VUEUI_SET_CHECK(data["battery"]["percent"], round(battery_module.battery.percent()), ., data)
 
-	if(computer.flashlight)
-		var/brightness = Clamp(0, round(computer.flashlight.power) * 10, 10)
+	if(flashlight)
+		var/brightness = Clamp(0, round(flashlight.power) * 10, 10)
 		VUEUI_SET_CHECK_IFNOTSET(data["brightness"], brightness, ., data)
 
 		if(data["brightness"])
 			var/new_brightness = Clamp(0, data["brightness"]/10, 1)
-			computer.flashlight.tweak_brightness(new_brightness)
+			flashlight.tweak_brightness(new_brightness)
 
 	LAZYINITLIST(data["hardware"])
 	for(var/obj/item/computer_hardware/H in hardware)

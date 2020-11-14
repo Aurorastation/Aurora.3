@@ -1,10 +1,11 @@
 /obj/item/computer_hardware/card_slot
 	name = "RFID card slot"
 	desc = "Slot that allows this computer to write data on RFID cards. Necessary for some programs to run properly."
+	hw_type = MC_CARD
 	power_usage = 10 //W
 	critical = FALSE
 	icon_state = "cardreader"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	origin_tech = list(TECH_DATA = 2)
 
 	var/obj/item/card/id/stored_card
@@ -18,12 +19,21 @@
 	var/obj/item/stored_item //Used for pen, crayon, and lipstick insertion/removal
 
 /obj/item/computer_hardware/card_slot/Destroy()
-	if(parent_computer?.card_slot == src)
-		parent_computer.card_slot = null
+	var/obj/item/computer_hardware/card_slot/C = computer?.hardware_by_slot(MC_CARD)
+	if(C == src)
+		computer.remove_component(src)
 	if(stored_card)
-		stored_card.forceMove(get_turf(parent_computer))
-	parent_computer = null
+		stored_card.forceMove(get_turf(computer))
+	if(stored_item)
+		stored_item.forceMove(get_turf(computer))
+	computer = null
 	return ..()
+
+/obj/item/computer_hardware/card_slot/update_verbs()
+	if(computer && stored_card)
+		computer.verbs += /obj/item/modular_computer/proc/eject_id
+	if(computer && stored_item)
+		computer.verbs += /obj/item/modular_computer/proc/eject_item
 
 /obj/item/computer_hardware/card_slot/proc/insert_id(var/obj/item/card/id/id)
 	if(!istype(id))
@@ -32,10 +42,10 @@
 	id.forceMove(src)
 	stored_card = id
 
-	if(parent_computer)
-		parent_computer.verbs += /obj/item/modular_computer/proc/eject_id
-		parent_computer.initial_name = parent_computer.name
-		parent_computer.name = "[parent_computer.name] ([id.registered_name] ([id.assignment]))"
+	if(computer)
+		update_verbs()
+		computer.initial_name = computer.name
+		computer.name = "[computer.name] ([id.registered_name] ([id.assignment]))"
 
 /obj/item/computer_hardware/card_slot/proc/eject_id(mob/user)
 	if(!stored_card)
@@ -46,6 +56,6 @@
 		stored_card.forceMove(get_turf(src))
 	stored_card = null
 
-	if(parent_computer)
-		parent_computer.verbs -= /obj/item/modular_computer/proc/eject_id
-		parent_computer.name = parent_computer.initial_name
+	if(computer)
+		update_verbs()
+		computer.name = computer.initial_name

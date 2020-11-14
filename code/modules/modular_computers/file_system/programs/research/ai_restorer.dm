@@ -14,8 +14,9 @@
 	usage_flags = PROGRAM_CONSOLE
 
 /datum/computer_file/program/aidiag/proc/get_ai()
-	if(computer?.ai_slot?.check_functionality() && computer.ai_slot.enabled && computer.ai_slot.stored_card?.carded_ai)
-		return computer.ai_slot.stored_card.carded_ai
+	var/obj/item/computer_hardware/ai_slot/ai_slot = computer?.hardware_by_slot(MC_AI)
+	if(ai_slot?.check_functionality() && ai_slot.enabled && ai_slot.stored_ai?.carded_ai)
+		return ai_slot.stored_ai.carded_ai
 	return null
 
 /datum/computer_file/program/aidiag/Topic(href, href_list)

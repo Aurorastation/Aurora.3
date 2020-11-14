@@ -43,7 +43,7 @@
 			else
 				enabled_services -= service
 
-	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
+	working = hardware_by_slot(MC_HDD) && hardware_by_slot(MC_CPU) && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
 	if(working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
@@ -57,41 +57,40 @@
 
 // Used to perform preset-specific hardware changes.
 /obj/item/modular_computer/proc/install_default_hardware()
+	if(preset_components)
+		for(var/hw_type in preset_components)
+			var/obj/item/computer_hardware/t_comp = preset_components[hw_type]
+			internal_components[hw_type] = new t_comp(src)
+
+	var/obj/item/computer_hardware/battery_module/B = hardware_by_slot(MC_BAT)
+	if(istype(B))
+		B.charge_to_full()
 	return TRUE
 
 // Used to install preset-specific programs
 /obj/item/modular_computer/proc/install_default_programs()
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
+	if(!istype(H))
+		return FALSE
 	if(enrolled)
 		var/programs = get_preset_programs(_app_preset_type)
 		for(var/datum/computer_file/program/prog in programs)
 			if(!prog.is_supported_by_hardware(hardware_flag, FALSE))
 				qdel(prog)
 				continue
-			hard_drive.store_file(prog)
+			H.store_file(prog)
 
-/obj/item/modular_computer/proc/handle_verbs()
-	if(card_slot)
-		if(card_slot.stored_card)
-			verbs += /obj/item/modular_computer/proc/eject_id
-		if(card_slot.stored_item)
-			verbs += /obj/item/modular_computer/proc/eject_item
-	if(portable_drive)
-		verbs += /obj/item/modular_computer/proc/eject_usb
-	if(battery_module && battery_module.hotswappable)
-		verbs += /obj/item/modular_computer/proc/eject_battery
-	if(ai_slot && ai_slot.stored_card)
-		verbs += /obj/item/modular_computer/proc/eject_ai
-	if(personal_ai)
-		verbs += /obj/item/modular_computer/proc/eject_personal_ai
+/obj/item/modular_computer/proc/update_verbs()
+	for(var/obj/item/computer_hardware/H in internal_components)
+		H.update_verbs()
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
 	listener = new(LISTENER_MODULAR_COMPUTER, src)
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
-	if(hard_drive)
-		install_default_programs()
-	handle_verbs()
+	install_default_programs()
+	update_verbs()
 	update_icon()
 	initial_name = name
 
@@ -125,6 +124,7 @@
 	icon_state = icon_state_unpowered
 
 	cut_overlays()
+	var/obj/item/computer_hardware/flashlight/flashlight = hardware_by_slot(MC_FLSH)
 	if(damage >= broken_damage)
 		icon_state = icon_state_broken
 		add_overlay("broken")
@@ -158,8 +158,9 @@
 			set_light(light_range, light_power, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
-	if(tesla_link)
-		tesla_link.enabled = TRUE
+	var/obj/item/computer_hardware/tesla_link/T = hardware_by_slot(MC_PWR)
+	if(T)
+		T.enabled = TRUE
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
 	if(damage > broken_damage)
 		if(issynth)
@@ -167,7 +168,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You press the power button, but the computer fails to boot up, displaying a variety of errors before shutting down again."))
 		return
-	if(processor_unit && computer_use_power()) // Battery-run and charged or non-battery but powered by APC.
+	if(hardware_by_slot(MC_CPU) && computer_use_power()) // Battery-run and charged or non-battery but powered by APC.
 		if(issynth)
 			to_chat(user, SPAN_NOTICE("You send an activation signal to \the [src], turning it on."))
 		else
@@ -194,15 +195,16 @@
 
 // Returns 0 for No Signal, 1 for Low Signal and 2 for Good Signal. 3 is for wired connection (always-on)
 /obj/item/modular_computer/proc/get_ntnet_status(var/specific_action = 0)
-	if(network_card)
-		return network_card.get_signal(specific_action)
+	var/obj/item/computer_hardware/network_card/N = hardware_by_slot(MC_NET)
+	if(istype(N))
+		return N.get_signal(specific_action)
 	else
 		return 0
 
 /obj/item/modular_computer/proc/add_log(var/text)
 	if(!get_ntnet_status())
 		return FALSE
-	return ntnet_global.add_log(text, network_card)
+	return ntnet_global.add_log(text, hardware_by_slot(MC_NET))
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
 	SSvueui.close_uis(active_program)
@@ -228,7 +230,8 @@
 	update_icon()
 
 	// Autorun feature
-	var/datum/computer_file/data/autorun = hard_drive ? hard_drive.find_file_by_name("autorun") : null
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
+	var/datum/computer_file/data/autorun = H ? H.find_file_by_name("autorun") : null
 	if(istype(autorun))
 		run_program(autorun.stored_data, user, ar_forced)
 
@@ -242,7 +245,7 @@
 		ui_interact(user)
 
 /obj/item/modular_computer/proc/minimize_program(mob/user)
-	if(!active_program || !processor_unit)
+	if(!active_program || !hardware_by_slot(MC_CPU))
 		return
 
 	idle_threads.Add(active_program)
@@ -257,10 +260,15 @@
 
 /obj/item/modular_computer/proc/run_program(prog, mob/user, var/forced=FALSE)
 	var/datum/computer_file/program/P = null
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
+	var/obj/item/computer_hardware/processor_unit/CPU = hardware_by_slot(MC_CPU)
+
+	if(!istype(H) || !istype(CPU))
+		return FALSE
 	if(!istype(user))
 		user = usr
-	if(hard_drive)
-		P = hard_drive.find_file_by_name(prog)
+
+	P = H.find_file_by_name(prog)
 
 	if(!P || !istype(P)) // Program not found or it's not executable program.
 		to_chat(user, SPAN_WARNING("\The [src]'s screen displays, \"I/O ERROR - Unable to run [prog]\"."))
@@ -279,7 +287,7 @@
 			SSvueui.close_uis(src)
 		return
 
-	if(idle_threads.len >= processor_unit.max_idle_programs+1)
+	if(idle_threads.len >= CPU.max_idle_programs+1)
 		to_chat(user, SPAN_WARNING("\The [src] displays, \"Maximal CPU load reached. Unable to run another program.\"."))
 		return
 
@@ -309,8 +317,9 @@
 
 /obj/item/modular_computer/proc/check_update_ui_need()
 	var/ui_update_needed = FALSE
-	if(battery_module)
-		var/battery_percent = battery_module.battery.percent()
+	var/obj/item/computer_hardware/battery_module/B = hardware_by_slot(MC_BAT)
+	if(istype(B))
+		var/battery_percent = B.battery.percent()
 		if(last_battery_percent != battery_percent) //Let's update UI on percent change
 			ui_update_needed = TRUE
 			last_battery_percent = battery_percent
@@ -349,11 +358,13 @@
 		return ..()
 
 /obj/item/modular_computer/get_cell()
-	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL
+	var/obj/item/computer_hardware/battery_module/B
+	return B ? B.get_cell() : DEVICE_NO_CELL
 
 /obj/item/modular_computer/proc/toggle_service(service, mob/user, var/datum/computer_file/program/S = null)
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
 	if(!S)
-		S = hard_drive?.find_file_by_name(service)
+		S = H?.find_file_by_name(service)
 
 	if(!istype(S)) // Program not found or it's not executable program.
 		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to locate [service]\""))
@@ -366,8 +377,9 @@
 
 
 /obj/item/modular_computer/proc/enable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
 	if(!S)
-		S = hard_drive?.find_file_by_name(service)
+		S = H?.find_file_by_name(service)
 
 	if(!istype(S)) // Program not found or it's not executable program.
 		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to enable [service]\""))
@@ -388,8 +400,9 @@
 
 
 /obj/item/modular_computer/proc/disable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
 	if(!S)
-		S = hard_drive?.find_file_by_name(service)
+		S = H?.find_file_by_name(service)
 
 	if(!istype(S)) // Program not found or it's not executable program.
 		return
@@ -451,8 +464,10 @@
 	registered_id.chat_registered = FALSE
 	registered_id = null
 
-	if(hard_drive)
-		var/datum/computer_file/program/P = hard_drive.find_file_by_name("ntnrc_client")
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
+
+	if(istype(H))
+		var/datum/computer_file/program/P = H.find_file_by_name("ntnrc_client")
 		P.event_unregistered()
 
 	output_message(SPAN_NOTICE("\The [src] beeps: \"Successfully unregistered ID!\""))
@@ -463,7 +478,11 @@
 	if(!fname)
 		return FALSE
 
-	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
+	if(!istype(H))
+		return FALSE
+
+	var/datum/computer_file/data/autorun = H.find_file_by_name("autorun")
 
 	if(istype(autorun) && autorun.stored_data == fname)
 		autorun.stored_data = null
@@ -472,11 +491,12 @@
 	autorun = new /datum/computer_file/data(src)
 	autorun.filename = "autorun"
 	autorun.stored_data = fname
-	hard_drive.store_file(autorun)
+	H.store_file(autorun)
 	return TRUE
 
 /obj/item/modular_computer/proc/silence_notifications()
-	for (var/datum/computer_file/program/P in hard_drive.stored_files)
+	var/obj/item/computer_hardware/hard_drive/H = hardware_by_slot(MC_HDD)
+	for (var/datum/computer_file/program/P in H?.stored_files)
 		if (istype(P))
 			P.event_silentmode()
 	silent = !silent

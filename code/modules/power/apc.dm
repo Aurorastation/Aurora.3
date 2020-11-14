@@ -488,9 +488,9 @@
 		add_fingerprint(user)
 	if(istype(W, /obj/item/modular_computer))
 		var/obj/item/modular_computer/C = W
-		if(istype(C.tesla_link, /obj/item/computer_hardware/tesla_link/charging_cable))
-			var/obj/item/computer_hardware/tesla_link/charging_cable/CC = C.tesla_link
-			CC.toggle(src, user)
+		var/obj/item/computer_hardware/tesla_link/charging_cable/cable = C.hardware_by_slot(MC_PWR)
+		if(istype(cable))
+			cable.toggle(src, user)
 			return
 	if (W.iscrowbar() && opened)
 		if (has_electronics == HAS_ELECTRONICS_CONNECT)

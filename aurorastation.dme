@@ -42,6 +42,7 @@
 #include "code\__defines\master_controller.dm"
 #include "code\__defines\materials.dm"
 #include "code\__defines\math_physics.dm"
+#include "code\__defines\mcomputer.dm"
 #include "code\__defines\minimap.dm"
 #include "code\__defines\mining.dm"
 #include "code\__defines\misc.dm"

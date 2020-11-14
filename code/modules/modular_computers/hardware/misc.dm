@@ -3,6 +3,7 @@
     desc = "A small pen-sized flashlight used to illuminate a small area."
     icon = 'icons/obj/lighting.dmi'
     icon_state = "headlights"
+    hw_type = MC_FLSH
     power_usage = 50
     enabled = FALSE
     critical = FALSE
@@ -12,22 +13,22 @@
 
 /obj/item/computer_hardware/flashlight/enable()
     . = ..()
-    if(parent_computer)
-        parent_computer.light_range = range
-        parent_computer.light_power = power
-        tweak_light(parent_computer)
+    if(computer)
+        computer.light_range = range
+        computer.light_power = power
+        tweak_light(computer)
 
 /obj/item/computer_hardware/flashlight/disable()
     . = ..()
-    if(parent_computer)
-        parent_computer.light_range = initial(parent_computer.light_range)
-        parent_computer.light_power = initial(parent_computer.light_power)
-        tweak_light(parent_computer)
+    if(computer)
+        computer.light_range = initial(computer.light_range)
+        computer.light_power = initial(computer.light_power)
+        tweak_light(computer)
 
 /obj/item/computer_hardware/flashlight/proc/tweak_brightness(var/new_power)
     . = power = Clamp(0, new_power, 1)
-    parent_computer.light_power = power
-    tweak_light(parent_computer)
+    computer.light_power = power
+    tweak_light(computer)
 
 /obj/item/computer_hardware/flashlight/proc/tweak_light(var/obj/item/modular_computer/C)
     if(!istype(C))

@@ -22,9 +22,13 @@
 	data["src"] = "\ref[src]"
 	data["station_name"] = station_name()
 	data["assignments"] = show_assignments
+
+	var/obj/item/computer_hardware/card_slot/card_slot = program?.computer?.hardware_by_slot(MC_CARD)
+	var/obj/item/computer_hardware/nano_printer/nano_printer = program?.computer?.hardware_by_slot(MC_PRNT)
+
 	if(program?.computer)
-		data["have_id_slot"] = !!program.computer.card_slot
-		data["have_printer"] = !!program.computer.nano_printer
+		data["have_id_slot"] = !!card_slot
+		data["have_printer"] = !!nano_printer
 		data["authenticated"] = program.can_run(user)
 	else
 		data["have_id_slot"] = 0
@@ -32,8 +36,8 @@
 		data["authenticated"] = 0
 	data["centcom_access"] = is_centcom
 
-	if(program && program.computer && program.computer.card_slot)
-		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
+	if(program && program.computer && card_slot)
+		var/obj/item/card/id/id_card = card_slot.stored_card
 		data["has_id"] = !!id_card
 		data["id_account_number"] = id_card ? id_card.associated_account_number : null
 		data["id_rank"] = id_card && id_card.assignment ? id_card.assignment : "Unassigned"
@@ -52,8 +56,8 @@
 	data["all_centcom_access"] = is_centcom ? get_accesses(1) : null
 	data["regions"] = get_accesses()
 
-	if(program.computer.card_slot.stored_card)
-		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
+	if(card_slot.stored_card)
+		var/obj/item/card/id/id_card = card_slot.stored_card
 		if(is_centcom)
 			var/list/all_centcom_access = list()
 			for(var/access in get_all_centcom_access())
@@ -86,7 +90,8 @@
 		ui.open()
 
 /datum/nano_module/program/card_mod/proc/format_jobs(list/jobs)
-	var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
+	var/obj/item/computer_hardware/card_slot/card_slot = program?.computer?.hardware_by_slot(MC_CARD)
+	var/obj/item/card/id/id_card = card_slot.stored_card
 	var/list/formatted = list()
 	for(var/job in jobs)
 		formatted.Add(list(list(
@@ -106,7 +111,12 @@
 
 	var/mob/user = usr
 	var/obj/item/card/id/user_id_card = user.GetIdCard()
-	var/obj/item/card/id/id_card = computer.card_slot.stored_card
+	if(!istype(computer))
+		return
+
+	var/obj/item/computer_hardware/card_slot/card_slot = computer.hardware_by_slot(MC_CARD)
+	var/obj/item/computer_hardware/nano_printer/nano_printer = computer.hardware_by_slot(MC_NET)
+	var/obj/item/card/id/id_card = card_slot.stored_card
 	var/datum/nano_module/program/card_mod/module = NM
 	switch(href_list["action"])
 
@@ -116,7 +126,7 @@
 			else
 				module.show_assignments = TRUE
 		if("print")
-			if(computer?.nano_printer && can_run(user, 1)) //This option should never be called if there is no printer
+			if(nano_printer && can_run(user, 1)) //This option should never be called if there is no printer
 				var/contents = {"<h4>Access Report</h4>
 							<u>Prepared By:</u> [user_id_card.registered_name ? user_id_card.registered_name : "Unknown"]<br>
 							<u>For:</u> [id_card.registered_name ? id_card.registered_name : "Unregistered"]<br>
@@ -132,13 +142,13 @@
 					if(A in known_access_rights)
 						contents += "  [get_access_desc(A)]"
 
-				if(!computer.nano_printer.print_text(contents,"access report"))
+				if(!nano_printer.print_text(contents,"access report"))
 					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					return
 				else
 					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 		if("eject")
-			if(computer && computer.card_slot)
+			if(computer && card_slot)
 				if(id_card)
 					var/datum/record/general/R = SSrecords.find_record("name", id_card.registered_name)
 					if(istype(R))

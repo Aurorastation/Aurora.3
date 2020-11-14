@@ -30,7 +30,8 @@ var/global/ntnrc_uid = 0
 					playsound(C.computer, 'sound/machines/twobeep.ogg', 50, 1)
 					C.computer.output_message(text("[icon2html(C.computer, O)] *[C.ringtone]*"))
 			else if(C.username == username)
-				ntnet_global.add_log(message, C.computer.network_card, TRUE)
+				var/obj/item/computer_hardware/network_card/NC = C.computer?.hardware_by_slot(MC_NET)
+				ntnet_global.add_log(message, NC, TRUE)
 
 	message = "[worldtime2text()] [username]: [message]"
 	messages.Add(message)

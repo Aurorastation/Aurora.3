@@ -2,9 +2,10 @@
 /obj/item/computer_hardware/hard_drive/portable
 	name = "basic data disk"
 	desc = "Small diskette with imprinted photonic circuits that can be used to store data. Its capacity is 16 GQ."
+	hw_type = MC_USB
 	power_usage = 10
 	icon_state = "flashdrive_basic"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	max_capacity = 16
 	origin_tech = list(TECH_DATA = 1)
 
@@ -13,7 +14,7 @@
 	desc = "Small diskette with imprinted high-density photonic circuits that can be used to store data. Its capacity is 64 GQ."
 	power_usage = 20
 	icon_state = "flashdrive_advanced"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	max_capacity = 64
 	origin_tech = list(TECH_DATA = 2)
 
@@ -22,7 +23,7 @@
 	desc = "Small diskette with imprinted ultra-density photonic circuits that can be used to store data. Its capacity is 256 GQ."
 	power_usage = 40
 	icon_state = "flashdrive_super"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	max_capacity = 256
 	origin_tech = list(TECH_DATA = 4)
 
@@ -30,3 +31,7 @@
 	..()
 	stored_files = list()
 	recalculate_size()
+
+/obj/item/computer_hardware/hard_drive/portable/update_verbs()
+	if(computer)
+		computer.verbs += /obj/item/modular_computer/proc/eject_usb

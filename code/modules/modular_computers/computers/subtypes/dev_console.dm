@@ -14,7 +14,7 @@
 	message_output_range = 1
 	base_idle_power_usage = 100
 	base_active_power_usage = 500
-	max_hardware_size = 3
+	max_hardware_size = HW_CONSOLE
 	steel_sheet_cost = 20
 	light_range = 2
 	screensaver_light_range = 1.4

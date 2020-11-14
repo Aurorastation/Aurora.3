@@ -1,7 +1,8 @@
 /mob/living/silicon/pai/Destroy()
-	if(parent_computer?.personal_ai == src)
-		parent_computer.personal_ai = null
-	parent_computer = null
+	var/obj/item/computer_hardware/ai_slot/A = computer?.hardware_by_slot(MC_AI)
+	if(A?.stored_pai?.pai == src)
+		A.stored_pai.pai = null
+	computer = null
 	return ..()
 
 /mob/living/silicon/pai/death(gibbed)

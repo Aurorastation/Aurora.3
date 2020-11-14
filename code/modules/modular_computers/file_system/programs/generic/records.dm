@@ -122,7 +122,9 @@
 	else
 		VUEUI_SET_CHECK(ui.activeui, "records-main", ., data)
 
-	VUEUI_SET_CHECK(data["canprint"], !!(computer?.nano_printer), ., data)
+	var/obj/item/computer_hardware/nano_printer/nano_printer = computer.hardware_by_slot(MC_PRNT)
+
+	VUEUI_SET_CHECK(data["canprint"], !!(nano_printer), ., data)
 
 	VUEUI_SET_CHECK(data["avaivabletypes"], records_type, ., data)
 	VUEUI_SET_CHECK(data["editable"], edit_type, ., data)
@@ -292,7 +294,8 @@
 		if(!(href_list["print"] in list("active", "active_virus")))
 			return
 		var/datum/record/R = vars[href_list["print"]]
-		if(computer?.nano_printer && R)
+		var/obj/item/computer_hardware/nano_printer/nano_printer = computer?.hardware_by_slot(MC_PRNT)
+		if(nano_printer && R)
 			var/excluded = list()
 			if(href_list["print"] == "active")
 				if(!(records_type & RECORD_GENERAL))
@@ -302,7 +305,7 @@
 				if(!(records_type & RECORD_MEDICAL))
 					excluded += "medical"
 			var/out = R.Printify(excluded)
-			computer.nano_printer.print_text(out, "[record_prefix]Record ([R.name])")
+			nano_printer.print_text(out, "[record_prefix]Record ([R.name])")
 
 
 /datum/computer_file/program/records/proc/canEdit(list/key)

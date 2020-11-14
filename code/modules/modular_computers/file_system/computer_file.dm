@@ -22,8 +22,8 @@ var/global/file_uid = 0
 
 	hard_drive.remove_file(src)
 	// hard_drive.hard_drive is the computer that has drive installed. If we are Destroy()ing program that's currently running kill it.
-	if(hard_drive.parent_computer?.active_program == src)
-		hard_drive.parent_computer.kill_program(TRUE)
+	if(hard_drive.computer?.active_program == src)
+		hard_drive.computer.kill_program(TRUE)
 	hard_drive = null
 	return ..()
 

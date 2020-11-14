@@ -9,16 +9,14 @@
 		return TRUE
 	return ..()
 
-/obj/item/modular_computer/console/preset/install_default_hardware()
-	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
-	tesla_link = new /obj/item/computer_hardware/tesla_link(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/super(src)
-	network_card = new /obj/item/computer_hardware/network_card/wired(src)
-	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
-
-/obj/item/modular_computer/console/preset/install_default_programs()
-	..()
+/obj/item/modular_computer/console/preset
+	preset_components = list(
+		MC_CPU = /obj/item/computer_hardware/processor_unit,
+		MC_HDD = /obj/item/computer_hardware/hard_drive/super,
+		MC_NET = /obj/item/computer_hardware/network_card/wired,
+		MC_PRNT = /obj/item/computer_hardware/nano_printer,
+		MC_PWR = /obj/item/computer_hardware/tesla_link
+	)
 
 // Engineering
 /obj/item/modular_computer/console/preset/engineering
@@ -49,8 +47,8 @@
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/research/install_default_hardware()
+	preset_components[MC_AI] = /obj/item/computer_hardware/ai_slot
 	..()
-	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
 
 // Command
 /obj/item/modular_computer/console/preset/command
@@ -59,11 +57,12 @@
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/command/install_default_hardware()
+	preset_components[MC_CARD] = /obj/item/computer_hardware/card_slot
 	..()
-	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
-	nano_printer.max_paper = 25
-	nano_printer.stored_paper = 20
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
+	var/obj/item/computer_hardware/nano_printer/NP = hardware_by_slot(MC_PRNT)
+	if(NP)
+		NP.max_paper = 25
+		NP.stored_paper = 20
 
 /obj/item/modular_computer/console/preset/command/captain
 	name = "captain's console"
@@ -109,18 +108,22 @@
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/supply/install_default_hardware()
+	preset_components[MC_CARD] = /obj/item/computer_hardware/card_slot
 	..()
-	nano_printer.max_paper = 25
-	nano_printer.stored_paper = 20
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
+	var/obj/item/computer_hardware/nano_printer/NP = hardware_by_slot(MC_PRNT)
+	if(NP)
+		NP.max_paper = 25
+		NP.stored_paper = 20
 
 // ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
+	preset_components[MC_CARD] = /obj/item/computer_hardware/card_slot
+	preset_components[MC_AI] = /obj/item/computer_hardware/ai_slot
 	..()
-	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
-	nano_printer.max_paper = 25
-	nano_printer.stored_paper = 20
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
+	var/obj/item/computer_hardware/nano_printer/NP = hardware_by_slot(MC_PRNT)
+	if(NP)
+		NP.max_paper = 25
+		NP.stored_paper = 20
 
 /obj/item/modular_computer/console/preset/ert
 	_app_preset_type = /datum/modular_computer_app_presets/ert
@@ -134,9 +137,9 @@
 	enrolled = 2
 
 /obj/item/modular_computer/console/preset/mercenary/install_default_hardware()
+	preset_components[MC_CARD] = /obj/item/computer_hardware/card_slot
+	preset_components[MC_AI] = /obj/item/computer_hardware/ai_slot
 	..()
-	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
 
 // Merchant
@@ -145,9 +148,9 @@
 	enrolled = 2
 
 /obj/item/modular_computer/console/preset/merchant/install_default_hardware()
+	preset_components[MC_CARD] = /obj/item/computer_hardware/card_slot
+	preset_components[MC_AI] = /obj/item/computer_hardware/ai_slot
 	..()
-	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
-	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 
 // AI

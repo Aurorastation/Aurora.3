@@ -17,6 +17,7 @@
 
 	// We are still here, that means there is no program loaded. Load the BIOS/ROM/OS/whatever you want to call it.
 	// This screen simply lists available programs and user may select them.
+	var/obj/item/computer_hardware/hard_drive/hard_drive = hardware_by_slot(MC_HDD)
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
 		audible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."))
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
@@ -44,6 +45,8 @@
 		data["_PC"] = headerdata
 		. = data
 
+	var/obj/item/computer_hardware/hard_drive/hard_drive = hardware_by_slot(MC_HDD)
+
 	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
 	VUEUI_SET_CHECK_IFNOTSET(data["programs"], list(), ., data)
 	for(var/datum/computer_file/program/P in hard_drive.stored_files)
@@ -66,16 +69,17 @@
 		kill_program()
 		return TRUE
 	if(href_list["PC_enable_component"])
-		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_enable_component"])
+		var/obj/item/computer_hardware/H = hardware_by_slot(href_list["PC_enable_component"])
 		if(H && istype(H) && !H.enabled)
 			H.enable()
 		. = TRUE
 	if(href_list["PC_disable_component"])
-		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_disable_component"])
+		var/obj/item/computer_hardware/H = hardware_by_slot(href_list["PC_disable_component"])
 		if(H && istype(H) && H.enabled)
 			H.disable()
 		. = TRUE
 	if(href_list["PC_togglelight"])
+		var/obj/item/computer_hardware/flashlight/flashlight = hardware_by_slot(MC_FLSH)
 		if(flashlight)
 			flashlight.toggle()
 		. = TRUE
@@ -90,6 +94,7 @@
 		var/prog = href_list["PC_killprogram"]
 		var/datum/computer_file/program/P
 		var/mob/user = usr
+		var/obj/item/computer_hardware/hard_drive/hard_drive = hardware_by_slot(MC_HDD)
 		if(hard_drive)
 			P = hard_drive.find_file_by_name(prog)
 
@@ -105,6 +110,7 @@
 		ui_interact(usr)
 
 	if(href_list["PC_setautorun"])
+		var/obj/item/computer_hardware/hard_drive/hard_drive = hardware_by_slot(MC_HDD)
 		if(!hard_drive)
 			return
 		set_autorun(href_list["PC_setautorun"])
@@ -124,6 +130,8 @@
 
 // Function used to obtain data for header. All relevant entries begin with "PC_"
 /obj/item/modular_computer/proc/get_header_data(data)
+	var/obj/item/computer_hardware/battery_module/battery_module = hardware_by_slot(MC_BAT)
+	var/obj/item/computer_hardware/tesla_link/tesla_link = hardware_by_slot(MC_PWR)
 	if(!data)
 		data = list()
 

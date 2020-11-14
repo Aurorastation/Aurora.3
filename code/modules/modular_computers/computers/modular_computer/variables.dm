@@ -59,20 +59,8 @@
 	var/broken_damage = 50		// Damage level at which the computer ceases to operate
 	var/max_damage = 100		// Damage level at which the computer breaks apart.
 
-	// Important hardware (must be installed for computer to work)
-	var/obj/item/computer_hardware/processor_unit/processor_unit				// CPU. Without it the computer won't run. Better CPUs can run more programs at once.
-	var/obj/item/computer_hardware/network_card/network_card					// Network Card component of this computer. Allows connection to NTNet
-	var/obj/item/computer_hardware/hard_drive/hard_drive						// Hard Drive component of this computer. Stores programs and files.
-
-	// Optional hardware (improves functionality, but is not critical for computer to work in most cases)
-	var/obj/item/computer_hardware/battery_module/battery_module			// An internal power source for this computer. Can be recharged.
-	var/obj/item/computer_hardware/card_slot/card_slot						// ID Card slot component of this computer. Mostly for HoP modification console that needs ID slot for modification.
-	var/obj/item/computer_hardware/nano_printer/nano_printer				// Nano Printer component of this computer, for your everyday paperwork needs.
-	var/obj/item/computer_hardware/hard_drive/portable/portable_drive		// Portable data storage
-	var/obj/item/computer_hardware/ai_slot/ai_slot							// AI slot, an intellicard housing that allows modifications of AIs.
-	var/obj/item/computer_hardware/tesla_link/tesla_link					// Tesla Link, Allows remote charging from nearest APC.
-	var/obj/item/device/paicard/personal_ai									// Personal AI, can control the device via a verb when installed
-	var/obj/item/computer_hardware/flashlight/flashlight
+	var/list/preset_components = list() // List of components for preset computers. List of types, not refs. See install_default_hardware for details.
+	var/list/internal_components = list() // Internal list of all installed components. See modular_computer/hardware.dm for more information.
 
 	var/listener/listener	//Listener needed for things
 

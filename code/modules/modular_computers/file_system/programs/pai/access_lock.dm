@@ -11,18 +11,21 @@
 
 /datum/computer_file/program/pai_access_lock/service_activate()
 	. = ..()
-	if(computer.personal_ai)
-		to_chat(computer.personal_ai.pai, SPAN_WARNING("pAI Access Lock systems engaged."))
+	var/obj/item/computer_hardware/ai_slot/A = computer?.hardware_by_slot(MC_AI)
+	if(A?.stored_pai)
+		to_chat(A.stored_pai.pai, SPAN_WARNING("pAI Access Lock systems engaged."))
 	computer.pAI_lock = TRUE
 	return TRUE
 
 /datum/computer_file/program/pai_access_lock/service_deactivate()
 	. = ..()
-	if(computer.personal_ai)
-		to_chat(computer.personal_ai.pai, SPAN_NOTICE("pAI Access Lock systems disabled."))
+	var/obj/item/computer_hardware/ai_slot/A = computer?.hardware_by_slot(MC_AI)
+	if(A?.stored_pai)
+		to_chat(A.stored_pai.pai, SPAN_NOTICE("pAI Access Lock systems disabled."))
 	computer.pAI_lock = FALSE
 
 /datum/computer_file/program/pai_access_lock/program_hidden()
-	if(!computer.personal_ai)
+	var/obj/item/computer_hardware/ai_slot/A = computer?.hardware_by_slot(MC_AI)
+	if(!istype(A) || !A.stored_pai)
 		return TRUE
 	return FALSE

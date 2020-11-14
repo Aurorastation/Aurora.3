@@ -12,7 +12,7 @@
 	base_idle_power_usage = 75
 	base_active_power_usage = 300
 	message_output_range = 1
-	max_hardware_size = 2
+	max_hardware_size = HW_STANDARD
 	steel_sheet_cost = 10
 	light_range = 4
 	w_class = ITEMSIZE_HUGE

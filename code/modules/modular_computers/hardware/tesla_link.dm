@@ -1,15 +1,17 @@
 /obj/item/computer_hardware/tesla_link
 	name = "tesla link"
 	desc = "An advanced tesla link that wirelessly recharges connected device from nearby area power controller."
+	hw_type = MC_PWR
 	critical = FALSE
 	icon_state = "teslalink"
-	hardware_size = 3
+	hardware_size = HW_CONSOLE
 	origin_tech = list(TECH_DATA = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
 	var/passive_charging_rate = 2500 // mW
 
 /obj/item/computer_hardware/tesla_link/Destroy()
-	if(parent_computer?.tesla_link == src)
-		parent_computer.tesla_link = null
+	var/obj/item/computer_hardware/tesla_link/tesla_link = computer?.hardware_by_slot(MC_PWR)
+	if(computer && tesla_link == src)
+		computer.remove_component(src)
 	return ..()
 
 /obj/item/computer_hardware/tesla_link/charging_cable
@@ -17,7 +19,7 @@
 	desc = "An integrated charging cable used to recharge small devices manually, by hooking into the local area power controller."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "wire"
-	hardware_size = 1
+	hardware_size = HW_MICRO
 	origin_tech = list(TECH_ENGINEERING = 1, TECH_POWER = 1)
 	passive_charging_rate = 2500 // mW
 	var/obj/machinery/power/source
@@ -61,8 +63,8 @@
 
 /obj/item/computer_hardware/tesla_link/charging_cable/proc/untether(var/destroy_beam = TRUE)
 	source = null
-	if(parent_computer)
-		parent_computer.visible_message(SPAN_WARNING("The charging cable suddenly disconnects from the APC, quickly reeling back into the computer!"))
+	if(computer)
+		computer.visible_message(SPAN_WARNING("The charging cable suddenly disconnects from the APC, quickly reeling back into the computer!"))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
 	if(!destroy_beam)
 		return

@@ -39,10 +39,14 @@
 		var/mob/living/silicon/pai/host = true_computer.computer_host
 		return host.sradio
 	else
-		if(!computer || !computer.network_card?.sradio)
+		if(!computer)
 			return
 
-		return computer.network_card.sradio
+		var/obj/item/computer_hardware/network_card/network_card = computer.hardware_by_slot(MC_NET)
+		if(!network_card?.sradio)
+			return
+
+		return network_card.sradio
 
 // Gathers data for ui
 /datum/computer_file/program/signaler/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)

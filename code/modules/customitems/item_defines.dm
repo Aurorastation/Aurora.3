@@ -2140,16 +2140,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	is \"Hello, world!\" in a bright, monospace font."
 	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
 
-/obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
-	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	battery_module = new /obj/item/computer_hardware/battery_module(src)
-	battery_module.charge_to_full()
-	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
-	nano_printer.max_paper = 10
-	nano_printer.stored_paper = 5
+	preset_components = list(
+		MC_CPU = /obj/item/computer_hardware/processor_unit,
+		MC_HDD = /obj/item/computer_hardware/hard_drive,
+		MC_NET = /obj/item/computer_hardware/network_card,
+		MC_BAT = /obj/item/computer_hardware/battery_module,
+		MC_PRNT = /obj/item/computer_hardware/nano_printer
+	)
 
 
 /obj/item/clothing/accessory/poncho/fluff/ozuha_cape //Victory Cape - Skavoss Ozuha - dronzthewolf

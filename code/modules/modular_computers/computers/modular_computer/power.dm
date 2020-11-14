@@ -12,6 +12,7 @@
 // Tries to use power from battery. Passing false as parameter results in this proc returning whether battery is functional or not.
 /obj/item/modular_computer/proc/battery_power(var/power_usage = FALSE)
 	apc_powered = FALSE
+	var/obj/item/computer_hardware/battery_module/battery_module = hardware_by_slot(MC_BAT)
 	if(!battery_module || !battery_module.check_functionality() || battery_module.battery.charge <= 0)
 		return FALSE
 	if(battery_module.battery.use(power_usage * CELLRATE) || ((power_usage == 0) && battery_module.battery.charge))
@@ -23,11 +24,14 @@
 	apc_powered = TRUE
 	// Tesla link was originally limited to machinery only, but this probably works too, and the benefit of being able to power all devices from an APC outweights
 	// the possible minor performance loss.
+	var/obj/item/computer_hardware/tesla_link/tesla_link = hardware_by_slot(MC_PWR)
 	if(!tesla_link || !tesla_link.check_functionality())
 		return FALSE
 	var/area/A = get_area(src)
 	if(!istype(A) || !A.powered(EQUIP))
 		return FALSE
+
+	var/obj/item/computer_hardware/battery_module/battery_module = hardware_by_slot(MC_BAT)
 
 	// At this point, we know that APC can power us for this tick. Check if we also need to charge our battery, and then actually use the power.
 	if(battery_module && (battery_module.battery.charge < battery_module.battery.maxcharge) && (power_usage > 0))

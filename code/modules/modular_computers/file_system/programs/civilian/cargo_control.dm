@@ -74,7 +74,7 @@
 	data["bounties"] = SScargo.get_bounty_list()
 
 	if(console)
-		data["have_printer"] = !!console.nano_printer
+		data["have_printer"] = !!console.hardware_by_slot(MC_PRNT)
 	else
 		data["have_printer"] = FALSE
 
@@ -208,19 +208,23 @@
 				return
 
 	//Print functions
+	var/obj/item/computer_hardware/nano_printer/NP = console?.hardware_by_slot(MC_PRNT)
+	if(!NP)
+		console.output_error("Hardware error: Printing device not found.")
+		return
 	if(href_list["order_print"])
 		//Get the order
 		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_print"]))
-		if(co && console && console.nano_printer)
-			if(!console.nano_printer.print_text(co.get_report_invoice(),"Order Invoice #[co.order_id]"))
+		if(co && console && NP)
+			if(!NP.print_text(co.get_report_invoice(),"Order Invoice #[co.order_id]"))
 				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 				return
 			else
 				console.visible_message(SPAN_NOTICE("\The [console] prints out paper."))
 	if(href_list["shipment_print"])
 		var/datum/cargo_shipment/cs = SScargo.get_shipment_by_id(text2num(href_list["shipment_print"]))
-		if(cs?.completed && console?.nano_printer)
-			var/obj/item/paper/P = console.nano_printer.print_text(cs.get_invoice(),"Shipment Invoice #[cs.shipment_num]")
+		if(cs?.completed && NP)
+			var/obj/item/paper/P = NP.print_text(cs.get_invoice(),"Shipment Invoice #[cs.shipment_num]")
 			if(!P)
 				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 				return
@@ -235,7 +239,7 @@
 				P.stamps += "<HR><i>This paper has been stamped by the Shipping Server.</i>"
 				console.visible_message(SPAN_NOTICE("\The [console] prints out paper."))
 	if(href_list["bounty_print"])
-		if(console && console.nano_printer)
+		if(console && NP)
 			var/text = "<h2>Nanotrasen Cargo Bounties</h2></br>"
 			for(var/datum/bounty/B in SScargo.bounties_list)
 				if(B.claimed)
@@ -243,7 +247,7 @@
 				text += "<h3>[B.name]</h3>"
 				text += "<ul><li>Reward: [B.reward_string()]</li>"
 				text += "<li>Completed: [B.completion_string()]</li></ul>"
-			if(!console.nano_printer.print_text(text,"paper - Bounties"))
+			if(!NP.print_text(text,"paper - Bounties"))
 				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 				return
 			else

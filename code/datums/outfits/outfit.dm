@@ -197,9 +197,10 @@
 
 	if(id)
 		var/obj/item/modular_computer/P = H.wear_id
+		var/obj/item/computer_hardware/card_slot/card_slot = P?.hardware_by_slot(MC_CARD)
 		var/obj/item/I = new id(H)
 		imprint_idcard(H,I)
-		if(istype(P) && P.card_slot)
+		if(istype(P) && card_slot)
 			addtimer(CALLBACK(src, .proc/register_pda, P, I), 1 SECOND)
 		else
 			H.equip_or_collect(I, slot_wear_id)
@@ -296,10 +297,11 @@
 			C.associated_account_number = H.mind.initial_account.account_number
 
 /datum/outfit/proc/register_pda(obj/item/modular_computer/P, obj/item/card/id/I)
-	if(!P.card_slot)
+	var/obj/item/computer_hardware/card_slot/card_slot = P?.hardware_by_slot(MC_CARD)
+	if(!card_slot)
 		return
-	P.card_slot.insert_id(I)
-	if(P.card_slot.stored_card && !P.hidden)
+	card_slot.insert_id(I)
+	if(card_slot.stored_card && !P.hidden)
 		P.set_autorun("ntnrc_client")
 		P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
 		P.minimize_program()

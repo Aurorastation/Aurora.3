@@ -2,21 +2,14 @@
 	anchored = FALSE
 	screen_on = FALSE
 	icon_state = "laptop-closed"
-
-/obj/item/modular_computer/laptop/preset/install_default_hardware()
-	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	battery_module = new /obj/item/computer_hardware/battery_module(src)
-	battery_module.charge_to_full()
-	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
-	nano_printer.max_paper = 10
-	nano_printer.stored_paper = 5
-	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
-
-/obj/item/modular_computer/laptop/preset/install_default_programs()
-	..()
+	preset_components = list(
+		MC_CPU = /obj/item/computer_hardware/processor_unit,
+		MC_HDD = /obj/item/computer_hardware/hard_drive,
+		MC_NET = /obj/item/computer_hardware/network_card,
+		MC_BAT = /obj/item/computer_hardware/battery_module,
+		MC_PRNT = /obj/item/computer_hardware/nano_printer,
+		MC_PWR = /obj/item/computer_hardware/tesla_link/charging_cable
+	)
 
 // Engineering
 /obj/item/modular_computer/laptop/preset/engineering
@@ -50,8 +43,8 @@
 	enrolled = 1
 
 /obj/item/modular_computer/laptop/preset/research/install_default_hardware()
+	preset_components[MC_AI] = /obj/item/computer_hardware/ai_slot
 	..()
-	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
 
 /obj/item/modular_computer/laptop/preset/research/rd
 	name = "research director's laptop"
@@ -64,23 +57,19 @@
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	enrolled = 1
 
+/obj/item/modular_computer/laptop/preset/command/install_default_hardware()
+	preset_components[MC_CARD] = /obj/item/computer_hardware/card_slot
+	..()
+
 /obj/item/modular_computer/laptop/preset/command/hop
 	name = "head of personnel's laptop"
 	desc = "A portable computer beloning to the head of personnel. The fan is filled with dog hair."
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
-/obj/item/modular_computer/laptop/preset/command/hop/install_default_hardware()
-	..()
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
-
 /obj/item/modular_computer/laptop/preset/command/captain
 	name = "captain's laptop"
 	desc = "A portable computer belonging to the captain."
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
-
-/obj/item/modular_computer/laptop/preset/command/captain/install_default_hardware()
-	..()
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
 // Security
 /obj/item/modular_computer/laptop/preset/security
