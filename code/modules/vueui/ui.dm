@@ -125,7 +125,7 @@ main ui datum.
   */
 /datum/vueui/proc/generate_html(var/css_tag)
 	var/debugtxt = ""
-	if(user && check_rights(R_DEV, user=user))
+	if(user && check_rights(R_DEV, FALSE, user=user))
 		debugtxt = "<div id=\"dapp\"></div>"
 	return {"
 <!DOCTYPE html>
@@ -178,7 +178,7 @@ main ui datum.
 	sdata["status"] = status
 	sdata["title"] = title
 	sdata["wtime"] = world.time
-	sdata["debug"] = user && check_rights(R_DEV, user)
+	sdata["debug"] = user && check_rights(R_DEV, FALSE, user=user)
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		sdata["assets"][asset_name] = list("ref" = ckey("\ref[asset["img"]]"))

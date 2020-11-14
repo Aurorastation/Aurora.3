@@ -284,6 +284,7 @@ window.Byond = (function () {
   export const dragEndHandler = event => {
     event.target.removeEventListener('mousemove', dragMoveHandler);
     event.target.releaseCapture();
+    document.getElementById('content').focus();
     dragging = false;
     storeWindowGeometry();
   };
@@ -320,6 +321,7 @@ window.Byond = (function () {
     resizeMoveHandler(event);
     document.removeEventListener('mousemove', resizeMoveHandler);
     document.removeEventListener('mouseup', resizeEndHandler);
+    document.getElementById('content').focus();
     resizing = false;
     storeWindowGeometry();
   };

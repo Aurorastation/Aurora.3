@@ -47,7 +47,7 @@ if (document.getElementById("app")) {
   
   new Vue({
     data: Store.state,
-    template: "<div id='content'><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
+    template: "<div id='content' tabindex='-1'><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
     computed: {
       componentName() {
         if(this.$root.$data.active.charAt(0) != "?") {
@@ -80,6 +80,7 @@ if (document.getElementById("app")) {
         }
         setWindowKey(document.getElementById('vueui:windowId').getAttribute('content'));
         recallWindowGeometry(options);
+        document.getElementById('content').focus();
       })
     }
   }).$mount('#app')
