@@ -3,7 +3,7 @@
     <vui-button :params="{close: 1, code: code}">Save and Close</vui-button>
     <vui-button :params="{execute: 1, code: code}">Save and Execute</vui-button>
     <vui-button :params="{close: 1, code: s.code}">Close</vui-button>
-    <editor v-model="code" @init="editorInit" lang="javascript" theme="monokai" width="100%" height="25em"/>
+    <editor v-model="code" @init="editorInit" lang="javascript" theme="monokai" width="100%" height="50em"/>
   </div>
 </template>
 

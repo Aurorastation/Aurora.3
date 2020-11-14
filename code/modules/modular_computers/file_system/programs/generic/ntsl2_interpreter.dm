@@ -14,7 +14,7 @@
 	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/ntsl2_interpreter/kill_program()
-	..()
+	. = ..()
 	if(istype(running))
 		running.kill()
 		running = null
