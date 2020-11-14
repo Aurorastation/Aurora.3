@@ -28,7 +28,7 @@
 		return
 	if(istype(A, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = A
-		user.visible_message(SPAN_NOTICE("[user] scoops [S] into \the [src]."), SPAN_NOTICE("You scoop [S] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] scoops \the [S] into \the [src]."), SPAN_NOTICE("You scoop \the [S] into \the [src]."))
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)	// No growing inside jars
 		contains = JAR_SPIDERLING
