@@ -40,7 +40,7 @@
 		addtimer(CALLBACK(src,.proc/End), time)
 
 /datum/beam/proc/Start()
-	Draw()
+	recalculate()
 	recalculate_in(sleep_time)
 
 /datum/beam/proc/recalculate()
