@@ -33,6 +33,7 @@
 	data["config_systemcontrol"] = ntnet_global.setting_systemcontrol
 
 	data["ntnetlogs"] = ntnet_global.logs
+	data["ntnetmessages"] = ntnet_global.messages
 	data["ntnetmaxlogs"] = ntnet_global.setting_maxlogcount
 
 

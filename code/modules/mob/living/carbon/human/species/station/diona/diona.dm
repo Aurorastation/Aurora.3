@@ -123,8 +123,6 @@
 	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
 	default_accent = ACCENT_ROOTSONG
 
-	have_vision_cone = FALSE
-
 	alterable_internal_organs = list()
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)

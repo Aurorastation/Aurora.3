@@ -44,6 +44,6 @@
 		ore_data[OD.name] = OD
 
 	// Setup cargo spawn lists.
-	global.cargo_master.setup_cargo_stock()
+	setup_cargo_spawn_lists()
 
 	..()
