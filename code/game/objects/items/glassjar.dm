@@ -65,7 +65,7 @@
 		if(JAR_SPIDERLING)
 			for(var/obj/effect/spider/spiderling/S in src)
 				S.forceMove(user.loc)
-				user.visible_message(SPAN_NOTICE("[user] releases [S] from \the [src]."), SPAN_NOTICE("You release [S] from \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] releases \the [S] from \the [src]."), SPAN_NOTICE("You release \the [S] from \the [src]."))
 				START_PROCESSING(SSprocessing, S) // They can grow after being let out though
 			contains = JAR_NOTHING
 			update_icon()
