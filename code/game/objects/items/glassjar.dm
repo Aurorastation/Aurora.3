@@ -84,7 +84,7 @@
 		if(contains != JAR_MONEY)
 			return
 		var/obj/item/spacecash/S = A
-		user.visible_message(SPAN_NOTICE("[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
 	else
