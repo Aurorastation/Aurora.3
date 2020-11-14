@@ -114,6 +114,11 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/janitor)
+"dm" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "dp" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 4
@@ -338,18 +343,16 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "iQ" = (
-/obj/structure/window/basic{
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/basic{
+/obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "iS" = (
-/obj/structure/window/basic{
-	dir = 1
-	},
+/obj/machinery/door/window/northleft,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "jc" = (
@@ -394,8 +397,11 @@
 /obj/item/surgery/scalpel,
 /obj/item/device/camera,
 /obj/structure/table/steel,
-/obj/structure/window/basic{
+/obj/structure/window/reinforced{
 	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
@@ -407,6 +413,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 5
 	},
+/turf/simulated/floor/tiled,
+/area/janitor)
+"kB" = (
+/obj/machinery/door/airlock/freezer_maint,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "kE" = (
@@ -444,16 +454,11 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ls" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/structure/sign/securearea,
-/turf/simulated/floor/plating,
-/area/janitor)
-"lK" = (
-/obj/structure/window/basic{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/janitor)
+/turf/template_noop,
+/area/template_noop)
 "lZ" = (
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/dark,
@@ -476,6 +481,9 @@
 "mm" = (
 /obj/item/device/mass_spectrometer,
 /obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "ms" = (
@@ -483,7 +491,9 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "mv" = (
-/obj/machinery/door/window/westright,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "mx" = (
@@ -502,6 +512,9 @@
 "mT" = (
 /obj/item/autopsy_scanner,
 /obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "mZ" = (
@@ -973,10 +986,10 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "wt" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 9
-	},
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "wx" = (
@@ -996,10 +1009,11 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "wF" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
-/area/janitor)
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/turf/template_noop,
+/area/template_noop)
 "wM" = (
 /obj/effect/floor_decal/corner_wide/purple,
 /turf/simulated/floor/tiled,
@@ -1059,8 +1073,8 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "yE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/janitor)
 "yJ" = (
@@ -1180,6 +1194,11 @@
 "Ap" = (
 /obj/machinery/mineral/stacking_machine,
 /obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
+/area/janitor)
+"Av" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/plating,
 /area/janitor)
 "Ay" = (
@@ -1467,9 +1486,10 @@
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "FF" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/janitor)
 "FP" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
@@ -1730,7 +1750,7 @@
 /area/janitor)
 "Km" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/janitor)
 "Kz" = (
@@ -1807,7 +1827,7 @@
 /area/janitor)
 "Lb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/janitor)
 "Ll" = (
@@ -1989,7 +2009,7 @@
 /area/janitor)
 "NU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/plating,
 /area/janitor)
 "NY" = (
@@ -2021,6 +2041,11 @@
 	tag_south = 2
 	},
 /turf/simulated/floor/tiled,
+/area/janitor)
+"OA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
 /area/janitor)
 "OJ" = (
 /obj/effect/decal/fake_object/light_source/invisible,
@@ -2085,6 +2110,11 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
+/area/janitor)
+"QK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
 /area/janitor)
 "QU" = (
 /turf/simulated/wall/elevator,
@@ -2234,7 +2264,7 @@
 /area/janitor)
 "Tm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor/plating,
 /area/janitor)
 "Tv" = (
@@ -15368,8 +15398,8 @@ NA
 kw
 kw
 be
-be
 oG
+be
 be
 be
 be
@@ -15570,8 +15600,8 @@ Dl
 be
 be
 be
-be
 oG
+be
 be
 be
 be
@@ -15971,9 +16001,9 @@ cM
 cM
 cM
 Vh
+oG
 Vh
-Vh
-Vh
+RU
 qn
 ci
 oG
@@ -16173,9 +16203,9 @@ vI
 Vh
 Vh
 Vh
+oG
 Vh
-Vh
-vI
+dm
 ci
 ci
 oG
@@ -16375,9 +16405,9 @@ Vh
 Vh
 Vh
 Vh
+zg
 Vh
-Vh
-Vh
+RU
 ci
 ci
 oG
@@ -16577,9 +16607,9 @@ Ns
 Ns
 Vh
 PU
-Tw
-Tw
-Tw
+oG
+oG
+oG
 oG
 oG
 oG
@@ -16780,7 +16810,7 @@ oG
 Vh
 RU
 iQ
-lK
+mv
 mv
 oG
 be
@@ -17176,8 +17206,8 @@ Vh
 oG
 be
 Vh
-be
-oG
+Vh
+kB
 Vh
 Vh
 Vh
@@ -20389,7 +20419,7 @@ be
 an
 be
 xC
-oG
+uf
 Md
 Md
 Md
@@ -20793,7 +20823,7 @@ be
 aF
 KK
 xC
-ls
+xv
 mZ
 lh
 mZ
@@ -20802,9 +20832,9 @@ Eh
 oG
 Vh
 Vh
-Vh
+RU
 Hx
-Vh
+FF
 oG
 yQ
 vu
@@ -21004,9 +21034,9 @@ gw
 oG
 Vh
 Vh
-Vh
+RU
 Hx
-Vh
+FF
 oG
 oG
 oG
@@ -21206,9 +21236,9 @@ vI
 hJ
 Vh
 Vh
-Vh
+RU
 Hx
-Vh
+FF
 Vh
 Vh
 Vh
@@ -21408,9 +21438,9 @@ Vh
 Vh
 Vh
 Vh
-Vh
+RU
 Hx
-Vh
+FF
 Vh
 Vh
 Vh
@@ -21815,10 +21845,10 @@ qo
 kA
 Hy
 Vh
-Vh
-Vh
-Vh
-Vh
+Km
+Km
+NU
+NU
 oG
 Vh
 Vh
@@ -22017,10 +22047,10 @@ Vh
 MD
 mz
 Vh
-Vh
-Vh
-Vh
-Vh
+Lb
+Lb
+Tm
+Tm
 oG
 Vh
 Vh
@@ -22221,8 +22251,8 @@ sW
 bl
 Vh
 Vh
-Vh
-Vh
+QK
+QK
 oG
 Vh
 Vh
@@ -22423,8 +22453,8 @@ Vh
 Hy
 Vh
 Vh
-Vh
-Vh
+Av
+Av
 oG
 Vh
 Vh
@@ -22625,8 +22655,8 @@ Vh
 RG
 Vh
 Vh
-Vh
-Vh
+OA
+OA
 oG
 Vh
 Vh
@@ -25254,7 +25284,7 @@ CN
 Jf
 CN
 wt
-Vh
+bl
 Vh
 oG
 GX
@@ -25456,7 +25486,7 @@ qo
 LZ
 rh
 Vh
-Vh
+SE
 Vh
 os
 No
@@ -25658,7 +25688,7 @@ pq
 yy
 pM
 Vh
-Vh
+Hy
 Vh
 oG
 iG
@@ -25860,7 +25890,7 @@ Zx
 Sf
 Zx
 oG
-oG
+rb
 oG
 oG
 Sj
@@ -26062,7 +26092,7 @@ mZ
 mZ
 Zx
 oG
-be
+rb
 be
 oG
 Sj
@@ -26250,7 +26280,7 @@ aa
 aa
 aa
 aa
-Ef
+ls
 oG
 Zx
 mZ
@@ -26264,7 +26294,7 @@ pR
 mZ
 Zx
 oG
-be
+rb
 be
 oG
 Sj
@@ -26452,7 +26482,7 @@ aa
 aa
 aa
 aa
-Ef
+ls
 oG
 Zx
 mZ
@@ -26466,7 +26496,7 @@ mZ
 mZ
 Zx
 oG
-be
+rb
 be
 oG
 Sj
@@ -26654,7 +26684,7 @@ aa
 aa
 aa
 aa
-Ef
+ls
 oG
 Zx
 Zx
@@ -26668,7 +26698,7 @@ Zx
 Zx
 Zx
 oG
-oG
+rb
 oG
 oG
 Sj
@@ -26856,7 +26886,7 @@ aa
 aa
 aa
 aa
-aa
+ls
 oG
 oG
 oG
@@ -26870,8 +26900,8 @@ oG
 oG
 oG
 oG
-Vh
-Vh
+rb
+be
 oG
 oG
 os
@@ -27058,23 +27088,23 @@ aa
 aa
 aa
 aa
-aa
+wF
+yE
+BP
+BP
+BP
+BP
+BP
+BP
+BP
+BP
+BP
+BP
+BP
+BP
+KK
+be
 oG
-Vh
-Tm
-Tm
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
 Vh
 Vh
 Vh
@@ -27262,21 +27292,21 @@ aa
 aa
 aa
 oG
-Vh
-NU
-NU
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
 Vh
 Vh
 Vh
@@ -27465,8 +27495,8 @@ aa
 aa
 oG
 Vh
-FF
-FF
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -27667,8 +27697,8 @@ aa
 aa
 oG
 Vh
-Lb
-Lb
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -27869,8 +27899,8 @@ aa
 aa
 oG
 Vh
-wF
-wF
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -28071,8 +28101,8 @@ aa
 aa
 oG
 Vh
-yE
-yE
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -28273,8 +28303,8 @@ aa
 aa
 oG
 Vh
-Km
-Km
+Vh
+Vh
 Vh
 Vh
 Vh
