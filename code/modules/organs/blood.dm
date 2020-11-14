@@ -204,15 +204,20 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 /mob/living/carbon/proc/get_blood_data()
 	var/data = list()
 	data["donor"] = WEAKREF(src)
-	data["blood_DNA"] = dna.unique_enzymes
-	data["blood_type"] = dna.b_type
-	data["species"] = species.bodytype
+	if(dna)
+		data["blood_DNA"] = dna.unique_enzymes
+		data["blood_type"] = dna.b_type
+	else
+		data["blood_DNA"] = md5(ref(src))
+		data["blood_type"] = "O+"
+	if(species)
+		data["species"] = species.bodytype
+		data["blood_colour"] = species.blood_color
 	var/list/temp_chem = list()
 	for(var/R in reagents.reagent_volumes)
 		temp_chem[R] = REAGENT_VOLUME(reagents, R)
 	data["trace_chem"] = temp_chem
 	data["dose_chem"] = chem_doses.Copy()
-	data["blood_colour"] = species.blood_color
 	return data
 
 proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
