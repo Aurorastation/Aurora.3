@@ -465,7 +465,7 @@
 				do_set_light = TRUE
 
 		if (hashatch)
-			if (hatchstate)
+			if (hatchstate && hatch_image)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle

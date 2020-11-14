@@ -94,6 +94,11 @@
 	else
 		addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 
+/obj/screen/new_player/selection/Initialize(mapload, var/datum/hud/H)
+	. = ..()
+	color = null
+	hud = H
+
 /obj/screen/new_player/selection/join_game
 	name = "Join Game"
 	icon_state = "unready"
@@ -130,12 +135,6 @@
 	screen_loc = "LEFT+1,CENTER-6"
 
 //SELECTION
-
-/obj/screen/new_player/selection/New(mapload, var/datum/hud/H)
-	. = ..()
-	color = null
-	hud = H
-
 /obj/screen/new_player/selection/MouseEntered(location,control,params) //Yellow color for the font
 	color = "#ffb200"
 	var/matrix/M = matrix()
