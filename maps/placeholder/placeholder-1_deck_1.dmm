@@ -426,6 +426,10 @@
 /obj/machinery/door/airlock/medical,
 /turf/simulated/floor/plating,
 /area/janitor)
+"lh" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced,
+/area/janitor)
 "ln" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
@@ -20791,7 +20795,7 @@ KK
 xC
 ls
 mZ
-mZ
+lh
 mZ
 oG
 Eh
@@ -20988,7 +20992,7 @@ aa
 oG
 be
 be
-be
+Ja
 be
 gt
 zs
@@ -21198,7 +21202,7 @@ oG
 uf
 oG
 oG
-Vh
+vI
 hJ
 Vh
 Vh
