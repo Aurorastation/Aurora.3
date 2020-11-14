@@ -58,7 +58,7 @@
 		if(JAR_ANIMAL)
 			for(var/mob/M in src)
 				M.forceMove(user.loc)
-				user.visible_message(SPAN_NOTICE("[user] releases [M] from \the [src]."), SPAN_NOTICE("You release [M] from \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] releases \the [M] from \the [src]."), SPAN_NOTICE("You release \the [M] from \the [src]."))
 			contains = JAR_NOTHING
 			update_icon()
 			return
