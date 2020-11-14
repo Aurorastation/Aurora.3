@@ -667,6 +667,7 @@
 					"n2_scrub",
 					"co2_scrub",
 					"tox_scrub",
+					"h2_scrub",
 					"n2o_scrub",
 					"panic_siphon",
 					"scrubbing")

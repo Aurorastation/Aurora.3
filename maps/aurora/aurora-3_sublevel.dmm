@@ -27130,6 +27130,11 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"dMA" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/reinforced,
+/area/rnd/storage)
 "dNj" = (
 /obj/structure/table/standard,
 /obj/machinery/light_switch{
@@ -56994,8 +56999,8 @@ aNE
 aLH
 aLH
 aQr
-aVt
-aVt
+dMA
+dMA
 aVp
 bfs
 bfs

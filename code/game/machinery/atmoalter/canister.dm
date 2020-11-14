@@ -476,27 +476,6 @@ update_flag
 
 	src.update_icon()
 
-// Special types used for engine setup admin verb, they contain double amount of that of normal canister.
-/obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/Initialize()
-	. = ..()
-	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
-	src.update_icon()
-
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/Initialize()
-	. = ..()
-	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
-	src.update_icon()
-
-/obj/machinery/portable_atmospherics/canister/phoron/engine_setup/Initialize()
-	. = ..()
-	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
-	src.update_icon()
-
-/obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup/Initialize()
-	. = ..()
-	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
-	update_icon()
-
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
 	src.air_contents.temperature = 283

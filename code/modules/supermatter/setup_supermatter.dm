@@ -36,16 +36,16 @@
 	for(var/obj/effect/engine_setup/coolant_canister/C in world)
 		switch(response)
 			if("N2")
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/
+				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen/
 				continue
 			if("CO2")
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/
+				C.canister_type = /obj/machinery/portable_atmospherics/canister/carbon_dioxide/
 				continue
 			if("PH")
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/phoron/engine_setup/
+				C.canister_type = /obj/machinery/portable_atmospherics/canister/phoron/
 				continue
 			if("H2")
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup/
+				C.canister_type = /obj/machinery/portable_atmospherics/canister/hydrogen/
 				continue
 
 	for(var/obj/effect/engine_setup/core/C in world)
