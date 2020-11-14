@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Simple animals such as rats that don't have universal speak or a language can no longer be translated by holopads."
