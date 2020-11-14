@@ -4,4 +4,4 @@
 --
 
 ALTER TABLE `ss13_characters`
-	ADD COLUMN `headset_choice` INT(11) NULL DEFAULT NULL AFTER `pda_choice`;
+	ADD COLUMN `headset_choice` TINYINT(11) NULL DEFAULT NULL AFTER `pda_choice`;
