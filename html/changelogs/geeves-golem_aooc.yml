@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Wizard golems are now given an antag role, which grants them access to AOOC."
