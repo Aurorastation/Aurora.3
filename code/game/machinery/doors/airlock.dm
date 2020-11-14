@@ -255,6 +255,8 @@
 		do_animate("deny")
 
 /obj/machinery/door/airlock/centcom/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attackby(null, user)
 
 /obj/machinery/door/airlock/centcom/take_damage()
@@ -292,6 +294,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 		do_animate("deny")
 
 /obj/machinery/door/airlock/glass_centcom/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attackby(null, user)
 
 /obj/machinery/door/airlock/glass_centcom/take_damage()
@@ -834,6 +838,8 @@ About the new airlock wires panel:
 				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, 0)
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/door/airlock/ui_interact(mob/user)

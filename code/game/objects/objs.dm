@@ -78,6 +78,12 @@
 /obj/proc/CouldNotUseTopic(var/mob/user)
 	// Nada
 
+/obj/proc/ai_can_interact(var/mob/user)
+	if(!Adjacent(user) && within_jamming_range(src, FALSE)) // if not adjacent to it, it uses wireless signal
+		to_chat(user, SPAN_WARNING("Something in the area of \the [src] is blocking the remote signal!"))
+		return FALSE
+	return TRUE
+
 /obj/item/proc/is_used_on(obj/O, mob/user)
 
 /obj/assume_air(datum/gas_mixture/giver)

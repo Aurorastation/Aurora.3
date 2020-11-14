@@ -185,7 +185,7 @@
 		if(!reagents.has_reagent(C, D.chemicals[C]))
 			if(ret != "")
 				ret += ", "
-			ret += C
+			ret += "[C]"
 	return ret
 
 /obj/machinery/r_n_d/protolathe/proc/build(var/datum/design/D)

@@ -183,6 +183,9 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
 	if(!istype(user))
 		return
+	
+	if(!ai_can_interact(user))
+		return
 
 	if(isrobot(user))
 		attack_hand(user)
@@ -203,6 +206,10 @@ Possible to do for anyone motivated enough:
 For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/hear_talk(mob/living/M, text, verb, datum/language/speaking)
 	var/name_used = M.GetVoice()
+	if(isanimal(M))
+		var/mob/living/simple_animal/SA = M
+		if(!SA.universal_speak && !length(SA.languages))
+			text = pick(SA.speak)
 	for(var/mob/living/silicon/ai/master in active_holograms)
 		if(!master.say_understands(M, speaking))//The AI will be able to understand most mobs talking through the holopad.
 			if(speaking)
