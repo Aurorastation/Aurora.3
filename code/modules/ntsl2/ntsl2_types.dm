@@ -43,6 +43,7 @@
 	if(SSntsl2.is_complete(last_buffer_task) && is_ready())
 		last_buffer_task = SSntsl2.send_task("computer/get_buffer", list(id = id), program = src)
 
+// Currently unused
 // Telecommunications program
 /datum/ntsl2_program/tcomm
 	name = "NTSL2++ comm program"

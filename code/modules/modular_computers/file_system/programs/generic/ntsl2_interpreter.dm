@@ -105,9 +105,6 @@
 	SSvueui.transfer_uis(oldobj, src, "mcomputer-ntsl-main", 600, 520, filedesc)
 	return TRUE
 
-/datum/computer_file/program/ntsl2_interpreter/vueui_on_transfer(datum/vueui/ui)
-	. = ..()
-
 /datum/computer_file/program/ntsl2_interpreter/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	. = ..()
 	data = . || data || list("mode" = "list", "terminal" = "", "code" = "", "files" = list())
