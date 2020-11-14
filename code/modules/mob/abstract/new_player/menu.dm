@@ -12,35 +12,35 @@
 	adding = list()
 	var/obj/screen/using
 
-	using = new /obj/screen/new_player/title(FALSE, src)
+	using = new /obj/screen/new_player/title(src)
 	using.name = "Title"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/join_game(FALSE, src)
+	using = new /obj/screen/new_player/selection/join_game(src)
 	using.name = "Join Game"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/settings(FALSE, src)
+	using = new /obj/screen/new_player/selection/settings(src)
 	using.name = "Setup Character"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/manifest(FALSE, src)
+	using = new /obj/screen/new_player/selection/manifest(src)
 	using.name = "Crew Manifest"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/observe(FALSE, src)
+	using = new /obj/screen/new_player/selection/observe(src)
 	using.name = "Observe"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/changelog(FALSE, src)
+	using = new /obj/screen/new_player/selection/changelog(src)
 	using.name = "Changelog"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/polls(FALSE, src)
+	using = new /obj/screen/new_player/selection/polls(src)
 	using.name = "Polls"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/lore_summary(FALSE, src)
+	using = new /obj/screen/new_player/selection/lore_summary(src)
 	using.name = "Current Lore Summary"
 	adding += using
 
@@ -94,10 +94,10 @@
 	else
 		addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 
-/obj/screen/new_player/selection/Initialize(mapload, var/datum/hud/H)
-	. = ..()
+/obj/screen/new_player/selection/New(var/datum/hud/H)
 	color = null
 	hud = H
+	..()
 
 /obj/screen/new_player/selection/join_game
 	name = "Join Game"
