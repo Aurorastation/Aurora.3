@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - bugfix: "Aligned Crew Manifest columns. The window had to be embiggened a bit to make this look decent."
