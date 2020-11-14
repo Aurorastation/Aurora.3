@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "PDAs should no longer display multiple messages when disconnecting their charging cables. They also have a gentler message for purposeful disconnecting and play a sound when connecting a cable."
+  - bugfix: "Excessive runtimes should no longer occur from badly-formed beams."
