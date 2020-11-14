@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - bugfix: "Fixed VueUI not refreshing (or closing or working properly) when re-opened after being closed."
