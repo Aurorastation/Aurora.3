@@ -66,6 +66,12 @@
 	canister_color = "black"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/hydrogen
+	name = "Canister\[H2\]"
+	icon_state = "purple"
+	canister_color = "purple"
+	can_label = 0
+
 /obj/machinery/portable_atmospherics/canister/air
 	name = "Canister \[Air\]"
 	icon_state = "grey"
@@ -99,6 +105,10 @@
 	name = "Canister \[N2O\]"
 	icon_state = "redws"
 	canister_color = "redws"
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen
+	name = "Canister \[H2\]"
+	icon_state = "purple"
+	canister_color = "purple"
 
 
 
@@ -389,6 +399,7 @@ update_flag
 				"\[Phoron\]" = "orange",
 				"\[CO2\]" = "black",
 				"\[Air\]" = "grey",
+				"\[Hydrogen\]" = "purple",
 				"\[CAUTION\]" = "yellow"
 			)
 			var/label = input("Choose canister label", "Gas canister") as null|anything in colors
@@ -424,6 +435,12 @@ update_flag
 
 	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
 	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
+	. = ..()
+
+	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
+	update_icon()
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
@@ -474,6 +491,11 @@ update_flag
 	. = ..()
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
+	update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
