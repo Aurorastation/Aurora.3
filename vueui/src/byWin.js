@@ -27,7 +27,7 @@ export function winget(id, propName, callback) {
       return callback(props[propName])
     }
   }
-  Utils.sendRawWithCallback('winget', {
+  Utils.sendRawWithCallback('byond://winget', {
     id: id,
     property: isArray && propName.join(',') || propName || '*',
   }, _callback)
@@ -45,7 +45,7 @@ export function winset(id, propName, propValue) {
     Object.assign(props, propName)
   }
   props.id = id;
-  return Utils.sendRaw('winset', props)
+  return Utils.sendRaw('byond://winset', props)
 }
 
 export const command = (command) => Utils.sendRaw('winset', { command })
@@ -98,7 +98,7 @@ export function dragStartHandler(event) {
 export function dragEndHandler(event) {
   event.target.removeEventListener('mousemove', dragMoveHandler)
   event.target.releaseCapture()
-  document.getElementById('app').focus()
+  document.getElementById('app')?.focus()
   state.dragging = false
 }
 
@@ -132,7 +132,7 @@ export function resizeEndHandler(event) {
   resizeMoveHandler(event)
   document.removeEventListener('mousemove', resizeMoveHandler)
   document.removeEventListener('mouseup', resizeEndHandler)
-  document.getElementById('content').focus()
+  document.getElementById('app')?.focus()
   state.resizing = false
 }
   
@@ -141,17 +141,18 @@ export function resizeMoveHandler(event) {
     return;
   }
   event.preventDefault();
+  let mul = Vector.multiply(
+    state.resizeMatrix,
+    Vector.add(
+      [event.screenX, event.screenY],
+      Vector.scale([window.screenLeft, window.screenTop], -1),
+      state.dragPointOffset,
+      [1, 1]
+    )
+  )
   state.size = Vector.add(
     state.initialSize,
-    Vector.multiply(
-      state.resizeMatrix,
-      Vector.add(
-        [event.screenX, event.screenY],
-        Vector.scale([window.screenLeft, window.screenTop], -1),
-        state.dragPointOffset,
-        [1, 1]
-      )
-    )
+    mul,
   )
   // Sane window size values
   state.size[0] = Math.max(state.size[0], 100);

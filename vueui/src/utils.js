@@ -15,10 +15,10 @@ export default {
         sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(data[val]))
       }
     }
-    var url = path + sendparams.join("&")
+    var url = path + '?' + sendparams.join("&")
 
-    if(url.length < 2048) {
-      window.location.href = 'byond://' + url
+    if(url.indexOf('byond://') >= 0) {
+      window.location.href = url
       return
     }
 

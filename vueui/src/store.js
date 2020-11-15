@@ -6,8 +6,8 @@ export default {
     active: '',
     uiref: '',
     status: 2,
-    size: [400, 600],
     debug: 0,
+    header: 'default',
     wtime: 0
   },
   loadState (loadedState) {
@@ -25,6 +25,7 @@ export default {
     this.state.title = loadedState.title
     this.state.wtime = loadedState.wtime
     this.state.debug = loadedState.debug
+    this.state.header = loadedState.header
     this.isUpdating = false
   },
   isUpdating: false,

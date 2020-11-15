@@ -78,11 +78,12 @@ if (document.getElementById("app")) {
 
 if (document.getElementById("header")) {
   new Vue({
+    template: '<header-index></header-index>',
     data: Store.state
   }).$mount('#header')
 }
 
-if (document.getElementById("dapp")) {
+if (document.getElementById("debugapp")) {
   new Vue({
     data: Store.state,
     template: '<div id="debug"><h2>Debug this UI with inspector by opening URL in your browser:</h2><pre>{{url}}</pre><h2>Current data of UI:</h2><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre><button @click="stop()">STOP WTIME TRACKING</button></div>',
@@ -96,5 +97,5 @@ if (document.getElementById("dapp")) {
         return window.location.href
       }
     }
-  }).$mount('#dapp')
+  }).$mount('#debugapp')
 }

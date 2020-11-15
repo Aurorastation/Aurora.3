@@ -124,9 +124,6 @@ main ui datum.
   * @return html code - text
   */
 /datum/vueui/proc/generate_html(var/css_tag)
-	var/debugtxt = ""
-	if(user && check_rights(R_DEV, FALSE, user=user))
-		debugtxt = "<div id=\"dapp\"></div>"
 	return {"
 <!DOCTYPE html>
 <html>
@@ -138,14 +135,11 @@ main ui datum.
 		[css_tag]
 	</head>
 	<body class="[get_theme_class()]">
-		<div id="header">
-			<header-[header]></header-[header]>
-			<header-handles></header-handles>
-		</div>
+		<div id="header"></div>
 		<div id="app">
 			Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
 		</div>
-		[debugtxt]
+		<div id="debugapp"></div>
 		<noscript>
 			<div id='uiNoScript'>
 				<h2>JAVASCRIPT REQUIRED</h2>
@@ -156,9 +150,6 @@ main ui datum.
 	</body>
 	<script type="application/json" id="initialstate">
 		[generate_data_json()]
-	</script>
-	<script type="text/javascript">
-		window.__windowId__ = document.getElementById('vueui:windowId').getAttribute('content');
 	</script>
 	<script type="text/javascript" src="vueui.js"></script>
 </html>
@@ -179,6 +170,12 @@ main ui datum.
 	sdata["title"] = title
 	sdata["wtime"] = world.time
 	sdata["debug"] = user && check_rights(R_DEV, FALSE, user=user)
+	sdata["header"] = header
+#ifdef UIDEBUG
+	sdata["debug"] = 1
+#else
+	sdata["debug"] = user && check_rights(R_DEV, FALSE, user=user)
+#endif
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		sdata["assets"][asset_name] = list("ref" = ckey("\ref[asset["img"]]"))
