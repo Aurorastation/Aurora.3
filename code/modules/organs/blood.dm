@@ -14,14 +14,15 @@
 	if(species && species.flags & NO_BLOOD) //We want the var for safety but we can do without the actual blood.
 		return
 
-	vessel.add_reagent(/decl/reagent/blood, species.blood_volume)
+	vessel.add_reagent(/decl/reagent/blood, species.blood_volume, temperature = species?.body_temperature)
 	fixblood()
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
 	if(!REAGENT_DATA(vessel, /decl/reagent/blood))
 		return
-	vessel.reagent_data[/decl/reagent/blood] = get_blood_data()
+	var/new_blood_data = get_blood_data()
+	vessel.reagent_data[/decl/reagent/blood] = vessel.reagent_data[/decl/reagent/blood] ^ new_blood_data | new_blood_data
 
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(var/amt as num, var/tar = src, var/spraydir)
@@ -140,7 +141,7 @@
 
 //Gets blood from mob to the container, preserving all data in it.
 /mob/living/carbon/proc/take_blood(obj/item/reagent_containers/container, var/amount)
-	container.reagents.add_reagent(/decl/reagent/blood, amount, get_blood_data())
+	container.reagents.add_reagent(/decl/reagent/blood, amount, get_blood_data(), temperature = species?.body_temperature)
 	return TRUE
 
 //For humans, blood does not appear from blue, it comes from vessels.
@@ -169,13 +170,13 @@
 //Transfers blood from reagents to vessel, respecting blood types compatability.
 /mob/living/carbon/human/inject_blood(var/amount, var/datum/reagents/donor)
 	if(!should_have_organ(BP_HEART))
-		reagents.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood))
+		reagents.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood), temperature = species?.body_temperature)
 		return
 	var/list/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
 	if(blood_incompatible(LAZYACCESS(injected_data, "blood_type"), LAZYACCESS(injected_data, "species")))
 		reagents.add_reagent(/decl/reagent/toxin, amount * 0.5)
 	else
-		vessel.add_reagent(/decl/reagent/blood, amount, injected_data)
+		vessel.add_reagent(/decl/reagent/blood, amount, injected_data, temperature = species?.body_temperature)
 	..()
 
 proc/blood_incompatible(donor,receiver,donor_species,receiver_species)

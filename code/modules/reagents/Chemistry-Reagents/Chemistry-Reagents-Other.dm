@@ -55,63 +55,33 @@
 	reagent_state = LIQUID
 	color = "#808080"
 	overdose = REAGENTS_OVERDOSE * 0.5
-	color_weight = 20
+	color_weight = 0
 	taste_description = "chalk"
 	fallback_specific_heat = 0.2
 
-/decl/reagent/paint/touch_turf(var/turf/T, var/datum/reagents/holder)
+/decl/reagent/paint/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(istype(T) && !istype(T, /turf/space))
-		T.color = color
+		T.color = holder.get_color()
+
+/decl/reagent/paint/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
+	if(istype(M) && !istype(M, /mob/abstract))
+		M.color = holder.get_color()
 
 /decl/reagent/paint/touch_obj(var/obj/O, var/datum/reagents/holder)
 	//special checks for special items
+	var/setcolor = holder.get_color()
 	if(istype(O, /obj/item/reagent_containers))
 		return
 	else if(istype(O, /obj/item/light))
 		var/obj/item/light/L = O
-		L.brightness_color = color
+		L.brightness_color = setcolor
 		L.update()
 	else if(istype(O, /obj/machinery/light))
 		var/obj/machinery/light/L = O
-		L.brightness_color = color
+		L.brightness_color = setcolor
 		L.update()
 	else if(istype(O))
-		O.color = color
-
-/decl/reagent/paint/touch_mob(var/mob/M, var/datum/reagents/holder)
-	. = ..()
-	if(istype(M) && !istype(M, /mob/abstract)) //painting ghosts: not allowed
-		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
-
-/decl/reagent/paint/initialize_data(var/newdata)
-	color = newdata
-	return
-
-/decl/reagent/paint/mix_data(var/newdata, var/newamount, var/datum/reagents/holder)
-	var/list/colors = list(0, 0, 0, 0)
-	var/tot_w = 0
-
-	var/hex1 = uppertext(color)
-	var/hex2 = uppertext(newdata)
-	if(length(hex1) == 7)
-		hex1 += "FF"
-	if(length(hex2) == 7)
-		hex2 += "FF"
-	if(length(hex1) != 9 || length(hex2) != 9)
-		return
-	colors[1] += hex2num(copytext(hex1, 2, 4)) * REAGENT_VOLUME(holder, type)
-	colors[2] += hex2num(copytext(hex1, 4, 6)) * REAGENT_VOLUME(holder, type)
-	colors[3] += hex2num(copytext(hex1, 6, 8)) * REAGENT_VOLUME(holder, type)
-	colors[4] += hex2num(copytext(hex1, 8, 10)) * REAGENT_VOLUME(holder, type)
-	tot_w += REAGENT_VOLUME(holder, type)
-	colors[1] += hex2num(copytext(hex2, 2, 4)) * newamount
-	colors[2] += hex2num(copytext(hex2, 4, 6)) * newamount
-	colors[3] += hex2num(copytext(hex2, 6, 8)) * newamount
-	colors[4] += hex2num(copytext(hex2, 8, 10)) * newamount
-	tot_w += newamount
-
-	color = rgb(colors[1] / tot_w, colors[2] / tot_w, colors[3] / tot_w, colors[4] / tot_w)
-	return
+		O.color = setcolor
 
 /* Things that didn't fit anywhere else */
 

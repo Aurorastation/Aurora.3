@@ -3,7 +3,7 @@
 		return "#ffffffff"
 	if(reagent_volumes.len == 1) // It's pretty common and saves a lot of work
 		var/decl/reagent/R = decls_repository.get_decl(reagent_volumes[1])
-		return R.color
+		return R.get_color(src)
 
 	var/list/colors = list(0, 0, 0, 0)
 	var/tot_w = 0
@@ -20,3 +20,9 @@
 		tot_w += mod
 
 	return rgb(colors[1] / tot_w, colors[2] / tot_w, colors[3] / tot_w, colors[4] / tot_w)
+
+/decl/reagent/proc/get_color(var/datum/reagents/holder)
+	return color
+
+/decl/reagent/blood/get_color(var/datum/reagents/holder)
+	return LAZYLEN(REAGENT_DATA(holder, type)) ? holder.reagent_data[type]["blood_colour"] : color // return default if not set

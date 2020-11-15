@@ -155,17 +155,4 @@
 	var/list/data = REAGENT_DATA(holder, type)
 	return islist(data) ? data.Copy() : data
 
-/* DEPRECATED - TODO: REMOVE EVERYWHERE */
-
-/decl/reagent/proc/reaction_turf(var/turf/target)
-	touch_turf(target)
-
-/decl/reagent/proc/reaction_obj(var/obj/target)
-	touch_obj(target)
-
-/decl/reagent/proc/reaction_mob(var/mob/target)
-	touch_mob(target)
-
-
-
 

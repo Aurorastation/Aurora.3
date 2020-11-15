@@ -356,7 +356,7 @@ This function restores the subjects blood to max.
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
 		var/total_blood = REAGENT_VOLUME(vessel, /decl/reagent/blood)
-		vessel.add_reagent(/decl/reagent/blood,560.0-total_blood)
+		vessel.add_reagent(/decl/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
 
 
 /*

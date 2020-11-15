@@ -894,7 +894,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent(/decl/reagent/blood,20*O.amount)
+				vessel.add_reagent(/decl/reagent/blood,20*O.amount, temperature = species.body_temperature)
 			qdel(O)
 			last_special = world.time + 50
 

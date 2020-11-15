@@ -195,20 +195,20 @@
 	if(!istype(M))
 		return
 
-	holder.reagent_data["special"] += (REAGENT_VOLUME(holder, type)/10)*removed
+	holder.reagent_data[type]["special"] += (REAGENT_VOLUME(holder, type)/10)*removed
 
-	M.make_jittery(5 + holder.reagent_data["special"])
-	M.drowsyness = max(0,M.drowsyness - (1 + holder.reagent_data["special"]*0.1))
-	if(holder.reagent_data["special"] > 5)
+	M.make_jittery(5 + holder.reagent_data[type]["special"])
+	M.drowsyness = max(0,M.drowsyness - (1 + holder.reagent_data[type]["special"]*0.1))
+	if(holder.reagent_data[type]["special"] > 5)
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
-		M.apply_effect(1 + holder.reagent_data["special"]*0.25, STUTTER)
-		M.druggy = max(M.druggy, holder.reagent_data["special"]*0.25)
-		M.hallucination = max(M.hallucination, holder.reagent_data["special"]*5 - 100)
-		M.make_jittery(holder.reagent_data["special"])
-		if(prob(holder.reagent_data["special"]))
+		M.apply_effect(1 + holder.reagent_data[type]["special"]*0.25, STUTTER)
+		M.druggy = max(M.druggy, holder.reagent_data[type]["special"]*0.25)
+		M.hallucination = max(M.hallucination, holder.reagent_data[type]["special"]*5 - 100)
+		M.make_jittery(holder.reagent_data[type]["special"])
+		if(prob(holder.reagent_data[type]["special"]))
 			M.emote("twitch")
 		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
-		H.take_damage(holder.reagent_data["special"] * removed * 0.025)
+		H.take_damage(holder.reagent_data[type]["special"] * removed * 0.025)
 
 /decl/reagent/guwan_painkillers
 	name = "Tremble"

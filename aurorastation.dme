@@ -2497,7 +2497,6 @@
 #include "code\modules\reagents\Chemistry-Logging.dm"
 #include "code\modules\reagents\Chemistry-Machinery.dm"
 #include "code\modules\reagents\Chemistry-Metabolism.dm"
-#include "code\modules\reagents\Chemistry-Readme.dm"
 #include "code\modules\reagents\Chemistry-Reagents-Helpers.dm"
 #include "code\modules\reagents\Chemistry-Reagents.dm"
 #include "code\modules\reagents\Chemistry-Recipes.dm"

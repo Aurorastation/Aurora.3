@@ -191,13 +191,14 @@
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent(/decl/reagent/blood, 560)
+	vessel.add_reagent(/decl/reagent/blood, 560, temperature = species?.body_temperature)
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
 	if(!REAGENT_DATA(vessel, /decl/reagent/blood))
 		return
-	vessel.reagent_data[/decl/reagent/blood] = get_blood_data()
+	var/list/new_blood_data = get_blood_data()
+	vessel.reagent_data[/decl/reagent/blood] = vessel.reagent_data[/decl/reagent/blood] ^ new_blood_data | new_blood_data
 
 /mob/living/carbon/alien/diona/proc/setup_dionastats()
 	var/MLS = (1.5 / 2.1) //Maximum energy lost per second, in total darkness

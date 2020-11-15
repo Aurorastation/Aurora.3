@@ -125,7 +125,7 @@
 		else
 			newreagent.set_temperature(temperature, src, TRUE)
 		if(!thermal_energy && temperature != newreagent.get_temperature(src))
-			world.log << ("Temperature [temperature] did not match [newreagent.get_temperature(src)] for NEW reagent [newreagent.type]!")
+			crash_with("Temperature [temperature] did not match [newreagent.get_temperature(src)] for NEW reagent [newreagent.type]!")
 	else	// Existing reagent
 		var/old_energy = newreagent.get_thermal_energy(src)
 		reagent_volumes[rtype] += amount
@@ -138,8 +138,8 @@
 			newreagent.add_thermal_energy(thermal_energy - old_energy, src, FALSE)
 		else
 			newreagent.add_thermal_energy(newreagent.default_temperature*newreagent.specific_heat*amount - old_energy, src, FALSE)
-		if(!thermal_energy && temperature != newreagent.get_temperature(src))
-			world.log << ("Temperature [temperature] did not match [newreagent.get_temperature(src)] for EXISTING reagent [newreagent.type]!")
+		if(!thermal_energy && round(temperature, 1) != round(newreagent.get_temperature(src), 1))
+			crash_with("Temperature [temperature] did not match [newreagent.get_temperature(src)] for EXISTING reagent [newreagent.type]!")
 	UNSETEMPTY(reagent_volumes)
 	update_holder(!safety)
 	return TRUE
@@ -349,7 +349,7 @@
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		current.touch_mob(target, reagent_volumes[_current])
+		current.touch_mob(target, reagent_volumes[_current], src)
 
 	update_holder()
 
@@ -359,7 +359,7 @@
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		current.touch_turf(target, reagent_volumes[_current])
+		current.touch_turf(target, reagent_volumes[_current], src)
 
 	update_holder()
 
@@ -369,7 +369,7 @@
 
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
-		current.touch_obj(target, reagent_volumes[_current])
+		current.touch_obj(target, reagent_volumes[_current], src)
 
 	update_holder()
 

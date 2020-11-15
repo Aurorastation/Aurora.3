@@ -29,9 +29,6 @@
 		/decl/reagent/verunol,
 		/decl/reagent/toxin/fertilizer/monoammoniumphosphate
 	)
-	var/list/gunk_data = list(
-		/decl/reagent/paint = list("#FE191A", "FDFE7D")
-	)
 
 
 
@@ -55,7 +52,11 @@
 			var/datum/reagents/R = new/datum/reagents(35)
 			R.my_atom = vent
 			var/chem = pick(gunk)
-			R.add_reagent(chem, 35, pick(gunk_data[chem]))
+			R.add_reagent(chem, 35)
+			if(chem == /decl/reagent/paint) // so it's not just paint
+				var/chem2 = pick(gunk - /decl/reagent/paint)
+				R.maximum_volume += 1
+				R.add_reagent(chem2, 1)
 
 			var/datum/effect/effect/system/smoke_spread/chem/smoke = new
 			smoke.show_log = 0 // This displays a log on creation
