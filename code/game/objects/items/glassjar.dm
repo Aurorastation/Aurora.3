@@ -21,9 +21,6 @@
 	update_icon()
 
 /obj/item/glass_jar/afterattack(var/atom/A, var/mob/user, var/proximity)
-	insert_mob(A, user, proximity)
-
-/obj/item/glass_jar/proc/insert_mob(var/atom/A, var/mob/user, var/proximity)
 	if(!proximity || contains)
 		return
 	if(istype(A, /obj/effect/spider/spiderling))
@@ -87,8 +84,6 @@
 		user.visible_message(SPAN_NOTICE("\The [user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
-	if(istype(A, /mob/living/simple_animal))
-		insert_mob(A, user, proximity)
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc
 	underlays.Cut()
