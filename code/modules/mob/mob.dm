@@ -962,12 +962,12 @@
 	return canmove
 
 
-/mob/proc/facedir(var/ndir, var/ignore_facing_dir = FALSE)
+/mob/proc/facedir(var/ndir)
 	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
 		return 0
-	set_dir(ndir, ignore_facing_dir)
+	set_dir(ndir)
 	if(buckled && buckled.buckle_movable)
-		buckled.set_dir(ndir, ignore_facing_dir)
+		buckled.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		client.move_delay += movement_delay()
 	return 1
@@ -1283,16 +1283,12 @@
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir(ndir, ignore_facing_dir = FALSE)
+/mob/set_dir(ndir)
 	if(facing_dir)
-		if(ignore_facing_dir && facing_dir != ndir)
-			set_face_dir(ndir)
-			return ..(ndir)
-		else
-			if(!canface() || lying || buckled || restrained())
-				facing_dir = null
-			else if(dir != facing_dir)
-				return ..(facing_dir)
+		if(!canface() || lying || buckled || restrained())
+			facing_dir = null
+		else if(dir != facing_dir)
+			return ..(facing_dir)
 	else
 		return ..(ndir)
 
