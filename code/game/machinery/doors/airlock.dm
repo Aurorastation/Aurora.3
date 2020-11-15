@@ -852,28 +852,29 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
-	VUEUI_SET_IFNOTSET(data["doorArea"], loc.loc?.name, ., data)
-	VUEUI_SET_IFNOTSET(data["doorName"], name, ., data)
-	VUEUI_SET_CHECK(data["open"], !density, ., data)
-	VUEUI_SET_CHECK(data["plu_main"], main_power_lost_until, ., data)
-	VUEUI_SET_CHECK(data["plua_main"], main_power_lost_at, ., data)
-	VUEUI_SET_CHECK(data["plu_back"], backup_power_lost_until, ., data)
-	VUEUI_SET_CHECK(data["plua_back"], backup_power_lost_at, ., data)
-	VUEUI_SET_CHECK(data["ele"], electrified_until, ., data)
-	VUEUI_SET_CHECK(data["elea"], electrified_at, ., data)
-	var/antag = player_is_antag(user.mind)
-	var/isAI = issilicon(user) && !antag
-	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
-	VUEUI_SET_CHECK(data["isai"], isAI, ., data)
-	VUEUI_SET_CHECK(data["aiCanBolt"], aiBolting, ., data)
-	VUEUI_SET_IFNOTSET(data["boltsOverride"], antag || isAdmin, ., data)
-	VUEUI_SET_IFNOTSET(data["isAdmin"], isAdmin, ., data)
+	data["doorArea"] = loc.loc?.name
+	data["doorName"] = name
+	data["open"] = !density
+	data["plu_main"] = main_power_lost_until
+	data["plua_main"] = main_power_lost_at
+	data["plu_back"] = backup_power_lost_until
+	data["plua_back"] = backup_power_lost_at
+	data["ele"] = electrified_until
+	data["elea"] = electrified_at
+	data["aiCanBolt"] = aiBolting
+	data["idscan"] = !aiDisabledIdScanner
+	data["bolts"] = !locked
+	data["lights"] = lights
+	data["safeties"] = safe
+	data["timing"] = normalspeed
 
-	VUEUI_SET_CHECK(data["idscan"], !aiDisabledIdScanner, ., data)
-	VUEUI_SET_CHECK(data["bolts"], !locked, ., data)
-	VUEUI_SET_CHECK(data["lights"], lights, ., data)
-	VUEUI_SET_CHECK(data["safeties"], safe, ., data)
-	VUEUI_SET_CHECK(data["timing"], normalspeed, ., data)
+	var/antag = player_is_antag(user.mind)
+	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
+	data["isai"] = issilicon(user) && !antag
+	data["boltsOverride"] = antag || isAdmin
+	data["isAdmin"] = isAdmin
+
+	return data
 
 /obj/machinery/door/airlock/proc/hack(mob/user as mob)
 	if(src.aiHacking==0)
@@ -1061,7 +1062,7 @@ About the new airlock wires panel:
 					src.unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
-	if(check_rights(R_ADMIN, show_msg = FALSE))
+	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
 		return ..()
 	if(emagged == 1)
 		to_chat(user, SPAN_WARNING("Unable to interface: Internal error."))
@@ -1082,7 +1083,7 @@ About the new airlock wires panel:
 	if(..())
 		return 1
 
-	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
+	var/isAdmin = isobserver(usr) && check_rights(R_ADMIN, show_msg = FALSE)
 	var/activate = text2num(href_list["activate"])
 	var/antag = player_is_antag(usr.mind)
 	switch (href_list["command"])
