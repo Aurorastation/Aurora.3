@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed species transformation causing species to get accents that they should not be able to select."
