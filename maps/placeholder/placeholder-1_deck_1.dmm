@@ -1330,9 +1330,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Dl" = (
-/obj/item/device/radio/off{
-	pixel_y = 5
-	},
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -1971,6 +1968,9 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "NA" = (
+/obj/item/device/radio/off{
+	pixel_y = 5
+	},
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -15191,7 +15191,7 @@ be
 be
 be
 be
-oG
+be
 oG
 oG
 oG
@@ -15393,11 +15393,11 @@ be
 be
 be
 be
-oG
-NA
-kw
-kw
 be
+oG
+Dl
+kw
+kw
 oG
 be
 be
@@ -15595,9 +15595,9 @@ be
 be
 be
 be
-oG
-Dl
 be
+oG
+NA
 be
 be
 oG
