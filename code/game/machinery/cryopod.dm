@@ -45,10 +45,12 @@ var/global/list/frozen_crew = list()
 	storage_name = "Robotic Storage Control"
 	allow_items = FALSE
 
-/obj/machinery/computer/cryopod/attack_ai()
-	src.attack_hand()
+/obj/machinery/computer/cryopod/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+	src.attack_hand(user)
 
-/obj/machinery/computer/cryopod/attack_hand(mob/user = usr)
+/obj/machinery/computer/cryopod/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
