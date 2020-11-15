@@ -40,7 +40,7 @@ delete-after: True
 changes:
   - tweak: "Changes dark blue warden uniform to match the rest of the department, for consistency reasons and the fact it did not match with any other security accessories"
   - imageadd: "Added unused tan, blue and navy blue security jackets to the loadout, with some tweaking."
-  - imageadd: "Red forensic tech jacket has been removed for being out of place. In lieu of this, similar tan, blue and navy blue variants have been added. The badge has been removed in order to further distance resemblance from the FIB jacket."
+  - imageadd: "Red forensic tech jacket has been removed for being out of place. In lieu of this, similar blue and navy blue variants have been added. The badge has been removed in order to further distance resemblance from the FIB jacket."
   - imageadd: "FIB jacket has also been updated."
   - rscadd: "FIB and forensic technician jackets are now able to open and close like labcoats."
   - balance: "Removed the armor values from cosmetic coats in security lockers."

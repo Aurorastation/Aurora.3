@@ -114,10 +114,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "officerdnavyjacket"
 	item_state = "officerdnavyjacket"
 
-/obj/item/clothing/suit/security/officer/tan
-	icon_state = "officertanjacket"
-	item_state = "officertanjacket"
-
 /obj/item/clothing/suit/security/warden
 	name = "warden's jacket"
 	desc = "Perfectly suited for the warden that wants to leave an impression of style on those who visit the brig."
@@ -133,10 +129,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "wardendnavyjacket"
 	item_state = "wardendnavyjacket"
 
-/obj/item/clothing/suit/security/warden/tan
-	icon_state = "wardentanjacket"
-	item_state = "wardentanjacket"
-
 /obj/item/clothing/suit/security/hos
 	name = "head of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
@@ -151,10 +143,6 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/security/hos/dnavy
 	icon_state = "hosdnavyjacket"
 	item_state = "hosdnavyjacket"
-
-/obj/item/clothing/suit/security/hos/tan
-	icon_state = "hostanjacket"
-	item_state = "hostanjacket"
 
 //Detective
 
@@ -199,10 +187,6 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/forensics/dnavy
 	icon_state = "forensicsdnavy"
 	item_state = "forensicsdnavy"
-
-/obj/item/clothing/suit/storage/toggle/forensics/tan
-	icon_state = "forensicstan"
-	item_state = "forensicstan"
 
 //Engineering
 /obj/item/clothing/suit/storage/hazardvest
