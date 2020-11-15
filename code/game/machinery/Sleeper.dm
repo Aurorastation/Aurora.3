@@ -216,6 +216,8 @@
 	return TRUE
 
 /obj/machinery/sleeper/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
