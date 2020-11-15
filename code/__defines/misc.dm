@@ -468,8 +468,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_EXACT	1
 
 // Macros for observation events
-#define RAISE_EVENT(e, a...) decls_repository.get_decl(/decl/observ/##e).raise_event(##a)
-#define REGISTER_EVENT(e, a...) decls_repository.get_decl(/decl/observ/##e).register(##a)
-#define UNREGISTER_EVENT(e, a...) decls_repository.get_decl(/decl/observ/##e).unregister(##a)
-#define EVENT_IS_LISTENING(e, a...) decls_repository.get_decl(/decl/observ/##e).is_listening(##a)
-#define EVENT_HAS_LISTENERS(e, a...) decls_repository.get_decl(/decl/observ/##e).has_listeners(##a)
+#define RAISE_EVENT(e, a...) UNLINT(decls_repository.get_decl(/decl/observ/##e).raise_event(##a))
+#define REGISTER_EVENT(e, a...) UNLINT(decls_repository.get_decl(/decl/observ/##e).register(##a))
+#define UNREGISTER_EVENT(e, a...) UNLINT(decls_repository.get_decl(/decl/observ/##e).unregister(##a))
+#define EVENT_IS_LISTENING(e, a...) UNLINT(decls_repository.get_decl(/decl/observ/##e).is_listening(##a))
+#define EVENT_HAS_LISTENERS(e, a...) UNLINT(decls_repository.get_decl(/decl/observ/##e).has_listeners(##a))

@@ -12,7 +12,6 @@
 	fetched_decl_subtypes = list()
 
 /repository/decls/proc/get_decl(var/decl_type)
-	RETURN_TYPE(/decl/)
 	. = fetched_decls[decl_type]
 	if(!.)
 		. = new decl_type()
