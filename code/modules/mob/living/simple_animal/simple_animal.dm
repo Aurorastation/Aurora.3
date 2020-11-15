@@ -507,8 +507,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
 	if(istype(O, /obj/item/glass_jar))
-		var/obj/item/glass_jar/jar = O
-		jar.insert_mob(src, user, proximity)
 		return FALSE
 	if(!O.force)
 		visible_message(SPAN_NOTICE("<b>\The [user]</b> gently taps \the [src] with \the [O]."))

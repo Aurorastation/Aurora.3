@@ -124,6 +124,7 @@
 
 /obj/item/glass_jar/peter/
 	name = "Peter's Jar"
+
 /obj/item/glass_jar/peter/Initialize()
 	. = ..()
 	var/obj/effect/spider/spiderling/S = new
