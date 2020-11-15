@@ -1,7 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - bugfix: "Fixes APC UI initial height so that scrolling is not necessary."
-  - admin: "Admins can now operate APCs (when ghosted)."
-  - admin: "Admins can now operate airlocks with special privileges ONLY when ghosted (to prevent accidental admin abuse)."
-  - refactor: "Airlock VueUI should now properly update constantly (including admin options)."
