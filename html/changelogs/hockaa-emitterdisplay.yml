@@ -1,6 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes:
-  - bugfix: "Emitter shot counter display text and signaller display text is now adjusted to the user's font size."
