@@ -2,7 +2,6 @@
   <div class="uiTitleWrapper" draggable @mousedown.left="startDragging($event)" @mouseup.left="stopDragging($event)">
     <div class="titleBar">
       <div class="uiStatusIcon uiIcon24" :class="statusClass" unselectable="on"/>
-      <i class="fas ic-bug uiIcon24 uiDebugIcon" :class="debugClass" unselectable="on" @click="activateDebug()" @mousedown.left="prevent($event)"/>
       <div class="uiTitleText" unselectable="on">{{ d.title }}</div>
       <div class="uiTitleClose" unselectable="on" @click="closeUI($event)" @mousedown.left="prevent($event)">×</div>
     </div>
@@ -11,8 +10,8 @@
 </template>
 
 <script>
-import Utils from '../../utils.js';
-import { dragStartHandler, dragEndHandler } from '../../drag.js';
+import Utils from '@/utils'
+import ByWin from '@/byWin'
 export default {
   data () {
     return {
@@ -40,25 +39,11 @@ export default {
       Utils.sendToTopic({'vueuiclose': 1});
     },
     startDragging($event) {
-      dragStartHandler($event);
+      ByWin.dragStartHandler($event);
     },
     stopDragging($event) {
-      dragEndHandler($event);
+      ByWin.dragEndHandler($event);
     },
-    prevent($event) {
-      $event.stopPropagation();
-    },
-    activateDebug() {
-      if(this.debug_flip == 0) {
-        document.getElementById("content").classList.add("uiDebug");
-        document.getElementById("debug").classList.add("uiDebug");
-        this.debug_flip = 1;
-      } else if (this.debug_flip == 1) {
-        document.getElementById("content").classList.remove("uiDebug");
-        document.getElementById("debug").classList.remove("uiDebug");
-        this.debug_flip = 0;
-      }
-    }
   }
 }
 </script>

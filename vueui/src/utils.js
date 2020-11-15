@@ -1,7 +1,10 @@
 import Store from './store.js'
 import store from './store.js';
+
+const randomId = () => Math.random().toString(36).substring(13)
+
 export default {
-  sendToTopicRaw(data) {
+  sendRaw(path, data) {
     var sendparams = []
     for(var val in data) {
       if (Array.isArray(data[val])) {
@@ -12,10 +15,26 @@ export default {
         sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(data[val]))
       }
     }
+    var url = path + sendparams.join("&")
+
+    if(url.length < 2048) {
+      window.location.href = 'byond://' + url
+      return
+    }
+
     var r = new XMLHttpRequest()
-    var sendUrl = "?" + sendparams.join("&")
-    r.open("GET", sendUrl, true);
+    r.open("GET", url, true);
     r.send()
+  },
+  sendRawWithCallback(path, data, callback) {
+    var functionCallbackId = '__bycallback' + randomId()
+    window[functionCallbackId] = callback
+    this.sendRaw(path, Object.assign({}, data, {
+      callback: functionCallbackId,
+    }))
+  },
+  sendToTopicRaw(data) {
+    this.sendRaw('?', data)
   },
   sendToTopic(data, pushState = false) {
     var pushData = {
