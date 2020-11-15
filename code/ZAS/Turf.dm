@@ -260,7 +260,7 @@
 		GM.gas[GAS_CO2] = (carbon_dioxide/sum)*amount
 		GM.gas[GAS_NITROGEN] = (nitrogen/sum)*amount
 		GM.gas[GAS_PHORON] = (phoron/sum)*amount
-		GM.gas[GAS_HYDROGEN] = (phoron/sum)*amount
+		GM.gas[GAS_HYDROGEN] = (hydrogen/sum)*amount
 
 	GM.temperature = temperature
 	GM.update_values()
