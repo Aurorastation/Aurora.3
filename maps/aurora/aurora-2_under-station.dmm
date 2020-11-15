@@ -440,13 +440,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/obj/machinery/camera/motion{
-	c_tag = "Engineering - Engine Cooling";
-	dir = 1;
-	network = list("Engineering")
-	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Engine Cooling";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
