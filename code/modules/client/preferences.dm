@@ -41,9 +41,9 @@ datum/preferences
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = 2						//backpack type
-	var/backbag_style = 1
-	var/pda_choice = 2
-	var/headset_choice = 2
+	var/backbag_style = TRUE
+	var/pda_choice = OUTFIT_TAB_PDA
+	var/headset_choice = OUTFIT_HEADSET
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
