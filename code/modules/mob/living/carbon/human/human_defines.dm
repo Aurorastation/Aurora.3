@@ -38,7 +38,7 @@
 	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
 	var/backbag_style = 1
 	var/pda_choice = 2
-	var/headset_choice = 2
+	var/headset_choice = OUTFIT_HEADSET
 
 	var/last_chew = 0 // Used for hand chewing
 
