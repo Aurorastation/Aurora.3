@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import Utils from '../../utils'
-import ByWin from '../../byWin'
 
 export default {
   data () {

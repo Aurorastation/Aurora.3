@@ -18,39 +18,33 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-y: hidden;
     overflow-x: auto;
-    min-width: 240px;
 }
 
-#content {
-    height: calc(100vh - 36px);
-    &.mcomputer {
-        height: calc(100vh - 72px);
+.uiTitleWrapper {
+    cursor: default;
+    float: none;
+    clear: both;
+    user-select: none;
+    margin: -8px -8px 8px -8px;
+    padding: 4px 8px;
+    font-size: 1.2em;
+  
+    .uiTitleText {
+      font-size: 1.2em;
+      display: inline;
+      margin: 0px 8px;
     }
-    &.uiDebug {
-        height: calc(50vh - 36px);
-        &.mcomputer {
-            height: calc(50vh - 72px);
-        }
+  
+    .uiCloseBtn {
+      float: right;
+      font-size: 1.3em;
+      cursor: pointer;
     }
-}
+  }
 
-#debug {
-    height: 50vh;
-    display: none;
-    &.uiDebug {
-        display: inherit;
-    }
-}
-
-#content, #debug {
-    overflow-y: auto;
-    margin-right: -8px;
-    margin-top: -8px;
-}
-
-#content > div {
-    margin-right: 8px;
-    margin-top: 8px;
+.mainContent {
+    overflow-x: scroll;
+    height: 100%;
 }
 
 code {

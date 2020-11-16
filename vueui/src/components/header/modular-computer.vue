@@ -24,11 +24,6 @@ export default {
   data() {
     return this.$root.$data
   },
-  mounted: function() {
-    this.$nextTick(function() {
-      document.getElementById('content').classList.add("mcomputer");
-    })
-  }
 }
 </script>
 
@@ -37,11 +32,6 @@ button, .button {
   margin-left: 6px;
 }
 .maincont {
-  padding: 4px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-bottom: -8px;
-  background-color: #202020;
   .valign {
     vertical-align: middle;
   }

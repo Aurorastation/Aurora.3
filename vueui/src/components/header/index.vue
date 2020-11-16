@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="uiTitleWrapper" draggable @mousedown.left="startDragging($event)" @mouseup.left="stopDragging($event)">
-      <i @click="close" class="uiCloseBtn fas ic-times"></i>
+      <i @click="close" @mousedown.left.prevent class="uiCloseBtn fas ic-times"></i>
       <component :is="'header-' + header"/>
     </div>
     <header-handles/>
@@ -30,26 +30,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.uiTitleWrapper {
-  cursor: default;
-  position: relative;
-  float: none;
-  clear: both;
-  user-select: none;
-  margin: -8px;
-  padding: 4px 8px;
-  font-size: 1.2em;
-
-  .uiTitleText {
-    font-size: 1.2em;
-  }
-
-  .uiCloseBtn {
-    float: right;
-    font-size: 1.3em;
-    cursor: pointer;
-  }
-}
-</style>
