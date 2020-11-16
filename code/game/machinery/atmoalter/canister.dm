@@ -11,6 +11,7 @@
 	density = 1
 	var/health = 100.0
 	flags = CONDUCT
+	obj_flags = OBJ_FLAG_SIGNALER
 	w_class = ITEMSIZE_HUGE
 
 	var/valve_open = 0
@@ -181,20 +182,26 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/proc/healthcheck()
 	if(destroyed)
-		return 1
+		return TRUE
 
 	if (src.health <= 10)
 		var/atom/location = src.loc
 		location.assume_air(air_contents)
 
-		src.destroyed = 1
+		destroyed = TRUE
+		obj_flags &= ~OBJ_FLAG_SIGNALER
 		playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
-		src.density = 0
-		update_icon()
+		density = FALSE
 
 		if (src.holding)
 			src.holding.forceMove(src.loc)
 			src.holding = null
+
+		if(signaler)
+			signaler.forceMove(get_turf(src))
+			signaler = null
+
+		update_icon()
 
 		return 1
 	else
@@ -275,12 +282,17 @@ update_flag
 			valve_open = !valve_open
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer))
-		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
+	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer) && !issignaler(W) && !(W.iswirecutter() && signaler))
+		if(W.flags & NOBLUDGEON)
+			return
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
+		user.do_attack_animation(src, W)
+		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
 		src.health -= W.force
 		if(!istype(W, /obj/item/forensics))
 			src.add_fingerprint(user)
 		healthcheck()
+		return
 
 	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
 		var/datum/gas_mixture/thejetpack = W:air_contents
@@ -403,6 +415,11 @@ update_flag
 	update_icon()
 
 	return 1
+
+/obj/machinery/portable_atmospherics/canister/do_signaler()
+	valve_open = !valve_open
+	if(valve_open)
+		log_open_userless("a signaler")
 
 /obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	. = ..()

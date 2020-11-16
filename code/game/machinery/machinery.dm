@@ -164,6 +164,12 @@ Class Procs:
 
 	return ..()
 
+/obj/machinery/examine(mob/user)
+	. = ..()
+	if(obj_flags & OBJ_FLAG_SIGNALER)
+		if(signaler && Adjacent(user))
+			to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
+
 /obj/machinery/proc/machinery_process()	//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
 		return PROCESS_KILL
@@ -277,6 +283,24 @@ Class Procs:
 			return 1
 
 	src.add_fingerprint(user)
+
+	return ..()
+
+/obj/machinery/attackby(obj/item/W, mob/user)
+	if(obj_flags & OBJ_FLAG_SIGNALER)
+		if(istype(W, /obj/item/device/assembly/signaler))
+			var/obj/item/device/assembly/signaler/S = W
+			user.drop_from_inventory(W, src)
+			signaler = S
+			S.machine = src
+			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
+			return
+		else if(W.iswirecutter() && signaler)
+			signaler.forceMove(get_turf(user))
+			signaler.machine = null
+			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] to \the [src]."), range = 3)
+			signaler = null
+			return
 
 	return ..()
 

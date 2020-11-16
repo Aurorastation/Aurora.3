@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now attach signalers to canisters. When activated, the signaler will toggle the valve open or shut."
+  - tweak: "Attacking a canister now has a sound and an animation."

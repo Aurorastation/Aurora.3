@@ -133,8 +133,7 @@
 		A.analyze_gases(src, user)
 		return
 
-	return
-
+	return ..()
 
 
 /obj/machinery/portable_atmospherics/powered
@@ -195,3 +194,16 @@
 
 	log_admin("[user] ([user.ckey]) opened '[src.name]' containing [gases].", ckey=key_name(user))
 	message_admins("[key_name_admin(user)] opened '[src.name]' containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+
+/obj/machinery/portable_atmospherics/proc/log_open_userless(var/cause)
+	if(air_contents.gas.len == 0)
+		return
+
+	var/gases = ""
+	for(var/gas in air_contents.gas)
+		if(gases)
+			gases += ", [gas]"
+		else
+			gases = gas
+
+	message_admins("'[src.name]' was opened[cause ? " by [cause]" : ""], containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
