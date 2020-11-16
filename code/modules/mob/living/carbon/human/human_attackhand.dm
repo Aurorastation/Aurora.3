@@ -200,7 +200,10 @@
 				visible_message("<span class='warning'>[M] gets a strong grip on [src]!</span>")
 				return 1
 			if(src.has_tail() && H.has_tail())
-				H.visible_message(SPAN_DANGER("[H] coils their tail with [src], wow is that okay in public?!"), "You entwine your tail with [src]'s!")
+				var/other_msg = SPAN_WARNING("[H] coils their tail with [src]'s.")
+				if(length(viewers(src)|viewers(H)) > 3)
+					other_msg = SPAN_DANGER("[H] coils their tail with [src]'s. Wow, is that okay in public?!")
+				H.visible_message(other_msg, SPAN_NOTICE("You entwine your tail with [src]'s!"))
 				gib(H)
 			else
 				visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
