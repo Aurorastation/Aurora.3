@@ -310,6 +310,8 @@
 	update_icon()
 
 /obj/machinery/body_scanconsole/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/body_scanconsole/attack_hand(var/mob/user)

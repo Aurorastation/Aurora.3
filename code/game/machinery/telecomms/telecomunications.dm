@@ -543,6 +543,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 					race = "Slime"
 				else if(isanimal(M))
 					race = "Domestic Animal"
+				else if(istype(M, /mob/living/announcer))
+					race = "Announcer"
 
 				log.parameters["race"] = race
 

@@ -20,6 +20,8 @@
 		current_network = network[1]
 
 /obj/machinery/computer/security/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/security/check_eye(var/mob/user as mob)
