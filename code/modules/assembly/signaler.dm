@@ -165,7 +165,7 @@
 	if(use_check_and_message(user))
 		return
 	to_chat(user, SPAN_NOTICE("You click \the [src]'s signal button."))
-	signal()
+	signal(user)
 
 /obj/item/device/assembly/signaler/proc/deadman_trigger(var/mob/user)
 	if(deadman) //If its not activated, there is no point in triggering it
