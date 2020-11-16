@@ -532,7 +532,7 @@ var/list/ai_verbs_default = list(
 			to_chat(src, "<span class='notice'>Unable to locate visual entry.</span>")
 			return
 		var/info = cameraRecords[entry]
-		src << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", info[1], info[2]), "window=[html_encode(info[1])]")
+		src << browse("<HTML><HEAD><TITLE>[info[1]]</TITLE></HEAD><BODY><TT>[info[2]]</TT></BODY></HTML>", "window=[html_encode(info[1])]")
 		return
 
 	return

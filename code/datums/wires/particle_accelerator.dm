@@ -9,10 +9,9 @@ var/const/PARTICLE_LIMIT_POWER_WIRE = 4 // Determines how strong the PA can be.
 /datum/wires/particle_acc/control_box/GetInteractWindow()
 	var/obj/machinery/particle_accelerator/control_box/C = holder
 	. += ..()
-	. += text("<br>\n[]<br>\n[]<br>\n[]",
-	((C.active && C.assembled) ? "The firing light is on." : "The firing light is off."),
-	(C.strength ? "The strength light is blinking." : "The strength light is off."),
-	(C.strength_upper_limit == 2 ? "The strength limiter light is on." : "The strength limiter light is off."))
+	. += "<br>\n[(C.active && C.assembled) ? "The firing light is on." : "The firing light is off."]"
+	. += "<br>\n[C.strength ? "The strength light is blinking." : "The strength light is off."]"
+	. += "<br>\n[C.strength_upper_limit == 2 ? "The strength limiter light is on." : "The strength limiter light is off."]"
 
 /datum/wires/particle_acc/control_box/CanUse(var/mob/living/L)
 	var/obj/machinery/particle_accelerator/control_box/C = holder
