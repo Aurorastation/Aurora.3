@@ -122,6 +122,9 @@
 	else
 		update_flag |= 32
 
+	if(signaler)
+		update_flag |= 64
+
 	if(update_flag == old_flag)
 		return 1
 	else
@@ -153,6 +156,9 @@ update_flag
 	cut_overlays()
 	set_light(FALSE)
 
+	if(signaler)
+		add_overlay("signaler")
+
 	if(update_flag & 1)
 		add_overlay("can-open")
 	if(update_flag & 2)
@@ -173,7 +179,6 @@ update_flag
 		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(indicator_overlay)
 		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
-	return
 
 /obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > temperature_resistance)
@@ -197,9 +202,7 @@ update_flag
 			src.holding.forceMove(src.loc)
 			src.holding = null
 
-		if(signaler)
-			signaler.forceMove(get_turf(src))
-			signaler = null
+		detach_signaler(get_turf(src))
 
 		update_icon()
 
@@ -309,6 +312,7 @@ update_flag
 
 	..()
 
+	update_icon()
 	SSnanoui.update_uis(src) // Update all NanoUIs attached to src
 
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)

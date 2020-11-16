@@ -199,11 +199,4 @@
 	if(air_contents.gas.len == 0)
 		return
 
-	var/gases = ""
-	for(var/gas in air_contents.gas)
-		if(gases)
-			gases += ", [gas]"
-		else
-			gases = gas
-
-	message_admins("'[src.name]' was opened[cause ? " by [cause]" : ""], containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	message_admins("'[src.name]' was opened[cause ? " by [cause]" : ""], containing [english_list(air_contents.gas)]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
