@@ -247,8 +247,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		var/obj/item/barcodescanner/scanner = W
 		scanner.computer = src
 		to_chat(user, "[scanner]'s associated machine has been set to [src].")
-		for (var/mob/V in hearers(src))
-			V.show_message("[src] lets out a low, short blip.", 2)
+		audible_message("[src] lets out a low, short blip.")
 	else
 		..()
 
