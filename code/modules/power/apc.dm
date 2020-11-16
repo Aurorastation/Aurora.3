@@ -909,7 +909,7 @@
 /obj/machinery/power/apc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!user)
 		return
-
+	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
 	var/list/data = list(
 		"locked" = (locked && !emagged) ? TRUE : FALSE,
 		"isOperating" = operating,
@@ -922,7 +922,7 @@
 		"totalCharging" = round(lastused_charging),
 		"coverLocked" = coverlocked,
 		"failTime" = failure_timer * 2,
-		"siliconUser" = issilicon(user),
+		"siliconUser" = isAdmin || issilicon(user),
 		"emergencyMode" = !emergency_lights,
 		"time" = time,
 		"charge_mode" = charge_mode,
@@ -963,7 +963,7 @@
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "apc.tmpl", "[area.name] - APC", 665, data["siliconUser"] ? 485 : 460)
+		ui = new(user, src, ui_key, "apc.tmpl", "[area.name] - APC", 665, data["siliconUser"] ? 540 : 480)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(TRUE)
@@ -986,12 +986,14 @@
 	return wires.IsIndexCut(wireIndex)
 
 /obj/machinery/power/apc/proc/can_use(mob/user, var/loud = 0) //used by attack_hand() and Topic()
-	if (user.stat)
+	if(inoperable())
+		return FALSE
+	if(isobserver(user))
+		return check_rights(R_ADMIN, FALSE, user) // admins can use the UI when ghosting
+	if(user.stat)
 		to_chat(user, SPAN_WARNING("You must be conscious to use [src]!"))
 		return FALSE
 	if(!user.client)
-		return FALSE
-	if(inoperable())
 		return FALSE
 	if(!user.IsAdvancedToolUser())
 		return FALSE
@@ -1019,6 +1021,7 @@
 	else
 		if (!in_range(src, user) || !isturf(loc))
 			return FALSE
+
 	var/mob/living/carbon/human/H = user
 	if (istype(H))
 		if(H.getBrainLoss() >= 60)
@@ -1027,6 +1030,7 @@
 		else if(prob(H.getBrainLoss()))
 			to_chat(user, SPAN_DANGER("You momentarily forget how to use [src]."))
 			return FALSE
+
 	return TRUE
 
 /obj/machinery/power/apc/Topic(href, href_list)
@@ -1041,12 +1045,13 @@
 		update_icon()
 		return TRUE
 
-	else if(!issilicon(usr) && (locked && !emagged))
+	var/isAdmin = isobserver(usr) && check_rights(R_ADMIN, FALSE)
+	if(!issilicon(usr) && !isAdmin && locked && !emagged)
 		// Shouldn't happen, this is here to prevent href exploits
 		to_chat(usr, "You must unlock the panel to use this!")
 		return TRUE
 
-	else if (href_list["emergency_lights"])
+	if (href_list["emergency_lights"])
 		emergency_lights = href_list["emergency_lights"] != "off"
 		for (var/obj/machinery/light/L in area)
 			if (!initial(L.no_emergency))
@@ -1091,13 +1096,13 @@
 		update()
 
 	else if (href_list["overload"])
-		if(issilicon(usr))
+		if(isAdmin || issilicon(usr))
 			overload_lighting()
 
 	else if (href_list["toggleaccess"])
-		if(issilicon(usr))
-			if(emagged || (stat & (BROKEN|MAINT)))
-				to_chat(usr, "The APC does not respond to the command.")
+		if(isAdmin || issilicon(usr))
+			if(emagged || stat & MAINT)
+				to_chat(usr, SPAN_DANGER("The APC does not respond to the command."))
 			else
 				locked = !locked
 				update_icon()

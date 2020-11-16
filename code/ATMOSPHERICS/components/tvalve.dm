@@ -297,6 +297,8 @@
 		icon_state = "tvalvenopower"
 
 /obj/machinery/atmospherics/tvalve/digital/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/atmospherics/tvalve/digital/attack_hand(mob/user as mob)
@@ -437,6 +439,8 @@
 		icon_state = "tvalvemnopower"
 
 /obj/machinery/atmospherics/tvalve/mirrored/digital/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/atmospherics/tvalve/mirrored/digital/attack_hand(mob/user as mob)
