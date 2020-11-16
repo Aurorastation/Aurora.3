@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - bugfix: "Changing someone's rank will no longer cause a runtime that causes Crew Manifest to stop working / show nothing."
