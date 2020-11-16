@@ -44,7 +44,7 @@
 			"listening" = (host.radio.channels[ch_name] & host.radio.FREQ_LISTENING)
 		)
 		pai_channels[++pai_channels.len] = channel_info
-	VUEUI_SET_CHECK(data["channels"], pai_channels, ., data)
+	data["channels"] = pai_channels
 
 /datum/computer_file/program/pai_radio/Topic(href, href_list)
 	. = ..()

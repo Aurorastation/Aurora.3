@@ -54,7 +54,7 @@
 			return
 		var/obj/item/device/encryptionkey/EK = C
 		var/added_channels = FALSE
-		for(var/thing in EK.channels | EK.additional_channels)
+		for(var/thing in (EK.channels | EK.additional_channels))
 			if(!radio.channels[thing])
 				added_channels = TRUE
 				break
@@ -83,8 +83,7 @@
 
 	for(var/keyslot in installed_encryptionkeys)
 		var/obj/item/device/encryptionkey/EK = keyslot
-
-		for(var/ch_name in EK.channels | EK.additional_channels) 
+		for(var/ch_name in (EK.channels | EK.additional_channels))
 			radio.channels[ch_name] = radio.FREQ_LISTENING
 
 	for(var/ch_name in radio.channels)
