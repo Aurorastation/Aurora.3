@@ -201,7 +201,7 @@
 				return 1
 			if(src.has_tail() && H.has_tail())
 				H.visible_message(SPAN_DANGER("[H] coils their tail with [src], wow is that okay in public?!"), "You entwine your tail with [src]'s!")
-				qdel(H)
+				gib(H)
 			else
 				visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
 			return 1
