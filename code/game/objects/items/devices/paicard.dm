@@ -54,15 +54,10 @@
 			return
 		var/obj/item/device/encryptionkey/EK = C
 		var/added_channels = FALSE
-		for(var/thing in EK.channels)
+		for(var/thing in EK.channels | EK.additional_channels)
 			if(!radio.channels[thing])
 				added_channels = TRUE
 				break
-		if(!added_channels)
-			for(var/thing in EK.additional_channels)
-				if(!radio.channels[thing])
-					added_channels = TRUE
-					break
 		if(added_channels)
 			installed_encryptionkeys += EK
 			user.drop_from_inventory(EK, src)
