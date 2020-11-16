@@ -435,7 +435,8 @@
 			var/i = amount
 			for(var/obj/O in contents)
 				if(O.name == K)
-					if(Adjacent(user))
+					if(istype(usr, /mob/) && Adjacent(usr))
+						var/mob/user = usr
 						user.put_in_hands(O)
 					else
 						O.forceMove(loc)
