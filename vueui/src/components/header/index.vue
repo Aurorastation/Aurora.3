@@ -18,14 +18,14 @@ export default {
   },
   methods: {
     close($event) {
-      $event.stopPropagation();
-      Utils.sendToTopic({'vueuiclose': 1});
+      $event.stopPropagation()
+      Utils.sendToTopic({'vueuiclose': 1})
     },
     startDragging($event) {
-      ByWin.dragStartHandler($event);
+      ByWin.dragStartHandler($event)
     },
     stopDragging($event) {
-      ByWin.dragEndHandler($event);
+      ByWin.dragEndHandler($event)
     },
   }
 }

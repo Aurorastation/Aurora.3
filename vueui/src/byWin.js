@@ -48,8 +48,6 @@ export function winset(id, propName, propValue) {
   return Utils.sendRaw('byond://winset', props)
 }
 
-export const command = (command) => Utils.sendRaw('winset', { command })
-
 export const setWindowKey = (key) => state.windowKey = key
 
 export const getWindowPosition = () => [window.screenLeft, window.screenTop]
@@ -164,7 +162,6 @@ export default {
   isBYOND,
   winget,
   winset,
-  command,
   setWindowKey,
   getWindowPosition,
   getWindowSize,

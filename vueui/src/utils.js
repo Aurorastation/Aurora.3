@@ -34,7 +34,7 @@ export default {
     }))
   },
   sendToTopicRaw(data) {
-    this.sendRaw('?', data)
+    this.sendRaw('', data)
   },
   sendToTopic(data, pushState = false) {
     var pushData = {
