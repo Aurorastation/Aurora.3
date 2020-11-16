@@ -513,7 +513,8 @@
 	id = "radiatorshutters";
 	name = "Radiator Shutters Control";
 	pixel_x = 6;
-	req_access = list(11,48)
+	req_access = null;
+	req_one_access = list(11,48,65)
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/rubber,
