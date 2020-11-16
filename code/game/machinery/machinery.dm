@@ -309,6 +309,12 @@ Class Procs:
 	if(!signaler)
 		return
 
+	if(!detach_turf)
+		detach_turf = get_turf(src)
+	if(!detach_turf)
+		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
+		return
+
 	signaler.forceMove(detach_turf)
 	signaler.machine = null
 	signaler = null

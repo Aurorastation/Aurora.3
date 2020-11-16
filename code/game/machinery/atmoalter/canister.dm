@@ -202,7 +202,7 @@ update_flag
 			src.holding.forceMove(src.loc)
 			src.holding = null
 
-		detach_signaler(get_turf(src))
+		detach_signaler()
 
 		update_icon()
 
