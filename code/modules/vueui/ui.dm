@@ -139,7 +139,7 @@ main ui datum.
 	</head>
 	<body class="[get_theme_class()]">
 		<div id="header"></div>
-		<div class="mainContent"
+		<div class="mainContent">
 			<div id="app">
 				Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
 			</div>
