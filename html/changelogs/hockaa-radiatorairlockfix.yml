@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes:
+  - bugfix: "The engine radiator airlocks no only require one of the listed accesses instead of all of them. The radiator shutter button has also received the same treatment."
