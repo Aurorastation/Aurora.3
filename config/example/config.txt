@@ -54,6 +54,9 @@ LOG_SAY
 ## log admin actions
 LOG_ADMIN
 
+## log signaler actions
+LOG_SIGNALER
+
 ## log client access (logon/logoff)
 LOG_ACCESS
 
