@@ -279,7 +279,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/white
 	name = "eyepatch"
-	desc = "A simple eyepatch made of a strip of cloth"
+	desc = "A simple eyepatch made out of a strip of cloth."
 	icon_state = "eyepatch_white"
 	item_state = "eyepatch_white"
 
