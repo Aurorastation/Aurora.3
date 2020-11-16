@@ -2037,3 +2037,8 @@
 	if(!(accent in species.allowed_accents))
 		accent = species.default_accent
 	return TRUE
+
+/mob/living/carbon/human/proc/has_tail(var/headtails = FALSE)
+	if(isunathi(src) || istajara(src) || (headtails && isskrell(src)))
+		return TRUE
+	return FALSE
