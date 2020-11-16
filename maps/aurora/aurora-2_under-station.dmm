@@ -513,7 +513,8 @@
 	id = "radiatorshutters";
 	name = "Radiator Shutters Control";
 	pixel_x = 6;
-	req_access = list(11,48)
+	req_access = null;
+	req_one_access = list(11,48,65)
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/rubber,
@@ -556,7 +557,8 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(11,48,65)
+	req_access = null;
+	req_one_access = list(11,48,65)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4

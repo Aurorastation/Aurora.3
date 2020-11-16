@@ -1475,6 +1475,9 @@
 	if(change_hair)
 		species.set_default_hair(src)
 
+	if(species.default_accent)
+		accent = species.default_accent
+
 	if(species)
 		return 1
 	else
