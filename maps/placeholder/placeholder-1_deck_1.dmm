@@ -813,6 +813,17 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/janitor)
+"sQ" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "sS" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 10
@@ -1161,6 +1172,9 @@
 /area/janitor)
 "zv" = (
 /obj/structure/closet/secure_closet/miner,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "zy" = (
@@ -1231,6 +1245,7 @@
 /area/janitor)
 "Bc" = (
 /obj/structure/window/reinforced,
+/obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
 	},
@@ -1327,11 +1342,8 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Dk" = (
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_x = 9;
-	pixel_y = 16
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/closet/secure_closet/miner,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "Dl" = (
 /obj/structure/table/steel,
@@ -1437,7 +1449,10 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "EN" = (
-/obj/structure/dispenser/oxygen,
+/obj/structure/closet/secure_closet/miner,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "EP" = (
@@ -1593,7 +1608,9 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Hd" = (
-/obj/machinery/suit_cycler/mining,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Hf" = (
@@ -1929,14 +1946,9 @@
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Ni" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/head/helmet/space/void/mining,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 4
 	},
-/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "No" = (
@@ -1979,14 +1991,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "NE" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/head/helmet/space/void/mining,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "NI" = (
@@ -2220,6 +2225,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
+/turf/simulated/floor/tiled,
+/area/janitor)
+"SF" = (
+/obj/machinery/suit_cycler/mining,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "SK" = (
@@ -2548,6 +2557,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
+/area/janitor)
+"Zk" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/janitor)
 "Zx" = (
 /obj/structure/grille,
@@ -12574,9 +12594,9 @@ aa
 aa
 aa
 oG
-qU
-qU
-qU
+gI
+gI
+gI
 oG
 gI
 Vh
@@ -12978,8 +12998,8 @@ aa
 aa
 aa
 oG
-qU
-qU
+gI
+gI
 Vh
 oG
 gI
@@ -13993,7 +14013,7 @@ gI
 Vh
 gI
 gI
-Vh
+BG
 BG
 FY
 Vh
@@ -14195,7 +14215,7 @@ Vh
 vI
 Vh
 Vh
-vI
+BG
 BG
 FY
 Vh
@@ -14397,7 +14417,7 @@ gI
 Vh
 gI
 gI
-Vh
+CX
 CX
 GL
 KC
@@ -15610,7 +15630,7 @@ be
 be
 be
 oG
-Dk
+qn
 ci
 Vh
 Vh
@@ -18032,12 +18052,12 @@ oG
 oG
 oG
 oG
-oG
-AJ
-cC
-AJ
-oG
-oG
+zv
+Hd
+Vh
+Vh
+Hd
+sQ
 oG
 AJ
 AJ
@@ -18232,14 +18252,14 @@ be
 oG
 be
 be
+be
 oG
-zv
+Dk
 Vh
 Vh
 Vh
 Vh
-Vh
-Ni
+Nz
 oG
 Vh
 Vh
@@ -18434,9 +18454,9 @@ oG
 oG
 be
 be
+be
 oG
-zv
-Vh
+Dk
 Vh
 Vh
 Vh
@@ -18636,14 +18656,14 @@ oG
 be
 be
 be
+be
 oG
-zv
+EN
+Ni
 Vh
 Vh
-Vh
-Vh
-Vh
-Nz
+Ni
+Zk
 oG
 Vh
 Vh
@@ -18839,13 +18859,13 @@ be
 be
 be
 oG
-zv
-Vh
-Vh
-Vh
-Vh
-Vh
+oG
+oG
+Bb
 NE
+SF
+oG
+oG
 oG
 Vh
 Vh
@@ -19041,13 +19061,13 @@ be
 be
 oG
 oG
+be
 oG
 oG
-Bb
-EN
-Hd
 oG
 oG
+oG
+be
 oG
 Vh
 Vh
@@ -19245,10 +19265,10 @@ oG
 be
 be
 oG
-oG
-oG
-oG
-oG
+be
+be
+be
+be
 be
 oG
 Vh
