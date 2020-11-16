@@ -646,19 +646,19 @@
 	dat += "Systemic Organ Failure: [occ["toxloss"]]<br>"
 	dat += "Burn Severity: [occ["fireloss"]]<br><br>"
 
-	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
+	dat += "[("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>")]\tRadiation Level %: [occ["rads"]]</font><br>"
 	dat += "Genetic Tissue Damage: [occ["cloneloss"]]<br>"
-	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
-	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
+	dat += "Paralysis Summary %: [occ["paralysis"]] ([round(occ["paralysis"] / 4)] seconds left!)<br>"
+	dat += "Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>"
 
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
 
 	dat += "Inaprovaline: [occ["inaprovaline_amount"]] units<BR>"
 	dat += "Soporific: [occ["stoxin_amount"]] units<BR>"
-	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
-	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
-	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += "[("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>")]\tDermaline: [occ["dermaline_amount"]] units</FONT><BR>"
+	dat += "[("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>")]\tBicaridine: [occ["bicaridine_amount"]] units</font><BR>"
+	dat += "[("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>")]\tDexalin: [occ["dexalin_amount"]] units</font><BR>"
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"
@@ -756,10 +756,10 @@
 	var/list/species_organs = occ["species_organs"]
 	for(var/organ_name in species_organs)
 		if(!locate(species_organs[organ_name]) in occ["internal_organs"])
-			dat += text("<span class='warning'>No [organ_name] detected.</span><BR>")
+			dat += "<span class='warning'>No [organ_name] detected.</span><BR>"
 
 	if(occ["sdisabilities"] & BLIND)
-		dat += text("<span class='warning'>Cataracts detected.</span><BR>")
+		dat += "<span class='warning'>Cataracts detected.</span><BR>"
 	if(occ["sdisabilities"] & NEARSIGHTED)
-		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
+		dat += "<font color='red'>Retinal misalignment detected.</font><BR>"
 	return dat

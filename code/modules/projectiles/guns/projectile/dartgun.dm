@@ -140,9 +140,9 @@
 				for(var/datum/reagent/R in B.reagents.reagent_list)
 					dat += "<br>    [R.volume] units of [R.name], "
 				if (check_beaker_mixing(B))
-					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")
+					dat += "<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> "
 				else
-					dat += text("<A href='?src=\ref[src];mix=[i]'><span class='warning'>Not mixing</span></A> ")
+					dat += "<A href='?src=\ref[src];mix=[i]'><span class='warning'>Not mixing</span></A> "
 			else
 				dat += "nothing."
 			dat += " \[<A href='?src=\ref[src];eject=[i]'>Eject</A>\]<br>"

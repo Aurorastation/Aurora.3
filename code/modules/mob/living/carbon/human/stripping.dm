@@ -3,7 +3,7 @@
 		return FALSE
 
 	if(user.incapacitated() || !user.Adjacent(src))
-		user << browse(null, text("window=mob[src.name]"))
+		user << browse(null, "window=mob[src.name]")
 		return FALSE
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))

@@ -52,7 +52,7 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/msg = sanitize(input("Message:", text("Subtle PM to [M.key]")) as text)
+	var/msg = sanitize(input("Message:", "Subtle PM to [M.key]") as text)
 
 	if (!msg)
 		return
@@ -109,7 +109,7 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to everyone:")) as text))
+	var/msg = html_decode(sanitize(input("Message:", "Enter the text you wish to appear to everyone:") as text))
 
 	if (!msg)
 		return
@@ -136,7 +136,7 @@
 	else
 		return
 
-	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to everyone within seven tiles of you:")) as text))
+	var/msg = html_decode(sanitize(input("Message:", "Enter the text you wish to appear to everyone within seven tiles of you:") as text))
 	if(!msg)
 		return
 	for(var/M in message_mobs)
@@ -159,7 +159,7 @@
 	if(!M)
 		return
 
-	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to your target:")) as text))
+	var/msg = html_decode(sanitize(input("Message:", "Enter the text you wish to appear to your target:") as text))
 
 	if( !msg )
 		return
@@ -319,7 +319,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(text("<span class='notice'><B>You may now respawn. You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
+	G:show_message("<span class='notice'><B>You may now respawn. You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>", 1)
 	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the [config.respawn_delay] minute respawn limit", admin_key=key_name(usr), ckey=key_name(G))
 	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the [config.respawn_delay] minute respawn limit", 1)
 
@@ -689,13 +689,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(!check_rights(R_DEBUG|R_FUN))	return
 
-	var/devastation = input("Range of total devastation. -1 to none", text("Input"))  as num|null
+	var/devastation = input("Range of total devastation. -1 to none", "Input")  as num|null
 	if(devastation == null) return
-	var/heavy = input("Range of heavy impact. -1 to none", text("Input"))  as num|null
+	var/heavy = input("Range of heavy impact. -1 to none", "Input")  as num|null
 	if(heavy == null) return
-	var/light = input("Range of light impact. -1 to none", text("Input"))  as num|null
+	var/light = input("Range of light impact. -1 to none", "Input")  as num|null
 	if(light == null) return
-	var/flash = input("Range of flash. -1 to none", text("Input"))  as num|null
+	var/flash = input("Range of flash. -1 to none", "Input")  as num|null
 	if(flash == null) return
 
 	if ((devastation != -1) || (heavy != -1) || (light != -1) || (flash != -1))
@@ -717,9 +717,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(!check_rights(R_DEBUG|R_FUN))	return
 
-	var/heavy = input("Range of heavy pulse.", text("Input"))  as num|null
+	var/heavy = input("Range of heavy pulse.", "Input")  as num|null
 	if(heavy == null) return
-	var/light = input("Range of light pulse.", text("Input"))  as num|null
+	var/light = input("Range of light pulse.", "Input")  as num|null
 	if(light == null) return
 
 	if (heavy || light)

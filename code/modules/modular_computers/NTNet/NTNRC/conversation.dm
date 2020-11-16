@@ -28,7 +28,7 @@ var/global/ntnrc_uid = 0
 			if(!C.silent && C.username != username && C.program_state == PROGRAM_STATE_BACKGROUND)
 				for (var/mob/O in hearers(2, get_turf(C.computer)))
 					playsound(C.computer, 'sound/machines/twobeep.ogg', 50, 1)
-					C.computer.output_message(text("[icon2html(C.computer, O)] *[C.ringtone]*"))
+					C.computer.output_message("[icon2html(C.computer, O)] *[C.ringtone]*")
 			else if(C.username == username)
 				ntnet_global.add_log(message, C.computer.network_card, TRUE)
 
@@ -68,7 +68,7 @@ var/global/ntnrc_uid = 0
 	direct = TRUE
 	clients.Add(CA)
 	clients.Add(CB)
-	
+
 	add_status_message("[CA.username] has opened direct conversation.")
 	if(CB.program_state > PROGRAM_STATE_KILLED)
 		CB.computer.output_message(FONT_SMALL("<b>([get_title(CB)]) <i>[CA.username]</i> has opened direct conversation with you.</b>"), 0)
@@ -100,7 +100,7 @@ var/global/ntnrc_uid = 0
 		return 0 // Not Authorised
 
 	add_status_message("[client.username] has changed channel title from [get_title(client)] to [newtitle]")
-	
+
 	for(var/datum/computer_file/program/chatclient/C in clients)
 		if(C.program_state > PROGRAM_STATE_KILLED && C != client)
 			C.computer.output_message(FONT_SMALL("([get_title(C)]) <i>[client.username]</i> has changed the channel title to <b>[newtitle]</b>."), 0)

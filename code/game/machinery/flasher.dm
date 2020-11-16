@@ -125,11 +125,11 @@
 		src.anchored = !src.anchored
 
 		if (!src.anchored)
-			user.show_message(text("<span class='warning'>[src] can now be moved.</span>"))
+			user.show_message("<span class='warning'>[src] can now be moved.</span>")
 			cut_overlays()
 
 		else if (src.anchored)
-			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
+			user.show_message("<span class='warning'>[src] is now secured.</span>")
 			add_overlay("[base_state]-s")
 
 /obj/machinery/button/flasher

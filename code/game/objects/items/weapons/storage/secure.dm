@@ -30,7 +30,7 @@
 
 	examine(mob/user)
 		if(..(user, 1))
-			to_chat(user, text("The service panel is [src.open ? "open" : "closed"]."))
+			to_chat(user, "The service panel is [src.open ? "open" : "closed"].")
 
 	attackby(obj/item/W as obj, mob/user as mob)
 		if(locked)
@@ -79,14 +79,14 @@
 
 	attack_self(mob/user as mob)
 		user.set_machine(src)
-		var/dat = text("<TT><B>[]</B><BR>\n\nLock Status: []",src, (src.locked ? "LOCKED" : "UNLOCKED"))
+		var/dat = "<TT><B>[src]</B><BR>\n\nLock Status: [(src.locked ? "LOCKED" : "UNLOCKED")]"
 		var/message = "Code"
 		if ((src.l_set == 0) && (!src.emagged) && (!src.l_setshort))
-			dat += text("<p>\n<b>5-DIGIT PASSCODE NOT SET.<br>ENTER NEW PASSCODE.</b>")
+			dat += "<p>\n<b>5-DIGIT PASSCODE NOT SET.<br>ENTER NEW PASSCODE.</b>"
 		if (src.emagged)
-			dat += text("<p>\n<font color=red><b>LOCKING SYSTEM ERROR - 1701</b></font>")
+			dat += "<p>\n<font color=red><b>LOCKING SYSTEM ERROR - 1701</b></font>"
 		if (src.l_setshort)
-			dat += text("<p>\n<font color=red><b>ALERT: MEMORY SYSTEM ERROR - 6040 201</b></font>")
+			dat += "<p>\n<font color=red><b>ALERT: MEMORY SYSTEM ERROR - 6040 201</b></font>"
 		message = "[src.code]"
 		if (!src.locked)
 			message = "*****"

@@ -70,7 +70,7 @@
 		update_icon()
 		return
 	else
-		to_chat(usr, text("<span class='warning'>You kick the display case.</span>"))
+		to_chat(usr, "<span class='warning'>You kick the display case.</span>")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
 				to_chat(O, "<span class='warning'>[usr] kicks the display case.</span>")

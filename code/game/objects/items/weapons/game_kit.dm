@@ -22,7 +22,7 @@ THAT STUPID GAME KIT
 					src.attack_hand(usr, 0, 1)
 
 /obj/item/game_kit/proc/update()
-	var/dat = text("<CENTER><B>Game Board</B></CENTER><BR><a href='?src=\ref[];mode=hia'>[]</a> <a href='?src=\ref[];mode=remove'>remove</a><HR><table width= 256  border= 0  height= 256  cellspacing= 0  cellpadding= 0 >", src, (src.selected ? "Selected: [src.selected]" : "Nothing Selected"), src)
+	var/dat = "<CENTER><B>Game Board</B></CENTER><BR><a href='?src=\ref[src];mode=hia'>[(src.selected ? "Selected: [src.selected]" : "Nothing Selected")]</a> <a href='?src=\ref[src];mode=remove'>remove</a><HR><table width= 256  border= 0  height= 256  cellspacing= 0  cellpadding= 0 >"
 	for (var/y = 1 to 8)
 		dat += "<tr>"
 
@@ -101,16 +101,16 @@ THAT STUPID GAME KIT
 							src.board_stat = "[copytext(src.board_stat, 1, 127)]BB"
 						else
 							if (place)
-								src.board_stat = text("[copytext(src.board_stat, 1, place)]BB[copytext(src.board_stat, place + 2, 129)]")
+								src.board_stat = "[copytext(src.board_stat, 1, place)]BB[copytext(src.board_stat, place + 2, 129)]"
 					place = ((ty - 1) * 8 + tx) * 2 - 1
 					if (place == 1)
-						src.board_stat = text("[src.selected][copytext(src.board_stat, 3, 129)]", src.selected)
+						src.board_stat = "[src.selected][copytext(src.board_stat, 3, 129)]"
 					else
 						if (place == 127)
-							src.board_stat = text("[][]", copytext(src.board_stat, 1, 127), src.selected)
+							src.board_stat = "[copytext(src.board_stat, 1, 127)][src.selected]"
 						else
 							if (place)
-								src.board_stat = text("[][][]", copytext(src.board_stat, 1, place), src.selected, copytext(src.board_stat, place + 2, 129))
+								src.board_stat = "[copytext(src.board_stat, 1, place)][src.selected][copytext(src.board_stat, place + 2, 129)]"
 					src.selected = null
 				else
 					if (src.selected == "remove")

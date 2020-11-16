@@ -162,9 +162,9 @@
 // this function shows the health of the AI in the Status panel
 /mob/living/silicon/proc/show_system_integrity()
 	if(!stat)
-		stat(null, text("System Integrity: [round((health/maxHealth)*100)]%"))
+		stat(null, "System Integrity: [round((health/maxHealth)*100)]%")
 	else
-		stat(null, text("Systems Non-functional"))
+		stat(null, "Systems Non-functional")
 
 // This is a pure virtual function, it should be overwritten by all subclasses
 /mob/living/silicon/proc/show_malf_ai()
