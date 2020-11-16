@@ -84,10 +84,7 @@
 	for(var/keyslot in installed_encryptionkeys)
 		var/obj/item/device/encryptionkey/EK = keyslot
 
-		for(var/ch_name in EK.channels)
-			radio.channels[ch_name] = radio.FREQ_LISTENING
-
-		for(var/ch_name in EK.additional_channels)
+		for(var/ch_name in EK.channels | EK.additional_channels) 
 			radio.channels[ch_name] = radio.FREQ_LISTENING
 
 	for(var/ch_name in radio.channels)
