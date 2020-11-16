@@ -253,7 +253,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
 		else
-			audible_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
+			audible_message("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'",,4)
 
 	//Handle screen switching
 	if(href_list["setScreen"])
@@ -451,7 +451,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 						P.set_content_unsafe(pname, info)
 						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))
-							player.show_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Fax received'"))
+							player.show_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Fax received'")
 						Console.paperstock--
 				if(sent == 1)
 					user.show_message("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Message Sent.'")

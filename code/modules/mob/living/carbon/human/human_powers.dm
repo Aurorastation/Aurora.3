@@ -97,7 +97,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	for(var/mob/O in viewers(src, null))
 		if ((O.client && !( O.blinded )))
-			O.show_message(text("<span class='danger'>[] [failed ? "tried to tackle" : "has tackled"] down []!</span>", src, T), 1)
+			O.show_message("<span class='danger'>[src] [failed ? "tried to tackle" : "has tackled"] down [T]!</span>", 1)
 
 /mob/living/carbon/human/proc/leap(mob/living/T as mob in oview(4))
 	set category = "Abilities"

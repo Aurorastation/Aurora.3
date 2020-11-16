@@ -292,7 +292,7 @@
 
 /obj/item/weldingtool/examine(mob/user)
 	if(..(user, 0))
-		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
+		to_chat(user, "[icon2html(src, user)] [name] contains [get_fuel()]/[max_fuel] units of fuel!")
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
@@ -821,6 +821,6 @@
 			else if(UserLoc == slot_r_hand)
 				user.apply_damage(5, BURN, BP_R_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
-	
+
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)
