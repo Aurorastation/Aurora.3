@@ -646,6 +646,8 @@ var/list/ai_verbs_default = list(
 				selectable_humans[H.name] = H
 		if(length(selectable_humans))
 			var/chosen_human = input(usr, "Select the humanoid whose form you wish to emulate.", "Hologram Select") as null|anything in selectable_humans
+			if(!chosen_human)
+				return
 			var/mob/living/carbon/human/H = selectable_humans[chosen_human]
 			holo_icon.appearance = H.appearance
 		else
