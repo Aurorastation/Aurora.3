@@ -77,7 +77,10 @@
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
-			loaded_pill_bottle.forceMove(src.loc)
+			if(Adjacent(usr))
+				usr.put_in_hands(loaded_pill_bottle)
+			else
+				loaded_pill_bottle.forceMove(src.loc)
 			loaded_pill_bottle = null
 	else if(href_list["close"])
 		usr << browse(null, "window=chemmaster")
@@ -146,7 +149,10 @@
 			return
 		else if (href_list["eject"])
 			if(beaker)
-				beaker:loc = src.loc
+				if(Adjacent(usr))
+					usr.put_in_hands(beaker)
+				else
+					beaker:loc = src.loc
 				beaker = null
 				reagents.clear_reagents()
 				icon_state = "mixer0"
