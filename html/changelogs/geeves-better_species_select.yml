@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "The species select in the character creation menu will now display the main species first, and then the sub-species after select the main one, instead of putting them all in one screen."
