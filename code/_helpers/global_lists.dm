@@ -36,7 +36,7 @@ var/global/list/datum/species/all_species = list()
 var/global/list/all_languages = list()
 var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list(SPECIES_HUMAN) // Species that require a whitelist check.
-var/global/list/playable_species = list(SPECIES_HUMAN)    // A list of ALL playable species, whitelisted, latejoin or otherwise.
+var/global/list/playable_species = list()    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
 // Posters
 var/global/list/poster_designs = list()
@@ -168,8 +168,10 @@ var/global/list/cloaking_devices = list()
 	for (var/thing in all_species)
 		var/datum/species/S = all_species[thing]
 
-		if (!(S.spawn_flags & IS_RESTRICTED))
-			playable_species += S.name
+		if(!(S.spawn_flags & IS_RESTRICTED) && S.category_name)
+			if(!length(playable_species[S.category_name]))
+				playable_species[S.category_name] = list()
+			playable_species[S.category_name] += S.name
 		if(S.spawn_flags & IS_WHITELISTED)
 			whitelisted_species += S.name
 
