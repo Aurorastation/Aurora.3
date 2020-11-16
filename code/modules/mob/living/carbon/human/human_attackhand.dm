@@ -24,14 +24,12 @@
 
 	..()
 	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))
-		to_chat(H, "<span class='danger'>You are now visible.</span>")
 		H.invisibility = 0
 
 		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
 		anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
 
-		for(var/mob/O in oviewers(H))
-			O.show_message("[H.name] appears from thin air!",1)
+		H.visible_message("[H] appears from thin air!", SPAN_DANGER("You are now visible."))
 		playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 75, 1)
 
 	// Should this all be in Touch()?

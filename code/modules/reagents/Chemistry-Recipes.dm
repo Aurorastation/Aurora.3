@@ -126,9 +126,7 @@
 	if(container && !ismob(container))
 		var/turf/T = get_turf(container)
 		if(mix_message)
-			var/list/seen = viewers(4, T)
-			for(var/mob/M in seen)
-				M.show_message("<span class='notice'>[icon2html(container, viewers(get_turf(src)))] [mix_message]</span>", 1)
+			container.visible_message("<span class='notice'>[icon2html(container, viewers(get_turf(src)))] [mix_message]</span>", range = 4)
 		if(reaction_sound)
 			playsound(T, reaction_sound, 80, 1)
 
@@ -794,7 +792,7 @@
 /datum/chemical_reaction/plastication/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/stack/material/plastic(get_turf(holder.my_atom), created_volume)
 	return
-	
+
 /datum/chemical_reaction/uraniumsolidification
     name = "Uranium"
     id = "soliduranium"

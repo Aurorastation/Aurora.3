@@ -981,10 +981,8 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 	return
 
 /obj/machinery/newscaster/proc/newsAlert(var/news_call)
-	var/turf/T = get_turf(src)
 	if(news_call)
-		for(var/mob/O in hearers(world.view-1, T))
-			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"[news_call]\"</span>",2)
+		audible_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"[news_call]\"</span>", hearing_distance = world.view-1)
 
 		if (!alert)
 			alert = 1
@@ -993,8 +991,7 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 
 		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
 	else
-		for(var/mob/O in hearers(world.view-1, T))
-			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"Attention! Wanted issue distributed!\"</span>",2)
+		audible_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"Attention! Wanted issue distributed!\"</span>", hearing_distance = world.view-1)
 		playsound(loc, 'sound/machines/warning-buzzer.ogg', 75, 1)
 	return
 

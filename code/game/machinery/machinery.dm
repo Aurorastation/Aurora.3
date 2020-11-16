@@ -287,8 +287,7 @@ Class Procs:
 	gl_uid++
 
 /obj/machinery/proc/state(var/msg)
-	for(var/mob/O in hearers(src, null))
-		O.show_message("[icon2html(src, O)] <span class = 'notice'>[msg]</span>", 2)
+	audible_message("[icon2html(src, hearers())] <span class='notice'>[msg]</span>")
 
 /obj/machinery/proc/ping(text=null)
 	if (!text)

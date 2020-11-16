@@ -78,8 +78,7 @@
 		return
 
 	busy = 1
-	for(var/mob/O in viewers(user))
-		O.show_message("<span class='warning'>[user] started reprogramming [src]!</span>", 1)
+	user.visible_message(SPAN_WARNING("[user] starts to reprogram [src]!"), SPAN_NOTICE("You start to reprogram [src]."))
 
 	if(do_after(user, 50))
 		set_state(!on)

@@ -57,8 +57,7 @@
 
 			if(C.data == "Clown Land")
 				//whoops
-				for(var/mob/O in hearers(src, null))
-					O.show_message("<span class='warning'>Incoming bluespace portal detected, unable to lock in.</span>", 2)
+				audible_message("<span class='warning'>Incoming bluespace portal detected, unable to lock in.</span>")
 
 				for(var/obj/machinery/teleport/hub/H in range(1))
 					var/amount = rand(2,5)
@@ -66,8 +65,7 @@
 						new /mob/living/simple_animal/hostile/carp(get_turf(H))
 				//
 			else
-				for(var/mob/O in hearers(src, null))
-					O.show_message("<span class='notice'>Locked In</span>", 2)
+				audible_message("<span class='notice'>Locked In</span>")
 				src.locked = L
 				one_time_use = 1
 
@@ -129,8 +127,7 @@
 		return
 
 	src.locked = L[desc]
-	for(var/mob/O in hearers(src, null))
-		O.show_message("<span class='notice'>Locked In</span>", 2)
+	audible_message("<span class='notice'>Locked In</span>")
 	src.add_fingerprint(usr)
 	return
 
@@ -252,8 +249,7 @@
 		use_power(5000)
 		update_use_power(2)
 		com.update_use_power(2)
-		for(var/mob/O in hearers(src, null))
-			O.show_message("<span class='notice'>Teleporter engaged!</span>", 2)
+		audible_message("<span class='notice'>Teleporter engaged!</span>")
 	src.add_fingerprint(usr)
 	src.engaged = 1
 	return
@@ -267,8 +263,7 @@
 		com.accurate = 0
 		com.update_use_power(1)
 		update_use_power(1)
-		for(var/mob/O in hearers(src, null))
-			O.show_message("<span class='notice'>Teleporter disengaged!</span>", 2)
+		audible_message("<span class='notice'>Teleporter disengaged!</span>")
 	src.add_fingerprint(usr)
 	src.engaged = 0
 	return
@@ -283,8 +278,7 @@
 
 	if (com && !active)
 		active = 1
-		for(var/mob/O in hearers(src, null))
-			O.show_message("<span class='notice'>Test firing!</span>", 2)
+		audible_message("<span class='notice'>Test firing!</span>")
 		com.teleport()
 		use_power(5000)
 

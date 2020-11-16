@@ -52,16 +52,13 @@
 			if(w.get_fuel() >= 4 && !src.method)
 				if(inside)
 					inside.forceMove(get_turf(src))
-					for(var/mob/M in viewers(world.view, user))
-						M.show_message("<span class='info'>[src] burns away revealing [inside].</span>",1)
+					visible_message("<span class='info'>[src] burns away revealing [inside].</span>")
 				else
-					for(var/mob/M in viewers(world.view, user))
-						M.show_message("<span class='info'>[src] burns away into nothing.</span>",1)
+					visible_message("<span class='info'>[src] burns away into nothing.</span>")
 				qdel(src)
 				w.remove_fuel(4)
 			else
-				for(var/mob/M in viewers(world.view, user))
-					M.show_message("<span class='info'>A few sparks fly off [src], but nothing else happens.</span>",1)
+				visible_message("<span class='info'>A few sparks fly off [src], but nothing else happens.</span>")
 				w.remove_fuel(1)
 			return
 

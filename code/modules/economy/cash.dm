@@ -248,8 +248,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 		owner_name = user.name
 
 /obj/item/spacecash/ewallet/lotto/proc/speak(var/message = "Hello!")
-	for(var/mob/O in hearers(src.loc, null))
-		O.show_message("<span class='game say'><span class='name'>\The [src]</span> pings, \"[message]\"</span>",2)
+	audible_message("<span class='game say'><span class='name'>\The [src]</span> pings, \"[message]\"</span>")
 	playsound(src.loc, 'sound/machines/ping.ogg', 20, 0, -4)
 
 

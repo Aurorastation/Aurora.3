@@ -596,8 +596,7 @@ default behaviour is:
 						if (prob(75))
 							var/obj/item/grab/G = pick(M.grabbed_by)
 							if (istype(G, /obj/item/grab))
-								for(var/mob/O in viewers(M, null))
-									O.show_message("<span class='warning'>[G.affecting] has been pulled from [G.assailant]'s grip by [src]</span>", 1)
+								M.visible_message(SPAN_WARNING("[G.affecting] has been pulled from [G.assailant]'s grip by [src]"))
 								//G = null
 								qdel(G)
 						else
