@@ -155,11 +155,11 @@
 				else
 					add_overlay("springfield-clip-full")
 			else
-				to_chat(user, "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>")
+				to_chat(user, "<span class='warning'>There is no ammo in \[has_clip]!</span>")
 		else if(!open_bolt)
-			to_chat(user, "<span class='warning'>The bolt on \the [src.name] is closed!</span>")
+			to_chat(user, "<span class='warning'>The bolt on [src] is closed!</span>")
 		else
-			to_chat(user, "<span class='warning'>There is no clip in \the [src.name]!</span>")
+			to_chat(user, "<span class='warning'>There is no clip in [src]!</span>")
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
 	if(!wielded)

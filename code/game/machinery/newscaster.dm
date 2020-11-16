@@ -743,19 +743,16 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			var/obj/item/W = I
 			if(W.force <15)
-				for (var/mob/O in hearers(5, src.loc))
-					O.show_message("[user.name] hits the [src.name] with the [W.name] with no visible effect." )
-					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
+				visible_message(SPAN_WARNING("[user] hits [src] with [W] with no visible effect."), SPAN_NOTICE("You hear something bounce off of glass."), 5)
+				playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 			else
 				src.hitstaken++
 				if(src.hitstaken==3)
-					for (var/mob/O in hearers(5, src.loc))
-						O.show_message("[user.name] smashes the [src.name]!" )
-					src.isbroken=1
+					visible_message(SPAN_DANGER("[user] smashes [src] with [I]!"), SPAN_DANGER("You hear glass shattering!"), 5)
+					src.isbroken=TRUE
 					playsound(src.loc, /decl/sound_category/glass_break_sound, 100, 1)
 				else
-					for (var/mob/O in hearers(5, src.loc))
-						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
+					visible_message(SPAN_DANGER("[user] forcefully slams [src] with [I]!"), SPAN_DANGER("You hear something slam into glass!"), 5)
 					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
 			to_chat(user, "<span class='notice'>This does nothing.</span>")

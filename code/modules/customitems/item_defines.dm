@@ -1914,8 +1914,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	usr.visible_message(
-	"<span class='warning'>[usr] begins taking apart the [src.name].</span>",
-	"<span class='notice'>You begin taking apart the [src.name].</span>")
+	"<span class='warning'>[usr] begins taking apart [src].</span>",
+	"<span class='notice'>You begin taking apart [src].</span>")
 	if(has_bedroll)
 		if(do_after(usr, 20 SECONDS, act_target = src))
 			to_chat(usr, "<span class='notice'>You roll up the bedroll inside \the [src].</span>")

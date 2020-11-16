@@ -74,11 +74,11 @@ field_generator power level display
 	if(state == 2)
 		if(get_dist(src, user) <= 1)//Need to actually touch the thing to turn it on
 			if(src.active >= 1)
-				to_chat(user, "You are unable to turn off the [src.name] once it is online.")
+				to_chat(user, "You are unable to turn off [src] once it is online.")
 				return 1
 			else
-				user.visible_message("[user.name] turns on the [src.name]", \
-					"You turn on the [src.name].", \
+				user.visible_message("[user.name] turns on [src]", \
+					"You turn on [src].", \
 					"You hear heavy droning")
 				turn_on()
 				investigate_log("<font color='green'>activated</font> by [user.key].","singulo")
@@ -121,7 +121,7 @@ field_generator power level display
 			if(1)
 				if (WT.remove_fuel(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-					user.visible_message("[user.name] starts to weld the [src.name] to the floor.", \
+					user.visible_message("[user.name] starts to weld [src] to the floor.", \
 						"You start to weld the [src] to the floor.", \
 						"You hear welding")
 					if (do_after(user,20/W.toolspeed, act_target = src))
@@ -133,7 +133,7 @@ field_generator power level display
 			if(2)
 				if (WT.remove_fuel(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-					user.visible_message("[user.name] starts to cut the [src.name] free from the floor.", \
+					user.visible_message("[user.name] starts to cut [src] free from the floor.", \
 						"You start to cut the [src] free from the floor.", \
 						"You hear welding")
 					if (do_after(user,20/W.toolspeed, act_target = src))

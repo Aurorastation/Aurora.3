@@ -32,7 +32,7 @@
 		if(I.ismultitool())
 			var/obj/item/device/multitool/M = I
 			M.buffer = src
-			to_chat(user, "<span class='caution'>You save the data in the [I.name]'s buffer.</span>")
+			to_chat(user, "<span class='caution'>You save the data in [I]'s buffer.</span>")
 	else
 		if(I.ismultitool())
 			to_chat(user, "<span class='caution'>You should open [src]'s maintenance panel first.</span>")

@@ -351,10 +351,10 @@
 					if(I.is_augment)
 						total_augments += 1
 					if(total_augments >= affected.augment_limit)
-						to_chat(user, SPAN_WARNING("There is no space left in \the [affected] to implant \the [O]."))
+						to_chat(user, SPAN_WARNING("There is no space left in [affected] to implant [O]."))
 						return SURGERY_FAILURE
 			else
-				to_chat(user, SPAN_WARNING("There is no space in \the [affected] to implant \the [O]."))
+				to_chat(user, SPAN_WARNING("There is no space in [affected] to implant [O]."))
 				return SURGERY_FAILURE
 
 		if(!target.internal_organs_by_name[O.organ_tag])
@@ -366,7 +366,7 @@
 		if(O && affected.limb_name == O.parent_organ)
 			organ_compatible = TRUE
 		else
-			to_chat(user, SPAN_WARNING("\The [O.organ_tag] [o_do] normally go in \the [affected.name]."))
+			to_chat(user, SPAN_WARNING("\The [O.organ_tag] [o_do] normally go in [affected]."))
 			return SURGERY_FAILURE
 	else
 		to_chat(user, SPAN_WARNING("You're pretty sure [target.species.name_plural] don't normally have [o_a][O.organ_tag]."))

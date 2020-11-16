@@ -49,7 +49,7 @@
 /obj/item/soap/Crossed(AM as mob|obj)
 	if (istype(AM, /mob/living))
 		var/mob/living/M =	AM
-		M.slip("the [src.name]",3)
+		M.slip("[src]",3)
 
 /obj/item/soap/afterattack(atom/target, mob/user as mob, proximity)
 	if(!proximity) return

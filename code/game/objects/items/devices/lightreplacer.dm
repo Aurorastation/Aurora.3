@@ -87,7 +87,7 @@
 			AddUses(2)
 			if (prob(50))
 				AddUses(1)
-			to_chat(user, "<span class='notice'>You insert five pieces of glass into the [src.name]. You have [uses] lights remaining.</span>")
+			to_chat(user, "<span class='notice'>You insert five pieces of glass into [src]. You have [uses] lights remaining.</span>")
 			return
 		else
 			to_chat(user, "<span class='warning'>You need 5 sheets of glass to replace lights.</span>")
@@ -97,7 +97,7 @@
 		if(L.status == 0) // LIGHT OKAY
 			if(uses < max_uses)
 				AddUses(1)
-				to_chat(user, "You insert \the [L.name] into \the [src.name]. You have [uses] light\s remaining.")
+				to_chat(user, "You insert \the [L.name] into [src]. You have [uses] light\s remaining.")
 				user.drop_from_inventory(L,get_turf(src))
 				qdel(L)
 				return

@@ -22,11 +22,11 @@
 		playsound(src.loc, W.usesound, 75, 1)
 		if(anchored)
 			user.visible_message("[user.name] secures [src.name] to the floor.", \
-				"You secure the [src.name] to the floor.", \
+				"You secure [src] to the floor.", \
 				"You hear a ratchet")
 		else
 			user.visible_message("[user.name] unsecures [src.name] from the floor.", \
-				"You unsecure the [src.name] from the floor.", \
+				"You unsecure [src] from the floor.", \
 				"You hear a ratchet")
 		return
 	return ..()

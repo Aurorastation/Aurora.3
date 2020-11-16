@@ -186,7 +186,7 @@
 				var/obj/machinery/computer/security/S = O.machine
 				if (S.current_camera == src)
 					to_chat(O, "[U] holds \a [itemname] up to one of the cameras ...")
-					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again)
+					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), "window=[itemname]") //Force people watching to open the page so they can't see it again)
 
 	else if (istype(W, /obj/item/camera_bug))
 		if (!src.can_use())

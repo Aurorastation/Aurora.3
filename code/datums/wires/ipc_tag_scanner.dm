@@ -12,8 +12,8 @@ var/const/TAG_WIRE_HACK = 8
 	. = ..()
 
 	var/obj/item/ipc_tag_scanner/S = holder
-	. += text("<br>\n[(S.powered ? "The scanlight is steady." : "The scanlight is strobing.")]")
-	. += text("<br>\n[(S.hacked ? "The scanlight is red." : "The scanlight is purple.")]")
+	. += "<br>\n[(S.powered ? "The scanlight is steady." : "The scanlight is strobing.")]"
+	. += "<br>\n[(S.hacked ? "The scanlight is red." : "The scanlight is purple.")]"
 	return .
 
 /datum/wires/tag_scanner/UpdateCut(var/index, var/mended)

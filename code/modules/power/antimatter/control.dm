@@ -149,7 +149,7 @@
 	if(W.iswrench())
 		if(!anchored)
 			playsound(get_turf(src), W.usesound, 75, 1)
-			user.visible_message("[user.name] secures the [src.name] to the floor.", \
+			user.visible_message("[user.name] secures [src] to the floor.", \
 				"You secure the anchor bolts to the floor.", \
 				"You hear a ratchet")
 			src.anchored = 1
@@ -158,13 +158,13 @@
 			connect_to_network()
 		else if(!linked_shielding.len > 0)
 			playsound(get_turf(src), W.usesound, 75, 1)
-			user.visible_message("[user.name] unsecures the [src.name].", \
+			user.visible_message("[user.name] unsecures [src].", \
 				"You remove the anchor bolts.", \
 				"You hear a ratchet")
 			src.anchored = 0
 			disconnect_from_network()
 		else
-			to_chat(user, "<span class='warning'>Once bolted and linked to a shielding unit it the [src.name] is unable to be moved!</span>")
+			to_chat(user, "<span class='warning'>Once bolted and linked to a shielding unit it [src] is unable to be moved!</span>")
 		return
 
 	if(istype(W, /obj/item/am_containment))
@@ -174,7 +174,7 @@
 		fueljar = W
 		user.drop_from_inventory(W, src)
 		message_admins("AME loaded with fuel by [user.real_name] ([user.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-		user.visible_message("[user.name] loads an [W.name] into the [src.name].", \
+		user.visible_message("[user.name] loads an [W.name] into [src].", \
 				"You load an [W.name].", \
 				"You hear a thunk.")
 		return

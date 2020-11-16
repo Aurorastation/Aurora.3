@@ -196,14 +196,14 @@
 			to_chat(usr, "<span class='warning'>[src] can not be folded with [cell] attached to it.</span>")
 			return
 		usr.visible_message(
-		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
-		"<span class='notice'>You begin folding up the [src.name].</span>"
+		"<span class='warning'>[usr] begins folding up [src].</span>",
+		"<span class='notice'>You begin folding up [src].</span>"
 		)
 		if (!do_after(usr, 0.45 SECONDS, act_target = src))
 			return
 		usr.visible_message(
-		"<span class='warning'>[usr] folds up the [src.name].</span>" ,
-		"<span class='notice'>You fold up the [src.name].</span>"
+		"<span class='warning'>[usr] folds up [src].</span>" ,
+		"<span class='notice'>You fold up [src].</span>"
 		)
 		var/obj/item/airbubble/bag
 		if(syndie)

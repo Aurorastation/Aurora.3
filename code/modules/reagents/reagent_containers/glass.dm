@@ -46,7 +46,7 @@
 		additional_evidence["type"] = EVIDENCE_TYPE_BLOOD
 		additional_evidence["sample_type"] = "blood"
 		additional_evidence["dna"] += B.data["blood_DNA"]
-		additional_evidence["sample_message"] = "You dip the swab inside \the [src.name] to sample its contents."
+		additional_evidence["sample_message"] = "You dip the swab inside [src] to sample its contents."
 
 	return additional_evidence
 

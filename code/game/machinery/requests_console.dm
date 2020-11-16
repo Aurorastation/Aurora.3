@@ -384,7 +384,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
-			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
+			msgStamped = "<span class='notice'><b>Stamped with [T]</b></span>"
 			updateUsrDialog()
 	else if (istype(O, /obj/item/paper_bundle))
 		if(lid)	//More of that restocking business
@@ -393,7 +393,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'")
 		else
 			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
 	else if (istype(O, /obj/item/paper))
@@ -403,7 +403,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			qdel(C)
 			paperstock++
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'")
 		else if(screen == 0)	//Faxing them papers
 			var/pass = 0
 			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
@@ -454,9 +454,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 							player.show_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Fax received'"))
 						Console.paperstock--
 				if(sent == 1)
-					user.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Message Sent.'"))
+					user.show_message("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Message Sent.'")
 			else
-				user.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'"))
+				user.show_message("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'")
 
 	return
 

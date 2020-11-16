@@ -13,10 +13,10 @@ var/const/BORG_WIRE_CAMERA = 16
 
 	. = ..()
 	var/mob/living/silicon/robot/R = holder
-	. += text("<br>\n[(R.law_update ? "The LawSync light is on." : "The LawSync light is off.")]")
-	. += text("<br>\n[(R.connected_ai ? "The AI link light is on." : "The AI link light is off.")]")
-	. += text("<br>\n[((!isnull(R.camera) && R.camera.status == 1) ? "The Camera light is on." : "The Camera light is off.")]")
-	. += text("<br>\n[(R.lock_charge ? "The lockdown light is on." : "The lockdown light is off.")]")
+	. += "<br>\n[(R.law_update ? "The LawSync light is on." : "The LawSync light is off.")]"
+	. += "<br>\n[(R.connected_ai ? "The AI link light is on." : "The AI link light is off.")]"
+	. += "<br>\n[((!isnull(R.camera) && R.camera.status == 1) ? "The Camera light is on." : "The Camera light is off.")]"
+	. += "<br>\n[(R.lock_charge ? "The lockdown light is on." : "The lockdown light is off.")]"
 	return .
 
 /datum/wires/robot/UpdateCut(var/index, var/mended)

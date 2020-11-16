@@ -44,8 +44,8 @@ var/global/list/rad_collectors = list()
 	if(anchored)
 		if(!src.locked)
 			toggle_power()
-			user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
-			"You turn the [src.name] [active? "on":"off"].")
+			user.visible_message("[user.name] turns [src] [active? "on":"off"].", \
+			"You turn [src] [active? "on":"off"].")
 			investigate_log("turned [active?"<font color='green'>on</font>":"<span class='warning'>off</span>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas[GAS_PHORON]/0.29)]%":"<span class='warning'>It is empty</span>"].","singulo")
 			return
 		else
@@ -76,7 +76,7 @@ var/global/list/rad_collectors = list()
 			return 1
 		playsound(src.loc, W.usesound, 75, 1)
 		src.anchored = !src.anchored
-		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
+		user.visible_message("[user.name] [anchored? "secures":"unsecures"] [src].", \
 			"You [anchored? "secure":"undo"] the external bolts.", \
 			"You hear a ratchet")
 		if(anchored)

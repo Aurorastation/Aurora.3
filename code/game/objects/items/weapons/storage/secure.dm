@@ -44,7 +44,7 @@
 			if (W.isscrewdriver())
 				if (do_after(user, 20/W.toolspeed))
 					src.open =! src.open
-					user.show_message(text("<span class='notice'>You [] the service panel.</span>", (src.open ? "open" : "close")))
+					user.show_message("<span class='notice'>You [(src.open ? "open" : "close")] the service panel.</span>")
 				return
 			if ((W.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
 				user.show_message("<span class='notice'>Now attempting to reset internal memory, please hold.</span>", 1)
@@ -87,7 +87,7 @@
 			dat += text("<p>\n<font color=red><b>LOCKING SYSTEM ERROR - 1701</b></font>")
 		if (src.l_setshort)
 			dat += text("<p>\n<font color=red><b>ALERT: MEMORY SYSTEM ERROR - 6040 201</b></font>")
-		message = text("[]", src.code)
+		message = "[src.code]"
 		if (!src.locked)
 			message = "*****"
 		dat += text("<HR>\n>[]<BR>\n<A href='?src=\ref[];type=1'>1</A>-<A href='?src=\ref[];type=2'>2</A>-<A href='?src=\ref[];type=3'>3</A><BR>\n<A href='?src=\ref[];type=4'>4</A>-<A href='?src=\ref[];type=5'>5</A>-<A href='?src=\ref[];type=6'>6</A><BR>\n<A href='?src=\ref[];type=7'>7</A>-<A href='?src=\ref[];type=8'>8</A>-<A href='?src=\ref[];type=9'>9</A><BR>\n<A href='?src=\ref[];type=R'>R</A>-<A href='?src=\ref[];type=0'>0</A>-<A href='?src=\ref[];type=E'>E</A><BR>\n</TT>", message, src, src, src, src, src, src, src, src, src, src, src, src)
@@ -117,7 +117,7 @@
 					src.code = null
 					src.close(usr)
 				else
-					src.code += text("[]", href_list["type"])
+					src.code += "[href_list["type"]]"
 					if (length(src.code) > 5)
 						src.code = "ERROR"
 			src.add_fingerprint(usr)

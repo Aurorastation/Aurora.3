@@ -138,7 +138,7 @@ AI MODULES
 	..()
 	var/targName = sanitize(input("Please enter the name of the person who is the only crew member.", "Who?", user.real_name))
 	targetName = targName
-	desc = text("A 'one crew member' AI module: 'Only [] is a crew member.'", targetName)
+	desc = "A 'one crew member' AI module: 'Only [targetName] is a crew member.'"
 
 /obj/item/aiModule/oneHuman/install(var/obj/machinery/computer/C)
 	if(!targetName)

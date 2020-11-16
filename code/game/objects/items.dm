@@ -732,7 +732,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_x = -viewoffset
 				M.client.pixel_y = 0
 
-		M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
+		M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of [src]" : "[src.name]"].")
 
 	else
 		M.client.view = world.view
@@ -744,7 +744,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from [src]" : "<b>[M]</b> lowers [src]"].")
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill

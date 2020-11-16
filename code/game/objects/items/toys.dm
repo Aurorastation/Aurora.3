@@ -187,7 +187,7 @@
 						if(!istype(M,/mob/living)) continue
 						if(M == user) continue
 						for(var/mob/O in viewers(world.view, D))
-							O.show_message(text("<span class='warning'>\The [] was hit by the foam dart!</span>", M), 1)
+							O.show_message("<span class='warning'>\The [M] was hit by the foam dart!</span>", 1)
 						new /obj/item/toy/ammo/crossbow(M.loc)
 						qdel(D)
 						return
@@ -209,7 +209,7 @@
 		else if (bullets == 0)
 			user.Weaken(5)
 			for(var/mob/O in viewers(world.view, user))
-				O.show_message(text("<span class='warning'>\The [] realized they were out of ammo and starting scrounging for some!</span>", user), 1)
+				O.show_message("<span class='warning'>\The [user] realized they were out of ammo and starting scrounging for some!</span>", 1)
 
 
 	attack(mob/M as mob, mob/user as mob)
@@ -222,7 +222,7 @@
 			for(var/mob/O in viewers(M, null))
 				if(O.client)
 					O.show_message(text("<span class='danger'>\The [] casually lines up a shot with []'s head and pulls the trigger!</span>", user, M), 1, "<span class='warning'>You hear the sound of foam against skull</span>", 2)
-					O.show_message(text("<span class='warning'>\The [] was hit in the head by the foam dart!</span>", M), 1)
+					O.show_message("<span class='warning'>\The [M] was hit in the head by the foam dart!</span>", 1)
 
 			playsound(user.loc, 'sound/items/syringeproj.ogg', 50, 1)
 			new /obj/item/toy/ammo/crossbow(M.loc)

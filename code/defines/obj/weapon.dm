@@ -194,16 +194,16 @@
 
 		switch(shoulddisarm)
 			if(1)
-				endmessage1st = "You [verbtouse] the [target.l_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] the [target.l_hand.name] out of [noun]"
+				endmessage1st = "You [verbtouse] [target.l_hand] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] [target.l_hand] out of [noun]"
 				target.drop_l_hand()
 			if(2)
-				endmessage1st = "You [verbtouse] the [target.r_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] the [target.r_hand.name] out of [noun]"
+				endmessage1st = "You [verbtouse] [target.r_hand] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] [target.r_hand] out of [noun]"
 				target.drop_r_hand()
 			if(3)
-				endmessage1st = "You [verbtouse] both the [target.r_hand.name] and the [target.l_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] both the [target.r_hand.name] and the [target.l_hand.name] out of [noun]"
+				endmessage1st = "You [verbtouse] both [target.r_hand] and [target.l_hand] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] both [target.r_hand] and [target.l_hand] out of [noun]"
 				target.drop_l_hand()
 				target.drop_r_hand()
 			else

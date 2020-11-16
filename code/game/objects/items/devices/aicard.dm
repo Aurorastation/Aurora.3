@@ -84,7 +84,7 @@
 	if (href_list["wipe"])
 		var/confirm = alert("Are you sure you want to wipe this card's memory? This cannot be undone once started.", "Confirm Wipe", "Yes", "No")
 		if(confirm == "Yes" && (CanUseTopic(usr, state) == STATUS_INTERACTIVE))
-			admin_attack_log(usr, carded_ai, "Wiped using \the [src.name]", "Was wiped with \the [src.name]", "used \the [src.name] to wipe")
+			admin_attack_log(usr, carded_ai, "Wiped using [src]", "Was wiped with [src]", "used [src] to wipe")
 			flush = 1
 			to_chat(carded_ai, "Your core files are being wiped!")
 			while (carded_ai && carded_ai.stat != DEAD)
@@ -132,7 +132,7 @@
 		new /obj/structure/AIcore/deactivated(get_turf(ai))
 
 	ai.carded = 1
-	admin_attack_log(user, ai, "Carded with [src.name]", "Was carded with [src.name]", "used the [src.name] to card")
+	admin_attack_log(user, ai, "Carded with [src.name]", "Was carded with [src.name]", "used [src] to card")
 	src.name = "[initial(name)] - [ai.name]"
 
 	ai.forceMove(src)

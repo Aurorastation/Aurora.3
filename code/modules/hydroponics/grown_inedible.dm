@@ -72,4 +72,4 @@
 /obj/item/bananapeel/Crossed(AM as mob|obj)
 	if (istype(AM, /mob/living))
 		var/mob/living/M = AM
-		M.slip("the [src.name]",4)
+		M.slip("[src]",4)

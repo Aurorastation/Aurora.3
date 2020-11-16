@@ -37,7 +37,7 @@
 	. = ..()
 
 	if(href_list["action"] == "print" && can_run(usr, 1) && !isnull(computer?.nano_printer))
-		if(!computer.nano_printer.print_text(SSrecords.get_manifest_text(), text("crew manifest ([])", worldtime2text())))
+		if(!computer.nano_printer.print_text(SSrecords.get_manifest_text(), "crew manifest ([worldtime2text()])"))
 			to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It might be out of paper."))
 			return
 		else

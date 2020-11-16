@@ -308,7 +308,7 @@ var/list/global/organ_rel_size = list(
 		if (intag || char == " " || prob(pr))
 			t = text("[][]", t, char)
 		else
-			t = text("[]*", t)
+			t = "[t]*"
 		if (char == ">")
 			intag = !intag
 		p++

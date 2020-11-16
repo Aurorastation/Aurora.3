@@ -101,7 +101,7 @@
 
 /obj/structure/morgue/attackby(obj/P, mob/user)
 	if(P.ispen())
-		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
+		var/t = input(user, "What would you like the label to be?", "[src.name]", null)  as text
 		if(user.get_active_hand() != P)
 			return
 		if((!in_range(src, usr) && src.loc != user))

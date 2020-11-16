@@ -23,11 +23,11 @@
 	textg = num2hex(255 - g)
 	textb = num2hex(255 - b)
 	if (length(textr) < 2)
-		textr = text("0[]", textr)
+		textr = "0[textr]"
 	if (length(textg) < 2)
-		textr = text("0[]", textg)
+		textr = "0[textg]"
 	if (length(textb) < 2)
-		textr = text("0[]", textb)
+		textr = "0[textb]"
 	return text("#[][][]", textr, textg, textb)
 
 //Returns the middle-most value
@@ -902,7 +902,7 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 	if(ispath(V))
 		return details && path_names ? "path([V])" : "path"
 	if(istext(V))
-		return details && text_lengths ? "text([length(V) ])" : "text"
+		return details && text_lengths ? "[length(V) ]" : "text"
 	if(isnum(V)) // Byond doesn't really differentiate between floats and ints, but we can sort of guess here
 		// also technically we could also say that 0 and 1 are boolean but that'd be quite silly
 		if(IsInteger(V) && V < 16777216 && V > -16777216)
