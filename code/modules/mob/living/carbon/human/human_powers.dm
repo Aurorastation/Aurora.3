@@ -1183,3 +1183,19 @@ mob/living/carbon/human/proc/change_monitor()
 		for(var/line in airInfo)
 			to_chat(src, SPAN_NOTICE("[line]"))
 		return
+
+/mob/living/carbon/human/proc/select_primary_martial_art()
+	set name = "Select Martial Art"
+	set desc = "Set the martial art you want to use when fighting barehanded."
+	set category = "Abilities"
+
+	if(!length(known_martial_arts))
+		to_chat(src, SPAN_WARNING("You don't know any martial arts!"))
+		return
+
+	var/datum/martial_art/selected_martial_art = input(src, "Select a primary martial art to use when fighting barehanded.", "Martial Art Selection") as null|anything in known_martial_arts
+	if(!selected_martial_art)
+		return
+
+	primary_martial_art = selected_martial_art
+	to_chat(src, SPAN_NOTICE("You will now use [primary_martial_art.name] when fighting barehanded."))
