@@ -95,3 +95,6 @@
 /datum/uplink_category/revolution
 	name = "Revolution Items"
 	antag_roles = list(MODE_REVOLUTIONARY)
+
+/datum/uplink_category/martial_arts
+	name = "Martial Arts"

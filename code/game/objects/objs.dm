@@ -78,6 +78,12 @@
 /obj/proc/CouldNotUseTopic(var/mob/user)
 	// Nada
 
+/obj/proc/ai_can_interact(var/mob/user)
+	if(!Adjacent(user) && within_jamming_range(src, FALSE)) // if not adjacent to it, it uses wireless signal
+		to_chat(user, SPAN_WARNING("Something in the area of \the [src] is blocking the remote signal!"))
+		return FALSE
+	return TRUE
+
 /obj/item/proc/is_used_on(obj/O, mob/user)
 
 /obj/assume_air(datum/gas_mixture/giver)
@@ -246,3 +252,12 @@
 // whether mobs can unequip and drop items into us or not
 /obj/proc/can_hold_dropped_items()
 	return TRUE
+
+/obj/proc/damage_flags()
+	. = 0
+	if(has_edge(src))
+		. |= DAM_EDGE
+	if(is_sharp(src))
+		. |= DAM_SHARP
+		if(damtype == BURN)
+			. |= DAM_LASER

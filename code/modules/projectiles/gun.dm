@@ -189,8 +189,9 @@
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/A = M
-		if(A.martial_art?.no_guns)
-			to_chat(A, SPAN_WARNING("[A.martial_art.no_guns_message]"))
+		var/no_guns_check = A.check_no_guns()
+		if(no_guns_check)
+			to_chat(A, SPAN_WARNING("[no_guns_check]")) // the proc returns the no_guns_message
 			return FALSE
 
 	if((M.is_clumsy()) && prob(40)) //Clumsy handling

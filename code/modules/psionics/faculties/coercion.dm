@@ -33,8 +33,7 @@
 				continue
 			if(prob(60) && iscarbon(M))
 				var/mob/living/carbon/C = M
-				if(C.can_feel_pain())
-					M.emote("scream")
+				C.emote("scream")
 			to_chat(M, SPAN_DANGER("Your senses are blasted into oblivion by a psionic scream!"))
 			M.eye_blind = max(M.eye_blind,3)
 			M.ear_deaf = max(M.ear_deaf,6)
@@ -240,11 +239,15 @@
 	. = ..()
 	if(.)
 		user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
+		if(target.stat == DEAD)
+			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
+			return
+
 		var/text = input("What would you like to say?", "Speak to creature", null, null)
 		text = sanitize(text)
-
 		if(!text)
 			return
+		text = formalize_text(text)
 
 		if(target.stat == DEAD)
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
@@ -272,9 +275,6 @@
 			to_chat(H, SPAN_CULT("<b>You sense [user]'s psyche link with your psi-receiver, a thought sliding into your mind:</b> [text]"))
 		else
 			to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness slips into your mind:</b> [text]"))
-			if(istype(H))
-				if(H.can_commune() || H.stat >= UNCONSCIOUS)
-					return
 
 /datum/psionic_power/coercion/psiping
 	name =              "Psi Ping"

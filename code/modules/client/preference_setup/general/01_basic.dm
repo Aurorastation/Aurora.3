@@ -118,7 +118,13 @@
 			log_debug("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
-	if(!pref.species || !(pref.species in playable_species))
+	if(!pref.species)
+		pref.species = SPECIES_HUMAN
+	var/is_in_playable_species = FALSE
+	for(var/thing in playable_species)
+		if(pref.species in playable_species[thing])
+			is_in_playable_species = TRUE
+	if(!is_in_playable_species)
 		pref.species = SPECIES_HUMAN
 
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))

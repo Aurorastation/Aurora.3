@@ -22,16 +22,15 @@
 	origin_oldloc = get_turf(origin)
 	target = beam_target
 	target_oldloc = get_turf(target)
+	max_distance = maxdistance
 
-	if(get_dist(origin_oldloc, target_oldloc) >= max_distance || origin_oldloc.z != target_oldloc.z)
+	if(!origin || !target || !target_oldloc || !origin_oldloc || get_dist(origin_oldloc, target_oldloc) >= max_distance || origin_oldloc.z != target_oldloc.z)
 		qdel(src)
-		crash_with("Tried to create a new beam with length beyond its maximum distance limit.")
 		return
 
 	sleep_time = beam_sleep_time
 	if(origin_oldloc == origin && target_oldloc == target)
 		static_beam = TRUE
-	max_distance = maxdistance
 	curr_distance = get_dist(origin_oldloc, target_oldloc)
 	base_icon = new(beam_icon,beam_icon_state)
 	icon = beam_icon
@@ -41,7 +40,7 @@
 		addtimer(CALLBACK(src,.proc/End), time)
 
 /datum/beam/proc/Start()
-	Draw()
+	recalculate()
 	recalculate_in(sleep_time)
 
 /datum/beam/proc/recalculate()
@@ -172,7 +171,8 @@
 
 /datum/beam/power/End()
 	owner.beam = null
-	owner.untether(FALSE)
+	if(owner.source)
+		owner.untether(FALSE)
 	return ..()
 
 /datum/beam/power/get_x_translation_vector()

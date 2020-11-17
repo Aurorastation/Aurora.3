@@ -89,7 +89,7 @@
 
 	spawn_flags = IS_RESTRICTED
 
-	breakcuffs = list(MALE, FEMALE)
+	break_cuffs = TRUE
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
@@ -212,7 +212,7 @@
 
 	flash_mod = 0
 	siemens_coefficient = 0
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 	mob_size = 20
 
 	show_ssd = "laying inert, its activation glyph dark"

@@ -221,11 +221,6 @@
 	icon_state = "boater_hat"
 	desc = "The ultimate in summer fashion."
 
-/obj/item/clothing/head/fedora
-	name = "fedora"
-	icon_state = "fedora"
-	desc = "A sharp, stylish hat."
-
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
 	icon_state = "feather_trilby"
@@ -395,6 +390,15 @@
 /obj/item/clothing/head/headbando/random/Initialize()
 	. = ..()
 	color = get_random_colour(lower = 150)
+
+/obj/item/clothing/head/fedora
+	name = "fedora"
+	icon_state = "fedora"
+	desc = "A sharp, stylish hat."
+
+/obj/item/clothing/head/fedora/black
+	name = "black fedora"
+	icon_state = "black_fedora"
 
 /obj/item/clothing/head/fedora/brown
 	name = "fedora"

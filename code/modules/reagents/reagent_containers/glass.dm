@@ -209,7 +209,7 @@
 	accuracy = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = ITEMSIZE_NORMAL
-	amount_per_transfer_from_this = 20
+	amount_per_transfer_from_this = 120
 	possible_transfer_amounts = list(10,20,30,60,120)
 	volume = 120
 	flags = OPENCONTAINER

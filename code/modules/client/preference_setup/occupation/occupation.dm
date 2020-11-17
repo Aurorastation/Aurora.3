@@ -143,6 +143,7 @@
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
 	var/list/dat = list(
+		"<style>span.none{color: black} span.low{color: #DDD} span.med{color: yellow} span.high{color: lime} a:hover span{color: #40628a !important}</style>",
 		"<center><b>Character faction</b><br>",
 		"<small>This will influence the jobs you can select from, and the starting equipment.</small><br>",
 		"<b><a href='?src=\ref[src];faction_preview=[html_encode(pref.faction)]'>[pref.faction]</a></b></center><br><hr>"
@@ -156,20 +157,16 @@
 	)
 	var/index = -1
 
-	//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
-	var/datum/job/lastJob
-
 	var/datum/faction/faction = SSjobs.name_factions[pref.faction] || SSjobs.default_faction
-
 	for(var/datum/job/job in faction.get_occupations())
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
 			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 			index = 0
 
-		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
 		var/rank = job.title
-		lastJob = job
+		var/head = (rank in command_positions) || (rank == "AI")
+		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, head ? 1 : 0.5)];'><td width='60%' align='right'>"
 
 		var/list/available = pref.GetValidTitles(job)
 		var/dispRank = LAZYLEN(available) ? LAZYACCESS(available, 1) : rank
@@ -197,11 +194,11 @@
 			dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 			continue
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
-			dispRank = "<span style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];' width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
+			dispRank = "<span width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
-			dat += "<font color=orange>[dispRank]</font></td><td></td></tr>"
+			dat += "<span class='none'>[dispRank]</span></td><td></td></tr>"
 			continue
-		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
+		if(head)//Bold head jobs
 			dat += "<b>[dispRank]</b>"
 		else
 			dat += "[dispRank]"
@@ -212,20 +209,20 @@
 
 		if(rank == "Assistant")//Assistant is special
 			if(pref.job_civilian_low & ASSISTANT)
-				dat += " <font color=green>\[Yes]</font>"
+				dat += " <span class='high'>\[Yes]</span>"
 			else
-				dat += " <font color=red>\[No]</font>"
+				dat += " <span class='none'>\[No]</span>"
 			dat += "</a></td></tr>"
 			continue
 
 		if(pref.GetJobDepartment(job, 1) & job.flag)
-			dat += " <font color=blue>\[High]</font>"
+			dat += " <span class='high'>\[High]</span>"
 		else if(pref.GetJobDepartment(job, 2) & job.flag)
-			dat += " <font color=green>\[Medium]</font>"
+			dat += " <span class='med'>\[Medium]</span>"
 		else if(pref.GetJobDepartment(job, 3) & job.flag)
-			dat += " <font color=orange>\[Low]</font>"
+			dat += " <span class='low'>\[Low]</span>"
 		else
-			dat += " <font color=red>\[NEVER]</font>"
+			dat += " <span class='none'>\[NEVER]</span>"
 		dat += "</a></td></tr>"
 
 	dat += "</td'></tr></table>"
@@ -234,9 +231,9 @@
 
 	switch(pref.alternate_option)
 		if(BE_ASSISTANT)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><span class='attack'>Be assistant if preference unavailable</span></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'>Be assistant if preference unavailable</a></u></center><br>"
 		if(RETURN_TO_LOBBY)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=purple>Return to lobby if preference unavailable</font></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><span class='high'>Return to lobby if preference unavailable</span></a></u></center><br>"
 
 	dat += "<center><a href='?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
 	dat += "</tt>"

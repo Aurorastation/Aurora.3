@@ -2,6 +2,7 @@
 	name = SPECIES_UNATHI
 	short_name = "una"
 	name_plural = "Unathi"
+	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
 	icobase = 'icons/mob/human_races/unathi/r_lizard.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_lizard.dmi'
@@ -41,7 +42,7 @@
 	exhaust_threshold = 65
 
 	rarity_value = 3
-	breakcuffs = list(MALE)
+	break_cuffs = TRUE
 	mob_size = 10
 	climb_coeff = 1.35
 
