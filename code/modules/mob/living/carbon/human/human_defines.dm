@@ -114,4 +114,5 @@
 
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
-	var/datum/martial_art/martial_art = null
+	var/datum/martial_art/primary_martial_art = null
+	var/list/datum/martial_art/known_martial_arts = null

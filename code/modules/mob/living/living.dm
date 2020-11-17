@@ -380,7 +380,7 @@ default behaviour is:
 			return 1
 	return 0
 
-
+// Returns injection time modifier, if 0 then injection fails
 /mob/living/proc/can_inject()
 	return 1
 
@@ -975,3 +975,9 @@ default behaviour is:
 			if(src)
 				clear_fullscreen("flash", 25)
 		return 1
+
+/mob/living/verb/toggle_run_intent()
+	set hidden = 1
+	set name = "mov_intent"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()

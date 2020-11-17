@@ -147,6 +147,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			return
 
 /obj/machinery/newscaster/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/newscaster/attack_hand(mob/user as mob)            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
@@ -758,9 +760,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		else
 			to_chat(user, "<span class='notice'>This does nothing.</span>")
 	src.update_icon()
-
-/obj/machinery/newscaster/attack_ai(mob/user as mob)
-	return src.attack_hand(user) //or maybe it'll have some special functions? No idea.
 
 /datum/news_photo
 	var/is_synth = 0

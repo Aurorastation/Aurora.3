@@ -394,3 +394,23 @@ var/global/list/click_catchers
 		if(T)
 			T.Click(location, control, params)
 	. = 1
+
+// Suppress the mouse macros
+/client/var/has_mouse_macro_warning
+/mob/proc/LogMouseMacro(verbused, params)
+	if(!client)
+		return
+	if(!client.has_mouse_macro_warning) // Log once
+		log_admin("[key_name(usr)] attempted to use a mouse macro: [verbused] [params]")
+/mob/verb/ClickSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".click"
+	LogMouseMacro(".click", params)
+/mob/verb/DblClickSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".dblclick"
+	LogMouseMacro(".dblclick", params)
+/mob/verb/MouseSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".mouse"
+	LogMouseMacro(".mouse", params)

@@ -181,9 +181,6 @@
 	real_name = "maintenance drone ([rand(100,999)])"
 	name = real_name
 
-/mob/living/silicon/robot/drone/setup_icon_cache()
-  return
-
 /mob/living/silicon/robot/drone/update_icon()
 	cut_overlays()
 	if(stat == CONSCIOUS && isturf(loc))

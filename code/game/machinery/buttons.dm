@@ -25,6 +25,8 @@
 	return ..()
 
 /obj/machinery/button/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/button/attackby(obj/item/W, mob/user as mob)
