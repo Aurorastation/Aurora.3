@@ -392,7 +392,7 @@ This function restores all organs.
 
 	//Handle other types of damage
 	if(damagetype != BRUTE && damagetype != BURN)
-		if(!stat && damagetype == PAIN && (can_feel_pain()))
+		if(!stat && damagetype == PAIN)
 			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
 

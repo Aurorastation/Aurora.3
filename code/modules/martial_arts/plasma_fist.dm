@@ -113,3 +113,7 @@
 	icon_state = "scroll"
 	item_state = "scroll"
 	martial_art = /datum/martial_art/plasma_fist
+
+#undef TORNADO_COMBO
+#undef THROWBACK_COMBO
+#undef PLASMA_COMBO

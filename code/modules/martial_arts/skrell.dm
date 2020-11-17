@@ -92,3 +92,7 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 	name = "karak virul manual"
 	desc = "A manual designated to teach the user about the skrellian martial art of Karak Virul."
 	martial_art = /datum/martial_art/karak_virul
+
+#undef PAINFUL_PALM
+#undef SKRELL_LEG_SWEEP
+#undef DISLOCATING_STRIKE

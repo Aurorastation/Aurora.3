@@ -129,3 +129,9 @@
 	icon_state = "scroll"
 	item_state = "scroll"
 	martial_art = /datum/martial_art/the_sleeping_carp
+
+#undef WRIST_WRENCH_COMBO
+#undef BACK_KICK_COMBO
+#undef STOMACH_KNEE_COMBO
+#undef HEAD_KICK_COMBO
+#undef ELBOW_DROP_COMBO

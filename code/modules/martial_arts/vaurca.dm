@@ -96,3 +96,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	martial_art = /datum/martial_art/vkutet
+
+#undef PIERCING_STRIKE
+#undef SWIFT_BITE
+#undef CRUSHING_JAWS
