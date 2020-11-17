@@ -548,11 +548,11 @@
 						"panic"		= info["panic"],
 						"filters"	= list()
 					)
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = GAS_OXYGEN,		"command" = "o2_scrub",	"val" = info["filter_o2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = GAS_NITROGEN,		"command" = "n2_scrub",	"val" = info["filter_n2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = GAS_CO2, 			"command" = "co2_scrub","val" = info["filter_co2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = GAS_PHORON, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = GAS_HYDROGEN,		"command" = "h2_scrub","val" = info["filter_h2"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",			"command" = "o2_scrub",	"val" = info["filter_o2"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",		"command" = "n2_scrub",	"val" = info["filter_n2"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Phoron", 		"command" = "tox_scrub","val" = info["filter_phoron"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Hydrogen",		"command" = "h2_scrub","val" = info["filter_h2"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
 			data["scrubbers"] = scrubbers
 		if(AALARM_SCREEN_MODE)
