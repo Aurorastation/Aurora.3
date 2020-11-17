@@ -25,7 +25,6 @@
 	var/headerdata = get_header_data(data["_PC"])
 	if(headerdata)
 		data["_PC"] = headerdata
-		. = data
 	
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
@@ -34,8 +33,8 @@
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
-	VUEUI_SET_CHECK(data["listening"], host.radio.broadcasting, ., data)
-	VUEUI_SET_CHECK(data["frequency"], format_frequency(host.radio.frequency), ., data)
+	data["listening"] = host.radio.broadcasting
+	data["frequency"] = format_frequency(host.radio.frequency)
 
 	var/list/pai_channels = list()
 	for(var/ch_name in host.radio.channels)
@@ -45,6 +44,8 @@
 		)
 		pai_channels[++pai_channels.len] = channel_info
 	data["channels"] = pai_channels
+
+	return data
 
 /datum/computer_file/program/pai_radio/Topic(href, href_list)
 	. = ..()
