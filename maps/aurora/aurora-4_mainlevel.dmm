@@ -33260,7 +33260,7 @@
 /area/crew_quarters/heads/hop)
 "bfz" = (
 /obj/machinery/door/airlock{
-	id_tag = command_unit_1;
+	id_tag = "command_unit_1";
 	name = "Unit 1"
 	},
 /turf/simulated/floor/tiled/freezer,

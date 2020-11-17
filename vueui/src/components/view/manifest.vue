@@ -1,14 +1,14 @@
 <template>
   <div>
     <div v-if="manifestLen(fixedmanifest) > 0">
-      <table v-for="(el, dept) in fixedmanifest" :key="dept" class="mt-2" :class="'border-dept-' + dept.toLowerCase()">
+      <table v-for="(el, dept) in fixedmanifest" :key="dept" :class="'border-dept-' + dept.toLowerCase()">
         <tr :class="'bg-dept-' + dept.toLowerCase()">
           <th colspan="3" class="fw-bold">{{ dept }}</th>
         </tr>
         <tr v-for="entry in el" :key="entry.name" :class="{'fw-bold': entry.head}">
-          <td class="pl-2">{{ entry.name }}</td>
-          <td class="px-1">{{ entry.rank }}</td>
-          <td class="pr-2 text-right">{{ entry.active }}</td>
+          <td>{{ entry.name }}</td>
+          <td>{{ entry.rank }}</td>
+          <td>{{ entry.active }}</td>
         </tr>
       </table>
     </div>
@@ -47,5 +47,22 @@ table {
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
   border: 2px solid;
+  margin-top: .5rem;
+
+  td {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+
+  // middle (rank) column
+  td:nth-child(2) {
+    width: 12.5rem;
+  }
+
+  // last (activity) column
+  td:last-child {
+    text-align: right;
+    width: 6.5rem;
+  }
 }
 </style>
