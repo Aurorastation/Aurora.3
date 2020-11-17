@@ -93,7 +93,7 @@
 //A power generator that runs on solid phoron sheets.
 /obj/machinery/power/port_gen/pacman
 	name = "\improper P-P.A.C.M.A.N.-type Portable Generator"
-	desc = "An advanced power generator that runs on solid phoron sheets. Rated for 120 kW max safe output. WARNING: DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS."
+	desc = "An advanced power generator that runs on solid phoron sheets. Rated for 120 kW max safe output. <span class='danger'>WARNING: DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS.</span>"
 
 	var/sheet_name = "Phoron Sheets"
 	var/sheet_path = /obj/item/stack/material/phoron
