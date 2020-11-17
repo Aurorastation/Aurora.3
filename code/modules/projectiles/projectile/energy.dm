@@ -25,7 +25,7 @@
 	for(var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 			M.confused = rand(5,15)
-			flick("e_flash", M.flash)
+			M.flash_eyes()
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
 			flick("flash", M.flash)
@@ -78,17 +78,14 @@
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
-	damage = 10
-	damage_type = TOX
-	nodamage = 0
-	agony = 40
+	damage_type = PAIN
+	agony = 45
 	stutter = 10
-
 
 /obj/item/projectile/energy/bolt/large
 	name = "largebolt"
-	damage = 20
-
+	damage_type = PAIN
+	agony = 60
 
 /obj/item/projectile/energy/neurotoxin
 	name = "neuro"
@@ -100,8 +97,6 @@
 /obj/item/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
-	damage = 20
-	damage_type = TOX
 	irradiate = 20
 
 /obj/item/projectile/energy/bfg
@@ -205,6 +200,18 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
+
+/obj/item/projectile/energy/disruptorstun
+	name = "disruptor bolt"
+	icon_state = "blue_laser"
+	agony = 45
+	speed = 0.4
+	damage_type = PAIN // Can't blow your own head off with a stunbolt.
+	taser_effect = TRUE
+	eyeblur = TRUE
+	pass_flags = PASSTABLE
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35

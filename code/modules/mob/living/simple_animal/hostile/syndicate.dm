@@ -8,6 +8,7 @@
 	icon_gib = "syndicate_gib"
 	speak_chance = 0
 	turns_per_move = 5
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "pokes"
 	response_disarm = "shoves"
 	response_harm = "hits"

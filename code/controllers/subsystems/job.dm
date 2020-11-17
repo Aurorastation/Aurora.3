@@ -12,10 +12,10 @@
 	init_order = SS_INIT_JOBS
 
 	// Vars.
-	var/list/occupations = list()
-	var/list/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are types
-	var/list/unassigned = list()
+	var/list/datum/job/occupations = list()
+	var/list/datum/job/name_occupations = list()	//Dict of all jobs, keys are titles
+	var/list/datum/job/type_occupations = list()	//Dict of all jobs, keys are types
+	var/list/mob/abstract/new_player/unassigned = list()
 	var/list/job_debug = list()
 
 	var/list/factions = list()
@@ -104,9 +104,9 @@
 			to_chat(player, "<span class='warning'>Your character is too young!</span>")
 			return FALSE
 
-		var/position_limit = job.total_positions
+		var/position_limit = job.get_total_positions()
 		if(!latejoin)
-			position_limit = job.spawn_positions
+			position_limit = job.get_spawn_positions()
 		if((job.current_positions < position_limit) || position_limit == -1)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 			player.mind.assigned_role = rank
@@ -117,14 +117,12 @@
 	Debug("AR has failed, Player: [player], Rank: [rank]")
 	return FALSE
 
-/datum/controller/subsystem/jobs/proc/FreeRole(rank)
+/datum/controller/subsystem/jobs/proc/FreeRole(var/rank)
 	var/datum/job/job = GetJob(rank)
+	if(!istype(job))
+		return
 
-	if (job && job.current_positions >= job.total_positions && job.total_positions != -1)
-		job.total_positions++
-		return TRUE
-
-	return FALSE
+	job.current_positions--
 
 /datum/controller/subsystem/jobs/proc/FindOccupationCandidates(datum/job/job, level, flag)
 	Debug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
@@ -278,7 +276,7 @@
 				if(player.client.prefs.GetJobDepartment(job, level) & job.flag)
 
 					// If the job isn't filled
-					if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
+					if((job.current_positions < job.get_spawn_positions()) || job.get_spawn_positions() == -1)
 						Debug("DO pass, Player: [player], Level:[level], Job:[job.title]")
 						AssignRole(player, job.title)
 						unassigned -= player
@@ -348,16 +346,16 @@
 			H.buckled.forceMove(H.loc)
 			H.buckled.set_dir(H.dir)
 
-	// If they're head, give them the account info for their department
-	if(H.mind && job.head_position)
+	if(H.mind)
+		// If they're a department supervisor/head give them the account info for that department
 		var/remembered_info = ""
-		var/datum/money_account/department_account = SSeconomy.get_department_account(job.department)
-
-		if(department_account)
-			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
-			remembered_info += "<b>Your department's account pin is:</b> [department_account.remote_access_pin]<br>"
-			remembered_info += "<b>Your department's account funds are:</b> $[department_account.money]<br>"
-
+		for(var/department in job.departments)
+			if(job.departments[department] & JOBROLE_SUPERVISOR)
+				var/datum/money_account/department_account = SSeconomy.get_department_account(department)
+				if(department_account)
+					remembered_info += "<b>[department] department's account number is:</b> #[department_account.account_number]<br>"
+					remembered_info += "<b>[department] department's account pin is:</b> [department_account.remote_access_pin]<br>"
+					remembered_info += "<b>[department] department's account funds are:</b> $[department_account.money]<br>"
 		H.mind.store_memory(remembered_info)
 
 	var/alt_title = null
@@ -381,7 +379,7 @@
 		if(H.needs_wheelchair())
 			H.equip_wheelchair()
 
-	to_chat(H, "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
+	to_chat(H, "<B>You are [job.get_total_positions() == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
 
 	if(job.supervisors)
 		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
@@ -391,7 +389,7 @@
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
-			G.prescription = TRUE
+			G.prescription = 7
 
 	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
@@ -402,6 +400,18 @@
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
 	INVOKE_ASYNC(GLOBAL_PROC, .proc/show_location_blurb, H.client, 30)
+
+	if(joined_late)
+		var/antag_count = 0
+		for(var/antag_type in SSticker.mode.antag_tags)
+			var/datum/antagonist/A = all_antag_types[antag_type]
+			antag_count += A.get_active_antag_count()
+		for(var/antag_type in SSticker.mode.antag_tags)
+			var/datum/antagonist/A = all_antag_types[antag_type]
+			A.update_current_antag_max()
+			if((A.role_type in H.client.prefs.be_special_role) && !(A.flags & ANTAG_OVERRIDE_JOB) && antag_count < A.cur_max)
+				A.add_antagonist(H.mind)
+				break
 
 	Debug("ER/([H]): Completed.")
 
@@ -527,9 +537,9 @@
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
-			G.prescription = TRUE
+			G.prescription = 7
 			G.autodrobe_no_remove = TRUE
-	
+
 	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
 		H.species_items_equipped = TRUE
@@ -573,11 +583,10 @@
 
 		if(name && value)
 			var/datum/job/J = GetJob(name)
-			if(!J)	continue
+			if(!istype(J))
+				continue
 			J.total_positions = text2num(value)
 			J.spawn_positions = text2num(value)
-			if(name == "AI" || name == "Cyborg")//I dont like this here but it will do for now    // 6 years later and it's still not changed. Hue.
-				J.total_positions = 0
 
 	return TRUE
 
@@ -757,7 +766,8 @@
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
-					custom_equip_slots += G.slot
+					if(G.slot != slot_tie)
+						custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
 					leftovers += thing
@@ -938,6 +948,8 @@
 
 /datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
 	var/uniform = job.get_outfit(H)
+	if(!uniform) // silicons don't have uniforms or gear
+		return
 	var/datum/outfit/U = new uniform
 	for(var/item in prefs.gear)
 		var/datum/gear/L = gear_datums[item]

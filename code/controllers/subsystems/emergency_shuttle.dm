@@ -239,7 +239,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 //returns 1 if the shuttle is currently in transit (or just leaving) to centcom
 /datum/controller/subsystem/emergency_shuttle/proc/going_to_centcom()
-	return (shuttle.direction && shuttle.moving_status != SHUTTLE_IDLE)
+	return (shuttle && shuttle.direction && shuttle.moving_status != SHUTTLE_IDLE)
 
 
 /datum/controller/subsystem/emergency_shuttle/proc/get_status_panel_eta()

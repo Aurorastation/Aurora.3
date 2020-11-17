@@ -30,6 +30,7 @@
 #define RELIGION_MOROZ "Moroz Holy Tribunal"
 #define RELIGION_TRINARY "Trinary Perfection"
 #define RELIGION_SCARAB "Scarab Folk Beliefs"
+#define RELIGION_TAOISM "Taoism"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
@@ -46,6 +47,8 @@
 #define RELIGION_HIVEPANTHEON "Hive Pantheon"
 #define RELIGION_PREIMMINENNCE "Preimminennce"
 #define RELIGION_PILOTDREAM "Pilot Dream"
+
+#define RELIGION_ETERNAL "The Eternal"
 
 //accent defines
 
@@ -70,7 +73,9 @@
 #define ACCENT_JUPITER "Jovian"
 #define ACCENT_EUROPA "Europan"
 #define ACCENT_EARTH "Earther"
-#define ACCENT_DEEPFRONTIER "Deep Frontier"
+#define ACCENT_NCF "Non-Coalition Frontier"
+#define ACCENT_FISANDUH "Fisanduhian"
+#define ACCENT_GADPATHUR "Gadpathurian"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
@@ -91,7 +96,8 @@
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 
-#define ACCENT_DIONA "Diona"
+#define ACCENT_ROOTSONG "Rootsong"
+#define ACCENT_VOIDSONG "Voidsong"
 
 #define ACCENT_TTS "Text-to-Speech"
 

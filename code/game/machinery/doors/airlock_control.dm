@@ -106,7 +106,7 @@
 /obj/machinery/door/airlock/proc/send_status(var/bumped = 0)
 	if(radio_connection)
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.data["tag"] = id_tag
 		signal.data["timestamp"] = world.time
 
@@ -184,7 +184,7 @@
 
 /obj/machinery/airlock_sensor/attack_hand(mob/user)
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.data["tag"] = master_tag
 	signal.data["command"] = command
 
@@ -198,7 +198,7 @@
 
 		if(abs(pressure - previousPressure) > 0.001 || previousPressure == null)
 			var/datum/signal/signal = new
-			signal.transmission_method = 1 //radio signal
+			signal.transmission_method = TRANSMISSION_RADIO
 			signal.data["tag"] = id_tag
 			signal.data["timestamp"] = world.time
 			signal.data["pressure"] = num2text(pressure)
@@ -259,7 +259,7 @@
 
 /obj/machinery/access_button/attackby(obj/item/I as obj, mob/user as mob)
 	//Swiping ID on the access button
-	if (istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda))
+	if (I.GetID())
 		attack_hand(user)
 		return
 	..()
@@ -271,7 +271,7 @@
 
 	else if(radio_connection)
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.data["tag"] = master_tag
 		signal.data["command"] = command
 

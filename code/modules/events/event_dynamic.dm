@@ -53,7 +53,6 @@ var/list/event_last_fired = list()
 	possibleEvents[/datum/event/economic_event] = 300
 	possibleEvents[/datum/event/mundane_news] = 300
 
-	possibleEvents[/datum/event/pda_spam] = max(min(25, player_list.len) * 4, 200)
 	possibleEvents[/datum/event/money_lotto] = max(min(5, player_list.len), 50)
 	if(account_hack_attempted)
 		possibleEvents[/datum/event/money_hacker] = max(min(25, player_list.len) * 4, 200)
@@ -79,6 +78,7 @@ var/list/event_last_fired = list()
 
 	if(active_with_role["Medical"] > 0)
 		possibleEvents[/datum/event/radiation_storm] = active_with_role["Medical"] * 10
+		possibleEvents[/datum/event/spontaneous_appendicitis] = active_with_role["Medical"] * 10
 
 	possibleEvents[/datum/event/prison_break] = active_with_role["Security"] * 50
 	if(active_with_role["Security"] > 0)
@@ -122,6 +122,7 @@ var/list/event_last_fired = list()
 	var/list/active_with_role = list()
 	active_with_role["Engineer"] = 0
 	active_with_role["Medical"] = 0
+	active_with_role["Surgeon"] = 0
 	active_with_role["Security"] = 0
 	active_with_role["Scientist"] = 0
 	active_with_role["AI"] = 0
@@ -150,6 +151,8 @@ var/list/event_last_fired = list()
 
 		if(M.mind.assigned_role in medical_positions)
 			active_with_role["Medical"]++
+			if(M.mind.assigned_role == "Surgeon")
+				active_with_role["Surgeon"]++
 
 		if(M.mind.assigned_role in security_positions)
 			active_with_role["Security"]++

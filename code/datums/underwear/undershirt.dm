@@ -413,5 +413,5 @@
 
 /datum/category_item/underwear/undershirt/sweater
 	name = "Sweater"
-	icon_state = "Sweater"
+	icon_state = "sweater"
 	has_color = TRUE

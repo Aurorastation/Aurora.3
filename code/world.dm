@@ -57,6 +57,10 @@ var/global/datum/global_init/init = new ()
 	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
 	maxy = WORLD_MIN_SIZE
 
+/world/proc/enable_debugger()
+    var/dll = world.GetConfig("env", "EXTOOLS_DLL")
+    if (dll)
+        call(dll, "debug_initialize")()
 
 #define RECOMMENDED_VERSION 510
 /world/New()
@@ -82,6 +86,8 @@ var/global/datum/global_init/init = new ()
 		config.server_name += " #[(world.port % 1000) / 100]"
 
 	callHook("startup")
+
+	enable_debugger()
 
 	. = ..()
 
@@ -274,14 +280,6 @@ var/list/world_api_rate_limit = list()
 	desc = jointext(split, "\n")
 
 	time_stamped = 1
-
-/hook/startup/proc/initialize_greeting()
-	world.initialize_greeting()
-	return 1
-
-/world/proc/initialize_greeting()
-	server_greeting = new()
-
 
 /proc/load_configuration()
 	config = new /datum/configuration()

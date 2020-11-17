@@ -15,7 +15,6 @@
 	active = FALSE
 	dir = NORTH
 	var/strength_upper_limit = 2
-	var/interface_control = TRUE
 	var/list/obj/structure/particle_accelerator/connected_parts
 	var/assembled = 0
 	var/parts
@@ -125,7 +124,7 @@
 		else
 			message_admins("PA Control Computer increased to [strength] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[usr]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 			log_game("PA Control Computer increased to [strength] by [usr.ckey]([usr]) in ([x],[y],[z])",ckey=key_name(usr))
-			investigate_log("increased to <font color='red'>[strength]</font> by [usr.key]","singulo")
+			investigate_log("increased to <span class='warning'>[strength]</span> by [usr.key]","singulo")
 		strength_change()
 
 /obj/machinery/particle_accelerator/control_box/proc/remove_strength(var/s)
@@ -153,7 +152,7 @@
 	if(src.active)
 		//a part is missing!
 		if(length(connected_parts) < 6)
-			investigate_log("lost a connected part; It <font color='red'>powered down</font>.","singulo")
+			investigate_log("lost a connected part; It <span class='warning'>powered down</span>.","singulo")
 			src.toggle_power()
 			return
 		//emit some particles
@@ -214,7 +213,7 @@
 
 /obj/machinery/particle_accelerator/control_box/proc/toggle_power(mob/user)
 	src.active = !src.active
-	investigate_log("turned [active?"<font color='red'>ON</font>":"<font color='green'>OFF</font>"] by [user ? user.key : "outside forces"]","singulo")
+	investigate_log("turned [active?"<span class='warning'>ON</span>":"<font color='green'>OFF</font>"] by [user ? user.key : "outside forces"]","singulo")
 	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user, TRUE, highlight_special = TRUE)] in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 	log_game("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user)] in ([x],[y],[z])",ckey=key_name(user))
 	if(src.active)
@@ -258,6 +257,6 @@
 		dat += "Particle Strength: [src.strength] "
 		dat += "<A href='?src=\ref[src];strengthdown=1'>--</A>|<A href='?src=\ref[src];strengthup=1'>++</A><BR><BR>"
 
-	user << browse(dat, "window=pacontrol;size=420x500")
-	onclose(user, "pacontrol")
-	return
+	var/datum/browser/pa_win = new(user, "pacontrol", capitalize_first_letters(name), 420, 500)
+	pa_win.set_content(dat)
+	pa_win.open()

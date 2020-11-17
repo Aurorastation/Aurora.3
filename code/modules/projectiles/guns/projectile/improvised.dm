@@ -64,7 +64,6 @@
 /obj/item/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
-	icon = 'icons/obj/guns/ishotgunsawn.dmi'
 	icon_state = "ishotgunsawn"
 	item_state = "ishotgunsawn"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -141,6 +140,7 @@
 	max_shells = 7
 	recoil = 2
 	accuracy = -1
+	offhand_accuracy = 1
 	fire_delay = 9
 	icon = 'icons/obj/guns/ipistol.dmi'
 	icon_state = "ipistol"
@@ -152,6 +152,9 @@
 	load_method = MAGAZINE
 	jam_chance = 20
 	needspin = FALSE
+
+/obj/item/gun/projectile/improvised_handgun/loaded
+	magazine_type = /obj/item/ammo_magazine/c45m
 
 /obj/item/gun/projectile/improvised_handgun/examine(mob/user)
 	..(user)

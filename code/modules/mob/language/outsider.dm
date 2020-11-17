@@ -43,22 +43,6 @@
 		speaker_mask = B.truename
 	..(speaker, message, speaker_mask)
 
-/datum/language/vox
-	name = LANGUAGE_VOX
-	desc = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."
-	speech_verb = list("shrieks")
-	ask_verb = list("creels")
-	exclaim_verb = list("SHRIEKS")
-	colour = "vox"
-	key = "5"
-	flags = WHITELISTED
-	syllables = list("ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya","chi","cha","kah", \
-	"SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA")
-	machine_understands = FALSE
-
-/datum/language/vox/get_random_name()
-	return ..(FEMALE,1,6)
-
 /datum/language/cultcommon
 	name = LANGUAGE_CULT
 	desc = "The chants of the occult, the incomprehensible."

@@ -83,7 +83,7 @@
 							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
 			return
-	
+
 		if(length(carrying) >= carrying_capacity)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
@@ -191,7 +191,7 @@
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_INTERMEDIATE_LAYER
+	mech_layer = MECH_DECAL_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is

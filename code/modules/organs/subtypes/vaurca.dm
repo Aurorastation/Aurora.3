@@ -12,29 +12,6 @@
 /obj/item/organ/internal/kidneys/vaurca
 	icon_state = "kidney_vaurca"
 
-/obj/item/organ/internal/eyes/vaurca
-	icon_state = "eyes_vaurca"
-
-/obj/item/organ/internal/eyes/vaurca/flash_act()
-	if(!owner)
-		return
-
-	to_chat(owner, "<span class='warning'>Your eyes burn with the intense light of the flash!</span>")
-	owner.Weaken(10)
-	take_damage(rand(10, 11))
-
-	if(damage > 12)
-		owner.eye_blurry += rand(3,6)
-
-	if(damage >= min_broken_damage)
-		owner.sdisabilities |= BLIND
-
-	else if(damage >= min_bruised_damage)
-		owner.eye_blind = 5
-		owner.eye_blurry = 5
-		owner.disabilities |= NEARSIGHTED
-		addtimer(CALLBACK(owner, /mob/.proc/reset_nearsighted), 100)
-
 /obj/item/organ/internal/kidneys/vaurca/robo
 	icon_state = "kidney_vaurca"
 	organ_tag = BP_VAURCA_KIDNEYS
@@ -158,13 +135,13 @@ obj/item/organ/vaurca/neuralsocket/process()
 	var/obj/icon = src
 
 	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		user.visible_message("<span class='warning'>[user] has used [W] on \icon[icon] [src]</span>")
+		user.visible_message("<span class='warning'>[user] has used [W] on [icon2html(icon, viewers(get_turf(user)))] [src].</span>")
 
 		var/pressure = air_contents.return_pressure()
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
 		var/total_moles = air_contents.total_moles
 
-		to_chat(user, "<span class='notice'>Results of analysis of \icon[icon]</span>")
+		to_chat(user, "<span class='notice'>Results of analysis of [icon2html(icon, user)]</span>")
 		if (total_moles>0)
 			to_chat(user, "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>")
 			for(var/g in air_contents.gas)

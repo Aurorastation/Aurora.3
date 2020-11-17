@@ -95,15 +95,6 @@
 		var/mob/living/carbon/human/H = A
 		. = H.species && (H.species.flags & IS_MECHANICAL)
 
-/proc/isvox(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if (SPECIES_VOX)
-				return 1
-			if (SPECIES_VOX_ARMALIS)
-				return 1
-	return 0
-
 /mob/proc/is_diona()
 	return FALSE
 
@@ -120,22 +111,31 @@
 		return 1
 	return 0
 
+/proc/iszombie(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_ZOMBIE)
+				return TRUE
+			if(SPECIES_ZOMBIE_TAJARA)
+				return TRUE
+			if(SPECIES_ZOMBIE_UNATHI)
+				return TRUE
+			if(SPECIES_ZOMBIE_SKRELL)
+				return TRUE
+	return FALSE
+
 /proc/isundead(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if (SPECIES_SKELETON)
-				return 1
-			if (SPECIES_ZOMBIE)
-				return 1
-			if (SPECIES_ZOMBIE_TAJARA)
-				return 1
-			if (SPECIES_ZOMBIE_UNATHI)
-				return 1
-			if (SPECIES_ZOMBIE_SKRELL)
-				return 1
-			if (SPECIES_CULTGHOST)
-				return 1
-	return 0
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_SKELETON)
+				return TRUE
+			if(SPECIES_CULTGHOST)
+				return TRUE
+	if(iszombie(A))
+		return TRUE
+	return FALSE
 
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
@@ -187,9 +187,9 @@ proc/getsensorlevel(A)
 
 /mob/living/proc/is_wizard(exclude_apprentice = FALSE)
 	if(exclude_apprentice)
-		return mind && mind.assigned_role == "Space Wizard"
+		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage")
 	else
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
+		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage" || mind.assigned_role == "Apprentice")
 
 /mob/proc/is_berserk()
 	return FALSE
@@ -399,6 +399,9 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
 		return
 
+	if(M.client && ((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
+		return
+
 	M.shakecamera = TRUE
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
 	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1
@@ -491,7 +494,7 @@ proc/is_blind(A)
 	for(var/mob/M in targets)
 		var/turf/targetturf = get_turf(M)
 		if(targetturf && (targetturf.z == sourceturf.z))
-			M.show_message("<span class='info'>\icon[icon] [message]</span>", 1)
+			M.show_message("<span class='info'>[icon2html(icon, M)] [message]</span>", 1)
 
 /proc/mobs_in_area(var/area/A)
 	var/list/mobs = new
@@ -543,7 +546,7 @@ proc/is_blind(A)
 					else										// Everyone else (dead people who didn't ghost yet, etc.)
 						lname = name
 				lname = "<span class='name'>[lname]</span> "
-			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>")
+			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("DEAD", M.client) + " [lname][message]</span>")
 
 //Announces that a ghost has joined/left, mainly for use with wizards
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
@@ -873,8 +876,8 @@ proc/is_blind(A)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "feet"
-	else if (istype(loc,/obj/item/device/pda))
-		var/obj/item/device/pda/S = loc
+	else if (istype(loc,/obj/item/modular_computer))
+		var/obj/item/modular_computer/S = loc
 		newlocation = S.name
 		if (justmoved)
 			preposition = "into"
@@ -1175,10 +1178,21 @@ proc/is_blind(A)
 /mob/proc/set_intent(var/set_intent)
 	a_intent = set_intent
 
-/mob/proc/get_accent_icon(var/datum/language/speaking = null, var/force_accent)
+/mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
 	var/used_accent = force_accent ? force_accent : accent
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
-		var/final_icon = a.tag_icon
-		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+		if(istype(a))
+			var/final_icon = a.tag_icon
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			return S.icon_tag(final_icon)
+
+/mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	for(var/mob/M in contents)
+		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
+		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
+
+/mob/assign_player(var/mob/user)
+  ckey = user.ckey
+  return src

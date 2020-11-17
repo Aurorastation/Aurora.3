@@ -157,6 +157,12 @@
 	desc = "For when you want to conduct voyeurism from afar."
 	starts_with = list(/obj/item/device/spy_bug = 6, /obj/item/device/spy_monitor = 1)
 
+/obj/item/storage/box/syndie_kit/spy/hidden
+	name = "box"
+	desc = "It's just an ordinary box."
+	icon_state = "box"
+	item_state = "box"
+
 /obj/item/storage/box/syndie_kit/g9mm
 	name = "smooth operator"
 	desc = "9mm with silencer kit."
@@ -218,8 +224,6 @@
 	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
-	name = "suspicious briefcase"
-	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
 	starts_with = list(/obj/item/spacecash/c1000 = 10)
 
 /obj/item/storage/box/syndie_kit/stimulants

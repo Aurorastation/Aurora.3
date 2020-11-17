@@ -68,13 +68,17 @@
 		to_chat(user, "\The [src] is full.")
 
 /obj/structure/closet/examine(mob/user)
-	if(..(user, 1) && !opened)
+	if(!src.opened && (..(user, 1) || isobserver(user)))
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
 		content_info(user, content_size)
-	if(linked_teleporter && Adjacent(user) && opened)
+
+	if(!src.opened && isobserver(user))
+		to_chat(user, "It contains: [counting_english_list(contents)]")
+
+	if(src.opened && linked_teleporter && (Adjacent(user) || isobserver(user)))
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
 
 /obj/structure/closet/proc/stored_weight()
@@ -302,7 +306,7 @@
 				"<span class='notice'>You hear rustling of clothes.</span>"
 			)
 			return
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		if(W)
 			user.drop_from_inventory(W,loc)
@@ -330,6 +334,12 @@
 				"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
 				"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
 			)
+		else
+			attack_hand(user)
+	else if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
 		else
 			attack_hand(user)
 	else

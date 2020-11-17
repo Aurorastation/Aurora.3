@@ -46,7 +46,7 @@
 		update_icon()
 	else
 		if(busy)
-			visible_message("<span class='notice'>\icon [src] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
+			visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
 			busy = 0
 			update_icon()
 
@@ -185,7 +185,7 @@
 		if(!reagents.has_reagent(C, D.chemicals[C]))
 			if(ret != "")
 				ret += ", "
-			ret += C
+			ret += "[C]"
 	return ret
 
 /obj/machinery/r_n_d/protolathe/proc/build(var/datum/design/D)

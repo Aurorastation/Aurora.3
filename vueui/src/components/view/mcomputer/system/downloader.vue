@@ -7,7 +7,7 @@
           class="vui-progress"
           :max="s.disk_size"
           :value="s.disk_used"
-        >{{ s.disk_used }}GQ / {{ s.disk_size }}GQ</vui-progress>
+        >{{ s.disk_used }} GQ / {{ s.disk_size }} GQ</vui-progress>
       </vui-group-item>
     </vui-group>
     <template v-if="s.queue_size">
@@ -25,7 +25,7 @@
               class="vui-progress"
               :max="program.size"
               :value="program.progress"
-            >{{ program.progress }}GQ / {{ program.size }}GQ</vui-progress>
+            >{{ program.progress.toFixed(2) }} GQ / {{ program.size }} GQ</vui-progress>
           </td>
           <td class="action">
             <vui-button :params="{ cancel: program.filename }">Cancel</vui-button>

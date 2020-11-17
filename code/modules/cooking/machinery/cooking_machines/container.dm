@@ -5,6 +5,7 @@
 /obj/item/reagent_containers/cooking_container
 	icon = 'icons/obj/cooking_machines.dmi'
 	var/shortname
+	var/place_verb = "into"
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
 	volume = 80//Maximum units of reagents
 	flags = OPENCONTAINER | NOREACT
@@ -12,20 +13,45 @@
 		/obj/item/reagent_containers/food/snacks,
 		/obj/item/holder,
 		/obj/item/paper,
-		/obj/item/flame/candle
+		/obj/item/flame/candle,
+		/obj/item/stack/rods,
+		/obj/item/organ/internal/brain
 		)
 	var/appliancetype // Bitfield, uses the same as appliances
 	w_class = ITEMSIZE_NORMAL
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
 	. = ..()
-	if (length(contents))
-		var/string = "It contains:</br><ul><li>"
-		string += jointext(contents, "</li></br><li>") + "</li></ul>"
-		to_chat(user, SPAN_NOTICE(string))
-	if (reagents.total_volume)
-		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume] units of reagents."))
+	if(length(contents))
+		to_chat(user, SPAN_NOTICE(get_content_info()))
+	if(reagents.total_volume)
+		to_chat(user, SPAN_NOTICE(get_reagent_info()))
 
+/obj/item/reagent_containers/cooking_container/proc/get_content_info()
+	var/string = "It contains:</br><ul><li>"
+	string += jointext(contents, "</li></br><li>") + "</li></ul>"
+	return string
+
+/obj/item/reagent_containers/cooking_container/proc/get_reagent_info()
+	return "It contains [reagents.total_volume] units of reagents."
+
+/obj/item/reagent_containers/cooking_container/MouseEntered(location, control, params)
+	. = ..()
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"] && get_dist(usr, src) <= 2)
+		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
+		var/description
+		if(length(contents))
+			description = get_content_info()
+		if(reagents.total_volume)
+			if(!description)
+				description = ""
+			description += get_reagent_info()
+		openToolTip(usr, src, params, name, description)
+
+/obj/item/reagent_containers/cooking_container/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
 
 /obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
 	if(is_type_in_list(I, insertable))
@@ -36,7 +62,7 @@
 		if(!user.unEquip(I))
 			return
 		I.forceMove(src)
-		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
+		to_chat(user, SPAN_NOTICE("You put [I] [place_verb] [src]."))
 		return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
@@ -140,7 +166,7 @@
 	shortname = "skillet"
 	desc = "Chuck ingredients in this to fry something on the stove."
 	icon_state = "skillet"
-	volume = 15
+	volume = 30
 	force = 11
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
@@ -160,7 +186,7 @@
 	shortname = "saucepan"
 	desc = "Is it a pot? Is it a pan? It's a saucepan!"
 	icon_state = "pan"
-	volume = 60
+	volume = 90
 	slot_flags = SLOT_HEAD
 	force = 8
 	hitsound = 'sound/weapons/smash.ogg'
@@ -205,13 +231,31 @@
 	icon_state = "basket"
 	appliancetype = FRYER
 
+/obj/item/reagent_containers/cooking_container/grill_grate
+	name = "grill grate"
+	shortname = "grate"
+	place_verb = "onto"
+	desc = "Primarily used to grill meat, place this on a grill and grab a can of energy drink."
+	icon_state = "grill_grate"
+	appliancetype = GRILL
+	insertable = list(
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+
+/obj/item/reagent_containers/cooking_container/grill_grate/can_fit()
+	if(length(contents) >= 3)
+		return FALSE
+	return TRUE
+
 /obj/item/reagent_containers/cooking_container/plate
 	name = "serving plate"
 	shortname = "plate"
 	desc = "A plate. You plate foods on this plate."
 	icon_state = "plate"
 	appliancetype = MIX
-	volume = 5 // for things like jelly sandwiches etc
+	flags = OPENCONTAINER // Will still react
+	volume = 15 // for things like jelly sandwiches etc
+	max_space = 25
 
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
@@ -247,10 +291,10 @@
 	name = "serving bowl"
 	shortname = "bowl"
 	desc = "A bowl. You bowl foods... wait, what?"
-	volume = 180
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
 	center_of_mass = list("x" = 17,"y" = 7)
+	max_space = 30
 	matter = list(DEFAULT_WALL_MATERIAL = 300)
 	volume = 180
 	amount_per_transfer_from_this = 10

@@ -81,7 +81,9 @@
 	. = (A.z in z_levels)
 
 /proc/is_station_area(var/area/A)
-	. = isStationLevel(A.z)
+	if(A.station_area)
+		return TRUE
+	return FALSE
 
 /proc/is_contact_area(var/area/A)
 	. = isContactLevel(A.z)

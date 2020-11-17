@@ -177,17 +177,24 @@
 	build_path = /obj/item/mech_component/propulsion/spider
 	req_tech = list(TECH_ENGINEERING = 2)
 
-/datum/design/item/mechfab/exosuit/hover_torso
-	name = "Hoverpod Torso"
-	time = 40
-	materials = list(DEFAULT_WALL_MATERIAL = 22000)
-	build_path = /obj/item/mech_component/chassis/pod
+/datum/design/item/mechfab/exosuit/spider/heavy
+	name = "Industrial Quadruped Motivators"
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 25000)
+	build_path = /obj/item/mech_component/propulsion/spider/heavy
+	req_tech = list(TECH_ENGINEERING = 4)
 
 /datum/design/item/mechfab/exosuit/hover_legs
-	name = "Hoverthrusters"
+	name = "Heavy Hoverthrusters"
 	time = 35
 	materials = list(DEFAULT_WALL_MATERIAL = 14000)
 	build_path = /obj/item/mech_component/propulsion/hover
+
+/datum/design/item/mechfab/exosuit/hover_legs/light
+	name = "Light Hoverthrusters"
+	time = 25
+	materials = list(DEFAULT_WALL_MATERIAL = 7500)
+	build_path = /obj/item/mech_component/propulsion/hover/light
 
 /datum/design/item/mechfab/exosuit/track
 	name = "Armored Treads"

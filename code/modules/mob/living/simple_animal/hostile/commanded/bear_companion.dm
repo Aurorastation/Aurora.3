@@ -10,7 +10,8 @@
 	health = 100
 	maxHealth = 100
 
-	density = 1
+	density = TRUE
+	belongs_to_station = FALSE
 
 	attacktext = "swatted"
 	melee_damage_lower = 25
@@ -23,6 +24,7 @@
 
 	mob_size = 17
 
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "pets"
 	response_harm = "hits"
 	response_disarm = "pushes"

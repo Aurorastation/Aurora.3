@@ -229,6 +229,11 @@
 	color = "#f5f4e9"
 	taste_description = "fish"
 
+/datum/reagent/nutriment/protein/seafood/mollusc
+	name = "Mollusc Protein"
+	taste_description = "cold, bitter slime"
+	hydration_factor = 6
+
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "Egg Yolk"
 	color = "#FFFFAA"
@@ -1800,7 +1805,7 @@
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
 
 /datum/reagent/drink/root_beer
-	name = "R&D Root Beer"
+	name = "RnD Root Beer"
 	description = "A classic Earth drink from the United Americas province."
 	color = "#211100"
 	adj_drowsy = -6
@@ -1808,8 +1813,8 @@
 	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
-	glass_name = "glass of R&D Root Beer"
-	glass_desc = "A glass of bubbly R&D Root Beer."
+	glass_name = "glass of RnD Root Beer"
+	glass_desc = "A glass of bubbly RnD Root Beer."
 
 /datum/reagent/drink/spaceup
 	name = "Space-Up"
@@ -2648,15 +2653,15 @@
 
 /datum/reagent/alcohol/ethanol/cubalibre
 	name = "Cuba Libre"
-	description = "Rum, mixed with cola. Viva la revolucion."
+	description = "A rum and coke with lime. Viva la revolucion."
 	color = "#3E1B00"
 	strength = 10
-	taste_description = "cola"
+	taste_description = "cola and a hint of lime"
 	carbonated = TRUE
 
 	glass_icon_state = "cubalibreglass"
 	glass_name = "glass of Cuba Libre"
-	glass_desc = "A classic mix of rum and cola."
+	glass_desc = "A classic mix of rum, cola, and lime."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /datum/reagent/alcohol/ethanol/demonsblood
@@ -4022,6 +4027,13 @@
 	glass_name = "glass of Sarezhi Wine"
 	glass_desc = "It tastes like plain berry juice. Is this supposed to be alcoholic?"
 
+/datum/reagent/alcohol/butanol/threetownscider
+	name = "Three Towns Cider"
+	description = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
+	color = "#b8f77e"
+	strength = 20
+	taste_description = "bittersweet root juice"
+
 //Kaed's Unathi Cocktails
 //=======
 //What an exciting time we live in, that lizards may drink fruity girl drinks.
@@ -4425,3 +4437,16 @@
 	condiment_desc = "A vegetarian friendly way to add a little extra pizazz to any dish."
 	condiment_icon_state = "dionaepowder"
 	condiment_center_of_mass = list("x"=16, "y"=10)
+
+/datum/reagent/alcohol/ethanol/rumandcola
+	name = "Rum and Cola"
+	description = "A classic cocktail consisting of rum and cola."
+	color = "#3E1B00"
+	strength = 10
+	taste_description = "cola"
+	carbonated = TRUE
+
+	glass_icon_state = "rumandcolaglass"
+	glass_name = "glass of Rum and Cola"
+	glass_desc = "A classic mix of rum and cola."
+	glass_center_of_mass = list("x"=16, "y"=8)

@@ -31,8 +31,8 @@
 		return
 
 	user.set_machine(src)
-	var/dat
-	dat += "<TT><B>Automatic Station Floor Repairer v1.1</B></TT><BR><BR>"
+
+	var/dat = ""
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[src.on ? "On" : "Off"]</A><BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]<BR>"
 	//dat += "Tiles left: [amount]<BR>"
@@ -48,9 +48,9 @@
 			bmode = "Disabled"
 		dat += "<BR><BR>Bridge Mode : <A href='?src=\ref[src];operation=bridgemode'>[bmode]</A><BR>"
 
-	user << browse("<HEAD><TITLE>Repairbot v1.1 controls</TITLE></HEAD>[dat]", "window=autorepair")
-	onclose(user, "autorepair")
-	return
+	var/datum/browser/bot_win = new(user, "autorepair", "Automatic Repairbot v1.2 Controls")
+	bot_win.set_content(dat)
+	bot_win.open()
 
 /mob/living/bot/floorbot/emag_act(var/remaining_charges, var/mob/user)
 	. = ..()

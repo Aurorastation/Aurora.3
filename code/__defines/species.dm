@@ -29,9 +29,6 @@
 
 #define SPECIES_SLIMEPERSON			"Slime"
 
-#define SPECIES_VOX					"Vox"
-#define SPECIES_VOX_ARMALIS			"Vox Armalis"
-
 #define SPECIES_SKELETON			"Skeleton"
 #define SPECIES_CULTGHOST			"Apparition"
 #define SPECIES_ZOMBIE				"Zombie"
@@ -89,7 +86,5 @@
 #define BODYTYPE_GOLEM				"Golem"
 #define BODYTYPE_MONKEY				"Monkey"
 
-#define BODYTYPE_VOX				"Vox"
-#define BODYTYPE_VOX_ARMALIS		"Vox Armalis"
 #define BODYTYPE_SKELETON			"Skeleton"
 #define BODYTYPE_CULTGHOST			"Apparition"

@@ -172,7 +172,7 @@
 	desc = "A bluespace beaker, powered by experimental bluespace technology."
 	icon_state = "beakerbluespace"
 	center_of_mass = list("x" = 16,"y" = 11)
-	matter = list(MATERIAL_GLASS = 5000)
+	matter = list(MATERIAL_PHORON = 1000, MATERIAL_DIAMOND = 100)
 	volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
@@ -209,7 +209,7 @@
 	accuracy = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = ITEMSIZE_NORMAL
-	amount_per_transfer_from_this = 20
+	amount_per_transfer_from_this = 120
 	possible_transfer_amounts = list(10,20,30,60,120)
 	volume = 120
 	flags = OPENCONTAINER

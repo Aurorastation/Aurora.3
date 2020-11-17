@@ -7,6 +7,27 @@
 	the Tau Ceti Foreign Legion, and making active progress to spread their influence."
 	consular_outfit = /datum/outfit/job/representative/consular/zora
 
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_SKRELL,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI
+		)
+	)
+
 /datum/citizenship/zora/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
@@ -49,8 +70,13 @@
 
 			H.unEquip(H.back)
 			H.unEquip(H.shoes)
+			qdel(H.wear_mask)
 
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+			var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+			H.internal = preserve
+			H.internals.icon_state = "internal1"
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder(H), slot_head)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)

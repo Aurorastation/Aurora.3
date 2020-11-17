@@ -551,12 +551,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino,
 /area/derelict)
-"bp" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/cartridge/syndicate,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
-/area/derelict)
 "bq" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/card,
@@ -6897,7 +6891,7 @@ aa
 aa
 aa
 aX
-bp
+bJ
 bI
 bX
 cv

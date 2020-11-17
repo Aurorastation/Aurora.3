@@ -2,6 +2,14 @@
 	display_name = "cane"
 	path = /obj/item/cane
 
+/datum/gear/cane/crutch
+	display_name = "crutch"
+	path = /obj/item/cane/crutch
+
+/datum/gear/cane/white
+	display_name = "white cane"
+	path = /obj/item/cane/white
+
 /datum/gear/dice
 	display_name = "pack of dice"
 	path = /obj/item/storage/pill_bottle/dice
@@ -172,4 +180,5 @@
 
 /datum/gear/photo
 	display_name = "photo"
-	path =  /obj/item/generic_photo
+	path =  /obj/item/photo
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

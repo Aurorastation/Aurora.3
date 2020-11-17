@@ -35,7 +35,6 @@
 	new /obj/item/clothing/under/rank/research_director/rdalt(src)
 	new /obj/item/clothing/under/rank/research_director/dress_rd(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/cartridge/rd(src)
 	new /obj/item/clothing/shoes/science(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
@@ -47,6 +46,7 @@
 	new /obj/item/storage/box/firingpinsRD(src)
 	new /obj/item/device/pin_extractor(src)
 	new /obj/item/storage/box/fancy/keypouch/sci(src)
+	new /obj/item/storage/box/tethers(src)
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"

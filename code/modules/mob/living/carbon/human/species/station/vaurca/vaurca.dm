@@ -2,6 +2,7 @@
 	name = SPECIES_VAURCA_WORKER
 	short_name = "vau"
 	name_plural = "Type A"
+	category_name = "Vaurca"
 	bodytype = BODYTYPE_VAURCA
 	age_min = 1
 	age_max = 20
@@ -33,6 +34,7 @@
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
 	bleed_mod = 2.2
+	injection_mod = 2
 
 	grab_mod = 1.1
 	resist_mod = 1.75
@@ -102,7 +104,7 @@
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/vaurca
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
 	)
 
 	has_limbs = list(
@@ -130,6 +132,8 @@
 	default_accent = ACCENT_TTS
 	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
 
+	alterable_internal_organs = list(BP_EYES)
+
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
@@ -143,12 +147,6 @@
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
-
-/datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/reagent_containers/inhaler/phoron_special(H.back), slot_in_backpack)
-	else
-		H.equip_to_slot_or_del(new /obj/item/reagent_containers/inhaler/phoron_special(H), slot_r_hand)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER

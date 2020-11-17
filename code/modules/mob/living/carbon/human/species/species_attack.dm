@@ -174,21 +174,24 @@
 	attack_name = "mandibles"
 
 /datum/unarmed_attack/bite/infectious
-	shredding = 1
+	shredding = TRUE
 
 /datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
-	if(target && target.stat == DEAD)
+	if(!target || target.stat == DEAD)
 		return
-	if(target.internal_organs_by_name["zombie"])
-		to_chat(user, "<span class='danger'>You feel that \the [target] has been already infected!</span>")
+	if(target.internal_organs_by_name[BP_ZOMBIE_PARASITE])
+		to_chat(user, SPAN_WARNING("You feel that \the [target] has been already infected!"))
 
 	var/infection_chance = 80
 	infection_chance -= target.run_armor_check(zone,"melee")
 	if(prob(infection_chance))
 		if(target.reagents)
-			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, 10)
-
+			var/inject_amount = 10
+			var/trioxin_amount = target.reagents.get_reagent_amount(/datum/reagent/toxin/trioxin)
+			if(inject_amount + trioxin_amount > ZOMBIE_MAX_TRIOXIN)
+				inject_amount = ZOMBIE_MAX_TRIOXIN - trioxin_amount
+			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, inject_amount)
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")

@@ -17,7 +17,7 @@
 	var/id_access = "NanoTrasen Representative"
 
 /datum/outfit/admin/nt/get_id_access()
-	return get_all_accesses() | get_centcom_access(id_access)
+	return get_all_station_access() | get_centcom_access(id_access)
 
 /datum/outfit/admin/nt/officer
 	name = "NanoTrasen Navy Officer"
@@ -25,7 +25,7 @@
 	uniform = /obj/item/clothing/under/rank/centcom_officer
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	head = /obj/item/clothing/head/beret/centcom/officer
-
+	l_pocket = /obj/item/device/orbital_dropper/icarus_drones
 
 /datum/outfit/admin/nt/captain
 	name = "NanoTrasen Navy Captain"
@@ -33,7 +33,7 @@
 	uniform = /obj/item/clothing/under/rank/centcom_captain
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	head = /obj/item/clothing/head/beret/centcom/captain
-
+	l_pocket = /obj/item/device/orbital_dropper/icarus_drones
 
 /datum/outfit/admin/nt/protection_detail
 	name = "ERT Protection Detail"
@@ -44,7 +44,8 @@
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	head = /obj/item/clothing/head/beret/centcom/officer/civilprotection
+	id = /obj/item/card/id/ccia
+	head = /obj/item/clothing/head/beret/centcom/civilprotection
 	suit_store = /obj/item/gun/energy/gun
 	belt = /obj/item/storage/belt/security
 
@@ -52,12 +53,14 @@
 		/obj/item/storage/box/engineer = 1,
 		/obj/item/clothing/head/helmet/swat/peacekeeper = 1,
 		/obj/item/clothing/accessory/holster/hip = 1,
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/energy/disruptorpistol/magnum = 1
 	)
 
 	implants = list(
 		/obj/item/implant/mindshield
 	)
+	id_icon = "ccia"
+	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
@@ -93,12 +96,15 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/fancy/cigarettes/cigar = 1,
-		/obj/item/flame/lighter/zippo = 1
+		/obj/item/flame/lighter/zippo = 1,
+		/obj/item/device/orbital_dropper/icarus_drones = 1
 	)
 
 	implants = list(
 		/obj/item/implant/mindshield
 	)
+
+	id_access = "BlackOps Commander"
 
 /datum/outfit/admin/nt/cciaa
 	name = "CCIA Agent"
@@ -113,7 +119,11 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
-	pda = /obj/item/device/pda/central
+	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
+	id = /obj/item/card/id/ccia
+
+	id_icon = "ccia"
+	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"
@@ -145,6 +155,8 @@
 	implants = list(
 		/obj/item/implant/mindshield
 	)
+
+	id_access = "Odin Security"
 
 /datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
@@ -187,6 +199,7 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa/fib
+	id = /obj/item/card/id/ccia/fib
 
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
@@ -196,6 +209,9 @@
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs = 1
 	)
+
+	id_icon = "fib"
+	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/fib/guard
 	name = "FIB Escort"
@@ -216,3 +232,91 @@
 		/obj/item/storage/box/zipties = 1,
 		/obj/item/clothing/head/helmet = 1
 	)
+
+	id_access = "CCIA Agent"
+
+/datum/outfit/admin/nt/odindoc
+	name = "NTCC Odin Medical Specialist"
+
+	uniform = /obj/item/clothing/under/rank/medical/black
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
+	shoes = /obj/item/clothing/shoes/trauma
+	mask = /obj/item/clothing/mask/surgical
+	l_hand = /obj/item/storage/firstaid/adv
+	l_ear = /obj/item/device/radio/headset/headset_med
+
+	gloves = /obj/item/clothing/gloves/white
+	belt = /obj/item/storage/belt/medical
+	back = /obj/item/storage/backpack/satchel_med
+	accessory = /obj/item/clothing/accessory/storage/white_vest
+	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/mortaphenyl = 1)
+
+	backpack_contents = list(
+		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/firstaid/regular = 2,
+		/obj/item/storage/firstaid/surgery = 1,
+		/obj/item/storage/box/gloves = 1,
+		/obj/item/storage/box/syringes = 1,
+		/obj/item/device/flashlight/pen = 1
+	)
+
+	belt_contents = list(
+		/obj/item/stack/medical/advanced/bruise_pack = 2,
+		/obj/item/stack/medical/advanced/ointment = 2,
+		/obj/item/stack/medical/splint = 1,
+		/obj/item/reagent_containers/syringe = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1
+	)
+
+	id_access = "Medical Doctor"
+
+/datum/outfit/admin/nt/odinpharm
+	name = "NTCC Odin Pharmacy Specialist"
+
+	uniform = /obj/item/clothing/under/rank/pharmacist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
+	shoes = /obj/item/clothing/shoes/chemist
+	l_ear = /obj/item/device/radio/headset/headset_med
+
+	backpack = /obj/item/storage/backpack/pharmacy
+	satchel = /obj/item/storage/backpack/satchel_pharm
+	dufflebag = /obj/item/storage/backpack/duffel/pharm
+	messengerbag = /obj/item/storage/backpack/messenger/pharm
+
+	id_access = "Medical Doctor"
+
+/datum/outfit/admin/nt/odinbartender
+	name = "NTCC Odin Bartender"
+
+	uniform = /obj/item/clothing/under/rank/bartender
+	shoes = /obj/item/clothing/shoes/laceup/all_species
+	l_ear = /obj/item/device/radio/headset/headset_service
+
+	id_access = "Service"
+
+/datum/outfit/admin/nt/odinchef
+	name = "NTCC Odin Chef"
+
+	uniform = /obj/item/clothing/under/rank/chef
+	suit = /obj/item/clothing/suit/chef
+	head = /obj/item/clothing/head/chefhat
+	shoes = /obj/item/clothing/shoes/laceup/all_species
+	l_ear = /obj/item/device/radio/headset/headset_service
+
+	id_access = "Service"
+
+/datum/outfit/admin/nt/odinjanitor
+	name = "NTCC Odin Sanitation Specialist"
+
+	uniform = /obj/item/clothing/under/rank/janitor
+	pda = /obj/item/modular_computer/handheld/pda/civilian
+	shoes = /obj/item/clothing/shoes/galoshes
+	l_ear = /obj/item/device/radio/headset/headset_service
+	l_pocket = /obj/item/grenade/chem_grenade/cleaner
+	r_pocket = /obj/item/grenade/chem_grenade/cleaner
+
+	backpack_contents = list(
+		/obj/item/grenade/chem_grenade/cleaner = 14
+	)
+
+	id_access = "Service"

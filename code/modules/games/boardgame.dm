@@ -111,7 +111,7 @@
 
 		if(board["[i]"])
 			var/obj/item/I = board["[i]"]
-			to_chat(user, browse_rsc(board_icons["[I.icon] [I.icon_state]"],"[I.icon_state].png"))
+			send_rsc(user, board_icons["[I.icon] [I.icon_state]"],"[I.icon_state].png")
 			dat += " style='background-image:url([I.icon_state].png)'>"
 		else
 			dat+= ">"

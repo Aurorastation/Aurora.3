@@ -122,7 +122,7 @@
 
 			var/contained = reagentlist()
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [name] to [key_name(target)] Reagents: [contained]</font>")
+			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(target)] Reagents: [contained]</span>")
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 
@@ -950,10 +950,9 @@
 	reagent_data = list(/datum/reagent/nutriment = list("warm heartiness" = 1, "dough" = 2))
 
 /obj/item/reagent_containers/food/snacks/donkpocket/sinpocket
-	name = "\improper Sin-pocket"
-	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume. Use it in hand to heat and release chemicals."
 	reagent_data = list(/datum/reagent/nutriment = list("delicious cruelty" = 1, "dough" = 2))
 	filling_color = "#6D6D00"
+	desc_antag = "Use it in hand to heat and release chemicals."
 	var/has_been_heated = FALSE
 
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 1, /datum/reagent/nutriment = 3)
@@ -964,8 +963,8 @@
 		return
 	has_been_heated = TRUE
 	user.visible_message(SPAN_NOTICE("[user] crushes \the [src] package."), "You crush \the [src] package and feel it rapidly heat up.")
-	name = "cooked Sin-pocket"
-	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
+	name = "cooked Donk-pocket"
+	desc = "The cooked, reheatable food of choice for the seasoned spaceman."
 	reagents.add_reagent(/datum/reagent/drink/doctorsdelight, 5)
 	reagents.add_reagent(/datum/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/datum/reagent/synaptizine, 1.25)
@@ -1511,6 +1510,11 @@
 			icon_state = "steak_75"
 		if(76 to INFINITY)
 			icon_state = "steak"
+
+/obj/item/reagent_containers/food/snacks/meatsteak/grilled
+	name = "grilled steak"
+	desc = "A piece of meat grilled to absolute perfection. Sssssssip. This is the life."
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2, /datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1, /datum/reagent/spacespice = 1)
 
 /obj/item/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"
@@ -3699,6 +3703,7 @@
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), "squid")
 			reagents.trans_to(sashimi, transfer_amt)
+		qdel(src)
 
 /obj/item/reagent_containers/food/snacks/lortl
 	name = "lortl"
@@ -3911,13 +3916,13 @@
 	name = "chicken nugget"
 	icon_state = "nugget_lump"
 	bitesize = 3
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 4)
 
 /obj/item/reagent_containers/food/snacks/nugget/Initialize()
 	. = ..()
 	var/shape = pick("lump", "star", "lizard", "corgi")
 	desc = "A chicken nugget vaguely shaped like a [shape]."
 	icon_state = "nugget_[shape]"
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 4)
 
 /obj/item/reagent_containers/food/snacks/icecreamsandwich
 	name = "ice cream sandwich"
@@ -4814,6 +4819,33 @@
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 2))
 	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/triglyceride = 5)
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/explorer_ration
+	name = "m'sai scout ration"
+	desc = "A mixture of meat, fat and adhomian berries commonly prepared by m'sai explorers and soldiers."
+	icon_state = "scoutration_wrap"
+	reagent_data = list(/datum/reagent/nutriment = list("berries" = 1))
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/nutriment/protein = 6 , /datum/reagent/nutriment/triglyceride = 5)
+	bitesize = 1
+	var/wrap = TRUE
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/update_icon()
+	if(wrap)
+		icon_state = "scoutration_wrap"
+	else
+		icon_state = "scoutration_open"
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/attack_self(mob/user)
+	src.wrap = !src.wrap
+	to_chat(usr, "You [src.wrap ? "wrap" : "unwrap"] \the [src].")
+	update_icon()
+	return
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/standard_feed_mob(var/mob/user, var/mob/target)
+	if(wrap)
+		to_chat(user, SPAN_NOTICE("You must unwrap \the [src] first."))
+		return
+	..()
 
 /obj/item/reagent_containers/food/snacks/stew/diona
 	name = "dionae stew"

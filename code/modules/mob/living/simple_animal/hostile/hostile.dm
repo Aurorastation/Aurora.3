@@ -2,6 +2,7 @@
 	faction = "hostile"
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/mob/living/target_mob
+	var/belongs_to_station = FALSE
 	var/attack_same = 0
 	var/ranged = 0
 	var/rapid = 0
@@ -181,6 +182,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return B
 	if(istype(target_mob, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/T = target_mob
+		if(!T.raising && !T.raised)
+			return
 		src.do_attack_animation(T)
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
@@ -205,6 +208,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 /mob/living/simple_animal/hostile/think()
 	..()
+
+	if(stop_thinking)
+		return
+
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
 			targets = ListTargets(10)

@@ -36,11 +36,11 @@
 
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Revolver"
-	item_cost = 12
+	item_cost = 8
 	path = /obj/item/gun/projectile/revolver
 
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "Vintage Submachine Gun"
+	name = "Submachine Gun"
 	item_cost = 14
 	path = /obj/item/gun/projectile/automatic/tommygun
 
@@ -78,16 +78,6 @@
 	name = "Ballistic Gauntlet"
 	item_cost = 12
 	path = /obj/item/clothing/gloves/ballistic
-
-/datum/uplink_item/item/visible_weapons/wrestling
-	name = "Wrestling Manual"
-	item_cost = 6
-	path = /obj/item/martial_manual/wrestling
-
-/datum/uplink_item/item/visible_weapons/solcom
-	name = "SolCom Manual"
-	item_cost = 6
-	path = /obj/item/martial_manual
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"

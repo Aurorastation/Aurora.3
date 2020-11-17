@@ -33,6 +33,7 @@ export default {
     line-height: 1em;
     white-space: nowrap;
     overflow: visible;
+    text-align: center;
     span {
       vertical-align: middle;
       margin-left: 2px;
