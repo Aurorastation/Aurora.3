@@ -299,8 +299,8 @@ Class Procs:
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return
 		else if(W.iswirecutter() && signaler)
-			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] to \the [src]."), range = 3)
-			detach_signaler(get_turf(user))
+			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
+			user.put_in_hands(detach_signaler())
 			return
 
 	return ..()
@@ -314,10 +314,14 @@ Class Procs:
 	if(!detach_turf)
 		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
+	
+	var/obj/item/device/assembly/signaler/S = signaler
 
 	signaler.forceMove(detach_turf)
 	signaler.machine = null
 	signaler = null
+
+	return S
 
 /obj/machinery/proc/RefreshParts()
 
