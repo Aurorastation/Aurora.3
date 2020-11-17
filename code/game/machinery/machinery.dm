@@ -287,7 +287,7 @@ Class Procs:
 
 /obj/machinery/attackby(obj/item/W, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)
-		if(istype(W, /obj/item/device/assembly/signaler))
+		if(issignaler(W))
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
 				return
