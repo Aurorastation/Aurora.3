@@ -115,7 +115,7 @@
 	if(target && !target.fully_charged())
 		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE) // Capped by charging_power / tick
 		var/charge_used = cell.use(diff)
-		var/given = target.give(charge_used*charging_efficiency)
+		target.give(charge_used*charging_efficiency)
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
