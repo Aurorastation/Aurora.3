@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes:
-  - tweak: "Lowered the max number of players for the burglar gamemode from 20 to 15."
