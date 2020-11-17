@@ -3,7 +3,12 @@
 	desc = "A small handheld device designed to disrupt energy barriers."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "hdiffuser_off"
-	origin_tech = "{'magnets':5,'powerstorage':5,'esoteric':2}"
+	origin_tech = list(
+		TECH_MAGNET = 5,
+		TECH_POWER = 5,
+		TECH_ILLEGAL = 2
+	
+	)
 	matter = list(
 		MATERIAL_GLASS = 1000,
 		MATERIAL_GOLD = 100,
@@ -17,7 +22,7 @@
 	if(enabled)
 		icon_state = "hdiffuser_on"
 	else
-		icon_state = "hdiffuser_off"
+		icon_state = initial(icon_state)
 
 /obj/item/shield_diffuser/Initialize()
 	. = ..()
@@ -25,7 +30,7 @@
 
 /obj/item/shield_diffuser/Destroy()
 	QDEL_NULL(cell)
-	if(enabled)
+	if(isprocessing)
 		STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
@@ -36,11 +41,11 @@
 	if(!enabled)
 		return
 
-	for(var/direction in global.cardinal)
+	for(var/direction in cardinal)
 		var/turf/simulated/shielded_tile = get_step(get_turf(src), direction)
 		for(var/obj/effect/shield/S in shielded_tile)
 			// 10kJ per pulse, but gap in the shield lasts for longer than regular diffusers.
-			if(istype(S) && !S.diffused_for && !S.disabled_for && cell.checked_use(10 KILOWATTS * CELLRATE))
+			if(!S.diffused_for && !S.disabled_for && cell.checked_use(10 KILOWATTS * CELLRATE))
 				S.diffuse(20)
 
 /obj/item/shield_diffuser/attack_self()

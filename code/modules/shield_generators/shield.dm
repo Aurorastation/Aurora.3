@@ -16,9 +16,9 @@
 /obj/effect/shield/update_icon(update_neighbors = FALSE)
 
 	if(gen?.check_flag(MODEFLAG_PHOTONIC) && !disabled_for && !diffused_for)
-		set_opacity(1)
+		set_opacity(TRUE)
 	else
-		set_opacity(0)
+		set_opacity(FALSE)
 
 	if(gen?.check_flag(MODEFLAG_OVERCHARGE))
 		icon_state = "shield_overcharged"
@@ -28,15 +28,14 @@
 		set_light(1, 0.1, 2, l_color = COLOR_LUMINOL)
 
 	cut_overlays()
-	for(var/direction in global.cardinal)
+	for(var/direction in cardinal)
 		var/turf/T = get_step(src, direction)
 		if(!T)
 			continue
 		var/found = locate(/obj/effect/shield) in T
 		if(found)
 			if(update_neighbors)
-				for(var/obj/effect/shield/shield in T)
-					shield.update_icon(FALSE)
+				found.update_icon(FALSE)
 			add_overlay(image(icon = icon, icon_state = "[icon_state]_edge", dir = direction))
 
 // Prevents shuttles, singularities and pretty much everything else from moving the field segments away.
@@ -51,23 +50,20 @@
 
 /obj/effect/shield/Destroy()
 	if(gen)
-		if(src in gen.field_segments)
-			gen.field_segments -= src
-		if(src in gen.damaged_segments)
-			gen.damaged_segments -= src
+		gen.field_segments -= src
+		gen.damaged_segments -= src
 		gen = null
 	update_nearby_tiles()
-	forceMove(null, 1)
-	set_light(0)
+	forceMove(null)
+	set_light(FALSE)
 
 	var/turf/current_loc = get_turf(src)
-	for(var/direction in global.cardinal)
+	for(var/direction in cardinal)
 		var/turf/T = get_step(current_loc, direction)
 		if(T)
 			for(var/obj/effect/shield/F in T)
 				F.queue_icon_update()
 	. = ..()
-
 
 // Temporarily collapses this shield segment.
 /obj/effect/shield/proc/fail(var/duration)
@@ -135,13 +131,12 @@
 		qdel(src)
 		return
 
+	damage = max(round(damage), 0)
 	if(!damage)
 		return
 
-	damage = round(damage)
-
 	new /obj/effect/temp_visual(get_turf(src), 2 SECONDS,'icons/obj/machines/shielding.dmi',"shield_impact")
-	impact_effect(round(abs(damage * 2)))
+	impact_effect(damage * 2)
 
 	var/list/field_segments = gen.field_segments
 	switch(gen.take_shield_damage(damage, damtype))
@@ -158,10 +153,10 @@
 			return
 		if(SHIELD_BREACHED_FAILURE)
 			fail_adjacent_segments(rand(8, 16), hitby)
-			for(var/obj/effect/shield/S in field_segments)
+			for(var/field_segment in field_segments)
+				var/obj/effect/shield/S = field_segment
 				S.fail(1)
 			return
-
 
 // As we have various shield modes, this handles whether specific things can pass or not.
 /obj/effect/shield/CanPass(var/atom/movable/mover, var/turf/target, var/height=0, var/air_group=0)
@@ -181,16 +176,13 @@
 		return mover.can_pass_shield(gen)
 	return TRUE
 
-
 /obj/effect/shield/c_airblock(turf/other)
 	return gen.check_flag(MODEFLAG_ATMOSPHERIC) ? BLOCKED : 0
-
 
 // EMP. It may seem weak but keep in mind that multiple shield segments are likely to be affected.
 /obj/effect/shield/emp_act(var/severity)
 	if(!disabled_for)
 		take_damage(rand(30,60) / severity, SHIELD_DAMTYPE_EM)
-
 
 // Explosions
 /obj/effect/shield/ex_act(var/severity)
@@ -202,7 +194,6 @@
 /obj/effect/shield/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(!disabled_for)
 		take_damage(rand(5,10), SHIELD_DAMTYPE_HEAT)
-
 
 // Projectiles
 /obj/effect/shield/bullet_act(var/obj/item/projectile/proj)
@@ -231,7 +222,6 @@
 	else
 		user.visible_message(SPAN_DANGER("\The [user] tries to attack \the [src] with \the [I], but it passes through!"))
 
-
 // Special treatment for meteors because they would otherwise penetrate right through the shield.
 /obj/effect/shield/CollidedWith(var/atom/movable/mover)
 	if(!gen)
@@ -240,7 +230,6 @@
 	impact_effect(2)
 	mover.shield_impact(src)
 	return ..()
-
 
 /obj/effect/shield/proc/overcharge_shock(var/mob/living/M)
 	M.adjustFireLoss(rand(20, 40))
@@ -260,7 +249,7 @@
 	update_explosion_resistance()
 
 /obj/effect/shield/proc/update_explosion_resistance()
-	if(gen && gen.check_flag(MODEFLAG_HYPERKINETIC))
+	if(gen?.check_flag(MODEFLAG_HYPERKINETIC))
 		explosion_resistance = INFINITY
 	else
 		explosion_resistance = 0
@@ -282,7 +271,6 @@
 // Silicon mobs
 /mob/living/silicon/can_pass_shield(var/obj/machinery/power/shield_generator/gen)
 	return !gen.check_flag(MODEFLAG_ANORGANIC)
-
 
 // Generic objects. Also applies to bullets and meteors.
 /obj/can_pass_shield(var/obj/machinery/power/shield_generator/gen)
@@ -324,7 +312,9 @@
 		addtimer(CALLBACK(src, .proc/spread_impact_effect, i, affected_shields), 2)
 
 /obj/effect/shield/proc/spread_impact_effect(var/i, var/list/affected_shields = list())
-	for(var/direction in global.cardinal)
+	if(!affected_shields.len)
+		return
+	for(var/direction in cardinal)
 		var/turf/T = get_step(src, direction)
 		if(T) // Incase we somehow stepped off the map.
 			for(var/obj/effect/shield/F in T)

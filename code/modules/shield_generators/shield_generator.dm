@@ -39,18 +39,16 @@
 	if(running)
 		icon_state = "generator1"
 	else
-		icon_state = "generator0"
-
+		icon_state = initial(icon_state)
 
 /obj/machinery/power/shield_generator/Initialize()
 	. = ..()
 	connect_to_network()
 
 	mode_list = list()
-	for(var/st in subtypesof(/datum/shield_mode/))
+	for(var/st in subtypesof(/datum/shield_mode))
 		var/datum/shield_mode/SM = new st()
 		mode_list.Add(SM)
-
 
 /obj/machinery/power/shield_generator/Destroy()
 	shutdown_field()
@@ -58,7 +56,6 @@
 	damaged_segments = null
 	mode_list = null
 	. = ..()
-
 
 /obj/machinery/power/shield_generator/RefreshParts()
 	max_energy = 0
@@ -77,11 +74,10 @@
 	mitigation_heat = between(0, mitigation_heat, mitigation_max)
 	..()
 
-
 // Shuts down the shield, removing all shield segments and unlocking generator settings.
 /obj/machinery/power/shield_generator/proc/shutdown_field()
-	for(var/obj/effect/shield/S in field_segments)
-		qdel(S)
+	for(var/S in field_segments)
+		QDEL_NULL(S)
 
 	running = SHIELD_OFF
 	current_energy = 0
@@ -90,12 +86,11 @@
 	mitigation_heat = 0
 	update_icon()
 
-
 // Generates the field objects. Deletes existing field, if applicable.
 /obj/machinery/power/shield_generator/proc/regenerate_field()
 	if(field_segments.len)
-		for(var/obj/effect/shield/S in field_segments)
-			qdel(S)
+		for(var/S in field_segments)
+			QDEL_NULL(S)
 
 	// The generator is not turned on, so don't generate any new tiles.
 	if(!running)
@@ -108,23 +103,23 @@
 	else
 		shielded_turfs = fieldtype_square()
 
-	for(var/turf/T in shielded_turfs)
+	for(var/shielded_turf in shielded_turfs)
+		var/turf/T = shielded_turf
 		var/obj/effect/shield/S = new(T)
 		S.gen = src
 		S.flags_updated()
 		field_segments |= S
 	update_icon()
 
-
 // Recalculates and updates the upkeep multiplier
 /obj/machinery/power/shield_generator/proc/update_upkeep_multiplier()
 	var/new_upkeep = 1.0
-	for(var/datum/shield_mode/SM in mode_list)
+	for(var/M in mode_list)
+		var/datum/shield_mode/SM = M
 		if(check_flag(SM.mode_flag))
 			new_upkeep *= SM.multiplier
 
 	upkeep_multiplier = new_upkeep
-
 
 /obj/machinery/power/shield_generator/process()
 	upkeep_power_usage = 0
@@ -132,7 +127,7 @@
 
 	if(offline_for)
 		offline_for = max(0, offline_for - 1)
-	// We're turned off.
+
 	if(running == SHIELD_OFF)
 		return
 
@@ -143,8 +138,7 @@
 	else if(running == SHIELD_DISCHARGING)
 		current_energy -= SHIELD_SHUTDOWN_DISPERSION_RATE
 	else if(running == SHIELD_SPINNING_UP)
-		spinup_counter--
-		if(spinup_counter <= 0)
+		if(--spinup_counter <= 0)
 			running = SHIELD_RUNNING
 			regenerate_field()
 
@@ -181,7 +175,8 @@
 		energy_failure()
 
 	if(!overloaded)
-		for(var/obj/effect/shield/S in damaged_segments)
+		for(var/damaged_segment in damaged_segments)
+			var/obj/effect/shield/S = damaged_segment
 			S.regenerate()
 	else if (field_integrity() > 25)
 		overloaded = FALSE
@@ -190,12 +185,12 @@
 	if(panel_open && (O.ismultitool() || O.iswirecutter()))
 		attack_hand(user)
 		return TRUE
-	if(default_deconstruction_screwdriver(user, O))
+	else if(default_deconstruction_screwdriver(user, O))
 		updateUsrDialog()
 		return
-	if(default_deconstruction_crowbar(user, O))
+	else if(default_deconstruction_crowbar(user, O))
 		return
-	if(default_part_replacement(user, O))
+	else if(default_part_replacement(user, O))
 		return
 	updateUsrDialog()
 
@@ -209,7 +204,8 @@
 	else
 		current_energy = 0
 		overloaded = TRUE
-		for(var/obj/effect/shield/S in field_segments)
+		for(var/field_segment in field_segments)
+			var/obj/effect/shield/S = field_segment
 			S.fail(1)
 
 /obj/machinery/power/shield_generator/proc/set_idle(var/new_state)
@@ -217,7 +213,8 @@
 		if(running == SHIELD_IDLE)
 			return
 		running = SHIELD_IDLE
-		for(var/obj/effect/shield/S in field_segments)
+		for(var/field_segment in field_segments)
+			var/obj/effect/shield/S = field_segment
 			qdel(S)
 	else
 		if(running != SHIELD_IDLE)
@@ -236,16 +233,16 @@
 	data["mitigation_em"] = round(mitigation_em, 0.1)
 	data["mitigation_heat"] = round(mitigation_heat, 0.1)
 	data["field_integrity"] = field_integrity()
-	data["max_energy"] = round(max_energy / 1000000, 0.1)
-	data["current_energy"] = round(current_energy / 1000000, 0.1)
+	data["max_energy"] = round(max_energy / 1e6, 0.1)
+	data["current_energy"] = round(current_energy / 1e6, 0.1)
 	data["percentage_energy"] = round(data["current_energy"] / data["max_energy"] * 100)
 	data["total_segments"] = field_segments ? field_segments.len : 0
 	data["functional_segments"] = damaged_segments ? data["total_segments"] - damaged_segments.len : data["total_segments"]
 	data["field_radius"] = field_radius
 	data["target_radius"] = target_radius
-	data["input_cap_kw"] = round(input_cap / 1000)
-	data["upkeep_power_usage"] = round(upkeep_power_usage / 1000, 0.1)
-	data["power_usage"] = round(power_usage / 1000)
+	data["input_cap_kw"] = round(input_cap / 1e3)
+	data["upkeep_power_usage"] = round(upkeep_power_usage / 1e3, 0.1)
+	data["power_usage"] = round(power_usage / 1e3)
 	data["hacked"] = hacked
 	data["offline_for"] = offline_for * 2
 	data["idle_multiplier"] = idle_multiplier
@@ -297,7 +294,7 @@
 		shutdown_field()
 		log_and_message_admins("has triggered \the [src]'s emergency shutdown!", user)
 		spawn()	
-			empulse(src, old_energy / 60000000, old_energy / 32000000, 1) // If shields are charged at 450 MJ, the EMP will be 7.5, 14.0625. 90 MJ, 1.5, 2.8125
+			addtimer(CALLBACK(.proc/empulse, src, old_energy / 6e7, old_energy / 32e6, TRUE)) // If shields are charged at 450 MJ, the EMP will be 7.5, 14.0625. 90 MJ, 1.5, 2.8125
 		old_energy = 0
 
 		return TOPIC_REFRESH
@@ -313,11 +310,11 @@
 		return TOPIC_REFRESH
 
 	if(href_list["set_input_cap"])
-		var/new_cap = round(input(user, "Enter new input cap (in kW). Enter 0 or nothing to disable input cap.", "Generator Power Control", round(input_cap / 1000)) as num)
+		var/new_cap = round(input(user, "Enter new input cap (in kW). Enter 0 or nothing to disable input cap.", "Generator Power Control", round(input_cap / 1e3)) as num)
 		if(!new_cap)
 			input_cap = 0
 			return
-		input_cap = max(0, new_cap) * 1000
+		input_cap = max(0, new_cap) * 1e3
 		return TOPIC_REFRESH
 
 	if(href_list["toggle_mode"])
@@ -340,7 +337,6 @@
 	if(full_shield_strength)
 		return round(CLAMP01(current_energy / full_shield_strength) * 100)
 	return 0
-
 
 // Takes specific amount of damage
 /obj/machinery/power/shield_generator/proc/take_shield_damage(var/damage, var/shield_damtype)
@@ -380,16 +376,15 @@
 		return SHIELD_BREACHED_MINOR
 	return SHIELD_ABSORBED
 
-
 // Checks whether specific flags are enabled
 /obj/machinery/power/shield_generator/proc/check_flag(var/flag)
 	return (shield_modes & flag)
 
-
 /obj/machinery/power/shield_generator/proc/toggle_flag(var/flag)
 	shield_modes ^= flag
 	update_upkeep_multiplier()
-	for(var/obj/effect/shield/S in field_segments)
+	for(var/field_segment in field_segments)
+		var/obj/effect/shield/S = field_segment
 		S.flags_updated()
 
 	if((flag & (MODEFLAG_HULL|MODEFLAG_MULTIZ)) && (running == SHIELD_RUNNING))
@@ -400,10 +395,10 @@
 		mitigation_physical = 0
 		mitigation_heat = 0
 
-
 /obj/machinery/power/shield_generator/proc/get_flag_descriptions()
 	var/list/all_flags = list()
-	for(var/datum/shield_mode/SM in mode_list)
+	for(var/M in mode_list)
+		var/datum/shield_mode/SM = M
 		if(SM.hacked_only && !hacked)
 			continue
 		all_flags.Add(list(list(
@@ -416,51 +411,49 @@
 		)))
 	return all_flags
 
-
 // These two procs determine tiles that should be shielded given the field range. They are quite CPU intensive and may trigger BYOND infinite loop checks, therefore they are set
 // as background procs to prevent locking up the server. They are only called when the field is generated, or when hull mode is toggled on/off.
 /obj/machinery/power/shield_generator/proc/fieldtype_square()
-	set background = 1
-	var/list/out = list()
+	set background = TRUE
+	. = list()
 	var/list/base_turfs = get_base_turfs()
 
-	for(var/turf/gen_turf in base_turfs)
+	for(var/G in base_turfs)
+		var/turf/gen_turf = G
 		var/turf/T
 		for (var/x_offset = -field_radius; x_offset <= field_radius; x_offset++)
 			T = locate(gen_turf.x + x_offset, gen_turf.y - field_radius, gen_turf.z)
 			if(T)
-				out += T
+				. += T
 			T = locate(gen_turf.x + x_offset, gen_turf.y + field_radius, gen_turf.z)
 			if(T)
-				out += T
+				. += T
 
 		for (var/y_offset = -field_radius+1; y_offset < field_radius; y_offset++)
 			T = locate(gen_turf.x - field_radius, gen_turf.y + y_offset, gen_turf.z)
 			if(T)
-				out += T
+				. += T
 			T = locate(gen_turf.x + field_radius, gen_turf.y + y_offset, gen_turf.z)
 			if(T)
-				out += T
-	return out
-
+				. += T
 
 /obj/machinery/power/shield_generator/proc/fieldtype_hull()
-	set background = 1
+	set background = TRUE
 	. = list()
 	var/list/base_turfs = get_base_turfs()
 
-
-
-
-	for(var/turf/gen_turf in base_turfs)
+	for(var/G in base_turfs)
+		var/turf/gen_turf = G
 		var/area/TA = null // Variable for area checking. Defining it here so memory does not have to be allocated repeatedly.
-		for(var/turf/T in RANGE_TURFS(field_radius, gen_turf))
+		for(var/TR in RANGE_TURFS(field_radius, gen_turf))
+			var/turf/T = TR
 			// Don't expand to space or on shuttle areas.
 			if(isspaceturf(T) || isopenspace(T))
 				continue
 
 			// Find adjacent space/shuttle tiles and cover them. Shuttles won't be blocked if shield diffuser is mapped in and turned on.
-			for(var/turf/TN in orange(1, T))
+			for(var/dir in alldirs)
+				var/turf/TN = get_step(T, dir)
 				TA = get_area(TN)
 				if ((isspaceturf(TN) || (isopenspace(TN) && (isspace(TA) || TA.external_area))))
 					. |= TN
@@ -468,28 +461,22 @@
 
 // Returns a list of turfs from which a field will propagate. If multi-Z mode is enabled, this will return a "column" of turfs above and below the generator.
 /obj/machinery/power/shield_generator/proc/get_base_turfs()
-	var/list/turfs = list()
+	. = list()
 	var/turf/T = get_turf(src)
 
 	if(!istype(T))
 		return
 
-	turfs.Add(T)
+	. += T
 
 	// Multi-Z mode is disabled
-	if(!check_flag(MODEFLAG_MULTIZ))
-		return turfs
+	if(check_flag(MODEFLAG_MULTIZ))
+		while(HasAbove(T.z))
+			T = GetAbove(T)
+			. += T
 
-	while(HasAbove(T.z))
-		T = GetAbove(T)
-		if(istype(T))
-			turfs.Add(T)
+		T = get_turf(src)
 
-	T = get_turf(src)
-
-	while(HasBelow(T.z))
-		T = GetBelow(T)
-		if(istype(T))
-			turfs.Add(T)
-
-	return turfs
+		while(HasBelow(T.z))
+			T = GetBelow(T)
+			. += T
