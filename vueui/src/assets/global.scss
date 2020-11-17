@@ -18,6 +18,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-y: hidden;
     overflow-x: auto;
+    display: flex;
+    flex-flow: column;
     height: 100vh;
 }
 
@@ -27,13 +29,13 @@ body {
     clear: both;
     user-select: none;
     margin: 0px 0px 8px 0px;
-    padding: 4px 8px;
+    padding: 0.3rem 0.5rem;
     font-size: 1.2em;
   
     .uiTitleText {
       font-size: 1.2em;
       display: inline;
-      margin: 0px 8px;
+      margin: 0px 0.5rem;
     }
   
     .uiCloseBtn {
@@ -45,8 +47,8 @@ body {
 
 .mainContent {
     overflow-y: scroll;
-    height: 100%;
     padding: 0.5rem;
+    flex-grow : 1;
 }
 
 code {

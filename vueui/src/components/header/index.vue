@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="uiTitleWrapper" draggable @mousedown.left="startDragging($event)" @mouseup.left="stopDragging($event)">
-      <i @click="close" @mousedown.left.prevent class="uiCloseBtn fas ic-times"></i>
+      <i @click="close" @mousedown.left.prevent class="uiCloseBtn fas ic-times"/>
       <component :is="'header-' + header"/>
     </div>
     <header-handles/>

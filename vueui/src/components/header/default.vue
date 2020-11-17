@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import Utils from '@/utils'
 export default {
   data () {
     return {

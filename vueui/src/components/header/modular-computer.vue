@@ -1,10 +1,10 @@
 <template>
   <header-default>
-    <div class="maincont">
-      <img class="valign" v-if="state._PC.batteryicon && state._PC.showbatteryicon" :src="state._PC.batteryicon">
-      <b class="valign" v-if="state._PC.batterypercent && state._PC.showbatteryicon">{{state._PC.batterypercent}}</b>
-      <img img class="valign" v-if="state._PC.ntneticon" :src="state._PC.ntneticon">
-      <img img class="valign" v-if="state._PC.apclinkicon" :src="state._PC.apclinkicon">
+    <div class="mcomputer">
+      <img v-if="state._PC.batteryicon && state._PC.showbatteryicon" :src="state._PC.batteryicon">
+      <b v-if="state._PC.batterypercent && state._PC.showbatteryicon">{{state._PC.batterypercent}}</b>
+      <img img v-if="state._PC.ntneticon" :src="state._PC.ntneticon">
+      <img img v-if="state._PC.apclinkicon" :src="state._PC.apclinkicon">
       <div style="float: right;">
         <vui-button :params="{ PC_togglelight: 1}" :class="{selected: state._PC.flashlight}" icon="lightbulb" icon-only />
         <template v-if="state._PC.showexitprogram">
@@ -31,9 +31,10 @@ export default {
 button, .button {
   margin-left: 6px;
 }
-.maincont {
-  .valign {
-    vertical-align: middle;
+.mcomputer {
+  img {
+    display: inline-block;
+    vertical-align: bottom;
   }
 }
 .uiIcon16 {

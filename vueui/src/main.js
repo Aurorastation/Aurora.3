@@ -65,6 +65,9 @@ if (document.getElementById("app")) {
         return null
       }
     },
+    mounted() {
+      document.getElementsByClassName('mainContent')[0]?.focus()
+    },
     watch: {
       state: {
         handler() {

@@ -164,10 +164,24 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
 
     .uiTitleWrapper {
         background: url(resources/theme-nano/uiTitleBackground.png) repeat center;
-        box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
+        box-shadow: 0px 0px 0.5rem 0.25rem rgba(0,0,0,0.5);
 
         .uiTitleText {
             color: #E9C183;
+        }
+
+        .uiCloseBtn {
+            font-size: 1rem;
+            padding: 0.7rem 1rem;
+            margin: -0.3rem -0.5rem 0rem 0rem;
+            transition: color 250ms, background-color 250ms;
+            &:hover { 
+                background-color: #cc0000;
+            }
+        }
+
+        .mcomputer {
+            margin-top: 0.4rem;
         }
     }
 
@@ -209,6 +223,15 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
 
 .theme-nano-light {
     @extend .theme-nano;
+
+    scrollbar-base-color: inherit;
+    scrollbar-face-color: inherit;
+    scrollbar-3dlight-color: inherit;
+    scrollbar-highlight-color: inherit;
+    scrollbar-track-color: inherit;
+    scrollbar-arrow-color: inherit;
+    scrollbar-shadow-color: inherit;
+
     color: black;
     background: #c9c9c9 url(resources/theme-nano/uiBackground-light.svg) 50% 0 repeat-x;
 

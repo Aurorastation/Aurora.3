@@ -96,7 +96,7 @@ export function dragStartHandler(event) {
 export function dragEndHandler(event) {
   event.target.removeEventListener('mousemove', dragMoveHandler)
   event.target.releaseCapture()
-  document.getElementById('app')?.focus()
+  document.getElementsByClassName('mainContent')[0]?.focus()
   state.dragging = false
 }
 
@@ -130,7 +130,7 @@ export function resizeEndHandler(event) {
   resizeMoveHandler(event)
   document.removeEventListener('mousemove', resizeMoveHandler)
   document.removeEventListener('mouseup', resizeEndHandler)
-  document.getElementById('app')?.focus()
+  document.getElementsByClassName('mainContent')[0]?.focus()
   state.resizing = false
 }
   
