@@ -175,8 +175,6 @@
 			if (1)
 				pda = null
 			if (7)
-				pda = tablet
-			if (8)
 				pda = wristbound
 			else
 				pda = tab_pda
@@ -184,14 +182,20 @@
 	if(pda && !visualsOnly)
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
+			if(2)
+				I.desc_fluff = "For its many years of service, this model has held a virtual monopoly on the PDA market. The secret? A lapel pin affixed to the back."
 			if(3)
 				I.icon = 'icons/obj/pda_old.dmi'
+				I.desc_fluff = "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite retrofitted to new modular computing standards."
 			if(4)
 				I.icon = 'icons/obj/pda_rugged.dmi'
+				I.desc_fluff = "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model."
 			if(5)
 				I.icon = 'icons/obj/pda_slate.dmi'
+				I.desc_fluff = "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner."
 			if(6)
 				I.icon = 'icons/obj/pda_smart.dmi'
+				I.desc_fluff = "Nanotrasen originally designed this as a portable media player. The idea never even left QA. The caveat? The music was only corporate approved."
 		I.update_icon()
 		H.equip_or_collect(I, slot_wear_id)
 
