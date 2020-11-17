@@ -1,0 +1,106 @@
+/*
+	Armor
+*/
+/obj/item/clothing/suit/armor/riot/laser_tag
+	name = "laser tag armor"
+	desc = "A set of laser tag armor. Very swanky."
+	icon = 'icons/clothing/kit/laser_tag.dmi'
+	icon_state = "vest"
+	item_state = "vest"
+	contained_sprite = TRUE
+	blood_overlay_type = "armor"
+	body_parts_covered = UPPER_TORSO
+	slowdown = 0
+	armor = list(melee = 20, bullet = 0, laser = 5, energy = 10, bomb = 0, bio = 0, rad = 0) // still somewhat sturdy, but ultimately not very
+	siemens_coefficient = 1.0
+	var/laser_tag_color = "red"
+
+/obj/item/clothing/suit/armor/riot/laser_tag/Initialize(mapload, material_key)
+	. = ..()
+	get_tag_color(laser_tag_color)
+
+/obj/item/clothing/suit/armor/riot/laser_tag/attackby(obj/item/I, mob/user)
+	if(I.ismultitool())
+		var/chosen_color = input(user, "Which color do you wish your vest to be?", "Color Selection") as null|anything in list("blue", "red")
+		if(!chosen_color)
+			return
+		laser_tag_color = chosen_color
+		get_tag_color(chosen_color)
+		to_chat(user, SPAN_NOTICE("\The [src] is now a [chosen_color] laser tag vest."))
+		return
+	return ..()
+
+/obj/item/clothing/suit/armor/riot/laser_tag/blue
+	laser_tag_color = "blue"
+
+/obj/item/clothing/head/helmet/riot/laser_tag
+	name = "laser tag helmet"
+	desc = "A helmet in the form of a riot helm, made for high-impact laser tag gameplay."
+	icon = 'icons/clothing/kit/laser_tag.dmi'
+	icon_state = "helmet"
+	item_state = "helmet"
+	contained_sprite = TRUE
+	armor = list(melee = 20, bullet = 0, laser = 5, energy = 10, bomb = 0, bio = 0, rad = 0) // still somewhat sturdy, but ultimately not very
+	siemens_coefficient = 1.0
+	var/laser_tag_color = "red"
+
+/obj/item/clothing/head/helmet/riot/laser_tag/Initialize(mapload, material_key)
+	. = ..()
+	get_tag_color(laser_tag_color)
+
+/obj/item/clothing/head/helmet/riot/laser_tag/attackby(obj/item/I, mob/user)
+	if(I.ismultitool())
+		var/chosen_color = input(user, "Which color do you wish your helmet to be?", "Color Selection") as null|anything in list("blue", "red")
+		if(!chosen_color)
+			return
+		laser_tag_color = chosen_color
+		get_tag_color(chosen_color)
+		to_chat(user, SPAN_NOTICE("\The [src] is now a [chosen_color] laser tag helmet."))
+		return
+	return ..()
+
+/obj/item/clothing/head/helmet/riot/laser_tag/do_flip(mob/user)
+	if(item_state == initial(item_state))
+		item_state = "[item_state]-up"
+	else
+		item_state = initial(item_state)
+	..()
+
+/obj/item/clothing/head/helmet/riot/laser_tag/blue
+	laser_tag_color = "blue"
+
+/*
+	Helpers
+*/
+/obj/item/clothing/proc/get_tag_color(var/set_color)
+	var/list/color_to_color = list("red" = COLOR_RED, "blue" = COLOR_BLUE)
+	color = color_to_color[set_color]
+	update_clothing_icon()
+
+
+/*
+	Closets
+*/
+/obj/structure/closet/lasertag
+	name = "red laser tag equipment"
+	desc = "It's a storage unit for laser tag equipment."
+	icon_state = "red"
+	icon_closed = "red"
+	var/helmet_path = /obj/item/clothing/head/helmet/riot/laser_tag
+	var/armor_path = /obj/item/clothing/suit/armor/riot/laser_tag
+	var/gun_path = /obj/item/gun/energy/lasertag/red
+
+/obj/structure/closet/lasertag/fill()
+	new /obj/item/device/multitool(src)
+	for(var/i = 1 to 3)
+		new helmet_path(src)
+		new armor_path(src)
+		new gun_path(src)
+
+/obj/structure/closet/lasertag/blue
+	name = "blue laser tag equipment"
+	icon_state = "blue"
+	icon_closed = "blue"
+	helmet_path = /obj/item/clothing/head/helmet/riot/laser_tag/blue
+	armor_path = /obj/item/clothing/suit/armor/riot/laser_tag/blue
+	gun_path = /obj/item/gun/energy/lasertag/blue

@@ -95,15 +95,18 @@
 	if (use_check_and_message(user))
 		return
 
-	if(src.icon_state == initial(icon_state))
-		src.icon_state = "[icon_state]-up"
-		to_chat(user, "You raise the visor on \the [src].")
+	do_flip(user)
+	update_clothing_icon()
+
+/obj/item/clothing/head/helmet/riot/proc/do_flip(var/mob/user)
+	if(icon_state == initial(icon_state))
+		icon_state = "[icon_state]-up"
+		to_chat(user, SPAN_NOTICE("You raise the visor on \the [src]."))
 		body_parts_covered = HEAD
 	else
-		src.icon_state = initial(icon_state)
-		to_chat(user, "You lower the visor on \the [src].")
+		icon_state = initial(icon_state)
+		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
 		body_parts_covered = HEAD|FACE|EYES
-	update_clothing_icon()
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
