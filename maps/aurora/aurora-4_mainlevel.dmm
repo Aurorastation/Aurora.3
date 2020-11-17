@@ -5707,7 +5707,7 @@
 /area/engineering/storage_hard)
 "akA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "akB" = (
@@ -12755,7 +12755,7 @@
 /obj/machinery/air_sensor{
 	frequency = 1438;
 	id_tag = "engine_sensor";
-	output = 63
+	output = 31
 	},
 /turf/simulated/floor/greengrid/nitrogen{
 	icon = 'icons/turf/flooring/plating.dmi';
