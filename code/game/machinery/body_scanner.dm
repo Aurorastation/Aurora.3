@@ -339,6 +339,7 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "medical-bodyscanner", 1200, 800, capitalize(name))
+		ui.auto_update_content = TRUE
 	ui.open()
 
 /obj/machinery/body_scanconsole/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -448,6 +449,19 @@
 		VUEUI_SET_CHECK(data["hasmissing"], missing.len, ., data)
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
+	if(istype(I, /obj/item/organ/internal/parasite))
+		var/obj/item/organ/internal/parasite/P = I
+		switch(P.stage)
+			if(1)
+				return "Tiny"
+			if(2)
+				return "Small"
+			if(3)
+				return "Large"
+			if(4)
+				return "Massive"
+			else
+				return "Present"
 	if(I.is_broken())
 		return "Severe"
 	if(I.is_bruised())
@@ -525,6 +539,7 @@
 	for (var/obj/item/organ/internal/O in H.internal_organs)
 		var/list/data = list()
 		data["name"] = capitalize_first_letters(O.name)
+		data["location"] = capitalize_first_letters(parse_zone(O.parent_organ))
 		var/list/wounds = list()
 		var/internal_damage = get_internal_damage(O)
 		data["damage"] = internal_damage

@@ -176,8 +176,12 @@
 	return ..(user, distance, "", "It is a [size] item.")
 
 /obj/item/attack_hand(mob/user)
-	if (!user) return
-	if (ishuman(user))
+	if(!user)
+		return
+	if(ishuman(user))
+		if(iszombie(user))
+			to_chat(user, SPAN_WARNING("You uselessly claw at \the [src], your rotting brain incapable of picking it up or operating it."))
+			return
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)
@@ -482,40 +486,6 @@ var/list/global/slot_flags_enumeration = list(
 
 // override for give shenanigans
 /obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
-	return
-
-/mob/living/carbon/verb/verb_pickup(obj/item/I in range(1))
-	set category = "Object"
-	set name = "Pick up"
-
-	if(!(usr)) //BS12 EDIT
-		return
-	if (!(I in view(1, src)))
-		return
-	if (istype(I, /obj/item/storage/internal))
-		return
-	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
-		return
-	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
-		return
-	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
-		return
-	if(I.anchored) //Object isn't anchored
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
-		return
-	if(!usr.hand && usr.r_hand) //Right hand is not full
-		to_chat(usr, "<span class='warning'>Your right hand is full.</span>")
-		return
-	if(usr.hand && usr.l_hand) //Left hand is not full
-		to_chat(usr, "<span class='warning'>Your left hand is full.</span>")
-		return
-	if(!istype(I.loc, /turf)) //Object is on a turf
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
-		return
-	//All checks are done, time to pick it up!
-	usr.UnarmedAttack(I)
 	return
 
 

@@ -318,6 +318,9 @@ var/global/list/default_medbay_channels = list(
 		if ((CE_UNDEXTROUS in C.chem_effects) || C.stunned >= 10)
 			to_chat(M, SPAN_WARNING("Your can't move your arms enough to activate the radio..."))
 			return
+		if(iszombie(M))
+			to_chat(M, SPAN_WARNING("Try as you might, you cannot will your decaying body into operating \the [src]."))
+			return FALSE
 
 	if(istype(M))
 		M.trigger_aiming(TARGET_CAN_RADIO)
