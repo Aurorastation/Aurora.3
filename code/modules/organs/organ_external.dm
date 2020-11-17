@@ -325,14 +325,9 @@
 	var/laser = (damage_flags & DAM_LASER)
 	var/sharp = (damage_flags & DAM_SHARP)
 
-	if(laser && !BP_IS_ROBOTIC(src)) //Lasers melt through metal and shit. I dunno man.
-		return FALSE
-
 	if(BP_IS_ROBOTIC(src))
 		damage_amt += burn
 		cur_damage += burn_dam
-		if(laser)
-			owner.bodytemperature += burn / 5
 
 	if(!damage_amt)
 		return FALSE

@@ -65,8 +65,10 @@
 	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
 	vital = TRUE
+	max_damage = 80
+	relative_size = 80
 	var/open = FALSE
-	var/obj/item/cell/cell = /obj/item/cell/hyper
+	var/obj/item/cell/cell = /obj/item/cell/super
 	//at 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still
 	var/servo_cost = 0.8
 
@@ -284,7 +286,7 @@
 	name = "brain"
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
-	vital = 1
+	vital = TRUE
 	var/obj/item/device/mmi/stored_mmi
 
 /obj/item/organ/internal/mmi_holder/proc/update_from_mmi()

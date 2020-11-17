@@ -294,3 +294,8 @@
 
 /datum/species/machine/has_psi_potential()
 	return FALSE
+
+/datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE
