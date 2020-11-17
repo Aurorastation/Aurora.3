@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Full power vamps can now pull people they're grabbing into their veil walk."
