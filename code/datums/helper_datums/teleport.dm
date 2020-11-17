@@ -127,7 +127,7 @@
 	var/area/destarea = get_area(destination)
 	if(precision)
 		var/list/posturfs = circlerangeturfs(destination,precision)
-		destturf = safepick(posturfs)
+		destturf = LAZYPICK(posturfs, null)
 	else
 		destturf = get_turf(destination)
 

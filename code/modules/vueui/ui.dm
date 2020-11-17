@@ -62,7 +62,6 @@ main ui datum.
 	if (ntitle)
 		title = ntitle
 
-	SSvueui.ui_opened(src)
 	windowid = "vueui\ref[src]"
 	name = "Vueui [object]/[user]"
 
@@ -74,14 +73,18 @@ main ui datum.
 /datum/vueui/proc/open(var/datum/asset/spritesheet/load_asset)
 	if(QDELETED(object))
 		return
+
 	if(!user.client)
 		return
 
 	if(!data)
 		data = object.vueui_data_change(null, user, src)
+
 	update_status()
 	if(!status || status == STATUS_CLOSE)
 		return
+
+	SSvueui.ui_opened(src) // this starts processing and adds the UI to the mob and whatnot
 
 	var/params = "window=[windowid];file=[windowid];"
 	if(width && height)
@@ -101,7 +104,7 @@ main ui datum.
   */
 /datum/vueui/proc/close()
 	object.vueui_on_close(src)
-	SSvueui.ui_closed(src)
+	SSvueui.ui_closed(src) // this stops processing and cleans up references to this UI
 	user << browse(null, "window=[windowid]")
 	status = null
 

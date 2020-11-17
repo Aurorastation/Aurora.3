@@ -107,6 +107,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/highsecurity{
+	locked = 1;
 	name = "AI Core";
 	req_access = list(16)
 	},
@@ -788,7 +789,7 @@
 	},
 /area/tcommsat/chamber)
 "GJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278

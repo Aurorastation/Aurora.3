@@ -31,7 +31,6 @@
 		/obj/item/vending_refill/coffee = 1,
 		/obj/item/vending_refill/snack = 1,
 		/obj/item/vending_refill/cola = 1,
-		/obj/item/vending_refill/pda = 1,
 		/obj/item/vending_refill/smokes = 1,
 		/obj/item/vending_refill/meds = 1,
 		/obj/item/vending_refill/robust = 1,
@@ -141,8 +140,7 @@
 		/obj/item/device/assembly/prox_sensor = 5,
 		/obj/item/device/assembly/igniter = 3,
 		/obj/item/device/assembly/signaler = 4,
-		/obj/item/wirecutters = 1,
-		/obj/item/cartridge/signal = 4
+		/obj/item/wirecutters = 1
 	)
 	contraband = list(
 		/obj/item/device/flashlight = 5,
@@ -314,36 +312,6 @@
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
-
-
-//This one's from bay12
-/obj/machinery/vending/cart
-	name = "PTech"
-	desc = "Cartridges for PDAs."
-	product_slogans = "Carts to go!"
-	icon_state = "cart"
-	deny_time = 14
-	req_access = list(access_hop)
-	vend_id = "pdas"
-	products = list(
-		/obj/item/cartridge/medical = 10,
-		/obj/item/cartridge/engineering = 10,
-		/obj/item/cartridge/security = 10,
-		/obj/item/cartridge/janitor = 10,
-		/obj/item/cartridge/signal/science = 10,
-		/obj/item/device/pda/heads = 10,
-		/obj/item/cartridge/captain = 3,
-		/obj/item/cartridge/quartermaster = 10
-	)
-	contraband = list(
-		/obj/item/cartridge/clown = 2
-	)
-	premium = list(
-		/obj/item/cartridge/captain = 1
-	)
-	restock_items = 1
-	light_color = COLOR_BLUE_GRAY
-
 
 /obj/machinery/vending/cigarette
 	name = "Cigarette machine" //OCD had to be uppercase to look nice with the new formating
@@ -543,7 +511,8 @@
 		/obj/item/device/flash = 5,
 		/obj/item/reagent_containers/spray/pepper = 5,
 		/obj/item/storage/box/evidence = 6,
-		/obj/item/device/holowarrant = 5
+		/obj/item/device/holowarrant = 5,
+		/obj/item/device/flashlight/maglight = 5
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/donut = 2

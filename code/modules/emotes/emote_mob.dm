@@ -61,7 +61,10 @@
 		to_chat(src, "<span class='warning'>Unknown emote '[act]'. Type <b>say *help</b> for a list of usable emotes.</span>")
 		return
 
-	if(m_type != use_emote.message_type && use_emote.conscious && stat != CONSCIOUS)
+	if(m_type != use_emote.message_type)
+		return
+
+	if(!use_emote.can_do_emote(src))
 		return
 
 	if(use_emote.message_type == AUDIBLE_MESSAGE && is_muzzled())
@@ -156,7 +159,7 @@
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)
 	var/obj/machinery/hologram/holopad/T = src.holo
-	if(T && T.masters[src]) //Is the AI using a holopad?
+	if(T?.active_holograms[src]) //Is the AI using a holopad?
 		src.holopad_emote(message)
 	else //Emote normally, then.
 		..()

@@ -11,7 +11,7 @@
 	var/turf/T = pick_subarea_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(!T)
 		log_and_message_admins("Blob failed to find a viable turf.")
-		kill()
+		kill(TRUE)
 		return
 
 	log_and_message_admins("Blob spawned at \the [get_area(T)]", location = T)

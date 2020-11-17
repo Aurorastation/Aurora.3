@@ -32,6 +32,8 @@
 	linkedholodeck = locate(linkedholodeck_area)
 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/HolodeckControl/attack_hand(var/mob/user as mob)

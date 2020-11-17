@@ -51,7 +51,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 
 	phobia_objs = list("spiders"   = typecacheof(list(/obj/effect/spider,/obj/item/toy/plushie/spider, /obj/effect/decal/cleanable/spiderling_remains)),
 
-					   "security"  = typecacheof(list(/obj/item/clothing/under/rank/security, /obj/item/clothing/under/rank/warden, /obj/item/clothing/head/beret/sec,
+					   "security"  = typecacheof(list(/obj/item/clothing/under/rank/security, /obj/item/clothing/under/rank/warden, /obj/item/clothing/head/beret/security,
 											 	 /obj/item/clothing/under/rank/head_of_security, /obj/item/clothing/under/det, /obj/item/clothing/glasses/hud/security,
 												 /obj/item/melee/baton, /obj/item/gun/energy/taser, /obj/item/handcuffs, /obj/item/clothing/glasses/sunglasses/sechud,
 												 /obj/machinery/door/airlock/security, /obj/item/clothing/under/rank/cadet, /obj/structure/sign/directions/security,
@@ -63,7 +63,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 
 					   "clowns"    = typecacheof(list(/obj/item/clothing/under/rank/clown, /obj/item/clothing/shoes/clown_shoes,
 												 /obj/item/clothing/mask/gas/clown_hat, /obj/item/bananapeel,
-												 /obj/item/bikehorn, /obj/item/device/pda/clown)),
+												 /obj/item/bikehorn, /obj/item/modular_computer/handheld/pda/civilian/clown)),
 
 					   "cats"  = typecacheof(list(/obj/item/clothing/head/tajaran, /obj/item/clothing/suit/storage/tajaran,
 												 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran, /obj/item/clothing/suit/storage/tajaran,
