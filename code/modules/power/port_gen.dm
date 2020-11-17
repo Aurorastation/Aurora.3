@@ -394,7 +394,7 @@
 
 /obj/machinery/power/port_gen/pacman/super
 	name = "U-P.A.C.M.A.N.-type Portable Generator"
-	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output. WARNING: MINOR RADIATION HAZARD WHEN ACTIVE. DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS."
+	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output. <span class='warning'>WARNING: MINOR RADIATION HAZARD WHEN ACTIVE. DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS.</span>"
 	icon_state = "portgen1"
 	sheet_path = /obj/item/stack/material/uranium
 	sheet_name = "Uranium Sheets"
