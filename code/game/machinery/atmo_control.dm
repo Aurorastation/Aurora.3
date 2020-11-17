@@ -7,7 +7,7 @@
 /obj/machinery/air_sensor
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "gsensor1"
-	name = "Gas Sensor"
+	name = "gas Sensor"
 	desc = "Measures the gas content of the atmosphere around the sensor."
 
 	anchored = 1
