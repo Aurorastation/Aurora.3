@@ -69,7 +69,7 @@
 	min_brig_time = 90
 	max_brig_time = 90
 
-/datum/law/high_severity/sexy_assault
+/datum/law/high_severity/sexual_assault
 	name = "i309 - Sexual Assault"
 	desc = "To assault, or attempt to assault, someone else sexually, including rape."
 	id = "i309"
