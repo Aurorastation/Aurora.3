@@ -322,7 +322,6 @@
 
 	var/damage_amt = brute
 	var/cur_damage = brute_dam
-	var/laser = (damage_flags & DAM_LASER)
 	var/sharp = (damage_flags & DAM_SHARP)
 
 	if(BP_IS_ROBOTIC(src))

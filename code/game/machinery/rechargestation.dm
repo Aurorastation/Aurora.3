@@ -94,7 +94,7 @@
 
 		if(R.module)
 			R.module.respawn_consumable(R, charging_power * CELLRATE / 250) //consumables are magical, apparently
-			target = R.cell
+		target = R.cell
 
 		//Lastly, attempt to repair the cyborg if enabled
 		if(weld_rate && R.getBruteLoss() && cell.checked_use(weld_power_use * weld_rate * CELLRATE))
@@ -115,11 +115,11 @@
 	if(target && !target.fully_charged())
 		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE) // Capped by charging_power / tick
 		var/charge_used = cell.use(diff)
-		target.give(charge_used)
+		var/given = target.give(charge_used*charging_efficiency)
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
-	to_chat(user, "The charge meter reads: [round(chargepercentage())]%")
+	to_chat(user, "The charge meter reads: [round(chargepercentage())]%.")
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
