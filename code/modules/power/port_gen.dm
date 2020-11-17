@@ -250,6 +250,7 @@
 	//Vapourize all the phoron
 	//When ground up in a grinder, 1 sheet produces 20 u of phoron -- Chemistry-Machinery.dm
 	//1 mol = 10 u? I dunno. 1 mol of carbon is definitely bigger than a pill
+	visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'CRITICAL OVERHEAT DETECTED'"))
 	var/phoron = (sheets+sheet_left)*20
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
@@ -410,6 +411,7 @@
 	..()
 
 /obj/machinery/power/port_gen/pacman/super/explode()
+	visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'CRITICAL OVERHEAT DETECTED'"))
 	//a nice burst of radiation. Vaporised uranium make geiger counter go vrrrr.
 	var/rads = 50 + (sheets + sheet_left)*1.5
 	for (var/mob/living/L in range(src, 10))
@@ -422,7 +424,7 @@
 
 /obj/machinery/power/port_gen/pacman/mrs
 	name = "T-P.A.C.M.A.N.-type Portable Generator"
-	desc = "An advanced power generator that runs on tritium. Rated for 200 kW maximum safe output! WARNING: DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS."
+	desc = "An advanced power generator that runs on tritium. Rated for 200 kW maximum safe output! <span class='warning'>WARNING: DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS.</span>"
 	icon_state = "portgen2"
 	sheet_path = /obj/item/stack/material/tritium
 	sheet_name = "Tritium Fuel Sheets"
@@ -438,6 +440,7 @@
 	board_path = "/obj/item/circuitboard/pacman/mrs"
 
 /obj/machinery/power/port_gen/pacman/mrs/explode()
+	visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'CRITICAL OVERHEAT DETECTED'"))
 	//no special effects, but the explosion is pretty big (same as a supermatter shard). Slightly radioactive Hydrogen isotopes go boom.
 	explosion(loc, 3, 6, 12, 16, 1)
 	qdel(src)
