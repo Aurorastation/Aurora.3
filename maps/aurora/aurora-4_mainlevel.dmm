@@ -6136,6 +6136,7 @@
 	},
 /obj/machinery/power/apc/super{
 	dir = 4;
+	is_critical = 1;
 	name = "east bump";
 	pixel_x = 24
 	},
@@ -7288,14 +7289,16 @@
 /area/engineering/storage_hard)
 "anG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/shieldgen,
+/obj/machinery/power/singularity_beacon/emergency{
+	name = "emergency tesla beacon"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anH" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anI" = (
@@ -7916,9 +7919,14 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engineering_hallway_main)
 "aoJ" = (
-/obj/structure/closet/crate,
-/obj/item/stack/material/phoron{
-	amount = 25
+/obj/item/stack/material/uranium{
+	amount = 30
+	},
+/obj/item/stack/material/tritium{
+	amount = 30
+	},
+/obj/structure/closet/crate/radiation{
+	name = "P.A.C.M.A.N. Fuel Crate"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
@@ -8639,7 +8647,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/shieldgen,
+/obj/machinery/power/emitter,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "aqb" = (
@@ -9349,10 +9357,6 @@
 	pixel_y = -28
 	},
 /obj/machinery/shieldwallgen,
-/turf/simulated/floor/plating,
-/area/engineering/storage_hard)
-"arn" = (
-/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "aro" = (
@@ -33260,7 +33264,7 @@
 /area/crew_quarters/heads/hop)
 "bfz" = (
 /obj/machinery/door/airlock{
-	id_tag = command_unit_1;
+	id_tag = "command_unit_1";
 	name = "Unit 1"
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -60447,7 +60451,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/workshop)
 "ffY" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/port_gen/pacman/super,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "fgj" = (
@@ -60878,9 +60882,7 @@
 /turf/simulated/wall,
 /area/security/brig)
 "gaR" = (
-/obj/machinery/power/singularity_beacon/emergency{
-	name = "emergency tesla beacon"
-	},
+/obj/machinery/power/port_gen/pacman/super,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "gbQ" = (
@@ -61924,6 +61926,11 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"hZY" = (
+/obj/machinery/power/emitter,
+/obj/machinery/shieldgen,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "iap" = (
 /obj/structure/railing/mapped{
 	layer = 4.01;
@@ -62315,6 +62322,10 @@
 /obj/item/ammo_casing/c45/rubber,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"jfs" = (
+/obj/machinery/power/port_gen/pacman/mrs,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "jjD" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -62710,6 +62721,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"krS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/power/emitter,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "kuR" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -86550,7 +86566,7 @@ ajL
 akz
 akz
 amv
-anE
+jfs
 gaR
 apZ
 arm
@@ -86808,9 +86824,9 @@ akA
 akA
 amw
 anG
-anG
+krS
 aqa
-arn
+aoL
 ajL
 aud
 avH
@@ -87065,9 +87081,9 @@ akA
 akA
 adn
 anH
-aoL
-aoL
-aoL
+hZY
+hZY
+hZY
 ajL
 aue
 avJ

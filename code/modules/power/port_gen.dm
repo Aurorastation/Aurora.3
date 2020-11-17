@@ -90,10 +90,10 @@
 #define TEMPERATURE_DIVISOR 40
 #define TEMPERATURE_CHANGE_MAX 20
 
-//A power generator that runs on solid plasma sheets.
+//A power generator that runs on solid phoron sheets.
 /obj/machinery/power/port_gen/pacman
-	name = "\improper P.A.C.M.A.N.-type Portable Generator"
-	desc = "A power generator that runs on solid phoron sheets. Rated for 80 kW max safe output."
+	name = "\improper P-P.A.C.M.A.N.-type Portable Generator"
+	desc = "An advanced power generator that runs on solid phoron sheets. Rated for 120 kW max safe output. WARNING: DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS."
 
 	var/sheet_name = "Phoron Sheets"
 	var/sheet_path = /obj/item/stack/material/phoron
@@ -105,7 +105,7 @@
 		temperature_gain and max_temperature are set so that the max safe power level is 4.
 		Setting to 5 or higher can only be done temporarily before the generator overheats.
 	*/
-	power_gen = 20000			//Watts output per power_output level
+	power_gen = 30000			//Watts output per power_output level
 	var/max_power_output = 5	//The maximum power setting without emagging.
 	var/max_safe_output = 4		// For UI use, maximal output that won't cause overheat.
 	var/time_per_sheet = 96		//fuel efficiency - how long 1 sheet lasts at power level 1
@@ -254,6 +254,13 @@
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
 		environment.adjust_gas_temp(GAS_PHORON, phoron/10, temperature + T0C)
+	var/rads = 90 + (sheets + sheet_left)*1.5
+	for (var/mob/living/L in range(src, 10))
+		//should really fall with the square of the distance, but that makes the rads value drop too fast
+		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
+		L.apply_effect(max(20, round(rads/get_dist(L,src))), IRRADIATE, blocked = L.getarmor(null, "rad"))
+	explosion(loc, 3, 6, 12, 16, 1) //explosion about as big as a Supermatter shard, also produces radiation. Mars told us phoron is dangerous.
+	qdel(src)
 
 	sheets = 0
 	sheet_left = 0
@@ -386,12 +393,13 @@
 		SSvueui.check_uis_for_change(src)
 
 /obj/machinery/power/port_gen/pacman/super
-	name = "S.U.P.E.R.P.A.C.M.A.N.-type Portable Generator"
-	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output."
+	name = "U-P.A.C.M.A.N.-type Portable Generator"
+	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output. WARNING: MINOR RADIATION HAZARD WHEN ACTIVE. DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS."
 	icon_state = "portgen1"
 	sheet_path = /obj/item/stack/material/uranium
 	sheet_name = "Uranium Sheets"
-	time_per_sheet = 576 //same power output, but a 50 sheet stack will last 2 hours at max safe power
+	power_gen = 20000 //watts
+	time_per_sheet = 576 //lowest output, but a 50 sheet stack will last 2 hours at max safe power
 	board_path = "/obj/item/circuitboard/pacman/super"
 
 /obj/machinery/power/port_gen/pacman/super/UseFuel()
@@ -402,7 +410,7 @@
 	..()
 
 /obj/machinery/power/port_gen/pacman/super/explode()
-	//a nice burst of radiation
+	//a nice burst of radiation. Vaporised uranium make geiger counter go vrrrr.
 	var/rads = 50 + (sheets + sheet_left)*1.5
 	for (var/mob/living/L in range(src, 10))
 		//should really fall with the square of the distance, but that makes the rads value drop too fast
@@ -413,8 +421,8 @@
 	qdel(src)
 
 /obj/machinery/power/port_gen/pacman/mrs
-	name = "M.R.S.P.A.C.M.A.N.-type Portable Generator"
-	desc = "An advanced power generator that runs on tritium. Rated for 200 kW maximum safe output!"
+	name = "T-P.A.C.M.A.N.-type Portable Generator"
+	desc = "An advanced power generator that runs on tritium. Rated for 200 kW maximum safe output! WARNING: DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS."
 	icon_state = "portgen2"
 	sheet_path = /obj/item/stack/material/tritium
 	sheet_name = "Tritium Fuel Sheets"
@@ -430,6 +438,6 @@
 	board_path = "/obj/item/circuitboard/pacman/mrs"
 
 /obj/machinery/power/port_gen/pacman/mrs/explode()
-	//no special effects, but the explosion is pretty big (same as a supermatter shard).
+	//no special effects, but the explosion is pretty big (same as a supermatter shard). Slightly radioactive Hydrogen isotopes go boom.
 	explosion(loc, 3, 6, 12, 16, 1)
 	qdel(src)

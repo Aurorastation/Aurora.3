@@ -2346,13 +2346,15 @@
 /area/rnd/isolation_c)
 "afL" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Tesla - Containment";
 	charge = 2e+006;
 	input_attempt = 1;
+	input_level = 140000;
 	input_level_max = 350000;
 	is_critical = 1;
 	output_attempt = 1;
-	output_level_max = 350000
+	output_level = 120000;
+	output_level_max = 350000;
+	RCon_tag = "Tesla - Containment"
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
@@ -10337,12 +10339,8 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/aibunker)
 "asS" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/wall/r_wall,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "asT" = (
 /turf/simulated/wall/r_wall,
@@ -10382,25 +10380,23 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
 "asW" = (
-/obj/machinery/power/port_gen/pacman,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/bridge/aibunker)
-"asX" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/closet/hydrant{
-	pixel_y = 32
-	},
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/bridge/aibunker)
 "asY" = (
-/obj/machinery/atmospherics/pipe/tank/air,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/bridge/aibunker)
 "asZ" = (
@@ -10503,42 +10499,30 @@
 /turf/simulated/floor,
 /area/turbolift/ai_sub)
 "atj" = (
-/obj/structure/closet/crate{
-	name = "Emergency Fuel"
-	},
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/bridge/aibunker)
-"atk" = (
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/obj/structure/closet/crate/radiation{
+	name = "Emergency Fuel"
+	},
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
+/turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atl" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc/super{
 	dir = 4;
+	is_critical = 1;
 	name = "east bump";
 	pixel_x = 24
 	},
-/turf/simulated/floor,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atm" = (
 /obj/structure/bed/chair{
@@ -10623,18 +10607,6 @@
 /obj/turbolift_map_holder/aurora/aiaccess,
 /turf/simulated/floor,
 /area/turbolift/ai_sub)
-"atv" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(56)
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/turf/simulated/floor,
-/area/bridge/aibunker)
 "atw" = (
 /obj/machinery/newscaster{
 	pixel_x = -32
@@ -10765,11 +10737,6 @@
 /turf/simulated/floor,
 /area/bridge/aibunker)
 "atK" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
@@ -10780,31 +10747,27 @@
 	pixel_y = 22
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/bridge/aibunker)
-"atL" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 4
-	},
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
-/area/bridge/aibunker)
-"atM" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
+/turf/simulated/floor/tiled,
+/area/bridge/aibunker)
+"atL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/turf/simulated/floor/tiled,
+/area/bridge/aibunker)
+"atM" = (
 /obj/machinery/meter{
 	name = "Air Reserve"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/north,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	icon_state = "map";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atN" = (
@@ -26125,6 +26088,15 @@
 /obj/item/pen,
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/warden)
+"bRC" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/bridge/aibunker)
 "bRJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -26410,6 +26382,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
+"cua" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
+	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
 "cue" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -27705,7 +27695,7 @@
 /area/rnd/test_range)
 "eIl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/port_gen/pacman/mrs,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "eIS" = (
@@ -28865,6 +28855,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"hhP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/hydrant{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/aibunker)
 "hiB" = (
 /turf/simulated/wall,
 /area/medical/patient_d)
@@ -29329,6 +29326,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"icK" = (
+/obj/effect/decal/warning_stripes,
+/obj/machinery/power/port_gen/pacman/super{
+	anchored = 1
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/bridge/aibunker)
 "idl" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -30141,6 +30155,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"kpr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(56)
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/aibunker)
 "krN" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -32507,6 +32528,12 @@
 /area/outpost/engineering/hallway)
 "poo" = (
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/closet/crate/radiation{
+	name = "P.A.C.M.A.N. Fuel Crate"
+	},
+/obj/item/stack/material/tritium{
+	amount = 30
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "prR" = (
@@ -32828,6 +32855,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
+"qbo" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/r_wall,
+/area/mine/unexplored)
 "qdo" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
@@ -32985,6 +33020,18 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
+"qmY" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/bridge/aibunker)
 "qnc" = (
 /obj/structure/grille/broken,
 /obj/item/material/shard,
@@ -33484,6 +33531,21 @@
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
 /area/engineering/backup_SMES)
+"rtK" = (
+/obj/machinery/power/smes/buildable{
+	input_attempt = 1;
+	is_critical = 1;
+	output_attempt = 1;
+	output_level = 40000;
+	RCon = 0;
+	RCon_tag = "Command - Bunker"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
 "rtR" = (
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Engine Aft Airlock";
@@ -34830,6 +34892,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_library)
+"uzE" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
 "uAS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -35282,6 +35355,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
+"vpm" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/bridge/aibunker)
 "vqy" = (
 /obj/structure/window/reinforced,
 /obj/structure/stairs/west,
@@ -35654,6 +35736,14 @@
 	dir = 4
 	},
 /area/rnd/xenobiology/xenoflora)
+"wan" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall,
+/area/bridge/aibunker)
 "waA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -36051,6 +36141,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"wPr" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/bridge/aibunker)
 "wQs" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -86318,7 +86420,7 @@ aqL
 ale
 ale
 ale
-ale
+aba
 aba
 aba
 aba
@@ -86577,7 +86679,7 @@ ale
 ale
 ale
 ale
-ale
+aba
 aba
 aba
 asR
@@ -87601,9 +87703,9 @@ alY
 alY
 alY
 ale
-ale
-ale
-ale
+akG
+akG
+akG
 asR
 asR
 asR
@@ -87858,9 +87960,9 @@ alY
 alY
 ale
 ale
-ale
-ale
-ale
+akG
+akG
+akG
 asR
 asR
 asR
@@ -88115,14 +88217,14 @@ alY
 alY
 ale
 ale
-ale
-ale
-ale
-asR
-asR
+akG
+akG
+uzE
+bRC
+wPr
 asW
 atj
-asZ
+wan
 atK
 auq
 auX
@@ -88372,17 +88474,17 @@ alY
 alY
 arx
 asy
-asy
-asy
-asy
+qbo
+qbo
+cua
 asS
 asS
-asX
-atk
-asZ
+atc
+atc
+kpr
 atL
 atn
-atn
+hhP
 atn
 ato
 awF
@@ -88629,14 +88731,14 @@ alY
 alY
 arZ
 ale
-ale
-ale
-ale
-asR
-asR
+akG
+akG
+rtK
+qmY
+vpm
 asY
 atl
-atv
+asZ
 atM
 aur
 auY
@@ -88886,10 +88988,10 @@ alY
 alY
 arZ
 ale
-ale
-ale
-ale
-asR
+akG
+akG
+akG
+icK
 asR
 asZ
 asZ
@@ -90690,7 +90792,7 @@ asR
 asR
 asR
 asR
-ale
+akG
 ale
 ale
 ale

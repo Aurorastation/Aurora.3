@@ -879,12 +879,12 @@
 /area/tcommsat/computer)
 "bF" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/material/phoron{
-	amount = 10
-	},
 /obj/random/powercell,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
+/obj/item/stack/material/tritium{
+	amount = 40
+	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "bG" = (
@@ -903,8 +903,8 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "bI" = (
-/obj/machinery/power/port_gen/pacman,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/power/port_gen/pacman/mrs,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "bJ" = (
