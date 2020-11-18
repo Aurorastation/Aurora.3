@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed full-auto weapons not suffering the one-hand penalty appropriately."
