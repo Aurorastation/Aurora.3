@@ -50,8 +50,6 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/tcfl
 	network = list(NETWORK_TCFL)
 
-/obj/machinery/camera/network/exodus
-	network = list(NETWORK_STATION)
 
 /obj/machinery/camera/network/mining
 	network = list(NETWORK_MINE)

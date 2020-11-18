@@ -377,6 +377,6 @@
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return TRUE
 
-/obj/machinery/computer/HolodeckControl/Exodus
+/obj/machinery/computer/HolodeckControl/Aurora
 	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck
