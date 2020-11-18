@@ -35,6 +35,13 @@
 	overlay_limit = 0.7
 	flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT
 
+/decl/xgm_gas/hydrogen
+	id = GAS_HYDROGEN
+	name = "Hydrogen"
+	specific_heat = 100
+	molar_mass = 0.002
+	flags = XGM_GAS_FUEL
+
 /decl/xgm_gas/sleeping_agent
 	id = GAS_N2O
 	name = "Sleeping Agent"

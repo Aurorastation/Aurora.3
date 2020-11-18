@@ -46,9 +46,9 @@
 		if(EMITTER_WELDED)
 			to_chat(user, SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire."))
 	if(Adjacent(user))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("The shot counter display reads: [shot_counter]")))
+		to_chat(user, SPAN_NOTICE("The shot counter display reads: [shot_counter]"))
 		if(signaler)
-			to_chat(user, FONT_SMALL(SPAN_WARNING("\The [src] has a hidden signaler attached to it.")))
+			to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
 
 /obj/machinery/power/emitter/Destroy()
 	if(special_emitter)

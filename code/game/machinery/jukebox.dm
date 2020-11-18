@@ -148,6 +148,8 @@ datum/track/New(var/title_name, var/audio)
 		ui.open()
 
 /obj/machinery/media/jukebox/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/media/jukebox/attack_hand(var/mob/user as mob)

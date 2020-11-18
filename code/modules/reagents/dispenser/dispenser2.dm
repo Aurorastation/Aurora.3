@@ -176,6 +176,8 @@
 	return 1 // update UIs attached to this object
 
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/chemical_dispenser/attack_hand(mob/user as mob)

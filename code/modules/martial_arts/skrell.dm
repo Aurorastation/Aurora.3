@@ -79,9 +79,9 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 	return 1
 
 /datum/martial_art/karak_virul/proc/karak_virul_help()
-	set name = "Recall Teachings"
+	set name = "Recall Karak Virul"
 	set desc = "Remember the martial techniques of the Karak Virul."
-	set category = "Karak Virul"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You warble deeply and recall the teachings...</i></b>")
 	to_chat(usr, "<span class='notice'>Painful Palm</span>: Disarm Harm Harm. Strikes your target with a painful hit, causing some pain.")
@@ -92,3 +92,7 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 	name = "karak virul manual"
 	desc = "A manual designated to teach the user about the skrellian martial art of Karak Virul."
 	martial_art = /datum/martial_art/karak_virul
+
+#undef PAINFUL_PALM
+#undef SKRELL_LEG_SWEEP
+#undef DISLOCATING_STRIKE

@@ -65,13 +65,19 @@
 						if (W.infection_check())
 							W.germ_level += 1
 
+/mob/living/carbon/human
+	var/next_stance_collapse = 0
+
 /mob/living/carbon/human/proc/handle_stance()
 	// Don't need to process any of this if they aren't standing anyways
 	// unless their stance is damaged, and we want to check if they should stay down
-	if (!stance_damage && (lying || resting) && (life_tick % 4) == 0)
+	if(!stance_damage && (lying || resting))
 		return
 
 	stance_damage = 0
+
+	if(next_stance_collapse > world.time)
+		return
 
 	// Buckled to a bed/chair. Stance damage is forced to 0 since they're sitting on something solid
 	if (istype(buckled, /obj/structure/bed))
@@ -102,10 +108,11 @@
 
 	// standing is poor
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
-		if(!(lying || resting))
-			if(can_feel_pain())
-				emote("scream")
-			emote("collapse")
+		if(lying || resting)
+			return
+		emote("scream")
+		emote("collapse")
+		next_stance_collapse = world.time + (rand(8, 16) SECONDS)
 
 /mob/living/carbon/human/proc/handle_grasp()
 	if(!l_hand && !r_hand)
