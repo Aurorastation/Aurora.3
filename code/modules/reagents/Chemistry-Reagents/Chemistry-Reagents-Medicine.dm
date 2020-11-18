@@ -863,8 +863,6 @@
 
 	fallback_specific_heat = 1.5
 
-/decl/reagent/mental/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
-	. = ..()
 /decl/reagent/mental/initialize_data(newdata)
 	LAZYSET(newdata, "last_tick_time", 0)
 	return newdata

@@ -46,8 +46,8 @@
 	for(var/R in reagent_volumes)
 		var/vol = reagent_volumes[R]
 		if(vol < MINIMUM_CHEMICAL_VOLUME)
-			LAZYREMOVE(reagent_volumes, R)
-			LAZYREMOVE(reagent_data, R)
+			reagent_volumes -= R
+			reagent_data -= R
 		else
 			total_volume += vol
 			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
@@ -161,8 +161,8 @@
 	var/decl/reagent/current = decls_repository.get_decl(rtype)
 	if(ismob(my_atom))
 		current.final_effect(my_atom, src)
-	LAZYREMOVE(reagent_data, rtype)
-	LAZYREMOVE(reagent_volumes, rtype)
+	reagent_data -= rtype
+	reagent_volumes -= rtype
 	if(primary_reagent == rtype)
 		primary_reagent = null
 	update_holder(FALSE)
