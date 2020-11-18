@@ -258,7 +258,7 @@
 //Code for dipping food in batter
 /obj/item/reagent_containers/food/snacks/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(O.is_open_container() && !(istype(O, /obj/item/reagent_containers/food)) && proximity)
-		for (var/r in O.reagents?.reagent_volumes)
+		for (var/r in O.reagents.reagent_volumes)
 
 			var/decl/reagent/R = r
 			if (istype(R, /decl/reagent/nutriment/coating))
@@ -4860,4 +4860,3 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 6)
 	trash = /obj/item/trash/diona_bites
 	bitesize = 3
-

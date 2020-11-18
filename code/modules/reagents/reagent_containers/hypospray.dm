@@ -125,7 +125,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
-		if(LAZYLEN(reagents?.reagent_volumes))
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			flags &= ~OPENCONTAINER
 			update_icon()
@@ -153,7 +153,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
-	if(LAZYLEN(reagents?.reagent_volumes))
+	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("It is currently loaded."))
 	else
 		to_chat(user, SPAN_NOTICE("It is empty."))

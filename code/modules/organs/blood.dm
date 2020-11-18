@@ -250,7 +250,7 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
 		drop.drips |= drips
 
 	// If there's no data to copy, call it quits here.
-	var/blood_data
+	var/list/blood_data
 	if(islist(source))
 		blood_data = source
 	if(ishuman(source))

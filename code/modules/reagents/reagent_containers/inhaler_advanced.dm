@@ -23,19 +23,19 @@
 		return
 
 	if(is_open_container())
-		if(LAZYLEN(reagents?.reagent_volumes))
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
 		else
 			to_chat(user,"<span class='notice'>It is empty.</span>")
 	else
-		if(LAZYLEN(reagents?.reagent_volumes))
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
 		else
 			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
-		if(LAZYLEN(reagents?.reagent_volumes))
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags &= ~OPENCONTAINER
 		else

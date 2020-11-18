@@ -136,7 +136,7 @@
 		var/i = 1
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			dat += "Beaker [i] contains: "
-			if(LAZYLEN(B.reagents?.reagent_volumes))
+			if(LAZYLEN(B.reagents.reagent_volumes))
 				for(var/_R in B.reagents.reagent_volumes)
 					var/decl/reagent/R = decls_repository.get_decl(_R)
 					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "

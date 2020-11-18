@@ -6,23 +6,21 @@
 // https://www.nuclear-power.net/radium-specific-heat-latent-heat-vaporization-fusion/
 
 /datum/reagents/proc/get_thermal_energy()
-	var/returning = 0
+	. = 0
 	for(var/_R in reagent_volumes)
 		var/decl/reagent/R = decls_repository.get_decl(_R)
-		returning += R.get_thermal_energy(src)
-	return returning
+		. += R.get_thermal_energy(src)
 
 /decl/reagent/proc/get_thermal_energy(var/datum/reagents/holder)
 	var/list/data = REAGENT_DATA(holder, type)
 	return LAZYACCESS(data, "thermal_energy")
 
 /datum/reagents/proc/get_heat_capacity()
-	var/returning = 0
+	. = 0
 	for(var/_R in reagent_volumes)
 		var/decl/reagent/R = decls_repository.get_decl(_R)
 		if(total_volume)
-			returning += R.get_heat_capacity(src)
-	return returning
+			. += R.get_heat_capacity(src)
 
 /decl/reagent/proc/get_heat_capacity(var/datum/reagents/holder)
 	return specific_heat * REAGENT_VOLUME(holder, type)
@@ -75,7 +73,7 @@
 
 	var/total_thermal_energy = 0
 	var/total_heat_capacity = 0
-	var/was_changed = FALSE
+	. = FALSE
 
 	for(var/_R in reagent_data)
 		var/decl/reagent/R = decls_repository.get_decl(_R)
@@ -88,13 +86,12 @@
 		var/new_thermal_energy = total_thermal_energy * (R.get_heat_capacity(src)/total_heat_capacity)
 		if(round(old_thermal_energy,1) != round(new_thermal_energy,1))
 			R.set_thermal_energy( new_thermal_energy, src )
-			was_changed = TRUE
+			. = TRUE
 
-	return was_changed
 
 /datum/reagents/proc/add_thermal_energy(thermal_energy_to_add, safety = FALSE)
 
-	var/total_energy_added = 0
+	. = 0
 	var/total_heat_capacity = 0
 
 	for(var/_R in reagent_data)
@@ -103,9 +100,8 @@
 
 	for(var/_R in reagent_data)
 		var/decl/reagent/R = decls_repository.get_decl(_R)
-		total_energy_added += R.add_thermal_energy(thermal_energy_to_add * (R.get_heat_capacity(src)/total_heat_capacity), src, safety = safety )
+		. += R.add_thermal_energy(thermal_energy_to_add * (R.get_heat_capacity(src)/total_heat_capacity), src, safety = safety )
 
-	return total_energy_added
 
 /datum/reagents/proc/has_all_temperatures(var/list/required_temperatures_min, var/list/required_temperatures_max)
 

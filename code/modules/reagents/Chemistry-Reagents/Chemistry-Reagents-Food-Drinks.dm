@@ -146,7 +146,7 @@
 	to_chat(M, "Ugh, this raw [name] tastes disgusting.")
 
 /decl/reagent/nutriment/coating/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
-	var/nut_fact = holder.reagent_data[type]["cooked"] == TRUE ? nutriment_factor : nutriment_factor / 2 // it's the nut fact
+	var/nut_fact = holder.reagent_data[type]["cooked"] ? nutriment_factor : nutriment_factor / 2 // it's the nut fact
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.adjustNutritionLoss(-nut_fact * removed)
 	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
@@ -154,7 +154,7 @@
 	M.intoxication -= min(M.intoxication,nut_fact*removed*0.05) //Nutrients can absorb alcohol.
 
 /decl/reagent/nutriment/coating/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if (holder.reagent_data[type]["cooked"] != 1)
+	if (!holder.reagent_data[type]["cooked"])
 		//Raw coatings will sometimes cause vomiting
 		if (ishuman(M) && prob(1))
 			var/mob/living/carbon/human/H = M

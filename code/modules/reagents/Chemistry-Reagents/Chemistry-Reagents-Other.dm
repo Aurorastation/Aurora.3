@@ -64,7 +64,7 @@
 		T.color = holder.get_color()
 
 /decl/reagent/paint/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
-	if(istype(M) && !istype(M, /mob/abstract))
+	if(istype(M))
 		M.color = holder.get_color()
 
 /decl/reagent/paint/touch_obj(var/obj/O, var/datum/reagents/holder)

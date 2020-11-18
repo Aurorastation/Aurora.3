@@ -133,7 +133,7 @@
 		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
 		data["blood_o2"] = occupant.get_blood_oxygenation()
 		data["bloodreagents"] = FALSE
-		var/list/blood_reagents
+		var/list/list/blood_reagents
 		for(var/_R in occupant.reagents.reagent_volumes)
 			var/list/blood_reagent = list()
 			var/decl/reagent/R = decls_repository.get_decl(_R)
@@ -147,7 +147,7 @@
 		var/obj/item/organ/internal/stomach/S = occupant.internal_organs_by_name[BP_STOMACH]
 		if(S)
 			data["hasstomach"] = TRUE
-			var/list/stomach_reagents
+			var/list/list/stomach_reagents
 			for(var/_R in S.ingested.reagent_volumes)
 				var/list/stomach_reagent = list()
 				var/decl/reagent/R = decls_repository.get_decl(_R)

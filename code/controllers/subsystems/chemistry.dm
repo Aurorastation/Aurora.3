@@ -149,10 +149,10 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			qdel(cc)
 			break
 
-		for(var/i in cc.required_reagents.len)
+		for(var/i in 1 to cc.required_reagents.len)
 			var/A = text2path(cc.required_reagents[i])
 			cc.required_reagents[i] = text2path(cc.required_reagents[i])
-			if(!istype(A, /decl/reagent))
+			if(!ispath(A, /decl/reagent))
 				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] required reagents list.")
 				qdel(cc)
 				break

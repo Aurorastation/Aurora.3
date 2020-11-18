@@ -557,9 +557,8 @@
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 	M.add_chemical_effect(CE_PULSE, 1)
 
-	if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline))
-		if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
-			overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
+	if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
+		overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
 
 /decl/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5*removed)
@@ -646,9 +645,8 @@
 	var/last_taste_time = -10000
 
 /decl/reagent/hyronalin/initialize_data(newdata)
-	var/list/data = newdata
-	LAZYSET(data, "last_taste_time", 0)
-	return data
+	LAZYSET(newdata, "last_taste_time", 0)
+	return newdata
 
 /decl/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.is_diona())
@@ -868,9 +866,8 @@
 /decl/reagent/mental/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	. = ..()
 /decl/reagent/mental/initialize_data(newdata)
-	var/list/data = newdata
-	LAZYSET(data, "last_tick_time", 0)
-	return data
+	LAZYSET(newdata, "last_tick_time", 0)
+	return newdata
 
 /decl/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(H) || (world.time < holder.reagent_data[type]["last_tick_time"] && holder.reagent_data[type]["last_tick_time"] > removed) || messagedelay == -1)

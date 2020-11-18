@@ -12,7 +12,8 @@ datum/unit_test/specific_heat/start_test()
 
 	var/error_count = 0
 
-	for(var/decl/reagent/R in decls_repository.get_decls_of_subtype(/decl/reagent/))
+	for(var/reagent in decls_repository.get_decls_of_subtype(/decl/reagent/))
+		var/datum/reagent/R = reagent
 		if(R.name)
 			if(!SSchemistry.has_valid_specific_heat(R))
 				log_unit_test("[ascii_red][R.type] lacks a proper specific heat value![ascii_reset]")
@@ -24,4 +25,3 @@ datum/unit_test/specific_heat/start_test()
 		pass("All reagents have a specific heat value.")
 
 	return 1
-

@@ -360,7 +360,7 @@
 	if (!reagents)
 		create_reagents(5)
 
-	var/blood_data = reagents?.reagent_data[/decl/reagent/blood]
+	var/blood_data = reagents.reagent_data[/decl/reagent/blood]
 	if(!("blood_DNA" in blood_data))
 		owner.vessel.trans_to(src, 5, 1, 1)
 

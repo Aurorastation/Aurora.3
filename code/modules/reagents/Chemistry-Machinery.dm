@@ -411,7 +411,7 @@
 		else
 			is_beaker_ready = 1
 			beaker_contents = "<B>The beaker contains:</B><br>"
-			if(!LAZYLEN(beaker.reagents?.reagent_volumes))
+			if(!LAZYLEN(beaker.reagents.reagent_volumes))
 				beaker_contents += "Nothing<br>"
 			else
 				for(var/_R in beaker.reagents.reagent_volumes)

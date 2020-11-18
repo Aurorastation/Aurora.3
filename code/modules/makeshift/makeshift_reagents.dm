@@ -222,7 +222,7 @@
 		reagents.add_reagent(/decl/reagent/water, (1-(AR.strength/100))*ARvol)
 		if(istype(AR, /decl/reagent/alcohol/ethanol))
 			reagents.add_reagent(/decl/reagent/alcohol/ethanol, (AR.strength/100)*ARvol)
-		if(istype(AR, /decl/reagent/alcohol/butanol))
+		else if(istype(AR, /decl/reagent/alcohol/butanol))
 			reagents.add_reagent(/decl/reagent/alcohol/butanol, (AR.strength/100)*ARvol)
 		reagents.remove_reagent(AR.type, ARvol)
 	icon_state = "distillery-off"

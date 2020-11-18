@@ -28,7 +28,7 @@
 /obj/item/reagent_containers/glass/examine(var/mob/user)
 	if(!..(user, 2))
 		return
-	if(LAZYLEN(reagents?.reagent_volumes))
+	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
 		for(var/_T in reagents.reagent_volumes)
 			var/decl/reagent/T = decls_repository.get_decl(_T)

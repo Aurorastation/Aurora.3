@@ -38,7 +38,7 @@
 		. = reagent.name
 
 /datum/reagents/proc/get_primary_reagent_decl()
-	. = primary_reagent && decls_repository.get_decl(primary_reagent)
+	return primary_reagent && decls_repository.get_decl(primary_reagent)
 
 /datum/reagents/proc/update_total() // Updates volume and temperature.
 	total_volume = 0

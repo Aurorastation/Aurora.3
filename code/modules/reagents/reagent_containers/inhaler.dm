@@ -95,7 +95,7 @@
 
 /obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
 	if(is_open_container())
-		if(LAZYLEN(reagents?.reagent_volumes))
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags &= ~OPENCONTAINER
 			update_icon()
@@ -121,7 +121,7 @@
 
 /obj/item/reagent_containers/inhaler/examine(mob/user)
 	..(user)
-	if(LAZYLEN(reagents?.reagent_volumes))
+	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else
 		to_chat(user, "<span class='notice'>It is spent.</span>")

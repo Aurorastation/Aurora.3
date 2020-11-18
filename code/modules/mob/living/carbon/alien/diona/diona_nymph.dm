@@ -191,7 +191,7 @@
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent(/decl/reagent/blood, 560, temperature = species?.body_temperature)
+	vessel.add_reagent(/decl/reagent/blood, 560, temperature = species.body_temperature)
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()

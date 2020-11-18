@@ -67,7 +67,7 @@
 
 /decl/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
-	if(LAZYLEN(ingested?.reagent_volumes) > 1) // Need to have at least 2 reagents - cabon and something to remove
+	if(ingested && LAZYLEN(ingested.reagent_volumes) > 1) // Need to have at least 2 reagents - cabon and something to remove
 		var/effect = 1 / (ingested.reagent_volumes.len - 1)
 		for(var/_R in ingested.reagent_volumes)
 			if(_R == type)

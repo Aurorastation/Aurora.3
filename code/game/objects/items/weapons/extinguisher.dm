@@ -38,7 +38,7 @@
 
 /obj/item/reagent_containers/extinguisher_refill/attack_self(mob/user as mob) //Copied from inhalers.
 	if(is_open_container())
-		if(LAZYLEN(reagents?.reagent_volumes))
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
 			flags &= ~OPENCONTAINER
 		else

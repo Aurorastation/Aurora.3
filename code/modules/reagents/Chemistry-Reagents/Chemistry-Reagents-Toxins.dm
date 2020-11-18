@@ -640,19 +640,17 @@
 
 /decl/reagent/toxin/berserk/initial_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
 	. = ..()
-	if(!istype(H))
-		return .
-	H.berserk_start()
+	if(istype(H))
+		H.berserk_start()
 
 /decl/reagent/toxin/berserk/final_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
 	. = ..()
-	if(!istype(H))
-		return .
-	H.berserk_stop()
+	if(istype(H))
+		H.berserk_stop()
 
 /decl/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(istype(M, /mob/living/carbon/human))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.berserk_process()
 	M.make_jittery(20)
@@ -693,7 +691,7 @@
 			M.visible_message("<b>[M]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
 			to_chat(M, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 	else
-		if(istype(M, /mob/living/carbon/human))
+		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(M.chem_doses[type] <= (overdose + metabolism))
 				H.berserk_start()
@@ -709,9 +707,7 @@
 
 /decl/reagent/toxin/spectrocybin/final_effect(mob/living/carbon/human/H, datum/reagents/holder)
 	. = ..()
-	if(!istype(H))
-		return .
-	if(H.chem_doses[type] >= overdose)
+	if(istype(H) && H.chem_doses[type] >= overdose)
 		H.berserk_stop()
 
 /decl/reagent/toxin/trioxin
