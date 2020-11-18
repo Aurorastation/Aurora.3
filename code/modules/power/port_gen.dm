@@ -3,7 +3,7 @@
 	name = "Placeholder Generator"	//seriously, don't use this. It can't be anchored without VV magic.
 	desc = "A portable generator for emergency backup power"
 	icon = 'icons/obj/power.dmi'
-	icon_state = "portgen0"
+	icon_state = "portgen0_0"
 	density = TRUE
 	anchored = FALSE
 
@@ -377,11 +377,11 @@
 		if(href_list["action"] == "enable")
 			if(!active && HasFuel() && !IsBroken())
 				active = TRUE
-				icon_state = "portgen1"
+				icon_state = "portgen0_2"
 		if(href_list["action"] == "disable")
 			if (active)
 				active = FALSE
-				icon_state = "portgen0"
+				icon_state = "portgen0_0"
 		if(href_list["action"] == "eject")
 			if(!active)
 				DropFuel()
@@ -396,7 +396,7 @@
 /obj/machinery/power/port_gen/pacman/super
 	name = "U-P.A.C.M.A.N.-type Portable Generator"
 	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output. <span class='warning'>WARNING: MINOR RADIATION HAZARD WHEN ACTIVE. DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS.</span>"
-	icon_state = "portgen1"
+	icon_state = "portgen1_0"
 	sheet_path = /obj/item/stack/material/uranium
 	sheet_name = "Uranium Sheets"
 	power_gen = 20000 //watts
@@ -409,6 +409,21 @@
 		for (var/mob/living/L in range(src, 5))
 			L.apply_effect(1, IRRADIATE, blocked = L.getarmor(null, "rad")) //should amount to ~5 rads per minute at max safe power
 	..()
+
+/obj/machinery/power/port_gen/pacman/Topic(href, href_list)
+	if(..())
+		return
+
+	add_fingerprint(usr)
+	if(href_list["action"])
+		if(href_list["action"] == "enable")
+			if(!active && HasFuel() && !IsBroken())
+				active = TRUE
+				icon_state = "portgen1_2"
+		if(href_list["action"] == "disable")
+			if (active)
+				active = FALSE
+				icon_state = "portgen1_0"
 
 /obj/machinery/power/port_gen/pacman/super/explode()
 	visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'CRITICAL OVERHEAT DETECTED'"))
@@ -425,7 +440,7 @@
 /obj/machinery/power/port_gen/pacman/mrs
 	name = "T-P.A.C.M.A.N.-type Portable Generator"
 	desc = "An advanced power generator that runs on tritium. Rated for 200 kW maximum safe output! <span class='warning'>WARNING: DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS.</span>"
-	icon_state = "portgen2"
+	icon_state = "portgen2_0"
 	sheet_path = /obj/item/stack/material/tritium
 	sheet_name = "Tritium Fuel Sheets"
 
@@ -438,6 +453,21 @@
 	max_temperature = 800
 	temperature_gain = 90
 	board_path = "/obj/item/circuitboard/pacman/mrs"
+
+/obj/machinery/power/port_gen/pacman/Topic(href, href_list)
+	if(..())
+		return
+
+	add_fingerprint(usr)
+	if(href_list["action"])
+		if(href_list["action"] == "enable")
+			if(!active && HasFuel() && !IsBroken())
+				active = TRUE
+				icon_state = "portgen2_2"
+		if(href_list["action"] == "disable")
+			if (active)
+				active = FALSE
+				icon_state = "portgen2_0"
 
 /obj/machinery/power/port_gen/pacman/mrs/explode()
 	visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'CRITICAL OVERHEAT DETECTED'"))
