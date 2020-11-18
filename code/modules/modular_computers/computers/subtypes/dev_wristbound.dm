@@ -6,7 +6,7 @@
 	icon_state = "wristbound"
 	icon_state_unpowered = "wristbound"
 	icon_state_menu = "menu"
-	icon_state_screensaver = "standby"
+	icon_state_screensaver = "off"
 	hardware_flag = PROGRAM_WRISTBOUND
 	slot_flags = SLOT_GLOVES|SLOT_ID
 	can_reset = TRUE

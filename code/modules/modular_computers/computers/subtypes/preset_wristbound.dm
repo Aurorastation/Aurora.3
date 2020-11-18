@@ -24,49 +24,53 @@
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
-	icon_state = "wristbound_cargo"
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
+	icon_state = "wristbound-cargo"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/engineering
-	icon_state = "wristbound_engineering"
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
+	icon_state = "wristbound-e"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/medical
-	icon_state = "wristbound_medical"
 	_app_preset_type = /datum/modular_computer_app_presets/medical
+	icon_state = "wristbound-m"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
-	icon_state = "wristbound_security"
 	_app_preset_type = /datum/modular_computer_app_presets/security
+	icon_state = "wristbound-s"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/security/investigations
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/research
-	icon_state = "wristbound_science"
 	_app_preset_type = /datum/modular_computer_app_presets/research
+	icon_state = "wristbound-tox"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
-	icon_state = "wristbound_command"
 	_app_preset_type = /datum/modular_computer_app_presets/command
-
+	icon_state = "wristbound-h"
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
+	icon_state = "wristbound-ce"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
+	icon_state = "wristbound-rd"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
+	icon_state = "wristbound-cmo"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hop
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
+	icon_state = "wristbound-hop"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hos
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
+	icon_state = "wristbound-c"
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
@@ -78,7 +82,13 @@
 // Wristbound PDA presets
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda
+	var/icon_add // this is the "bar" part in "pda-bar"
 	enrolled = DEVICE_PRIVATE
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/set_icon()
+	if(icon_add)
+		icon_state += "-[icon_add]"
+	..()
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/install_default_hardware()
 	..()
@@ -111,17 +121,31 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
+	icon_add = "h"
+
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/clown
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/clown
+	icon_add = "clown"
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/clown/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/crayon
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/mime
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/mime
+	icon_add = "mime"
+
 
 // Engineering
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
-	icon_state = "wristbound_engineering"
-	item_state = "wristbound_engineering"
-	icon_state_unpowered = "wristbound_engineering"
+	icon_add = "e"
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/Initialize()
 	. = ..()
@@ -132,32 +156,32 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
+	icon_add = "ce"
 
 // Supply
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply
 	_app_preset_type = /datum/modular_computer_app_presets/supply
-	icon_state = "wristbound_cargo"
-	item_state = "wristbound_cargo"
-	icon_state_unpowered = "wristbound_cargo"
+	icon_add = "sup"
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/silver
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/miner
+	_app_preset_type = /datum/modular_computer_app_presets/civilian
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm
+	icon_add = "qm"
+
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/miner
-	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
 // Medical
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	_app_preset_type = /datum/modular_computer_app_presets/medical
-	icon_state = "wristbound_medical"
-	item_state = "wristbound_medical"
-	icon_state_unpowered = "wristbound_medical"
+	icon_add = "m"
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/Initialize()
 	. = ..()
@@ -169,14 +193,13 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
+	icon_add = "cmo"
 
 // Science
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	_app_preset_type = /datum/modular_computer_app_presets/research
-	icon_state = "wristbound_science"
-	item_state = "wristbound_science"
-	icon_state_unpowered = "wristbound_science"
+	icon_add = "tox"
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/Initialize()
 	. = ..()
@@ -184,28 +207,25 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
+	icon_add = "rd"
 
 // Security
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	_app_preset_type = /datum/modular_computer_app_presets/security
-	icon_state = "wristbound_security"
-	item_state = "wristbound_security"
-	icon_state_unpowered = "wristbound_security"
-
+	icon_add = "s"
 /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
+	icon_add = "hos"
 
 // Command / Misc
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
-	icon_state = "wristbound_command"
-	item_state = "wristbound_command"
-	icon_state_unpowered = "wristbound_command"
+	icon_add = "h"
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/Initialize()
 	. = ..()
@@ -216,9 +236,11 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
+	icon_add = "hop"
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
+	icon_add = "c"
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain/Initialize()
 	. = ..()
@@ -238,16 +260,12 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/ert
 	_app_preset_type = /datum/modular_computer_app_presets/ert
-	icon_state = "wristbound_command"
-	item_state = "wristbound_command"
-	icon_state_unpowered = "wristbound_command"
+	icon_add = "h"
 	hidden = TRUE
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/syndicate
 	_app_preset_type = /datum/modular_computer_app_presets/merc
-	icon_state = "wristbound_security"
-	item_state = "wristbound_security"
-	icon_state_unpowered = "wristbound_security"
+	icon_add = "syn"
 	computer_emagged = TRUE
 	hidden = TRUE
 
