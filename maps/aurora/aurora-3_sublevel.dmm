@@ -3988,45 +3988,45 @@
 /area/engineering/atmos)
 "ajg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "aji" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"ajn" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/machinery/pipedispenser,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"ajn" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/pipedispenser/disposal,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "ajo" = (
@@ -32047,13 +32047,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
 "nRA" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
+	},
+/obj/machinery/ringer{
+	department = "Engineering";
+	id = "engie_ringer";
+	pixel_y = -30;
+	req_access = list(10)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -34231,13 +34233,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "sXH" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/ringer{
-	department = "Engineering";
-	id = "engie_ringer";
-	pixel_x = 30;
-	req_access = list(10)
-	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/pipedispenser/disposal,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "sYz" = (
@@ -34445,6 +34442,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -34667,9 +34668,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"tSw" = (
-/turf/unsimulated/chasm_mask,
-/area/engineering/atmos)
 "tTG" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -62586,7 +62584,7 @@ abo
 abo
 aiI
 ajm
-aaO
+ajm
 aaO
 aaa
 aaa
@@ -62841,10 +62839,10 @@ ahm
 adB
 acT
 aeY
-sXH
+aiI
 ajn
 aaO
-tSw
+aaO
 aaa
 aaa
 aaa
@@ -63098,8 +63096,8 @@ acy
 kaD
 nwo
 ecc
-aaO
-aaO
+aiI
+sXH
 aaO
 aaa
 aaa
@@ -63356,8 +63354,8 @@ bfj
 abo
 nRA
 aaO
-aaa
-aaa
+akG
+akG
 aaa
 aaa
 aaa

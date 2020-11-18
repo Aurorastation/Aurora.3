@@ -1,0 +1,7 @@
+author: Hocka
+
+delete-after: True
+
+changes:
+  - maptweak: "There are now two Hydrogen canisters in the atmos sub-level."
+  - bugfix: "Hydrogen canister names are now spaced correctly."
