@@ -4,4 +4,5 @@ delete-after: True
 
 changes:
   - maptweak: "There are now two Hydrogen canisters in the atmos sub-level."
+  - maptweak: "A light has been added to the window viewport for the hydrogen reserve tank."
   - bugfix: "Hydrogen canister names are now spaced correctly."
