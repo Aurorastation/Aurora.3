@@ -13,17 +13,23 @@
         var/min_antag_count = 0
         for(var/antag_type in GM.antag_tags)
             var/datum/antagonist/A = all_antag_types[antag_type]
-            min_antag_count += A.initial_spawn_req
+            
+            if(GM.require_all_templates)
+                min_antag_count += A.initial_spawn_req
+            else
+                min_antag_count = max(min_antag_count, A.initial_spawn_req)
 
         if(min_antag_count > GM.required_enemies)
-            failed += "[ascii_red]--------------- [GM] ([GM.type]) requires [GM.required_enemies] but its antagonist roles require [min_antag_count]!"
+            failed += "[ascii_red]--------------- [GM] ([GM.type]) requires [GM.required_enemies] enemies but its antagonist roles require [min_antag_count] players!"
+        if(min_antag_count > GM.required_players)
+            failed += "[ascii_red]--------------- [GM] ([GM.type]) requires [GM.required_players] players but its antagonist roles require [min_antag_count] players!"
 
 
     if(failed.len)
-        fail("Some gamemodes did not have high enough required_enemies.")
+        fail("Some gamemodes did not have high enough required_enemies or required_players.")
         for(var/failed_message in failed)
             log_unit_test(failed_message)
     else
-        pass("All gamemodes had enough required_enemies.")
+        pass("All gamemodes had suitable required_enemies and required_players.")
 
     return 1
