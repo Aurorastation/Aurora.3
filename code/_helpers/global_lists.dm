@@ -63,7 +63,7 @@ var/global/list/backbagstyles = list("Job-specific", "Grey")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
 //PDA choice
-var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Wristbound")
+var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()

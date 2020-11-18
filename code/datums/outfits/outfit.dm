@@ -175,6 +175,8 @@
 			if (1)
 				pda = null
 			if (7)
+				pda = tablet
+			if (8)
 				pda = wristbound
 			else
 				pda = tab_pda
