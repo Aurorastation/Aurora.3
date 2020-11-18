@@ -314,7 +314,7 @@
 /obj/structure/reagent_dispensers/keg/beerkeg
 	name = "beer keg"
 	desc = "A beer keg"
-	reagents_to_add = list(/decl/reagent/alcohol/ethanol/beer = 1000)
+	reagents_to_add = list(/decl/reagent/alcohol/beer = 1000)
 
 /obj/structure/reagent_dispensers/keg/xuizikeg
 	name = "xuizi juice keg"
@@ -326,7 +326,7 @@
 	name = "mead barrel"
 	desc = "A wooden mead barrel."
 	icon_state = "woodkeg"
-	reagents_to_add = list(/decl/reagent/alcohol/ethanol/messa_mead = 1000)
+	reagents_to_add = list(/decl/reagent/alcohol/messa_mead = 1000)
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil

@@ -227,7 +227,7 @@
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_VOLATILE)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/decl/reagent/toxin, 1) || W.reagents.has_reagent(/decl/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/decl/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/decl/reagent/alcohol/ethanol/neurotoxin, 1))
+		else if(W.reagents.has_reagent(/decl/reagent/toxin, 1) || W.reagents.has_reagent(/decl/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/decl/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/decl/reagent/alcohol/neurotoxin, 1))
 			if(my_effect.trigger == TRIGGER_TOXIN)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_TOXIN)

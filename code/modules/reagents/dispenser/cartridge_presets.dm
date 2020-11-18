@@ -16,7 +16,7 @@
 	butanol		spawn_reagent = /decl/reagent/alcohol/butanol
 	carbon		spawn_reagent = /decl/reagent/carbon
 	copper		spawn_reagent = /decl/reagent/copper
-	ethanol		spawn_reagent = /decl/reagent/alcohol/ethanol
+	ethanol		spawn_reagent = /decl/reagent/alcohol
 	hclacid		spawn_reagent = /decl/reagent/acid/hydrochloric
 	hydrazine	spawn_reagent = /decl/reagent/hydrazine
 	iron		spawn_reagent = /decl/reagent/iron
@@ -32,19 +32,19 @@
 	tungsten	spawn_reagent = /decl/reagent/tungsten
 
 	// Bar, alcoholic
-	ale			spawn_reagent = /decl/reagent/alcohol/ethanol/ale
-	beer		spawn_reagent = /decl/reagent/alcohol/ethanol/beer
-	champagne	spawn_reagent = /decl/reagent/alcohol/ethanol/champagne
-	cognac		spawn_reagent = /decl/reagent/alcohol/ethanol/cognac
-	gin			spawn_reagent = /decl/reagent/alcohol/ethanol/gin
-	kahlua		spawn_reagent = /decl/reagent/alcohol/ethanol/coffee/kahlua
-	mead		spawn_reagent = /decl/reagent/alcohol/ethanol/mead
-	rum			spawn_reagent = /decl/reagent/alcohol/ethanol/rum
-	tequila		spawn_reagent = /decl/reagent/alcohol/ethanol/tequila
-	vermouth	spawn_reagent = /decl/reagent/alcohol/ethanol/vermouth
-	vodka		spawn_reagent = /decl/reagent/alcohol/ethanol/vodka
-	whiskey		spawn_reagent = /decl/reagent/alcohol/ethanol/whiskey
-	wine		spawn_reagent = /decl/reagent/alcohol/ethanol/wine
+	ale			spawn_reagent = /decl/reagent/alcohol/ale
+	beer		spawn_reagent = /decl/reagent/alcohol/beer
+	champagne	spawn_reagent = /decl/reagent/alcohol/champagne
+	cognac		spawn_reagent = /decl/reagent/alcohol/cognac
+	gin			spawn_reagent = /decl/reagent/alcohol/gin
+	kahlua		spawn_reagent = /decl/reagent/alcohol/coffee/kahlua
+	mead		spawn_reagent = /decl/reagent/alcohol/mead
+	rum			spawn_reagent = /decl/reagent/alcohol/rum
+	tequila		spawn_reagent = /decl/reagent/alcohol/tequila
+	vermouth	spawn_reagent = /decl/reagent/alcohol/vermouth
+	vodka		spawn_reagent = /decl/reagent/alcohol/vodka
+	whiskey		spawn_reagent = /decl/reagent/alcohol/whiskey
+	wine		spawn_reagent = /decl/reagent/alcohol/wine
 
 	// Bar, soft
 	apple   	spawn_reagent = /decl/reagent/drink/applejuice

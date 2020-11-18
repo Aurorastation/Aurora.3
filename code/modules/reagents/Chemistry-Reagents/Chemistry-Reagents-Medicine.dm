@@ -603,7 +603,7 @@
 	if(ingested)
 		for(var/_R in ingested.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if(istype(R, /decl/reagent/alcohol/ethanol))
+			if(istype(R, /decl/reagent/alcohol))
 				var/amount = min(P, REAGENT_VOLUME(ingested, _R))
 				ingested.remove_reagent(R.type, amount)
 				P -= amount
@@ -615,7 +615,7 @@
 	if(M.bloodstr)
 		for(var/_R in M.bloodstr.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if(istype(R, /decl/reagent/alcohol/ethanol))
+			if(istype(R, /decl/reagent/alcohol))
 				var/amount = min(P, REAGENT_VOLUME(M.bloodstr, _R))
 				M.bloodstr.remove_reagent(_R, amount)
 				P -= amount

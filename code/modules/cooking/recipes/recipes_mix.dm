@@ -148,7 +148,7 @@
 
 /decl/recipe/twobread
 	appliance = SKILLET | MIX
-	reagents = list(/decl/reagent/alcohol/ethanol/wine = 5)
+	reagents = list(/decl/reagent/alcohol/wine = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice

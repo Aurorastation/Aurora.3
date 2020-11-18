@@ -159,7 +159,7 @@
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/decl/reagent/alcohol/ethanol
+/decl/reagent/alcohol
 	name = "Ethanol"
 	description = "A well-known alcohol with a variety of applications."
 	flammability_divisor = 10
@@ -174,7 +174,7 @@
 
 	distillation_point = T0C + 78.37
 
-/decl/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/reagent/alcohol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
@@ -189,7 +189,7 @@
 
 	..()
 
-/decl/reagent/alcohol/ethanol/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/alcohol/touch_obj(var/obj/O, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()

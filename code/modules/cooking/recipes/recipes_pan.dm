@@ -6,7 +6,7 @@
 // Jellies
 /decl/recipe/amanitajelly
 	appliance = SAUCEPAN
-	reagents = list(/decl/reagent/water = 5, /decl/reagent/alcohol/ethanol/vodka = 5, /decl/reagent/toxin/amatoxin = 5)
+	reagents = list(/decl/reagent/water = 5, /decl/reagent/alcohol/vodka = 5, /decl/reagent/toxin/amatoxin = 5)
 	result = /obj/item/reagent_containers/food/snacks/amanitajelly
 	make_food(var/obj/container as obj)
 

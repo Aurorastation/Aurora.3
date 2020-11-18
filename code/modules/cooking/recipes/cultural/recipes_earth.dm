@@ -86,7 +86,7 @@
 
 /decl/recipe/risotto
 	appliance = SAUCEPAN | POT
-	reagents = list(/decl/reagent/alcohol/ethanol/wine = 5, /decl/reagent/nutriment/rice = 10, /decl/reagent/spacespice = 1)
+	reagents = list(/decl/reagent/alcohol/wine = 5, /decl/reagent/nutriment/rice = 10, /decl/reagent/spacespice = 1)
 	fruit = list("mushroom" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Get that rice and wine outta here
 	result = /obj/item/reagent_containers/food/snacks/risotto

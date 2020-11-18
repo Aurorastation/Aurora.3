@@ -80,20 +80,20 @@ var/list/lunchables_drink_reagents_ = list(
 
 // This default list is a bit different, it contains items we don't want
 var/list/lunchables_alcohol_reagents_ = list(
-	/decl/reagent/alcohol/ethanol,
+	/decl/reagent/alcohol,
 	/decl/reagent/alcohol/butanol,
-	/decl/reagent/alcohol/ethanol/acid_spit,
-	/decl/reagent/alcohol/ethanol/atomicbomb,
-	/decl/reagent/alcohol/ethanol/beepsky_smash,
-	/decl/reagent/alcohol/ethanol/coffee,
-	/decl/reagent/alcohol/ethanol/hippiesdelight,
-	/decl/reagent/alcohol/ethanol/hooch,
-	/decl/reagent/alcohol/ethanol/thirteenloko,
-	/decl/reagent/alcohol/ethanol/manhattan_proj,
-	/decl/reagent/alcohol/ethanol/neurotoxin,
-	/decl/reagent/alcohol/ethanol/pwine,
-	/decl/reagent/alcohol/ethanol/threemileisland,
-	/decl/reagent/alcohol/ethanol/toxins_special
+	/decl/reagent/alcohol/acid_spit,
+	/decl/reagent/alcohol/atomicbomb,
+	/decl/reagent/alcohol/beepsky_smash,
+	/decl/reagent/alcohol/coffee,
+	/decl/reagent/alcohol/hippiesdelight,
+	/decl/reagent/alcohol/hooch,
+	/decl/reagent/alcohol/thirteenloko,
+	/decl/reagent/alcohol/manhattan_proj,
+	/decl/reagent/alcohol/neurotoxin,
+	/decl/reagent/alcohol/pwine,
+	/decl/reagent/alcohol/threemileisland,
+	/decl/reagent/alcohol/toxins_special
 )
 
 /proc/lunchables_lunches()

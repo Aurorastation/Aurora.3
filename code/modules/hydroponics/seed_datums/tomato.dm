@@ -79,7 +79,7 @@
 	seed_name = "bluespace tomato"
 	display_name = "bluespace tomato plant"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/alcohol/ethanol/singulo = list(10,5))
+	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/alcohol/singulo = list(10,5))
 
 /datum/seed/tomato/blue/teleport/setup_traits()
 	..()

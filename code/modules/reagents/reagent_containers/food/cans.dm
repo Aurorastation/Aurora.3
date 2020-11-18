@@ -265,7 +265,7 @@
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=10)
 
-	reagents_to_add = list(/decl/reagent/alcohol/ethanol/thirteenloko = 30)
+	reagents_to_add = list(/decl/reagent/alcohol/thirteenloko = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/dr_gibb
 	name = "\improper Dr. Gibb"

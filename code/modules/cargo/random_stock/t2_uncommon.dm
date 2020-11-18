@@ -97,7 +97,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (istype(R, /decl/reagent/drink) || istype(R, /decl/reagent/alcohol/ethanol))
+		if (istype(R, /decl/reagent/drink) || istype(R, /decl/reagent/alcohol))
 			rname = pick(chems)
 			R = decls_repository.get_decl(rname)
 		C.reagents.add_reagent(rname, C.volume)

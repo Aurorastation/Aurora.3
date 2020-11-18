@@ -36,7 +36,7 @@
 		if(ICECREAM_STRAWBERRY)
 			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/drink/berryjuice)
 		if(ICECREAM_BLUE)
-			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/alcohol/ethanol/singulo)
+			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/alcohol/singulo)
 		if(ICECREAM_CHERRY)
 			return list(/decl/reagent/drink/milk, /decl/reagent/drink/ice, /decl/reagent/nutriment/cherryjelly)
 		if(ICECREAM_BANANA)

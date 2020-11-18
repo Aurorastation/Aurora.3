@@ -8,7 +8,7 @@
 /obj/item/reagent_containers/glass/replenishing/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	spawning_id = pick(/decl/reagent/blood,/decl/reagent/water/holywater,/decl/reagent/lube,/decl/reagent/soporific,/decl/reagent/alcohol/ethanol,/decl/reagent/drink/ice,/decl/reagent/glycerol,/decl/reagent/fuel,/decl/reagent/spacecleaner)
+	spawning_id = pick(/decl/reagent/blood,/decl/reagent/water/holywater,/decl/reagent/lube,/decl/reagent/soporific,/decl/reagent/alcohol,/decl/reagent/drink/ice,/decl/reagent/glycerol,/decl/reagent/fuel,/decl/reagent/spacecleaner)
 
 
 /obj/item/reagent_containers/glass/replenishing/process()

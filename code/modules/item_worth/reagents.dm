@@ -27,7 +27,7 @@
 /decl/reagent/copper
 	value = 0.02
 
-/decl/reagent/alcohol/ethanol
+/decl/reagent/alcohol
 	value = 0.01
 
 /decl/reagent/alcohol/butanol
@@ -147,352 +147,352 @@
 /decl/reagent/drink/nothing
 	value = 0
 
-/decl/reagent/alcohol/ethanol/absinthe
+/decl/reagent/alcohol/absinthe
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/ale
+/decl/reagent/alcohol/ale
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/beer
+/decl/reagent/alcohol/beer
 	value = 0.12
 
-/decl/reagent/alcohol/ethanol/bitters
+/decl/reagent/alcohol/bitters
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/bluecuracao
+/decl/reagent/alcohol/bluecuracao
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/champagne
+/decl/reagent/alcohol/champagne
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/cognac
+/decl/reagent/alcohol/cognac
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/deadrum
+/decl/reagent/alcohol/deadrum
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/gin
+/decl/reagent/alcohol/gin
 	value = 0.1
 
-/decl/reagent/alcohol/ethanol/coffee/kahlua
+/decl/reagent/alcohol/coffee/kahlua
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/melonliquor
+/decl/reagent/alcohol/melonliquor
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/rum
+/decl/reagent/alcohol/rum
 	value = 0.1
 
-/decl/reagent/alcohol/ethanol/sake
+/decl/reagent/alcohol/sake
 	value = 0.11
 
-/decl/reagent/alcohol/ethanol/tequila
+/decl/reagent/alcohol/tequila
 	value = 0.1
 
-/decl/reagent/alcohol/ethanol/thirteenloko
+/decl/reagent/alcohol/thirteenloko
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/vermouth
+/decl/reagent/alcohol/vermouth
 	value = 0.1
 
-/decl/reagent/alcohol/ethanol/vodka
+/decl/reagent/alcohol/vodka
 	value = 0.1
 
-/decl/reagent/alcohol/ethanol/whiskey
+/decl/reagent/alcohol/whiskey
 	value = 0.1
 
-/decl/reagent/alcohol/ethanol/wine
+/decl/reagent/alcohol/wine
 	value = 0.1
 
-/decl/reagent/alcohol/ethanol/acid_spit
+/decl/reagent/alcohol/acid_spit
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/alliescocktail
+/decl/reagent/alcohol/alliescocktail
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/aloe
+/decl/reagent/alcohol/aloe
 	value = 0.17
 
-/decl/reagent/alcohol/ethanol/amasec
+/decl/reagent/alcohol/amasec
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/andalusia
+/decl/reagent/alcohol/andalusia
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/antifreeze
+/decl/reagent/alcohol/antifreeze
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/atomicbomb
+/decl/reagent/alcohol/atomicbomb
 	value = 0.21
 
-/decl/reagent/alcohol/ethanol/coffee/b52
+/decl/reagent/alcohol/coffee/b52
 	value = 0.17
 
-/decl/reagent/alcohol/ethanol/bahama_mama
+/decl/reagent/alcohol/bahama_mama
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/bananahonk
+/decl/reagent/alcohol/bananahonk
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/barefoot
+/decl/reagent/alcohol/barefoot
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/beepsky_smash
+/decl/reagent/alcohol/beepsky_smash
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/bilk
+/decl/reagent/alcohol/bilk
 	value = 0.12
 
-/decl/reagent/alcohol/ethanol/blackrussian
+/decl/reagent/alcohol/blackrussian
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/bloodymary
+/decl/reagent/alcohol/bloodymary
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/booger
+/decl/reagent/alcohol/booger
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/coffee/brave_bull
+/decl/reagent/alcohol/coffee/brave_bull
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/cmojito
+/decl/reagent/alcohol/cmojito
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/gibsonpunch
+/decl/reagent/alcohol/gibsonpunch
 	value = 0.19
 
-/decl/reagent/alcohol/ethanol/classic
+/decl/reagent/alcohol/classic
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/martini
+/decl/reagent/alcohol/martini
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/corkpopper
+/decl/reagent/alcohol/corkpopper
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/rumandcola
+/decl/reagent/alcohol/rumandcola
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/cubalibre
+/decl/reagent/alcohol/cubalibre
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/demonsblood
+/decl/reagent/alcohol/demonsblood
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/devilskiss
+/decl/reagent/alcohol/devilskiss
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/driestmartini
+/decl/reagent/alcohol/driestmartini
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/ginfizz
+/decl/reagent/alcohol/ginfizz
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/french75
+/decl/reagent/alcohol/french75
 	value = 0.17
 
-/decl/reagent/alcohol/ethanol/grog
+/decl/reagent/alcohol/grog
 	value = 0.11
 
-/decl/reagent/alcohol/ethanol/erikasurprise
+/decl/reagent/alcohol/erikasurprise
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/gargleblaster
+/decl/reagent/alcohol/gargleblaster
 	value = 0.21
 
-/decl/reagent/alcohol/ethanol/gintonic
+/decl/reagent/alcohol/gintonic
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/goldschlager
+/decl/reagent/alcohol/goldschlager
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/hippiesdelight
+/decl/reagent/alcohol/hippiesdelight
 	value = 0.12
 
-/decl/reagent/alcohol/ethanol/hooch
+/decl/reagent/alcohol/hooch
 	value = 0.11
 
-/decl/reagent/alcohol/ethanol/iced_beer
+/decl/reagent/alcohol/iced_beer
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/irishcarbomb
+/decl/reagent/alcohol/irishcarbomb
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/coffee/irishcoffee
+/decl/reagent/alcohol/coffee/irishcoffee
 	value = 0.12
 
-/decl/reagent/alcohol/ethanol/irish_cream
+/decl/reagent/alcohol/irish_cream
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/longislandicedtea
+/decl/reagent/alcohol/longislandicedtea
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/manhattan
+/decl/reagent/alcohol/manhattan
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/manhattan_proj
+/decl/reagent/alcohol/manhattan_proj
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/manly_dorf
+/decl/reagent/alcohol/manly_dorf
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/margarita
+/decl/reagent/alcohol/margarita
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/mead
+/decl/reagent/alcohol/mead
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/moonshine
+/decl/reagent/alcohol/moonshine
 	value = 0.11
 
-/decl/reagent/alcohol/ethanol/muscmule
+/decl/reagent/alcohol/muscmule
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/neurotoxin
+/decl/reagent/alcohol/neurotoxin
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/omimosa
+/decl/reagent/alcohol/omimosa
 	value = 0.18
 
-/decl/reagent/alcohol/ethanol/patron
+/decl/reagent/alcohol/patron
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/pinkgin
+/decl/reagent/alcohol/pinkgin
 	value = 0.11
 
-/decl/reagent/alcohol/ethanol/pinkgintonic
+/decl/reagent/alcohol/pinkgintonic
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/piratepunch
+/decl/reagent/alcohol/piratepunch
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/planterpunch
+/decl/reagent/alcohol/planterpunch
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/pwine
+/decl/reagent/alcohol/pwine
 	value = 0.19
 
-/decl/reagent/alcohol/ethanol/red_mead
+/decl/reagent/alcohol/red_mead
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/sbiten
+/decl/reagent/alcohol/sbiten
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/screwdrivercocktail
+/decl/reagent/alcohol/screwdrivercocktail
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/silencer
+/decl/reagent/alcohol/silencer
 	value = 0.135
 
-/decl/reagent/alcohol/ethanol/singulo
+/decl/reagent/alcohol/singulo
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/snowwhite
+/decl/reagent/alcohol/snowwhite
 	value = 0.125
 
-/decl/reagent/alcohol/ethanol/ssroyale
+/decl/reagent/alcohol/ssroyale
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/suidream
+/decl/reagent/alcohol/suidream
 	value = 0.12
 
-/decl/reagent/alcohol/ethanol/gibsonhooch
+/decl/reagent/alcohol/gibsonhooch
 	value = 0.21
 
-/decl/reagent/alcohol/ethanol/tequila_sunrise
+/decl/reagent/alcohol/tequila_sunrise
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/threemileisland
+/decl/reagent/alcohol/threemileisland
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/toxins_special
+/decl/reagent/alcohol/toxins_special
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/vodkamartini
+/decl/reagent/alcohol/vodkamartini
 	value = 0.135
 
-/decl/reagent/alcohol/ethanol/vodkatonic
+/decl/reagent/alcohol/vodkatonic
 	value = 0.145
 
-/decl/reagent/alcohol/ethanol/white_russian
+/decl/reagent/alcohol/white_russian
 	value = 0.125
 
-/decl/reagent/alcohol/ethanol/whiskey_cola
+/decl/reagent/alcohol/whiskey_cola
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/whiskeysoda
+/decl/reagent/alcohol/whiskeysoda
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/specialwhiskey
+/decl/reagent/alcohol/specialwhiskey
 	value = 0.3
 
-/decl/reagent/alcohol/ethanol/daiquiri
+/decl/reagent/alcohol/daiquiri
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/icepick
+/decl/reagent/alcohol/icepick
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/poussecafe
+/decl/reagent/alcohol/poussecafe
 	value = 0.17
 
-/decl/reagent/alcohol/ethanol/mintjulep
+/decl/reagent/alcohol/mintjulep
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/johncollins
+/decl/reagent/alcohol/johncollins
 	value = 0.17
 
-/decl/reagent/alcohol/ethanol/gimlet
+/decl/reagent/alcohol/gimlet
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/starsandstripes
+/decl/reagent/alcohol/starsandstripes
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/metropolitan
+/decl/reagent/alcohol/metropolitan
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/caruso
+/decl/reagent/alcohol/caruso
 	value = 0.18
 
-/decl/reagent/alcohol/ethanol/aprilshower
+/decl/reagent/alcohol/aprilshower
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/carthusiansazerac
+/decl/reagent/alcohol/carthusiansazerac
 	value = 0.17
 
-/decl/reagent/alcohol/ethanol/deweycocktail
+/decl/reagent/alcohol/deweycocktail
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/chartreusegreen
+/decl/reagent/alcohol/chartreusegreen
 	value = 0.18
 
-/decl/reagent/alcohol/ethanol/chartreuseyellow
+/decl/reagent/alcohol/chartreuseyellow
 	value = 0.18
 
-/decl/reagent/alcohol/ethanol/cremewhite
+/decl/reagent/alcohol/cremewhite
 	value = 0.14
 
-/decl/reagent/alcohol/ethanol/cremeyvette
+/decl/reagent/alcohol/cremeyvette
 	value = 0.17
 
-/decl/reagent/alcohol/ethanol/brandy
+/decl/reagent/alcohol/brandy
 	value = 0.2
 
-/decl/reagent/alcohol/ethanol/guinness
+/decl/reagent/alcohol/guinness
 	value = 0.1
 
-/decl/reagent/alcohol/ethanol/drambuie
+/decl/reagent/alcohol/drambuie
 	value = 0.18
 
-/decl/reagent/alcohol/ethanol/oldfashioned
+/decl/reagent/alcohol/oldfashioned
 	value = 0.15
 
-/decl/reagent/alcohol/ethanol/blindrussian
+/decl/reagent/alcohol/blindrussian
 	value = 0.16
 
-/decl/reagent/alcohol/ethanol/rustynail
+/decl/reagent/alcohol/rustynail
 	value = 0.13
 
-/decl/reagent/alcohol/ethanol/tallrussian
+/decl/reagent/alcohol/tallrussian
 	value = 0.15
 
 /decl/reagent/inaprovaline

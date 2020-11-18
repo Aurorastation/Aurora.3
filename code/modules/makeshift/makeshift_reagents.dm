@@ -220,8 +220,8 @@
 			return
 		var/ARvol = REAGENT_VOLUME(reagents, AR.type)
 		reagents.add_reagent(/decl/reagent/water, (1-(AR.strength/100))*ARvol)
-		if(istype(AR, /decl/reagent/alcohol/ethanol))
-			reagents.add_reagent(/decl/reagent/alcohol/ethanol, (AR.strength/100)*ARvol)
+		if(istype(AR, /decl/reagent/alcohol))
+			reagents.add_reagent(/decl/reagent/alcohol, (AR.strength/100)*ARvol)
 		else if(istype(AR, /decl/reagent/alcohol/butanol))
 			reagents.add_reagent(/decl/reagent/alcohol/butanol, (AR.strength/100)*ARvol)
 		reagents.remove_reagent(AR.type, ARvol)
