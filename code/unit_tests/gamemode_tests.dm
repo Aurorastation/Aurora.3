@@ -2,7 +2,7 @@
 	name = "GAMEMODE template"
 
 /datum/unit_test/gamemode/required_enemies_check
-    name = "GAMEMODE: All multi-modes shall have a required_enemies greater than or equal to their component modes."
+    name = "GAMEMODE: All modes shall have required_players and required_enemies greater than the required number of players for their antagonist types."
 
 /datum/unit_test/gamemode/required_enemies_check/start_test()
     var/list/failed = list()
