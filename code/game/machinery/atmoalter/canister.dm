@@ -51,6 +51,8 @@
 	canister_color = "blue"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/phoron/scarce
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled
 	name = "Canister: \[O2 (Cryo)\]"
 
@@ -59,6 +61,8 @@
 	icon_state = "orange"
 	canister_color = "orange"
 	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/phoron/scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
 	name = "Canister \[CO2\]"
@@ -420,6 +424,11 @@ update_flag
 
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/phoron/scarce/Initialize()
+	. = ..()
+
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure()/2) // half of the default value
 
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()

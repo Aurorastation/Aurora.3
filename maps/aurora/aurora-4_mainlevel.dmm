@@ -7204,10 +7204,9 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "ant" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/engineering/engine_room)
+/area/engineering/storage_hard)
 "anu" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -80896,8 +80895,8 @@ aaa
 aaa
 aaa
 alk
-ant
-ant
+anu
+anu
 anu
 aqX
 asr
@@ -81153,8 +81152,8 @@ aaa
 aaa
 alk
 alk
-ant
-ant
+anu
+anu
 anu
 anu
 asr
@@ -85777,7 +85776,7 @@ lyh
 kRK
 ajL
 aky
-aky
+ant
 ams
 anD
 aoJ
@@ -86033,8 +86032,8 @@ qba
 aig
 kRK
 ajL
-aky
-aky
+ant
+ant
 amt
 anE
 aoK

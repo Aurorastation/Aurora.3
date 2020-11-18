@@ -17,7 +17,7 @@
 /turf/simulated/floor,
 /area/engineering/atmos)
 "aaf" = (
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aag" = (
 /turf/simulated/floor/reinforced/nitrogen,
@@ -38,7 +38,7 @@
 	frequency = 1441;
 	id_tag = "ph_sensor"
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aal" = (
 /obj/machinery/air_sensor{
@@ -90,14 +90,14 @@
 	id = "tox_in";
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aar" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
 	id_tag = "tox_out"
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aas" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -3983,7 +3983,7 @@
 /area/engineering/atmos)
 "ajf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/phoron/scarce,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajg" = (
@@ -4734,7 +4734,7 @@
 	name = "Canister Storage";
 	req_access = list(7)
 	},
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/phoron/scarce,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "akV" = (
@@ -22358,8 +22358,8 @@
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "aVt" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron/scarce,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
 "aVG" = (
@@ -30273,6 +30273,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"kuZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
+/area/rnd/storage)
 "kvS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -56743,7 +56747,7 @@ aLH
 aPf
 aQr
 aVt
-aVt
+kuZ
 aVp
 beS
 bfs
