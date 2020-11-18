@@ -323,6 +323,9 @@ var/global/list/default_medbay_channels = list(
 			return FALSE
 
 	if(istype(M))
+		if(M.restrained())
+			to_chat(M, SPAN_WARNING("Your can't speak into \the [src.name] while restrained."))
+			return FALSE
 		M.trigger_aiming(TARGET_CAN_RADIO)
 
 	//  Uncommenting this. To the above comment:
