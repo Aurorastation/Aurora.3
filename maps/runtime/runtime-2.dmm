@@ -28,6 +28,14 @@
 	temperature = 278
 	},
 /area/tcommsat/computer)
+"bl" = (
+/obj/structure/flora/pottedplant/random{
+	desc = "I like moster truck";
+	name = "walter"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
 "cB" = (
 /obj/machinery/light{
 	dir = 8
@@ -92,6 +100,9 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"ev" = (
+/turf/simulated/open,
+/area/turbolift/main_mid)
 "eN" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -1002,6 +1013,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
+"QS" = (
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
@@ -3292,13 +3309,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 hD
 hD
 hD
@@ -3346,13 +3363,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+QS
+aO
+bl
+aO
+QS
+Ex
 hD
 hD
 hD
@@ -3400,13 +3417,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+aO
+aO
+aO
+aO
+aO
+Ex
 hD
 hD
 hD
@@ -3454,13 +3471,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 hD
 hD
 hD
@@ -3508,13 +3525,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 iR
 iR
 iR
@@ -3562,13 +3579,13 @@ Zg
 Zg
 Zg
 Zg
-Zg
-Zg
-Zg
-Zg
-Zg
-Zg
-Zg
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 Zg
 Zg
 Zg
@@ -3616,13 +3633,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 iR
 iR
 iR
@@ -3670,13 +3687,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 iR
 iR
 iR
@@ -3724,13 +3741,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 iR
 iR
 iR
@@ -3778,13 +3795,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 iR
 iR
 iR
