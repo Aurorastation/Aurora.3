@@ -3,7 +3,7 @@
 	name = "Placeholder Generator"	//seriously, don't use this. It can't be anchored without VV magic.
 	desc = "A portable generator for emergency backup power"
 	icon = 'icons/obj/power.dmi'
-	icon_state = "portgen0_0"
+	icon_state = "portgen0"
 	density = TRUE
 	anchored = FALSE
 
@@ -131,6 +131,7 @@
 
 	if(anchored)
 		connect_to_network()
+		icon_state = "[initial(icon_state)]_1"		
 
 /obj/machinery/power/port_gen/pacman/Destroy()
 	DropFuel()
@@ -215,7 +216,11 @@
 	temperature += between(dec_limit, rand(-7 + bias, 7 + bias), inc_limit)
 
 	if (temperature > max_temperature)
+		icon_state = "[initial(icon_state)]_3"
+		visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'UNIT OVERHEATING'"))
 		overheat()
+	if (temperature < max_temperature)
+		icon_state = "[initial(icon_state)]_2"
 	else if (overheating > 0)
 		overheating--
 
@@ -250,7 +255,7 @@
 	//Vapourize all the phoron
 	//When ground up in a grinder, 1 sheet produces 20 u of phoron -- Chemistry-Machinery.dm
 	//1 mol = 10 u? I dunno. 1 mol of carbon is definitely bigger than a pill
-	visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'CRITICAL OVERHEAT DETECTED'"))
+	
 	var/phoron = (sheets+sheet_left)*20
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
@@ -297,6 +302,7 @@
 				disconnect_from_network()
 				to_chat(user, SPAN_NOTICE("You unsecure the generator from the floor."))
 				SSvueui.close_uis(src)
+				icon_state = "[initial(icon_state)]_0"
 
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
@@ -377,11 +383,11 @@
 		if(href_list["action"] == "enable")
 			if(!active && HasFuel() && !IsBroken())
 				active = TRUE
-				icon_state = "portgen0_2"
+				icon_state = "[initial(icon_state)]_2"
 		if(href_list["action"] == "disable")
 			if (active)
 				active = FALSE
-				icon_state = "portgen0_0"
+				icon_state = "[initial(icon_state)]_0"
 		if(href_list["action"] == "eject")
 			if(!active)
 				DropFuel()
@@ -396,7 +402,7 @@
 /obj/machinery/power/port_gen/pacman/super
 	name = "U-P.A.C.M.A.N.-type Portable Generator"
 	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output. <span class='warning'>WARNING: MINOR RADIATION HAZARD WHEN ACTIVE. DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS.</span>"
-	icon_state = "portgen1_0"
+	icon_state = "portgen1"
 	sheet_path = /obj/item/stack/material/uranium
 	sheet_name = "Uranium Sheets"
 	power_gen = 20000 //watts
@@ -414,17 +420,6 @@
 	if(..())
 		return
 
-	add_fingerprint(usr)
-	if(href_list["action"])
-		if(href_list["action"] == "enable")
-			if(!active && HasFuel() && !IsBroken())
-				active = TRUE
-				icon_state = "portgen1_2"
-		if(href_list["action"] == "disable")
-			if (active)
-				active = FALSE
-				icon_state = "portgen1_0"
-
 /obj/machinery/power/port_gen/pacman/super/explode()
 	visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'CRITICAL OVERHEAT DETECTED'"))
 	//a nice burst of radiation. Vaporised uranium make geiger counter go vrrrr.
@@ -440,7 +435,7 @@
 /obj/machinery/power/port_gen/pacman/mrs
 	name = "T-P.A.C.M.A.N.-type Portable Generator"
 	desc = "An advanced power generator that runs on tritium. Rated for 200 kW maximum safe output! <span class='warning'>WARNING: DO NOT OPERATE ABOVE SAFE THRESHOLD FOR EXTENDED PERIODS.</span>"
-	icon_state = "portgen2_0"
+	icon_state = "portgen2"
 	sheet_path = /obj/item/stack/material/tritium
 	sheet_name = "Tritium Fuel Sheets"
 
@@ -448,8 +443,8 @@
 	//max safe power output (power level = 8) is 200 kW and lasts for 1 hour - 3 or 4 of these could power the station
 	power_gen = 25000 //watts
 	max_power_output = 10
-	max_safe_output = 8
-	time_per_sheet = 576
+	max_safe_output = 5
+	time_per_sheet = 300
 	max_temperature = 800
 	temperature_gain = 90
 	board_path = "/obj/item/circuitboard/pacman/mrs"
@@ -457,17 +452,6 @@
 /obj/machinery/power/port_gen/pacman/Topic(href, href_list)
 	if(..())
 		return
-
-	add_fingerprint(usr)
-	if(href_list["action"])
-		if(href_list["action"] == "enable")
-			if(!active && HasFuel() && !IsBroken())
-				active = TRUE
-				icon_state = "portgen2_2"
-		if(href_list["action"] == "disable")
-			if (active)
-				active = FALSE
-				icon_state = "portgen2_0"
 
 /obj/machinery/power/port_gen/pacman/mrs/explode()
 	visible_message(SPAN_DANGER("\The [name] starts to sputter and jitter and smoke! An alarm blares: 'CRITICAL OVERHEAT DETECTED'"))
