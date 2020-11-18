@@ -37,7 +37,7 @@ export default {
   methods: {
     closeUI($event) {
       $event.stopPropagation();
-      Utils.sendToTopic({'vueuiclose': 1});
+      Utils.sendToTopicRaw({'src': this.d.uiref, 'vueuiclose': 1});
     },
     startDragging($event) {
       dragStartHandler($event);

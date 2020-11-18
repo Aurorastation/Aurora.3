@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import 'icons.scss';
 @import 'variables.scss';
 @import 'utilities.scss';
@@ -51,6 +52,55 @@ body {
 #content > div {
     margin-right: 8px;
     margin-top: 8px;
+}
+
+.uiTitleWrapper {
+    margin: -8px -8px 10px;
+    position: relative;
+    float: none;
+    clear: both;
+    user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+    & > .titleBar {
+        height: 32px;
+        @include vertical-align(middle, 24px);
+        & > * {
+            display: inline-block;
+            margin-left: 8px;
+            line-height: 32px;
+        }
+
+        & > .uiTitleText {
+            font-size: 16px;
+        }
+
+        & > .uiDebugIcon {
+            cursor: pointer;
+            transition: color 250ms;
+            &.uiNoDebug {
+                display: none;
+            }
+            &:hover {
+                color: #507aac;
+                transition: color 0ms;
+            }
+        }
+
+        & > .uiTitleClose {
+            display: block;
+            float: right;
+            width: 45px;
+            font-size: 20px;
+            text-align: center;
+            transition: color 250ms, background-color 250ms;
+            &:hover {
+                color: rgba(255, 255, 255, 1.0);
+                background-color: #cc0000;
+                transition: color 0ms, background-color 0ms;
+            }
+        }
+    }
 }
 
 code {
@@ -178,4 +228,16 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
 
 .highlight {
     color: darkblue;
+}
+
+.good {
+    color: #4f7529;
+}
+
+.average {
+    color: #cd6500;
+}
+
+.bad {
+    color: #ee0000;
 }
