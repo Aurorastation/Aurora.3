@@ -255,7 +255,7 @@
 /area/janitor)
 "br" = (
 /obj/machinery/disposal/deliveryChute,
-/turf/simulated/floor/tiled,
+/turf/template_noop,
 /area/janitor)
 "bs" = (
 /obj/structure/sign/securearea{
@@ -889,7 +889,7 @@
 /obj/machinery/conveyor{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/template_noop,
 /area/janitor)
 "ee" = (
 /obj/structure/lattice,
@@ -933,7 +933,7 @@
 /obj/machinery/conveyor{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/template_noop,
 /area/janitor)
 "eu" = (
 /obj/structure/bed/chair/office/dark,
@@ -1001,7 +1001,7 @@
 /obj/machinery/conveyor{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/template_noop,
 /area/janitor)
 "eT" = (
 /obj/structure/closet/secure_closet/personal/patient,
@@ -1301,6 +1301,10 @@
 /obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"gL" = (
+/obj/machinery/power/breakerbox,
+/turf/template_noop,
+/area/janitor)
 "gM" = (
 /obj/structure/disposaloutlet{
 	dir = 8
@@ -2093,6 +2097,10 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"mQ" = (
+/obj/machinery/door/airlock/mining,
+/turf/template_noop,
+/area/janitor)
 "mR" = (
 /obj/machinery/computer/operating,
 /turf/simulated/floor/tiled/white,
@@ -2698,7 +2706,7 @@
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/template_noop,
 /area/janitor)
 "sc" = (
 /obj/structure/cable/yellow{
@@ -2850,7 +2858,7 @@
 /obj/machinery/atm{
 	pixel_y = -4
 	},
-/turf/simulated/wall,
+/turf/template_noop,
 /area/janitor)
 "tC" = (
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
@@ -3641,6 +3649,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"Ag" = (
+/turf/template_noop,
+/area/janitor)
 "Ai" = (
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
@@ -3709,6 +3720,10 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/janitor)
+"AK" = (
+/obj/item/modular_computer/console/preset/supply,
+/turf/template_noop,
 /area/janitor)
 "AN" = (
 /obj/machinery/atmospherics/unary/vent_pump/engine{
@@ -4401,6 +4416,10 @@
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
+/area/janitor)
+"Gi" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/turf/template_noop,
 /area/janitor)
 "Gj" = (
 /obj/machinery/atmospherics/unary/freezer{
@@ -5149,7 +5168,7 @@
 /area/janitor)
 "MW" = (
 /obj/machinery/autolathe,
-/turf/simulated/floor/tiled,
+/turf/template_noop,
 /area/janitor)
 "MZ" = (
 /obj/structure/table/stone/marble,
@@ -5365,7 +5384,7 @@
 	pixel_x = -7;
 	pixel_y = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/template_noop,
 /area/janitor)
 "OD" = (
 /obj/structure/cable/yellow{
@@ -5603,6 +5622,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/janitor)
+"QW" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/template_noop,
+/area/janitor)
 "Rf" = (
 /obj/machinery/power/smes/magical,
 /obj/structure/cable/orange{
@@ -5815,6 +5840,10 @@
 "SS" = (
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
+/area/janitor)
+"SW" = (
+/obj/machinery/power/smes/magical,
+/turf/template_noop,
 /area/janitor)
 "SX" = (
 /obj/machinery/door/firedoor,
@@ -6484,6 +6513,10 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"YU" = (
+/obj/machinery/computer/shuttle_control/lift,
+/turf/template_noop,
+/area/janitor)
 "YW" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/effect/floor_decal/industrial/warning{
@@ -18785,13 +18818,13 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-uK
-ac
+Ag
+Ag
+Ag
+Ag
+Ag
+mQ
+Ag
 ac
 ac
 ac
@@ -18987,13 +19020,13 @@ eu
 HN
 cM
 ac
-ac
-ac
-ac
-ac
-ac
-uK
-ac
+Ag
+Ag
+Ag
+Ag
+Ag
+mQ
+Ag
 ac
 ac
 ac
@@ -19189,12 +19222,12 @@ ab
 ab
 ab
 XS
-ab
-WO
-WO
-ac
-ac
-ab
+Ag
+Ag
+Ag
+Ag
+Ag
+Ag
 MW
 ac
 ac
@@ -19391,12 +19424,12 @@ ad
 ad
 ad
 ad
-ab
-WO
-WO
-ac
-ac
-ab
+Ag
+Ag
+Ag
+Ag
+Ag
+Ag
 OA
 ac
 ac
@@ -19593,13 +19626,13 @@ ad
 ad
 ad
 ad
-ab
-DE
-WO
-ac
-ac
-ab
-Xr
+Ag
+YU
+Ag
+Ag
+Ag
+Ag
+AK
 nE
 HN
 HN
@@ -19795,13 +19828,13 @@ bD
 ab
 ab
 CY
-ab
-ab
-ab
-ab
-uK
-ab
-ap
+Ag
+Ag
+Ag
+Ag
+mQ
+Ag
+Gi
 Tp
 ap
 ap
@@ -19997,13 +20030,13 @@ Ad
 BW
 ab
 ad
-hJ
-ab
+gL
+Ag
 ed
 rY
-ac
-ab
-Xr
+Ag
+Ag
+AK
 nd
 mu
 pU
@@ -20199,13 +20232,13 @@ Ad
 BW
 ab
 pf
-dy
-ab
+SW
+Ag
 es
-ac
-ac
+Ag
+Ag
 tA
-ac
+Ag
 ac
 ac
 ac
@@ -20401,13 +20434,13 @@ Ad
 ZQ
 CY
 ad
-ad
-ab
+Ag
+Ag
 es
-ac
-ac
-uK
-ac
+Ag
+Ag
+mQ
+Ag
 ac
 ac
 ac
@@ -20603,13 +20636,13 @@ Am
 Cp
 ab
 ab
-ab
-ab
+Ag
+Ag
 es
-ac
-ac
-ab
-xi
+Ag
+Ag
+Ag
+QW
 xi
 xi
 ac
@@ -20805,13 +20838,13 @@ Ao
 ZQ
 DQ
 Gh
-ab
+Ag
 br
 eS
-ac
-ac
-ab
-ab
+Ag
+Ag
+Ag
+Ag
 ab
 ab
 Xa
@@ -21007,13 +21040,13 @@ ZQ
 ZQ
 DU
 bk
-ab
-ab
-ab
-ab
-ab
-ab
-ac
+Ag
+Ag
+Ag
+Ag
+Ag
+Ag
+Ag
 ac
 ac
 ac
@@ -33535,9 +33568,9 @@ ac
 ac
 ac
 ac
+ac
+ac
 ab
-ac
-ac
 ac
 ac
 ac
@@ -33737,9 +33770,9 @@ ac
 ac
 ac
 ac
+ac
+ac
 ab
-ac
-ac
 ac
 ac
 ac
@@ -33939,9 +33972,9 @@ XX
 XX
 ac
 ac
+ac
+ac
 ab
-ac
-ac
 ac
 ac
 ac
@@ -34141,8 +34174,8 @@ HA
 XX
 ac
 ac
-ab
-ab
+VL
+ac
 ab
 ab
 jE
@@ -34343,7 +34376,7 @@ HA
 XX
 ac
 ac
-ac
+VL
 ac
 ac
 ac
@@ -34956,7 +34989,7 @@ ac
 ac
 ac
 ac
-VL
+ac
 ac
 ac
 ac
