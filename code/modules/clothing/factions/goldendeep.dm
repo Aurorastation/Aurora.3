@@ -1,6 +1,7 @@
 /obj/item/clothing/under/goldendeep
 	name = "golden deep dress"
-	desc = "A simple dress with a flowing skirt made from some form of golden fabric accented by cobalts, used by representatives of the Golden Deep. It appears to be loose fitting and breathable."
+	desc = "A simple dress with a flowing skirt made from electroplated thermoplastic accented by cobalts, used by representatives of the Golden Deep. Despite this garment's aesthetic similarities to \
+	metallic gold, it is as flexible as silk and surprisingly light!"
 	desc_fluff = "The Lux-I Golden Dress was popularised 8 years ago by Lux-Igmatic, one of the first official Golden Deep positronic citizens. Owing to its success outside of the GD fashion scene, \
 	it quickly caught on due to the appeal among other civilisations of the orion spur. Lux-Igmatic made a considerable fortune before the methods to create the gold-laced fabric design were leaked to \
 	competitors. Gold-lace and gold-appearance clothing is now popular within many Golden Deep brands, but this was the first, and still carries considerable prestige."
@@ -11,7 +12,7 @@
 
 /obj/item/clothing/under/goldendeep/wrap
 	name = "golden deep wraps"
-	desc = "A flowing garb made from an accented skirt and two large sheets made from some form of golden fabric used by representatives of the Golden Deep. It appears to be breathable and designed to flow in the wind."
+	desc = "A simple dress with a flowing skirt made from electroplated thermoplastic, used by representatives of the Golden Deep. Despite this garment's aesthetic similarities to metallic gold, it is as flexible as silk, breathable and designed to flow in the wind."
 	icon_state = "goldendeep_wrap"
 	item_state = "goldendeep_wrap"
 	icon = 'icons/clothing/under/uniforms/goldendeep_wrap.dmi'
@@ -19,7 +20,7 @@
 
 /obj/item/clothing/under/goldendeep/vest
 	name = "golden deep vest"
-	desc = "A vest made from a rigid gold-fiber fabric accompanied by a gem-encrusted skirt that functions as either an outfit or an accent. It is commonly worn by members of the Golden Deep."
+	desc = "A vest made from a from electroplated thermoplastic accompanied by a gem-encrusted skirt, used by representatives of the Golden Deep. Despite this garment's aesthetic similarities to metallic gold, it is as flexible as silk and surprisingly light!"
 	icon_state = "goldendeep_vest"
 	item_state = "goldendeep_vest"
 	icon = 'icons/clothing/under/uniforms/goldendeep_vest.dmi'
@@ -28,7 +29,7 @@
 
 /obj/item/clothing/under/goldendeep/suit
 	name = "golden deep suit"
-	desc = "A two piece suit made from a light-fitting gold-fiber fabric and a tasteful synthetic silk tie. It is commonly worn by members of the Golden Deep looking to fit in with human culture."
+	desc = "A two piece suit made from a flexible electroplated thermoplastic and a tasteful synthetic silk tie. It is commonly worn by members of the Golden Deep looking to fit in with human culture."
 	icon_state = "goldendeep_suit"
 	item_state = "goldendeep_suit"
 	icon = 'icons/clothing/under/uniforms/goldendeep_suit.dmi'
@@ -36,7 +37,7 @@
 
 /obj/item/clothing/under/goldendeep/skirtsuit
 	name = "golden deep skirtsuit"
-	desc = "A flowing skirtsuit made from a light-fitting gold-fiber fabric and a tasteful synthetic silk tie. It is commonly worn by members of the Golden Deep looking to fit in with human culture."
+	desc = "A flowing skirtsuit made from a flexible electroplated thermoplastic and a tasteful synthetic silk tie. It is commonly worn by members of the Golden Deep looking to fit in with human culture."
 	icon_state = "goldendeep_skirtsuit"
 	item_state = "goldendeep_skirtsuit"
 	icon = 'icons/clothing/under/uniforms/goldendeep_skirtsuit.dmi'
