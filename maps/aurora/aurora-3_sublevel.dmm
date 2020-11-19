@@ -930,6 +930,15 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
+"acm" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel,
+/obj/item/autopsy_scanner,
+/obj/machinery/firealarm/south,
+/obj/item/surgery/surgicaldrill,
+/turf/simulated/floor/tiled/white,
+/area/medical/morgue)
 "acn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1031,6 +1040,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acC" = (
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel,
+/obj/item/surgery/surgicaldrill,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/maintenance/medsublevel_port)
 "acD" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -19680,14 +19698,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/morgue)
-"aOa" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/table/standard,
-/obj/item/surgery/scalpel,
-/obj/item/autopsy_scanner,
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/white,
-/area/medical/morgue)
 "aOb" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/standard,
@@ -24261,14 +24271,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
-"beT" = (
-/obj/structure/table/standard,
-/obj/item/surgery/scalpel,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/maintenance/medsublevel_port)
 "beW" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -73169,7 +73171,7 @@ hHI
 ayh
 jgi
 uSI
-beT
+acC
 awP
 aAP
 awP
@@ -75242,7 +75244,7 @@ aKf
 aLh
 aMl
 aMk
-aOa
+acm
 aGi
 aUZ
 aQl
