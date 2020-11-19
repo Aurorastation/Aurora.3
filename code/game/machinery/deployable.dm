@@ -143,6 +143,7 @@ for reference:
 	name = "deployable"
 	desc = "deployable"
 	icon = 'icons/obj/objects.dmi'
+	req_access = list(access_security)//I'm changing this until these are properly tested./N
 
 /obj/machinery/deployable/barrier
 	name = "deployable barrier"
@@ -154,7 +155,6 @@ for reference:
 	var/health = 200.0
 	var/maxhealth = 200.0
 	var/locked = 0.0
-	var/req_lockgun = /obj/item/lockgun/security
 //	req_access = list(access_maint_tunnels)
 
 	New()
@@ -163,9 +163,8 @@ for reference:
 		src.icon_state = "[initial(icon_state)][src.locked]"
 
 	attackby(obj/item/W as obj, mob/user as mob)
-		if (istype(W, /obj/item/lockgun))
-			var/obj/item/lockgun/L = attackby(obj/item/W)
-			if (req_lockgun == L.type)
+		if (istype(W, /obj/item/card/id/))
+			if (src.allowed(user))
 				if	(src.emagged < 2.0)
 					src.locked = !src.locked
 					src.anchored = !src.anchored
@@ -271,7 +270,7 @@ for reference:
 	name = "legion barrier"
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
-	req_lockgun = /obj/item/lockgun/legion
+	req_access = list(access_legion)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
