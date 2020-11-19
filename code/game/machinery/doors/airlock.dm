@@ -1489,21 +1489,20 @@ About the new airlock wires panel:
 	SetWeakened(5)
 	visible_message(SPAN_DANGER("[src] is crushed in the airlock!"), SPAN_DANGER("You are crushed in the airlock!"), SPAN_NOTICE("You hear airlock actuators momentarily struggle."))
 
-	var/turf/T = get_turf(src)
+	var/turf/T = loc
+	if(istype(T))
+		var/list/valid_turfs = list()
+		for(var/dir_to_test in cardinal)
+			var/turf/new_turf = get_step(T, dir_to_test)
+			if(!new_turf.contains_dense_objects())
+				valid_turfs |= new_turf
 
-	var/list/valid_turfs = list()
-	for(var/dir_to_test in cardinal)
-		var/turf/new_turf = get_step(T, dir_to_test)
-		if(!new_turf.contains_dense_objects())
-			valid_turfs |= new_turf
+		while(valid_turfs.len)
+			T = pick(valid_turfs)
+			valid_turfs -= T
 
-	while(valid_turfs.len)
-		T = pick(valid_turfs)
-		valid_turfs -= T
-
-		if(src.forceMove(T))
-			return
-
+			if(src.forceMove(T))
+				return
 
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
