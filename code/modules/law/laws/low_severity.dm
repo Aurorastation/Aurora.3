@@ -57,9 +57,9 @@
 	max_fine = 375
 
 /datum/law/low_severity/radio_misuse
-	name = "i106 - Misuse of Public Radio Channels"
+	name = "i107 - Misuse of Public Radio Channels"
 	desc = "To continually broadcast unimportant, untrue, or insignificant messages on the public radio frequency."
-	id = "i106"
+	id = "i107"
 
 	min_brig_time = 3
 	max_brig_time = 3
@@ -68,9 +68,9 @@
 	max_fine = 225
 
 /datum/law/low_severity/violating_injunction
-	name = "i107 - Violation of Injunction"
+	name = "i108 - Violation of Injunction"
 	desc = " To violate the terms of an injunction made by Security or other legal professions."
-	id = "i107"
+	id = "i108"
 
 	min_brig_time = 5
 	max_brig_time = 10
@@ -79,9 +79,9 @@
 	max_fine = 750
 
 /datum/law/low_severity/slander_hos
-	name = "i108 - Slandering a Head of Staff"
+	name = "i109 - Slandering a Head of Staff"
 	desc = "To directly insult a Head of Staff with no valid complaints."
-	id = "i108"
+	id = "i109"
 
 	min_brig_time = 5
 	max_brig_time = 10
@@ -90,9 +90,9 @@
 	max_fine = 375
 
 /datum/law/low_severity/slander
-	name = "i109 - Slander or Verbal Abuse"
+	name = "i110 - Slander or Verbal Abuse"
 	desc = "To spread false rumors in order to damage someone's reputation, or to use racially offensive language."
-	id = "i109"
+	id = "i110"
 
 	min_brig_time = 3
 	max_brig_time = 5
@@ -101,9 +101,9 @@
 	max_fine = 250
 
 /datum/law/low_severity/failure_execute
-	name = "i110 - Failure to Execute an Order"
+	name = "i111 - Failure to Execute an Order"
 	desc = "To ignore or disregard a superior's valid orders."
-	id = "i110"
+	id = "i111"
 
 	min_brig_time = 5
 	max_brig_time = 15
@@ -112,9 +112,9 @@
 	max_fine = 750
 
 /datum/law/low_severity/sexual_harassment
-	name = "i111 - Sexual Harassment"
+	name = "i112 - Sexual Harassment"
 	desc = "To make unwanted sexual advances or obscene remarks towards another employee."
-	id = "i111"
+	id = "i112"
 
 	min_brig_time = 5
 	max_brig_time = 15
@@ -123,9 +123,9 @@
 	max_fine = 0
 
 /datum/law/low_severity/animal_cruelty
-	name = "i112 - Animal Cruelty"
+	name = "i113 - Animal Cruelty"
 	desc = "To inflict unnecessary suffering or harm upon animals with malicious intent."
-	id = "i112"
+	id = "i113"
 
 	min_brig_time = 5
 	max_brig_time = 10
@@ -134,9 +134,9 @@
 	max_fine = 0
 
 /datum/law/low_severity/vandalism
-	name = "i113 - Vandalism"
+	name = "i114 - Vandalism"
 	desc = "To deliberately damage or deface the station without malicious intent. To cause easily repairable damage to an owned IPC, up to and including disabling the chassis."
-	id = "i113"
+	id = "i114"
 
 	min_brig_time = 3
 	max_brig_time = 10
@@ -145,9 +145,9 @@
 	max_fine = 675
 
 /datum/law/low_severity/threat_murder
-	name = "i114 - Threat of Murder or Serious Injury"
+	name = "i115 - Threat of Murder or Serious Injury"
 	desc = "To threaten to kill or seriously injure an employee."
-	id = "i114"
+	id = "i115"
 
 	min_brig_time = 3
 	max_brig_time = 10
@@ -156,9 +156,9 @@
 	max_fine = 750
 
 /datum/law/low_severity/necrophilia
-	name = "i115 - Disrespect to the Dead"
+	name = "i116 - Disrespect to the Dead"
 	desc = "To threaten to kill or seriously injure an employee."
-	id = "i115"
+	id = "i116"
 
 	min_brig_time = 5
 	max_brig_time = 10
@@ -167,9 +167,9 @@
 	max_fine = 600
 
 /datum/law/low_severity/excessive_detainment
-	name = "i116 - Excessive Use of Force in Detainment"
+	name = "i117 - Excessive Use of Force in Detainment"
 	desc = "To use more than the required force to subdue a suspect."
-	id = "i116"
+	id = "i117"
 
 	min_brig_time = 5
 	max_brig_time = 10
@@ -178,9 +178,9 @@
 	max_fine = 700
 
 /datum/law/low_severity/violation_privacy
-	name = "i117 - Violation of Privacy Laws"
+	name = "i118 - Violation of Privacy Laws"
 	desc = "To intentionally leak private aspects of employee records or financial account information to unauthorized personnel."
-	id = "i117"
+	id = "i118"
 
 	min_brig_time = 3
 	max_brig_time = 10
@@ -189,9 +189,9 @@
 	max_fine = 750
 
 /datum/law/low_severity/illegal_search
-	name = "i118 - Illegal Search"
+	name = "i119 - Illegal Search"
 	desc = "To preform a search of an employee or workplace without a search warrant, clearance, or probable cause."
-	id = "i118"
+	id = "i119"
 
 	min_brig_time = 3
 	max_brig_time = 10
