@@ -14,7 +14,7 @@
 	message_output_range = 1
 	max_hardware_size = 2
 	steel_sheet_cost = 10
-	light_strength = 4
+	light_range = 4
 	w_class = ITEMSIZE_HUGE
 	is_holographic = TRUE
 

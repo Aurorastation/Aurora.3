@@ -82,7 +82,6 @@
 	var/screen				// Which screen our main window displays
 	var/subscreen			// Which specific function of the main screen is being displayed
 
-	var/obj/item/device/pda/ai/pai/pda = null
 	var/obj/item/modular_computer/parent_computer
 
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
@@ -110,8 +109,6 @@
 	light_range = 4
 	light_color = COLOR_BRIGHT_GREEN
 	light_wedge = 45
-
-	can_have_vision_cone = FALSE
 
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
@@ -185,16 +182,7 @@
 	verbs += /mob/living/silicon/proc/computer_interact
 	verbs += /mob/living/silicon/proc/silicon_mimic_accent
 
-	//PDA
-	pda = new(src)
-	addtimer(CALLBACK(src, .proc/set_pda), 5)
 	. = ..()
-
-/mob/living/silicon/pai/proc/set_pda()
-	pda.ownjob = "Personal Assistant"
-	pda.owner = "[src]"
-	pda.name = "[pda.owner] ([pda.ownjob])"
-	pda.toff = TRUE
 
 
 /mob/living/silicon/pai/proc/set_custom_sprite()
@@ -349,9 +337,6 @@
 						H.visible_message(SPAN_DANGER("\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!"))
 					break
 		holder.drop_from_inventory(card)
-	else if(istype(card.loc,/obj/item/device/pda))
-		var/obj/item/device/pda/holder = card.loc
-		holder.pai = null
 
 	src.client.perspective = EYE_PERSPECTIVE
 	src.client.eye = src
@@ -365,9 +350,6 @@
 		T.visible_message(SPAN_NOTICE("<b>[src]</b> folds outwards, expanding into a mobile form."))
 	canmove = TRUE
 	resting = FALSE
-
-	can_have_vision_cone = TRUE
-	check_fov()
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
@@ -480,9 +462,6 @@
 
 	//stop resting
 	resting = 0
-
-	hide_cone()
-	can_have_vision_cone = initial(can_have_vision_cone)
 
 	// If we are being held, handle removing our holder from their inv.
 	var/obj/item/holder/H = loc

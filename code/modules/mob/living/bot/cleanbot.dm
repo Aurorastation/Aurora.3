@@ -174,7 +174,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 				var/datum/signal/signal = new()
 				signal.source = src
-				signal.transmission_method = 1
+				signal.transmission_method = TRANSMISSION_RADIO
 				signal.data = list("findbeacon" = "patrol")
 				frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 				signal_sent = world.time

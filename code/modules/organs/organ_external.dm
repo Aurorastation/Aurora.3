@@ -1005,7 +1005,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='warning'><font size=2>You hear a loud cracking sound coming from \the [owner]!</font></span>",\
 			"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
 			"You hear a sickening crack!")
-		if(owner.species && (owner.can_feel_pain()))
+		if(owner.species && owner.can_feel_pain())
 			owner.emote("scream")
 			owner.flash_strong_pain()
 

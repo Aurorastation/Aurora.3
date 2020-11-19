@@ -204,7 +204,7 @@ default behaviour is:
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
-		health = 100
+		health = maxHealth
 		stat = CONSCIOUS
 	else
 		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - getHalLoss()
@@ -380,7 +380,7 @@ default behaviour is:
 			return 1
 	return 0
 
-
+// Returns injection time modifier, if 0 then injection fails
 /mob/living/proc/can_inject()
 	return 1
 
@@ -657,34 +657,6 @@ default behaviour is:
 		for(var/mob/living/carbon/slime/M in view(1,src))
 			M.UpdateFeed(src)
 
-	// Other viewers only need to update their vision for this moving mob, not their entire cone, as they are stationary
-	for(var/viewer in oviewers(world.view, src))
-		var/mob/living/M = viewer
-		if(M.client && istype(M) && M.can_have_vision_cone)
-			if(M.client.view != world.view && get_dist(M, src) > M.client.view)
-				continue
-			else
-				var/turf/T = get_turf(M)
-				var/turf/Ts = get_turf(src)
-				if(Ts.InConeDirection(T, reverse_direction(M.dir)))
-					if(!(src in M.client.hidden_mobs))
-						if(M.InCone(T, M.dir))
-							M.add_to_mobs_hidden_atoms(src)
-					Ts.show_footsteps(M, T, src)
-				else
-					if(src in M.client.hidden_mobs)
-						M.client.hidden_mobs -= src
-						for(var/image in M.client.hidden_atoms)
-							var/image/I = image
-							if(I.loc == src)
-								I.override = FALSE
-								M.client.hidden_atoms -= I
-								M.client.images -= I
-								QDEL_IN(I, 1 SECONDS)
-								break
-
-	update_vision_cone()
-
 /mob/living/verb/resist()
 	set name = "Resist"
 	set category = "IC"
@@ -710,7 +682,11 @@ default behaviour is:
 		spawn() C.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/holder/H)
-	if(H != src.loc) return
+	if(H != src.loc)
+		return
+	if(health < maxHealth * 0.6)
+		to_chat(src, SPAN_WARNING("You're too injured to escape..."))
+		return
 
 	var/mob/M = H.loc //Get our mob holder (if any).
 
@@ -734,8 +710,6 @@ default behaviour is:
 	else if(istype(H.loc,/obj/item))
 		to_chat(src, "<span class='warning'>You struggle free of \the [H.loc].</span>")
 		H.forceMove(get_turf(H))
-
-	can_have_vision_cone = initial(can_have_vision_cone)
 
 /mob/living/proc/escape_buckle()
 	if(buckled)
@@ -795,7 +769,6 @@ default behaviour is:
 
 	resting = !resting
 	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
-	update_vision_cone()
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
@@ -1002,3 +975,9 @@ default behaviour is:
 			if(src)
 				clear_fullscreen("flash", 25)
 		return 1
+
+/mob/living/verb/toggle_run_intent()
+	set hidden = 1
+	set name = "mov_intent"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()

@@ -15,11 +15,6 @@ var/obj/screen/robot_inventory
 
 	var/mob/living/silicon/robot/r = mymob
 
-//Fov
-	if(r.can_have_vision_cone)
-		r.vision_cone_overlay = new /obj/screen/fov()
-		src.adding += r.vision_cone_overlay
-
 //Radio
 	using = new /obj/screen()
 	using.name = "radio"
@@ -169,6 +164,9 @@ var/obj/screen/robot_inventory
 		return
 
 	var/mob/living/silicon/robot/r = mymob
+
+	if(!r.client || !r)
+		return
 
 	if(r.shown_robot_modules)
 		//Modules display is shown

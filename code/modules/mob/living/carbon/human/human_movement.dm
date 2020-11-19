@@ -5,7 +5,7 @@
 		tally = species.slowdown
 
 	tally += get_pulling_movement_delay()
-    
+
 	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
 			return 0
@@ -95,7 +95,7 @@
 	if(!isnull(facing_dir) && facing_dir != dir)
 		tally += 3
 
-	tally = round(tally,1)
+	tally = round(tally, 0.1)
 
 	return tally
 

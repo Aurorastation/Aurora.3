@@ -57,6 +57,8 @@
 	src.updateUsrDialog()
 
 /obj/machinery/computer/am_engine/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 

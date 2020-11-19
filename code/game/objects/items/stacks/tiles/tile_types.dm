@@ -6,12 +6,15 @@
  *		Carpet
  */
 
+#define TILE_MATERIAL_AMOUNT 468
+
 /obj/item/stack/tile
 	name = "tile"
 	singular_name = "tile"
 	desc = "A non-descript floor tile"
 	w_class = ITEMSIZE_NORMAL
 	max_amount = 60
+	recyclable = TRUE
 	icon = 'icons/obj/stacks/tiles.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_tiles.dmi',
@@ -139,7 +142,7 @@
 	flags = 0
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
-	matter = list(MATERIAL_PLASTIC = 937.5)
+	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/lino_grey
 	name = "linoleum"
@@ -153,7 +156,7 @@
 	flags = 0
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
-	matter = list(MATERIAL_PLASTIC = 937.5)
+	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
 /*
  * Circuits
@@ -165,7 +168,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_bcircuit"
 	force = 6.0
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5, MATERIAL_GLASS = 937.5)
+	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -177,7 +180,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_gcircuit"
 	force = 6.0
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5, MATERIAL_GLASS = 937.5)
+	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -193,7 +196,7 @@
 	desc = "Those could work as a pretty decent throwing weapon" //why?
 	icon_state = "tile"
 	force = 6.0
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -209,13 +212,13 @@
 	name = "steel floor tile"
 	singular_name = "steel floor tile"
 	icon_state = "tile_steel"
-	matter = list(MATERIAL_PLASTEEL = 937.5)
+	matter = list(MATERIAL_PLASTEEL = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/floor_white
 	name = "white floor tile"
 	singular_name = "white floor tile"
 	icon_state = "tile_white"
-	matter = list(MATERIAL_PLASTIC = 937.5)
+	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/floor_yellow
 	name = "yellow floor tile"
@@ -227,43 +230,43 @@
 	name = "dark floor tile"
 	singular_name = "dark floor tile"
 	icon_state = "fr_tile"
-	matter = list(MATERIAL_PLASTEEL = 937.5)
+	matter = list(MATERIAL_PLASTEEL = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/floor_freezer
 	name = "freezer floor tile"
 	singular_name = "freezer floor tile"
 	icon_state = "tile_freezer"
-	matter = list(MATERIAL_PLASTIC = 937.5)
+	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/silver
 	name = "silver floor tile"
 	singular_name = "silver floor tile"
 	icon_state = "tile_silver"
-	matter = list(MATERIAL_SILVER = 937.5)
+	matter = list(MATERIAL_SILVER = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/gold
 	name = "golden floor tile"
 	singular_name = "golden floor tile"
 	icon_state = "tile_gold"
-	matter = list(MATERIAL_GOLD = 937.5)
+	matter = list(MATERIAL_GOLD = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/uranium
 	name = "uranium floor tile"
 	singular_name = "uranium floor tile"
 	icon_state = "tile_uranium"
-	matter = list(MATERIAL_URANIUM = 937.5)
+	matter = list(MATERIAL_URANIUM = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/phoron
 	name = "phoron floor tile"
 	singular_name = "phoron floor tile"
 	icon_state = "tile_plasma"
-	matter = list(MATERIAL_PHORON = 937.5)
+	matter = list(MATERIAL_PHORON = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/diamond
 	name = "diamond floor tile"
 	singular_name = "diamond floor tile"
 	icon_state = "tile_diamond"
-	matter = list(MATERIAL_DIAMOND = 937.5)
+	matter = list(MATERIAL_DIAMOND = TILE_MATERIAL_AMOUNT)
 
 /*
  * Cyborg modules
@@ -320,3 +323,5 @@
 	charge_costs = list(250)
 	stacktype = /obj/item/stack/tile/carpet
 	build_type = /obj/item/stack/tile/carpet
+
+#undef TILE_MATERIAL_AMOUNT

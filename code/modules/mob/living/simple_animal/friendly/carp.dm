@@ -21,6 +21,7 @@
 	response_help = "brushes"
 	response_disarm = "attempts to push"
 	response_harm = "injures"
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	gender = NEUTER
 	faction = "carp"
 	flying = TRUE
@@ -49,6 +50,14 @@
 	brush = /obj/item/reagent_containers/glass/rag
 
 	possession_candidate = TRUE
+
+/mob/living/simple_animal/carp/update_icon()
+	..()
+	if(resting || stat == DEAD)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood_overlay(TRUE)
 
 /mob/living/simple_animal/carp/fall_impact()
 	src.visible_message(SPAN_NOTICE("\The [src] gently floats to a stop."))

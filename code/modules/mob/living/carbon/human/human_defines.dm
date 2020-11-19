@@ -37,6 +37,7 @@
 	var/list/hide_underwear = list()
 	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
 	var/backbag_style = 1
+	var/pda_choice = 2
 
 	var/last_chew = 0 // Used for hand chewing
 
@@ -113,4 +114,5 @@
 
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
-	var/datum/martial_art/martial_art = null
+	var/datum/martial_art/primary_martial_art = null
+	var/list/datum/martial_art/known_martial_arts = null

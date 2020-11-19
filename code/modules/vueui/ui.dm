@@ -62,7 +62,6 @@ main ui datum.
 	if (ntitle)
 		title = ntitle
 
-	SSvueui.ui_opened(src)
 	windowid = "vueui\ref[src]"
 	name = "Vueui [object]/[user]"
 
@@ -71,23 +70,27 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/proc/open()
+/datum/vueui/proc/open(var/datum/asset/spritesheet/load_asset)
 	if(QDELETED(object))
 		return
+
 	if(!user.client)
 		return
 
 	if(!data)
 		data = object.vueui_data_change(null, user, src)
+
 	update_status()
 	if(!status || status == STATUS_CLOSE)
 		return
 
+	SSvueui.ui_opened(src) // this starts processing and adds the UI to the mob and whatnot
+
 	var/params = "window=[windowid];file=[windowid];"
 	if(width && height)
 		params += "size=[width]x[height];"
-	send_resources_and_assets(user.client)
-	user << browse(generate_html(), params)
+	send_resources_and_assets(user.client, load_asset)
+	user << browse(generate_html(load_asset?.css_tag()), params)
 	winset(user, "mapwindow.map", "focus=true")
 	addtimer(CALLBACK(src, /datum/vueui/proc/setclose), 1)
 
@@ -101,7 +104,7 @@ main ui datum.
   */
 /datum/vueui/proc/close()
 	object.vueui_on_close(src)
-	SSvueui.ui_closed(src)
+	SSvueui.ui_closed(src) // this stops processing and cleans up references to this UI
 	user << browse(null, "window=[windowid]")
 	status = null
 
@@ -123,7 +126,7 @@ main ui datum.
   *
   * @return html code - text
   */
-/datum/vueui/proc/generate_html()
+/datum/vueui/proc/generate_html(var/css_tag)
 #ifdef UIDEBUG
 	var/debugtxt = "<div id=\"dapp\"></div>"
 #else
@@ -136,6 +139,7 @@ main ui datum.
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="vueui.css">
+		[css_tag]
 	</head>
 	<body class="[get_theme_class()]">
 		<div id="header">
@@ -186,8 +190,10 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/proc/send_resources_and_assets(var/client/cl)
+/datum/vueui/proc/send_resources_and_assets(var/client/cl, var/datum/asset/load_asset)
 	send_theme_resources(cl)
+	if(istype(load_asset))
+		load_asset.send(cl)
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		var/image/I = asset["img"]

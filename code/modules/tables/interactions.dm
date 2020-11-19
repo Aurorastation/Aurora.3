@@ -182,7 +182,7 @@
 				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 				return
 
-	if(!dropsafety(W))
+	if(!W.dropsafety())
 		return
 
 	if(istype(W, /obj/item/melee/energy/blade))

@@ -22,7 +22,7 @@ var/global/list/plant_seed_sprites = list()
 	update_appearance()
 
 //Updates strings and icon appropriately based on seed datum.
-/obj/item/seeds/proc/update_appearance()
+/obj/item/seeds/proc/update_appearance(var/ret_image = FALSE)
 	if(!seed)
 		return
 
@@ -57,6 +57,17 @@ var/global/list/plant_seed_sprites = list()
 	else
 		src.name = "sample of [seed.seed_name] [seed.seed_noun]"
 		src.desc = "It's labelled as coming from \a [seed.display_name]."
+
+	if(ret_image)
+		var/icon/sm = icon('icons/obj/seeds.dmi', "[is_seeds ? "seed" : "spore"]-mask")
+		var/icon/so = icon('icons/obj/seeds.dmi', "[seed.get_trait(TRAIT_PRODUCT_ICON)]")
+		var/p_color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
+		so *= p_color
+		if(is_seeds)
+			var/s_color = seed.get_trait(TRAIT_PLANT_COLOUR)
+			sm *= s_color
+		sm.Blend(so, ICON_OVERLAY)
+		return sm
 
 /obj/item/seeds/examine(mob/user)
 	..(user)
