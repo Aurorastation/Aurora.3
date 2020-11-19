@@ -384,8 +384,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/ai_roster()
 	set category = "AI Commands"
 	set name = "Show Crew Manifest"
-	var/windowname = open_crew_manifest(src)
-	onclose(src, windowname)
+	SSrecords.open_manifest_vueui(usr)
 
 //AI Examine code
 /mob/living/silicon/ai/proc/ai_examine(atom/A as mob|obj|turf in view(src.eyeobj))

@@ -3,6 +3,7 @@
 	hide_name = TRUE
 	short_name = "hum"
 	name_plural = "Humans"
+	category_name = "Human"
 	bodytype = BODYTYPE_HUMAN
 	age_max = 125
 	economic_modifier = 12

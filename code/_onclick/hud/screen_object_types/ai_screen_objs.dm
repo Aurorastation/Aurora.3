@@ -87,8 +87,7 @@
 
 /obj/screen/ai/crew_manifest/Click()
 	if (isAI(usr))
-		var/windowname = open_crew_manifest(usr)
-		onclose(usr, windowname)
+		SSrecords.open_manifest_vueui(usr)
 
 /obj/screen/ai/alerts
 	name = "Show Alerts"

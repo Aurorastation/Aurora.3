@@ -196,6 +196,9 @@
 			playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
 		return FALSE
 
+	if(result == PROJECTILE_DODGED)
+		return FALSE
+
 	var/impacted_organ = parse_zone(def_zone)
 	if(istype(target_mob, /mob/living/simple_animal))
 		var/mob/living/simple_animal/SA = target_mob

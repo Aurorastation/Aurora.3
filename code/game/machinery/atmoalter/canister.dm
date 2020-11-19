@@ -66,6 +66,12 @@
 	canister_color = "black"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/hydrogen
+	name = "Canister\[H2\]"
+	icon_state = "purple"
+	canister_color = "purple"
+	can_label = 0
+
 /obj/machinery/portable_atmospherics/canister/air
 	name = "Canister \[Air\]"
 	icon_state = "grey"
@@ -99,6 +105,10 @@
 	name = "Canister \[N2O\]"
 	icon_state = "redws"
 	canister_color = "redws"
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen
+	name = "Canister \[H2\]"
+	icon_state = "purple"
+	canister_color = "purple"
 
 
 
@@ -300,6 +310,8 @@ update_flag
 	SSnanoui.update_uis(src) // Update all NanoUIs attached to src
 
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
@@ -389,6 +401,7 @@ update_flag
 				"\[Phoron\]" = "orange",
 				"\[CO2\]" = "black",
 				"\[Air\]" = "grey",
+				"\[Hydrogen\]" = "purple",
 				"\[CAUTION\]" = "yellow"
 			)
 			var/label = input("Choose canister label", "Gas canister") as null|anything in colors
@@ -425,6 +438,12 @@ update_flag
 	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
 	src.update_icon()
 
+/obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
+	. = ..()
+
+	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
+	update_icon()
+
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
@@ -457,22 +476,6 @@ update_flag
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
-	src.update_icon()
-
-// Special types used for engine setup admin verb, they contain double amount of that of normal canister.
-/obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/Initialize()
-	. = ..()
-	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
-	src.update_icon()
-
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/Initialize()
-	. = ..()
-	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
-	src.update_icon()
-
-/obj/machinery/portable_atmospherics/canister/phoron/engine_setup/Initialize()
-	. = ..()
-	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()

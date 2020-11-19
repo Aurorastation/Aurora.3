@@ -9,18 +9,17 @@ emp_act
 */
 
 /mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
-
 	var/species_check = src.species.bullet_act(P, def_zone, src)
 
 	if(species_check)
 		return species_check
 
 	if(!is_physically_disabled())
-		if(martial_art && martial_art.deflection_chance)
-			if(prob(martial_art.deflection_chance))
-				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
-				playsound(src, /decl/sound_category/bulletflyby_sound, 75, 1)
-				return 0
+		var/deflection_chance = check_martial_deflection_chance()
+		if(prob(deflection_chance))
+			visible_message(SPAN_WARNING("\The [src] deftly dodges \the [P]!"), SPAN_NOTICE("You deftly dodge \the [P]!"))
+			playsound(src, /decl/sound_category/bulletflyby_sound, 75, TRUE)
+			return PROJECTILE_DODGED
 
 	def_zone = check_zone(def_zone)
 	if(!has_organ(def_zone))

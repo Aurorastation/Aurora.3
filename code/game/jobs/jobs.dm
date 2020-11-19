@@ -53,9 +53,6 @@ var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
 
 
-var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
-
-
 var/list/command_positions = list(
 	"Captain",
 	"Head of Personnel",

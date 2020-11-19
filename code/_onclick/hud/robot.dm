@@ -165,6 +165,9 @@ var/obj/screen/robot_inventory
 
 	var/mob/living/silicon/robot/r = mymob
 
+	if(!r.client || !r)
+		return
+
 	if(r.shown_robot_modules)
 		//Modules display is shown
 		//r.client.screen += robot_inventory	//"store" icon

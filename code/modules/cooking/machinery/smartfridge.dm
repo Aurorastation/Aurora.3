@@ -367,6 +367,8 @@
 	return TRUE
 
 /obj/machinery/smartfridge/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	attack_hand(user)
 
 /obj/machinery/smartfridge/attack_hand(mob/user as mob)

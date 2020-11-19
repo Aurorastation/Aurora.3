@@ -272,7 +272,10 @@
 	G.accent = G.species.default_accent
 	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
 	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
-	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
+	if(wizardy)
+		bluespace_golems.add_antagonist(G.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
+	else
+		to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 
 	qdel(src)
 

@@ -2,13 +2,13 @@
 /datum/job/bartender
 	title = "Bartender"
 	flag = BARTENDER
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -32,13 +32,13 @@
 /datum/job/chef
 	title = "Chef"
 	flag = CHEF
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -67,13 +67,13 @@
 /datum/job/hydro
 	title = "Gardener"
 	flag = BOTANIST
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -113,14 +113,13 @@
 /datum/job/qm
 	title = "Quartermaster"
 	flag = QUARTERMASTER
-	head_position = 1
-	department = "Cargo"
+	departments = list(DEPARTMENT_CARGO = JOBROLE_SUPERVISOR)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 5
 
 	minimum_character_age = 22
@@ -149,13 +148,13 @@
 /datum/job/cargo_tech
 	title = "Cargo Technician"
 	flag = CARGOTECH
-	department = "Cargo"
+	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -179,13 +178,13 @@
 /datum/job/mining
 	title = "Shaft Miner"
 	flag = MINER
-	department = "Cargo"
+	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 5
 
 	minimum_character_age = 18
@@ -228,13 +227,13 @@
 /datum/job/janitor
 	title = "Janitor"
 	flag = JANITOR
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
@@ -253,13 +252,13 @@
 /datum/job/journalist
 	title = "Corporate Reporter"
 	flag = JOURNALIST
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 20
 
@@ -303,13 +302,13 @@
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
 	alt_titles = list("Curator", "Tech Support")
