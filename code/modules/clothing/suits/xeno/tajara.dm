@@ -128,6 +128,29 @@
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
 	in temporary cease-fires from all sides."
 
+/obj/item/clothing/suit/storage/hooded/tajaran/surgery
+	name = "adhomian surgeon garb"
+	desc = "An utilitarian Adhomian surgeon's garb, with its design hardly changed from the First Revolution."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "tajscrubs"
+	item_state = "tajscrubs"
+	contained_sprite = TRUE
+	flags_inv = 0
+	hoodtype = /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
+	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+	species_restricted = list(BODYTYPE_TAJARA)
+	desc_fluff = "Medical practices and sanitation on Adhomai had only recently reached the capabilities required to have proper sanitized hospitals, antibiotics, and cities with higher \
+	birth rates than death rates when first contact was made with aliens. With the introduction to futuristic and highly advanced medicines, the healthcare industry began to boom for \
+	the Tajara as the People's Republic's universal healthcare system began to purchase bulk quantities of pharmaceuticals and hire medical schooling professionals from NanoTrasen. \
+	The result was a healthcare revolution where average lifespans increased by over a decade, however many diseases native to Adhomai still remain unknown by medical \
+	professionals to this day as the war prevents epidemiologists from gathering data in affected areas and liberal use of antibiotics by Tajaran doctors eliminate most samples."
+
+/obj/item/clothing/head/winterhood/hoodie/taj_scrubs
+	name = "adhomian surgeon mask"
+	desc = "A surgical mask attached to a surgeon garb."
+	species_restricted = list(BODYTYPE_TAJARA)
+
 /obj/item/clothing/suit/armor/tajara
 	name = "amohdan swordsmen armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."
