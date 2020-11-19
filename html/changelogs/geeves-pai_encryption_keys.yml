@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Clicking on a folded up pAI with an encryption key now slots the key into the pAI card, granting it access to those radio channels."
-  - rscadd: "You can remove pAI encryption keys by using a screwdriver on them."
