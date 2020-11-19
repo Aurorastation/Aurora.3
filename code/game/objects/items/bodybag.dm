@@ -82,6 +82,12 @@
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)
 	contains_body = ..()
+	slowdown = 0
+	if(contains_body)
+		for(var/mob/living/M in contents)
+			if(M.stat != DEAD)
+				slowdown = initial(slowdown)
+				break
 	return contains_body
 
 /obj/structure/closet/body_bag/close()
@@ -89,6 +95,10 @@
 		density = 0
 		return TRUE
 	return FALSE
+
+/obj/structure/closet/body_bag/dump_contents(var/stored_units)
+	..()
+	slowdown = initial(slowdown)
 
 /obj/structure/closet/body_bag/MouseDrop(over_object, src_location, over_location)
 	..()
