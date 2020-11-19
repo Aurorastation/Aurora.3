@@ -64,7 +64,7 @@
 	display_name = "adhomian surgeon garb"
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/surgery
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Xenobiologist", "Roboticist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
