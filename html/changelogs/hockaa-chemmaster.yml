@@ -1,6 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes:
-  - tweak: "ChemMasters now dispense pill bottles and beakers to the hand directly."
