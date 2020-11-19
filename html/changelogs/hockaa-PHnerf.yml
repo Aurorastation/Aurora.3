@@ -3,6 +3,6 @@ author: Hocka
 delete-after: True
 
 changes:
-  - rscadd: "Added a variant of phoron canister that starts with half the moles of regular canisters. This variant has replaced the ones on-station."
+  - maptweak: "All phoron canisters on the station now start with half the amount they normally do."
   - maptweak: "The reserve phoron tank in atmos has had it's starting amount significantly reduced."
   - maptweak: "The four Nitrogen canisters in the engine have been removed."
