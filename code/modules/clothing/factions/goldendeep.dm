@@ -1,6 +1,9 @@
 /obj/item/clothing/under/goldendeep
 	name = "golden deep dress"
 	desc = "A simple dress with a flowing skirt made from some form of golden fabric accented by cobalts, used by representatives of the Golden Deep. It appears to be loose fitting and breathable."
+	desc_fluff = "The Lux-I Golden Dress was popularised 8 years ago by Lux-Igmatic, one of the first official Golden Deep positronic citizens. Owing to its success outside of the GD fashion scene, \
+	it quickly caught on due to the appeal among other civilisations of the orion spur. Lux-Igmatic made a considerable fortune before the methods to create the gold-laced fabric design were leaked to \
+	competitors. Gold-lace and gold-appearance clothing is now popular within many Golden Deep brands, but this was the first, and still carries considerable prestige."
 	icon_state = "goldendeep_dress"
 	item_state = "goldendeep_dress"
 	icon = 'icons/clothing/under/uniforms/goldendeep_dress.dmi'
