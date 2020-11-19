@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes:
+  - maptweak: "The engine cooling radiator's motion sensor has been replaced with a normal security camera."
