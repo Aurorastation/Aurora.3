@@ -423,7 +423,6 @@ update_flag
 	. = ..()
 
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/phoron/scarce/Initialize()
 	. = ..()
@@ -434,24 +433,20 @@ update_flag
 	. = ..()
 
 	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
 	. = ..()
 
 	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
 	. = ..()
 
 	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
-	update_icon()
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
@@ -468,26 +463,20 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/Initialize()
 	. = ..()
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
-	src.update_icon()
-
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
 	src.air_contents.temperature = 283
-	src.update_icon()

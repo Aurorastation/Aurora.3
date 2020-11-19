@@ -26,7 +26,14 @@
 	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
 	if(port)
 		connect(port)
-		update_icon()
+	
+/obj/machinery/portable_atmospherics/canister/Initialize()
+	..()
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/portable_atmospherics/canister/LateInitialize()
+	update_icon()
 
 /obj/machinery/portable_atmospherics/machinery_process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
