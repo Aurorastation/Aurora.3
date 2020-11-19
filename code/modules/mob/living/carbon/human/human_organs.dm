@@ -109,8 +109,7 @@
 	// standing is poor
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
 		if(!(lying || resting))
-			if(can_feel_pain())
-				emote("scream")
+			emote("scream")
 			if(!weakened)
 				custom_emote(VISIBLE_MESSAGE, "collapses!")
 		Weaken(3)

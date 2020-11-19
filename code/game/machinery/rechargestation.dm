@@ -104,9 +104,9 @@
 
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
-		var/obj/item/organ/internal/cell/potato = H.internal_organs_by_name[BP_CELL]
+		var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]
 		if(potato)
-			target = potato.cell
+			target = IC.cell
 		if((!target || target.percent() > 95) && istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			if(R.cell && !R.cell.fully_charged())

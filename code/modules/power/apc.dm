@@ -835,12 +835,12 @@
 					to_chat(hacker, SPAN_NOTICE("Corrupt files transfered to [H]. They are now under your control until they are repaired."))
 			else if(cell && cell.charge > 0)
 				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
-				var/obj/item/cell/potato
+				var/obj/item/cell/HC
 				if(C)
-					potato = C.cell
-				if(potato && potato.percent() < 95)
+					HC = C.cell
+				if(HC && HC.percent() < 95)
 					var/used = cell.use(500)
-					potato.give(used)
+					HC.give(used)
 					to_chat(user, SPAN_NOTICE("You slot your fingers into the APC interface and siphon off some of the stored charge for your own use."))
 					if (cell.charge < 0)
 						cell.charge = 0

@@ -206,16 +206,11 @@ emp_act
 				return TRUE
 			else
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
+
 	for(var/obj/O in src)
 		if(!O)
 			continue
 		O.emp_act(severity)
-	for(var/obj/item/organ/external/O in organs)
-		O.emp_act(severity)
-		for(var/obj/item/organ/I in O.internal_organs)
-			if(I.robotic == ROBOTIC_NONE)
-				continue
-			I.emp_act(severity)
 	..()
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)

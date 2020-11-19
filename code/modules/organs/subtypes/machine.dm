@@ -74,8 +74,7 @@
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
-	if(ispath(cell))
-		cell = new cell(src)
+	cell = new cell(src)
 	. = ..()
 
 /obj/item/organ/internal/cell/proc/percent()
@@ -91,14 +90,14 @@
 	return round(cell.charge*(1 - damage/max_damage))
 
 /obj/item/organ/internal/cell/proc/checked_use(var/amount)
-	if(!is_usable())
+	if(!is_usable() || !cell)
 		return FALSE
-	return cell && cell.checked_use(amount)
+	return cell.checked_use(amount)
 
 /obj/item/organ/internal/cell/proc/use(var/amount)
-	if(!is_usable())
-		return 0
-	return cell && cell.use(amount)
+	if(!is_usable() || !cell)
+		return
+	return cell.use(amount)
 
 /obj/item/organ/internal/cell/process()
 	..()
@@ -115,8 +114,7 @@
 		owner.Paralyse(3)
 
 /obj/item/organ/internal/cell/proc/get_power_drain()	
-	var/damage_factor = 1 + 10 * damage/max_damage
-	return servo_cost * damage_factor
+	return servo_cost
 
 /obj/item/organ/internal/cell/emp_act(severity)
 	..()
@@ -126,26 +124,26 @@
 /obj/item/organ/internal/cell/attackby(obj/item/W, mob/user)
 	if(isscrewdriver(W))
 		if(open)
-			open = 0
-			to_chat(user, "<span class='notice'>You screw the battery panel in place.</span>")
+			open = FALSE
+			to_chat(user, SPAN_NOTICE("You screw the battery panel in place."))
 		else
-			open = 1
-			to_chat(user, "<span class='notice'>You unscrew the battery panel.</span>")
+			open = TRUE
+			to_chat(user, SPAN_NOTICE("You unscrew the battery panel."))
 
 	if(iscrowbar(W))
 		if(open)
 			if(cell)
 				user.put_in_hands(cell)
-				to_chat(user, "<span class='notice'>You remove \the [cell] from \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 				cell = null
 
 	if (istype(W, /obj/item/cell))
 		if(open)
 			if(cell)
-				to_chat(user, "<span class ='warning'>There is a power cell already installed.</span>")
+				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 			else if(user.unEquip(W, src))
 				cell = W
-				to_chat(user, "<span class = 'notice'>You insert \the [cell].</span>")
+				to_chat(user, SPAN_NOTICE("You insert \the [cell].</span>"))
 
 /obj/item/organ/internal/cell/replaced()
 	..()
