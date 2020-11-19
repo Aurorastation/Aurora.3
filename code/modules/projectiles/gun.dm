@@ -107,6 +107,7 @@
 	var/is_wieldable = FALSE
 	var/wield_sound = /decl/sound_category/generic_wield_sound
 	var/unwield_sound = null
+	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
@@ -507,6 +508,11 @@
 		//Kinda balanced by fact you need like 2 seconds to aim
 		//As opposed to no-delay pew pew
 		P.accuracy += 2
+
+	var/datum/firemode/F = firemodes[sel_mode]
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
+		P.accuracy -= one_hand_fa_penalty/2
+		P.dispersion -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
 /obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params)

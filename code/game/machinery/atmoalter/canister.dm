@@ -71,7 +71,7 @@
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/hydrogen
-	name = "Canister\[H2\]"
+	name = "Canister \[H2\]"
 	icon_state = "purple"
 	canister_color = "purple"
 	can_label = 0
