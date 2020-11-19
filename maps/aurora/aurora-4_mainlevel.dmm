@@ -5695,11 +5695,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
-"aky" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/plating,
-/area/engineering/storage_hard)
 "akz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -7205,6 +7200,7 @@
 /area/bridge)
 "ant" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anu" = (
@@ -65878,6 +65874,11 @@
 /obj/structure/computerframe,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"qRE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "qSv" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -85783,7 +85784,7 @@ qba
 lyh
 kRK
 ajL
-aky
+ant
 ant
 ams
 anD
@@ -86041,7 +86042,7 @@ aig
 kRK
 ajL
 ant
-ant
+qRE
 amt
 anE
 aoK

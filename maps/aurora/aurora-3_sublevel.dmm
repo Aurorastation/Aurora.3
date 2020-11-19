@@ -22359,7 +22359,7 @@
 /area/rnd/storage)
 "aVt" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron/scarce,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
 "aVG" = (
@@ -30274,7 +30274,8 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "kuZ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron/scarce,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
 "kvS" = (
