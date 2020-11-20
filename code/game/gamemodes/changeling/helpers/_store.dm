@@ -88,7 +88,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/hivemind_morph
 	name = "Hivemind Release Morph"
-	desc = "We release a hivemind member as a morph at the cost of a limb. They will be able to crawl inside vents and disguise themselves as objects."
+	desc = "We release a hivemind member as a morph. They will be able to crawl inside vents and disguise themselves as objects."
 	genomecost = 0
 	verbpath = /mob/living/carbon/human/proc/changeling_release_morph
 
@@ -508,4 +508,3 @@ var/list/datum/power/changeling/powerinstances = list()
 		call(M.current, power.verbpath)()
 	else if(remake_verbs)
 		M.current.make_changeling()
-
