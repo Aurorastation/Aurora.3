@@ -296,15 +296,14 @@ for reference:
 /obj/item/deployable_kit/barrier
 	name = "barrier kit"
 	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
-	icon_state = "barrier_kit"
-	w_class = 2
+	icon_state = "barrier_kit_sec"
+	w_class = ITEMSIZE_SMALL
 	kit_product = /obj/machinery/deployable/barrier
 
 /obj/item/deployable_kit/barrier/legion_barrier
 	name = "legion barrier kit"
 	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
-	icon_state = "barrier_kit"
-	w_class = ITEMSIZE_SMALL
+	icon_state = "barrier_kit_legion"
 	kit_product = /obj/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
