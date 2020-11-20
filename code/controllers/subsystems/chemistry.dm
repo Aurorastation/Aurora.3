@@ -74,7 +74,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 /datum/controller/subsystem/chemistry/proc/initialize_specific_heats()
 	for(var/_R in subtypesof(/decl/reagent/))
-		var/decl/reagent/R = decls_repository.get_decl(_R)
 		check_specific_heat(_R)
 
 /datum/controller/subsystem/chemistry/stat_entry()
