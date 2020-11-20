@@ -37,7 +37,6 @@
 	data["frequency"] = format_frequency(host.radio.frequency)
 	VUEUI_SET_CHECK_IFNOTSET(data["radio_range"], host.radio.canhear_range, ., data)
 	host.radio.canhear_range = data["radio_range"]
-	message_admins(host.radio.canhear_range)
 
 	var/list/pai_channels = list()
 	for(var/ch_name in host.radio.channels)
