@@ -11856,7 +11856,7 @@
 	req_access = list(47);
 	req_one_access = null
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/plating,
 /area/crew_quarters/sleep/research)
 "avf" = (
 /turf/simulated/wall/r_wall,
