@@ -9925,23 +9925,23 @@
 	name = "Research - R&D Storage"
 	})
 "asc" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/door/airlock/research{
-	name = "Research storage";
-	req_access = list(7)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/door/airlock/research{
+	name = "Research storage";
+	req_access = list(7)
+	},
 /obj/machinery/door/blast/regular{
 	closed_layer = 3.5;
 	density = 0;
