@@ -85,7 +85,7 @@
 	slowdown = 0
 	if(contains_body)
 		for(var/mob/living/M in contents)
-			if(M.stat != DEAD)
+			if(M.stat != DEAD || M.status_flags & FAKEDEATH)
 				slowdown = initial(slowdown)
 				break
 	return contains_body
