@@ -6592,10 +6592,7 @@
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
 	},
-/obj/machinery/vending/snack{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "amf" = (
@@ -9956,9 +9953,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "RDStorage";
 	name = "Storage lockdown";
-	req_access = list(30);
-	step_x = 5;
-	step_y = 27
+	pixel_x = 5;
+	pixel_y = 25;
+	req_access = list(30)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab{
@@ -13969,8 +13966,8 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
-	step_x = 27;
-	step_y = 27
+	pixel_x = 25;
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab{
