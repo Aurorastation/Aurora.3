@@ -983,7 +983,7 @@ About the new airlock wires panel:
 	var/cut_sound
 	var/cutting = FALSE
 
-	if(istype(tool,/obj/item/weldingtool))
+	if(tool.iswelder())
 		var/obj/item/weldingtool/WT = tool
 		if(!WT.isOn())
 			return
@@ -1029,37 +1029,38 @@ About the new airlock wires panel:
 		return FALSE
 
 /obj/machinery/door/airlock/proc/cut_procedure(var/mob/user, var/cut_delay, var/cut_verb, var/cut_sound)
-	if(src.bolt_cut_state == BOLTS_FINE)
+	var/initial_state = bolt_cut_state
+	if(initial_state == BOLTS_FINE)
 		to_chat(user, "You begin [cut_verb] through the bolt panel.")
-	else if(src.bolt_cut_state == BOLTS_EXPOSED)
+	else if(initial_state == BOLTS_EXPOSED)
 		to_chat(user, "You begin [cut_verb] through the door bolts.")
 
 	cut_delay *= 0.25
 
-	var/i
-	for(i = 0; i < 4; i += 1)
-		if(i == 0)
-			if(do_after(user, cut_delay, src))
-				to_chat(user, SPAN_NOTICE("You're a quarter way through."))
-				playsound(src, cut_sound, 100, 1)
-		else if(i == 1)
-			if(do_after(user, cut_delay, src))
-				to_chat(user, SPAN_NOTICE("You're halfway through."))
-				playsound(src, cut_sound, 100, 1)
-		else if(i == 2)
+	if(do_after(user, cut_delay, src))
+		to_chat(user, SPAN_NOTICE("You're a quarter way through."))
+		playsound(src, cut_sound, 100, 1)
+
+		if(do_after(user, cut_delay, src))
+			to_chat(user, SPAN_NOTICE("You're halfway through."))
+			playsound(src, cut_sound, 100, 1)
+
 			if(do_after(user, cut_delay, src))
 				to_chat(user, SPAN_NOTICE("You're three quarters through."))
 				playsound(src, cut_sound, 100, 1)
-		else if(i == 3)
-			if(do_after(user, cut_delay, src))
-				playsound(src, cut_sound, 100, 1)
-				if(src.bolt_cut_state == BOLTS_FINE)
-					to_chat(user, SPAN_NOTICE("You remove the cover and expose the door bolts."))
-					src.bolt_cut_state = BOLTS_EXPOSED
-				else if(src.bolt_cut_state == BOLTS_EXPOSED)
-					to_chat(user, SPAN_NOTICE("You sever the door bolts, unlocking the door."))
-					src.bolt_cut_state = BOLTS_CUT
-					src.unlock(TRUE) //force it
+
+				if(do_after(user, cut_delay, src))
+					playsound(src, cut_sound, 100, 1)
+
+					if(initial_state != bolt_cut_state)
+						return
+					if(initial_state == BOLTS_FINE)
+						to_chat(user, SPAN_NOTICE("You remove the cover and expose the door bolts."))
+						src.bolt_cut_state = BOLTS_EXPOSED
+					else if(initial_state == BOLTS_EXPOSED)
+						to_chat(user, SPAN_NOTICE("You sever the door bolts, unlocking the door."))
+						src.bolt_cut_state = BOLTS_CUT
+						src.unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
 	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
