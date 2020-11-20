@@ -12,14 +12,15 @@
         <vui-button :params="{freq:2, nowindow:1}">+</vui-button>
         <vui-button :params="{freq:10, nowindow:1}">++</vui-button>
       </vui-group-item>
-      <vui-group-item v-for="(channel_listening, name) in channels" :label="name" :key="name">
+      <hr>
+      <vui-group-item v-for="channel in channels" :label="channel.name" :key="channel.name">
         <vui-button
-          :class="{selected: channel_listening}"
-          :params="{channel:value.name, listen: 1, nowindow: 1}"
+          :class="{selected: channel.listening}"
+          :params="{ch_name: channel.name, listen: 1, nowindow: 1}"
         >On</vui-button>
         <vui-button
-          :class="{selected: !channel_listening}"
-          :params="{channel:value.name, listen: 1, nowindow: 1}"
+          :class="{selected: !channel.listening}"
+          :params="{ch_name: channel.name, listen: 1, nowindow: 1}"
         >Off</vui-button>
       </vui-group-item>
     </vui-group>

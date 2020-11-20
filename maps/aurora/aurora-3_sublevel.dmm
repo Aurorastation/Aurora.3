@@ -32047,13 +32047,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
 "nRA" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
+	},
+/obj/machinery/ringer{
+	department = "Engineering";
+	id = "engie_ringer";
+	pixel_y = -30;
+	req_access = list(10)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -34230,16 +34232,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
-"sXH" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/ringer{
-	department = "Engineering";
-	id = "engie_ringer";
-	pixel_x = 30;
-	req_access = list(10)
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "sYz" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -34445,6 +34437,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -34667,9 +34663,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"tSw" = (
-/turf/unsimulated/chasm_mask,
-/area/engineering/atmos)
 "tTG" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -37048,6 +37041,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"ylR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 
 (1,1,1) = {"
 aaa
@@ -61043,8 +61041,8 @@ agj
 ahC
 baN
 aiI
-ajg
-ajg
+ylR
+ylR
 aaO
 aaa
 aaa
@@ -61300,8 +61298,8 @@ agj
 ahC
 baN
 aiI
-ajh
-ajh
+ajg
+ajg
 aaO
 aaa
 aaa
@@ -61557,8 +61555,8 @@ agj
 ahC
 baN
 aiI
-aji
-aji
+ajh
+ajh
 aaO
 aaa
 aaa
@@ -61814,8 +61812,8 @@ agj
 ahC
 baN
 aiI
-ajj
-ajj
+aji
+aji
 aaO
 aaa
 aaa
@@ -62071,8 +62069,8 @@ agi
 abo
 baN
 aiI
-ajk
-ajk
+ajj
+ajj
 aaO
 aaa
 aaa
@@ -62328,8 +62326,8 @@ agk
 abo
 baO
 aiI
-ajl
-ajl
+ajk
+ajk
 aaO
 aaa
 aaa
@@ -62585,8 +62583,8 @@ agl
 abo
 abo
 aiI
-ajm
-aaO
+ajl
+ajl
 aaO
 aaa
 aaa
@@ -62841,10 +62839,10 @@ ahm
 adB
 acT
 aeY
-sXH
-ajn
+aiI
+ajm
 aaO
-tSw
+aaO
 aaa
 aaa
 aaa
@@ -63098,8 +63096,8 @@ acy
 kaD
 nwo
 ecc
-aaO
-aaO
+aiI
+ajn
 aaO
 aaa
 aaa
@@ -63356,8 +63354,8 @@ bfj
 abo
 nRA
 aaO
-aaa
-aaa
+aaO
+aaO
 aaa
 aaa
 aaa
@@ -64124,7 +64122,7 @@ aae
 aae
 aae
 ads
-aae
+aet
 ads
 aae
 aac

@@ -21742,6 +21742,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aLD" = (
@@ -68895,6 +68896,13 @@
 /obj/item/haircomb/random,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"wgf" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 10
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/rnd/lab)
 "whu" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -94819,7 +94827,7 @@ osb
 bvY
 bxj
 byM
-xJp
+wgf
 bAP
 bBI
 bCF
@@ -100494,7 +100502,7 @@ ndR
 bOR
 bRQ
 bOR
-lJh
+bOR
 fTZ
 bOR
 bOR
@@ -101265,7 +101273,7 @@ bOt
 bOZ
 cbZ
 keq
-bOR
+lJh
 keq
 bOR
 keq

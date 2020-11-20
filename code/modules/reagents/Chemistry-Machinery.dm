@@ -77,7 +77,10 @@
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
-			loaded_pill_bottle.forceMove(src.loc)
+			if(Adjacent(usr))
+				usr.put_in_hands(loaded_pill_bottle)
+			else
+				loaded_pill_bottle.forceMove(get_turf(src))
 			loaded_pill_bottle = null
 	else if(href_list["close"])
 		usr << browse(null, "window=chemmaster")
@@ -143,7 +146,10 @@
 			return
 		else if (href_list["eject"])
 			if(beaker)
-				beaker:loc = src.loc
+				if(Adjacent(usr))
+					usr.put_in_hands(beaker)
+				else
+					beaker:loc = get_turf(src)
 				beaker = null
 				reagents.clear_reagents()
 				icon_state = "mixer0"
@@ -168,7 +174,7 @@
 			if(reagents.total_volume/count < 1) //Sanity checking.
 				return
 			while (count-- && count >= 0)
-				var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(src.loc)
+				var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(get_turf(src))
 				if(!name) name = reagents.get_primary_reagent_name()
 				P.name = "[name] pill"
 				P.pixel_x = rand(-7, 7) //random position
@@ -181,7 +187,7 @@
 		else if (href_list["createbottle"])
 			if(!condi)
 				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_primary_reagent_name()), MAX_NAME_LEN)
-				var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(src.loc)
+				var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(get_turf(src))
 				if(!name) name = reagents.get_primary_reagent_name()
 				P.name = "[name] bottle"
 				P.pixel_x = rand(-7, 7) //random position
@@ -190,7 +196,7 @@
 				reagents.trans_to_obj(P,60)
 				P.update_icon()
 			else
-				var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(src.loc)
+				var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(get_turf(src))
 				reagents.trans_to_obj(P,50)
 		else if(href_list["change_pill"])
 			var/dat = "<table>"
@@ -456,7 +462,7 @@
 		return
 	if (!beaker)
 		return
-	beaker.forceMove(src.loc)
+	beaker.forceMove(get_turf(src))
 	beaker = null
 	update_icon()
 
@@ -468,7 +474,7 @@
 		return
 
 	for(var/obj/item/O in holdingitems)
-		O.forceMove(src.loc)
+		O.forceMove(get_turf(src))
 		holdingitems -= O
 	holdingitems.Cut()
 
