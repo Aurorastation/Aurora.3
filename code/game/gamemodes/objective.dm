@@ -151,11 +151,9 @@ datum/objective/anti_revolution/demote
 		return target
 
 	check_completion()
-		if(target && target.current && istype(target,/mob/living/carbon/human))
-			var/obj/item/card/id/I = target.current:wear_id
-			if(istype(I, /obj/item/device/pda))
-				var/obj/item/device/pda/P = I
-				I = P.id
+		if(target && target.current && ishuman(target))
+			var/mob/living/carbon/human/H = target
+			var/obj/item/card/id/I = H.GetIdCard()
 
 			if(!istype(I)) return 1
 

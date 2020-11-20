@@ -73,6 +73,7 @@
 	var/silenced = 0
 	var/muzzle_flash = 3
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
+	var/offhand_accuracy = 0 // the higher this number, the more accurate this weapon is when fired from the off-hand
 	var/scoped_accuracy = null
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
@@ -106,6 +107,7 @@
 	var/is_wieldable = FALSE
 	var/wield_sound = /decl/sound_category/generic_wield_sound
 	var/unwield_sound = null
+	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
@@ -188,8 +190,9 @@
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/A = M
-		if(A.martial_art?.no_guns)
-			to_chat(A, SPAN_WARNING("[A.martial_art.no_guns_message]"))
+		var/no_guns_check = A.check_no_guns()
+		if(no_guns_check)
+			to_chat(A, SPAN_WARNING("[no_guns_check]")) // the proc returns the no_guns_message
 			return FALSE
 
 	if((M.is_clumsy()) && prob(40)) //Clumsy handling
@@ -211,6 +214,7 @@
 			return TRUE
 		else
 			pin.auth_fail(user)
+			handle_click_empty(user)
 			return FALSE
 	else
 		if(needspin)
@@ -296,20 +300,26 @@
 		return FALSE
 
 	if(world.time < next_fire_time)
-		if (world.time % 3) //to prevent spam
+		if(world.time % 3 && !can_autofire) //to prevent spam
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = (burst - 1) * burst_delay
+	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
 	return TRUE
 
-/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=0)
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
 		return FALSE
+
+	if(!is_offhand && user.a_intent == I_HURT) // no recursion
+		var/obj/item/gun/SG = user.get_inactive_hand()
+		if(istype(SG))
+			var/decreased_accuracy = (SG.w_class * 2) - SG.offhand_accuracy
+			addtimer(CALLBACK(SG, .proc/Fire, target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -319,7 +329,7 @@
 			handle_click_empty(user)
 			break
 
-		var/acc = burst_accuracy[min(i, burst_accuracy.len)]
+		var/acc = burst_accuracy[min(i, burst_accuracy.len)] - accuracy_decrease
 		var/disp = dispersion[min(i, dispersion.len)]
 		process_accuracy(projectile, user, target, acc, disp)
 
@@ -343,9 +353,7 @@
 
 	update_held_icon()
 
-	//update timing
-	var/delay = max(burst_delay+1, fire_delay)
-	user.setClickCooldown(min(delay, DEFAULT_QUICK_COOLDOWN))
+	user.setClickCooldown(max(burst_delay+1, fire_delay))
 	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
@@ -501,6 +509,11 @@
 		//As opposed to no-delay pew pew
 		P.accuracy += 2
 
+	var/datum/firemode/F = firemodes[sel_mode]
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
+		P.accuracy -= one_hand_fa_penalty/2
+		P.dispersion -= one_hand_fa_penalty * 0.5
+
 //does the actual launching of the projectile
 /obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params)
 	var/obj/item/projectile/P = projectile
@@ -535,11 +548,11 @@
 	if (istype(in_chamber))
 		user.visible_message(SPAN_WARNING("\The [user] pulls the trigger."))
 		if (!pin && needspin)//Checks the pin of the gun.
-			user.visible_message(SPAN_WARNING("*click click*"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if (!pin.pin_auth() && needspin)
-			user.visible_message(SPAN_WARNING("*click click*"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if(safety() && user.a_intent != I_HURT)
@@ -610,6 +623,7 @@
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
+			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
 		else
 			to_chat(user, "It doesn't have a firing pin installed, and won't fire.")
 	if(firemodes.len > 1)
@@ -617,6 +631,7 @@
 		to_chat(user, "The fire selector is set to [current_mode.name].")
 	if(has_safety)
 		to_chat(user, "The safety is [safety() ? "on" : "off"].")
+	return TRUE
 
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
@@ -656,11 +671,11 @@
 	set src in usr
 	set category = "Object"
 	set name = "Toggle Gun Safety"
-	if(usr == loc)
+	if(has_safety && usr == loc)
 		toggle_safety(usr)
 
 /obj/item/gun/CtrlClick(var/mob/user)
-	if(user == loc)
+	if(has_safety && user == loc)
 		toggle_safety(user)
 		return TRUE
 	. = ..()
@@ -861,6 +876,9 @@
 		update_icon()
 		return
 
+	if(istype(pin) && pin.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
+		return
+
 	if(istype(I, /obj/item/ammo_display))
 		if(!can_ammo_display)
 			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))
@@ -924,8 +942,12 @@
 		if(!ismob(loc) && !ismob(loc.loc))
 			maptext = ""
 			return
-		if(get_ammo() > 9)
-			maptext_x = 18
+		var/ammo = get_ammo()
+		if(ammo > 9)
+			if(ammo < 20)
+				maptext_x = 20
+			else
+				maptext_x = 18
 		else
 			maptext_x = 22
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"

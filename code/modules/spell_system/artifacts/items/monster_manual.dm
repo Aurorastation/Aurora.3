@@ -45,8 +45,10 @@
 			var/mob/M = monster[i]
 			var/name = capitalize(initial(M.name))
 			dat += "<BR><a href='byond://?src=\ref[src];path=[monster[i]]'>[name]</a> - [monster_info[i]]</BR>"
-	user << browse(dat,"window=monstermanual")
-	onclose(user,"monstermanual")
+
+	var/datum/browser/manual_win = new(user, "monstermanual", capitalize_first_letters(name))
+	manual_win.set_content(dat)
+	manual_win.open()
 
 /obj/item/monster_manual/Topic(href, href_list)
 	..()
@@ -73,9 +75,6 @@
 		F.faction = usr.faction
 		temp = "You have attempted summoning \the [F]"
 		SSghostroles.add_spawn_atom("wizard_familiar", F)
-		var/area/A = get_area(src)
-		if(A)
-			say_dead_direct("A wizard familiar has been summoned in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 		uses--
 
 		if(Adjacent(usr))

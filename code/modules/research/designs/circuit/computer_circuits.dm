@@ -5,10 +5,6 @@
 	name = "Security Camera Monitor"
 	build_path = /obj/item/circuitboard/security
 
-/datum/design/circuit/computer/prisonmanage
-	name = "Prisoner Management Console"
-	build_path = /obj/item/circuitboard/prisoner
-
 /datum/design/circuit/computer/sentencing
 	name = "Criminal Sentencing Console"
 	build_path = /obj/item/circuitboard/sentencing

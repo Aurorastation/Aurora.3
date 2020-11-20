@@ -218,11 +218,11 @@
 
 	if(!istype(module))
 		selected_module = null
-		to_chat(usr, "<font color='blue'><b>Primary system is now: deselected.</b></font>")
+		to_chat(usr, "<span class='notice'><b>Primary system is now: deselected.</b></span>")
 		return
 
 	selected_module = module
-	to_chat(usr, "<font color='blue'><b>Primary system is now: [selected_module.interface_name].</b></font>")
+	to_chat(usr, "<span class='notice'><b>Primary system is now: [selected_module.interface_name].</b></span>")
 
 /obj/item/rig/verb/toggle_module()
 

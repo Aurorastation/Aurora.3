@@ -229,6 +229,11 @@
 	color = "#f5f4e9"
 	taste_description = "fish"
 
+/datum/reagent/nutriment/protein/seafood/mollusc
+	name = "Mollusc Protein"
+	taste_description = "cold, bitter slime"
+	hydration_factor = 6
+
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "Egg Yolk"
 	color = "#FFFFAA"
@@ -1800,7 +1805,7 @@
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
 
 /datum/reagent/drink/root_beer
-	name = "R&D Root Beer"
+	name = "RnD Root Beer"
 	description = "A classic Earth drink from the United Americas province."
 	color = "#211100"
 	adj_drowsy = -6
@@ -1808,8 +1813,8 @@
 	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
-	glass_name = "glass of R&D Root Beer"
-	glass_desc = "A glass of bubbly R&D Root Beer."
+	glass_name = "glass of RnD Root Beer"
+	glass_desc = "A glass of bubbly RnD Root Beer."
 
 /datum/reagent/drink/spaceup
 	name = "Space-Up"
@@ -2208,6 +2213,18 @@
 	glass_desc = "DAMN, THIS THING LOOKS ROBUST"
 	glass_center_of_mass = list("x"=15, "y"=7)
 
+/datum/reagent/alcohol/ethanol/makgeolli
+	name = "Makgeolli"
+	description = "A mild Konyanger sparkling rice wine."
+	color = "#664300"
+	strength = 15
+	taste_description = "creamy dry alcohol"
+
+	glass_icon_state = "makgeolliglass"
+	glass_name = "glass of makgeolli"
+	glass_desc = "A clear alcohol similar to sparkling wine, brewed from rice."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
 /datum/reagent/alcohol/ethanol/melonliquor
 	name = "Melon Liquor"
 	description = "A relatively sweet and fruity 46 proof liquor."
@@ -2237,11 +2254,23 @@
 	description = "Anime's favorite drink."
 	color = "#664300"
 	strength = 20
-	taste_description = "dry alcohol"
+	taste_description = "mildly dry alcohol with a subtle sweetness"
 
-	glass_icon_state = "ginvodkaglass"
+	glass_icon_state = "sakeglass"
 	glass_name = "glass of sake"
 	glass_desc = "A glass of sake."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
+/datum/reagent/alcohol/ethanol/soju
+	name = "Soju"
+	description = "A mild Konyanger spirit that is best described as rice vodka."
+	color = "#664300"
+	strength = 25
+	taste_description = "slightly dry alcohol with a subtle burn"
+
+	glass_icon_state = "sojuglass"
+	glass_name = "glass of soju"
+	glass_desc = "A clear alcohol similar to vodka, brewed from rice."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /datum/reagent/alcohol/ethanol/tequila
@@ -2309,6 +2338,17 @@
 /datum/reagent/alcohol/ethanol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
+
+/datum/reagent/alcohol/ethanol/vodka/mushroom
+	name = "Mushroom Vodka"
+	description = "A strong drink distilled from mushrooms grown in caves. Tastes like dissatisfaction."
+	color = "#0064C8" // rgb: 0, 100, 200
+	strength = 55
+	taste_description = "strong earthy alcohol"
+	glass_icon_state = "mushroomvodkaglass"
+	glass_name = "glass of mushroom vodka"
+	glass_desc = "The glass contain wodka made from mushrooms. Blyat."
+	glass_center_of_mass = list("x"=16, "y"=12)
 
 /datum/reagent/alcohol/ethanol/whiskey
 	name = "Whiskey"
@@ -2613,15 +2653,15 @@
 
 /datum/reagent/alcohol/ethanol/cubalibre
 	name = "Cuba Libre"
-	description = "Rum, mixed with cola. Viva la revolucion."
+	description = "A rum and coke with lime. Viva la revolucion."
 	color = "#3E1B00"
 	strength = 10
-	taste_description = "cola"
+	taste_description = "cola and a hint of lime"
 	carbonated = TRUE
 
 	glass_icon_state = "cubalibreglass"
 	glass_name = "glass of Cuba Libre"
-	glass_desc = "A classic mix of rum and cola."
+	glass_desc = "A classic mix of rum, cola, and lime."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /datum/reagent/alcohol/ethanol/demonsblood
@@ -3987,6 +4027,13 @@
 	glass_name = "glass of Sarezhi Wine"
 	glass_desc = "It tastes like plain berry juice. Is this supposed to be alcoholic?"
 
+/datum/reagent/alcohol/butanol/threetownscider
+	name = "Three Towns Cider"
+	description = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
+	color = "#b8f77e"
+	strength = 20
+	taste_description = "bittersweet root juice"
+
 //Kaed's Unathi Cocktails
 //=======
 //What an exciting time we live in, that lizards may drink fruity girl drinks.
@@ -4390,3 +4437,16 @@
 	condiment_desc = "A vegetarian friendly way to add a little extra pizazz to any dish."
 	condiment_icon_state = "dionaepowder"
 	condiment_center_of_mass = list("x"=16, "y"=10)
+
+/datum/reagent/alcohol/ethanol/rumandcola
+	name = "Rum and Cola"
+	description = "A classic cocktail consisting of rum and cola."
+	color = "#3E1B00"
+	strength = 10
+	taste_description = "cola"
+	carbonated = TRUE
+
+	glass_icon_state = "rumandcolaglass"
+	glass_name = "glass of Rum and Cola"
+	glass_desc = "A classic mix of rum and cola."
+	glass_center_of_mass = list("x"=16, "y"=8)

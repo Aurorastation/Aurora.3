@@ -176,8 +176,12 @@
 	return ..(user, distance, "", "It is a [size] item.")
 
 /obj/item/attack_hand(mob/user)
-	if (!user) return
-	if (ishuman(user))
+	if(!user)
+		return
+	if(ishuman(user))
+		if(iszombie(user))
+			to_chat(user, SPAN_WARNING("You uselessly claw at \the [src], your rotting brain incapable of picking it up or operating it."))
+			return
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)
@@ -287,6 +291,10 @@
 /obj/item/throw_impact(atom/hit_atom)
 	..()
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
+		var/mob/living/L = hit_atom
+		if(L.in_throw_mode)
+			playsound(hit_atom, pickup_sound, PICKUP_SOUND_VOLUME, TRUE)
+			return
 		var/volume = get_volume_by_throwforce_and_or_w_class()
 		if(throwforce > 0)
 			if(mob_throw_hit_sound)
@@ -430,7 +438,7 @@ var/list/global/slot_flags_enumeration = list(
 				if(!disable_warning)
 					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
 				return 0
-			if( !(istype(src, /obj/item/device/pda) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
+			if( !(istype(src, /obj/item/modular_computer) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))
@@ -478,40 +486,6 @@ var/list/global/slot_flags_enumeration = list(
 
 // override for give shenanigans
 /obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
-	return
-
-/mob/living/carbon/verb/verb_pickup(obj/item/I in range(1))
-	set category = "Object"
-	set name = "Pick up"
-
-	if(!(usr)) //BS12 EDIT
-		return
-	if (!(I in view(1, src)))
-		return
-	if (istype(I, /obj/item/storage/internal))
-		return
-	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
-		return
-	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
-		return
-	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
-		return
-	if(I.anchored) //Object isn't anchored
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
-		return
-	if(!usr.hand && usr.r_hand) //Right hand is not full
-		to_chat(usr, "<span class='warning'>Your right hand is full.</span>")
-		return
-	if(usr.hand && usr.l_hand) //Left hand is not full
-		to_chat(usr, "<span class='warning'>Your left hand is full.</span>")
-		return
-	if(!istype(I.loc, /turf)) //Object is on a turf
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
-		return
-	//All checks are done, time to pick it up!
-	usr.UnarmedAttack(I)
 	return
 
 
@@ -581,7 +555,7 @@ var/list/global/slot_flags_enumeration = list(
 				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
 			)
 
-		eyes.damage += rand(3,4)
+		eyes.take_damage(rand(3,4))
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(M.stat != 2)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
@@ -665,7 +639,8 @@ var/list/global/slot_flags_enumeration = list(
 
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
-		M.show_message("<b>[user]</b> holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+		if(!user.is_invisible_to(M))
+			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -815,6 +790,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/attack_can_reach(var/atom/us, var/atom/them, var/range)
 	if(us.Adjacent(them))
 		return TRUE // Already adjacent.
+	else if(range <= 1)
+		return FALSE
 	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
 		return TRUE
 	return FALSE
@@ -839,3 +816,27 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/glasses_examine_atom(var/atom/A, var/user)
 	return
+
+/obj/item/verb/verb_pickup()
+	set name = "Pick Up"
+	set category = "Object"
+	set src in view(1)
+
+	if(use_check_and_message(usr))
+		return
+	if(!iscarbon(usr) || istype(usr, /mob/living/carbon/brain))
+		to_chat(usr, SPAN_WARNING("You can't pick things up!"))
+		return
+	if(anchored)
+		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
+		return
+	if(!usr.hand && usr.r_hand)
+		to_chat(usr, SPAN_WARNING("Your right hand is full."))
+		return
+	if(usr.hand && usr.l_hand)
+		to_chat(usr, SPAN_WARNING("Your left hand is full."))
+		return
+	if(!isturf(loc))
+		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
+		return
+	usr.UnarmedAttack(src)

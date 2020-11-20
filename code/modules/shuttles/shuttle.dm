@@ -203,6 +203,7 @@
 							shake_camera(M, 10, 1)
 							M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
 							M.throw_at_random(FALSE, 4, 1)
+							M.Weaken(3)
 
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet

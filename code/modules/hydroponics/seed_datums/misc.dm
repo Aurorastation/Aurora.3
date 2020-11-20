@@ -126,7 +126,7 @@
 	seed_noun = "node"
 	display_name = "diona pod"
 	can_self_harvest = 1
-	has_mob_product = /mob/living/carbon/alien/diona
+	product_type = /mob/living/carbon/alien/diona
 
 /datum/seed/diona/setup_traits()
 	..()

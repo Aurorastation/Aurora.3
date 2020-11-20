@@ -29,26 +29,3 @@
 /obj/item/borg/sight/material
 	name = "\proper material scanner vision"
 	sight_mode = BORGMATERIAL
-
-/obj/item/borg/sight/hud
-	name = "hud"
-	var/obj/item/clothing/glasses/hud/hud = null
-
-
-/obj/item/borg/sight/hud/med
-	name = "medical hud"
-	icon_state = "healthhud"
-	icon = 'icons/obj/clothing/glasses.dmi'
-
-/obj/item/borg/sight/hud/med/Initialize(mapload, ...)
-	. = ..()
-	hud = new /obj/item/clothing/glasses/hud/health(src)
-
-/obj/item/borg/sight/hud/sec
-	name = "security hud"
-	icon_state = "securityhud"
-	icon = 'icons/obj/clothing/glasses.dmi'
-
-/obj/item/borg/sight/hud/sec/Initialize(mapload, ...)
-	. = ..()
-	hud = new /obj/item/clothing/glasses/hud/security(src)

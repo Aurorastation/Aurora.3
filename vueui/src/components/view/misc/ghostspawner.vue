@@ -15,6 +15,7 @@
         <td>{{data.name}}</td>
         <td>{{data.desc}}</td>
         <td v-if="data.max_count > 0">{{data.max_count - data.count}} / {{data.max_count}}</td>
+        <td v-else-if="data.spawnatoms > 0">{{data.spawnatoms}}</td>
         <td v-else>&infin;</td>
         <td class="action">
           <vui-button :disabled="(data.cant_spawn !== 0)" :params="{spawn: index, spawnpoint: spawnpoint}" icon="star">Spawn</vui-button> 

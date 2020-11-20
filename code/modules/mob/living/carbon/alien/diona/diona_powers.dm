@@ -165,7 +165,7 @@
 	update_verbs()
 
 //Draws a sizeable blood sample from a victim to read their DNA and learn languages
-/mob/living/carbon/alien/diona/proc/sample()
+/mob/living/carbon/proc/sample()
 	set category = "Abilities"
 	set name = "Sample DNA"
 	set desc = "Learn languages by draining some blood from a nearby lifeform. You will partially learn any language it knows."
@@ -184,101 +184,29 @@
 	if(!length(choices))
 		to_chat(src, SPAN_WARNING("There are no life forms nearby to sample!"))
 		return
-	else
-		choices += "Cancel"
 
-	var/mob/living/donor = input(src, "Who do you wish to sample?") in null|choices
-
-	if(!donor || donor == "Cancel") //they cancelled
+	var/mob/living/donor = input(src, "Who do you wish to sample?", "Blood Sampling") as null|anything in choices
+	if(!donor || !Adjacent(donor))
 		return
 
 	face_atom(donor)
 	var/types = donor.find_type()
 
 	if(types & TYPE_SYNTHETIC)
-		src.visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but leaps back in surprise as its fangs hit metal."), SPAN_DANGER("You attempt to sink your fangs into [donor.name] and get a faceful of unyielding steel as the force breaks several fine protrusions in your mouth."))
+		visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but leaps back in surprise as its fangs hit metal."), SPAN_DANGER("You attempt to sink your fangs into [donor.name] and get a faceful of unyielding steel as the force breaks several fine protrusions in your mouth."))
 		donor.adjustBruteLoss(2)
-		src.adjustBruteLoss(15) //biting metal hurts!
-		return
-
+		adjustBruteLoss(15) //biting metal hurts!
 	else if (isanimal(donor) && (types & TYPE_ORGANIC) && donor.stat != DEAD)
-		src.visible_message(SPAN_DANGER("[src] bites into [donor.name] and drains some of their blood."), SPAN_DANGER("You bite into [donor.name] and drain some of their blood."))
+		visible_message(SPAN_DANGER("[src] bites into [donor.name] and drains some of their blood."), SPAN_DANGER("You bite into [donor.name] and drain some of their blood."))
 		to_chat(src, SPAN_DANGER("This simple creature has insufficient intelligence for you to learn anything!"))
 		donor.adjustBruteLoss(4)
 		adjustNutritionLoss(-20)
-		return
 	else if (types & TYPE_WEIRD)
-		src.visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but passes right through it!."), SPAN_DANGER("You attempt to sink your fangs into [donor.name] but pass right through it!"))
-		return
+		visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but passes right through it!."), SPAN_DANGER("You attempt to sink your fangs into [donor.name] but pass right through it!"))
 	else if (iscarbon(donor))
-		var/mob/living/carbon/D = donor
-		//If we get here, it's -probably- valid
-
-		src.visible_message(SPAN_DANGER("[src] is trying to bite [D.name]."), SPAN_DANGER("You start biting [D.name], you both must stay still!"))
-		face_atom(get_turf(D))
-		if(do_mob(src, D, 40, needhand = FALSE))
-			//Attempt to find the blood vessel, but don't create a fake one if its not there.
-			//If the target doesn't have a vessel its probably due to someone not implementing it properly, like xenos
-			//We'll still allow it
-			var/datum/reagents/vessel = D.get_vessel(1)
-			var/newDNA
-			var/datum/reagent/blood/B = vessel.get_master_reagent()
-			var/total_blood = B.volume
-			var/remove_amount = total_blood * 0.05
-			if(ishuman(D))
-				var/mob/living/carbon/human/H = D
-				remove_amount = H.species.blood_volume * 0.05
-			if(remove_amount > 0)
-				vessel.remove_reagent(/datum/reagent/blood, remove_amount, TRUE)
-				adjustNutritionLoss(-remove_amount * 0.5)
-			var/list/data = vessel.get_data(/datum/reagent/blood)
-			newDNA = data["blood_DNA"]
-
-			if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
-				newDNA = md5("\ref[D]")
-
-			D.adjustBruteLoss(4)
-			src.visible_message(SPAN_NOTICE("[src] sucks some blood from [D.name].") , SPAN_NOTICE("You extract a delicious mouthful of blood from [D.name]!"))
-
-			if(newDNA in sampled_DNA)
-				to_chat(src, SPAN_DANGER("You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else."))
-				return
-			else
-				sampled_DNA.Add(newDNA)
-
-				var/learned = 0
-				//Learned var:
-				//0 = The target has no languages
-				//1 = We already everything they know or can't learn
-				//2 = We learned something!
-
-				//Now we sample their languages!
-				for(var/datum/language/L in D.languages)
-					learned = max(learned, 1)
-					if (!(L in languages) && !(L in diona_banned_languages))
-						//We don't know this language, and we can learn it!
-						var/current_progress = language_progress[L.name]
-						current_progress += 1
-						language_progress[L.name] = current_progress
-						to_chat(src, SPAN_NOTICE("<font size=3>You come a little closer to learning [L.name]!</font>"))
-						learned = 2
-
-				if(!learned)
-					to_chat(src, SPAN_DANGER("This creature doesn't know any languages at all!"))
-				else if (learned == 1)
-					to_chat(src, SPAN_DANGER("We have nothing more to learn from this creature. Perhaps try a different sample?"))
-
-				update_languages()
-		else
-			to_chat(src, SPAN_WARNING("Something went wrong while trying to sample [D], both you and the target must remain still."))
-
-//Checks progress on learned languages
-/mob/living/carbon/alien/diona/proc/update_languages()
-	for(var/i in language_progress)
-		if(language_progress[i] >= LANGUAGE_POINTS_TO_LEARN)
-			add_language(i)
-			to_chat(src, SPAN_NOTICE("<font size=3>You have mastered the [i] language!</font>"))
-			language_progress.Remove(i)
+		var/datum/dionastats/DS = get_dionastats()
+		if(DS)
+			DS.do_blood_suck(src, donor)
 
 /mob/living/carbon/alien/diona/proc/transferMind(var/atom/A)
 	set category = "Abilities"

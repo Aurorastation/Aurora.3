@@ -52,7 +52,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		update_icon()
 	else
 		if(busy)
-			visible_message("<span class='notice'>\icon [src] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
+			visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
 			busy = 0
 			update_icon()
 
@@ -190,7 +190,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		if(!reagents.has_reagent(C, D.chemicals[C]))
 			if(ret != "")
 				ret += ", "
-			ret += C
+			ret += "[C]"
 	return ret
 
 /obj/machinery/r_n_d/circuit_imprinter/proc/build(var/datum/design/D)

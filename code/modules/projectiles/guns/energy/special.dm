@@ -176,6 +176,7 @@
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
+	desc_antag = "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 	icon = 'icons/obj/guns/pestishock.dmi'
 	icon_state = "pestishock"
 	item_state = "pestishock"
@@ -197,9 +198,12 @@
 
 /obj/item/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
-		to_chat(user, "<span class='warning'>You overload \the [src]'s shock modulator.</span>")
+		to_chat(user, SPAN_WARNING("You overload \the [src]'s shock modulator."))
+		max_shots = 10
 		projectile_type = /obj/item/projectile/beam/mousegun/emag
 		emagged = TRUE
+		QDEL_NULL(power_supply)
+		power_supply = new /obj/item/cell/device/variable(src, max_shots * charge_cost)
 		return TRUE
 
 /obj/item/gun/energy/net
@@ -560,7 +564,7 @@
 	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
-	projectile_type = /obj/item/projectile/energy/tesla
+	projectile_type = /obj/item/projectile/beam/tesla
 	slot_flags = SLOT_BACK
 	max_shots = 3
 	sel_mode = 1

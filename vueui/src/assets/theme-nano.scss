@@ -3,7 +3,7 @@
     font-size: 12px;
     line-height: 1.9em;
     font-family: Verdana, Geneva, sans-serif;
-    background: #272727 url(resources/theme-nano/uiBackground-dark.svg) 50% 0 repeat-x;
+    background: #202020 url(resources/theme-nano/uiBackground-dark.svg) 50% 0 repeat-x;
 
     hr {
         background-color: #40628a;
@@ -17,12 +17,11 @@
         text-align: center;
         text-decoration: none;
         background: #40628a;
-        border: 1px solid #161616;
         cursor: default;
         white-space: nowrap;
         box-sizing: content-box;
         color: inherit;
-        border-radius: 0px;
+        border-radius: 0.15em;
         padding: 2px 4px 2px 4px;
         line-height: 16px;
         vertical-align: top;
@@ -163,7 +162,7 @@
 
     .displayBar {
         background: #000000;
-        border: 1px solid #666666;
+        border-radius: 0.15em;
         .displayBarFill {
             background: #40628a;
             color: #ffffff;

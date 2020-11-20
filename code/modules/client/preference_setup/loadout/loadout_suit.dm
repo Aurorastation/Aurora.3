@@ -79,6 +79,11 @@
 	l_hoodie["sleeveless hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	gear_tweaks += new/datum/gear_tweak/path(l_hoodie)
 
+/datum/gear/suit/mars
+	display_name = "martian hoodie"
+	description = "An orange hoodie, typically worn in solidarity with Mars' recent misfortunes."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/mars
+
 /datum/gear/suit/labcoat
 	display_name = "labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
@@ -94,13 +99,13 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/poncho
@@ -305,9 +310,16 @@
 	gear_tweaks += new/datum/gear_tweak/path(cardigan)
 
 /datum/gear/suit/himeo
-	display_name = "himean coat"
+	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/himeo/New()
+	..()
+	var/coat = list()
+	coat["brown himean bekesha"] = /obj/item/clothing/suit/storage/toggle/himeo
+	coat["grey himean bekesha"] = /obj/item/clothing/suit/storage/toggle/himeo/grey
+	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/vysoka
 	display_name = "chokha selection"
@@ -326,3 +338,8 @@
 	display_name = "submariner jacket"
 	path = /obj/item/clothing/suit/storage/toggle/overlay/submariner
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/gadpathur
+	display_name = "gadpathurian overcoat"
+	path = /obj/item/clothing/suit/storage/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION

@@ -5,6 +5,7 @@
 	name = "CentComm Solitary Confinement"
 	icon_state = "brig"
 	centcomm_area = 1
+	flags = PRISON
 
 /area/centcom
 	name = "Centcom"
@@ -13,12 +14,15 @@
 	no_light_control = 1
 	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
+	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/control
 	name = "Centcom Control"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/centcom/spawning
-	name = "Centcom Preparatory Wing"
+	name = "NTCC Odin Departures"
+	icon_state = "centcomspawn"
 	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/start
@@ -27,12 +31,15 @@
 
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
+	icon_state = "centcomevac"
 
 /area/centcom/suppy
 	name = "Centcom Supply Shuttle"
+	icon_state = "centcomsupply"
 
 /area/centcom/ferry
 	name = "Centcom Transport Shuttle"
+	icon_state = "centcomferry"
 
 /area/centcom/shuttle
 	name = "Centcom Administration Shuttle"
@@ -42,9 +49,11 @@
 
 /area/centcom/living
 	name = "Centcom Living Quarters"
+	icon_state = "centcomliving"
 
 /area/centcom/specops
 	name = "Centcom Special Ops"
+	icon_state = "centcomspecops"
 
 /area/centcom/creed
 	name = "Creed's Office"
@@ -52,19 +61,25 @@
 
 /area/centcom/holding
 	name = "Holding Facility"
+	icon_state = "centcomhold"
 
 /area/centcom/checkpoint
-	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/checkpoint/fore
 	name = "Fore Checkpoint"
+	icon_state = "centcomcheckfore"
 
 /area/centcom/checkpoint/aft
 	name = "Aft Checkpoint"
+	icon_state = "centcomcheckaft"
+
+/area/centcom/bar
+	name = "Valkyrie's Rest"
 
 /area/centcom/legion
 	name = "BLV The Tower - Deck 1"
 	icon_state = "blvtower"
+	flags = NO_CREW_EXPECTED
 
 /area/centcom/legion/hangar5
 	name = "BLV The Tower - Hangar 5"
@@ -83,6 +98,7 @@
 	dynamic_lighting = 1
 	no_light_control = 1
 	centcomm_area = 1
+	flags = NO_CREW_EXPECTED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/merchant_station/warehouse
@@ -98,6 +114,7 @@
 	requires_power = FALSE
 	no_light_control = TRUE
 	centcomm_area = TRUE
+	flags = NO_CREW_EXPECTED
 
 /area/antag/mercenary
 	name = "Mercenary Barracks"
@@ -127,10 +144,10 @@
 	name = "Thunderdome"
 	icon_state = "thunder"
 	requires_power = 0
-	dynamic_lighting = 0
 	sound_env = ARENA
 	no_light_control = 1
 	centcomm_area = 1
+	flags = NO_CREW_EXPECTED
 
 /area/tdome/tdome1
 	name = "Thunderdome (Team 1)"
@@ -157,6 +174,7 @@
 	dynamic_lighting = 1
 	no_light_control = 0
 	base_turf = /turf/space
+	flags = NO_CREW_EXPECTED
 
 /area/kataphract_chapter/bridge
 	name = "Kataphract Chapter - Bridge"

@@ -46,12 +46,18 @@
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
+	armbands["tau ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
+
+/datum/gear/accessory/armband_coloured
+	display_name = "armband (colourable)"
+	path = /obj/item/clothing/accessory/armband/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison", "Consular Officer")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -106,7 +112,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Intern")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -126,7 +132,7 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Intern")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -268,3 +274,17 @@
 	display_name = "europan bone charm"
 	path = /obj/item/clothing/accessory/whalebone
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/gadpathur
+	display_name = "gadpathurian cadre brassard selection"
+	description = "A selection of cadre brassards from Gadpathur."
+	path = /obj/item/clothing/accessory/armband/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/gadpathur/New()
+	..()
+	var/gadpathur = list()
+	gadpathur["cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur
+	gadpathur["industrial cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/ind
+	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
+	gear_tweaks += new/datum/gear_tweak/path(gadpathur)

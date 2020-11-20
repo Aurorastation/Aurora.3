@@ -61,7 +61,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/gun/projectile/automatic/rifle/z8)
 
 /datum/supply_drop_loot/seeds
-	name = "Seeds"
+	name = SEED_NOUN_SEEDS
 	container = /obj/structure/closet/crate
 /datum/supply_drop_loot/seeds/New()
 	..()

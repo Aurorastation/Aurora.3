@@ -70,6 +70,7 @@
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
+	var/last_words
 	var/ambitions
 
 /datum/mind/New(var/key)
@@ -162,9 +163,9 @@
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
 			if(O.completed)
-				out += "(<font color='green'>complete</font>)"
+				out += "(<span class='good'>complete</span>)"
 			else
-				out += "(<font color='red'>incomplete</font>)"
+				out += "(<span class='warning'>incomplete</span>)"
 			out += " <a href='?src=\ref[src];obj_completed=\ref[O]'>\[toggle\]</a>"
 			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++
@@ -459,19 +460,15 @@
 // have to call this periodically for the duration to work properly
 /datum/mind/proc/is_brigged(duration)
 	var/turf/T = current.loc
-	if(!istype(T))
+	if(isnull(T))
 		brigged_since = -1
 		return 0
+	var/area/A = T.loc
 	var/is_currently_brigged = 0
-	if(istype(T.loc,/area/security/brig))
+	if(A?.is_prison())
 		is_currently_brigged = 1
-		for(var/obj/item/card/id/card in current)
+		if(current.GetIdCard())
 			is_currently_brigged = 0
-			break // if they still have ID they're not brigged
-		for(var/obj/item/device/pda/P in current)
-			if(P.id)
-				is_currently_brigged = 0
-				break // if they still have ID they're not brigged
 
 	if(!is_currently_brigged)
 		brigged_since = -1
@@ -578,11 +575,6 @@
 	..()
 	mind.assigned_role = "Juggernaut"
 	mind.special_role = "Cultist"
-
-/mob/living/carbon/human/voxarmalis/mind_initialize()
-	..()
-	mind.assigned_role = "Armalis"
-	mind.special_role = "Vox Raider"
 
 /mob/living/silicon/robot/syndicate/mind_initialize()
 	..()

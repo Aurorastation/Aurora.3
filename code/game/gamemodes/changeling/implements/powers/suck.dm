@@ -111,6 +111,9 @@
 
 	admin_attack_log(usr, T, "absorbed the DNA of", "had their DNA absorbed by", "lethally absorbed DNA from")
 
+	var/mob/abstract/hivemind/hivemind = new /mob/abstract/hivemind(src)
+	hivemind.add_to_hivemind(T, src)
+
 	T.death(0)
 	T.Drain()
 	return TRUE

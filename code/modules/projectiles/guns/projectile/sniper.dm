@@ -19,6 +19,7 @@
 	ammo_type = /obj/item/ammo_casing/a145
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = -3
+	offhand_accuracy = -1
 	scoped_accuracy = 4
 	var/bolt_open = 0
 	var/has_scope = TRUE
@@ -179,11 +180,15 @@
 	update_held_icon()
 
 /obj/item/gun/projectile/dragunov
-	name = "antique sniper rifle"
-	desc = "An old semi-automatic marksman rifle. Uses 7.62mm rounds."
+	name = "marksman rifle"
+	desc = "A semi-automatic marksman rifle. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
+
+	desc_fluff = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
+	The rifle is commonly issued to the feared Das'nrra Marksmen."
+
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK

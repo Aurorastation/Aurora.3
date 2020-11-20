@@ -9,24 +9,28 @@
 	e_legs = /obj/item/mech_component/propulsion/combat
 	e_color = COLOR_DARK_GUNMETAL
 
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/grenadetear
-	h_l_hand = /obj/item/mecha_equipment/mounted_system/blaster
-	h_r_hand = /obj/item/mecha_equipment/mounted_system/taser/ion
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/taser/smg
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/taser/smg
 
 /obj/item/mech_component/manipulators/combat
 	name = "combat arms"
 	exosuit_desc_string = "flexible, advanced manipulators"
+	desc = "Extremely fast and responsive weapon mounts for combat mechas. These seem sturdy, but their short nature only permits access to shoulder-mounted weapons."
 	icon_state = "combat_arms"
 	melee_damage = 30
-	action_delay = 10
+	action_delay = 5
+	max_damage = 130
 	power_use = 5000
+	has_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
 /obj/item/mech_component/propulsion/combat
 	name = "combat legs"
 	exosuit_desc_string = "sleek hydraulic legs"
+	desc = "Complex armor provides excellent protective coverage over the internals of these combat-oriented legs."
 	icon_state = "combat_legs"
 	move_delay = 3
 	turn_delay = 3
+	max_damage = 100
 	power_use = 5000
 	trample_damage = 35
 
@@ -34,7 +38,9 @@
 	name = "combat sensors"
 	gender = PLURAL
 	exosuit_desc_string = "high-resolution sensors"
+	desc = "A highly advanced cockpit with high-resolution thermal optics installed on its faces. Poorly armored with excellent situational awareness."
 	icon_state = "combat_head"
+	max_damage = 50
 	power_use = 50000
 	vision_flags = SEE_MOBS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
@@ -50,9 +56,12 @@
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
 	exosuit_desc_string = "an armored chassis"
+	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "combat_body"
+	max_damage = 200
 	power_use = 2500
 	transparent_cabin =  TRUE
+	has_hardpoints = list(HARDPOINT_BACK)
 
 /obj/item/mech_component/chassis/combat/prebuild()
 	. = ..()

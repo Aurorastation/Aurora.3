@@ -36,6 +36,8 @@
 		to_chat(user, "Needs to be both configured and brought in contact with monitor device to be fully functional.")
 
 /obj/item/device/spy_bug/attack_self(mob/user)
+	radio.broadcasting = !radio.broadcasting
+	to_chat(user, "\The [src]'s radio is [radio.broadcasting ? "broadcasting" : "not broadcasting"] now. The current frequency is [radio.frequency].")
 	radio.attack_self(user)
 
 /obj/item/device/spy_bug/attackby(obj/W as obj, mob/living/user as mob)
@@ -159,6 +161,6 @@
 	listening = FALSE
 	frequency = 1473
 	broadcasting = FALSE
-	canhear_range = 1
+	canhear_range = 7
 	name = "spy device"
 	icon_state = "syn_cypherkey"

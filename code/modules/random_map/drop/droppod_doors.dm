@@ -16,7 +16,7 @@
 		addtimer(CALLBACK(src, .proc/deploy), 100)
 
 /obj/structure/droppod_door/attack_ai(var/mob/user)
-	if(!user.Adjacent(src))
+	if(!Adjacent(user))
 		return
 	attack_hand(user)
 

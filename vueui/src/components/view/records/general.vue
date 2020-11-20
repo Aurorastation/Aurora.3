@@ -42,7 +42,11 @@
       </template>
       <slot/>
     </vui-group>
-    <vui-button v-if="!hideAdvanced && (editable & 1)" :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete record</vui-button>
+    <div class="bottombuttons">
+      <vui-button :params="{ setactive: 'null'}" @click="activeview = 'list'" push-state>Unload Record</vui-button>
+      <vui-button v-if="canprint" :params="{ print: 'active'}">Print</vui-button>
+      <vui-button v-if="!hideAdvanced && (editable & 1)" :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete record</vui-button>
+    </div>
   </div>
 </template>
 
@@ -74,6 +78,12 @@ export default {
     height: 64px;
     -ms-interpolation-mode: nearest-neighbor;
     image-rendering: crisp-edges;
+  }
+}
+.bottombuttons {
+  margin-top: 8px;
+  .button {
+    margin-right: 6px;
   }
 }
 </style>

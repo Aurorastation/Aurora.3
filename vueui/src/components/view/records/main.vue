@@ -8,15 +8,13 @@
         <vui-button :class="{ selected: activeview == 'general'}" v-if="avaivabletypes & 1" @click="activeview = 'general'">General</vui-button>
         <vui-button :class="{ selected: activeview == 'security'}" :disabled="!active.security" v-if="avaivabletypes & 4" @click="activeview = 'security'">Security</vui-button>
         <vui-button :class="{ selected: activeview == 'medical'}" :disabled="!active.medical" v-if="avaivabletypes & 2" @click="activeview = 'medical'">Medical</vui-button>
-        <vui-button :params="{ setactive: 'null'}" @click="activeview = 'list'" push-state>Unload record</vui-button>
-        <vui-button v-if="canprint" :params="{ print: 'active'}">Print</vui-button>
       </template>
       <template v-if="active_virus">
         <vui-button :class="{ selected: activeview == 'virus'}" @click="activeview = 'virus'">Virus</vui-button>
         <vui-button :params="{ setactive_virus: 'null'}" @click="activeview = 'list-virus'" push-state>Unload record</vui-button>
         <vui-button v-if="canprint" :params="{ print: 'active_virus'}">Print</vui-button>
       </template>
-      <vui-button :params="{ logout: 1 }">Logout</vui-button>
+      <vui-button style="position: absolute; right: 12px;" :params="{ logout: 1 }">Logout</vui-button>
     </div>
     <hr>
     <component v-if="activeview" :is="&quot;view-records-&quot; + activeview"/>
@@ -30,3 +28,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.logout {
+  margin-right: 0;
+  margin-left: auto;
+}
+</style>

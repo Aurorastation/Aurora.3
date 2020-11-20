@@ -77,7 +77,9 @@
 
 	return
 
-/obj/machinery/teleport/station/attack_ai()
+/obj/machinery/teleport/station/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	src.attack_hand()
 
 /obj/machinery/computer/teleporter/attack_hand(user as mob)
@@ -233,9 +235,6 @@
 	set_overlays("controller-wires")
 
 /obj/machinery/teleport/station/attackby(var/obj/item/W)
-	src.attack_hand()
-
-/obj/machinery/teleport/station/attack_ai()
 	src.attack_hand()
 
 /obj/machinery/teleport/station/attack_hand()

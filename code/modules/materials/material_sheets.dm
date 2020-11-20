@@ -7,6 +7,7 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
+	recyclable = TRUE // Pretty much all materials should be recyclable
 
 	var/default_type = DEFAULT_WALL_MATERIAL
 	var/material/material
@@ -352,8 +353,8 @@
 /obj/item/stack/material/glass/wired
 	name = "wired glass"
 	icon = 'icons/obj/stacks/tiles.dmi'
-	icon_state = MATERIAL_GLASS_WIRED
-	default_type = "wired glass"
+	icon_state = "glass_wire"
+	default_type = MATERIAL_GLASS_WIRED
 
 /obj/item/stack/material/glass/wired/full/Initialize()
 	. = ..()

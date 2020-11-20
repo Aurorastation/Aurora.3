@@ -8,7 +8,7 @@
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -40,6 +40,11 @@
 	jumpsuit["rainbow jumpsuit"] = /obj/item/clothing/under/rainbow
 	gear_tweaks += new/datum/gear_tweak/path(jumpsuit)
 
+/datum/gear/uniform/colorjumpsuit
+	display_name = "jumpsuit (recolorable)"
+	path = /obj/item/clothing/under/color/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
 	description = "A selection of skirts."
@@ -59,6 +64,8 @@
 	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
 	skirts["skater skirt"] = /obj/item/clothing/under/skirt/skater
 	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
+	skirts["jumper skirt"] = /obj/item/clothing/under/skirt/jumper
+	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -83,12 +90,13 @@
 	suits["shiny black suit"] = /obj/item/clothing/under/lawyer/black
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
+	suits["nt skirtsuit"] = /obj/item/clothing/under/suit_jacket/nt_skirtsuit
 	gear_tweaks += new/datum/gear_tweak/path(suits)
 
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -161,6 +169,8 @@
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	pants["tacticool pants"] = /obj/item/clothing/under/pants/tacticool
 	pants["designer jeans"] = /obj/item/clothing/under/pants/designer
+	pants["ripped jeans"] = /obj/item/clothing/under/pants/ripped
+	pants["black ripped jeans"] = /obj/item/clothing/under/pants/blackripped
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
 	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/green
@@ -319,3 +329,8 @@
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
 	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
 	gear_tweaks += new/datum/gear_tweak/path(hanbok)
+
+/datum/gear/uniform/gadpathur
+	display_name = "gadpathurian fatigues"
+	path = /obj/item/clothing/under/uniform/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION

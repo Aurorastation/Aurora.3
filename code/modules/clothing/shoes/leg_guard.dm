@@ -24,7 +24,7 @@
 	desc = "These will protect your legs and feet from energy weapons."
 	icon_state = "leg_guards_laser"
 	siemens_coefficient = 0
-	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 25, bullet = 25, laser = 80, energy = 40, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/shoes/leg_guard/bulletproof
 	name = "ballistic leg guards"

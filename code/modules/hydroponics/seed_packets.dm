@@ -22,14 +22,15 @@ var/global/list/plant_seed_sprites = list()
 	update_appearance()
 
 //Updates strings and icon appropriately based on seed datum.
-/obj/item/seeds/proc/update_appearance()
-	if(!seed) return
+/obj/item/seeds/proc/update_appearance(var/ret_image = FALSE)
+	if(!seed)
+		return
 
 	// Update icon.
 	cut_overlays()
-	var/is_seeds = ((seed.seed_noun in list("seeds","pits","nodes")) ? 1 : 0)
+	var/is_seeds = ((seed.seed_noun in list(SEED_NOUN_SEEDS, SEED_NOUN_PITS, SEED_NOUN_NODES)) ? 1 : 0)
 	var/image/seed_mask
-	var/seed_base_key = "base-[is_seeds ? seed.get_trait(TRAIT_PLANT_COLOUR) : "spores"]"
+	var/seed_base_key = "base-[is_seeds ? seed.get_trait(TRAIT_PLANT_COLOUR) : SEED_NOUN_SPORES]"
 	if(plant_seed_sprites[seed_base_key])
 		seed_mask = plant_seed_sprites[seed_base_key]
 	else
@@ -52,10 +53,21 @@ var/global/list/plant_seed_sprites = list()
 
 	if(is_seeds)
 		src.name = "packet of [seed.seed_name] [seed.seed_noun]"
-		src.desc = "It has a picture of [seed.display_name] on the front."
+		src.desc = "It has a picture of \a [seed.display_name] on the front."
 	else
 		src.name = "sample of [seed.seed_name] [seed.seed_noun]"
-		src.desc = "It's labelled as coming from [seed.display_name]."
+		src.desc = "It's labelled as coming from \a [seed.display_name]."
+
+	if(ret_image)
+		var/icon/sm = icon('icons/obj/seeds.dmi', "[is_seeds ? "seed" : "spore"]-mask")
+		var/icon/so = icon('icons/obj/seeds.dmi', "[seed.get_trait(TRAIT_PRODUCT_ICON)]")
+		var/p_color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
+		so *= p_color
+		if(is_seeds)
+			var/s_color = seed.get_trait(TRAIT_PLANT_COLOUR)
+			sm *= s_color
+		sm.Blend(so, ICON_OVERLAY)
+		return sm
 
 /obj/item/seeds/examine(mob/user)
 	..(user)
@@ -63,7 +75,7 @@ var/global/list/plant_seed_sprites = list()
 		to_chat(user, "It's tagged as variety #[seed.uid].")
 
 /obj/item/seeds/cutting
-	name = "cuttings"
+	name = SEED_NOUN_CUTTINGS
 	desc = "Some plant cuttings."
 
 /obj/item/seeds/cutting/update_appearance()

@@ -63,34 +63,3 @@
 	. = ..()
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
-/obj/item/mech_component/chassis/superheavy
-	name = "reinforced exosuit chassis"
-	hatch_descriptor = "hatch"
-	desc = "The HI-Koloss chassis is a veritable juggernaut, capable of protecting a pilot even in the most hostile of environments. It handles like a battlecruiser, however."
-	pilot_coverage = 100
-	exosuit_desc_string = "a heavily armored chassis"
-	icon_state = "heavy_body"
-	max_damage = 450
-	mech_health = 1250
-	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	power_use = 15000
-
-/obj/item/mech_component/chassis/superheavy/prebuild()
-	. = ..()
-	cell = new /obj/item/cell/super(src)
-	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
-
-/mob/living/heavy_vehicle/premade/superheavy
-	name = "Marauder"
-	desc = "Heavy-duty, combat exosuit, developed after the Durand model. Rarely found among civilian populations."
-	icon_state = "darkgygax"
-
-	e_head = /obj/item/mech_component/sensors/heavy
-	e_body = /obj/item/mech_component/chassis/superheavy
-	e_arms = /obj/item/mech_component/manipulators/heavy
-	e_legs = /obj/item/mech_component/propulsion/heavy
-	e_color = COLOR_DARK_GUNMETAL
-
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/missile
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/pulse
-	h_r_hand = /obj/item/mecha_equipment/mounted_system/taser/smg

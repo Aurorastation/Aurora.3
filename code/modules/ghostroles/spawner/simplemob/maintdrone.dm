@@ -1,7 +1,7 @@
 /datum/ghostspawner/simplemob/maintdrone
 	short_name = "maintdrone"
-	name = "Maintenence Drone"
-	desc = "Maintain and Improve the Systems on the Aurora"
+	name = "Maintenance Drone"
+	desc = "Maintain and Improve the Systems on the Aurora."
 	show_on_job_select = FALSE
 	tags = list("Simple Mobs")
 
@@ -9,15 +9,25 @@
 	jobban_job = "Cyborg"
 
 	//Vars regarding the mob to use
-	spawn_mob = /mob/living/simple_animal/rat //The mob that should be spawned
+	spawn_mob = /mob/living/silicon/robot/drone //The mob that should be spawned
 
-/datum/ghostspawner/simplemob/maintdrone/cant_see()
+// we fake it here to ensure it pops up and gets added to SSghostroles.spawners, handling of the fabricators is done below
+/datum/ghostspawner/simplemob/maintdrone/select_spawnlocation()
+	return TRUE
+
+/datum/ghostspawner/simplemob/maintdrone/cant_spawn()
 	if(!config.allow_drone_spawn)
 		return "Spawning as drone is disabled"
+	if(count_drones() >= config.max_maint_drones)
+		return "The maximum number of active drones has been reached"
+	var/has_active_fabricator = FALSE
+	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
+		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
+			continue
+		has_active_fabricator = TRUE
+	if(!has_active_fabricator)
+		return "There are no active fabricators to spawn at"
 	return ..()
-
-/datum/ghostspawner/simplemob/maintdrone/select_spawnpoint(var/use)
-	return TRUE //We just fake it here, since the spawnpoint is selected if someone is spawned in.
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/simplemob/maintdrone/spawn_mob(mob/user)

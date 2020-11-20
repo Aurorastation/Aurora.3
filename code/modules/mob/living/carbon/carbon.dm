@@ -255,10 +255,14 @@
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
 					status += SPAN_DANGER("bleeding")
-				if(status.len)
-					src.show_message("My [org.name] is [SPAN_WARNING("[english_list(status)].")]", 1)
+				var/output = ""
+				if(length(status))
+					output = "My [org.name] is [SPAN_WARNING("[english_list(status)].")]"
 				else
-					src.show_message("My [org.name] feels [SPAN_NOTICE("OK.")]" ,1)
+					output = "My [org.name] feels [SPAN_NOTICE("OK.")]"
+				if(length(org.implants))
+					output += " [SPAN_WARNING("I can feel something inside it.")]"
+				to_chat(src, output)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -485,3 +489,7 @@
 	for(var/source in stasis_sources)
 		stasis_value += stasis_sources[source]
 	stasis_sources.Cut()
+
+/mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(eyecheck() < intensity || override_blindness_check)
+		return ..()

@@ -124,7 +124,7 @@
 
 	if(!check_rights(R_ADMIN, TRUE))
 		return
-	
+
 	var/list/mob/message_mobs = list()
 	var/choice = alert(usr, "Local narrate will send a plain message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", "In my view", "In range of me", "Cancel")
 	if(choice != "Cancel")
@@ -190,12 +190,12 @@ proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 		if(!usr || !usr.client)
 			return
 		if(!usr.client.holder)
-			to_chat(usr, "<font color='red'>Error: cmd_admin_mute: You don't have permission to do this.</font>")
+			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: You don't have permission to do this.</span>")
 			return
 		if(!M.client)
-			to_chat(usr, "<font color='red'>Error: cmd_admin_mute: This mob doesn't have a client tied to it.</font>")
+			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: This mob doesn't have a client tied to it.</span>")
 		if(M.client.holder)
-			to_chat(usr, "<font color='red'>Error: cmd_admin_mute: You cannot mute an admin/mod.</font>")
+			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: You cannot mute an admin/mod.</span>")
 	if(!M.client)		return
 	if(M.client.holder)	return
 
@@ -285,7 +285,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 /client/proc/allow_character_respawn()
 	set category = "Special Verbs"
 	set name = "Allow player to respawn"
-	set desc = "Let's the player bypass the 30 minute wait to respawn or allow them to re-enter their corpse."
+	set desc = "Lets the player bypass the wait to respawn or allow them to re-enter their corpse."
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 	var/list/ghosts = get_ghosts(1,1,src)
@@ -313,15 +313,15 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 		to_chat(src, "Something went wrong, couldn't find the target's preferences datum")
 		return 0
 
-	for (var/entry in P.time_of_death)//Set all the prefs' times of death to a huge negative value so any respawn timers will be fine
+	for (var/entry in P.time_of_death) //Set all the prefs' times of death to a huge negative value so any respawn timers will be fine
 		P.time_of_death[entry] = -99999
 
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(text("<span class='notice'><B>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
-	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the 30 minute respawn limit",admin_key=key_name(usr),ckey=key_name(G))
-	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit", 1)
+	G:show_message(text("<span class='notice'><B>You may now respawn. You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
+	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the [config.respawn_delay] minute respawn limit", admin_key=key_name(usr), ckey=key_name(G))
+	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the [config.respawn_delay] minute respawn limit", 1)
 
 /client/proc/allow_stationbound_reset(mob/living/silicon/robot/R in range(world.view))
 	set category = "Special Verbs"
@@ -430,7 +430,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			break
 
 	if(!G_found)//If a ghost was not found.
-		to_chat(usr, "<font color='red'>There is no active key like that in the game or the person is not currently a ghost.</font>")
+		to_chat(usr, "<span class='warning'>There is no active key like that in the game or the person is not currently a ghost.</span>")
 		return
 
 	var/mob/living/carbon/human/new_character = new(pick(latejoin))//The mob being spawned.
@@ -629,7 +629,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			to_world("<span class='warning'>New [current_map.company_name] Update available at all communication consoles.</span>")
-			to_world(sound('sound/AI/commandreport.ogg'))
+			sound_to(world, ('sound/AI/commandreport.ogg'))
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] has created a command report", 1)
@@ -680,7 +680,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	for(var/datum/job/job in SSjobs.occupations)
-		to_chat(src, "[job.title]: [job.total_positions]")
+		to_chat(src, "[job.title]: [job.get_total_positions() == -1 ? "unlimited" : job.get_total_positions()]")
 	feedback_add_details("admin_verb","LFS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_explosion(atom/O as obj|mob|turf in range(world.view))

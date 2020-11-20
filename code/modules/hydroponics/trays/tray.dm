@@ -1,5 +1,6 @@
 /obj/machinery/portable_atmospherics/hydroponics
 	name = "hydroponics tray"
+	desc = "A mechanical basin designed to nurture plants and other aquatic life. It has various useful sensors."
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "hydrotray3"
 	density = 1
@@ -143,7 +144,7 @@
 		if(nymph.nutrition > 100 && nutrilevel < 10)
 			nymph.adjustNutritionLoss((10-nutrilevel)*5)
 			nutrilevel = 10
-			nymph.visible_message("<font color='blue'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</font>","<font color='blue'>You secrete a trickle of green liquid, refilling [src].</font>")
+			nymph.visible_message("<span class='notice'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</span>","<span class='notice'>You secrete a trickle of green liquid, refilling [src].</span>")
 		return//Nymphs cant open and close lids
 	if(mechanical && !usr.incapacitated() && Adjacent(usr))
 		close_lid(usr)
@@ -151,8 +152,7 @@
 	return ..()
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/abstract/observer/user)
-
-	if(!(harvest && seed && seed.has_mob_product))
+	if(!(harvest && seed && ispath(seed.product_type, /mob)))
 		return
 
 	var/datum/ghosttrap/plant/G = get_ghost_trap("living plant")
@@ -177,18 +177,18 @@
 		if(weedlevel > 0)
 			nymph.ingested.add_reagent(/datum/reagent/nutriment, weedlevel/6)
 			weedlevel = 0
-			nymph.visible_message("<font color='blue'><b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily.</font>","<font color='blue'>You root through [src], ripping out weeds and eating them noisily.</font>")
+			nymph.visible_message("<span class='notice'><b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily.</span>","<span class='notice'>You root through [src], ripping out weeds and eating them noisily.</span>")
 			return
 		if (dead)//Let nymphs eat dead plants
 			nymph.ingested.add_reagent(/datum/reagent/nutriment, 1)
-			nymph.visible_message("<font color='blue'><b>[nymph]</b> rips out the dead plants from [src], and loudly munches them.</font>","<font color='blue'>You root out the dead plants in [src], eating them with loud chewing sounds.</font>")
+			nymph.visible_message("<span class='notice'><b>[nymph]</b> rips out the dead plants from [src], and loudly munches them.</span>","<span class='notice'>You root out the dead plants in [src], eating them with loud chewing sounds.</span>")
 			remove_dead(user)
 			return
 		if (harvest)
 			harvest(user)
 			return
 		else
-			nymph.visible_message("<font color='blue'><b>[nymph]</b> rolls around in [src] for a bit.</font>","<font color='blue'>You roll around in [src] for a bit.</font>")
+			nymph.visible_message("<span class='notice'><b>[nymph]</b> rolls around in [src] for a bit.</span>","<span class='notice'>You roll around in [src] for a bit.</span>")
 		return
 
 /obj/machinery/portable_atmospherics/hydroponics/New()
@@ -328,7 +328,8 @@
 
 //Clears out a dead plant.
 /obj/machinery/portable_atmospherics/hydroponics/proc/remove_dead(var/mob/user)
-	if(!user || !dead) return
+	if(!user || !dead || !seed)
+		return
 
 	if(closed_system)
 		to_chat(user, "You can't remove the dead plant while the lid is shut.")
@@ -520,6 +521,10 @@
 			if(!S.seed)
 				to_chat(user, "The packet seems to be empty. You throw it away.")
 				qdel(O)
+				return
+
+			if(S.seed.hydrotray_only && !mechanical)
+				to_chat(user, SPAN_WARNING("This packet can only be planted in a hydroponics tray."))
 				return
 
 			to_chat(user, "You plant the [S.seed.seed_name] [S.seed.seed_noun].")

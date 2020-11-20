@@ -159,12 +159,13 @@
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/flashlight/flare,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/melee,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,
 		/obj/item/shield/energy,
@@ -222,7 +223,7 @@
 		/obj/item/ammo_magazine,
 		/obj/item/melee/baton,
 		/obj/item/device/flashlight,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/melee,
 		/obj/item/shield/energy,
@@ -252,7 +253,7 @@
 	desc = "A belt used to hold most janitorial supplies."
 	icon_state = "janibelt"
 	item_state = "janibelt"
-	storage_slots = 6
+	storage_slots = 8
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
@@ -390,7 +391,7 @@
 		/obj/item/ammo_magazine,
 		/obj/item/melee/baton,
 		/obj/item/device/flashlight,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/melee,
 		/obj/item/crowbar,
@@ -419,6 +420,12 @@
 	max_w_class = ITEMSIZE_SMALL
 	storage_slots = null
 	max_storage_space = 8
+
+/obj/item/storage/belt/fannypack/component
+	name = "component pouch"
+	desc = "A dorky fannypack for keeping small items in. Also stores magickal components!"
+	starts_with = list(/obj/item/toy/snappop/syndi = 3, /obj/item/reagent_containers/glass/beaker/vial/random/toxin = 2, /obj/item/storage/pill_bottle/dice = 1)
+	max_storage_space = 14
 
 /obj/item/storage/belt/fannypack/black
  	name = "black fannypack"

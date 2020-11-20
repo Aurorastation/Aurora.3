@@ -2,7 +2,8 @@
 	name = "station intercom (General)"
 	desc = "Talk through this."
 	icon_state = "intercom"
-	anchored = 1
+	anchored = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	w_class = ITEMSIZE_LARGE
 	canhear_range = 2
 	flags = CONDUCT | NOBLOODY
@@ -107,6 +108,8 @@
 	return ..()
 
 /obj/item/device/radio/intercom/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	src.add_fingerprint(user)
 	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 

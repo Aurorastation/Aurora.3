@@ -1730,7 +1730,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell,/datum/species/vox)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell)
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -1933,6 +1933,10 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "unathi_bighorn"
 			length = 5
 			chatname = "horns"
+
+			una_bighorns_noside
+				name = "Unathi Big Horns (No Sides)"
+				icon_state = "unathi_bighorn_nosides"
 
 		una_chinhorn
 			name = "Unathi Chin Horn"
@@ -2346,42 +2350,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "msai_victory"
 			chatname = "curls"
 
-//vox hair
-
-	vox_quills_kingly
-		icon = 'icons/mob/human_face/vox_hair.dmi'
-		name = "Kingly Vox Quills"
-		icon_state = "vox_kingly"
-		species_allowed = list(/datum/species/vox)
-		chatname = "quills"
-
-		vox_braid_long
-			name = "Vox Braid Long"
-			icon_state = "vox_braid_long"
-			chatname = "quills"
-
-		vox_braid_short
-			name = "Vox Braid Short"
-			icon_state = "vox_braid_short"
-			chatname = "quills"
-
-		vox_quills_short
-			name = "Short Vox Quills"
-			icon_state = "vox_shortquills"
-			chatname = "quills"
-
-		vox_quills_mohawk
-			name = "Quill Mohawk"
-			icon_state = "vox_mohawk"
-			chatname = "quills"
-
-		vox_stubble
-			name = "Vox Stubble"
-			icon_state = "vox_stubble"
-			chatname = "quills"
-
 //vaurca antennae
-
 	vaurca_classic
 		icon = 'icons/mob/human_face/vaurca_hair.dmi'
 		name = "Classic Antennae"
