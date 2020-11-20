@@ -6548,7 +6548,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(47)
+	req_access = list(8)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab{
@@ -9896,6 +9896,16 @@
 	c_tag = "Research - Research Storage";
 	dir = 4
 	},
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/item/stack/material/steel{
+	amount = 50
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab{
 	name = "Research - R&D Storage"
@@ -9921,7 +9931,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/door/airlock/research{
 	name = "Research storage";
-	req_access = list(47)
+	req_access = list(7)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -36573,7 +36583,7 @@
 	},
 /obj/machinery/door/window{
 	dir = 1;
-	req_access = list(30)
+	req_access = list(7)
 	},
 /obj/structure/table/reinforced{
 	table_mat = "steel";
@@ -44791,12 +44801,6 @@
 /area/rnd/lab)
 "bAS" = (
 /obj/structure/table/standard,
-/obj/item/stack/material/steel{
-	amount = 50
-	},
-/obj/item/stack/material/glass{
-	amount = 50
-	},
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
