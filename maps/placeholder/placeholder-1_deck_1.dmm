@@ -3,9 +3,8 @@
 /turf/template_noop,
 /area/template_noop)
 "ah" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "7,5"
-	},
+/obj/machinery/floodlight,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "ak" = (
 /obj/structure/bed/chair/shuttle{
@@ -31,7 +30,9 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "aE" = (
-/obj/machinery/door/firedoor,
+/obj/item/device/radio/off{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aF" = (
@@ -44,13 +45,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/janitor)
-"aN" = (
-/obj/machinery/mineral/equipment_vendor,
-/turf/simulated/floor/tiled,
+"aO" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/janitor)
 "aS" = (
-/obj/effect/decal/fake_object,
-/turf/simulated/floor/tiled,
+/obj/machinery/conveyor{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
 /area/janitor)
 "aT" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -111,9 +115,9 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "bH" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "7,6"
-	},
+/obj/machinery/mineral/processing_unit,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
 /area/janitor)
 "bK" = (
 /obj/structure/table/stone/marble,
@@ -134,17 +138,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"bP" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/head/helmet/space/void/mining,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/janitor)
 "bU" = (
 /turf/simulated/floor/shuttle/black,
 /area/template_noop)
@@ -180,10 +173,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "cj" = (
-/obj/structure/window/shuttle/unique/mercenary/small{
-	icon_state = "6,11"
+/obj/structure/closet/secure_closet/miner,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "cr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -193,7 +187,7 @@
 /area/template_noop)
 "cs" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "0,1"
+	icon_state = "6,1"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -215,7 +209,7 @@
 /area/template_noop)
 "cG" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "1,9"
+	icon_state = "7,9"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -246,6 +240,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"db" = (
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "3,0"
+	},
+/turf/unsimulated/floor/plating,
+/area/janitor)
 "dc" = (
 /obj/machinery/weapons_analyzer,
 /obj/effect/floor_decal/corner_wide/purple{
@@ -314,6 +314,12 @@
 /obj/structure/grille,
 /turf/template_noop,
 /area/template_noop)
+"ee" = (
+/obj/structure/shuttle/engine/propulsion/burst/right{
+	dir = 8
+	},
+/turf/unsimulated/floor/plating,
+/area/janitor)
 "ei" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -337,9 +343,7 @@
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "et" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 2
-	},
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eu" = (
@@ -406,11 +410,8 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "fp" = (
-/obj/structure/window/shuttle/unique/mercenary/small{
-	icon_state = "2,13";
-	outside_window = 1
-	},
-/turf/unsimulated/floor/plating,
+/obj/vehicle/train/cargo/engine,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "fu" = (
 /obj/machinery/conveyor{
@@ -457,9 +458,11 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "fG" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "3,9"
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "mining_internal"
 	},
+/turf/simulated/floor/plating,
 /area/janitor)
 "fH" = (
 /obj/structure/window/reinforced{
@@ -480,9 +483,9 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "fN" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "7,4"
-	},
+/obj/machinery/mineral/stacking_machine,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
 /area/janitor)
 "fO" = (
 /obj/structure/table/reinforced,
@@ -566,10 +569,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/janitor)
-"gK" = (
-/obj/machinery/mineral/rigpress,
-/turf/simulated/floor/tiled,
-/area/janitor)
 "gM" = (
 /turf/simulated/wall/shuttle/cardinal,
 /area/template_noop)
@@ -580,9 +579,12 @@
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "gP" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "2,9"
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "mining_internal"
 	},
+/turf/simulated/floor/plating,
 /area/janitor)
 "gR" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -593,6 +595,12 @@
 "gX" = (
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
+/area/janitor)
+"gY" = (
+/obj/structure/bed/chair/office/bridge/pilot{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_blue,
 /area/janitor)
 "gZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -617,9 +625,10 @@
 	},
 /area/janitor)
 "hp" = (
-/obj/structure/closet/secure_closet/miner,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/conveyor{
+	dir = 9;
+	id = "mining_internal";
+	reversed = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -687,10 +696,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "hV" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "0,3"
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
-/turf/unsimulated/floor/plating,
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "ib" = (
 /obj/machinery/suit_cycler/science,
@@ -709,8 +720,9 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "io" = (
-/obj/structure/bed/chair/office/bridge/pilot,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/conveyor,
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/plating,
 /area/janitor)
 "ip" = (
 /obj/structure/table/reinforced,
@@ -763,7 +775,7 @@
 /area/janitor)
 "iD" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "1,12"
+	icon_state = "7,12"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -786,10 +798,8 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "iL" = (
-/obj/structure/window/shuttle/unique/mercenary/small{
-	icon_state = "2,11"
-	},
-/turf/simulated/floor/plating,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "iN" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -822,10 +832,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "iZ" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/mineral/unloading_machine,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/janitor)
 "jc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -884,10 +893,12 @@
 	},
 /area/janitor)
 "jB" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "7,12"
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/turf/unsimulated/floor/plating,
+/obj/structure/window/reinforced,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "jC" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -896,14 +907,8 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "jF" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(150)
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/window/southleft,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "jG" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -947,14 +952,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"kg" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/janitor)
 "km" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
 	icon_state = "4,2"
 	},
 /area/template_noop)
 "kw" = (
-/obj/machinery/floodlight,
-/turf/simulated/floor/plating,
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "kA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -996,11 +1005,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"kS" = (
+"kQ" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "7,1"
+	icon_state = "4,1"
 	},
 /turf/unsimulated/floor/plating,
+/area/janitor)
+"kS" = (
+/obj/structure/window/reinforced,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "kV" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -1009,8 +1023,10 @@
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "lf" = (
-/obj/machinery/door/airlock/medical,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/janitor)
 "lh" = (
 /obj/effect/decal/fake_object/light_source/invisible,
@@ -1097,6 +1113,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"mg" = (
+/obj/structure/shuttle/engine/propulsion/burst/left{
+	dir = 8
+	},
+/turf/unsimulated/floor/plating,
+/area/janitor)
 "mm" = (
 /obj/item/device/mass_spectrometer,
 /obj/structure/table/steel,
@@ -1106,8 +1128,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "mn" = (
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "6,2"
+	},
+/area/janitor)
+"mo" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "0,2"
+	density = 0;
+	icon_state = "4,0"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -1147,15 +1175,23 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "mH" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "7,11"
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/turf/unsimulated/floor/plating,
+/obj/structure/window/reinforced,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "mK" = (
 /turf/simulated/wall/shuttle/unique/cargo{
 	icon_state = "1,10"
 	},
+/area/janitor)
+"mQ" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/janitor)
 "mT" = (
 /obj/item/autopsy_scanner,
@@ -1166,11 +1202,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "mU" = (
-/obj/structure/window/shuttle/unique/mercenary/small{
-	icon_state = "2,12";
-	outside_window = 1
+/obj/machinery/door/blast/shutters/open{
+	dir = 4
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "mX" = (
 /obj/machinery/gibber,
@@ -1180,26 +1215,16 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "nb" = (
-/obj/machinery/suit_cycler/mining,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ne" = (
-/obj/structure/window/shuttle/unique/mercenary/small{
-	icon_state = "6,12";
-	outside_window = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/janitor)
-"np" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "0,5"
-	},
-/obj/structure/shuttle_part/mercenary/small{
-	density = 0;
-	icon_state = "0,6";
-	pixel_y = 32
-	},
-/turf/unsimulated/floor/plating,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "ns" = (
 /turf/unsimulated/wall/fakepdoor,
@@ -1218,10 +1243,11 @@
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "nA" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "3,0"
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
 	},
-/turf/unsimulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "nG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -1322,27 +1348,23 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ou" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "8,5"
-	},
-/obj/structure/shuttle_part/mercenary/small{
-	density = 0;
-	icon_state = "8,6";
-	pixel_y = 32
-	},
-/turf/unsimulated/floor/plating,
-/area/janitor)
-"ow" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "6,1"
-	},
-/turf/unsimulated/floor/plating,
-/area/janitor)
-"ox" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
+/area/janitor)
+"ow" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/tiled,
+/area/janitor)
+"ox" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "oC" = (
 /obj/structure/table/steel,
@@ -1412,10 +1434,8 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "po" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "5,1"
-	},
-/turf/unsimulated/floor/plating,
+/obj/machinery/mineral/rigpress,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "pq" = (
 /obj/machinery/computer/general_air_control/large_tank_control,
@@ -1428,12 +1448,6 @@
 "pt" = (
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
-"pA" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/janitor)
 "pC" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 9
@@ -1445,8 +1459,8 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "pH" = (
-/obj/structure/computerframe,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "pM" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -1481,13 +1495,10 @@
 /turf/unsimulated/floor/plating,
 /area/template_noop)
 "pY" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "8,3"
 	},
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/firstaid/o2,
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "qb" = (
 /obj/structure/table/rack,
@@ -1588,9 +1599,8 @@
 	},
 /area/template_noop)
 "qD" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "7,3"
-	},
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "qG" = (
 /obj/structure/table/stone/marble,
@@ -1704,21 +1714,6 @@
 /area/janitor)
 "rA" = (
 /obj/machinery/door/blast/regular/open{
-	id = "mercelite_port";
-	name = "blastdoor"
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "mercelite_port";
-	name = "external blast door";
-	pixel_x = -1;
-	pixel_y = 28;
-	req_access = list(150)
-	},
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/dark,
-/area/janitor)
-"rB" = (
-/obj/machinery/door/blast/regular/open{
 	id = "mercelite_starboard";
 	name = "blastdoor"
 	},
@@ -1731,6 +1726,10 @@
 	},
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark,
+/area/janitor)
+"rB" = (
+/obj/machinery/suit_cycler/mining,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "rD" = (
 /obj/effect/floor_decal/corner_wide/purple{
@@ -1756,10 +1755,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "rQ" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "7,9"
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "mining_internal"
 	},
-/turf/unsimulated/floor/plating,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
 /area/janitor)
 "rW" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -1782,10 +1785,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "sk" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "3,1"
+/obj/machinery/door/blast/shutters/open{
+	dir = 2
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "sl" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1805,7 +1808,7 @@
 /area/template_noop)
 "sC" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "1,8"
+	icon_state = "7,8"
 	},
 /area/janitor)
 "sD" = (
@@ -1867,21 +1870,12 @@
 /area/janitor)
 "sY" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "1,4"
+	icon_state = "7,4"
 	},
 /area/janitor)
 "tb" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/obj/machinery/vending/wallmed1{
-	layer = 3.3;
-	name = "Emergency NanoMed";
-	pixel_x = -25;
-	req_access = null
-	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/door/airlock/glass_mining,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "td" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -1971,9 +1965,11 @@
 	},
 /area/janitor)
 "tC" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "6,10"
+/obj/structure/window/shuttle/unique/mercenary/small{
+	icon_state = "2,13";
+	outside_window = 1
 	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "tG" = (
 /obj/effect/floor_decal/corner_wide/purple{
@@ -1983,6 +1979,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/janitor)
+"tK" = (
+/obj/machinery/door/airlock/external,
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "tM" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
@@ -2042,10 +2042,11 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "uk" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
+/obj/structure/window/shuttle/unique/mercenary/small{
+	icon_state = "3,13";
+	outside_window = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "un" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2127,8 +2128,8 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "vc" = (
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/unique/mercenary/small,
+/turf/simulated/floor/plating,
 /area/janitor)
 "vi" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -2216,9 +2217,9 @@
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "vQ" = (
-/obj/structure/shuttle_part/mercenary/small{
-	density = 0;
-	icon_state = "4,0"
+/obj/structure/window/shuttle/unique/mercenary/small{
+	icon_state = "5,13";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -2259,8 +2260,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "ws" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/unique/mercenary/small{
+	icon_state = "6,13";
+	outside_window = 1
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "wt" = (
 /obj/machinery/meter,
@@ -2338,12 +2342,10 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "xB" = (
-/obj/machinery/conveyor{
-	backwards = 10;
-	dir = 5;
-	id = null
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "1,12"
 	},
-/turf/simulated/floor/tiled,
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "xC" = (
 /obj/machinery/conveyor{
@@ -2423,8 +2425,11 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "yr" = (
-/obj/structure/bed/chair/shuttle,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/window/shuttle/unique/mercenary/small{
+	icon_state = "2,12";
+	outside_window = 1
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "yy" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -2523,10 +2528,8 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "zk" = (
-/obj/machinery/conveyor{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/black,
 /area/janitor)
 "zl" = (
 /obj/structure/window/shuttle/unique/mercenary/small{
@@ -2610,6 +2613,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"zR" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/janitor)
 "zV" = (
 /obj/structure/window/shuttle/unique/mercenary/small{
 	icon_state = "5,13";
@@ -2669,14 +2676,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "AE" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "7,0"
+/obj/structure/table/stone/marble,
+/obj/machinery/recharger{
+	pixel_x = 10;
+	pixel_y = 9
 	},
-/turf/unsimulated/floor/plating,
+/obj/item/device/binoculars{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/turf/simulated/floor/shuttle/black,
 /area/janitor)
 "AJ" = (
-/obj/machinery/door/airlock/glass_mining,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/unique/mercenary/small{
+	icon_state = "6,12";
+	outside_window = 1
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "AK" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -2711,7 +2727,7 @@
 /area/janitor)
 "AU" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "5,0"
+	icon_state = "1,11"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -2742,16 +2758,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Bf" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/structure/window/shuttle/unique/mercenary/small{
+	icon_state = "2,11"
 	},
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 24;
-	pixel_y = 1
-	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/plating,
 /area/janitor)
 "Bi" = (
 /obj/effect/floor_decal/corner/purple{
@@ -2769,6 +2779,13 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Bo" = (
@@ -2800,8 +2817,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "BG" = (
-/obj/vehicle/train/cargo/trolley,
-/turf/simulated/floor/tiled,
+/obj/structure/bed/chair/office/bridge/pilot,
+/turf/simulated/floor/shuttle/black,
 /area/janitor)
 "BH" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2845,26 +2862,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Cs" = (
-/obj/structure/table/stone/marble,
-/obj/machinery/recharger{
-	pixel_x = 10;
-	pixel_y = 9
-	},
-/obj/item/device/binoculars{
-	pixel_x = -6;
-	pixel_y = 7
-	},
 /turf/simulated/floor/shuttle/black,
-/area/janitor)
-"Cw" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 2
-	},
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/tiled,
 /area/janitor)
 "CC" = (
 /obj/machinery/mech_recharger,
@@ -2905,9 +2903,10 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "CP" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "6,9"
+/obj/structure/window/shuttle/unique/mercenary/small{
+	icon_state = "6,11"
 	},
+/turf/simulated/floor/plating,
 /area/janitor)
 "CV" = (
 /obj/item/ladder_mobile,
@@ -2915,8 +2914,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "CX" = (
-/obj/vehicle/train/cargo/engine,
-/turf/simulated/floor/tiled,
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "1,10"
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "CZ" = (
 /obj/item/pickaxe/drill{
@@ -2940,17 +2941,10 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Dk" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
-	},
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/plating,
-/area/janitor)
 "Dl" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "2,10"
+	},
 /area/janitor)
 "Dm" = (
 /obj/machinery/floodlight,
@@ -2987,13 +2981,16 @@
 /area/template_noop)
 "DC" = (
 /obj/machinery/light{
-	dir = 4;
+	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/structure/closet/secure_closet{
-	req_access = list(150)
+/obj/machinery/vending/wallmed1{
+	layer = 3.3;
+	name = "Emergency NanoMed";
+	pixel_x = -25;
+	req_access = null
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/shuttle/black,
 /area/janitor)
 "DE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -3010,6 +3007,12 @@
 "DM" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
+/area/janitor)
+"DQ" = (
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "2,0"
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "DS" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
@@ -3092,9 +3095,16 @@
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Et" = (
-/obj/machinery/mineral/processing_unit,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = 24;
+	pixel_y = 1
+	},
+/turf/simulated/floor/shuttle/black,
 /area/janitor)
 "Ev" = (
 /obj/structure/table/rack,
@@ -3129,10 +3139,9 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "EA" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "4,1"
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "6,10"
 	},
-/turf/unsimulated/floor/plating,
 /area/janitor)
 "EC" = (
 /obj/structure/bed/chair/shuttle{
@@ -3147,6 +3156,15 @@
 "EF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
+"EI" = (
+/obj/machinery/conveyor{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -3166,23 +3184,13 @@
 /area/janitor)
 "ER" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "1,11"
+	icon_state = "7,11"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
-"ES" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 2
-	},
-/turf/simulated/floor/tiled,
-/area/janitor)
 "ET" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "1,6"
+	icon_state = "7,6"
 	},
 /area/janitor)
 "EV" = (
@@ -3216,9 +3224,10 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "Fm" = (
-/obj/machinery/mineral/stacking_machine,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "1,9"
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "Fn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -3263,6 +3272,12 @@
 	icon_state = "1,5"
 	},
 /area/template_noop)
+"FL" = (
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "5,0"
+	},
+/turf/unsimulated/floor/plating,
+/area/janitor)
 "FO" = (
 /turf/simulated/wall/shuttle/unique/cargo{
 	icon_state = "0,8"
@@ -3282,17 +3297,15 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "FW" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
-	},
 /obj/structure/railing/mapped,
+/obj/machinery/conveyor{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "FY" = (
 /obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3318,6 +3331,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
+/area/janitor)
+"Gp" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_blue,
 /area/janitor)
 "Gt" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -3376,9 +3395,7 @@
 /area/janitor)
 "GL" = (
 /obj/machinery/conveyor{
-	dir = 9;
-	id = "mining_internal";
-	reversed = 1
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3395,10 +3412,9 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "GV" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "8,2"
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "2,9"
 	},
-/turf/unsimulated/floor/plating,
 /area/janitor)
 "GX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3452,7 +3468,7 @@
 /area/template_noop)
 "Ht" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "1,5"
+	icon_state = "7,5"
 	},
 /area/janitor)
 "Hu" = (
@@ -3490,7 +3506,7 @@
 /area/template_noop)
 "HM" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "2,10"
+	icon_state = "3,9"
 	},
 /area/janitor)
 "HR" = (
@@ -3569,7 +3585,7 @@
 /area/janitor)
 "Ir" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "2,1"
+	icon_state = "8,1"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -3613,6 +3629,12 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/template_noop)
+"IQ" = (
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "6,0"
+	},
+/turf/unsimulated/floor/plating,
+/area/janitor)
 "IR" = (
 /obj/structure/shuttle_part/cargo{
 	icon_state = "6,10";
@@ -3643,6 +3665,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/janitor)
+"Jo" = (
+/obj/effect/decal/fake_object,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Jr" = (
 /turf/simulated/floor/carpet/rubber,
 /area/janitor)
@@ -3652,11 +3678,6 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/janitor)
-"Ju" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
 /area/janitor)
 "Jv" = (
 /obj/structure/ladder/up{
@@ -3671,16 +3692,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
-"Jy" = (
+"Jx" = (
 /obj/machinery/conveyor,
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
+/area/janitor)
+"Jy" = (
+/obj/machinery/mineral/equipment_vendor,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "JC" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "2,0"
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "5,9"
 	},
-/turf/unsimulated/floor/plating,
 /area/janitor)
 "JF" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -3694,14 +3717,13 @@
 /area/janitor)
 "JI" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "3,2"
+	icon_state = "6,9"
 	},
 /area/janitor)
 "JJ" = (
-/obj/structure/window/reinforced{
-	dir = 8
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "1,8"
 	},
-/turf/simulated/floor/tiled,
 /area/janitor)
 "JK" = (
 /obj/effect/floor_decal/corner_wide/purple{
@@ -3713,11 +3735,14 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "JN" = (
-/obj/structure/window/shuttle/unique/mercenary/small{
-	icon_state = "5,13";
-	outside_window = 1
+/obj/structure/closet/secure_closet{
+	req_access = list(150)
 	},
-/turf/unsimulated/floor/plating,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "JO" = (
 /obj/structure/window/reinforced,
@@ -3762,6 +3787,10 @@
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"Kg" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "Kh" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
@@ -3774,9 +3803,8 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "Ku" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "7,2"
-	},
+/obj/structure/bed/chair/shuttle,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Kz" = (
 /obj/structure/ladder/up{
@@ -3792,9 +3820,8 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "KC" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3909,8 +3936,8 @@
 /turf/unsimulated/floor/plating,
 /area/janitor)
 "LR" = (
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "LS" = (
 /obj/machinery/shieldwallgen,
@@ -3992,16 +4019,29 @@
 	},
 /area/template_noop)
 "MH" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "7,8"
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
+/obj/structure/closet/secure_closet{
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "ML" = (
-/obj/structure/window/shuttle/unique/mercenary/small{
-	icon_state = "3,13";
-	outside_window = 1
+/obj/machinery/door/blast/regular/open{
+	id = "mercelite_port";
+	name = "blastdoor"
 	},
-/turf/unsimulated/floor/plating,
+/obj/machinery/button/remote/blast_door{
+	id = "mercelite_port";
+	name = "external blast door";
+	pixel_x = -1;
+	pixel_y = 28;
+	req_access = list(150)
+	},
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -4046,7 +4086,7 @@
 /area/template_noop)
 "Nm" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "6,2"
+	icon_state = "1,6"
 	},
 /area/janitor)
 "No" = (
@@ -4087,11 +4127,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "NA" = (
-/obj/item/device/radio/off{
-	pixel_y = 5
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "0,4"
 	},
-/obj/structure/table/steel,
-/turf/simulated/floor/plating,
+/turf/unsimulated/floor/plating,
+/area/janitor)
+"NB" = (
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "3,1"
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "ND" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -4106,6 +4151,9 @@
 /area/template_noop)
 "NH" = (
 /obj/structure/closet/secure_closet/miner,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "NI" = (
@@ -4131,10 +4179,10 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "NS" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "0,4"
+/obj/structure/bed/chair/shuttle{
+	dir = 8
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "NU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4256,7 +4304,9 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "OY" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small,
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "7,2"
+	},
 /area/janitor)
 "Pe" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -4278,10 +4328,9 @@
 /turf/unsimulated/floor/plating,
 /area/janitor)
 "Pk" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "6,0"
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "1,4"
 	},
-/turf/unsimulated/floor/plating,
 /area/janitor)
 "Pn" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -4321,16 +4370,14 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "PI" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "8,4"
 	},
-/obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "PK" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "8,1"
+	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -4374,7 +4421,9 @@
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Ql" = (
-/obj/structure/shuttle_part/mercenary/small,
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "7,0"
+	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
 "Qo" = (
@@ -4385,7 +4434,7 @@
 /area/janitor)
 "Qp" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "4,2"
+	icon_state = "1,3"
 	},
 /area/janitor)
 "Qq" = (
@@ -4400,6 +4449,12 @@
 	dir = 4
 	},
 /area/template_noop)
+"QC" = (
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "2,1"
+	},
+/turf/unsimulated/floor/plating,
+/area/janitor)
 "QH" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
@@ -4416,7 +4471,7 @@
 /area/janitor)
 "QL" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "1,1"
+	icon_state = "7,1"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -4461,6 +4516,13 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/template_noop)
+"Rp" = (
+/obj/machinery/conveyor{
+	dir = 6;
+	id = "mining_internal"
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "Ry" = (
 /obj/structure/bed,
 /turf/simulated/floor/reinforced,
@@ -4493,10 +4555,13 @@
 	},
 /area/janitor)
 "RN" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "8,3"
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
 	},
-/turf/unsimulated/floor/plating,
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/firstaid/o2,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "RQ" = (
 /obj/effect/floor_decal/corner_wide/purple{
@@ -4542,6 +4607,13 @@
 /obj/machinery/gibber,
 /turf/simulated/floor/tiled,
 /area/janitor)
+"Sa" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining_internal"
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "Sc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -4565,9 +4637,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"Sh" = (
+/obj/structure/shuttle_part/mercenary/small,
+/turf/unsimulated/floor/plating,
+/area/janitor)
 "Si" = (
-/obj/machinery/mineral/unloading_machine,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/conveyor{
+	dir = 9;
+	id = "mining_internal";
+	reversed = 1
+	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "Sj" = (
@@ -4609,10 +4688,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ss" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "8,5"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/shuttle_part/mercenary/small{
+	density = 0;
+	icon_state = "8,6";
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "SC" = (
 /obj/structure/closet/crate/freezer,
@@ -4702,6 +4786,12 @@
 /obj/item/stack/nanopaste,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"To" = (
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "5,1"
+	},
+/turf/unsimulated/floor/plating,
+/area/janitor)
 "Tt" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -4734,21 +4824,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"TC" = (
-/obj/structure/closet/secure_closet/miner,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/janitor)
 "TG" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "TI" = (
-/turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "2,2"
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "8,2"
 	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "TJ" = (
 /turf/simulated/wall/shuttle/legion,
@@ -4841,8 +4925,10 @@
 /turf/template_noop,
 /area/template_noop)
 "UG" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "0,2"
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "UH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -4936,10 +5022,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "VJ" = (
-/obj/structure/shuttle_part/mercenary/small{
-	icon_state = "7,10"
-	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/wall/shuttle/unique/mercenary/small,
 /area/janitor)
 "VP" = (
 /obj/machinery/conveyor{
@@ -4950,15 +5033,9 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "VU" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/head/helmet/space/void/mining,
-/obj/structure/window/reinforced{
-	dir = 8
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "2,2"
 	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled,
 /area/janitor)
 "VW" = (
 /obj/effect/floor_decal/corner_wide/purple{
@@ -5046,7 +5123,7 @@
 /area/template_noop)
 "Wx" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "5,2"
+	icon_state = "3,2"
 	},
 /area/janitor)
 "Wz" = (
@@ -5093,7 +5170,7 @@
 /area/janitor)
 "WN" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "1,10"
+	icon_state = "7,10"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -5103,10 +5180,15 @@
 /turf/template_noop,
 /area/template_noop)
 "Xg" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "0,5"
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/structure/shuttle_part/mercenary/small{
+	density = 0;
+	icon_state = "0,6";
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "Xk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -5164,21 +5246,22 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Ym" = (
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "1,5"
+	},
 /area/janitor)
 "Ys" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "5,9"
+	icon_state = "4,2"
 	},
 /area/janitor)
 "Yt" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
-	icon_state = "1,3"
+	icon_state = "7,3"
 	},
 /area/janitor)
 "Yu" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/tiled,
+/turf/simulated/wall,
 /area/janitor)
 "Yw" = (
 /obj/structure/table/steel,
@@ -5190,11 +5273,9 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Yy" = (
-/obj/structure/window/shuttle/unique/mercenary/small{
-	icon_state = "6,13";
-	outside_window = 1
+/turf/simulated/wall/shuttle/unique/mercenary/small{
+	icon_state = "5,2"
 	},
-/turf/unsimulated/floor/plating,
 /area/janitor)
 "Yz" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5279,7 +5360,7 @@
 /area/template_noop)
 "Zd" = (
 /obj/structure/shuttle_part/mercenary/small{
-	icon_state = "8,4"
+	icon_state = "0,1"
 	},
 /turf/unsimulated/floor/plating,
 /area/janitor)
@@ -5291,13 +5372,14 @@
 /area/janitor)
 "Zj" = (
 /obj/structure/bed/chair/shuttle{
-	dir = 8
+	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Zk" = (
 /obj/machinery/conveyor{
-	dir = 10
+	dir = 1;
+	id = "mining_internal"
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -5354,8 +5436,10 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "ZT" = (
-/obj/structure/window/shuttle/unique/mercenary/small,
-/turf/simulated/floor/plating,
+/obj/structure/shuttle_part/mercenary/small{
+	icon_state = "1,1"
+	},
+/turf/unsimulated/floor/plating,
 /area/janitor)
 "ZY" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -10712,24 +10796,24 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -10914,24 +10998,24 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -11115,26 +11199,26 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -11317,26 +11401,26 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -11519,27 +11603,27 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -11720,28 +11804,28 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -11922,29 +12006,29 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -12014,18 +12098,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
 aa
 aa
 aa
@@ -12124,29 +12208,29 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -12216,18 +12300,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+cC
+cC
+cC
+SS
+cC
+ax
+ax
+cC
+SS
+cw
+cw
 aa
 aa
 aa
@@ -12326,30 +12410,30 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -12418,18 +12502,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+SS
+cC
+ax
+ax
+cC
+SS
+cw
+cw
 aa
 aa
 aa
@@ -12527,31 +12611,31 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -12620,18 +12704,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+cC
+cC
+ax
+SS
+cC
+ax
+ax
+cC
+SS
+cw
+cw
 aa
 aa
 aa
@@ -12729,32 +12813,32 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -12818,22 +12902,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+NJ
+SS
+SS
+NJ
+NJ
+SS
+SS
+NE
+SS
 aa
 aa
 aa
@@ -12931,32 +13015,32 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -13020,22 +13104,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+cC
+cC
+cC
+SS
+cC
+cC
+ax
+cC
+cC
+ax
+ax
+Tt
+SS
+ax
+SS
 aa
 aa
 aa
@@ -13132,34 +13216,34 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -13222,22 +13306,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+QB
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+UU
+qy
+ax
+SS
 aa
 aa
 aa
@@ -13334,34 +13418,34 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -13424,22 +13508,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+QB
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+UU
+qA
+ax
+SS
 aa
 aa
 aa
@@ -13536,35 +13620,35 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -13626,22 +13710,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+cC
+cC
+cC
+SS
+cC
+cC
+ax
+cC
+cC
+ax
+ax
+Tt
+ax
+ax
+SS
 aa
 aa
 aa
@@ -13737,36 +13821,36 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -13828,22 +13912,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+SS
+SS
+SS
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Tt
+ax
+ax
+SS
 aa
 aa
 aa
@@ -13939,37 +14023,37 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -14030,22 +14114,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+cC
+cC
+cC
+SS
+cC
+cC
+ax
+cC
+cC
+ax
+ax
+Tt
+ax
+ax
+SS
 aa
 aa
 aa
@@ -14141,37 +14225,37 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -14232,22 +14316,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+QB
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Tt
+ax
+ax
+SS
 aa
 aa
 aa
@@ -14342,39 +14426,39 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -14434,22 +14518,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+QB
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Tt
+ax
+ax
+SS
 aa
 aa
 aa
@@ -14544,39 +14628,39 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -14636,22 +14720,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+cC
+cC
+cC
+SS
+cC
+cC
+ax
+cC
+cC
+ax
+ax
+ax
+ax
+ax
+SS
 aa
 aa
 aa
@@ -14746,40 +14830,40 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -14838,22 +14922,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+ax
+ax
+ax
+ax
+ax
+SS
 aa
 aa
 aa
@@ -14948,40 +15032,40 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 SS
 aa
 aa
@@ -15149,42 +15233,42 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -15351,42 +15435,42 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-oG
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Yu
 gI
 gI
 gI
-oG
-gI
+Yu
+et
 Vh
 Vh
-gI
-oG
-be
-be
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+et
+Yu
+Yu
+Yu
+Yu
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -15553,43 +15637,43 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-oG
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Yu
 Vh
 Vh
 Vh
-oG
-gI
+Yu
+et
 Vh
 Vh
-gI
-oG
-be
-be
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+et
+Yu
+Vh
+Vh
+Yu
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -15754,44 +15838,44 @@ aa
 aa
 aa
 SS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-oG
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Yu
 gI
 gI
 Vh
-oG
-gI
+Yu
+fp
 Vh
 Vh
-gI
-oG
-be
-be
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+fp
+Yu
+Vh
+Vh
+Yu
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -15956,45 +16040,45 @@ aa
 pg
 pg
 oG
-pg
-pg
-pg
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
 ns
-oG
-oG
+Yu
+Yu
 ns
 ns
-oG
-oG
-bE
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
+Yu
+Yu
+Vh
+Vh
+Yu
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -16158,22 +16242,22 @@ aa
 pg
 pg
 oG
-pg
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
 gI
 gI
 gI
-oG
+Yu
 gI
 gI
 Vh
@@ -16182,21 +16266,21 @@ gI
 Vh
 Vh
 FY
-oG
+Yu
+Yu
+Yu
+Yu
 Vh
-oG
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -16359,19 +16443,19 @@ aa
 aa
 pg
 oG
-pg
-pg
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
 Vh
 Vh
 Vh
@@ -16386,20 +16470,20 @@ Vh
 FW
 JO
 Vh
-oG
+Vh
+Yu
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -16561,19 +16645,19 @@ aa
 aa
 pg
 oG
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
 Vh
 Vh
 Vh
@@ -16588,20 +16672,20 @@ Vh
 FW
 Bc
 Vh
-oG
+Vh
+Yu
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -16763,48 +16847,48 @@ aa
 aa
 pg
 oG
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
 gI
 gI
 gI
-oG
+Yu
 gI
 gI
 Vh
 gI
 gI
-BG
-BG
+Vh
+Vh
 FY
 Vh
 Vh
-oG
+Vh
+Yu
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -16964,49 +17048,49 @@ aa
 aa
 aa
 oG
-pg
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
-oG
-oG
-oG
-oG
 Vh
 Vh
 Vh
 Vh
 Vh
-BG
-BG
-FY
-Vh
-Vh
-oG
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
+Yu
+Yu
+Yu
+Yu
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+GL
+Jx
+Jx
+Rp
+Yu
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 pg
@@ -17166,50 +17250,50 @@ aa
 aa
 aa
 oG
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
 gI
 gI
 gI
-oG
+Yu
 gI
 gI
 Vh
 gI
 gI
-CX
-CX
-GL
-KC
-Vh
-oG
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+FY
+Yu
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 aa
@@ -17368,20 +17452,20 @@ aa
 aa
 aa
 oG
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
 Vh
 Vh
 Vh
@@ -17396,22 +17480,22 @@ Vh
 Vh
 Vh
 Vh
-oG
+FY
+Yu
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 pg
 aa
@@ -17570,20 +17654,20 @@ aa
 aa
 aa
 oG
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
 Vh
 Vh
 Vh
@@ -17593,28 +17677,28 @@ Vh
 Vh
 Vh
 Vh
+Yu
+Yu
+mU
+mU
+mU
+EI
+Yu
 Vh
 Vh
 Vh
 Vh
 Vh
-oG
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 SS
 aa
@@ -17771,52 +17855,52 @@ aa
 aa
 aa
 SS
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
 gI
 gI
 gI
-oG
+Yu
 gI
 gI
 Vh
 gI
 gI
+Yu
+Tw
+Tw
+Tw
+mQ
+FY
+Yu
 Vh
 Vh
 Vh
 Vh
 Vh
-oG
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 SS
 SS
@@ -17973,52 +18057,52 @@ pg
 pg
 pg
 oG
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-ws
-oG
-oG
-oG
 Vh
 Vh
 Vh
 Vh
-oG
 Vh
 Vh
 Vh
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+bE
+Yu
+Yu
+Yu
+ci
+ci
+ci
+FF
+FY
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
 oG
 LS
 SS
@@ -18175,37 +18259,37 @@ pg
 pg
 pg
 oG
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-oG
-Dl
-kw
-kw
-oG
-be
-be
-be
-be
-be
-oG
 Vh
 Vh
 Vh
 Vh
-oG
 Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+be
+be
+be
+be
+be
+be
+be
+be
+be
+Yu
+ci
+ci
+ci
+FF
+FY
+Yu
 Vh
 Vh
 be
@@ -18370,44 +18454,44 @@ aa
 aa
 aa
 aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
 oG
-NA
-be
-be
 oG
-be
-be
-be
-be
-be
+oG
+oG
+oG
 oG
 Vh
 Vh
 Vh
 Vh
-oG
 Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+be
+be
+be
+be
+be
+be
+be
+be
+be
+Yu
+qn
+ci
+ci
+FF
+FY
+Yu
 Vh
 Vh
 be
@@ -18572,44 +18656,44 @@ aa
 aa
 aa
 aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
 oG
-oG
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 oG
 os
 oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+be
+be
+be
+Yu
+KC
+KC
+KC
 lf
-oG
-oG
-oG
-oG
-bE
-oG
-oG
-oG
-Vh
-Vh
-Vh
-Vh
-oG
-Vh
+FY
+KO
 Vh
 Vh
 be
@@ -18763,26 +18847,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -18790,31 +18874,31 @@ oG
 be
 Vh
 be
-oG
+Yu
 cM
 cM
 cM
 cM
 Vh
-oG
+Yu
 Vh
 RU
 qn
 ci
-oG
+Yu
 be
 be
 be
-oG
-ci
-ci
-Vh
-KC
-Cw
+Yu
+Gm
 Vh
 Vh
 Vh
-Vh
+GL
+rQ
+Zk
+Zk
+Zk
 Fd
 HS
 HS
@@ -18964,27 +19048,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -18992,28 +19076,28 @@ oG
 be
 Vh
 be
-oG
+Yu
 Vh
 vI
 Vh
-Vh
-Vh
-oG
+ah
+ah
+Yu
 Vh
 dm
 ci
 ci
-oG
+Yu
 be
 be
 be
-oG
-ci
-ci
+Yu
+FY
 Vh
 Vh
-et
 Vh
+Vh
+sk
 Vh
 Vh
 Vh
@@ -19166,27 +19250,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -19194,31 +19278,31 @@ oG
 be
 Vh
 be
-oG
+Yu
 Vh
 Vh
 Vh
-Vh
+aE
 Vh
 zg
 Vh
 RU
 ci
 ci
-oG
-be
-be
-be
-oG
-qn
-ci
-Vh
+Yu
+Yu
+Yu
+bE
+Yu
+hp
 Zk
-ES
-Vh
-Vh
-Vh
-Vh
+Zk
+Zk
+Zk
+rQ
+Zk
+Zk
+Zk
 Fd
 HS
 HS
@@ -19367,28 +19451,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -19396,28 +19480,28 @@ oG
 be
 Vh
 be
-oG
+Yu
 Ns
 Ns
 Ns
 Vh
 PU
-oG
-oG
-oG
-oG
-oG
-oG
-be
-be
-be
-oG
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+bG
+bG
+bG
+Yu
+Yu
 Vh
 Vh
 Vh
-FY
-oG
 Vh
+Yu
 Vh
 Vh
 be
@@ -19569,28 +19653,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -19598,28 +19682,28 @@ oG
 be
 Vh
 be
-oG
-oG
-oG
-oG
+Yu
+Yu
+Yu
+Yu
 Vh
 RU
 iQ
 mv
 mv
-oG
+Yu
 be
 be
-be
-be
-be
-oG
+bG
+aS
+zI
+fN
+io
+nb
 Vh
 Vh
-Vh
-iZ
-oG
-Vh
+ox
+Yu
 Vh
 Vh
 be
@@ -19770,29 +19854,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -19800,7 +19884,7 @@ oG
 be
 Vh
 be
-oG
+Yu
 cM
 cM
 cM
@@ -19809,19 +19893,19 @@ RU
 iS
 lZ
 ci
-oG
+Yu
 be
 be
-oG
-oG
-oG
-oG
-oG
+bG
+xC
+aS
+fN
+io
+ne
 Vh
 Vh
-Vh
-oG
-Vh
+ox
+Yu
 Vh
 Vh
 be
@@ -19971,30 +20055,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -20011,19 +20095,19 @@ RU
 jr
 ci
 ci
-oG
-oG
-bE
-oG
-zk
-zI
-Fm
-Jy
-Ju
-Vh
-Vh
-oG
-Vh
+Yu
+be
+be
+bG
+xC
+xC
+Hd
+Hd
+Yu
+KO
+KO
+Yu
+Yu
 Vh
 Vh
 Vh
@@ -20172,31 +20256,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -20204,7 +20288,7 @@ oG
 be
 Vh
 be
-oG
+Yu
 Vh
 vI
 Vh
@@ -20213,19 +20297,19 @@ RU
 jL
 mm
 mT
-oG
+Yu
 be
 be
-aE
+bG
 xC
-zk
-Fm
+xC
+Hd
 Jy
-Ju
 Vh
 Vh
-oG
 Vh
+po
+Yu
 Vh
 Vh
 Vh
@@ -20374,31 +20458,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -20406,28 +20490,28 @@ oG
 be
 Vh
 be
-oG
+Yu
 Ns
 Ns
 Ns
 Ns
-oG
-oG
-oG
-oG
-oG
-be
-be
-aE
-xC
-xC
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+bG
+bH
+bH
 Hd
-Hd
-oG
-KO
-oG
-oG
+iL
 Vh
+Vh
+Vh
+iL
+Yu
 Vh
 Vh
 Vh
@@ -20576,31 +20660,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -20608,28 +20692,28 @@ oG
 be
 Vh
 be
-oG
-oG
-oG
-oG
-oG
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+be
 oG
 be
 be
 be
-bE
-be
-be
-aE
-Et
-Et
+Yu
+bG
+xC
+xC
 Hd
-gK
+Jy
 Vh
 Vh
-LR
-oG
 Vh
+iL
+Yu
 Vh
 Vh
 be
@@ -20778,31 +20862,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -20817,21 +20901,21 @@ be
 be
 be
 be
+oG
 be
 be
-oG
-oG
-oG
-oG
+be
+Yu
+bG
 xC
 xC
-Hd
-aN
+Yu
+Yu
 Vh
 Vh
-LR
-oG
 Vh
+Sa
+KO
 Vh
 Vh
 be
@@ -20980,31 +21064,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -21019,24 +21103,24 @@ be
 be
 be
 be
-be
-be
 oG
 be
 be
 be
-Dk
-Dk
-Hd
-aN
+Yu
+bG
+xC
+Si
+gP
+iZ
+nA
 Vh
 Vh
-KC
-Cw
-Vh
-Vh
-Vh
-Vh
+GL
+rQ
+Zk
+Zk
+Zk
 TJ
 TJ
 HS
@@ -21183,30 +21267,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -21221,21 +21305,21 @@ be
 be
 be
 be
-be
-oG
 oG
 be
 be
 be
+bE
+bG
 Si
-Si
-oG
+fG
+gP
+iZ
+nA
 Vh
 Vh
 Vh
-Vh
-et
-Vh
+sk
 Vh
 Vh
 Vh
@@ -21384,31 +21468,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -21424,23 +21508,23 @@ oG
 oG
 oG
 oG
-oG
 be
-be
-be
-be
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
 Vh
 Vh
 Vh
-Vh
-Vh
-Vh
+Jx
+rQ
 Zk
-Cw
-Vh
-Vh
-Vh
-Vh
+Zk
+Zk
 TJ
 TJ
 HS
@@ -21586,31 +21670,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -21627,19 +21711,19 @@ be
 be
 oG
 be
+Yu
 be
 be
-be
-oG
+Yu
+cj
+cj
+ou
+jB
 Vh
 Vh
 Vh
-Vh
-Vh
-Vh
-FY
-oG
-Vh
+pH
+Yu
 Vh
 Vh
 be
@@ -21788,31 +21872,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -21829,19 +21913,19 @@ aI
 be
 oG
 be
+Yu
 be
 be
-oG
-oG
+Yu
 Vh
 Vh
 Vh
+jF
 Vh
 Vh
-uk
-xB
-oG
 Vh
+qD
+Yu
 Vh
 Vh
 be
@@ -21990,31 +22074,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -22030,22 +22114,22 @@ mZ
 ZQ
 be
 oG
-oG
-oG
-oG
-oG
 be
-oG
-hp
-JJ
+Yu
+be
+be
+Yu
 Vh
 Vh
-JJ
-VU
-oG
+Vh
+kw
 Vh
 Vh
-oG
+Vh
+rB
+Yu
+tb
+tb
 oG
 oG
 oG
@@ -22192,31 +22276,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -22233,22 +22317,22 @@ ZQ
 be
 oG
 be
+Yu
 be
 be
-be
-be
+os
+Vh
+Vh
+Vh
+kS
+Vh
+Vh
+Vh
+Vh
+Yu
+Vh
+Vh
 oG
-NH
-Vh
-Vh
-Vh
-Vh
-Bm
-oG
-Vh
-Vh
-oG
-be
 be
 be
 be
@@ -22395,11 +22479,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
 oG
 oG
 oG
@@ -22435,22 +22519,22 @@ ZQ
 be
 oG
 be
-be
-be
-be
-be
-oG
+Yu
+Yu
+Yu
+Yu
 NH
-Vh
-Vh
-Vh
-Vh
+NH
+ow
+mH
 Bm
-oG
+Bm
+Bm
+Bm
+Yu
 Vh
 Vh
 oG
-be
 be
 be
 be
@@ -22598,10 +22682,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
 qi
 be
 be
@@ -22640,19 +22724,19 @@ be
 be
 be
 be
-be
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Yu
+Vh
+Vh
 oG
-TC
-pA
-Vh
-Vh
-pA
-bP
-oG
-Vh
-Vh
-be
-be
 be
 be
 be
@@ -22801,9 +22885,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+SS
+ax
+ax
 qi
 be
 be
@@ -22843,18 +22927,18 @@ be
 be
 be
 be
-oG
-oG
-Yu
-vc
-nb
-oG
-oG
-oG
-Vh
-Vh
-oG
 be
+be
+Yu
+be
+be
+Yu
+be
+be
+Yu
+Vh
+Vh
+oG
 be
 be
 be
@@ -23003,9 +23087,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+SS
+ax
+ax
 qi
 be
 be
@@ -23045,18 +23129,18 @@ oG
 oG
 oG
 oG
-os
 oG
 be
+Yu
 be
 be
+Yu
 be
 be
-oG
+Yu
 Vh
 Vh
 oG
-be
 be
 be
 be
@@ -23205,9 +23289,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+SS
+ax
+ax
 qi
 be
 be
@@ -23247,17 +23331,17 @@ Vh
 Ud
 sO
 Vh
-Vh
 oG
-oG
-oG
-oG
-oG
-oG
-oG
-Vh
-Vh
-oG
+os
+Yu
+mU
+mU
+Yu
+mU
+mU
+Yu
+tb
+tb
 oG
 oG
 oG
@@ -23407,9 +23491,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+SS
+ax
+ax
 oG
 oG
 oG
@@ -23610,8 +23694,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+SS
+ax
 oG
 be
 be
@@ -23812,8 +23896,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+SS
+ax
 oG
 be
 be
@@ -24015,7 +24099,7 @@ aa
 aa
 aa
 aa
-aa
+SS
 oG
 oG
 oG
@@ -26843,7 +26927,7 @@ aa
 aa
 aa
 aa
-aa
+SS
 eb
 wV
 oG
@@ -27044,7 +27128,7 @@ aa
 aa
 aa
 aa
-aa
+SS
 aa
 eb
 aa
@@ -27246,7 +27330,7 @@ aa
 aa
 aa
 aa
-aa
+SS
 aa
 eb
 aa
@@ -27447,7 +27531,7 @@ aa
 aa
 aa
 aa
-aa
+SS
 aa
 aa
 eb
@@ -27649,7 +27733,7 @@ aa
 aa
 aa
 aa
-aa
+SS
 aa
 aa
 eb
@@ -27851,7 +27935,7 @@ aa
 aa
 aa
 aa
-aa
+SS
 aa
 aa
 eb
@@ -27901,8 +27985,8 @@ oG
 oG
 oG
 oG
-AJ
-AJ
+Kg
+oG
 oG
 oG
 oG
@@ -28053,7 +28137,7 @@ aa
 aa
 aa
 aa
-aa
+SS
 aa
 aa
 eb
@@ -28110,7 +28194,7 @@ be
 be
 be
 be
-oG
+be
 be
 ZZ
 Tl
@@ -28254,16 +28338,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 Ef
 oG
 Ja
@@ -28312,7 +28396,7 @@ be
 be
 be
 be
-oG
+be
 be
 be
 be
@@ -28455,17 +28539,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 Ef
 oG
 be
@@ -28514,7 +28598,7 @@ be
 be
 be
 be
-oG
+be
 be
 be
 be
@@ -28656,18 +28740,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 Ef
 oG
 VX
@@ -28716,7 +28800,7 @@ be
 be
 be
 be
-oG
+be
 be
 TP
 be
@@ -28858,18 +28942,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 sm
 jz
 jz
@@ -28918,18 +29002,18 @@ be
 be
 be
 be
+be
+be
+be
+be
+be
+be
+be
+be
+be
 oG
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
+oG
+oG
 oG
 Gm
 LU
@@ -29060,21 +29144,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 ls
 oG
 Zx
@@ -29113,13 +29197,8 @@ Vh
 Vh
 Vh
 oG
-Vh
-Vh
 oG
-be
-be
-be
-be
+Kg
 oG
 oG
 oG
@@ -29131,6 +29210,11 @@ oG
 oG
 oG
 oG
+oG
+oG
+oG
+oG
+Ut
 oG
 oG
 oG
@@ -29262,21 +29346,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 ls
 oG
 Zx
@@ -29317,20 +29401,20 @@ Vh
 oG
 Vh
 Vh
-oG
-be
-be
-be
-be
-oG
-be
-TJ
-TJ
-TJ
-TJ
-TJ
-TJ
-TJ
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
 qi
 cw
 QB
@@ -29464,21 +29548,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 ls
 oG
 Zx
@@ -29519,20 +29603,20 @@ Vh
 oG
 Vh
 Vh
-oG
-be
-be
-be
-be
-oG
-be
-TJ
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
 Xg
-Xg
-Xg
-Xg
-Xg
-TJ
+NA
+PK
+UG
+Zd
+zu
 qi
 cw
 QB
@@ -29667,20 +29751,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 ls
 oG
 oG
@@ -29721,20 +29805,20 @@ Vh
 oG
 Vh
 Vh
-oG
-be
-be
-be
-be
-VX
-be
-Fd
+zu
+xB
+AU
+CX
+Fm
+JJ
+ML
+Nm
 Ym
-Ym
-Ym
-Ym
-Ym
-TJ
+Pk
+Qp
+VJ
+ZT
+Sh
 qi
 cw
 QB
@@ -29868,21 +29952,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 wF
 yE
 BP
@@ -29917,26 +30001,26 @@ Wa
 oG
 oG
 oG
-oG
-oG
+Vh
+Vh
 Vh
 oG
 Vh
 Vh
-oG
-be
-be
-be
-be
-oG
-be
-TJ
+tC
+yr
+Bf
+Dl
+GV
+JN
+LR
 Zj
 Zj
 Zj
-Zj
-Zj
-TJ
+RN
+VU
+QC
+DQ
 qi
 cw
 QB
@@ -30070,22 +30154,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 oG
 oG
 oG
@@ -30120,25 +30204,25 @@ Vh
 oG
 Vh
 Vh
-oG
-Vh
-oG
 Vh
 Vh
 oG
-be
-be
-be
-be
-oG
-be
-TJ
-TJ
-TJ
-TJ
-TJ
-TJ
-TJ
+Vh
+Vh
+uk
+zk
+BG
+DC
+HM
+Ku
+LR
+LR
+LR
+LR
+LR
+Wx
+NB
+db
 qi
 cw
 QB
@@ -30272,32 +30356,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-be
-be
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -30319,31 +30403,31 @@ bG
 bG
 bG
 bG
-os
+oG
+Vh
+Vh
 Vh
 Vh
 oG
-oG
-oG
-AJ
-AJ
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-SS
-SS
+Vh
+Vh
+vc
+AE
+Cs
+Cs
+Is
+LR
+LR
+LR
+LR
+LR
+LR
+Ys
+kQ
+mo
+qi
+cw
+QB
 aa
 aa
 aa
@@ -30474,32 +30558,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-oG
-be
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 Vh
 Vh
 Vh
@@ -30515,7 +30589,11 @@ Vh
 Vh
 Vh
 Vh
-oG
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -30524,25 +30602,31 @@ Vh
 oG
 Vh
 Vh
-os
+Vh
+Vh
+Vh
+oG
 Vh
 Vh
 Vh
 Vh
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
+oG
+Vh
+Vh
+vQ
+zk
+BG
+Et
+JC
+Ku
+LR
+LR
+LR
+LR
+LR
+Yy
+To
+FL
 qi
 cw
 QB
@@ -30676,32 +30760,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-oG
-be
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -30727,24 +30811,24 @@ oG
 oG
 oG
 oG
+oG
+oG
 Vh
 Vh
-Vh
-Vh
-zu
-zu
-zu
-zu
-zu
-zu
-zu
-zu
-np
+ws
+AJ
+CP
+EA
+JI
+MH
+LR
+NS
+NS
 NS
 hV
 mn
 cs
-zu
+IQ
 qi
 cw
 QB
@@ -30879,31 +30963,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-oG
-be
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -31082,31 +31166,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-os
-be
-aS
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -31135,20 +31219,20 @@ Vh
 Vh
 Vh
 Vh
-fp
-mU
-iL
-HM
-gP
-jF
-UG
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
 Ss
-Ss
-Ss
+PI
 pY
 TI
 Ir
-JC
+zu
 qi
 cw
 QB
@@ -31285,29 +31369,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-oG
-be
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -31337,20 +31421,20 @@ Vh
 Vh
 Vh
 Vh
-ML
-pH
-io
-tb
-fG
-yr
-UG
-UG
-UG
-UG
-UG
-JI
-sk
-nA
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
+zu
 qi
 cw
 QB
@@ -31487,29 +31571,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-be
-be
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -31539,23 +31623,23 @@ Vh
 Vh
 Vh
 Vh
-ZT
-Cs
-Ym
-Ym
-Is
-UG
-UG
-UG
-UG
-UG
-UG
-Qp
-EA
-vQ
-qi
-cw
-QB
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+oG
+LS
+SS
 aa
 aa
 aa
@@ -31690,28 +31774,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-be
-be
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -31741,23 +31825,23 @@ Vh
 Vh
 Vh
 Vh
-JN
-pH
-io
-Bf
-Ys
-yr
-UG
-UG
-UG
-UG
-UG
-Wx
-po
-AU
-qi
-cw
-QB
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+oG
+SS
+SS
 aa
 aa
 aa
@@ -31892,28 +31976,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-be
-be
+SS
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -31941,25 +32025,25 @@ wj
 oG
 oG
 oG
-Vh
-Vh
-Yy
-ne
-cj
-tC
-CP
-DC
-UG
-ox
-ox
-ox
-PI
-Nm
-ow
-Pk
-qi
-cw
-QB
+bE
+oG
+oG
+oG
+tK
+oG
+oG
+oG
+oG
+oG
+pO
+oG
+oG
+oG
+oG
+oG
+oG
+SS
+aa
 aa
 aa
 aa
@@ -32095,27 +32179,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-pg
-be
-be
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+SS
+oG
+oG
+oG
+oG
+oG
+oG
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -32143,25 +32227,25 @@ pS
 ZN
 CM
 oG
-Vh
-Vh
-zu
-jB
-mH
-VJ
-rQ
-MH
-rB
-bH
-ah
-fN
-qD
-Ku
-kS
-AE
-qi
-cw
-QB
+be
+oG
+mg
+ee
+gw
+mg
+ee
+oG
+mg
+ee
+gw
+mg
+ee
+oG
+oG
+oG
+oG
+aa
+aa
 aa
 aa
 aa
@@ -32314,10 +32398,10 @@ pg
 pg
 pg
 oG
-be
-be
-be
-be
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -32345,25 +32429,25 @@ sM
 ZY
 iN
 oG
-Vh
-Vh
-zu
-zu
-zu
-zu
-zu
-zu
-zu
-zu
-ou
-Zd
-RN
-GV
-PK
-zu
-qi
-cw
-QB
+be
+oG
+TJ
+TJ
+Fd
+TJ
+TJ
+oG
+TJ
+TJ
+Fd
+TJ
+TJ
+oG
+oG
+pg
+pg
+aa
+aa
 aa
 aa
 aa
@@ -32517,9 +32601,9 @@ pg
 pg
 pg
 oG
-be
-be
-be
+Vh
+Vh
+Vh
 Vh
 Vh
 Vh
@@ -32547,25 +32631,25 @@ Wl
 RT
 Za
 oG
-Vh
-Vh
 be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-qi
-cw
-QB
+oG
+TJ
+Gp
+HS
+Gp
+TJ
+oG
+TJ
+Gp
+HS
+Gp
+TJ
+oG
+oG
+pg
+pg
+aa
+aa
 aa
 aa
 aa
@@ -32719,13 +32803,13 @@ pg
 pg
 pg
 oG
-be
-be
-be
-be
-be
-be
-be
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 oG
 oG
@@ -32749,25 +32833,25 @@ WM
 oG
 oG
 oG
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+be
+oG
+TJ
+Gp
+HS
+Gp
+TJ
+oG
+TJ
+Gp
+HS
+Gp
+TJ
 oG
 oG
-SS
-SS
+pg
+pg
+aa
+aa
 aa
 aa
 aa
@@ -32921,13 +33005,13 @@ pg
 pg
 pg
 oG
-be
-be
-be
-be
-be
-be
-be
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 QU
 QU
@@ -32951,23 +33035,23 @@ XD
 oG
 as
 oG
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+be
+oG
+TJ
+Gp
+HS
+Gp
+TJ
+oG
+TJ
+Gp
+HS
+Gp
+TJ
 oG
 oG
-oG
+pg
+pg
 aa
 aa
 aa
@@ -33124,12 +33208,12 @@ pg
 pg
 pg
 oG
-be
-be
-be
-be
-be
-be
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 QU
 ci
@@ -33153,23 +33237,23 @@ CL
 oG
 gw
 oG
-os
+bE
+oG
+TJ
+Gp
+HS
+Gp
+TJ
+oG
+TJ
+Gp
+HS
+Gp
+TJ
 oG
 oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
-oG
+pg
+pg
 aa
 aa
 aa
@@ -33326,12 +33410,12 @@ pg
 pg
 pg
 oG
-be
-be
-be
-be
-be
-be
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 QU
 ci
@@ -33353,24 +33437,24 @@ Vh
 MD
 Ye
 oG
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
 oG
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+TJ
+Gp
+HS
+Gp
+TJ
 oG
+TJ
+Gp
+HS
+Gp
+TJ
+oG
+oG
+pg
 pg
 aa
 aa
@@ -33528,12 +33612,12 @@ pg
 pg
 pg
 oG
-be
-be
-be
-be
-be
-be
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 QU
 QU
@@ -33554,25 +33638,25 @@ SX
 SX
 VW
 YL
-os
-Vh
-Vh
-Vh
-Vh
 oG
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+xv
+TJ
+TJ
+gY
+TJ
+TJ
 oG
+TJ
+TJ
+gY
+TJ
+TJ
+oG
+oG
+pg
 pg
 aa
 aa
@@ -33730,11 +33814,11 @@ pg
 pg
 pg
 oG
-be
-be
-be
-be
-be
+Vh
+Vh
+Vh
+Vh
+Vh
 oG
 oG
 oG
@@ -33757,23 +33841,23 @@ Sg
 Sg
 YY
 oG
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+xv
+TJ
+aO
+zR
+aO
+TJ
 oG
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+TJ
+aO
+zR
+aO
+TJ
 oG
+pg
 pg
 pg
 aa
@@ -33933,10 +34017,10 @@ aa
 aa
 aa
 SS
-cw
-cw
-cw
-cw
+ax
+ax
+ax
+ax
 SS
 fk
 fk
@@ -33959,23 +34043,23 @@ OS
 OS
 Sm
 oG
+bE
 oG
+xv
+xv
+pg
+aO
+aO
+aO
+pg
 oG
+pg
+aO
+aO
+aO
+pg
 oG
-oG
-oG
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-oG
+pg
 pg
 pg
 aa
@@ -34161,22 +34245,22 @@ yA
 mZ
 oe
 oG
-Vh
+be
 oG
+kg
 pg
 pg
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-oG
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 pg
 pg
 pg
@@ -34363,22 +34447,22 @@ mZ
 mZ
 oe
 oG
-Vh
+be
 oG
+kg
 pg
 pg
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-oG
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 pg
 pg
 pg
@@ -34565,20 +34649,20 @@ Ry
 mZ
 ZE
 oG
-Vh
+be
+oG
 oG
 pg
 pg
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 oG
 pg
 pg
@@ -34767,20 +34851,20 @@ ns
 ns
 ns
 oG
-Vh
-oG
+be
+be
+xv
 pg
 pg
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 oG
 pg
 pg
@@ -34969,19 +35053,19 @@ BS
 BS
 BS
 SS
-ax
-oG
+cw
+be
+xv
 pg
 pg
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 oG
 pg
 pg
@@ -35171,19 +35255,19 @@ aa
 aa
 aa
 SS
-ax
+cw
+oG
 oG
 pg
 pg
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 oG
 pg
 pg
@@ -35372,19 +35456,19 @@ wV
 aa
 aa
 aa
+Py
+cw
 SS
-ax
-SS
+wV
 aa
 aa
-ax
-ax
-ax
-ax
-ax
-ax
-ax
-ax
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 SS
 aa
 aa
@@ -35574,19 +35658,19 @@ wV
 aa
 aa
 aa
+Py
+cw
 SS
-ax
-SS
+wV
 aa
 aa
-ax
-ax
-ax
-ax
-ax
-ax
-ax
-ax
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 SS
 aa
 aa
@@ -35777,17 +35861,17 @@ aa
 aa
 aa
 SS
-ax
+cw
+SS
 SS
 aa
 aa
-ax
-ax
-ax
-ax
-ax
-ax
-ax
+aa
+aa
+aa
+aa
+aa
+aa
 SS
 aa
 aa
@@ -35979,17 +36063,17 @@ aa
 aa
 aa
 SS
-ax
-SS
+cw
+cw
+Py
 aa
 aa
-ax
-ax
-ax
-ax
-ax
-ax
-ax
+aa
+aa
+aa
+aa
+aa
+aa
 SS
 aa
 aa
@@ -36181,16 +36265,16 @@ aa
 aa
 aa
 SS
-ax
-SS
+cw
+cw
+Py
 aa
 aa
-ax
-ax
-ax
-ax
-ax
-ax
+aa
+aa
+aa
+aa
+aa
 SS
 aa
 aa
@@ -36383,16 +36467,16 @@ wV
 wV
 wV
 SS
-ax
+cw
+SS
 SS
 aa
 aa
-ax
-ax
-ax
-ax
-ax
-ax
+aa
+aa
+aa
+aa
+aa
 SS
 aa
 aa
@@ -36584,10 +36668,10 @@ aa
 aa
 aa
 aa
+Py
+cw
 SS
-aa
-SS
-aa
+wV
 aa
 aa
 aa
@@ -36786,10 +36870,10 @@ aa
 aa
 aa
 aa
+Py
+cw
 SS
-aa
-SS
-aa
+wV
 aa
 aa
 aa
@@ -36989,9 +37073,9 @@ aa
 aa
 aa
 SS
-aa
+cw
 SS
-aa
+SS
 aa
 aa
 aa
@@ -37191,9 +37275,9 @@ aa
 aa
 aa
 SS
-aa
-SS
-aa
+cw
+cw
+Py
 aa
 aa
 aa
@@ -37393,9 +37477,9 @@ aa
 aa
 aa
 SS
-aa
-SS
-aa
+cw
+cw
+Py
 aa
 aa
 aa
@@ -37595,9 +37679,9 @@ aa
 aa
 aa
 SS
-aa
+cw
 SS
-aa
+SS
 aa
 aa
 aa
@@ -37797,9 +37881,9 @@ aa
 aa
 aa
 SS
-aa
+cw
 SS
-aa
+wV
 aa
 aa
 aa
@@ -37999,9 +38083,9 @@ aa
 aa
 aa
 SS
-aa
+cw
 SS
-aa
+wV
 aa
 aa
 aa
@@ -38201,9 +38285,9 @@ aa
 aa
 aa
 SS
-aa
+cw
 SS
-aa
+SS
 aa
 aa
 SS
@@ -38403,7 +38487,7 @@ aa
 aa
 aa
 SS
-aa
+Jo
 SS
 aa
 aa
