@@ -4333,9 +4333,7 @@
 /area/maintenance/vault)
 "ahT" = (
 /turf/simulated/wall/r_wall,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "ahU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6547,13 +6545,9 @@
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(8)
-	},
+/obj/structure/closet/secure_closet/sciguncabinet,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "amb" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 5
@@ -6569,9 +6563,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "amc" = (
 /obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6661,9 +6653,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "amk" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6682,9 +6672,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "amm" = (
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for engine core.";
@@ -7160,9 +7148,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "anj" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
@@ -7172,9 +7158,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "ank" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 9
@@ -7184,9 +7168,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "anl" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -7199,9 +7181,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "anm" = (
 /obj/effect/floor_decal/corner_wide/mauve/full,
 /turf/simulated/floor/tiled/white,
@@ -7673,9 +7653,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "aom" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -9904,9 +9882,7 @@
 	amount = 50
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "asb" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -9921,9 +9897,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "asc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9958,9 +9932,7 @@
 	req_access = list(30)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "asd" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/flashbangs{
@@ -13970,9 +13942,7 @@
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "ayw" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
@@ -29867,9 +29837,7 @@
 	table_reinf = "mhydrogen"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "aYC" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
@@ -36587,9 +36555,7 @@
 	table_reinf = "mhydrogen"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "bkr" = (
 /turf/simulated/wall,
 /area/medical/medbay2)
@@ -36897,9 +36863,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/lab{
-	name = "Research - R&D Storage"
-	})
+/area/rnd/strongroom)
 "bkN" = (
 /obj/structure/table/steel,
 /obj/item/device/robotanalyzer,
