@@ -1351,7 +1351,6 @@
 		/mob/living/simple_animal/hostile/krampus,
 		/mob/living/simple_animal/hostile/gift,
 		/mob/living/simple_animal/hostile/hivebotbeacon,
-		/mob/living/simple_animal/hostile/hivebotbeacon/toxic,
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,

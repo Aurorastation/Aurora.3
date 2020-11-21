@@ -64,7 +64,6 @@
 			chosen_scan_type = "Bluespace readings"
 			var/list/beacon_types = list(
 				/mob/living/simple_animal/hostile/hivebotbeacon = 1,
-				/mob/living/simple_animal/hostile/hivebotbeacon/toxic = 1,
 				/mob/living/simple_animal/hostile/hivebotbeacon/incendiary = 1
 			)
 			chosen_mob_types += pickweight(beacon_types)
