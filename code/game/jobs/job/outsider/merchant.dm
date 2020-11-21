@@ -1,13 +1,11 @@
 /datum/job/merchant
 	title = "Merchant"
 	faction = "Station"
-	department = "Civilian"
 	flag = MERCHANT
 	department_flag = CIVILIAN
 	total_positions = 0
 	spawn_positions = 0
 	supervisors = "yourself and the market"
-	selection_color = "#515151"
 	minimal_player_age = 10
 	economic_modifier = 5
 	ideal_character_age = 30

@@ -2,6 +2,7 @@
 	name = SPECIES_TAJARA
 	short_name = "taj"
 	name_plural = "Tajara"
+	category_name = "Tajara"
 	bodytype = BODYTYPE_TAJARA
 	icobase = 'icons/mob/human_races/tajara/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'

@@ -278,7 +278,7 @@
 	overdose = 15
 	scannable = TRUE
 	od_minimum_dose = 2
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sourness"
@@ -287,8 +287,10 @@
 
 /datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
-	M.eye_blurry = max(M.eye_blurry, 5)
-	M.confused = max(M.confused, 10)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 5)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 10)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -322,8 +324,10 @@
 
 /datum/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 70)
-	M.eye_blurry = max(M.eye_blurry, 3)
-	M.confused = max(M.confused, 6)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 3)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 6)
 
 /datum/reagent/oxycomorphine
 	name = "Oxycomorphine"
@@ -333,7 +337,7 @@
 	overdose = 10
 	od_minimum_dose = 2
 	scannable = TRUE
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
@@ -342,8 +346,10 @@
 
 /datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
-	M.eye_blurry = max(M.eye_blurry, 5)
-	M.confused = max(M.confused, 20)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 5)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 20)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -384,19 +390,26 @@
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
-	if(!(volume > 10)) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
-		M.AdjustParalysis(-1) 
+	if(volume < 10) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
+		M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
 	holder.remove_reagent(/datum/reagent/mindbreaker, 5)
 	M.hallucination = max(0, M.hallucination - 10)
 	M.eye_blurry = max(M.eye_blurry - 5, 0)
 	M.confused = max(M.confused - 10, 0)
-	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
-	M.add_chemical_effect(CE_PAINKILLER, 40)
-	M.add_chemical_effect(CE_HALLUCINATE, -1)
-	if (!modifier)
+	if(!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/synaptizine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_CLEARSIGHT)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+		if(prob(25))
+			M.add_chemical_effect(CE_HEPATOTOXIC)
+		M.add_chemical_effect(CE_PAINKILLER, 40)
+		M.add_chemical_effect(CE_HALLUCINATE, -1)
 
 /datum/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien)
 	if(prob(dose / 2))
@@ -423,11 +436,7 @@
 	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
-		M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
-	else 
-		M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
-		M.add_chemical_effect(CE_PAINKILLER, 10)
+	if(volume >= 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
 		M.dizziness = max(125, M.dizziness)
 		M.make_dizzy(5)
 		if(!(volume > 10))
@@ -435,6 +444,16 @@
 			if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
 				if(prob(dose/5) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
 					B.gain_trauma_type(pick(/datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind)) //Handpicked suggested traumas considered less disruptive and conducive to roleplay.
+
+/datum/reagent/alkysine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+		if(volume < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
+			M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
+		else
+			M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
+			M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 15)
@@ -465,6 +484,11 @@
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
+
+/datum/reagent/oculine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_CLEARSIGHT)
 
 /datum/reagent/oculine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 15)
@@ -607,6 +631,11 @@
 		var/amount = min(M.intoxication * ETHYL_INTOX_COST, P)
 		M.intoxication = max(0, (M.intoxication - (amount / ETHYL_INTOX_COST)))
 		P -= amount
+
+/datum/reagent/ethylredoxrazine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
 
 /datum/reagent/hyronalin
 	name = "Hyronalin"

@@ -59,7 +59,9 @@
 			user.visible_message("<span class='warning'>[user] has connected the [src]'s flashbulb!</span>", "<span class='warning'>You connect the [src]'s flashbulb!</span>")
 
 //Let the AI trigger them directly.
-/obj/machinery/flasher/attack_ai()
+/obj/machinery/flasher/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if (src.anchored)
 		return src.flash()
 	else

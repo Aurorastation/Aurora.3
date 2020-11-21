@@ -70,7 +70,7 @@
 	verbs -= /obj/item/modular_computer/proc/eject_item
 	to_chat(usr, SPAN_NOTICE("You remove \the [I] from \the [src]."))
 
-/obj/item/modular_computer/proc/eject_battery(mob/usr = usr)
+/obj/item/modular_computer/proc/eject_battery()
 	set name = "Eject Battery"
 	set category = "Object"
 	set src in view(1)
@@ -182,6 +182,8 @@
 	return ..()
 
 /obj/item/modular_computer/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	if(anchored)
 		return attack_self(user)
 	return ..()

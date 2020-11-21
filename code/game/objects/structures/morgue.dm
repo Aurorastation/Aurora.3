@@ -339,8 +339,7 @@
 					M.emote("scream")
 				else
 					var/mob/living/carbon/C = M
-					if(C.can_feel_pain())
-						C.emote("scream")
+					C.emote("scream")
 			M.death(1)
 			M.ghostize()
 			qdel(M)

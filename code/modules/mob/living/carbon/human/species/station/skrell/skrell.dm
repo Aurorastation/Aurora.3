@@ -2,6 +2,7 @@
 	name = SPECIES_SKRELL
 	short_name = "skr"
 	name_plural = "Skrell"
+	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
 	age_max = 500
 	default_genders = list(PLURAL)

@@ -114,6 +114,8 @@
 		return 1
 
 /obj/machinery/turretid/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	if(isLocked(user))
 		return
 

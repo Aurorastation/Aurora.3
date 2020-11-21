@@ -286,6 +286,10 @@ datum/preferences
 	if(!client)
 		return
 
+	var/mob/abstract/new_player/NP = client.mob
+	if(istype(NP) && istype(NP.late_choices_ui)) // update character icon in late-choices UI
+		NP.late_choices_ui.update_character_icon()
+
 	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
 	if(!BG)
 		BG = new
