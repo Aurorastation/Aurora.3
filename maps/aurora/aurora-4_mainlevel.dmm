@@ -5703,7 +5703,7 @@
 /area/engineering/storage_hard)
 "akA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "akB" = (
@@ -22064,6 +22064,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aLD" = (
@@ -63576,10 +63577,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "lJh" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 10
+	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
+/area/rnd/lab)
 "lJu" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -66403,6 +66406,11 @@
 /obj/random/junk,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"rpx" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "rpy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -95358,7 +95366,7 @@ bsL
 bvY
 bxk
 byL
-xJp
+lJh
 bAQ
 cva
 bCG
@@ -100776,7 +100784,7 @@ ndR
 bOR
 bRQ
 bOR
-lJh
+bOR
 fTZ
 bOR
 bOR
@@ -101547,7 +101555,7 @@ bOt
 bOZ
 cbZ
 keq
-bOR
+rpx
 keq
 bOR
 keq
