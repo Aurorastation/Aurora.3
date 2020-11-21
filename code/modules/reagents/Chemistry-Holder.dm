@@ -3,7 +3,7 @@
 /datum/reagents
 	var/primary_reagent
 	var/list/reagent_volumes
-	var/list/reagent_data
+	var/list/list/reagent_data
 	var/total_volume = 0
 	var/maximum_volume = 100
 	var/atom/my_atom
