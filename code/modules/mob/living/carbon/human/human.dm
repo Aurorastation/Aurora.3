@@ -206,9 +206,10 @@
 			stat(null, "Suit charge: [cell_status]")
 
 		if(mind)
-			if(mind.vampire)
-				stat("Usable Blood", mind.vampire.blood_usable)
-				stat("Total Blood", mind.vampire.blood_total)
+			var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+			if(vampire)
+				stat("Usable Blood", vampire.blood_usable)
+				stat("Total Blood", vampire.blood_total)
 			var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 			if(changeling)
 				stat("Chemical Storage", changeling.chem_charges)

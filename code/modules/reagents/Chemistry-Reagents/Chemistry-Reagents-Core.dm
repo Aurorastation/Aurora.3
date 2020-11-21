@@ -48,11 +48,12 @@
 
 /datum/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
-		if (M.mind && M.mind.vampire)
+		if(M.mind)
+			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
 			if(M.dna.unique_enzymes == data["blood_DNA"]) //so vampires can't drink their own blood
 				return
-			M.mind.vampire.blood_usable += removed
-			to_chat(M, "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+			vampire.blood_usable += removed
+			to_chat(M, "<span class='notice'>You have accumulated [vampire.blood_usable] [vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 			return
 	if(dose > 5)
 		M.adjustToxLoss(removed)

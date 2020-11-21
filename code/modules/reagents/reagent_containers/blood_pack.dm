@@ -44,32 +44,34 @@
 		if(51 to INFINITY)	icon_state = "full"
 
 /obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
-	if (user == M && (user.mind.vampire))
-		if (being_feed)
-			to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
-			return
-		if (reagents.get_reagent_amount(/datum/reagent/blood))
-			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
-			being_feed = TRUE
-			vampire_marks = TRUE
-			if (!LAZYLEN(src.other_DNA))
-				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
-				src.other_DNA_type = "saliva"
+	if(user == M && user.mind)
+		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
+		if(vampire)
+			if (being_feed)
+				to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
+				return
+			if (reagents.get_reagent_amount(/datum/reagent/blood))
+				user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
+				being_feed = TRUE
+				vampire_marks = TRUE
+				if (!LAZYLEN(src.other_DNA))
+					LAZYADD(src.other_DNA, M.dna.unique_enzymes)
+					src.other_DNA_type = "saliva"
 
-			while (do_after(user, 25, 5, 1))
-				var/blood_taken = 0
-				blood_taken = min(5, reagents.get_reagent_amount(/datum/reagent/blood)/4)
+				while (do_after(user, 25, 5, 1))
+					var/blood_taken = 0
+					blood_taken = min(5, reagents.get_reagent_amount(/datum/reagent/blood)/4)
 
-				reagents.remove_reagent(/datum/reagent/blood, blood_taken*4)
-				user.mind.vampire.blood_usable += blood_taken
+					reagents.remove_reagent(/datum/reagent/blood, blood_taken*4)
+					vampire.blood_usable += blood_taken
 
-				if (blood_taken)
-					to_chat(user, "<span class='notice'>You have accumulated [user.mind.vampire.blood_usable] [user.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+					if (blood_taken)
+						to_chat(user, "<span class='notice'>You have accumulated [vampire.blood_usable] [vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 
-				if (reagents.get_reagent_amount(/datum/reagent/blood) < 1)
-					break
-			user.visible_message("<span class='warning'>[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
-			being_feed = FALSE
+					if (reagents.get_reagent_amount(/datum/reagent/blood) < 1)
+						break
+				user.visible_message("<span class='warning'>[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
+				being_feed = FALSE
 	else
 		..()
 

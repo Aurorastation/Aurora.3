@@ -67,26 +67,28 @@ var/datum/antagonist/vampire/vamp = null
 /datum/antagonist/vampire/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
 	. = ..()
 	if(.)
+		var/datum/vampire/vampire = player.antag_datums[MODE_VAMPIRE]
 		if(player.current.client)
-			player.current.client.screen -= player.vampire.blood_hud
-			player.current.client.screen -= player.vampire.frenzy_hud
+			player.current.client.screen -= vampire.blood_hud
+			player.current.client.screen -= vampire.frenzy_hud
 		player.current.verbs -= /datum/antagonist/vampire/proc/vampire_help
 		for(var/datum/power/vampire/P in vampirepowers)
 			player.current.verbs -= P.verbpath
-		QDEL_NULL(player.vampire)
+		QDEL_NULL(vampire)
 
 /datum/antagonist/vampire/handle_latelogin(var/mob/user)
 	var/datum/mind/M = user.mind
 	if(!M)
 		return
-	if(M.vampire.status & VAMP_ISTHRALL)
+	var/datum/vampire/vampire = M.antag_datums[MODE_VAMPIRE]
+	if(vampire.status & VAMP_ISTHRALL)
 		return
-	M.vampire.blood_hud = new /obj/screen/vampire/blood()
-	M.vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
-	M.vampire.blood_suck_hud = new /obj/screen/vampire/suck()
-	user.client.screen += M.vampire.blood_hud
-	user.client.screen += M.vampire.frenzy_hud
-	user.client.screen += M.vampire.blood_suck_hud
+	vampire.blood_hud = new /obj/screen/vampire/blood()
+	vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
+	vampire.blood_suck_hud = new /obj/screen/vampire/suck()
+	user.client.screen += vampire.blood_hud
+	user.client.screen += vampire.frenzy_hud
+	user.client.screen += vampire.blood_suck_hud
 
 /datum/antagonist/vampire/proc/vampire_help()
 	set category = "Vampire"
