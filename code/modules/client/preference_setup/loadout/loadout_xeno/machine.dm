@@ -120,3 +120,20 @@
 	idris["Black Idris Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/black
 	idris["Brown Idris Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/brown
 	gear_tweaks += new/datum/gear_tweak/path(idris)
+
+/datum/gear/uniform/goldendeep
+	display_name = "golden deep outfit selection"
+	description = "A selection of formal outfits worn by members of the Golden Deep."
+	path = /obj/item/clothing/under/goldendeep
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/uniform/goldendeep/New()
+	..()
+	var/goldendeep = list()
+	goldendeep["golden deep dress"] = /obj/item/clothing/under/goldendeep
+	goldendeep["golden deep wrap"] = /obj/item/clothing/under/goldendeep/wrap
+	goldendeep["golden deep vest"] = /obj/item/clothing/under/goldendeep/vest
+	goldendeep["golden deep suit"] = /obj/item/clothing/under/goldendeep/suit
+	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
+	gear_tweaks += new/datum/gear_tweak/path(goldendeep)

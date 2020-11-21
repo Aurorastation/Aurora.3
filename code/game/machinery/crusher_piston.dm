@@ -501,8 +501,7 @@
 	return ..()
 
 /mob/living/carbon/piston_move()
-	if(can_feel_pain())
-		emote("scream")
+	emote("scream")
 	return ..()
 
 //Dont call the parent and return 1 to prevent effects from getting moved

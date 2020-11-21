@@ -79,3 +79,8 @@
 	CL.direct_message()
 	if(CL.channel)
 		CL.add_message(CL.send_message())
+
+/obj/item/modular_computer/silicon/robot/drone/install_default_programs()
+	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
+	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))

@@ -169,8 +169,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#c67519"

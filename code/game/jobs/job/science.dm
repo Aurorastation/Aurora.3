@@ -184,8 +184,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the Research Director"
 	selection_color = "#a44799"
 	access = list(access_research, access_tox)

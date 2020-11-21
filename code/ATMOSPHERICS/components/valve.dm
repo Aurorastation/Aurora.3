@@ -230,6 +230,8 @@
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/atmospherics/valve/digital/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/atmospherics/valve/digital/attack_hand(mob/user as mob)

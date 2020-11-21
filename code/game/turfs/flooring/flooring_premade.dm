@@ -101,6 +101,11 @@
 		make_air()
 	air.adjust_gas(GAS_N2O, ATMOSTANK_NITROUSOXIDE)
 
+/turf/simulated/floor/reinforced/hydrogen
+	oxygen = 0
+	nitrogen = 0
+	hydrogen = ATMOSTANK_HYDROGEN
+
 /turf/simulated/floor/cult
 	name = "engraved floor"
 	icon = 'icons/turf/flooring/cult.dmi'

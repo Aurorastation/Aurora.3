@@ -216,3 +216,37 @@
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
 		. = max(20, .)
 	return round(.)
+
+// Martial Art Helpers
+/mob/living/carbon/human/proc/check_martial_deflection_chance()
+	var/deflection_chance = 0
+	if(!length(known_martial_arts))
+		return deflection_chance
+	for(var/art in known_martial_arts)
+		var/datum/martial_art/M = art
+		deflection_chance = max(deflection_chance, M.deflection_chance)
+	return deflection_chance
+
+/mob/living/carbon/human/proc/check_weapon_affinity(var/obj/O, var/parry_chance)
+	if(!length(known_martial_arts))
+		return FALSE
+	var/parry_bonus = 0
+	for(var/art in known_martial_arts)
+		var/datum/martial_art/M = art
+		if(istype(O, M.weapon_affinity))
+			if(parry_chance)
+				parry_bonus = max(parry_bonus, M.parry_multiplier)
+				continue
+			return TRUE
+	if(parry_chance)
+		return parry_bonus
+	return FALSE
+
+/mob/living/carbon/human/proc/check_no_guns()
+	if(!length(known_martial_arts))
+		return FALSE
+	for(var/art in known_martial_arts)
+		var/datum/martial_art/M = art
+		if(M.no_guns)
+			return M.no_guns_message
+	return FALSE

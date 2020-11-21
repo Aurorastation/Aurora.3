@@ -79,6 +79,7 @@
                 <th>Organ</th>
                 <th>Trauma</th>
                 <th>Wounds</th>
+                <th>Location</th>
               </tr>
             </template>
             <template v-else>
@@ -91,6 +92,7 @@
                 <td> {{ organ.name }} </td>
                 <td><span :style="{color:damageLabel(organ.damage)}"> {{ organ.damage }}</span></td>
                 <td><div v-for="wound in organ.wounds" :key="wound.name" style="color:Tomato"> {{ wound }} </div></td>
+                <td> {{ organ.location }} </td>
               </template>
             </tr>
           </table>

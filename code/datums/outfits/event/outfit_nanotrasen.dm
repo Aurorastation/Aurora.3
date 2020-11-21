@@ -245,6 +245,7 @@
 	l_hand = /obj/item/storage/firstaid/adv
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
+	glasses = /obj/item/clothing/glasses/hud/health
 
 	gloves = /obj/item/clothing/gloves/white
 	belt = /obj/item/storage/belt/medical
@@ -279,6 +280,7 @@
 	shoes = /obj/item/clothing/shoes/chemist
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
+	glasses = /obj/item/clothing/glasses/hud/health
 
 	backpack = /obj/item/storage/backpack/pharmacy
 	satchel = /obj/item/storage/backpack/satchel_pharm

@@ -380,5 +380,5 @@ datum/hud/New(mob/owner)
 /mob/proc/add_click_catcher()
 	client.screen |= click_catchers
 
-/mob/new_player/add_click_catcher()
+/mob/abstract/new_player/add_click_catcher()
 	return

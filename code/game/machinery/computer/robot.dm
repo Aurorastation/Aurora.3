@@ -12,6 +12,8 @@
 
 
 /obj/machinery/computer/robotics/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/computer/robotics/attack_hand(var/mob/user as mob)
