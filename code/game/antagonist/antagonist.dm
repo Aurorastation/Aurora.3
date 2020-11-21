@@ -172,9 +172,9 @@
 	if(!candidates.len)
 		return 0
 
-	//Grab candidates randomly until we have enough.
+	//Grab candidates until we have enough.
 	while(candidates.len && pending_antagonists.len < spawn_target)
-		var/datum/mind/player = pick(candidates)
+		var/datum/mind/player = candidates[1]
 		candidates -= player
 		draft_antagonist(player)
 
