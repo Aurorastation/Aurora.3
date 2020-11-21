@@ -61,7 +61,6 @@
 	max_damage = 200
 	power_use = 2500
 	transparent_cabin =  TRUE
-	has_hardpoints = list(HARDPOINT_BACK)
 
 /obj/item/mech_component/chassis/combat/prebuild()
 	. = ..()
