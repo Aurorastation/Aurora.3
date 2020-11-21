@@ -167,6 +167,20 @@ obj/item/clothing/mask/chewable/Destroy()
 	color = reagents.get_color()
 	update_icon()
 
+/obj/item/clothing/mask/chewable/candy/gum/gumball
+	name = "gumball"
+	desc = "A gumball, created and patented by Chip Getmore. Known to contain a hard shell and a reagent interior!"
+	icon_state = "gumball"
+	item_state = null
+	wrapped = FALSE
+
+/obj/item/clothing/mask/chewable/candy/gum/gumball/medical
+
+/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/tricordrazine, 5)
+
+
 /obj/item/storage/box/fancy/gum
 	name = "\improper Chewy Fruit flavored gum"
 	desc = "A small pack of chewing gum in various flavors."
