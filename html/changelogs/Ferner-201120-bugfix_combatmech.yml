@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes:
-  - bugfix: "Fixed premade combat mechs spawning without weapons."
