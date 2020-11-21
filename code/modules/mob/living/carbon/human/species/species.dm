@@ -9,6 +9,7 @@
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
 	var/hide_name = FALSE                                // If TRUE, the species' name won't be visible on examine.
 	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
+	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
 	var/age_min = 17
@@ -79,6 +80,7 @@
 	var/metabolism_mod = 1					 // Reagent metabolism modifier
 	var/bleed_mod = 1						 // How fast this species bleeds.
 	var/blood_volume = DEFAULT_BLOOD_AMOUNT // Blood volume.
+	var/injection_mod = 1                    // Multiplicative time modifier on syringe injections
 
 	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
@@ -633,3 +635,6 @@
 			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
 			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
 			return E.key
+
+/datum/species/proc/get_injection_modifier()
+	return injection_mod

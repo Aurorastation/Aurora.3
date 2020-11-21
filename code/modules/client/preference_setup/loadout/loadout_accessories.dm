@@ -46,6 +46,7 @@
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
+	armbands["tau ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/armband_coloured

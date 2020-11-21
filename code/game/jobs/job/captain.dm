@@ -3,15 +3,14 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/captain
 	title = "Captain"
 	flag = CAPTAIN
-	department = "Command"
-	head_position = 1
+	departments = list(DEPARTMENT_COMMAND = JOBROLE_SUPERVISOR)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "company officials and Corporate Regulations"
-	selection_color = "#4747FF"
+	selection_color = "#114dc1"
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 	minimal_player_age = 14
@@ -71,15 +70,14 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/hop
 	title = "Head of Personnel"
 	flag = HOP
-	department = "Civilian"
-	head_position = 1
+	departments = list(DEPARTMENT_CIVILIAN = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#9696FF"
+	selection_color = "#90524b"
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = 50
