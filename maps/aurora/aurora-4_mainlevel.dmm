@@ -71,32 +71,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"aal" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aam" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "rich_command_outer";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list(13)
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "aan" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -122,43 +96,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"aap" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "aaq" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "rich_command_airlock";
-	pixel_x = 25;
-	req_access = list(13);
-	tag_airpump = "rich_command_pump";
-	tag_chamber_sensor = "rich_command_sensor";
-	tag_exterior_door = "rich_command_outer";
-	tag_interior_door = "rich_command_inner"
-	},
-/obj/machinery/airlock_sensor{
-	id_tag = "rich_command_sensor";
-	pixel_x = 25;
-	pixel_y = 12
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "rich_command_pump"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/warning_stripes,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Security Maint EVA";
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -176,40 +119,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aas" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
-"aat" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "rich_command_inner";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/airlock/s_to_n,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aau" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aav" = (
@@ -257,15 +172,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aay" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "rich_command_airlock";
-	name = "interior access button";
-	pixel_x = 25;
-	pixel_y = 25;
-	req_access = list(13)
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -104785,8 +104691,8 @@ aab
 aab
 aab
 aab
-aal
-aap
+aau
+aau
 aas
 aad
 aaF
@@ -105042,9 +104948,9 @@ aab
 aab
 aab
 aab
-aam
+aah
 aaq
-aat
+aah
 aay
 aaG
 aaQ
@@ -105299,8 +105205,8 @@ aab
 aab
 aab
 aab
-aal
-aap
+aau
+aau
 aau
 aad
 aad
