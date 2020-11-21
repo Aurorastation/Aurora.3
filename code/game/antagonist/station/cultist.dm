@@ -87,11 +87,19 @@ var/datum/antagonist/cultist/cult
 		if(player.current && !istype(player.current, /mob/living/simple_animal/construct))
 			player.current.add_language(LANGUAGE_CULT)
 			player.current.verbs |= /datum/antagonist/cultist/proc/appraise_offering
+			player.current.verbs |= /datum/cultist/proc/memorize_rune
+			player.current.verbs |= /datum/cultist/proc/forget_rune
+			player.current.verbs |= /datum/cultist/proc/scribe_rune
+			player.antag_datums[MODE_CULTIST] = new /datum/cultist()
+
 
 /datum/antagonist/cultist/remove_antagonist(var/datum/mind/player)
 	. = ..()
 
 	player.current.verbs -= /datum/antagonist/cultist/proc/appraise_offering
+	player.current.verbs -= /datum/cultist/proc/memorize_rune
+	player.current.verbs -= /datum/cultist/proc/forget_rune
+	player.current.verbs -= /datum/cultist/proc/scribe_rune
 
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
@@ -104,7 +112,7 @@ var/datum/antagonist/cultist/cult
 /datum/antagonist/cultist/proc/appraise_offering()
 	set name = "Appraise Offering"
 	set desc = "Find out if someone close-by can be converted to join the cult, or not."
-	set category = "IC"
+	set category = "Cultist"
 
 	var/list/targets = list()
 	for(var/mob/living/carbon/target in view(5, usr))
