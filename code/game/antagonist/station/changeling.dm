@@ -26,7 +26,8 @@
 	faction = "Changeling"
 
 /datum/antagonist/changeling/get_special_objective_text(var/datum/mind/player)
-	return "<br><b>Changeling ID:</b> [player.changeling.changelingID].<br><b>Genomes Absorbed:</b> [player.changeling.absorbedcount]"
+	var/datum/changeling/changeling = player.antag_datums[MODE_CHANGELING]
+	return "<br><b>Changeling ID:</b> [changeling.changelingID].<br><b>Genomes Absorbed:</b> [changeling.absorbedcount]"
 
 /datum/antagonist/changeling/update_antag_mob(var/datum/mind/player)
 	..()

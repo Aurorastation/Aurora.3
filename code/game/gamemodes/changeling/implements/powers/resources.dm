@@ -1,11 +1,13 @@
 //Speeds up chemical regeneration
 /mob/proc/changeling_fastchemical()
-	src.mind.changeling.chem_recharge_rate *= 2.5
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	changeling.chem_recharge_rate *= 2.5
 	return TRUE
 
 //Increases maximum chemical storage
 /mob/proc/changeling_engorgedglands()
-	src.mind.changeling.chem_storage += 50
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	changeling.chem_storage += 50
 	return TRUE
 
 // HIVE MIND UPLOAD/DOWNLOAD DNA

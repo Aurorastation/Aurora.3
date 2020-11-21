@@ -287,8 +287,8 @@
 	C.digitalcamo = !C.digitalcamo
 
 	spawn(0)
-		while(C && C.digitalcamo && C.mind && C.mind.changeling)
-			C.mind.changeling.chem_charges = max(C.mind.changeling.chem_charges - 1, 0)
+		while(C && C.digitalcamo && C.mind && changeling)
+			changeling.chem_charges = max(changeling.chem_charges - 1, 0)
 			sleep(40)
 
 	src.verbs -= /mob/proc/changeling_digitalcamo
@@ -305,7 +305,7 @@
 	var/datum/changeling/changeling = changeling_power(30, 0, 100, UNCONSCIOUS)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 30
+	changeling.chem_charges -= 30
 
 	var/mob/living/carbon/human/C = src
 	spawn(0)
@@ -366,11 +366,11 @@
 	feedback_add_details("changeling_powers","MV")
 
 	spawn(0)
-		while(src && src.mind && src.mind.changeling && src.mind.changeling.mimicing)
-			src.mind.changeling.chem_charges = max(src.mind.changeling.chem_charges - 1, 0)
+		while(src?.mind && changeling?.mimicing)
+			changeling.chem_charges = max(changeling.chem_charges - 1, 0)
 			sleep(40)
-		if(src && src.mind && src.mind.changeling)
-			src.mind.changeling.mimicing = ""
+		if(changeling)
+			changeling.mimicing = ""
 
 /mob/proc/armblades()
 	set category = "Changeling"
@@ -380,7 +380,7 @@
 	var/datum/changeling/changeling = changeling_power(20, 0, 0)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 20
+	changeling.chem_charges -= 20
 
 	var/mob/living/carbon/M = src
 
@@ -418,7 +418,7 @@
 	var/datum/changeling/changeling = changeling_power(20,0,0)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 20
+	changeling.chem_charges -= 20
 
 	var/mob/living/carbon/M = src
 
@@ -465,7 +465,7 @@
 	if(alert("Are we sure we wish to reveal ourselves? This will only revert after ten minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
 
-	src.mind.changeling.chem_charges -= 40
+	changeling.chem_charges -= 40
 
 	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
 						"<span class='danger'>We begin our transformation to our true form!</span>")

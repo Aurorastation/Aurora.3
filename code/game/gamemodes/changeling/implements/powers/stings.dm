@@ -37,7 +37,7 @@
 								"<span class='danger'>[src] erupts a grotesque tail and impales [T]!</span>",
 								"<span class='danger'>[src]'s chin skin bulges and tears, launching a bone-dart at [T]!</span>"))
 
-	if(!T.mind || !T.mind.changeling)
+	if(!T.mind || !changeling)
 		return T	//T will be affected by the sting
 	return
 
@@ -174,9 +174,7 @@
 	set name = "Extract DNA Sting (40)"
 	set desc = "Stealthily sting a target to extract their DNA."
 
-	var/datum/changeling/changeling = null
-	if(src.mind && src.mind.changeling)
-		changeling = src.mind.changeling
+	var/datum/changeling/changeling = changeling_power()
 	if(!changeling)
 		return FALSE
 

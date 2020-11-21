@@ -32,7 +32,7 @@
 			return TRUE
 		if(ishuman(mover))
 			var/mob/living/carbon/human/H = mover
-			if(H.mind.changeling)
+			if(H.mind.antag_datums[MODE_CHANGELING])
 				return TRUE
 
 /obj/structure/gore/tendrils/Destroy()
