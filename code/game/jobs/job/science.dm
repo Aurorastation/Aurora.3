@@ -201,3 +201,7 @@
 	satchel = /obj/item/storage/backpack/satchel_tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
+	tablet = /obj/item/modular_computer/handheld/preset/research

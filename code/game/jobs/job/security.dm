@@ -289,3 +289,7 @@
 	satchel = /obj/item/storage/backpack/satchel_sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/security
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
+	tablet = /obj/item/modular_computer/handheld/preset/security
