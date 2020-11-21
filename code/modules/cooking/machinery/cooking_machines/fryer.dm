@@ -150,7 +150,8 @@
 	//Though this damage seems reduced, some hot oil is transferred to the victim and will burn them for a while after
 
 	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
-	damage *= OL.heatdamage(victim)
+	if(istype(OL))
+		damage *= OL.heatdamage(victim, oil)
 
 	var/obj/item/organ/external/E
 	var/nopain

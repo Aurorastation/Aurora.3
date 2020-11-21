@@ -83,9 +83,10 @@
 
 	M.chem_doses[type] += removed
 
-	var/bodytempchange = Clamp((get_temperature(holder) - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
+	var/bodytempchange = Clamp((holder.get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
 	if(abs(bodytempchange) >= REAGENTS_BODYTEMP_MIN)
 		M.bodytemperature += round(bodytempchange,REAGENTS_BODYTEMP_MIN)
+		holder.set_temperature()
 
 	for(var/_R in M.bloodstr.reagent_volumes)
 		var/decl/reagent/R = decls_repository.get_decl(_R)

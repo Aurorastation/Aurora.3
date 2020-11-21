@@ -282,14 +282,14 @@
 		T.wet_floor(WET_TYPE_LUBE,REAGENT_VOLUME(holder, type))
 
 //Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
-/decl/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M)
+/decl/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M, var/datum/reagents/holder)
 	var/threshold = 360//Human heatdamage threshold
 	var/datum/species/S = M.get_species(1)
 	if (S && istype(S))
 		threshold = S.heat_level_1
 
 	//If temperature is too low to burn, return a factor of 0. no damage
-	if (get_temperature() < threshold)
+	if (holder.get_temperature() < threshold)
 		return 0
 
 	//Step = degrees above heat level 1 for 1.0 multiplier
@@ -297,9 +297,7 @@
 	if (S && istype(S))
 		step = (S.heat_level_2 - S.heat_level_1)*1.5
 
-	. = get_temperature() - threshold
-	. /= step
-	. = min(., 2.5)//Cap multiplier at 2.5
+	return min((holder.get_temperature() - threshold)/step, 2.5)
 
 /decl/reagent/nutriment/triglyceride/oil/corn
 	name = "Corn Oil"

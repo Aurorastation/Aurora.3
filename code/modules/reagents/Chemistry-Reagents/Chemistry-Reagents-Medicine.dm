@@ -205,7 +205,7 @@
 	metabolism = REM * 0.25
 
 /decl/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/power = 1 + Clamp((get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
+	var/power = 1 + Clamp((holder.get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
 	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
 	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)

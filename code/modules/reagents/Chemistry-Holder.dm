@@ -8,7 +8,7 @@
 	var/maximum_volume = 100
 	var/atom/my_atom
 
-	var/temperature = T20C
+	var/thermal_energy = 0
 
 /datum/reagents/New(var/max = 100, atom/A)
 	..()
@@ -124,10 +124,10 @@
 			newreagent.set_thermal_energy(thermal_energy, src, TRUE)
 		else
 			newreagent.set_temperature(temperature, src, TRUE)
-		if(!thermal_energy && temperature != newreagent.get_temperature(src))
+		if(!thermal_energy && round(temperature, 1) != round(newreagent.get_temperature(src), 1))
 			crash_with("Temperature [temperature] did not match [newreagent.get_temperature(src)] for NEW reagent [newreagent.type]!")
 	else	// Existing reagent
-		var/old_energy = newreagent.get_thermal_energy(src)
+		var/old_energy = src.thermal_energy
 		reagent_volumes[rtype] += amount
 		if(!isnull(data))
 			LAZYSET(reagent_data, rtype, newreagent.mix_data(src, data, amount))
@@ -149,9 +149,9 @@
 	if(!isnum(amount) || old_volume <= 0)
 		return FALSE
 	amount = min(amount, old_volume)
-	reagent_volumes[rtype] -= amount
 	var/decl/reagent/current = decls_repository.get_decl(rtype)
-	current.add_thermal_energy( -(current.get_thermal_energy(src) * (amount/old_volume)), src )
+	thermal_energy -= current.get_thermal_energy(src) * (amount/old_volume)
+	reagent_volumes[rtype] -= amount
 	update_holder(!safety)
 	return TRUE
 
@@ -159,6 +159,7 @@
 	if(REAGENT_VOLUME(src, rtype) <= 0)
 		return FALSE
 	var/decl/reagent/current = decls_repository.get_decl(rtype)
+	thermal_energy -= current.get_thermal_energy(src)
 	if(ismob(my_atom))
 		current.final_effect(my_atom, src)
 	reagent_data -= rtype
