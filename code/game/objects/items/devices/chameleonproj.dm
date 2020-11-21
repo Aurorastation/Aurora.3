@@ -1,5 +1,6 @@
 /obj/item/device/chameleon
 	name = "chameleon projector"
+	desc = "A curious little device in a boxy frame. It has a button on the side."
 	desc_antag = "This device can let you disguise as common objects. Click on an object with this in your active hand to scan it, then activate it to use it in your hand."
 	icon_state = "shield0"
 	flags = CONDUCT
@@ -145,4 +146,81 @@
 
 /obj/effect/dummy/chameleon/Destroy()
 	master.disrupt(0)
+	return ..()
+
+/obj/item/device/mirage
+	name = "mirage projector"
+	desc = "A curious little device in a boxy frame. It has a button on the side."
+	desc_antag = "This device summons a hardlight version of the user to activate it, before cloaking itself."
+	icon_state = "shield0"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	item_state = "electronic"
+	throwforce = 5
+	throw_speed = 1
+	throw_range = 5
+	w_class = ITEMSIZE_SMALL
+	origin_tech = list(TECH_ILLEGAL = 4, TECH_MAGNET = 4)
+	var/obj/effect/dummy/mirage/mirage
+
+/obj/item/device/mirage/attack_self(mob/user)
+	activate(user)
+
+/obj/item/device/mirage/AltClick(mob/user)
+	if(use_check_and_message(user, USE_ALLOW_INCAPACITATED)) // this is to allow people to activate it while lying down to appear distressed
+		return
+	if(!(isturf(loc) || loc == user))
+		to_chat(user, SPAN_WARNING("\The [src] must be directly on your person or on the ground before you can use it!"))
+		return
+	activate(user)
+
+/obj/item/device/mirage/proc/activate(var/mob/user)
+	to_chat(user, SPAN_NOTICE("You activate \the [src]."))
+	if(loc == user)
+		user.drop_from_inventory(src, get_turf(user))
+	mouse_opacity = 0
+	mirage = new /obj/effect/dummy/mirage(loc, user, src)
+	animate(src, alpha = 0, time = 3 SECONDS)
+
+/obj/item/device/mirage/proc/disrupt()
+	if(mirage)
+		QDEL_NULL(mirage)
+	spark(src, 5)
+	alpha = initial(alpha)
+	mouse_opacity = initial(mouse_opacity)
+
+/obj/item/device/mirage/Destroy()
+	disrupt()
+	return ..()
+
+/obj/effect/dummy/mirage
+	var/mob/living/carbon/human/dummy/mannequin/form
+	var/obj/item/device/mirage/parent
+
+/obj/effect/dummy/mirage/Initialize(mapload, var/mob/living/carbon/human/user, var/obj/item/device/mirage/source)
+	. = ..()
+	parent = source
+	appearance = user.appearance
+	dir = user.dir
+	if(istype(user))
+		form = new /mob/living/carbon/human/dummy/mannequin(src)
+		form.copy_appearance(user)
+	alpha = 0
+	animate(src, alpha = 255, time = 3 SECONDS)
+
+/obj/effect/dummy/mirage/examine(mob/user)
+	if(form)
+		form.examine(user)
+		return
+	return ..()
+
+/obj/effect/dummy/mirage/attack_hand(mob/living/user)
+	parent.disrupt()
+
+/obj/effect/dummy/mirage/attackby(obj/item/I, mob/user)
+	parent.disrupt()
+
+/obj/effect/dummy/mirage/Destroy()
+	QDEL_NULL(form)
+	parent = null
 	return ..()

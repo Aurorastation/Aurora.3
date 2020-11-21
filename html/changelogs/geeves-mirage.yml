@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added mirage projectors, little items that can be activated by using them in-hand or alt-clicking them, which will place them on the floor and create a hardlight copy of you."
+  - rscdel: "Examining humans no longer brings up an image of them next to their name."

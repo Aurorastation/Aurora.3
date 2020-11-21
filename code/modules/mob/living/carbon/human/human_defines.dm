@@ -46,6 +46,8 @@
 	var/employer_faction = ""
 	var/religion = ""
 
+	var/dont_show_ssd
+
 	//Equipment slots
 	var/obj/item/wear_suit = null
 	var/obj/item/w_uniform = null

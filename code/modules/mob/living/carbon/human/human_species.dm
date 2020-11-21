@@ -4,6 +4,7 @@
 
 /mob/living/carbon/human/dummy/mannequin
 	mob_thinks = FALSE
+	dont_show_ssd = TRUE
 
 INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
@@ -14,6 +15,56 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	dead_mob_list -= src
 	human_mob_list -= src
 	delete_inventory()
+
+// this is to properly set up the examine as well
+/mob/living/carbon/human/dummy/mannequin/proc/copy_appearance(var/mob/living/carbon/human/H)
+	set_species(H.species.name)
+	appearance = H.appearance
+	if(H.wear_suit)
+		wear_suit = new H.wear_suit.type(src)
+		wear_suit.appearance = H.wear_suit.appearance
+	if(H.wear_mask)
+		wear_mask = new H.wear_mask.type(src)
+		wear_mask.appearance = H.wear_mask.appearance
+	if(H.s_store)
+		s_store = new H.s_store.type(src)
+		s_store.appearance = H.s_store.appearance
+	if(H.w_uniform)
+		w_uniform = new H.w_uniform.type(src)
+		w_uniform.appearance = H.w_uniform.appearance
+	if(H.shoes)
+		shoes = new H.shoes.type(src)
+		shoes.appearance = H.shoes.appearance
+	if(H.back)
+		back = new H.back.type(src)
+		back.appearance = H.back.appearance
+	if(H.belt)
+		belt = new H.belt.type(src)
+		belt.appearance = H.belt.appearance
+	if(H.gloves)
+		gloves = new H.gloves.type(src)
+		gloves.appearance = H.gloves.appearance
+	if(H.glasses)
+		glasses = new H.glasses.type(src)
+		glasses.appearance = H.glasses.appearance
+	if(H.head)
+		head = new H.head.type(src)
+		head.appearance = H.head.appearance
+	if(H.l_ear)
+		l_ear = new H.l_ear.type(src)
+		l_ear.appearance = H.l_ear.appearance
+	if(H.r_ear)
+		r_ear = new H.r_ear.type(src)
+		r_ear.appearance = H.r_ear.appearance
+	if(H.wear_id)
+		wear_id = new H.wear_id.type(src)
+		wear_id.appearance = H.wear_id.appearance
+	if(H.l_hand)
+		l_hand = new H.l_hand.type(src)
+		l_hand.appearance = H.l_hand.appearance
+	if(H.r_hand)
+		H.r_hand = new H.r_hand.type(src)
+		r_hand.appearance = H.r_hand.appearance
 
 /mob/living/carbon/human/skrell/Initialize(mapload)
 	h_style = "Skrell Average Tentacles"

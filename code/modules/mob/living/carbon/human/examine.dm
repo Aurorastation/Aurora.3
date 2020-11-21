@@ -26,12 +26,7 @@
 	var/skipeyes = skipitems & HIDEEYES
 	var/skipears = skipitems & HIDEEARS
 
-	var/list/msg = list("<span class='info'>*---------*\nThis is ")
-
-	if(icon)
-		msg += icon2html(icon, user)
-
-	msg += "<EM>[src.name]</EM>"
+	var/list/msg = list("<span class='info'>*---------*\nThis is <EM>[src.name]</EM>")
 
 	if(!species.hide_name)
 		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[species.name]</font></b>"
@@ -233,7 +228,7 @@
 		inactivity =  have_client ? bg.client.inactivity : null
 
 
-	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
+	if(!dont_show_ssd && species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
 		if(!vr_mob && !key)
 			msg += "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("is")] [species.show_ssd]. It doesn't look like [get_pronoun("he")] [get_pronoun("is")] waking up anytime soon.</span>\n"
 		else if(!vr_mob && !client && !bg)

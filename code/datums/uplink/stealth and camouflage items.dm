@@ -24,6 +24,12 @@
 	item_cost = 5
 	path = /obj/item/storage/box/syndie_kit/chameleon
 
+/datum/uplink_item/item/stealth_items/mirage_projector
+	name = "Mirage Projector"
+	desc = "A device that can creates a hardlight copy of yourself when you activate it."
+	item_cost = 4
+	path = /obj/item/device/mirage
+
 /datum/uplink_item/item/stealth_items/voice
 	name = "Voice Changer"
 	item_cost = 5

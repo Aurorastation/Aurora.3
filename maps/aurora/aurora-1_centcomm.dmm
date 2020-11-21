@@ -3379,6 +3379,14 @@
 	pixel_x = -15;
 	pixel_y = 1
 	},
+/obj/item/device/mirage{
+	pixel_x = 8;
+	pixel_y = -3
+	},
+/obj/item/device/mirage{
+	pixel_x = -2;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "apI" = (
