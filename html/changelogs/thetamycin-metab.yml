@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Thetamycin's metabolisation is now 3x as fast. It will take 5 minutes to begin to treat infections as opposed to 15 minutes."
-  - tweak: "Severe infections once again treated when thetamycin ODs (20u) as opposed to at 30u."
+  - tweak: "Severe infections are once again treated when thetamycin ODs (20u) as opposed to at 30u (the former OD)."
