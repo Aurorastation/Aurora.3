@@ -140,11 +140,7 @@
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
 	species_restricted = list(BODYTYPE_TAJARA)
-	desc_fluff = "Medical practices and sanitation on Adhomai had only recently reached the capabilities required to have proper sanitized hospitals, antibiotics, and cities with higher \
-	birth rates than death rates when first contact was made with aliens. With the introduction to futuristic and highly advanced medicines, the healthcare industry began to boom for \
-	the Tajara as the People's Republic's universal healthcare system began to purchase bulk quantities of pharmaceuticals and hire medical schooling professionals from NanoTrasen. \
-	The result was a healthcare revolution where average lifespans increased by over a decade, however many diseases native to Adhomai still remain unknown by medical \
-	professionals to this day as the war prevents epidemiologists from gathering data in affected areas and liberal use of antibiotics by Tajaran doctors eliminate most samples."
+	desc_fluff = null
 
 /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
 	name = "adhomian surgeon mask"
