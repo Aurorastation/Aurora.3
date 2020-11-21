@@ -412,7 +412,12 @@
 		if(pulse_result == ">250")
 			pulse_result = -3
 
-		VUEUI_SET_CHECK(data["stat"], occupant.stat, ., data)
+		var/displayed_stat = occupant.stat
+		var/blood_oxygenation = occupant.get_blood_oxygenation()
+		if(occupant.status_flags & FAKEDEATH)
+			displayed_stat = DEAD
+			blood_oxygenation = min(blood_oxygenation, BLOOD_VOLUME_SURVIVE)
+		VUEUI_SET_CHECK(data["stat"], displayed_stat, ., data)
 		VUEUI_SET_CHECK(data["name"], occupant.name, ., data)
 		VUEUI_SET_CHECK(data["species"], occupant.get_species(), ., data)
 		VUEUI_SET_CHECK(data["brain_activity"], brain_result, ., data)
@@ -420,7 +425,7 @@
 		VUEUI_SET_CHECK(data["blood_pressure"], occupant.get_blood_pressure(), ., data)
 		VUEUI_SET_CHECK(data["blood_pressure_level"], occupant.get_blood_pressure_alert(), ., data)
 		VUEUI_SET_CHECK(data["blood_volume"], occupant.get_blood_volume(), ., data)
-		VUEUI_SET_CHECK(data["blood_o2"], occupant.get_blood_oxygenation(), ., data)
+		VUEUI_SET_CHECK(data["blood_o2"], blood_oxygenation, ., data)
 		VUEUI_SET_CHECK(data["rads"], occupant.total_radiation, ., data)
 
 		VUEUI_SET_CHECK(data["cloneLoss"], get_severity(occupant.getCloneLoss(), TRUE), ., data)
@@ -542,6 +547,13 @@
 		data["location"] = capitalize_first_letters(parse_zone(O.parent_organ))
 		var/list/wounds = list()
 		var/internal_damage = get_internal_damage(O)
+		if(istype(O, /obj/item/organ/internal/brain))
+			if(H.status_flags & FAKEDEATH)
+				internal_damage = "Severe" // fake some brain damage
+				if(!(O.status & ORGAN_DEAD)) // to prevent this wound from appearing twice
+					wounds += "Necrotic and decaying."
+			if(H.has_brain_worms())
+				wounds += "Has an abnormal growth."
 		data["damage"] = internal_damage
 		if(istype(O, /obj/item/organ/internal/lungs))
 			var/obj/item/organ/internal/lungs/L = O
@@ -554,9 +566,6 @@
 
 		if(O.status & ORGAN_DEAD)
 			wounds += "Necrotic and decaying."
-
-		if(istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
-			wounds += "Has an abnormal growth."
 
 		if(istype(O, H.species.vision_organ))
 			if(H.sdisabilities & BLIND)
