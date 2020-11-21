@@ -145,6 +145,10 @@
 /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
 	name = "adhomian surgeon mask"
 	desc = "A surgical mask attached to a surgeon garb."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "tajscrubs_hood"
+	item_state = "tajscrubs_hood"
+	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/suit/armor/tajara
