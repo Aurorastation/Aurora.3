@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - admin: "The Setup-Supermatter debug verb should now work as expected - added markers that make it work."
