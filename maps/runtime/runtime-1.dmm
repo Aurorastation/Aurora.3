@@ -968,15 +968,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cq" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/white{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
 "cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
@@ -1446,6 +1437,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"gF" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "ie" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
@@ -1540,6 +1537,15 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"uI" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry)
 "wk" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1572,6 +1578,10 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/construction)
+"Ct" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -1658,6 +1668,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"Uf" = (
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
 "UF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1670,6 +1683,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"WS" = (
+/obj/turbolift_map_holder/runtime{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
 "YP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -3590,8 +3609,8 @@ at
 bv
 bQ
 ch
-cq
-cq
+uI
+uI
 cE
 cF
 cG
@@ -3816,9 +3835,9 @@ cP
 cP
 cP
 cP
-cP
-cP
-cP
+Ct
+Ct
+Ct
 cP
 cP
 cP
@@ -3868,13 +3887,13 @@ ae
 ae
 ae
 ae
+gF
 ae
 ae
 ae
 ae
 ae
-ae
-ae
+gF
 ae
 ae
 ae
@@ -3976,13 +3995,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+WS
+ac
 aa
 aa
 aa
@@ -4030,13 +4049,13 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 ab
 ab
 ab
@@ -4084,13 +4103,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -4138,13 +4157,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -4192,13 +4211,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -4246,13 +4265,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 aa
 aa
 aa
