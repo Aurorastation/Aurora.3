@@ -31770,6 +31770,18 @@
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"nyw" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/obj/structure/bed/chair/plastic{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Medical Intern"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "nyX" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/window/reinforced{
@@ -33708,9 +33720,6 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "rCQ" = (
-/obj/effect/landmark/start{
-	name = "Virologist"
-	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
@@ -34643,14 +34652,14 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "tSk" = (
-/obj/effect/landmark/start{
-	name = "Psychiatrist"
-	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Surgeon"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -36002,14 +36011,14 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_tesla)
 "wnO" = (
-/obj/effect/landmark/start{
-	name = "Virologist"
-	},
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 4
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Psychiatrist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -78595,7 +78604,7 @@ aLk
 vMS
 sWS
 wSX
-kwz
+nyw
 tSk
 kwz
 xyk

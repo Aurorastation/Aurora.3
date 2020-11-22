@@ -167,8 +167,6 @@
 	var/strength = 6
 
 /decl/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(alien == IS_VOX)
-		M.adjustToxLoss(removed * strength)
 	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
 	holder.remove_reagent(/decl/reagent/lexorin, strength/3 * removed)
 
@@ -556,7 +554,6 @@
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 	M.add_chemical_effect(CE_PULSE, 1)
-
 	if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
 		overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
 

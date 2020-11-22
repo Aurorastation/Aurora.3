@@ -79,8 +79,7 @@
 		recalculateChannels()
 
 /obj/item/device/paicard/proc/recalculateChannels()
-	radio.channels = list()
-
+	radio.channels = list("Common" = radio.FREQ_LISTENING, "Entertainment" = radio.FREQ_LISTENING)
 	for(var/keyslot in installed_encryptionkeys)
 		var/obj/item/device/encryptionkey/EK = keyslot
 		for(var/ch_name in (EK.channels | EK.additional_channels))

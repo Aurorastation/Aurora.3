@@ -46,6 +46,8 @@
 /area/construction/hallway)
 "i" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -67,6 +69,8 @@
 /area/construction/hallway)
 "l" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -185,6 +189,8 @@
 /area/construction/hallway)
 "J" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{

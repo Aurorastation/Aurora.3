@@ -30,6 +30,8 @@
 /area/tcommsat/computer)
 "cB" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -286,6 +288,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
+"nl" = (
+/turf/simulated/open,
+/area/turbolift/main_mid)
 "nR" = (
 /obj/machinery/power/apc/super{
 	name = "south bump";
@@ -390,6 +395,8 @@
 /area/tcommsat/chamber)
 "sK" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/structure/cable/cyan{
@@ -506,6 +513,12 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"uW" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
 "vk" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret{
@@ -683,6 +696,8 @@
 /area/construction/Storage)
 "Dd" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -708,6 +723,8 @@
 	dir = 8
 	},
 /obj/machinery/light/small{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -720,6 +737,8 @@
 /area/tcommsat/computer)
 "DR" = (
 /obj/machinery/light/small{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
@@ -768,6 +787,8 @@
 "Fq" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid{
@@ -816,6 +837,8 @@
 /area/tcommsat/computer)
 "Jd" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -945,6 +968,8 @@
 "Ox" = (
 /obj/machinery/telecomms/bus/preset_four,
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid{
@@ -970,6 +995,8 @@
 /area/tcommsat/chamber)
 "Pl" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -979,6 +1006,8 @@
 /area/construction/Storage)
 "Pv" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/machinery/status_display{
@@ -1026,7 +1055,10 @@
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
 "RM" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -1108,6 +1140,8 @@
 /area/tcommsat/chamber)
 "VK" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -1165,6 +1199,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/structure/closet/crate/secure/aimodules,
@@ -1196,6 +1232,14 @@
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
+/area/construction/Storage)
+"ZB" = (
+/obj/structure/flora/pottedplant/random{
+	desc = "I like moster truck";
+	name = "walter"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled,
 /area/construction/Storage)
 "ZL" = (
 /obj/structure/cable/cyan{
@@ -3292,13 +3336,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 hD
 hD
 hD
@@ -3346,13 +3390,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+uW
+aO
+ZB
+aO
+uW
+Ex
 hD
 hD
 hD
@@ -3400,13 +3444,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+aO
+aO
+aO
+aO
+aO
+Ex
 hD
 hD
 hD
@@ -3454,13 +3498,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 hD
 hD
 hD
@@ -3508,13 +3552,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+nl
+nl
+nl
+nl
+nl
+Ex
 iR
 iR
 iR
@@ -3562,13 +3606,13 @@ Zg
 Zg
 Zg
 Zg
-Zg
-Zg
-Zg
-Zg
-Zg
-Zg
-Zg
+Ex
+nl
+nl
+nl
+nl
+nl
+Ex
 Zg
 Zg
 Zg
@@ -3616,13 +3660,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+nl
+nl
+nl
+nl
+nl
+Ex
 iR
 iR
 iR
@@ -3670,13 +3714,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+nl
+nl
+nl
+nl
+nl
+Ex
 iR
 iR
 iR
@@ -3724,13 +3768,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+nl
+nl
+nl
+nl
+nl
+Ex
 iR
 iR
 iR
@@ -3778,13 +3822,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 iR
 iR
 iR

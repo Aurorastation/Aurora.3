@@ -2937,6 +2937,7 @@
 #include "maps\exodus\code\exodus_shuttles.dm"
 #include "maps\exodus\code\exodus_unittest.dm"
 #include "maps\runtime\code\runtime.dm"
+#include "maps\runtime\code\runtime_lifts.dm"
 #include "maps\runtime\code\runtime_unittest.dm"
 #include "maps\templates\distress\distress_equipment.dm"
 #include "maps\templates\orbital\orbital_templates.dm"

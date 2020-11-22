@@ -169,6 +169,11 @@
 	icon_state = "srv_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_service
 
+/obj/item/device/radio/headset/headset_service/alt
+	name = "service radio bowman headset"
+	icon_state = "srv_headset_alt"
+	icon_state = "headset_alt"
+
 /obj/item/device/radio/headset/heads/hop
 	name = "head of personnel's headset"
 	desc = "The headset of the guy who will one day be captain."

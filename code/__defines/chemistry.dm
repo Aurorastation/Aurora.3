@@ -35,14 +35,13 @@
 
 // Some on_mob_life() procs check for alien races.
 #define IS_DIONA   1
-#define IS_VOX     2
-#define IS_SKRELL  4
-#define IS_UNATHI  8
-#define IS_TAJARA  16
-#define IS_XENOS   32
-#define IS_MACHINE 64
-#define IS_VAURCA  128
-#define IS_UNDEAD  256
+#define IS_SKRELL  2
+#define IS_UNATHI  4
+#define IS_TAJARA  8
+#define IS_XENOS   16
+#define IS_MACHINE 32
+#define IS_VAURCA  64
+#define IS_UNDEAD  128
 
 // Apply status effects
 #define CE_ADRENALINE	"adrenal"		// Like speedboost but different

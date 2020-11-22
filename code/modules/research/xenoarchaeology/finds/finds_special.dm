@@ -98,13 +98,13 @@
 	//use up stored charges
 	if(charges >= 10)
 		charges -= 10
-		new /obj/effect/spider/eggcluster(pick(view(1,src)))
+		new /obj/effect/spider/eggcluster(pick(seen_turfs_in_range(src, 1)))
 
 	if(charges >= 3)
 		if(prob(5))
 			charges -= 1
 			var/spawn_type = pick(/mob/living/simple_animal/hostile/creature)
-			new spawn_type(pick(view(1,src)))
+			new spawn_type(pick(seen_turfs_in_range(src, 1)))
 			playsound(src.loc, pick('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg'), 50, 1, -3)
 
 	if(charges >= 1)
@@ -147,7 +147,7 @@
 		M.apply_damage(rand(5, 10), BRUTE, target)
 		to_chat(M, "<span class='warning'>The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out.</span>")
 		var/obj/effect/decal/cleanable/blood/splatter/animated/B = new(M.loc)
-		B.target_turf = pick(range(1, src))
+		B.target_turf = pick(seen_turfs_in_range(src, 1))
 		B.blood_DNA = list()
 		B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 		M.vessel.remove_reagent(/decl/reagent/blood,rand(25,50))
@@ -201,7 +201,7 @@
 
 /obj/effect/shadow_wight/process()
 	if(src.loc)
-		src.forceMove(get_turf(pick(orange(1,src))))
+		src.forceMove(pick(seen_turfs_in_range(src, 1) - get_turf(src)))
 		var/mob/living/carbon/M = locate() in src.loc
 		if(M)
 			playsound(src.loc, pick('sound/hallucinations/behind_you1.ogg',\

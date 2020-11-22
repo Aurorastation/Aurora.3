@@ -192,11 +192,13 @@
 	var/allow_loadout = TRUE
 	allow_backbag_choice = TRUE
 	allow_pda_choice = TRUE
+	allow_headset_choice = TRUE
 	var/jobtype = null
 
 	uniform = /obj/item/clothing/under/color/grey
 	id = /obj/item/card/id
-	l_ear = /obj/item/device/radio/headset
+	headset = /obj/item/device/radio/headset
+	bowman = /obj/item/device/radio/headset/alt
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian

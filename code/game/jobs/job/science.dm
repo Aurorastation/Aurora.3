@@ -36,7 +36,8 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/rd
+	headset = /obj/item/device/radio/headset/heads/rd
+	bowman = /obj/item/device/radio/headset/heads/rd/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
@@ -78,7 +79,8 @@
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
-	l_ear = /obj/item/device/radio/headset/headset_sci
+	headset = /obj/item/device/radio/headset/headset_sci
+	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
@@ -153,7 +155,8 @@
 	uniform = /obj/item/clothing/under/rank/roboticist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_sci
+	headset = /obj/item/device/radio/headset/headset_sci
+	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
@@ -181,8 +184,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the Research Director"
 	selection_color = "#a44799"
 	access = list(access_research, access_tox)
@@ -195,7 +198,8 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern
 	shoes = /obj/item/clothing/shoes/science
-	l_ear = /obj/item/device/radio/headset/headset_sci
+	headset = /obj/item/device/radio/headset/headset_sci
+	bowman = /obj/item/device/radio/headset/headset_sci/alt
 
 	backpack = /obj/item/storage/backpack/toxins
 	satchel = /obj/item/storage/backpack/satchel_tox

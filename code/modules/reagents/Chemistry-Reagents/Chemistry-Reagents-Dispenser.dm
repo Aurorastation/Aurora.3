@@ -49,10 +49,7 @@
 	fallback_specific_heat = 1.048
 
 /decl/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(alien == IS_VOX)
-		M.adjustOxyLoss(-removed * 10)
-	else
-		M.adjustToxLoss(removed * 1.5)
+	M.adjustToxLoss(removed * 1.5)
 
 /decl/reagent/carbon
 	name = "Carbon"
