@@ -5187,6 +5187,10 @@
 	icon_state = "wood"
 	},
 /area/antag/wizard)
+"aIX" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/skipjack)
 "aIY" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -65804,7 +65808,7 @@ apP
 aFR
 aFR
 aIm
-aFP
+aIX
 aKM
 aNB
 aVj

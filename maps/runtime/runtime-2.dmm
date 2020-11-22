@@ -28,6 +28,14 @@
 	temperature = 278
 	},
 /area/tcommsat/computer)
+"bl" = (
+/obj/structure/flora/pottedplant/random{
+	desc = "I like moster truck";
+	name = "walter"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
 "cB" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -94,6 +102,9 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"ev" = (
+/turf/simulated/open,
+/area/turbolift/main_mid)
 "eN" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -288,9 +299,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"nl" = (
-/turf/simulated/open,
-/area/turbolift/main_mid)
 "nR" = (
 /obj/machinery/power/apc/super{
 	name = "south bump";
@@ -513,12 +521,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
-"uW" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/construction/Storage)
 "vk" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret{
@@ -1034,6 +1036,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
+"QS" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
 "QX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
@@ -1232,14 +1240,6 @@
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/construction/Storage)
-"ZB" = (
-/obj/structure/flora/pottedplant/random{
-	desc = "I like moster truck";
-	name = "walter"
-	},
-/obj/effect/decal/warning_stripes,
-/turf/simulated/floor/tiled,
 /area/construction/Storage)
 "ZL" = (
 /obj/structure/cable/cyan{
@@ -3391,11 +3391,11 @@ hD
 hD
 hD
 Ex
-uW
+QS
 aO
-ZB
+bl
 aO
-uW
+QS
 Ex
 hD
 hD
@@ -3553,11 +3553,11 @@ iR
 iR
 iR
 Ex
-nl
-nl
-nl
-nl
-nl
+ev
+ev
+ev
+ev
+ev
 Ex
 iR
 iR
@@ -3607,11 +3607,11 @@ Zg
 Zg
 Zg
 Ex
-nl
-nl
-nl
-nl
-nl
+ev
+ev
+ev
+ev
+ev
 Ex
 Zg
 Zg
@@ -3661,11 +3661,11 @@ iR
 iR
 iR
 Ex
-nl
-nl
-nl
-nl
-nl
+ev
+ev
+ev
+ev
+ev
 Ex
 iR
 iR
@@ -3715,11 +3715,11 @@ iR
 iR
 iR
 Ex
-nl
-nl
-nl
-nl
-nl
+ev
+ev
+ev
+ev
+ev
 Ex
 iR
 iR
@@ -3769,11 +3769,11 @@ iR
 iR
 iR
 Ex
-nl
-nl
-nl
-nl
-nl
+ev
+ev
+ev
+ev
+ev
 Ex
 iR
 iR

@@ -3988,45 +3988,45 @@
 /area/engineering/atmos)
 "ajg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "aji" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"ajn" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/machinery/pipedispenser,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"ajn" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/pipedispenser/disposal,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "ajo" = (
@@ -31770,18 +31770,6 @@
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
-"nyw" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 6
-	},
-/obj/structure/bed/chair/plastic{
-	dir = 8
-	},
-/obj/effect/landmark/start{
-	name = "Medical Intern"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
 "nyX" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/window/reinforced{
@@ -34241,6 +34229,11 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
+"sXH" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/pipedispenser/disposal,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "sYz" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -35037,6 +35030,18 @@
 /obj/machinery/particle_accelerator/control_box,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"uFh" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/obj/structure/bed/chair/plastic{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Medical Intern"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "uGd" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -37050,11 +37055,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"ylR" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/plating,
-/area/engineering/atmos)
 
 (1,1,1) = {"
 aaa
@@ -61050,8 +61050,8 @@ agj
 ahC
 baN
 aiI
-ylR
-ylR
+ajg
+ajg
 aaO
 aaa
 aaa
@@ -61307,8 +61307,8 @@ agj
 ahC
 baN
 aiI
-ajg
-ajg
+ajh
+ajh
 aaO
 aaa
 aaa
@@ -61564,8 +61564,8 @@ agj
 ahC
 baN
 aiI
-ajh
-ajh
+aji
+aji
 aaO
 aaa
 aaa
@@ -61821,8 +61821,8 @@ agj
 ahC
 baN
 aiI
-aji
-aji
+ajj
+ajj
 aaO
 aaa
 aaa
@@ -62078,8 +62078,8 @@ agi
 abo
 baN
 aiI
-ajj
-ajj
+ajk
+ajk
 aaO
 aaa
 aaa
@@ -62335,8 +62335,8 @@ agk
 abo
 baO
 aiI
-ajk
-ajk
+ajl
+ajl
 aaO
 aaa
 aaa
@@ -62592,8 +62592,8 @@ agl
 abo
 abo
 aiI
-ajl
-ajl
+ajm
+ajm
 aaO
 aaa
 aaa
@@ -62849,7 +62849,7 @@ adB
 acT
 aeY
 aiI
-ajm
+ajn
 aaO
 aaO
 aaa
@@ -63106,7 +63106,7 @@ kaD
 nwo
 ecc
 aiI
-ajn
+sXH
 aaO
 aaa
 aaa
@@ -78604,7 +78604,7 @@ aLk
 vMS
 sWS
 wSX
-nyw
+uFh
 tSk
 kwz
 xyk

@@ -11821,6 +11821,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"wn" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/tcommsat/computer)
 "wp" = (
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "5,13"
@@ -12620,10 +12624,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"xW" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
-/area/tcommsat/computer)
 "xX" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -39233,7 +39233,7 @@ bg
 bh
 cc
 cx
-xW
+wn
 dm
 dG
 dY

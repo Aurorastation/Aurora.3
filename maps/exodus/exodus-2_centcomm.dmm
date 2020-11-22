@@ -8802,6 +8802,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
+"aHl" = (
+/turf/simulated/floor/plating,
+/area/shuttle/skipjack)
 "aHm" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -29342,7 +29345,7 @@ aGq
 aGj
 aGL
 aGT
-aGj
+aHl
 aHu
 aHC
 aaM
