@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Loadout items that go on the ear slot now render correctly in the character creation menu."
-  - bugfix: "Skrell loadout items that go in the ear slot included."
