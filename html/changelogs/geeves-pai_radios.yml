@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "pAI radios no longer let people two tiles away hear them, now you need to be on top of them to hear, or vice versa. The range can be configured in the radio configuration app."
+  - bugfix: "Actually gave pAI access to common and entertainment, the standard for user radios."
