@@ -29,7 +29,7 @@
 	update_icon()
 
 /obj/item/glass_jar/MouseDrop(atom/target)
-	if(ishuman(target) || issmall(target) && target == usr)
+	if(ishuman(target) || issmall(target) && target == usr && use_check_and_message(usr) && Adjacent(usr))
 		if(contains == JAR_GUMBALL)
 			handle_gumball_removal(usr)
 
@@ -190,7 +190,7 @@
 	name = "Peter's Jar"
 
 /obj/item/glass_jar/peter/Initialize()
-	..()
+	. = ..()
 	var/obj/effect/spider/spiderling/S = new
 	S.name = "Peter"
 	S.desc = "The journalist's pet spider, Peter. It has a miniature camera around its neck and seems to glow faintly."
@@ -213,12 +213,9 @@
 /obj/item/glass_jar/gumball/LateInitialize()
 	update_icon()
 
-/obj/item/glass_jar/gumball/medical
-
 /obj/item/glass_jar/gumball/medical/Initialize()
 	for(var/i = 1 to GUMBALL_MAX)
-		var/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/G = new
-		G.forceMove(src)
+		var/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/G = new(src)
 		gumballs_contained += G
 
 #undef JAR_NOTHING
