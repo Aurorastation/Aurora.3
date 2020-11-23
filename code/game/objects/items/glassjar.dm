@@ -158,7 +158,7 @@
 		G.forceMove(src)
 		if(!contains)
 			contains = JAR_GUMBALL
-		user.visible_message("[user] puts a gumball in \the [name].", SPAN_NOTICE("You put a gumball in \the [name]."))
+		user.visible_message("<b>[user]</b> puts a gumball in \the [src].", SPAN_NOTICE("You put a gumball in \the [src]."))
 		handle_gumball_underlays()
 	else
 		to_chat(user, SPAN_WARNING("\The [name] is full!"))
