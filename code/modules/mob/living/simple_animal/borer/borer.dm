@@ -24,7 +24,7 @@
 	pass_flags = PASSTABLE
 	universal_understand = TRUE
 	holder_type = /obj/item/holder/borer
-	mob_size = 1
+	mob_size = MOB_MINISCULE
 	hunger_enabled = FALSE
 
 	var/used_dominate

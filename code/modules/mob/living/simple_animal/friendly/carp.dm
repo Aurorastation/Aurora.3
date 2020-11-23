@@ -37,7 +37,7 @@
 	max_n2 = 0
 	minbodytemp = 0
 
-	mob_size = 4
+	mob_size = MOB_TINY
 	max_nutrition = 40
 	metabolic_factor = 0.2
 	bite_factor = 0.6 //Carp got big bites

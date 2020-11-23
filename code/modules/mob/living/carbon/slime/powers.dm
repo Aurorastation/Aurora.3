@@ -122,7 +122,7 @@
 	if(!is_adult)
 		if(amount_grown >= 5)
 			is_adult = TRUE
-			mob_size = 6 // Adult slimes are bigger
+			mob_size = MOB_SMALL // Adult slimes are bigger
 			maxHealth = 200
 			health = maxHealth
 			amount_grown = 0

@@ -24,7 +24,7 @@
 	// Health and interaction
 	maxHealth = 200
 	health = 200
-	mob_size = 16 //robots are heavy
+	mob_size = MOB_LARGE //robots are heavy
 	mob_bump_flag = ROBOT
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = ~HEAVY //trundle trundle

@@ -186,6 +186,6 @@
 	icon = 'icons/jungle.dmi'
 	pass_flags = PASSTABLE
 	density = 0
-	mob_size = 1.5
+	mob_size = MOB_MINISCULE + 0.5
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag

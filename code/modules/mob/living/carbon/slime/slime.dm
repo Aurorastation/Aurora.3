@@ -5,7 +5,7 @@
 	pass_flags = PASSTABLE
 	var/is_adult = 0
 	speak_emote = list("chirps")
-	mob_size = 4
+	mob_size = MOB_TINY
 	composition_reagent = /datum/reagent/slimejelly
 	layer = 5
 	maxHealth = 150
@@ -81,7 +81,7 @@
 	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
 	real_name = name
 	if(is_adult)
-		mob_size = 6
+		mob_size = MOB_SMALL
 	slime_mutation = mutation_table(colour)
 	mutation_chance = rand(25, 35)
 	var/sanitizedcolour = replacetext(colour, " ", "")

@@ -24,7 +24,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SOL_COMMON)
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
-	mob_size = 9
+	mob_size = MOB_MEDIUM
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS | HAS_SKIN_PRESET
 	remains_type = /obj/effect/decal/remains/human

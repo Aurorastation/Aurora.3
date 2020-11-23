@@ -2,6 +2,7 @@
 #define JAR_MONEY 1
 #define JAR_ANIMAL 2
 #define JAR_SPIDERLING 3
+#define JAR_HOLDER 4
 
 /obj/item/glass_jar
 	name = "glass jar"
@@ -12,7 +13,7 @@
 	matter = list(MATERIAL_GLASS = 200)
 	recyclable = TRUE
 	flags = NOBLUDGEON
-	var/contains = JAR_NOTHING // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
+	var/contains = JAR_NOTHING // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling, 4 = holder
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
@@ -25,22 +26,25 @@
 		return
 	if(istype(A, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = A
-		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [S] into \the [src]."), SPAN_NOTICE("You scoop \the [S] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [S] into \the [initial(name)]."), SPAN_NOTICE("You scoop \the [S] into \the [initial(name)]."))
+		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)	// No growing inside jars
 		contains = JAR_SPIDERLING
 		update_icon()
 		return
-	if(ismob(A))
-		var/mob/L = A
-		if(L.mob_size <= MOB_SMALL)
-			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [L] into \the [src]."), SPAN_NOTICE("You scoop \the [L] into \the [src]."))
-			L.forceMove(src)
+	if(istype(A, /mob/living/simple_animal))
+		var/mob/living/simple_animal/S = A
+		if(S.mob_size < MOB_TINY)
+			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [S] into \the [initial(name)]."), SPAN_NOTICE("You scoop \the [S] into \the [initial(name)]."))
+			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+			S.forceMove(src)
 			contains = JAR_ANIMAL
 			update_icon()
 			return
 		else
-			to_chat(user, SPAN_WARNING("\The [L] doesn't fit into \the [src]!"))
+			to_chat(user, SPAN_WARNING("\The [S] doesn't fit into \the [initial(name)]!"))
+			playsound(src, drop_sound, DROP_SOUND_VOLUME)
 			return
 
 /obj/item/glass_jar/attack_self(var/mob/user)
@@ -48,27 +52,38 @@
 		if(JAR_MONEY)
 			for(var/obj/O in src)
 				O.forceMove(user.loc)
-			to_chat(user, SPAN_NOTICE("You take money out of \the [src]."))
+			to_chat(user, SPAN_NOTICE("You take money out of \the [initial(name)]."))
+			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 			contains = JAR_NOTHING
 			update_icon()
 			return
 		if(JAR_ANIMAL)
 			for(var/mob/M in src)
 				M.forceMove(user.loc)
-				user.visible_message(SPAN_NOTICE("\The [user] releases \the [M] from \the [src]."), SPAN_NOTICE("You release \the [M] from \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] releases \the [M] from \the [initial(name)]."), SPAN_NOTICE("You release \the [M] from \the [initial(name)]."))
+				playsound(src, drop_sound, DROP_SOUND_VOLUME)
+			contains = JAR_NOTHING
+			update_icon()
+			return
+		if(JAR_HOLDER)
+			for(var/obj/item/holder/H in src)
+				H.release_to_floor()
+				user.visible_message(SPAN_NOTICE("\The [user] releases \the [H] from \the [initial(name)]."), SPAN_NOTICE("You release \the [H] from \the [initial(name)]."))
+				playsound(src, drop_sound, DROP_SOUND_VOLUME)
 			contains = JAR_NOTHING
 			update_icon()
 			return
 		if(JAR_SPIDERLING)
 			for(var/obj/effect/spider/spiderling/S in src)
 				S.forceMove(user.loc)
-				user.visible_message(SPAN_NOTICE("\The [user] releases \the [S] from \the [src]."), SPAN_NOTICE("You release \the [S] from \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] releases \the [S] from \the [initial(name)]."), SPAN_NOTICE("You release \the [S] from \the [initial(name)]."))
+				playsound(src, drop_sound, DROP_SOUND_VOLUME)
 				START_PROCESSING(SSprocessing, S) // They can grow after being let out though
 			contains = JAR_NOTHING
 			update_icon()
 			return
 		if(JAR_NOTHING)
-			to_chat(user, SPAN_NOTICE("You remove the lid from \the [src]."))
+			to_chat(user, SPAN_NOTICE("You remove the lid from \the [initial(name)]."))
 			user.drop_from_inventory(src)
 			user.put_in_hands(new /obj/item/reagent_containers/glass/beaker/jar) //found in jar.dm
 			qdel(src)
@@ -81,9 +96,20 @@
 		if(contains != JAR_MONEY)
 			return
 		var/obj/item/spacecash/S = A
-		user.visible_message(SPAN_NOTICE("\The [user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [initial(name)]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
+	if(istype(A, /obj/item/holder) || !contains)
+		var/obj/item/holder/H = A
+		if(H.w_class <= ITEMSIZE_SMALL)
+			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [H] into \the [initial(name)]."), SPAN_NOTICE("You scoop \the [H] into \the [initial(name)]."))
+			user.drop_from_inventory(H,src)
+			contains = JAR_HOLDER
+			update_icon()
+			return
+		else
+			to_chat(user, SPAN_WARNING("\The [H] doesn't fit into \the [initial(name)]!"))
+			return
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc
 	underlays.Cut()
@@ -120,6 +146,17 @@
 				underlays += victim
 				name = "glass jar with [S]"
 				desc = "A small jar with [S] inside."
+		if(JAR_HOLDER)
+			for(var/obj/item/holder/H in src)
+				var/image/victim = new()
+				victim.appearance = H
+				victim.layer = FLOAT_LAYER
+				victim.plane = FLOAT_PLANE
+				victim.pixel_x = 0
+				victim.pixel_y = 6
+				underlays += victim
+				name = "glass jar with [H]"
+				desc = "A small jar with [H] inside."
 	return
 
 /obj/item/glass_jar/peter/
@@ -139,3 +176,4 @@
 #undef JAR_MONEY
 #undef JAR_ANIMAL
 #undef JAR_SPIDERLING
+#undef JAR_HOLDER

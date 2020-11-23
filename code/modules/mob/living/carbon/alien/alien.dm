@@ -7,7 +7,7 @@
 	pass_flags = PASSTABLE
 	health = 100
 	maxHealth = 100
-	mob_size = 4
+	mob_size = MOB_TINY
 
 	var/adult_form
 	var/dead_icon
@@ -51,5 +51,3 @@
 
 /mob/living/carbon/alien/cannot_use_vents()
 	return
-
-

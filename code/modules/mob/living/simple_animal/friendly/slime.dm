@@ -35,7 +35,7 @@
 	response_harm   = "stomps on"
 	emote_see = list("jiggles", "bounces in place")
 	var/colour = "grey"
-	mob_size = 6
+	mob_size = MOB_SMALL
 	composition_reagent = /datum/reagent/slimejelly
 
 /mob/living/simple_animal/adultslime/Initialize()

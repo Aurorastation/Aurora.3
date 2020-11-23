@@ -50,7 +50,7 @@
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	density = FALSE
 	possession_candidate = TRUE
-	mob_size = 4
+	mob_size = MOB_TINY
 	can_pull_size = 3
 	can_pull_mobs = MOB_PULL_SMALLER
 	//Allow drones to pull disposal pipes
@@ -424,7 +424,7 @@
 
 /mob/living/silicon/robot/drone/self_destruct()
 	gib()
-	
+
 /mob/living/silicon/robot/drone/examine(mob/user)
 	..()
 	var/msg

@@ -140,7 +140,7 @@
 
 	melee_damage_lower = 8
 	melee_damage_upper = 12
-	mob_size = 4.5 //weight based on Chanthangi goats
+	mob_size = MOB_TINY + 0.5 //weight based on Chanthangi goats
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 	canbrush = TRUE

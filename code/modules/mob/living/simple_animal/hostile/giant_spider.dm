@@ -37,7 +37,7 @@
 	pass_flags = PASSTABLE
 	move_to_delay = 6
 	speed = 3
-	mob_size = 6
+	mob_size = MOB_SMALL
 
 	attack_emote = "skitters toward"
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')

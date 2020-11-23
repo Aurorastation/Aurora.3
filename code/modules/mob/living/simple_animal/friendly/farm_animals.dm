@@ -15,7 +15,7 @@
 	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
-	mob_size = 4.5//weight based on Chanthangi goats
+	mob_size = MOB_TINY + 0.5//weight based on Chanthangi goats
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -309,4 +309,3 @@
 /mob/living/simple_animal/penguin/emperor
 	name = "emperor penguin"
 	desc = "Emperor of all he surveys."
-

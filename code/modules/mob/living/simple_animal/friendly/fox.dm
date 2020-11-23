@@ -20,7 +20,7 @@
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"
-	mob_size = 4
+	mob_size = MOB_TINY
 	max_nutrition = 80
 	holder_type = /obj/item/holder/fox
 	emote_sounds = list()

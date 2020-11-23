@@ -10,7 +10,7 @@
 	var/list/hud_list[10]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
-	mob_size = 9//Based on average weight of a human
+	mob_size = MOB_MEDIUM//Based on average weight of a human
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)

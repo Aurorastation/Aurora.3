@@ -389,7 +389,6 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/cat/black
 	icon_state = "cat"
 	icon_state_dead = "cat_black_dead"
-	slot_flags = SLOT_HEAD
 	item_state = "cat"
 
 /obj/item/holder/cat/black/familiar
@@ -401,8 +400,6 @@ var/list/holder_mob_icon_cache = list()
 	name = "kitten"
 	icon_state = "kitten"
 	icon_state_dead = "cat_kitten_dead"
-	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_TINY
 	item_state = "kitten"
 
 /obj/item/holder/cat/penny
@@ -410,8 +407,6 @@ var/list/holder_mob_icon_cache = list()
 	desc = "An important cat, straight from Central Command."
 	icon_state = "penny"
 	icon_state_dead = "penny_dead"
-	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_TINY
 	item_state = "penny"
 
 /obj/item/holder/carp/baby
@@ -516,7 +511,6 @@ var/list/holder_mob_icon_cache = list()
 	desc_dead = "It doesn't hiss anymore."
 	icon_state_dead = "lizard_dead"
 	icon_state = "lizard"
-
 	slot_flags = 0
 	w_class = ITEMSIZE_TINY
 
@@ -554,8 +548,6 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "chicken_white"
 	icon_state_dead = "chicken_white_dead"
 
-
-
 //Mushroom
 /obj/item/holder/mushroom
 	name = "walking mushroom"
@@ -566,8 +558,6 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "mushroom_dead"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_SMALL
-
-
 
 //pAI
 /obj/item/holder/pai

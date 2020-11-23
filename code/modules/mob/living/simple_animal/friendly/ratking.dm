@@ -89,7 +89,7 @@
 		melee_damage_upper = 10
 		maxHealth = 160
 		health = 160
-		mob_size = 9
+		mob_size = MOB_MEDIUM
 	else if(rats.len >= RAT_EMPEROR_LEVEL)
 		name = "rat emperor"
 		swarm_name = "empire"
@@ -120,7 +120,7 @@
 		attacktext = "bitten"
 		maxHealth = 35
 		health = 35
-		mob_size = 6
+		mob_size = MOB_SMALL
 	else if(rats.len >= RAT_BARON_LEVEL)
 		name = "rat baron"
 		swarm_name = "barony"
@@ -129,7 +129,7 @@
 		attacktext = "bitten"
 		maxHealth = 25
 		health = 25
-		mob_size = 4
+		mob_size = MOB_TINY
 	else if(rats.len >= RAT_MAYOR_LEVEL)
 		name = "rat mayor"
 		swarm_name = "hamlet"
