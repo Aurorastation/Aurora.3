@@ -103,12 +103,14 @@
 		var/obj/item/holder/H = A
 		if(H.w_class <= ITEMSIZE_SMALL)
 			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [H] into \the [initial(name)]."), SPAN_NOTICE("You scoop \the [H] into \the [initial(name)]."))
+			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 			user.drop_from_inventory(H,src)
 			contains = JAR_HOLDER
 			update_icon()
 			return
 		else
 			to_chat(user, SPAN_WARNING("\The [H] doesn't fit into \the [initial(name)]!"))
+			playsound(src, drop_sound, DROP_SOUND_VOLUME)
 			return
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc
