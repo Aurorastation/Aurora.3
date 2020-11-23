@@ -65896,7 +65896,7 @@
 /area/maintenance/research_port)
 "qRE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "qSv" = (

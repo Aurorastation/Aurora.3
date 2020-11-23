@@ -60,7 +60,11 @@
 	canister_color = "orange"
 	can_label = 0
 
-/obj/machinery/portable_atmospherics/canister/phoron/scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
+/obj/machinery/portable_atmospherics/canister/phoron_scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
+	name = "Canister \[Phoron\]"
+	icon_state = "orange"
+	canister_color = "orange"
+	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
 	name = "Canister \[CO2\]"
@@ -422,7 +426,7 @@ update_flag
 
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 
-/obj/machinery/portable_atmospherics/canister/phoron/scarce/Initialize()
+/obj/machinery/portable_atmospherics/canister/phoron_scarce/Initialize()
 	. = ..()
 
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure()/2) // half of the default value

@@ -3983,7 +3983,7 @@
 /area/engineering/atmos)
 "ajf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron/scarce,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajg" = (
@@ -4734,7 +4734,7 @@
 	name = "Canister Storage";
 	req_access = list(7)
 	},
-/obj/machinery/portable_atmospherics/canister/phoron/scarce,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "akV" = (
@@ -30274,7 +30274,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "kuZ" = (
-/obj/machinery/portable_atmospherics/canister/phoron/scarce,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
