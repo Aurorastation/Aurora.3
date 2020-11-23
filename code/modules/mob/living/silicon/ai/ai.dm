@@ -136,7 +136,7 @@ var/list/ai_verbs_default = list(
 	canmove = FALSE
 	density = TRUE
 
-	set_hologram_unique(icon('icons/mob/AI.dmi', "holo1"))
+	set_hologram_unique(icon('icons/mob/AI.dmi', "default"))
 
 	if(L && istype(L, /datum/ai_laws))
 		laws = L
@@ -640,8 +640,7 @@ var/list/ai_verbs_default = list(
 	var/input
 	if(alert(usr, "Would you like to select a hologram based on a humanoids within camera view or switch to a unique avatar?",,"Humanoids","Unique") == "Humanoids")
 		var/list/selectable_humans = list()
-		for(var/thing in human_mob_list)
-			var/mob/living/carbon/human/H = thing
+		for(var/mob/living/carbon/human/H in view(usr.client))
 			if(H.near_camera())
 				selectable_humans[H.name] = H
 		if(length(selectable_humans))
@@ -655,23 +654,18 @@ var/list/ai_verbs_default = list(
 	else
 		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "custom")
 		if(input)
-			switch(input)
-				if("default")
-					set_hologram_unique(icon('icons/mob/AI.dmi', "holo1"))
-				if("floating face")
-					set_hologram_unique(icon('icons/mob/AI.dmi', "holo2"))
-				if("carp")
-					set_hologram_unique(icon('icons/mob/AI.dmi', "holo4"))
-				if("custom")
-					if(custom_sprite)
-						var/datum/custom_synth/sprite = robot_custom_icons[name]
-						if(istype(sprite) && sprite.synthckey == ckey && sprite.aiholoicon)
-							set_hologram_unique(icon("icons/mob/custom_synths/customhologram.dmi", "[sprite.aiholoicon]"))
-					else
-						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
+			if(input == "custom")
+				if(custom_sprite)
+					var/datum/custom_synth/sprite = robot_custom_icons[name]
+					if(istype(sprite) && sprite.synthckey == ckey && sprite.aiholoicon)
+						set_hologram_unique(icon("icons/mob/custom_synths/customhologram.dmi", "[sprite.aiholoicon]"))
+				else
+					to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
+			else
+				set_hologram_unique(icon('icons/mob/AI.dmi', input))
 
 /mob/living/silicon/ai/proc/set_hologram_unique(var/icon/I)
-	qdel(holo_icon)
+	QDEL_NULL(holo_icon)
 	holo_icon = new /mob/abstract(src)
 	holo_icon.invisibility = 0
 	holo_icon.icon = I
