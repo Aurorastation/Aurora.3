@@ -71,8 +71,21 @@
 	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
 	new /obj/item/storage/internal/skrell(H)
 
-/datum/species/skrell/handle_strip(var/reference)
-	return "<BR><A href='?src=[reference];headtail=1'>Empty Headtail Storage</A>"
+/datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
+	switch(action)
+		if("headtail")
+			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
+			if(do_after(usr, HUMAN_STRIP_DELAY, act_target = H))
+				var/obj/item/storage/internal/skrell/S = locate() in H
+				var/obj/item/I = locate() in S
+				if(!I)
+					to_chat(usr, SPAN_WARNING("\The [H] had nothing in their headtail storage."))
+					return
+				S.remove_from_storage(I, get_turf(H))
+				return
+
+/datum/species/skrell/get_strip_info(var/reference)
+	return "<BR><A href='?src=[reference];species=headtail'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE
