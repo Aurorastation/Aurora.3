@@ -1,9 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes:
-  - maptweak: "All roundstart phoron canisters were removed from the station. There are now three empty phoron canisters in engineering hard storage with one half-capacity canister. Toxins and the Anomaly lab have received a similar treatment."
-  - maptweak: "The reserve phoron tank in atmos has had it's starting amount significantly reduced."
-  - maptweak: "The four Nitrogen canisters in the engine room have been narrowed down to just 2 canisters and are now more clearly marked as emergency use."
-  - bugfix: "Default empty canisters now start with their lights correctly displaying they are empty."
