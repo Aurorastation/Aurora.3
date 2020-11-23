@@ -216,6 +216,7 @@
 /obj/item/glass_jar/gumball/medical
 
 /obj/item/glass_jar/gumball/medical/Initialize()
+	. = ..()
 	for(var/i = 1 to GUMBALL_MAX)
 		var/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/G = new
 		G.forceMove(src)
