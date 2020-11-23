@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "AI holograms are now visible again."
-  - tweak: "AI can now set their holograms to be any humanoid within camera view."
