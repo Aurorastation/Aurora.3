@@ -540,7 +540,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	. = ..()
 	handle_blood_overlay()
 
-/mob/living/proc/heal_organ_damage(var/brute, var/burn)
+/mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
 	. = ..()
 	handle_blood_overlay()
 
