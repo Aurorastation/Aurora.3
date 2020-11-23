@@ -541,6 +541,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	. = ..()
 	handle_blood_overlay()
 
+/mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
+	. = ..()
+	handle_blood_overlay()
+
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later
 

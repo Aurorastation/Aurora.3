@@ -1058,6 +1058,7 @@
 #include "code\game\objects\structures\crates_lockers\closets\secure\medical.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\personal.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\scientist.dm"
+#include "code\game\objects\structures\crates_lockers\closets\secure\sciguncabinet.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\secure_closets.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\security.dm"
 #include "code\game\objects\structures\crates_lockers\crates\gear_loadout.dm"

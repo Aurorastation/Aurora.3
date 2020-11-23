@@ -106,12 +106,12 @@
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear)
+		equip_item(H, l_ear, slot_l_ear, TRUE)
 
 	return
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot)
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -125,6 +125,9 @@
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
+
+	if(set_no_remove)
+		I.autodrobe_no_remove = TRUE
 
 	if(collect_not_del)
 		H.equip_or_collect(I, slot)
