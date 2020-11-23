@@ -205,8 +205,7 @@
 /obj/item/glass_jar/gumball/Initialize()
 	..()
 	for(var/i = 1 to GUMBALL_MAX)
-		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = new
-		G.forceMove(src)
+		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = new(src)
 		gumballs_contained += G
 
 	return INITIALIZE_HINT_LATELOAD
