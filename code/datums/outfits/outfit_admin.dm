@@ -37,7 +37,10 @@
 
 	uniform = "suit selection"
 	shoes = "shoe selection"
-	l_ear = /obj/item/device/radio/headset
+	l_ear = list(
+		/obj/item/device/radio/headset,
+		/obj/item/device/radio/headset/alt,
+	)
 	back = list(
 		/obj/item/storage/backpack,
 		/obj/item/storage/backpack/satchel_norm,

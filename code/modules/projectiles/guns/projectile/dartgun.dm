@@ -195,13 +195,3 @@
 		unload_ammo(usr)
 	src.updateUsrDialog()
 	return
-
-/obj/item/gun/projectile/dartgun/alien
-	name = "alien dart gun"
-	desc = "A small gas-powered dartgun, fitted for nonhuman hands."
-
-/obj/item/gun/projectile/dartgun/vox/medical
-	starting_chems = list(/datum/reagent/kelotane, /datum/reagent/bicaridine, /datum/reagent/dylovene)
-
-/obj/item/gun/projectile/dartgun/vox/raider
-	starting_chems = list(/datum/reagent/space_drugs, /datum/reagent/soporific, /datum/reagent/impedrezene)
