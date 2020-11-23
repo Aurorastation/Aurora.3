@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes:
+  - bugfix: "Removes the chasm mask from the hydrogen tank viewport which was causing asteroid rocks to spawn in the window."
