@@ -44,3 +44,4 @@ changes:
   - tweak: "Injecting incompatible blood now creates a special toxin rather than the actual toxin chemical."
   - rscadd: "Ports Bay's per-mob dose system. This will probably affect how much alcohol you have to drink to get/stay drunk."
   - rscdel: "Replaces the chem modifier system with CE_EFFECT. Funny, given that it was originally intended to be the other way around."
+  - tweak: "Hot chemicals now do more damage; before, it would be rounded down to zero or outhealed in one tick."
