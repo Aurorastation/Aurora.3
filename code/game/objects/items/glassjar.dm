@@ -167,7 +167,7 @@
 	if(length(gumballs_contained))
 		user.put_in_hands(gumballs_contained[1])
 		gumballs_contained -= gumballs_contained[1]
-		user.visible_message("[user] takes a gumball from \the [name].", SPAN_NOTICE("You take a gumball from \the [name]."))
+		user.visible_message("<b>[user]</b> takes a gumball from \the [src].", SPAN_NOTICE("You take a gumball from \the [src]."))
 		if(length(gumballs_contained) == 0)
 			contains = JAR_NOTHING
 		handle_gumball_underlays()
