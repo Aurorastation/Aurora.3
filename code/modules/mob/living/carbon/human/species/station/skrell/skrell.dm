@@ -69,6 +69,10 @@
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
+	new /obj/item/storage/internal/skrell(H)
+
+/datum/species/skrell/handle_strip(var/reference)
+	return "<BR><A href='?src=[reference];headtail=1'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

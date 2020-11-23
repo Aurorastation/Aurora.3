@@ -16,3 +16,20 @@
 
 /obj/item/organ/internal/brain/skrell
 	icon_state = "brain_skrell"
+
+/obj/item/storage/internal/skrell
+	name = "headtail storage"
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "skrell_headpocket"
+	storage_slots = 1
+	max_storage_space = 2
+	max_w_class = ITEMSIZE_SMALL
+	use_sound = null
+	action_button_name = "Headtail Pocket"
+
+/obj/item/storage/internal/skrell/Initialize()
+	. = ..()
+	name = initial(name)
+
+/obj/item/storage/internal/skrell/attack_self(mob/user)
+	open(user)

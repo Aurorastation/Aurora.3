@@ -399,6 +399,7 @@
 		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
 	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
 	dat += "<BR><A href='?src=\ref[src];item=pockets'>Empty pockets</A>"
+	dat += species.handle_strip("\ref[src]")
 	dat += "<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
@@ -584,6 +585,16 @@
 
 	if(href_list["item"])
 		handle_strip(href_list["item"],usr)
+
+	if(href_list["headtail"])
+		usr.visible_message(SPAN_WARNING("\The [usr] is trying to remove something from \the [src]'s headtails!"))
+		if(do_after(usr, HUMAN_STRIP_DELAY, act_target = src))
+			var/obj/item/storage/internal/skrell/S = locate() in src
+			var/obj/item/I = locate() in S
+			if(I)
+				S.remove_from_storage(I, get_turf(src))
+			else
+				to_chat(usr, SPAN_WARNING("\The [src] had nothing in their headtail storage."))
 
 	if(href_list["criminal"])
 		if(hasHUD(usr,"security"))

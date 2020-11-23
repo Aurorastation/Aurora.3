@@ -626,6 +626,9 @@
 /datum/species/proc/handle_despawn()
 	return
 
+/datum/species/proc/handle_strip(var/reference)
+	return ""
+
 /datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
 	if(flags & NO_PAIN)
 		return
