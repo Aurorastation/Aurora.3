@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Viscerators no longer have funky blood overlays."
+  - bugfix: "Healing animals now properly update their blood overlays."
