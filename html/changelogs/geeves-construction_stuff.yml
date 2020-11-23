@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Lattices, catwalks, and grates are now considered floors, which allows you to build certain structures such as railings, on top of them."

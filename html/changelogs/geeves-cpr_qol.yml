@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Doing CPR no longer displays any messages in the chat, instead it's visually telegraphed via images and animations."
