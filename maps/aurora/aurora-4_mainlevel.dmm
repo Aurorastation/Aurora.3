@@ -5597,11 +5597,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
-"aky" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/plating,
-/area/engineering/storage_hard)
 "akz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -7170,10 +7165,10 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "ant" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/plating,
-/area/engineering/engine_room)
+/area/engineering/storage_hard)
 "anu" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -61753,6 +61748,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/misc_lab)
+"hxb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "hxQ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -64605,6 +64606,20 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
+"oaQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/westright{
+	dir = 2;
+	name = "Emergency Coolant";
+	req_access = null;
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "oaR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -66071,6 +66086,11 @@
 /obj/structure/computerframe,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"qRE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "qSv" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -67682,6 +67702,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/research_port)
+"tKG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "tLI" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -68757,6 +68783,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
+"vHa" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/brigdoor/westleft{
+	dir = 2;
+	name = "Emergency Coolant";
+	req_access = null;
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "vIC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair/office/light{
@@ -81101,8 +81141,8 @@ aaa
 aaa
 aaa
 alk
-ant
-ant
+vHa
+tKG
 anu
 aqX
 asr
@@ -81358,8 +81398,8 @@ aaa
 aaa
 alk
 alk
-ant
-ant
+oaQ
+tKG
 anu
 anu
 asr
@@ -81615,7 +81655,7 @@ aaa
 aaa
 alk
 amm
-anu
+hxb
 anu
 anu
 anu
@@ -85981,8 +86021,8 @@ qba
 lyh
 kRK
 ajL
-aky
-aky
+ant
+ant
 ams
 anD
 aoJ
@@ -86238,8 +86278,8 @@ qba
 aig
 kRK
 ajL
-aky
-aky
+ant
+qRE
 amt
 anE
 aoK
