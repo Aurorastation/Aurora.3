@@ -25,7 +25,7 @@
 		return
 	if(istype(A, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = A
-		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops up \the [S] into [src]."), SPAN_NOTICE("You scoop \the [S] into [src]."))
+		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops up \the [S] into [src]."), SPAN_NOTICE("You scoop up \the [S] into [src]."))
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)	// No growing inside jars
 		contains = JAR_SPIDERLING
@@ -34,7 +34,7 @@
 	if(istype(A, /mob/living/simple_animal))
 		var/mob/living/simple_animal/S = A
 		if(S.mob_size <= MOB_TINY)
-			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops up \the [S] into [src]."), SPAN_NOTICE("You scoop \the [S] into [src]."))
+			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops up \the [S] into [src]."), SPAN_NOTICE("You scoop up \the [S] into [src]."))
 			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 			S.forceMove(src)
 			contains = JAR_ANIMAL
