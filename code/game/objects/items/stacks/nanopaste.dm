@@ -22,12 +22,13 @@
 	else
 		icon_state = "[initial(icon_state)]-empty"
 
-/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
-	if (!istype(M) || !istype(user))
+/obj/item/stack/nanopaste/attack(atom/M, mob/user, var/target_zone)
+	if(!ismob(M) || !istype(user))
 		return 0
 	if (!can_use(1, user))
 		return 0
-	if (istype(M,/mob/living/silicon/robot))	//Repairing cyborgs
+
+	if (isrobot(M))	//Repairing cyborgs
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -41,7 +42,7 @@
 		else
 			to_chat(user, "<span class='notice'>All [R]'s systems are nominal.</span>")
 
-	if (istype(M,/mob/living/carbon/human))		//Repairing robolimbs
+	else if(ishuman(M))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/S = H.get_organ(target_zone)
 

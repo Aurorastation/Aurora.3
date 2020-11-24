@@ -428,7 +428,21 @@
 	canmove = !resting
 
 //Overriding this will stop a number of headaches down the track.
-/mob/living/silicon/pai/attackby(obj/item/W as obj, mob/user as mob)
+/mob/living/silicon/pai/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/stack/nanopaste))
+		var/obj/item/stack/nanopaste/N = W
+		if(getBruteLoss() || getFireLoss())
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			if(do_mob(user, src, 1 SECOND))
+				adjustBruteLoss(-50) // these numbers are so high to make it so that people don't have to waste nanopaste on basic pAI
+				adjustFireLoss(-50)
+				updatehealth()
+				N.use(1)
+				user.visible_message("<b>[user]</b> applies some [N] at [src]'s damaged areas.", SPAN_NOTICE("You apply some [N] at [src]'s damaged areas."))
+		else
+			to_chat(user, SPAN_NOTICE("All [src]'s systems are nominal."))
+		return
+
 	if(W.force)
 		visible_message("<span class='danger'>[user.name] attacks [src] with [W]!</span>")
 		src.adjustBruteLoss(W.force)

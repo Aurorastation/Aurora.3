@@ -548,7 +548,14 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	var/datum/progressbar/progbar
 	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
-		progbar = new(user, delay, target)
+		var/atom/loc_check = target
+		var/endless_loop_counter = 0
+		while(!isturf(loc_check.loc))
+			loc_check = target.loc
+			endless_loop_counter++
+			if(endless_loop_counter > 5)
+				break
+		progbar = new(user, delay, loc_check)
 
 	var/endtime = world.time + delay
 	var/starttime = world.time

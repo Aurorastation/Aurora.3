@@ -45,7 +45,7 @@
 		pai.death(0)
 	return ..()
 
-/obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
+/obj/item/device/paicard/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
 	else if(istype(C, /obj/item/device/encryptionkey))
@@ -77,6 +77,11 @@
 			EK.forceMove(get_turf(src))
 			installed_encryptionkeys -= EK
 		recalculateChannels()
+	else if(istype(C, /obj/item/stack/nanopaste))
+		if(!pai)
+			to_chat(user, SPAN_WARNING("You cannot repair a pAI device if there's no active pAI personality installed."))
+			return
+		pai.attackby(C, user)
 
 /obj/item/device/paicard/proc/recalculateChannels()
 	radio.channels = list("Common" = radio.FREQ_LISTENING, "Entertainment" = radio.FREQ_LISTENING)
