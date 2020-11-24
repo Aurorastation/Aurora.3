@@ -1,0 +1,42 @@
+---
+kind: pipeline
+type: docker
+name: dm-aurora
+
+clone:
+  depth: 10
+
+environment:
+  BYOND_MAJOR: 513
+  BYOND_MINOR: 1517
+  RUST_G_VERSION: "0.4.2+a2"
+  USE_MAP: aurora
+
+trigger:
+  branch:
+  - master #avoid double builds on PRs
+
+steps:
+  - name:  
+    image: debian:buster
+    commands:
+      - chmod +x ./scripts/install-byond.sh
+      - ./scripts/install-byond.sh
+      - chmod +x ./scripts/rust_g.sh
+      - ./scripts/rust_g.sh
+      - shopt -s globstar
+      - export LD_LIBRARY_PATH=./:$HOME/rust_g-$RUST_G_VERSION:$LD_LIBRARY_PATH
+      - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
+      - cp config/example/* config/
+      - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
+      - grep "0 warnings" build_log.txt
+      - DreamDaemon.dmb -invisible -trusted -core 2>&1 | tee log.txt
+      - grep "All Unit Tests Passed" log.txt
+      - (! grep "runtime error:" log.txt)
+---
+
+---
+kind: signature
+hmac: d703bcbbe0bfae16b6829da48df52a08d06e792818fd469ecf5ff66ba04ba8fd
+
+...
