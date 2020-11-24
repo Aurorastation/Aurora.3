@@ -37,6 +37,7 @@
 			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [S] into [src]."), SPAN_NOTICE("You scoop \the [S] into [src]."))
 			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 			S.forceMove(src)
+			contains = JAR_ANIMAL
 			update_icon()
 			return
 		else
