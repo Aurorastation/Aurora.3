@@ -43,7 +43,7 @@
 
 	// CONFIGURATION PHASE
 	// Coolant canisters, set types according to response.
-	for(var/obj/effect/engine_setup/coolant_canister/C in world)
+	for(var/obj/effect/engine_setup/coolant_canister/C in landmarks_list)
 		switch(response)
 			if("N2")
 				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen
@@ -59,7 +59,7 @@
 				continue
 
 	var/core_count = 0
-	for(var/obj/effect/engine_setup/core/C in world)
+	for(var/obj/effect/engine_setup/core/C in landmarks_list)
 		core_count++
 		switch(response)
 			if("N2")
@@ -79,12 +79,12 @@
 		log_and_message_admins("## SUPERMATTER SETUP ERROR: Found no Supermatter core markers! Make sure all SM setup markers are mapped in properly. Aborting.")
 		return
 
-	for(var/obj/effect/engine_setup/filter/F in world)
+	for(var/obj/effect/engine_setup/filter/F in landmarks_list)
 		F.coolant = response
 
 	var/list/delayed_objects = list()
 	// SETUP PHASE
-	for(var/obj/effect/engine_setup/S in world)
+	for(var/obj/effect/engine_setup/S in landmarks_list)
 		var/result = S.activate(0)
 		switch(result)
 			if(SETUP_OK)
