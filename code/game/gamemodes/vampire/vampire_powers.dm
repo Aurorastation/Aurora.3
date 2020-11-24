@@ -918,7 +918,7 @@
 			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
 		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
-			to_chat(src, SPAN_NOTICE("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
+			to_chat(src, SPAN_ALERT("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
 			break
 
 		T.vessel.remove_reagent(/decl/reagent/blood, 50)

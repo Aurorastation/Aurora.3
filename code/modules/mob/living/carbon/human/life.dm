@@ -706,7 +706,7 @@
 		handle_trace_chems()
 
 	for(var/_R in chem_doses)
-		if (_R in bloodstr.reagent_volumes || _R in ingested.reagent_volumes || _R in inhaled.reagent_volumes || _R in touching.reagent_volumes)
+		if (_R in bloodstr.reagent_volumes || _R in ingested.reagent_volumes || _R in breathing.reagent_volumes || _R in touching.reagent_volumes)
 			continue
 		var/decl/reagent/R = decls_repository.get_decl(_R)
 		chem_doses[_R] -= R.metabolism
