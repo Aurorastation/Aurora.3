@@ -7,3 +7,4 @@ changes:
   - rscadd: "You can now repair pAI with nanopaste."
   - rscadd: "pAI can now examine while folded up on the ground, or directly on a person, or inside a computer on the ground or on someone's person."
   - rscadd: "pAI now start with the Access Local Computer verb instead of having to relog to gain it when they get put into a computer."
+  - rscadd: "Airlocks no longer crush mobs that can pass through hatches, instead, the hatch will open to accomodate them. Access does not get taken into account."
