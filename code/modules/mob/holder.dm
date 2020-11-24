@@ -401,8 +401,6 @@ var/list/holder_mob_icon_cache = list()
 	name = "kitten"
 	icon_state = "kitten"
 	icon_state_dead = "cat_kitten_dead"
-	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_TINY
 	item_state = "kitten"
 
 /obj/item/holder/cat/penny
@@ -410,8 +408,6 @@ var/list/holder_mob_icon_cache = list()
 	desc = "An important cat, straight from Central Command."
 	icon_state = "penny"
 	icon_state_dead = "penny_dead"
-	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_TINY
 	item_state = "penny"
 
 /obj/item/holder/carp/baby
@@ -512,11 +508,10 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/lizard
 	name = "lizard"
+	icon_state = "lizard"
+	icon_state_dead = "lizard_dead"
 	desc = "It's a hissy little lizard. Is it related to Unathi?"
 	desc_dead = "It doesn't hiss anymore."
-	icon_state_dead = "lizard_dead"
-	icon_state = "lizard"
-
 	slot_flags = 0
 	w_class = ITEMSIZE_TINY
 
@@ -524,13 +519,12 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/chick
 	name = "chick"
 	icon = 'icons/mob/npc/livestock.dmi'
+	icon_state = "chick"
+	icon_state_dead = "chick_dead"
 	desc = "It's a fluffy little chick, until it grows up."
 	desc_dead = "How could you do this? You monster!"
-	icon_state_dead = "chick_dead"
 	slot_flags = 0
-	icon_state = "chick"
 	w_class = ITEMSIZE_TINY
-
 
 /obj/item/holder/chicken
 	name = "chicken"
@@ -560,14 +554,12 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/mushroom
 	name = "walking mushroom"
 	name_dead = "mushroom"
-	desc = "It's a massive mushroom... with legs?"
-	desc_dead = "Shame, he was a really fun-guy."	// HA
 	icon_state = "mushroom"
 	icon_state_dead = "mushroom_dead"
+	desc = "It's a massive mushroom... with legs?"
+	desc_dead = "Shame, he was a really fun-guy."	// HA
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_SMALL
-
-
 
 //pAI
 /obj/item/holder/pai
