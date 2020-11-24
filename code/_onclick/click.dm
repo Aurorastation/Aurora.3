@@ -259,9 +259,8 @@
 	return
 
 /atom/proc/ShiftClick(var/mob/user)
-	if(user.client && user.client.eye == user)
+	if(user.can_examine())
 		user.examinate(src)
-	return
 
 /*
 	Ctrl click

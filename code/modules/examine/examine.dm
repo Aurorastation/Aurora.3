@@ -82,3 +82,16 @@
 	var/is_cult = mind?.special_role == "Cultist" || isobserver(src)
 	if(client)
 		client.update_description_holders(A, is_antag, is_cult)
+
+/mob/proc/can_examine()
+	if(client?.eye == src)
+		return TRUE
+	return FALSE
+
+/mob/living/silicon/pai/can_examine()
+	. = ..()
+	if(!.)
+		if(isturf(card.loc)) // are we folded in on the ground
+			return TRUE
+		if(ishuman(loc.loc)) // are we on a human, ie carded in pocket, or in a holder on their head
+			return TRUE
