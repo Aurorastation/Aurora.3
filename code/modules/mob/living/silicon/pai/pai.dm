@@ -10,7 +10,6 @@
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
 	can_pull_size = 2 //max size for an object the pAI can pull
 
-
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
 	var/ram = 100	// Used as currency to purchase different abilities
@@ -437,8 +436,6 @@
 	else
 		visible_message("<span class='warning'>[user.name] bonks [src] harmlessly with [W].</span>")
 
-	return
-
 /mob/living/silicon/pai/AltClick(mob/user as mob)
 	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
 	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
@@ -514,6 +511,8 @@
 		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
 		return
 
+/mob/living/silicon/pai/UnarmedAttack(atom/A, proximity)
+	A.attack_pai(src)
 
 /mob/living/silicon/pai/verb/select_card_icon()
 	set category = "pAI Commands"

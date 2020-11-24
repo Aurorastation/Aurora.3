@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "pAI can now click on deployed modular computers to turn them on or look a them, they can't interact with them without being in them, though."
