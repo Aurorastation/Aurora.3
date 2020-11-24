@@ -206,6 +206,14 @@ BREATH ANALYZER
 					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[get_severity(org.burn_dam, TRUE)] burns</b></font>\]"
 				if(org.status & ORGAN_BLEEDING)
 					limb_result = "[limb_result] \[<span class='scan_danger'>bleeding</span>\]"
+				var/is_bandaged = org.is_bandaged()
+				var/is_salved = org.is_salved()
+				if(is_bandaged && is_salved)
+					limb_result = "[limb_result] <span class='scan_green'>\[B, S\]</span>"
+				else if(is_bandaged)
+					limb_result = "[limb_result] <span class='scan_green'>\[B\]</span>"
+				else if(is_salved)
+					limb_result = "[limb_result] <span class='scan_green'>\[S\]</span>"
 				dat += limb_result
 		else
 			dat += "No detectable limb injuries."
