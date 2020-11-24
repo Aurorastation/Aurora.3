@@ -4,7 +4,7 @@
 	extended_round_description = "Rampant AIs, traitors and changelings spawn in this mode."
 	config_tag = "paranoia"
 	required_players = 15
-	required_enemies = 5
+	required_enemies = 3
 	end_on_antag_death = 1
 	require_all_templates = 1
 	votable = 1
