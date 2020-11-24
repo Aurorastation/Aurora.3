@@ -43,7 +43,7 @@
 
 	// CONFIGURATION PHASE
 	// Coolant canisters, set types according to response.
-	for(var/obj/effect/engine_setup/coolant_canister/C in landmarks_list)
+	for(var/obj/effect/landmark/engine_setup/coolant_canister/C in landmarks_list)
 		switch(response)
 			if("N2")
 				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen
@@ -59,7 +59,7 @@
 				continue
 
 	var/core_count = 0
-	for(var/obj/effect/engine_setup/core/C in landmarks_list)
+	for(var/obj/effect/landmark/engine_setup/core/C in landmarks_list)
 		core_count++
 		switch(response)
 			if("N2")
@@ -79,12 +79,12 @@
 		log_and_message_admins("## SUPERMATTER SETUP ERROR: Found no Supermatter core markers! Make sure all SM setup markers are mapped in properly. Aborting.")
 		return
 
-	for(var/obj/effect/engine_setup/filter/F in landmarks_list)
+	for(var/obj/effect/landmark/engine_setup/filter/F in landmarks_list)
 		F.coolant = response
 
 	var/list/delayed_objects = list()
 	// SETUP PHASE
-	for(var/obj/effect/engine_setup/S in landmarks_list)
+	for(var/obj/effect/landmark/engine_setup/S in landmarks_list)
 		var/result = S.activate(0)
 		switch(result)
 			if(SETUP_OK)
@@ -102,7 +102,7 @@
 				continue
 
 	if(!errors)
-		for(var/obj/effect/engine_setup/S in delayed_objects)
+		for(var/obj/effect/landmark/engine_setup/S in delayed_objects)
 			var/result = S.activate(1)
 			switch(result)
 				if(SETUP_OK)
@@ -121,7 +121,7 @@
 	return
 
 
-/obj/effect/engine_setup
+/obj/effect/landmark/engine_setup
 	name = "Engine Setup Marker"
 	desc = "You shouldn't see this."
 	invisibility = 101
@@ -130,15 +130,15 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x4"
 
-/obj/effect/engine_setup/proc/activate(var/last = 0)
+/obj/effect/landmark/engine_setup/proc/activate(var/last = 0)
 	return SETUP_OK
 
 
 // Tries to locate a pump, enables it, and sets it to MAX. Triggers warning if unable to locate a pump.
-/obj/effect/engine_setup/pump_max
+/obj/effect/landmark/engine_setup/pump_max
 	name = "Pump Setup Marker"
 
-/obj/effect/engine_setup/pump_max/activate()
+/obj/effect/landmark/engine_setup/pump_max/activate()
 	..()
 	var/obj/machinery/atmospherics/binary/pump/P = locate() in get_turf(src)
 	if(!P)
@@ -151,10 +151,10 @@
 
 
 // Spawns an empty canister on this turf, if it has a connector port. Triggers warning if unable to find a connector port
-/obj/effect/engine_setup/empty_canister
+/obj/effect/landmark/engine_setup/empty_canister
 	name = "Empty Canister Marker"
 
-/obj/effect/engine_setup/empty_canister/activate()
+/obj/effect/landmark/engine_setup/empty_canister/activate()
 	..()
 	var/obj/machinery/atmospherics/portables_connector/P = locate() in get_turf(src)
 	if(!P)
@@ -166,11 +166,11 @@
 
 // Spawns a coolant canister on this turf, if it has a connector port.
 // Triggers error when unable to locate connector port or when coolant canister type is unset.
-/obj/effect/engine_setup/coolant_canister
+/obj/effect/landmark/engine_setup/coolant_canister
 	name = "Coolant Canister Marker"
 	var/canister_type = null
 
-/obj/effect/engine_setup/coolant_canister/activate()
+/obj/effect/landmark/engine_setup/coolant_canister/activate()
 	..()
 	var/obj/machinery/atmospherics/portables_connector/P = locate() in get_turf(src)
 	if(!P)
@@ -184,11 +184,11 @@
 
 
 // Energises the supermatter. Errors when unable to locate supermatter.
-/obj/effect/engine_setup/core
+/obj/effect/landmark/engine_setup/core
 	name = "Supermatter Core Marker"
 	var/energy_setting = 0
 
-/obj/effect/engine_setup/core/activate(var/last = 0)
+/obj/effect/landmark/engine_setup/core/activate(var/last = 0)
 	if(!last)
 		return SETUP_DELAYED
 	..()
@@ -204,10 +204,10 @@
 
 
 // Tries to enable the SMES on max input/output settings. With load balancing it should be fine as long as engine outputs at least ~500kW
-/obj/effect/engine_setup/smes
+/obj/effect/landmark/engine_setup/smes
 	name = "SMES Marker"
 
-/obj/effect/engine_setup/smes/activate()
+/obj/effect/landmark/engine_setup/smes/activate()
 	..()
 	var/obj/machinery/power/smes/S = locate() in get_turf(src)
 	if(!S)
@@ -222,11 +222,11 @@
 
 
 // Sets up filters. This assumes filters are set to filter out N2 back to the core loop by default!
-/obj/effect/engine_setup/filter
+/obj/effect/landmark/engine_setup/filter
 	name = "Omni Filter Marker"
 	var/coolant = null
 
-/obj/effect/engine_setup/filter/activate()
+/obj/effect/landmark/engine_setup/filter/activate()
 	..()
 	var/obj/machinery/atmospherics/omni/filter/F = locate() in get_turf(src)
 	if(!F)
@@ -258,10 +258,10 @@
 
 
 // Sets up filters. This assumes filters are set to filter out N2 back to the core loop by default!
-/obj/effect/engine_setup/freezer
+/obj/effect/landmark/engine_setup/freezer
 	name = "Freezer Marker"
 
-/obj/effect/engine_setup/freezer/activate()
+/obj/effect/landmark/engine_setup/freezer/activate()
 	..()
 	var/obj/machinery/atmospherics/unary/freezer/F = locate() in get_turf(src)
 	if(!F)

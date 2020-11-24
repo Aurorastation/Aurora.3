@@ -4259,7 +4259,7 @@
 /obj/machinery/atmospherics/unary/freezer{
 	icon_state = "freezer"
 	},
-/obj/effect/engine_setup/freezer,
+/obj/effect/landmark/engine_setup/freezer,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "ahX" = (
@@ -5435,7 +5435,7 @@
 /area/engineering/engine_waste)
 "akm" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
-/obj/effect/engine_setup/pump_max,
+/obj/effect/landmark/engine_setup/pump_max,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "akn" = (
@@ -5998,7 +5998,7 @@
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
-/obj/effect/engine_setup/pump_max,
+/obj/effect/landmark/engine_setup/pump_max,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "alm" = (
@@ -7760,7 +7760,7 @@
 	use_power = 0
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/engine_setup/filter,
+/obj/effect/landmark/engine_setup/filter,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aoz" = (
@@ -7777,7 +7777,7 @@
 	use_power = 0
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/engine_setup/filter,
+/obj/effect/landmark/engine_setup/filter,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aoB" = (
@@ -7817,7 +7817,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/engine_setup/smes,
+/obj/effect/landmark/engine_setup/smes,
 /turf/simulated/floor/tiled,
 /area/engineering/engine_smes)
 "aoE" = (
@@ -12802,7 +12802,7 @@
 /obj/machinery/power/supermatter{
 	layer = 4
 	},
-/obj/effect/engine_setup/core,
+/obj/effect/landmark/engine_setup/core,
 /turf/simulated/floor/greengrid/nitrogen,
 /area/engineering/engine_room)
 "awZ" = (
@@ -17061,7 +17061,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/engine_setup/pump_max,
+/obj/effect/landmark/engine_setup/pump_max,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aDF" = (
@@ -17069,7 +17069,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/engine_setup/coolant_canister,
+/obj/effect/landmark/engine_setup/coolant_canister,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aDG" = (
@@ -20541,7 +20541,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
-/obj/effect/engine_setup/pump_max,
+/obj/effect/landmark/engine_setup/pump_max,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aIX" = (
@@ -22681,7 +22681,7 @@
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
-/obj/effect/engine_setup/pump_max,
+/obj/effect/landmark/engine_setup/pump_max,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aMA" = (
@@ -63331,7 +63331,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/effect/engine_setup/empty_canister,
+/obj/effect/landmark/engine_setup/empty_canister,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "lmd" = (
@@ -63390,7 +63390,7 @@
 /obj/machinery/atmospherics/unary/freezer{
 	icon_state = "freezer"
 	},
-/obj/effect/engine_setup/freezer,
+/obj/effect/landmark/engine_setup/freezer,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "lut" = (
