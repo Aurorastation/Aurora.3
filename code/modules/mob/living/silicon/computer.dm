@@ -66,6 +66,9 @@
 	set name = "Access Local Computer"
 	set category = "Subsystems"
 
+	if(!parent_computer)
+		to_chat(usr, SPAN_WARNING("You don't have a local computer to interface with!"))
+		return
 	parent_computer.attack_self(src)
 
 /********************
