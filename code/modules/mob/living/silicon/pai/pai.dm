@@ -318,6 +318,9 @@
 	if(istype(card.loc, /mob/living/bot))
 		to_chat(src, SPAN_WARNING("You cannot unfold while inside the bot!"))
 		return FALSE
+	if(istype(card.loc, /obj/item/glass_jar))
+		to_chat(src, SPAN_WARNING("You cannot unfold while inside the jar!"))
+		return FALSE
 
 	//I'm not sure how much of this is necessary, but I would rather avoid issues.
 	if(istype(card.loc,/obj/item/rig_module))
