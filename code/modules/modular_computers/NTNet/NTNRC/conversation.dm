@@ -54,72 +54,15 @@ var/global/ntnrc_uid = 0
 		if(messages.len <= 50)
 			return
 
-/datum/ntnet_conversation/proc/add_client(var/datum/computer_file/program/chat_client/C)
-	if(!istype(C))
-		return
-	if (C in clients)
-		return
-	clients.Add(C)
-	// No operator, so we assume the channel was empty. Assign this user as operator.
-	if(!operator)
-		changeop(C)
-	for(var/datum/computer_file/program/chat_client/CC in clients)
-		if(CC.can_receive_notification(C))
-			if(!direct)
-				CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) <i>[C.username]</i> has entered the chat.</b>"), 0)
-
-/datum/ntnet_conversation/proc/begin_direct(var/datum/computer_file/program/chat_client/CA, var/datum/computer_file/program/chat_client/CB)
-	if(!istype(CA) || !istype(CB))
-		return
-	direct = TRUE
-	clients.Add(CA)
-	clients.Add(CB)
-
-
-	
-	add_status_message("[CA.username] has opened direct conversation.")
-	if(CB.can_receive_notification(C))
-		CB.computer.output_message(FONT_SMALL("<b>([get_title(CB)]) <i>[CA.username]</i> has opened direct conversation with you.</b>"), 0)
-
-/datum/ntnet_conversation/proc/remove_client(var/datum/computer_file/program/chat_client/C)
-	if(!istype(C) || !(C in clients))
-		return
-	clients.Remove(C)
-
-	// Channel operator left, pick new operator
-	if(C == operator)
-		operator = null
-		if(clients.len)
-			var/datum/computer_file/program/chat_client/newop = pick(clients)
-			changeop(newop)
-
-	for(var/datum/computer_file/program/chat_client/CC in clients)
-		if(CC.can_receive_notification(C))
-			CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) <i>[C.username]</i> has left the chat.</b>"), 0)
-
-
-/datum/ntnet_conversation/proc/change_title(var/newtitle, var/datum/computer_file/program/chat_client/client)
-	if(operator != client)
-		return 0 // Not Authorised
-
-	add_status_message("[client.username] has changed channel title from [get_title(client)] to [newtitle]")
-	
-	for(var/datum/computer_file/program/chat_client/C in clients)
-		if(C.can_receive_notification(client))
-			C.computer.output_message(FONT_SMALL("([get_title(C)]) <i>[client.username]</i> has changed the channel title to <b>[newtitle]</b>."), 0)
-	title = newtitle
-
-
-
 /// EXTERNAL PROCs
 
 /datum/ntnet_conversation/proc/get_title(var/datum/computer_file/program/chat_client/cl = null)
 	if(direct)
 		var/names = list()
-		for(var/datum/computer_file/program/chat_client/C in clients)
-			names += C.username
-		if(cl)
-			names -= cl.username
+		for(var/datum/ntnet_user/U in users)
+			names += U.username
+		if(istype(cl) && istype(cl.my_user))
+			names -= cl.my_user.username
 		return "\[DM] [english_list(names)]"
 	else
 		return title
@@ -150,10 +93,15 @@ var/global/ntnrc_uid = 0
 				return TRUE
 	return FALSE
 
+/datum/ntnet_conversation/proc/can_manage(var/datum/computer_file/program/chat_client/cl)
+	if(cl.netadmin_mode)
+		return TRUE
+	if(cl.my_user == operator)
+		return TRUE
+	return FALSE
+
 /datum/ntnet_conversation/proc/cl_send(var/datum/computer_file/program/chat_client/Cl, var/message)
-	if(!istype(Cl))
-		return
-	if(!can_interact(Cl))
+	if(!istype(Cl) || !can_interact(Cl))
 		return
 	var/datum/ntnet_message/message/msg = new(Cl)
 	msg.message = message
@@ -173,9 +121,7 @@ var/global/ntnrc_uid = 0
 	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_leave(var/datum/computer_file/program/chat_client/Cl)
-	if(!istype(Cl) || !istype(Cl.my_user) || !(Cl.my_user in users))
-		return
-	if(!can_interact(Cl))
+	if(!istype(Cl) || !istype(Cl.my_user) || !(Cl.my_user in users) || !can_interact(Cl))
 		return
 	var/datum/ntnet_message/leave/msg = new(Cl)
 	users.Remove(Cl.my_user)
@@ -189,3 +135,25 @@ var/global/ntnrc_uid = 0
 			return
 	process_message(msg)
 
+/datum/ntnet_conversation/proc/cl_change(var/datum/computer_file/program/chat_client/Cl, var/newTitle)
+	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl))
+		return
+	var/datum/ntnet_message/new_title/msg = new(Cl)
+	msg.title = newTitle
+	title = newTitle
+	process_message(msg)
+
+/datum/ntnet_conversation/proc/cl_kick(var/datum/computer_file/program/chat_client/Cl, var/datum/ntnet_user/target)
+	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || !(target in users))
+		return
+	var/datum/ntnet_message/kick/msg = new(Cl)
+	users.Remove(target)
+	if(operator == target)
+		if(users.len)
+			operator = pick(users)
+			var/datum/ntnet_message/new_op/msg2 = new()
+			msg2.nuser = operator
+			process_message(msg, FALSE)
+			process_message(msg2)
+			return
+	process_message(msg)

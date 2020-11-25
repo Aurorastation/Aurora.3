@@ -45,7 +45,7 @@
 
    
 /datum/ntnet_message/join/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
-    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has entered the chat.</b>"
+    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has entered the chat.</b>")
 
 /datum/ntnet_message/join/format_chat_log(var/datum/ntnet_conversation/Conv)
     . = "[worldtime2text()] -!- [nuser.username] has entered the chat."
@@ -53,7 +53,7 @@
 
 
 /datum/ntnet_message/leave/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
-    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has left the chat.</b>"
+    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has left the chat.</b>")
 
 /datum/ntnet_message/leave/format_chat_log(var/datum/ntnet_conversation/Conv)
     . = "[worldtime2text()] -!- [nuser.username] has left the chat."
@@ -62,4 +62,33 @@
 
 /datum/ntnet_message/new_op/format_chat_log(var/datum/ntnet_conversation/Conv)
     . = "[worldtime2text()] -!- [nuser.username] has become operator."
-    
+
+
+
+/datum/ntnet_message/new_title
+    var/title = ""
+
+/datum/ntnet_message/new_title/format_chat_log(var/datum/ntnet_conversation/Conv)
+    . = "[worldtime2text()] -!- [nuser.username] has changed channel title from [Conv.get_title()] to [title]"
+
+/datum/ntnet_message/new_title/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
+    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has changed the channel title to <i>[newtitle].</i></b>")
+
+
+
+/datum/ntnet_message/kick
+    var/datum/ntnet_user/target
+
+/datum/ntnet_message/kick/format_chat_log(var/datum/ntnet_conversation/Conv)
+    . = "[worldtime2text()] -!- [nuser.username] has kicked [target.username] from conversation."
+
+/datum/ntnet_message/kick/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
+    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has kicked <i>[target.username]</i> from conversation.</b>")
+
+
+
+/datum/ntnet_message/direct/format_chat_log(var/datum/ntnet_conversation/Conv)
+    . = "[worldtime2text()] -!- [nuser.username] has opened direct conversation."
+
+/datum/ntnet_message/direct/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
+    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has opened direct conversation with you.</b>")

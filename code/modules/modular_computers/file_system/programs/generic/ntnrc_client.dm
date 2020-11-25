@@ -50,37 +50,14 @@
 		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
 		var/password = sanitize(href_list["join"]["password"])
 		if(istype(conv))
-
-
-/datum/computer_file/program/chat_client/proc/add_message(var/message)
-	if(!message)
-		return
-	channel.add_message(message, username, usr)
-	message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
-
-/datum/computer_file/program/chat_client/proc/direct_message()
-	var/clients = list()
-	var/names = list()
-	for(var/cl in ntnet_global.chat_clients)
-		var/datum/computer_file/program/chat_client/C = cl
-		if(C.set_offline || C == src)
-			continue
-		clients[C.username] = C
-		names += C.username
-	names += "== Cancel =="
-	var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
-	if(picked == "== Cancel ==")
-		return
-	var/datum/computer_file/program/chat_client/otherClient = clients[picked]
-	if(picked)
-		if(directmessagechannels[otherClient])
-			channel = directmessagechannels[otherClient]
-			return
-		var/datum/ntnet_conversation/C = new /datum/ntnet_conversation("", TRUE)
-		C.begin_direct(src, otherClient)
-		channel = C
-		directmessagechannels[otherClient] = C
-		otherClient.directmessagechannels[src] = C
+			if(conv.password)
+				if(conv.password == password)
+					conv.cl_join(src)
+				else
+					// How do I alert of password invalid?
+			else
+				conv.cl_join(src)
+	
 
 /datum/computer_file/program/chat_client/kill_program(var/forced = FALSE)
 	if(!forced)
@@ -90,9 +67,7 @@
 
 	ntnet_global.chat_clients -= src
 
-	channel = null
-	..(forced)
-	return TRUE
+	return ..(forced)
 
 /datum/computer_file/program/chat_client/run_program(var/mob/user)
 	if(!computer)
