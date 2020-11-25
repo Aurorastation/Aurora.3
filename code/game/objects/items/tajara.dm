@@ -136,7 +136,6 @@
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
 	var/static/months = list("Menshe-aysaif","Sil'nryy-aysaif","Menshe-rhazzimy","Sil'nryy-rhazzimy")
-	var/static/days = list(0, 31, 59, 0, 31, 61, 0, 31, 61, 0, 30, 61)
 
 /obj/item/pocketwatch/adhomai/checktime(mob/user)
 	set category = "Object"
@@ -152,9 +151,13 @@
 		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/adhomian_day
 		var/adhomian_month = src.months[Ceiling(current_month/3)]
-		current_day += src.days[current_month]
-		if(isLeap(text2num(time2text(world.realtime, "YYYY"))) && current_month == 3)
-			current_day++
+		switch(current_month)
+			if(2, 5, 8, 11)
+				current_day += 31
+			if(6, 9, 12)
+				current_day += 61
+			if(3)
+				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY")))
 		var/real_time = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 		var/adhomian_time = real_time
 		if(IsEven(current_day))
