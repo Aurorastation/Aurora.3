@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed corporate liaisons and consular officers spawning with the wrong radio."
+
