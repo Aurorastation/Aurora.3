@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Learner roles such as medical intern, security cadet, lab assistant, and engineering apprentice, now gets PDAs of their department's variant, instead of standard civilian."
