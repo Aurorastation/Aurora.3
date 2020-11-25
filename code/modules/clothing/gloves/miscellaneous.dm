@@ -132,6 +132,8 @@
 	body_parts_covered = null
 	fingerprint_chance = 100
 	var/flipped = 0
+	var/use_military_format = TRUE
+	var/modified_time = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
@@ -161,13 +163,28 @@
 	if (get_dist(src, user) <= 1)
 		checktime()
 
+/obj/item/clothing/gloves/watch/verb/changeformat()
+	set category = "Object"
+	set name = "Change Watch Format"
+	set src in usr
+
+	use_military_format = !use_military_format
+	to_chat(usr, "You toggle the format of your watch. Now it will display in [use_military_format ? "24" : "12"] hour time.")
+
 /obj/item/clothing/gloves/watch/verb/checktime()
 	set category = "Object"
 	set name = "Check Time"
 	set src in usr
 
 	if(wired && !clipped)
-		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		if(use_military_format)
+			to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		else if(!use_military_format)
+			if(worldtime2hours() <= 12)
+				to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()] AM'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+			else if(worldtime2hours() >= 12)
+				modified_time = time2text(world.time + roundstart_hour HOURS - 12 HOURS, "hh:mm")
+				to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[modified_time] PM'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
 			to_chat(usr, SPAN_WARNING("The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
 	else if(wired && clipped)
