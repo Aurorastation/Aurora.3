@@ -179,7 +179,7 @@
 	if(wired && !clipped)
 		if(use_military_format)
 			to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
-		else if(!use_military_format)
+		else
 			if(worldtime2hours() <= 12)
 				to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()] AM'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 			else if(worldtime2hours() >= 12)
