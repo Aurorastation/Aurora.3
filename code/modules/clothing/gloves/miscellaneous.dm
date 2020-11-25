@@ -175,15 +175,17 @@
 	set name = "Check Time"
 	set src in usr
 
-	if(wired && !clipped)
-		if(use_military_format)
-			to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+	var/modified_time
+	if(use_military_format)
+		modified_time = worldtime2text()
+	else
+		if(worldtime2hours() <= 12)
+			modified_time = time2text(world.time + roundstart_hour HOURS, "hh:mm") + "AM"
 		else
-			if(worldtime2hours() <= 12)
-				to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()] AM'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
-			else if(worldtime2hours() >= 12)
-				modified_time = time2text(world.time + roundstart_hour HOURS - 12 HOURS, "hh:mm")
-				to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[modified_time] PM'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+			modified_time = time2text(world.time + roundstart_hour HOURS - 12 HOURS, "hh:mm") + "PM"
+
+	if(wired && !clipped)
+		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[modified_time]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
 			to_chat(usr, SPAN_WARNING("The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
 	else if(wired && clipped)
