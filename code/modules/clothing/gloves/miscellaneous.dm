@@ -133,7 +133,6 @@
 	fingerprint_chance = 100
 	var/flipped = 0
 	var/use_military_format = TRUE
-	var/modified_time = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
