@@ -27,7 +27,7 @@ steps:
       - python3 tools/TagMatcher/tag-matcher.py ../..
       - python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
       - python3 tools/mapmerge2/travis_mapcheck.py
-      - md5sum -c - <<< "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml"
+      - echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
       - echo "Complated Code Checks"
 ---
 kind: pipeline
@@ -128,6 +128,6 @@ steps:
       - echo "Unit Tests Completed"
 ---
 kind: signature
-hmac: 3a4a0fc7b32274522841b6cb8f21c1c05e5e01fd07a7574547f8361ffe38a7c1
+hmac: d23e577d98b4aaa3cf1e3b1f58ace007a86dfeb63d15ff29f9e8424ba4d76c96
 
 ...
