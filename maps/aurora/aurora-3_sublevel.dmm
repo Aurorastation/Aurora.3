@@ -34294,7 +34294,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
-/turf/unsimulated/chasm_mask,
+/turf/simulated/floor,
 /area/engineering/atmos)
 "tdu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
