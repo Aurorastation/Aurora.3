@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Revamped airlock construction messages, you will no longer keep hitting it like an orangutan if you do it out of sequence."
+  - rscadd: "An airlock assembly's given finished name will now appear in brackets next to the assembly's name."
+  - tweak: "Airlock construction now uses three lengths of coil, instead of one."
