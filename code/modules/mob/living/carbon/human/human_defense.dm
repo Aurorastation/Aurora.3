@@ -567,3 +567,13 @@ emp_act
 		return 1
 	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
 	return 1
+
+/mob/living/carbon/human/set_on_fire()
+	..()
+	for(var/obj/item/clothing/C in contents)
+		C.catch_fire()
+
+/mob/living/carbon/human/extinguish_fire()
+	..()
+	for(var/obj/item/clothing/C in contents)
+		C.extinguish_fire()

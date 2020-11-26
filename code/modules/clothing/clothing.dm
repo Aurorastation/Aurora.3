@@ -200,6 +200,12 @@
 	playsound(src.loc, /decl/sound_category/glass_break_sound, 70, 1)
 	qdel(src)
 
+/obj/item/clothing/proc/catch_fire()
+	return
+
+/obj/item/clothing/proc/extinguish_fire()
+	return
+
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(!material) // No point checking for reflection.
 		return ..()
