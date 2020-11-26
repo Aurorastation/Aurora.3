@@ -11,6 +11,6 @@ for %%f in (*.merge) do (
 	driver = tools/hooks/%%f %%P %%O %%A %%B %%L >> ..\..\.git\config
 )
 echo Installing Python dependencies
-python -m pip install -r ..\mapmerge2\requirements.txt
+python -m pip install -r ..\requirements.txt
 echo Done
 pause
