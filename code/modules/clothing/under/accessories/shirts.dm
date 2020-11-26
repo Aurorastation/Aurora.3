@@ -105,14 +105,14 @@
 	item_state = "longshirt"
 
 /obj/item/clothing/accessory/longsleeve_s
-	name = "long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric. This one is striped."
+	name = "black striped long-sleeved shirt"
+	desc = "A long-sleeved shirt made of light fabric. This one is striped in black."
 	icon_state = "longshirt_s"
 	item_state = "longshirt_s"
 
 /obj/item/clothing/accessory/longsleeve_sb
-	name = "long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric. This one is striped."
+	name = "blue striped long-sleeved shirt"
+	desc = "A long-sleeved shirt made of light fabric. This one is striped in blue."
 	icon_state = "longshirt_sb"
 	item_state = "longshirt_sb"
 
