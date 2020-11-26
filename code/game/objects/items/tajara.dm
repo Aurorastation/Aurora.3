@@ -135,7 +135,7 @@
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
-	var/static/months = list("Menshe-aysaif","Sil'nryy-aysaif","Menshe-rhazzimy","Sil'nryy-rhazzimy")
+	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
 
 /obj/item/pocketwatch/adhomai/checktime(mob/user)
 	set category = "Object"
