@@ -41819,9 +41819,8 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/plastic{
-	dir = 1
-	},
+/obj/structure/table/standard,
+/obj/item/glass_jar/gumball/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvj" = (
@@ -61289,6 +61288,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"gzn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light_switch{
+	pixel_x = -22;
+	pixel_y = 23
+	},
+/turf/simulated/floor/carpet,
+/area/chapel/main)
 "gBi" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -95618,7 +95625,7 @@ bRt
 bRL
 bSi
 bSF
-bTe
+gzn
 bTe
 bUu
 bUS
