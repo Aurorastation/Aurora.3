@@ -20,7 +20,7 @@
 	center_of_mass = list("x" = 16,"y" = 14)
 	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
-	possible_transfer_amounts = null
+	possible_transfer_amounts = list(1, 2, 5, 15)
 	volume = 15
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS

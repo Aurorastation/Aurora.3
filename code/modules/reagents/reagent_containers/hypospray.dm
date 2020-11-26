@@ -17,7 +17,7 @@
 	amount_per_transfer_from_this = 5
 	unacidable = 1
 	volume = 15
-	possible_transfer_amounts = null
+	possible_transfer_amounts = list(5, 10, 15)
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/gun.ogg'
@@ -42,6 +42,7 @@
 	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
+	possible_transfer_amounts = list(5, 10, 15, 30)
 	time = 0
 
 /obj/item/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
@@ -108,6 +109,7 @@
 	var/empty_state = "autoinjector0"
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = null
 	volume = 5
 	time = 0
 
@@ -161,15 +163,11 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name = "autoinjector (inaprovaline)"
-	volume = 5
-	amount_per_transfer_from_this = 20
-	flags = 0
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
-	. =..()
+	. = ..()
 	reagents.add_reagent(/decl/reagent/inaprovaline, 5)
 	update_icon()
-	return
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
 	name = "sideeffects-be-gone! autoinjector"
