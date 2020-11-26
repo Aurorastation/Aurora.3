@@ -71,8 +71,8 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/proc/tether(var/obj/item/tethering_device/TD)
 	linked_tethers |= TD
-	var/datum/beam/exploration/B = new /datum/beam/exploration(src, TD, beam_icon_state = "explore_beam", time = -1, maxdistance = tether_range)
-	if(istype(B))
+	var/datum/beam/exploration/B = new(src, TD, beam_icon_state = "explore_beam", time = -1, maxdistance = tether_range)
+	if(istype(B) && !QDELING(B))
 		B.owner = src
 		B.Start()
 		active_beams[TD] = B
