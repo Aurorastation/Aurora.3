@@ -1,0 +1,7 @@
+author: Hocka
+
+delete-after: True
+
+changes:
+  - rscadd: "Added medical gumballs - gumballs that spawn with tricordrazine."
+  - rscadd: "Added a medical and normal variant of gumball jars. The medical gumball jar spawns on a table in the medical lobby every round and normal gumball jars can spawn in cargo."
