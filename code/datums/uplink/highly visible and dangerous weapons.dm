@@ -79,7 +79,6 @@
 	item_cost = 10
 	path = /obj/item/clothing/gloves/ballistic
 
-
 /datum/uplink_item/item/visible_weapons/gatling
 	name = "Gatling Machine Gun"
 	item_cost = 50
