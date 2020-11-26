@@ -1197,8 +1197,8 @@ proc/is_blind(A)
   ckey = user.ckey
   return src
 
-/mob/proc/unblind()
+/mob/proc/remove_nearsighted()
 	disabilities &= ~NEARSIGHTED
 
-/mob/proc/undeafen()
+/mob/proc/remove_deaf()
 	sdisabilities &= ~DEAF
