@@ -356,7 +356,7 @@ var/list/world_api_rate_limit = list()
 	dbcon = initialize_database_object("config/dbconfig.txt")
 
 	if(!setup_database_connection(dbcon))
-		world.log <<  "Your server failed to establish a connection with database."
+		world.log <<  "Your server failed to establish a connection with the configured database."
 	else
 		world.log <<  "Database connection established."
 	return 1

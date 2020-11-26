@@ -77,7 +77,6 @@ fi
 echo "Found $ERROR_COUNT Errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then
-    echo "Printing code_error log"
     cat code_error.log
 fi
 
