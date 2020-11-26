@@ -4,7 +4,7 @@
 	extended_round_description = "Vampires and Changelings spawn during this round."
 	config_tag = "feeding"
 	required_players = 20
-	required_enemies = 5
+	required_enemies = 2
 	end_on_antag_death = 0
 	require_all_templates = 1
 	votable = 1

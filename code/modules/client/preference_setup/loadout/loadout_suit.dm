@@ -79,6 +79,11 @@
 	l_hoodie["sleeveless hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	gear_tweaks += new/datum/gear_tweak/path(l_hoodie)
 
+/datum/gear/suit/mars
+	display_name = "martian hoodie"
+	description = "An orange hoodie, typically worn in solidarity with Mars' recent misfortunes."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/mars
+
 /datum/gear/suit/labcoat
 	display_name = "labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat

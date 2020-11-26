@@ -7,6 +7,7 @@
 	var/depth = 1       // Number of floors to generate, including the initial floor.
 	var/lift_size_x = 2 // Number of turfs on each axis to generate in addition to the first
 	var/lift_size_y = 2 // ie. a 3x3 lift would have a value of 2 in each of these variables.
+	var/no_first_z_level = TRUE
 
 	// Various turf and door types used when generating the turbolift floors.
 	var/wall_type =  /turf/simulated/wall/elevator
@@ -119,7 +120,7 @@
 			light_y2 = uy + lift_size_y - 1
 
 	// Generate each floor and store it in the controller datum.
-	if(uz != 1)
+	if(no_first_z_level && uz != 1)
 		for(var/i = 1, i < uz, i++)
 			lift.floors += null // This silly hack allows lifts to not start on the first zlevel
 

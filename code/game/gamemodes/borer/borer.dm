@@ -4,7 +4,7 @@
 	extended_round_description = "Borers spawn in this game mode."
 	config_tag = "borer"
 	required_players = 15
-	required_enemies = 3
+	required_enemies = 2
 	end_on_antag_death = FALSE
 	antag_tags = list(MODE_BORER)
 	votable = TRUE
