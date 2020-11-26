@@ -1196,3 +1196,9 @@ proc/is_blind(A)
 /mob/assign_player(var/mob/user)
   ckey = user.ckey
   return src
+
+/mob/proc/unblind()
+	disabilities &= ~NEARSIGHTED
+
+/mob/proc/undeafen()
+	sdisabilities &= ~DEAF
