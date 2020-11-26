@@ -157,7 +157,7 @@
 			if(6, 9, 12)
 				current_day += 61
 			if(3)
-				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY")))
+				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
 		var/real_time = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 		var/adhomian_time = real_time
 		if(IsEven(current_day))
