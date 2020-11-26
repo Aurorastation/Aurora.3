@@ -61288,6 +61288,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"gzn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light_switch{
+	pixel_x = -22;
+	pixel_y = 23
+	},
+/turf/simulated/floor/carpet,
+/area/chapel/main)
 "gBi" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -95617,7 +95625,7 @@ bRt
 bRL
 bSi
 bSF
-bTe
+gzn
 bTe
 bUu
 bUS
