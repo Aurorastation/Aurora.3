@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Standard hyposprays can now choose to inject 5, 10, or 15 units per inject."
-  - rscadd: "CMO hyposprays can now choose to inject 5, 10, 15, or 30 units per inject."
-  - rscadd: "Standard syringes can now choose to inject 1, 2, 5, or 15 units per inject."
