@@ -11,5 +11,5 @@ for f in *.merge; do
 	git config --replace-all merge.${f%.merge}.driver "tools/hooks/$f %P %O %A %B %L"
 done
 echo Installing Python dependencies
-./python.sh -m pip install -r ../mapmerge2/requirements.txt
+./python.sh -m pip install -r ../requirements.txt
 echo "Done"
