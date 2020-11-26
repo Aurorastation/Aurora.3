@@ -61,7 +61,8 @@
 	return ..()
 
 /obj/machinery/clonepod/attack_ai(mob/user as mob)
-
+	if(!ai_can_interact(user))
+		return
 	add_hiddenprint(user)
 	return attack_hand(user)
 

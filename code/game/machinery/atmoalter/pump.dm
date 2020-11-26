@@ -116,6 +116,8 @@
 	return air_contents
 
 /obj/machinery/portable_atmospherics/powered/pump/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 

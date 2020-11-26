@@ -296,6 +296,8 @@
 */
 
 /obj/machinery/computer/scan_consolenew/attack_ai(user as mob)
+	if(!ai_can_interact(user))
+		return
 	src.add_hiddenprint(user)
 	ui_interact(user)
 

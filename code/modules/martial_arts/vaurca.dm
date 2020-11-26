@@ -81,9 +81,9 @@
 	return 1
 
 /datum/martial_art/vkutet/proc/vkutet_help()
-	set name = "Recall Teachings"
+	set name = "Recall Vk'utet"
 	set desc = "Remember the martial techniques of the Vk'utet."
-	set category = "Vk'utet"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You chitter deeply and remember the indoctrination...</i></b>")
 	to_chat(usr, "<span class='notice'>Piercing Strike</span>: Disarm Harm Harm. Slashes your victim, bypassing their armor and causing bleeding.")
@@ -96,3 +96,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	martial_art = /datum/martial_art/vkutet
+
+#undef PIERCING_STRIKE
+#undef SWIFT_BITE
+#undef CRUSHING_JAWS

@@ -94,6 +94,8 @@ var/global/list/all_beam_points
 		return FALSE
 
 	var/datum/beam/new_beam = Beam(beam_target, beam_icon_state, beam_icon, beam_time, beam_max_distance, beam_type, beam_sleep_time)
+	if (!istype(new_beam))
+		return FALSE
 	my_beams += new_beam
 	if(beam_creation_sound)
 		playsound(src, beam_creation_sound, 70, 1)

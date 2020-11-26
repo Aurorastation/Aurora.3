@@ -2,13 +2,13 @@
 /datum/job/bartender
 	title = "Bartender"
 	flag = BARTENDER
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -26,19 +26,20 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/bartender
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 
 /datum/job/chef
 	title = "Chef"
 	flag = CHEF
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -58,7 +59,8 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 	backpack_contents = list(
 		/obj/item/storage/box/produce = 1
@@ -67,13 +69,13 @@
 /datum/job/hydro
 	title = "Gardener"
 	flag = BOTANIST
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -92,7 +94,8 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 	suit_store = /obj/item/device/analyzer/plant_analyzer
 
 	backpack = /obj/item/storage/backpack/hydroponics
@@ -113,14 +116,13 @@
 /datum/job/qm
 	title = "Quartermaster"
 	flag = QUARTERMASTER
-	head_position = 1
-	department = "Cargo"
+	departments = list(DEPARTMENT_CARGO = JOBROLE_SUPERVISOR)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 5
 
 	minimum_character_age = 22
@@ -141,7 +143,8 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm
 	tablet = /obj/item/modular_computer/handheld/preset/supply/qm
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/qm
+	headset = /obj/item/device/radio/headset/qm
+	bowman = /obj/item/device/radio/headset/qm/alt
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
@@ -149,13 +152,13 @@
 /datum/job/cargo_tech
 	title = "Cargo Technician"
 	flag = CARGOTECH
-	department = "Cargo"
+	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 18
 
@@ -173,19 +176,20 @@
 	tablet = /obj/item/modular_computer/handheld/preset/supply
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/headset_cargo
+	headset = /obj/item/device/radio/headset/headset_cargo
+	bowman = /obj/item/device/radio/headset/headset_cargo/alt
 
 
 /datum/job/mining
 	title = "Shaft Miner"
 	flag = MINER
-	department = "Cargo"
+	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 5
 
 	minimum_character_age = 18
@@ -206,7 +210,8 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_mining
+	headset = /obj/item/device/radio/headset/headset_mining
+	bowman = /obj/item/device/radio/headset/headset_mining/alt
 
 	l_hand = /obj/item/coin/mining
 
@@ -228,13 +233,13 @@
 /datum/job/janitor
 	title = "Janitor"
 	flag = JANITOR
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
@@ -248,18 +253,19 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/janitor
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/janitor
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 /datum/job/journalist
 	title = "Corporate Reporter"
 	flag = JOURNALIST
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 
 	minimum_character_age = 20
 
@@ -279,7 +285,8 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1
@@ -303,13 +310,13 @@
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
 	alt_titles = list("Curator", "Tech Support")
@@ -326,7 +333,8 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
 

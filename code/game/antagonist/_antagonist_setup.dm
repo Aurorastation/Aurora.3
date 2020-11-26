@@ -67,16 +67,15 @@ var/global/list/bantype_to_antag_age = list()
 		return antag.current_antagonists
 	return list()
 
-/proc/player_is_antag(var/datum/mind/player, var/only_offstation_roles = 0)
+/proc/player_is_antag(var/datum/mind/player, var/only_offstation_roles = FALSE)
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
 		if(only_offstation_roles && !(antag.flags & ANTAG_OVERRIDE_JOB))
 			continue
 		if(player in antag.current_antagonists)
-			return 1
+			return antag
 		if(player in antag.pending_antagonists)
-			return 1
-	return 0
+			return antag
 
 /**
  * This must be called after map loading is done!

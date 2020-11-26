@@ -79,15 +79,6 @@
 	item_cost = 10
 	path = /obj/item/clothing/gloves/ballistic
 
-/datum/uplink_item/item/visible_weapons/wrestling
-	name = "Wrestling Manual"
-	item_cost = 6
-	path = /obj/item/martial_manual/wrestling
-
-/datum/uplink_item/item/visible_weapons/solcom
-	name = "SolCom Manual"
-	item_cost = 6
-	path = /obj/item/martial_manual
 
 /datum/uplink_item/item/visible_weapons/gatling
 	name = "Gatling Machine Gun"

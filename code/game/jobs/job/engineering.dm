@@ -1,15 +1,14 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
 	flag = CHIEF
-	head_position = TRUE
-	department = "Engineering"
+	departments = list(DEPARTMENT_ENGINEERING = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#FFD737"
+	selection_color = "#c67519"
 	economic_modifier = 10
 
 	minimum_character_age = 30
@@ -42,7 +41,8 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/ce
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/heads/ce
+	headset = /obj/item/device/radio/headset/heads/ce
+	bowman = /obj/item/device/radio/headset/heads/ce/alt
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -70,13 +70,13 @@
 /datum/job/engineer
 	title = "Station Engineer"
 	flag = ENGINEER
-	department = "Engineering"
+	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the chief engineer"
-	selection_color = "#FFEA95"
+	selection_color = "#c67519"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -97,7 +97,8 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/headset_eng
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -116,14 +117,14 @@
 /datum/job/atmos
 	title = "Atmospheric Technician"
 	flag = ATMOSTECH
-	department = "Engineering"
+	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
 	intro_prefix = "an"
 	supervisors = "the chief engineer"
-	selection_color = "#FFEA95"
+	selection_color = "#c67519"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -140,7 +141,8 @@
 	belt = /obj/item/storage/belt/utility
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/headset_eng
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -164,13 +166,14 @@
 /datum/job/intern_eng
 	title = "Engineering Apprentice"
 	flag = INTERN_ENG
+	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
-	selection_color = "#FFEA95"
+	selection_color = "#c67519"
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	outfit = /datum/outfit/job/intern_eng
@@ -185,7 +188,8 @@
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
-	l_ear = /obj/item/device/radio/headset/headset_eng
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
 
 	belt_contents = list(
 		/obj/item/weldingtool = 1,
@@ -199,3 +203,7 @@
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
+	tablet = /obj/item/modular_computer/handheld/preset/engineering

@@ -5,4 +5,4 @@
 	. = ..()
 	if(!.)
 		return
-	open_crew_manifest(user)
+	SSrecords.open_manifest_vueui(user)

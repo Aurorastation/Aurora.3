@@ -175,15 +175,15 @@
 
 /mob/living/carbon/proc/can_break_cuffs()
 	if(HULK in mutations)
-		return 1
+		return TRUE
 
 	if(stamina < 100)
-		return 0
+		return FALSE
 
-	if(src.gender in src.species.breakcuffs)
-		return 1
+	if(species?.break_cuffs)
+		return TRUE
 
-	return 0
+	return FALSE
 
 /mob/living/carbon/proc/break_handcuffs()
 	visible_message(

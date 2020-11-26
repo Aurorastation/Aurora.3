@@ -78,3 +78,16 @@
 
 
 //Other log stuff put here for the sake of organisation
+
+/client/proc/view_signal_log()
+	set name = "View Signaler Log"
+	set desc = "Use this to view who sent signaler signals to things."
+	set category = "Admin"
+
+	var/text_signal_log = ""
+	for(var/log in signal_log)
+		text_signal_log += "[log]<br>"
+
+	var/datum/browser/signal_win = new(usr, "signallog", "Signal Log", 550, 500)
+	signal_win.set_content(text_signal_log)
+	signal_win.open()

@@ -110,6 +110,9 @@
 	else if(tesla_link == H)
 		tesla_link = null
 		found = TRUE
+	else if(flashlight == H)
+		flashlight = null
+		found = TRUE
 	else if(personal_ai == H)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You remove \the [H] from \the [src]."))
@@ -156,6 +159,8 @@
 		return personal_ai
 	if(tesla_link && (initial(tesla_link.name) == name))
 		return tesla_link
+	if(flashlight && initial(flashlight.name) == name)
+		return flashlight
 	return null
 
 // Returns list of all components
@@ -181,4 +186,6 @@
 		all_components.Add(personal_ai)
 	if(tesla_link)
 		all_components.Add(tesla_link)
+	if(flashlight)
+		all_components.Add(flashlight)
 	return all_components

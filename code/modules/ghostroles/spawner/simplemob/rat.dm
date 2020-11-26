@@ -17,7 +17,7 @@
 	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(pick(current_map.station_levels))
 	return get_turf(spawnpoint)
 
-/datum/ghostspawner/simplemob/rat/cant_see()
+/datum/ghostspawner/simplemob/rat/cant_spawn()
 	if(config.disable_player_rats)
 		return "Spawning as Rat is disabled"
 	return ..()
