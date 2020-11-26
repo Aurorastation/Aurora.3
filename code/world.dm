@@ -349,13 +349,16 @@ var/list/world_api_rate_limit = list()
 #define FAILED_DB_CONNECTION_CUTOFF 5
 
 /hook/startup/proc/load_databases()
+	if(!config.sql_enabled)
+		world.log << "Database Connection disabled. - Skipping Connection Establishment"
+		return 1
 	//Construct the database object from an init file.
 	dbcon = initialize_database_object("config/dbconfig.txt")
 
-	if (!setup_database_connection(dbcon))
-		world.log <<  "Your server failed to establish a connection with the feedback database."
+	if(!setup_database_connection(dbcon))
+		world.log <<  "Your server failed to establish a connection with the configured database."
 	else
-		world.log <<  "Feedback database connection established."
+		world.log <<  "Database connection established."
 	return 1
 
 /proc/initialize_database_object(var/filename)
@@ -425,17 +428,20 @@ var/list/world_api_rate_limit = list()
 
 //This proc ensures that the connection to the feedback database (global variable dbcon) is established
 /proc/establish_db_connection(var/DBConnection/con)
+	if (!config.sql_enabled)
+		return FALSE
+	
 	if (!con)
 		error("No DBConnection object passed to establish_db_connection() proc.")
-		return 0
+		return FALSE
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
 		error("DB connection cutoff exceeded for a database object in establish_db_connection().")
-		return 0
+		return FALSE
 
 	if (!con.IsConnected())
 		return setup_database_connection(con)
 	else
-		return 1
+		return TRUE
 
 #undef FAILED_DB_CONNECTION_CUTOFF
