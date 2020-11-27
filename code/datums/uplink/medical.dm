@@ -11,17 +11,17 @@
 
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat Hypospray"
-	item_cost = 5
+	item_cost = 4
 	path = /obj/item/reagent_containers/hypospray/combat
 
 /datum/uplink_item/item/medical/surgery
 	name = "Surgery Kit"
-	item_cost = 8
+	item_cost = 5
 	path = /obj/item/storage/firstaid/surgery
 
 /datum/uplink_item/item/medical/combat
 	name = "Combat Medical Kit"
-	item_cost = 6
+	item_cost = 4
 	path = /obj/item/storage/firstaid/combat
 
 /datum/uplink_item/item/medical/stimulants
