@@ -1,6 +1,6 @@
 # merger hooks, run tools/hooks/install.bat or install.sh to set up
-*.dmm merge=dmm
-*.dmi merge=dmi
+*.dmm text merge=dmm
+*.dmi binary merge=dmi
 
 # force changelog merging to use union
 html/changelog.html merge=union
@@ -9,7 +9,7 @@ html/changelog.html merge=union
 * text=auto
 
 *.ai binary
-*.dmi binary
+#*.dmi binary
 *.exe binary
 *.fla binary
 *.gif binary
@@ -36,7 +36,7 @@ html/changelog.html merge=union
 *.css text
 *.dm text
 *.dmf text
-*.dmm text
+#*.dmm text
 *.gitkeep text
 *.hook text
 *.html text
