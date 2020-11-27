@@ -3,7 +3,7 @@
 
 /obj/effect/energy_field
 	name = "energy field"
-	desc = "Impenetrable field of energy, capable of blocking anything as long as it's active."
+	desc = "A strong field of energy, capable of blocking movement as long as it's active."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "shieldsparkles"
 	anchored = 1
@@ -15,13 +15,21 @@
 
 	atmos_canpass = CANPASS_ALWAYS
 
-/obj/effect/energy_field/New()
-	..()
+/obj/effect/energy_field/Initialize()
+	. = ..()
 	update_nearby_tiles()
 
 /obj/effect/energy_field/Destroy()
 	update_nearby_tiles()
 	return ..()
+
+/obj/effect/energy_field/attackby(obj/item/I, mob/user)
+	user.do_attack_animation(src, I)
+	if(I.force < 10)
+		user.visible_message(SPAN_WARNING("[user] harmlessly attacks \the [src] with \the [I]."), SPAN_WARNING("You attack \the [src] with \the [I], but it bounces off without doing any damage."))
+	else
+		user.visible_message(SPAN_WARNING("[user] attacks \the [src] with \the [I]."), SPAN_WARNING("You attack \the [src] with \the [I]."))
+		Stress(I.force / 10)
 
 /obj/effect/energy_field/ex_act(var/severity)
 	Stress(0.5 + severity)

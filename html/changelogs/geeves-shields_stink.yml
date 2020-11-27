@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now destroy the energy fields that shield generators make by hitting it, as long as your weapon is strong enough."
