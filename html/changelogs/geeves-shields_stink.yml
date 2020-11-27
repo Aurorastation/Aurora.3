@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "You can now destroy the energy fields that shield generators make by hitting it, as long as your weapon is strong enough."
+  - rscadd: "Energy shields now fade in and fade out, instead of just popping into existence."
