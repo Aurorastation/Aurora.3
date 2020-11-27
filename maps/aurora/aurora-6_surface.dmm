@@ -6288,6 +6288,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/store)
+"lF" = (
+/obj/machinery/biogenerator/small/west,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "lG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -56434,7 +56438,7 @@ tF
 uq
 uV
 vK
-wy
+lF
 wy
 nH
 yX
