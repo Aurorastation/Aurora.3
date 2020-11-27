@@ -233,11 +233,12 @@
 	var/parry_bonus = 0
 	for(var/art in known_martial_arts)
 		var/datum/martial_art/M = art
-		if(istype(O, M.weapon_affinity))
-			if(parry_chance)
-				parry_bonus = max(parry_bonus, M.parry_multiplier)
-				continue
-			return TRUE
+		for(var/type in M.weapon_affinity)
+			if(istype(O, type))
+				if(parry_chance)
+					parry_bonus = max(parry_bonus, M.parry_multiplier)
+					continue
+				return TRUE
 	if(parry_chance)
 		return parry_bonus
 	return FALSE
