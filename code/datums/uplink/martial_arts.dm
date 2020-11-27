@@ -25,4 +25,4 @@
 	name = "Gun-Kata"
 	desc = "A manual containing basic Gun-Kata instruction and techniques. This is for projectile weapons, allowing you to reload by using a gun on a magazine, and automatically ejecting the magazine when it's empty."
 	item_cost = 4
-	path = /datum/martial_art/gun_kata
+	path = /obj/item/martial_manual/gun_kata
