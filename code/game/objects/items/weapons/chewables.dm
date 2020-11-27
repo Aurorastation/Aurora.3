@@ -78,7 +78,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	chew()
 	if(chewtime < 1)
 		spitout()
-	
+
 
 /obj/item/clothing/mask/chewable/tobacco
 	name = "wad"
@@ -189,7 +189,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/gum/gumball/medical/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/tricordrazine, 5)
+	reagents.add_reagent(/decl/reagent/tricordrazine, 5)
 
 
 /obj/item/storage/box/fancy/gum
