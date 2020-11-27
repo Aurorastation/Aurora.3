@@ -683,7 +683,7 @@
 	desc = "You jelly?"
 	icon_state = "jdonut1"
 	filling_color = "#ED1169"
-	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment = 3, /decl/reagent/nutriment/sprinkles = 1, /decl/reagent/nutriment/cherryjelly = 5)
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/sprinkles = 1, /decl/reagent/nutriment/cherryjelly = 5)
 	reagent_data = list(/decl/reagent/nutriment = list("sweetness" = 1, "donut" = 2))
 	bitesize = 5
 
