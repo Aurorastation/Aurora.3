@@ -312,7 +312,7 @@
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
 	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!dbcon?.IsConnected())
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
 
