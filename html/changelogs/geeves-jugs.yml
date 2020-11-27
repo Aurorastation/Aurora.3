@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Replaced the fragile bottles of fertilizer with industrial jugs, sprites and sounds from Paradise."
+  - rscadd: "The biogenerator can now print empty jugs."
+  - bugfix: "You can no longer pour reagents onto a tray or soil patch if the container's lid is on."
