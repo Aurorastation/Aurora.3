@@ -14,31 +14,6 @@
 <script>
 import utils from '@/utils'
 export default {
-  components: {
-    'channel-btn': {
-      template: '<div></div>',
-      data() {
-        return {
-          password: null
-        }
-      },
-      methods: {
-        join() {
-
-        }
-      },
-      props: {
-        ch: {
-          type: Object,
-          default: {},
-        },
-        re: {
-          type: String,
-          default: '',
-        },
-      },
-    }
-  },
   data() {
     return {
       s: this.$root.$data.state,
