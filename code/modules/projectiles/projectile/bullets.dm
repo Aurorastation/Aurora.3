@@ -96,13 +96,26 @@
 		//whether the pellet actually hits the def_zone or a different zone should still be determined by the parent using get_zone_with_miss_chance().
 		var/old_zone = def_zone
 		def_zone = ran_zone(def_zone, spread)
-		if (..()) hits++
+		if (..())
+			hits++
+			if(ishuman(target_mob))
+				var/mob/living/carbon/human/H = target_mob
+				var/obj/item/organ/external/hit_organ = H.organs_by_name[def_zone]
+				if(hit_organ)
+					var/armor = H.getarmor_organ(hit_organ, "bullet")
+					do_embed(hit_organ, TRUE, armor) // pellet do_embed overrides standard embed, instead using pellets calculation
 		def_zone = old_zone //restore the original zone the projectile was aimed at
 
 	pellets -= hits //each hit reduces the number of pellets left
 	if (hits >= total_pellets || pellets <= 0)
 		return 1
 	return 0
+
+/obj/item/projectile/bullet/pellet/do_embed(obj/item/organ/external/organ, var/embed_override = FALSE, var/organ_armor = 0)
+	if(!embed_override) // this makes it so the pellet code calculates embeds rather than the human_defense
+		return
+	if(prob(20 + max(damage + embed_chance - organ_armor, -10)))
+		return ..()
 
 /obj/item/projectile/bullet/pellet/get_structure_damage()
 	var/distance = get_dist(loc, starting)

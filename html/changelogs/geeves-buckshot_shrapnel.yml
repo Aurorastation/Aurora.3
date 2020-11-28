@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Buckshot now calculates shrapnel for every single piece of shrapnel, instead of just the initial projectile."
