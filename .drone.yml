@@ -16,7 +16,7 @@ trigger:
   - master #avoid double builds on PRs
 
 steps:
-  - name: "Runtime - Compile and Run Unit Tests" 
+  - name: "Runtime - Compile and Run Unit Tests"
     image: python:3.6-slim-buster
     commands:
       - pip install --user -r ./tools/requirements.txt
@@ -28,7 +28,18 @@ steps:
       - python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
       - python3 tools/mapmerge2/travis_mapcheck.py
       - echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
-      - echo "Complated Code Checks"
+      - echo "Completed Code Checks"
+  - name: "Run DreamChecker"
+      image: aurorastation/dm-buildimage:latest
+      commands:
+        - /opt/dreamchecker
+  - name: "Vue - Lint and Compile"
+    image: node:10-buster
+    commands:
+      - cd vueui
+      - npm install # TODO: Cache that shit
+      - (npm run lint | tee lint.log)
+      - npm run build
 ---
 kind: pipeline
 type: docker
@@ -61,7 +72,7 @@ steps:
       - for f in SQL/migrate/*.sql; do mysql -h mariadb -uroot -proot game < $f && echo "Migrated $f"; done
       - mysql -h mariadb -uroot -proot game -e "SHOW TABLES;"
 
-  - name: "Runtime - Compile and Run Unit Tests" 
+  - name: "Runtime - Compile and Run Unit Tests"
     image: aurorastation/dm-buildimage:latest
     commands:
       - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
@@ -88,7 +99,7 @@ trigger:
   - master #avoid double builds on PRs
 
 steps:
-  - name: "Aurora - Compile and Run Unit Tests" 
+  - name: "Aurora - Compile and Run Unit Tests"
     image: aurorastation/dm-buildimage:latest
     commands:
       - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
@@ -115,7 +126,7 @@ trigger:
   - master #avoid double builds on PRs
 
 steps:
-  - name: "Exodus - Compile and Run Unit Tests" 
+  - name: "Exodus - Compile and Run Unit Tests"
     image: aurorastation/dm-buildimage:latest
     commands:
       - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
