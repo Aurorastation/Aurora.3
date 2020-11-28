@@ -30,9 +30,9 @@ steps:
       - echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
       - echo "Completed Code Checks"
   - name: "Run DreamChecker"
-      image: aurorastation/dm-buildimage:latest
-      commands:
-        - /opt/dreamchecker
+    image: aurorastation/dm-buildimage:latest
+    commands:
+      - /opt/dreamchecker
   - name: "Vue - Lint and Compile"
     image: node:10-buster
     commands:
