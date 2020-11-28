@@ -382,7 +382,7 @@
 		return
 
 	// Start service
-	if(S.service_activate())
+	if(S.service_enable())
 		enabled_services += S
 		S.service_state = PROGRAM_STATE_ACTIVE
 
@@ -399,8 +399,8 @@
 	enabled_services -= S
 
 	// Stop service
-	S.service_deactivate()
-	S.service_state = PROGRAM_STATE_KILLED
+	S.service_disable()
+	S.service_state = PROGRAM_STATE_DISABLED
 
 /obj/item/modular_computer/proc/output_message(var/message, var/message_range)
 	message_range += message_output_range
@@ -440,6 +440,11 @@
 
 	id.chat_registered = TRUE
 	registered_id = id
+
+	if(hard_drive)
+		for(var/datum/computer_file/program/P in hard_drive.stored_files)
+			P.event_registered()
+
 	output_notice("Registration successful!")
 	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, 0)
 	return registered_id
@@ -448,12 +453,11 @@
 	if(!registered_id)
 		return FALSE
 
-	registered_id.chat_registered = FALSE
-	registered_id = null
-
 	if(hard_drive)
-		var/datum/computer_file/program/P = hard_drive.find_file_by_name("ntnrc_client")
-		P.event_unregistered()
+		for(var/datum/computer_file/program/P in hard_drive.stored_files)
+			P.event_unregistered()
+
+	registered_id = null
 
 	output_message(SPAN_NOTICE("\The [src] beeps: \"Successfully unregistered ID!\""))
 	playsound(get_turf(src), 'sound/machines/ping.ogg', 20, 0)
@@ -476,7 +480,6 @@
 	return TRUE
 
 /obj/item/modular_computer/proc/silence_notifications()
-	for (var/datum/computer_file/program/P in hard_drive.stored_files)
-		if (istype(P))
-			P.event_silentmode()
 	silent = !silent
+	for (var/datum/computer_file/program/P in hard_drive.stored_files)
+		P.event_silentmode()
