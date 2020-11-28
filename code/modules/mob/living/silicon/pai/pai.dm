@@ -17,7 +17,7 @@
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
 	var/obj/item/device/paicard/card	// The card we inhabit
-	var/obj/item/device/radio/radio		// Our primary radio
+	var/obj/item/device/radio/pai/radio		// Our primary radio
 
 
 	var/chassis = "repairbot"   // A record of your chosen chassis.
@@ -110,8 +110,6 @@
 	light_color = COLOR_BRIGHT_GREEN
 	light_wedge = 45
 
-	can_have_vision_cone = FALSE
-
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
 
@@ -167,8 +165,9 @@
 	sradio = new(src)
 	if(card)
 		if(!card.radio)
-			card.radio = new /obj/item/device/radio(src.card)
+			card.radio = new /obj/item/device/radio/pai(src.card)
 		radio = card.radio
+		card.recalculateChannels()
 
 	//Default languages without universal translator software
 
@@ -353,9 +352,6 @@
 	canmove = TRUE
 	resting = FALSE
 
-	can_have_vision_cone = TRUE
-	check_fov()
-
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
 	set name = "Collapse Chassis"
@@ -468,9 +464,6 @@
 	//stop resting
 	resting = 0
 
-	hide_cone()
-	can_have_vision_cone = initial(can_have_vision_cone)
-
 	// If we are being held, handle removing our holder from their inv.
 	var/obj/item/holder/H = loc
 	if(istype(H))
@@ -531,3 +524,6 @@
 
 	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
 	card.setEmotion(pai_emotions[selection])
+
+/obj/item/device/radio/pai
+	canhear_range = 0 // only people on their tile

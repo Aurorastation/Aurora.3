@@ -5,6 +5,11 @@
 	slot = slot_glasses
 	sort_category = "Glasses and Eyewear"
 
+/datum/gear/eyes/whitepatch
+	display_name = "simple eyepatch (colorable)"
+	path = /obj/item/clothing/glasses/eyepatch/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/eyes/glasses
 	display_name = "glasses selection"
 	description = "A selection of glasses."

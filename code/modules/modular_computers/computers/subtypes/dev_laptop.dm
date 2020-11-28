@@ -15,7 +15,7 @@
 	base_active_power_usage = 200
 	message_output_range = 1
 	max_hardware_size = 2
-	light_strength = 3
+	light_range = 3
 	max_damage = 50
 	broken_damage = 25
 	var/icon_state_closed = "laptop-closed"

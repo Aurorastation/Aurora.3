@@ -103,6 +103,8 @@
 	update_icon()
 
 /obj/machinery/telecomms/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	attack_hand(user)
 
 /obj/machinery/telecomms/attack_hand(var/mob/user as mob)

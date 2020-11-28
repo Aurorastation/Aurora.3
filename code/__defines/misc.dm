@@ -228,6 +228,7 @@
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
+#define PROJECTILE_DODGED     -3 //this is similar to the above, but the check and message is run on the mob, instead of on the projectile code. basically just has a unique message
 
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
@@ -270,6 +271,10 @@
   )
 
 #define get_turf(A) (get_step(A, 0))
+#define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
+#define EAST_OF_TURF(T)		locate(T.x + 1, T.y, T.z)
+#define SOUTH_OF_TURF(T)	locate(T.x, T.y - 1, T.z)
+#define WEST_OF_TURF(T)		locate(T.x - 1, T.y, T.z)
 
 #define UNTIL(X) while(!(X)) stoplag()
 
@@ -462,3 +467,4 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_FAIL		-1
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
+

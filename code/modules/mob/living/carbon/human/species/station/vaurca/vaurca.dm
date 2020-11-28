@@ -2,6 +2,7 @@
 	name = SPECIES_VAURCA_WORKER
 	short_name = "vau"
 	name_plural = "Type A"
+	category_name = "Vaurca"
 	bodytype = BODYTYPE_VAURCA
 	age_min = 1
 	age_max = 20
@@ -33,6 +34,7 @@
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
 	bleed_mod = 2.2
+	injection_mod = 2
 
 	grab_mod = 1.1
 	resist_mod = 1.75

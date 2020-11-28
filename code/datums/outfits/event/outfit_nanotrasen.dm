@@ -44,6 +44,7 @@
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	id = /obj/item/card/id/ccia
 	head = /obj/item/clothing/head/beret/centcom/civilprotection
 	suit_store = /obj/item/gun/energy/gun
 	belt = /obj/item/storage/belt/security
@@ -58,7 +59,7 @@
 	implants = list(
 		/obj/item/implant/mindshield
 	)
-
+	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -119,7 +120,9 @@
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
 	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
+	id = /obj/item/card/id/ccia
 
+	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/odinsec
@@ -196,6 +199,7 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa/fib
+	id = /obj/item/card/id/ccia/fib
 
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
@@ -206,6 +210,7 @@
 		/obj/item/handcuffs = 1
 	)
 
+	id_icon = "fib"
 	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/fib/guard
@@ -238,7 +243,9 @@
 	shoes = /obj/item/clothing/shoes/trauma
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
+	glasses = /obj/item/clothing/glasses/hud/health
 
 	gloves = /obj/item/clothing/gloves/white
 	belt = /obj/item/storage/belt/medical
@@ -271,7 +278,9 @@
 	uniform = /obj/item/clothing/under/rank/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
-	l_ear = /obj/item/device/radio/headset/headset_med
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
+	glasses = /obj/item/clothing/glasses/hud/health
 
 	backpack = /obj/item/storage/backpack/pharmacy
 	satchel = /obj/item/storage/backpack/satchel_pharm
@@ -285,7 +294,8 @@
 
 	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/laceup/all_species
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 	id_access = "Service"
 
@@ -296,7 +306,8 @@
 	suit = /obj/item/clothing/suit/chef
 	head = /obj/item/clothing/head/chefhat
 	shoes = /obj/item/clothing/shoes/laceup/all_species
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 	id_access = "Service"
 
@@ -306,7 +317,8 @@
 	uniform = /obj/item/clothing/under/rank/janitor
 	pda = /obj/item/modular_computer/handheld/pda/civilian
 	shoes = /obj/item/clothing/shoes/galoshes
-	l_ear = /obj/item/device/radio/headset/headset_service
+	headset = /obj/item/device/radio/headset/headset_service
+	bowman = /obj/item/device/radio/headset/headset_service/alt
 	l_pocket = /obj/item/grenade/chem_grenade/cleaner
 	r_pocket = /obj/item/grenade/chem_grenade/cleaner
 

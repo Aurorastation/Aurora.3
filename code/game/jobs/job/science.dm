@@ -1,15 +1,14 @@
 /datum/job/rd
 	title = "Research Director"
 	flag = RD
-	head_position = 1
-	department = "Science"
+	departments = list(DEPARTMENT_SCIENCE = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#FF40FF"
+	selection_color = "#a44799"
 	economic_modifier = 15
 
 	minimum_character_age = 35
@@ -37,7 +36,8 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/rd
+	headset = /obj/item/device/radio/headset/heads/rd
+	bowman = /obj/item/device/radio/headset/heads/rd/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
@@ -53,13 +53,13 @@
 /datum/job/scientist
 	title = "Scientist"
 	flag = SCIENTIST
-	department = "Science"
+	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the research director"
-	selection_color = "#FFAAFF"
+	selection_color = "#a44799"
 	economic_modifier = 7
 
 	minimum_character_age = 30
@@ -79,7 +79,8 @@
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
-	l_ear = /obj/item/device/radio/headset/headset_sci
+	headset = /obj/item/device/radio/headset/headset_sci
+	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
@@ -97,13 +98,13 @@
 /datum/job/xenobiologist
 	title = "Xenobiologist"
 	flag = XENOBIOLOGIST
-	department = "Science"
+	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
 	supervisors = "the research director"
-	selection_color = "#FFAAFF"
+	selection_color = "#a44799"
 	economic_modifier = 7
 
 	minimum_character_age = 30
@@ -129,13 +130,13 @@
 /datum/job/roboticist
 	title = "Roboticist"
 	flag = ROBOTICIST
-	department = "Science"
+	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "research director"
-	selection_color = "#FFAAFF"
+	selection_color = "#a44799"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -154,7 +155,8 @@
 	uniform = /obj/item/clothing/under/rank/roboticist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_sci
+	headset = /obj/item/device/radio/headset/headset_sci
+	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
@@ -179,12 +181,13 @@
 /datum/job/intern_sci
 	title = "Lab Assistant"
 	flag = INTERN_SCI
+	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the Research Director"
-	selection_color = "#FFAAFF"
+	selection_color = "#a44799"
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
@@ -195,9 +198,14 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern
 	shoes = /obj/item/clothing/shoes/science
-	l_ear = /obj/item/device/radio/headset/headset_sci
+	headset = /obj/item/device/radio/headset/headset_sci
+	bowman = /obj/item/device/radio/headset/headset_sci/alt
 
 	backpack = /obj/item/storage/backpack/toxins
 	satchel = /obj/item/storage/backpack/satchel_tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
+	tablet = /obj/item/modular_computer/handheld/preset/research

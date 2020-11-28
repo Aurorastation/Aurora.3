@@ -9,6 +9,11 @@
 	var/last_frenzy_message = 0					// Keeps track of when the last frenzy alert was sent.
 	var/status = 0								// Bitfield including different statuses.
 	var/stealth = TRUE							// Do you want your victims to know of your sucking?
+
+	var/obj/screen/blood_hud
+	var/obj/screen/frenzy_hud
+	var/obj/screen/blood_suck_hud
+
 	var/list/datum/power/vampire/purchased_powers = list()			// List of power datums available for use.
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.
 	var/mob/living/carbon/human/master = null	// The vampire/thrall's master.
@@ -26,11 +31,13 @@
 
 	if (power.isVerb && power.verbpath)
 		vampire.current.verbs += power.verbpath
-	if (announce)
-		to_chat(vampire.current, "<span class='notice'><b>You have unlocked a new power:</b> [power.name].</span>")
-		to_chat(vampire.current, "<span class='notice'>[power.desc]</span>")
+	if(announce)
+		to_chat(vampire.current, SPAN_NOTICE("------------------"))
+		to_chat(vampire.current, SPAN_NOTICE("<b>You have unlocked a new power:</b> [power.name]."))
+		to_chat(vampire.current, SPAN_NOTICE(" - [power.desc]"))
 		if (power.helptext)
-			to_chat(vampire.current, "<span class='good'>[power.helptext]</span>")
+			to_chat(vampire.current, SPAN_GOOD(" - [power.helptext]"))
+		to_chat(vampire.current, SPAN_NOTICE("------------------"))
 
 // Proc to safely remove blood, without resulting in negative amounts of blood.
 /datum/vampire/proc/use_blood(var/blood_to_use)

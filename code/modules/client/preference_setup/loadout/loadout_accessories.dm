@@ -46,6 +46,7 @@
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
+	armbands["tau ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/armband_coloured
@@ -184,8 +185,8 @@
 	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt_crop
 	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_crop_r
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
-	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_s
-	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_sb
+	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
+	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
 	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
 	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/tshirt_crop
 	shirt["blouse"] = /obj/item/clothing/accessory/blouse

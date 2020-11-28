@@ -6,7 +6,7 @@ var/datum/antagonist/raider/raiders
 	role_text_plural = "Raiders"
 	bantype = "raider"
 	antag_indicator = "mutineer"
-	landmark_id = "voxstart"
+	landmark_id = "raiderstart"
 	welcome_text = "Use :H to talk on your encrypted channel."
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudmutineer"
@@ -84,7 +84,7 @@ var/datum/antagonist/raider/raiders
 	else
 		win_type = "Minor"
 		win_group = "Crew"
-	//Now we modify that result by the state of the vox crew.
+	//Now we modify that result by the state of the raider crew.
 	if(antags_are_dead())
 		win_type = "Major"
 		win_group = "Crew"

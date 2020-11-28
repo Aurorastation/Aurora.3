@@ -98,7 +98,6 @@ h1.alert, h2.alert		{color: #000000;}
 .solcom					{color: #22228B;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
-.vox					{color: #AA00AA;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
 .yassa					{color: #400987;}

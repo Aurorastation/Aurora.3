@@ -375,9 +375,9 @@
 		var/mob/living/silicon/robot/R = M
 		switch(hudtype)
 			if(SEC_HUDTYPE)
-				return istype(R.module_state_1, /obj/item/borg/sight/hud/sec) || istype(R.module_state_2, /obj/item/borg/sight/hud/sec) || istype(R.module_state_3, /obj/item/borg/sight/hud/sec)
+				return R.sensor_mode_sec()
 			if(MED_HUDTYPE)
-				return istype(R.module_state_1, /obj/item/borg/sight/hud/med) || istype(R.module_state_2, /obj/item/borg/sight/hud/med) || istype(R.module_state_3, /obj/item/borg/sight/hud/med)
+				return R.sensor_mode_med()
 			else
 				return 0
 	else

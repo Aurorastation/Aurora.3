@@ -26,7 +26,7 @@
 	siemens_coefficient = 0
 	rarity_value = 10
 
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 
 	fall_mod = 0
 

@@ -697,7 +697,7 @@
 		if(H.reagents.has_reagent(/datum/reagent/thetamycin, 15))
 			return
 
-		if(!H.internal_organs_by_name["zombie"] && prob(15))
+		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)

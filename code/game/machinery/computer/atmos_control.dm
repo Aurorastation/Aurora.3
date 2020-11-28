@@ -23,6 +23,8 @@
 	density = 0
 
 /obj/machinery/computer/atmoscontrol/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/computer/atmoscontrol/attack_hand(mob/user)
