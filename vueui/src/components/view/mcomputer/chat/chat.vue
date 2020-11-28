@@ -10,14 +10,14 @@
           <input type="text" v-model="password">
           <vui-button @click="set_password">Set password</vui-button>
         </template>
-        <vui-button v-else @click="password = ''">Set password</vui-button>
+        <vui-button v-else-if="!channel.direct" @click="password = ''">Set password</vui-button>
         <vui-button :params="{delete: reference}">Delete channel</vui-button>
       </template>
     </div>
     <div>
       <div v-for="(user, uref) in channel.users" :key="uref">
         {{ user }}
-        <vui-button v-if="channel.can_manage" :params="{kick: {target: reference, user: uref}}">Kick</vui-button>
+        <vui-button v-if="channel.can_manage && !channel.direct" :params="{kick: {target: reference, user: uref}}">Kick</vui-button>
       </div>
     </div>
     <div>

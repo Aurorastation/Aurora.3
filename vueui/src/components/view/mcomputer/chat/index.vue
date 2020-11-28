@@ -3,6 +3,7 @@
     <h2 v-if="!s.service" class="red">Chat service is not enabled, please enble it from main menu.</h2>
     <template v-else>
       <div>
+        <vui-button v-if="s.can_netadmin_mode || s.netadmin_mode" :class="{ on: s.netadmin_mode }" :params="{toggleadmin: 1}">Adm</vui-button>
         <vui-button :class="{ on: active == null }" @click="active = null">Explore</vui-button>
         <vui-button v-for="ref in tab_channels" :key="ref" :class="{ on: active == ref }" @click="active = ref">{{ s.channels[ref].title }}</vui-button>
       </div>

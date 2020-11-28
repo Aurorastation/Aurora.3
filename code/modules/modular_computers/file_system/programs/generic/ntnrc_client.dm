@@ -91,6 +91,14 @@
 		else
 			newRingtone = sanitize(newRingtone, 20)
 			ringtone = newRingtone
+	if(href_list["toggleadmin"])
+		if(netadmin_mode)
+			netadmin_mode = FALSE
+		else
+			var/mob/living/user = usr
+			if(can_run(user, TRUE, access_network))
+				netadmin_mode = TRUE
+		SSvueui.check_uis_for_change(src)
 	if(href_list["Reply"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
@@ -167,6 +175,8 @@
 	data["service"] = service_state > PROGRAM_STATE_KILLED
 	data["registered"] = istype(my_user)
 	data["ringtone"] = ringtone
+	data["netadmin_mode"] = netadmin_mode
+	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
 
 	if(data["registered"] && data["service"])
 		data["channels"] = list()
