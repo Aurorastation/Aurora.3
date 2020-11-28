@@ -68101,12 +68101,6 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/structure/table/wood,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	dir = 8;
-	network = list("Civilian Main","Rep_Office");
-	pixel_y = -22
-	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ulG" = (
