@@ -1759,7 +1759,7 @@
 	dir = 1;
 	id = "mining_internal"
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
@@ -1785,8 +1785,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "sk" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 2
+/obj/machinery/door/blast/shutters{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3164,7 +3164,7 @@
 /obj/machinery/conveyor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -17679,9 +17679,9 @@ Vh
 Vh
 Yu
 Yu
-mU
-mU
-mU
+sk
+sk
+sk
 EI
 Yu
 Vh
@@ -19097,7 +19097,7 @@ Vh
 Vh
 Vh
 Vh
-sk
+bq
 Vh
 Vh
 Vh
@@ -21319,7 +21319,7 @@ nA
 Vh
 Vh
 Vh
-sk
+bq
 Vh
 Vh
 Vh

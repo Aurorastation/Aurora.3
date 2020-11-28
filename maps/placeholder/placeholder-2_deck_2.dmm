@@ -607,7 +607,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "cM" = (
-/obj/structure/punching_bag,
+/obj/structure/bed/chair{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cO" = (
@@ -1289,7 +1291,13 @@
 /obj/structure/cryofeed{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "fP" = (
 /obj/structure/bed,
@@ -2124,6 +2132,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"ki" = (
+/obj/structure/cryofeed{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/reinforced,
+/area/janitor)
 "kj" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -2552,7 +2570,7 @@
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "nB" = (
-/obj/machinery/shower,
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "nD" = (
@@ -2600,8 +2618,10 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "nY" = (
-/obj/structure/closet/secure_closet/cargotech,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
 /area/janitor)
 "nZ" = (
 /obj/structure/table/standard,
@@ -3519,7 +3539,7 @@
 /area/janitor)
 "tY" = (
 /obj/machinery/cryopod,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/janitor)
 "ub" = (
 /obj/structure/table/standard,
@@ -3683,6 +3703,14 @@
 /obj/structure/sign/biohazard,
 /turf/simulated/wall/r_wall,
 /area/janitor)
+"vg" = (
+/obj/structure/cryofeed,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/janitor)
 "vi" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -3711,6 +3739,14 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
+/area/janitor)
+"vs" = (
+/obj/structure/cryofeed,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "vv" = (
 /obj/structure/flora/pottedplant/random,
@@ -3904,6 +3940,12 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/janitor)
+"wF" = (
+/obj/structure/bed/chair/comfy/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "wG" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/yellow{
@@ -4016,7 +4058,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "xB" = (
-/obj/structure/weightlifter,
+/obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "xD" = (
@@ -4294,6 +4336,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"zu" = (
+/obj/structure/cryofeed,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/janitor)
 "zv" = (
 /obj/machinery/door/window/eastright,
 /obj/structure/table/standard,
@@ -4363,6 +4415,10 @@
 /area/template_noop)
 "Ai" = (
 /obj/machinery/disposal,
+/turf/simulated/floor/tiled,
+/area/janitor)
+"Ak" = (
+/obj/structure/closet/secure_closet/cargotech,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Am" = (
@@ -4656,6 +4712,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"Cr" = (
+/obj/machinery/door/airlock,
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/janitor)
 "Cs" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -4877,7 +4940,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/janitor)
 "DQ" = (
 /obj/structure/railing/mapped,
@@ -5381,6 +5444,12 @@
 /obj/machinery/door/airlock/medical,
 /turf/simulated/floor/wood,
 /area/janitor)
+"GJ" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "GN" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/southleft,
@@ -5466,6 +5535,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/janitor)
+"Hz" = (
+/obj/structure/cryofeed{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "HA" = (
 /turf/simulated/floor/carpet/rubber,
@@ -6021,6 +6099,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
+/area/janitor)
+"KQ" = (
+/obj/machinery/porta_turret,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "KT" = (
 /turf/simulated/floor/carpet,
@@ -7402,6 +7484,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"US" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/white,
+/area/janitor)
 "UU" = (
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/carpet,
@@ -7494,6 +7580,16 @@
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/door/window/southright,
 /turf/simulated/floor/tiled/white,
+/area/janitor)
+"Vu" = (
+/obj/machinery/shower{
+	pixel_y = 22
+	},
+/obj/structure/curtain/open/shower/engineering,
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
 /area/janitor)
 "Vv" = (
 /obj/structure/lattice,
@@ -7631,6 +7727,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"Wr" = (
+/obj/machinery/porta_turret,
+/turf/simulated/floor/reinforced,
+/area/janitor)
 "Wt" = (
 /obj/machinery/space_heater,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7668,7 +7768,13 @@
 /area/janitor)
 "WL" = (
 /obj/structure/cryofeed,
-/turf/simulated/floor/tiled,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "WM" = (
 /obj/structure/closet/secure_closet/cargotech,
@@ -7792,6 +7898,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/janitor)
+"XV" = (
+/obj/structure/bed/chair/comfy/brown,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "XW" = (
 /obj/machinery/door/firedoor,
@@ -17654,7 +17764,7 @@ ai
 ai
 ai
 ai
-ab
+ai
 ab
 ab
 ab
@@ -17856,20 +17966,20 @@ ai
 ai
 ai
 ai
+ai
 ab
-nB
-ac
-nY
-nY
+Vu
 nY
 ab
-ai
-ai
-ai
-ai
-ai
+nY
+ab
+ad
+ad
+ad
+ad
+ad
 XX
-HN
+KQ
 HN
 HN
 ac
@@ -18058,20 +18168,20 @@ ai
 ai
 ai
 ai
+ai
 ab
-nB
-ac
-ac
-ac
-ac
+Vu
+nY
 ab
-ai
-ai
-ai
-ai
-ai
+Cr
+ab
+ad
+ad
+ad
+ad
+ad
 XX
-ac
+HN
 ac
 ac
 ac
@@ -18260,20 +18370,20 @@ ai
 ai
 ai
 ai
+ai
 ab
-nB
-ac
-ac
-ac
-ac
+Vu
+nY
+nY
+nY
 ab
-ai
-ai
-ai
-ai
-ai
+ad
+ad
+ad
+ad
+ad
 XX
-ac
+HN
 ac
 ac
 ac
@@ -18462,20 +18572,20 @@ ai
 ai
 ai
 ai
+ai
 ab
-nB
-ac
-ac
-ac
-ac
+Vu
+nY
+nY
+nY
 ab
-ai
-ai
-ai
-ai
-ai
+ad
+ad
+ad
+ad
+ad
 XX
-HN
+KQ
 HN
 HN
 ac
@@ -18669,7 +18779,7 @@ ab
 ab
 ab
 ab
-ab
+uK
 ab
 ab
 az
@@ -18865,12 +18975,12 @@ ai
 ai
 ai
 ai
-ai
 ab
-ac
-ac
-ac
-ac
+ab
+Ak
+Ak
+Ak
+Ak
 ac
 ab
 VL
@@ -19067,14 +19177,14 @@ ai
 ai
 ai
 ai
-ai
 ab
 ac
+NC
 ac
-xB
 ac
 ac
-az
+ac
+ab
 VL
 wE
 VL
@@ -19269,11 +19379,11 @@ ai
 ai
 ai
 ai
-ai
 ab
-ac
-ac
+TX
+HN
 cM
+ac
 ac
 ac
 az
@@ -19471,13 +19581,13 @@ ai
 ai
 ai
 ai
-ai
 ab
+TX
+HN
 ac
 ac
-ac
-ac
-ac
+gX
+gX
 az
 VL
 wE
@@ -19673,13 +19783,13 @@ ai
 ai
 ai
 ai
-ai
 ab
 ac
+xi
 ac
-ac
-ac
-ac
+XV
+HN
+HN
 ab
 wE
 wE
@@ -19875,13 +19985,13 @@ ai
 ai
 ai
 ai
-ai
 ab
+nB
 ac
 ac
 ac
-ac
-ac
+GJ
+GJ
 az
 VL
 wE
@@ -19894,7 +20004,7 @@ VL
 MP
 ac
 ab
-ab
+az
 az
 az
 ab
@@ -20077,9 +20187,9 @@ ai
 ai
 ai
 ai
-ai
 ab
-ac
+xB
+TX
 ac
 ac
 ac
@@ -20100,7 +20210,7 @@ Mt
 HN
 Xu
 HN
-ap
+ab
 ac
 ac
 NC
@@ -20279,11 +20389,11 @@ ai
 ai
 ai
 ai
-ai
 ab
-ac
-ac
-ac
+ab
+HN
+HN
+HN
 ac
 ac
 uK
@@ -20308,10 +20418,10 @@ ac
 HN
 ab
 fN
-fN
-fN
-fN
-fN
+Hz
+Hz
+Hz
+ki
 ab
 XX
 XX
@@ -20483,16 +20593,16 @@ ai
 ai
 ai
 ab
-ac
-ac
+dA
+wF
 ac
 ac
 ac
 ab
 ac
-nY
-nY
-nY
+ac
+ac
+ac
 ac
 SE
 cv
@@ -20706,16 +20816,16 @@ MW
 ac
 ac
 HN
-ap
+ab
 ac
 ac
 NC
 ab
-ac
-ac
-ac
-ac
-ac
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
 ab
 ac
 ac
@@ -20913,11 +21023,11 @@ ac
 ac
 HN
 ab
-ac
-ac
-ac
-ac
-ac
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
 ab
 ac
 ac
@@ -21117,7 +21227,7 @@ xi
 ab
 tY
 tY
-ac
+ZQ
 tY
 tY
 ab
@@ -21318,10 +21428,10 @@ iB
 iB
 ab
 WL
-WL
-ac
-WL
-WL
+vg
+ZQ
+zu
+vs
 ab
 ac
 ac
@@ -21521,7 +21631,7 @@ ac
 ab
 ab
 ab
-Ko
+US
 ab
 ab
 ab
@@ -27766,7 +27876,7 @@ XX
 XX
 XX
 XX
-XX
+ab
 ap
 ap
 QL
@@ -27963,9 +28073,9 @@ tp
 Cb
 XX
 ai
+Wr
 ai
-ai
-ai
+Wr
 ai
 XX
 ac
