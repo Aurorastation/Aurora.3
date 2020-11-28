@@ -1196,3 +1196,9 @@ proc/is_blind(A)
 /mob/assign_player(var/mob/user)
   ckey = user.ckey
   return src
+
+/mob/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/mob/proc/get_standard_pixel_y()
+	return initial(pixel_y)
