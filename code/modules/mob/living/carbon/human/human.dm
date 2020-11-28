@@ -1336,7 +1336,7 @@
 		if(organ.status & ORGAN_SPLINTED) //Splints prevent movement.
 			continue
 		for(var/obj/item/O in organ.implants)
-			if(!istype(O,/obj/item/implant) && prob(5)) //Moving with things stuck in you could be bad.
+			if(m_intent == "run" && !istype(O, /obj/item/implant) && prob(5)) //Moving quickly with things stuck in you could be bad.
 				if(!can_feel_pain())
 					to_chat(src, SPAN_WARNING("You feel [O] moving inside your [organ.name]."))
 				else
