@@ -19,7 +19,7 @@
             else
                 min_antag_count = max(min_antag_count, A.initial_spawn_req)
 
-        if(min_antag_count > GM.required_enemies)
+        if(min_antag_count != GM.required_enemies)
             failed += "[ascii_red]--------------- [GM] ([GM.type]) requires [GM.required_enemies] enemies but its antagonist roles require [min_antag_count] players!"
         if(min_antag_count > GM.required_players)
             failed += "[ascii_red]--------------- [GM] ([GM.type]) requires [GM.required_players] players but its antagonist roles require [min_antag_count] players!"

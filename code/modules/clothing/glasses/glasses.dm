@@ -277,6 +277,12 @@ BLIND     // can't see anything
 	update_clothing_icon()
 	update_icon()
 
+/obj/item/clothing/glasses/eyepatch/white
+	name = "eyepatch"
+	desc = "A simple eyepatch made out of a strip of cloth."
+	icon_state = "eyepatch_white"
+	item_state = "eyepatch_white"
+
 /obj/item/clothing/glasses/monocle
 	name = "monocle"
 	desc = "Such a dapper eyepiece!"

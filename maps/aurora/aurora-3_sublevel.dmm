@@ -17,7 +17,7 @@
 /turf/simulated/floor,
 /area/engineering/atmos)
 "aaf" = (
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aag" = (
 /turf/simulated/floor/reinforced/nitrogen,
@@ -38,7 +38,7 @@
 	frequency = 1441;
 	id_tag = "ph_sensor"
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aal" = (
 /obj/machinery/air_sensor{
@@ -90,14 +90,14 @@
 	id = "tox_in";
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aar" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
 	id_tag = "tox_out"
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aas" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -930,6 +930,15 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
+"acm" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel,
+/obj/item/autopsy_scanner,
+/obj/machinery/firealarm/south,
+/obj/item/surgery/surgicaldrill,
+/turf/simulated/floor/tiled/white,
+/area/medical/morgue)
 "acn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1031,6 +1040,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acC" = (
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel,
+/obj/item/surgery/surgicaldrill,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/maintenance/medsublevel_port)
 "acD" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -3983,50 +4001,50 @@
 /area/engineering/atmos)
 "ajf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "aji" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"ajn" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/machinery/pipedispenser,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"ajn" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/pipedispenser/disposal,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "ajo" = (
@@ -4734,7 +4752,7 @@
 	name = "Canister Storage";
 	req_access = list(7)
 	},
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "akV" = (
@@ -19680,14 +19698,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/morgue)
-"aOa" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/table/standard,
-/obj/item/surgery/scalpel,
-/obj/item/autopsy_scanner,
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/white,
-/area/medical/morgue)
 "aOb" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/standard,
@@ -22358,8 +22368,8 @@
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "aVt" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
 "aVG" = (
@@ -24261,14 +24271,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
-"beT" = (
-/obj/structure/table/standard,
-/obj/item/surgery/scalpel,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/maintenance/medsublevel_port)
 "beW" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -30273,6 +30275,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"kuZ" = (
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/reinforced,
+/area/rnd/storage)
 "kvS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -32047,13 +32054,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
 "nRA" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
+	},
+/obj/machinery/ringer{
+	department = "Engineering";
+	id = "engie_ringer";
+	pixel_y = -30;
+	req_access = list(10)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -33706,9 +33715,6 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "rCQ" = (
-/obj/effect/landmark/start{
-	name = "Virologist"
-	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
@@ -34231,13 +34237,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "sXH" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/ringer{
-	department = "Engineering";
-	id = "engie_ringer";
-	pixel_x = 30;
-	req_access = list(10)
-	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/pipedispenser/disposal,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "sYz" = (
@@ -34293,7 +34294,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
-/turf/unsimulated/chasm_mask,
+/turf/simulated/floor,
 /area/engineering/atmos)
 "tdu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -34445,6 +34446,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -34647,14 +34652,14 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "tSk" = (
-/obj/effect/landmark/start{
-	name = "Psychiatrist"
-	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Surgeon"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -34667,9 +34672,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"tSw" = (
-/turf/unsimulated/chasm_mask,
-/area/engineering/atmos)
 "tTG" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -35035,6 +35037,18 @@
 /obj/machinery/particle_accelerator/control_box,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"uFh" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/obj/structure/bed/chair/plastic{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Medical Intern"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "uGd" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -36009,14 +36023,14 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_tesla)
 "wnO" = (
-/obj/effect/landmark/start{
-	name = "Virologist"
-	},
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 4
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Psychiatrist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -56743,7 +56757,7 @@ aLH
 aPf
 aQr
 aVt
-aVt
+kuZ
 aVp
 beS
 bfs
@@ -62586,7 +62600,7 @@ abo
 abo
 aiI
 ajm
-aaO
+ajm
 aaO
 aaa
 aaa
@@ -62841,10 +62855,10 @@ ahm
 adB
 acT
 aeY
-sXH
+aiI
 ajn
 aaO
-tSw
+aaO
 aaa
 aaa
 aaa
@@ -63098,8 +63112,8 @@ acy
 kaD
 nwo
 ecc
-aaO
-aaO
+aiI
+sXH
 aaO
 aaa
 aaa
@@ -63356,8 +63370,8 @@ bfj
 abo
 nRA
 aaO
-aaa
-aaa
+aaO
+aaO
 aaa
 aaa
 aaa
@@ -64124,7 +64138,7 @@ aae
 aae
 aae
 ads
-aae
+aet
 ads
 aae
 aac
@@ -73169,7 +73183,7 @@ hHI
 ayh
 jgi
 uSI
-beT
+acC
 awP
 aAP
 awP
@@ -75242,7 +75256,7 @@ aKf
 aLh
 aMl
 aMk
-aOa
+acm
 aGi
 aUZ
 aQl
@@ -78597,7 +78611,7 @@ aLk
 vMS
 sWS
 wSX
-kwz
+uFh
 tSk
 kwz
 xyk
