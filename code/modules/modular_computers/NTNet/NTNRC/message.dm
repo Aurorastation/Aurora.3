@@ -31,7 +31,7 @@
     var/message = ""
 
 /datum/ntnet_message/message/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
-    . = "<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i>:</b> [message] (<a href='byond://?src=\ref[Cl]&reply=\ref[Conv]'>Reply</a>)"
+    . = "<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i>:</b> [message] (<a href='byond://?src=\ref[Cl]&Reply=\ref[Conv]'>Reply</a>)"
 
 /datum/ntnet_message/message/format_chat_log(var/datum/ntnet_conversation/Conv)
     . = "[worldtime2text()] [nuser.username]: [message]"
@@ -72,7 +72,7 @@
     . = "[worldtime2text()] -!- [nuser.username] has changed channel title from [Conv.get_title()] to [title]"
 
 /datum/ntnet_message/new_title/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
-    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has changed the channel title to <i>[newtitle].</i></b>")
+    . = FONT_SMALL("<b>([Conv.get_title(Cl)]) <i>[nuser.username]</i> has changed the channel title to <i>[title].</i></b>")
 
 
 

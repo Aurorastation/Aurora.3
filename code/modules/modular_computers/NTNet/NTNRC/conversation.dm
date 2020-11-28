@@ -100,17 +100,19 @@ var/global/ntnrc_uid = 0
 		return TRUE
 	return FALSE
 
-/datum/ntnet_conversation/proc/cl_send(var/datum/computer_file/program/chat_client/Cl, var/message)
+/datum/ntnet_conversation/proc/cl_send(var/datum/computer_file/program/chat_client/Cl, var/message, var/mob/user)
 	if(!istype(Cl) || !can_interact(Cl))
 		return
 	var/datum/ntnet_message/message/msg = new(Cl)
 	msg.message = message
+	msg.user = user
 	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_join(var/datum/computer_file/program/chat_client/Cl)
-	if(!istype(Cl) || !can_see(Cl))
+	if(!istype(Cl) || !can_see(Cl) || direct)
 		return
 	var/datum/ntnet_message/join/msg = new(Cl)
+	Cl.my_user.channels.Add(src)
 	users.Add(Cl.my_user)
 	if(!operator)
 		operator = Cl.my_user
@@ -121,9 +123,10 @@ var/global/ntnrc_uid = 0
 	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_leave(var/datum/computer_file/program/chat_client/Cl)
-	if(!istype(Cl) || !istype(Cl.my_user) || !(Cl.my_user in users) || !can_interact(Cl))
+	if(!istype(Cl) || !istype(Cl.my_user) || !(Cl.my_user in users) || !can_interact(Cl) || direct)
 		return
 	var/datum/ntnet_message/leave/msg = new(Cl)
+	Cl.my_user.channels.Remove(src)
 	users.Remove(Cl.my_user)
 	if(operator == Cl.my_user)
 		if(users.len)
@@ -135,18 +138,28 @@ var/global/ntnrc_uid = 0
 			return
 	process_message(msg)
 
-/datum/ntnet_conversation/proc/cl_change(var/datum/computer_file/program/chat_client/Cl, var/newTitle)
-	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl))
+/datum/ntnet_conversation/proc/cl_change_title(var/datum/computer_file/program/chat_client/Cl, var/newTitle)
+	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || direct)
 		return
 	var/datum/ntnet_message/new_title/msg = new(Cl)
 	msg.title = newTitle
 	title = newTitle
 	process_message(msg)
 
+/datum/ntnet_conversation/proc/cl_set_password(var/datum/computer_file/program/chat_client/Cl, var/newPassword)
+	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || direct)
+		return
+	if(newPassword)
+		password = newPassword
+	else
+		password = FALSE
+
 /datum/ntnet_conversation/proc/cl_kick(var/datum/computer_file/program/chat_client/Cl, var/datum/ntnet_user/target)
-	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || !(target in users))
+	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || !(target in users) || direct)
 		return
 	var/datum/ntnet_message/kick/msg = new(Cl)
+	msg.target = target
+	target.channels.Remove(src)
 	users.Remove(target)
 	if(operator == target)
 		if(users.len)

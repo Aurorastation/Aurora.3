@@ -98,7 +98,6 @@
 /obj/item/modular_computer/Destroy()
 	kill_program(TRUE)
 	if(registered_id)
-		registered_id.chat_registered = FALSE
 		registered_id = null
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
@@ -434,11 +433,7 @@
 	if(!istype(id))
 		output_error("No ID card found!")
 		return FALSE
-	if(id.chat_registered)
-		output_error("This card is already registered to another account!")
-		return FALSE
 
-	id.chat_registered = TRUE
 	registered_id = id
 
 	if(hard_drive)
