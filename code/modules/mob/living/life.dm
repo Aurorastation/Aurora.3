@@ -113,12 +113,18 @@
 
 //this handles hud updates. Calls update_vision() and handle_hud_icons()
 /mob/living/proc/handle_regular_hud_updates()
-	if(!client || QDELETED(src))	return 0
+	if(!can_update_hud())
+		return FALSE
 
 	handle_hud_icons()
 	handle_vision()
 
-	return 1
+	return TRUE
+
+/mob/living/proc/can_update_hud()
+	if(!client || QDELETED(src))
+		return FALSE
+	return TRUE
 
 /mob/living/proc/handle_vision()
 	update_sight()

@@ -20,6 +20,27 @@
 	loc = pick(dream_entries)
 	body = form
 
+	if(client)
+		healths = new /obj/screen()
+		healths.icon = 'icons/mob/screen/midnight.dmi'
+		healths.icon_state = "health0"
+		healths.name = "health"
+		healths.screen_loc = ui_health
+		client.screen |= healths
+
+/mob/living/brain_ghost/LateLogin()
+	..()
+	if(!healths)
+		healths = new /obj/screen()
+		healths.icon = 'icons/mob/screen/midnight.dmi'
+		healths.icon_state = "health0"
+		healths.name = "health"
+		healths.screen_loc = ui_health
+	client.screen |= healths
+
+/mob/living/brain_ghost/Logout()
+	..()
+	client.screen -= healths
 
 /mob/living/brain_ghost/verb/awaken()
 	set name = "Awaken"
@@ -47,6 +68,9 @@
 		to_chat(src, "<span class='danger'>Your body was destroyed!</span>")
 		qdel(src)
 		return
+
+	if(healths)
+		healths.appearance = body.healths.appearance
 
 	if(body.stat == DEAD) // Body is dead, and won't get a life tick.
 		body.handle_shared_dreaming()
