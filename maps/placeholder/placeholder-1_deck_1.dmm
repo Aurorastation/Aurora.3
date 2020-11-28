@@ -5426,10 +5426,6 @@
 	icon_state = "1,4"
 	},
 /area/template_noop)
-"UT" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/space,
-/area/janitor)
 "UU" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -15968,15 +15964,15 @@ ax
 eV
 BE
 fp
+Vh
+fp
 fp
 Yu
+fp
+fp
 Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+fp
+fp
 Yu
 Vh
 Vh
@@ -16171,9 +16167,9 @@ eV
 ax
 vI
 Vh
-Yu
 Vh
 vI
+Yu
 Vh
 Vh
 Vh
@@ -16373,14 +16369,14 @@ eV
 BE
 fp
 Vh
+fp
+fp
 Yu
+fp
+fp
 Vh
-Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+fp
+fp
 Yu
 Vh
 Vh
@@ -16574,13 +16570,13 @@ Yu
 Yu
 Yu
 Yu
-KO
+bq
 Yu
 Yu
 Yu
 Yu
 Yu
-KO
+bq
 Yu
 Yu
 Yu
@@ -17177,8 +17173,8 @@ Vh
 Vh
 Yu
 fp
-fp
-fp
+Vh
+Vh
 Yu
 vI
 Vh
@@ -17378,16 +17374,16 @@ Vh
 Vh
 Vh
 Yu
+fp
 Vh
 Vh
+bq
 Vh
-KO
+gI
+gI
 Vh
-Vh
-Vh
-Vh
-Vh
-Vh
+gI
+gI
 Vh
 Vh
 Vh
@@ -17581,8 +17577,8 @@ Vh
 Vh
 Yu
 fp
-fp
-fp
+Vh
+Vh
 Yu
 vI
 Vh
@@ -18191,9 +18187,9 @@ Yu
 Yu
 Yu
 Yu
-be
-be
-be
+Yu
+Yu
+Yu
 Yu
 Yu
 Yu
@@ -21827,7 +21823,7 @@ be
 be
 be
 bE
-UT
+bG
 bG
 Si
 fG

@@ -96,8 +96,10 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "aC" = (
-/obj/machinery/porta_turret,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/janitor)
 "aE" = (
 /obj/machinery/door/blast/regular/open,
@@ -115,7 +117,7 @@
 /area/janitor)
 "aI" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "aJ" = (
 /obj/machinery/chem_master,
@@ -1380,9 +1382,8 @@
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "gX" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 4
-	},
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/supply,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "gY" = (
@@ -2544,7 +2545,7 @@
 "pP" = (
 /obj/item/stack/material/phoron,
 /obj/structure/table/rack,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "pT" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2908,7 +2909,7 @@
 /area/janitor)
 "tA" = (
 /obj/machinery/door/airlock/highsecurity,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "tC" = (
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
@@ -3073,7 +3074,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "uL" = (
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/sign/w,
@@ -3108,14 +3109,12 @@
 	},
 /area/janitor)
 "uX" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/bed/chair/comfy/brown,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "uY" = (
 /obj/item/modular_computer/console/preset/medical,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -3130,15 +3129,16 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "vb" = (
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
+/obj/effect/floor_decal/sign/srg,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "vc" = (
@@ -3167,9 +3167,10 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "vi" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/effect/floor_decal/sign/srg,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "vk" = (
@@ -3186,7 +3187,7 @@
 	pixel_x = -1;
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -3201,7 +3202,7 @@
 /area/janitor)
 "vv" = (
 /obj/structure/flora/pottedplant/random,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3469,7 +3470,7 @@
 /turf/simulated/floor/wood,
 /area/janitor)
 "xM" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -3722,30 +3723,29 @@
 /turf/simulated/floor/carpet/rubber,
 /area/janitor)
 "Ad" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "Ai" = (
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Am" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
+/obj/structure/bed/chair/office/dark{
+	dir = 8
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "Ao" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 1
+/obj/structure/bed/chair/comfy/brown{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "Aq" = (
 /obj/structure/cable/orange{
@@ -3960,7 +3960,7 @@
 "BW" = (
 /obj/structure/bed/chair/wheelchair,
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "Cb" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -3983,8 +3983,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Cp" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/white,
+/obj/structure/closet/secure_closet/quartermaster,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "Cr" = (
 /obj/machinery/atm{
@@ -4177,9 +4177,7 @@
 /obj/item/storage/box/bodybags{
 	pixel_y = 3
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
+/obj/effect/floor_decal/corner_wide/green/full,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "DR" = (
@@ -4198,7 +4196,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -4226,7 +4224,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "Ei" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -4238,7 +4236,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Em" = (
-/obj/effect/floor_decal/corner/green,
+/obj/effect/floor_decal/corner_wide/green,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Eo" = (
@@ -4268,9 +4266,6 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "Ez" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
 /obj/structure/bed/chair{
 	dir = 1
 	},
@@ -4279,34 +4274,33 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "EA" = (
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/janitor)
-"EB" = (
-/obj/structure/closet/secure_closet/quartermaster,
-/turf/simulated/floor/tiled,
-/area/janitor)
 "ED" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "EE" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
 /obj/structure/bed/chair{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "EG" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -4361,7 +4355,7 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "Fj" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
 /obj/effect/floor_decal/sign/p,
@@ -4379,7 +4373,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -4527,7 +4521,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Gz" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
 /obj/effect/floor_decal/sign/cmo,
@@ -4538,7 +4532,7 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/random,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -5276,12 +5270,6 @@
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/janitor)
-"MW" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
 /area/janitor)
 "MZ" = (
 /obj/structure/table/stone/marble,
@@ -6653,7 +6641,7 @@
 "ZJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "ZM" = (
 /obj/structure/closet/coffin,
@@ -16288,11 +16276,11 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+XX
+XX
+XX
+XX
+XX
 ai
 ai
 ai
@@ -16490,11 +16478,11 @@ ab
 Br
 Br
 Br
-ab
+XX
 ZJ
 ZJ
 ZJ
-ab
+XX
 ai
 ai
 ai
@@ -16692,14 +16680,14 @@ ab
 qk
 qk
 qk
-ab
+XX
 pP
-WO
-WO
+ai
+ai
+XX
 ab
-ai
-ai
-ai
+jE
+ab
 ai
 ai
 ai
@@ -16894,13 +16882,13 @@ eR
 qk
 ah
 qk
-ab
-aC
+XX
+Wr
 aI
-WO
-ab
-ab
-jE
+ai
+XX
+ac
+ac
 ab
 ai
 ai
@@ -17096,10 +17084,10 @@ eR
 qk
 qk
 gy
-ab
+XX
 pP
-WO
-WO
+ai
+ai
 tA
 ac
 ac
@@ -17298,11 +17286,11 @@ ab
 ab
 az
 ab
-ab
-ab
-ab
-ab
-ab
+XX
+XX
+XX
+XX
+XX
 ac
 ac
 ab
@@ -17508,7 +17496,7 @@ VL
 MP
 WH
 ab
-EB
+HN
 gX
 HN
 ab
@@ -17711,8 +17699,8 @@ MP
 ac
 uK
 ac
-ac
-MW
+Am
+HN
 ab
 ab
 Pd
@@ -17912,10 +17900,10 @@ VL
 MP
 ac
 az
-HN
+ac
 ac
 WH
-ac
+Cp
 az
 ac
 NC
@@ -18114,7 +18102,7 @@ wE
 xs
 ac
 az
-HN
+uX
 ac
 ac
 ac
@@ -18316,10 +18304,10 @@ VL
 MP
 ac
 az
-nd
-dc
 HN
-Ai
+Ao
+ac
+ac
 az
 ac
 ac
@@ -18518,9 +18506,9 @@ VL
 MP
 Lo
 ab
-az
-az
-az
+ab
+ab
+ab
 ab
 ab
 ac
@@ -19101,10 +19089,10 @@ bb
 ai
 ai
 ai
-ai
-ai
-ai
-ai
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -19304,10 +19292,10 @@ ai
 ai
 ai
 ab
-ab
-ab
-ab
-ab
+ad
+ad
+ad
+ad
 ad
 ad
 ad
@@ -19517,7 +19505,7 @@ ad
 ad
 ad
 ad
-ad
+aC
 ad
 ad
 ad
@@ -20528,7 +20516,7 @@ ab
 WO
 WO
 Ad
-ZQ
+ac
 CY
 ad
 ad
@@ -20729,8 +20717,8 @@ pC
 ab
 ab
 ab
-Am
-Cp
+rP
+rP
 ab
 ab
 ab
@@ -20930,9 +20918,9 @@ jK
 jK
 sk
 uL
-hB
-Ao
-ZQ
+BO
+BO
+BO
 DQ
 Gh
 ab
@@ -21131,7 +21119,7 @@ ab
 ab
 ab
 ab
-uX
+tP
 ZQ
 ZQ
 ZQ
@@ -21939,7 +21927,7 @@ kb
 oo
 qg
 qV
-vi
+fa
 ZQ
 ZQ
 ZQ
@@ -22343,7 +22331,7 @@ kj
 pd
 qv
 qV
-vi
+fa
 ZQ
 ZQ
 ZQ
@@ -22747,7 +22735,7 @@ mZ
 ZQ
 qd
 sn
-vi
+fa
 ZQ
 ZQ
 ZQ
