@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "APCs with a surplus power of 2.5 megawatts now has a chance to shoot out an electric arc at people nearby. The chances of this occuring increases at 5 megawatts and 7.5 megawatts."
