@@ -164,6 +164,7 @@
 	var/update_state = -1
 	var/update_overlay = -1
 	var/is_critical = FALSE
+	var/shock_proof = FALSE //if set to TRUE, this APC will not arc bolts of electricity if it's overloaded.
 	var/global/status_overlays = 0
 	var/updating_icon = FALSE
 	var/failure_timer = 0
@@ -1245,6 +1246,24 @@
 		else // chargemode off
 			charging = CHARGING_ON
 			chargecount = 0
+
+		if(excess >= 2.5 MEGAWATTS && !shock_proof)
+			var/shock_chance = 5 // 5%
+			if(excess >= 7.5 MEGAWATTS)
+				shock_chance = 15
+			else if(excess >= 5 MEGAWATTS)
+				shock_chance = 10
+			if(prob(shock_chance))
+				var/list/shock_mobs = list()
+				for(var/C in view(get_turf(src), 5)) //We only want to shock a single random mob in range, not every one.
+					if(isliving(C))
+						shock_mobs += C
+				if(length(shock_mobs))
+					var/mob/living/L = pick(shock_mobs)
+					visible_message(SPAN_DANGER("\The [src] shoots out an electrical arc at \the [L]!"))
+					L.electrocute_act(rand(5, 25), "electrical arc")
+					playsound(get_turf(L), 'sound/effects/eleczap.ogg', 75, TRUE)
+					Beam(L, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/effects.dmi', time = 5)
 
 	else // no cell, switch everything off
 		charging = CHARGING_OFF
