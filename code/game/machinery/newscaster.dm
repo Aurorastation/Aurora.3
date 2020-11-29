@@ -827,6 +827,12 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/rolled = FALSE // Whether the newspaper is rolled or not, making it a deadly weapon.
 
 /obj/item/newspaper/attack_self(mob/user as mob)
+	if(user.a_intent == I_GRAB)
+		if(!rolled)
+			user.visible_message(SPAN_NOTICE("\The [user] rolls up \the [src]."),\
+								 SPAN_NOTICE("You roll up \the [src]."))
+			rolled(user)
+		return
 	if(rolled)
 		user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to read it."),\
 						     SPAN_NOTICE("You unroll \the [src] to read it."))
@@ -947,7 +953,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(W.ispen())
 		if(rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to write on it."),\
-						     SPAN_NOTICE("You unroll \the [src] to write on it."))
+						     	 SPAN_NOTICE("You unroll \the [src] to write on it."))
 			rolled()
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
@@ -962,11 +968,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.scribble = s
 			src.attack_self(user)
 		return
-
-/obj/item/newspaper/AltClick(mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] [rolled ? "unrolls" : "rolls up"] \the [src]."),\
-						 SPAN_NOTICE("You [rolled ? "unroll" : "roll up"] \the [src]."))
-	rolled(user)
 
 /obj/item/newspaper/proc/rolled(mob/user)
 	if(ishuman(user) && Adjacent(user) && !user.incapacitated())
