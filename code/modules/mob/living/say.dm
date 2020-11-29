@@ -142,7 +142,7 @@ proc/get_radio_key_from_channel(var/channel)
 		for(var/obj/item/device/radio/intercom/I in view(1, null))
 			used_radios += I
 			if(I.talk_into(src, message, verb, speaking))
-				successful_radio = TRUE
+				successful_radio += I
 	return 0
 
 /mob/living/proc/handle_speech_sound()
