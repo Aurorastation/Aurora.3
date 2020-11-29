@@ -3,7 +3,6 @@
 	var/streak = ""
 	var/max_streak_length = 6
 	var/current_target = null
-	var/datum/martial_art/base = null // The permanent style
 	var/deflection_chance = 0 //Chance to deflect projectiles
 	var/help_verb = null
 	var/no_guns = FALSE	//set to TRUE to prevent users of this style from using guns
@@ -136,24 +135,28 @@
 
 	return 1
 
-/datum/martial_art/proc/teach(var/mob/living/carbon/human/H,var/make_temporary=0)
+/datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
 	if(help_verb)
 		H.verbs += help_verb
-	if(make_temporary)
-		temporary = 1
-	if(temporary)
-		if(H.martial_art)
-			base = H.martial_art.base
-	else
-		base = src
-	H.martial_art = src
+		to_chat(H, SPAN_NOTICE("You can review the combos by recalling the teachings of this art in your abilities tab."))
+	LAZYADD(H.known_martial_arts, src)
+	if(!H.primary_martial_art)
+		to_chat(H, SPAN_NOTICE("Your primary martial art has been set to [src.name]. You will use this when fighting barehanded."))
+		H.primary_martial_art = src
+	if(length(H.known_martial_arts) > 1)
+		to_chat(H, SPAN_NOTICE("Now that you know more than one martial art, you can select your primary martial art in the abilities tab."))
+		H.verbs += /mob/living/carbon/human/proc/select_primary_martial_art
 
 /datum/martial_art/proc/remove(var/mob/living/carbon/human/H)
-	if(H.martial_art != src)
-		return
-	H.martial_art = base
+	LAZYREMOVE(H.known_martial_arts, src)
+	if(H.primary_martial_art == src)
+		if(length(H.known_martial_arts))
+			H.primary_martial_art = H.known_martial_arts[1]
+		else
+			H.primary_martial_art = null
 	if(help_verb)
 		H.verbs -= help_verb
+	qdel(src)
 
 /datum/martial_art/proc/TornadoAnimate(mob/living/carbon/human/A)
 	set waitfor = FALSE

@@ -229,7 +229,7 @@
 		var/isactive = t.physical_status
 
 		var/list/departments
-		if(job.departments.len > 0 && all_in_list(job.departments, manifest))
+		if(istype(job) && job.departments.len > 0 && all_in_list(job.departments, manifest))
 			departments = job.departments
 		else // no department set or there's something weird
 			departments = list(DEPARTMENT_MISCELLANEOUS = JOBROLE_DEFAULT)
