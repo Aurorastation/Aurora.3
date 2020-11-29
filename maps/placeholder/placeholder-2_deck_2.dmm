@@ -22,8 +22,8 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "ah" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/tiled/freezer,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "ai" = (
 /turf/simulated/floor/reinforced,
@@ -96,10 +96,12 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "aC" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/structure/window/reinforced,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
 /area/janitor)
 "aE" = (
 /obj/machinery/door/blast/regular/open,
@@ -116,8 +118,12 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "aI" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
 /area/janitor)
 "aJ" = (
 /obj/machinery/chem_master,
@@ -134,8 +140,9 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "aO" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/decal/fake_object/light_source/invisible,
+/obj/structure/coatrack{
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aP" = (
@@ -187,10 +194,6 @@
 "aW" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/tiled/dark,
-/area/janitor)
-"aX" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/tiled/white,
 /area/janitor)
 "aZ" = (
 /obj/structure/sink,
@@ -2044,6 +2047,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/janitor)
 "lF" = (
@@ -2168,6 +2172,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/janitor)
 "mY" = (
@@ -3516,6 +3521,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/janitor)
 "yj" = (
@@ -4858,6 +4864,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/janitor)
 "Jv" = (
@@ -6404,10 +6411,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
-"WH" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/tiled,
-/area/janitor)
 "WK" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled,
@@ -6504,11 +6507,6 @@
 "Yj" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /turf/simulated/floor/tiled,
-/area/janitor)
-"Yl" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/plating,
 /area/janitor)
 "Ym" = (
 /obj/machinery/vending/battlemonsters,
@@ -16876,15 +16874,15 @@ ai
 ai
 ab
 ac
-WH
+ac
 ac
 eR
 qk
-ah
+qk
 qk
 XX
 Wr
-aI
+ai
 ai
 XX
 ac
@@ -17299,7 +17297,7 @@ ab
 ab
 ab
 OA
-WH
+ac
 ac
 Pd
 ac
@@ -17494,7 +17492,7 @@ VL
 wE
 VL
 MP
-WH
+ac
 ab
 HN
 gX
@@ -17684,7 +17682,7 @@ TX
 HN
 tL
 ac
-WH
+ac
 ac
 az
 VL
@@ -17902,14 +17900,14 @@ ac
 az
 ac
 ac
-WH
+ac
 Cp
 az
 ac
 NC
 ab
 fu
-WH
+ac
 VT
 Md
 XX
@@ -18288,7 +18286,7 @@ ai
 ab
 ac
 ac
-WH
+ac
 ac
 xi
 xi
@@ -18307,7 +18305,7 @@ az
 HN
 Ao
 ac
-ac
+aO
 az
 ac
 ac
@@ -18902,11 +18900,11 @@ uK
 ac
 ac
 ac
-WH
 ac
 ac
 ac
-WH
+ac
+ac
 ac
 ac
 uK
@@ -18916,7 +18914,7 @@ ac
 ac
 Qf
 ac
-WH
+ac
 ab
 fN
 Hz
@@ -19113,7 +19111,7 @@ uN
 ac
 uK
 ac
-WH
+ac
 ac
 ac
 Qf
@@ -19505,7 +19503,7 @@ ad
 ad
 ad
 ad
-aC
+ad
 ad
 ad
 ad
@@ -19526,7 +19524,7 @@ ac
 ab
 ZQ
 ZQ
-aX
+ZQ
 ZQ
 ZQ
 ab
@@ -20326,7 +20324,7 @@ ac
 Cr
 ac
 ac
-WH
+ac
 ac
 ac
 ac
@@ -20523,7 +20521,7 @@ ad
 ab
 pf
 ac
-WH
+ac
 ac
 uK
 ac
@@ -21138,7 +21136,7 @@ ac
 ac
 ab
 bk
-WH
+ac
 ab
 ab
 ab
@@ -21532,12 +21530,12 @@ ZQ
 HO
 dI
 pG
-aO
+pG
 pG
 Jw
 ac
 ac
-WH
+ac
 ac
 ac
 ab
@@ -22345,7 +22343,7 @@ RL
 ap
 TX
 ac
-WH
+ac
 ac
 ac
 Pd
@@ -24972,7 +24970,7 @@ jK
 jK
 jK
 We
-WH
+ac
 ac
 ab
 ai
@@ -26138,7 +26136,7 @@ cP
 aa
 au
 ai
-Yl
+NG
 ai
 bt
 DK
@@ -27350,7 +27348,7 @@ dJ
 DK
 au
 ai
-Yl
+NG
 ai
 bt
 aa
@@ -27786,9 +27784,9 @@ ac
 ac
 ac
 XX
-ai
-ai
-ai
+ah
+ah
+ah
 XX
 ac
 ac
@@ -28798,7 +28796,7 @@ WO
 WO
 Ju
 mU
-dK
+aC
 WO
 WO
 tg
@@ -29000,7 +28998,7 @@ WO
 WO
 yg
 lz
-Fp
+aI
 WO
 WO
 tg

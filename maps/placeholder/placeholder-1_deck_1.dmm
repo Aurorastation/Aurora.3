@@ -310,8 +310,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/template_noop)
 "dm" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "dp" = (
@@ -1121,10 +1121,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
-"lh" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/reinforced,
-/area/janitor)
 "ln" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
@@ -2389,10 +2385,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"vI" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/tiled,
-/area/janitor)
 "vK" = (
 /obj/structure/sink/kitchen{
 	pixel_x = -2;
@@ -2745,14 +2737,6 @@
 	icon_state = "5,1"
 	},
 /turf/unsimulated/floor/plating,
-/area/template_noop)
-"yY" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/template_noop,
 /area/template_noop)
 "zf" = (
 /obj/structure/bed/chair/shuttle,
@@ -3941,10 +3925,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/tiled,
 /area/janitor)
-"Ja" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/plating,
-/area/janitor)
 "Jf" = (
 /obj/machinery/atmospherics/omni/filter{
 	tag_east = 3;
@@ -4252,11 +4232,6 @@
 /turf/simulated/floor/tiled/ramp,
 /area/template_noop)
 "LI" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"LM" = (
-/obj/effect/decal/fake_object/light_source/invisible,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/template_noop)
@@ -4637,10 +4612,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/template_noop)
-"OJ" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/tiled/dark,
-/area/janitor)
 "OK" = (
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
@@ -5098,6 +5069,9 @@
 /area/janitor)
 "Sm" = (
 /obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "Sn" = (
@@ -5693,11 +5667,6 @@
 "XE" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/black,
-/area/template_noop)
-"XF" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/template_noop,
 /area/template_noop)
 "XN" = (
 /obj/structure/dispenser/oxygen,
@@ -11630,7 +11599,7 @@ aa
 hy
 eV
 ax
-LM
+LI
 GO
 GO
 eV
@@ -16165,15 +16134,15 @@ ax
 ax
 eV
 ax
-vI
 Vh
 Vh
-vI
+Vh
+Vh
 Yu
 Vh
 Vh
 Vh
-vI
+Vh
 Vh
 Yu
 Vh
@@ -16971,7 +16940,7 @@ Vh
 Vh
 Yu
 Vh
-vI
+Vh
 Vh
 Yu
 Vh
@@ -17176,16 +17145,16 @@ fp
 Vh
 Vh
 Yu
-vI
 Vh
 Vh
-vI
 Vh
 Vh
-vI
 Vh
 Vh
-vI
+Vh
+Vh
+Vh
+Vh
 Vh
 Vh
 Yu
@@ -17580,16 +17549,16 @@ fp
 Vh
 Vh
 Yu
-vI
 Vh
 Vh
-vI
 Vh
 Vh
-vI
 Vh
 Vh
-vI
+Vh
+Vh
+Vh
+Vh
 Vh
 FY
 Yu
@@ -17779,7 +17748,7 @@ Vh
 Vh
 Yu
 Vh
-vI
+Vh
 Vh
 Yu
 Vh
@@ -18395,7 +18364,7 @@ be
 be
 ah
 Vh
-vI
+Vh
 Vh
 Vh
 Vh
@@ -18802,7 +18771,7 @@ ci
 ci
 ci
 Vh
-vI
+Vh
 FY
 Yu
 WQ
@@ -19406,7 +19375,7 @@ be
 Yu
 Gm
 Vh
-vI
+Vh
 Vh
 Vh
 rQ
@@ -19592,13 +19561,13 @@ Vh
 be
 Yu
 Vh
-vI
+Vh
 Vh
 Vh
 Vh
 Yu
 Vh
-dm
+RU
 ci
 ci
 Yu
@@ -20417,7 +20386,7 @@ fN
 io
 ne
 Vh
-vI
+Vh
 Vh
 gI
 Yu
@@ -20804,7 +20773,7 @@ Vh
 be
 Yu
 Vh
-vI
+Vh
 Vh
 Vh
 RU
@@ -21225,7 +21194,7 @@ Hd
 Jy
 Vh
 Vh
-vI
+Vh
 Vh
 iL
 Yu
@@ -22033,7 +22002,7 @@ Yu
 Yu
 Vh
 Vh
-vI
+Vh
 Vh
 Tz
 YZ
@@ -22634,12 +22603,12 @@ be
 be
 Yu
 Vh
-vI
+Vh
 Vh
 kw
 Vh
 Vh
-vI
+Vh
 Vh
 XN
 Yu
@@ -24218,7 +24187,7 @@ KK
 xC
 xv
 mZ
-lh
+mZ
 mZ
 oG
 Eh
@@ -24415,7 +24384,7 @@ ax
 oG
 be
 be
-Ja
+be
 be
 gt
 zs
@@ -24625,7 +24594,7 @@ oG
 uf
 oG
 oG
-vI
+Vh
 hJ
 Vh
 Vh
@@ -25430,7 +25399,7 @@ DS
 mZ
 oG
 aa
-XF
+eF
 aa
 xv
 pq
@@ -26642,7 +26611,7 @@ EK
 mZ
 oG
 aa
-XF
+eF
 aa
 xv
 pq
@@ -27060,7 +27029,7 @@ AS
 oG
 QU
 ci
-OJ
+ci
 ci
 aU
 aU
@@ -27854,7 +27823,7 @@ Fi
 mZ
 oG
 aa
-yY
+Ef
 aa
 xv
 pq
@@ -28479,7 +28448,7 @@ Vh
 Vh
 oG
 Sj
-vI
+Vh
 vp
 oG
 Vh
@@ -28864,7 +28833,7 @@ ax
 ax
 Ef
 oG
-Ja
+be
 be
 VX
 Vh
@@ -32723,7 +32692,7 @@ oG
 Tw
 Tw
 Tw
-pO
+dm
 qs
 rx
 Sg
@@ -40321,7 +40290,7 @@ aa
 aa
 SS
 ax
-LM
+LI
 GO
 GO
 SS
