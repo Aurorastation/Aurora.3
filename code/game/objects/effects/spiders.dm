@@ -22,6 +22,7 @@
 
 /obj/effect/spider/attackby(var/obj/item/W, var/mob/user)
 	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]"))
+	user.do_attack_animation(src)
 
 	var/damage = W.force / 4.0
 	if(W.iswelder())
@@ -261,6 +262,13 @@
 			return
 	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
 	die()
+
+/obj/effect/spider/spiderling/attackby(var/obj/item/W, var/mob/user)
+	..()
+	if(istype(W, /obj/item/newspaper))
+		var/obj/item/newspaper/N = W
+		if(N.rolled)
+			die()
 
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point
