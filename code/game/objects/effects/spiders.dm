@@ -22,15 +22,15 @@
 
 /obj/effect/spider/attackby(var/obj/item/W, var/mob/user)
 	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]"))
-	user.do_attack_animation(src)
-	playsound(loc, W.hitsound, 50, 1, -1)
-
 	var/damage = W.force / 4.0
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			damage = 15
 			playsound(loc, 'sound/items/welder.ogg', 100, 1)
+	else
+		user.do_attack_animation(src)
+		playsound(loc, W.hitsound, 50, 1, -1)
 
 	health -= damage
 	healthcheck()
