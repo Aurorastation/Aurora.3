@@ -29,7 +29,7 @@
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
 	// acting captain briefcase
@@ -82,7 +82,7 @@
 	//Tools
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
@@ -147,7 +147,7 @@
 	new /obj/item/shield/riot/tact(src)
 	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/melee/telebaton(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/device/holowarrant(src)
@@ -231,7 +231,7 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/melee/baton/loaded(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/pistol(src)
 	//Belts
 	if (prob(50))
 		new /obj/item/clothing/accessory/storage/black_vest(src)
@@ -302,7 +302,9 @@
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
-	new /obj/item/gun/energy/disruptorpistol/security(src)
+	new /obj/random/handgun(src)
+	new /obj/item/ammo_magazine/c45m/flash(src)
+	new /obj/item/gun/energy/taser(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/melee/baton/loaded(src)
@@ -362,7 +364,8 @@
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/suit/storage/vest/detective(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
+	new /obj/item/gun/projectile/pistol/detective(src)
+	new /obj/item/ammo_magazine/mc9mm/flash(src)
 	new /obj/item/taperoll/police(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
@@ -387,7 +390,6 @@
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
