@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Reverts disruptors, instead reverting everything to what it was pre-disruptors."
+  - rscadd: "Added two .45 flash rounds to the less-than-lethal .45 ammunition locker."
