@@ -758,6 +758,10 @@
 			to_chat(src, "<span class='warning'>It won't budge!</span>")
 			return
 
+		if(length(M.grabbed_by))
+			to_chat(src, SPAN_WARNING("You can't pull someone being held in a grab!"))
+			return
+
 		// If your size is larger than theirs and you have some
 		// kind of mob pull value AT ALL, you will be able to pull
 		// them, so don't bother checking that explicitly.
