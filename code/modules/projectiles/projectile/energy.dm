@@ -200,3 +200,11 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
+
+/obj/item/projectile/energy/blaster/heavy
+	damage = 35
+
+/obj/item/projectile/energy/blaster/incendiary
+	icon_state = "laser"
+	damage = 15
+	incinerate = 2

@@ -306,7 +306,6 @@
 		new /datum/computer_file/program/digitalwarrant(comp),
 		new /datum/computer_file/program/penal_mechs(comp),
 		new /datum/computer_file/program/records/security(comp),
-		new /datum/computer_file/program/guntracker(comp),
 		new /datum/computer_file/program/implant_tracker(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp)
 	)
