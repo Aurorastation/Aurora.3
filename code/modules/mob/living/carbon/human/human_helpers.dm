@@ -250,3 +250,9 @@
 		if(M.no_guns)
 			return M.no_guns_message
 	return FALSE
+
+/mob/living/carbon/human/get_standard_pixel_x()
+	return species.icon_x_offset
+
+/mob/living/carbon/human/get_standard_pixel_y()
+	return species.icon_y_offset
