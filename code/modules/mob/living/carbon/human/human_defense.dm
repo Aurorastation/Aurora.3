@@ -208,8 +208,6 @@ emp_act
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
 
 	for(var/obj/O in src)
-		if(!O)
-			continue
 		O.emp_act(severity)
 	..()
 
