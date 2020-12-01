@@ -509,7 +509,9 @@
 		//As opposed to no-delay pew pew
 		P.accuracy += 2
 
-	var/datum/firemode/F = firemodes[sel_mode]
+	var/datum/firemode/F
+	if(length(firemodes))
+		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
 		P.accuracy -= one_hand_fa_penalty/2
 		P.dispersion -= one_hand_fa_penalty * 0.5
