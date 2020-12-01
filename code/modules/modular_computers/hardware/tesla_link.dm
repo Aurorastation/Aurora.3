@@ -26,25 +26,21 @@
 
 /obj/item/computer_hardware/tesla_link/charging_cable/Destroy()
 	if(source || beam)
-		deactivate()
+		untether()
 	return ..()
 
 /obj/item/computer_hardware/tesla_link/charging_cable/toggle(var/obj/machinery/power/power_source, mob/user)
 	if(!source)
+		if(!istype(power_source))
+			return
 		if(in_range(power_source, src))
 			to_chat(user, SPAN_NOTICE("You connect \the [src] to \the [power_source]."))
-			activate(power_source)
+			tether(power_source)
 		else
 			to_chat(SPAN_NOTICE("\The [src] is too far from \the [power_source] to connect."))
 	else
-		deactivate()
-
-/obj/item/computer_hardware/tesla_link/charging_cable/proc/activate(var/obj/machinery/power/power_source)
-	if(istype(power_source))
-		tether(power_source)
-
-/obj/item/computer_hardware/tesla_link/charging_cable/proc/deactivate()
-	untether()
+		untether(message=FALSE)
+		to_chat(user, SPAN_NOTICE("You disconnect \the [src] from \the [power_source]."))
 
 /obj/item/computer_hardware/tesla_link/charging_cable/check_functionality()
 	..()
@@ -53,16 +49,21 @@
 	return TRUE
 
 /obj/item/computer_hardware/tesla_link/charging_cable/proc/tether(var/obj/machinery/power/P)
+	if(!istype(P))
+		return
 	source = P
 	var/datum/beam/power/B = new(src, source, beam_icon_state = "explore_beam", time = -1, maxdistance = cable_length)
-	B.owner = src
-	B.Start()
-	beam = B
+	if(istype(B) && !QDELING(B))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		B.owner = src
+		B.Start()
+		beam = B
 
-/obj/item/computer_hardware/tesla_link/charging_cable/proc/untether(var/destroy_beam = TRUE)
+/obj/item/computer_hardware/tesla_link/charging_cable/proc/untether(var/destroy_beam = TRUE, var/message=TRUE)
 	source = null
 	if(parent_computer)
-		parent_computer.visible_message(SPAN_WARNING("The charging cable suddenly disconnects from the APC, quickly reeling back into the computer!"))
+		if(message)
+			parent_computer.visible_message(SPAN_WARNING("The charging cable suddenly disconnects from the APC, quickly reeling back into the computer!"))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
 	if(!destroy_beam)
 		return

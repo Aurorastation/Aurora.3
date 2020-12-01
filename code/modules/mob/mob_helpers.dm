@@ -111,22 +111,31 @@
 		return 1
 	return 0
 
+/proc/iszombie(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_ZOMBIE)
+				return TRUE
+			if(SPECIES_ZOMBIE_TAJARA)
+				return TRUE
+			if(SPECIES_ZOMBIE_UNATHI)
+				return TRUE
+			if(SPECIES_ZOMBIE_SKRELL)
+				return TRUE
+	return FALSE
+
 /proc/isundead(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if (SPECIES_SKELETON)
-				return 1
-			if (SPECIES_ZOMBIE)
-				return 1
-			if (SPECIES_ZOMBIE_TAJARA)
-				return 1
-			if (SPECIES_ZOMBIE_UNATHI)
-				return 1
-			if (SPECIES_ZOMBIE_SKRELL)
-				return 1
-			if (SPECIES_CULTGHOST)
-				return 1
-	return 0
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_SKELETON)
+				return TRUE
+			if(SPECIES_CULTGHOST)
+				return TRUE
+	if(iszombie(A))
+		return TRUE
+	return FALSE
 
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
@@ -889,9 +898,9 @@ proc/is_blind(A)
 			preposition = "inside"
 
 	if (justmoved)
-		reportto.contained_visible_message(H,  "<span class='notice'>[H] [action3] [reportto] [preposition] their [newlocation]</span>", "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>", "", 1)
+		reportto.contained_visible_message(H, SPAN_NOTICE("[H] [action3] [reportto] [preposition] their [newlocation]."), SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]."), "", 1)
 	else
-		to_chat(reportto, "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>")
+		to_chat(reportto, SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]."))
 
 /atom/proc/get_holding_mob()
 	//This function will return the mob which is holding this holder, or null if it's not held
@@ -1174,9 +1183,10 @@ proc/is_blind(A)
 	var/used_accent = force_accent ? force_accent : accent
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
-		var/final_icon = a.tag_icon
-		var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-		return S.icon_tag(final_icon)
+		if(istype(a))
+			var/final_icon = a.tag_icon
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			return S.icon_tag(final_icon)
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	for(var/mob/M in contents)
@@ -1186,3 +1196,9 @@ proc/is_blind(A)
 /mob/assign_player(var/mob/user)
   ckey = user.ckey
   return src
+
+/mob/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/mob/proc/get_standard_pixel_y()
+	return initial(pixel_y)

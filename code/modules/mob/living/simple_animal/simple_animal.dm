@@ -68,6 +68,8 @@
 	var/max_co2 = 5
 	var/min_n2 = 0
 	var/max_n2 = 0
+	var/min_h2 = 0
+	var/max_h2 = 5
 	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
 	var/speed = 0 //LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster
 
@@ -203,7 +205,7 @@
 	turns_since_move++
 
 	//Atmos
-	var/atmos_suitable = 1
+	var/atmos_suitable = TRUE
 
 	if(isturf(loc))
 		var/turf/T = loc
@@ -215,21 +217,25 @@
 				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
 
 			if(min_oxy && Environment.gas[GAS_OXYGEN] < min_oxy)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_oxy && Environment.gas[GAS_OXYGEN] > max_oxy)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_tox && Environment.gas[GAS_PHORON] < min_tox)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_tox && Environment.gas[GAS_PHORON] > max_tox)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_n2 && Environment.gas[GAS_NITROGEN] < min_n2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_n2 && Environment.gas[GAS_NITROGEN] > max_n2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_co2 && Environment.gas[GAS_CO2] < min_co2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_co2 && Environment.gas[GAS_CO2] > max_co2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
+			else if(min_h2 && Environment.gas[GAS_HYDROGEN] < min_h2)
+				atmos_suitable = FALSE
+			else if(max_h2 && Environment.gas[GAS_HYDROGEN] > max_h2)
+				atmos_suitable = FALSE
 
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
@@ -496,7 +502,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		attacked_with_item(O, user)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
-/mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user)
+/mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
 	if(istype(O, /obj/item/trap/animal) || istype(O, /obj/item/gun))
 		O.attack(src, user)
 		return
@@ -506,8 +512,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
 			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
+	if(istype(O, /obj/item/glass_jar))
+		return FALSE
 	if(!O.force)
-		visible_message("<b>\The [user]</b> gently taps \the [src] with \the [O].")
+		visible_message(SPAN_NOTICE("<b>\The [user]</b> gently taps \the [src] with \the [O]."))
 		poke()
 		return FALSE
 
@@ -529,6 +537,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	user.do_attack_animation(src)
 
 /mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+	. = ..()
+	handle_blood_overlay()
+
+/mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
 	. = ..()
 	handle_blood_overlay()
 

@@ -123,7 +123,7 @@
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
-		/obj/item/clothing/head/chameleon = 1,
+		/obj/item/clothing/head/softcap/chameleon = 1,
 		/obj/item/clothing/suit/chameleon = 1,
 		/obj/item/clothing/shoes/chameleon = 1,
 		/obj/item/storage/backpack/chameleon = 1,
@@ -249,7 +249,7 @@
 
 /obj/item/storage/box/syndie_kit/sideeffectbegone
 	name = "box of sideeffect-be-gone injectors"
-	desc = "Comes with 2x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
+	desc = "Comes with 4x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
 	starts_with = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 2
+		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 4
 	)

@@ -6,9 +6,9 @@
 
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
 	if (LAZYLEN(graphic_add))
-		add_overlay(graphic_add.Copy(), TRUE)	// We need to copy because SSoverlay will mutate this list & add appearance objects.
+		vis_contents += graphic_add
 	if(LAZYLEN(graphic_remove))
-		cut_overlay(graphic_remove.Copy(), TRUE)
+		vis_contents -= graphic_remove
 
 /turf/proc/update_air_properties()
 	var/block
@@ -246,7 +246,7 @@
 	//Create gas mixture to hold data for passing
 	var/datum/gas_mixture/GM = new
 
-	GM.adjust_multi(GAS_OXYGEN, oxygen, GAS_CO2, carbon_dioxide, GAS_NITROGEN, nitrogen, GAS_PHORON, phoron)
+	GM.adjust_multi(GAS_OXYGEN, oxygen, GAS_CO2, carbon_dioxide, GAS_NITROGEN, nitrogen, GAS_PHORON, phoron, GAS_HYDROGEN, hydrogen)
 	GM.temperature = temperature
 
 	return GM
@@ -260,6 +260,7 @@
 		GM.gas[GAS_CO2] = (carbon_dioxide/sum)*amount
 		GM.gas[GAS_NITROGEN] = (nitrogen/sum)*amount
 		GM.gas[GAS_PHORON] = (phoron/sum)*amount
+		GM.gas[GAS_HYDROGEN] = (hydrogen/sum)*amount
 
 	GM.temperature = temperature
 	GM.update_values()
@@ -302,7 +303,7 @@
 /turf/proc/make_air()
 	air = new/datum/gas_mixture
 	air.temperature = temperature
-	air.adjust_multi(GAS_OXYGEN, oxygen, GAS_CO2, carbon_dioxide, GAS_NITROGEN, nitrogen, GAS_PHORON, phoron)
+	air.adjust_multi(GAS_OXYGEN, oxygen, GAS_CO2, carbon_dioxide, GAS_NITROGEN, nitrogen, GAS_PHORON, phoron, GAS_HYDROGEN, hydrogen)
 	air.group_multiplier = 1
 	air.volume = CELL_VOLUME
 

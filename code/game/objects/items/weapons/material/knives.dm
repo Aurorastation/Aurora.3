@@ -59,8 +59,7 @@
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)
 			log_and_message_admins("has extracted [S] out of [key_name(H)]")
-		if(H.can_feel_pain())
-			H.emote("scream")
+		H.emote("scream")
 
 /obj/item/material/knife/ritual
 	name = "ritual knife"

@@ -60,6 +60,13 @@
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "Emergency Medical Technician", "Medical Intern")
 	sort_category = "Xenowear - Tajara"
 
+/datum/gear/suit/tajaran_surgeon
+	display_name = "adhomian surgeon garb"
+	path = /obj/item/clothing/suit/storage/hooded/tajaran/surgery
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist")
+	sort_category = "Xenowear - Tajara"
+
 /datum/gear/uniform/tajara
 	display_name = "tajaran uniform selection"
 	description = "A selection of tajaran native uniforms."
