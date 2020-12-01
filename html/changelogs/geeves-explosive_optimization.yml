@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Optimized explosion code a little, it should be a teeny bit faster."

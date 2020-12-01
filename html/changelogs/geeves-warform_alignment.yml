@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Species with off-centre alignments will now retain those alignments after attacking or after being grabbed."
