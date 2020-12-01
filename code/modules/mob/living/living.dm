@@ -769,6 +769,9 @@ default behaviour is:
 
 	resting = !resting
 	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
+	update_canmove()
+	update_icon()
+	handle_floating_message_orientation()
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
