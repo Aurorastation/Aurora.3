@@ -54,7 +54,7 @@ var/list/ai_verbs_default = list(
 	var/carded
 
 	// Holopad and holograms
-	var/icon/holo_icon
+	var/mob/holo_icon // an abstract mob used to store icon info
 	var/hologram_follow = TRUE //This is used for the AI eye, to determine if a holopad's hologram should follow it or not
 
 	// Equipment
@@ -136,7 +136,7 @@ var/list/ai_verbs_default = list(
 	canmove = FALSE
 	density = TRUE
 
-	holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo1"))
+	set_hologram_unique(icon('icons/mob/AI.dmi', "default"))
 
 	if(L && istype(L, /datum/ai_laws))
 		laws = L
@@ -203,6 +203,7 @@ var/list/ai_verbs_default = list(
 	QDEL_NULL(ai_radio)
 	QDEL_NULL(psupply)
 	QDEL_NULL(ai_camera)
+	QDEL_NULL(holo_icon)
 	ai_list -= src
 	destroy_eyeobj()
 	return ..()
@@ -626,6 +627,7 @@ var/list/ai_verbs_default = list(
 	return
 
 //I am the icon meister. Bow fefore me.	//>fefore
+// now im the icon meister and it's performant lick my nuts fefore - geeves
 /mob/living/silicon/ai/proc/ai_hologram_change()
 	set name = "Change Hologram"
 	set desc = "Change the default hologram available to AI to something else."
@@ -635,64 +637,37 @@ var/list/ai_verbs_default = list(
 		return
 
 	var/input
-	if(alert("Would you like to select a hologram based on a crew member or switch to unique avatar?",,"Crew Member","Unique")=="Crew Member")
-
-		var/personnel_list[] = list()
-		var/current_mobs = list()
-
-		for(var/mob/living/carbon/human/H in human_mob_list)
-			current_mobs[H.real_name] = H
-		for(var/datum/record/general/t in SSrecords.records_locked)//Look in data core locked.
-			personnel_list["[t.name]: [t.rank]"] = t.photo_front //Pull names, rank, and image.
-			if(current_mobs[t.name])
-				personnel_list["[t.name]: [t.rank]"] = list("mob" = current_mobs[t.name], "image" = t.photo_front)
-
-		if(personnel_list.len)
-			input = input("Select a crew member:") as null|anything in personnel_list
-			var/selection = personnel_list[input]
-			var/icon/character_icon
-			if(selection && istype(selection, /list))
-				var/mob/living/carbon/human/H = selection["mob"]
-				if (H.near_camera())
-					character_icon = new('icons/mob/human.dmi', "blank")
-					for(var/renderdir in cardinal)
-						character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir)), dir = renderdir)
-				else
-					character_icon = getHologramIcon(icon(selection["image"]))
-			if(selection && istype(selection, /icon))
-				character_icon = getHologramIcon(icon(selection))
-			if(character_icon)
-				qdel(holo_icon) // Clear old icon so we're not storing it in memory.
-				holo_icon = character_icon
+	if(alert(usr, "Would you like to select a hologram based on a humanoids within camera view or switch to a unique avatar?",,"Humanoids","Unique") == "Humanoids")
+		var/list/selectable_humans = list()
+		for(var/mob/living/carbon/human/H in view(usr.client))
+			if(H.near_camera())
+				selectable_humans[H.name] = H
+		if(length(selectable_humans))
+			var/chosen_human = input(usr, "Select the humanoid whose form you wish to emulate.", "Hologram Select") as null|anything in selectable_humans
+			if(!chosen_human)
+				return
+			var/mob/living/carbon/human/H = selectable_humans[chosen_human]
+			holo_icon.appearance = H.appearance
 		else
-			alert("No suitable records found. Aborting.")
-
+			to_chat(usr, SPAN_WARNING("There are no humanoids within camera view to base your hologram on."))
 	else
-		var/icon_list[] = list(
-		"default",
-		"floating face",
-		"carp",
-		"custom"
-		)
-		input = input("Please select a hologram:") as null|anything in icon_list
+		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "custom")
 		if(input)
-			qdel(holo_icon)
-			switch(input)
-				if("default")
-					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo1"))
-				if("floating face")
-					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo2"))
-				if("carp")
-					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo4"))
-				if("custom")
-					if(custom_sprite)
-						var/datum/custom_synth/sprite = robot_custom_icons[name]
-						if(istype(sprite) && sprite.synthckey == ckey && sprite.aiholoicon)
-							holo_icon = getHologramIcon(icon("icons/mob/custom_synths/customhologram.dmi","[sprite.aiholoicon]"))
-					else
-						to_chat(src, "You do not have a custom sprite!")
-						return
-	return
+			if(input == "custom")
+				if(custom_sprite)
+					var/datum/custom_synth/sprite = robot_custom_icons[name]
+					if(istype(sprite) && sprite.synthckey == ckey && sprite.aiholoicon)
+						set_hologram_unique(icon("icons/mob/custom_synths/customhologram.dmi", "[sprite.aiholoicon]"))
+				else
+					to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
+			else
+				set_hologram_unique(icon('icons/mob/AI.dmi', input))
+
+/mob/living/silicon/ai/proc/set_hologram_unique(var/icon/I)
+	QDEL_NULL(holo_icon)
+	holo_icon = new /mob/abstract(src)
+	holo_icon.invisibility = 0
+	holo_icon.icon = I
 
 //Toggles the luminosity and applies it by re-entereing the camera.
 /mob/living/silicon/ai/proc/toggle_camera_light()

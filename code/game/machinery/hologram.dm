@@ -384,7 +384,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/effect/overlay/hologram/proc/assume_form(var/atom/A)
 	if(isAI(A))
 		var/mob/living/silicon/ai/AI = A
-		icon = AI.holo_icon
+		appearance = AI.holo_icon.appearance
 	else
 		appearance = A.appearance
 	mouse_opacity = 0 //So you can't click on it.

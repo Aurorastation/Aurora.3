@@ -1,3 +1,22 @@
+#define OUTFIT_NOTHING 1
+
+#define OUTFIT_BACKPACK 2
+#define OUTFIT_SATCHEL 3
+#define OUTFIT_SATCHEL_ALT 4
+#define OUTFIT_DUFFELBAG 5
+#define OUTFIT_MESSENGERBAG 6
+
+#define OUTFIT_TAB_PDA 2
+#define OUTFIT_PDA_OLD 3
+#define OUTFIT_PDA_RUGGED 4
+#define OUTFIT_PDA_SLATE 5
+#define OUTFIT_PDA_SMART 6
+#define OUTFIT_TABLET 7
+#define OUTFIT_WRISTBOUND 8
+
+#define OUTFIT_HEADSET 2
+#define OUTFIT_BOWMAN 3
+
 /datum/outfit
 	var/name = "Naked"
 	var/collect_not_del = FALSE
@@ -26,6 +45,7 @@
 	var/r_hand = null
 	var/id = null
 	var/pda = null
+	var/radio = null
 
 	// Must be paths, used to allow player-pref backpack choice
 	var/allow_backbag_choice = FALSE
@@ -40,6 +60,10 @@
 	var/tablet = /obj/item/modular_computer/handheld/preset/civilian
 	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 
+	var/allow_headset_choice = FALSE
+	var/headset = /obj/item/device/radio/headset
+	var/bowman = /obj/item/device/radio/headset/alt
+
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/accessory_contents = list()
@@ -52,17 +76,17 @@
 	if(allow_backbag_choice)
 		var/use_job_specific = H.backbag_style == TRUE
 		switch(H.backbag)
-			if (1)
+			if (OUTFIT_NOTHING)
 				back = null
-			if (2)
+			if (OUTFIT_BACKPACK)
 				back = use_job_specific ? backpack : /obj/item/storage/backpack
-			if (3)
+			if (OUTFIT_SATCHEL)
 				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
-			if (4)
+			if (OUTFIT_SATCHEL_ALT)
 				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel
-			if (5)
+			if (OUTFIT_DUFFELBAG)
 				back = use_job_specific ? dufflebag : /obj/item/storage/backpack/duffel
-			if (6)
+			if (OUTFIT_MESSENGERBAG)
 				back = use_job_specific ? messengerbag : /obj/item/storage/backpack/messenger
 			else
 				back = backpack //Department backpack
@@ -73,10 +97,21 @@
 		var/obj/item/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
 
+	if(allow_headset_choice)
+		switch(H.headset_choice)
+			if (OUTFIT_NOTHING)
+				l_ear = null
+			if (OUTFIT_BOWMAN)
+				l_ear = bowman
+			else
+				l_ear = headset //Department headset
+	if(l_ear)
+		equip_item(H, l_ear, slot_l_ear, TRUE)
+
 	return
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot)
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -90,6 +125,9 @@
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
+
+	if(set_no_remove)
+		I.autodrobe_no_remove = TRUE
 
 	if(collect_not_del)
 		H.equip_or_collect(I, slot)
@@ -172,11 +210,11 @@
 
 	if(allow_pda_choice)
 		switch(H.pda_choice)
-			if (1)
+			if (OUTFIT_NOTHING)
 				pda = null
-			if (7)
+			if (OUTFIT_TABLET)
 				pda = tablet
-			if (8)
+			if (OUTFIT_WRISTBOUND)
 				pda = wristbound
 			else
 				pda = tab_pda
@@ -184,13 +222,13 @@
 	if(pda && !visualsOnly)
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
-			if(3)
+			if(OUTFIT_PDA_OLD)
 				I.icon = 'icons/obj/pda_old.dmi'
-			if(4)
+			if(OUTFIT_PDA_RUGGED)
 				I.icon = 'icons/obj/pda_rugged.dmi'
-			if(5)
+			if(OUTFIT_PDA_SLATE)
 				I.icon = 'icons/obj/pda_slate.dmi'
-			if(6)
+			if(OUTFIT_PDA_SMART)
 				I.icon = 'icons/obj/pda_smart.dmi'
 		I.update_icon()
 		H.equip_or_collect(I, slot_wear_id)

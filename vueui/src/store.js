@@ -6,7 +6,8 @@ export default {
     active: '',
     uiref: '',
     status: 2,
-    wtime: 0
+    wtime: 0,
+    roundstart_hour: 0
   },
   loadState (loadedState) {
     this.isUpdating = true
@@ -21,6 +22,7 @@ export default {
     this.state.status = loadedState.status
     this.state.title = loadedState.title
     this.state.wtime = loadedState.wtime
+    this.state.roundstart_hour = loadedState.roundstart_hour
     this.isUpdating = false
   },
   isUpdating: false,
