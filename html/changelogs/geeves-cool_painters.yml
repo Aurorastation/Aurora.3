@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Ported Pipe- and Floor Painter sprites from Paradise."
