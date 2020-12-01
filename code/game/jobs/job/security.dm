@@ -34,7 +34,8 @@
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/heads/hos
+	headset = /obj/item/device/radio/headset/heads/hos
+	bowman = /obj/item/device/radio/headset/heads/hos/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	tablet = /obj/item/modular_computer/handheld/preset/security/hos
@@ -89,7 +90,8 @@
 
 	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_warden
+	headset = /obj/item/device/radio/headset/headset_warden
+	bowman = /obj/item/device/radio/headset/headset_warden/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
@@ -140,7 +142,8 @@
 
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/headset_sec
+	headset = /obj/item/device/radio/headset/headset_sec
+	bowman = /obj/item/device/radio/headset/headset_sec/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
 	tablet = /obj/item/modular_computer/handheld/preset/security/detective
@@ -186,7 +189,8 @@
 
 	uniform = /obj/item/clothing/under/det/forensics
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/headset_sec
+	headset = /obj/item/device/radio/headset/headset_sec
+	bowman = /obj/item/device/radio/headset/headset_sec/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
 	tablet = /obj/item/modular_computer/handheld/preset/security/detective
@@ -236,7 +240,8 @@
 
 	uniform = /obj/item/clothing/under/rank/security
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_sec
+	headset = /obj/item/device/radio/headset/headset_sec
+	bowman = /obj/item/device/radio/headset/headset_sec/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
@@ -283,9 +288,14 @@
 	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
 	head = /obj/item/clothing/head/beret/security
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_sec
+	headset = /obj/item/device/radio/headset/headset_sec
+	bowman = /obj/item/device/radio/headset/headset_sec/alt
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/security
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
+	tablet = /obj/item/modular_computer/handheld/preset/security

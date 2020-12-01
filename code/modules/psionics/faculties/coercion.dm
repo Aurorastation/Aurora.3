@@ -33,8 +33,7 @@
 				continue
 			if(prob(60) && iscarbon(M))
 				var/mob/living/carbon/C = M
-				if(C.can_feel_pain())
-					M.emote("scream")
+				C.emote("scream")
 			to_chat(M, SPAN_DANGER("Your senses are blasted into oblivion by a psionic scream!"))
 			M.eye_blind = max(M.eye_blind,3)
 			M.ear_deaf = max(M.ear_deaf,6)

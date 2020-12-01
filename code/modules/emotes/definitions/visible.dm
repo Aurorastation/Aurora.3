@@ -55,7 +55,7 @@
 
 /decl/emote/visible/collapse/do_extra(var/mob/user)
 	if(istype(user))
-		user.Paralyse(2)
+		user.Weaken(2)
 
 /decl/emote/visible/flash
 	key = "flash"

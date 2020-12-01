@@ -313,6 +313,7 @@
 	SearchVar(body_marking_styles_list)
 	SearchVar(backbaglist)
 	SearchVar(pdalist)
+	SearchVar(headsetlist)
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)

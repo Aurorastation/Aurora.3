@@ -25,13 +25,13 @@
 
 /datum/uplink_item/item/ammo/submachinegundrum
 	name = "Submachine Gun Drum Magazine (.45)"
-	item_cost = 6
+	item_cost = 4
 	path = /obj/item/ammo_magazine/submachinedrum
 	desc = "Contains fifty rounds of .45 bullets, for use with the vintage submachine gun."
 
 /datum/uplink_item/item/ammo/submachinegunmag
 	name = "Submachine Gun Magazine (.45)"
-	item_cost = 4
+	item_cost = 2
 	path = /obj/item/ammo_magazine/submachinemag
 	desc = "Contains twenty rounds of .45 bullets, for use with the vintage submachine gun."
 
@@ -41,26 +41,20 @@
 	path = /obj/item/ammo_magazine/a357
 	desc = "Contains eight rounds of .357 bullets."
 
-/datum/uplink_item/item/ammo/sniperammo
-	name = "14.5mm box"
-	item_cost = 8
-	path = /obj/item/storage/box/sniperammo
-	desc = "Contains seven rounds of 14.5mm bullets, for use with the anti-materiel rifle."
-
 /datum/uplink_item/item/ammo/shotgun_shells
 	name = "Box of Shells"
-	item_cost = 5
+	item_cost = 3
 	path = /obj/item/storage/box/shotgunshells
 	desc = "Contains eight shotgun buckshot shells."
 
 /datum/uplink_item/item/ammo/plasma_mag
 	name = "Plasma Shotgun Magazine"
-	item_cost = 5
+	item_cost = 3
 	path = /obj/item/ammo_magazine/plasma
 	desc = "Contains ten plasma cells."
 
 /datum/uplink_item/item/ammo/rifle_mag
 	name = "7.62mm clip"
-	item_cost = 4
+	item_cost = 2
 	path = /obj/item/ammo_magazine/boltaction
 	desc = "Contains five rounds of 7.62mm bullets."

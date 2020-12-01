@@ -129,6 +129,9 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
+// Zombie organ
+#define BP_ZOMBIE_PARASITE "zombieparasite"
+
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_TOOL         "retractable combitool"
@@ -316,7 +319,7 @@
 // Note that any given mob can be more than one type
 #define TYPE_ORGANIC      1	// Almost any creature under /mob/living/carbon and most simple animals
 #define TYPE_SYNTHETIC    2	// Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
+#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC
 #define TYPE_WEIRD        8	// Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 #define TYPE_INCORPOREAL 16 // Mobs that don't really have any physical form to them.
 

@@ -78,7 +78,7 @@
 				user.mind.special_role = "Avatar of the Wish Granter"
 				user.hallucination += 10
 				user.adjustBrainLoss(30, 50) //shouldn't kill you
-				user.emote("screams!")
+				user.emote("scream")
 				playsound(user, 'sound/hallucinations/wail.ogg', 40, 1)
 				sleep(30)
 				to_chat(user, "<span class='warning'>Your mind is assaulted by endless horrors, your only desire is to end it, you must fulfill the Wish Granter's desires!</span>")

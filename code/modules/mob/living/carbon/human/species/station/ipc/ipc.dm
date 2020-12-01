@@ -2,6 +2,7 @@
 	name = SPECIES_IPC
 	short_name = "ipc"
 	name_plural = "Baselines"
+	category_name = "Integrated Positronic Chassis"
 	bodytype = BODYTYPE_IPC
 	age_min = 1
 	age_max = 60
