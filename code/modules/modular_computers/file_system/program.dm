@@ -24,7 +24,7 @@
 	var/computer_emagged = FALSE							// Set to TRUE if computer that's running us was emagged. Computer updates this every Process() tick
 	var/ui_header											// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
 	var/color = "#FFFFFF"									// The color of light the computer should emit when this program is open.
-	var/service_state = PROGRAM_STATE_KILLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
+	var/service_state = PROGRAM_STATE_DISABLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
 	var/silent = FALSE
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp)
@@ -233,3 +233,6 @@
 			if(isnewplayer(M))
 				continue
 			to_chat(M, message)
+
+/datum/computer_file/program/proc/kill_service()
+	

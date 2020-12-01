@@ -24,7 +24,7 @@
 	return ..()
 
 /datum/computer_file/program/chat_client/proc/can_receive_notification(var/datum/computer_file/program/chat_client/from)
-	return (program_state > PROGRAM_STATE_KILLED && from != src)
+	return ((program_state > PROGRAM_STATE_KILLED || service_state > PROGRAM_STATE_KILLED) && from != src)
 
 /datum/computer_file/program/chat_client/proc/play_notification_sound(var/datum/computer_file/program/chat_client/from)
 	if(!silent && src != from && program_state == PROGRAM_STATE_BACKGROUND)
@@ -122,6 +122,10 @@
 	. = ..()
 	my_user.clients.Remove(src)
 	ntnet_global.chat_clients.Remove(src)
+
+/datum/computer_file/program/chat_client/process_tick()
+	. = ..()
+	
 
 /datum/computer_file/program/chat_client/kill_program(var/forced = FALSE)
 	return ..(forced)
