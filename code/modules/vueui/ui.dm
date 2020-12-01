@@ -174,10 +174,9 @@ main ui datum.
 	sdata["status"] = status
 	sdata["title"] = title
 	sdata["wtime"] = world.time
-	sdata["debug"] = user && check_rights(R_DEV, FALSE, user=user)
 	sdata["header"] = header
 #ifdef UIDEBUG
-	sdata["debug"] = 1
+	sdata["debug"] = 2
 #else
 	sdata["debug"] = user && check_rights(R_DEV, FALSE, user=user)
 #endif
@@ -249,12 +248,6 @@ main ui datum.
   */
 /datum/vueui/Topic(href, href_list)
 	. = update_status(FALSE)
-	if(href_list["vueuihrefjson"])
-		// this has to be up here or you can't close windows you're too far from
-		var/json_href = json_decode(href_list["vueuihrefjson"])
-		if(json_href && json_href["vueuiclose"])
-			close()
-			return
 	if(status < STATUS_INTERACTIVE || user != usr)
 		return
 	if(href_list["vueuiforceresource"])

@@ -10,6 +10,7 @@
 
 <script>
 import Utils from '../../utils'
+import Store from '../../store'
 import ByWin from '../../byWin'
 
 export default {
@@ -19,7 +20,7 @@ export default {
   methods: {
     close($event) {
       $event.stopPropagation()
-      Utils.sendToTopic({'vueuiclose': 1})
+      Utils.sendToTopicRaw({'vueuiclose': Store.state.uiref})
     },
     startDragging($event) {
       ByWin.dragStartHandler($event)

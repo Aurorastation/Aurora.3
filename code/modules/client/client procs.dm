@@ -29,6 +29,14 @@
 			..()
 		return
 
+	if(href_list["vueuiclose"])
+		var/datum/vueui/ui = locate(href_list["vueuiclose"])
+		if(istype(ui))
+			ui.close()
+		else // UI is an orphan, close it directly.
+			src << browse(null, "window=vueui[href_list["vueuiclose"]]")
+		return
+
 	// asset_cache
 	if(href_list["asset_cache_confirm_arrival"])
 		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
