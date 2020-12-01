@@ -46,7 +46,7 @@
 		return
 	if(ismob(A))
 		var/mob/L = A
-		if(L.mob_size <= MOB_SMALL)
+		if(L.mob_size <= MOB_TINY)
 			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [L] into \the [src]."), SPAN_NOTICE("You scoop \the [L] into \the [src]."))
 			L.forceMove(src)
 			contains = JAR_ANIMAL
@@ -97,7 +97,7 @@
 		user.visible_message(SPAN_NOTICE("\The [user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
-	
+
 	if(istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
 		handle_gumball_addition(user, A)
 
