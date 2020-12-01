@@ -123,8 +123,8 @@
 /datum/gear/head/hos/New()
 	..()
 	var/hoshead = list()
-	hoshead["head of security hat, standard"] = /obj/item/clothing/head/hos/cap
-	hoshead["head of security hat, corporate"] = /obj/item/clothing/head/hos/cap/corp
+	hoshead["head of security hat, standard"] = /obj/item/clothing/head/hos
+	hoshead["head of security hat, corporate"] = /obj/item/clothing/head/hos/corp
 	hoshead["head of security beret, standard"] = /obj/item/clothing/head/beret/security/hos
 	hoshead["head of security beret, corporate"] = /obj/item/clothing/head/beret/security/hos/corp
 	gear_tweaks += new/datum/gear_tweak/path(hoshead)

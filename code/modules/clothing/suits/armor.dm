@@ -65,12 +65,6 @@
 	blood_overlay_type = "armor"
 	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/armor/vest/warden/commissar
-	name = "commissar's jacket"
-	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
-	icon_state = "commissar_warden"
-	item_state = "commissar_warden"
-
 /obj/item/clothing/suit/armor/vest/fib
 	name = "\improper FIB armored vest"
 	desc = "An armored vest used by Federal Investigations Bureau agents during operations."
@@ -359,19 +353,19 @@
 
 /obj/item/clothing/suit/storage/vest/detective
 	name = "detective armor vest"
-	desc = "A simple kevlar plate carrier in a vintage brown, it has a detective's badge clipped to the chest."
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a detective's badge clipped to the chest."
 	icon_state = "detectivevest_nobadge"
 	item_state = "detectivevest_nobadge"
 	icon_badge = "detectivevest_badge"
 	icon_nobadge = "detectivevest_nobadge"
 
-/obj/item/clothing/suit/storage/vest/csi
+/obj/item/clothing/suit/storage/vest/ft
 	name = "forensic technician armor vest"
 	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a forensic technician's badge clipped to the chest."
-	icon_state = "csivest_nobadge"
-	item_state = "csivest_nobadge"
-	icon_badge = "csivest_badge"
-	icon_nobadge = "csivest_nobadge"
+	icon_state = "forensictech_nobadge"
+	item_state = "forensictech_nobadge"
+	icon_badge = "forensictech_badge"
+	icon_nobadge = "forensictech_nobadge"
 
 /obj/item/clothing/suit/storage/hazardvest/cadet
 	name = "cadet hazard vest"

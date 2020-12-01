@@ -91,8 +91,9 @@
 	desc = "A blue warden hat. For showing who is in charge of the brig."
 	icon = 'icons/obj/clothing/hats/security.dmi'
 	icon_state = "warden"
-	icon_state = "warden"
+	item_state = "warden"
 	flags_inv = HIDEEARS
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/warden/corp
 	name = "corporate warden hat"
@@ -100,22 +101,17 @@
 	icon_state = "corp"
 	item_state = "corp"
 
-/obj/item/clothing/head/warden/commissar
-	name = "commissar's cap"
-	desc = "A security commissar's cap."
-	icon_state = "commissar"
-	item_state = "commissar"
-
-/obj/item/clothing/head/hos/cap
-	name = "Head of Security hat"
+/obj/item/clothing/head/hos
+	name = "head of security hat"
 	desc = "The navy blue parade hat of the Head of Security. For showing the officers who's in charge."
 	icon = 'icons/obj/clothing/hats/security.dmi'
 	icon_state = "hos"
 	item_state = "hos"
 	flags_inv = HIDEEARS
+	contained_sprite = TRUE
 
-/obj/item/clothing/head/hos/cap/corp
-	name = "corporate Head of Security hat"
+/obj/item/clothing/head/hos/corp
+	name = "corporate head of security hat"
 	desc = "The black parade hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "corp"
 	item_state = "corp"

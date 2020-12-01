@@ -223,7 +223,7 @@
 		/obj/item/clothing/suit/storage/hooded/wintercoat/red,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/miner,
 		/obj/item/clothing/suit/storage/leathercoat,
-		/obj/item/clothing/suit/storage/vest/csi,
+		/obj/item/clothing/suit/storage/vest/ft,
 		/obj/item/clothing/suit/storage/toggle/dominia/bomber,
 		/obj/item/clothing/suit/storage/toggle/dominia/gold,
 		/obj/item/clothing/suit/storage/toggle/flannel,
