@@ -7,6 +7,7 @@ export default {
     uiref: '',
     status: 2,
     debug: 0,
+    debug_enabled: false,
     header: 'default',
     wtime: 0,
     roundstart_hour: 0

@@ -89,7 +89,7 @@ if (document.getElementById("header")) {
 if (document.getElementById("debugapp")) {
   new Vue({
     data: Store.state,
-    template: '<div id="debug"><h2>Debug this UI with inspector by opening URL in your browser:</h2><pre>{{url}}</pre><h2>Current data of UI:</h2><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre><button @click="stop()">STOP WTIME TRACKING</button></div>',
+    template: '<div id="debug" v-if="shouldShow"><h2>Debug this UI with inspector by opening URL in your browser:</h2><pre>{{url}}</pre><h2>Current data of UI:</h2><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre><button @click="stop()">STOP WTIME TRACKING</button></div>',
     methods: {
       stop() {
         window.clearInterval(window.__wtimetimer)
@@ -97,7 +97,12 @@ if (document.getElementById("debugapp")) {
     },
     computed: {
       url() {
-        return window.location.href
+        return window.location.href + '?ext'
+      },
+      shouldShow() {
+        if(this.$data.debug_enabled) return true
+        if(this.$data.debug == 2) return true
+        return false
       }
     }
   }).$mount('#debugapp')

@@ -15,10 +15,11 @@ const state = {
 
 
 export function isBYOND() {
-  return window.location.hostname === '127.0.0.1' && location.pathname.indexOf('/tmp') === 0 
+  return window.location.hostname === '127.0.0.1' && location.pathname.indexOf('/tmp') === 0 && location.search !== '?ext';
 }
 
 export function winget(id, propName, callback) {
+  if(!isBYOND()) return
   var isArray = propName instanceof Array
   var isSpecific = propName && propName !== '*' && !isArray
   var _callback = callback
@@ -34,6 +35,7 @@ export function winget(id, propName, callback) {
 }
 
 export function winset(id, propName, propValue) {
+  if(!isBYOND()) return
   if (typeof id === 'object' && id !== null) {
     return Utils.sendRaw('winset', id)
   }

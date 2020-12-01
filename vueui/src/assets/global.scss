@@ -37,12 +37,21 @@ body {
       display: inline;
       margin: 0px 0.5rem;
     }
-  
-    .uiCloseBtn {
+
+    .uiRigthButtons {
       float: right;
-      font-size: 1.3em;
-      cursor: pointer;
+
+      .uiDbgBtn {
+        cursor: pointer;
+      }
+
+      .uiCloseBtn {
+        font-size: 1.3em;
+        cursor: pointer;
+      }
     }
+  
+    
   }
 
 .mainContent {

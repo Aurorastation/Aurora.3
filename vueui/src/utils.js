@@ -2,7 +2,7 @@ import Store from './store.js'
 
 const randomId = () => Math.random().toString(36).substring(13)
 
-export function sendRaw(data) {
+export function sendRaw(path, data) {
   var sendparams = []
   for(var val in data) {
     if (Array.isArray(data[val])) {
