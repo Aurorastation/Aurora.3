@@ -5,17 +5,13 @@
 "aB" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,17";
-	name = "Skipjack"
+	icon_state = "19,17"
 	},
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "aS" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,16";
-	name = "Skipjack"
+	icon_state = "16,16"
 	},
 /turf/simulated/mineral,
 /area/dungeon/crashed_ship)
@@ -39,9 +35,7 @@
 /area/dungeon/crashed_ship)
 "bA" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,10";
-	name = "Skipjack"
+	icon_state = "0,10"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -62,17 +56,13 @@
 /area/dungeon/crashed_ship)
 "bI" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,16";
-	name = "Skipjack"
+	icon_state = "20,16"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "bO" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,15";
-	name = "Skipjack"
+	icon_state = "0,15"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -98,10 +88,8 @@
 /area/dungeon/crashed_ship)
 "ci" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "19,3";
 	layer = 3.5;
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/item/ammo_casing/gauss,
@@ -145,17 +133,13 @@
 /area/dungeon/crashed_ship)
 "cD" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,1";
-	name = "Skipjack"
+	icon_state = "12,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "cE" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,15";
-	name = "Skipjack"
+	icon_state = "6,15"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -184,9 +168,7 @@
 /area/dungeon/crashed_ship)
 "ee" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,14";
-	name = "Skipjack"
+	icon_state = "6,14"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -196,9 +178,7 @@
 /area/mine/unexplored)
 "eh" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,14";
-	name = "Skipjack"
+	icon_state = "15,14"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -216,9 +196,7 @@
 /area/mine/unexplored)
 "eP" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,13";
-	name = "Skipjack"
+	icon_state = "0,13"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -245,9 +223,7 @@
 /area/dungeon/crashed_ship)
 "fg" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,13";
-	name = "Skipjack"
+	icon_state = "6,13"
 	},
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -258,9 +234,7 @@
 /area/mine/unexplored)
 "fm" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,13";
-	name = "Skipjack"
+	icon_state = "15,13"
 	},
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -281,9 +255,7 @@
 /area/dungeon/crashed_ship)
 "fP" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,15";
-	name = "Skipjack"
+	icon_state = "21,15"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -296,26 +268,20 @@
 /area/dungeon/crashed_ship)
 "fZ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,12";
-	name = "Skipjack"
+	icon_state = "0,12"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "gg" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,0";
-	name = "Skipjack"
+	icon_state = "7,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "go" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "7,7";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -354,9 +320,7 @@
 /area/dungeon/crashed_ship)
 "gH" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,12";
-	name = "Skipjack"
+	icon_state = "6,12"
 	},
 /obj/structure/lattice/catwalk,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -376,9 +340,7 @@
 /area/dungeon/crashed_ship)
 "hh" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,12";
-	name = "Skipjack"
+	icon_state = "15,12"
 	},
 /obj/structure/lattice/catwalk,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -417,9 +379,7 @@
 /area/dungeon/crashed_ship)
 "hP" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,14";
-	name = "Skipjack"
+	icon_state = "21,14"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -439,9 +399,7 @@
 /area/dungeon/crashed_ship)
 "ir" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,11";
-	name = "Skipjack"
+	icon_state = "0,11"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -472,9 +430,7 @@
 /area/dungeon/crashed_ship)
 "jl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,11";
-	name = "Skipjack"
+	icon_state = "6,11"
 	},
 /obj/structure/lattice/catwalk,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -486,9 +442,7 @@
 /area/dungeon/crashed_ship)
 "jQ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,11";
-	name = "Skipjack"
+	icon_state = "15,11"
 	},
 /obj/structure/lattice/catwalk,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -538,9 +492,7 @@
 /area/dungeon/crashed_ship)
 "kB" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,13";
-	name = "Skipjack"
+	icon_state = "21,13"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -567,9 +519,7 @@
 /area/dungeon/crashed_ship)
 "lm" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "14,9";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -598,9 +548,7 @@
 /area/dungeon/crashed_ship)
 "lP" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,0";
-	name = "Skipjack"
+	icon_state = "1,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
@@ -667,17 +615,13 @@
 /area/dungeon/crashed_ship)
 "mV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,10";
-	name = "Skipjack"
+	icon_state = "21,10"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "mY" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,9";
-	name = "Skipjack"
+	icon_state = "0,9"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -719,9 +663,7 @@
 /area/dungeon/crashed_ship)
 "nH" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,1";
-	name = "Skipjack"
+	icon_state = "19,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -734,9 +676,7 @@
 /area/dungeon/crashed_ship)
 "nS" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "7,9";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -793,17 +733,13 @@
 /area/dungeon/crashed_ship)
 "oO" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,9";
-	name = "Skipjack"
+	icon_state = "21,9"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "pl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,8";
-	name = "Skipjack"
+	icon_state = "0,8"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -834,6 +770,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/dungeon/crashed_ship)
 "pK" = (
@@ -917,25 +854,19 @@
 /area/dungeon/crashed_ship)
 "ra" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,8";
-	name = "Skipjack"
+	icon_state = "21,8"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "ri" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,0";
-	name = "Skipjack"
+	icon_state = "15,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "ru" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,7";
-	name = "Skipjack"
+	icon_state = "0,7"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -948,9 +879,7 @@
 /area/dungeon/crashed_ship)
 "rV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "6,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -978,17 +907,13 @@
 /area/dungeon/crashed_ship)
 "sx" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,7";
-	name = "Skipjack"
+	icon_state = "21,7"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "sA" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,6";
-	name = "Skipjack"
+	icon_state = "0,6"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1045,9 +970,7 @@
 /area/dungeon/crashed_ship)
 "tA" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,0";
-	name = "Skipjack"
+	icon_state = "19,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1150,9 +1073,7 @@
 /area/dungeon/crashed_ship)
 "vE" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,6";
-	name = "Skipjack"
+	icon_state = "21,6"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1169,9 +1090,7 @@
 /area/dungeon/crashed_ship)
 "vQ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,0";
-	name = "Skipjack"
+	icon_state = "3,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1235,9 +1154,7 @@
 /area/dungeon/crashed_ship)
 "wV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,0";
-	name = "Skipjack"
+	icon_state = "5,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1329,17 +1246,13 @@
 /area/dungeon/crashed_ship)
 "yH" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,5";
-	name = "Skipjack"
+	icon_state = "21,5"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "yY" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,4";
-	name = "Skipjack"
+	icon_state = "0,4"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1366,9 +1279,7 @@
 /area/dungeon/crashed_ship)
 "zF" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,5";
-	name = "Skipjack"
+	icon_state = "0,5"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1429,17 +1340,13 @@
 /area/dungeon/crashed_ship)
 "Bf" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,4";
-	name = "Skipjack"
+	icon_state = "21,4"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Bi" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "18,0";
-	name = "Skipjack"
+	icon_state = "18,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1459,9 +1366,7 @@
 /area/dungeon/crashed_ship)
 "BU" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "2,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1483,10 +1388,8 @@
 /area/dungeon/crashed_ship)
 "Ci" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "6,3";
 	layer = 3.5;
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/item/storage/firstaid/o2{
@@ -1521,17 +1424,13 @@
 /area/dungeon/crashed_ship)
 "CY" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,3";
-	name = "Skipjack"
+	icon_state = "13,3"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "DB" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,1";
-	name = "Skipjack"
+	icon_state = "6,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1544,10 +1443,8 @@
 /area/dungeon/crashed_ship)
 "DK" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "15,3";
 	layer = 3.5;
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/structure/table/steel,
@@ -1575,17 +1472,13 @@
 /area/dungeon/crashed_ship)
 "DQ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,3";
-	name = "Skipjack"
+	icon_state = "21,3"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Eo" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,2";
-	name = "Skipjack"
+	icon_state = "0,2"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1652,17 +1545,13 @@
 /area/dungeon/crashed_ship)
 "FT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,2";
-	name = "Skipjack"
+	icon_state = "8,2"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Gj" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,2";
-	name = "Skipjack"
+	icon_state = "13,2"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1694,17 +1583,13 @@
 /area/dungeon/crashed_ship)
 "Hc" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,2";
-	name = "Skipjack"
+	icon_state = "21,2"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Hp" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,1";
-	name = "Skipjack"
+	icon_state = "1,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1717,41 +1602,31 @@
 /area/dungeon/crashed_ship)
 "Hu" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,1";
-	name = "Skipjack"
+	icon_state = "2,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Hz" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,1";
-	name = "Skipjack"
+	icon_state = "3,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "HD" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,1";
-	name = "Skipjack"
+	icon_state = "7,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "HN" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,1";
-	name = "Skipjack"
+	icon_state = "8,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "HO" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,1";
-	name = "Skipjack"
+	icon_state = "17,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1764,9 +1639,7 @@
 /area/dungeon/crashed_ship)
 "HY" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,1";
-	name = "Skipjack"
+	icon_state = "9,1"
 	},
 /obj/effect/map_effect/airlock/long{
 	door_name = "ship airlock";
@@ -1776,9 +1649,7 @@
 /area/dungeon/crashed_ship)
 "Id" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,1";
-	name = "Skipjack"
+	icon_state = "14,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1788,9 +1659,7 @@
 /area/dungeon/crashed_ship)
 "Iv" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,1";
-	name = "Skipjack"
+	icon_state = "0,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
@@ -1803,9 +1672,7 @@
 /area/dungeon/crashed_ship)
 "IE" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,1";
-	name = "Skipjack"
+	icon_state = "15,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1830,34 +1697,26 @@
 /area/dungeon/crashed_ship)
 "IY" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,1";
-	name = "Skipjack"
+	icon_state = "16,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Ja" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,1";
-	name = "Skipjack"
+	icon_state = "20,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Jk" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,1";
-	name = "Skipjack"
+	icon_state = "21,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Jl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,0";
-	name = "Skipjack"
+	icon_state = "20,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
@@ -1871,9 +1730,7 @@
 /area/mine/unexplored)
 "Kf" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,0";
-	name = "Skipjack"
+	icon_state = "6,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1915,10 +1772,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "Po" = (
-/obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	name = "Skipjack"
-	},
+/obj/structure/shuttle_part/raider,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Qe" = (
@@ -1937,9 +1791,7 @@
 /area/dungeon/crashed_ship)
 "QZ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,3";
-	name = "Skipjack"
+	icon_state = "8,3"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -1977,25 +1829,19 @@
 /area/dungeon/crashed_ship)
 "Sc" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "4,0";
-	name = "Skipjack"
+	icon_state = "4,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Sm" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "18,1";
-	name = "Skipjack"
+	icon_state = "18,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Tc" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,0";
-	name = "Skipjack"
+	icon_state = "16,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -2013,9 +1859,7 @@
 /area/dungeon/crashed_ship)
 "TJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,0";
-	name = "Skipjack"
+	icon_state = "2,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -2028,25 +1872,19 @@
 /area/dungeon/crashed_ship)
 "Ue" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,0";
-	name = "Skipjack"
+	icon_state = "17,0"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Ui" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,3";
-	name = "Skipjack"
+	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "Uz" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,14";
-	name = "Skipjack"
+	icon_state = "0,14"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -2059,9 +1897,7 @@
 /area/dungeon/crashed_ship)
 "VR" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,1";
-	name = "Skipjack"
+	icon_state = "13,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
@@ -2078,9 +1914,7 @@
 /area/dungeon/crashed_ship)
 "Xd" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,1";
-	name = "Skipjack"
+	icon_state = "5,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
