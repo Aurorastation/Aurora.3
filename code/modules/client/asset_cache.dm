@@ -494,17 +494,17 @@ var/list/asset_datums = list()
 			for(var/k in p)
 				vending_products += k
 	for(var/path in vending_products)
-		var/atom/P = path
-		if(!ispath(P, /atom))
+		var/obj/O = new path
+		if(!istype(O))
 			continue
 
-		var/icon_file = initial(P.icon)
-		var/icon_state = initial(P.icon_state)
+		var/icon_file = O.icon
+		var/icon_state = O.icon_state
 		var/icon/I
 		var/icon_states_list = icon_states(icon_file)
 		if(icon_state in icon_states_list)
 			I = icon(icon_file, icon_state, SOUTH)
-			var/c = initial(P.color)
+			var/c = O.color
 			if(!isnull(c) && c != "#FFFFFF")
 				I.Blend(c, ICON_MULTIPLY)
 		else
@@ -514,11 +514,10 @@ var/list/asset_datums = list()
 					icon_states_string = "[json_encode(s)](\ref[s])"
 				else
 					icon_states_string += ", [json_encode(s)](\ref[s])"
-			error("[P] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
+			error("[O] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
 			I = icon('icons/turf/floors.dmi', "", SOUTH)
 
-		var/imgid = ckey("[P]")
-		var/obj/O = new P
+		var/imgid = ckey("[path]")
 
 		if(istype(O, /obj/item/seeds))
 			// thanks seeds for being overlays defined at runtime
