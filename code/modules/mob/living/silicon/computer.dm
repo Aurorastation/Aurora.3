@@ -1,6 +1,5 @@
 /mob/living/silicon
 	var/computer_path
-	var/datum/ntnet_user/chat_user
 
 /mob/living/silicon/pai
 	computer_path = /obj/item/modular_computer/silicon/pai
@@ -68,12 +67,6 @@
 	set category = "Subsystems"
 
 	parent_computer.attack_self(src)
-
-/mob/living/silicon/proc/InitializeChatUser()
-	. = ..()
-	if(!istype(chat_user))
-		chat_user = new()
-		chat_user.username = chat_user.generateUsernameSilicon(src)
 
 /********************
 *	Alarm Monitor	*

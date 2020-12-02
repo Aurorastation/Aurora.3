@@ -138,8 +138,8 @@
 		if(istype(computer, /obj/item/modular_computer/silicon))
 			var/obj/item/modular_computer/silicon/SC = computer
 			var/mob/living/silicon/S = SC.computer_host
-			S.InitializeChatUser()
-			my_user = S.chat_user
+			S.id_card.InitializeChatUser()
+			my_user = S.id_card.chat_user
 		else
 			if((!computer.registered_id && !computer.register_account(src)))
 				return

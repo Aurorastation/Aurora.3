@@ -15,7 +15,6 @@
 /datum/ntnet_user/proc/generateUsernameIdCard(var/obj/item/card/id/card)
 	if(!card)
 		return "Unknown"
-
 	return "[card.registered_name] ([card.assignment])"
 
 /datum/ntnet_user/proc/generateUsernameSilicon(var/mob/living/silicon/silicon)

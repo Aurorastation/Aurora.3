@@ -95,6 +95,10 @@
 /mob/living/silicon/proc/SetName(pickedName as text)
 	real_name = pickedName
 	name = real_name
+	if(istype(id_card))
+		if(!istype(id_card.chat_user))
+			id_card.InitializeChatUser()
+		id_card.chat_user.username = real_name
 
 /mob/living/silicon/proc/show_laws()
 	return
