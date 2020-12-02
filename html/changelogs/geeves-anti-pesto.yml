@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Added two xenofauna guns to the surface level checkpoint. They only do damage to carp and cavern dwellers, inflicting pain on any other targets."
+  - rscadd: "Added two xenofauna guns to the surface level checkpoint. They only do damage to carp, cavern dwellers, and spiders, inflicting pain on any other targets."

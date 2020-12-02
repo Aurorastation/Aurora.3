@@ -285,7 +285,7 @@
 	damage = 10
 
 /obj/item/projectile/beam/mousegun/xenofauna/mousepulse(atom/target, range, log)
-	if(is_type_in_list(target, list(/mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/carp)))
+	if(is_type_in_list(target, list(/mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/giant_spider)))
 		var/mob/living/simple_animal/SA = target
 		SA.take_organ_damage(0, 20)
 	return TRUE
