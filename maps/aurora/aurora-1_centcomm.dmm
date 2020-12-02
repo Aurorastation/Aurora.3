@@ -2307,12 +2307,8 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ajY" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = 5;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8, /obj/item/reagent_containers/food/snacks/donut/normal = 6);
-	random_itemcount = 0
+/obj/machinery/vending/coffee/free{
+	pixel_x = 5;random_itemcount = 0
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -5866,11 +5862,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -11201,12 +11194,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "dyI" = (
-/obj/machinery/vending/assist{
-	contraband = null;
-	name = "Part vendor";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4);
-	random_itemcount = 0
-	},
+/obj/machinery/vending/assist/synd,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -13554,11 +13542,8 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "eVL" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -14654,12 +14639,7 @@
 /area/centcom/specops)
 "fGh" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/vending/boozeomat{
-	products = list(/obj/item/reagent_containers/food/drinks/drinkingglass = 12, /obj/item/reagent_containers/food/drinks/ice = 12, /obj/item/reagent_containers/food/drinks/bottle/whiskey = 6, /obj/item/reagent_containers/food/drinks/bottle/tequila = 6, /obj/item/reagent_containers/food/drinks/bottle/champagne = 2, /obj/item/reagent_containers/food/drinks/bottle/vodka = 6, /obj/item/reagent_containers/food/drinks/bottle/rum = 6, /obj/item/reagent_containers/food/drinks/bottle/wine = 6, /obj/item/reagent_containers/food/drinks/bottle/cognac = 6, /obj/item/reagent_containers/food/drinks/bottle/victorygin = 6, /obj/item/reagent_containers/food/drinks/bottle/boukha = 6, /obj/item/reagent_containers/food/drinks/bottle/small/beer = 12, /obj/item/reagent_containers/food/drinks/bottle/absinthe = 6, /obj/item/reagent_containers/food/drinks/bottle/brandy = 6, /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 6);
-	random_itemcount = 1;
-	req_access = list();
-	restock_items = 1
-	},
+/obj/machinery/vending/boozeomat/merchant,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "fGK" = (
@@ -15313,11 +15293,8 @@
 	},
 /area/antag/raider)
 "fYz" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -17909,12 +17886,8 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "hBo" = (
-/obj/machinery/vending/cigarette{
-	name = "Cigarette Machine";
+/obj/machinery/vending/cigarette/merchant{
 	pixel_x = 2;
-	premium = list();
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/box/fancy/cigarettes/cigar = 5, /obj/item/storage/box/fancy/cigarettes/acmeco = 5)
 	},
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
@@ -20744,11 +20717,8 @@
 	},
 /area/centcom/bar)
 "jvz" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = 2;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -30197,12 +30167,7 @@
 	name = "adjusted light fixture";
 	pixel_y = 16
 	},
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8, /obj/item/reagent_containers/food/snacks/donut/normal = 6);
-	random_itemcount = 0
-	},
+/obj/machinery/vending/coffee/free,
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -31133,11 +31098,8 @@
 	},
 /area/shuttle/specops)
 "pZr" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -34317,11 +34279,8 @@
 	},
 /area/centcom/control)
 "ssN" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -40717,11 +40676,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "wCK" = (
