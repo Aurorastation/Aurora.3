@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Using an item on a wall will no longer cause it to play the feeling around message. If you want to feel for an opening, use an empty hand."
