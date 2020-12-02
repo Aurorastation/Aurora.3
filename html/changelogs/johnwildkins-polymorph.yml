@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Polymorph wands should now correctly change the species of their targets."
