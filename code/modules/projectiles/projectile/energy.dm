@@ -208,7 +208,7 @@
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
-	agony = 20
+	agony = 25
 	speed = 0.4
 	damage_type = PAIN // Can't blow your own head off with a stunbolt.
 	taser_effect = TRUE

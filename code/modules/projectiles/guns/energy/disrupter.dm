@@ -15,7 +15,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/energy/disruptorstun
 	secondary_projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 8 // 8 stun, 5 lethal
+	max_shots = 8
 	charge_cost = 150
 	fire_delay = 8
 	accuracy = 1
@@ -24,8 +24,8 @@
 	sel_mode = 1
 	var/selectframecheck = FALSE
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun, modifystate="disruptorpistolstun", charge_cost = 150, fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/disruptor, modifystate="disruptorpistolkill", recoil = 1, charge_cost = 240, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun, modifystate="disruptorpistolstun", fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/disruptor, modifystate="disruptorpistolkill", recoil = 1, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 		)
 
 /obj/item/gun/energy/disruptorpistol/security
