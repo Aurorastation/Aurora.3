@@ -18,11 +18,5 @@
 
 	return "[card.registered_name] ([card.assignment])"
 
-/datum/ntnet_user/proc/generateUsernameComputer(var/obj/item/modular_computer/computer)
-	if(istype(computer, /obj/item/modular_computer/silicon))
-		var/obj/item/modular_computer/silicon/SC = computer
-		return SC.computer_host.name
-	if(!computer.registered_id)
-		return "Unknown"
-
-	return "[computer.registered_id.registered_name] ([computer.registered_id.assignment])"
+/datum/ntnet_user/proc/generateUsernameSilicon(var/mob/living/silicon/silicon)
+	return silicon.name

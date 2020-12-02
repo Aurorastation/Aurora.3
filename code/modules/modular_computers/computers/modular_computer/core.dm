@@ -365,6 +365,7 @@
 
 
 /obj/item/modular_computer/proc/enable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	. = FALSE
 	if(!S)
 		S = hard_drive?.find_file_by_name(service)
 
@@ -384,6 +385,8 @@
 	if(S.service_enable())
 		enabled_services += S
 		S.service_state = PROGRAM_STATE_ACTIVE
+		return TRUE
+		
 
 
 /obj/item/modular_computer/proc/disable_service(service, mob/user, var/datum/computer_file/program/S = null)

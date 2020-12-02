@@ -72,12 +72,18 @@
 		var/password = sanitize(href_list["set_password"]["password"])
 		if(istype(conv))
 			conv.cl_set_password(src, password)
+	if(href_list["change_title"])
+		var/datum/ntnet_conversation/conv = locate(href_list["change_title"]["target"])
+		var/newTitle = sanitize(href_list["change_title"]["title"])
+		if(istype(conv))
+			conv.cl_change_title(src, newTitle)
 	if(href_list["new_channel"])
 		ntnet_global.begin_conversation(src, sanitize(href_list["new_channel"]))
 	if(href_list["delete"])
 		var/datum/ntnet_conversation/conv = locate(href_list["delete"])
 		if(istype(conv) && conv.can_manage(src))
 			qdel(conv)
+		SSvueui.check_uis_for_change(src)
 	if(href_list["direct"])
 		var/datum/ntnet_user/tUser = locate(href_list["direct"])
 		ntnet_global.begin_direct(src, tUser)
@@ -112,38 +118,48 @@
 /datum/computer_file/program/chat_client/service_activate()
 	. = ..()
 	if(istype(my_user))
-		my_user.clients.Add(src)
-		ntnet_global.chat_clients.Add(src)
+		activate_chat_client()
 		return TRUE
 	else
 		return FALSE
 
 /datum/computer_file/program/chat_client/service_deactivate()
 	. = ..()
-	my_user.clients.Remove(src)
-	ntnet_global.chat_clients.Remove(src)
+	deactivate_chat_client()
 
 /datum/computer_file/program/chat_client/process_tick()
 	. = ..()
-	
 
 /datum/computer_file/program/chat_client/kill_program(var/forced = FALSE)
 	return ..(forced)
 
 /datum/computer_file/program/chat_client/run_program(var/mob/user)
+	if(!istype(my_user))
+		if(istype(computer, /obj/item/modular_computer/silicon))
+			var/obj/item/modular_computer/silicon/SC = computer
+			var/mob/living/silicon/S = SC.computer_host
+			S.InitializeChatUser()
+			my_user = S.chat_user
+		else
+			if((!computer.registered_id && !computer.register_account(src)))
+				return
+	if(service_state == PROGRAM_STATE_DISABLED)
+		if(!computer.enable_service(null, user, src))
+			return
 	return ..(user)
 
 /datum/computer_file/program/chat_client/event_registered()
 	. = ..()
 	computer.registered_id.InitializeChatUser()
 	my_user = computer.registered_id.chat_user
-	my_user.clients.Add(src)
-	ntnet_global.chat_clients.Add(src)
+	if(service_state > PROGRAM_STATE_KILLED)
+		activate_chat_client()
+	
 
 /datum/computer_file/program/chat_client/event_unregistered()
 	. = ..()
-	my_user.clients.Remove(src)
-	ntnet_global.chat_clients.Remove(src)
+	if(service_state > PROGRAM_STATE_KILLED)
+		deactivate_chat_client()
 	my_user = null
 
 /datum/computer_file/program/chat_client/event_silentmode()
@@ -210,3 +226,19 @@
 				var/ref = ref(nUser)
 				data["users"][ref] = nUser.username
 	return data
+
+/datum/computer_file/program/chat_client/proc/activate_chat_client()
+	if(!istype(my_user))
+		return
+	if(!(src in my_user.clients))
+		my_user.clients.Add(src)
+	if(!(src in ntnet_global.chat_clients))
+		ntnet_global.chat_clients.Add(src)
+
+/datum/computer_file/program/chat_client/proc/deactivate_chat_client()
+	if(!istype(my_user))
+		return
+	if(src in my_user.clients)
+		my_user.clients.Remove(src)
+	if(src in ntnet_global.chat_clients)	
+		ntnet_global.chat_clients.Remove(src)
