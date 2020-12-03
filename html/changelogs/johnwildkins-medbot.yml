@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Medbots and their assemblies should now apply toxin/fire/O2 medkit skins properly."
