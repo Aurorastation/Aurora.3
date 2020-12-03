@@ -1,9 +1,9 @@
 /obj/item/device/floor_painter
 	name = "paint gun"
-	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "labeler1"
-	item_state = "flight"
-
+	icon = 'icons/obj/contained_items/tools/floor_painter.dmi'
+	icon_state = "floor_painter"
+	item_state = "floor_painter"
+	contained_sprite = TRUE
 	var/decal =        "remove all decals"
 	var/paint_dir =    "precise"
 	var/paint_colour = COLOR_WHITE

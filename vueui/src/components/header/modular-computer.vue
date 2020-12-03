@@ -1,6 +1,7 @@
 <template>
   <header-default>
     <div class="maincont">
+      <b class="valign">{{ time }}</b>
       <img class="valign" v-if="state._PC.batteryicon && state._PC.showbatteryicon" :src="state._PC.batteryicon">
       <b class="valign" v-if="state._PC.batterypercent && state._PC.showbatteryicon">{{state._PC.batterypercent}}</b>
       <img img class="valign" v-if="state._PC.ntneticon" :src="state._PC.ntneticon">
@@ -20,9 +21,16 @@
 </template>
 
 <script>
+import { worldtime2text } from '@/utils'
+
 export default {
   data() {
     return this.$root.$data
+  },
+  computed: {
+    time() {
+      return worldtime2text(this.wtime)
+    }
   }
 }
 </script>
