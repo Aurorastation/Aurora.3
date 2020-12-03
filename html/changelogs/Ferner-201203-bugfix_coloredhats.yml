@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes:
+  - bugfix: "Fixed colorable bandanas, softcaps and berets being darker than they're suppposed to be."
