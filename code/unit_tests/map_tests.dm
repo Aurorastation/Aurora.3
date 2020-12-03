@@ -263,5 +263,27 @@ datum/unit_test/wire_test/start_test()
 
 	return 1
 
+/datum/unit_test/mapped_products
+	name = "MAP: Check for mapped vending products"
+
+/datum/unit_test/mapped_products/start_test()
+	var/checks = 0
+	var/failed_checks = 0
+
+	for(var/obj/machinery/vending/V in world)
+		checks++
+		var/obj/machinery/vending/V_test = new V.type
+		if(V.products != V_test.products || V.contraband != V_test.contraband || V.premium != V_test.premium)
+			failed_checks++
+
+		log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z] in [V.loc] has mapped-in products, contraband, or premium items.")
+
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
+	else
+		pass("All \[[checks]\] vending machines have valid product lists.")
+
+	return 1
+
 #undef SUCCESS
 #undef FAILURE
