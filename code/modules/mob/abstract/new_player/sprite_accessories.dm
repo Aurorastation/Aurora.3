@@ -1712,7 +1712,32 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "ponytail"
 
+/*
+/////////////////////////////////////
+/  =-----------------------------=  /
+/  == Hair Gradient Definitions ==  /
+/  =-----------------------------=  /
+/////////////////////////////////////
+*/
 
+/datum/sprite_accessory/hair_gradients
+	icon = 'icons/mob/hair_gradients.dmi'
+
+	none
+		name = "None"
+		icon_state = "none"
+
+	fade_up
+		name = "Fade (Up)"
+		icon_state = "fadeup"
+
+	fade_down
+		name = "Fade (Down)"
+		icon_state = "fadedown"
+
+	vertical_split
+		name = "Vertical Split"
+		icon_state = "vsplit"
 /*
 ///////////////////////////////////
 /  =---------------------------=  /

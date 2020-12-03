@@ -49,6 +49,11 @@ datum/preferences
 	var/r_hair = 0						//Hair color
 	var/g_hair = 0						//Hair color
 	var/b_hair = 0						//Hair color
+	var/g_style = "None"				//Gradient style
+	var/grad_colour = "#000000"			//Gradient colour hex value, for SQL loading
+	var/r_grad = 0						//Gradient color
+	var/g_grad = 0						//Gradient color
+	var/b_grad = 0						//Gradient color
 	var/f_style = "Shaved"				//Face hair type
 	var/facial_colour = "#000000"		//Facial colour hex value, for SQL loading
 	var/r_facial = 0					//Face hair color
