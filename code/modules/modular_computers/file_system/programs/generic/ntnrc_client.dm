@@ -45,6 +45,7 @@
 		else
 			newRingtone = sanitize(newRingtone, 20)
 			ringtone = newRingtone
+			SSvueui.check_uis_for_change(src)
 	
 	// User only commands
 	if(!istype(my_user))
@@ -182,11 +183,11 @@
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-chat-index", 575, 700, capitalize(filedesc))
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-chat-index", 600, 500, capitalize(filedesc))
 	ui.open()
 
 /datum/computer_file/program/chat_client/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-chat-index", 575, 700, capitalize(filedesc))
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-chat-index", 600, 500, capitalize(filedesc))
 	return TRUE
 
 /datum/computer_file/program/chat_client/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)

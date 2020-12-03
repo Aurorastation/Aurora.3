@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import utils from "@/utils"
+import { sendToTopic } from '@/utils'
 export default {
   data() {
     return {
@@ -57,13 +57,13 @@ export default {
   },
   methods: {
     send_msg() {
-      utils.sendToTopic({
+      sendToTopic({
         send: { message: this.send_buffer, target: this.reference },
       })
       this.send_buffer = ""
     },
     set_password() {
-      utils.sendToTopic({set_password: {target: this.reference, password: this.password}})
+      sendToTopic({set_password: {target: this.reference, password: this.password}})
       this.password = null
     }
   }

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import utils from '@/utils'
+import { sendToTopic } from '@/utils'
 export default {
   data() {
     return {
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     new_channel() {
-      utils.sendToTopic({new_channel: this.channelTitle})
+      sendToTopic({new_channel: this.channelTitle})
       this.channelTitle = null
     }
   },

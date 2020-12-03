@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import utils from "@/utils"
+import { sendToTopic } from '@/utils'
 export default {
   data() {
     return {
@@ -21,7 +21,7 @@ export default {
       if(this.ch.password) {
         this.password = ''
       } else {
-        utils.sendToTopic({join: {target: this.re}})
+        sendToTopic({join: {target: this.re}})
       }
     },
   },
