@@ -337,7 +337,6 @@ var/const/NO_EMAG_ACT = -50
 	mob_icon_update()
 
 /obj/item/card/id/proc/InitializeChatUser()
-	. = ..()
 	if(!istype(chat_user))
 		chat_user = new()
 		chat_user.username = chat_user.generateUsernameIdCard(src)
