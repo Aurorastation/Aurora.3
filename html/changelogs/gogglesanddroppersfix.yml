@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "Goggles worn on your forehead no longer block droppers."
