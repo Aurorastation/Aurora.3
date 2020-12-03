@@ -314,6 +314,8 @@
 			user.drop_item()
 	else if(istype(W, /obj/item/stack/packageWrap))
 		return
+	else if(istype(W, /obj/item/ducttape))
+		return
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if(WT.isOn())
