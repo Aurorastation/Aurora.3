@@ -1,5 +1,5 @@
 # merger hooks, run tools/hooks/install.bat or install.sh to set up
-*.dmm text merge=dmm
+*.dmm text merge=dmm eol=crlf
 *.dmi binary merge=dmi
 
 # force changelog merging to use union
