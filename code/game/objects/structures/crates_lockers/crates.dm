@@ -12,11 +12,11 @@
 	climbable = 1
 	build_amt = 10
 	var/rigged = 0
-	var/table_status = 0
+	var/tablestatus = 0
 	slowdown = 0
 
 /obj/structure/closet/crate/can_open()
-	if (table_status != UNDER_TABLE)//Can't be opened while under a table
+	if (tablestatus != UNDER_TABLE)//Can't be opened while under a table
 		return 1
 	return 0
 
@@ -147,14 +147,14 @@
 /obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (istype(mover, /obj/structure/closet/crate))//Handle interaction with other crates
 		var/obj/structure/closet/crate/C = mover
-		if (table_status && table_status != C.table_status) // Crates can go under tables with crates on top of them, and vice versa
+		if (tablestatus && tablestatus != C.tablestatus) // Crates can go under tables with crates on top of them, and vice versa
 			return TRUE
 		else
 			return FALSE
 	if (istype(mover,/obj/item/projectile))
 		// Crates on a table always block shots, otherwise they only occasionally do so.
-		return table_status == ABOVE_TABLE ? FALSE : (prob(15) ? FALSE : TRUE)
-	else if(istype(mover) && mover.checkpass(PASSTABLE) && table_status == ABOVE_TABLE)
+		return tablestatus == ABOVE_TABLE ? FALSE : (prob(15) ? FALSE : TRUE)
+	else if(istype(mover) && mover.checkpass(PASSTABLE) && tablestatus == ABOVE_TABLE)
 		return TRUE
 	return ..()
 
@@ -162,22 +162,22 @@
 	if(..())
 		if (locate(/obj/structure/table) in destination)
 			if(locate(/obj/structure/table/rack) in destination)
-				set_table_status(ABOVE_TABLE)
-			else if(table_status != ABOVE_TABLE)
-				set_table_status(UNDER_TABLE)//Slide under the table
+				set_tablestatus(ABOVE_TABLE)
+			else if(tablestatus != ABOVE_TABLE)
+				set_tablestatus(UNDER_TABLE)//Slide under the table
 		else
-			set_table_status(FALSE)
+			set_tablestatus(FALSE)
 
 /obj/structure/closet/crate/toggle(var/mob/user)
-	if (!opened && table_status == UNDER_TABLE)
+	if (!opened && tablestatus == UNDER_TABLE)
 		to_chat(user, SPAN_WARNING("You can't open that while the lid is obstructed!"))
 		return FALSE
 	else
 		return ..()
 
-/obj/structure/closet/crate/proc/set_table_status(var/target)
-	if (table_status != target)
-		table_status = target
+/obj/structure/closet/crate/proc/set_tablestatus(var/target)
+	if (tablestatus != target)
+		tablestatus = target
 
 	spawn(3)//Short spawn prevents things popping up where they shouldnt
 		switch (target)
@@ -200,7 +200,7 @@
 		return ..()
 
 /obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/user)
-	if (!table || !user || (table_status == UNDER_TABLE))
+	if (!table || !user || (tablestatus == UNDER_TABLE))
 		return
 
 	//User must be in reach of the crate
@@ -214,7 +214,7 @@
 		return
 
 	for (var/obj/structure/closet/crate/C in get_turf(table))
-		if (C.table_status != UNDER_TABLE)
+		if (C.tablestatus != UNDER_TABLE)
 			to_chat(user, SPAN_WARNING("There's already a crate on this table!"))
 			return
 
@@ -223,7 +223,7 @@
 	//Good place to factor in Strength in future
 	var/timeneeded = 2 SECONDS
 
-	if (table_status == ABOVE_TABLE && Adjacent(table))
+	if (tablestatus == ABOVE_TABLE && Adjacent(table))
 		//Sliding along a tabletop we're already on. Instant and silent
 		timeneeded = 0
 		return TRUE
@@ -241,7 +241,7 @@
 			return FALSE
 		else
 			forceMove(get_turf(table))
-			set_table_status(ABOVE_TABLE)
+			set_tablestatus(ABOVE_TABLE)
 			return TRUE
 
 /*
