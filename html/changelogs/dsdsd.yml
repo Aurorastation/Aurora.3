@@ -1,4 +1,0 @@
-author: Karolis2011
-delete-after: True
-changes:
-  - bugfix: "Computer clock now should show correct time."
