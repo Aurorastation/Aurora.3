@@ -9,7 +9,6 @@ html/changelog.html merge=union
 * text=auto
 
 *.ai binary
-#*.dmi binary
 *.exe binary
 *.fla binary
 *.gif binary
