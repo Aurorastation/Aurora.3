@@ -1,5 +1,5 @@
 /datum/computer_file/program/chat_client
-	filename = "ntrc_client"
+	filename = "ntnrc_client"
 	filedesc = "Chat Client"
 	program_icon_state = "command"
 	extended_desc = "This program allows communication over the NTRC network."
@@ -24,7 +24,7 @@
 	return ..()
 
 /datum/computer_file/program/chat_client/proc/can_receive_notification(var/datum/computer_file/program/chat_client/from)
-	return ((program_state > PROGRAM_STATE_KILLED || service_state > PROGRAM_STATE_KILLED) && from != src)
+	return ((program_state > PROGRAM_STATE_KILLED || service_state > PROGRAM_STATE_KILLED) && from != src && get_signal(NTNET_COMMUNICATION))
 
 /datum/computer_file/program/chat_client/proc/play_notification_sound(var/datum/computer_file/program/chat_client/from)
 	if(!silent && src != from && program_state == PROGRAM_STATE_BACKGROUND)
@@ -34,10 +34,25 @@
 /datum/computer_file/program/chat_client/Topic(href, href_list)
 	if(..())
 		return TRUE
-
+	
+	if(href_list["ringtone"])
+		var/newRingtone = href_list["ringtone"]
+		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
+		if(istype(H) && H.check_trigger(usr, lowertext(newRingtone), lowertext(H.pda_code)))
+			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
+			syndi_auth = TRUE
+			SSvueui.close_uis(src)
+		else
+			newRingtone = sanitize(newRingtone, 20)
+			ringtone = newRingtone
+	
 	// User only commands
 	if(!istype(my_user))
 		return
+	// Following actions require signal
+	if(!get_signal(NTNET_COMMUNICATION))
+		return
+	
 	if(href_list["send"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["send"]["target"])
@@ -87,16 +102,7 @@
 	if(href_list["direct"])
 		var/datum/ntnet_user/tUser = locate(href_list["direct"])
 		ntnet_global.begin_direct(src, tUser)
-	if(href_list["ringtone"])
-		var/newRingtone = href_list["ringtone"]
-		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
-		if(istype(H) && H.check_trigger(usr, lowertext(newRingtone), lowertext(H.pda_code)))
-			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
-			syndi_auth = TRUE
-			SSvueui.close_uis(src)
-		else
-			newRingtone = sanitize(newRingtone, 20)
-			ringtone = newRingtone
+	
 	if(href_list["toggleadmin"])
 		if(netadmin_mode)
 			netadmin_mode = FALSE
@@ -117,7 +123,7 @@
 				
 /datum/computer_file/program/chat_client/service_activate()
 	. = ..()
-	if(istype(my_user))
+	if(istype(my_user) && get_signal(NTNET_COMMUNICATION))
 		activate_chat_client()
 		return TRUE
 	else
@@ -194,11 +200,12 @@
 	
 	data["service"] = service_state > PROGRAM_STATE_KILLED
 	data["registered"] = istype(my_user)
+	data["signal"] = get_signal(NTNET_COMMUNICATION)
 	data["ringtone"] = ringtone
 	data["netadmin_mode"] = netadmin_mode
 	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
 
-	if(data["registered"] && data["service"])
+	if(data["registered"] && data["service"] && data["signal"])
 		data["channels"] = list()
 		for(var/c in ntnet_global.chat_channels)
 			var/datum/ntnet_conversation/Channel = c

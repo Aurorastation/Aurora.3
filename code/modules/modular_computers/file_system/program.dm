@@ -233,6 +233,3 @@
 			if(isnewplayer(M))
 				continue
 			to_chat(M, message)
-
-/datum/computer_file/program/proc/kill_service()
-	
