@@ -123,5 +123,7 @@
 	id = /obj/item/card/id/zeng_hu
 
 	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/zeng_hu = 1
 	)
