@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Taping papers to lockers should no longer attempt to unlock/lock them."
