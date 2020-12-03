@@ -36,7 +36,6 @@ html/changelog.html merge=union
 *.css text
 *.dm text
 *.dmf text
-#*.dmm text
 *.gitkeep text
 *.hook text
 *.html text
