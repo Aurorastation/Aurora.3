@@ -783,12 +783,6 @@
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
 				/obj/item/reagent_containers/toothbrush/red = 1)
 
-/obj/item/storage/box/holobadge
-	name = "holobadge box"
-	desc = "A box claiming to contain holobadges."
-	starts_with = list(/obj/item/clothing/accessory/badge/holo = 4,
-				/obj/item/clothing/accessory/badge/holo/cord = 2)
-
 /obj/item/storage/box/sol_visa
 	name = "Sol Alliance visa recommendations box"
 	desc = "A box full of Sol Aliance visa recommendation slips."
