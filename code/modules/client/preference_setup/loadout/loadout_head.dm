@@ -32,7 +32,7 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(bandanas)
 
-/datum/gear/head/bandana/colorable
+/datum/gear/head/bandana_color
 	display_name = "bandana (colorable)"
 	path = /obj/item/clothing/head/bandana/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -62,7 +62,7 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(softcaps)
 
-/datum/gear/head/softcap/colorable
+/datum/gear/head/softcap_color
 	display_name = "softcap (colorable)"
 	path = /obj/item/clothing/head/softcap/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -91,7 +91,7 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(berets)
 
-/datum/gear/head/beret/color
+/datum/gear/head/beret_color
 	display_name = "beret (colorable)"
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
