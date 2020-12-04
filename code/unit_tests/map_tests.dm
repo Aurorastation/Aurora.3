@@ -276,10 +276,10 @@ datum/unit_test/wire_test/start_test()
 		V_to_test += T
 	for(var/obj/machinery/vending/V in V_to_test)
 		var/obj/machinery/vending/temp_V = new V.type
-		if(V.products != temp_V.products || V.contraband != temp_V.contraband || V.premium != temp_V.premium)
+		if(length(difflist(V.products, temp_V.products)) || length(difflist(V.contraband, temp_V.contraband)) || length(difflist(V.premium, temp_V.premium)))
 			failed_checks++
 
-		log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z] in [V.loc] has mapped-in products, contraband, or premium items.")
+			log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z] on [V.loc] has mapped-in products, contraband, or premium items.")
 
 	if(failed_checks)
 		fail("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
