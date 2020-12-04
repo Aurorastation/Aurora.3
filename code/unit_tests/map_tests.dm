@@ -271,12 +271,12 @@ datum/unit_test/wire_test/start_test()
 	var/failed_checks = 0
 	var/list/obj/machinery/vending/V_to_test = list()
 
-	for(var/obj/machinery/vending/V in world)
+	for(var/obj/machinery/vending/T in world)
 		checks++
-		V_to_test += V
+		V_to_test += T
 	for(var/obj/machinery/vending/V in V_to_test)
 		var/obj/machinery/vending/temp_V = new V.type
-		if(V.products != V_test.products || V.contraband != V_test.contraband || V.premium != V_test.premium)
+		if(V.products != temp_V.products || V.contraband != temp_V.contraband || V.premium != temp_V.premium)
 			failed_checks++
 
 		log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z] in [V.loc] has mapped-in products, contraband, or premium items.")
