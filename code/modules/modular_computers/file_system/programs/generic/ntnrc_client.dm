@@ -57,14 +57,14 @@
 	if(href_list["send"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["send"]["target"])
-		var/message = sanitize(href_list["send"]["message"])
+		var/message = href_list["send"]["message"]
 		if(istype(conv) && message)
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
 	if(href_list["join"])
 		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
-		var/password = sanitize(href_list["join"]["password"])
+		var/password = href_list["join"]["password"]
 		if(istype(conv))
 			if(conv.password)
 				if(conv.password == password)
@@ -85,12 +85,12 @@
 			conv.cl_kick(src, tUser)
 	if(href_list["set_password"])
 		var/datum/ntnet_conversation/conv = locate(href_list["set_password"]["target"])
-		var/password = sanitize(href_list["set_password"]["password"])
+		var/password = href_list["set_password"]["password"]
 		if(istype(conv))
 			conv.cl_set_password(src, password)
 	if(href_list["change_title"])
 		var/datum/ntnet_conversation/conv = locate(href_list["change_title"]["target"])
-		var/newTitle = sanitize(href_list["change_title"]["title"])
+		var/newTitle = href_list["change_title"]["title"]
 		if(istype(conv))
 			conv.cl_change_title(src, newTitle)
 	if(href_list["new_channel"])
@@ -98,6 +98,7 @@
 	if(href_list["delete"])
 		var/datum/ntnet_conversation/conv = locate(href_list["delete"])
 		if(istype(conv) && conv.can_manage(src))
+			ntnet_global.chat_channels.Remove(conv)
 			qdel(conv)
 		SSvueui.check_uis_for_change(src)
 	if(href_list["direct"])
@@ -115,7 +116,7 @@
 	if(href_list["Reply"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
-		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
+		var/message = input(user, "Enter message or leave blank to cancel: ")
 		if(istype(conv) && message)
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
