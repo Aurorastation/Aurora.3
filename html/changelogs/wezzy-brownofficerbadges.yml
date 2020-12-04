@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Adds bronze badges for security officers."
   - rscadd: "Added detective badges to detective and forensic tech lockers, because they weren't there for some reason."
+  - rscdel: "Holobadges have been removed from Warden lockers. They are still obtainable in the loadout."
