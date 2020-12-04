@@ -38854,6 +38854,7 @@
 "vDl" = (
 /obj/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
+	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12);
 	prices = list()
 	},
 /obj/machinery/light{
