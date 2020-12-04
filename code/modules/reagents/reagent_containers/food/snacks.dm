@@ -180,7 +180,7 @@
 	// Eating with forks
 	if(istype(W,/obj/item/material/kitchen/utensil))
 		var/obj/item/material/kitchen/utensil/U = W
-		if(istype(W,/obj/item/material/kitchen/utensil/fork)&&(is_liquid))
+		if((istype(W,/obj/item/material/kitchen/utensil/fork)||istype(W,/obj/item/material/kitchen/utensil/chopsticks))&&(is_liquid))
 			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]."))
 			playsound(user.loc, 'sound/effects/pour.ogg', 10, 1)
 			return
@@ -205,7 +205,7 @@
 				I.color = src.filling_color
 				U.add_overlay(I)
 
-				reagents.trans_to_obj(U, min(reagents.total_volume,5))
+				reagents.trans_to_obj(U, min(reagents.total_volume,U.transfer_amt))
 				if(is_liquid)
 					U.is_liquid = TRUE
 				on_consume(user, user)

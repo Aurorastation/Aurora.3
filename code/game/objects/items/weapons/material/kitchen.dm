@@ -23,6 +23,7 @@
 	var/loaded      //Descriptive string for currently loaded food object.
 	var/is_liquid = FALSE //whether you've got liquid on your utensil
 	var/scoop_food = 1
+	var/transfer_amt = 5
 
 /obj/item/material/kitchen/utensil/New()
 	..()
@@ -89,6 +90,20 @@
 
 /obj/item/material/kitchen/utensil/spoon/plastic
 	default_material = MATERIAL_PLASTIC
+
+/obj/item/material/kitchen/utensil/chopsticks
+	name = "chopsticks"
+	desc = "A pair of chopsticks. The most challenging utensil in the Spur."
+	icon_state = "chopsticks"
+	default_material = MATERIAL_WOOD
+	transfer_amt = 2 //Chopsticks are hard to grab stuff with
+
+/obj/item/material/kitchen/utensil/chopsticks/New()
+	..()
+	if (prob(60))
+		src.pixel_y = rand(0, 4)
+	create_reagents(5)
+	return
 
 /*
  * Knives
