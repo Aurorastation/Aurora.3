@@ -71,6 +71,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"skin_colour",
 				"hair_style" = "h_style",
 				"facial_style" = "f_style",
+				"gradient_style" = "g_style",
 				"eyes_colour",
 				"b_type",
 				"disabilities",
