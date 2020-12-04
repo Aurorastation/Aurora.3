@@ -174,4 +174,4 @@
 
 	var/valuestr = make_view_variables_value(value, varname)
 
-	return "<li>[ecm]<span class='key'>[varname]</span> = [valuestr]</li>"
+	return "<li>[ecm]<span class='key'>[varname]</span> = [html_encode(vlauestr)]</li>"
