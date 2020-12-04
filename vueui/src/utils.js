@@ -36,7 +36,7 @@ const HOUR = 36000
 const MINUTE = 600
 
 export function worldtime2text(time, timeshift = true) {
-  const offset = timeshift ? Store.state.roundstart_hour + 2 : 0
+  const offset = timeshift ? Store.state.roundstart_hour : 0
   const hour = Math.floor((time / HOUR + offset) % 24)
   const minute = Math.floor(time % HOUR / MINUTE)
   return `${('0' + hour).slice(-2)}:${('0' + minute).slice(-2)}`
