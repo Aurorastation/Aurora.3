@@ -269,10 +269,13 @@ datum/unit_test/wire_test/start_test()
 /datum/unit_test/mapped_products/start_test()
 	var/checks = 0
 	var/failed_checks = 0
+	var/list/obj/machinery/vending/V_to_test = list()
 
 	for(var/obj/machinery/vending/V in world)
 		checks++
-		var/obj/machinery/vending/V_test = new V.type
+		V_to_test += V
+	for(var/obj/machinery/vending/V in V_to_test)
+		var/obj/machinery/vending/temp_V = new V.type
 		if(V.products != V_test.products || V.contraband != V_test.contraband || V.premium != V_test.premium)
 			failed_checks++
 
