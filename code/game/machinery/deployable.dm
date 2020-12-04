@@ -106,7 +106,7 @@ for reference:
 				src.health -= W.force * 0.75
 			else
 		animate_shake()
-		playsound(src.loc, material.hitsound, 100, 1)
+		playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
 		if (src.health <= 0)
 			visible_message("<span class='danger'>The barricade is smashed apart!</span>")
 			dismantle()

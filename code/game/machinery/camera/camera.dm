@@ -207,7 +207,7 @@
 			if (istype(W, /obj/item)) //is it even possible to get into attackby() with non-items?
 				var/obj/item/I = W
 				if (I.hitsound)
-					playsound(loc, I.hitsound, 50, 1, -1)
+					playsound(loc, I.hitsound, I.get_clamped_volume(), 1, -1)
 		take_damage(W.force)
 
 	else
@@ -450,4 +450,3 @@
 	wires.MendAll()
 	update_icon()
 	update_coverage()
-

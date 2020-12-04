@@ -175,7 +175,7 @@
 				user.do_attack_animation(src)
 				animate_shake()
 				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [I]!</span>")
-				playsound(src.loc, material.hitsound, 100, 1)
+				playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
 				src.health -= W.force * 1
 				CheckHealth()
 

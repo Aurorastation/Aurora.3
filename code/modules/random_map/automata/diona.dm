@@ -35,7 +35,7 @@
 		user.do_attack_animation(src)
 		if(W.force)
 			user.visible_message(SPAN_DANGER("\The [user] [pick(W.attack_verb)] \the [src] with \the [W]!"), SPAN_NOTICE("You [pick(W.attack_verb)] \the [src] with \the [W]!"))
-			playsound(loc, W.hitsound, 60, TRUE)
+			playsound(loc, W.hitsound, W.get_clamped_volume(), TRUE)
 			playsound(loc, /decl/sound_category/wood_break_sound, 50, TRUE)
 			health -= W.force
 			if(health <= 0)
