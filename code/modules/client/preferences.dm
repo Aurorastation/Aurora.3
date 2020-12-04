@@ -441,14 +441,16 @@ datum/preferences
 	character.g_facial = g_facial
 	character.b_facial = b_facial
 
+	character.g_style = g_style
+	character.r_grad = r_grad
+	character.g_grad = g_grad
+	character.b_grad = b_grad
+
 	character.r_skin = r_skin
 	character.g_skin = g_skin
 	character.b_skin = b_skin
 
 	character.s_tone = s_tone
-
-	character.h_style = h_style
-	character.f_style = f_style
 
 	character.citizenship = citizenship
 	character.employer_faction = faction
