@@ -377,9 +377,8 @@
 		return
 
 	else if(!istype(W,/obj/item/rfd/construction) && !istype(W, /obj/item/reagent_containers))
-		//At this point we know that they probably wanna hit it.
 		if(user.a_intent != I_HURT || !W.force)
-			return attack_hand(user)
+			return
 
 		var/damage_to_deal = W.force
 		var/weaken = 0
