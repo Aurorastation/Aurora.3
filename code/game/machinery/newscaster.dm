@@ -979,7 +979,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		icon_state = "newspaper[rolled ? "_rolled" : ""]"
 		item_state = icon_state
 		update_icon()
-	return ..()
 
 ////////////////////////////////////helper procs
 
