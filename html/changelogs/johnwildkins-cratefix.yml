@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Crates no longer pass through barricades or other objects that allow small objects (PASSTABLE) through."
-  - refactor: "Crates being lifted (and other timed interactions with objects) now stop being lifted if the crate is moved."

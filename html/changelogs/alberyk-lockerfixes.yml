@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - tweak: "You can no longer hide large mobs inside closets."
-  - tweak: "You can no longer hide inside wallclosets."

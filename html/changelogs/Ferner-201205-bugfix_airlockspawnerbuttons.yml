@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes:
-  - bugfix: "Fixed airlock spawners not applying the correct cycle command to the buttons."
