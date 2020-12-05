@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - rscdel: "Removes the default medbot messages. Medbots start with speech off."
-  - rscass: "Adds the ability for robotosists or doctors to give medbots custom messages instead."
+  - rscadd: "Adds the ability for robotosists or doctors to give medbots custom messages instead."
