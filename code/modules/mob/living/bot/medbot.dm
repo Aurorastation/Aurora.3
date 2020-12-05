@@ -13,7 +13,6 @@
 	var/mob/living/carbon/human/patient = null
 	var/mob/ignored = list() // Used by emag
 	var/last_newpatient_speak = 0
-	var/vocal = 1
 
 	//Healing vars
 	var/obj/item/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
@@ -37,10 +36,6 @@
 	..()
 	if(!on)
 		return
-
-	if(vocal && prob(1))
-		var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of medbay is this? Everyone's dropping like dead flies.", "Delicious!")
-		say(message)
 
 	if(patient)
 		if(Adjacent(patient))
@@ -158,8 +153,6 @@
 
 		dat += "Treatment report is [declare_treatment ? "on" : "off"]. <a href='?src=\ref[src];declaretreatment=[1]'>Toggle</a><br>"
 
-		dat += "The speaker switch is [vocal ? "on" : "off"]. <a href='?src=\ref[src];togglevoice=[1]'>Toggle</a><br>"
-
 	var/datum/browser/bot_win = new(user, "automed", "Automatic Medibot v1.2 Controls")
 	bot_win.set_content(dat)
 	bot_win.open()
@@ -221,9 +214,6 @@
 			reagent_glass = null
 		else
 			to_chat(usr, "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>")
-
-	else if (href_list["togglevoice"] && (!locked || issilicon(usr)))
-		vocal = !vocal
 
 	else if (href_list["declaretreatment"] && (!locked || issilicon(usr)))
 		declare_treatment = !declare_treatment

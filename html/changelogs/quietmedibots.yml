@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes the medibot speech feature. Nobody needed to know about a medkit's job aspirations."
