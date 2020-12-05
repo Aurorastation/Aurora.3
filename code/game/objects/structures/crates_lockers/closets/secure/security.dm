@@ -202,6 +202,7 @@
 
 /obj/structure/closet/secure_closet/warden/fill()
 	//Supply
+	new /obj/item/storage/box/holobadge(src)
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/teargas(src)
