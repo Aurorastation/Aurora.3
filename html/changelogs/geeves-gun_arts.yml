@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added Gun-Kata to the Martial Arts uplink for 4 TC. It allows the user to reload projectile weapons by clicking on magazines with the gun in-hand, as well as automatically ejecting magazines to the floor when they're empty."
