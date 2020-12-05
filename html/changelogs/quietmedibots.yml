@@ -3,4 +3,5 @@ author: Sparky_hotdog
 delete-after: True
 
 changes:
-  - rscdel: "Removes the medibot speech feature. Nobody needed to know about a medkit's job aspirations."
+  - rscdel: "Removes the default medbot messages. Medbots start with speech off."
+  - rscass: "Adds the ability for robotosists or doctors to give medbots custom messages instead."
