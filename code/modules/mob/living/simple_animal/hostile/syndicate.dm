@@ -153,6 +153,7 @@
 	density = 0
 	attacktext = "cut"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
+	blood_overlay_icon = null
 	faction = "syndicate"
 	min_oxy = 0
 	max_oxy = 0

@@ -53,7 +53,7 @@
 		return
 	source = P
 	var/datum/beam/power/B = new(src, source, beam_icon_state = "explore_beam", time = -1, maxdistance = cable_length)
-	if(istype(B))
+	if(istype(B) && !QDELING(B))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
 		B.owner = src
 		B.Start()

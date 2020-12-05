@@ -31,7 +31,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	uniform = /obj/item/clothing/under/rank/captain
 	shoes = /obj/item/clothing/shoes/brown
 	head = /obj/item/clothing/head/caphat
-	l_ear = /obj/item/device/radio/headset/heads/captain
+	headset = /obj/item/device/radio/headset/heads/captain
+	bowman = /obj/item/device/radio/headset/heads/captain/alt
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
@@ -105,7 +106,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/hop
+	headset = /obj/item/device/radio/headset/heads/hop
+	bowman = /obj/item/device/radio/headset/heads/hop/alt
 	id = /obj/item/card/id/navy
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/hop
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop

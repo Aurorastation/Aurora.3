@@ -9,6 +9,7 @@
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
 	var/hide_name = FALSE                                // If TRUE, the species' name won't be visible on examine.
 	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
+	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
 	var/age_min = 17
