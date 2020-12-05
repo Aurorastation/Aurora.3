@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes:
+  - bugfix: "The csi kit now no longer goes invisible when carried in the hand on the other side of the player's sprite."
