@@ -424,8 +424,8 @@
 
 /obj/machinery/vending/cigarette/merchant
 	// Mapped in merchant station
-	premium = list();
-	prices = list();
+	premium = list()
+	prices = list()
 	products = list(
 		/obj/item/storage/box/fancy/cigarettes = 10,
 		/obj/item/storage/box/fancy/matches = 10,
