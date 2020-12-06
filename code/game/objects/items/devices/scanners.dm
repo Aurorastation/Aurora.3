@@ -378,7 +378,7 @@ BREATH ANALYZER
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 	if(reagents.total_volume)
-		if(LAZYLEN(reagents.reagent_volumes) > 1 || !REAGENT_VOLUME(reagents, /decl/reagent/blood))
+		if(LAZYLEN(reagents.reagent_volumes) > 1 || !REAGENT_DATA(reagents, /decl/reagent/blood))
 			reagents.clear_reagents()
 			to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
 			return

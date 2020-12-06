@@ -31,7 +31,7 @@
 
 /decl/reagent/blood/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
 
-	if(!istype(T) || REAGENT_VOLUME(holder, type) < 3)
+	if(!istype(T) || REAGENT_VOLUME(holder, type) < 3 || !REAGENT_DATA(holder, type))
 		return
 
 	var/datum/weakref/W = holder.reagent_data[type]["donor"]
@@ -51,7 +51,7 @@
 /decl/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		if (M.mind && M.mind.vampire)
-			if(M.dna.unique_enzymes == holder.reagent_data[type]["blood_DNA"]) //so vampires can't drink their own blood
+			if(LAZYLEN(REAGENT_DATA(holder, type) && M.dna.unique_enzymes == LAZYACCESS(holder.reagent_data[type], "blood_DNA"))) //so vampires can't drink their own blood
 				return
 			M.mind.vampire.blood_usable += removed
 			to_chat(M, "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")

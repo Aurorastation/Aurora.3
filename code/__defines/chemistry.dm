@@ -109,5 +109,5 @@
 #define	VOMIT_CHANCE_SCALE 2.5 //Percent change added for every 0.01 percent over the VOMIT limit
 
 #define REAGENTS_FREE_SPACE(R) (R.maximum_volume - R.total_volume)
-#define REAGENT_VOLUME(REAGENT_HOLDER, REAGENT_TYPE) (REAGENT_HOLDER.reagent_volumes && REAGENT_HOLDER.reagent_volumes[REAGENT_TYPE])
-#define REAGENT_DATA(REAGENT_HOLDER, REAGENT_TYPE)   (REAGENT_HOLDER.reagent_data    && REAGENT_HOLDER.reagent_data[REAGENT_TYPE])
+#define REAGENT_VOLUME(REAGENT_HOLDER, REAGENT_TYPE) (REAGENT_HOLDER?.reagent_volumes && REAGENT_HOLDER.reagent_volumes[REAGENT_TYPE])
+#define REAGENT_DATA(REAGENT_HOLDER, REAGENT_TYPE)   (REAGENT_HOLDER?.reagent_data    && REAGENT_HOLDER.reagent_data[REAGENT_TYPE])
