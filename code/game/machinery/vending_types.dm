@@ -435,8 +435,8 @@
 	)
 
 /obj/machinery/vending/cigarette/hacked
-	name = "hacked cigarette machine";
-	prices = list();
+	name = "hacked cigarette machine"
+	prices = list()
 	products = list(
 		/obj/item/storage/box/fancy/cigarettes = 10,
 		/obj/item/storage/box/fancy/matches = 10,
