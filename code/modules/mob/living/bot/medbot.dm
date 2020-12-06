@@ -226,7 +226,7 @@
 		declare_treatment = !declare_treatment
 
 	else if (href_list["msg"] && (!locked || issilicon(usr)))
-		var/I = input(usr,"What will this medbot say?", "Set Message") as text|null
+		var/I = sanitize(input(usr,"What will this medbot say?", "Set Message") as text|null)
 		if(!I)
 			return
 		message = I
