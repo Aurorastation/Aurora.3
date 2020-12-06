@@ -29,6 +29,14 @@
 			..()
 		return
 
+	if(href_list["vueuiclose"])
+		var/datum/vueui/ui = locate(href_list["src"])
+		if(istype(ui))
+			ui.close()
+		else // UI is an orphan, close it directly.
+			src << browse(null, "window=vueui[href_list["vueuiclose"]]")
+		return
+
 	// asset_cache
 	if(href_list["asset_cache_confirm_arrival"])
 		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
@@ -749,5 +757,3 @@
 				M.set_dir(get_dir(M, over_object))
 				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
 	CHECK_TICK
-
-
