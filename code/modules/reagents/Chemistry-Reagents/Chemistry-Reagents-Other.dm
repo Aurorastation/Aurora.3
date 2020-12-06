@@ -370,15 +370,15 @@
 	if(prob(force * 6))
 		explode(holder)
 
-/decl/reagent/nitroglycerin/touch_turf(var/turf/T, var/datum/reagents/holder)
+/decl/reagent/nitroglycerin/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	. = ..()
 	explode(holder)
 
-/decl/reagent/nitroglycerin/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/nitroglycerin/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	. = ..()
 	explode(holder)
 
-/decl/reagent/nitroglycerin/touch_mob(var/mob/M, var/datum/reagents/holder)
+/decl/reagent/nitroglycerin/touch_mob(var/mob/M, var/amount, var/datum/reagents/holder)
 	. = ..()
 	explode(holder)
 

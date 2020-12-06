@@ -49,7 +49,7 @@
 /mob/living/simple_animal/hostile/viscerator/lube/Initialize()
 	. = ..()
 	create_reagents(30)
-	reagents.add_reagent(/datum/reagent/lube, 30)
+	reagents.add_reagent(/decl/reagent/lube, 30)
 
 /mob/living/simple_animal/hostile/viscerator/lube/death()
 	reagents.splash(get_turf(src), 30)
