@@ -77,8 +77,6 @@
 
 				INVOKE_ASYNC(H, /mob/living/carbon/human.proc/set_species, randomize)
 				H.universal_speak = 1
-				var/datum/preferences/A = new() //Randomize appearance for the human
-				A.randomize_appearance_for(H)
 
 		if(new_mob)
 			for (var/spell/S in M.spell_list)

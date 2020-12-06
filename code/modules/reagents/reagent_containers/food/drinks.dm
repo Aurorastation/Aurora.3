@@ -282,7 +282,9 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/waterbottle
 	name = "bottled water"
-	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
+	desc = "A fresh bottle of water from the finest bottling plants on Silversun."
+	desc_fluff = "Previously introduced to the vending machines by Skrellian request, this water used to come straight from the Martian poles. Ever since the Martian catastrophe, however, an Idris subsidiary has since stepped in to fill the gap in the market \
+	and 'Martian Water' has become a prized collector's item."
 	icon_state = "waterbottle"
 	flags = 0 //starts closed
 	center_of_mass = list("x"=16, "y"=8)

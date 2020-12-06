@@ -467,9 +467,15 @@
 /datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
-	H.sight |= get_vision_flags(H)
-	H.sight |= H.equipment_vision_flags
-	H.sight |= vision[1]
+	if(H.machine && H.machine.check_eye(H) >= 0 && H.client.eye != H)
+		// we inherit sight flags from the machine
+		H.sight &= ~(get_vision_flags(H))
+		H.sight &= ~(H.equipment_vision_flags)
+		H.sight &= ~(vision[1])
+	else
+		H.sight |= get_vision_flags(H)
+		H.sight |= H.equipment_vision_flags
+		H.sight |= vision[1]
 
 	if(H.stat == DEAD)
 		return 1
