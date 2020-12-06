@@ -182,6 +182,7 @@ main ui datum.
 	sdata["title"] = title
 	sdata["wtime"] = world.time
 	sdata["debug"] = user && check_rights(R_DEV, FALSE, user=user)
+	sdata["roundstart_hour"] = roundstart_hour
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		sdata["assets"][asset_name] = list("ref" = ckey("\ref[asset["img"]]"))

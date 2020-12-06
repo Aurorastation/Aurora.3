@@ -1024,7 +1024,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_ROBOT =       TRUE,
 					LANGUAGE_DRONE =       TRUE,
 					LANGUAGE_EAL =         TRUE,
-					LANGUAGE_VOX =         TRUE,
 					LANGUAGE_CHANGELING =  TRUE,
 					LANGUAGE_BORER =       TRUE
 					)

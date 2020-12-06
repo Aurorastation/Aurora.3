@@ -8,7 +8,8 @@ export default {
     status: 2,
     size: [400, 600],
     debug: 0,
-    wtime: 0
+    wtime: 0,
+    roundstart_hour: 0
   },
   loadState (loadedState) {
     this.isUpdating = true
@@ -25,6 +26,7 @@ export default {
     this.state.title = loadedState.title
     this.state.wtime = loadedState.wtime
     this.state.debug = loadedState.debug
+    this.state.roundstart_hour = loadedState.roundstart_hour
     this.isUpdating = false
   },
   isUpdating: false,
