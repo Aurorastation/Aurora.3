@@ -156,6 +156,9 @@ main ui datum.
 	<script type="application/json" id="initialstate">
 		[generate_data_json()]
 	</script>
+	<script type="text/javascript">
+		window.__windowId__ = document.getElementById('vueui:windowId').getAttribute('content');
+	</script>
 	<script type="text/javascript" src="vueui.js"></script>
 </html>
 	"}

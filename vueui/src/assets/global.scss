@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import 'icons.scss';
 @import 'variables.scss';
 @import 'utilities.scss';
@@ -187,4 +188,16 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
 
 .highlight {
     color: darkblue;
+}
+
+.good {
+    color: #4f7529;
+}
+
+.average {
+    color: #cd6500;
+}
+
+.bad {
+    color: #ee0000;
 }

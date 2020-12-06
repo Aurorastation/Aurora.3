@@ -21480,22 +21480,22 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
 /obj/item/clothing/accessory/stethoscope,
@@ -22536,7 +22536,7 @@
 /area/medical/medbay4)
 "aWF" = (
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -22721,7 +22721,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8

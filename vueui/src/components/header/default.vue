@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import Utils from '../../utils.js';
+import { dragStartHandler, dragEndHandler } from '../../drag.js';
 export default {
   data () {
     return {

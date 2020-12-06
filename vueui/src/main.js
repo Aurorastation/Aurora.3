@@ -50,7 +50,7 @@ if (document.getElementById("app")) {
 
   new Vue({
     data: Store.state,
-    template: "<div id='app'><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
+    template: "<div id='app' tabindex='-1'><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
     computed: {
       componentName() {
         if(this.$root.$data.active.charAt(0) != "?") {
@@ -64,9 +64,6 @@ if (document.getElementById("app")) {
         }
         return null
       }
-    },
-    mounted() {
-      document.getElementsByClassName('mainContent')[0]?.focus()
     },
     watch: {
       state: {

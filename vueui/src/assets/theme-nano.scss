@@ -4,13 +4,14 @@
 @import './_mixins.scss';
 
 $scrollbar-color-multiplier: 1 !default;
-$color-bg: #202020 !default;
+$color-bg: #FFFFFF !default;
 $text-color: rgba(255, 255, 255, 0.75) !default;
 $header-bg: #363636 !default;
 $shadow-color-core: #161616 !default;
 $shadow-color: rgba(0, 0, 0, 0.1) !default;
 
 .theme-nano {
+    $color-bg: #202020;
     font-size: 12px;
     line-height: 1.9em;
     font-family: Verdana, Geneva, sans-serif;
@@ -175,6 +176,7 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
             padding: 0.5rem 1rem;
             margin: -0.3rem -0.5rem 0rem 0rem;
             transition: color 250ms, background-color 250ms;
+            color: rgba(255, 255, 255, 0.5);
             &:hover { 
                 background-color: #cc0000;
             }
@@ -238,6 +240,9 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
         background: url(resources/theme-nano/uiTitleBackground-light.png) repeat center;
         .uiTitleText {
             color: #4C401C;
+        }
+        .uiTitleClose {
+            color: rgba(0, 0, 0, 1);
         }
     }
 

@@ -27,6 +27,11 @@ export default {
   data() {
     return this.$root.$data
   },
+  mounted: function() {
+    this.$nextTick(function() {
+      document.getElementById('content').classList.add("mcomputer");
+    })
+  },
   computed: {
     time() {
       return worldtime2text(this.wtime)
