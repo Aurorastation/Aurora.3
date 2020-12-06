@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Mechatronic fabricators should now dispense synthskin and other non-industrial IPC limbs correctly."
