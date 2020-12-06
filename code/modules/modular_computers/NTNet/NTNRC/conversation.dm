@@ -25,7 +25,7 @@ var/global/ntnrc_uid = 0
 		log_ntirc("[message.user.client.ckey]/([message.nuser.username]): [admin_log]", ckey=key_name(message.user), conversation=title)
 
 	for(var/datum/ntnet_user/U in users)
-		for(var/datum/computer_file/program/chat_client/Cl)
+		for(var/datum/computer_file/program/chat_client/Cl in U.clients)
 			var/notification_text = message.format_chat_notification(src, Cl)
 			if(notification_text && Cl.can_receive_notification(message.client))
 				Cl.computer.output_message(notification_text, 0)
