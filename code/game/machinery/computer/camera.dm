@@ -25,7 +25,7 @@
 	return attack_hand(user)
 
 /obj/machinery/computer/security/check_eye(var/mob/user as mob)
-	if (user.stat || ((get_dist(user, src) > 1 || !( user.canmove ) || user.blinded) && !istype(user, /mob/living/silicon))) //user can't see - not sure why canmove is here.
+	if (use_check_and_message(user) || user.blinded || inoperable())
 		return -1
 	if(!current_camera)
 		return 0
