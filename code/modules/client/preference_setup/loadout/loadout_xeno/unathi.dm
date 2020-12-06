@@ -98,7 +98,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Intern", "Psychiatrist", "Chemist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_security

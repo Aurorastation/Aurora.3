@@ -36,7 +36,7 @@
 	icon_state = "med"
 
 /obj/item/clothing/accessory/armband/medgreen
-	name = "EMT armband"
+	name = "first responder armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is white and green."
 	icon_state = "medgreen"
 

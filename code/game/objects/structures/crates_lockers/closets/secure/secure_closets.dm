@@ -199,6 +199,8 @@
 				)
 			else
 				togglelock(user)
+		else if(istype(W, /obj/item/ducttape))
+			return
 		else
 			togglelock(user)//Attempt to lock locker if closed
 
@@ -280,4 +282,3 @@
 		var/obj/structure/bigDelivery/BD = loc
 		BD.unwrap()
 	open()
-

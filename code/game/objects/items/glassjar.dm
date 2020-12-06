@@ -53,6 +53,8 @@
 	if(ismob(A))
 		var/mob/L = A
 		if(L.mob_size <= MOB_TINY)
+			user.visible_message(SPAN_NOTICE("<b>\The [user]</b> scoops \the [L] into \the [src]."), SPAN_NOTICE("You scoop \the [L] into \the [src]."))
+			L.forceMove(src)
 			contains = JAR_ANIMAL
 			scoop(L, user)
 		else
