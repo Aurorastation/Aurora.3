@@ -251,9 +251,6 @@ main ui datum.
   */
 /datum/vueui/Topic(href, href_list)
 	. = update_status(FALSE)
-	if(href_list["vueuiclose"])
-		close()
-		return
 	if(status < STATUS_INTERACTIVE || user != usr)
 		return
 	if(href_list["vueuiforceresource"])
@@ -388,10 +385,10 @@ main ui datum.
   * @return themes class - text
   */
 /datum/vueui/proc/get_theme_class()
-	return SStheming.get_html_theme_class(user)
+	return "vueui " + SStheming.get_html_theme_class(user)
 
 /datum/vueui/modularcomputer
 	header = "modular-computer"
 
 /datum/vueui/modularcomputer/get_theme_class()
-	return "theme-nano dark-theme"
+	return "vueui theme-nano dark-theme"

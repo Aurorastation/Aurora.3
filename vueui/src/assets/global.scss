@@ -17,9 +17,12 @@ body {
     margin: 0px;
     padding: 8px;
     font-family: Arial, Helvetica, sans-serif;
-    overflow-y: hidden;
     overflow-x: auto;
     min-width: 240px;
+}
+
+body.vueui {
+    overflow-y: hidden;
 }
 
 #content {
@@ -160,7 +163,7 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .notice {
