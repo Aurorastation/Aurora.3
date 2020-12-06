@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 button, .button {
-  margin-left: 6px;
+  margin-left: 0.4rem;
 }
 .mcomputer {
   img {

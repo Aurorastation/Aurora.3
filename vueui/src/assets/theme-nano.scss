@@ -172,16 +172,12 @@ $shadow-color: rgba(0, 0, 0, 0.1) !default;
 
         .uiCloseBtn {
             font-size: 1rem;
-            padding: 0.7rem 1rem;
+            padding: 0.5rem 1rem;
             margin: -0.3rem -0.5rem 0rem 0rem;
             transition: color 250ms, background-color 250ms;
             &:hover { 
                 background-color: #cc0000;
             }
-        }
-
-        .mcomputer {
-            margin-top: 0.4rem;
         }
     }
 

@@ -28,7 +28,7 @@ body {
     float: none;
     clear: both;
     user-select: none;
-    margin: 0px 0px 8px 0px;
+    margin: 0px;
     padding: 0.3rem 0.5rem;
     font-size: 1.2em;
   
@@ -51,7 +51,9 @@ body {
       }
     }
   
-    
+    .mcomputer {
+        margin-top: 0.4rem;
+    }
   }
 
 .mainContent {
