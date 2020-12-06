@@ -34,7 +34,7 @@
 		if(istype(ui))
 			ui.close()
 		else // UI is an orphan, close it directly.
-			src << browse(null, "window=vueui[href_list["vueuiclose"]]")
+			src << browse(null, "window=vueui[href_list["src"]]")
 		return
 
 	// asset_cache
