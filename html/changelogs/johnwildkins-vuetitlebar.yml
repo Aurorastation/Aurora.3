@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - rscadd: "Ported the titlebar replacement system from /tg/, adopted for Vue UIs. Vue-based UIs will now have their default BYOND titlebar replaced with a suitably themed equivalent, increasing available screen space and style."
-  - tweak: "Scrollbars now scroll only the content of a UI, and not the entire window - this should be most notable while using modular computer programs."
-  - backend: "Developers can toggle the debug interface on and off in-game via the bug icon, even without UIDEBUG defined."
