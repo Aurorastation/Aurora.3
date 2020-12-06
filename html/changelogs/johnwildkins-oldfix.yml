@@ -1,9 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Cryoing with the same mob name as another player should no longer remove both players from the manifest and records system."
-  - bugfix: "Malf/traitor AI law deletion now correctly rebuilds the law list, so carding a malf AI no longer reveals extra laws (other than law zero)."
-  - bugfix: "Mobs that die while pointing no longer leave an infinite point marker."
-  - bugfix: "Thermals, mesons, and material scanner overlays no longer function through security camera monitors."
