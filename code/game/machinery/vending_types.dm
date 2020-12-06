@@ -151,9 +151,9 @@
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 12,
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 6,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy = 6,
-		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 6);
-	random_itemcount = 1;
-	req_access = list();
+		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 6)
+	random_itemcount = 1
+	req_access = list()
 	restock_items = 1
 
 /obj/machinery/vending/assist
