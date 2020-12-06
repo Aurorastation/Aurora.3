@@ -3,6 +3,7 @@ author: JohnWildkins
 delete-after: True
 
 changes:
+  - tweak: "Repairing a robotic body part with a welding tool now fails (without damage) if it runs out of fuel before completion."
   - bugfix: "Nitroglycerin no longer explodes upon mixing, nor does it explode due to cold temperatures."
   - bugfix: "IPCs are no longer able to make their limbs human in character setup."
   - bugfix: "Stowing or equipping the RCD-T (malf fabricator) as a construction borg should no longer create an infinite inventory."
