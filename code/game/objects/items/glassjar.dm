@@ -66,7 +66,6 @@
 			user.put_in_hands(new /obj/item/reagent_containers/glass/beaker/jar) //found in jar.dm
 			qdel(src)
 			return
-		playsound(src, drop_sound, DROP_SOUND_VOLUME)
 		if(JAR_MONEY)
 			for(var/obj/O in src)
 				user.put_in_hands(O)
@@ -97,6 +96,7 @@
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> releases \the [A] from \the [src]."), SPAN_NOTICE("You release \the [A] from \the [src]."))
 	if(length(contained) == 0)
 		contains = JAR_NOTHING
+	playsound(src, drop_sound, DROP_SOUND_VOLUME)
 	update_icon()
 	return
 
