@@ -112,8 +112,8 @@
 		update_icon()
 	if(istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
 		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = A
-		if(length(gumballs_contained) < GUMBALL_MAX)
-			gumballs_contained += G
+		if(length(contained) < GUMBALL_MAX)
+			contained += G
 			user.drop_from_inventory(G)
 			G.forceMove(src)
 			if(!contains)
@@ -170,7 +170,7 @@
 			name = "gumball jar"
 			desc = "A jar containing gumballs with varying colours."
 			var/image/gumballs_overlay = image(icon)
-			switch(length(gumballs_contained))
+			switch(length(contained))
 				if(1 to GUMBALL_MIN)
 					gumballs_overlay.icon_state = "gumball_min"
 				if(6 to GUMBALL_MEDIUM)
@@ -208,7 +208,7 @@
 	..()
 	for(var/i = 1 to GUMBALL_MAX)
 		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = new(src)
-		gumballs_contained += G
+		contained += G
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -218,7 +218,7 @@
 /obj/item/glass_jar/gumball/medical/Initialize()
 	for(var/i = 1 to GUMBALL_MAX)
 		var/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/G = new(src)
-		gumballs_contained += G
+		contained += G
 
 #undef JAR_NOTHING
 #undef JAR_MONEY
