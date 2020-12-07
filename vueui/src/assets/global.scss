@@ -1,9 +1,11 @@
+@use 'sass:color';
 @import 'icons.scss';
 @import 'variables.scss';
 @import 'utilities.scss';
 @import 'theme-basic.scss';
 @import 'theme-nano.scss';
 @import 'departmental.scss';
+@import '_mixins.scss';
 
 .dark-theme {
     color: #ffffff;
@@ -15,6 +17,93 @@ body {
     margin: 0px;
     padding: 8px;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: auto;
+    min-width: 240px;
+}
+
+body.vueui {
+    overflow-y: hidden;
+}
+
+#content {
+    height: calc(100vh - 36px);
+    &.mcomputer {
+        height: calc(100vh - 72px);
+    }
+    &.uiDebug {
+        height: calc(50vh - 36px);
+        &.mcomputer {
+            height: calc(50vh - 72px);
+        }
+    }
+}
+
+#debug {
+    height: 50vh;
+    display: none;
+    &.uiDebug {
+        display: inherit;
+    }
+}
+
+#content, #debug {
+    overflow-y: auto;
+    margin-right: -8px;
+    margin-top: -8px;
+}
+
+#content > div {
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+.uiTitleWrapper {
+    margin: -8px -8px 10px;
+    position: relative;
+    float: none;
+    clear: both;
+    user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+    & > .titleBar {
+        height: 32px;
+        @include vertical-align(middle, 24px);
+        & > * {
+            display: inline-block;
+            margin-left: 8px;
+            line-height: 32px;
+        }
+
+        & > .uiTitleText {
+            font-size: 16px;
+        }
+
+        & > .uiDebugIcon {
+            cursor: pointer;
+            transition: color 250ms;
+            &.uiNoDebug {
+                display: none;
+            }
+            &:hover {
+                color: #507aac;
+                transition: color 0ms;
+            }
+        }
+
+        & > .uiTitleClose {
+            display: block;
+            float: right;
+            width: 45px;
+            font-size: 20px;
+            text-align: center;
+            transition: color 250ms, background-color 250ms;
+            &:hover {
+                color: rgba(255, 255, 255, 1.0);
+                background-color: #cc0000;
+                transition: color 0ms, background-color 0ms;
+            }
+        }
+    }
 }
 
 code {
@@ -57,6 +146,7 @@ input, textarea, select {
 
 a, .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
     user-select: none;
+    -ms-user-select: none;
     background-color: #d8d8d8;
     cursor: pointer;
     padding: 2px 4px;
@@ -73,7 +163,7 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .notice {
@@ -117,10 +207,6 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
     }
 }
 
-.uiTitleFluff {
-    display: none;
-}
-
 .csserror {
     display: none;
 }
@@ -145,4 +231,16 @@ a, .button, button, input[type=submit], input[type=button], input[type=reset], i
 
 .highlight {
     color: darkblue;
+}
+
+.good {
+    color: #4f7529;
+}
+
+.average {
+    color: #cd6500;
+}
+
+.bad {
+    color: #ee0000;
 }

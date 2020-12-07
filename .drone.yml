@@ -4,7 +4,7 @@ type: docker
 name: code check
 
 clone:
-  depth: 10
+  depth: 50
 
 environment:
   MACRO_COUNT: 0
@@ -16,7 +16,7 @@ trigger:
   - master #avoid double builds on PRs
 
 steps:
-  - name: "Runtime - Compile and Run Unit Tests" 
+  - name: "Runtime - Compile and Run Unit Tests"
     image: python:3.6-slim-buster
     commands:
       - pip install --user -r ./tools/requirements.txt
@@ -28,14 +28,25 @@ steps:
       - python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
       - python3 tools/mapmerge2/travis_mapcheck.py
       - echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
-      - echo "Complated Code Checks"
+      - echo "Completed Code Checks"
+  - name: "Run DreamChecker"
+    image: aurorastation/dm-buildimage:latest
+    commands:
+      - /opt/dreamchecker
+  - name: "Vue - Lint and Compile"
+    image: node:10-buster
+    commands:
+      - cd vueui
+      - npm install # TODO: Cache that shit
+      - (npm run lint | tee lint.log)
+      - npm run build
 ---
 kind: pipeline
 type: docker
 name: dm-runtime
 
 clone:
-  depth: 10
+  depth: 50
 
 environment:
   USE_MAP: runtime
@@ -61,7 +72,7 @@ steps:
       - for f in SQL/migrate/*.sql; do mysql -h mariadb -uroot -proot game < $f && echo "Migrated $f"; done
       - mysql -h mariadb -uroot -proot game -e "SHOW TABLES;"
 
-  - name: "Runtime - Compile and Run Unit Tests" 
+  - name: "Runtime - Compile and Run Unit Tests"
     image: aurorastation/dm-buildimage:latest
     commands:
       - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
@@ -78,7 +89,7 @@ type: docker
 name: dm-aurora
 
 clone:
-  depth: 10
+  depth: 50
 
 environment:
   USE_MAP: aurora
@@ -88,7 +99,7 @@ trigger:
   - master #avoid double builds on PRs
 
 steps:
-  - name: "Aurora - Compile and Run Unit Tests" 
+  - name: "Aurora - Compile and Run Unit Tests"
     image: aurorastation/dm-buildimage:latest
     commands:
       - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
@@ -105,7 +116,7 @@ type: docker
 name: dm-exodus
 
 clone:
-  depth: 10
+  depth: 50
 
 environment:
   USE_MAP: exodus
@@ -115,7 +126,7 @@ trigger:
   - master #avoid double builds on PRs
 
 steps:
-  - name: "Exodus - Compile and Run Unit Tests" 
+  - name: "Exodus - Compile and Run Unit Tests"
     image: aurorastation/dm-buildimage:latest
     commands:
       - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
@@ -128,6 +139,6 @@ steps:
       - echo "Unit Tests Completed"
 ---
 kind: signature
-hmac: d23e577d98b4aaa3cf1e3b1f58ace007a86dfeb63d15ff29f9e8424ba4d76c96
+hmac: 21286f11eaa90a42d926886ecc2df9312ad174051f5f42b51d4394cc578ae0ee
 
 ...

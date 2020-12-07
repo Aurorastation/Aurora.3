@@ -318,6 +318,7 @@
 			if(!src) return
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored
+			power_change()
 		return
 
 	else if(istype(W,/obj/item/vending_refill))
@@ -779,6 +780,8 @@
 
 /obj/machinery/vending/power_change()
 	..()
+	if(!anchored)
+		stat |= NOPOWER
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 		cut_overlays()
