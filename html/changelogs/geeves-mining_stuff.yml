@@ -1,0 +1,13 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Mapped in two basic mining drones in the external tool storage area (where the minecarts are)."
+  - rscadd: "Mining drones now come equipped with an RFD-M, a tethering device, and a stack of purple flags."
+  - rscadd: "Mining drones can now bump against doors to open them."
+  - rscadd: "Mining drones now have external airlock access."
+  - rscadd: "You can now click-drag with the RFD-M to lay down track."
+  - tweak: "The charge cost for robots using the RFD-M has been lowered to 200, down from 500."
+  - rscdel: "Mining drones no longer appear as a unique role on the round join menu."
+  - tweak: "Mining drone lights are now much brighter, and illuminate in a circle around the drone."

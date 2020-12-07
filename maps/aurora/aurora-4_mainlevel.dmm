@@ -62284,6 +62284,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
+"iyN" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/mob/living/silicon/robot/drone/mining/roundstart,
+/turf/simulated/floor/tiled/asteroid/airless,
+/area/outpost/mining_main/eva)
 "izh" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -63888,6 +63893,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
 "mya" = (
@@ -93343,7 +93349,7 @@ cbQ
 cev
 ceN
 cfh
-ceN
+iyN
 cfx
 cey
 cgm
@@ -93600,7 +93606,7 @@ cbQ
 cex
 ceO
 cfi
-ceN
+iyN
 cfx
 cey
 cgn
