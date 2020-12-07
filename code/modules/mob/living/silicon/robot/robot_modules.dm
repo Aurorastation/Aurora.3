@@ -690,6 +690,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/gripper/miner(src)
 	src.modules += new /obj/item/rfd/mining(src)
+	src.modules += new /obj/item/ore_detector(src)
 	src.modules += new /obj/item/mining_scanner(src)
 	src.modules += new /obj/item/ore_radar(src)
 	src.modules += new /obj/item/pen/robopen(src)
@@ -975,6 +976,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/mining_scanner(src)
 	modules += new /obj/item/device/gps/mining(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	modules += new /obj/item/ore_detector(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(20000)
 	synths += metal
