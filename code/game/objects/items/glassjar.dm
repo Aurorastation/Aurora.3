@@ -81,25 +81,22 @@
 				release(S, user)
 		if(JAR_GUMBALL)
 			if(length(gumballs_contained))
-				playsound(src, drop_sound, DROP_SOUND_VOLUME)
-				user.visible_message(SPAN_NOTICE("<b>[user]</b> takes a gumball from \the [src]."), SPAN_NOTICE("You take a gumball from \the [src]."))
 				user.put_in_hands(gumballs_contained[1])
 				gumballs_contained -= gumballs_contained[1]
-				if(length(gumballs_contained) == 0)
-					contains = JAR_NOTHING
-				update_icon()
+				release(gumballs_contained[1], user)
 		if(JAR_HOLDER)
 			for(var/obj/item/holder/H in src)
 				H.release_to_floor() // Snowflake code because holders are ass. Q.E.D.
 				release(H, user)
 
 /obj/item/glass_jar/proc/release(var/atom/movable/A, var/mob/user)
-	if(istype(A, /obj/item/spacecash))
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> takes the money out from \the [src]."), SPAN_NOTICE("You take the money out from \the [src]."))
+	if(istype(A, /obj/item/spacecash) || istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [A] out from \the [src]."), SPAN_NOTICE("You take [A] out from \the [src]."))
 	else
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> releases \the [A] from \the [src]."), SPAN_NOTICE("You release \the [A] from \the [src]."))
 	playsound(src, drop_sound, DROP_SOUND_VOLUME)
-	contains = JAR_NOTHING
+	if(length(gumballs_contained) == 0)
+		contains = JAR_NOTHING
 	update_icon()
 	return
 
