@@ -1,0 +1,7 @@
+author: Sparky_Hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added chopsticks, a new form of utensil. Available from the kitchen vendor now!"
+  - rscadd: "Rice Bowls now have the option to remove their chopsticks, and even put them back neatly when you're finished!"
