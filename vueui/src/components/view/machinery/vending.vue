@@ -188,4 +188,8 @@ p.danger {
   opacity: 1;
 }
 
+#content > div {
+  overflow-x: hidden;
+}
+
 </style>
