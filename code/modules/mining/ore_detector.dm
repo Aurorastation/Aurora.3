@@ -8,7 +8,7 @@
 	slot_flags = SLOT_BELT
 	force = 1
 	var/active = FALSE
-	var/mob/our_user
+	var/datum/weakref/our_user
 	var/list/search_ores = list()
 	var/ping_rate = 4 SECONDS
 	var/last_ping = 0
@@ -74,7 +74,11 @@
 /obj/item/ore_detector/process()
 	if(last_ping + ping_rate > world.time)
 		return
-	if(loc != our_user && loc.loc != our_user)
+	if(isnull(our_user))
+		deactivate()
+		return
+	var/mob/M = our_user.resolve()
+	if(loc != M && loc.loc != M)
 		deactivate()
 		return
 	last_ping = world.time
@@ -85,7 +89,7 @@
 		if(mine_turf.mineral && (mine_turf.mineral.display_name in search_ores))
 			var/image/ore_ping = image(icon = 'icons/obj/contained_items/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
 			pixel_shift_to_turf(ore_ping, our_turf, mine_turf)
-			our_user << ore_ping
+			M << ore_ping
 			QDEL_IN(ore_ping, 4 SECONDS)
 
 /obj/item/ore_detector/emp_act()
@@ -95,7 +99,7 @@
 	if(!length(search_ores))
 		return
 	START_PROCESSING(SSprocessing, src)
-	our_user = user
+	our_user = WEAKREF(user)
 	update_icon()
 
 /obj/item/ore_detector/proc/deactivate()
