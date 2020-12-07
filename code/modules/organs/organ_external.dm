@@ -735,13 +735,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// sync the organ's damage with its wounds
 	src.update_damages()
-	if(updatehud)
+	if (updatehud)
 		owner.hud_updateflag = 1022
 
-	if(status & ORGAN_BLEEDING)
-		owner.update_bandages()
-
-	if(update_icon())
+	if (update_icon())
 		owner.UpdateDamageIcon(1)
 
 //Updates brute_damn and burn_damn from wound damages. Updates BLEEDING status.
