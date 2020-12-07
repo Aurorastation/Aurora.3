@@ -9,8 +9,7 @@
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
 	var/accuracy = 1
-	var/fragile = 2        // most glassware is super fragile. Not a boolean.
-	var/shatter = FALSE //does this container shatter?
+	var/fragile = 0        // If nonzero, above what force do we shatter?
 	var/shatter_sound = /decl/sound_category/glass_break_sound
 	var/material/shatter_material = MATERIAL_GLASS //slight typecasting abuse here, gets converted to a material in initializee
 	var/can_be_placed_into = list(
@@ -61,8 +60,18 @@
 
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if((speed >= fragile) && shatter && !ismob(loc))
+	if(ismob(loc))
+		return
+	if(fragile && (speed >= fragile))
 		shatter()
+	if(flags && NOREACT)
+		return
+	if(!reagents)
+		return
+	reagents.apply_force(speed)
+	var/momentum = speed * w_class/THROWNOBJ_KNOCKBACK_DIVISOR
+	var/amount_to_splash = rand(0, reagents.total_volume * speed / THROWFORCE_SPEED_DIVISOR)
+	reagents.splash(hit_atom, amount_to_splash)
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
 	if(reagents.total_volume)
@@ -73,7 +82,7 @@
 	qdel(src)
 
 /obj/item/reagent_containers/attackby(var/obj/item/W, var/mob/user)
-	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && (W.force > fragile) && shatter)
+	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
 		if(do_after(user, 10))
 			if(!QDELETED(src))
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))

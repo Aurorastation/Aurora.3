@@ -15,10 +15,10 @@
 	accuracy = 0.1
 	w_class = ITEMSIZE_SMALL
 	flags = OPENCONTAINER
+	fragile = 2
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
-	shatter = TRUE
 	var/label_text = ""
 
 /obj/item/reagent_containers/glass/Initialize()
@@ -190,7 +190,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25)
 	flags = OPENCONTAINER
-	fragile = 1
+	fragile = 1 // very fragile
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/decl/reagent/cryoxadone = 30)
 
@@ -218,7 +218,6 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
-	shatter = FALSE
 	fragile = 0
 
 /obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)

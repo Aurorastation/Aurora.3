@@ -15,7 +15,6 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	flags = 0
 	volume = 60
-	fragile = 2
 
 /obj/item/reagent_containers/glass/bottle/on_reagent_change()
 	update_icon()

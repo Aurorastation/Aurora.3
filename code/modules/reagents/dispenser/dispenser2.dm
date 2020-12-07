@@ -151,7 +151,7 @@
 
 /obj/machinery/chemical_dispenser/Topic(href, href_list)
 	if(..())
-		return 1
+		return TOPIC_HANDLED
 
 	if(href_list["amount"])
 		amount = round(text2num(href_list["amount"]), 1) // round to nearest 1
@@ -173,7 +173,7 @@
 				icon_state = initial(icon_state)
 
 	add_fingerprint(usr)
-	return 1 // update UIs attached to this object
+	return TOPIC_REFRESH // update UIs attached to this object
 
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))

@@ -254,12 +254,12 @@
 			dat += "Add to buffer:<BR>"
 			for(var/_G in R.reagent_volumes)
 				var/decl/reagent/G = decls_repository.get_decl(_G)
-				dat += "[G.name] , [REAGENT_VOLUME(reagents, _G)] Units - "
+				dat += "[G.name] , [REAGENT_VOLUME(R, _G)] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[G.description];name=[G.name]'>(Analyze)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=1'>(1)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=5'>(5)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];add=[_G];amount=[REAGENT_VOLUME(reagents, _G)]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=[REAGENT_VOLUME(R, _G)]'>(All)</A> "
 				dat += "<A href='?src=\ref[src];addcustom=[_G]'>(Custom)</A><BR>"
 
 		dat += "<HR>Transfer to <A href='?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
