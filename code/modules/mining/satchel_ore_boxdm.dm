@@ -16,7 +16,7 @@
 /obj/structure/ore_box/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/ore))
 		user.drop_from_inventory(W, src)
-	if(istype(W, /obj/item/storage/bag/ore))
+	else if(istype(W, /obj/item/storage/bag/ore))
 		var/obj/item/storage/bag/ore/satchel = W
 		if(satchel.linked_beacon)
 			if(!warp_core)
@@ -25,7 +25,7 @@
 			satchel.linked_box = src
 			to_chat(user, SPAN_NOTICE("You link \the [satchel] to \the [src]."))
 			return
-	if(istype(W, /obj/item/storage))
+	else if(istype(W, /obj/item/storage))
 		var/obj/item/storage/S = W
 		S.hide_from(user)
 		for(var/obj/item/ore/O in S.contents)
@@ -33,13 +33,23 @@
 			CHECK_TICK
 		S.post_remove_from_storage_deferred(loc, user)
 		to_chat(user, SPAN_NOTICE("You empty the satchel into the box."))
-	if(istype(W, /obj/item/warp_core))
+	else if(istype(W, /obj/item/warp_core))
 		if(warp_core)
 			to_chat(user, SPAN_WARNING("\The [src] already has a warp core attached!"))
 			return
 		user.drop_from_inventory(W, src)
 		warp_core = W
 		to_chat(user, SPAN_NOTICE("You carefully attach \the [W] to \the [src], connecting it to the bluespace network."))
+	else if(istype(W, /obj/item/gripper/miner)) // myazaki's gonna be so mad at me
+		var/obj/item/gripper/miner/GM = W
+		if(!warp_core)
+			to_chat(user, SPAN_WARNING("\The [src] has no warp core to detach."))
+			return
+		// we don't need to check if it has a held item because the gripper code attacks with the held item if it has one, not the gripper itself
+		warp_core.forceMove(get_turf(src))
+		GM.grip_item(warp_core, user, FALSE)
+		to_chat(user, SPAN_NOTICE("You detach \the [warp_core] from \the [src], disconnecting it from the bluespace network."))
+		warp_core = null
 
 	update_ore_count()
 	return
