@@ -18,7 +18,7 @@
 	// We are still here, that means there is no program loaded. Load the BIOS/ROM/OS/whatever you want to call it.
 	// This screen simply lists available programs and user may select them.
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
-		visible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."))
+		audible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."))
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
 	if(!ui)
@@ -68,12 +68,16 @@
 	if(href_list["PC_enable_component"])
 		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_enable_component"])
 		if(H && istype(H) && !H.enabled)
-			H.enabled = TRUE
+			H.enable()
 		. = TRUE
 	if(href_list["PC_disable_component"])
 		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_disable_component"])
 		if(H && istype(H) && H.enabled)
-			H.enabled = 0
+			H.disable()
+		. = TRUE
+	if(href_list["PC_togglelight"])
+		if(flashlight)
+			flashlight.toggle()
 		. = TRUE
 	if(href_list["PC_shutdown"])
 		shutdown_computer()
@@ -92,9 +96,9 @@
 		if(!istype(P) || P.program_state == PROGRAM_STATE_KILLED)
 			return
 
-		P.kill_program(TRUE)
+		if(P.kill_program())
+			to_chat(user, SPAN_NOTICE("Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed."))
 		update_uis()
-		to_chat(user, SPAN_NOTICE("Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed."))
 
 	if(href_list["PC_runprogram"] )
 		. = run_program(href_list["PC_runprogram"], usr)
@@ -103,16 +107,14 @@
 	if(href_list["PC_setautorun"])
 		if(!hard_drive)
 			return
-		var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
-		if(!istype(autorun))
-			autorun = new /datum/computer_file/data()
-			autorun.filename = "autorun"
-			hard_drive.store_file(autorun)
-		if(autorun.stored_data == href_list["PC_setautorun"])
-			autorun.stored_data = null
-		else
-			autorun.stored_data = href_list["PC_setautorun"]
-	
+		set_autorun(href_list["PC_setautorun"])
+
+	if(href_list["PC_register"])
+		if(registered_id)
+			unregister_account()
+		else if(GetID())
+			register_account()
+
 	if( href_list["PC_toggleservice"] )
 		toggle_service(href_list["PC_toggleservice"], usr)
 		return 1
@@ -150,6 +152,8 @@
 		VUEUI_SET_CHECK(data["apclinkicon"], "charging.gif", ., data)
 	else
 		VUEUI_SET_CHECK(data["apclinkicon"], "", ., data)
+
+	data["flashlight"] = flashlight?.enabled ? TRUE : FALSE
 
 	switch(get_ntnet_status())
 		if(0)

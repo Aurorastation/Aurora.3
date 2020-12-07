@@ -77,8 +77,12 @@
 	var/wallet = list()
 	wallet["wallet, colourable"] = /obj/item/storage/wallet/colourable
 	wallet["wallet, purse"] = /obj/item/storage/wallet/purse
-	wallet["wallet, lanyard"] = /obj/item/storage/wallet/lanyard
 	gear_tweaks += new/datum/gear_tweak/path(wallet)
+
+/datum/gear/utility/lanyard
+	display_name = "lanyard"
+	path = 	/obj/item/storage/wallet/lanyard
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
@@ -96,13 +100,34 @@
 /datum/gear/utility/fannypack/New()
 	..()
 	var/list/fannys = list()
-	for(var/fanny in typesof(/obj/item/storage/belt/fannypack))
-		var/obj/item/storage/belt/fannypack/fanny_type = fanny
-		fannys[initial(fanny_type.name)] = fanny_type
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(fannys))
+	fannys["leather fannypack"] = /obj/item/storage/belt/fannypack
+	fannys["black fannypack"] = /obj/item/storage/belt/fannypack/black
+	fannys["blue fannypack"] = /obj/item/storage/belt/fannypack/blue
+	fannys["cyan fannypack"] = /obj/item/storage/belt/fannypack/cyan
+	fannys["green fannypack"] = /obj/item/storage/belt/fannypack/green
+	fannys["orange fannypack"] = /obj/item/storage/belt/fannypack/orange
+	fannys["purple fannypack"] = /obj/item/storage/belt/fannypack/purple
+	fannys["red fannypack"] = /obj/item/storage/belt/fannypack/red
+	fannys["white fannypack"] = /obj/item/storage/belt/fannypack/white
+	fannys["yellow fannypack"] = /obj/item/storage/belt/fannypack/yellow
+	gear_tweaks += new/datum/gear_tweak/path(fannys)
 
 /datum/gear/utility/toolbelt_alt
 	display_name = "tool-belt, alt"
 	cost = 0
 	path = /obj/item/storage/belt/utility/alt
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
+
+/datum/gear/utility/himeo_kit
+	display_name = "himean voidsuit kit"
+	path = /obj/item/himeo_kit
+	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel", "Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+
+/datum/gear/utility/wheelchair/color
+    display_name = "wheelchair"
+    path = /obj/item/wheelchair
+    cost = 4
+
+/datum/gear/utility/wheelchair/color/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice

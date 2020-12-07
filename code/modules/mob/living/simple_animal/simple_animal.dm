@@ -1,3 +1,9 @@
+#define BLOOD_NONE "none"
+#define BLOOD_LIGHT "light"
+#define BLOOD_MEDIUM "medium"
+#define BLOOD_HEAVY "heavy"
+
+
 /mob/living/simple_animal
 	name = "animal"
 	icon = 'icons/mob/npc/animal.dmi'
@@ -13,7 +19,12 @@
 	var/icon_living = ""
 	var/icon_dead = ""
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
+
+	appearance_flags = KEEP_TOGETHER
 	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	var/blood_state = BLOOD_NONE
+	var/image/blood_overlay
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -57,6 +68,8 @@
 	var/max_co2 = 5
 	var/min_n2 = 0
 	var/max_n2 = 0
+	var/min_h2 = 0
+	var/max_h2 = 5
 	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
 	var/speed = 0 //LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster
 
@@ -180,6 +193,7 @@
 	if(health > maxHealth)
 		health = maxHealth
 
+	handle_blood_overlay()
 	handle_stunned()
 	handle_weakened()
 	handle_paralysed()
@@ -191,7 +205,7 @@
 	turns_since_move++
 
 	//Atmos
-	var/atmos_suitable = 1
+	var/atmos_suitable = TRUE
 
 	if(isturf(loc))
 		var/turf/T = loc
@@ -203,21 +217,25 @@
 				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
 
 			if(min_oxy && Environment.gas[GAS_OXYGEN] < min_oxy)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_oxy && Environment.gas[GAS_OXYGEN] > max_oxy)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_tox && Environment.gas[GAS_PHORON] < min_tox)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_tox && Environment.gas[GAS_PHORON] > max_tox)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_n2 && Environment.gas[GAS_NITROGEN] < min_n2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_n2 && Environment.gas[GAS_NITROGEN] > max_n2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_co2 && Environment.gas[GAS_CO2] < min_co2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_co2 && Environment.gas[GAS_CO2] > max_co2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
+			else if(min_h2 && Environment.gas[GAS_HYDROGEN] < min_h2)
+				atmos_suitable = FALSE
+			else if(max_h2 && Environment.gas[GAS_HYDROGEN] > max_h2)
+				atmos_suitable = FALSE
 
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
@@ -302,6 +320,34 @@
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
 		purge -= 1
+
+/mob/living/simple_animal/proc/handle_blood_overlay(var/force_reset = FALSE)
+	if(!blood_overlay_icon)
+		return
+
+	var/current_blood_state = blood_state
+	var/blood_mod = health / maxHealth
+	if(blood_mod > 0.9)
+		blood_state = BLOOD_NONE
+	else if(blood_mod >= 0.7)
+		blood_state = BLOOD_LIGHT
+	else if(blood_mod >= 0.4)
+		blood_state = BLOOD_MEDIUM
+	else
+		blood_state = BLOOD_HEAVY
+
+	if(force_reset || (blood_state != BLOOD_NONE && current_blood_state != blood_state))
+		if(blood_overlay)
+			cut_overlay(blood_overlay)
+		var/blood_overlay_name = get_blood_overlay_name()
+		var/image/I = image(blood_overlay_icon, src, "[blood_overlay_name]-[blood_state]")
+		I.color = blood_type
+		I.blend_mode = BLEND_INSET_OVERLAY
+		blood_overlay = I
+		add_overlay(blood_overlay)
+
+/mob/living/simple_animal/proc/get_blood_overlay_name()
+	return "blood_overlay"
 
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()
@@ -456,7 +502,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		attacked_with_item(O, user)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
-/mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user)
+/mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
 	if(istype(O, /obj/item/trap/animal) || istype(O, /obj/item/gun))
 		O.attack(src, user)
 		return
@@ -466,8 +512,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
 			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
+	if(istype(O, /obj/item/glass_jar))
+		return FALSE
 	if(!O.force)
-		visible_message("<b>\The [user]</b> gently taps \the [src] with \the [O].")
+		visible_message(SPAN_NOTICE("<b>\The [user]</b> gently taps \the [src] with \the [O]."))
 		poke()
 		return FALSE
 
@@ -488,6 +536,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
 	user.do_attack_animation(src)
 
+/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+	. = ..()
+	handle_blood_overlay()
+
+/mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
+	. = ..()
+	handle_blood_overlay()
 
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later
@@ -532,11 +587,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	walk_to(src,0)
 	movement_target = null
-	icon_state = icon_dead
-	density = 0
+	density = FALSE
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
-	return ..(gibbed,deathmessage)
+	. = ..(gibbed, deathmessage)
+	update_icon()
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
@@ -696,7 +751,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
 	update_icon()
 
@@ -757,15 +812,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				B.transform = M.Scale(scale)
 				B.update_icon()
 
-/mob/living/simple_animal/proc/spawn_into_wizard_familiar(var/mob/user)
-	if(src.ckey)
-		return
-	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("wizard_familiar", src)
-	if(wizard_master)
-		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
-	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
-
 /mob/living/simple_animal/get_resist_power()
 	return resist_mod
 
@@ -775,3 +821,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return /obj/effect/gibspawner/robot
 	else
 		return /obj/effect/gibspawner/generic
+
+#undef BLOOD_NONE
+#undef BLOOD_LIGHT
+#undef BLOOD_MEDIUM
+#undef BLOOD_HEAVY

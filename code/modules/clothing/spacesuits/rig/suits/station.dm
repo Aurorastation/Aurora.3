@@ -75,7 +75,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 	chest_type = /obj/item/clothing/suit/space/rig/industrial
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill,/obj/item/storage/backpack/cell)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill,/obj/item/storage/backpack/cell,/obj/item/rfd/mining)
 
 	req_access = list()
 	req_one_access = list()
@@ -228,7 +228,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(access_emt)
+	req_access = list(access_first_responder)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,

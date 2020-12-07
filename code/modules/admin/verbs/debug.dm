@@ -131,11 +131,8 @@
 		return
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		if (H.wear_id)
-			var/obj/item/card/id/id = H.wear_id
-			if(istype(H.wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = H.wear_id
-				id = pda.id
+		if (H.GetIdCard())
+			var/obj/item/card/id/id = H.GetIdCard()
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 		else
@@ -273,20 +270,16 @@
 
 	var/list/chosen_observers = list()
 	var/next_observer = "NotGeeves"
-	while(next_observer != "== Finished ==")
-		var/list/valid_choices = player_list
+	while(next_observer)
+		var/list/valid_choices = player_list.Copy()
 		for(var/choice in valid_choices)
 			if(choice in chosen_observers)
 				valid_choices -= choice
 			if(!isobserver(choice))
 				valid_choices -= choice
-		valid_choices += "== Finished =="
 		next_observer = input("Choose an observer you want to add to the list.", "Choose Observer") as null|anything in valid_choices
-		if(!next_observer || isnull(next_observer))
-			next_observer = "== Finished =="
-		else
+		if(next_observer)
 			chosen_observers += next_observer
-	chosen_observers -= "== Finished =="
 
 	for(var/spawn_observer in chosen_observers)
 		var/mob/living/carbon/human/H = new /mob/living/carbon/human(get_turf(usr))
@@ -324,7 +317,7 @@
 		if("Admin")
 			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)
 			outfit_catagories["Antagonist"] = typesof(/datum/outfit/admin/syndicate)
-			outfit_catagories["Ceres Lance"] = typesof(/datum/outfit/admin/lance)
+			outfit_catagories["Event"] = typesof(/datum/outfit/admin/event)
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
 			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
 			outfit_catagories["Job"] = subtypesof(/datum/outfit/job)
@@ -421,7 +414,7 @@
 	set name = "Debug Mob Lists"
 	set desc = "For when you just gotta know"
 
-	switch(input("Which list?") in list("Players","Staff","Mobs","Living Mobs","Dead Mobs", "Clients"))
+	switch(input("Which list?") in list("Players","Staff","Mobs","Living Mobs","Dead Mobs","Frozen Mobs","Clients"))
 		if("Players")
 			to_chat(usr, jointext(player_list,", "))
 		if("Staff")
@@ -432,6 +425,8 @@
 			to_chat(usr, jointext(living_mob_list,", "))
 		if("Dead Mobs")
 			to_chat(usr, jointext(dead_mob_list,", "))
+		if("Frozen Mobs")
+			to_chat(usr, jointext(frozen_crew,", "))
 		if("Clients")
 			to_chat(usr, jointext(clients,", "))
 

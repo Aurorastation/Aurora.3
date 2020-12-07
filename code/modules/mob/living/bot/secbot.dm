@@ -452,7 +452,7 @@
 
 	var/datum/signal/signal = new()
 	signal.source = secbot
-	signal.transmission_method = 1
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.data = keyval.Copy()
 
 	if(signal.data["findbeacon"])
@@ -598,7 +598,7 @@
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(istype(O, /obj/item/card/id) || O.ispen() || istype(O, /obj/item/device/pda))
+	if(O.GetID() || O.ispen())
 		return
 
 	target = user

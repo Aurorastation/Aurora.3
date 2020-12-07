@@ -93,7 +93,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 	var/datum/signal/signal = new()
 	signal.source = src
-	signal.transmission_method = 1
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.data["beacon"] = location
 
 	for(var/key in codes)
@@ -113,7 +113,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 		update_icon()
 
-	else if (istype(I, /obj/item/card/id)||istype(I, /obj/item/device/pda))
+	else if (I.GetID())
 		if(open)
 			if (src.allowed(user))
 				src.locked = !src.locked
@@ -126,6 +126,8 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 	return
 
 /obj/machinery/navbeacon/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	interact(user, 1)
 
 /obj/machinery/navbeacon/attack_hand(var/mob/user)

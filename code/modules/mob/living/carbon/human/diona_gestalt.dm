@@ -24,7 +24,7 @@
 	//These initial nymphs are the nymph which grows into a gestalt, and any others it had inside it
 	//There are no initial nymphs for a newly spawned diona player
 
-		if (mind && mind.name && name && mind.name != name)
+		if (mind?.name && mind.name != real_name)
 			verbs += /mob/living/carbon/human/proc/gestalt_set_name
 			var/datum/language/L = locate(/datum/language/diona) in languages
 			var/newname

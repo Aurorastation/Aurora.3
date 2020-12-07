@@ -12,7 +12,7 @@ var/regex/is_http_protocol = regex("^https?://")
 	var/list/partial = splittext(iconData, "{")
 	return replacetext(copytext(partial[2], 3, -5), "\n", "")
 
-/proc/icon2html(thing, target, icon_state, dir, frame = 1, moving = FALSE, realsize = FALSE, class = null)
+/proc/icon2html(thing, target, icon_state, dir = SOUTH, frame = 1, moving = FALSE, realsize = FALSE, class = null)
 	if (!thing)
 		return
 
@@ -38,11 +38,18 @@ var/regex/is_http_protocol = regex("^https?://")
 				send_asset(thing2, key, FALSE)
 			return "<img class='icon icon-misc [class]' src=\"[url_encode(name)]\">"
 		var/atom/A = thing
-		if (isnull(dir))
-			dir = A.dir
+
+		I = A.icon
 		if (isnull(icon_state))
 			icon_state = A.icon_state
-		I = A.icon
+			if (!(icon_state in icon_states(I, 1)))
+				icon_state = initial(A.icon_state)
+				if (isnull(dir))
+					dir = initial(A.dir)
+		
+		if (isnull(dir))
+			dir = A.dir
+		
 		if (ishuman(thing)) // Shitty workaround for a BYOND issue.
 			var/icon/temp = I
 			I = icon()

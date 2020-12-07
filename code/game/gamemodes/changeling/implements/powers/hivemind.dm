@@ -34,14 +34,7 @@
 		to_chat(ling, message)
 
 /mob/proc/changeling_message_process(var/message)
-	message = capitalize(message)
-
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending])
-		message += "."
-
-	return "<font color=[COLOR_LING_HIVEMIND]><b>[src]</b> says, \"[message]\"</font>"
+	return "<font color=[COLOR_LING_HIVEMIND]><b>[src]</b> says, \"[formalize_text(message)]\"</font>"
 
 /mob/living/carbon/human/proc/changeling_release_morph()
 	set category = "Changeling"
@@ -58,22 +51,6 @@
 	var/chosen_player = input("Choose a hivemind member to release as a morph.", "Hivemind Morph") as null|anything in mind.changeling.hivemind_members
 	if(!chosen_player)
 		return
-
-	var/list/selectable_limb = list()
-	for(var/organ_name in list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG))
-		var/obj/item/organ/external/limb = organs_by_name[organ_name]
-		if(limb && !limb.is_stump())
-			selectable_limb += limb
-
-	if(!length(selectable_limb))
-		to_chat(src, SPAN_WARNING("We have no limbs to sacrifice!"))
-		return
-
-	var/obj/item/organ/external/chosen_limb = input("Choose a limb to sacrifice.", "Limb Sacrifice") as null|anything in selectable_limb
-	if(!chosen_limb)
-		return
-
-	chosen_limb.droplimb(TRUE, DROPLIMB_BLUNT)
 
 	var/mob/abstract/hivemind/M = mind.changeling.hivemind_members[chosen_player]
 	M.release_as_morph()

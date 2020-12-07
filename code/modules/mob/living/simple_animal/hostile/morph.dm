@@ -8,6 +8,7 @@
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "morph"
 	icon_living = "morph"
+	icon_rest = "morph_rest"
 	icon_dead = "morph_dead"
 	speed = 2.5
 	stop_automated_movement = TRUE
@@ -28,12 +29,14 @@
 
 	maxHealth = 125
 	health = 125
+	max_stamina = -1
 
 	melee_damage_lower = 12
 	melee_damage_upper = 16
 
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	stop_sight_update = TRUE
 
 	minbodytemp = 0
 	maxbodytemp = 350
@@ -45,17 +48,57 @@
 
 	attacktext = "glomped"
 	attack_sound = 'sound/effects/blobattack.ogg'
+	blood_overlay_icon = null
 
 	var/morphed = FALSE
 	var/melee_damage_disguised = 0
 	var/eat_while_disguised = FALSE
 	var/atom/movable/form = null
 	var/morph_time = 0
-	var/static/list/blacklist_typecache = typecacheof(list(/obj/screen, /obj/singularity, /mob/living/simple_animal/hostile/morph, /obj/effect))
+	var/static/list/blacklist_typecache = typecacheof(list(/obj/screen, /obj/singularity, /mob/living/simple_animal/hostile/morph, /obj/effect, /obj/structure/gore))
 
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
 	verbs += /mob/living/proc/ventcrawl
+
+	var/list/morph_spells = list(/spell/aoe_turf/conjure/node, /spell/aoe_turf/conjure/nest)
+	for(var/spell in morph_spells)
+		add_spell(new spell, "const_spell_ready")
+
+/mob/living/simple_animal/hostile/morph/Life()
+	. = ..()
+	if(stat == DEAD && healths)
+		healths.icon_state = "health6"
+	if(.)
+		if(healths)
+			switch(health / maxHealth * 100)
+				if(100 to INFINITY)
+					healths.icon_state = "health0"
+				if(80 to 100)
+					healths.icon_state = "health1"
+				if(60 to 80)
+					healths.icon_state = "health2"
+				if(40 to 60)
+					healths.icon_state = "health3"
+				if(20 to 40)
+					healths.icon_state = "health4"
+				if(0 to 20)
+					healths.icon_state = "health5"
+				else
+					healths.icon_state = "health6"
+
+		if((stat == UNCONSCIOUS || resting) && locate(/obj/structure/gore/tendrils) in loc)
+			health = min(maxHealth, health + 1)
+
+/mob/living/simple_animal/hostile/morph/verb/toggle_darkview()
+	set name = "Toggle Darkvision"
+	set desc = "Toggles whether you see light or not."
+	set category = "Abilities"
+
+	if(see_invisible == SEE_INVISIBLE_NOLIGHTING)
+		see_invisible = SEE_INVISIBLE_LIVING
+	else
+		see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/hostile/morph/examine(mob/user)
 	if(morphed)
@@ -65,6 +108,13 @@
 		to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
 	else
 		return ..()
+
+/mob/living/simple_animal/hostile/morph/proc/update_speed()
+	switch(m_intent)
+		if("run")
+			speed = 1.5
+		if("walk")
+			speed = 2.5
 
 /mob/living/simple_animal/hostile/morph/proc/allowed(atom/movable/A)
 	return !is_type_in_typecache(A, blacklist_typecache) && (isobj(A) || ismob(A))
@@ -200,6 +250,12 @@
 		to_chat(src, SPAN_WARNING("You can't ventcrawl while disguised!"))
 		return
 	return ..()
+
+/mob/living/simple_animal/hostile/morph/add_spell(var/spell/spell_to_add, var/spell_base = "wiz_spell_ready", var/master_type = /obj/screen/movable/spell_master)
+	. = ..()
+	for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
+		spell_master.open_state = "morph_open"
+		spell_master.closed_state = "morph_closed"
 
 /mob/living/simple_animal/hostile/morph/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

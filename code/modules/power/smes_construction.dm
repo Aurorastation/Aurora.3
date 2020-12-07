@@ -8,31 +8,40 @@
 //MAGNETIC COILS - These things actually store and transmit power within the SMES. Different types have different
 /obj/item/smes_coil
 	name = "superconductive magnetic coil"
-	desc = "Standard superconductive magnetic coil with average capacity and I/O rating."
+	desc = "Standard superconductive magnetic coil with balanced capacity and I/O rating."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"			// Just few icons patched together. If someone wants to make better icon, feel free to do so!
-	w_class = ITEMSIZE_LARGE 						// It's LARGE (backpack size)
+	w_class = ITEMSIZE_LARGE 			// It's LARGE (backpack size)
 	var/ChargeCapacity = 5000000
 	var/IOCapacity = 250000
+
+/obj/item/smes_coil/examine(mob/user)
+	. = ..()
+	if(Adjacent(user))
+		to_chat(user, "The label reads:\
+			<div class='notice' style='padding-left:2rem'>Only certified professionals are allowed to handle and install this component.<br>\
+			Charge capacity: [ChargeCapacity/1000000] MJ<br>\
+			Input/Output rating: [IOCapacity/1000] kW</div>",
+			trailing_newline = FALSE)
 
 // 20% Charge Capacity, 60% I/O Capacity. Used for substation/outpost SMESs.
 /obj/item/smes_coil/weak
 	name = "basic superconductive magnetic coil"
-	desc = "Cheaper model of standard superconductive magnetic coil. It's capacity and I/O rating are considerably lower."
+	desc = "Cheaper model of the standard superconductive magnetic coil. Its capacity and I/O rating are considerably lower."
 	ChargeCapacity = 1000000
 	IOCapacity = 150000
 
 // 1000% Charge Capacity, 20% I/O Capacity
 /obj/item/smes_coil/super_capacity
 	name = "superconductive capacitance coil"
-	desc = "Specialised version of standard superconductive magnetic coil. This one has significantly stronger containment field, allowing for significantly larger power storage. It's IO rating is much lower, however."
+	desc = "Specialised version of the standard superconductive magnetic coil. It has significantly stronger containment field, allowing for immense power storage. However its I/O rating is much lower."
 	ChargeCapacity = 50000000
 	IOCapacity = 50000
 
 // 10% Charge Capacity, 400% I/O Capacity. Technically turns SMES into large super capacitor.Ideal for shields.
 /obj/item/smes_coil/super_io
 	name = "superconductive transmission coil"
-	desc = "Specialised version of standard superconductive magnetic coil. While this one won't store almost any power, it rapidly transfers power, making it useful in systems which require large throughput."
+	desc = "Specialised version of the standard superconductive magnetic coil. While it's almost useless for power storage it can rapidly transfer power, making it useful in systems that require large throughput."
 	ChargeCapacity = 500000
 	IOCapacity = 1000000
 
@@ -57,7 +66,7 @@
 
 // SMES itself
 /obj/machinery/power/smes/buildable
-	var/max_coils = 6 			//30M capacity, 1.5MW input/output when fully upgraded /w default coils
+	max_coils = 6 				// 30M capacity, 1.5MW input/output when fully upgraded /w default coils
 	var/cur_coils = 1 			// Current amount of installed coils
 	var/safeties_enabled = 1 	// If 0 modifications can be done without discharging the SMES, at risk of critical failure.
 	var/failing = 0 			// If 1 critical failure has occured and SMES explosion is imminent.
@@ -94,7 +103,9 @@
 // Proc: attack_ai()
 // Parameters: None
 // Description: AI requires the RCON wire to be intact to operate the SMES.
-/obj/machinery/power/smes/buildable/attack_ai()
+/obj/machinery/power/smes/buildable/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if(RCon)
 		..()
 	else // RCON wire cut

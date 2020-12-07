@@ -28,9 +28,6 @@
 		name = real_name
 		if(mind)
 			mind.name = real_name
-	
-	if(species.have_vision_cone)
-		can_have_vision_cone = TRUE
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)
@@ -423,18 +420,11 @@
 
 // Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
 /mob/living/carbon/human/proc/get_authentification_rank(var/if_no_id = "No id", var/if_no_job = "No job")
-	var/obj/item/device/pda/pda = wear_id
-	if (istype(pda))
-		if (pda.id)
-			return pda.id.rank
-		else
-			return pda.ownrank
+	var/obj/item/card/id/id = GetIdCard()
+	if(!istype(id))
+		return if_no_id
 	else
-		var/obj/item/card/id/id = get_idcard()
-		if(id)
-			return id.rank ? id.rank : if_no_job
-		else
-			return if_no_id
+		return id.rank ? id.rank : if_no_job
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
@@ -477,13 +467,9 @@
 //Useful when player is being seen by other mobs
 /mob/living/carbon/human/proc/get_id_name(var/if_no_id = "Unknown")
 	. = if_no_id
-	if(istype(wear_id,/obj/item/device/pda))
-		var/obj/item/device/pda/P = wear_id
-		return P.owner
-	if(wear_id)
-		var/obj/item/card/id/I = wear_id.GetID()
-		if(I)
-			return I.registered_name
+	var/obj/item/card/id/I = GetIdCard()
+	if(I)
+		return I.registered_name
 	return
 
 //gets ID card object from special clothes slot or null.
@@ -639,12 +625,9 @@
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -664,12 +647,9 @@
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -689,12 +669,9 @@
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
 			var/perpname = "wot"
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -714,12 +691,9 @@
 			var/perpname = "wot"
 			var/modified = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 
@@ -749,12 +723,9 @@
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -775,12 +746,9 @@
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -800,12 +768,9 @@
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
 			var/perpname = "wot"
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -1510,6 +1475,9 @@
 	if(change_hair)
 		species.set_default_hair(src)
 
+	if(species.default_accent)
+		accent = species.default_accent
+
 	if(species)
 		return 1
 	else
@@ -1570,8 +1538,12 @@
 		W.message = message
 		W.add_fingerprint(src)
 
+#define INJECTION_FAIL     0
+#define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
+#define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
+
 /mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone)
-	. = 1
+	. = BASE_INJECTION_MOD
 
 	if(!target_zone)
 		if(!user)
@@ -1579,26 +1551,39 @@
 		else
 			target_zone = user.zone_sel.selecting
 
+	. *= species.get_injection_modifier()
+
+	if(isvaurca(src))
+		user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s carapace!"))
+
 	var/obj/item/organ/external/affecting = get_organ(target_zone)
 	var/fail_msg
 	if(!affecting)
-		. = 0
+		. = INJECTION_FAIL
 		fail_msg = "They are missing that limb."
 	else if (affecting.status & ORGAN_ROBOT)
-		. = 0
+		. = INJECTION_FAIL
 		fail_msg = "That limb is robotic."
 	else
 		switch(target_zone)
 			if(BP_HEAD)
 				if(head && head.item_flags & THICKMATERIAL)
-					. = 0
+					. = INJECTION_FAIL
 			else
 				if(wear_suit && wear_suit.item_flags & THICKMATERIAL)
-					. = 0
+					if(istype(wear_suit, /obj/item/clothing/suit/space))
+						user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s suit!"))
+						. *= SUIT_INJECTION_MOD
+					else
+						. = INJECTION_FAIL
 	if(!. && error_msg && user)
 		if(!fail_msg)
 			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
 		to_chat(user, SPAN_ALERT("[fail_msg]"))
+
+#undef INJECTION_FAIL
+#undef BASE_INJECTION_MOD
+#undef SUIT_INJECTION_MOD
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
 	var/list/equipment = list(src.head,src.wear_mask,src.glasses,src.w_uniform,src.wear_suit,src.gloves,src.shoes)
@@ -2052,3 +2037,21 @@
 	if(!(accent in species.allowed_accents))
 		accent = species.default_accent
 	return TRUE
+
+/mob/living/carbon/human/verb/click_belt()
+	set hidden = 1
+	set name = "click_belt"
+	if(belt)
+		belt.Click()
+
+/mob/living/carbon/human/verb/click_uniform()
+	set hidden = 1
+	set name = "click_uniform"
+	if(w_uniform)
+		w_uniform.Click()
+
+/mob/living/carbon/human/verb/click_back()
+	set hidden = 1
+	set name = "click_back"
+	if(back)
+		back.Click()

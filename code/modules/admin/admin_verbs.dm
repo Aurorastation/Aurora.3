@@ -30,6 +30,7 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/access_news_network,	/*allows access of newscasters*/
 	/client/proc/giveruntimelog,		/*allows us to give access to runtime logs to somebody*/
 	/client/proc/getserverlog,			/*allows us to fetch server logs (diary) for other days*/
+	/client/proc/view_signal_log,		/*allows admins to check the log of signaler uses*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/Getmob,				/*teleports a mob to our location*/
 	/client/proc/Getkey,				/*teleports a mob with a certain ckey to our location*/
@@ -98,7 +99,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
 	/client/proc/reset_openturf,
-	/client/proc/toggle_aooc
+	/client/proc/toggle_aooc,
+	/client/proc/force_away_mission
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -176,7 +178,8 @@ var/list/admin_verbs_server = list(
 	/client/proc/cmd_ss_panic,
 	/client/proc/configure_access_control,
 	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub
-	/client/proc/dump_memory_usage
+	/client/proc/dump_memory_usage,
+	/client/proc/force_away_mission
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -401,7 +404,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/print_logout_report,
 	/client/proc/edit_admin_permissions,
 	/proc/possess,
-	/proc/release
+	/proc/release,
+	/client/proc/force_away_mission
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -964,7 +968,7 @@ var/list/admin_verbs_cciaa = list(
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
 		return
-	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi, Vox and Tajaran can result in unintended consequences.",,"Yes","No"))
+	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
 		if("No")
 			return
 	var/new_facial = input("Please select facial hair color.", "Character Generation") as color
@@ -1031,16 +1035,19 @@ var/list/admin_verbs_cciaa = list(
 	if(holder)
 		var/list/jobs = list()
 		for (var/datum/job/J in SSjobs.occupations)
-			if (J.current_positions >= J.total_positions && J.total_positions != -1)
+			if (J.current_positions >= J.get_total_positions() && J.get_total_positions() != -1)
 				jobs += J.title
 		if (!jobs.len)
-			to_chat(usr, "There are no fully staffed jobs.")
+			to_chat(usr, SPAN_NOTICE("There are no fully staffed jobs."))
 			return
-		var/job = input("Please select job slot to free", "Free job slot")  as null|anything in jobs
+		var/job = input("Please select job slot to free", "Free job slot") as null|anything in jobs
 		if (job)
-			SSjobs.FreeRole(job)
-			message_admins("A job slot for [job] has been opened by [key_name_admin(usr)]")
-			return
+			var/datum/job/J = SSjobs.GetJob(job)
+			if(istype(J))
+				J.total_positions++
+				message_admins("A job slot for [job] has been added by [key_name_admin(usr)]. The total is now [J.get_total_positions()] with [J.current_positions] positions occupied.")
+			else
+				to_chat(usr, SPAN_DANGER("Failed to increase total positions in job [job]."))
 
 /client/proc/toggleattacklogs()
 	set name = "Toggle Attack Log Messages"
@@ -1320,3 +1327,20 @@ var/list/admin_verbs_cciaa = list(
 		to_chat(usr, SPAN_WARNING("File creation failed. Please check to see if the data/logs/memory folder actually exists."))
 	else
 		to_chat(usr, SPAN_NOTICE("Memory dump completed."))
+
+
+/client/proc/force_away_mission()
+	set category = "Server"
+	set name = "Force Away Mission"
+	set desc = "Force a specific away mission to occur."
+
+	if (!check_rights(R_SERVER))
+		return
+
+	var/mission_name = input("Enter Mission Name or press cancel to Reset","Mission Name") as null|text
+	SSpersist_config.forced_awaymission = mission_name
+
+	if(!mission_name)
+		log_and_message_admins("reset the forced away mission.")
+	else
+		log_and_message_admins("forced the following away mission: [mission_name].")

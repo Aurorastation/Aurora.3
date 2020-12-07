@@ -49,6 +49,8 @@
 		return
 	if(A == loc)	// if placing the labeller into something (e.g. backpack)
 		return		// don't set a label
+	if(loc != user)
+		return
 
 	if(!labels_left)
 		to_chat(user, "<span class='notice'>No labels left.</span>")

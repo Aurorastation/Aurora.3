@@ -12,7 +12,9 @@
 /client/proc/debug_variables(datum/D in world)
 	set category = "Debug"
 	set name = "View Variables"
+	debug_variables_open(D)
 
+/client/proc/debug_variables_open(var/datum/D, var/search = "")
 	if(!check_rights(0))
 		return
 
@@ -34,11 +36,13 @@
 			<script src='view_variables.js'></script>
 			<title>[D] (\ref[D] - [D.type])</title>
 			<style>
-				body { font-family: Verdana, sans-serif; font-size: 9pt; }
-				.value { font-family: "Courier New", monospace; font-size: 8pt; }
+				body { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; font-size: 10pt; }
+				.key, .type, .value { font-family: "Fira Code", Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, sans-serif; font-size: 9pt; }
+				.key { font-weight: bold }
+				.type { text-decoration: underline; color: gray }
 			</style>
 		</head>
-		<body onload='selectTextField(); updateSearch()'; onkeyup='updateSearch()'>
+		<body onload='selectTextField(); updateSearch()'>
 			<div align='center'>
 				<table width='100%'><tr>
 					<td width='50%'>
@@ -47,13 +51,13 @@
 							<td><div align='center'>[D.get_view_variables_header()]</div></td>
 						</tr></table>
 						<div align='center'>
-							<b><font size='1'>[replacetext("[D.type]", "/", "/<wbr>")]</font></b>
+							<b><font size='1'>[replacetext("[get_debug_type(D)]", "/", "/<wbr>")]</font></b>
 							[holder.marked_datum == D ? "<br/><font size='1' color='red'><b>Marked Object</b></font>" : ""]
 						</div>
 					</td>
 					<td width='50%'>
 						<div align='center'>
-							<a href='?_src_=vars;datumrefresh=\ref[D]'>Refresh</a>
+							<a id='refresh' data-initial-href='?_src_=vars;datumrefresh=\ref[D];search=' href='?_src_=vars;datumrefresh=\ref[D];search=[search]'>Refresh</a>
 							<form>
 								<select name='file'
 								        size='1'
@@ -89,7 +93,9 @@
 					<input type='text'
 					       id='filter'
 					       name='filter_text'
-					       value=''
+					       value='[search]'
+					       onkeyup='updateSearch()'
+					       onchange='updateSearch()'
 					       style='width:100%;' />
 				</td>
 			</tr></table>
@@ -101,7 +107,7 @@
 		</html>
 		"}
 
-	usr << browse(html, "window=variables\ref[D];size=475x650")
+	usr << browse(html, "window=variables\ref[D];size=520x720")
 
 
 /proc/make_view_variables_var_list(datum/D)
@@ -119,10 +125,12 @@
 
 /proc/make_view_variables_value(value, varname = "*")
 	var/vtext = ""
+	var/debug_type = get_debug_type(value, FALSE)
 	var/extra = list()
 	if(isnull(value))
-		vtext = "null"
+		// get_debug_type displays this
 	else if(istext(value))
+		debug_type = null // it's kinda annoying here; we can tell the type by the quotes
 		vtext = "\"[value]\""
 	else if(isicon(value))
 		vtext = "[value]"
@@ -139,7 +147,7 @@
 		vtext = "<a href='?_src_=vars;Vars=\ref[C]'>\ref[C]</a> - [C] ([C.type])"
 	else if(islist(value))
 		var/list/L = value
-		vtext = "/list ([L.len])"
+		vtext = "([L.len])"
 		if(!(varname in view_variables_dont_expand) && L.len > 0 && L.len < 100)
 			extra += "<ul>"
 			for (var/index = 1 to L.len)
@@ -152,7 +160,7 @@
 	else
 		vtext = "[value]"
 
-	return "<span class=value>[vtext]</span>[jointext(extra, "")]"
+	return "<span class=type>[debug_type]</span> <span class=value>[vtext]</span>[jointext(extra, "")]"
 
 /proc/make_view_variables_var_entry(datum/D, varname, value, level=0)
 	var/ecm = null
@@ -166,4 +174,4 @@
 
 	var/valuestr = make_view_variables_value(value, varname)
 
-	return "<li>[ecm][varname] = [valuestr]</li>"
+	return "<li>[ecm]<span class='key'>[varname]</span> = [valuestr]</li>"

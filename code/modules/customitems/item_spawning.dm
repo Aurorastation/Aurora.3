@@ -219,12 +219,12 @@
 			if(!has_title)
 				continue
 
-		// ID cards and PDAs are applied directly to the existing object rather than spawned fresh.
+		// ID cards and MCs are applied directly to the existing object rather than spawned fresh.
 		var/obj/item/existing_item
 		if(citem.item_path == /obj/item/card/id)
 			existing_item = locate(/obj/item/card/id) in M.get_contents() //TODO: Improve this ?
-		else if(citem.item_path == /obj/item/device/pda)
-			existing_item = locate(/obj/item/device/pda) in M.contents
+		else if(citem.item_path == /obj/item/modular_computer)
+			existing_item = locate(/obj/item/modular_computer) in M.contents
 
 		// Spawn and equip the item.
 		if(existing_item)

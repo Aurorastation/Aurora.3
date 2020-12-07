@@ -1,6 +1,6 @@
 /datum/computer_file/program/chatclient
 	filename = "ntnrc_client"
-	filedesc = "NTNet Relay Chat Client"
+	filedesc = "Chat Client"
 	program_icon_state = "command"
 	extended_desc = "This program allows communication over the NTNRC network."
 	size = 2
@@ -10,47 +10,65 @@
 	ui_header = "ntnrc_idle.gif"
 	available_on_ntnet = TRUE
 	nanomodule_path = /datum/nano_module/program/computer_chatclient
+	color = LIGHT_COLOR_GREEN
+	silent = FALSE
+
 	var/last_message				// Used to generate the toolbar icon
 	var/username
 	var/datum/ntnet_conversation/channel
 	var/operator_mode = FALSE		// Channel operator mode
 	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
+	var/set_offline = FALSE // appear "invisible"
 	var/list/directmessagechannels = list()
-	color = LIGHT_COLOR_GREEN
 
-/datum/computer_file/program/chatclient/New()
-	..()
-	username = "DefaultUser[rand(100, 999)]"
+	var/ringtone = "beep"
+	var/syndi_auth = FALSE
+
+/datum/computer_file/program/chatclient/New(var/obj/item/modular_computer/comp)
+	..(comp)
+	if(!comp)
+		return
+
+/datum/computer_file/program/chatclient/Destroy()
+	ntnet_global.chat_clients -= src
+	return ..()
 
 /datum/computer_file/program/chatclient/Topic(href, href_list)
 	if(..())
 		return TRUE
 
+	if(href_list["PRG_toggleringer"])
+		. = TRUE
+		silent = !silent
+
+	if(href_list["PRG_setringtone"])
+		. = TRUE
+		var/t = input(usr, "Please enter new ringtone", filedesc, ringtone) as text|null
+		if(!usr.Adjacent(computer) || !t)
+			return
+		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
+		if(istype(H) && H.check_trigger(usr, lowertext(t), lowertext(H.pda_code)))
+			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
+			syndi_auth = TRUE
+			SSnanoui.close_uis(NM)
+		else
+			t = sanitize(t, 20)
+			ringtone = t
+
 	if(href_list["PRG_speak"])
 		. = TRUE
-		if(!channel)
-			return TRUE
-		var/mob/living/user = usr
-		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
-		if(!message || !channel)
-			return
-		channel.add_message(message, username, usr)
-		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
+		add_message(send_message())
 
 	if(href_list["Reply"])
 		. = TRUE
 		if(!channel || channel.title != href_list["target"])
 			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
 			return
-		var/mob/living/user = usr
-		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
-		if(!message)
-			return
+		var/message = send_message()
 		if(!channel || channel.title != href_list["target"])
 			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
 			return
-		channel.add_message(message, username, usr)
-		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
+		add_message(message)
 
 	if(href_list["PRG_joinchannel"])
 		. = TRUE
@@ -188,27 +206,48 @@
 			channel.password = newpassword
 	if(href_list["PRG_directmessage"])
 		. = TRUE
-		var/clients = list()
-		var/names = list()
-		for(var/cl in ntnet_global.chat_clients)
-			var/datum/computer_file/program/chatclient/C = cl
-			clients[C.username] = C
-			names += C.username
-		names -= username // Remove ourselves
-		names += "== Cancel =="
-		var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
-		if(picked == "== Cancel ==")
+		direct_message()
+
+/datum/computer_file/program/chatclient/proc/send_message()
+	if(!channel)
+		return
+	var/mob/living/user = usr
+	if(ishuman(user))
+		user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
+	var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
+	if(!message || !channel)
+		return
+	return message
+
+/datum/computer_file/program/chatclient/proc/add_message(var/message)
+	if(!message)
+		return
+	channel.add_message(message, username, usr)
+	message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
+
+/datum/computer_file/program/chatclient/proc/direct_message()
+	var/clients = list()
+	var/names = list()
+	for(var/cl in ntnet_global.chat_clients)
+		var/datum/computer_file/program/chatclient/C = cl
+		if(C.set_offline || C == src)
+			continue
+		clients[C.username] = C
+		names += C.username
+	names += "== Cancel =="
+	var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
+	if(picked == "== Cancel ==")
+		return
+	var/datum/computer_file/program/chatclient/otherClient = clients[picked]
+	if(picked)
+		if(directmessagechannels[otherClient])
+			channel = directmessagechannels[otherClient]
 			return
-		var/datum/computer_file/program/chatclient/otherClient = clients[picked]
-		if(picked)
-			if(directmessagechannels[otherClient])
-				channel = directmessagechannels[otherClient]
-				return
-			var/datum/ntnet_conversation/C = new /datum/ntnet_conversation("", TRUE)
-			C.begin_direct(src, otherClient)
-			channel = C
-			directmessagechannels[otherClient] = C
-			otherClient.directmessagechannels[src] = C
+		var/datum/ntnet_conversation/C = new /datum/ntnet_conversation("", TRUE)
+		C.begin_direct(src, otherClient)
+		channel = C
+		directmessagechannels[otherClient] = C
+		otherClient.directmessagechannels[src] = C
 
 
 /datum/computer_file/program/chatclient/process_tick()
@@ -230,26 +269,68 @@
 		ui_header = "ntnrc_idle.gif"
 
 /datum/computer_file/program/chatclient/kill_program(var/forced = FALSE)
-	channel = null
+	if(!forced)
+		var/confirm = alert("Are you sure you want to close the NTNRC Client? You will not be reachable via messaging if you do so.", "Close?", "Yes", "No")
+		if((confirm != "Yes") || (CanUseTopic(usr) != STATUS_INTERACTIVE))
+			return FALSE
+
 	ntnet_global.chat_clients -= src
+
+	channel = null
 	..(forced)
+	return TRUE
 
 /datum/computer_file/program/chatclient/run_program(var/mob/user)
-	ntnet_global.chat_clients += src
+	if(!computer)
+		return
+	if(!istype(computer, /obj/item/modular_computer/silicon))
+		if((!computer.registered_id && !computer.register_account(src)))
+			return
+	if(!(src in ntnet_global.chat_clients))
+		ntnet_global.chat_clients += src
+	if(!username)
+		username = username_from_id()
 	return ..(user)
 
+/datum/computer_file/program/chatclient/proc/username_from_id()
+	if(istype(computer, /obj/item/modular_computer/silicon))
+		var/obj/item/modular_computer/silicon/SC = computer
+		return SC.computer_host.name
+	if(!computer.registered_id)
+		return "Unknown"
+
+	return "[computer.registered_id.registered_name] ([computer.registered_id.assignment])"
+
+/datum/computer_file/program/chatclient/event_unregistered()
+	..()
+	computer.set_autorun(filename)
+	ntnet_global.chat_clients -= src
+	kill_program(TRUE)
+
+/datum/computer_file/program/chatclient/event_silentmode()
+	..()
+	if(computer.silent != silent)
+		silent = computer.silent
 /datum/nano_module/program/computer_chatclient
-	name = "NTNet Relay Chat Client"
+	name = "Chat Client"
 
 /datum/nano_module/program/computer_chatclient/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	if(!ntnet_global || !ntnet_global.chat_channels)
 		return
 
+	var/datum/computer_file/program/chatclient/C = program
+
+	if(C.computer.hidden_uplink && C.syndi_auth)
+		if(alert(user, "Resume or close and secure?", name, "Resume", "Close") == "Resume")
+			C.computer.hidden_uplink.trigger(user)
+			return
+		else
+			C.syndi_auth = FALSE
+
 	var/list/data = list()
 	if(program)
 		data = list("_PC" = program.get_header_data())
 
-	var/datum/computer_file/program/chatclient/C = program
 	if(!istype(C))
 		return
 

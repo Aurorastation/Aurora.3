@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/borghypo
+/obj/item/reagent_containers/hypospray/borghypo
 	name = "cyborg hypospray"
 	desc = "An advanced chemical synthesizer and injection system, designed for heavy-duty medical equipment."
 	icon = 'icons/obj/syringe.dmi'
@@ -19,13 +19,13 @@
 
 	center_of_mass = null
 
-/obj/item/reagent_containers/borghypo/medical
-	reagent_ids = list(/datum/reagent/bicaridine, /datum/reagent/kelotane, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/inaprovaline, /datum/reagent/mortaphenyl, /datum/reagent/thetamycin)
+/obj/item/reagent_containers/hypospray/borghypo/medical
+	reagent_ids = list(/datum/reagent/bicaridine, /datum/reagent/kelotane, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/inaprovaline, /datum/reagent/perconol, /datum/reagent/mortaphenyl, /datum/reagent/thetamycin)
 
-/obj/item/reagent_containers/borghypo/rescue
-	reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline, /datum/reagent/mortaphenyl, /datum/reagent/adrenaline)
+/obj/item/reagent_containers/hypospray/borghypo/rescue
+	reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline, /datum/reagent/dylovene, /datum/reagent/perconol, /datum/reagent/mortaphenyl, /datum/reagent/dexalin, /datum/reagent/adrenaline)
 
-/obj/item/reagent_containers/borghypo/Initialize()
+/obj/item/reagent_containers/hypospray/borghypo/Initialize()
 	. = ..()
 
 	for(var/T in reagent_ids)
@@ -35,11 +35,14 @@
 
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/borghypo/Destroy()
+/obj/item/reagent_containers/hypospray/borghypo/update_icon()
+	return
+
+/obj/item/reagent_containers/hypospray/borghypo/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/reagent_containers/borghypo/process() //Every [recharge_time] seconds, recharge some reagents for the cyborg+
+/obj/item/reagent_containers/hypospray/borghypo/process() //Every [recharge_time] seconds, recharge some reagents for the cyborg+
 	if(++charge_tick < recharge_time)
 		return 0
 	charge_tick = 0
@@ -53,7 +56,7 @@
 					reagent_volumes[T] = min(reagent_volumes[T] + 5, volume)
 	return 1
 
-/obj/item/reagent_containers/borghypo/afterattack(var/mob/living/M, var/mob/user, proximity)
+/obj/item/reagent_containers/hypospray/borghypo/afterattack(var/mob/living/M, var/mob/user, proximity)
 
 	if(!proximity)
 		return
@@ -87,7 +90,7 @@
 			to_chat(user,"<span class='notice'>[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining.</span>")
 	return
 
-/obj/item/reagent_containers/borghypo/attack_self(mob/user as mob) //Change the mode
+/obj/item/reagent_containers/hypospray/borghypo/attack_self(mob/user as mob) //Change the mode
 	var/t = ""
 	for(var/i = 1 to reagent_ids.len)
 		if(t)
@@ -101,7 +104,7 @@
 
 	return
 
-/obj/item/reagent_containers/borghypo/Topic(var/href, var/list/href_list)
+/obj/item/reagent_containers/hypospray/borghypo/Topic(var/href, var/list/href_list)
 	if(href_list["reagent"])
 		var/t = reagent_ids.Find(text2path(href_list["reagent"]))
 		if(t)
@@ -110,7 +113,7 @@
 			var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
 			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>")
 
-/obj/item/reagent_containers/borghypo/examine(mob/user)
+/obj/item/reagent_containers/hypospray/borghypo/examine(mob/user)
 	if(!..(user, 2))
 		return
 
@@ -118,7 +121,7 @@
 
 	to_chat(user, "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>")
 
-/obj/item/reagent_containers/borghypo/service
+/obj/item/reagent_containers/hypospray/borghypo/service
 	name = "cyborg drink synthesizer"
 	desc = "A portable drink dispenser."
 	icon = 'icons/obj/drinks.dmi'
@@ -129,10 +132,10 @@
 	possible_transfer_amounts = list(5, 10, 20, 30)
 	reagent_ids = list(/datum/reagent/alcohol/ethanol/beer, /datum/reagent/alcohol/ethanol/coffee/kahlua, /datum/reagent/alcohol/ethanol/whiskey, /datum/reagent/alcohol/ethanol/wine, /datum/reagent/alcohol/ethanol/vodka, /datum/reagent/alcohol/ethanol/gin, /datum/reagent/alcohol/ethanol/rum, /datum/reagent/alcohol/ethanol/tequila, /datum/reagent/alcohol/ethanol/vermouth, /datum/reagent/alcohol/ethanol/cognac, /datum/reagent/alcohol/ethanol/ale, /datum/reagent/alcohol/ethanol/mead, /datum/reagent/water, /datum/reagent/sugar, /datum/reagent/drink/ice, /datum/reagent/drink/tea, /datum/reagent/drink/icetea, /datum/reagent/drink/space_cola, /datum/reagent/drink/spacemountainwind, /datum/reagent/drink/dr_gibb, /datum/reagent/drink/spaceup, /datum/reagent/drink/tonic, /datum/reagent/drink/sodawater, /datum/reagent/drink/lemon_lime, /datum/reagent/drink/orangejuice, /datum/reagent/drink/limejuice, /datum/reagent/drink/watermelonjuice, /datum/reagent/drink/coffee, /datum/reagent/drink/coffee/espresso)
 
-/obj/item/reagent_containers/borghypo/service/attack(var/mob/M, var/mob/user)
+/obj/item/reagent_containers/hypospray/borghypo/service/attack(var/mob/M, var/mob/user)
 	return
 
-/obj/item/reagent_containers/borghypo/service/afterattack(var/obj/target, var/mob/user, var/proximity)
+/obj/item/reagent_containers/hypospray/borghypo/service/afterattack(var/obj/target, var/mob/user, var/proximity)
 	if(!proximity)
 		return
 

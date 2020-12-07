@@ -5,6 +5,7 @@
 /obj/item/reagent_containers/cooking_container
 	icon = 'icons/obj/cooking_machines.dmi'
 	var/shortname
+	var/place_verb = "into"
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
 	volume = 80//Maximum units of reagents
 	flags = OPENCONTAINER | NOREACT
@@ -12,7 +13,9 @@
 		/obj/item/reagent_containers/food/snacks,
 		/obj/item/holder,
 		/obj/item/paper,
-		/obj/item/flame/candle
+		/obj/item/flame/candle,
+		/obj/item/stack/rods,
+		/obj/item/organ/internal/brain
 		)
 	var/appliancetype // Bitfield, uses the same as appliances
 	w_class = ITEMSIZE_NORMAL
@@ -59,7 +62,7 @@
 		if(!user.unEquip(I))
 			return
 		I.forceMove(src)
-		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
+		to_chat(user, SPAN_NOTICE("You put [I] [place_verb] [src]."))
 		return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
@@ -227,6 +230,22 @@
 	desc = "Put ingredients in this; designed for use with a deep fryer. Warranty void if used."
 	icon_state = "basket"
 	appliancetype = FRYER
+
+/obj/item/reagent_containers/cooking_container/grill_grate
+	name = "grill grate"
+	shortname = "grate"
+	place_verb = "onto"
+	desc = "Primarily used to grill meat, place this on a grill and grab a can of energy drink."
+	icon_state = "grill_grate"
+	appliancetype = GRILL
+	insertable = list(
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+
+/obj/item/reagent_containers/cooking_container/grill_grate/can_fit()
+	if(length(contents) >= 3)
+		return FALSE
+	return TRUE
 
 /obj/item/reagent_containers/cooking_container/plate
 	name = "serving plate"

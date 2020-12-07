@@ -100,7 +100,7 @@
 
 			return
 
-	var/datum/martial_art/attacker_style = H.martial_art
+	var/datum/martial_art/attacker_style = H.primary_martial_art
 
 	switch(M.a_intent)
 		if(I_HELP)
@@ -110,14 +110,15 @@
 
 				cpr_time = 0
 
-				H.visible_message("<span class='notice'>\The [H] is trying to perform CPR on \the [src].</span>")
-
 				if(!do_after(H, rand(3, 5), src))
 					cpr_time = 1
 					return
 				cpr_time = 1
 
-				H.visible_message("<span class='notice'>\The [H] performs CPR on \the [src]!</span>")
+				H.do_attack_animation(src, null, image('icons/mob/screen/generic.dmi', src, "cpr", src.layer + 1))
+				var/starting_pixel_y = pixel_y
+				animate(src, pixel_y = starting_pixel_y + 4, time = 2)
+				animate(src, pixel_y = starting_pixel_y, time = 2)
 
 				if(is_asystole())
 					if(prob(5 * rand(2, 3)))
@@ -463,14 +464,16 @@
 	return
 
 /mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message)
-
 	if(!damage)
 		return
 
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
-	src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
+	if(damage < 15 && check_shields(damage, null, user, null, "\the [user]"))
+		return
+
+	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 
 	var/dam_zone = user.zone_sel?.selecting
 	if(!dam_zone)
@@ -479,7 +482,7 @@
 	var/armor_block = run_armor_check(affecting, "melee")
 	apply_damage(damage, BRUTE, affecting, armor_block)
 	updatehealth()
-	return 1
+	return TRUE
 
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)

@@ -398,14 +398,6 @@
 
 	return 1
 
-/obj/screen/fov
-	icon = 'icons/mob/vision_cone.dmi'
-	icon_state = "combat"
-	name = ""
-	screen_loc = "SOUTH,WEST"
-	mouse_opacity = 0
-	layer = SCREEN_LAYER
-
 /obj/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
@@ -451,8 +443,15 @@
 				usr.m_intent = "walk"
 			if("walk")
 				usr.m_intent = "run"
-
-		update_move_icon(usr)
+	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
+		var/mob/living/simple_animal/hostile/morph/M = usr
+		switch(usr.m_intent)
+			if("run")
+				usr.m_intent = "walk"
+			if("walk")
+				usr.m_intent = "run"
+		M.update_speed()
+	update_move_icon(usr)
 
 // Hand slots are special to handle the handcuffs overlay
 /obj/screen/inventory/hand

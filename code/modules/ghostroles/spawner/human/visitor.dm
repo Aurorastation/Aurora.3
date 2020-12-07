@@ -9,6 +9,8 @@
 	req_perms = null
 	max_count = 1
 
+	show_on_job_select = FALSE
+
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/random/visitor
 	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_TAJARA, SPECIES_UNATHI)
@@ -20,7 +22,5 @@
 
 	mob_name = null
 
-	enable_chance = 10
-
-/datum/ghostspawner/human/visitor/select_spawnpoint(var/use = TRUE)
+/datum/ghostspawner/human/visitor/select_spawnlocation(var/use = TRUE)
 	return pick(latejoin)

@@ -12,14 +12,8 @@
 	attackby(var/obj/item/card/W as obj, var/mob/user as mob)
 		if(stat & (BROKEN|NOPOWER))	return
 		if ((!( istype(W, /obj/item/card) ) || !(ROUND_IS_STARTED) || emergency_shuttle.location() || !( user )))	return
-		if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
+		if (W.GetID())
 			var/obj/item/card/id/id = W
-			if (istype(W, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = W
-				id = pda.id
-
-				if (!id)
-					return
 
 			if (!id.access) //no access
 				to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")

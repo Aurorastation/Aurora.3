@@ -165,7 +165,7 @@
 
 /obj/effect/meteor/proc/make_debris()
 	for(var/throws = dropamt, throws > 0, throws--)
-		var/loot_path = pick(meteor_loot)
+		var/loot_path = pickweight(meteor_loot)
 		var/obj/O = new loot_path(get_turf(src))
 		if(istype(O, /obj/item/stack))
 			var/obj/item/stack/S = O
@@ -321,19 +321,34 @@
 /obj/effect/meteor/ship_debris
 	name = "ship debris"
 	icon_state = "dust"
-	meteor_loot = list(/obj/item/stack/material/plasteel, /obj/item/stack/material/steel, /obj/item/material/shard, /obj/item/material/shard/shrapnel, /obj/structure/closet/crate/loot)
+	meteor_loot = list(
+		/obj/item/stack/material/plasteel = 19,
+		/obj/item/stack/material/steel = 19,
+		/obj/item/material/shard = 20,
+		/obj/item/material/shard/shrapnel = 20,
+		/obj/item/stack/rods = 20,
+		/obj/structure/closet/crate/loot = 2
+		)
 	dropamt = 10
 
 /obj/effect/meteor/ship_debris/meteor_effect()
 	for(var/eligible_turf in RANGE_TURFS(2, src))
-		if(prob(25))
+		if(prob(15))
 			new /obj/effect/gibspawner/robot(eligible_turf)
 		if(prob(10))
+			var/turf/T = eligible_turf
+			T.ChangeTurf(/turf/simulated/floor/airless)
+		if(prob(10))
+			new /obj/structure/lattice(eligible_turf)
+		if(prob(5))
+			if(turf_clear(eligible_turf))
+				new /obj/structure/grille/broken(eligible_turf)
+		if(prob(5))
+			if(turf_clear(eligible_turf))
+				new /obj/structure/girder/displaced(eligible_turf)
+		if(prob(0.25))
 			new /obj/effect/gibspawner/human(eligible_turf)
 			new /obj/random/voidsuit/no_nanotrasen(eligible_turf)
-		if(prob(35))
-			var/turf/T = eligible_turf
-			T.ChangeTurf(/turf/simulated/floor)
 
 //This function takes a turf to prevent race conditions, as the object calling it will probably be deleted in the same frame
 /proc/meteor_shield_impact_sound(var/turf/T, var/range)
@@ -350,4 +365,3 @@
 		if(mobloc && mobloc.z == T.z)
 			if(!isdeaf(M))
 				M.playsound_simple(T, 'sound/effects/meteorimpact.ogg', range, use_random_freq = TRUE, use_pressure = FALSE)
-

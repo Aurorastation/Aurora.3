@@ -16,6 +16,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
+	blood_overlay_icon = null
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 700
 	health = 700
@@ -53,12 +54,12 @@
 	add_spell(new /spell/targeted/ceiling_climb, "const_spell_ready")
 
 /mob/living/simple_animal/hostile/spider_queen/update_icon()
+	..()
+
 	if(hovering)
 		icon_state = "spider_queen_shadow"
 	else
 		icon_state = initial(icon_state)
-	..()
-
 /mob/living/simple_animal/hostile/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
 	if(hovering)
 		return

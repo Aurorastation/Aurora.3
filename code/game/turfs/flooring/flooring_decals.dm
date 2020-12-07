@@ -540,6 +540,30 @@
 	name = "L14"
 	icon_state = "L14"
 
+/obj/effect/floor_decal/ss13/odin1
+	name = "odin1"
+	icon_state = "odin1"
+
+/obj/effect/floor_decal/ss13/odin2
+	name = "odin2"
+	icon_state = "odin2"
+
+/obj/effect/floor_decal/ss13/odin3
+	name = "odin3"
+	icon_state = "odin3"
+
+/obj/effect/floor_decal/ss13/odin4
+	name = "odin4"
+	icon_state = "odin4"
+
+/obj/effect/floor_decal/ss13/odin5
+	name = "odin5"
+	icon_state = "odin5"
+
+/obj/effect/floor_decal/ss13/odin6
+	name = "odin6"
+	icon_state = "odin6"
+
 // Medbay floor signs
 
 /obj/effect/floor_decal/sign
@@ -581,7 +605,7 @@
 /obj/effect/floor_decal/sign/gtr
 	icon_state = "white_gtr"
 
-/obj/effect/floor_decal/sign/emt
+/obj/effect/floor_decal/sign/first_responder
 	icon_state = "white_emt"
 
 /obj/effect/floor_decal/sign/w

@@ -133,8 +133,8 @@
 		/obj/item/device/radio
 		)
 
-/obj/item/storage/belt/medical/emt
-	name = "EMT utility belt"
+/obj/item/storage/belt/medical/first_responder
+	name = "first responder utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
@@ -159,12 +159,13 @@
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/flashlight/flare,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/melee,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,
 		/obj/item/shield/energy,
@@ -222,7 +223,7 @@
 		/obj/item/ammo_magazine,
 		/obj/item/melee/baton,
 		/obj/item/device/flashlight,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/melee,
 		/obj/item/shield/energy,
@@ -252,7 +253,7 @@
 	desc = "A belt used to hold most janitorial supplies."
 	icon_state = "janibelt"
 	item_state = "janibelt"
-	storage_slots = 6
+	storage_slots = 8
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
@@ -390,7 +391,7 @@
 		/obj/item/ammo_magazine,
 		/obj/item/melee/baton,
 		/obj/item/device/flashlight,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/melee,
 		/obj/item/crowbar,

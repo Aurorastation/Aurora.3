@@ -63,6 +63,12 @@
 					to_chat(usr, SPAN_WARNING("You have nothing to drop in your hand."))
 					return
 				drop_item()
+			else if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				var/I = R.get_active_hand()
+				if(istype(I, /obj/item/gripper))
+					var/obj/item/gripper/G = I
+					G.drop_item()
 			else
 				to_chat(usr, SPAN_WARNING("This mob type cannot drop items."))
 			return
@@ -296,7 +302,7 @@
 		if (mob_is_human)
 			var/mob/living/carbon/human/H = mob
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
-			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally)) //This will return false if we collapse from exhaustion
+			if (H.m_intent == "run" && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally))) //This will return false if we collapse from exhaustion
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			else
 				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
@@ -384,7 +390,7 @@
 /client/proc/Process_Incorpmove(direct)
 	var/turf/mobloc = get_turf(mob)
 	switch(mob.incorporeal_move)
-		if(1)
+		if(INCORPOREAL_GHOST)
 			var/turf/T = get_step(mob, direct)
 			if(mob.check_holy(T))
 				to_chat(mob, SPAN_WARNING("You cannot get past holy grounds while you are in this plane of existence!"))
@@ -392,12 +398,11 @@
 			else
 				mob.forceMove(get_step(mob, direct))
 				mob.dir = direct
-		if(2)
-			anim(mobloc,mob,'icons/mob/mob.dmi',,"shadow",,mob.dir)
+		if(INCORPOREAL_NINJA, INCORPOREAL_BSTECH)
+			anim(mobloc, mob, 'icons/mob/mob.dmi', null, "shadow", null, mob.dir)
 			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct
-
-		if(3)
+		if(INCORPOREAL_SHADE)
 			if(!mob.canmove || mob.anchored)
 				return
 			move_delay = 1 + world.time
@@ -456,6 +461,9 @@
 // Return 1 for movement, 0 for none,
 // -1 to allow movement but with a chance of slipping
 /mob/proc/Allow_Spacemove(var/check_drift = 0)
+	if(status_flags & NOFALL || incorporeal_move == INCORPOREAL_BSTECH)
+		return 1
+
 	if(!Check_Dense_Object()) //Nothing to push off of so end here
 		return 0
 

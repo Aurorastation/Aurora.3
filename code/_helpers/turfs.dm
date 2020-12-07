@@ -10,7 +10,11 @@
 	return (istype(T, /turf/simulated/wall) || istype(T, /turf/unsimulated/wall))
 
 /proc/isfloor(turf/T)
-	return (istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
+	if(locate(/obj/structure/lattice) in T)
+		return TRUE
+	else if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
+		return TRUE
+	return FALSE
 
 
 //Edit by Nanako
@@ -25,7 +29,7 @@
 			return 0
 	return 1
 
-/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density)
+/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density, var/check_indoors)
 	origin = get_turf(origin)
 	if(!origin)
 		return
@@ -38,6 +42,10 @@
 				continue
 			if(check_density && turf_contains_dense_objects(T))
 				continue
+			if(check_indoors)
+				var/area/A = get_area(T)
+				if(A.station_area)
+					continue
 		if(!inner_range || get_dist(origin, T) >= inner_range)
 			turfs += T
 	if(turfs.len)

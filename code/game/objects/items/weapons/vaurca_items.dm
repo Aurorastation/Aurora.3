@@ -143,15 +143,6 @@
 				user.put_in_hands(X)
 				qdel(src)
 
-	else if(isvox(user))
-		to_chat(user, "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>")
-		if(do_after(user, 100))
-			to_chat(user, "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>")
-			var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
-			user.remove_from_mob(src)
-			user.put_in_hands(X)
-			qdel(src)
-
 	else
 		to_chat(user, "<span class='notice'>You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)</span>")
 		if(do_after(user, 60))
@@ -169,7 +160,7 @@
 
 /obj/item/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
-	desc = "A rather heavy data disk for a Vaurcae Arkship navigation drive."
+	desc = "A rather heavy data disk for a Vaurcan hiveship navigation drive."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	force = 10
@@ -179,7 +170,7 @@
 
 /obj/item/melee/vaurca/rock
 	name = "Sedantis rock"
-	desc = "A large chunk of alien earth from the distant Vaurcae world of Sedantis I. Just looking at it makes you feel funny."
+	desc = "A large chunk of alien earth from the distant Vaurcan world of Sedantis I. Just looking at it makes you feel funny."
 	icon_state = "glowing"
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 15
@@ -220,12 +211,12 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "void"
 	item_state = "void"
-	desc = "A lightweight Zo'rane designed Vaurcae softsuit, for extremely extended EVA operations."
+	desc = "A lightweight Zo'rane designed Vaurcan softsuit, for extremely extended EVA operations."
 	slowdown = 0
 
 	species_restricted = list(BODYTYPE_VAURCA)
 
-	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
+	boots = /obj/item/clothing/shoes/magboots/vaurca
 	helmet = /obj/item/clothing/head/helmet/space/void/vaurca
 
 /obj/item/clothing/head/helmet/space/void/vaurca
@@ -241,8 +232,7 @@
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/clothing/shoes/magboots/vox/vaurca
-
+/obj/item/clothing/shoes/magboots/vaurca
 	desc = "A pair of heavy mag-claws designed for a Vaurca."
 	name = "mag-claws"
 	item_state = "boots_void"

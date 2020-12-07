@@ -7,7 +7,6 @@
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
 	accent = ACCENT_TTS
-	can_have_vision_cone = TRUE
 	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
@@ -55,6 +54,9 @@
 	var/list/access_rights
 	var/obj/item/card/id/id_card
 	var/id_card_type = /obj/item/card/id/synthetic
+
+	var/list/possible_accents = list(ACCENT_TTS, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_LUNA, ACCENT_MARTIAN, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
+									ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EARTH, ACCENT_REPUBICLANSIIK)
 
 	// Misc
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
@@ -183,20 +185,11 @@
 		show_malf_ai()
 	..()
 
-// this function displays the stations manifest in a separate window
-/mob/living/silicon/proc/show_station_manifest()
-	var/dat
-	dat += "<h4>Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(1) // make it monochrome
-	dat += "<br>"
-	src << browse(dat, "window=airoster")
-	onclose(src, "airoster")
-
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
 	if(error_msg)
 		to_chat(user, SPAN_ALERT("The armored plating is too tough."))
-	return FALSE
+	return 0
 
 //Silicon mob language procs
 

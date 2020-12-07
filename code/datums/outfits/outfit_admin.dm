@@ -37,7 +37,10 @@
 
 	uniform = "suit selection"
 	shoes = "shoe selection"
-	l_ear = /obj/item/device/radio/headset
+	l_ear = list(
+		/obj/item/device/radio/headset,
+		/obj/item/device/radio/headset/alt,
+	)
 	back = list(
 		/obj/item/storage/backpack,
 		/obj/item/storage/backpack/satchel_norm,
@@ -81,7 +84,7 @@
 	name = "Random Visitor"
 
 	id = /obj/item/card/id
-	pda = /obj/item/device/pda
+	pda = /obj/item/modular_computer/handheld/pda/civilian
 
 /datum/outfit/admin/random/visitor/get_id_assignment()
 	return "Visitor"

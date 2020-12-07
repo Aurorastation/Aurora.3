@@ -373,11 +373,7 @@
 		playsound(F, 'sound/species/diona/gestalt_grow.ogg', 30, TRUE)
 
 /datum/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
-	if(istype(O, /obj/structure/alien/weeds))
-		var/obj/structure/alien/weeds/alien_weeds = O
-		alien_weeds.health -= rand(15, 35)
-		alien_weeds.healthcheck()
-	else if(istype(O, /obj/effect/plant))
+	if(istype(O, /obj/effect/plant))
 		qdel(O)
 
 /datum/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -701,7 +697,7 @@
 		if(H.reagents.has_reagent(/datum/reagent/thetamycin, 15))
 			return
 
-		if(!H.internal_organs_by_name["zombie"] && prob(15))
+		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)

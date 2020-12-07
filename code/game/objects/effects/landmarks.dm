@@ -169,7 +169,7 @@
 
 /obj/effect/landmark/costume/highlander/New()
 	new /obj/item/clothing/under/kilt(src.loc)
-	new /obj/item/clothing/head/beret(src.loc)
+	new /obj/item/clothing/head/beret/red(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/prig/New()

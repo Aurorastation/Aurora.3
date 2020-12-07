@@ -53,7 +53,6 @@
 #define LANGUAGE_SIGN "Sign Language"
 
 // Antag Languages
-#define LANGUAGE_VOX "Vox-pidgin"
 #define LANGUAGE_CHANGELING "Changeling"
 #define LANGUAGE_BORER "Cortical Link"
 #define LANGUAGE_BORER_HIVEMIND "Cortical Hivemind"
@@ -85,6 +84,13 @@
 #define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
 #define TCOMSSIM     512 // Can be synthesized in tcoms
+
+// Autohiss
+#define AUTOHISS_OFF 0
+#define AUTOHISS_BASIC 1
+#define AUTOHISS_FULL 2
+
+#define AUTOHISS_NUM 3
 
 // Representative missions levels
 #define REPRESENTATIVE_MISSION_LOW 1

@@ -49,6 +49,8 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
+	healths_x = 22
+	healths_overlay_x = 9
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
 	slowdown = 2
@@ -56,7 +58,7 @@
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	grab_mod = 4
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 	mob_size = 30
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
@@ -110,7 +112,7 @@
 	toxins_mod = 1
 	grab_mod = 10
 	total_health = 200
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 	mob_size = 30
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
@@ -153,7 +155,7 @@
 		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
+		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit
 	)
 

@@ -199,7 +199,7 @@
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
 				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return
-	if(!dropsafety(I))
+	if(!I.dropsafety())
 		return
 
 	if(!I)
@@ -224,6 +224,11 @@
 
 	if(!check_mob_size(target))
 		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
+		return
+
+/// makes it so synths can't be flushed
+	if (isrobot(target) && !isDrone(target))
+		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
 		return
 
 	src.add_fingerprint(user)
@@ -289,6 +294,8 @@
 
 // ai as human but can't flush
 /obj/machinery/disposal/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	interact(user, 1)
 
 // human interact with machine

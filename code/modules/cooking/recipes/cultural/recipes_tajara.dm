@@ -84,10 +84,21 @@
 // Tajaran candy
 /decl/recipe/tajcandy
 	appliance = OVEN
-	fruit = list("sugartree" = 2)
+	fruit = list("nmshaan" = 2)
 	reagents = list(/datum/reagent/drink/milk/adhomai = 5, /datum/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/chipplate/tajcandy
+
+/decl/recipe/scoutration
+	appliance = OVEN
+	fruit = list("nifberries" = 2)
+	reagents = list(/datum/reagent/sodiumchloride = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai
+	)
+	result = /obj/item/reagent_containers/food/snacks/explorer_ration

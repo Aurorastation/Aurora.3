@@ -37,6 +37,3 @@
 	F.say("Initiating boot-up sequence!")
 	spark(F, 4, alldirs)
 	SSghostroles.add_spawn_atom("syndiborg", F)
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("A syndicate cyborg has started its boot process in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab, and try to be good!")

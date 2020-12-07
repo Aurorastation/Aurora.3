@@ -66,7 +66,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "chaplain_hoodie"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
-	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi')
 
 //Chaplain
 /obj/item/clothing/suit/nun
@@ -77,7 +76,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
-	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi')
 
 //Chef
 /obj/item/clothing/suit/chef
@@ -143,7 +141,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
-	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi')
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/storage/toggle/det_trench/black
@@ -293,13 +290,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
 	body_parts_covered = UPPER_TORSO
 
-/obj/item/clothing/suit/storage/medical_chest_rig/emt
+/obj/item/clothing/suit/storage/medical_chest_rig/first_responder
 	name = "first responder vest"
 	desc = "A dark green vest adorned with high-visibility stripes. Has pouches to carry equipment with."
-	icon = 'icons/clothing/kit/emt.dmi'
+	icon = 'icons/clothing/kit/first_responder.dmi'
 	contained_sprite = TRUE
-	icon_state = "emtvest"
-	item_state = "emtvest"
+	icon_state = "firstrespondervest"
+	item_state = "firstrespondervest"
 
 //Mime
 /obj/item/clothing/suit/suspenders
@@ -310,10 +307,10 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
 
-/obj/item/clothing/suit/storage/toggle/emt_jacket
+/obj/item/clothing/suit/storage/toggle/first_responder_jacket
 	name = "first responder jacket"
 	desc = "A dark green first responder jacket."
-	icon = 'icons/clothing/kit/emt.dmi'
+	icon = 'icons/clothing/kit/first_responder.dmi'
 	contained_sprite = TRUE
-	icon_state = "emtjacket"
-	item_state = "emtjacket"
+	icon_state = "firstresponderjacket"
+	item_state = "firstresponderjacket"
