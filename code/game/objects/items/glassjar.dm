@@ -30,18 +30,6 @@
 	..()
 	update_icon()
 
-/obj/item/glass_jar/MouseDrop(atom/target)
-	if(ishuman(target) || issmall(target) && target == usr && use_check_and_message(usr) && Adjacent(usr))
-		if(contains == JAR_GUMBALL)
-			if(length(gumballs_contained))
-				usr.put_in_hands(gumballs_contained[1])
-				gumballs_contained -= gumballs_contained[1]
-				usr.visible_message("<b>[usr]</b> takes a gumball from \the [src].", SPAN_NOTICE("You take a gumball from \the [src]."))
-				if(length(gumballs_contained) == 0)
-					contains = JAR_NOTHING
-				update_icon()
-
-
 /obj/item/glass_jar/afterattack(var/atom/A, var/mob/user, var/proximity)
 	if(!proximity || contains)
 		return
@@ -72,9 +60,15 @@
 
 /obj/item/glass_jar/attack_self(var/mob/user)
 	switch(contains)
+		if(JAR_NOTHING)
+			to_chat(user, SPAN_NOTICE("You remove the lid from \the [src]."))
+			user.drop_from_inventory(src)
+			user.put_in_hands(new /obj/item/reagent_containers/glass/beaker/jar) //found in jar.dm
+			qdel(src)
+			return
 		if(JAR_MONEY)
 			for(var/obj/O in src)
-				O.forceMove(user.loc)
+				user.put_in_hands(O)
 				release(O, user)
 		if(JAR_ANIMAL)
 			for(var/mob/M in src)
@@ -85,16 +79,19 @@
 				S.forceMove(user.loc)
 				START_PROCESSING(SSprocessing, S) // They can grow after being let out though
 				release(S, user)
+		if(JAR_GUMBALL)
+			if(length(gumballs_contained))
+				playsound(src, drop_sound, DROP_SOUND_VOLUME)
+				user.visible_message(SPAN_NOTICE("<b>[user]</b> takes a gumball from \the [src]."), SPAN_NOTICE("You take a gumball from \the [src]."))
+				user.put_in_hands(gumballs_contained[1])
+				gumballs_contained -= gumballs_contained[1]
+				if(length(gumballs_contained) == 0)
+					contains = JAR_NOTHING
+				update_icon()
 		if(JAR_HOLDER)
 			for(var/obj/item/holder/H in src)
 				H.release_to_floor() // Snowflake code because holders are ass. Q.E.D.
 				release(H, user)
-		if(JAR_NOTHING)
-			to_chat(user, SPAN_NOTICE("You remove the lid from \the [src]."))
-			user.drop_from_inventory(src)
-			user.put_in_hands(new /obj/item/reagent_containers/glass/beaker/jar) //found in jar.dm
-			qdel(src)
-			return
 
 /obj/item/glass_jar/proc/release(var/atom/movable/A, var/mob/user)
 	if(istype(A, /obj/item/spacecash))
