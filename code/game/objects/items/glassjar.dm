@@ -22,7 +22,7 @@
 	recyclable = TRUE
 	flags = NOBLUDGEON
 	var/contains = JAR_NOTHING // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling, 4 = gumballs, 5 = holder
-	var/list/gumballs_contained = list()
+	var/list/contained = list()
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
@@ -66,6 +66,7 @@
 			user.put_in_hands(new /obj/item/reagent_containers/glass/beaker/jar) //found in jar.dm
 			qdel(src)
 			return
+		playsound(src, drop_sound, DROP_SOUND_VOLUME)
 		if(JAR_MONEY)
 			for(var/obj/O in src)
 				user.put_in_hands(O)
@@ -80,10 +81,10 @@
 				START_PROCESSING(SSprocessing, S) // They can grow after being let out though
 				release(S, user)
 		if(JAR_GUMBALL)
-			if(length(gumballs_contained))
-				user.put_in_hands(gumballs_contained[1])
-				gumballs_contained -= gumballs_contained[1]
-				release(gumballs_contained[1], user)
+			if(length(contained))
+				user.put_in_hands(contained[1])
+				contained -= contained[1]
+				release(contained[1], user)
 		if(JAR_HOLDER)
 			for(var/obj/item/holder/H in src)
 				H.release_to_floor() // Snowflake code because holders are ass. Q.E.D.
@@ -91,11 +92,10 @@
 
 /obj/item/glass_jar/proc/release(var/atom/movable/A, var/mob/user)
 	if(istype(A, /obj/item/spacecash) || istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [A] out from \the [src]."), SPAN_NOTICE("You take [A] out from \the [src]."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> takes \the [A] out from \the [src]."), SPAN_NOTICE("You take \the [A] out from \the [src]."))
 	else
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> releases \the [A] from \the [src]."), SPAN_NOTICE("You release \the [A] from \the [src]."))
-	playsound(src, drop_sound, DROP_SOUND_VOLUME)
-	if(length(gumballs_contained) == 0)
+	if(length(contained) == 0)
 		contains = JAR_NOTHING
 	update_icon()
 	return
