@@ -224,7 +224,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/proc/update_bandages(var/update_icons = TRUE)
+/mob/living/carbon/human/proc/update_bandages(var/update_icons=1)
 	var/bandage_icon = species.bandages_icon
 	if(!bandage_icon)
 		return
