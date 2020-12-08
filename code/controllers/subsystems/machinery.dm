@@ -30,6 +30,9 @@
 	// Cooking stuff. Not substantial enough to get its own SS, so it's shoved in here.
 	var/list/recipe_datums = list()
 
+	// Vending stuff
+	var/list/vending_products = list()
+
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
 	recipe_datums = SSmachinery.recipe_datums
@@ -167,6 +170,14 @@
 			var/datum/powernet/NewPN = new()
 			NewPN.add_cable(PC)
 			propagate_network(PC, PC.powernet)
+
+/datum/controller/subsystem/machinery/proc/get_vend_datum(var/path, var/amt, var/price, var/category = CAT_NORMAL)
+	for(var/datum/data/vending_product/product in vending_products)
+		if(product.product_path == path && product.stock_amount == amt && product.product_price == price && product.category == category)
+			return product
+	var/datum/data/vending_product/new_product = new(path, price, amt, category)
+	vending_products += new_product
+	return new_product
 
 /**
  * @brief Adds a machine to the SSmachinery.processing_machines and the SSmachinery.all_machines list.

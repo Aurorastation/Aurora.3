@@ -1,42 +1,4 @@
 /**
- *  Datum used to hold information about a product in a vending machine
- */
-/datum/data/vending_product
-	var/product_name = "generic" // Display name for the product
-	var/product_path = null
-	var/amount = 0  // Amount held in the vending machine
-	var/max_amount = 0
-	var/price = 0  // Price to buy one
-	var/display_color = null  // Display color for vending machine listing
-	var/category = CAT_NORMAL  // CAT_HIDDEN for contraband, CAT_COIN for premium
-	var/icon/product_icon
-	var/icon/icon_state
-
-/datum/data/vending_product/New(var/path, var/name = null, var/amount = 1, var/price = 0, var/color = null, var/category = CAT_NORMAL)
-	..()
-
-	product_path = path
-	var/atom/A = new path(null)
-
-	if(!name)
-		product_name = initial(A.name)
-	else
-		product_name = name
-
-	src.amount = amount
-	src.price = price
-	src.display_color = color
-	src.category = category
-	if(istype(A, /obj/item/seeds))
-		// thanks seeds for being overlays defined at runtime
-		var/obj/item/seeds/S = A
-		product_icon = S.update_appearance(TRUE)
-	else
-		product_icon = new /icon(A.icon, A.icon_state)
-	icon_state = product_icon
-	QDEL_NULL(A)
-
-/**
  *  A vending machine
  */
 /obj/machinery/vending
@@ -44,7 +6,7 @@
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
-	layer = 2.9
+	layer = LAYER_STRUCTURE
 	anchored = 1
 	density = 1
 	clicksound = /decl/sound_category/button_sound
@@ -65,6 +27,7 @@
 
 	var/categories = CAT_NORMAL // Bitmask of cats we're currently showing
 	var/datum/data/vending_product/currently_vending = null // What we're requesting payment for right now
+	var/vending_key = null // Selected product index to vend
 	var/status_message = "" // Status screen messages like "insufficient funds", displayed in NanoUI
 	var/status_error = 0 // Set to 1 if status_message is an error
 
@@ -110,7 +73,6 @@
 	var/restock_items = 0	//If items can be restocked into the vending machine
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
 	var/random_itemcount = 1 //If the number of items should be randomized
-	var/sel_key = 0
 
 	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
 

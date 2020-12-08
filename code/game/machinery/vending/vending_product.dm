@@ -1,3 +1,35 @@
+/**
+ *  Datum used to hold information about a product in a vending machine
+ */
+/datum/data/vending_product
+	var/product_name = "generic" // Display name for the product
+	var/product_path = null
+	var/category = CAT_NORMAL
+	var/stock_amount = 0
+	var/product_price = 0  // Price to buy one
+	var/icon/product_icon
+	var/icon/icon_state
+
+/datum/data/vending_product/New(var/path, var/price = 0, var/stock = 1, var/cat = CAT_NORMAL)
+	..()
+
+	product_path = path
+	var/atom/A = new path(null)
+
+	product_name = initial(A.name)
+	product_price = price
+	stock_amount = stock
+	category = cat
+
+	if(istype(A, /obj/item/seeds))
+		// thanks seeds for being overlays defined at runtime
+		var/obj/item/seeds/S = A
+		product_icon = S.update_appearance(TRUE)
+	else
+		product_icon = new /icon(A.icon, A.icon_state)
+	icon_state = product_icon
+	QDEL_NULL(A)
+
 /obj/item/vending_refill
 	name = "resupply canister"
 	var/vend_id = "generic"
