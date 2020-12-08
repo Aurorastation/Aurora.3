@@ -117,7 +117,7 @@
 	if(reagents.total_volume)
 		var/fraction = reagents.total_volume / volume
 		force = max(10 * fraction, 1)
-		throwforce = max(10 * fraction, 1)
+		throwforce = max(8 * fraction, 1)
 		hitsound = 'sound/weapons/jug_filled_impact.ogg'
 		drop_sound = 'sound/weapons/jug_filled_impact.ogg'
 	else
@@ -134,7 +134,7 @@
 
 		var/percent = round((reagents.total_volume / volume) * 100)
 		switch(percent)
-			if(0 to 10)
+			if(1 to 10)
 				filling.icon_state = "plastic_jug-10"
 			if(11 to 29)
 				filling.icon_state = "plastic_jug25"
@@ -146,7 +146,7 @@
 				filling.icon_state = "plastic_jug70"
 			if(78 to 92)
 				filling.icon_state = "plastic_jug85"
-			if(93 to INFINITY)
+			if(99 to INFINITY)
 				filling.icon_state = "plastic_jug100"
 
 		filling.color = reagents.get_color()
