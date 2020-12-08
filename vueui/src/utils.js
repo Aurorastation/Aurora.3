@@ -65,8 +65,5 @@ export default {
   sendToTopicRaw,
   sendToTopic,
   dotNotationRead,
-  sendToTopicRaw,
-  sendToTopic,
-  dotNotationRead,
   worldtime2text
 }

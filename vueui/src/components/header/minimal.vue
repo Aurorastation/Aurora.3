@@ -18,8 +18,8 @@ export default {
   },
   computed: {
     debugClass() {
-      if (this.debug_view == 1) return 'good';
-      if (this.debug == 1) return 'bad';
+      if (this.debug_view) return 'good';
+      if (this.debug) return 'bad';
       return 'hidden';
     }
   },
