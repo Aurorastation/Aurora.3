@@ -6,9 +6,12 @@ import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
-import Store from './store.js'
+import Store from './store'
+import Plugin from './plugin'
 import './assets/global.scss'
 import {setWindowKey, recallWindowGeometry} from './drag.js';
+
+Vue.use(Plugin)
 
 const requireComponent = require.context(
   './components', // The relative path of the components folder
@@ -60,14 +63,6 @@ if (document.getElementById("app")) {
           return "<div>" + this.$root.$data.active.substr(1) + "</div>"
         }
         return null
-      }
-    },
-    watch: {
-      state: {
-        handler() {
-          Store.pushState()
-        },
-        deep: true
       }
     },
     mounted: function () {

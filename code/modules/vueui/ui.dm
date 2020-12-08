@@ -245,7 +245,7 @@ main ui datum.
 	assets -= assets[name]
 
 /**
-  * Handles interactivity and state updates
+  * Handles topic calls and ATCs
   *
   * @return nothing
   */
@@ -266,19 +266,17 @@ main ui datum.
 			. = TRUE
 			ndata = ret
 		src.data = ndata
-	var/topicReturn = 0
-	if(!href_list["vueuipushonly"])
-		if(href_list["vueuihrefjson"])
-			var/json_href = json_decode(href_list["vueuihrefjson"])
-			if(json_href)
-				for(var/hvar in json_href)
-					href_list[hvar] = json_href[hvar]
-		if(href_list["_openurl"])
-			send_link(usr, href_list["_openurl"])
-		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
-		topicReturn = object.Topic(href, href_list)
+	if(href_list["vueuihrefjson"])
+		var/json_href = json_decode(href_list["vueuihrefjson"])
+		if(json_href)
+			for(var/hvar in json_href)
+				href_list[hvar] = json_href[hvar]
+	if(href_list["_openurl"])
+		send_link(usr, href_list["_openurl"])
+	href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
+	var/topicReturn = object.Topic(href, href_list)
 	if(. || topicReturn)
-		if(topicReturn) check_for_change(FALSE, TRUE)
+		check_for_change(FALSE, TRUE)
 		. = null
 		push_change()
 

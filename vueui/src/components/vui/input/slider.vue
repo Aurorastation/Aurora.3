@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Store from '../../../store.js'
 export default {
   props: {
     value: {
@@ -19,10 +18,6 @@ export default {
     max: {
       type: Number,
       default: 100
-    },
-    pushState: {
-      type: Boolean,
-      default: true
     },
     width: {
       type: String,
@@ -64,7 +59,6 @@ export default {
       if(int < this.min) int = this.min
       this.val = int
       this.$emit('input', int);
-      if(this.pushState) Store.pushState()
     }
   },
   watch: {

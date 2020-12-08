@@ -17,15 +17,11 @@ export function sendToTopicRaw(data) {
   r.send()
 }
 
-export function sendToTopic(data, pushState = false) {
-  var pushData = {
+export function sendToTopic(data) {
+  sendToTopicRaw({
     src: Store.state.uiref,
     vueuihrefjson: JSON.stringify(data)
-  }
-  if(pushState) {
-    pushData["vueuistateupdate"] = Store.getStatePushDataString()
-  }
-  sendToTopicRaw(pushData)
+  })
 }
 
 export function dotNotationRead(object, key) {

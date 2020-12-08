@@ -9,7 +9,7 @@
 
 
 /**
- * Alert UI host of data change made by Ui and gather initial data
+ * Gather initial and updated ui data, should always return static key count.
  *
  * @param data - a list containing current ui data, null obtaining initial data
  * @param user - mob that has opened ui and get this data shown

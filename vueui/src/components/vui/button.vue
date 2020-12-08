@@ -6,8 +6,7 @@
 </template>
 
 <script>
-import Store from '../../store.js'
-import Utils from '../../utils.js'
+import Utils from '@/utils.js'
 export default {
   props: {
     icon: {
@@ -21,10 +20,6 @@ export default {
     unsafeParams: {
       type: Object,
       default: null
-    },
-    pushState: {
-      type: Boolean,
-      default: false
     },
     disabled: {
       type: Boolean,
@@ -44,13 +39,9 @@ export default {
       if(this.unsafeParams) {
         Utils.sendToTopicRaw(this.unsafeParams)
       }
-      if(!this.params) {
-        if (this.pushState) {
-          Store.pushState()
-        }
-        return
+      if(this.params) {
+        Utils.sendToTopic(this.params)
       }
-      Utils.sendToTopic(this.params, this.pushState)
     }
   }
 }
