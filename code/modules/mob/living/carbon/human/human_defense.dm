@@ -570,10 +570,10 @@ emp_act
 
 /mob/living/carbon/human/set_on_fire()
 	..()
-	for(var/obj/item/clothing/C in contents)
-		C.catch_fire()
+	for(var/obj/item/I in contents)
+		I.catch_fire()
 
 /mob/living/carbon/human/extinguish_fire()
 	..()
-	for(var/obj/item/clothing/C in contents)
-		C.extinguish_fire()
+	for(var/obj/item/I in contents)
+		I.extinguish_fire()
