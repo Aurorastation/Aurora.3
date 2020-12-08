@@ -91,10 +91,6 @@
 /mob/living/silicon/pai/can_examine()
 	. = ..()
 	if(!.)
-		if(isturf(card.loc)) // are we folded in on the ground
-			return TRUE
-		if(ishuman(loc.loc)) // are we on a human, ie carded in pocket, or in a holder on their head
-			return TRUE
-		var/obj/item/modular_computer/MC = card.loc
-		if(istype(MC) && (isturf(MC.loc) || ishuman(MC.loc))) // we're inside someone's PDA or laptop, and we're on the ground or on their person
+		var/atom/our_holder = recursive_loc_turf_check(src, 5)
+		if(isturf(our_holder.loc)) // are we folded in on the ground
 			return TRUE
