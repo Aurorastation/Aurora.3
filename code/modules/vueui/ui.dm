@@ -127,9 +127,6 @@ main ui datum.
   * @return html code - text
   */
 /datum/vueui/proc/generate_html(var/css_tag)
-	var/debugtxt = ""
-	if(user && check_rights(R_DEV, FALSE, user=user))
-		debugtxt = "<div id=\"dapp\"></div>"
 	return {"
 <!DOCTYPE html>
 <html>
@@ -148,7 +145,8 @@ main ui datum.
 		<div id="app">
 			Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
 		</div>
-		[debugtxt]
+		<div id="dapp">
+		</div>
 		<noscript>
 			<div id='uiNoScript'>
 				<h2>JAVASCRIPT REQUIRED</h2>
