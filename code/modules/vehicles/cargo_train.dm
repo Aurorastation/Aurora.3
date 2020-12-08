@@ -52,7 +52,10 @@
 /obj/vehicle/train/cargo/engine/attack_hand(mob/user)
 	if(use_check_and_message(user))
 		return
-	ui_interact(user)
+	if(!load || user == load) // no driver, or the user is the driver
+		ui_interact(user)
+		return
+	..()
 
 /obj/vehicle/train/cargo/engine/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -82,6 +85,10 @@
 /obj/vehicle/train/cargo/engine/Topic(href, href_list, state)
 	. = ..()
 	if(.)
+		return TRUE
+
+	if(load && usr != load)
+		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] unless you're the driver, or you're adjacent to it while it has no driver."))
 		return TRUE
 
 	if(href_list["toggle_engine"])
