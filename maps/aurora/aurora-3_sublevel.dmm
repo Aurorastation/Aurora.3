@@ -21480,22 +21480,22 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
 /obj/item/clothing/accessory/stethoscope,
@@ -22536,7 +22536,7 @@
 /area/medical/medbay4)
 "aWF" = (
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -22721,7 +22721,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8
@@ -28135,16 +28135,6 @@
 /obj/structure/table/reinforced/wood,
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
-"fHw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "fHV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -29628,19 +29618,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
-"iQM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "iRV" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
@@ -32444,11 +32421,6 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
-"oRX" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "oTN" = (
 /obj/structure/grille/broken,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -33419,17 +33391,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"qUt" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "qUD" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -36177,17 +36138,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
-"wHQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "wHR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/computer/power_monitor,
@@ -36956,17 +36906,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/security/penal_colony/prison)
 "ybc" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/full,
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/prison)
 "ybo" = (
@@ -70544,7 +70484,7 @@ kMM
 dYQ
 ktr
 xZJ
-qUt
+ybc
 xZJ
 xZJ
 kMM
@@ -70798,10 +70738,10 @@ aaa
 aaa
 aaa
 kMM
-iQM
-fHw
-fHw
-oRX
+ybc
+ybc
+ybc
+ybc
 xZJ
 jOO
 kMM
@@ -71058,7 +70998,7 @@ kMM
 qjL
 aUc
 xZJ
-wHQ
+ybc
 xZJ
 xZJ
 kMM
@@ -71572,7 +71512,7 @@ kMM
 dYQ
 ktr
 xZJ
-qUt
+ybc
 xZJ
 xZJ
 kMM
@@ -71826,10 +71766,10 @@ aaa
 aaa
 aaa
 kMM
-iQM
-fHw
-fHw
-oRX
+ybc
+ybc
+ybc
+ybc
 xZJ
 jOO
 kMM
@@ -72086,7 +72026,7 @@ kMM
 qjL
 aUc
 xZJ
-wHQ
+ybc
 xZJ
 xZJ
 kMM
@@ -72600,7 +72540,7 @@ kMM
 dYQ
 ktr
 xZJ
-qUt
+ybc
 xZJ
 xZJ
 kMM
@@ -72854,10 +72794,10 @@ aaa
 aaa
 aaa
 kMM
-iQM
-fHw
-fHw
-oRX
+ybc
+ybc
+ybc
+ybc
 xZJ
 jOO
 kMM
@@ -73114,7 +73054,7 @@ kMM
 qjL
 aUc
 xZJ
-wHQ
+ybc
 xZJ
 xZJ
 kMM

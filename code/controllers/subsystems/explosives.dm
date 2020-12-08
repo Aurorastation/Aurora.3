@@ -33,7 +33,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	powernet_update_pending = SSexplosives.powernet_update_pending
 
 /datum/controller/subsystem/explosives/fire(resumed = FALSE)
-	if (!(work_queue.len))
+	if(!length(work_queue))
 		ticks_without_work++
 		if (powernet_update_pending && ticks_without_work > 5)
 			SSmachinery.powernet_update_queued = TRUE
@@ -81,7 +81,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	var/start = world.timeofday
 	epicenter = get_turf(epicenter)
-	if(!epicenter) return
+	if(!epicenter)
+		return
 
 	// Handles recursive propagation of explosions.
 	if(devastation_range > 2 || heavy_impact_range > 2)
@@ -112,23 +113,25 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	//Whether or not this explosion causes enough vibration to send sound or shockwaves through the station
 	var/vibration = 1
-	if (istype(epicenter,/turf/space))
+	if(istype(epicenter, /turf/space))
 		vibration = 0
-		for (var/turf/T in range(src, max_range))
-			if (!istype(T,/turf/space))
+		for(var/thing in RANGE_TURFS(max_range, epicenter))
+			var/turf/T = thing
+			if (!istype(T, /turf/space))
 		//If there is a nonspace tile within the explosion radius
 		//Then we can reverberate shockwaves through that, and allow it to be felt in a vacuum
 				vibration = 1
 
 	if (vibration)
-		for(var/mob/M in player_list)
+		for(var/thing in player_list)
+			var/mob/M = thing
 			CHECK_TICK
 			// Double check for client
 			var/reception = 2//Whether the person can be shaken or hear sound
 			//2 = BOTH
 			//1 = shockwaves only
 			//0 = no effect
-			if(M && M.client)
+			if(M?.client)
 				var/turf/M_turf = get_turf(M)
 
 				if(M_turf && M_turf.z == epicenter.z)
@@ -136,8 +139,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 					//If the person is standing in space, they wont hear
 						//But they may still feel the shaking
 						reception = 0
-						for (var/turf/T in range(M, 1))
-							if (!istype(T,/turf/space))
+						for(var/t_thing in RANGE_TURFS(1, M))
+							var/turf/T = t_thing
+							if(!istype(T, /turf/space))
 							//If theyre touching the hull or on some extruding part of the station
 								reception = 1//They will get screenshake
 								break
@@ -200,14 +204,14 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		if(T)
 			for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 				var/atom/movable/AM = atom_movable
-				if(AM && AM.simulated)
+				if(!QDELETED(AM) && AM.simulated)
 					AM.ex_act(dist)
 
 				CHECK_TICK
 
 	var/took = (world.timeofday-start)/10
 	//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare
-	if(Debug2)	world.log <<  "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]: Took [took] seconds."
+	if(Debug2)	world.log <<  "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
 
 // All the vars used on the turf should be on unsimulated turfs too, we just don't care about those generally.
 #define SEARCH_DIR(dir) \

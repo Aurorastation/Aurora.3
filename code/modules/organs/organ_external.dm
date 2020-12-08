@@ -998,16 +998,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
 	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
 		return
+	if(QDELETED(owner))
+		return
 
-	if(owner)
-		var/message = pick("broke in half", "shattered")
-		owner.visible_message(\
-			"<span class='warning'><font size=2>You hear a loud cracking sound coming from \the [owner]!</font></span>",\
-			"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
-			"You hear a sickening crack!")
-		if(owner.species && owner.can_feel_pain())
-			owner.emote("scream")
-			owner.flash_strong_pain()
+	var/message = pick("broke in half", "shattered")
+	owner.visible_message(\
+		"<span class='warning'><font size=2>You hear a loud cracking sound coming from \the [owner]!</font></span>",\
+		"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
+		"You hear a sickening crack!")
+	if(owner.species && owner.can_feel_pain())
+		owner.emote("scream")
+		owner.flash_strong_pain()
 
 	playsound(src.loc, /decl/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
@@ -1020,7 +1021,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
 	check_rigsplints()
-	return
 
 /obj/item/organ/external/proc/mend_fracture()
 	if(status & ORGAN_ROBOT)
@@ -1133,7 +1133,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/is_robotic = status & ORGAN_ROBOT
 	var/mob/living/carbon/human/victim = owner
 
-	..()
+	..(null, user)
 
 	victim.bad_external_organs -= src
 
