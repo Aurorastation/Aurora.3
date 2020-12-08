@@ -819,18 +819,6 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
 
-/* NYET.
-/obj/item/toddler
-	icon_state = "toddler"
-	name = "toddler"
-	desc = "This baby looks almost real. Wait, did it just burp?"
-	force = 5
-	w_class = ITEMSIZE_LARGE
-	slot_flags = SLOT_BACK
-*/
-
-//This should really be somewhere else but I don't know where. w/e
-
 /obj/item/inflatable_duck
 	name = "inflatable duck"
 	desc = "No bother to sink or swim when you can just float!"
