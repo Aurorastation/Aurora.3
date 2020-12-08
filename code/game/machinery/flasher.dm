@@ -23,7 +23,7 @@
 	name = "portable flasher"
 	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
 	icon_state = "pflash1"
-	layer = OBJ_LAYER - 0.01
+	layer = LAYER_STRUCTURE
 	strength = 8
 	anchored = 0
 	base_state = "pflash"

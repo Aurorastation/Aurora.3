@@ -5,7 +5,7 @@
 	icon_state = "closed"
 	density = 1
 	w_class = ITEMSIZE_HUGE
-	layer = OBJ_LAYER - 0.01
+	layer = LAYER_STRUCTURE
 	build_amt = 2
 	var/icon_closed = "closed"
 	var/icon_opened = "open"

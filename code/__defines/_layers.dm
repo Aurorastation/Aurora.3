@@ -26,6 +26,7 @@
 #define LAYER_TABLE 2.8
 #define LAYER_UNDER_TABLE 2.79
 #define LAYER_ABOVE_TABLE 2.81
+#define LAYER_STRUCTURE (OBJ_LAYER - 0.01)  // 2.99; used for mechanical structures / machinery
 
 #define MECH_UNDER_LAYER            4
 #define MECH_BASE_LAYER             4.01

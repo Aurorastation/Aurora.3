@@ -74,7 +74,7 @@
 	desc_info = "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
 	does_teleport = FALSE
 	has_lifespan = FALSE
-	layer = OBJ_LAYER - 0.01
+	layer = LAYER_STRUCTURE
 	var/list/spawn_things = list() // The list things to spawn
 	var/num_of_spawns			   // How many times we want to spawn them before qdel
 	var/next_spawn

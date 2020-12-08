@@ -145,4 +145,4 @@
 	icon_state = "skrell"
 	icon_closed = "skrell"
 	icon_opened = "skrellopen"
-	layer = OBJ_LAYER - 0.01
+	layer = LAYER_STRUCTURE
