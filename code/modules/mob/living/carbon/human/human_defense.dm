@@ -267,7 +267,7 @@ emp_act
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
 		effective_force /= 2 //half the effective force
-		if(!..(I, effective_force, blocked, hit_zone))
+		if(!..(I, user, effective_force, blocked, hit_zone))
 			return 0
 
 		attack_joint(affecting, I, blocked) //but can dislocate joints
@@ -461,11 +461,11 @@ emp_act
 		var/obj/item/clothing/gloves/G = gloves
 		G.add_blood(source)
 		G.transfer_blood = amount
-		G.bloody_hands_mob = source
+		G.bloody_hands_mob = WEAKREF(source)
 	else
 		add_blood(source)
 		bloody_hands = amount
-		bloody_hands_mob = source
+		bloody_hands_mob = WEAKREF(source)
 	update_inv_gloves()		//updates on-mob overlays for bloody hands and/or bloody gloves
 
 /mob/living/carbon/human/proc/bloody_body(var/mob/living/source)

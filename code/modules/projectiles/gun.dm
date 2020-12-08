@@ -509,7 +509,9 @@
 		//As opposed to no-delay pew pew
 		P.accuracy += 2
 
-	var/datum/firemode/F = firemodes[sel_mode]
+	var/datum/firemode/F
+	if(length(firemodes))
+		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
 		P.accuracy -= one_hand_fa_penalty/2
 		P.dispersion -= one_hand_fa_penalty * 0.5
@@ -578,7 +580,8 @@
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
 			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
-		qdel(in_chamber)
+
+		handle_post_fire(user, user, FALSE, FALSE, FALSE)
 		mouthshoot = FALSE
 		return
 	else
