@@ -1,7 +1,0 @@
-author: Karolis2011, JohnWildkins
-
-delete-after: True
-
-changes:
-  - refactor: "Replaced VueUI titlebar backend with a custom-built version by Karolis2011."
-  - bugfix: "Users with the windows taskbar unhidden should no longer experience issues with dragging/selecting elements on VueUI windows."
