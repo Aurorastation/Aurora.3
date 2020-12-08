@@ -26,7 +26,7 @@
 /datum/gear/computer/handheld/wristbound/medical
 	display_name = "wristbound computer (Medical)"
 	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/medical
-	allowed_roles = list("Physician", "Surgeon", "Medical Intern", "Pharmacist", "Psychiatrist", "Emergency Medical Technician")
+	allowed_roles = list("Physician", "Surgeon", "Medical Intern", "Pharmacist", "Psychiatrist", "First Responder")
 
 /datum/gear/computer/handheld/wristbound/security
 	display_name = "wristbound computer (Security)"
