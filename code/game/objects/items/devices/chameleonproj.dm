@@ -161,13 +161,36 @@
 	throw_range = 5
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_ILLEGAL = 4, TECH_MAGNET = 4)
+	var/ready = TRUE
+	var/cooldown = 1 MINUTE
+	var/held_maptext = null
 	var/obj/effect/dummy/mirage/mirage
 
+/obj/item/device/mirage/Initialize()
+	. = ..()
+	held_maptext = SMALL_FONTS(7, "Ready")
+	if(get(loc, /mob))
+		maptext = held_maptext
+
+/obj/item/device/mirage/proc/check_maptext(var/new_maptext)
+	if(new_maptext)
+		held_maptext = new_maptext
+	if(ismob(loc) || ismob(loc.loc))
+		maptext = held_maptext
+	else
+		maptext = ""
+
 /obj/item/device/mirage/attack_self(mob/user)
+	if(!ready)
+		to_chat(user, SPAN_WARNING("\The [src] isn't ready to be used again!"))
+		return
 	activate(user)
 
 /obj/item/device/mirage/AltClick(mob/user)
 	if(use_check_and_message(user, USE_ALLOW_INCAPACITATED)) // this is to allow people to activate it while lying down to appear distressed
+		return
+	if(!ready)
+		to_chat(user, SPAN_WARNING("\The [src] isn't ready to be used again!"))
 		return
 	if(!(isturf(loc) || loc == user))
 		to_chat(user, SPAN_WARNING("\The [src] must be directly on your person or on the ground before you can use it!"))
@@ -175,12 +198,32 @@
 	activate(user)
 
 /obj/item/device/mirage/proc/activate(var/mob/user)
+	if(!ready)
+		return
 	to_chat(user, SPAN_NOTICE("You activate \the [src]."))
 	if(loc == user)
 		user.drop_from_inventory(src, get_turf(user))
+	ready = FALSE
+	check_maptext(SMALL_FONTS(6, "Charge"))
+	addtimer(CALLBACK(src, .proc/recharge), cooldown)
 	mouse_opacity = 0
 	mirage = new /obj/effect/dummy/mirage(loc, user, src)
 	animate(src, alpha = 0, time = 3 SECONDS)
+
+/obj/item/device/mirage/dropped(mob/user)
+	..()
+	check_maptext()
+
+/obj/item/device/mirage/throw_at()
+	..()
+	check_maptext()
+
+/obj/item/device/mirage/on_give()
+	check_maptext()
+
+/obj/item/device/mirage/pickup()
+	..()
+	addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
 
 /obj/item/device/mirage/proc/disrupt()
 	if(mirage)
@@ -188,6 +231,10 @@
 	spark(src, 5)
 	alpha = initial(alpha)
 	mouse_opacity = initial(mouse_opacity)
+
+/obj/item/device/mirage/proc/recharge()
+	ready = TRUE
+	check_maptext(SMALL_FONTS(7, "Ready"))
 
 /obj/item/device/mirage/Destroy()
 	disrupt()
