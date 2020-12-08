@@ -221,11 +221,6 @@
 	icon_state = "boater_hat"
 	desc = "The ultimate in summer fashion."
 
-/obj/item/clothing/head/fedora
-	name = "fedora"
-	icon_state = "fedora"
-	desc = "A sharp, stylish hat."
-
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
 	icon_state = "feather_trilby"
@@ -396,6 +391,15 @@
 	. = ..()
 	color = get_random_colour(lower = 150)
 
+/obj/item/clothing/head/fedora
+	name = "fedora"
+	icon_state = "fedora"
+	desc = "A sharp, stylish hat."
+
+/obj/item/clothing/head/fedora/black
+	name = "black fedora"
+	icon_state = "black_fedora"
+
 /obj/item/clothing/head/fedora/brown
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
@@ -453,24 +457,6 @@
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 //Tau Ceti Foreign Legion
-
-/obj/item/clothing/head/legion_beret
-	name = "TCFL dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
-	icon_state = "legion_beret"
-	item_state = "legion_beret"
-
-/obj/item/clothing/head/legion
-	name = "TCFL field beret"
-	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "legion_field_beret"
-	item_state = "legion_field_beret"
-
-/obj/item/clothing/head/legion/sentinel
-	name = "TCFL sentinel beret"
-	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "legion_sentinel_beret"
-	item_state = "legion_sentinel_beret"
 
 /obj/item/clothing/head/legion/legate
 	name = "TCFL peaked cap"
@@ -548,6 +534,12 @@
 	icon_state = "horncrown"
 	item_state = "horncrown"
 
+/obj/item/clothing/head/antenna/spiked/small
+	name = "small chassis horns"
+	desc = "Two small mounts holding up chassis protrusions on either side of the head, sans head crown."
+	icon_state = "horn"
+	item_state = "horncrown"
+
 /obj/item/clothing/head/antenna/side
 	name = "side chassis mounts"
 	desc = "Two large mounts holding up chassis protrusions on either side of the head."
@@ -566,6 +558,11 @@
 	icon_state = "dual_robot_antennae"
 	item_state = "dual_robot_antennae"
 
+/obj/item/clothing/head/antenna/double/left/horn
+	name = "left antenna horn"
+	icon_state = "left_horn"
+	item_state = "left_horn"
+
 /obj/item/clothing/head/antenna/double/left
 	name = "left antenna ear"
 	icon_state = "left_robot_antennae"
@@ -575,6 +572,16 @@
 	name = "right antenna ear"
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/right/horn
+	name = "right antenna horn"
+	icon_state = "right_horn"
+	item_state = "right_horn"
+
+/obj/item/clothing/head/antenna/circle
+	name = "circle antenna"
+	icon_state = "circleantenna"
+	item_state = "dish"
 
 /obj/item/clothing/head/antenna/trinary_halo
 	name = "trinary perfection antenna"

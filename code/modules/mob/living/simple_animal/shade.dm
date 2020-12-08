@@ -83,7 +83,7 @@
 	heat_damage_per_tick = 0
 	cold_damage_per_tick = 0
 	unsuitable_atoms_damage = 0
-	incorporeal_move = 3
+	incorporeal_move = INCORPOREAL_SHADE
 	mob_size = 0
 	density = 0
 	speed = 1

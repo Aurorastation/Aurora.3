@@ -62,7 +62,6 @@ main ui datum.
 	if (ntitle)
 		title = ntitle
 
-	SSvueui.ui_opened(src)
 	windowid = "vueui\ref[src]"
 	name = "Vueui [object]/[user]"
 
@@ -71,23 +70,27 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/proc/open()
+/datum/vueui/proc/open(var/datum/asset/spritesheet/load_asset)
 	if(QDELETED(object))
 		return
+
 	if(!user.client)
 		return
 
 	if(!data)
 		data = object.vueui_data_change(null, user, src)
+
 	update_status()
 	if(!status || status == STATUS_CLOSE)
 		return
 
-	var/params = "window=[windowid];file=[windowid];"
+	SSvueui.ui_opened(src) // this starts processing and adds the UI to the mob and whatnot
+
+	var/params = "window=[windowid];file=[windowid];titlebar=0;can_resize=0;"
 	if(width && height)
 		params += "size=[width]x[height];"
-	send_resources_and_assets(user.client)
-	user << browse(generate_html(), params)
+	send_resources_and_assets(user.client, load_asset)
+	user << browse(generate_html(load_asset?.css_tag()), params)
 	winset(user, "mapwindow.map", "focus=true")
 	addtimer(CALLBACK(src, /datum/vueui/proc/setclose), 1)
 
@@ -101,7 +104,7 @@ main ui datum.
   */
 /datum/vueui/proc/close()
 	object.vueui_on_close(src)
-	SSvueui.ui_closed(src)
+	SSvueui.ui_closed(src) // this stops processing and cleans up references to this UI
 	user << browse(null, "window=[windowid]")
 	status = null
 
@@ -123,23 +126,24 @@ main ui datum.
   *
   * @return html code - text
   */
-/datum/vueui/proc/generate_html()
-#ifdef UIDEBUG
-	var/debugtxt = "<div id=\"dapp\"></div>"
-#else
+/datum/vueui/proc/generate_html(var/css_tag)
 	var/debugtxt = ""
-#endif
+	if(user && check_rights(R_DEV, FALSE, user=user))
+		debugtxt = "<div id=\"dapp\"></div>"
 	return {"
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="vueui.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta charset="UTF-8"/>
+		<meta id="vueui:windowId" content="[windowid]"/>
+		<link rel="stylesheet" type="text/css" href="vueui.css"/>
+		[css_tag]
 	</head>
 	<body class="[get_theme_class()]">
 		<div id="header">
 			<header-[header]></header-[header]>
+			<header-handles></header-handles>
 		</div>
 		<div id="app">
 			Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
@@ -155,6 +159,9 @@ main ui datum.
 	</body>
 	<script type="application/json" id="initialstate">
 		[generate_data_json()]
+	</script>
+	<script type="text/javascript">
+		window.__windowId__ = document.getElementById('vueui:windowId').getAttribute('content');
 	</script>
 	<script type="text/javascript" src="vueui.js"></script>
 </html>
@@ -174,6 +181,8 @@ main ui datum.
 	sdata["status"] = status
 	sdata["title"] = title
 	sdata["wtime"] = world.time
+	sdata["debug"] = user && check_rights(R_DEV, FALSE, user=user)
+	sdata["roundstart_hour"] = roundstart_hour
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		sdata["assets"][asset_name] = list("ref" = ckey("\ref[asset["img"]]"))
@@ -186,8 +195,10 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/proc/send_resources_and_assets(var/client/cl)
+/datum/vueui/proc/send_resources_and_assets(var/client/cl, var/datum/asset/load_asset)
 	send_theme_resources(cl)
+	if(istype(load_asset))
+		load_asset.send(cl)
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		var/image/I = asset["img"]
@@ -374,10 +385,10 @@ main ui datum.
   * @return themes class - text
   */
 /datum/vueui/proc/get_theme_class()
-	return SStheming.get_html_theme_class(user)
+	return "vueui " + SStheming.get_html_theme_class(user)
 
 /datum/vueui/modularcomputer
 	header = "modular-computer"
 
 /datum/vueui/modularcomputer/get_theme_class()
-	return "theme-nano dark-theme"
+	return "vueui theme-nano dark-theme"

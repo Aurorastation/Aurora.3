@@ -2,6 +2,7 @@
 	name = SPECIES_DIONA
 	short_name = "dio"
 	name_plural = "Dionaea"
+	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
 	total_health = 240
 	age_min = 1
@@ -20,7 +21,8 @@
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/consume_nutrition_from_air,
-		/mob/living/carbon/human/proc/create_structure
+		/mob/living/carbon/human/proc/create_structure,
+		/mob/living/carbon/proc/sample
 	)
 	//primitive_form = "Nymph"
 	slowdown = 7
@@ -121,8 +123,6 @@
 
 	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
 	default_accent = ACCENT_ROOTSONG
-
-	have_vision_cone = FALSE
 
 	alterable_internal_organs = list()
 

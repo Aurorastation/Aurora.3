@@ -113,6 +113,7 @@
 /mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	var/list/messageobjs = list() //list of objs nearby who can see it
 	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
@@ -127,6 +128,12 @@
 		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
+	for(var/o in listening_objects)
+		var/obj/O = o
+		var/turf/O_turf = get_turf(O)
+		if(O && (O_turf in messageturfs))
+			messageobjs += O
+
 	for(var/A in messagemobs)
 		var/mob/M = A
 		if(isobserver(M))
@@ -139,6 +146,10 @@
 				M.show_message(blind_message, 2)
 		else
 			M.show_message(message, 1, blind_message, 2)
+
+	for(var/o in messageobjs)
+		var/obj/O = o
+		O.see_emote(src, message)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -330,14 +341,10 @@
 
 	pointing_effect = new /obj/effect/decal/point(tile)
 	pointing_effect.invisibility = invisibility
-	addtimer(CALLBACK(src, .proc/clear_point), 20)
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
 
 	face_atom(A)
 	return 1
-
-/mob/proc/clear_point()
-	QDEL_NULL(pointing_effect)
-
 /datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
 	var/list/container = list()
 	var/master
@@ -451,30 +458,35 @@
 	if (!client)
 		return//This shouldnt happen
 
+	var/failure = null
 	if (!( config.abandon_allowed ))
-		to_chat(usr, "<span class='notice'>Respawn is disabled.</span>")
-		return
-	if (stat != DEAD)
-		to_chat(usr, "<span class='notice'><B>You must be dead to use this!</B></span>")
-		return
-	if (SSticker.mode && SSticker.mode.deny_respawn) //BS12 EDIT
-		to_chat(usr, "<span class='notice'>Respawn is disabled for this roundtype.</span>")
-		return
+		failure = "Respawn is disabled."
+	else if (stat != DEAD)
+		failure = "You must be dead to use this!"
+	else if (SSticker.mode && SSticker.mode.deny_respawn)
+		failure = "Respawn is disabled for this roundtype."
 	else if(!MayRespawn(1, CREW))
-		return
+		failure = ""
+
+	if(!isnull(failure))
+		if(check_rights(R_ADMIN, show_msg = FALSE))
+			if(failure == "")
+				failure = "You are not allowed to respawn."
+			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
+				return
+			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").", admin_key=key_name(usr))
+		else
+			if(failure != "")
+				to_chat(usr, SPAN_DANGER(failure))
+			return
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
-
-	log_game("[usr.name]/[usr.key] used abandon mob.",ckey=key_name(usr))
-
+	log_game("[usr.name]/[usr.key] used abandon mob.", ckey=key_name(usr))
 	to_chat(usr, "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>")
 
+	client?.screen.Cut()
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
-		return
-	client.screen.Cut()
-	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
 		return
 
 	announce_ghost_joinleave(client, 0)
@@ -486,7 +498,7 @@
 	M.reset_death_timers()
 
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
 		qdel(M)
 		return
 
@@ -742,6 +754,10 @@
 			to_chat(src, "<span class='warning'>It won't budge!</span>")
 			return
 
+		if(length(M.grabbed_by))
+			to_chat(src, SPAN_WARNING("You can't pull someone being held in a grab!"))
+			return
+
 		// If your size is larger than theirs and you have some
 		// kind of mob pull value AT ALL, you will be able to pull
 		// them, so don't bother checking that explicitly.
@@ -943,17 +959,15 @@
 	else if( lying != lying_prev )
 		update_icon()
 
-	update_vision_cone()
-
 	return canmove
 
 
-/mob/proc/facedir(var/ndir, var/ignore_facing_dir = FALSE)
+/mob/proc/facedir(var/ndir)
 	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
 		return 0
-	set_dir(ndir, ignore_facing_dir)
+	set_dir(ndir)
 	if(buckled && buckled.buckle_movable)
-		buckled.set_dir(ndir, ignore_facing_dir)
+		buckled.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		client.move_delay += movement_delay()
 	return 1
@@ -1269,16 +1283,12 @@
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir(ndir, ignore_facing_dir = FALSE)
+/mob/set_dir(ndir)
 	if(facing_dir)
-		if(ignore_facing_dir && facing_dir != ndir)
-			set_face_dir(ndir)
-			return ..(ndir)
-		else
-			if(!canface() || lying || buckled || restrained())
-				facing_dir = null
-			else if(dir != facing_dir)
-				return ..(facing_dir)
+		if(!canface() || lying || buckled || restrained())
+			facing_dir = null
+		else if(dir != facing_dir)
+			return ..(facing_dir)
 	else
 		return ..(ndir)
 
@@ -1343,7 +1353,7 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
-	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || (viewer.client && (src in viewer.client.hidden_mobs)))
+	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility)
 
 //Admin helpers
 /mob/proc/wind_mob(var/mob/admin)

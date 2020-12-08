@@ -11,7 +11,7 @@
 	anchored = FALSE
 	density = TRUE
 	req_access = list(access_engine_equip)
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
 
 	use_power = 0	//uses powernet power, not APC power
@@ -25,6 +25,7 @@
 	var/burst_shots = 3
 	var/last_shot = 0
 	var/shot_number = 0
+	var/shot_counter = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
 
@@ -44,8 +45,8 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire."))
 		if(EMITTER_WELDED)
 			to_chat(user, SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire."))
-	if(signaler && user.Adjacent(src))
-		to_chat(user, FONT_SMALL(SPAN_WARNING("\The [src] has a hidden signaler attached to it.")))
+	if(Adjacent(user))
+		to_chat(user, SPAN_NOTICE("The shot counter display reads: [shot_counter]"))
 
 /obj/machinery/power/emitter/Destroy()
 	if(special_emitter)
@@ -93,6 +94,7 @@
 			else
 				active = TRUE
 				shot_number = 0
+				shot_counter = 0
 				fire_delay = 100
 				if(user)
 					to_chat(user, SPAN_NOTICE("You activate \the [src]."))
@@ -156,23 +158,9 @@
 		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter(get_turf(src))
 		A.damage = round(power_per_shot / EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch_projectile(get_step(src, dir))
+		shot_counter++
 
 /obj/machinery/power/emitter/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/device/assembly/signaler))
-		var/obj/item/device/assembly/signaler/S = W
-		user.drop_from_inventory(W, src)
-		signaler = S
-		S.machine = src
-		user.visible_message(SPAN_WARNING("\The [user] attaches \the [S] to \the [src]."),
-							SPAN_NOTICE("You attach \the [S] to \the [src]."))
-		return
-	if(W.iswirecutter() && signaler)
-		signaler.forceMove(get_turf(user))
-		signaler.machine = null
-		user.visible_message(SPAN_WARNING("\The [user] removes \the [signaler] from \the [src]."),
-							SPAN_NOTICE("You remove \the [signaler] to \the [src]."))
-		signaler = null
-		return
 	if(W.iswrench())
 		if(active)
 			to_chat(user, SPAN_WARNING("You cannot unbolt \the [src] while it's active."))

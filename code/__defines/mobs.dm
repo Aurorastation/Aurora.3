@@ -9,12 +9,20 @@
 #define CANPARALYSE 0x4
 #define CANPUSH     0x8
 #define LEAPING     0x10
-#define PASSEMOTES  0x32    // Mob has a cortical borer or holders inside of it that need to see emotes.
+#define PASSEMOTES  0x20    // Mob has a cortical borer or holders inside of it that need to see emotes.
+#define NOFALL      0x800
 #define GODMODE     0x1000
 #define FAKEDEATH   0x2000  // Replaces stuff like changeling.changeling_fakedeath.
 #define DISFIGURED  0x4000  // Set but never checked. Remove this sometime and replace occurences with the appropriate organ code
 #define XENO_HOST   0x8000  // Tracks whether we're gonna be a baby alien's mummy.
 #define NO_ANTAG    0x10000  // Players are restricted from gaining antag roles when occupying this mob
+
+// Incorporeal movement
+#define INCORPOREAL_DISABLE 0 // Disabled
+#define INCORPOREAL_GHOST   1 // Pass through matter like a ghost
+#define INCORPOREAL_NINJA   2 // Pass through matter with a cool effect
+#define INCORPOREAL_BSTECH  3 // Like ninja, but also go across Z-levels and move in space freely
+#define INCORPOREAL_SHADE   4 // Shady
 
 // Grab levels.
 #define GRAB_PASSIVE    1
@@ -121,9 +129,11 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
+// Zombie organ
+#define BP_ZOMBIE_PARASITE "zombieparasite"
+
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
-#define BP_AUG_PDA          "integrated pda"
 #define BP_AUG_TOOL         "retractable combitool"
 #define BP_AUG_PEN          "retractable combipen"
 #define BP_AUG_LIGHTER      "retractable lighter"
@@ -309,7 +319,7 @@
 // Note that any given mob can be more than one type
 #define TYPE_ORGANIC      1	// Almost any creature under /mob/living/carbon and most simple animals
 #define TYPE_SYNTHETIC    2	// Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
+#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC
 #define TYPE_WEIRD        8	// Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 #define TYPE_INCORPOREAL 16 // Mobs that don't really have any physical form to them.
 

@@ -323,6 +323,9 @@
 	else if(istype(src, /obj/item/storage/firstaid/o2))
 		A.skin = "o2"
 
+	if(A.skin)
+		A.add_overlay("kit_skin_[A.skin]")
+
 	qdel(S)
 	user.put_in_hands(A)
 	to_chat(user, "<span class='notice'>You add the robot arm to the first aid kit.</span>")
@@ -337,11 +340,6 @@
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
 	w_class = ITEMSIZE_NORMAL
-
-/obj/item/firstaid_arm_assembly/Initialize()
-	. = ..()
-	if(skin)
-		add_overlay("kit_skin_[skin]")
 
 /obj/item/firstaid_arm_assembly/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -373,5 +371,6 @@
 					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)
 					S.skin = skin
 					S.name = created_name
+					S.update_icon()
 					qdel(src)
 					return 1

@@ -39,9 +39,9 @@
 	icon_state = "atmos_fire"
 	item_state = "atmos_fire"
 
-/obj/item/clothing/head/hardhat/emt
+/obj/item/clothing/head/hardhat/first_responder
 	name = "medical helmet"
-	desc = "A polymer helmet worn by EMTs and Paramedics throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
+	desc = "A polymer helmet worn by first responders throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
 	icon_state = "helmet_paramed"
 	item_state = "helmet_paramed"
 	light_overlay = "EMS_light"

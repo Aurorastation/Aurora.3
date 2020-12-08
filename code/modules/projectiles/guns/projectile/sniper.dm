@@ -19,6 +19,7 @@
 	ammo_type = /obj/item/ammo_casing/a145
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = -3
+	offhand_accuracy = -1
 	scoped_accuracy = 4
 	var/bolt_open = 0
 	var/has_scope = TRUE

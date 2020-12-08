@@ -32,7 +32,7 @@
 	var/ghost_cooldown = 0
 
 	var/obj/item/device/multitool/ghost_multitool
-	incorporeal_move = 1
+	incorporeal_move = INCORPOREAL_GHOST
 
 	mob_thinks = FALSE
 
@@ -521,32 +521,35 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 		//We test the environment of the tile, to see if its habitable for a mouse
 		//-----------------------------------
-		var/atmos_suitable = 1
+		var/atmos_suitable = TRUE
 
 		var/maxtemp = 390
 		var/mintemp = 210
 		var/min_oxy = 5
 		var/max_phoron = 1
 		var/max_co2 = 5
+		var/max_h2 = 5
 		var/min_pressure = 80
 
 		var/datum/gas_mixture/Environment = T.return_air()
 		if(Environment)
 
 			if(Environment.temperature > maxtemp)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if (Environment.temperature < mintemp)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(Environment.gas[GAS_OXYGEN] < min_oxy)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(Environment.gas[GAS_PHORON] > max_phoron)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(Environment.gas[GAS_CO2] > max_co2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
+			else if(Environment.gas[GAS_HYDROGEN] > max_h2)
+				atmos_suitable = FALSE
 			else if(Environment.return_pressure() < min_pressure)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 		else
-			atmos_suitable = 0
+			atmos_suitable = FALSE
 
 		if (!atmos_suitable)
 			continue
@@ -585,7 +588,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/verb/view_manifest()
 	set name = "Show Crew Manifest"
 	set category = "Ghost"
-	open_crew_manifest(src, OOC = TRUE)
+	SSrecords.open_manifest_vueui(usr)
 
 //This is called when a ghost is drag clicked to something.
 /mob/abstract/observer/MouseDrop(atom/over)
@@ -888,7 +891,7 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 		var/timedifference = world.time- get_death_time(respawn_type)
 		var/respawn_time = 0
 		if (respawn_type == CREW)
-			respawn_time = config.respawn_delay *600
+			respawn_time = config.respawn_delay MINUTES
 		else if (respawn_type == ANIMAL)
 			respawn_time = RESPAWN_ANIMAL
 		else if (respawn_type == MINISYNTH)

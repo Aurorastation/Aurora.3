@@ -48,6 +48,7 @@
 
 	attacktext = "glomped"
 	attack_sound = 'sound/effects/blobattack.ogg'
+	blood_overlay_icon = null
 
 	var/morphed = FALSE
 	var/melee_damage_disguised = 0

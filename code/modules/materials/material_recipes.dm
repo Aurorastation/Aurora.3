@@ -66,7 +66,8 @@
 			new /datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1),
 			new /datum/stack_recipe("custodial cart", /obj/structure/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("steel wool", /obj/item/steelwool, 1, time = 15, one_per_turf = 1, on_floor = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("airlock assemblies",
@@ -119,7 +120,7 @@
 		list(
 			new /datum/stack_recipe("modular console frame", /obj/item/modular_computer/console, 20, time = 25, one_per_turf = TRUE),
 			new /datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10, time = 25),
-			new /datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/tablet, 5, time = 25)
+			new /datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/handheld, 5, time = 25)
 		))
 
 	recipes += new /datum/stack_recipe_list("[display_name] weaponry",
@@ -267,14 +268,14 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("phoron floor tile", /turf/simulated/floor/phoron, 1, 4, 20)
+			new /datum/stack_recipe("phoron floor tile", /obj/item/stack/tile/phoron, 1, 4, 20)
 		))
 
 /material/diamond/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("diamond floor tile", /turf/simulated/floor/diamond, 1, 4, 20)
+			new /datum/stack_recipe("diamond floor tile", /obj/item/stack/tile/diamond, 1, 4, 20)
 		))
 
 /material/leather/generate_recipes()

@@ -4,6 +4,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
 	w_class = ITEMSIZE_SMALL
+	recyclable = TRUE
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
@@ -64,7 +65,7 @@
 		shatter()
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
-	if(reagents.total_volume)
+	if(reagents?.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
 	playsound(src, shatter_sound, 70, 1)

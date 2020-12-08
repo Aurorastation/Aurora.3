@@ -173,7 +173,6 @@ var/global/list/additional_antag_types = list()
 		log_debug("GAMEMODE: Checking antag templates...")
 		if(antag_tags && antag_tags.len)
 			log_debug("GAMEMODE: Checking antag tags...")
-			var/total_enemy_count = 0
 			for(var/antag_tag in antag_tags)
 				var/datum/antagonist/antag = all_antag_types[antag_tag]
 				if(!antag)
@@ -191,17 +190,29 @@ var/global/list/additional_antag_types = list()
 							potential -= potential_antag
 							antag.candidates -= player
 							log_debug("GAMEMODE: Player [player.name] ([player.key]) was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
-					if(potential.len)
-						log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
-						total_enemy_count += potential.len
-						if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
-							log_debug("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
-							returning |= GAME_FAILURE_NO_ANTAGS
 
-			log_debug("GAMEMODE: Found [total_enemy_count] total enemies for [name].")
+			// Split the for loop here so that we can have a complete set of potential lists for each antag_tag before continuing
+			var/list/total_enemies = list()
+			for(var/antag_tag in antag_tags)
+				var/datum/antagonist/antag = all_antag_types[antag_tag]
+				if(!antag)
+					continue
+				var/list/potential = list()
+				if(antag.flags & ANTAG_OVERRIDE_JOB)
+					potential = antag.pending_antagonists
+				else
+					potential = antag.candidates
+				if(potential.len)
+					log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
+					total_enemies |= potential //Only count candidates once for our total enemy pool
+					if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
+						log_debug("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
+						returning |= GAME_FAILURE_NO_ANTAGS
 
-			if(required_enemies && total_enemy_count < required_enemies)
-				log_debug("GAMEMODE: There are not enough total antagonists ([total_enemy_count]/[required_enemies]) to start [name]!")
+			log_debug("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
+
+			if(required_enemies && total_enemies.len < required_enemies)
+				log_debug("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
 				returning |= GAME_FAILURE_NO_ANTAGS
 
 	log_debug("GAMEMODE: Finished gamemode checking. [name] returned [returning].")
@@ -241,6 +252,7 @@ var/global/list/additional_antag_types = list()
 		for(var/candidate in all_candidates)
 			valid_templates_per_candidate[candidate]++
 
+		valid_templates_per_candidate = shuffle(valid_templates_per_candidate) // shuffle before sorting so that candidates with the same number of templates will be in random order
 		sortTim(valid_templates_per_candidate, /proc/cmp_numeric_asc, TRUE)
 
 		for(var/datum/antagonist/antag in antag_templates)
@@ -312,7 +324,7 @@ var/global/list/additional_antag_types = list()
 		"suspected criminal operatives",
 		"malfunctioning von Neumann probe swarms",
 		"shadowy interlopers",
-		"a stranded Vox arkship",
+		"a stranded Vaurcan hiveship",
 		"haywire IPC constructs",
 		"rogue Unathi exiles",
 		"artifacts of eldritch horror",
@@ -491,24 +503,23 @@ var/global/list/additional_antag_types = list()
 			var/evil = 0
 			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED || man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL)
 				evil = 1
-			switch(job.department)
-				if("Civilian" || "Cargo")
+				if((DEPARTMENT_CIVILIAN in job.departments) || (DEPARTMENT_CARGO in job.departments))
 					civ += 1
 					if(evil)
 						civ_suspect += 1
-				if("Engineering")
+				if(DEPARTMENT_ENGINEERING in job.departments)
 					eng += 1
 					if(evil)
 						eng_suspect += 1
-				if("Security")
+				if(DEPARTMENT_SECURITY in job.departments)
 					sec += 1
 					if(evil)
 						sec_suspect += 1
-				if("Medical")
+				if(DEPARTMENT_MEDICAL in job.departments)
 					med +=1
 					if(evil)
 						med_suspect += 1
-				if("Science")
+				if(DEPARTMENT_SCIENCE in job.departments)
 					sci += 1
 					if(evil)
 						sci_suspect += 1

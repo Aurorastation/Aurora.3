@@ -198,6 +198,8 @@ BLIND     // can't see anything
 	item_state = "goggles_standard"
 	off_state = "goggles_standard"
 	action_button_name = "Flip Goggles"
+	var/flip_down = "down to protect your eyes."
+	var/flip_up = "up out of your face."
 	var/up = 0
 
 /obj/item/clothing/glasses/safety/goggles/attack_self()
@@ -215,16 +217,38 @@ BLIND     // can't see anything
 		flags_inv |= HIDEEYES
 		body_parts_covered |= EYES
 		icon_state = initial(item_state)
-		to_chat(usr, SPAN_NOTICE("You flip \the [src] down to protect your eyes."))
+		to_chat(usr, SPAN_NOTICE("You flip \the [src] [flip_down]"))
 	else
 		src.up = !src.up
 		flags_inv &= ~HIDEEYES
 		body_parts_covered &= ~EYES
 		icon_state = "[initial(icon_state)]_up"
-		to_chat(usr, SPAN_NOTICE("You push \the [src] up out of your face."))
+		to_chat(usr, SPAN_NOTICE("You push \the [src] [flip_up]"))
 	update_clothing_icon()
 	update_icon()
 	usr.update_action_buttons()
+
+/obj/item/clothing/glasses/safety/goggles/wasteland
+	name = "wasteland goggles"
+	desc = "A pair of old goggles common in the Wasteland. A few denizens unfortunate enough to not keep this protection on them after the nukes dropped no longer have the ability to see."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "wasteland_goggles"
+	item_state = "wasteland_goggles"
+	off_state = "wasteland_goggles"
+	contained_sprite = TRUE
+	flip_down = "up to protect your eyes."
+	flip_up = "and let it hang around your neck."
+
+/obj/item/clothing/glasses/safety/goggles/wasteland/toggle()
+	..()
+	icon_state = initial(icon_state)
+	if(up)
+		item_state = "[initial(item_state)]_up"
+	else
+		item_state = initial(icon_state)
+	update_worn_icon()
+	update_clothing_icon()
+	update_icon()
 
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
@@ -252,6 +276,12 @@ BLIND     // can't see anything
 	to_chat(usr, "You change \the [src] to cover the [src.flipped ? "left" : "right"] eye.")
 	update_clothing_icon()
 	update_icon()
+
+/obj/item/clothing/glasses/eyepatch/white
+	name = "eyepatch"
+	desc = "A simple eyepatch made out of a strip of cloth."
+	icon_state = "eyepatch_white"
+	item_state = "eyepatch_white"
 
 /obj/item/clothing/glasses/monocle
 	name = "monocle"

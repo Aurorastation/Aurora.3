@@ -103,28 +103,27 @@
 //**Chameleon Hat**
 //*****************
 
-/obj/item/clothing/head/chameleon
+/obj/item/clothing/head/softcap/chameleon
 	name = "grey cap"
-	icon_state = "greysoft"
 	desc = "It looks like a plain hat, but upon closer inspection, there's an advanced holographic array installed inside. It seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	body_parts_covered = 0
 	var/global/list/clothing_choices
 
-/obj/item/clothing/head/chameleon/Initialize()
+/obj/item/clothing/head/softcap/chameleon/Initialize()
 	. = ..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/clothing/head/justice,)//Prevent infinite loops and bad hats.
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/head, blocked)
 
-/obj/item/clothing/head/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
-	name = "grey cap"
+/obj/item/clothing/head/softcap/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
+	name = initial(name)
 	desc = "It's a baseball hat in a tasteful grey colour."
-	icon_state = "greysoft"
+	icon_state = initial(icon_state)
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/head/chameleon/verb/change(picked in clothing_choices)
+/obj/item/clothing/head/softcap/chameleon/verb/change(picked in clothing_choices)
 	set name = "Change Hat/Helmet Appearance"
 	set category = "Chameleon Items"
 	set src in usr
@@ -135,14 +134,14 @@
 	disguise(clothing_choices[picked])
 	update_clothing_icon()	//so our overlays update.
 
-/obj/item/clothing/head/chameleon/wizard
+/obj/item/clothing/head/softcap/chameleon/wizard
 	wizard_garb = TRUE
 
-/obj/item/clothing/head/chameleon/wizard/Initialize()
+/obj/item/clothing/head/softcap/chameleon/wizard/Initialize()
 	. = ..()
 	disguise(/obj/item/clothing/head/wizard)
 
-/obj/item/clothing/head/chameleon/wizard/change(picked in clothing_choices)
+/obj/item/clothing/head/softcap/chameleon/wizard/change(picked in clothing_choices)
 	set name = "Change Hat/Helmet Appearance"
 	set category = "Chameleon Items"
 	set src in usr
@@ -154,7 +153,7 @@
 			return
 	to_chat(usr, SPAN_WARNING("You touch \the [src], but nothing happens."))
 
-/obj/item/clothing/head/chameleon/wizard/emp_act()
+/obj/item/clothing/head/softcap/chameleon/wizard/emp_act()
 	return
 
 //******************

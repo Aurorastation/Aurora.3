@@ -396,9 +396,10 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face."
+	desc_info = "You can right-click this and change the amount transferred per use."
 	anchored = 1
 	var/busy = 0 	//Something's being washed at the moment
-	var/amount_per_transfer_from_this = 10
+	var/amount_per_transfer_from_this = 300
 	var/possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 
 /obj/structure/sink/verb/set_APTFT() //set amount_per_transfer_from_this
@@ -453,6 +454,9 @@
 
 	// Filling/emptying open reagent containers
 	var/obj/item/reagent_containers/RG = O
+	if (istype(RG, /obj/item/reagent_containers/glass/rag))
+		return
+
 	if (istype(RG) && RG.is_open_container())
 		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
 

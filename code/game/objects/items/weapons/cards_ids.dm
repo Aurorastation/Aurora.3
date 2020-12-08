@@ -12,7 +12,6 @@
  * DATA CARDS - Used for the teleporter
  */
 /obj/item/card
-
 	name = "card"
 	desc = "Does card things."
 	icon = 'icons/obj/card.dmi'
@@ -22,8 +21,8 @@
 		)
 	w_class = ITEMSIZE_TINY
 	var/associated_account_number = 0
-
 	var/list/files = list(  )
+	var/last_flash = 0 //Spam limiter.
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
@@ -127,6 +126,7 @@ var/const/NO_EMAG_ACT = -50
 	var/assignment = null	//can be alt title or the actual job
 	var/rank = null			//actual job
 	var/dorm = 0			// determines if this ID has claimed a dorm already
+	var/chat_registered = FALSE // registration for NTNET chat
 
 /obj/item/card/id/Destroy()
 	mob = null
@@ -150,7 +150,7 @@ var/const/NO_EMAG_ACT = -50
 	return
 
 /obj/item/card/id/proc/update_name()
-	name = "[src.registered_name]'s ID Card ([src.assignment])"
+	name = "ID Card ([src.registered_name] ([src.assignment]))"
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
 	front = getFlatIcon(M, SOUTH)
@@ -196,7 +196,7 @@ var/const/NO_EMAG_ACT = -50
 	return dat
 
 /obj/item/card/id/attack_self(mob/user as mob)
-	if (dna_hash == "\[UNSET\]" && ishuman(user))
+	if(dna_hash == "\[UNSET\]" && ishuman(user))
 		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
 		if (response == "Yes")
 			var/mob/living/carbon/human/H = user
@@ -213,12 +213,22 @@ var/const/NO_EMAG_ACT = -50
 				age = H.age
 				to_chat(user, "<span class='notice'>Biometric Imprinting successful!</span>")
 				return
-
-	user.visible_message("<b>[user]</b> shows you: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]",\
-		"You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]")
+	if(last_flash <= world.time - 20)
+		last_flash = world.time
+		id_flash(user)
 
 	src.add_fingerprint(user)
 	return
+
+/obj/item/card/id/proc/id_flash(var/mob/user, var/add_text = "", var/blind_add_text = "")
+	var/list/id_viewers = viewers(3, user) // or some other distance - this distance could be defined as a var on the ID
+	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] [icon2html(src, id_viewers)] [src.name]."
+	var/blind_message = "You flash your [icon2html(src, id_viewers)] [src.name]."
+	if(add_text != "")
+		message += " [add_text]"
+	if(blind_add_text != "")
+		blind_message += " [blind_add_text]"
+	user.visible_message(message, blind_message)
 
 /obj/item/card/id/attack(var/mob/living/M, var/mob/user, proximity)
 
@@ -420,7 +430,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/centcom
 	name = "\improper CentCom. ID"
-	desc = "An ID straight from Cent. Com."
+	desc = "An ID straight from CentCom."
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	registered_name = "Central Command"
@@ -429,6 +439,24 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/centcom/New()
 	access = get_all_centcom_access()
 	..()
+
+/obj/item/card/id/ccia
+	name = "\improper CentCom. Internal Affairs ID"
+	desc = "An ID straight from CentCom. Internal Affairs."
+	icon_state = "ccia"
+	overlay_state = "ccia"
+	drop_sound = /decl/sound_category/generic_drop_sound
+	pickup_sound = /decl/sound_category/generic_pickup_sound
+
+/obj/item/card/id/ccia/id_flash(var/mob/user)
+    var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
+    var/blind_add_text = "Done with prejudice and professionalism, you mean business."
+    return ..(user, add_text, blind_add_text)
+
+/obj/item/card/id/ccia/fib
+	name = "\improper Federal Investigations Bureau ID"
+	desc = "An ID straight from the Federal Investigations Bureau."
+	icon_state = "fib"
 
 /obj/item/card/id/ert
 	name = "\improper Nanotrasen Emergency Response Team ID"

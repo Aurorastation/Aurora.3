@@ -343,7 +343,7 @@ Command action procs
 
 
 	var/datum/signal/status_signal = new
-	status_signal.transmission_method = TRUE
+	status_signal.transmission_method = TRANSMISSION_RADIO
 	status_signal.data["command"] = command
 
 	switch(command)
