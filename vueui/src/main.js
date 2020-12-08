@@ -73,6 +73,9 @@ if (document.getElementById("app")) {
         deep: true
       }
     },
+    mounted() {
+      this.$el.focus()
+    }
   }).$mount('#app')
 }
 
