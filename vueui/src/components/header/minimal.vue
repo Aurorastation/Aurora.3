@@ -2,8 +2,8 @@
   <div class="uiTitleWrapper" draggable @mousedown.left="startDragging($event)" @mouseup.left="stopDragging($event)">
     <div class="titleBar">
       <i class="fas ic-bug uiIcon24 uiDebugIcon" :class="debugClass" unselectable="on" @click="activateDebug()" @mousedown.left="prevent($event)"/>
-      <div class="uiTitleText" unselectable="on">{{ d.title }}</div>
-      <div class="uiTitleClose" unselectable="on" @click="closeUI()" @mousedown.left="prevent($event)">×</div>
+      <div class="uiTitleText" unselectable="on">{{ title }}</div>
+      <div class="uiTitleClose" unselectable="on" @click="closeUI($event)" @mousedown.left="prevent($event)">×</div>
     </div>
     <slot/>
   </div>
@@ -11,45 +11,41 @@
 
 <script>
 import Utils from '../../utils.js';
-import { dragStartHandler, dragEndHandler } from '../../drag.js';
+import ByWin from '../../byWin'
 export default {
   data () {
-    return {
-      debug_flip: 0,
-      d: this.$root.$data,
-    }
+    return this.$root.$data;
   },
   computed: {
     debugClass() {
-      if (this.d.debug == 1) {
-        if (this.debug_flip == 1) return 'good';
-        if (this.debug_flip == 0) return 'bad';
-      }
+      if (this.debug_view) return 'good';
+      if (this.debug) return 'bad';
       return 'hidden';
     }
   },
   methods: {
-    closeUI() {
-      Utils.sendToTopicRaw({'src': this.d.uiref, 'vueuiclose': 1});
+    closeUI($event) {
+      $event.stopPropagation();
+      Utils.sendToTopicRaw({'src': this.uiref, 'vueuiclose': 1});
+      ByWin.setVisibility(0);
     },
     startDragging($event) {
-      dragStartHandler($event);
+      ByWin.dragStartHandler($event);
     },
     stopDragging($event) {
-      dragEndHandler($event);
+      ByWin.dragEndHandler($event);
     },
     prevent($event) {
       $event.stopPropagation();
     },
     activateDebug() {
-      if(this.debug_flip == 0) {
+      this.debug_view = !this.debug_view
+      if(this.debug_view) {
         document.getElementById("content").classList.add("uiDebug");
         document.getElementById("debug").classList.add("uiDebug");
-        this.debug_flip = 1;
-      } else if (this.debug_flip == 1) {
+      } else {
         document.getElementById("content").classList.remove("uiDebug");
         document.getElementById("debug").classList.remove("uiDebug");
-        this.debug_flip = 0;
       }
     }
   }
