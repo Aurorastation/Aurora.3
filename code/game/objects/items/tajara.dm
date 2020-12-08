@@ -135,6 +135,7 @@
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
+	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
 
 /obj/item/pocketwatch/adhomai/checktime(mob/user)
 	set category = "Object"
@@ -146,47 +147,23 @@
 	else
 
 		var/adhomian_year = game_year + 1158
-
-		var/current_month = time2text(world.realtime, "Month")
+		var/current_month = text2num(time2text(world.realtime, "MM"))
 		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/adhomian_day
-		var/adhomian_month
+		var/adhomian_month = src.months[Ceiling(current_month/3)]
 		switch(current_month)
-			if("January", "February", "March")
-				adhomian_month = "Menshe-aysaif"
-				if (current_month == "February")
-					adhomian_day = current_day + 15
-				if (current_month == "March")
-					adhomian_day = current_day + 30
-
-			if("April", "May", "June")
-				adhomian_month = "Sil'nryy-aysaif"
-				if (current_month == "May")
-					adhomian_day = current_day + 15
-				if (current_month == "June")
-					adhomian_day = current_day + 30
-
-			if("July", "August", "September")
-				adhomian_month = "Menshe-rhazzimy"
-				if (current_month == "August")
-					adhomian_day = current_day + 15
-				if (current_month == "September")
-					adhomian_day = current_day + 30
-
-			if("October", "November", "December")
-				adhomian_month = "Sil'nryy-rhazzimy"
-				if (current_month == "November")
-					adhomian_day = current_day + 15
-				if (current_month == "December")
-					adhomian_day = current_day + 30
-
+			if(2, 5, 8, 11)
+				current_day += 31
+			if(6, 9, 12)
+				current_day += 61
+			if(3)
+				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
 		var/real_time = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 		var/adhomian_time = real_time
-		if(IsOdd(current_day))
+		if(IsEven(current_day))
 			adhomian_time = real_time + 24
-			adhomian_day -= 1
-
-		to_chat(usr, "You check your \the [src], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is '[adhomian_day]th day of [adhomian_month] [adhomian_year]'.")
+		adhomian_day = Floor(current_day / 2)
+		to_chat(usr, "You check your [src.name], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is the '[adhomian_day]th day of [adhomian_month], [adhomian_year]'.")
 
 
 /obj/item/flame/lighter/adhomai
