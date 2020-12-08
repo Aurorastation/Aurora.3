@@ -33,6 +33,7 @@ export default {
     closeUI($event) {
       $event.stopPropagation();
       Utils.sendToTopicRaw({'src': this.uiref, 'vueuiclose': 1});
+      ByWin.setVisibility(0);
     },
     startDragging($event) {
       ByWin.dragStartHandler($event);
