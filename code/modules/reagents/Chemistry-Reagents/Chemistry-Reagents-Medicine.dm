@@ -1699,4 +1699,5 @@
 /datum/reagent/coagzolug/overdose(var/mob/living/carbon/H, var/alien)
 	if(prob(2))
 		to_chat(H, SPAN_WARNING(pick("You feel a clot shoot through your heart!", "Your veins feel like they're being shredded!")))
-	H.add_chemical_effect(CE_CARDIOTOXIC, 1)
+		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+		heart.take_internal_damage(1, TRUE)
