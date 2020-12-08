@@ -160,6 +160,12 @@ export function resizeMoveHandler(event) {
   setWindowSize(state.size)
 }
 
+export function setVisibility(visible = 1) {
+  winset(state.windowKey, {
+    'is-visible': visible,
+  })
+}
+
 export default {
   isBYOND,
   winget,
@@ -178,4 +184,5 @@ export default {
   resizeStartHandler,
   resizeEndHandler,
   resizeMoveHandler,
-} 
+  setVisibility,
+}

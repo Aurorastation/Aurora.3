@@ -59,12 +59,6 @@ export function worldtime2text(time, timeshift = true) {
   return `${('0' + hour).slice(-2)}:${('0' + minute).slice(-2)}`
 }
 
-export function setVisibility(visible = 1) {
-  winset(state.windowKey, {
-    'is-visible': visible,
-  })
-}
-
 export default {
   sendRaw,
   sendRawWithCallback,
@@ -72,5 +66,4 @@ export default {
   sendToTopic,
   dotNotationRead,
   worldtime2text,
-  setVisibility
 }
