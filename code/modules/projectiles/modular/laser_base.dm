@@ -251,3 +251,20 @@
 	capacitor = null
 	qdel(src)
 	return TRUE
+
+/obj/item/device/laser_assembly/get_print_info()
+	. = ""
+	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
+		var/obj/item/laser_components/l_component = i
+		if(!l_component)
+			continue
+
+		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
+		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
+		. += "Reliability: [initial(l_component.reliability)]<br>"
+		. += "Damage Modifier: [initial(l_component.damage)]<br>"
+		. += "Fire Delay Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Shots Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Burst Modifier: [initial(l_component.burst)]<br>"
+		. += "Accuracy Modifier: [initial(l_component.accuracy)]<br>"
+		. += "Repair Tool: [l_repair_name]<br>"

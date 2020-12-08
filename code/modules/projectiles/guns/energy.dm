@@ -151,3 +151,35 @@
 	if(!power_supply)
 		return 0
 	return round(power_supply.charge / charge_cost)
+
+/obj/item/gun/energy/get_print_info()
+	. = ""
+	var/obj/item/projectile/P = new projectile_type
+	. += "Max Shots: [initial(max_shots)]<br>"
+	. += "Recharge Type: [initial(self_recharge) ? "self recharging" : "not self recharging"]<br>"
+	if(initial(self_recharge))
+		. += "Recharge Time: [initial(recharge_time)]<br>"
+	. += "<br><b>Primary Projectile</b><br>"
+	. += "Damage: [initial(P.damage)]<br>"
+	. += "Damage Type: [initial(P.damage_type)]<br>"
+	. += "Blocked by Armor Type: [initial(P.check_armor)]<br>"
+	. += "Stuns: [initial(P.stun) ? "true" : "false"]<br>"
+	if(initial(P.shrapnel_type))
+		var/obj/shrapnel = new P.shrapnel_type
+		. += "Shrapnel Type: [shrapnel.name]<br>"
+	. += "Armor Penetration: [initial(P.armor_penetration)]%<br>"
+
+	if(secondary_projectile_type)
+		var/obj/item/projectile/P_second = secondary_projectile_type
+		. += "<br><b>Secondary Projectile</b><br>"
+		. += "Damage: [initial(P_second.damage)]<br>"
+		. += "Damage Type: [initial(P_second.damage_type)]<br>"
+		. += "Blocked by Armor Type: [initial(P_second.check_armor)]<br>"
+		. += "Stuns: [initial(P_second.stun) ? "true" : "false"]<br>"
+		if(initial(P_second.shrapnel_type))
+			var/obj/second_shrapnel = new P_second.shrapnel_type
+			. += "Shrapnel Type: [second_shrapnel.name]<br>"
+		. += "Armor Penetration: [initial(P_second.armor_penetration)]%<br>"
+	. += "<br>"
+
+	. += ..(FALSE)

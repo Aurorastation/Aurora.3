@@ -122,6 +122,15 @@
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
 						return 1
 
+/obj/item/melee/energy/get_print_info()
+	. = ..()
+	. += "Active Damage: [active_force]<br>"
+	. += "Active Throw Force: [active_throwforce]<br>"
+	. += "Blocks Bullets: [can_block_bullets ? "true" : "false"]<br>"
+	. += "Block Chance: [base_block_chance]<br>"
+	. += "Projectile Reflection Chance: [base_reflectchance]<br>"
+	. += "Shield Rating: [shield_power]<br>"
+
 /obj/item/melee/energy/glaive
 	name = "energy glaive"
 	desc = "An energized glaive."
