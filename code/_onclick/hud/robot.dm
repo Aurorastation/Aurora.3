@@ -201,7 +201,7 @@ var/obj/screen/robot_inventory
 				r.module.modules -= r.module.emag
 
 		if(r.malf_AI_module)
-			if(!((r.module.malf_AI_module in r.module.modules) && r.module.malf_AI_module == null))
+			if(!((r.module.malf_AI_module in r.module.modules) || r.module.malf_AI_module == null))
 				r.module.modules += r.module.malf_AI_module
 		else
 			if(r.module.malf_AI_module in r.module.modules)

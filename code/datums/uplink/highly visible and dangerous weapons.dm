@@ -26,7 +26,7 @@
 
 /datum/uplink_item/item/visible_weapons/g9mm
 	name = "Silenced 9mm"
-	item_cost = 8
+	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/g9mm
 
 /datum/uplink_item/item/visible_weapons/hammer
@@ -76,17 +76,12 @@
 
 /datum/uplink_item/item/visible_weapons/ballisticgauntlet
 	name = "Ballistic Gauntlet"
-	item_cost = 12
+	item_cost = 10
 	path = /obj/item/clothing/gloves/ballistic
-
-/datum/uplink_item/item/visible_weapons/heavysniper
-	name = "Anti-materiel Rifle"
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
-	path = /obj/item/gun/projectile/heavysniper
 
 /datum/uplink_item/item/visible_weapons/gatling
 	name = "Gatling Machine Gun"
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT*2
+	item_cost = 50
 	path = /obj/item/minigunpack
 
 /datum/uplink_item/item/visible_weapons/chainsaw
@@ -121,10 +116,10 @@
 
 /datum/uplink_item/item/visible_weapons/custom_ka
 	name = "Kinetic Laser Assembly"
-	item_cost = 12
+	item_cost = 8
 	path = /obj/item/gun/custom_ka/frame01/illegal
 
 /datum/uplink_item/item/visible_weapons/random_weapon
 	name = "Random Gun"
-	item_cost = 13
+	item_cost = 10
 	path = /obj/item/storage/box/syndie_kit/random_weapon

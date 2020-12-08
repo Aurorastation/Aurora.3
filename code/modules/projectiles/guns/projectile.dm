@@ -66,11 +66,15 @@
 		return chambered.BB
 	return null
 
-/obj/item/gun/projectile/handle_post_fire()
+/obj/item/gun/projectile/handle_post_fire(mob/user)
 	..()
 	if(chambered)
 		chambered.expend()
 		process_chambered()
+	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.check_weapon_affinity(src))
+			unload_ammo(user, TRUE, TRUE)
 	update_maptext()
 
 /obj/item/gun/projectile/handle_click_empty()
@@ -173,9 +177,12 @@
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
-/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1)
+/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
 	if(ammo_magazine)
-		user.put_in_hands(ammo_magazine)
+		if(drop_mag)
+			ammo_magazine.forceMove(user.loc)
+		else
+			user.put_in_hands(ammo_magazine)
 		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
 		playsound(src.loc, ammo_magazine.eject_sound, 50, FALSE)
 		ammo_magazine.update_icon()
