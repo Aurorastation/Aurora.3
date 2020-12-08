@@ -8,3 +8,4 @@ changes:
   - rscadd: "pAI can now examine even while folded up or carried or inside something."
   - rscadd: "pAI now start with the Access Local Computer verb instead of having to relog to gain it when they get put into a computer."
   - rscadd: "Airlocks no longer crush mobs that can pass through hatches, instead, the hatch will open to accomodate them. Access does not get taken into account."
+  - rscadd: "Attacking a pAI card will now attack the pAI inside."
