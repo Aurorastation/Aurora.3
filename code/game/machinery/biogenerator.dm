@@ -646,6 +646,12 @@
 	density = FALSE
 	capacity = 25
 
+	component_types = list(
+		/obj/item/circuitboard/biogenerator/small,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/manipulator
+	)
+
 /obj/machinery/biogenerator/small/north
 	dir = NORTH
 	pixel_y = -13
