@@ -898,9 +898,9 @@ proc/is_blind(A)
 			preposition = "inside"
 
 	if (justmoved)
-		reportto.contained_visible_message(H,  "<span class='notice'>[H] [action3] [reportto] [preposition] their [newlocation]</span>", "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>", "", 1)
+		reportto.contained_visible_message(H, SPAN_NOTICE("[H] [action3] [reportto] [preposition] their [newlocation]."), SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]."), "", 1)
 	else
-		to_chat(reportto, "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>")
+		to_chat(reportto, SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]."))
 
 /atom/proc/get_holding_mob()
 	//This function will return the mob which is holding this holder, or null if it's not held
@@ -1197,8 +1197,16 @@ proc/is_blind(A)
   ckey = user.ckey
   return src
 
+/mob/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/mob/proc/get_standard_pixel_y()
+	return initial(pixel_y)
+	return initial(pixel_y)
+
 /mob/proc/remove_nearsighted()
 	disabilities &= ~NEARSIGHTED
 
 /mob/proc/remove_deaf()
+	sdisabilities &= ~DEAF
 	sdisabilities &= ~DEAF

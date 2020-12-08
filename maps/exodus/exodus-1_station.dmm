@@ -45387,7 +45387,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "acute1";
-	name = "EMT Storage Privacy Shutters";
+	name = "First Responder Storage Privacy Shutters";
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
@@ -45399,7 +45399,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "acute1";
-	name = "EMT Storage Privacy Shutters";
+	name = "First Responder Storage Privacy Shutters";
 	opacity = 0
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -45417,7 +45417,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "acute1";
-	name = "EMT Storage Privacy Shutters";
+	name = "First Responder Storage Privacy Shutters";
 	opacity = 0
 	},
 /obj/machinery/light_switch{
@@ -46368,7 +46368,7 @@
 "bJS" = (
 /obj/machinery/button/remote/blast_door{
 	id = "acute1";
-	name = "EMT Storage Privacy Shutters";
+	name = "First Responder Storage Privacy Shutters";
 	pixel_x = 26;
 	pixel_y = 25;
 	req_access = list(5)
@@ -47163,7 +47163,7 @@
 "bLx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
-	name = "EMT Storage";
+	name = "First Responder Storage";
 	req_access = list(5)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -47932,7 +47932,7 @@
 /area/medical/sleeper)
 "bMO" = (
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
@@ -47945,10 +47945,10 @@
 	req_access = list(5)
 	},
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medbay EMT Storage";
+	c_tag = "Medbay First Responder Storage";
 	dir = 1
 	},
 /obj/item/stool/padded,

@@ -24,10 +24,10 @@ var/mob/living/next_point_time = 0
 	face_atom(A)
 	if(isturf(A))
 		if(pointing_effect)
-			clear_point()
+			QDEL_NULL(pointing_effect)
 		pointing_effect = new /obj/effect/decal/point(A)
 		pointing_effect.invisibility = invisibility
-		addtimer(CALLBACK(src, .proc/clear_point), 20)
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
 	else
 		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
 		LAZYADD(A.filters, pointglow)
@@ -983,4 +983,5 @@ default behaviour is:
 		hud_used.move_intent.Click()
 
 /mob/living/proc/add_hallucinate(var/amount)
+	hallucination += amount
 	hallucination += amount
