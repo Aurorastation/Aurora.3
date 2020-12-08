@@ -171,8 +171,6 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/put_in_hands(var/obj/item/W)
 	if(!W || !istype(W))
 		return 0
-	if(isturf(W.loc))
-		W.do_pickup_animation(src)
 	W.forceMove(get_turf(src))
 	W.layer = initial(W.layer)
 	W.dropped()

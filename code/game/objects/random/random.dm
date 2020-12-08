@@ -358,7 +358,7 @@
 	problist = list(
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
-		/obj/item/storage/belt/medical/emt = 0.4,
+		/obj/item/storage/belt/medical/first_responder = 0.4,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
 		/obj/item/storage/belt/janitor = 0.4
@@ -431,7 +431,6 @@
 /obj/random/voidsuit
 	name = "random voidsuit"
 	var/damaged = 0
-	var/for_vox = FALSE
 	var/list/suitmap = list(
 		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,

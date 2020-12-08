@@ -11,6 +11,7 @@
 	density = 1
 	var/health = 100.0
 	flags = CONDUCT
+	obj_flags = OBJ_FLAG_SIGNALER
 	w_class = ITEMSIZE_HUGE
 
 	var/valve_open = 0
@@ -55,6 +56,12 @@
 	name = "Canister: \[O2 (Cryo)\]"
 
 /obj/machinery/portable_atmospherics/canister/phoron
+	name = "Canister \[Phoron\]"
+	icon_state = "orange"
+	canister_color = "orange"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/phoron_scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
 	canister_color = "orange"
@@ -131,6 +138,9 @@
 	else
 		update_flag |= 32
 
+	if(signaler)
+		update_flag |= 64
+
 	if(update_flag == old_flag)
 		return 1
 	else
@@ -162,6 +172,9 @@ update_flag
 	cut_overlays()
 	set_light(FALSE)
 
+	if(signaler)
+		add_overlay("signaler")
+
 	if(update_flag & 1)
 		add_overlay("can-open")
 	if(update_flag & 2)
@@ -182,7 +195,6 @@ update_flag
 		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(indicator_overlay)
 		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
-	return
 
 /obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > temperature_resistance)
@@ -191,20 +203,24 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/proc/healthcheck()
 	if(destroyed)
-		return 1
+		return TRUE
 
 	if (src.health <= 10)
 		var/atom/location = src.loc
 		location.assume_air(air_contents)
 
-		src.destroyed = 1
+		destroyed = TRUE
+		obj_flags &= ~OBJ_FLAG_SIGNALER
 		playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
-		src.density = 0
-		update_icon()
+		density = FALSE
 
 		if (src.holding)
 			src.holding.forceMove(src.loc)
 			src.holding = null
+
+		detach_signaler()
+
+		update_icon()
 
 		return 1
 	else
@@ -285,12 +301,17 @@ update_flag
 			valve_open = !valve_open
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer))
-		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
+	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer) && !issignaler(W) && !(W.iswirecutter() && signaler))
+		if(W.flags & NOBLUDGEON)
+			return
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
+		user.do_attack_animation(src, W)
+		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
 		src.health -= W.force
 		if(!istype(W, /obj/item/forensics))
 			src.add_fingerprint(user)
 		healthcheck()
+		return
 
 	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
 		var/datum/gas_mixture/thejetpack = W:air_contents
@@ -307,6 +328,7 @@ update_flag
 
 	..()
 
+	update_icon()
 	SSnanoui.update_uis(src) // Update all NanoUIs attached to src
 
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
@@ -415,34 +437,39 @@ update_flag
 
 	return 1
 
+/obj/machinery/portable_atmospherics/canister/do_signaler()
+	valve_open = !valve_open
+	if(valve_open)
+		log_open_userless("a signaler")
+
 /obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	. = ..()
 
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
-	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/phoron_scarce/Initialize()
+	. = ..()
+
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure()/2) // half of the default value
 
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()
 
 	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
 	. = ..()
 
 	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
 	. = ..()
 
 	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
-	update_icon()
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
@@ -459,26 +486,20 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/Initialize()
 	. = ..()
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
-	src.update_icon()
-
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
 	src.air_contents.temperature = 283
-	src.update_icon()

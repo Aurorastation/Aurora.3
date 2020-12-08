@@ -17,7 +17,7 @@
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
 	var/obj/item/device/paicard/card	// The card we inhabit
-	var/obj/item/device/radio/radio		// Our primary radio
+	var/obj/item/device/radio/pai/radio		// Our primary radio
 
 
 	var/chassis = "repairbot"   // A record of your chosen chassis.
@@ -165,8 +165,9 @@
 	sradio = new(src)
 	if(card)
 		if(!card.radio)
-			card.radio = new /obj/item/device/radio(src.card)
+			card.radio = new /obj/item/device/radio/pai(src.card)
 		radio = card.radio
+		card.recalculateChannels()
 
 	//Default languages without universal translator software
 
@@ -314,8 +315,8 @@
 	open_up()
 
 /mob/living/silicon/pai/proc/open_up(var/loud = TRUE)
-	if(istype(card.loc, /mob/living/bot))
-		to_chat(src, SPAN_WARNING("You cannot unfold while inside the bot!"))
+	if(istype(card.loc, /mob/living/bot) || istype(card.loc, /obj/item/glass_jar))
+		to_chat(src, SPAN_WARNING("There is no room to unfold!"))
 		return FALSE
 
 	//I'm not sure how much of this is necessary, but I would rather avoid issues.
@@ -523,3 +524,6 @@
 
 	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
 	card.setEmotion(pai_emotions[selection])
+
+/obj/item/device/radio/pai
+	canhear_range = 0 // only people on their tile

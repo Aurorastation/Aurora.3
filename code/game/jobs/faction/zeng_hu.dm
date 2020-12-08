@@ -59,7 +59,7 @@
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Paramedic" = /datum/outfit/job/med_tech/paramed/zeng_hu,
-		"Emergency Medical Technician" = /datum/outfit/job/med_tech/paramed/zeng_hu,
+		"First Responder" = /datum/outfit/job/med_tech/paramed/zeng_hu,
 		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
 		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
@@ -123,5 +123,7 @@
 	id = /obj/item/card/id/zeng_hu
 
 	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/zeng_hu = 1
 	)

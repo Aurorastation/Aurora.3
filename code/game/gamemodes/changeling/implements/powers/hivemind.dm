@@ -53,22 +53,6 @@
 	if(!chosen_player)
 		return
 
-	var/list/selectable_limb = list()
-	for(var/organ_name in list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG))
-		var/obj/item/organ/external/limb = organs_by_name[organ_name]
-		if(limb && !limb.is_stump())
-			selectable_limb += limb
-
-	if(!length(selectable_limb))
-		to_chat(src, SPAN_WARNING("We have no limbs to sacrifice!"))
-		return
-
-	var/obj/item/organ/external/chosen_limb = input("Choose a limb to sacrifice.", "Limb Sacrifice") as null|anything in selectable_limb
-	if(!chosen_limb)
-		return
-
-	chosen_limb.droplimb(TRUE, DROPLIMB_BLUNT)
-
 	var/mob/abstract/hivemind/M = changeling.hivemind_members[chosen_player]
 	M.release_as_morph()
 	return TRUE

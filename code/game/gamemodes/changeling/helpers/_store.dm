@@ -88,8 +88,8 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/hivemind_morph
 	name = "Hivemind Release Morph"
-	desc = "We release a hivemind member as a morph at the cost of a limb. They will be able to crawl inside vents and disguise themselves as objects."
-	genomecost = 2
+	desc = "We release a hivemind member as a morph. They will be able to crawl inside vents and disguise themselves as objects."
+	genomecost = 0
 	verbpath = /mob/living/carbon/human/proc/changeling_release_morph
 
 //Stings and sting accessorries
@@ -156,7 +156,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	name = "Adrenaline Sacs"
 	desc = "We evolve additional ways of producing stimulants throughout our body."
 	helptext = "Gives us the ability to instantly shrug off stuns, as well as producing some painkiller and stimulants."
-	genomecost = 3
+	genomecost = 1
 	verbpath = /mob/proc/changeling_unstun
 
 /datum/power/changeling/ChemicalSynth
@@ -510,4 +510,3 @@ var/list/datum/power/changeling/powerinstances = list()
 		call(M.current, power.verbpath)()
 	else if(remake_verbs)
 		M.current.make_changeling()
-

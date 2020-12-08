@@ -25,7 +25,7 @@
 	return attack_hand(user)
 
 /obj/machinery/computer/security/check_eye(var/mob/user as mob)
-	if (user.stat || ((get_dist(user, src) > 1 || !( user.canmove ) || user.blinded) && !istype(user, /mob/living/silicon))) //user can't see - not sure why canmove is here.
+	if (use_check_and_message(user) || user.blinded || inoperable())
 		return -1
 	if(!current_camera)
 		return 0
@@ -38,6 +38,8 @@
 	if(src.z > 6) return
 	if(stat & (NOPOWER|BROKEN)) return
 	if(user.stat) return
+
+	user.set_machine(src)
 
 	var/data[0]
 	var/list/all_networks[0]
@@ -124,7 +126,11 @@
 	if (!C.can_use() || user.stat || (get_dist(user, src) > 1 || user.machine != src || user.blinded || !( user.canmove ) && !istype(user, /mob/living/silicon)))
 		return 0
 	set_current(C)
-	user.reset_view(current_camera)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.reset_view(current_camera)
+	else
+		user.reset_view(current_camera)
 	check_eye(user)
 	return 1
 
