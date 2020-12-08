@@ -5,7 +5,7 @@
       <vui-button v-if="reditable || editButton" @click="beginEditing" style="white-space: pre-wrap" icon="pen">{{ editbtnname }}</vui-button>
     </template>
     <template v-else>
-      <slot><input v-model="gdata.state.editingvalue"></slot><vui-button @click="save" icon="check"/>
+      <slot><input v-model="gdata.state.editingvalue"></slot><vui-button @click="save" icon="check"/> <!-- // Todo: ATC -->
     </template>
   </div>
 </template>

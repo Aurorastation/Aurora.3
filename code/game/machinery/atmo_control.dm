@@ -199,28 +199,34 @@ obj/machinery/computer/general_air_control/Destroy()
 	if(href_list["in_refresh_status"])
 		input_info = null
 		signal.data = list ("tag" = input_tag, "status" = 1)
+		. = TRUE
 
 	if(href_list["in_toggle_injector"])
 		input_info = null
 		signal.data = list ("tag" = input_tag, "power_toggle" = 1)
+		. = TRUE
 
 	if(href_list["in_set_flowrate"] != null)
 		var/setrate = between(0, text2num(href_list["in_set_flowrate"]), max_input_flow_setting)
 		input_info = null
 		signal.data = list ("tag" = input_tag, "set_volume_rate" = "[setrate]")
+		. = TRUE
 
 	if(href_list["out_refresh_status"])
 		output_info = null
 		signal.data = list ("tag" = output_tag, "status" = 1)
+		. = TRUE
 
 	if(href_list["out_toggle_power"])
 		output_info = null
 		signal.data = list ("tag" = output_tag, "power_toggle" = 1)
+		. = TRUE
 
 	if(href_list["out_set_pressure"] != null)
 		var/setpressure = between(0, text2num(href_list["out_set_pressure"]), max_pressure_setting)
 		output_info = null
 		signal.data = list ("tag" = output_tag, "set_internal_pressure" = "[setpressure]")
+		. = TRUE
 
 	signal.data["sigtype"] = "command"
 	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
@@ -285,28 +291,34 @@ obj/machinery/computer/general_air_control/Destroy()
 	if(href_list["in_refresh_status"])
 		input_info = null
 		signal.data = list ("tag" = input_tag, "status" = 1)
+		. = TRUE
 
 	if(href_list["in_toggle_injector"])
 		input_info = null
 		signal.data = list ("tag" = input_tag, "power_toggle" = 1)
+		. = TRUE
 
 	if(href_list["in_set_flowrate"] != null)
 		var/setrate = between(0, text2num(href_list["in_set_flowrate"]), max_input_flow_setting)
 		input_info = null
 		signal.data = list ("tag" = input_tag, "set_volume_rate" = "[setrate]")
+		. = TRUE
 
 	if(href_list["out_refresh_status"])
 		output_info = null
 		signal.data = list ("tag" = output_tag, "status" = 1)
+		. = TRUE
 
 	if(href_list["out_toggle_power"])
 		output_info = null
 		signal.data = list ("tag" = output_tag, "power_toggle" = 1)
+		. = TRUE
 
 	if(href_list["out_set_pressure"] != null)
 		var/setpressure = between(0, text2num(href_list["out_set_pressure"]), max_pressure_setting)
 		output_info = null
 		signal.data = list ("tag" = output_tag, "set_external_pressure" = "[setpressure]", "checks" = 1)
+		. = TRUE
 
 	signal.data["sigtype"]="command"
 	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
@@ -392,6 +404,7 @@ obj/machinery/computer/general_air_control/Destroy()
 			"sigtype"="command"
 		)
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+		. = TRUE
 
 	if(href_list["toggle_automation"])
 		automation = !automation
@@ -412,6 +425,7 @@ obj/machinery/computer/general_air_control/Destroy()
 		)
 
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+		. = TRUE
 
 	if(href_list["injection"])
 		if(!radio_connection)
@@ -427,6 +441,7 @@ obj/machinery/computer/general_air_control/Destroy()
 		)
 
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+		. = TRUE
 
 #undef SIGNAL_OXYGEN
 #undef SIGNAL_PHORON

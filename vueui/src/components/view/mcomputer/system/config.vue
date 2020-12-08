@@ -21,7 +21,7 @@
       <vui-button :params="{ PC_register: 1}" :disabled="!card_slot">{{ registered ? registered : "Unregistered" }}</vui-button>
     </vui-item>
     <vui-item v-if="brightness !== null" label="Brightness:">
-      <vui-input-slider :min="0" :max="10" v-model="brightness"/>
+      <vui-input-slider :min="0" :max="10" v-model="brightness"/> <!-- // Todo: ATC -->
     </vui-item>
     <h2>Computer Components</h2>
     <div v-for="(h, name) in hardware" :key="name">

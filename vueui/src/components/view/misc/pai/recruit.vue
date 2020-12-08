@@ -5,7 +5,7 @@
 
     <vui-group>
       <vui-group-item label="Name:">
-        <input type="text" v-model="name">
+        <input type="text" v-model="name"> <!-- // Todo: ATC -->
         <p>
           What you plan to call yourself. Suggestions: Any character name you would choose for a station character OR an AI.
         </p>
@@ -17,13 +17,13 @@
         </p>
       </vui-group-item>
       <vui-group-item label="Preferred Role:">
-        <input type="text" v-model="role">
+        <input type="text" v-model="role"> <!-- // Todo: ATC -->
         <p>
           Do you like to partner with sneaky social ninjas? Like to help security hunt down thugs? Enjoy watching an engineer's back while he saves the station yet again? This doesn't have to be limited to just station jobs. Pretty much any general descriptor for what you'd like to be doing works here.
         </p>
       </vui-group-item>
       <vui-group-item label="OOC Comments:">
-        <textarea v-model="comments"/>
+        <textarea v-model="comments"/> <!-- // Todo: ATC -->
         Anything you'd like to address specifically to the player reading this in an OOC manner. "I prefer more serious RP.", "I'm still learning the interface!", etc. Feel free to leave this blank if you want.
       </vui-group-item>
     </vui-group>

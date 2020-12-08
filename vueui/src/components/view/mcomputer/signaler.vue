@@ -21,7 +21,7 @@
     </vui-group>
     <vui-group v-if="emagged">
       <vui-group-item label="Remote Door Code:">
-        <input type="text" v-model="doorcode">
+        <input type="text" v-model="doorcode">  <!-- // Todo: ATC -->
         <vui-button :params="{resetcode: 1}">Reset to Default</vui-button>
       </vui-group-item>
       <vui-group-item>

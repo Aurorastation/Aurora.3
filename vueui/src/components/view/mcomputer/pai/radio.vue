@@ -13,7 +13,7 @@
         <vui-button :params="{freq:10, nowindow:1}">++</vui-button>
       </vui-group-item>
       <vui-item label="Range:">
-        <vui-input-slider :min="0" :max="4" v-model="radio_range"/>
+        <vui-input-slider :min="0" :max="4" v-model="radio_range"/> <!-- // Todo: ATC -->
       </vui-item>
       <hr>
       <vui-group-item v-for="channel in channels" :label="channel.name" :key="channel.name">

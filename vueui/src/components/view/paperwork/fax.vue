@@ -10,7 +10,7 @@
       <b>Logged in to:</b> {{ state.bossname }} Quantum Entanglement Network
       <template v-if="remaining_cooldown <= 0">
         <vui-item label="Sending to:">
-          <select v-model.lazy="state.destination" class="button">
+          <select v-model.lazy="state.destination" class="button"> <!-- // Todo: ATC -->
             <option v-for="dep in state.departiments" :key="dep" :value="dep">{{ dep }}</option>
           </select>
         </vui-item>
