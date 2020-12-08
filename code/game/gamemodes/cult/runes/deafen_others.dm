@@ -1,7 +1,7 @@
 /datum/rune/deafen
 	name = "deafening rune"
 	desc = "This rune is used to deafen all unbelievers in a wide range around us."
-	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
+	rune_flags = HAS_SPECIAL_TALISMAN_ACTION | CAN_MEMORIZE
 
 /datum/rune/deafen/do_rune_action(mob/living/user, atom/movable/A)
 	do_deafen(user, A, 1, TRUE)

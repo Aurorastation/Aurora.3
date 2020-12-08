@@ -23,6 +23,9 @@
 	var/mob/living/carbon/human/H = usr
 	var/obj/effect/rune/R = locate() in get_turf(H)
 	if(R)
+		if(!R.rune.can_memorize())
+			to_chat(H, SPAN_WARNING("This rune is too complex to be memorized!"))
+			return
 		if(LAZYISIN(C.memorized_runes, R.rune.name))
 			to_chat(H, SPAN_WARNING("This rune is already memorized!"))
 			return

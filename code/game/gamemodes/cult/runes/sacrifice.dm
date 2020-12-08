@@ -1,7 +1,7 @@
 /datum/rune/sacrifice
 	name = "sacrificial rune"
 	desc = "This rune is used to sacrifice an unbeliever."
-	rune_flags = NO_TALISMAN
+	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 /datum/rune/sacrifice/do_rune_action(mob/living/user, atom/movable/A)
 	var/list/mob/living/carbon/human/cultists_in_range = list()

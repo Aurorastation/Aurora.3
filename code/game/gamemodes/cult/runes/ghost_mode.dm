@@ -1,7 +1,7 @@
 /datum/rune/ethereal
 	name = "ethereal rune"
 	desc = "This rune is used to temporarily send an acolyte into the afterlife."
-	rune_flags = NO_TALISMAN
+	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 /datum/rune/ethereal/do_rune_action(mob/living/user, atom/movable/A) //some bits copypastaed from admin tools - Urist
 	if(get_turf(user) == get_turf(A) && ishuman(user))

@@ -1,5 +1,6 @@
 #define NO_TALISMAN                  1
-#define HAS_SPECIAL_TALISMAN_ACTION  2
+#define CAN_MEMORIZE                  2
+#define HAS_SPECIAL_TALISMAN_ACTION  4
 
 /datum/rune
 	var/name          // The rune's name.
@@ -42,3 +43,6 @@
 
 /datum/rune/proc/can_be_talisman()
 	return !(rune_flags & NO_TALISMAN)
+
+/datum/rune/proc/can_memorize()
+	return rune_flags & CAN_MEMORIZE
