@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Cult ghosts can no longer be clicked on or hovered over, thus they cannot block clicks."
