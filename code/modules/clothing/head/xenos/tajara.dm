@@ -53,9 +53,10 @@
 	icon_state = "raskara_mask"
 	item_state = "raskara_mask"
 
-/obj/item/clothing/head/tajaran/pra_beret
+/obj/item/clothing/head/beret/tajaran/pra
 	name = "republican army beret"
 	desc = "A green beret issued to republican soldiers."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "praberet"
 	item_state = "praberet"
 

@@ -26,7 +26,7 @@
 	ingested = new /datum/reagents/metabolism(240, owner, CHEM_INGEST)
 	if(!ingested.my_atom)
 		ingested.my_atom = src
-	if(species.gluttonous)
+	if(species && species.gluttonous)
 		action_button_name = PUKE_ACTION_NAME
 
 /obj/item/organ/internal/stomach/removed()

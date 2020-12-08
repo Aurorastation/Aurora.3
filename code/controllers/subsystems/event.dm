@@ -272,6 +272,7 @@ var/datum/controller/subsystem/events/SSevents
 		var/datum/event/E = locate(href_list["stop"])
 		var/datum/event_meta/EM = E.event_meta
 		log_and_message_admins("has stopped the [severity_to_string[EM.severity]] event '[EM.name]'.")
+		E.end()
 		E.kill()
 	else if(href_list["view_events"])
 		selected_event_container = locate(href_list["view_events"])

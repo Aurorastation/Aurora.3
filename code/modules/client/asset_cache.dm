@@ -150,6 +150,7 @@ var/list/asset_datums = list()
 
 /datum/asset
 	var/_abstract = /datum/asset
+	var/delayed = FALSE
 
 /datum/asset/New()
 	asset_datums[type] = src
@@ -287,8 +288,11 @@ var/list/asset_datums = list()
 
 	return out.Join("\n")
 
-/datum/asset/spritesheet/proc/Insert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE)
-	I = icon(I, icon_state=icon_state, dir=dir, frame=frame, moving=moving)
+/datum/asset/spritesheet/proc/Insert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE, icon/forced=FALSE)
+	if(!forced)
+		I = icon(I, icon_state=icon_state, dir=dir, frame=frame, moving=moving)
+	else
+		I = forced
 	if (!I || !length(icon_states(I)))  // that direction or state doesn't exist
 		return
 	var/size_id = "[I.Width()]x[I.Height()]"
@@ -322,12 +326,14 @@ var/list/asset_datums = list()
 /datum/asset/spritesheet/proc/css_tag()
 	return {"<link rel="stylesheet" href="spritesheet_[name].css" />"}
 
-/datum/asset/spritesheet/proc/icon_tag(sprite_name)
+/datum/asset/spritesheet/proc/icon_tag(sprite_name, var/html=TRUE)
 	var/sprite = sprites[sprite_name]
 	if (!sprite)
 		return null
 	var/size_id = sprite[SPR_SIZE]
-	return {"<span class="[name][size_id] [sprite_name]"></span>"}
+	if(html)
+		return {"<span class="[name][size_id] [sprite_name]"></span>"}
+	return "[name][size_id] [sprite_name]"
 
 #undef SPR_SIZE
 #undef SPR_IDX
@@ -473,3 +479,120 @@ var/list/asset_datums = list()
 		if(A.tag_icon)
 			Insert(A.tag_icon, I, A.tag_icon)
 	..()
+
+/datum/asset/spritesheet/vending
+	name = "vending"
+	var/obj/machinery/vending/v_type = null
+	delayed = TRUE
+
+/datum/asset/spritesheet/vending/New()
+	if(ispath(v_type))
+		v_type = new v_type
+
+	if(istype(v_type) && v_type.name)
+		name = ckey(v_type.name)
+
+	. = ..()
+
+/datum/asset/spritesheet/vending/register()
+	if(!istype(v_type))
+		return
+	for(var/products in list(v_type?.products, v_type?.contraband, v_type?.premium))
+		for(var/o_path in products)
+			var/obj/O = new o_path
+			var/i_type = ckey("[O.type]")
+			var/icon/I = icon(O.icon, O.icon_state)
+			if(istype(O, /obj/item/seeds))
+				// thanks seeds for being overlays defined at runtime
+				var/obj/item/seeds/S = O
+				I = S.update_appearance(TRUE)
+				Insert(i_type, I, forced=I)
+			else
+				if(i_type in sprites)
+					continue
+				if(O.overlay_queued)
+					O.compile_overlays()
+				if(O.overlays.len)
+					I = getFlatIcon(O)
+					Insert(i_type, I, forced=I)
+				else
+					Insert(i_type, O.icon, O.icon_state)
+
+	..()
+
+// v_type needs to be the path to the vending machine
+
+/datum/asset/spritesheet/vending/vendors
+	v_type = /obj/machinery/vending/vendors
+
+/datum/asset/spritesheet/vending/boozeomat
+	v_type = /obj/machinery/vending/boozeomat
+
+/datum/asset/spritesheet/vending/assist
+	v_type = /obj/machinery/vending/assist
+
+/datum/asset/spritesheet/vending/coffee
+	v_type = /obj/machinery/vending/coffee
+
+/datum/asset/spritesheet/vending/snack
+	v_type = /obj/machinery/vending/snack
+
+/datum/asset/spritesheet/vending/cola
+	v_type = /obj/machinery/vending/cola
+
+/datum/asset/spritesheet/vending/cigarette
+	v_type = /obj/machinery/vending/cigarette
+
+/datum/asset/spritesheet/vending/medical
+	v_type = /obj/machinery/vending/medical
+
+/datum/asset/spritesheet/vending/phoronresearch
+	v_type = /obj/machinery/vending/phoronresearch
+
+/datum/asset/spritesheet/vending/wallmed1
+	v_type = /obj/machinery/vending/wallmed1
+
+/datum/asset/spritesheet/vending/wallmed2
+	v_type = /obj/machinery/vending/wallmed2
+
+/datum/asset/spritesheet/vending/security
+	v_type = /obj/machinery/vending/security
+
+/datum/asset/spritesheet/vending/hydronutrients
+	v_type = /obj/machinery/vending/hydronutrients
+
+/datum/asset/spritesheet/vending/hydroseeds
+	v_type = /obj/machinery/vending/hydroseeds
+
+/datum/asset/spritesheet/vending/magivend
+	v_type = /obj/machinery/vending/magivend
+
+/datum/asset/spritesheet/vending/dinnerware
+	v_type = /obj/machinery/vending/dinnerware
+
+/datum/asset/spritesheet/vending/sovietsoda
+	v_type = /obj/machinery/vending/sovietsoda
+
+/datum/asset/spritesheet/vending/tool
+	v_type = /obj/machinery/vending/tool
+
+/datum/asset/spritesheet/vending/engivend
+	v_type = /obj/machinery/vending/engivend
+
+/datum/asset/spritesheet/vending/tacticool
+	v_type = /obj/machinery/vending/tacticool
+
+/datum/asset/spritesheet/vending/tacticoolert
+	v_type = /obj/machinery/vending/tacticool/ert
+
+/datum/asset/spritesheet/vending/engineering
+	v_type = /obj/machinery/vending/engineering
+
+/datum/asset/spritesheet/vending/robotics
+	v_type = /obj/machinery/vending/robotics
+
+/datum/asset/spritesheet/vending/zora
+	v_type = /obj/machinery/vending/zora
+
+/datum/asset/spritesheet/vending/battlemonsters
+	v_type = /obj/machinery/vending/battlemonsters

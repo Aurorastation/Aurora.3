@@ -16,7 +16,7 @@
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
 
-/datum/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed)	
+/datum/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(2))
 		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.", "You have a stabbing pain in your chest.")))
 		M.adjustHalLoss(5)
@@ -45,8 +45,8 @@
 	M.make_dizzy(5)
 	M.adjustHydrationLoss(5*removed)
 	M.adjustNutritionLoss(5*removed)
-	
-	var/mob/living/carbon/human/H = M 
+
+	var/mob/living/carbon/human/H = M
 	if(dose > 30) //Bicaridine treats arterial bleeding when dose is greater than 30u and when the drug is overdosing (chemical volume in blood greater than 20).
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT && prob(2))
@@ -165,8 +165,6 @@
 	var/strength = 6
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX)
-		M.adjustToxLoss(removed * strength)
 	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
 	holder.remove_reagent(/datum/reagent/lexorin, strength/3 * removed)
 
@@ -278,7 +276,7 @@
 	overdose = 15
 	scannable = TRUE
 	od_minimum_dose = 2
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sourness"
@@ -287,8 +285,10 @@
 
 /datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
-	M.eye_blurry = max(M.eye_blurry, 5)
-	M.confused = max(M.confused, 10)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 5)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 10)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -310,7 +310,23 @@
 	M.add_chemical_effect(CE_EMETIC, dose/6)
 	if(M.losebreath < 15)
 		M.losebreath++
-		
+
+/datum/reagent/mortaphenyl/aphrodite
+	name = "Aphrodite"
+	description = "Aphrodite is the name given to the chemical diona inject into organics soon after biting them. It serves a dual purpose of dulling the pain of the wound, and gathering deep-seated fragments of learned skills and memories, such as languages."
+	color = "#a59153"
+	overdose = 10
+	scannable = TRUE
+	fallback_specific_heat = 1
+	taste_description = "euphoric acid"
+
+/datum/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_PAINKILLER, 70)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 3)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 6)
+
 /datum/reagent/oxycomorphine
 	name = "Oxycomorphine"
 	description = "Oxycomorphine is a highly advanced, powerful analgesic medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
@@ -319,7 +335,7 @@
 	overdose = 10
 	od_minimum_dose = 2
 	scannable = TRUE
-	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
@@ -328,8 +344,10 @@
 
 /datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
-	M.eye_blurry = max(M.eye_blurry, 5)
-	M.confused = max(M.confused, 20)
+	if(!M.chem_effects[CE_CLEARSIGHT])
+		M.eye_blurry = max(M.eye_blurry, 5)
+	if(!M.chem_effects[CE_STRAIGHTWALK])
+		M.confused = max(M.confused, 20)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -370,19 +388,26 @@
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
-	if(!(volume > 10)) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
-		M.AdjustParalysis(-1) 
+	if(volume < 10) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
+		M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
 	holder.remove_reagent(/datum/reagent/mindbreaker, 5)
 	M.hallucination = max(0, M.hallucination - 10)
 	M.eye_blurry = max(M.eye_blurry - 5, 0)
 	M.confused = max(M.confused - 10, 0)
-	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
-	M.add_chemical_effect(CE_PAINKILLER, 40)
-	M.add_chemical_effect(CE_HALLUCINATE, -1)
-	if (!modifier)
+	if(!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/synaptizine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_CLEARSIGHT)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+		if(prob(25))
+			M.add_chemical_effect(CE_HEPATOTOXIC)
+		M.add_chemical_effect(CE_PAINKILLER, 40)
+		M.add_chemical_effect(CE_HALLUCINATE, -1)
 
 /datum/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien)
 	if(prob(dose / 2))
@@ -409,11 +434,7 @@
 	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
-		M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
-	else 
-		M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
-		M.add_chemical_effect(CE_PAINKILLER, 10)
+	if(volume >= 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
 		M.dizziness = max(125, M.dizziness)
 		M.make_dizzy(5)
 		if(!(volume > 10))
@@ -421,6 +442,16 @@
 			if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
 				if(prob(dose/5) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
 					B.gain_trauma_type(pick(/datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind)) //Handpicked suggested traumas considered less disruptive and conducive to roleplay.
+
+/datum/reagent/alkysine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+		if(volume < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
+			M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
+		else
+			M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
+			M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 15)
@@ -451,6 +482,11 @@
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
+
+/datum/reagent/oculine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_CLEARSIGHT)
 
 /datum/reagent/oculine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 15)
@@ -524,13 +560,13 @@
 	M.add_chemical_effect(CE_PULSE, 1)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
-	
+
 	if((locate(/datum/reagent/adrenaline) in M.reagents.reagent_list))
 		if(M.reagents.get_reagent_amount(/datum/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
 			overdose = volume/2 //Straight to overdose.
 
 /datum/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustNutritionLoss(5*removed)	
+	M.adjustNutritionLoss(5*removed)
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(prob(5))
 		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!")))
@@ -594,6 +630,11 @@
 		M.intoxication = max(0, (M.intoxication - (amount / ETHYL_INTOX_COST)))
 		P -= amount
 
+/datum/reagent/ethylredoxrazine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+
 /datum/reagent/hyronalin
 	name = "Hyronalin"
 	description = "Hyronalin is a complex anti-radiation medication which specifically targets ionised cells, reducing their cell division rate to prevent their growth before gradually destroying these afflicted cells."
@@ -616,7 +657,7 @@
 	else
 		M.apply_radiation(-30 * removed)
 
-/datum/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)	
+/datum/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(60))
 		M.take_organ_damage(4 * removed, 0) //Hyronaline OD deals brute damage to the same degree as Arithrazine
 
@@ -655,7 +696,7 @@
 	reagent_state = LIQUID
 	color = "#41C141"
 	od_minimum_dose = 1
-	metabolism = REM * 0.05
+	metabolism = 0.03
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
 	overdose = REAGENTS_OVERDOSE
@@ -665,7 +706,7 @@
 
 /datum/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_EMETIC, dose/8) // chance per 2 second tick to cause vomiting
-	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5 to be effective. takes 50 seconds to work
+	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5u dose to begin to be effective which'll take ~5 minutes to metabolise. need >10u dose if administered orally.
 
 /datum/reagent/thetamycin/overdose(var/mob/living/carbon/M, var/alien)
 	M.dizziness = max(150, M.dizziness)
@@ -1102,7 +1143,7 @@
 	description = "Neurapan is a groundbreaking, expensive antipsychotic medication capable of treating a whole spectrum of mental illnesses, including psychoses, anxiety disorders, Tourette Syndrome and depression, and can alleviate symptoms of stress. Neurapan can be addictive due to its tranquilising effects, and withdrawal symptoms are dangerous."
 	reagent_state = LIQUID
 	color = "#FF4444"
-	overdose = 10 
+	overdose = 10
 	metabolism = 0.02 * REM
 	od_minimum_dose = 0.4
 	data = 0
@@ -1413,7 +1454,7 @@
 		else
 			H.adjustOxyLoss(2)
 			H.add_chemical_effect(CE_PNEUMOTOXIC, 0.1)
-		
+
 /datum/reagent/pulmodeiectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed)
 	M.add_chemical_effect(CE_ITCH, dose)
@@ -1545,7 +1586,7 @@
 	taste_description = "premium salty water"
 	unaffected_species = IS_MACHINE
 	ingest_mul = 0
-	breathe_mul = 0 
+	breathe_mul = 0
 
 /datum/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if((M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
@@ -1554,7 +1595,7 @@
 		M.adjustHydrationLoss(-removed*5)
 	if(volume < 3)
 		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
-	
+
 /datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
 	M.confused = max(M.confused, 20)
 	M.make_jittery(5)

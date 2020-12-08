@@ -104,7 +104,7 @@
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 	signal.data = list(
 		"area" = area_uid,
@@ -119,6 +119,7 @@
 		"filter_co2" = (GAS_CO2 in scrubbing_gas),
 		"filter_phoron" = (GAS_PHORON in scrubbing_gas),
 		"filter_n2o" = (GAS_N2O in scrubbing_gas),
+		"filter_h2" = (GAS_HYDROGEN in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -242,6 +243,11 @@
 		toggle += GAS_N2O
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += GAS_N2O
+	
+	if(!isnull(signal.data["h2_scrub"]) && text2num(signal.data["h2_scrub"]) != (GAS_HYDROGEN in scrubbing_gas))
+		toggle += GAS_HYDROGEN
+	else if(signal.data["toggle_h2_scrub"])
+		toggle += GAS_HYDROGEN
 
 	scrubbing_gas ^= toggle
 
@@ -341,5 +347,3 @@
 		to_chat(user, "You are too far away to read the gauge.")
 	if(welded)
 		to_chat(user, "It seems welded shut.")
-
-

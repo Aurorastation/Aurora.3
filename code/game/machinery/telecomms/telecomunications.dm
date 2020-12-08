@@ -63,7 +63,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		var/datum/signal/copy
 		if(copysig)
 			copy = new
-			copy.transmission_method = 2
+			copy.transmission_method = TRANSMISSION_SUBSPACE
 			copy.frequency = signal.frequency
 			copy.data = signal.data.Copy()
 
@@ -263,10 +263,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	if(!check_receive_level(signal))
 		return
 
-	if(signal.transmission_method == 2)
-
+	if(signal.transmission_method == TRANSMISSION_SUBSPACE)
 		if(is_freq_listening(signal)) // detect subspace signals
-
 			//Remove the level and then start adding levels that it is being broadcasted in.
 			signal.data["level"] = list()
 
@@ -546,6 +544,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 					race = "Slime"
 				else if(isanimal(M))
 					race = "Domestic Animal"
+				else if(istype(M, /mob/living/announcer))
+					race = "Announcer"
 
 				log.parameters["race"] = race
 
@@ -628,10 +628,3 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/name = "data packet (#)"
 	var/garbage_collector = 1 // if set to 0, will not be garbage collected
 	var/input_type = "Speech File"
-
-
-
-
-
-
-

@@ -77,7 +77,7 @@
 			break
 			show_message = FALSE
 	if(show_message && eye_emote)
-		owner.emote("me", 1, eye_emote)
+		owner.visible_message("<b>[owner]</b>[eye_emote]")
 
 	night_vision = TRUE
 	owner.stop_sight_update = TRUE

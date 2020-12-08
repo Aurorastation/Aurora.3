@@ -1,3 +1,5 @@
+#define SMALL_FONTS(FONTSIZE, MSG) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE];\">[MSG]</span>"
+
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:
@@ -623,3 +625,11 @@
 	for(var/word in text)
 		finalized_text += capitalize(word)
 	return jointext(finalized_text, " ")
+
+// makes text uppercase, makes sure it has a correct line-end symbol (ie fullstop)
+/proc/formalize_text(var/string)
+	string = capitalize(string)
+	var/ending = copytext(string, length(string), (length(string) + 1))
+	if(ending && !correct_punctuation[ending])
+		string += "."
+	return string

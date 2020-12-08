@@ -28,8 +28,18 @@
 	temperature = 278
 	},
 /area/tcommsat/computer)
+"bl" = (
+/obj/structure/flora/pottedplant/random{
+	desc = "I like moster truck";
+	name = "walter"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
 "cB" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -92,6 +102,9 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"ev" = (
+/turf/simulated/open,
+/area/turbolift/main_mid)
 "eN" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -107,6 +120,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/highsecurity{
+	locked = 1;
 	name = "AI Core";
 	req_access = list(16)
 	},
@@ -389,6 +403,8 @@
 /area/tcommsat/chamber)
 "sK" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/structure/cable/cyan{
@@ -682,6 +698,8 @@
 /area/construction/Storage)
 "Dd" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -707,6 +725,8 @@
 	dir = 8
 	},
 /obj/machinery/light/small{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -719,6 +739,8 @@
 /area/tcommsat/computer)
 "DR" = (
 /obj/machinery/light/small{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
@@ -767,6 +789,8 @@
 "Fq" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid{
@@ -788,7 +812,7 @@
 	},
 /area/tcommsat/chamber)
 "GJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -815,6 +839,8 @@
 /area/tcommsat/computer)
 "Jd" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -944,6 +970,8 @@
 "Ox" = (
 /obj/machinery/telecomms/bus/preset_four,
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid{
@@ -969,6 +997,8 @@
 /area/tcommsat/chamber)
 "Pl" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -978,6 +1008,8 @@
 /area/construction/Storage)
 "Pv" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/machinery/status_display{
@@ -1004,6 +1036,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
+"QS" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
 "QX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
@@ -1025,7 +1063,10 @@
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
 "RM" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -1107,6 +1148,8 @@
 /area/tcommsat/chamber)
 "VK" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -1164,6 +1207,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/structure/closet/crate/secure/aimodules,
@@ -3291,13 +3336,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 hD
 hD
 hD
@@ -3345,13 +3390,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+QS
+aO
+bl
+aO
+QS
+Ex
 hD
 hD
 hD
@@ -3399,13 +3444,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+aO
+aO
+aO
+aO
+aO
+Ex
 hD
 hD
 hD
@@ -3453,13 +3498,13 @@ hD
 hD
 hD
 hD
-hD
-hD
-hD
-hD
-hD
-hD
-hD
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 hD
 hD
 hD
@@ -3507,13 +3552,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 iR
 iR
 iR
@@ -3561,13 +3606,13 @@ Zg
 Zg
 Zg
 Zg
-Zg
-Zg
-Zg
-Zg
-Zg
-Zg
-Zg
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 Zg
 Zg
 Zg
@@ -3615,13 +3660,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 iR
 iR
 iR
@@ -3669,13 +3714,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 iR
 iR
 iR
@@ -3723,13 +3768,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+ev
+ev
+ev
+ev
+ev
+Ex
 iR
 iR
 iR
@@ -3777,13 +3822,13 @@ iR
 iR
 iR
 iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
+Ex
 iR
 iR
 iR

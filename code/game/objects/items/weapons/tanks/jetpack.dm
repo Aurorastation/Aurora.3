@@ -112,7 +112,7 @@
 
 	var/datum/gas_mixture/G = src.air_contents.remove(num)
 
-	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON]
+	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON] + G.gas[GAS_HYDROGEN]
 	if(allgases >= 0.005)
 		return 1
 
@@ -155,6 +155,10 @@
 /obj/item/tank/jetpack/carbondioxide/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_CO2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+
+/obj/item/tank/jetpack/carbondioxide/synthetic/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_CO2, (15*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/jetpack/carbondioxide/synthetic
 	name = "Synthetic Jetpack"
@@ -208,7 +212,7 @@
 
 	var/datum/gas_mixture/G = pressure_vessel.air_contents.remove(num)
 
-	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON]
+	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON] + G.gas[GAS_HYDROGEN]
 	if(allgases >= 0.005)
 		return 1
 	qdel(G)

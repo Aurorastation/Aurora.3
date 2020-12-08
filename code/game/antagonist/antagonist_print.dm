@@ -10,6 +10,8 @@
 		if(P.ambitions)
 			text += "<br><font color='purple'><b>Their goals for today were:</b></font>"
 			text += "<br>  '[P.ambitions]'"
+		if(P.current.stat == DEAD && P.last_words)
+			text += "<br><b>Their last words were:</b> '[P.last_words]'"
 		if(!global_objectives.len && P.objectives && P.objectives.len)
 			var/failed
 			var/num = 1
@@ -65,8 +67,7 @@
 	if(ply.current)
 		var/mob/living/M = ply.current
 		var/mob/living/carbon/C = M
-		var/turf/T = M.loc
-		var/area/A = T.loc
+		var/area/A = get(M.loc, /area)
 		if(M.stat == DEAD)
 			text += "died"
 		else if(A?.is_prison() || (!A?.is_no_crew_expected() && C?.handcuffed))

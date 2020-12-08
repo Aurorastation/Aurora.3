@@ -794,6 +794,17 @@
 /datum/chemical_reaction/plastication/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/stack/material/plastic(get_turf(holder.my_atom), created_volume)
 	return
+	
+/datum/chemical_reaction/uraniumsolidification
+    name = "Uranium"
+    id = "soliduranium"
+    result = null
+    required_reagents = list(/datum/reagent/potassium = 5, /datum/reagent/frostoil = 5, /datum/reagent/uranium = 20)
+    result_amount = 1
+
+/datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+    new /obj/item/stack/material/uranium(get_turf(holder.my_atom), created_volume)
+    return
 
 /* Grenade reactions */
 
@@ -1340,7 +1351,6 @@
 		/mob/living/simple_animal/hostile/krampus,
 		/mob/living/simple_animal/hostile/gift,
 		/mob/living/simple_animal/hostile/hivebotbeacon,
-		/mob/living/simple_animal/hostile/hivebotbeacon/toxic,
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,
@@ -2009,10 +2019,10 @@
 	required_reagents = list(/datum/reagent/alcohol/ethanol/gin = 2, /datum/reagent/drink/tonic = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/drink/cuba_libre
-	name = "Cuba Libre"
-	id = "cubalibre"
-	result = /datum/reagent/alcohol/ethanol/cubalibre
+/datum/chemical_reaction/drink/rumandcola
+	name = "Rum and Cola"
+	id = "rumandcola"
+	result = /datum/reagent/alcohol/ethanol/rumandcola
 	required_reagents = list(/datum/reagent/alcohol/ethanol/rum = 2, /datum/reagent/drink/space_cola = 1)
 	result_amount = 3
 
@@ -3658,3 +3668,10 @@
 	required_reagents = list(/datum/reagent/spacespice/pumpkinspice = 2, /datum/reagent/drink/syrup_simple = 3)
 	result_amount = 5
 	mix_message = "The solution takes on an orange hue and the aroma of pumpkin spice."
+
+/datum/chemical_reaction/drink/cuba_libre
+	name = "Cuba Libre"
+	id = "cubalibre"
+	result = /datum/reagent/alcohol/ethanol/cubalibre
+	required_reagents = list(/datum/reagent/alcohol/ethanol/rumandcola = 5, /datum/reagent/drink/limejuice = 1)
+	result_amount = 6

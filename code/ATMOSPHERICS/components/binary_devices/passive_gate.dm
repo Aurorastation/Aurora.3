@@ -79,7 +79,7 @@
 		//Figure out how much gas to transfer to meet the target pressure.
 		switch (regulate_mode)
 			if (REGULATE_INPUT)
-				transfer_moles = min(transfer_moles, calculate_transfer_moles(air2, air1, pressure_delta, (network1)? network1.volume : 0))
+				transfer_moles = min(transfer_moles, air1.total_moles*(pressure_delta/input_starting_pressure))
 			if (REGULATE_OUTPUT)
 				transfer_moles = min(transfer_moles, calculate_transfer_moles(air1, air2, pressure_delta, (network2)? network2.volume : 0))
 
@@ -112,7 +112,7 @@
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 
 	signal.data = list(

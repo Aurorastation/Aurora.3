@@ -86,6 +86,8 @@
 	..()
 
 /obj/machinery/computer/guestpass/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/guestpass/attack_hand(var/mob/user as mob)

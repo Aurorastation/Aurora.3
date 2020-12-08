@@ -465,18 +465,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	round_start_time = world.time
 
 	callHook("roundstart")
-
-	spawn(0)//Forking here so we dont have to wait for this to finish
-		mode.post_setup()
-		//Cleanup some stuff
-		for(var/obj/effect/landmark/start/S in landmarks_list)
-			//Deleting Startpoints but we need the ai point to AI-ize people later
-			if (S.name != "AI")
-				qdel(S)
-		to_world("<span class='notice'><B>Enjoy the game!</B></span>")
-		sound_to(world, sound('sound/AI/welcome.ogg'))
-		//Holiday Round-start stuff	~Carn
-		Holiday_Game_Start()
+	INVOKE_ASYNC(src, .proc/roundstart)
 
 	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)
@@ -485,6 +474,24 @@ var/datum/controller/subsystem/ticker/SSticker
 	log_debug("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
 
 	return SETUP_OK
+
+/datum/controller/subsystem/ticker/proc/roundstart()
+	mode.post_setup()
+	//Cleanup some stuff
+	for(var/obj/effect/landmark/start/S in landmarks_list)
+		//Deleting Startpoints but we need the ai point to AI-ize people later
+		if (S.name != "AI")
+			qdel(S)
+	// update join icon for lobbysitters
+	for(var/mob/abstract/new_player/NP in player_list)
+		if(!NP.client)
+			continue
+		var/obj/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
+		JG.update_icon(NP)
+	to_world("<span class='notice'><B>Enjoy the game!</B></span>")
+	sound_to(world, sound('sound/AI/welcome.ogg'))
+	//Holiday Round-start stuff	~Carn
+	Holiday_Game_Start()
 
 /datum/controller/subsystem/ticker/proc/run_callback_list(list/callbacklist)
 	set waitfor = FALSE

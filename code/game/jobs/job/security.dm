@@ -1,15 +1,14 @@
 /datum/job/hos
 	title = "Head of Security"
 	flag = HOS
-	head_position = 1
-	department = "Security"
+	departments = list(DEPARTMENT_SECURITY = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#FF6363"
+	selection_color = "#991818"
 	economic_modifier = 10
 
 	minimum_character_age = 30
@@ -35,8 +34,11 @@
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/heads/hos
-	pda = /obj/item/device/pda/heads/hos
+	headset = /obj/item/device/radio/headset/heads/hos
+	bowman = /obj/item/device/radio/headset/heads/hos/alt
+	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
+	tablet = /obj/item/modular_computer/handheld/preset/security/hos
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
@@ -66,13 +68,13 @@
 /datum/job/warden
 	title = "Warden"
 	flag = WARDEN
-	department = "Security"
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -88,8 +90,11 @@
 
 	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_warden
-	pda = /obj/item/device/pda/warden
+	headset = /obj/item/device/radio/headset/headset_warden
+	bowman = /obj/item/device/radio/headset/headset_warden/alt
+	tab_pda = /obj/item/modular_computer/handheld/pda/security
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
+	tablet = /obj/item/modular_computer/handheld/preset/security
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 	l_pocket = /obj/item/device/flash
 
@@ -115,13 +120,13 @@
 /datum/job/detective
 	title = "Detective"
 	flag = DETECTIVE
-	department = "Security"
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -137,8 +142,11 @@
 
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/headset_sec
-	pda = /obj/item/device/pda/detective
+	headset = /obj/item/device/radio/headset/headset_sec
+	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
+	tablet = /obj/item/modular_computer/handheld/preset/security/detective
 
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
@@ -157,12 +165,13 @@
 /datum/job/forensics
 	title = "Forensic Technician"
 	flag = FORENSICS
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	economic_modifier = 5
 
 	minimum_character_age = 25
@@ -180,8 +189,11 @@
 
 	uniform = /obj/item/clothing/under/det/forensics
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/headset_sec
-	pda = /obj/item/device/pda/detective
+	headset = /obj/item/device/radio/headset/headset_sec
+	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
+	tablet = /obj/item/modular_computer/handheld/preset/security/detective
 
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
@@ -206,13 +218,13 @@
 /datum/job/officer
 	title = "Security Officer"
 	flag = OFFICER
-	department = "Security"
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	economic_modifier = 4
 
 	minimum_character_age = 18
@@ -228,8 +240,11 @@
 
 	uniform = /obj/item/clothing/under/rank/security
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_sec
-	pda = /obj/item/device/pda/security
+	headset = /obj/item/device/radio/headset/headset_sec
+	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	tab_pda = /obj/item/modular_computer/handheld/pda/security
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
+	tablet = /obj/item/modular_computer/handheld/preset/security
 	l_pocket = /obj/item/device/flash
 
 	backpack = /obj/item/storage/backpack/security
@@ -253,12 +268,13 @@
 /datum/job/intern_sec
 	title = "Security Cadet"
 	flag = INTERN_SEC
+	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"
-	selection_color = "#FFA4A4"
+	selection_color = "#991818"
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
@@ -270,11 +286,16 @@
 
 	uniform = /obj/item/clothing/under/rank/cadet
 	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
-	head = /obj/item/clothing/head/beret/sec/cadet
+	head = /obj/item/clothing/head/beret/security
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_sec
+	headset = /obj/item/device/radio/headset/headset_sec
+	bowman = /obj/item/device/radio/headset/headset_sec/alt
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/security
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
+	tablet = /obj/item/modular_computer/handheld/preset/security

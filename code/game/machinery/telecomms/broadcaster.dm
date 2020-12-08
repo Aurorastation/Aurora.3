@@ -635,7 +635,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	// First, we want to generate a new radio signal
 	var/datum/signal/signal = new
-	signal.transmission_method = 2 // 2 would be a subspace transmission.
+	signal.transmission_method = TRANSMISSION_SUBSPACE
 	var/turf/pos = get_turf(src)
 
 	// --- Finally, tag the actual signal with the appropriate values ---
@@ -666,7 +666,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	// First, we want to generate a new radio signal
 	var/datum/signal/signal = new
-	signal.transmission_method = 2 // 2 would be a subspace transmission.
+	signal.transmission_method = TRANSMISSION_SUBSPACE
 
 	// --- Finally, tag the actual signal with the appropriate values ---
 	signal.data = list(
@@ -686,5 +686,3 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		R.receive_signal(signal)
 
 	return signal
-
-

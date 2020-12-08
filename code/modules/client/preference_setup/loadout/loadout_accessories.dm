@@ -40,12 +40,13 @@
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
-	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
+	armbands["first responder armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
+	armbands["tau ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/armband_coloured
@@ -111,7 +112,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -131,7 +132,7 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -184,8 +185,8 @@
 	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt_crop
 	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_crop_r
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
-	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_s
-	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_sb
+	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
+	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
 	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
 	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/tshirt_crop
 	shirt["blouse"] = /obj/item/clothing/accessory/blouse

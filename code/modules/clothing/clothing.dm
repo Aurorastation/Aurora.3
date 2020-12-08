@@ -16,7 +16,7 @@
 		Sprites used when the clothing item is refit. This is done by setting icon_override.
 		For best results, if this is set then sprite_sheets should be null and vice versa, but that is by no means necessary.
 		Ideally, sprite_sheets_refit should be used for "hard" clothing items that can't change shape very well to fit the wearer (e.g. helmets, voidsuits),
-		while sprite_sheets should be used for "flexible" clothing items that do not need to be refitted (e.g. vox wearing jumpsuits).
+		while sprite_sheets should be used for "flexible" clothing items that do not need to be refitted (e.g. special species wearing jumpsuits).
 	*/
 	var/list/sprite_sheets_refit = null
 
@@ -599,6 +599,7 @@
 /obj/item/clothing/mask/proc/adjust_mask(mob/user, var/self = TRUE)
 	set name = "Adjust Mask"
 	set category = "Object"
+	set src in usr
 
 	if(!adjustable)
 		return
@@ -815,10 +816,7 @@
 	var/displays_id = 1
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	sprite_sheets = list(
-		BODYTYPE_GOLEM = 'icons/mob/uniform_fat.dmi'
-	)
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.

@@ -5,10 +5,6 @@
 	slot = slot_shoes
 	sort_category = "Shoes and Footwear"
 
-/datum/gear/shoes/winterboots
-	display_name = "winter boots"
-	path = /obj/item/clothing/shoes/winter
-
 /datum/gear/shoes/color
 	display_name = "shoe selection"
 	path = /obj/item/clothing/shoes/black
@@ -56,18 +52,6 @@
 	shoes["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
-/datum/gear/shoes/cowboy
-	display_name = "cowboy boots selection"
-	path = /obj/item/clothing/shoes/cowboy
-
-/datum/gear/shoes/cowboy/New()
-	..()
-	var/shoes = list()
-	shoes["cowboy boots"] = /obj/item/clothing/shoes/cowboy
-	shoes["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
-	shoes["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin
-	gear_tweaks += new/datum/gear_tweak/path(shoes)
-
 /datum/gear/shoes/heels
 	display_name = "high heels"
 	path = /obj/item/clothing/shoes/heels
@@ -112,6 +96,7 @@
 	shoes["brown workboots"] = /obj/item/clothing/shoes/workboots
 	shoes["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
 	shoes["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
+	shoes["winter boots"] = /obj/item/clothing/shoes/winter
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/lyodsuit_boots

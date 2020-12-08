@@ -8,6 +8,8 @@
 			return !density
 		else
 			return 1
+	if(istype(mover, /obj/structure/closet/crate))
+		return TRUE
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))
@@ -182,7 +184,7 @@
 				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 				return
 
-	if(!dropsafety(W))
+	if(!W.dropsafety())
 		return
 
 	if(istype(W, /obj/item/melee/energy/blade))
