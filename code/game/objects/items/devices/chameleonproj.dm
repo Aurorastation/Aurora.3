@@ -227,6 +227,7 @@
 
 /obj/item/device/mirage/proc/disrupt()
 	if(mirage)
+		visible_message(SPAN_WARNING("[mirage] disappears into a shower of sparks!"))
 		QDEL_NULL(mirage)
 	spark(src, 5)
 	alpha = initial(alpha)
