@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now open and close emergency wall lockers like you would any other locker / closet."
+  - rscadd: "Emergency wall lockers now have a chance to spawn with emergency auto-injectors. These contain a small amount of dexalin and inaprovaline."

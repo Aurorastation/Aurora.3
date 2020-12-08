@@ -132,9 +132,9 @@
 	dump_contents()
 
 	icon_state = icon_opened
-	opened = 1
+	opened = TRUE
 	playsound(loc, open_sound, 25, 0, -3)
-	density = 0
+	density = FALSE
 	return 1
 
 /obj/structure/closet/proc/close()
@@ -153,7 +153,7 @@
 		stored_units += store_mobs(stored_units)
 
 	icon_state = icon_closed
-	opened = 0
+	opened = FALSE
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
 			return
@@ -162,7 +162,7 @@
 		linked_teleporter.last_use = world.time
 
 	playsound(get_turf(src), close_sound, 25, 0, -3)
-	density = TRUE
+	density = initial(density)
 	return TRUE
 
 //Cham Projector Exception
