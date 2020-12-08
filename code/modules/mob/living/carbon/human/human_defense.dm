@@ -267,7 +267,7 @@ emp_act
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
 		effective_force /= 2 //half the effective force
-		if(!..(I, effective_force, blocked, hit_zone))
+		if(!..(I, user, effective_force, blocked, hit_zone))
 			return 0
 
 		attack_joint(affecting, I, blocked) //but can dislocate joints
