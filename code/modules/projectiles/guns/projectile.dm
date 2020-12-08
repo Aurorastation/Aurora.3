@@ -272,11 +272,15 @@
 /obj/item/gun/projectile/get_print_info()
 	. = ""
 	var/obj/item/ammo_casing/casing = new ammo_type
-	var/obj/item/projectile/P = casing.projectile_type
+	var/obj/item/projectile/P = new casing.projectile_type
 	. += "Max Shots: [max_shells]<br>"
 	. += "Damage: [initial(P.damage)]<br>"
 	. += "Damage Type: [initial(P.damage_type)]<br>"
 	. += "Blocked by Armor Type: [initial(P.check_armor)]<br>"
 	. += "Stuns: [initial(P.stun) ? "true" : "false"]<br>"
-	. += "Shrapnel Type: [initial(P.shrapnel_type) ? initial(P.shrapnel_type.name) : "none"]<br><br>"
+	if(P.shrapnel_type)
+		var/obj/item/S = new P.shrapnel_type
+		. += "Shrapnel Type: [S.name]<br><br>"
+	else
+		. += "Shrapnel Type: none<br><br>"
 	. += ..(FALSE)
