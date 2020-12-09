@@ -131,11 +131,11 @@
 	if(prob(50))
 		M.pl_effects()
 
-/decl/reagent/toxin/phoron/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
+/decl/reagent/toxin/phoron/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
-	T.assume_gas(GAS_PHORON, REAGENT_VOLUME(holder, type), T20C)
-	remove_self(REAGENT_VOLUME(holder, type))
+	T.assume_gas(GAS_PHORON, amount, T20C)
+	remove_self(amount)
 
 /decl/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
 	name = "Phoron Salts"
@@ -314,7 +314,7 @@
 	touch_met = REM * 10
 	breathe_mul = 0
 
-/decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
+/decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 
@@ -325,7 +325,7 @@
 		lowertemp.react()
 		qdel(hotspot)
 
-	var/amount_to_remove = max(1,round(REAGENT_VOLUME(holder, type) * 0.5))
+	var/amount_to_remove = max(1,round(amount * 0.5))
 
 	new /obj/effect/decal/cleanable/foam(T, amount_to_remove)
 	remove_self(amount_to_remove)
@@ -358,7 +358,7 @@
 	taste_mult = 1
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/toxin/plantbgone/touch_turf(var/turf/T, var/datum/reagents/holder)
+/decl/reagent/toxin/plantbgone/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/W = T
 		if(locate(/obj/effect/overlay/wallrot) in W)

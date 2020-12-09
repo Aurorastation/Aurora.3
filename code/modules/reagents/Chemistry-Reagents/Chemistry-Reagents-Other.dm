@@ -67,7 +67,7 @@
 	if(istype(M))
 		M.color = holder.get_color()
 
-/decl/reagent/paint/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/paint/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	//special checks for special items
 	var/setcolor = holder.get_color()
 	if(istype(O, /obj/item/reagent_containers))
@@ -157,8 +157,8 @@
 /decl/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
 
-/decl/reagent/uranium/touch_turf(var/turf/T, var/datum/reagents/holder)
-	if(REAGENT_VOLUME(holder, type) >= 3)
+/decl/reagent/uranium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(amount >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
@@ -194,8 +194,8 @@
 		M.adjust_fire_stacks(10)
 		M.IgniteMob()
 
-/decl/reagent/water/holywater/touch_turf(var/turf/T, var/datum/reagents/holder)
-	if(REAGENT_VOLUME(holder, type) >= 5)
+/decl/reagent/water/holywater/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(amount >= 5)
 		T.holy = 1
 	return
 
@@ -233,9 +233,9 @@
 	touch_met = 50
 	taste_description = "sweet tasting metal"
 
-/decl/reagent/thermite/touch_turf(var/turf/T, var/datum/reagents/holder)
+/decl/reagent/thermite/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	. = ..()
-	if(REAGENT_VOLUME(holder, type) >= 5)
+	if(amount >= 5)
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
 			W.thermite = 1
@@ -260,11 +260,11 @@
 	taste_description = "sourness"
 	germ_adjust = 10
 
-/decl/reagent/spacecleaner/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/spacecleaner/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	O.clean_blood()
 
-/decl/reagent/spacecleaner/touch_turf(var/turf/T, var/datum/reagents/holder)
-	if(REAGENT_VOLUME(holder, type) >= 1)
+/decl/reagent/spacecleaner/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(amount >= 1)
 		if(istype(T, /turf/simulated))
 			var/turf/simulated/S = T
 			S.dirt = 0
@@ -315,11 +315,11 @@
 	color = "#009CA8"
 	taste_description = "cherry"
 
-/decl/reagent/lube/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
+/decl/reagent/lube/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
-	if(REAGENT_VOLUME(holder, type) >= 1)
-		T.wet_floor(WET_TYPE_LUBE,REAGENT_VOLUME(holder, type))
+	if(amount >= 1)
+		T.wet_floor(WET_TYPE_LUBE,amount)
 
 /decl/reagent/silicate
 	name = "Silicate"
@@ -328,11 +328,11 @@
 	color = "#C7FFFF"
 	taste_description = "plastic"
 
-/decl/reagent/silicate/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/silicate/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/structure/window))
 		var/obj/structure/window/W = O
-		W.apply_silicate(REAGENT_VOLUME(holder, type))
-		remove_self(REAGENT_VOLUME(holder, type))
+		W.apply_silicate(amount)
+		remove_self(amount)
 	return
 
 /decl/reagent/glycerol
@@ -413,10 +413,10 @@
 	color = "#F2F3F4"
 	taste_description = "metal"
 
-/decl/reagent/luminol/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/luminol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	O.reveal_blood()
 
-/decl/reagent/luminol/touch_mob(var/mob/living/L, var/datum/reagents/holder)
+/decl/reagent/luminol/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	L.reveal_blood()
 
@@ -542,11 +542,11 @@
 	touch_met = 50
 	taste_description = "fiery death"
 
-/decl/reagent/fuel/napalm/touch_turf(var/turf/T, var/datum/reagents/holder)
-	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, REAGENT_VOLUME(holder, type)/3)
+/decl/reagent/fuel/napalm/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, amount/3)
 	for(var/mob/living/L in T)
-		L.adjust_fire_stacks(REAGENT_VOLUME(holder, type) / 10)
-	remove_self(REAGENT_VOLUME(holder, type), holder)
+		L.adjust_fire_stacks(amount / 10)
+	remove_self(amount, holder)
 	return
 
 /decl/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
@@ -555,7 +555,7 @@
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
 		L.adjustFireLoss(amount / 10)
-		remove_self(REAGENT_VOLUME(holder, type), holder)
+		remove_self(amount, holder)
 
 //Secret chems.
 //Shhh don't tell no one.
@@ -620,7 +620,7 @@
 	fallback_specific_heat = 100 //Yeah...
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/black_matter/touch_turf(var/turf/T, var/datum/reagents/holder)
+/decl/reagent/black_matter/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	var/obj/effect/portal/P = new /obj/effect/portal(T)
 	P.creator = null
 	P.icon = 'icons/obj/objects.dmi'
@@ -633,7 +633,7 @@
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))
-	remove_self(REAGENT_VOLUME(holder, type))
+	remove_self(amount)
 	return
 
 /decl/reagent/bluespace_dust
@@ -671,8 +671,8 @@
 	taste_description = "horses"
 	fallback_specific_heat = 1.25
 
-/decl/reagent/sglue/touch_obj(var/obj/O, var/datum/reagents/holder)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (REAGENT_VOLUME(holder, type) > 10*O.w_class))
+/decl/reagent/sglue/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (amount >= 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
@@ -687,8 +687,8 @@
 	taste_description = "alcohol"
 	fallback_specific_heat = 1.75
 
-/decl/reagent/usolve/touch_obj(var/obj/O, var/datum/reagents/holder)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (REAGENT_VOLUME(holder, type) > 10*O.w_class))
+/decl/reagent/usolve/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (amount >= 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
@@ -703,8 +703,8 @@
 	taste_description = "sand"
 	fallback_specific_heat = 0.75
 
-/decl/reagent/shapesand/touch_obj(var/obj/O, var/datum/reagents/holder)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (REAGENT_VOLUME(holder, type) > 10*O.w_class))
+/decl/reagent/shapesand/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (amount >= 10*O.w_class))
 		var/obj/item/shapesand/mimic = new /obj/item/shapesand(O.loc)
 		mimic.name = O.name
 		mimic.desc = O.desc

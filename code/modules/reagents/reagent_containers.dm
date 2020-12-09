@@ -69,9 +69,6 @@
 	if(!reagents)
 		return
 	reagents.apply_force(speed)
-	var/momentum = speed * w_class/THROWNOBJ_KNOCKBACK_DIVISOR
-	var/amount_to_splash = rand(0, reagents.total_volume * speed / THROWFORCE_SPEED_DIVISOR)
-	reagents.splash(hit_atom, amount_to_splash)
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
 	if(reagents.total_volume)

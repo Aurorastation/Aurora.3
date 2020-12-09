@@ -10,14 +10,14 @@
 /decl/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(removed * 3)
 
-/decl/reagent/acetone/touch_obj(var/obj/O, var/datum/reagents/holder)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
+/decl/reagent/acetone/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()
 		to_chat(usr, "The solution dissolves the ink on the paper.")
 		return
 	if(istype(O, /obj/item/book))
-		if(REAGENT_VOLUME(holder, type) < 5)
+		if(amount < 5)
 			return
 		if(istype(O, /obj/item/book/tome))
 			to_chat(usr, "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>")
@@ -71,14 +71,14 @@
 				continue
 			ingested.remove_reagent(_R, removed * effect)
 
-/decl/reagent/carbon/touch_turf(var/turf/T, var/datum/reagents/holder)
+/decl/reagent/carbon/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T, /turf/space))
 		var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate(/obj/effect/decal/cleanable/dirt, T)
 		if (!dirtoverlay)
 			dirtoverlay = new/obj/effect/decal/cleanable/dirt(T)
-			dirtoverlay.alpha = REAGENT_VOLUME(holder, type) * 30
+			dirtoverlay.alpha = amount * 30
 		else
-			dirtoverlay.alpha = min(dirtoverlay.alpha + REAGENT_VOLUME(holder, type) * 30, 255)
+			dirtoverlay.alpha = min(dirtoverlay.alpha + amount * 30, 255)
 
 /decl/reagent/copper
 	name = "Copper"
@@ -186,14 +186,14 @@
 
 	..()
 
-/decl/reagent/alcohol/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/alcohol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()
 		to_chat(usr, "The solution dissolves the ink on the paper.")
 		return
 	if(istype(O, /obj/item/book))
-		if(REAGENT_VOLUME(holder, type) < 5)
+		if(amount < 5)
 			return
 		if(istype(O, /obj/item/book/tome))
 			to_chat(usr, "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>")
@@ -261,9 +261,9 @@
 	M.adjust_fire_stacks(removed / 12)
 	M.adjustToxLoss(0.2 * removed)
 
-/decl/reagent/hydrazine/touch_turf(var/turf/T, var/datum/reagents/holder)
-	new /obj/effect/decal/cleanable/liquid_fuel(T, REAGENT_VOLUME(holder, type))
-	remove_self(REAGENT_VOLUME(holder, type))
+/decl/reagent/hydrazine/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
+	remove_self(amount)
 	return
 
 /decl/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
@@ -371,8 +371,8 @@
 /decl/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
 
-/decl/reagent/radium/touch_turf(var/turf/T, var/datum/reagents/holder)
-	if(REAGENT_VOLUME(holder, type) >= 3)
+/decl/reagent/radium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(amount >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
@@ -458,10 +458,10 @@
 		else
 			M.take_organ_damage(0, removed * power * 0.1) // Balance. The damage is instant, so it's weaker. 10 units -> 5 damage, double for pacid. 120 units beaker could deal 60, but a) it's burn, which is not as dangerous, b) it's a one-use weapon, c) missing with it will splash it over the ground and d) clothes give some protection, so not everything will hit
 
-/decl/reagent/acid/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/acid/touch_obj(var/obj/O,  var/amount, var/datum/reagents/holder)
 	if(O.unacidable)
 		return
-	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (REAGENT_VOLUME(holder, type) > meltdose))
+	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (amount > meltdose))
 		var/obj/effect/decal/cleanable/molten_item/I = new/obj/effect/decal/cleanable/molten_item(get_turf(O))
 		I.desc = "Looks like this was \an [O] some time ago."
 		for(var/mob/M in viewers(get_turf(O), 5))

@@ -29,9 +29,9 @@
 		holder.add_reagent(/decl/reagent/toxin, newamount * 0.5)
 	. = data
 
-/decl/reagent/blood/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
+/decl/reagent/blood/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 
-	if(!istype(T) || REAGENT_VOLUME(holder, type) < 3 || !REAGENT_DATA(holder, type))
+	if(!istype(T) || amount < 3)
 		return
 
 	var/datum/weakref/W = holder.reagent_data[type]["donor"]
@@ -96,7 +96,7 @@
 		return
 	M.adjustHydrationLoss(-6*removed)
 
-/decl/reagent/water/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
+/decl/reagent/water/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 
@@ -112,15 +112,15 @@
 		qdel(hotspot)
 
 	if (environment && environment.temperature > min_temperature) // Abstracted as steam or something
-		var/removed_heat = between(0, REAGENT_VOLUME(holder, type) * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
+		var/removed_heat = between(0, amount * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5))
 			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
 
-	else if(REAGENT_VOLUME(holder, type) >= 10)
-		T.wet_floor(WET_TYPE_WATER,REAGENT_VOLUME(holder, type))
+	else if(amount >= 10)
+		T.wet_floor(WET_TYPE_WATER,amount)
 
-/decl/reagent/water/touch_obj(var/obj/O, var/datum/reagents/holder)
+/decl/reagent/water/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		var/obj/item/reagent_containers/food/snacks/monkeycube/cube = O
 		if(!cube.wrapped)
@@ -171,9 +171,9 @@
 
 	fallback_specific_heat = 0.605
 
-/decl/reagent/fuel/touch_turf(var/turf/T, var/datum/reagents/holder)
-	new /obj/effect/decal/cleanable/liquid_fuel(T, REAGENT_VOLUME(holder, type))
-	remove_self(REAGENT_VOLUME(holder, type))
+/decl/reagent/fuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
+	remove_self(amount)
 	return
 
 /decl/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)

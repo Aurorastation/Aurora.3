@@ -275,11 +275,11 @@
 	taste_description = "some sort of oil"
 	taste_mult = 0.1
 
-/decl/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
+/decl/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
-	if(REAGENT_VOLUME(holder, type) >= 3)
-		T.wet_floor(WET_TYPE_LUBE,REAGENT_VOLUME(holder, type))
+	if(amount >= 3)
+		T.wet_floor(WET_TYPE_LUBE,amount)
 
 //Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
 /decl/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M, var/datum/reagents/holder)
@@ -328,7 +328,7 @@
 	condiment_icon_state = "flour"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/decl/reagent/nutriment/flour/touch_turf(var/turf/simulated/T, var/datum/reagents/holder)
+/decl/reagent/nutriment/flour/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T, /turf/space))
 		if(locate(/obj/effect/decal/cleanable/flour) in T)
 			return
