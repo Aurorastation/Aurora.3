@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Vending machines spawned after mapload and/or by admins should no longer have missing icons."
