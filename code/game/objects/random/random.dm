@@ -1671,3 +1671,16 @@
 		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
 		/obj/structure/reagent_dispensers/keg/mead = 0.5
 	)
+
+/obj/random/pizzabox
+	name = "random pizzabox"
+	desc = "Contains a random pizzabox."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "pizzabox1"
+	spawnlist = list(
+		/obj/item/pizzabox/margherita,
+		/obj/item/pizzabox/vegetable,
+		/obj/item/pizzabox/mushroom,
+		/obj/item/pizzabox/meat,
+		/obj/item/pizzabox/pineapple
+	)
