@@ -154,7 +154,7 @@
 	var/datum/gas_mixture/airtank
 
 	var/stasis_power = 20
-	var/degradation_time = 2 MINUTES //ticks until stasis power degrades
+	var/degradation_time = 60 // 2 minutes: 60 ticks * 2 seconds per tick
 
 /obj/structure/closet/body_bag/cryobag/Initialize()
 	. = ..()

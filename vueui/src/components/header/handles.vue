@@ -7,15 +7,12 @@
 </template>
 
 <script>
-import { resizeStartHandler } from '../../drag.js';
+import ByWin from '../../byWin';
 export default {
-  data () {
-    return this.$root.$data;
-  },
   methods: {
     startResizing(x, y, event) {
-      resizeStartHandler(x, y, event);
-    }
+      ByWin.resizeStartHandler(x, y, event);
+    },
   }
 }
 </script>

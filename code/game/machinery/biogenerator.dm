@@ -110,6 +110,14 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
+		"jug" = list(
+			name = "Empty Jug",
+			class = "Items",
+			object = /obj/item/reagent_containers/glass/fertilizer,
+			cost = 100,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
 		"custom_cigarettes" = list(
 			name = "Empty Cigarettes (x6)",
 			class = "Items",
