@@ -41,6 +41,8 @@
 			stat = CONSCIOUS
 			if(prob(10))
 				is_angry = TRUE
+			else
+				is_angry = FALSE
 		else
 			wander = FALSE
 			speak_chance = 0
@@ -68,8 +70,15 @@
 			custom_emote(src, "dies!")
 		update_icon()
 
+/mob/living/simple_animal/proc/looks_dead()
+	if(is_angry && resting)
+		return TRUE
+	return ..()
+
+/mob/living/simple_animal/opossum/poke()
+	return
+
 /mob/living/simple_animal/opossum/update_icon()
-	..()
 	if(stat == DEAD || (resting && is_angry))
 		icon_state = icon_dead
 	else if(resting || stat == UNCONSCIOUS)

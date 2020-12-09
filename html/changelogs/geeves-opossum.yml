@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Cargo has finally gained a pet: Poppy, the PPE-wearing opossum."

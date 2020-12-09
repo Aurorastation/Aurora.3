@@ -173,14 +173,17 @@
 
 /mob/living/simple_animal/examine(mob/user)
 	..()
-
-	if (stat == DEAD)
+	if (looks_dead())
 		to_chat(user, "<span class='danger'>It looks dead.</span>")
 	if (health < maxHealth * 0.5)
 		to_chat(user, "<span class='danger'>It looks badly wounded.</span>")
 	else if (health < maxHealth)
 		to_chat(user, "<span class='warning'>It looks wounded.</span>")
 
+/mob/living/simple_animal/proc/looks_dead()
+	if(stat == DEAD)
+		return TRUE
+	return FALSE
 
 /mob/living/simple_animal/Life()
 	..()
