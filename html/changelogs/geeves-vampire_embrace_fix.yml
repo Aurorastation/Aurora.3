@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Cancelling a vampire embrace by moving will no longer cause the target to instantly become a vampire."
