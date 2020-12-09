@@ -41,7 +41,7 @@
 		eye_safety = M.eyecheck(TRUE)
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
+			if(H.protected_from_sound())
 				ear_safety += 2
 			if(HULK in H.mutations)
 				ear_safety += 1

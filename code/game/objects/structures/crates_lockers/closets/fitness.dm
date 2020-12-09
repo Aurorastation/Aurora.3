@@ -52,6 +52,8 @@
 	icon_closed = "red"
 
 /obj/structure/closet/lasertag/red/fill()
+	new /obj/item/clothing/ears/earmuffs(src)
+	new /obj/item/clothing/ears/earmuffs(src)
 	new /obj/item/gun/energy/lasertag/red(src)
 	new /obj/item/gun/energy/lasertag/red(src)
 	new /obj/item/clothing/suit/redtag(src)
@@ -65,6 +67,8 @@
 	icon_closed = "blue"
 
 /obj/structure/closet/lasertag/blue/fill()
+	new /obj/item/clothing/ears/earmuffs(src)
+	new /obj/item/clothing/ears/earmuffs(src)
 	new /obj/item/gun/energy/lasertag/blue(src)
 	new /obj/item/gun/energy/lasertag/blue(src)
 	new /obj/item/clothing/suit/bluetag(src)

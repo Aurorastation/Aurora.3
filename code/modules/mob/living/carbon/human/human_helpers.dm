@@ -257,3 +257,6 @@
 
 /mob/living/carbon/human/get_standard_pixel_y()
 	return species.icon_y_offset
+
+/mob/living/carbon/human/proc/protected_from_sound()
+	return (l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION)
