@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Robots and AI no longer teleport things to themselves when ejecting them. (Like chem dispenser beakers)."
