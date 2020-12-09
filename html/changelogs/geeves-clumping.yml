@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Viscerators can no longer be on the same tile as other viscerators."
