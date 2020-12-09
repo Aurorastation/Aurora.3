@@ -43,9 +43,6 @@
 		padding_material = SSmaterials.get_material_by_name(new_padding_material)
 	update_icon()
 
-/obj/structure/bed/get_material()
-	return material
-
 /obj/structure/bed/buckle_mob(mob/living/M)
 	. = ..()
 	if(. && buckle_sound)
