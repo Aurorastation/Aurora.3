@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "You are no longer able to pull things when they fall down levels while you were pulling them."
