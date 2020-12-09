@@ -27,6 +27,7 @@
 	. = ..()
 	if(icon_state == initial(icon_state))
 		icon_state = pick(icon_states(icon) - icon_state)
+	all_trash_piles += src
 
 /obj/structure/trash_pile/MouseDrop_T(obj/structure/trash_pile/target, mob/user)
 	if(!Adjacent(user) || use_check_and_message(user))
@@ -88,12 +89,15 @@
 		return ..()
 
 /obj/structure/trash_pile/proc/eject_hider(var/chance, var/mob/user)
-	if(hider && prob(chance))
-		to_chat(hider, SPAN_DANGER("You've been discovered!"))
-		hider.forceMove(get_turf(src))
-		to_chat(user, SPAN_DANGER("You discover that \the [hider] was hiding inside \the [src]!"))
-		hider = null
-		return TRUE
+	if(hider)
+		if(istype(hider, /mob/living/simple_animal))
+			chance = 100
+		if(prob(chance))
+			to_chat(hider, SPAN_DANGER("You've been discovered!"))
+			hider.forceMove(get_turf(src))
+			to_chat(user, SPAN_DANGER("You discover that \the [hider] was hiding inside \the [src]!"))
+			hider = null
+			return TRUE
 	return FALSE
 
 /obj/structure/trash_pile/proc/give_item()

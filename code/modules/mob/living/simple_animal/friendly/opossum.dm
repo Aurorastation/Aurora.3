@@ -99,6 +99,18 @@
 	icon = 'icons/mob/poppy_opossum.dmi'
 	var/list/aaa_words = list("delaminat", "meteor", "fire", "breach")
 
+/mob/living/simple_animal/opossum/poppy/Initialize(mapload)
+	. = ..()
+
+	if(mapload)
+		return INITIALIZE_HINT_LATELOAD
+
+/mob/living/simple_animal/opossum/poppy/LateInitialize()
+	if(length(all_trash_piles))
+		var/obj/structure/trash_pile/TP = pick(all_trash_piles)
+		forceMove(TP)
+		TP.hider = src
+
 /mob/living/simple_animal/opossum/poppy/hear_broadcast(datum/language/language, mob/speaker, speaker_name, message)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/check_keywords, message), rand(1 SECOND, 3 SECONDS))

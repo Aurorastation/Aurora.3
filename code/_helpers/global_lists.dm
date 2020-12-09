@@ -19,6 +19,7 @@ var/global/list/side_effects = list()				//list of all medical sideeffects types
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 var/global/list/brig_closets = list()				//list of all brig secure_closets. Used by brig timers. Probably should be converted to use SSwireless eventually.
+var/global/list/all_trash_piles = list()			//list of all trash piles on the station
 
 var/global/list/teleportlocs = list()
 var/global/list/ghostteleportlocs = list()
