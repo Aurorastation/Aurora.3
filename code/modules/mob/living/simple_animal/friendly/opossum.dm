@@ -70,7 +70,7 @@
 			custom_emote(src, "dies!")
 		update_icon()
 
-/mob/living/simple_animal/proc/looks_dead()
+/mob/living/simple_animal/opossum/looks_dead()
 	if(is_angry && resting)
 		return TRUE
 	return ..()
