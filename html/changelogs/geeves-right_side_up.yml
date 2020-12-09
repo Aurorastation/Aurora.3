@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Hitting rest will now make you lie down instantly."
-  - bugfix: "Floating chat messages will now appear properly above resting humanoids."

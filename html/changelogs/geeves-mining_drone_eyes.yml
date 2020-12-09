@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed maintenance-, mining-, and construction drones having weird lit up eyes. They should now update correctly."
-  - bugfix: "Fixed the hat overlay of mining drones."

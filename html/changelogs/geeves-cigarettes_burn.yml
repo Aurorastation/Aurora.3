@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Catching on fire now shows a large message, being extinguished does as well."
-  - rscadd: "Catching on fire will light any cigarettes on your person, being extinguished will likewise extinguish them."
