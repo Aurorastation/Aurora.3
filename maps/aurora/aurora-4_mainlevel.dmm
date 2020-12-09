@@ -35309,9 +35309,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "biz" = (
-/obj/machinery/vending/robotics{
-	products = list(/obj/item/clothing/suit/storage/toggle/labcoat = 4, /obj/item/clothing/under/rank/roboticist = 4, /obj/item/stack/cable_coil = 4, /obj/item/cell/high = 12, /obj/item/device/assembly/prox_sensor = 8, /obj/item/device/assembly/signaler = 3, /obj/item/device/healthanalyzer = 8, /obj/item/surgery/scalpel = 2, /obj/item/surgery/circular_saw = 2, /obj/item/tank/anesthetic = 2, /obj/item/clothing/mask/breath/medical = 5, /obj/item/screwdriver = 5, /obj/item/crowbar = 5)
-	},
+/obj/machinery/vending/robotics,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 28
 	},
@@ -67696,11 +67694,8 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "tIQ" = (
-/obj/machinery/vending/dinnerware{
-	desc = "A kitchen and restaurant utensil vendor.";
-	name = "Utensil Vendor";
+/obj/machinery/vending/dinnerware/plastic{
 	pixel_x = -4;
-	products = list(/obj/item/material/kitchen/utensil/fork/plastic = 12, /obj/item/material/kitchen/utensil/spoon/plastic = 12, /obj/item/material/kitchen/utensil/knife/plastic = 12, /obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12, /obj/item/reagent_containers/food/drinks/drinkingglass = 12)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,

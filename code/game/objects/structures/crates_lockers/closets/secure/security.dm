@@ -296,6 +296,7 @@
 	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
 	new /obj/item/clothing/head/helmet(src)
+	new /obj/item/clothing/accessory/badge/officer(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
@@ -356,6 +357,7 @@
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/accessory/badge/dia(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/brown(src)
 	//Tools
@@ -379,13 +381,14 @@
 
 /obj/structure/closet/secure_closet/csi/fill()
 	//Appearance
-	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/suit/storage/forensics/blue(src)
 	new /obj/item/clothing/suit/storage/forensics/red(src)
 	new /obj/item/clothing/suit/storage/vest/csi(src)
 	new /obj/item/clothing/under/det/forensics(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/accessory/badge/dia(src)
+	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	//Tools
