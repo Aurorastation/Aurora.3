@@ -2120,6 +2120,7 @@
 #include "code\modules\mob\living\simple_animal\friendly\hakhma.dm"
 #include "code\modules\mob\living\simple_animal\friendly\lizard.dm"
 #include "code\modules\mob\living\simple_animal\friendly\mushroom.dm"
+#include "code\modules\mob\living\simple_animal\friendly\opossum.dm"
 #include "code\modules\mob\living\simple_animal\friendly\rat.dm"
 #include "code\modules\mob\living\simple_animal\friendly\ratking.dm"
 #include "code\modules\mob\living\simple_animal\friendly\slime.dm"
