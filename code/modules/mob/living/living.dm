@@ -981,3 +981,7 @@ default behaviour is:
 	set name = "mov_intent"
 	if(hud_used?.move_intent)
 		hud_used.move_intent.Click()
+
+/mob/living/proc/add_hallucinate(var/amount)
+	hallucination += amount
+	hallucination += amount

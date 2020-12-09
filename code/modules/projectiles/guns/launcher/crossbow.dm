@@ -145,6 +145,9 @@
 			bolt = W
 			user.visible_message("<b>[user]</b> slides \the [bolt] into \the [src].", SPAN_NOTICE("You slide \the [bolt] into \the [src]."))
 			update_icon()
+			if(istype(W, /obj/item/arrow/rod) && W.throwforce < 15)
+				// un-heated converted arrow rod
+				superheat_rod(user)
 			return
 		else if(istype(W, /obj/item/stack/rods))
 			var/obj/item/stack/rods/R = W
