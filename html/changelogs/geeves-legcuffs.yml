@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Legcuff sprites work again."
+  - tweak: "Legcuffing now works the same as handcuffing."
+  - rscadd: "You can use cable restraints in-hand to turn them into weak legcuffs."
