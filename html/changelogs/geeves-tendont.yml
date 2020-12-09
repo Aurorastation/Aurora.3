@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Sharp and edged weapons now sever tendons instead of breaking bones. Strong enough sharp and edged weapons sever tendons AND break bones."
