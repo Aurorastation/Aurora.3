@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Talking indicators now appear on the right, in order for them to not appear behind other HUD elements."
+  - rscadd: "Thralls now get an icon next to their master to easier see and remember who they are. Likewise, vampires who have thralls now get little icons next to their thralls."
