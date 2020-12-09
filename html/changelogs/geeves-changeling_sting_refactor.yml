@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Changeling stings have been refactored. Now, you ready them when you click the ability. To use it, harm intent click your target with an empty hand. Clicking on the same sting ability will unprepare the sting."

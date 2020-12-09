@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Failing to speak into a radio will no longer just slap your message out loud, instead, you will still whisper, and the visible message for speaking will be 'tries speaking into the'."
-  - bugfix: "Speaking on antagonist channels will no longer speak it out loud."
