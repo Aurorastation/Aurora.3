@@ -6,6 +6,9 @@ export default {
     active: '',
     uiref: '',
     status: 2,
+    size: [400, 600],
+    debug: 0,
+    debug_view: false,
     wtime: 0,
     roundstart_hour: 0
   },
@@ -20,8 +23,10 @@ export default {
     this.state.active = loadedState.active
     this.state.uiref = loadedState.uiref
     this.state.status = loadedState.status
+    this.state.size = loadedState.size
     this.state.title = loadedState.title
     this.state.wtime = loadedState.wtime
+    this.state.debug = loadedState.debug
     this.state.roundstart_hour = loadedState.roundstart_hour
     this.isUpdating = false
   },
