@@ -188,6 +188,42 @@
 		qdel(src)
 		return
 
+	else if(istype(I, /obj/item/stack/material))
+		var/obj/item/stack/material/S = I
+		if(S.get_amount() < 4)
+			to_chat(user, "<span class='notice'>There isn't enough material here to construct a wall.</span>")
+			return
+		
+		var/material/M = SSmaterials.get_material_by_name(S.default_type)
+		if(!istype(M))
+			return
+		if(M.integrity < 50)
+			to_chat(user, "<span class='notice'>This material is too soft for use in wall construction.</span>")
+			return
+		user.visible_message("<b>[user]</b> starts slotting material into \the [src]...", SPAN_NOTICE("You start slotting material into \the [src], forming it into a wall..."))
+		if(!do_after(user, 10 SECONDS) || !S.use(4))
+			return
+		var/turf/Tsrc = get_turf(src)
+		var/original_type = Tsrc.type
+		Tsrc.ChangeTurf(/turf/simulated/wall)
+		var/turf/simulated/wall/T = Tsrc
+		T.under_turf = original_type
+		T.set_material(M)
+		T.add_hiddenprint(usr)
+		qdel(src)
+		return
+
+	else if(istype(I, /obj/item/stack/tile/floor))
+		var/turf/T = get_turf(src)
+		if(T.type != /turf/space && !isopenturf(T)) // need to do a hard check here because transit turfs are also space turfs
+			to_chat(user, SPAN_WARNING("The tile below \the [src] isn't an open space, or space itself!"))
+			return
+		var/obj/item/stack/tile/floor/S = I
+		S.use(1)
+		T.ChangeTurf(/turf/simulated/floor/airless)
+		qdel(src)
+		return
+
 	user.do_attack_animation(src, I)
 	if(prob(I.force * 20 - metal * 25))
 		user.visible_message("<span class='warning'>[user] smashes through the foamed metal.</span>", "<span class='notice'>You smash through the foamed metal with \the [I].</span>")
