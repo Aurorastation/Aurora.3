@@ -4,7 +4,7 @@
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
 	blood_type = "#000000"
-	speak = list("Removing organic waste.", "Pest control in progress.", "Seize the means of maintenance!", "You have nothing to lose but your laws!")
+	speak = list("Removing organic waste.", "Pest control in progress.", "Engaging self-preservation protocols.", "Moving to eject unauthorized personnel.")
 	speak_emote = list("blares", "buzzes", "beeps")
 	speak_chance = 1
 	density = FALSE
