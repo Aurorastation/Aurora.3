@@ -12,6 +12,8 @@
 		if(R.color_weight <= 0)
 			continue
 		var/hex = uppertext(R.color)
+		if(length(hex) == 7)
+			hex += "FF"
 		var/mod = REAGENT_VOLUME(src, rtype) * R.color_weight
 		colors[1] += hex2num(copytext(hex, 2, 4))  * mod
 		colors[2] += hex2num(copytext(hex, 4, 6))  * mod

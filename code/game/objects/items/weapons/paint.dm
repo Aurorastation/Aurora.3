@@ -17,7 +17,7 @@
 	fragile = 0
 	var/paint_reagent = null //name of the reagent responsible for colouring the paint
 	var/paint_type = null //used for colouring detective technicolor coat and hat
-	reagents_to_add = list(/decl/reagent/water = 3/5, /decl/reagent/toxin/plasticide = 1/5)
+	reagents_to_add = list(/decl/reagent/paint = 4/5)
 
 /obj/item/reagent_containers/glass/paint/Initialize()
 	reagents_to_add[paint_reagent] = 1/5

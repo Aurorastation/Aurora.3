@@ -996,8 +996,8 @@
 	name = "Paint"
 	id = "paint"
 	result = /decl/reagent/paint
-	required_reagents = list(/decl/reagent/toxin/plasticide = 1, /decl/reagent/water = 4)
-	result_amount = 5
+	required_reagents = list(/decl/reagent/toxin/plasticide = 1, /decl/reagent/water = 3)
+	result_amount = 4
 
 /* Slime cores */
 

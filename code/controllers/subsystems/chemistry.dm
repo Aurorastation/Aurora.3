@@ -12,7 +12,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/tmp/list/processing_holders = list()
 	var/list/codex_data = list()
 	var/list/codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
-	var/list/codex_ignored_result_path = list(/decl/reagent/drink, /decl/reagent/alcohol, /decl/reagent/paint)
+	var/list/codex_ignored_result_path = list(/decl/reagent/drink, /decl/reagent/alcohol)
 
 /datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/_R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
 	var/decl/reagent/R = decls_repository.get_decl(_R)

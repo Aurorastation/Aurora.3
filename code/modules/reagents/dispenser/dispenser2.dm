@@ -33,27 +33,27 @@
 /obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
 		if(user)
-			to_chat(user, "<span class='warning'>\The [C] will not fit in \the [src]!</span>")
+			to_chat(user, SPAN_WARNING("[C] will not fit in [src]!"))
 		return
 
 	if(cartridges.len >= DISPENSER_MAX_CARTRIDGES)
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] does not have any slots open for \the [C] to fit into!</span>")
+			to_chat(user, SPAN_WARNING("[src] does not have any slots open for [C] to fit into!"))
 		return
 
 	if(!C.label)
 		if(user)
-			to_chat(user, "<span class='warning'>\The [C] does not have a label!</span>")
+			to_chat(user, SPAN_WARNING("[C] does not have a label!"))
 		return
 
 	if(cartridges[C.label])
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] already contains a cartridge with that label!</span>")
+			to_chat(user, SPAN_WARNING("[src] already contains a cartridge with that label!"))
 		return
 
 	if(user)
 		user.drop_from_inventory(C,src)
-		to_chat(user, "<span class='notice'>You add \the [C] to \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You add [C] to [src]."))
 	else
 		C.forceMove(src)
 
@@ -69,15 +69,15 @@
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You begin to [anchored ? "un" : ""]fasten \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
 		if (do_after(user, 20))
 			user.visible_message(
-				"<span class='notice'>\The [user] [anchored ? "un" : ""]fastens \the [src].</span>",
-				"<span class='notice'>You have [anchored ? "un" : ""]fastened \the [src].</span>",
+				SPAN_NOTICE("[user] [anchored ? "un" : ""]fastens [src]."),
+				SPAN_NOTICE("You have [anchored ? "un" : ""]fastened [src]."),
 				"You hear a ratchet.")
 			anchored = !anchored
 		else
-			to_chat(user, "<span class='notice'>You decide not to [anchored ? "un" : ""]fasten \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You decide not to [anchored ? "un" : ""]fasten [src]."))
 
 	else if(istype(W, /obj/item/reagent_containers/chem_disp_cartridge))
 		add_cartridge(W, user)
@@ -87,27 +87,27 @@
 		if(!label) return
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = remove_cartridge(label)
 		if(C)
-			to_chat(user, "<span class='notice'>You remove \the [C] from \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove [C] from [src]."))
 			C.forceMove(loc)
 
 	else if(istype(W, /obj/item/reagent_containers/glass) || istype(W, /obj/item/reagent_containers/food))
 		if(container)
-			to_chat(user, "<span class='warning'>There is already \a [container] on \the [src]!</span>")
+			to_chat(user, SPAN_WARNING("There is already \a [container] on [src]!"))
 			return
 
 		var/obj/item/reagent_containers/RC = W
 
 		if(!accept_drinking && istype(RC,/obj/item/reagent_containers/food))
-			to_chat(user, "<span class='warning'>This machine only accepts beakers!</span>")
+			to_chat(user, SPAN_WARNING("This machine only accepts beakers!"))
 			return
 
 		if(!RC.is_open_container())
-			to_chat(user, "<span class='warning'>You don't see how \the [src] could dispense reagents into \the [RC].</span>")
+			to_chat(user, SPAN_WARNING("You don't see how [src] could dispense reagents into [RC]."))
 			return
 
 		container =  RC
 		user.drop_from_inventory(RC,src)
-		to_chat(user, "<span class='notice'>You set \the [RC] on \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You set [RC] on [src]."))
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(icon_state_active)
 			icon_state = icon_state_active
@@ -147,6 +147,7 @@
 	if(!ui)
 		ui = new(user, src, ui_key, "chem_disp.tmpl", ui_title, 390, 680)
 		ui.set_initial_data(data)
+		ui.set_auto_update(TRUE)
 		ui.open()
 
 /obj/machinery/chemical_dispenser/Topic(href, href_list)
@@ -172,6 +173,7 @@
 			if(icon_state_active)
 				icon_state = initial(icon_state)
 
+	SSnanoui.update_uis(src)
 	add_fingerprint(usr)
 	return TOPIC_REFRESH // update UIs attached to this object
 

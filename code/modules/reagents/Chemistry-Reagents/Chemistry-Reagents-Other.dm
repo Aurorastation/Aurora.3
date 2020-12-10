@@ -58,6 +58,7 @@
 	color_weight = 0
 	taste_description = "chalk"
 	fallback_specific_heat = 0.2
+	var/unpaintable_types = list(/obj/item/reagent_containers, /obj/machinery/chem_master, /obj/machinery/chemical_dispenser, /obj/machinery/chem_heater)
 
 /decl/reagent/paint/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(istype(T) && !istype(T, /turf/space))
@@ -70,7 +71,7 @@
 /decl/reagent/paint/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	//special checks for special items
 	var/setcolor = holder.get_color()
-	if(istype(O, /obj/item/reagent_containers))
+	if(is_type_in_list(O, unpaintable_types))
 		return
 	else if(istype(O, /obj/item/light))
 		var/obj/item/light/L = O
