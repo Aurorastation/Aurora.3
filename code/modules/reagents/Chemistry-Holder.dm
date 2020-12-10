@@ -43,6 +43,8 @@
 /datum/reagents/proc/update_total() // Updates volume and temperature.
 	total_volume = 0
 	primary_reagent = null
+	if(isemptylist(reagent_volumes))
+		thermal_energy = 0
 	for(var/R in reagent_volumes)
 		var/vol = reagent_volumes[R]
 		if(vol < MINIMUM_CHEMICAL_VOLUME)
