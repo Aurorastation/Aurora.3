@@ -11,6 +11,7 @@
 	layer = OBJ_LAYER + 0.9
 	mouse_opacity = 0
 	animate_movement = 0
+	var/solid_time = 120
 	var/amount = 3
 	var/expand = 1
 	var/metal = 0
@@ -21,7 +22,7 @@
 	metal = ismetal
 	playsound(src, 'sound/effects/bubbles2.ogg', 80, 1, -3)
 	addtimer(CALLBACK(src, .proc/tick), 3 + metal * 3)
-	addtimer(CALLBACK(src, .proc/post), 120)
+	addtimer(CALLBACK(src, .proc/post), solid_time)
 
 /obj/effect/effect/foam/proc/tick()
 	process()
@@ -80,6 +81,13 @@
 	if(istype(AM, /mob/living))
 		var/mob/living/M = AM
 		M.slip("the foam", 6)
+
+/obj/effect/effect/foam/spray
+	amount = 1 // only spread a little bit
+	solid_time = 3 SECONDS
+
+/obj/effect/effect/foam/spray/initial
+	amount = 0 // don't spread
 
 /datum/effect/effect/system/foam_spread
 	var/amount = 5				// the size of the foam spread.
@@ -157,27 +165,36 @@
 		qdel(src)
 
 /obj/structure/foamedmetal/attack_hand(var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	if ((HULK in user.mutations) || (prob(75 - metal * 25)))
 		user.visible_message("<span class='warning'>[user] smashes through the foamed metal.</span>", "<span class='notice'>You smash through the metal foam wall.</span>")
 		qdel(src)
 	else
 		to_chat(user, "<span class='notice'>You hit the metal foam but bounce off it.</span>")
-	return
+		animate_shake()
 
 /obj/structure/foamedmetal/attackby(var/obj/item/I, var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(I, /obj/item/grab))
 		var/obj/item/grab/G = I
+		if(G.state < GRAB_AGGRESSIVE)
+			to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
+			return
 		G.affecting.forceMove(src.loc)
 		visible_message("<span class='warning'>[G.assailant] smashes [G.affecting] through the foamed metal wall.</span>")
+		G.affecting.take_overall_damage(15)
 		qdel(I)
 		qdel(src)
 		return
 
+	user.do_attack_animation(src, I)
 	if(prob(I.force * 20 - metal * 25))
 		user.visible_message("<span class='warning'>[user] smashes through the foamed metal.</span>", "<span class='notice'>You smash through the foamed metal with \the [I].</span>")
 		qdel(src)
 	else
 		to_chat(user, "<span class='notice'>You hit the metal foam to no effect.</span>")
+		animate_shake()
 
 /obj/structure/foamedmetal/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	if(air_group)

@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a mounted foam sprayer to the mechfab hardsuit modules tab. It's a hardsuit module that consumes 1500 cell charge to spray a line of metal foam."
+  - rscadd: "Added some effects to metal foam walls that make them a bit more flashy when destroyed, as well as adding a click cooldown so they can't be spammed down."
