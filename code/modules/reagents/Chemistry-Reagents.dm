@@ -42,10 +42,7 @@
 		return newdata
 
 /decl/reagent/proc/remove_self(var/amount, var/datum/reagents/holder) // Shortcut
-	if (!holder)
-		return
-
-	holder.remove_reagent(type, amount)
+	holder.remove_reagent(type, amount) // Don't typecheck this, fix anywhere this is called with a null holder.
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /decl/reagent/proc/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
@@ -76,7 +73,7 @@
 	removed = M.get_metabolism(removed)
 
 	if(overdose && (REAGENT_VOLUME(holder, type) > overdose) && (M.chem_doses[type] > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
-		overdose(M, alien, removed, M.chem_doses[type]/overdose) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
+		overdose(M, alien, removed, M.chem_doses[type]/overdose, holder) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
 	if(M.chem_doses[type] == 0)
 		initial_effect(M,alien, holder)
@@ -104,7 +101,7 @@
 			if(CHEM_BREATHE)
 				affect_breathe(M, alien, removed, holder)
 
-	remove_self(removed)
+	remove_self(removed, holder)
 
 // Called when a beaker is thrown or something is hit with it, AND the beaker doesn't break.
 /decl/reagent/proc/apply_force(var/force, var/datum/reagents/holder)
@@ -136,24 +133,18 @@
 
 /decl/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ingest_mul)
-		affect_blood(M, alien, removed * ingest_mul)
+		affect_blood(M, alien, removed * ingest_mul, holder)
 
 /decl/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(touch_mul)
-		affect_blood(M, alien, removed * touch_mul)
+		affect_blood(M, alien, removed * touch_mul, holder)
 
 /decl/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(breathe_mul)
-		affect_blood(M, alien, removed * breathe_mul)
+		affect_blood(M, alien, removed * breathe_mul, holder)
 
 /decl/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
 
 /decl/reagent/proc/mix_data(var/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return
-
-/decl/reagent/proc/get_data(var/datum/reagents/holder) // Just in case you have a reagent that handles data differently.
-	var/list/data = REAGENT_DATA(holder, type)
-	return islist(data) ? data.Copy() : data
-
-

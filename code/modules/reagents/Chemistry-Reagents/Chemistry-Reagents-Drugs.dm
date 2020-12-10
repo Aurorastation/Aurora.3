@@ -221,7 +221,7 @@
 	fallback_specific_heat = 1
 
 /decl/reagent/guwan_painkillers/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	affect_ingest(M,alien,removed*0.5)
+	affect_ingest(M, alien, removed*0.5, holder)
 
 /decl/reagent/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/dose = M.chem_doses[type]

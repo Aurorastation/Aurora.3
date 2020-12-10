@@ -115,7 +115,7 @@
 	LAZYINITLIST(reagent_volumes)
 	if(!reagent_volumes[rtype])	// New reagent
 		reagent_volumes[rtype] = amount
-		var/tmp_data = newreagent.initialize_data(data)
+		var/tmp_data = newreagent.initialize_data(data, src)
 		if(tmp_data)
 			LAZYSET(reagent_data, rtype, tmp_data)
 		if(temperature <= 0)
@@ -130,7 +130,7 @@
 		var/old_energy = src.thermal_energy
 		reagent_volumes[rtype] += amount
 		if(!isnull(data))
-			LAZYSET(reagent_data, rtype, newreagent.mix_data(src, data, amount))
+			LAZYSET(reagent_data, rtype, newreagent.mix_data(data, amount, src))
 		if(temperature <= 0)
 			temperature = newreagent.default_temperature
 		newreagent.add_thermal_energy(old_energy, src, TRUE) // This part has the safety var set because thermal shock shouldn't occur due to it.

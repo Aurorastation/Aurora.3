@@ -132,7 +132,7 @@
 		var/mob/living/L = M
 		var/needed = min(L.fire_stacks, amount)
 		L.ExtinguishMob(needed)
-		remove_self(needed)
+		remove_self(needed, holder)
 
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
@@ -173,7 +173,7 @@
 
 /decl/reagent/fuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
-	remove_self(amount)
+	remove_self(amount, holder)
 	return
 
 /decl/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)

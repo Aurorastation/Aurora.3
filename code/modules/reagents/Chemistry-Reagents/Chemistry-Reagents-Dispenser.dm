@@ -133,7 +133,7 @@
 	if(prob(10*(strength/100)))
 		to_chat(M, SPAN_DANGER("Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
 	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
-	affect_ingest(M,alien,removed * blood_to_ingest_scale)
+	affect_ingest(M,alien,removed * blood_to_ingest_scale, holder)
 	return
 
 /decl/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
@@ -263,7 +263,7 @@
 
 /decl/reagent/hydrazine/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
-	remove_self(amount)
+	remove_self(amount, holder)
 	return
 
 /decl/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
@@ -467,7 +467,7 @@
 		for(var/mob/M in viewers(get_turf(O), 5))
 			to_chat(M, "<span class='warning'>\The [O] melts.</span>")
 		qdel(O)
-		remove_self(meltdose) // 10 units of acid will not melt EVERYTHING on the tile
+		remove_self(meltdose, holder) // 10 units of acid will not melt EVERYTHING on the tile
 
 /decl/reagent/acid/hydrochloric //Like sulfuric, but less toxic and more acidic.
 	name = "Hydrochloric Acid"

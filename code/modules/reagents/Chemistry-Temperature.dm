@@ -72,7 +72,7 @@
 		var/decl/reagent/R = decls_repository.get_decl(_R)
 		var/delta = (total_separate_energy - R.get_thermal_energy(src)) * R.get_thermal_fraction(src)
 		if(round(delta, 1))
-			R.on_heat_change(delta)
+			R.on_heat_change(delta, src)
 			. = TRUE
 		if(LAZYACCESS(reagent_data, _R))
 			LAZYREMOVE(reagent_data[_R], "last_thermal_energy") // we've cleared it, uncache it

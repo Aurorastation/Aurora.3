@@ -237,7 +237,7 @@
 
 /decl/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
-		digest(M,removed)
+		digest(M, removed, holder)
 		return
 	..()
 
@@ -260,7 +260,7 @@
 //Unathi can digest fats too
 /decl/reagent/nutriment/triglyceride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
-		digest(M,removed)
+		digest(M, removed, holder)
 		return
 	..()
 
@@ -701,9 +701,9 @@
 	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
 
 /decl/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	digest(M,alien,removed)
+	digest(M, alien, removed, holder)
 
-/decl/reagent/drink/proc/digest(var/mob/living/carbon/M, var/alien, var/removed, var/add_nutrition = TRUE)
+/decl/reagent/drink/proc/digest(var/mob/living/carbon/M, var/alien, var/removed, var/add_nutrition = TRUE, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
 		if (caffeine)
 			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)

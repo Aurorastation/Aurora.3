@@ -153,7 +153,7 @@
 	fallback_specific_heat = 2.286
 
 /decl/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	affect_ingest(M, alien, removed)
+	affect_ingest(M, alien, removed, holder)
 
 /decl/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
@@ -241,7 +241,7 @@
 			var/turf/simulated/wall/W = T
 			W.thermite = 1
 			W.add_overlay(image('icons/effects/effects.dmi',icon_state = "#673910"))
-			remove_self(5)
+			remove_self(5, holder)
 	return
 
 /decl/reagent/thermite/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
@@ -333,7 +333,7 @@
 	if(istype(O, /obj/structure/window))
 		var/obj/structure/window/W = O
 		W.apply_silicate(amount)
-		remove_self(amount)
+		remove_self(amount, holder)
 	return
 
 /decl/reagent/glycerol
@@ -634,7 +634,7 @@
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))
-	remove_self(amount)
+	remove_self(amount, holder)
 	return
 
 /decl/reagent/bluespace_dust
@@ -677,7 +677,7 @@
 		var/obj/item/I = O
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
-		remove_self(10*I.w_class)
+		remove_self(10*I.w_class, holder)
 		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."))
 
 /decl/reagent/usolve
@@ -694,7 +694,7 @@
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
 		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."))
-		remove_self(10*I.w_class)
+		remove_self(10*I.w_class, holder)
 
 /decl/reagent/shapesand
 	name = "Shapesand"
@@ -713,7 +713,7 @@
 		mimic.icon_state = O.icon_state
 		mimic.item_state = O.item_state
 		mimic.overlays = O.overlays
-		remove_self(10*O.w_class)
+		remove_self(10*O.w_class, holder)
 		mimic.visible_message(SPAN_NOTICE("The sand forms into an exact duplicate of [O]."))
 
 /obj/item/shapesand

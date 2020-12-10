@@ -389,7 +389,7 @@
 					adjustFireLoss(-n)
 					heal_amount -= n
 				updatehealth()
-			current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
+			current.remove_self(removed, reagents)//If its not food, it just does nothing. no fancy effects
 
 /mob/living/simple_animal/can_eat()
 	if (!hunger_enabled || nutrition > max_nutrition * 0.9)

@@ -711,7 +711,7 @@
 		var/decl/reagent/R = decls_repository.get_decl(_R)
 		chem_doses[_R] -= R.metabolism
 		if(chem_doses[_R] <= 0)
-			chem_doses -= R
+			chem_doses -= _R
 
 	updatehealth()
 

@@ -135,7 +135,7 @@
 	if(!istype(T))
 		return
 	T.assume_gas(GAS_PHORON, amount, T20C)
-	remove_self(amount)
+	remove_self(amount, holder)
 
 /decl/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
 	name = "Phoron Salts"
@@ -331,7 +331,7 @@
 	var/amount_to_remove = max(1,round(amount * 0.5))
 
 	new /obj/effect/decal/cleanable/foam(T, amount_to_remove)
-	remove_self(amount_to_remove)
+	remove_self(amount_to_remove, holder)
 	return
 
 /decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
@@ -339,7 +339,7 @@
 	if(istype(L))
 		var/needed = min(L.fire_stacks, amount)
 		L.ExtinguishMob(3* needed) // Foam is 3 times more efficient at extinguishing
-		remove_self(needed)
+		remove_self(needed, holder)
 
 /decl/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(S))

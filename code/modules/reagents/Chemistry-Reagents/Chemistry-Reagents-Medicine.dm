@@ -1615,7 +1615,7 @@
 	if(M.chem_doses[type] > 5)
 		M.make_jittery(5)
 	if(REAGENT_VOLUME(holder, type) >= 5 && M.is_asystole())
-		remove_self(5)
+		remove_self(5, holder)
 		if(M.resuscitate())
 			var/obj/item/organ/internal/heart = M.internal_organs_by_name[BP_HEART]
 			M.add_chemical_effect(CE_CARDIOTOXIC, heart.max_damage * 0.15)
