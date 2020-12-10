@@ -85,3 +85,15 @@
 		/obj/item/reagent_containers/food/snacks/fish
 	)
 	result = /obj/item/reagent_containers/food/snacks/fishandchips
+
+/decl/recipe/lasagna
+	appliance = OVEN
+	fruit = list("tomato" = 2, "eggplant" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/lasagna
+	reagent_mix = RECIPE_REAGENT_REPLACE

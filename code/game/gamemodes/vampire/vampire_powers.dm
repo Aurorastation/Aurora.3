@@ -913,15 +913,21 @@
 
 	to_chat(T, SPAN_NOTICE("<br>You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete."))
 
+	var/drained_all_blood = FALSE
 	while(do_mob(src, T, 50))
 		if(!mind.vampire)
 			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
 		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
-			to_chat(src, "<span class='alert'>[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body.</span>")
+			to_chat(src, SPAN_NOTICE("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
+			drained_all_blood = TRUE
 			break
 
 		T.vessel.remove_reagent(/decl/reagent/blood, 50)
+
+	if(!drained_all_blood)
+		vampire.status &= ~VAMP_DRAINING
+		return
 
 	T.revive()
 

@@ -127,9 +127,6 @@ main ui datum.
   * @return html code - text
   */
 /datum/vueui/proc/generate_html(var/css_tag)
-	var/debugtxt = ""
-	if(user && check_rights(R_DEV, FALSE, user=user))
-		debugtxt = "<div id=\"dapp\"></div>"
 	return {"
 <!DOCTYPE html>
 <html>
@@ -148,7 +145,8 @@ main ui datum.
 		<div id="app">
 			Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
 		</div>
-		[debugtxt]
+		<div id="dapp">
+		</div>
 		<noscript>
 			<div id='uiNoScript'>
 				<h2>JAVASCRIPT REQUIRED</h2>
@@ -251,9 +249,6 @@ main ui datum.
   */
 /datum/vueui/Topic(href, href_list)
 	. = update_status(FALSE)
-	if(href_list["vueuiclose"])
-		close()
-		return
 	if(status < STATUS_INTERACTIVE || user != usr)
 		return
 	if(href_list["vueuiforceresource"])
@@ -388,10 +383,10 @@ main ui datum.
   * @return themes class - text
   */
 /datum/vueui/proc/get_theme_class()
-	return SStheming.get_html_theme_class(user)
+	return "vueui " + SStheming.get_html_theme_class(user)
 
 /datum/vueui/modularcomputer
 	header = "modular-computer"
 
 /datum/vueui/modularcomputer/get_theme_class()
-	return "theme-nano dark-theme"
+	return "vueui theme-nano dark-theme"

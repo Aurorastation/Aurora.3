@@ -454,6 +454,9 @@
 
 	// Filling/emptying open reagent containers
 	var/obj/item/reagent_containers/RG = O
+	if (istype(RG, /obj/item/reagent_containers/glass/rag))
+		return
+
 	if (istype(RG) && RG.is_open_container())
 		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
 

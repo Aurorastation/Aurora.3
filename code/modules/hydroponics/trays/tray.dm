@@ -451,6 +451,9 @@
 	//A special case for if the container has only water, for manual watering with buckets
 	if (istype(O,/obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RC = O
+		if(!RC.is_open_container())
+			to_chat(user, SPAN_WARNING("You need to open \the [RC] first!"))
+			return
 		if (LAZYLEN(RC.reagents.reagent_volumes) == 1)
 			if (RC.reagents.has_reagent(/decl/reagent/water, 1))
 				if (waterlevel < maxWaterLevel)
@@ -461,9 +464,6 @@
 				else
 					to_chat(user, SPAN_WARNING("This tray is full of water already."))
 				return 1
-
-	if (O.is_open_container())
-		return 0
 
 	if(O.iswirecutter() || istype(O, /obj/item/surgery/scalpel))
 

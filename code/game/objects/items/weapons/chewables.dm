@@ -181,7 +181,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	update_icon()
 
 /obj/item/clothing/mask/chewable/candy/gum/gumball
-	name = "gumball"
+	name = "\improper gumball"
 	desc = "A gumball, created and patented by Chip Getmore. Known to contain a hard shell and a reagent interior!"
 	icon_state = "gumball"
 	item_state = null

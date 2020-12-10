@@ -10,6 +10,8 @@
 	req_access = list(access_mining, access_robotics)
 	id_card_type = /obj/item/card/id/minedrone
 	speed = -1
+	hat_x_offset = 1
+	hat_y_offset = -12
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade
