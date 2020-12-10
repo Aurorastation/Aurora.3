@@ -663,6 +663,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
+	var/blood_overlay_type = "shoe"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
@@ -712,34 +713,35 @@
 		I.forceMove(src)
 		holding = I
 		user.visible_message("<span class='notice'>\The [user] shoves \the [I] into \the [src].</span>")
+		playsound(get_turf(src), 'sound/weapons/holster/holster_knife.ogg', 25)
 		verbs |= /obj/item/clothing/shoes/proc/draw_knife
 		update_icon()
 	else
 		return ..()
 
-/obj/item/clothing/shoes/verb/toggle_layer()
+/obj/item/clothing/shoes/verb/toggle_layer(mob/user)
 	set name = "Switch Shoe Layer"
 	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return 0
 
 	if(shoes_under_pants == -1)
-		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		to_chat(usr, SPAN_NOTICE("[src] cannot be worn above your suit!"))
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
 
 /obj/item/clothing/shoes/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	worn_overlay = null
 	if(holding)
-		overlays += image(icon, "[icon_state]_knife")
+		worn_overlay = "knife"
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 	if(ismob(usr))
 		var/mob/M = usr
 		M.update_inv_shoes()
-	return ..()
-
-/obj/item/clothing/shoes/update_icon()
-	cut_overlays()
-	if(holding)
-		add_overlay("[icon_state]_knife")
 	return ..()
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
