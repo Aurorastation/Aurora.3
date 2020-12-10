@@ -168,10 +168,10 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	if ((HULK in user.mutations) || (prob(75 - metal * 25)))
-		user.visible_message("<span class='warning'>[user] smashes through the foamed metal.</span>", "<span class='notice'>You smash through the metal foam wall.</span>")
+		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the metal foam wall."))
 		qdel(src)
 	else
-		to_chat(user, "<span class='notice'>You hit the metal foam but bounce off it.</span>")
+		to_chat(user, SPAN_NOTICE("You hit the metal foam but bounce off it."))
 		animate_shake()
 
 /obj/structure/foamedmetal/attackby(var/obj/item/I, var/mob/user)
@@ -182,7 +182,7 @@
 			to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
 			return
 		G.affecting.forceMove(src.loc)
-		visible_message("<span class='warning'>[G.assailant] smashes [G.affecting] through the foamed metal wall.</span>")
+		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."))
 		G.affecting.take_overall_damage(15)
 		qdel(I)
 		qdel(src)
@@ -191,14 +191,14 @@
 	else if(istype(I, /obj/item/stack/material))
 		var/obj/item/stack/material/S = I
 		if(S.get_amount() < 4)
-			to_chat(user, "<span class='notice'>There isn't enough material here to construct a wall.</span>")
+			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 			return
 		
 		var/material/M = SSmaterials.get_material_by_name(S.default_type)
 		if(!istype(M))
 			return
 		if(M.integrity < 50)
-			to_chat(user, "<span class='notice'>This material is too soft for use in wall construction.</span>")
+			to_chat(user, SPAN_NOTICE("This material is too soft for use in wall construction."))
 			return
 		user.visible_message("<b>[user]</b> starts slotting material into \the [src]...", SPAN_NOTICE("You start slotting material into \the [src], forming it into a wall..."))
 		if(!do_after(user, 10 SECONDS) || !S.use(4))
@@ -226,10 +226,10 @@
 
 	user.do_attack_animation(src, I)
 	if(prob(I.force * 20 - metal * 25))
-		user.visible_message("<span class='warning'>[user] smashes through the foamed metal.</span>", "<span class='notice'>You smash through the foamed metal with \the [I].</span>")
+		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the foamed metal with \the [I]."))
 		qdel(src)
 	else
-		to_chat(user, "<span class='notice'>You hit the metal foam to no effect.</span>")
+		to_chat(user, SPAN_NOTICE("You hit the metal foam to no effect."))
 		animate_shake()
 
 /obj/structure/foamedmetal/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
