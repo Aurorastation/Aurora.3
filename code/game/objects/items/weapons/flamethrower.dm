@@ -22,12 +22,12 @@
 	var/obj/item/device/assembly/igniter/igniter = null
 	var/obj/item/tank/phoron/ptank = null
 
-/obj/item/flamethrower/examine()
+/obj/item/flamethrower/examine(mob/user)
 	..()
 	if(ptank)
-		to_chat(usr, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(ptank.air_contents.return_pressure(), 10)] kPa left in it."))
+		to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(ptank.air_contents.return_pressure(), 10)] kPa left in it."))
 	else
-		to_chat(usr, SPAN_WARNING("There's no phoron tank [igniter ? "" : "or igniter"] installed!"))
+		to_chat(user, SPAN_WARNING("There's no phoron tank [igniter ? "" : "or igniter"] installed!"))
 
 /obj/item/flamethrower/Destroy()
 	if(weldtool)
