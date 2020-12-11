@@ -83,6 +83,11 @@
 		name = "[material.display_name] [initial(name)]"
 		desc += " It's made of [material.use_name]."
 
+/obj/structure/bed/forceMove(atom/dest)
+	. = ..()
+	if(buckled_mob)
+		buckled_mob.forceMove(dest)
+
 /obj/structure/bed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
