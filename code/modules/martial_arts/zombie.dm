@@ -26,7 +26,7 @@
 /datum/martial_art/zombie/proc/check_grab(var/mob/living/carbon/human/A)
 	var/obj/item/grab/G = A.get_active_hand()
 	if(G)
-		G.state = GRAB_AGGRESSIVE
+		G.set_state(GRAB_AGGRESSIVE)
 		G.icon_state = "grabbed1"
 		G.hud.icon_state = "reinforce1"
 

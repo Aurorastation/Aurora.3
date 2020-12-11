@@ -11,7 +11,7 @@
 	D.grabbedby(A,1)
 	var/obj/item/grab/G = A.get_active_hand()
 	if(G && prob(50))
-		G.state = GRAB_AGGRESSIVE
+		G.set_state(GRAB_AGGRESSIVE)
 		D.visible_message("<span class='danger'>[A] has [D] in a clinch!</span>")
 	else
 		D.visible_message("<span class='danger'>[A] fails to get [D] in a clinch!</span>")

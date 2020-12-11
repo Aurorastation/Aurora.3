@@ -170,8 +170,7 @@ mob/living/carbon/human/proc/change_monitor()
 	else
 		r_hand = G
 
-	G.state = GRAB_PASSIVE
-	G.icon_state = "grabbed1"
+	G.set_state(GRAB_AGGRESSIVE)
 	G.synch()
 
 	return TRUE

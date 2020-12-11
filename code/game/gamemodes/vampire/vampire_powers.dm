@@ -1011,8 +1011,7 @@
 	else
 		r_hand = G
 
-	G.state = GRAB_AGGRESSIVE
-	G.icon_state = "grabbed1"
+	G.set_state(GRAB_AGGRESSIVE)
 	G.synch()
 
 	verbs -= /mob/living/carbon/human/proc/grapple

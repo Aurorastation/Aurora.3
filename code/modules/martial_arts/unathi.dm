@@ -30,7 +30,7 @@
 	D.grabbedby(A,1)
 	var/obj/item/grab/G = A.get_active_hand()
 	if(G && prob(50))
-		G.state = GRAB_AGGRESSIVE
+		G.set_state(GRAB_AGGRESSIVE)
 		D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
 	return 1
 
