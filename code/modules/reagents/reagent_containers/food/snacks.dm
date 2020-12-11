@@ -654,12 +654,12 @@
 	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/donut/jelly/Initialize()
+	. = ..()
 	if(prob(30))
 		src.icon_state = "jdonut2"
 		src.overlay_state = "box-donut2"
 		src.name = "Frosted Jelly Donut"
-		reagents_to_add += list(/decl/reagent/nutriment/sprinkles = 2)
-	. = ..()
+		reagents.add_reagent(/decl/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/donut/slimejelly
 	name = "jelly donut"
@@ -671,12 +671,12 @@
 	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/donut/slimejelly/Initialize()
+	. = ..()
 	if(prob(30))
 		src.icon_state = "jdonut2"
 		src.overlay_state = "box-donut2"
 		src.name = "Frosted Jelly Donut"
-		reagents_to_add += list(/decl/reagent/nutriment/sprinkles = 2)
-	. = ..()
+		reagents.add_reagent(/decl/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/donut/cherryjelly
 	name = "jelly donut"
@@ -688,12 +688,12 @@
 	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/donut/cherryjelly/Initialize()
+	. = ..()
 	if(prob(30))
 		src.icon_state = "jdonut2"
 		src.overlay_state = "box-donut2"
 		src.name = "Frosted Jelly Donut"
-		reagents_to_add += list(/decl/reagent/nutriment/sprinkles = 2)
-	. = ..()
+		reagents.add_reagent(/decl/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/funnelcake
 	name = "funnel cake"

@@ -218,8 +218,9 @@ obj/item/reagent_containers/pill/tranquility
 	reagents_to_add = list(/decl/reagent/nutriment = 20)
 
 /obj/item/reagent_containers/pill/bio_vitamin/Initialize()
-	reagents_to_add += list(pick(/decl/reagent/drink/banana, /decl/reagent/drink/berryjuice, /decl/reagent/drink/grapejuice, /decl/reagent/drink/lemonjuice, /decl/reagent/drink/limejuice, /decl/reagent/drink/orangejuice, /decl/reagent/drink/watermelonjuice) = 1)
 	. = ..()
+	var/juice = pick(/decl/reagent/drink/banana, /decl/reagent/drink/berryjuice, /decl/reagent/drink/grapejuice, /decl/reagent/drink/lemonjuice, /decl/reagent/drink/limejuice, /decl/reagent/drink/orangejuice, /decl/reagent/drink/watermelonjuice)
+	reagents.add_reagent(juice, 1)
 
 /obj/item/reagent_containers/pill/rmt
 	name = "15u Regenerative-Muscular Tissue Supplement Pill"
