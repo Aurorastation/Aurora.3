@@ -62284,11 +62284,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
-"iyN" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/silicon/robot/drone/mining/roundstart,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/outpost/mining_main/eva)
 "izh" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -93349,7 +93344,7 @@ cbQ
 cev
 ceN
 cfh
-iyN
+ceN
 cfx
 cey
 cgm
@@ -93606,7 +93601,7 @@ cbQ
 cex
 ceO
 cfi
-iyN
+ceN
 cfx
 cey
 cgn
