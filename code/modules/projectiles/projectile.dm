@@ -15,6 +15,7 @@
 	var/def_zone = ""	//Aiming at
 	var/hit_zone		// The place that actually got hit
 	var/mob/firer = null//Who shot it
+	var/no_attack_message
 	var/silenced = FALSE	//Attack message
 
 	var/shot_from = "" // name of the object which shot us
@@ -23,7 +24,7 @@
 	var/dispersion = 0.0
 
 	//used for shooting at blank range, you shouldn't be able to miss
-	var/can_miss = 0
+	var/cant_miss = FALSE
 
 	var/taser_effect = 0 //If set then the projectile will apply it's agony damage using stun_effect_act() to mobs it hits, and other damage will be ignored
 
@@ -190,8 +191,8 @@
 			return TRUE
 		result = target_mob.bullet_act(src, def_zone)
 
-	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
-		if(!silenced)
+	if(result == PROJECTILE_FORCE_MISS && !cant_miss) //if you're shooting at point blank you can't miss.
+		if(!silenced && !no_attack_message)
 			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
 			playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
 		return FALSE
@@ -204,10 +205,11 @@
 		var/mob/living/simple_animal/SA = target_mob
 		impacted_organ = pick(SA.organ_names)
 	//hit messages
-	if(silenced)
-		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")
-	else
-		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [impacted_organ]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [impacted_organ]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
+	if(!no_attack_message)
+		if(silenced)
+			to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")
+		else
+			target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [impacted_organ]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [impacted_organ]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	var/no_clients = FALSE
 	//admin logs

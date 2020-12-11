@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported Combat Tentacles for Changelings from Paradise station. You can use them to pull items or people towards you."

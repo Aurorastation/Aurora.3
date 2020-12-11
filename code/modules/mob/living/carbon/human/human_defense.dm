@@ -559,14 +559,11 @@ emp_act
 	user.do_attack_animation(src)
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	if(user.gloves && istype(user.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
-		G.state = GRAB_AGGRESSIVE
-		G.icon_state = "grabbed1"
-		G.hud.icon_state = "reinforce1"
-		G.last_action = world.time
+		G.set_state(GRAB_AGGRESSIVE)
 		visible_message("<span class='warning'>[user] gets a strong grip on [src]!</span>")
-		return 1
+		return G
 	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
-	return 1
+	return G
 
 /mob/living/carbon/human/set_on_fire()
 	..()

@@ -194,6 +194,12 @@ var/list/datum/power/changeling/powerinstances = list()
 
 //weapon and armor like powers
 
+/datum/power/changeling/combat_tentacle
+	name = "Mutate Tentacles"
+	desc = "Permits us to reshape our arms into a multi-purpose tentacles."
+	genomecost = 4
+	verbpath = /mob/proc/combat_tentacle
+
 /datum/power/changeling/armblades
 	name = "Mutate Armblades"
 	desc = "Permits us to reshape our arms into a deadly blade."

@@ -108,7 +108,7 @@
 
 	return TRUE
 
-/atom/movable/proc/throw_at(atom/target, range, speed, thrower, var/do_throw_animation = TRUE)
+/atom/movable/proc/throw_at(atom/target, range, speed, thrower, var/do_throw_animation = TRUE, datum/callback/callback)
 	if(!target || !src)	return 0
 	//use a modified version of Bresenham's algorithm to get from the atom's current position to that of the target
 
@@ -184,7 +184,8 @@
 				src.SpinAnimation(speed = 4, loops = 1)
 
 	//done throwing, either because it hit something or it finished moving
-	if(isobj(src)) src.throw_impact(get_turf(src),speed)
+	if(isobj(src))
+		src.throw_impact(get_turf(src),speed)
 	src.throwing = 0
 	src.thrower = null
 	src.throw_source = null
@@ -192,6 +193,9 @@
 	if (isturf(loc))
 		var/turf/Tloc = loc
 		Tloc.Entered(src)
+
+	if(callback)
+		callback.Invoke()
 
 /atom/movable/proc/throw_at_random(var/include_own_turf, var/maxrange, var/speed)
 	var/list/turfs = RANGE_TURFS(maxrange, src)

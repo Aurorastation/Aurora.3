@@ -88,6 +88,45 @@
 			return affecting
 	return null
 
+/obj/item/grab/proc/set_state(var/set_state)
+	last_action = world.time
+	switch(set_state)
+		if(GRAB_PASSIVE)
+			state = initial(state)
+			icon_state = initial(icon_state)
+			if(hud)
+				hud.icon_state = initial(hud.icon_state)
+		if(GRAB_AGGRESSIVE)
+			state = GRAB_AGGRESSIVE
+			icon_state = "grabbed1"
+			hud.icon_state = "reinforce1"
+		if(GRAB_NECK)
+			state = GRAB_NECK
+			icon_state = "grabbed+1"
+			if(hud)
+				hud.icon_state = "kill"
+				hud.name = "kill"
+			if(affecting)
+				affecting.Stun(10)
+				if(assailant)
+					assailant.visible_message(SPAN_WARNING("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_WARNING("You reinforce your grip on [affecting]'s neck!"))
+		if(GRAB_KILL)
+			state = GRAB_KILL
+			icon_state = "grabbed+1"
+			if(hud)
+				hud.icon_state = "kill1"
+				hud.name = "loosen"
+			if(affecting)
+				affecting.setClickCooldown(10)
+				if(ishuman(affecting))
+					var/mob/living/carbon/human/A = affecting
+					if (!(A.species.flags & NO_BREATHE))
+						A.losebreath += 4
+				affecting.set_dir(WEST)
+				if(assailant)
+					assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"))
+		else
+			crash_with("Grab set to illegal state with set_state: [set_state]")
 
 //This makes sure that the grab screen object is displayed in the correct hand.
 /obj/item/grab/proc/synch()
@@ -275,49 +314,32 @@
 			assailant.visible_message(SPAN_WARNING("[assailant] pins [affecting] down to the ground by the hands!"), SPAN_WARNING("You pin [affecting] down to the ground by the hands!"))
 			apply_pinning(affecting, assailant)
 
-		state = GRAB_AGGRESSIVE
-		icon_state = "grabbed1"
-		hud.icon_state = "reinforce1"
+		set_state(GRAB_AGGRESSIVE)
 	else if(state < GRAB_NECK)
 		if(isslime(affecting))
 			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
 			return
 		playsound(loc, /decl/sound_category/grab_sound, 50, FALSE, -1)
-		assailant.visible_message(SPAN_WARNING("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_WARNING("You reinforce your grip on [affecting]'s neck!"))
-		state = GRAB_NECK
-		icon_state = "grabbed+1"
+		set_state(GRAB_NECK)
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"
 		assailant.attack_log += "\[[time_stamp()]\] <span class='warning'>Grabbed the neck of [affecting.name] ([affecting.ckey])</span>"
 		msg_admin_attack("[key_name_admin(assailant)] grabbed the neck of [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
-		hud.icon_state = "kill"
-		hud.name = "kill"
-		affecting.Stun(10) //10 ticks of ensured grab
 	else if(state < GRAB_UPGRADING)
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/H = affecting
 			if(H.head && (H.head.item_flags & AIRTIGHT))
 				assailant.visible_message(SPAN_WARNING("[affecting]'s headgear prevents [assailant] from choking them out!"), SPAN_WARNING("[affecting]'s headgear prevents you from choking them out!"))
 				return
-		hud.icon_state = "kill1"
-		hud.name = "loosen"
-		state = GRAB_KILL
+		set_state(GRAB_KILL)
 		playsound(loc, /decl/sound_category/grab_sound, 50, FALSE, -1)
-		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
 		assailant.attack_log += "\[[time_stamp()]\] <span class='warning'>is strangling [affecting.name] ([affecting.ckey])</span>"
 		msg_admin_attack("[key_name_admin(assailant)] is strangling [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
-
-		affecting.setClickCooldown(10)
-		if(ishuman(affecting))
-			var/mob/living/carbon/human/A = affecting
-			if (!(A.species.flags & NO_BREATHE))
-				A.losebreath += 4
-		affecting.set_dir(WEST)
 	else if(state == GRAB_KILL)
 		hud.icon_state = "kill"
 		hud.name = "kill"
-		state = GRAB_NECK
+		state = GRAB_NECK // this one doesn't get a set state because it's unique
 		assailant.visible_message(SPAN_WARNING("[assailant] stops strangling [affecting]!"), SPAN_WARNING("You stop strangling [affecting]!"))
 	adjust_position()
 

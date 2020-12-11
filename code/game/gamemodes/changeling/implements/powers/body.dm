@@ -372,6 +372,43 @@
 		if(src && src.mind && src.mind.changeling)
 			src.mind.changeling.mimicing = ""
 
+/mob/proc/combat_tentacle()
+	set category = "Changeling"
+	set name = "Form Tentacle (20)"
+	set desc = "Rupture the flesh and mend the bone of your hand into a multi-purpose tentacle."
+
+	var/datum/changeling/changeling = changeling_power(20, 0, 0)
+	if(!changeling)
+		return FALSE
+	mind.changeling.chem_charges -= 20
+
+	var/mob/living/carbon/M = src
+
+	if(M.l_hand && M.r_hand)
+		to_chat(M, SPAN_WARNING("Your hands are full."))
+		return
+
+	if(M.handcuffed)
+		var/cuffs = M.handcuffed
+		M.u_equip(M.handcuffed)
+		qdel(cuffs)
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
+			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their spindly arm tentacle!</span>",
+								"<span class='danger'>We tear through the [H.wear_suit] with our arm tentacle!</span>",
+								"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			QDEL_IN(H.wear_suit, 0)
+			H.unEquip(H.wear_suit, force = TRUE)
+
+	var/obj/item/gun/energy/tentacle/T = new(M)
+	M.put_in_hands(T)
+	playsound(loc, 'sound/effects/splat.ogg', 30, 1)
+	src.visible_message("<span class='danger'>A spindly tentacle forms around [M]\'s arm!</span>",
+							"<span class='danger'>Our arm twists and mutates, transforming it into a tentacle.</span>",
+							"<span class='danger'>You hear organic matter ripping and tearing!</span>")
+
 /mob/proc/armblades()
 	set category = "Changeling"
 	set name = "Form Blades (20)"

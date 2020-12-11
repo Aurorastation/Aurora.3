@@ -488,7 +488,7 @@
 				damage_mult = 1.5
 	P.damage *= damage_mult
 	//you can't miss at point blank..
-	P.can_miss = 1
+	P.cant_miss = TRUE
 
 /obj/item/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
 	var/obj/item/projectile/P = projectile
@@ -543,7 +543,7 @@
 	mouthshoot = TRUE
 	M.visible_message(SPAN_WARNING("\The [user] sticks their gun in their mouth, ready to pull the trigger..."))
 	if(!do_after(user, 40))
-		M.visible_message(SPAN_NOTICE("\The [user] decided life was worth living"))
+		M.visible_message(SPAN_NOTICE("\The [user] decided life was worth living."))
 		mouthshoot = FALSE
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
