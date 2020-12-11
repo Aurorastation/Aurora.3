@@ -153,7 +153,7 @@
 
 /datum/brain_trauma/mild/muscle_weakness/on_life()
 	var/fall_chance = 5
-	if(owner.m_intent == "run")
+	if(owner.m_intent == M_RUN)
 		fall_chance += 15
 	if(prob(fall_chance) && !owner.lying && !owner.buckled)
 		to_chat(owner, "<span class='warning'>Your leg gives out!</span>")

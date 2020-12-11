@@ -127,7 +127,7 @@
 	if(hud_data.has_m_intent)
 		using = new /obj/screen/movement_intent()
 		using.icon = ui_style
-		using.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
+		using.icon_state = (mymob.m_intent == M_RUN ? "running" : "walking")
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using

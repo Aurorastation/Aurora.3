@@ -254,7 +254,7 @@ var/const/enterloopsanity = 100
 		if(H.shoes)
 			var/obj/item/clothing/shoes/S = H.shoes
 			if(istype(S))
-				S.handle_movement(src, H.m_intent == "run" ? TRUE : FALSE)
+				S.handle_movement(src, H.m_intent == M_RUN ? TRUE : FALSE)
 				if(S.track_footprint)
 					if(S.blood_DNA)
 						footprint_DNA = S.blood_DNA

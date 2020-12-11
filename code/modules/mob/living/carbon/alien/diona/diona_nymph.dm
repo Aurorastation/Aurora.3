@@ -76,9 +76,9 @@
 /mob/living/carbon/alien/diona/movement_delay()
 	. = ..()
 	switch(m_intent)
-		if("walk")
+		if(M_WALK)
 			. += 3
-		if("run")
+		if(M_RUN)
 			species.handle_sprint_cost(src,.+config.walk_speed)
 
 /mob/living/carbon/alien/diona/ex_act(severity)

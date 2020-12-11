@@ -11,7 +11,7 @@
 	using = new /obj/screen/movement_intent()
 	using.set_dir(SOUTHWEST)
 	using.icon = 'icons/mob/screen/alien.dmi'
-	using.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
+	using.icon_state = (mymob.m_intent == M_RUN ? "running" : "walking")
 	src.adding += using
 	move_intent = using
 

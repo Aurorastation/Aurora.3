@@ -111,9 +111,9 @@
 
 /mob/living/simple_animal/hostile/morph/proc/update_speed()
 	switch(m_intent)
-		if("run")
+		if(M_RUN)
 			speed = 1.5
-		if("walk")
+		if(M_WALK)
 			speed = 2.5
 
 /mob/living/simple_animal/hostile/morph/proc/allowed(atom/movable/A)

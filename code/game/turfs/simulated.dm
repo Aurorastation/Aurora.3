@@ -79,7 +79,7 @@
 	if(istype(A,/mob/living))
 		var/mob/living/M = A
 		if(src.wet_type && src.wet_amount)
-			if(M.buckled || (src.wet_type == 1 && M.m_intent == "walk"))
+			if(M.buckled || (src.wet_type == 1 && M.m_intent == M_WALK))
 				return
 
 			//Water

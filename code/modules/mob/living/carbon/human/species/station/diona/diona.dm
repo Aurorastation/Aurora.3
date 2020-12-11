@@ -150,7 +150,7 @@
 		DS.stored_energy = 0
 		H.adjustHalLoss(remainder*5, 1)
 		H.updatehealth()
-		H.m_intent = "walk"
+		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0

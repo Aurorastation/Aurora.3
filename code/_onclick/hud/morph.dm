@@ -5,7 +5,7 @@
 	var/obj/screen/mov_intent = new /obj/screen/movement_intent()
 	mov_intent.set_dir(SOUTHWEST)
 	mov_intent.icon = 'icons/mob/screen/morph.dmi'
-	mov_intent.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
+	mov_intent.icon_state = (mymob.m_intent == M_RUN ? "running" : "walking")
 	move_intent = mov_intent
 
 	mymob.healths = new /obj/screen()
