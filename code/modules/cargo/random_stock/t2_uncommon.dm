@@ -14,11 +14,11 @@ STOCK_ITEM_UNCOMMON(plasteel, 3)
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronsheets, 1.5)
-	new /obj/item/stack/material/phoron(L, rand(5,40))
+STOCK_ITEM_UNCOMMON(phoronsheets, 1)
+	new /obj/item/stack/material/phoron(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronglass, 2)
-	new /obj/item/stack/material/glass/phoronglass(L, 50)
+STOCK_ITEM_UNCOMMON(phoronglass, 1)
+	new /obj/item/stack/material/glass/phoronglass(L, rand(10,30))
 
 STOCK_ITEM_UNCOMMON(sandstone, 2)
 	new /obj/item/stack/material/sandstone(L, 50)
@@ -399,6 +399,9 @@ STOCK_ITEM_UNCOMMON(alt_glasses, 1)
 	for(var/i in 1 to rand(1, 2))
 		var/type = pick(glasses)
 		new type(L)
+
+STOCK_ITEM_UNCOMMON(gumballs, 3)
+	new /obj/item/glass_jar/gumball(L)
 
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op

@@ -185,6 +185,8 @@
 		update_icon()
 
 /obj/machinery/suit_cycler/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/suit_cycler/attackby(obj/item/I, mob/user)

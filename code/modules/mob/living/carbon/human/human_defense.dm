@@ -9,18 +9,17 @@ emp_act
 */
 
 /mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
-
 	var/species_check = src.species.bullet_act(P, def_zone, src)
 
 	if(species_check)
 		return species_check
 
 	if(!is_physically_disabled())
-		if(martial_art && martial_art.deflection_chance)
-			if(prob(martial_art.deflection_chance))
-				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
-				playsound(src, /decl/sound_category/bulletflyby_sound, 75, 1)
-				return 0
+		var/deflection_chance = check_martial_deflection_chance()
+		if(prob(deflection_chance))
+			visible_message(SPAN_WARNING("\The [src] deftly dodges \the [P]!"), SPAN_NOTICE("You deftly dodge \the [P]!"))
+			playsound(src, /decl/sound_category/bulletflyby_sound, 75, TRUE)
+			return PROJECTILE_DODGED
 
 	def_zone = check_zone(def_zone)
 	if(!has_organ(def_zone))
@@ -268,7 +267,7 @@ emp_act
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
 		effective_force /= 2 //half the effective force
-		if(!..(I, effective_force, blocked, hit_zone))
+		if(!..(I, user, effective_force, blocked, hit_zone))
 			return 0
 
 		attack_joint(affecting, I, blocked) //but can dislocate joints
@@ -462,11 +461,11 @@ emp_act
 		var/obj/item/clothing/gloves/G = gloves
 		G.add_blood(source)
 		G.transfer_blood = amount
-		G.bloody_hands_mob = source
+		G.bloody_hands_mob = WEAKREF(source)
 	else
 		add_blood(source)
 		bloody_hands = amount
-		bloody_hands_mob = source
+		bloody_hands_mob = WEAKREF(source)
 	update_inv_gloves()		//updates on-mob overlays for bloody hands and/or bloody gloves
 
 /mob/living/carbon/human/proc/bloody_body(var/mob/living/source)
@@ -568,3 +567,13 @@ emp_act
 		return 1
 	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
 	return 1
+
+/mob/living/carbon/human/set_on_fire()
+	..()
+	for(var/obj/item/I in contents)
+		I.catch_fire()
+
+/mob/living/carbon/human/extinguish_fire()
+	..()
+	for(var/obj/item/I in contents)
+		I.extinguish_fire()

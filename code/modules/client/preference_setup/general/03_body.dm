@@ -313,8 +313,16 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["show_species"])
 		// Actual whitelist checks are handled elsewhere, this is just for accessing the preview window.
-		var/choice = input("Which species would you like to look at?") as null|anything in playable_species
-		if(!choice) return
+		var/species_choice = input(usr, "Which species would you like to look at?", "Species Selection") as null|anything in playable_species
+		if(!species_choice)
+			return
+		var/choice
+		if(length(playable_species[species_choice]) == 1)
+			choice = playable_species[species_choice][1]
+		else
+			choice = input(usr, "Which subspecies would you like to look at?", "Sub-species Selection") as null|anything in playable_species[species_choice]
+			if(!choice)
+				return
 		choice = html_decode(choice)
 		pref.species_preview = choice
 		SetSpecies(preference_mob())
@@ -566,11 +574,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		switch(new_state)
 			if("Normal")
-				pref.organ_data[limb] = null
-				pref.rlimb_data[limb] = null
+				pref.organ_data -= limb
+				pref.rlimb_data -= limb
 				if(third_limb)
-					pref.organ_data[third_limb] = null
-					pref.rlimb_data[third_limb] = null
+					pref.organ_data -= third_limb
+					pref.rlimb_data -= third_limb
 			if("Amputated")
 				pref.organ_data[limb] = "amputated"
 				pref.rlimb_data[limb] = null
@@ -736,4 +744,3 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.rlimb_data[organ] = null
 	while(null in pref.rlimb_data)
 		pref.rlimb_data -= null*/
-

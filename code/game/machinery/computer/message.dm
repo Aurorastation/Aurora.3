@@ -232,6 +232,8 @@
 	return
 
 /obj/machinery/computer/message_monitor/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/message_monitor/proc/BruteForce(mob/user as mob)

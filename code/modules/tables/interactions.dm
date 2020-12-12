@@ -8,6 +8,8 @@
 			return !density
 		else
 			return 1
+	if(istype(mover, /obj/structure/closet/crate))
+		return TRUE
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))

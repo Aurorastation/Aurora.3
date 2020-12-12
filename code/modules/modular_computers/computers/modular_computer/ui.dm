@@ -153,6 +153,8 @@
 	else
 		VUEUI_SET_CHECK(data["apclinkicon"], "", ., data)
 
+	data["flashlight"] = flashlight?.enabled ? TRUE : FALSE
+
 	switch(get_ntnet_status())
 		if(0)
 			VUEUI_SET_CHECK(data["ntneticon"], "sig_none.gif", ., data)

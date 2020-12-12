@@ -211,3 +211,8 @@
 	. = ..()
 	if(owner)
 		owner.brokejaw = 0
+
+/obj/item/organ/external/head/droplimb(var/clean, var/disintegrate = DROPLIMB_EDGE, var/ignore_children = null)
+	if(iszombie(owner))
+		return ..(disintegrate = DROPLIMB_BLUNT)
+	return ..()

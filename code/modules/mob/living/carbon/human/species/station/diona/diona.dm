@@ -2,6 +2,7 @@
 	name = SPECIES_DIONA
 	short_name = "dio"
 	name_plural = "Dionaea"
+	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
 	total_health = 240
 	age_min = 1
@@ -122,8 +123,6 @@
 
 	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
 	default_accent = ACCENT_ROOTSONG
-
-	have_vision_cone = FALSE
 
 	alterable_internal_organs = list()
 

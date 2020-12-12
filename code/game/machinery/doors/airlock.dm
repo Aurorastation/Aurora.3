@@ -255,6 +255,8 @@
 		do_animate("deny")
 
 /obj/machinery/door/airlock/centcom/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attackby(null, user)
 
 /obj/machinery/door/airlock/centcom/take_damage()
@@ -292,6 +294,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 		do_animate("deny")
 
 /obj/machinery/door/airlock/glass_centcom/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attackby(null, user)
 
 /obj/machinery/door/airlock/glass_centcom/take_damage()
@@ -834,6 +838,8 @@ About the new airlock wires panel:
 				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, 0)
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/door/airlock/ui_interact(mob/user)
@@ -846,28 +852,29 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
-	VUEUI_SET_IFNOTSET(data["doorArea"], loc.loc?.name, ., data)
-	VUEUI_SET_IFNOTSET(data["doorName"], name, ., data)
-	VUEUI_SET_CHECK(data["open"], !density, ., data)
-	VUEUI_SET_CHECK(data["plu_main"], main_power_lost_until, ., data)
-	VUEUI_SET_CHECK(data["plua_main"], main_power_lost_at, ., data)
-	VUEUI_SET_CHECK(data["plu_back"], backup_power_lost_until, ., data)
-	VUEUI_SET_CHECK(data["plua_back"], backup_power_lost_at, ., data)
-	VUEUI_SET_CHECK(data["ele"], electrified_until, ., data)
-	VUEUI_SET_CHECK(data["elea"], electrified_at, ., data)
-	var/antag = player_is_antag(user.mind)
-	var/isAI = issilicon(user) && !antag
-	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
-	VUEUI_SET_CHECK(data["isai"], isAI, ., data)
-	VUEUI_SET_CHECK(data["aiCanBolt"], aiBolting, ., data)
-	VUEUI_SET_IFNOTSET(data["boltsOverride"], antag || isAdmin, ., data)
-	VUEUI_SET_IFNOTSET(data["isAdmin"], isAdmin, ., data)
+	data["doorArea"] = loc.loc?.name
+	data["doorName"] = name
+	data["open"] = !density
+	data["plu_main"] = main_power_lost_until
+	data["plua_main"] = main_power_lost_at
+	data["plu_back"] = backup_power_lost_until
+	data["plua_back"] = backup_power_lost_at
+	data["ele"] = electrified_until
+	data["elea"] = electrified_at
+	data["aiCanBolt"] = aiBolting
+	data["idscan"] = !aiDisabledIdScanner
+	data["bolts"] = !locked
+	data["lights"] = lights
+	data["safeties"] = safe
+	data["timing"] = normalspeed
 
-	VUEUI_SET_CHECK(data["idscan"], !aiDisabledIdScanner, ., data)
-	VUEUI_SET_CHECK(data["bolts"], !locked, ., data)
-	VUEUI_SET_CHECK(data["lights"], lights, ., data)
-	VUEUI_SET_CHECK(data["safeties"], safe, ., data)
-	VUEUI_SET_CHECK(data["timing"], normalspeed, ., data)
+	var/antag = player_is_antag(user.mind)
+	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
+	data["isai"] = issilicon(user) && !antag
+	data["boltsOverride"] = antag || isAdmin
+	data["isAdmin"] = isAdmin
+
+	return data
 
 /obj/machinery/door/airlock/proc/hack(mob/user as mob)
 	if(src.aiHacking==0)
@@ -976,7 +983,7 @@ About the new airlock wires panel:
 	var/cut_sound
 	var/cutting = FALSE
 
-	if(istype(tool,/obj/item/weldingtool))
+	if(tool.iswelder())
 		var/obj/item/weldingtool/WT = tool
 		if(!WT.isOn())
 			return
@@ -1022,40 +1029,41 @@ About the new airlock wires panel:
 		return FALSE
 
 /obj/machinery/door/airlock/proc/cut_procedure(var/mob/user, var/cut_delay, var/cut_verb, var/cut_sound)
-	if(src.bolt_cut_state == BOLTS_FINE)
+	var/initial_state = bolt_cut_state
+	if(initial_state == BOLTS_FINE)
 		to_chat(user, "You begin [cut_verb] through the bolt panel.")
-	else if(src.bolt_cut_state == BOLTS_EXPOSED)
+	else if(initial_state == BOLTS_EXPOSED)
 		to_chat(user, "You begin [cut_verb] through the door bolts.")
 
 	cut_delay *= 0.25
 
-	var/i
-	for(i = 0; i < 4; i += 1)
-		if(i == 0)
-			if(do_after(user, cut_delay, src))
-				to_chat(user, SPAN_NOTICE("You're a quarter way through."))
-				playsound(src, cut_sound, 100, 1)
-		else if(i == 1)
-			if(do_after(user, cut_delay, src))
-				to_chat(user, SPAN_NOTICE("You're halfway through."))
-				playsound(src, cut_sound, 100, 1)
-		else if(i == 2)
+	if(do_after(user, cut_delay, src))
+		to_chat(user, SPAN_NOTICE("You're a quarter way through."))
+		playsound(src, cut_sound, 100, 1)
+
+		if(do_after(user, cut_delay, src))
+			to_chat(user, SPAN_NOTICE("You're halfway through."))
+			playsound(src, cut_sound, 100, 1)
+
 			if(do_after(user, cut_delay, src))
 				to_chat(user, SPAN_NOTICE("You're three quarters through."))
 				playsound(src, cut_sound, 100, 1)
-		else if(i == 3)
-			if(do_after(user, cut_delay, src))
-				playsound(src, cut_sound, 100, 1)
-				if(src.bolt_cut_state == BOLTS_FINE)
-					to_chat(user, SPAN_NOTICE("You remove the cover and expose the door bolts."))
-					src.bolt_cut_state = BOLTS_EXPOSED
-				else if(src.bolt_cut_state == BOLTS_EXPOSED)
-					to_chat(user, SPAN_NOTICE("You sever the door bolts, unlocking the door."))
-					src.bolt_cut_state = BOLTS_CUT
-					src.unlock(TRUE) //force it
+
+				if(do_after(user, cut_delay, src))
+					playsound(src, cut_sound, 100, 1)
+
+					if(initial_state != bolt_cut_state)
+						return
+					if(initial_state == BOLTS_FINE)
+						to_chat(user, SPAN_NOTICE("You remove the cover and expose the door bolts."))
+						src.bolt_cut_state = BOLTS_EXPOSED
+					else if(initial_state == BOLTS_EXPOSED)
+						to_chat(user, SPAN_NOTICE("You sever the door bolts, unlocking the door."))
+						src.bolt_cut_state = BOLTS_CUT
+						src.unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
-	if(check_rights(R_ADMIN, show_msg = FALSE))
+	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
 		return ..()
 	if(emagged == 1)
 		to_chat(user, SPAN_WARNING("Unable to interface: Internal error."))
@@ -1076,7 +1084,7 @@ About the new airlock wires panel:
 	if(..())
 		return 1
 
-	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
+	var/isAdmin = isobserver(usr) && check_rights(R_ADMIN, show_msg = FALSE)
 	var/activate = text2num(href_list["activate"])
 	var/antag = player_is_antag(usr.mind)
 	switch (href_list["command"])
@@ -1482,26 +1490,24 @@ About the new airlock wires panel:
 	SetWeakened(5)
 	visible_message(SPAN_DANGER("[src] is crushed in the airlock!"), SPAN_DANGER("You are crushed in the airlock!"), SPAN_NOTICE("You hear airlock actuators momentarily struggle."))
 
-	var/turf/T = get_turf(src)
+	var/turf/T = loc
+	if(istype(T))
+		var/list/valid_turfs = list()
+		for(var/dir_to_test in cardinal)
+			var/turf/new_turf = get_step(T, dir_to_test)
+			if(!new_turf.contains_dense_objects())
+				valid_turfs |= new_turf
 
-	var/list/valid_turfs = list()
-	for(var/dir_to_test in cardinal)
-		var/turf/new_turf = get_step(T, dir_to_test)
-		if(!new_turf.contains_dense_objects())
-			valid_turfs |= new_turf
+		while(valid_turfs.len)
+			T = pick(valid_turfs)
+			valid_turfs -= T
 
-	while(valid_turfs.len)
-		T = pick(valid_turfs)
-		valid_turfs -= T
-
-		if(src.forceMove(T))
-			return
-
+			if(src.forceMove(T))
+				return
 
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
-	if (can_feel_pain())
-		emote("scream")
+	emote("scream")
 
 /mob/living/silicon/robot/airlock_crush(var/crush_damage)
 	return ..(round(crush_damage / CYBORG_AIRLOCKCRUSH_RESISTANCE))

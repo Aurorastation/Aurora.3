@@ -205,7 +205,7 @@
 				I.color = src.filling_color
 				U.add_overlay(I)
 
-				reagents.trans_to_obj(U, min(reagents.total_volume,5))
+				reagents.trans_to_obj(U, min(reagents.total_volume,U.transfer_amt))
 				if(is_liquid)
 					U.is_liquid = TRUE
 				on_consume(user, user)
@@ -3625,19 +3625,48 @@
 	name = "packed rice bowl"
 	desc = "Boiled rice packed in a sealed plastic tub with the Nojosuru Foods logo on it. There appears to be a pair of chopsticks clipped to the side."
 	icon_state = "ricetub"
-	trash = /obj/item/trash/ricetub
+	trash = /obj/item/trash/ricetub_s
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
 	reagents_to_add = list(/datum/reagent/nutriment = 5)
 	reagent_data = list(/datum/reagent/nutriment = list("rice" = 1))
+	var/sticks = 1
+
+/obj/item/reagent_containers/food/snacks/ricetub/verb/remove_sticks()
+	set name = "Remove Chopsticks"
+	set category = "Object"
+	set src in usr
+
+	var/obj/item/material/kitchen/utensil/fork/chopsticks/cheap/S = new()
+
+	if(use_check_and_message(usr))
+		return
+
+	if(!sticks)
+		to_chat(usr, SPAN_WARNING("There are no chopsticks attached to \the [src]."))
+		return
+
+	sticks = 0
+	trash = /obj/item/trash/ricetub
+	desc = "Boiled rice packed in a sealed plastic tub with the Nojosuru Foods logo on it. There appears to have once been something clipped to the side."
+	usr.put_in_hands(S)
+
+	update_icon()
+	to_chat(usr, SPAN_NOTICE("You remove the chopsticks from \the [src]."))
 
 /obj/item/reagent_containers/food/snacks/ricetub/update_icon()
 	var/percent = round((reagents.total_volume / 5) * 100)
 	switch(percent)
 		if(0 to 90)
-			icon_state = "ricetub_90"
+			if(sticks)
+				icon_state = "ricetub_s_90"
+			else
+				icon_state = "ricetub_90"
 		if(91 to INFINITY)
-			icon_state = "ricetub"
+			if(sticks)
+				icon_state = "ricetub_s"
+			else
+				icon_state = "ricetub"
 
 /obj/item/reagent_containers/food/snacks/seaweed
 	name = "Go-Go Gwok! Authentic Konyanger moss"
@@ -3972,42 +4001,49 @@
 	desc = "A portion sized chip good for dipping. This one has salsa on it."
 	icon_state = "chip_salsa"
 	bitten_state = "chip_half"
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/chip/guac
 	name = "guac chip"
 	desc = "A portion sized chip good for dipping. This one has guac on it."
 	icon_state = "chip_guac"
 	bitten_state = "chip_half"
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/chip/cheese
 	name = "cheese chip"
 	desc = "A portion sized chip good for dipping. This one has cheese sauce on it."
 	icon_state = "chip_cheese"
 	bitten_state = "chip_half"
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/chip/nacho
 	name = "nacho chip"
 	desc = "A nacho ship stray from a plate of cheesy nachos."
 	icon_state = "chip_nacho"
 	bitten_state = "chip_half"
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/salsa
 	name = "nacho chip"
 	desc = "A nacho ship stray from a plate of cheesy nachos. This one has salsa on it."
 	icon_state = "chip_nacho_salsa"
 	bitten_state = "chip_half"
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/guac
 	name = "nacho chip"
 	desc = "A nacho ship stray from a plate of cheesy nachos. This one has guac on it."
 	icon_state = "chip_nacho_guac"
 	bitten_state = "chip_half"
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/cheese
 	name = "nacho chip"
 	desc = "A nacho ship stray from a plate of cheesy nachos. This one has extra cheese on it."
 	icon_state = "chip_nacho_cheese"
 	bitten_state = "chip_half"
+	bitesize = 2
 
 // chip plates
 /obj/item/reagent_containers/food/snacks/chipplate
@@ -4862,4 +4898,3 @@
 	reagents_to_add = list(/datum/reagent/nutriment = 6)
 	trash = /obj/item/trash/diona_bites
 	bitesize = 3
-

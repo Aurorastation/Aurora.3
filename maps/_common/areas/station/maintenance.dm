@@ -343,3 +343,9 @@
 	name = "Solar Maintenance - Fore"
 	icon_state = "SolarcontrolA"
 	sound_env = SMALL_ENCLOSED
+
+/area/maintenance/workshop
+	name = "Research Maintenance - Auxiliary"
+	icon_state = "workshop"
+	turf_initializer = null
+	sound_env = SMALL_ENCLOSED

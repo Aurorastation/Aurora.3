@@ -227,7 +227,7 @@
 		return
 
 /// makes it so synths can't be flushed
-	if (istype(target, /mob/living/silicon/robot))
+	if (isrobot(target) && !isDrone(target))
 		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
 		return
 
@@ -294,6 +294,8 @@
 
 // ai as human but can't flush
 /obj/machinery/disposal/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	interact(user, 1)
 
 // human interact with machine

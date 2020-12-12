@@ -18,6 +18,8 @@
 	active_power_usage = 4
 
 /obj/machinery/button/remote/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	if(wires & 2)
 		return src.attack_hand(user)
 	else
