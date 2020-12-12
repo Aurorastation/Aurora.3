@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Flamethrowers can now launch fire more than one tile away from the user."
-  - tweak: "The cone of the flamethrower has been narrowed somewhat, and its spread pattern somewhat randomized."
-  - rscadd: "Flamethrowers now use a radial menu system rather than a basic HTML UI."
