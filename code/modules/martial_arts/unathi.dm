@@ -89,9 +89,9 @@
 	D.throw_at(throw_target, 200, 4,A)
 
 /datum/martial_art/kis_khan/proc/kis_khan_help()
-	set name = "Recall Teachings"
+	set name = "Recall Kis-khan"
 	set desc = "Remember the martial techniques of the Kis-khan."
-	set category = "Kis-khan"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You hiss deeply and remember the traditions...</i></b>")
 	to_chat(usr, "<span class='notice'>Tail Sweep</span>: Harm Harm Disarm. Trips the victim with your tail, rendering them prone and unable to move for a short time.")
@@ -104,3 +104,7 @@
 	icon_state = "scroll"
 	item_state = "scroll"
 	martial_art = /datum/martial_art/kis_khan
+
+#undef TAIL_SWEEP
+#undef SWIFT_DISARM
+#undef HAMMERING_STRIKE

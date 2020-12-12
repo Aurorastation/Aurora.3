@@ -1,5 +1,18 @@
+/mob/living/silicon
+	var/computer_path
+
+/mob/living/silicon/pai
+	computer_path = /obj/item/modular_computer/silicon/pai
+
+/mob/living/silicon/robot
+	computer_path = /obj/item/modular_computer/silicon/robot
+
+/mob/living/silicon/robot/drone
+	computer_path = /obj/item/modular_computer/silicon/robot/drone
+
 /mob/living/silicon/ai
 	var/datum/nano_module/computer_ntnetmonitor/ntnet_monitor
+	computer_path = /obj/item/modular_computer/silicon/ai
 
 /mob/living/silicon/ai
 	silicon_subsystems = list(
@@ -33,18 +46,12 @@
 		AH.register_alarm(src, /mob/living/silicon/proc/receive_alarm)
 		queued_alarms[AH] = list()	// Makes sure alarms remain listed in consistent order
 
+	if(computer_path)
+		computer = new computer_path(src)
+
 /mob/living/silicon/ai/init_subsystems()
 	..()
-	computer = new/obj/item/modular_computer/silicon/ai(src)
 	ntnet_monitor = new(src)
-
-/mob/living/silicon/pai/init_subsystems()
-	..()
-	computer = new/obj/item/modular_computer/silicon/pai(src)
-
-/mob/living/silicon/robot/init_subsystems()
-	..()
-	computer = new/obj/item/modular_computer/silicon/robot(src)
 
 /****************
 *	Computer	*

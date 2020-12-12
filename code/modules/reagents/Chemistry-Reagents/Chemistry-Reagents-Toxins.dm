@@ -298,12 +298,15 @@
 
 /datum/reagent/toxin/fertilizer/eznutrient
 	name = "EZ Nutrient"
+	color = "#168042"
 
 /datum/reagent/toxin/fertilizer/left4zed
 	name = "Left-4-Zed"
+	color = "#2A1680"
 
 /datum/reagent/toxin/fertilizer/robustharvest
 	name = "Robust Harvest"
+	color = "#801616"
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate
 	name = "Monoammonium Phosphate"
@@ -697,7 +700,7 @@
 		if(H.reagents.has_reagent(/datum/reagent/thetamycin, 15))
 			return
 
-		if(!H.internal_organs_by_name["zombie"] && prob(15))
+		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)

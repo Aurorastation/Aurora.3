@@ -433,6 +433,8 @@
 			M.reset_view(null)
 
 /obj/effect/dummy/veil_walk/relaymove(var/mob/user, direction)
+	if(user != owner_mob)
+		return
 	if(ghost_last_move + ghost_move_delay > world.time)
 		return
 	ghost_last_move = world.time
@@ -495,6 +497,11 @@
 
 	last_valid_turf = get_turf(owner.loc)
 	owner.forceMove(src)
+
+	if(owner.mind.vampire.status & VAMP_FULLPOWER)
+		for(var/obj/item/grab/G in list(owner.l_hand, owner.r_hand))
+			G.affecting.vampire_phase_out(get_turf(G))
+			G.affecting.forceMove(src)
 
 	START_PROCESSING(SSprocessing, src)
 
@@ -906,15 +913,21 @@
 
 	to_chat(T, SPAN_NOTICE("<br>You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete."))
 
+	var/drained_all_blood = FALSE
 	while(do_mob(src, T, 50))
 		if(!mind.vampire)
 			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
 		if(!T.vessel.get_reagent_amount(/datum/reagent/blood))
 			to_chat(src, SPAN_NOTICE("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
+			drained_all_blood = TRUE
 			break
 
 		T.vessel.remove_reagent(/datum/reagent/blood, 50)
+
+	if(!drained_all_blood)
+		vampire.status &= ~VAMP_DRAINING
+		return
 
 	T.revive()
 

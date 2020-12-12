@@ -58,7 +58,7 @@
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	grab_mod = 4
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 	mob_size = 30
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
@@ -112,7 +112,7 @@
 	toxins_mod = 1
 	grab_mod = 10
 	total_health = 200
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 	mob_size = 30
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')

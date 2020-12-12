@@ -2718,11 +2718,7 @@
 	},
 /area/shuttle/mercenary)
 "ani" = (
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"
@@ -3410,11 +3406,7 @@
 	},
 /area/shuttle/mercenary)
 "aoA" = (
-/obj/machinery/vending/assist{
-	contraband = null;
-	name = "AntagCorpVend";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4)
-	},
+/obj/machinery/vending/assist/synd,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -3525,11 +3517,7 @@
 	},
 /area/centcom)
 "aoL" = (
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -6671,11 +6659,7 @@
 	name = "\improper Raider Base"
 	})
 "azC" = (
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -7140,7 +7124,7 @@
 "aBm" = (
 /obj/item/stool/padded,
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -7615,7 +7599,7 @@
 	name = "\improper Raider Base"
 	})
 "aDa" = (
-/obj/machinery/computer/shuttle_control/multi/vox,
+/obj/machinery/computer/shuttle_control/multi/raider,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"
@@ -7999,7 +7983,7 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
-	master_tag = "vox_west_control";
+	master_tag = "raider_west_control";
 	req_one_access = list(150)
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -8007,7 +7991,7 @@
 "aEI" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
-	id_tag = "vox_northwest_lock";
+	id_tag = "raider_northwest_lock";
 	req_access = list(150)
 	},
 /turf/simulated/floor/plating,
@@ -8057,7 +8041,7 @@
 "aEM" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
-	id_tag = "vox_northeast_lock";
+	id_tag = "raider_northeast_lock";
 	req_access = list(150)
 	},
 /turf/simulated/floor/plating,
@@ -8066,7 +8050,7 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
-	master_tag = "vox_east_control";
+	master_tag = "raider_east_control";
 	req_access = list(150)
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -8130,14 +8114,14 @@
 "aFe" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1331;
-	id_tag = "vox_west_vent"
+	id_tag = "raider_west_vent"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aFf" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
-	id_tag = "vox_west_sensor";
+	id_tag = "raider_west_sensor";
 	pixel_x = 25
 	},
 /turf/simulated/floor/plating,
@@ -8147,7 +8131,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/skipjack)
 "aFh" = (
-/obj/machinery/computer/shuttle_control/multi/vox,
+/obj/machinery/computer/shuttle_control/multi/raider,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/skipjack)
 "aFi" = (
@@ -8165,7 +8149,7 @@
 "aFk" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
-	id_tag = "vox_east_sensor";
+	id_tag = "raider_east_sensor";
 	pixel_x = -25
 	},
 /turf/simulated/floor/plating,
@@ -8173,7 +8157,7 @@
 "aFl" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1331;
-	id_tag = "vox_east_vent"
+	id_tag = "raider_east_vent"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -8223,18 +8207,18 @@
 "aFw" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1331;
-	id_tag = "vox_west_control";
+	id_tag = "raider_west_control";
 	pixel_x = 24;
 	req_access = list(150);
-	tag_airpump = "vox_west_vent";
-	tag_chamber_sensor = "vox_west_sensor";
-	tag_exterior_door = "vox_northwest_lock";
-	tag_interior_door = "vox_southwest_lock"
+	tag_airpump = "raider_west_vent";
+	tag_chamber_sensor = "raider_west_sensor";
+	tag_exterior_door = "raider_northwest_lock";
+	tag_interior_door = "raider_southwest_lock"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1331;
-	id_tag = "vox_west_vent"
+	id_tag = "raider_west_vent"
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
@@ -8268,18 +8252,18 @@
 "aFB" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1331;
-	id_tag = "vox_east_control";
+	id_tag = "raider_east_control";
 	pixel_x = -24;
 	req_access = list(150);
-	tag_airpump = "vox_east_vent";
-	tag_chamber_sensor = "vox_east_sensor";
-	tag_exterior_door = "vox_northeast_lock";
-	tag_interior_door = "vox_southeast_lock"
+	tag_airpump = "raider_east_vent";
+	tag_chamber_sensor = "raider_east_sensor";
+	tag_exterior_door = "raider_northeast_lock";
+	tag_interior_door = "raider_southeast_lock"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1331;
-	id_tag = "vox_east_vent"
+	id_tag = "raider_east_vent"
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
@@ -8294,7 +8278,7 @@
 "aFN" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
-	id_tag = "vox_southwest_lock";
+	id_tag = "raider_southwest_lock";
 	req_access = list(150)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -8317,7 +8301,7 @@
 "aFR" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
-	id_tag = "vox_southeast_lock";
+	id_tag = "raider_southeast_lock";
 	req_access = list(150)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -8337,7 +8321,7 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1331;
-	master_tag = "vox_west_control";
+	master_tag = "raider_west_control";
 	pixel_x = -22;
 	req_one_access = list(150)
 	},
@@ -8424,7 +8408,7 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1331;
-	master_tag = "vox_east_control";
+	master_tag = "raider_east_control";
 	pixel_x = 22;
 	req_access = list(150)
 	},
@@ -8772,7 +8756,7 @@
 /area/shuttle/skipjack)
 "aHh" = (
 /obj/machinery/bodyscanner{
-	allowed_species = list("Human","Skrell","Unathi","Tajara","M'sai Tajara","Zhan-Khazan Tajara","Vaurca Worker","Vaurca Warrior","Diona","Vox");
+	allowed_species = list("Human","Skrell","Unathi","Tajara","M'sai Tajara","Zhan-Khazan Tajara","Vaurca Worker","Vaurca Warrior","Diona");
 	dir = 8;
 	icon_state = "body_scanner_0"
 	},
@@ -8803,8 +8787,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aHl" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/tank/nitrogen,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aHm" = (

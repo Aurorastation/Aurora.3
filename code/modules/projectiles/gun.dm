@@ -107,6 +107,7 @@
 	var/is_wieldable = FALSE
 	var/wield_sound = /decl/sound_category/generic_wield_sound
 	var/unwield_sound = null
+	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
@@ -189,8 +190,9 @@
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/A = M
-		if(A.martial_art?.no_guns)
-			to_chat(A, SPAN_WARNING("[A.martial_art.no_guns_message]"))
+		var/no_guns_check = A.check_no_guns()
+		if(no_guns_check)
+			to_chat(A, SPAN_WARNING("[no_guns_check]")) // the proc returns the no_guns_message
 			return FALSE
 
 	if((M.is_clumsy()) && prob(40)) //Clumsy handling
@@ -507,6 +509,13 @@
 		//As opposed to no-delay pew pew
 		P.accuracy += 2
 
+	var/datum/firemode/F
+	if(length(firemodes))
+		F = firemodes[sel_mode]
+	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
+		P.accuracy -= one_hand_fa_penalty/2
+		P.dispersion -= one_hand_fa_penalty * 0.5
+
 //does the actual launching of the projectile
 /obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params)
 	var/obj/item/projectile/P = projectile
@@ -571,7 +580,8 @@
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
 			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
-		qdel(in_chamber)
+
+		handle_post_fire(user, user, FALSE, FALSE, FALSE)
 		mouthshoot = FALSE
 		return
 	else

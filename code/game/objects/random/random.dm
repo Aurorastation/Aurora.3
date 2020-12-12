@@ -342,6 +342,27 @@
 		/obj/item/toy/plushie/bearfire
 	)
 
+/obj/random/balloon
+	name = "random balloon"
+	desc = "This is a random balloon."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "balloon"
+	spawnlist = list(
+		/obj/item/toy/balloon/color = 7,
+		/obj/item/toy/balloon/latex = 1,
+		/obj/item/toy/balloon/latex/nitrile = 1,
+		/obj/item/toy/balloon/syndicate = 2,
+		/obj/item/toy/balloon/nanotrasen = 2,
+		/obj/item/toy/balloon/fellowship = 1,
+		/obj/item/toy/balloon/fellowshiphead = 1,
+		/obj/item/toy/balloon/contender = 1,
+		/obj/item/toy/balloon/contenderhead = 1,
+		/obj/item/toy/balloon/bat = 1,
+		/obj/item/toy/balloon/ghost = 1,
+		/obj/item/toy/balloon/xmastree = 1,
+		/obj/item/toy/balloon/candycane = 1
+	)
+
 /obj/random/smalltank
 	name = "random small tank"
 
@@ -358,7 +379,7 @@
 	problist = list(
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
-		/obj/item/storage/belt/medical/emt = 0.4,
+		/obj/item/storage/belt/medical/first_responder = 0.4,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
 		/obj/item/storage/belt/janitor = 0.4
@@ -431,7 +452,6 @@
 /obj/random/voidsuit
 	name = "random voidsuit"
 	var/damaged = 0
-	var/for_vox = FALSE
 	var/list/suitmap = list(
 		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
@@ -910,7 +930,7 @@
 		/obj/item/clothing/gloves/chameleon = 1,
 		/obj/item/clothing/gloves/black = 10,
 
-		/obj/item/clothing/head/chameleon = 0.5,
+		/obj/item/clothing/head/softcap/chameleon = 0.5,
 		/obj/item/clothing/head/softcap = 5,
 
 		/obj/item/clothing/mask/chameleon = 1,
@@ -1181,8 +1201,7 @@
 		/obj/random/action_figure						= 11,
 		/obj/random/plushie								= 44,
 		/obj/item/toy/cultsword							= 5,
-		/obj/item/toy/syndicateballoon					= 5,
-		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/random/balloon								= 22,
 		/obj/item/toy/katana							= 11,
 		/obj/item/toy/bosunwhistle						= 5,
 		/obj/item/storage/belt/champion			= 11,
@@ -1219,8 +1238,7 @@
 		/obj/item/toy/crossbow							= 11,
 		/obj/random/action_figure						= 11,
 		/obj/item/toy/cultsword							= 7,
-		/obj/item/toy/syndicateballoon					= 10,
-		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/random/balloon								= 22,
 		/obj/item/toy/katana							= 11,
 		/obj/random/plushie								= 55,
 		/obj/item/storage/belt/champion			= 11,
