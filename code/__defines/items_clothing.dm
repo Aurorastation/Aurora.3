@@ -95,6 +95,8 @@
 #define slot_w_uniform_str	"slot_w_uniform"
 #define slot_head_str		"slot_head"
 #define slot_wear_suit_str	"slot_suit"
+#define slot_l_ear_str		"slot_l_ear"
+#define slot_r_ear_str		"slot_r_ear"
 
 //itemstate suffixes. Used for containedsprite worn items
 #define WORN_LHAND	"_lh"

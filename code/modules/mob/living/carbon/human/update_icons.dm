@@ -676,47 +676,75 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_ears(var/update_icons=1)
-	if (QDELING(src))
+	if(QDELING(src))
 		return
 
-	overlays_raw[EARS_LAYER] = null
-
-	if (check_draw_ears())
-		var/result_layer
+	if(check_draw_ears())
+		var/image/result_layer = null
+		var/image/l_ear_result_layer = null
+		var/image/r_ear_result_layer = null
 		if(l_ear)
-			var/t_type = l_ear.icon_state
+			l_ear.screen_loc = ui_l_ear
 
+			//Determine the icon to use
+			var/t_icon = INV_L_EAR_DEF_ICON
 			if(l_ear.contained_sprite)
 				l_ear.auto_adapt_species(src)
-				t_type = "[UNDERSCORE_OR_NULL(l_ear.icon_species_tag)][l_ear.item_state][WORN_LEAR]"
-				result_layer = image(l_ear.icon_override || l_ear.icon, t_type)
+				var/t_state = "[UNDERSCORE_OR_NULL(l_ear.icon_species_tag)][l_ear.item_state][WORN_LEAR]"
+
+				l_ear_result_layer = image(l_ear.icon_override || l_ear.icon, t_state)
 			else if(l_ear.icon_override)
-				result_layer = image(l_ear.icon_override, "[t_type]_l")
+				t_icon = l_ear.icon_override
 			else if(l_ear.sprite_sheets && l_ear.sprite_sheets[GET_BODY_TYPE])
-				result_layer = image(l_ear.sprite_sheets[GET_BODY_TYPE], "[t_type]_l")
+				t_icon = l_ear.sprite_sheets[GET_BODY_TYPE]
+			else if(l_ear.item_icons && (slot_l_ear_str in l_ear.item_icons))
+				t_icon = l_ear.item_icons[slot_l_ear_str]
 			else
-				result_layer = image('icons/mob/ears.dmi', "[t_type]")
+				t_icon = INV_L_EAR_DEF_ICON
+
+			if(!l_ear_result_layer) //Create the image
+				l_ear_result_layer = image(t_icon, l_ear.icon_state)
+
+			if(l_ear.color)
+				l_ear_result_layer.color = l_ear.color
+
+			var/image/worn_overlays = l_ear.worn_overlays(t_icon)
+			if(worn_overlays)
+				l_ear_result_layer.overlays.Add(worn_overlays)
+
+			overlays_raw[EARS_LAYER] = l_ear_result_layer
 
 		if(r_ear)
-			var/image/I
-			var/t_type = r_ear.icon_state
+			r_ear.screen_loc = ui_r_ear
+
+			//Determine the icon to use
+			var/t_icon = INV_R_EAR_DEF_ICON
 			if(r_ear.contained_sprite)
 				r_ear.auto_adapt_species(src)
-				t_type = "[UNDERSCORE_OR_NULL(r_ear.icon_species_tag)][r_ear.item_state][WORN_REAR]"
-				I = image(r_ear.icon_override || r_ear.icon, t_type)
+				var/t_state = "[UNDERSCORE_OR_NULL(r_ear.icon_species_tag)][r_ear.item_state][WORN_REAR]"
 
+				r_ear_result_layer = image(r_ear.icon_override || r_ear.icon, t_state)
 			else if(r_ear.icon_override)
-				I = image(r_ear.icon_override, "[t_type]_r")
+				t_icon = r_ear.icon_override
 			else if(r_ear.sprite_sheets && r_ear.sprite_sheets[GET_BODY_TYPE])
-				I = image(r_ear.sprite_sheets[GET_BODY_TYPE], "[t_type]_r")
+				t_icon = r_ear.sprite_sheets[GET_BODY_TYPE]
+			else if(r_ear.item_icons && (slot_r_ear_str in r_ear.item_icons))
+				t_icon = r_ear.item_icons[slot_r_ear_str]
 			else
-				I = image('icons/mob/ears.dmi', "[t_type]")
+				t_icon = INV_R_EAR_DEF_ICON
 
-			if (result_layer)
-				result_layer = list(result_layer, I)
-				I.color = r_ear.color
-			else
-				result_layer = I
+			if(!r_ear_result_layer) //Create the image
+				r_ear_result_layer = image(t_icon, r_ear.icon_state)
+
+			if(r_ear.color)
+				r_ear_result_layer.color = r_ear.color
+
+			var/image/worn_overlays = r_ear.worn_overlays(t_icon)
+			if(worn_overlays)
+				r_ear_result_layer.overlays.Add(worn_overlays)
+
+		if(!result_layer)
+			result_layer = list(l_ear_result_layer, r_ear_result_layer)
 
 		overlays_raw[EARS_LAYER] = result_layer
 
