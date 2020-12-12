@@ -19,6 +19,7 @@
 		return
 	else
 		to_chat(user, "<span class='notice'>You put the lid on \the [src].</span>")
+		user.drop_from_inventory(src)
 		user.put_in_hands(new /obj/item/glass_jar) //found in glassjar.dm
 		qdel(src)
 	return
