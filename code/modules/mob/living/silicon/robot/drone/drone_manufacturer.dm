@@ -32,6 +32,8 @@
 	. = ..()
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		enable_drone_spawn()
+	else
+		LAZYADD(SSatoms.late_misc_firers, src)
 
 /obj/machinery/drone_fabricator/Destroy()
 	. = ..()
