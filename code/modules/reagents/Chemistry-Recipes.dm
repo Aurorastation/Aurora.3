@@ -3725,10 +3725,10 @@
 	required_reagents = list(/datum/reagent/alcohol/ethanol/absinthe = 2, /datum/reagent/drink/limejuice = 2, /datum/reagent/radium = 1, /datum/reagent/drink/ice = 1)
 	result_amount = 6
 
-/datum/chemical_reaction/drink/jovianstorm
+/datum/chemical_reaction/drink/jovian_storm
 	name = "Jovian Storm"
-	id = "jovianstorm"
-	result = /datum/reagent/alcohol/ethanol/jovianstorm
+	id = "jovian_storm"
+	result = /datum/reagent/alcohol/ethanol/jovian_storm
 	required_reagents = list(/datum/reagent/alcohol/ethanol/rum = 2, /datum/reagent/drink/grenadine = 2, /datum/reagent/drink/lemonjuice = 1, /datum/reagent/drink/ice = 1)
 	result_amount = 6
 
