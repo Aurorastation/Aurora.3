@@ -68,7 +68,13 @@
 	return
 
 /obj/item/flamethrower/afterattack(atom/target, mob/user, proximity)
-	if(proximity) return
+	if(proximity)
+		return
+	if(!ptank)
+		return
+	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 10)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have enough fuel left to throw!"))
+		return
 	// Make sure our user is still holding us
 	if(user && user.get_active_hand() == src)
 		var/turf/target_turf = get_turf(target)
@@ -148,7 +154,10 @@
 			ptank = null
 			lit = FALSE
 		if("Light")
-			if(!ptank || !secured || ptank.air_contents.gas[GAS_PHORON] < 1)
+			if(!ptank || !secured)
+				return
+			if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
+				to_chat(user, SPAN_WARNING("\The [src] doesn't have any flammable fuel to light!"))
 				return
 			lit = !lit
 			to_chat(user, SPAN_NOTICE("You [lit ? "light" : "extinguish"] \the [src]."))
@@ -190,21 +199,19 @@
 
 
 /obj/item/flamethrower/proc/ignite_turf(turf/target)
-	//TODO: DEFERRED Consider checking to make sure tank pressure is high enough before doing this...
-	//Transfer 5% of current tank air contents to turf
-	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
-	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas[GAS_PHORON]*15,get_dir(loc,target))
-	air_transfer.gas[GAS_PHORON] = 0
+	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02 * (throw_amount / 100))
+	new /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target, air_transfer.get_by_flag(XGM_GAS_FUEL) * 15, get_dir(loc, target))
+	for(var/g in air_transfer.gas)
+		if(gas_data.flags[g] & XGM_GAS_FUEL)
+			air_transfer.gas[g] = 0
 	target.assume_air(air_transfer)
 	target.hotspot_expose((ptank.air_contents.temperature*2) + 400, 500)
-	return
 
-/obj/item/flamethrower/full/New(var/loc)
-	..()
+/obj/item/flamethrower/full/Initialize()
+	. = ..()
 	weldtool = new /obj/item/weldingtool(src)
-	weldtool.secured = 0
+	weldtool.status = FALSE
 	igniter = new /obj/item/device/assembly/igniter(src)
-	igniter.secured = 0
-	secured = 1
+	igniter.secured = FALSE
+	secured = TRUE
 	update_icon()
-	return
