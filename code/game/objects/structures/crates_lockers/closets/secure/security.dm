@@ -319,6 +319,7 @@
 		new /obj/item/clothing/head/softcap/security/corp(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/suit/security/officer(src)
+	new /obj/item/clothing/accessory/badge/officer(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
@@ -379,6 +380,7 @@
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/accessory/badge/dia(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/brown(src)
 	//Tools
@@ -408,6 +410,8 @@
 	new /obj/item/clothing/under/det/forensics(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/accessory/badge/dia(src)
+	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	//Tools

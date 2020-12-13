@@ -2307,12 +2307,8 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ajY" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = 5;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8, /obj/item/reagent_containers/food/snacks/donut/normal = 6);
-	random_itemcount = 0
+/obj/machinery/vending/coffee/free{
+	pixel_x = 5;random_itemcount = 0
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -2379,9 +2375,7 @@
 "akD" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,17";
-	name = "Skipjack"
+	icon_state = "17,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2396,36 +2390,28 @@
 "akH" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,17";
-	name = "Skipjack"
+	icon_state = "19,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "akJ" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,17";
-	name = "Skipjack"
+	icon_state = "9,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "akK" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "10,17";
-	name = "Skipjack"
+	icon_state = "10,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "akP" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,17";
-	name = "Skipjack"
+	icon_state = "12,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2497,9 +2483,7 @@
 /area/template_noop)
 "alk" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,16";
-	name = "Skipjack"
+	icon_state = "16,16"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2526,18 +2510,14 @@
 /area/shuttle/skipjack)
 "alp" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,16";
-	name = "Skipjack"
+	icon_state = "20,16"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "alq" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,16";
-	name = "Skipjack"
+	icon_state = "8,16"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2574,23 +2554,17 @@
 "alz" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,16";
-	name = "Skipjack"
+	icon_state = "13,16"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "alH" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,16";
-	name = "Skipjack"
+	icon_state = "16,16"
 	},
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "17,17";
-	name = "Skipjack";
 	outside_part = 0;
 	pixel_x = 32;
 	pixel_y = 32
@@ -2643,15 +2617,11 @@
 /area/shuttle/skipjack)
 "alM" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,16";
-	name = "Skipjack"
+	icon_state = "20,16"
 	},
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "19,17";
-	name = "Skipjack";
 	outside_part = 0;
 	pixel_x = -32;
 	pixel_y = 32
@@ -2742,9 +2712,7 @@
 /area/centcom/evac)
 "ams" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,15";
-	name = "Skipjack"
+	icon_state = "0,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2781,18 +2749,14 @@
 /area/shuttle/skipjack)
 "amI" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,15";
-	name = "Skipjack"
+	icon_state = "6,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "amN" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,15";
-	name = "Skipjack"
+	icon_state = "8,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2823,17 +2787,13 @@
 "amX" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,15";
-	name = "Skipjack"
+	icon_state = "13,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "ana" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,15";
-	name = "Skipjack"
+	icon_state = "15,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2866,9 +2826,7 @@
 /area/shuttle/skipjack)
 "anj" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,15";
-	name = "Skipjack"
+	icon_state = "21,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2882,9 +2840,7 @@
 /area/template_noop)
 "anl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,14";
-	name = "Skipjack"
+	icon_state = "0,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2945,17 +2901,13 @@
 /area/shuttle/skipjack)
 "anH" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,14";
-	name = "Skipjack"
+	icon_state = "6,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "anI" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,14";
-	name = "Skipjack"
+	icon_state = "8,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2996,17 +2948,13 @@
 /area/shuttle/skipjack)
 "anR" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,14";
-	name = "Skipjack"
+	icon_state = "13,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "anT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,14";
-	name = "Skipjack"
+	icon_state = "15,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3040,9 +2988,7 @@
 /area/shuttle/skipjack)
 "aoe" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,14";
-	name = "Skipjack"
+	icon_state = "21,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3059,9 +3005,7 @@
 /area/template_noop)
 "aog" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,13";
-	name = "Skipjack"
+	icon_state = "0,13"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3104,9 +3048,7 @@
 /area/shuttle/skipjack)
 "aoq" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,13";
-	name = "Skipjack"
+	icon_state = "6,13"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3157,9 +3099,7 @@
 /area/shuttle/skipjack)
 "aoC" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,13";
-	name = "Skipjack"
+	icon_state = "15,13"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3204,9 +3144,7 @@
 /area/shuttle/skipjack)
 "aoJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,13";
-	name = "Skipjack"
+	icon_state = "21,13"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3231,9 +3169,7 @@
 /area/template_noop)
 "aoU" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,12";
-	name = "Skipjack"
+	icon_state = "0,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3275,17 +3211,13 @@
 /area/shuttle/skipjack)
 "apv" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,12";
-	name = "Skipjack"
+	icon_state = "6,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "apw" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,12";
-	name = "Skipjack"
+	icon_state = "7,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3390,17 +3322,13 @@
 /area/shuttle/skipjack)
 "apJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,12";
-	name = "Skipjack"
+	icon_state = "14,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "apK" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,12";
-	name = "Skipjack"
+	icon_state = "15,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3455,17 +3383,13 @@
 /area/centcom/bar)
 "apX" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,12";
-	name = "Skipjack"
+	icon_state = "21,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aqb" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,11";
-	name = "Skipjack"
+	icon_state = "0,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3518,9 +3442,7 @@
 /area/shuttle/skipjack)
 "are" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,11";
-	name = "Skipjack"
+	icon_state = "6,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3531,9 +3453,7 @@
 /area/shuttle/mercenary)
 "arg" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,11";
-	name = "Skipjack"
+	icon_state = "7,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4335,9 +4255,7 @@
 /area/shuttle/skipjack)
 "aEu" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,11";
-	name = "Skipjack"
+	icon_state = "14,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4397,9 +4315,7 @@
 /area/beach)
 "aEG" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,11";
-	name = "Skipjack"
+	icon_state = "15,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4595,10 +4511,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
-"aFP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
 "aFQ" = (
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
@@ -4621,9 +4533,7 @@
 /area/shuttle/skipjack)
 "aFT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,11";
-	name = "Skipjack"
+	icon_state = "21,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4670,9 +4580,7 @@
 /area/template_noop)
 "aGf" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,10";
-	name = "Skipjack"
+	icon_state = "0,10"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4828,17 +4736,13 @@
 /area/shuttle/skipjack)
 "aGS" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,10";
-	name = "Skipjack"
+	icon_state = "21,10"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aGT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,9";
-	name = "Skipjack"
+	icon_state = "0,9"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4883,9 +4787,7 @@
 /area/shuttle/skipjack)
 "aGZ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "7,9";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
@@ -5011,9 +4913,7 @@
 /area/shuttle/escape)
 "aIh" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "14,9";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
@@ -5073,17 +4973,13 @@
 /area/shuttle/skipjack)
 "aIo" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,9";
-	name = "Skipjack"
+	icon_state = "21,9"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aIE" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,8";
-	name = "Skipjack"
+	icon_state = "0,8"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -5200,17 +5096,13 @@
 /area/shuttle/skipjack)
 "aIZ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,8";
-	name = "Skipjack"
+	icon_state = "21,8"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aJa" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,7";
-	name = "Skipjack"
+	icon_state = "0,7"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -5277,9 +5169,7 @@
 /area/centcom/spawning)
 "aJJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "7,7";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
@@ -5531,17 +5421,13 @@
 /area/shuttle/arrival)
 "aLl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,7";
-	name = "Skipjack"
+	icon_state = "21,7"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aLm" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,6";
-	name = "Skipjack"
+	icon_state = "0,6"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -5866,11 +5752,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -5952,17 +5835,13 @@
 /area/centcom/spawning)
 "aNN" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,6";
-	name = "Skipjack"
+	icon_state = "21,6"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aNO" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,5";
-	name = "Skipjack"
+	icon_state = "0,5"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -6703,17 +6582,13 @@
 /area/centcom/control)
 "aVr" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,5";
-	name = "Skipjack"
+	icon_state = "21,5"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aVs" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,4";
-	name = "Skipjack"
+	icon_state = "0,4"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -8059,9 +7934,7 @@
 /area/centcom/specops)
 "bvA" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,4";
-	name = "Skipjack"
+	icon_state = "21,4"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -8144,9 +8017,7 @@
 /area/antag/burglar)
 "bzb" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,3";
-	name = "Skipjack"
+	icon_state = "0,3"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -8281,9 +8152,7 @@
 /area/antag/mercenary)
 "bDi" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "2,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8832,9 +8701,7 @@
 /area/centcom/legion)
 "bWB" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "6,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8906,9 +8773,7 @@
 /area/shuttle/skipjack)
 "caA" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,3";
-	name = "Skipjack"
+	icon_state = "8,3"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -9377,9 +9242,7 @@
 /area/centcom/legion)
 "cpq" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,3";
-	name = "Skipjack"
+	icon_state = "13,3"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -9536,9 +9399,7 @@
 /area/centcom/legion/hangar5)
 "cvk" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "15,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/plating,
@@ -9681,9 +9542,7 @@
 /area/antag/raider)
 "cCD" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "19,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/plating,
@@ -9776,9 +9635,7 @@
 /area/shuttle/mercenary)
 "cEy" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,3";
-	name = "Skipjack"
+	icon_state = "21,3"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -9833,9 +9690,7 @@
 /area/centcom/spawning)
 "cHN" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,2";
-	name = "Skipjack"
+	icon_state = "0,2"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -10281,9 +10136,7 @@
 /area/centcom/checkpoint/fore)
 "cTS" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,2";
-	name = "Skipjack"
+	icon_state = "8,2"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -10922,9 +10775,7 @@
 /area/tdome/tdomeobserve)
 "dlj" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,2";
-	name = "Skipjack"
+	icon_state = "13,2"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11201,12 +11052,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "dyI" = (
-/obj/machinery/vending/assist{
-	contraband = null;
-	name = "Part vendor";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4);
-	random_itemcount = 0
-	},
+/obj/machinery/vending/assist/synd,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -11548,9 +11394,7 @@
 /area/tdome/tdomeobserve)
 "dJl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,2";
-	name = "Skipjack"
+	icon_state = "21,2"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11697,9 +11541,7 @@
 /area/centcom/holding)
 "dNJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,1";
-	name = "Skipjack"
+	icon_state = "0,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11728,9 +11570,7 @@
 /area/antag/mercenary)
 "dPL" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,1";
-	name = "Skipjack"
+	icon_state = "1,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11774,9 +11614,7 @@
 /area/centcom/holding)
 "dQg" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,1";
-	name = "Skipjack"
+	icon_state = "2,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11809,9 +11647,7 @@
 /area/tdome)
 "dSG" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,1";
-	name = "Skipjack"
+	icon_state = "3,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11824,10 +11660,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "dTj" = (
-/obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	name = "Skipjack"
-	},
+/obj/structure/shuttle_part/raider,
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "dTp" = (
@@ -11841,9 +11674,7 @@
 /area/centcom/distress_prep)
 "dUb" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,1";
-	name = "Skipjack"
+	icon_state = "5,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11933,17 +11764,13 @@
 /area/centcom/legion)
 "dVC" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,1";
-	name = "Skipjack"
+	icon_state = "6,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "dVV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,1";
-	name = "Skipjack"
+	icon_state = "7,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12017,9 +11844,7 @@
 /area/shuttle/administration)
 "dXe" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,1";
-	name = "Skipjack"
+	icon_state = "8,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12039,9 +11864,7 @@
 /area/centcom/specops)
 "dXk" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,1";
-	name = "Skipjack"
+	icon_state = "9,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12116,9 +11939,7 @@
 /area/centcom/legion/hangar5)
 "dYV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,1";
-	name = "Skipjack"
+	icon_state = "12,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12167,9 +11988,7 @@
 /area/shuttle/arrival)
 "eay" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,1";
-	name = "Skipjack"
+	icon_state = "13,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12487,9 +12306,7 @@
 /area/antag/raider)
 "ens" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,1";
-	name = "Skipjack"
+	icon_state = "14,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12566,9 +12383,7 @@
 /area/shuttle/escape)
 "eqw" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,1";
-	name = "Skipjack"
+	icon_state = "15,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12586,9 +12401,7 @@
 /area/shuttle/administration)
 "erT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,1";
-	name = "Skipjack"
+	icon_state = "16,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12619,9 +12432,7 @@
 /area/shuttle/transport1)
 "esM" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,1";
-	name = "Skipjack"
+	icon_state = "17,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12698,9 +12509,7 @@
 /area/centcom/legion)
 "etN" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "18,1";
-	name = "Skipjack"
+	icon_state = "18,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12715,9 +12524,7 @@
 /area/centcom/legion)
 "euo" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,1";
-	name = "Skipjack"
+	icon_state = "19,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12870,9 +12677,7 @@
 /area/antag/mercenary)
 "eAT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,1";
-	name = "Skipjack"
+	icon_state = "20,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12964,9 +12769,7 @@
 "eEC" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,1";
-	name = "Skipjack"
+	icon_state = "21,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13289,9 +13092,7 @@
 /area/centcom/control)
 "eNz" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,0";
-	name = "Skipjack"
+	icon_state = "1,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13315,9 +13116,7 @@
 /area/antag/burglar)
 "eOF" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,0";
-	name = "Skipjack"
+	icon_state = "2,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13328,9 +13127,7 @@
 /area/shuttle/mercenary)
 "eOP" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,0";
-	name = "Skipjack"
+	icon_state = "3,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13469,9 +13266,7 @@
 /area/centcom/ferry)
 "eTx" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "4,0";
-	name = "Skipjack"
+	icon_state = "4,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13554,11 +13349,8 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "eVL" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -13566,9 +13358,7 @@
 /area/centcom/evac)
 "eVV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,0";
-	name = "Skipjack"
+	icon_state = "5,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13607,9 +13397,7 @@
 /area/centcom/distress_prep)
 "eYM" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,0";
-	name = "Skipjack"
+	icon_state = "6,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13645,9 +13433,7 @@
 "eZI" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,0";
-	name = "Skipjack"
+	icon_state = "7,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13697,9 +13483,7 @@
 "fcf" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "10,0";
-	name = "Skipjack"
+	icon_state = "10,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13805,9 +13589,7 @@
 "feQ" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,0";
-	name = "Skipjack"
+	icon_state = "11,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13838,9 +13620,7 @@
 "ffx" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,0";
-	name = "Skipjack"
+	icon_state = "14,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13912,9 +13692,7 @@
 /area/centcom/spawning)
 "fiE" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,0";
-	name = "Skipjack"
+	icon_state = "15,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13987,17 +13765,13 @@
 /area/antag/raider)
 "flO" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,0";
-	name = "Skipjack"
+	icon_state = "16,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "fmz" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,0";
-	name = "Skipjack"
+	icon_state = "17,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -14134,9 +13908,7 @@
 /area/shuttle/syndicate_elite)
 "fqx" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "18,0";
-	name = "Skipjack"
+	icon_state = "18,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -14215,17 +13987,13 @@
 /area/centcom/control)
 "ftc" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,0";
-	name = "Skipjack"
+	icon_state = "19,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "ftu" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,0";
-	name = "Skipjack"
+	icon_state = "20,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -14654,12 +14422,7 @@
 /area/centcom/specops)
 "fGh" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/vending/boozeomat{
-	products = list(/obj/item/reagent_containers/food/drinks/drinkingglass = 12, /obj/item/reagent_containers/food/drinks/ice = 12, /obj/item/reagent_containers/food/drinks/bottle/whiskey = 6, /obj/item/reagent_containers/food/drinks/bottle/tequila = 6, /obj/item/reagent_containers/food/drinks/bottle/champagne = 2, /obj/item/reagent_containers/food/drinks/bottle/vodka = 6, /obj/item/reagent_containers/food/drinks/bottle/rum = 6, /obj/item/reagent_containers/food/drinks/bottle/wine = 6, /obj/item/reagent_containers/food/drinks/bottle/cognac = 6, /obj/item/reagent_containers/food/drinks/bottle/victorygin = 6, /obj/item/reagent_containers/food/drinks/bottle/boukha = 6, /obj/item/reagent_containers/food/drinks/bottle/small/beer = 12, /obj/item/reagent_containers/food/drinks/bottle/absinthe = 6, /obj/item/reagent_containers/food/drinks/bottle/brandy = 6, /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 6);
-	random_itemcount = 1;
-	req_access = list();
-	restock_items = 1
-	},
+/obj/machinery/vending/boozeomat/merchant,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "fGK" = (
@@ -15313,11 +15076,8 @@
 	},
 /area/antag/raider)
 "fYz" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -17909,12 +17669,8 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "hBo" = (
-/obj/machinery/vending/cigarette{
-	name = "Cigarette Machine";
+/obj/machinery/vending/cigarette/merchant{
 	pixel_x = 2;
-	premium = list();
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/box/fancy/cigarettes/cigar = 5, /obj/item/storage/box/fancy/cigarettes/acmeco = 5)
 	},
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
@@ -20744,11 +20500,8 @@
 	},
 /area/centcom/bar)
 "jvz" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = 2;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -30197,12 +29950,7 @@
 	name = "adjusted light fixture";
 	pixel_y = 16
 	},
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8, /obj/item/reagent_containers/food/snacks/donut/normal = 6);
-	random_itemcount = 0
-	},
+/obj/machinery/vending/coffee/free,
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -31133,11 +30881,8 @@
 	},
 /area/shuttle/specops)
 "pZr" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -31634,9 +31379,7 @@
 "qtg" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,17";
-	name = "Skipjack"
+	icon_state = "11,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -34317,11 +34060,8 @@
 	},
 /area/centcom/control)
 "ssN" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
+/obj/machinery/vending/coffee/free{
 	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -35221,10 +34961,6 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/mercenary)
-"tbV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/space,
-/area/centcom/spawning)
 "tbX" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
@@ -40717,11 +40453,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "wCK" = (
@@ -62724,7 +62456,7 @@ apw
 arg
 aGk
 aGZ
-aFP
+aIX
 aJJ
 aNe
 aOe
@@ -62981,9 +62713,9 @@ apx
 arw
 aGl
 aHi
-aFP
+aIX
 aJK
-aFP
+aIX
 aOo
 aXW
 caA
@@ -65291,10 +65023,10 @@ aIF
 kak
 aoE
 apN
-aFP
+aIX
 aFR
 aIk
-aFP
+aIX
 aKs
 aNz
 aPl
@@ -75758,7 +75490,7 @@ aMg
 aMz
 siZ
 aJH
-tbV
+aKZ
 kXP
 aOa
 uPQ
