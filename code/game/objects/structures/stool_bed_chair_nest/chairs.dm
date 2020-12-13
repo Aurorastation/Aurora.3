@@ -78,6 +78,7 @@
 /obj/structure/bed/chair/comfy
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
+	base_icon = "comfychair"
 	build_amt = 2
 
 /obj/structure/bed/chair/comfy/brown/New(var/newloc)
