@@ -292,12 +292,16 @@
 		adjust_fire_stacks(fire_stacks_to_add)
 
 	if(fire_stacks > 0 && !on_fire)
-		on_fire = 1
-		set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
+		set_on_fire()
 		update_fire()
 		return TRUE
 
 	return FALSE
+
+/mob/living/proc/set_on_fire()
+	to_chat(src, SPAN_DANGER(FONT_LARGE("You're set on fire!")))
+	on_fire = TRUE
+	set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
 
 /mob/living/proc/ExtinguishMob(var/fire_stacks_to_remove = 0)
 
@@ -305,12 +309,16 @@
 		adjust_fire_stacks(-fire_stacks_to_remove)
 
 	if(fire_stacks <= 0 && on_fire)
-		on_fire = 0
-		set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
+		extinguish_fire()
 		update_fire()
 		return TRUE
 
 	return FALSE
+
+/mob/living/proc/extinguish_fire()
+	to_chat(src, SPAN_GOOD(FONT_LARGE("You are no longer on fire.")))
+	on_fire = FALSE
+	set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
 
 /mob/living/proc/ExtinguishMobCompletely()
 	return ExtinguishMob(fire_stacks)

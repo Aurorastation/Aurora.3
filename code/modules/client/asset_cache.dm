@@ -289,6 +289,9 @@ var/list/asset_datums = list()
 	return out.Join("\n")
 
 /datum/asset/spritesheet/proc/Insert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE, icon/forced=FALSE)
+	if (sprites[sprite_name])
+		return
+
 	if(!forced)
 		I = icon(I, icon_state=icon_state, dir=dir, frame=frame, moving=moving)
 	else
@@ -297,9 +300,6 @@ var/list/asset_datums = list()
 		return
 	var/size_id = "[I.Width()]x[I.Height()]"
 	var/size = sizes[size_id]
-
-	if (sprites[sprite_name])
-		CRASH("duplicate sprite \"[sprite_name]\" in sheet [name] ([type])")
 
 	if (size)
 		var/position = size[SPRSZ_COUNT]++
@@ -482,117 +482,49 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/vending
 	name = "vending"
-	var/obj/machinery/vending/v_type = null
 	delayed = TRUE
 
-/datum/asset/spritesheet/vending/New()
-	if(ispath(v_type))
-		v_type = new v_type
-
-	if(istype(v_type) && v_type.name)
-		name = ckey(v_type.name)
-
-	. = ..()
-
 /datum/asset/spritesheet/vending/register()
-	if(!istype(v_type))
-		return
-	for(var/products in list(v_type?.products, v_type?.contraband, v_type?.premium))
-		for(var/o_path in products)
-			var/obj/O = new o_path
-			var/i_type = ckey("[O.type]")
-			var/icon/I = icon(O.icon, O.icon_state)
-			if(istype(O, /obj/item/seeds))
-				// thanks seeds for being overlays defined at runtime
-				var/obj/item/seeds/S = O
-				I = S.update_appearance(TRUE)
-				Insert(i_type, I, forced=I)
-			else
-				if(i_type in sprites)
-					continue
-				if(O.overlay_queued)
-					O.compile_overlays()
-				if(O.overlays.len)
-					I = getFlatIcon(O)
-					Insert(i_type, I, forced=I)
+	var/list/vending_products = list()
+	for(var/v_type in typesof(/obj/machinery/vending))
+		var/obj/machinery/vending/V = new v_type
+		for(var/list/p in list(V.products, V.contraband, V.premium))
+			for(var/k in p)
+				vending_products += k
+	for(var/path in vending_products)
+		var/obj/O = new path
+		var/icon_file = O.icon
+		var/icon_state = O.icon_state
+		var/icon/I
+		var/icon_states_list = icon_states(icon_file)
+		if(icon_state in icon_states_list)
+			I = icon(icon_file, icon_state, SOUTH)
+			var/c = O.color
+			if(!isnull(c) && c != "#FFFFFF")
+				I.Blend(c, ICON_MULTIPLY)
+		else
+			var/icon_states_string
+			for(var/s in icon_states_list)
+				if(!icon_states_string)
+					icon_states_string = "[json_encode(s)](\ref[s])"
 				else
-					Insert(i_type, O.icon, O.icon_state)
+					icon_states_string += ", [json_encode(s)](\ref[s])"
+			error("[O] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
+			I = icon('icons/turf/floors.dmi', "", SOUTH)
 
-	..()
+		var/imgid = ckey("[path]")
 
-// v_type needs to be the path to the vending machine
-
-/datum/asset/spritesheet/vending/vendors
-	v_type = /obj/machinery/vending/vendors
-
-/datum/asset/spritesheet/vending/boozeomat
-	v_type = /obj/machinery/vending/boozeomat
-
-/datum/asset/spritesheet/vending/assist
-	v_type = /obj/machinery/vending/assist
-
-/datum/asset/spritesheet/vending/coffee
-	v_type = /obj/machinery/vending/coffee
-
-/datum/asset/spritesheet/vending/snack
-	v_type = /obj/machinery/vending/snack
-
-/datum/asset/spritesheet/vending/cola
-	v_type = /obj/machinery/vending/cola
-
-/datum/asset/spritesheet/vending/cigarette
-	v_type = /obj/machinery/vending/cigarette
-
-/datum/asset/spritesheet/vending/medical
-	v_type = /obj/machinery/vending/medical
-
-/datum/asset/spritesheet/vending/phoronresearch
-	v_type = /obj/machinery/vending/phoronresearch
-
-/datum/asset/spritesheet/vending/wallmed1
-	v_type = /obj/machinery/vending/wallmed1
-
-/datum/asset/spritesheet/vending/wallmed2
-	v_type = /obj/machinery/vending/wallmed2
-
-/datum/asset/spritesheet/vending/security
-	v_type = /obj/machinery/vending/security
-
-/datum/asset/spritesheet/vending/hydronutrients
-	v_type = /obj/machinery/vending/hydronutrients
-
-/datum/asset/spritesheet/vending/hydroseeds
-	v_type = /obj/machinery/vending/hydroseeds
-
-/datum/asset/spritesheet/vending/magivend
-	v_type = /obj/machinery/vending/magivend
-
-/datum/asset/spritesheet/vending/dinnerware
-	v_type = /obj/machinery/vending/dinnerware
-
-/datum/asset/spritesheet/vending/sovietsoda
-	v_type = /obj/machinery/vending/sovietsoda
-
-/datum/asset/spritesheet/vending/tool
-	v_type = /obj/machinery/vending/tool
-
-/datum/asset/spritesheet/vending/engivend
-	v_type = /obj/machinery/vending/engivend
-
-/datum/asset/spritesheet/vending/tacticool
-	v_type = /obj/machinery/vending/tacticool
-
-/datum/asset/spritesheet/vending/tacticoolert
-	v_type = /obj/machinery/vending/tacticool/ert
-
-/datum/asset/spritesheet/vending/engineering
-	v_type = /obj/machinery/vending/engineering
-
-/datum/asset/spritesheet/vending/robotics
-	v_type = /obj/machinery/vending/robotics
-
-/datum/asset/spritesheet/vending/zora
-	v_type = /obj/machinery/vending/zora
-
-/datum/asset/spritesheet/vending/battlemonsters
-	v_type = /obj/machinery/vending/battlemonsters
+		if(istype(O, /obj/item/seeds))
+			// thanks seeds for being overlays defined at runtime
+			var/obj/item/seeds/S = O
+			I = S.update_appearance(TRUE)
+			Insert(imgid, I, forced=I)
+		else
+			if(O.overlay_queued)
+				O.compile_overlays()
+			if(O.overlays.len)
+				I = getFlatIcon(O) // forgive me for my performance sins
+				Insert(imgid, I, forced=I)
+			else
+				Insert(imgid, I)
+	return ..()
