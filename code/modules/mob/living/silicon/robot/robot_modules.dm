@@ -119,7 +119,7 @@ var/global/list/robot_modules = list(
 		else if(F.times_used)
 			F.times_used--
 
-	if(E?.reagents.total_volume < E.reagents.maximum_volume)
+	if(E.reagents && (REAGENTS_FREE_SPACE(E.reagents) > 0))
 		E.reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
 
 	if(!synths.len)
@@ -975,12 +975,19 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/mining_scanner(src)
 	modules += new /obj/item/device/gps/mining(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	modules += new /obj/item/rfd/mining(src)
+	modules += new /obj/item/tethering_device(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(20000)
 	synths += metal
+
 	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
 	rods.synths = list(metal)
 	modules += rods
+
+	var/obj/item/stack/flag/purple/borg/beacons = new /obj/item/stack/flag/purple/borg(src)
+	beacons.synths = list(metal)
+	modules += beacons
 
 	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	emag.name = "Mounted Plasma Cutter"

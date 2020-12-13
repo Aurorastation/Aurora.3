@@ -752,8 +752,16 @@
 				return
 
 		if(istype(M) && !M.incapacitated())
-			var/obj/item/gun/gun = mob.get_active_hand()
-			if(istype(gun) && gun.can_autofire())
-				M.set_dir(get_dir(M, over_object))
-				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
+			var/obj/item/I = M.get_active_hand()
+			if(istype(I, /obj/item/gun))
+				var/obj/item/gun/gun = I
+				if(gun.can_autofire())
+					M.set_dir(get_dir(M, over_object))
+					gun.Fire(get_turf(over_object), M, params, (get_dist(over_object, M) <= 1), FALSE)
+
+			if(istype(I, /obj/item/rfd/mining) && isturf(over_object))
+				var/proximity = M.Adjacent(over_object)
+				var/obj/item/rfd/mining/RFDM = I
+				RFDM.afterattack(over_object, M, proximity, params, FALSE)
+
 	CHECK_TICK
