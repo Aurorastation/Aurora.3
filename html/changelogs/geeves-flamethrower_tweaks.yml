@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Increased the size of flamethrowers, they no longer fit in your backpack."
+  - rscadd: "Made lit flamethrowers work as flame sources, which means they can now light cigarettes."
+  - rscadd: "Added more useful failure messages to make the operation of a flamethrower a bit easier."
+  - rscadd: "You can now light a flamethrower without an igniter, by lighting it with an external flame source."
