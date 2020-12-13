@@ -163,6 +163,12 @@
 		update()
 		return
 
+	else if (istype (I, /obj/item/material/ashtray) && user.a_intent != I_HURT)
+		var/obj/item/material/ashtray/A = I
+		if(A.emptyout(get_turf(src)))
+			user.visible_message("<b>[user]</b> pours [I] out into [src].", SPAN_NOTICE("You pour [I] out into [src]."))
+		return
+
 	else if (istype (I, /obj/item/device/lightreplacer))
 		var/count = 0
 		var/obj/item/device/lightreplacer/R = I
