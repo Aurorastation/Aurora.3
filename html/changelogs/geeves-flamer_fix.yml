@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Flamethrowers can no longer fire with empty fuel tanks."
-  - bugfix: "Flamethrowers now work with any flammable gas."
