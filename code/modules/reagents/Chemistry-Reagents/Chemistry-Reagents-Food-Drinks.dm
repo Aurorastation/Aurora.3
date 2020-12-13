@@ -3386,7 +3386,7 @@
 	strength = 30
 	taste_description = "creamy vodka and lime"
 
-	glass_icon_state = "solarianwhiteglass
+	glass_icon_state = "solarianwhiteglass"
 	glass_name = "glass of Solarian White"
 	glass_desc = "A classic Solarian cocktail. Despite the name, this is not a security officer."
 
@@ -3413,7 +3413,7 @@
 	strength = 65
 	taste_description = "strong earthy licorice"
 
-	glass_icon_state = "permanentrevolutionglass
+	glass_icon_state = "permanentrevolutionglass"
 	glass_name = "glass of Permanent Revolution"
 	glass_desc = "A Himean cocktail, so named for its tendency to make the room spin.  You have nothing to lose but your sobriety."
 
@@ -3426,7 +3426,7 @@
 	strength = 28
 	taste_description = "earthy, oily unity"
 
-	glass_icon_state = "internationaleglass
+	glass_icon_state = "internationaleglass"
 	glass_name = "glass of Internationale"
 	glass_desc = "The nearest thing the Orion Spur has to left unity. The subversive's choice."
 
