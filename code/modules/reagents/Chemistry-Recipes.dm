@@ -3701,13 +3701,13 @@
 	name = "Djinn Tea"
 	id = "djinntea"
 	result = /datum/reagent/alcohol/ethanol/djinntea
-	required_reagents = list(/datum/reagent/drink/dynjuice/cold = 2, /datum/reagent/alcohol/ethanol/gin = 1)
-	result_amount = 3
+	required_reagents = list(/datum/reagent/drink/dynjuice/cold = 1, /datum/reagent/alcohol/ethanol/gin = 1)
+	result_amount = 2
 
-/datum/chemical_reaction/drink/permanentrevolution
+/datum/chemical_reaction/drink/permanent_revolution
 	name = "Permanent Revolution"
-	id = "permanentrevolution"
-	result = /datum/reagent/alcohol/ethanol/permanentrevolution
+	id = "permanent_revolution"
+	result = /datum/reagent/alcohol/ethanol/permanent_revolution
 	required_reagents = list(/datum/reagent/alcohol/ethanol/absinthe = 1, /datum/reagent/alcohol/ethanol/vodka/mushroom = 1)
 	result_amount = 2
 
@@ -3718,10 +3718,10 @@
 	required_reagents = list(/datum/reagent/alcohol/ethanol/victorygin = 1, /datum/reagent/alcohol/ethanol/vodka/mushroom = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/dionamama
+/datum/chemical_reaction/drink/diona_mama
 	name = "Diona Mama"
-	id = "dionamama"
-	result = /datum/reagent/alcohol/ethanol/dionamama
+	id = "diona_mama"
+	result = /datum/reagent/alcohol/ethanol/diona_mama
 	required_reagents = list(/datum/reagent/alcohol/ethanol/absinthe = 2, /datum/reagent/drink/limejuice = 2, /datum/reagent/radium = 1, /datum/reagent/drink/ice = 1)
 	result_amount = 6
 
@@ -3729,7 +3729,7 @@
 	name = "Jovian Storm"
 	id = "jovianstorm"
 	result = /datum/reagent/alcohol/ethanol/jovianstorm
-	required_reagents = list(/datum/reagent/alcohol/ethanol/rum = 2, /datum/reagent/drink/grenadine = 2, /datum/reagent/drink/limejuice = 1, /datum/reagent/drink/ice = 1)
+	required_reagents = list(/datum/reagent/alcohol/ethanol/rum = 2, /datum/reagent/drink/grenadine = 2, /datum/reagent/drink/lemonjuice = 1, /datum/reagent/drink/ice = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/drink/primeminister
