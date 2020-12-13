@@ -2513,7 +2513,7 @@
 	glass_center_of_mass = list("x"=16, "y"=5)
 
 /datum/reagent/alcohol/ethanol/diona_mama
-	name = "Diona mama"
+	name = "Diona Mama"
 	description = "Lightly irradiated."
 	color = "#56A05D"
 	strength = 25
@@ -3411,7 +3411,7 @@
 	description = "You have nothing to lose but your sobriety."
 	color = "#A7AA60"
 	strength = 65
-	taste_description = "strong earthy licorice"
+	taste_description = "strong, earthy licorice"
 
 	glass_icon_state = "permanentrevolutionglass"
 	glass_name = "glass of Permanent Revolution"
