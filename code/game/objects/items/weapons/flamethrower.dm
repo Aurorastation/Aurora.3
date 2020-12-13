@@ -13,7 +13,7 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 1, TECH_PHORON = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
-	var/status = 0
+	var/secured = 0
 	var/throw_amount = 100
 	var/lit = FALSE	//on or off
 	var/operating = FALSE //cooldown
@@ -57,7 +57,7 @@
 /obj/item/flamethrower/update_icon()
 	cut_overlays()
 	if(igniter)
-		add_overlay("+igniter[status]")
+		add_overlay("+igniter[secured]")
 	if(ptank)
 		add_overlay("+ptank")
 	if(lit)
@@ -78,7 +78,7 @@
 
 /obj/item/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
-	if(W.iswrench() && !status)//Taking this apart
+	if(W.iswrench() && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(weldtool)
 			weldtool.forceMove(T)
@@ -94,8 +94,8 @@
 		return
 
 	if(W.isscrewdriver() && igniter && !lit)
-		status = !status
-		to_chat(user, "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>")
+		secured = !secured
+		to_chat(user, "<span class='notice'>[igniter] is now [secured ? "secured" : "unsecured"]!</span>")
 		update_icon()
 		return
 
@@ -148,7 +148,7 @@
 			ptank = null
 			lit = FALSE
 		if("Light")
-			if(!ptank || !status || ptank.air_contents.gas[GAS_PHORON] < 1)
+			if(!ptank || !secured || ptank.air_contents.gas[GAS_PHORON] < 1)
 				return
 			lit = !lit
 			to_chat(user, SPAN_NOTICE("You [lit ? "light" : "extinguish"] \the [src]."))
@@ -202,9 +202,9 @@
 /obj/item/flamethrower/full/New(var/loc)
 	..()
 	weldtool = new /obj/item/weldingtool(src)
-	weldtool.status = 0
+	weldtool.secured = 0
 	igniter = new /obj/item/device/assembly/igniter(src)
 	igniter.secured = 0
-	status = 1
+	secured = 1
 	update_icon()
 	return
