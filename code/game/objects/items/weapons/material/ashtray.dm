@@ -91,8 +91,7 @@
 	else
 		health = max(0,health - W.force)
 		user.visible_message(user, SPAN_DANGER("[user] hits [src] with [W]!"), SPAN_DANGER("You hit [src] with [W]."))
-		if(W.hitsound)
-			playsound(get_turf(src), W.hitsound, 50, 1, -1)
+		playsound(get_turf(src), material.hitsound, 25)
 		if (health < 1)
 			shatter()
 	return
