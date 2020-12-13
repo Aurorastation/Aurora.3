@@ -32,11 +32,9 @@
 
 	slowdown = 5
 
-/obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
-	. = ..()
+/obj/structure/bed/New(newloc, var/new_material = DEFAULT_WALL_MATERIAL, var/new_padding_material)
+	..(newloc)
 	color = null
-	if(!new_material)
-		new_material = DEFAULT_WALL_MATERIAL
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)

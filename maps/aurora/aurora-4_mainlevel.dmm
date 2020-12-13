@@ -63886,6 +63886,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
 "mya" = (
