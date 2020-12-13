@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Cargo Tugs and Janicarts now get a UI when you click on them."
+  - tweak: "Made interacting with the Pussywagon a bit nicer."
+  - rscadd: "Emagging a cargo tug or janicart now makes it move faster."
