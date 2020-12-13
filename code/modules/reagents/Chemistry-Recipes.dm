@@ -3680,7 +3680,7 @@
 	name = "Solarian White"
 	id = "solarian_white"
 	result = /datum/reagent/alcohol/ethanol/solarian_white
-	required_reagents = list(/datum/reagent/ethanol/vodka = 1, /datum/reagent/drink/milk/cream = 1, /datum/reagent/drink/limejuice =1)
+	required_reagents = list(/datum/reagent/alcohol/ethanol/vodka = 1, /datum/reagent/drink/milk/cream = 1, /datum/reagent/drink/limejuice =1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/solarian_marine
@@ -3743,7 +3743,7 @@
 	name = "Peace Treaty"
 	id = "peacetreaty"
 	result = /datum/reagent/alcohol/ethanol/peacetreaty
-	required_reagents = list(/datum/reagent/alcohol/ethanol/victorygin = 1, /datum/reagent/alcohol/ethanol/vodka/messa_mead = 1, /datum/reagent/drink/lemonjuice = 1)
+	required_reagents = list(/datum/reagent/alcohol/ethanol/victorygin = 1, /datum/reagent/alcohol/ethanol/messa_mead = 1, /datum/reagent/drink/lemonjuice = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/fiscream
@@ -3763,6 +3763,6 @@
 /datum/chemical_reaction/drink/fisfirebomb
 	name = "Fisanduhian Firebomb"
 	id = "fiscarbomb"
-	result = /datum/reagent/alcohol/ethanol/fiscarbomb
+	result = /datum/reagent/alcohol/ethanol/fisfirebomb
 	required_reagents = list(/datum/reagent/alcohol/ethanol/ale = 1, /datum/reagent/alcohol/ethanol/fiscream = 1)
 	result_amount = 2
