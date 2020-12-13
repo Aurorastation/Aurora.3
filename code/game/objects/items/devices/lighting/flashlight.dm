@@ -43,7 +43,8 @@
 		set_light(0)
 	if (ismob(src.loc))	//for reasons, this makes headlights work.
 		var/mob/M = src.loc
-		M.update_inv_ears()
+		M.update_inv_l_ear()
+		M.update_inv_r_ear()
 		M.update_inv_head()
 
 /obj/item/device/flashlight/attack_self(mob/user)

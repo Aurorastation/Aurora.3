@@ -41,7 +41,8 @@ There are several things that need to be remembered:
 		update_inv_r_hand()
 		update_inv_belt()
 		update_inv_wear_id()
-		update_inv_ears()
+		update_inv_l_ear()
+		update_inv_r_ear()
 		update_inv_s_store()
 		update_inv_pockets()
 		update_inv_back()
@@ -103,16 +104,17 @@ There are several things that need to be remembered:
 #define SUIT_STORE_LAYER 17
 #define BACK_LAYER       18
 #define HAIR_LAYER       19
-#define EARS_LAYER       20
-#define FACEMASK_LAYER   21
-#define HEAD_LAYER       22
-#define COLLAR_LAYER     23
-#define HANDCUFF_LAYER   24
-#define LEGCUFF_LAYER    25
-#define L_HAND_LAYER     26
-#define R_HAND_LAYER     27
-#define FIRE_LAYER       28		//If you're on fire
-#define TOTAL_LAYERS     28
+#define L_EAR_LAYER      20
+#define R_EAR_LAYER      21
+#define FACEMASK_LAYER   22
+#define HEAD_LAYER       23
+#define COLLAR_LAYER     24
+#define HANDCUFF_LAYER   25
+#define LEGCUFF_LAYER    26
+#define L_HAND_LAYER     27
+#define R_HAND_LAYER     28
+#define FIRE_LAYER       29		//If you're on fire
+#define TOTAL_LAYERS     29
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
@@ -465,7 +467,8 @@ There are several things that need to be remembered:
 	update_inv_wear_id(FALSE)
 	update_inv_gloves(FALSE)
 	update_inv_glasses(FALSE)
-	update_inv_ears(FALSE)
+	update_inv_l_ear(FALSE)
+	update_inv_r_ear(FALSE)
 	update_inv_shoes(FALSE)
 	update_inv_s_store(FALSE)
 	update_inv_wear_mask(FALSE)
@@ -675,16 +678,15 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_ears(var/update_icons=1)
+/mob/living/carbon/human/update_inv_l_ear(var/update_icons=1)
 	if(QDELING(src))
 		return
 
 	if(check_draw_ears())
-		var/image/result_layer = null
-		var/image/l_ear_result_layer = null
-		var/image/r_ear_result_layer = null
 		if(l_ear)
 			l_ear.screen_loc = ui_l_ear
+
+			var/image/result_layer = null
 
 			//Determine the icon to use
 			var/t_icon = INV_L_EAR_DEF_ICON
@@ -692,7 +694,7 @@ There are several things that need to be remembered:
 				l_ear.auto_adapt_species(src)
 				var/t_state = "[UNDERSCORE_OR_NULL(l_ear.icon_species_tag)][l_ear.item_state][WORN_LEAR]"
 
-				l_ear_result_layer = image(l_ear.icon_override || l_ear.icon, t_state)
+				result_layer = image(l_ear.icon_override || l_ear.icon, t_state)
 			else if(l_ear.icon_override)
 				t_icon = l_ear.icon_override
 			else if(l_ear.sprite_sheets && l_ear.sprite_sheets[GET_BODY_TYPE])
@@ -702,20 +704,32 @@ There are several things that need to be remembered:
 			else
 				t_icon = INV_L_EAR_DEF_ICON
 
-			if(!l_ear_result_layer) //Create the image
-				l_ear_result_layer = image(t_icon, l_ear.icon_state)
+			if(!result_layer) //Create the image
+				result_layer = image(t_icon, l_ear.icon_state)
 
 			if(l_ear.color)
-				l_ear_result_layer.color = l_ear.color
+				result_layer.color = l_ear.color
 
 			var/image/worn_overlays = l_ear.worn_overlays(t_icon)
 			if(worn_overlays)
-				l_ear_result_layer.overlays.Add(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
 
-			overlays_raw[EARS_LAYER] = l_ear_result_layer
+			overlays_raw[L_EAR_LAYER] = result_layer
+	else
+		overlays_raw[L_EAR_LAYER] = null
 
+	if(update_icons)
+		update_icon()
+
+/mob/living/carbon/human/update_inv_r_ear(var/update_icons=1)
+	if(QDELING(src))
+		return
+
+	if(check_draw_ears())
 		if(r_ear)
 			r_ear.screen_loc = ui_r_ear
+
+			var/image/result_layer = null
 
 			//Determine the icon to use
 			var/t_icon = INV_R_EAR_DEF_ICON
@@ -723,7 +737,7 @@ There are several things that need to be remembered:
 				r_ear.auto_adapt_species(src)
 				var/t_state = "[UNDERSCORE_OR_NULL(r_ear.icon_species_tag)][r_ear.item_state][WORN_REAR]"
 
-				r_ear_result_layer = image(r_ear.icon_override || r_ear.icon, t_state)
+				result_layer = image(r_ear.icon_override || r_ear.icon, t_state)
 			else if(r_ear.icon_override)
 				t_icon = r_ear.icon_override
 			else if(r_ear.sprite_sheets && r_ear.sprite_sheets[GET_BODY_TYPE])
@@ -733,20 +747,19 @@ There are several things that need to be remembered:
 			else
 				t_icon = INV_R_EAR_DEF_ICON
 
-			if(!r_ear_result_layer) //Create the image
-				r_ear_result_layer = image(t_icon, r_ear.icon_state)
+			if(!result_layer) //Create the image
+				result_layer = image(t_icon, r_ear.icon_state)
 
 			if(r_ear.color)
-				r_ear_result_layer.color = r_ear.color
+				result_layer.color = r_ear.color
 
 			var/image/worn_overlays = r_ear.worn_overlays(t_icon)
 			if(worn_overlays)
-				r_ear_result_layer.overlays.Add(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
 
-		if(!result_layer)
-			result_layer = list(l_ear_result_layer, r_ear_result_layer)
-
-		overlays_raw[EARS_LAYER] = result_layer
+			overlays_raw[R_EAR_LAYER] = result_layer
+	else
+		overlays_raw[R_EAR_LAYER] = null
 
 	if(update_icons)
 		update_icon()
@@ -1499,7 +1512,8 @@ There are several things that need to be remembered:
 #undef SUIT_STORE_LAYER
 #undef BACK_LAYER
 #undef HAIR_LAYER
-#undef EARS_LAYER
+#undef L_EAR_LAYER
+#undef R_EAR_LAYER
 #undef FACEMASK_LAYER
 #undef HEAD_LAYER
 #undef COLLAR_LAYER
