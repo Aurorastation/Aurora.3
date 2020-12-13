@@ -64,7 +64,7 @@
 
 /datum/gear/ears/antennae
 	display_name = "antennae"
-	path = /obj/item/clothing/head/antenna
+	path = /obj/item/clothing/ears/antenna
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
