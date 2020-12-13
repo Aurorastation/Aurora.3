@@ -3,4 +3,4 @@ author: Chevy
 delete-after: True
 
 changes: 
-  - rscadd: "Revamps the energy rifle sprites, including new wielded/back slot/suit slot sprites."
+  - rscadd: "New energy rifle sprites."
