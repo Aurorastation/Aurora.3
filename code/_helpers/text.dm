@@ -550,6 +550,7 @@
 	t = replacetext(t, "<HR>", "\[hr\]")
 	t = replacetext(t, "<ul>", "\[list\]")
 	t = replacetext(t, "</ul>", "\[/list\]")
+	t = replacetext(t, "<li>", "\[*\]")
 	t = replacetext(t, "<font size=\"4\">", "\[large\]")
 	t = replacetext(t, "</font>", "\[/large\]")
 	t = replacetext(t, "<font size = \"1\">", "\[small\]")
