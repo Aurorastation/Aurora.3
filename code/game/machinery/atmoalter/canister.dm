@@ -329,7 +329,7 @@ update_flag
 	..()
 
 	update_icon()
-	SSnanoui.update_uis(src) // Update all NanoUIs attached to src
+	SSvueui.check_uis_for_change(src) // Update all VueUIs attached to src
 
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
@@ -339,37 +339,36 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
 	return src.ui_interact(user)
 
-/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if (src.destroyed)
+/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user)
+	if(src.destroyed)
 		return
-
-	// this is the data which will be sent to the ui
-	var/data[0]
-	data["name"] = name
-	data["canLabel"] = can_label ? 1 : 0
-	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
-	data["releasePressure"] = round(release_pressure ? release_pressure : 0)
-	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
-	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
-	data["valveOpen"] = valve_open ? 1 : 0
-
-	data["hasHoldingTank"] = holding ? 1 : 0
-	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
-
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "canister.tmpl", "Canister", 480, 400)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
+		ui = new(user, src, "machinery-atmospherics-canister", 480, 400, "Canister", state = interactive_state)
 		// open the new ui window
 		ui.open()
 		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+		ui.auto_update_content = TRUE
+
+/obj/machinery/portable_atmospherics/canister/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = ..() || list()
+
+	// this is the data which will be sent to the ui
+	data["name"] = name
+	data["canLabel"] = can_label
+	data["portConnected"] = !!connected_port
+	data["tankPressure"] = round(air_contents.return_pressure() || 0)
+	data["releasePressure"] = round(release_pressure || 0)
+	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
+	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
+	data["valveOpen"] = valve_open
+
+	data["hasHoldingTank"] = !!holding
+	if (holding)
+		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
+	return data
 
 /obj/machinery/portable_atmospherics/canister/Topic(href, href_list)
 
@@ -379,19 +378,20 @@ update_flag
 		return 0
 
 	if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr)) // exploit protection -walter0o
-		usr << browse(null, "window=canister")
+		var/datum/vueui/ui = href_list["vueui"]
+		ui?.close()
 		onclose(usr, "canister")
 		return
 
 	if(href_list["toggle"])
 		if (valve_open)
 			if (holding)
-				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
+				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into [holding]<br>"
 			else
 				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the <span class='warning'><b>air</b></span><br>"
 		else
 			if (holding)
-				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the [holding]<br>"
+				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into [holding]<br>"
 			else
 				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the <span class='warning'><b>air</b></span><br>"
 				log_open()
@@ -401,18 +401,14 @@ update_flag
 		if(holding)
 			if (valve_open)
 				valve_open = 0
-				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
+				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into [holding]<br>"
 			if(istype(holding, /obj/item/tank))
 				holding.manipulated_by = usr.real_name
 			usr.put_in_hands(holding)
 			holding = null
 
-	if (href_list["pressure_adj"])
-		var/diff = text2num(href_list["pressure_adj"])
-		if(diff > 0)
-			release_pressure = min(10*ONE_ATMOSPHERE, release_pressure+diff)
-		else
-			release_pressure = max(ONE_ATMOSPHERE/10, release_pressure+diff)
+	if (href_list["pressure_set"])
+		release_pressure = between(ONE_ATMOSPHERE/10, text2num(href_list["pressure_set"]), 10*ONE_ATMOSPHERE)
 
 	if (href_list["relabel"])
 		if (can_label)
