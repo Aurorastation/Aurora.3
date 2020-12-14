@@ -979,18 +979,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
 
-/* NYET.
-/obj/item/toddler
-	icon_state = "toddler"
-	name = "toddler"
-	desc = "This baby looks almost real. Wait, did it just burp?"
-	force = 5
-	w_class = ITEMSIZE_LARGE
-	slot_flags = SLOT_BACK
-*/
-
 //This should really be somewhere else but I don't know where. w/e
-
 /obj/item/inflatable_duck
 	name = "inflatable duck"
 	desc = "No bother to sink or swim when you can just float!"
@@ -1001,7 +990,6 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
-
 /obj/item/toy/xmastree
 	name = "miniature Christmas tree"
 	desc = "Now with 99% less pine needles."
@@ -1011,3 +999,48 @@
 	throwforce = 1
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+
+
+//baystation desk toys
+
+/obj/item/toy/desk
+	var/on = 0
+	var/activation_sound = /decl/sound_category/switch_sound
+
+/obj/item/toy/desk/update_icon()
+	if(on)
+		icon_state = "[initial(icon_state)]-on"
+	else
+		icon_state = "[initial(icon_state)]"
+
+/obj/item/toy/desk/attack_self(mob/user)
+	activate(user)
+
+/obj/item/toy/desk/AltClick(mob/user)
+	activate(user)
+
+/obj/item/toy/desk/proc/activate(mob/user)
+	on = !on
+	playsound(src.loc, activation_sound, 75, 1)
+	update_icon()
+	return 1
+
+/obj/item/toy/desk/newtoncradle
+	name = "\improper Newton's cradle"
+	desc = "A ancient 21th century super-weapon model demonstrating that Sir Isaac Newton is the deadliest sonuvabitch in space."
+	icon_state = "newtoncradle"
+
+/obj/item/toy/desk/fan
+	name = "office fan"
+	desc = "Your greatest fan."
+	icon_state = "fan"
+
+/obj/item/toy/desk/officetoy
+	name = "office toy"
+	desc = "A generic microfusion powered office desk toy. Only generates magnetism and ennui."
+	icon_state = "desktoy"
+
+/obj/item/toy/desk/dippingbird
+	name = "dipping bird toy"
+	desc = "A ancient human bird idol, worshipped by clerks and desk jockeys."
+	icon_state = "dippybird"
