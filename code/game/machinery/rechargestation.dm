@@ -105,6 +105,14 @@
 		if(!isnull(H.internal_organs_by_name[BP_CELL]) && H.nutrition < H.max_nutrition)
 			H.adjustNutritionLoss(-10)
 			cell.use(7000/H.max_nutrition*10)
+		else if(istype(H.back, /obj/item/rig))
+			var/obj/item/rig/R = H.back
+			var/obj/item/cell/C = R.get_cell()
+			var/amount_used = C.give(charging_power * CELLRATE)
+			cell.use(amount_used)
+		else
+			to_chat(occupant, SPAN_WARNING("\The [src] fails to detect any cell on your person and ejects you."))
+			go_out()
 
 
 /obj/machinery/recharge_station/examine(mob/user)
@@ -220,12 +228,16 @@
 	if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
 		if(R.cell)
-			return 1
+			return TRUE
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(!isnull(H.internal_organs_by_name[BP_CELL]))
-			return 1
-	return 0
+			return TRUE
+		else if(istype(H.back, /obj/item/rig))
+			var/obj/item/rig/R = H.back
+			if(R.get_cell())
+				return TRUE
+	return FALSE
 
 /obj/machinery/recharge_station/proc/go_out()
 	if(!occupant)

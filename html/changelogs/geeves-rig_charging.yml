@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now climb into recharging stations to charge your RIG if you're wearing one on your back."
