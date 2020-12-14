@@ -47,7 +47,7 @@
 export default {
 	data() {
 		return this.$root.$data.state;
-  }
+  },
 	methods: {
     s(parameters) {
       Utils.sendToTopic(parameters);
