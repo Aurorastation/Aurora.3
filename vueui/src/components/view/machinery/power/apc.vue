@@ -2,14 +2,14 @@
   <div>
     <div v-if="failTime" class="notice"> <!-- Failure - Disabled -->
       <h3 class="fw-bold">SYSTEM FAILURE</h3>
-      <span class="fst-italic">I/O regulator malfuction detected! Waiting for system reboot...</span><br/>
+      <span class="fst-italic">I/O regulator malfuction detected! Waiting for system reboot...</span><br>
       Automatic reboot in {{failTime}} seconds...
       <vui-button icon="refresh" :params="{reboot : 1}">Reboot Now</vui-button>
     </div>
     <div v-else> <!-- Main -->
       <div class="notice"> <!-- Lock -->
         <div v-if="siliconUser">
-          <vui-item label="Interface Lock:">
+          <vui-item balance="0.69" label="Interface Lock:">
             <vui-button icon="locked" :params="{toggleaccess : 1}" :class="{selected : locked}">Engaged</vui-button>
             <vui-button icon="unlocked" :params="{toggleaccess : 1}" :disabled="malfstatus >= 2" :class="{selected : (malfstatus < 2) && !locked}">Disengaged</vui-button>
           </vui-item>
@@ -19,7 +19,7 @@
 
       <div style="min-width: 480px"> <!-- Body -->
         <h3>Power Status</h3>
-        <vui-item label="Main Breaker:">
+        <vui-item balance="0.69" label="Main Breaker:">
           <div v-if="locked && !siliconUser">
             <span :class="{good : isOperating, bad : !isOperating}">{{isOperating ? 'On' : 'Off'}}</span>
           </div>
@@ -29,13 +29,13 @@
           </div>
         </vui-item>
 
-        <vui-item label="External Power:">
+        <vui-item balance="0.69" label="External Power:">
           <span v-if="externalPower == 2" class="good">Good</span>
           <span v-else-if="externalPower == 1" class="average">Low</span>
           <span v-else class="bad">None</span>
         </vui-item>
 
-        <vui-item label="Power Cell">
+        <vui-item balance="0.69" label="Power Cell">
           <span v-if="powerCellStatus == null" class="bad">Power cell removed.</span>
           <div v-else>
             <vui-progress :value="powerCellStatus" :min="0" :max="100" :class="[(powerCellStatus >= 50) ? good : (powerCellStatus >= 25) ? average : bad]"/>
@@ -45,7 +45,7 @@
           </div>
         </vui-item>
 
-        <vui-item label="Power Cell charge status:">
+        <vui-item balance="0.69" label="Power Cell charge status:">
           <div class="statusValue">
             <span v-if="charge_mode == 1">APC's power cell will be fully charged in {{time}}</span>
             <span v-else-if="charge_mode == 2">APC consumption and production are equal</span>
@@ -53,7 +53,7 @@
           </div>
         </vui-item>
 
-        <vui-item label="Charge Mode:" v-if="powerCellStatus != null">
+        <vui-item balance="0.69" label="Charge Mode:" v-if="powerCellStatus != null">
           <span v-if="locked && !siliconUser" :class="{good : chargeMode, bad : !chargeMode}">{{chargeMode ? "Auto" : "Off"}}</span>
           <vui-button v-else :icon="chargeMode ? refresh : close" :params="{cmode : 1}">{{chargeMode ? 'Auto' : 'Off'}}</vui-button>
           &nbsp;
@@ -61,13 +61,13 @@
           <span v-else-if="chargingStatus == 1">Charging</span>
           <span v-else>Not Charging<span/></span></vui-item>
 
-        <vui-item label="Night Lighting:">
+        <vui-item balance="0.69" label="Night Lighting:">
           <vui-button :icon="lightingMode ? night : close" :params="{lmode : lightingMode ? 'on' : 'off'}">
             {{lightingMode ? 'On' : 'Off'}}
           </vui-button>
         </vui-item>
 
-        <vui-item label="Emergency Lighting:">
+        <vui-item balance="0.69" label="Emergency Lighting:">
           <div style="width: 105px">
             <span v-if="locked && !siliconUser">{{emergencyMode ? "On" : "Off"}}</span>
             <vui-button v-else icon="lightbulb" :params="{emergency_lights : emergencyMode ? 'on' : 'off'}">{{emergencyMode ? 'On' : 'Off'}}</vui-button>
@@ -75,7 +75,7 @@
         </vui-item>
 
         <h3>Power Channels</h3>
-        <vui-item v-for="channel in powerChannels" :key="channel.title" :label="channel.title">
+        <vui-item balance="0.69" v-for="channel in powerChannels" :key="channel.title" :label="channel.title">
           <div style="width: 70px; text-align: right">
             {{channel.powerLoad}}&nbsp;W
           </div>
@@ -83,14 +83,14 @@
             &nbsp;&nbsp;
             <span v-if="channel.status <= 1" class="bad">Off</span>
             <span v-else class="good">On</span>
-            <div v-if="locked">
+            <span v-if="locked">
               <span v-if="channel.status == 1 || channel.status == 3">
                 &nbsp;&nbsp;Auto
               </span>
               <span v-else>
                 &nbsp;&nbsp;Manual
               </span>
-            </div>
+            </span>
           </div>
           <div v-if="!locked || siliconUser">
             <vui-button icon="refresh" :params="channel.topicParams.auto" :class="{selected : value.status == 1 || value.status == 3}">Auto</vui-button>
@@ -99,13 +99,13 @@
           </div>
         </vui-item>
 
-        <vui-item label="Total Load:">
+        <vui-item balance="0.69" label="Total Load:">
           {{totalLoad}}W{{totalCharging ? ` (+ ${totalCharging}W Charging)` : null}}
         </vui-item>
 
-        <vui-item>&nbsp;</vui-item>
+        <vui-item balance="0.69">&nbsp;</vui-item>
 
-        <vui-item label="Cover Lock">
+        <vui-item balance="0.69" label="Cover Lock">
           <div v-if="locked && !siliconUser">
             <span :class="{good : coverLocked, bad : !coverLocked}" v-if="coverLocked">{{coverLocked ? 'Engaged' : 'Disengaged'}}</span>
           </div>
@@ -130,7 +130,7 @@
 <script>
 export default {
   data() {
-    return this.$root.$state; // Make data more easily accessible
+    return this.$root.$data.state; // Make data more easily accessible
   }
 }
 </script>

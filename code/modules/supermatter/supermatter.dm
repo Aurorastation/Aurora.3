@@ -352,7 +352,7 @@
 	Consume(user)
 
 // This is purely informational UI that may be accessed by AIs or robots
-/obj/machinery/power/supermatter/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/power/supermatter/ui_interact(mob/user)
 	var/data[0]
 
 	data["integrity_percentage"] = round(get_integrity())
@@ -368,12 +368,11 @@
 		data["ambient_pressure"] = round(env.return_pressure())
 	data["detonating"] = grav_pulling
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, ui_key, "supermatter_crystal.tmpl", "Supermatter Crystal", 500, 300)
-		ui.set_initial_data(data)
+		ui = new(user, src, "machinery-power-supermatter_crystal", 500, 300, "Supermatter Crystal", state = interactive_state)
+		ui.auto_update_content = TRUE
 		ui.open()
-		ui.set_auto_update(1)
 
 
 /*
