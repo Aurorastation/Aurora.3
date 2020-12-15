@@ -851,7 +851,7 @@
 /obj/item/toy/partypopper/attack_self(mob/user)
 	if(icon_state == "partypopper")
 		spark(src, 1, user.dir)
-		visible_message(SPAN_NOTICE("You pull on the string, releasing a burst of confetti!"), SPAN_NOTICE("[user] pulls on the string, releasing a burst of confetti!"))
+		user.visible_message(SPAN_NOTICE("[user] pulls on the string, releasing a burst of confetti!"), SPAN_NOTICE("You pull on the string, releasing a burst of confetti!"))
 		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 		icon_state = "partypopper_e"
 		var/turf/T = get_step(src, user.dir)

@@ -151,5 +151,5 @@
 
 /obj/effect/decal/cleanable/confetti/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You start to meticulously pick up the confetti."))
-	if(do_after(60))
+	if(do_after(user, 60))
 		qdel(src)
