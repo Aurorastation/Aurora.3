@@ -27,39 +27,18 @@
 	desc = "Taller synthleather boots with an artificial shine."
 	icon_state = "kneeboots"
 	item_state = "kneeboots"
-	var/footstep = 1
 
 /obj/item/clothing/shoes/jackboots/knee/handle_movement(var/turf/walking, var/running)
-	if(!running)
-		if(footstep >= 2)
-			footstep = 0
-		else
-			footstep++
-	else
-		if(prob(25))
-			if(ismob(usr))
-				var/mob/M = usr
-				M.Weaken(2)
+	trip_up()
 
 /obj/item/clothing/shoes/jackboots/thigh
 	name = "thigh-length black boots"
 	desc = "Even taller synthleather boots with an artificial shine."
 	icon_state = "thighboots"
 	item_state = "thighboots"
-	var/footstep = 1
 
 /obj/item/clothing/shoes/jackboots/thigh/handle_movement(var/turf/walking, var/running)
-	if(!running)
-		if(footstep >= 2)
-			footstep = 0
-		else
-			footstep++
-	else
-		if(prob(25))
-			if(ismob(usr))
-				var/mob/M = usr
-				M.Weaken(2)
-
+	trip_up()
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less black boots"
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."

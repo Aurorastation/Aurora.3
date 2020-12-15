@@ -79,7 +79,6 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "clown"
 	item_state = "clown_shoes"
 	slowdown = 1
-	var/footstep = 1	//used for squeeks whilst walking
 	species_restricted = null
 
 /obj/item/clothing/shoes/clown_shoes/handle_movement(var/turf/walking, var/running)
@@ -185,7 +184,6 @@ obj/item/clothing/shoes/sandal/clogs
 	slowdown = 0
 	force = 2
 	sharp = TRUE
-	var/footstep = 1
 
 /obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
@@ -197,16 +195,7 @@ obj/item/clothing/shoes/sandal/clogs
 	return eyestab(M,user)
 
 /obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
-	if(!running)
-		if(footstep >= 2)
-			footstep = 0
-		else
-			footstep++
-	else
-		if(prob(25))
-			if(ismob(usr))
-				var/mob/M = usr
-				M.Weaken(2)
+	trip_up()
 
 /obj/item/clothing/shoes/winter
 	name = "winter boots"

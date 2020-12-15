@@ -667,6 +667,7 @@
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 	var/can_hold_knife
+	var/footstep = 1
 	var/obj/item/holding
 
 	var/shoes_under_pants = 0
@@ -749,6 +750,18 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_shoes()
+
+/obj/item/clothing/shoes/proc/trip()
+	if(!running)
+		if(footstep >= 2)
+			footstep = 0
+		else
+			footstep++
+	else
+		if(prob(25))
+			if(ismob(usr))
+				var/mob/M = usr
+				M.Weaken(2)
 
 ///////////////////////////////////////////////////////////////////////
 //Suit
