@@ -20,7 +20,7 @@
 
 	if(monitored_alarm_ids)
 		for(var/obj/machinery/alarm/alarm in SSmachinery.processing_machines)
-			if(alarm.alarm_id && alarm.alarm_id in monitored_alarm_ids)
+			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids))
 				monitored_alarms += alarm
 		// machines may not yet be ordered at this point
 		sortTim(monitored_alarms, /proc/cmp_alarm, FALSE)

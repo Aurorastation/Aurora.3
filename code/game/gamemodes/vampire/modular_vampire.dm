@@ -47,6 +47,7 @@ var/list/datum/power/vampire/vampirepowers = list()
 /datum/power/vampire/touch_of_life
 	name = "Touch of Life"
 	desc = "You touch the target, transferring healing chemicals to them."
+	helptext = "Mechanically, the chemicals transferred is a bit of rezadone, and a tiny amount of oxycomorphine."
 	blood_cost = 50
 	verbpath = /mob/living/carbon/human/proc/vampire_touch_of_life
 
@@ -57,15 +58,9 @@ var/list/datum/power/vampire/vampirepowers = list()
 	blood_cost = 100
 	verbpath = /mob/living/carbon/human/proc/vampire_veilstep
 
-/datum/power/vampire/diseased_touch
-	name = "Diseased Touch"
-	desc = "Infect a victim with corruption from the Veil, causing their organs to fail in a short amount of time."
-	blood_cost = 200
-	verbpath = /mob/living/carbon/human/proc/vampire_diseasedtouch
-
 /datum/power/vampire/bats
 	name = "Summon Bats"
-	desc = "Tear open the Veil for a moment, and summon forth familiars to assist you in abttle."
+	desc = "Tear open the Veil for a moment, and summon forth bat familiars to assist you in battle."
 	blood_cost = 200
 	verbpath = /mob/living/carbon/human/proc/vampire_bats
 

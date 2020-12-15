@@ -61,10 +61,10 @@
 
 	if(!input)
 		dat += text("input connection status: ")
-		dat += text("<b><font color='red'>NOT CONNECTED</font></b><br>")
+		dat += text("<b><span class='warning'>NOT CONNECTED</span></b><br>")
 	if(!output)
 		dat += text("<br>output connection status: ")
-		dat += text("<b><font color='red'>NOT CONNECTED</font></b><br>")
+		dat += text("<b><span class='warning'>NOT CONNECTED</span></b><br>")
 
 	dat += text("<br><font color='#ffcc00'><b>Gold inserted: </b>[amt_gold]</font> ")
 	if(chosen == "gold")

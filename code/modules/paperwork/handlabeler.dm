@@ -29,6 +29,10 @@
 /obj/item/hand_labeler
 	name = "hand labeler"
 	icon = 'icons/obj/bureaucracy.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		)
 	icon_state = "labeler0"
 	var/label = null
 	var/labels_left = 30
@@ -45,6 +49,8 @@
 		return
 	if(A == loc)	// if placing the labeller into something (e.g. backpack)
 		return		// don't set a label
+	if(loc != user)
+		return
 
 	if(!labels_left)
 		to_chat(user, "<span class='notice'>No labels left.</span>")
@@ -65,7 +71,7 @@
 		to_chat(user, "<span class='notice'>[src] passes through [A.name].</span>")
 		return
 	if(istype(A, /obj/item/reagent_containers/glass))
-		to_chat(user, "<span class='notice'>The label can't stick to the [A.name].  (Try using a pen)</span>")
+		to_chat(user, "<span class='notice'>The label can't stick to the [A.name]. (Try using a pen!)</span>")
 		return
 	if(istype(A, /obj/machinery/portable_atmospherics/hydroponics))
 		var/obj/machinery/portable_atmospherics/hydroponics/tray = A
@@ -76,8 +82,8 @@
 		spawn(1)
 			tray.update_icon()
 
-	user.visible_message("<span class='notice'>[user] labels [A] as [label].</span>", \
-						 "<span class='notice'>You label [A] as [label].</span>")
+	user.visible_message("<b>[user]</b> labels [A] as <i>[label]</i>.", \
+						 "<span class='notice'>You label [A] as <i>[label]</i>.</span>")
 
 	// Prevent label stacking from making name unrecoverable.
 	if (!A.name_unlabel)

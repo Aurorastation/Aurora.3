@@ -6,9 +6,10 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
+	description_cult = "This can be reforged to become a cult backpack. Any stored items will be transferred."
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi'
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_backpacks.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_backpacks.dmi'
 		)
 	icon_state = "backpack"
 	item_state = null
@@ -17,17 +18,17 @@
 		slot_l_hand_str = "backpack",
 		slot_r_hand_str = "backpack"
 		)
-
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 28
-	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 
-/obj/item/storage/backpack/mob_can_equip(M as mob, slot)
+/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
@@ -54,11 +55,6 @@
 				return 0
 	return 1
 
-/obj/item/storage/backpack/equipped(var/mob/user, var/slot)
-	if (slot == slot_back && src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..(user, slot)
-
 /*
 /obj/item/storage/backpack/dropped(mob/user as mob)
 	if (loc == user && src.use_sound)
@@ -75,7 +71,7 @@
 	desc = "A backpack that opens into a localized pocket of Blue Space."
 	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
-	max_w_class = 4
+	max_w_class = ITEMSIZE_LARGE
 	max_storage_space = 56
 	storage_cost = 29
 	item_state_slots = list(
@@ -102,7 +98,7 @@
 	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
 	icon_state = "giftbag0"
 	item_state = "giftbag"
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	max_storage_space = 400 // can store a ton of shit!
 	item_state_slots = null
 	empty_delay = 1 SECOND
@@ -110,6 +106,7 @@
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
+	description_cult = null
 	icon_state = "cultpack"
 
 /obj/item/storage/backpack/cultpack/adorned
@@ -178,7 +175,7 @@
 	desc = "It's a Vaurca cloak, with paltry storage options."
 	icon_state = "cape"
 	max_storage_space = 12
-	sprite_sheets = list("Vaurca" = 'icons/mob/species/vaurca/back.dmi')
+	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/storage/backpack/syndie
 	name = "syndicate rucksack"
@@ -510,9 +507,9 @@
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings"
 	item_state = "wings"
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
 	canremove = 0
-	species_restricted = list("Vaurca Breeder")
-	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/back.dmi')
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')

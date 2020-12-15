@@ -4,46 +4,107 @@
 	icon_state = "mecha_clamp"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
-	var/obj/carrying
+	w_class = ITEMSIZE_HUGE
+	var/carrying_capacity = 5
+	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	var/list/afterattack_types = list(/obj/structure/closet, /obj/machinery/door/airlock)
 
 /obj/item/mecha_equipment/clamp/resolve_attackby(atom/A, mob/user, click_params)
-	if(istype(A, /obj/structure/closet) && owner)
-		return 0
+	if(is_type_in_list(A, afterattack_types) && owner)
+		return FALSE
 	return ..()
 
 /obj/item/mecha_equipment/clamp/attack_hand(mob/user)
 	if(owner && LAZYISIN(owner.pilots, user))
-		if(!owner.hatch_closed && carrying)
-			if(user.put_in_active_hand(carrying))
-				owner.visible_message("<span class='notice'>\The [user] carefully grabs \the [carrying] from \the [src].</span>")
-				carrying = null
+		if(!owner.hatch_closed && length(carrying))
+			var/obj/chosen_obj = input(user, "Choose an object to grab.", "Clamp Claw") as null|anything in carrying
+			if(!chosen_obj)
+				return
+			if(user.put_in_active_hand(chosen_obj))
+				owner.visible_message(SPAN_NOTICE("\The [user] carefully grabs \the [chosen_obj] from \the [src]."))
+				carrying -= chosen_obj
 	. = ..()
 
 /obj/item/mecha_equipment/clamp/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 
-	if(. && !carrying)
+	if(.)
+		if(istype(target, /obj/machinery/door/firedoor))
+			var/obj/machinery/door/firedoor/FD = target
+			if(FD.blocked)
+				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
+				if(do_after(owner, 10 SECONDS) && FD.blocked)
+					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
+					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+					FD.blocked = FALSE
+					INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
+			else
+				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
+				if(do_after(owner, 4 SECONDS) && !FD.blocked)
+					if(FD.density)
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
+						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					else
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"))
+						playsound(FD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/close)
+			return
+		else if(istype(target, /obj/machinery/door/airlock))
+			if(istype(target, /obj/machinery/door/airlock/centcom))
+				to_chat(user, SPAN_WARNING("You can't force these airlocks!"))
+				return
+			var/obj/machinery/door/airlock/AD = target
+			if(!AD.operating)
+				if(AD.welded || AD.locked)
+					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"))
+					var/time_to_open = 15 SECONDS
+					if(AD.welded && AD.locked)
+						time_to_open = 30 SECONDS
+					if(do_after(owner, time_to_open))
+						AD.welded = FALSE
+						AD.locked = FALSE
+						AD.update_icon()
+						playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1)
+						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
+						INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+				else
+					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
+					if(do_after(owner, 5 SECONDS) && !(AD.operating || AD.welded || AD.locked))
+						if(AD.density)
+							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
+						else
+							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/close)
+							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
+			return
+
+		if(length(carrying) >= carrying_capacity)
+			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
+			return
 		if(istype(target, /obj))
-
-
 			var/obj/O = target
 			if(O.buckled_mob)
 				return
 			if(locate(/mob/living) in O)
-				to_chat(user,"<span class='warning'>You can't load living things into the cargo compartment.</span>")
+				to_chat(user, SPAN_WARNING("You can't load living things into the cargo compartment."))
 				return
 
 			if(O.anchored)
-				to_chat(user, "<span class='warning'>[target] is firmly secured.</span>")
+				to_chat(user, SPAN_WARNING("\The [target] is firmly secured."))
 				return
 
 
-			owner.visible_message("<span class='notice'>\The [owner] begins loading \the [O].</span>")
+			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."))
 			if(do_after(owner, 20, O, 0, 1))
 				O.forceMove(src)
-				carrying = O
-				owner.visible_message("<span class='notice'>\The [owner] loads \the [O] into its cargo compartment.</span>")
+				carrying += O
+				owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."))
 
 				//attacking - Cannot be carrying something, cause then your clamp would be full
 		else if(istype(target,/mob/living))
@@ -52,36 +113,58 @@
 				admin_attack_log(user, M, "attempted to clamp [M] with [src] ", "Was subject to a clamping attempt.", ", using \a [src], attempted to clamp")
 				owner.setClickCooldown(owner.arms ? owner.arms.action_delay * 3 : 30) //This is an inefficient use of your powers
 				if(prob(33))
-					owner.visible_message("<span class='danger'>[owner] swings its [src] in a wide arc at [target] but misses completely!</span>")
+					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
 					return
 				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage * 1.5 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
 				M.throw_at(get_edge_target_turf(owner ,owner.dir),5, 2)
-				to_chat(user, "<span class='warning'>You slam [target] with [src.name].</span>")
-				owner.visible_message("<span class='danger'>[owner] slams [target] with the hydraulic clamp.</span>")
+				to_chat(user, SPAN_WARNING("You slam [target] with [src.name]."))
+				owner.visible_message(SPAN_DANGER("[owner] slams [target] with the hydraulic clamp."))
 			else
 				step_away(M, owner)
-				to_chat(user, "You push [target] out of the way.")
-				owner.visible_message("[owner] pushes [target] out of the way.")
+				to_chat(user, SPAN_NOTICE("You push [target] out of the way."))
+				owner.visible_message(SPAN_NOTICE("[owner] pushes [target] out of the way."))
 
 /obj/item/mecha_equipment/clamp/attack_self(var/mob/user)
 	. = ..()
 	if(.)
-		if(!carrying)
-			to_chat(user, "<span class='warning'>You are not carrying anything in \the [src].</span>")
-		else
-			owner.visible_message("<span class='notice'>\The [owner] unloads \the [carrying].</span>")
-			carrying.forceMove(get_turf(src))
-			carrying = null
+		drop_carrying(user, TRUE)
+
+/obj/item/mecha_equipment/clamp/CtrlClick(mob/user)
+	if(owner)
+		drop_carrying(user, FALSE)
+	else
+		..()
+
+/obj/item/mecha_equipment/clamp/proc/drop_carrying(var/mob/user, var/choose_object)
+	if(!length(carrying))
+		to_chat(user, SPAN_WARNING("You are not carrying anything in \the [src]."))
+		return
+	var/obj/chosen_obj = carrying[1]
+	if(choose_object)
+		chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
+	if(!chosen_obj)
+		return
+	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))
+	chosen_obj.forceMove(get_turf(src))
+	carrying -= chosen_obj
+
+/obj/item/mecha_equipment/clamp/get_hardpoint_status_value()
+	if(length(carrying))
+		return length(carrying)/carrying_capacity
+	return null
 
 /obj/item/mecha_equipment/clamp/get_hardpoint_maptext()
-	if(carrying)
-		return carrying.name
+	if(length(carrying) == 1)
+		return capitalize_first_letters(carrying[1].name)
+	else if(length(carrying) > 1)
+		return "Multiple Objects"
 	. = ..()
 
 /obj/item/mecha_equipment/clamp/uninstalled()
-	if(carrying)
-		carrying.dropInto(loc)
-		carrying = null
+	if(length(carrying))
+		for(var/obj/load in carrying)
+			load.dropInto(get_turf(src))
+			carrying -= load
 	. = ..()
 
 /obj/item/weldingtool/get_hardpoint_status_value()
@@ -107,9 +190,8 @@
 	name = "floodlight"
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
-	item_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_INTERMEDIATE_LAYER
+	mech_layer = MECH_DECAL_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
@@ -137,6 +219,7 @@
 	on = FALSE
 	update_icon()
 	. = ..()
+
 #define CATAPULT_SINGLE 1
 #define CATAPULT_AREA   2
 
@@ -230,7 +313,7 @@
 	if(percentage > 95)
 		descriptor = "shows no wear"
 
-	to_chat(user, span("notice", "It [descriptor]."))
+	to_chat(user, SPAN_NOTICE("It [descriptor]."))
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -252,8 +335,8 @@
 	. = ..()
 	if(.)
 		if(drill_head)
-			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menancingly.</span>")
-			playsound(src, 'sound/mecha/mechdrill.ogg', 50, 1)
+			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menacingly.</span>")
+			playsound(get_turf(src), 'sound/mecha/mechdrill.ogg', 50, 1)
 
 /obj/item/mecha_equipment/drill/get_hardpoint_maptext()
 	if(drill_head)
@@ -314,7 +397,10 @@
 							var/obj/item/mecha_equipment/clamp/I = owner.hardpoints[hardpoint]
 							if(!istype(I))
 								continue
-							var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I
+							var/obj/structure/ore_box/ore_box
+							for(var/obj/structure/ore_box/box in I)
+								ore_box = box
+								break
 							if(ore_box)
 								for(var/obj/item/ore/ore in range(owner,1))
 									if(get_dir(owner,ore)&owner.dir)
@@ -329,7 +415,10 @@
 							var/obj/item/mecha_equipment/clamp/I = owner.hardpoints[hardpoint]
 							if(!istype(I))
 								continue
-							var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I
+							var/obj/structure/ore_box/ore_box
+							for(var/obj/structure/ore_box/box in I)
+								ore_box = box
+								break
 							if(ore_box)
 								for(var/obj/item/ore/ore in range(owner,1))
 									if(get_dir(owner,ore)&owner.dir)
@@ -339,12 +428,10 @@
 					drill_head.durability -= 1
 					log_and_message_admins("[src] used to drill [target].", user, owner.loc)
 
-				playsound(src, 'sound/mecha/mechdrill.ogg', 50, 1)
+				playsound(get_turf(src), 'sound/mecha/mechdrill.ogg', 50, 1)
 
 		else
-			to_chat(user, "You must stay still while the drill is engaged!")
-
-
+			to_chat(user, SPAN_WARNING("You must stay still while the drill is engaged!"))
 		return 1
 
 /obj/item/mecha_equipment/mounted_system/flarelauncher
@@ -405,9 +492,9 @@
 
 /obj/item/mecha_equipment/sleeper/passenger_compartment/attack_self(var/mob/user)
 	if(!sleeper.occupant)
-		to_chat(user, span("warning", "There's no one to eject!"))
+		to_chat(user, SPAN_WARNING("There's no one to eject!"))
 	else
-		visible_message(span("notice", "\The [src] ejects [sleeper.occupant.name]."))
+		visible_message(SPAN_NOTICE("\The [src] ejects [sleeper.occupant.name]."))
 		sleeper.go_out()
 		icon_state = "mecha_passenger_open"
 		update_icon()
@@ -424,7 +511,8 @@
 /obj/item/mecha_equipment/autolathe
 	name = "mounted autolathe"
 	desc = "A large, heavy industrial autolathe. Most of the exterior and interior is stripped, relying primarily on the structure of the exosuit."
-	icon_state = "mech_sleeper"
+	icon_state = "mecha_autolathe"
+	on_mech_icon_state = "mecha_autolathe"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
@@ -440,16 +528,16 @@
 	lathe = new /obj/machinery/autolathe/mounted(src)
 
 /obj/item/mecha_equipment/autolathe/installed()
-	lathe.print_loc = owner
 	..()
+	lathe.print_loc = owner
 
 /obj/item/mecha_equipment/autolathe/uninstalled()
 	lathe.print_loc = null
 	..()
 
 /obj/item/mecha_equipment/autolathe/Destroy()
-	. = ..()
 	QDEL_NULL(lathe)
+	return ..()
 
 /obj/item/mecha_equipment/autolathe/attack_self(mob/user)
 	. = ..()
@@ -459,9 +547,102 @@
 /obj/item/mecha_equipment/autolathe/afterattack(atom/target, mob/living/user, inrange, params)
 	. = ..()
 	if(istype(target, /obj/item/stack/material/steel) || istype(target, /obj/item/stack/material/glass))
+		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
 		lathe.attackby(target, owner)
 
 /obj/item/mecha_equipment/autolathe/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter())
+	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter() || istype(W, /obj/item/storage/part_replacer))
 		lathe.attackby(W, user)
+		update_icon()
 	..()
+
+/obj/item/mecha_equipment/autolathe/update_icon()
+	if(lathe.panel_open)
+		icon_state = "mecha_autolathe-open"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/mecha_equipment/toolset
+	name = "mounted toolset"
+	desc = "A vast toolset that's built into an exosuit arm mount. When a power drill just isn't enough."
+	icon_state = "mecha_toolset-screwdriverbit"
+	on_mech_icon_state = "mecha_toolset"
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)
+	equipment_delay = 8
+
+	//Drill can have a head
+	var/obj/item/powerdrill/mech/mounted_tool
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+
+/obj/item/mecha_equipment/toolset/Initialize()
+	. = ..()
+	mounted_tool = new/obj/item/powerdrill/mech(src)
+
+/obj/item/mecha_equipment/toolset/attack_self(var/mob/user)
+	. = ..()
+	if(.)
+		if(mounted_tool)
+			var/list/options = list()
+			for(var/tool_name in mounted_tool.tools)
+				var/tool_sprite_name = replacetext(tool_name, "bit", "")
+				var/image/radial_button = image('icons/obj/tools.dmi', tool_sprite_name)
+				options[tool_name] = radial_button
+			var/selected_tool = show_radial_menu(user, owner, options, radius = 42, tooltips = TRUE)
+			if(!selected_tool)
+				return
+			mounted_tool.current_tool = 1
+			for(var/tool in mounted_tool.tools)
+				if(mounted_tool.tools[mounted_tool.current_tool] == selected_tool)
+					break
+				else
+					mounted_tool.current_tool++
+			update_icon()
+
+/obj/item/mecha_equipment/toolset/update_icon()
+	icon_state = "mecha_toolset-[mounted_tool.tools[mounted_tool.current_tool]]"
+
+// to-do fix this thing being out of bounds
+/obj/item/mecha_equipment/toolset/get_hardpoint_maptext()
+	if(mounted_tool)
+		var/tool_name = capitalize(replacetext(mounted_tool.tools[mounted_tool.current_tool], "bit", ""))
+		return "Tool: [tool_name]"
+
+/obj/item/mecha_equipment/toolset/isscrewdriver()
+	return mounted_tool.tools[mounted_tool.current_tool] == "screwdriverbit"
+
+/obj/item/mecha_equipment/toolset/iswrench()
+	return mounted_tool.tools[mounted_tool.current_tool] == "wrenchbit"
+
+/obj/item/mecha_equipment/toolset/iscrowbar()
+	return mounted_tool.tools[mounted_tool.current_tool] == "crowbarbit"
+
+/obj/item/powerdrill/mech
+	name = "mounted toolset"
+	tools = list(
+		"screwdriverbit",
+		"wrenchbit",
+		"crowbarbit"
+		)
+
+/obj/item/mecha_equipment/quick_enter
+	name = "rapid-entry system"
+	desc = "A large back-mounted device with installed hydraulics, capable of quickly lifting the user into their piloting seat."
+	icon_state = "mecha_quickie"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	w_class = ITEMSIZE_HUGE
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+
+/obj/item/mecha_equipment/quick_enter/installed()
+	..()
+	owner.entry_speed = 5
+
+/obj/item/mecha_equipment/quick_enter/uninstalled()
+	owner.entry_speed = initial(owner.entry_speed)
+	..()
+
+/obj/item/mecha_equipment/quick_enter/afterattack()
+	return
+
+/obj/item/mecha_equipment/quick_enter/attack_self()
+	return

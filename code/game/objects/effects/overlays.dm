@@ -7,13 +7,13 @@
 /obj/effect/overlay/Destroy()
 	i_attached = null
 	return ..()
-	
+
 /obj/effect/overlay/beam//Not actually a projectile, just an effect.
 	name="beam"
 	icon='icons/effects/beam.dmi'
 	icon_state="b_beam"
 	blend_mode = BLEND_ADD
-	layer = LIGHTING_LAYER + 0.1
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	animate_movement = FALSE
 	var/tmp/atom/BeamSource
 
@@ -42,24 +42,10 @@
 
 
 /obj/effect/overlay/bluespacify
-	name = "Bluespace"
+	name = "bluespace"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespacify"
 	layer = 10
-
-/obj/effect/overlay/wallrot
-	name = "wallrot"
-	desc = "Ick..."
-	icon = 'icons/effects/wallrot.dmi'
-	anchored = 1
-	density = 1
-	layer = 5
-	mouse_opacity = 0
-
-/obj/effect/overlay/wallrot/New()
-	..()
-	pixel_x += rand(-10, 10)
-	pixel_y += rand(-10, 10)
 
 /obj/effect/overlay/snow
 	name = "snow"

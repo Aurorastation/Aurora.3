@@ -8,31 +8,25 @@
 
 	if (transforming)
 		return
+
 	if(!loc)
 		return
+
 	var/datum/gas_mixture/environment = loc.return_air()
-
-	if(stat != DEAD)
-		//Breathing, if applicable
-		handle_breathing()
-
-		//Mutations and radiation
-		handle_mutations_and_radiation()
-
-		//Blood
-		handle_blood()
-
-		//Random events (vomiting etc)
-		handle_random_events()
-
-		. = 1
-
 	//Handle temperature/pressure differences between body and environment
 	if(environment)
 		handle_environment(environment)
 
-	//Chemicals in the body
-	handle_chemicals_in_body()
+	blinded = 0 // Placing this here just show how out of place it is.
+
+	if(handle_regular_status_updates())
+		handle_status_effects()
+
+	if(stat != DEAD)
+		aura_check(AURA_TYPE_LIFE)
+		if(!InStasis())
+			//Mutations and radiation
+			handle_mutations_and_radiation()
 
 	//Check if we're on fire
 	handle_fire()
@@ -41,12 +35,6 @@
 
 	for(var/obj/item/grab/G in src)
 		G.process()
-
-	blinded = 0 // Placing this here just show how out of place it is.
-	// human/handle_regular_status_updates() needs a cleanup, as blindness should be handled in handle_disabilities()
-	if(handle_regular_status_updates()) // Status & health update, are we dead or alive etc.
-		handle_disabilities() // eye, ear, brain damages
-		handle_status_effects() //all special effects, stunned, weakened, jitteryness, hallucination, sleeping, etc
 
 	handle_actions()
 
@@ -57,6 +45,8 @@
 	if(languages.len == 1 && default_language != languages[1])
 		default_language = languages[1]
 
+	return 1
+
 /mob/living/proc/handle_breathing()
 	return
 
@@ -64,9 +54,6 @@
 	return
 
 /mob/living/proc/handle_chemicals_in_body()
-	return
-
-/mob/living/proc/handle_blood()
 	return
 
 /mob/living/proc/handle_random_events()
@@ -92,19 +79,18 @@
 			stat = CONSCIOUS
 		return 1
 
-//this updates all special effects: stunned, sleeping, weakened, druggy, stuttering, etc..
 /mob/living/proc/handle_status_effects()
 	if(paralysis)
 		paralysis = max(paralysis-1,0)
 	if(stunned)
 		stunned = max(stunned-1,0)
 		if(!stunned)
-			update_icons()
+			update_icon()
 
 	if(weakened)
 		weakened = max(weakened-1,0)
 		if(!weakened)
-			update_icons()
+			update_icon()
 
 	if(confused)
 		confused = max(0, confused - 1)
@@ -119,12 +105,8 @@
 		eye_blurry = max(eye_blurry-1, 0)
 
 	//Ears
-	if(sdisabilities & DEAF)		//disabled-deaf, doesn't get better on its own
-		setEarDamage(-1, max(ear_deaf, 1))
-	else
-		// deafness heals slowly over time, unless ear_damage is over 100
-		if(ear_damage < 100)
-			adjustEarDamage(-0.05,-1)
+	handle_hearing()
+
 	if((is_pacified()) && a_intent == I_HURT)
 		to_chat(src, "<span class='notice'>You don't feel like harming anybody.</span>")
 		a_intent_change(I_HELP)
@@ -139,23 +121,20 @@
 	return 1
 
 /mob/living/proc/handle_vision()
-	client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
 	update_sight()
 
 	if(stat == DEAD)
 		return
 
-	if(blind)
-		if(eye_blind)
-			blind.invisibility = 0
-		else
-			blind.invisibility = 101
-			if (disabilities & NEARSIGHTED)
-				client.screen += global_hud.vimpaired
-			if (eye_blurry)
-				client.screen += global_hud.blurry
-			if (druggy)
-				client.screen += global_hud.druggy
+	if(eye_blind)
+		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+	else
+		clear_fullscreen("blind")
+		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
+		set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+
+	set_fullscreen(stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)
@@ -167,6 +146,13 @@
 			reset_view(null)
 	else if(!client.adminobs)
 		reset_view(null)
+
+/mob/living/proc/handle_hearing()
+	// deafness heals slowly over time, unless ear_damage is over HEARING_DAMAGE_LIMIT
+	if(ear_damage < HEARING_DAMAGE_LIMIT)
+		adjustEarDamage(-0.05, -1)
+	if(sdisabilities & DEAF) //disabled-deaf, doesn't get better on its own
+		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
 	if(stat == DEAD || eyeobj)

@@ -10,8 +10,12 @@
 	base_active_power_usage = 25
 	max_hardware_size = 3
 	max_damage = 50
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
+	enrolled = 2
 	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
+
+/obj/item/modular_computer/silicon/ui_host()
+	. = computer_host
 
 /obj/item/modular_computer/silicon/Initialize(mapload)
 	. = ..()
@@ -19,10 +23,6 @@
 		computer_host = loc
 	else
 		return
-	// Let's remove integrated verbs for ejecting things.
-	verbs -= /obj/item/modular_computer/verb/eject_ai
-	verbs -= /obj/item/modular_computer/verb/eject_id
-	verbs -= /obj/item/modular_computer/verb/eject_usb
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle there power
@@ -31,10 +31,10 @@
 		if(istype(computer_host, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = computer_host
 			return R.cell_use_power(power_usage)
-		// If we are in AI or pAI we just don't botherwith power use.
+		// If we are in AI or pAI we just don't bother with power use.
 		return TRUE
 	else
-		// If we don't have host, then we let regular computer code handle power - like batteries and tesla coils
+		// If we don't have host, then we let regular computer code handle power - like batteries and tesla coils.
 		return ..()
 
 /obj/item/modular_computer/silicon/Destroy()
@@ -44,3 +44,43 @@
 /obj/item/modular_computer/silicon/Click(location, control, params)
 	return attack_self(usr)
 	
+/obj/item/modular_computer/silicon/install_default_hardware()
+	. = ..()
+	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
+	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
+	network_card = new /obj/item/computer_hardware/network_card/advanced(src)
+
+/obj/item/modular_computer/silicon/install_default_programs()
+	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
+	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
+	hard_drive.store_file(new /datum/computer_file/program/chatclient(src))
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
+	addtimer(CALLBACK(src, .proc/register_chat), 1 SECOND)
+
+/obj/item/modular_computer/silicon/proc/register_chat()
+	set_autorun("ntnrc_client")
+	enable_computer(null, TRUE) // passing null because we don't want the UI to open
+	minimize_program()
+
+/obj/item/modular_computer/silicon/verb/send_pda_message()
+	set category = "AI IM"
+	set name = "Send Direct Message"
+	set src in usr
+	if (usr.stat == DEAD)
+		to_chat(usr, "You can't send PDA messages because you are dead!")
+		return
+	var/datum/computer_file/program/chatclient/CL = hard_drive.find_file_by_name("ntnrc_client")
+	if(!istype(CL))
+		output_error("Chat client not installed!")
+		return
+	else if(CL.program_state == PROGRAM_STATE_KILLED)
+		run_program("ntnrc_client")
+
+	CL.direct_message()
+	if(CL.channel)
+		CL.add_message(CL.send_message())
+
+/obj/item/modular_computer/silicon/robot/drone/install_default_programs()
+	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
+	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))

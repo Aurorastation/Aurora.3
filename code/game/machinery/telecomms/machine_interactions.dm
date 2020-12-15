@@ -69,7 +69,7 @@
 					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
 			if(P.iscrowbar())
 				to_chat(user, "You begin prying out the circuit board other components...")
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				if(do_after(user,60/P.toolspeed))
 					to_chat(user, "You finish prying out the components.")
 
@@ -103,6 +103,8 @@
 	update_icon()
 
 /obj/machinery/telecomms/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	attack_hand(user)
 
 /obj/machinery/telecomms/attack_hand(var/mob/user as mob)

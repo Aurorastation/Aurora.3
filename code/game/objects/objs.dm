@@ -1,12 +1,12 @@
 /obj
 	animate_movement = 2
 
-	
 	var/list/matter //Used to store information about the contents of the object.
+	var/recyclable = FALSE //Whether the object can be recycled (eaten) by something like the Autolathe
 	var/w_class // Size of the object.
 	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
 	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
-	
+
 	var/obj_flags //Special flags such as whether or not this object can be rotated.
 	var/throwforce = 1
 	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
@@ -50,7 +50,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>\icon[src]Access Denied!</span>")
+	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -77,6 +77,12 @@
 
 /obj/proc/CouldNotUseTopic(var/mob/user)
 	// Nada
+
+/obj/proc/ai_can_interact(var/mob/user)
+	if(!Adjacent(user) && within_jamming_range(src, FALSE)) // if not adjacent to it, it uses wireless signal
+		to_chat(user, SPAN_WARNING("Something in the area of \the [src] is blocking the remote signal!"))
+		return FALSE
+	return TRUE
 
 /obj/item/proc/is_used_on(obj/O, mob/user)
 
@@ -159,20 +165,13 @@
 /obj/proc/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	if(talking_atom)
 		talking_atom.catchMessage(text, M)
-/*
-	var/mob/mo = locate(/mob) in src
-	if(mo)
-		var/rendered = "<span class='game say'><span class='name'>[M.name]: </span> <span class='message'>[text]</span></span>"
-		mo.show_message(rendered, 2)
-		*/
-	return
 
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
 
 /obj/proc/tesla_act(var/power, var/melt = FALSE)
 	if(melt)
-		visible_message(span("danger", "\The [src] melts down until ashes are left!"))
+		visible_message(SPAN_DANGER("\The [src] melts down until ashes are left!"))
 		new /obj/effect/decal/cleanable/ash(loc)
 		qdel(src)
 		return
@@ -225,23 +224,40 @@
 	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
 	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)
 
-/obj/proc/rotate(var/mob/user)
+/obj/proc/rotate(var/mob/user, var/anchored_ignore = FALSE)
 	if(use_check_and_message(user))
 		return
-	
-	if(anchored)
+
+	if(anchored && !anchored_ignore)
 		to_chat(user, SPAN_WARNING("\The [src] is bolted down to the floor!"))
 		return
-	
+
 	set_dir(turn(dir, 90))
 	update_icon()
 
 /obj/AltClick(var/mob/user)
 	if(obj_flags & OBJ_FLAG_ROTATABLE)
 		rotate(user)
+		return
+	if(obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED)
+		rotate(user, TRUE)
+		return
 	..()
 
 /obj/examine(mob/user)
 	. = ..()
-	if((obj_flags & OBJ_FLAG_ROTATABLE))
+	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+
+// whether mobs can unequip and drop items into us or not
+/obj/proc/can_hold_dropped_items()
+	return TRUE
+
+/obj/proc/damage_flags()
+	. = 0
+	if(has_edge(src))
+		. |= DAM_EDGE
+	if(is_sharp(src))
+		. |= DAM_SHARP
+		if(damtype == BURN)
+			. |= DAM_LASER

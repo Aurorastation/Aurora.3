@@ -8,7 +8,9 @@ var/list/dream_entries = list()
 	// If either changes, they should be nocked back to the real world.
 	if(can_commune() && stat == UNCONSCIOUS && sleeping > 1)
 		if(!istype(bg) && client) // Don't spawn a brainghost if we're not logged in.
-			bg = new(src) // Generate a new brainghost.
+			bg = new /mob/living/brain_ghost(src) // Generate a new brainghost.
+			if(isnull(bg)) // Prevents you from getting kicked if the brain ghost didn't spawn - geeves
+				return
 			bg.ckey = ckey
 			bg.client = client
 			ckey = "@[bg.ckey]"
@@ -27,8 +29,17 @@ var/list/dream_entries = list()
 			log_and_message_admins("has left the shared dream",bg)
 			var/mob/living/brain_ghost/old_bg = bg
 			bg = null
-			ckey = old_bg.ckey
+
+			var/return_text = "You are ripped from the Srom as your body awakens."
+			var/mob/return_mob = src
+
+			var/mob/living/simple_animal/borer/B = has_brain_worms()
+			if(B?.host_brain)
+				return_mob = B.host_brain
+				return_text = "You are ripped from the Srom as you return to the captivity of your own mind."
+
+			return_mob.ckey = old_bg.ckey
 			old_bg.show_message("<span class='notice'>[bg] fades as their connection is severed.</span>")
 			animate(old_bg, alpha=0, time = 200)
 			QDEL_IN(old_bg, 20)
-			to_chat(src, "<span class='warning'>You are ripped from the Srom as your body awakens.</span>")
+			to_chat(return_mob, SPAN_WARNING("[return_text]"))

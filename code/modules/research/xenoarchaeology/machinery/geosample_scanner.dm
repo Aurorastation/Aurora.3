@@ -48,18 +48,18 @@
 /obj/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()
 	create_reagents(500)
-	coolant_reagents_purity["water"] = 0.5
-	coolant_reagents_purity["icecoffee"] = 0.6
-	coolant_reagents_purity["icetea"] = 0.6
-	coolant_reagents_purity["milkshake"] = 0.6
-	coolant_reagents_purity["leporazine"] = 0.7
-	coolant_reagents_purity["kelotane"] = 0.7
-	coolant_reagents_purity["sterilizine"] = 0.7
-	coolant_reagents_purity["dermaline"] = 0.7
-	coolant_reagents_purity["hyperzine"] = 0.8
-	coolant_reagents_purity["cryoxadone"] = 0.9
-	coolant_reagents_purity["coolant"] = 1
-	coolant_reagents_purity["adminordrazine"] = 2
+	coolant_reagents_purity[/datum/reagent/water] = 0.5
+	coolant_reagents_purity[/datum/reagent/drink/coffee/icecoffee] = 0.6
+	coolant_reagents_purity[/datum/reagent/drink/icetea] = 0.6
+	coolant_reagents_purity[/datum/reagent/drink/milkshake] = 0.6
+	coolant_reagents_purity[/datum/reagent/leporazine] = 0.7
+	coolant_reagents_purity[/datum/reagent/kelotane] = 0.7
+	coolant_reagents_purity[/datum/reagent/sterilizine] = 0.7
+	coolant_reagents_purity[/datum/reagent/dermaline] = 0.7
+	coolant_reagents_purity[/datum/reagent/hyperzine] = 0.8
+	coolant_reagents_purity[/datum/reagent/cryoxadone] = 0.9
+	coolant_reagents_purity[/datum/reagent/coolant] = 1
+	coolant_reagents_purity[/datum/reagent/adminordrazine] = 2
 
 /obj/machinery/radiocarbon_spectrometer/attack_hand(var/mob/user as mob)
 	ui_interact(user)
@@ -107,7 +107,7 @@
 	for (var/datum/reagent/current_reagent in src.reagents.reagent_list)
 		if (!current_reagent)
 			continue
-		var/cur_purity = coolant_reagents_purity[current_reagent.id]
+		var/cur_purity = coolant_reagents_purity[current_reagent.type]
 		if(!cur_purity)
 			cur_purity = 0.1
 		else if(cur_purity > 1)
@@ -235,16 +235,16 @@
 			//emergency stop if seal integrity reaches 0
 			if(scanner_seal_integrity <= 0 || (scanner_temperature >= 1273 && !rad_shield))
 				stop_scanning()
-				visible_message("<span class='notice'>\icon[src] buzzes unhappily. It has failed mid-scan!</span>", range = 2)
+				visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] buzzes unhappily. It has failed mid-scan!</span>", range = 2)
 
 			if(prob(5))
-				visible_message("<span class='notice'>\icon[src] [pick("whirrs","chuffs","clicks")][pick(" excitedly"," energetically"," busily")].</span>", range = 2)
+				visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [pick("whirrs","chuffs","clicks")][pick(" excitedly"," energetically"," busily")].</span>", range = 2)
 	else
 		//gradually cool down over time
 		if(scanner_temperature > 0)
 			scanner_temperature = max(scanner_temperature - 5 - 10 * rand(), 0)
 		if(prob(0.75))
-			visible_message("<span class='notice'>\icon[src] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")].</span>", range = 2)
+			visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")].</span>", range = 2)
 	last_process_worldtime = world.time
 
 /obj/machinery/radiocarbon_spectrometer/proc/stop_scanning()
@@ -262,7 +262,7 @@
 		used_coolant = 0
 
 /obj/machinery/radiocarbon_spectrometer/proc/complete_scan()
-	visible_message("<span class='notice'>\icon[src] makes an insistent chime.</span>", range = 2)
+	visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] makes an insistent chime.</span>", range = 2)
 
 	if(scanned_item)
 		//create report

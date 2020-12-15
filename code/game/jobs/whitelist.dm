@@ -122,6 +122,9 @@ var/list/whitelist = list()
 	if (!istype(C) || C.holder)
 		return 0
 
+	if(!dbcon.IsConnected())
+		return 0
+
 	var/age_to_beat = 0
 
 	// Assume it's an antag role.

@@ -176,6 +176,7 @@ var/global/const/base_law_type = /datum/ai_laws/nanotrasen
 /datum/ai_laws/proc/delete_law(var/datum/ai_law/law)
 	if(istype(law))
 		law.delete_law(src)
+	sorted_laws.Cut()
 
 /datum/ai_law/proc/delete_law(var/datum/ai_laws/laws)
 
@@ -226,10 +227,15 @@ var/global/const/base_law_type = /datum/ai_laws/nanotrasen
 	for(var/datum/ai_law/law in sorted_laws)
 		if(law == zeroth_law_borg)
 			continue
+		var/mob/M = who
 		if(law == zeroth_law)
 			to_chat(who, "<span class='danger'>[law.get_index()]. [law.law]</span>")
+			if(ismob(who) && M.vr_mob)
+				to_chat(M.vr_mob, "<span class='danger'>[law.get_index()]. [law.law]</span>")
 		else
 			to_chat(who, "[law.get_index()]. [law.law]")
+			if(ismob(who) && M.vr_mob)
+				to_chat(M.vr_mob, "<span class='danger'>[law.get_index()]. [law.law]</span>")
 
 /********************
 *	Stating Laws	*

@@ -1,15 +1,15 @@
 // QUALITY COPYPASTA
 /turf/unsimulated/wall/supermatter
-	name = "Bluespace"
+	name = "unstable bluespace"
 	desc = "THE END IS right now actually."
 
 	icon = 'icons/turf/space.dmi'
-	icon_state = "bluespace"
+	icon_state = "bluespace-n"
 
-	layer = LIGHTING_LAYER + 1
-	light_color = "#0066FF"
-	light_range = 2
-	light_power = 2
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	light_color = COLOR_CYAN_BLUE
+	light_power = 6
+	light_range = 8
 
 	var/spawned = 0 // DIR mask
 	var/next_check = 0
@@ -39,14 +39,10 @@
 
 	// EXPAND
 	if(!istype(T,type))
-		// Do pretty fadeout animation for 1s.
-		new /obj/effect/overlay/bluespacify(T)
 		addtimer(CALLBACK(src, .proc/after_tick, T), 10)
 		if(A && !istype(A,type))
-			new /obj/effect/overlay/bluespacify(A)
 			addtimer(CALLBACK(src, .proc/after_tick, A), 10)
 		if(B && !istype(B,type))
-			new /obj/effect/overlay/bluespacify(B)
 			addtimer(CALLBACK(src, .proc/after_tick, B), 10)
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
 		STOP_PROCESSING(SScalamity, src)
@@ -107,7 +103,7 @@
 		return ..()
 
 	if(istype(AM, /mob/living))
-		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\
+		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... [AM.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 		"<span class=\"warning\">You hear an unearthly noise as a wave of heat washes over you.</span>")
 	else

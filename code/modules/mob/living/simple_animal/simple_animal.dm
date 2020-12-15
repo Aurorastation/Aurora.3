@@ -1,3 +1,9 @@
+#define BLOOD_NONE "none"
+#define BLOOD_LIGHT "light"
+#define BLOOD_MEDIUM "medium"
+#define BLOOD_HEAVY "heavy"
+
+
 /mob/living/simple_animal
 	name = "animal"
 	icon = 'icons/mob/npc/animal.dmi'
@@ -13,7 +19,12 @@
 	var/icon_living = ""
 	var/icon_dead = ""
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
+
+	appearance_flags = KEEP_TOGETHER
 	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	var/blood_state = BLOOD_NONE
+	var/image/blood_overlay
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -27,6 +38,7 @@
 	universal_speak = 0		//No, just no.
 	var/meat_amount = 0
 	var/meat_type
+	var/stop_thinking = FALSE // prevents them from doing any AI stuff whatsoever
 	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/wander = 1	// Does the mob wander around when idle?
 	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
@@ -34,6 +46,7 @@
 	var/turns_since_scan = 0
 
 	//Interaction
+	var/list/organ_names = list("chest")
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
@@ -55,6 +68,8 @@
 	var/max_co2 = 5
 	var/min_n2 = 0
 	var/max_n2 = 0
+	var/min_h2 = 0
+	var/max_h2 = 5
 	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
 	var/speed = 0 //LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster
 
@@ -66,6 +81,9 @@
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
+	var/resist_mod = 1 // a multiplier for the chance the animal has to break out
+
+	var/wizard_master
 
 	//Null rod stuff
 	var/supernatural = 0
@@ -80,6 +98,7 @@
 	var/bite_factor = 0.4
 	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
 	var/stomach_size_mult = 5
+	var/list/forbidden_foods = list()	//Foods this animal should never eat
 
 	//Seeking/Moving behaviour vars
 	var/min_scan_interval = 1//Minimum and maximum number of procs between a scan
@@ -107,7 +126,7 @@
 
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
-	var/milk_type = "milk"
+	var/milk_type = /datum/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -147,7 +166,7 @@
 	turns_since_move = turns_per_move
 	..()
 
-/mob/living/simple_animal/Login()
+/mob/living/simple_animal/LateLogin()
 	if(src && src.client)
 		src.client.screen = null
 	..()
@@ -174,6 +193,7 @@
 	if(health > maxHealth)
 		health = maxHealth
 
+	handle_blood_overlay()
 	handle_stunned()
 	handle_weakened()
 	handle_paralysed()
@@ -185,7 +205,7 @@
 	turns_since_move++
 
 	//Atmos
-	var/atmos_suitable = 1
+	var/atmos_suitable = TRUE
 
 	if(isturf(loc))
 		var/turf/T = loc
@@ -196,22 +216,26 @@
 			if (abs(Environment.temperature - bodytemperature) > 40)
 				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
 
-			if(min_oxy && Environment.gas["oxygen"] < min_oxy)
-				atmos_suitable = 0
-			else if(max_oxy && Environment.gas["oxygen"] > max_oxy)
-				atmos_suitable = 0
-			else if(min_tox && Environment.gas["phoron"] < min_tox)
-				atmos_suitable = 0
-			else if(max_tox && Environment.gas["phoron"] > max_tox)
-				atmos_suitable = 0
-			else if(min_n2 && Environment.gas["nitrogen"] < min_n2)
-				atmos_suitable = 0
-			else if(max_n2 && Environment.gas["nitrogen"] > max_n2)
-				atmos_suitable = 0
-			else if(min_co2 && Environment.gas["carbon_dioxide"] < min_co2)
-				atmos_suitable = 0
-			else if(max_co2 && Environment.gas["carbon_dioxide"] > max_co2)
-				atmos_suitable = 0
+			if(min_oxy && Environment.gas[GAS_OXYGEN] < min_oxy)
+				atmos_suitable = FALSE
+			else if(max_oxy && Environment.gas[GAS_OXYGEN] > max_oxy)
+				atmos_suitable = FALSE
+			else if(min_tox && Environment.gas[GAS_PHORON] < min_tox)
+				atmos_suitable = FALSE
+			else if(max_tox && Environment.gas[GAS_PHORON] > max_tox)
+				atmos_suitable = FALSE
+			else if(min_n2 && Environment.gas[GAS_NITROGEN] < min_n2)
+				atmos_suitable = FALSE
+			else if(max_n2 && Environment.gas[GAS_NITROGEN] > max_n2)
+				atmos_suitable = FALSE
+			else if(min_co2 && Environment.gas[GAS_CO2] < min_co2)
+				atmos_suitable = FALSE
+			else if(max_co2 && Environment.gas[GAS_CO2] > max_co2)
+				atmos_suitable = FALSE
+			else if(min_h2 && Environment.gas[GAS_HYDROGEN] < min_h2)
+				atmos_suitable = FALSE
+			else if(max_h2 && Environment.gas[GAS_HYDROGEN] > max_h2)
+				atmos_suitable = FALSE
 
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
@@ -235,6 +259,10 @@
 
 /mob/living/simple_animal/think()
 	..()
+
+	if(stop_thinking)
+		return
+
 	if(!stop_automated_movement && wander && !anchored)
 		if(isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
@@ -293,9 +321,39 @@
 	if(purge)
 		purge -= 1
 
+/mob/living/simple_animal/proc/handle_blood_overlay(var/force_reset = FALSE)
+	if(!blood_overlay_icon)
+		return
+
+	var/current_blood_state = blood_state
+	var/blood_mod = health / maxHealth
+	if(blood_mod > 0.9)
+		blood_state = BLOOD_NONE
+	else if(blood_mod >= 0.7)
+		blood_state = BLOOD_LIGHT
+	else if(blood_mod >= 0.4)
+		blood_state = BLOOD_MEDIUM
+	else
+		blood_state = BLOOD_HEAVY
+
+	if(force_reset || (blood_state != BLOOD_NONE && current_blood_state != blood_state))
+		if(blood_overlay)
+			cut_overlay(blood_overlay)
+		var/blood_overlay_name = get_blood_overlay_name()
+		var/image/I = image(blood_overlay_icon, src, "[blood_overlay_name]-[blood_state]")
+		I.color = blood_type
+		I.blend_mode = BLEND_INSET_OVERLAY
+		blood_overlay = I
+		add_overlay(blood_overlay)
+
+/mob/living/simple_animal/proc/get_blood_overlay_name()
+	return "blood_overlay"
+
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()
 	for(var/obj/item/reagent_containers/food/snacks/S in get_turf(src))
+		if(locate(S) in forbidden_foods)
+			continue
 		food_choices += S
 	if(food_choices.len) //Only when sufficiently hungry
 		UnarmedAttack(pick(food_choices))
@@ -352,11 +410,13 @@
 /mob/living/simple_animal/proc/speak_audio()
 	return
 
-/mob/living/simple_animal/proc/visible_emote(var/act_desc, var/log_emote=1)
-	custom_emote(1, act_desc, log_emote)
+/mob/living/simple_animal/proc/visible_emote(var/act_desc)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	custom_emote(VISIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
 /mob/living/simple_animal/proc/audible_emote(var/act_desc)
-	custom_emote(2, act_desc)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	custom_emote(AUDIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
 /*
 mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
@@ -373,11 +433,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<span class='notice'>[M] [response_help] \the [src]</span>")
+				M.visible_message("<b>\The [M]</b> [response_help] \the [src].")
 				poke()
 
 		if(I_DISARM)
-			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src]</span>")
+			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
 			//TODO: Push the mob away or something
@@ -399,33 +459,36 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			G.affecting = src
 			LAssailant = WEAKREF(M)
 
-			M.visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src] passively!"))
 			M.do_attack_animation(src)
 			poke(1)
 
 		if(I_HURT)
-			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message("<span class='warning'>[M] [response_harm] \the [src]</span>")
-			M.do_attack_animation(src)
-			poke(1)
+			unarmed_harm_attack(M)
 
 	return
 
+/mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/human/user)
+	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
+	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
+	user.do_attack_animation(src)
+	poke(TRUE)
+
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag. 
+	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
 		attacked_with_item(O, user)
 		return
 	if(has_udder)
 		var/obj/item/reagent_containers/glass/G = O
 		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 			if(udder.total_volume <= 0)
-				to_chat(user, "<span class='warning'>The udder is dry.</span>")
+				to_chat(user, SPAN_WARNING("The udder is dry."))
 				return
 			if(G.reagents.total_volume >= G.volume)
-				to_chat(user, "<span class='warning'>The [O] is full.</span>")
+				to_chat(user, SPAN_WARNING("The [O] is full."))
 				return
-			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-			udder.trans_id_to(G, milk_type , rand(5,10))
+			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [O].")
+			udder.trans_type_to(G, milk_type, rand(5, 10))
 			return
 
 	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
@@ -439,20 +502,22 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		attacked_with_item(O, user)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
-/mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user)
-	if(istype(O, /obj/item/trap/animal))
+/mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
+	if(istype(O, /obj/item/trap/animal) || istype(O, /obj/item/gun))
 		O.attack(src, user)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
-		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off. 
-			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"] happily.")) //purring	
+		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [O].")
+		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
+			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
+	if(istype(O, /obj/item/glass_jar))
+		return FALSE
 	if(!O.force)
-		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
+		visible_message(SPAN_NOTICE("<b>\The [user]</b> gently taps \the [src] with \the [O]."))
 		poke()
-		return 0
+		return FALSE
 
 	if(O.force > resistance)
 		var/damage = O.force
@@ -465,12 +530,19 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 		poke(1)
 	else
-		to_chat(usr, "<span class='danger'>This weapon is ineffective, it does no damage.</span>")
+		to_chat(user, SPAN_WARNING("This weapon is ineffective, it does no damage."))
 		poke()
 
-	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
+	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
 	user.do_attack_animation(src)
 
+/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+	. = ..()
+	handle_blood_overlay()
+
+/mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
+	. = ..()
+	handle_blood_overlay()
 
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later
@@ -515,11 +587,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	walk_to(src,0)
 	movement_target = null
-	icon_state = icon_dead
-	density = 0
+	density = FALSE
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
-	return ..(gibbed,deathmessage)
+	. = ..(gibbed, deathmessage)
+	update_icon()
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
@@ -558,14 +630,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return 1
 
 /mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
-	set name = "Resist"
+	set name = "Make Sound"
 	set category = "Abilities"
 
 	if((usr && usr.stat == DEAD) || !make_sound)
 		return
 
 	if(usr && !sound_time)
-		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
+		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
 	playsound(src, pick(emote_sounds), 75, 1)
@@ -588,7 +660,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			sound_chance = prob(50)
 		make_noise(sound_chance)
 
-	..(message, null, verb)
+	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
+	..(message, null, verb, ghost_hearing = can_ghosts_hear)
+
+/mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
@@ -611,11 +687,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 					new path(get_turf(src))
 
 		if(issmall(src))
-			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
+			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
+			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
 			gib()
 
 //For picking up small animals
@@ -647,7 +723,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		wander = 0
 		walk_to(src,0)
 		movement_target = null
-		update_icons()
+		update_icon()
 
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
@@ -656,9 +732,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		resting = 0
 		canmove = 1
 		wander = 1
-		update_icons()
+		update_icon()
 
-/mob/living/simple_animal/update_icons()
+/mob/living/simple_animal/update_icon()
 	if (stat == DEAD)
 		icon_state = icon_dead
 	else if ((stat == UNCONSCIOUS || resting) && icon_rest)
@@ -675,16 +751,16 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	to_chat(src, span("notice","You are now [resting ? "resting" : "getting up"]"))
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
-	update_icons()
+	update_icon()
 
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, BURN)
-	playsound(loc, "sparks", 50, 1, -1)
+	playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
 	spark(loc, 5, alldirs)
-	visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
+	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
 
 /mob/living/simple_animal/can_fall()
@@ -720,13 +796,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return "nutriment"
+	return /datum/reagent/nutriment
 
 /mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damtype == BRUTE)
+			if(P.damage_type == BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
@@ -735,3 +811,18 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
+
+/mob/living/simple_animal/get_resist_power()
+	return resist_mod
+
+
+/mob/living/simple_animal/get_gibs_type()
+	if(isSynthetic())
+		return /obj/effect/gibspawner/robot
+	else
+		return /obj/effect/gibspawner/generic
+
+#undef BLOOD_NONE
+#undef BLOOD_LIGHT
+#undef BLOOD_MEDIUM
+#undef BLOOD_HEAVY

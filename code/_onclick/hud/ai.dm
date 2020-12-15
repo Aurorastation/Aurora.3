@@ -15,11 +15,10 @@
 		new /obj/screen/ai/announcement,
 		new /obj/screen/ai/call_shuttle,
 		new /obj/screen/ai/state_laws,
-		new /obj/screen/ai/pda_msg,
-		new /obj/screen/ai/pda_log,
 		new /obj/screen/ai/take_image,
 		new /obj/screen/ai/view_image,
 		new /obj/screen/ai/sensor_aug,
+		new /obj/screen/ai/remote_mech,
 		new /obj/screen/ai/move_up,
 		new /obj/screen/ai/move_down,
 		myai.computer

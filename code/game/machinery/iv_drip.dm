@@ -2,7 +2,7 @@
 	name = "\improper IV drip"
 	icon = 'icons/obj/iv_drip.dmi'
 	anchored = 0
-	density = 1
+	density = FALSE
 
 	var/mob/living/carbon/human/attached = null
 	var/mode = 1 // 1 is injecting, 0 is taking blood.
@@ -79,7 +79,7 @@
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
 			var/obj/item/organ/external/affecting = src.attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
 			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
-			affecting.take_damage(brute = 5, sharp = 1)
+			affecting.take_damage(brute = 5, damage_flags = DAM_SHARP)
 			src.attached = null
 			src.update_icon()
 			return
@@ -117,7 +117,7 @@
 				return
 
 			if(T.get_blood_volume() < 90 && !blood_message_sent)
-				visible_message("\icon[src] \The <b>[src]</b> flashes a warning light!")
+				visible_message("[icon2html(src, viewers(get_turf(src)))] \The <b>[src]</b> flashes a warning light!")
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
 				blood_message_sent = TRUE
 

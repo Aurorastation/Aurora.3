@@ -5,14 +5,13 @@
 // Bitflags
 #define FIREDOOR_ALERT_HOT      1
 #define FIREDOOR_ALERT_COLD     2
-// Not used #define FIREDOOR_ALERT_LOWPRESS 4
 
 /obj/machinery/door/firedoor
-	name = "\improper Emergency Shutter"
+	name = "\improper emergency shutter"
 	desc = "Emergency air-tight shutter, capable of sealing off breached areas."
 	icon = 'icons/obj/doors/DoorHazard.dmi'
 	icon_state = "door_open"
-	req_one_access = list(access_atmospherics, access_engine_equip, access_paramedic)
+	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
 	opacity = 0
 	density = 0
 	layer = DOOR_OPEN_LAYER - 0.01
@@ -205,7 +204,6 @@
 		if(A.fire || A.air_doors_activated)
 			alarmed = 1
 	if(user.incapacitated() || (get_dist(src, user) > 1  && !issilicon(user)))
-		to_chat(user, "Sorry, you must remain able bodied and close to \the [src] in order to use it.")
 		return
 
 	if(ishuman(user))
@@ -228,9 +226,9 @@
 	if(alarmed && density && lockdown && !allowed(user))
 		to_chat(user, "<span class='warning'>Access denied.  Please wait for authorities to arrive, or for the alert to clear.</span>")
 		return
-	else
-		user.visible_message("<span class='notice'>\The [src] [density ? "open" : "close"]s for \the [user].</span>",\
-		"\The [src] [density ? "open" : "close"]s.",\
+	else if(Adjacent(user))
+		user.visible_message("[user] [density ? "open" : "close"]s \an [src].",\
+		"You [density ? "open" : "close"] \the [src].",\
 		"You hear a beep, and a door opening.")
 
 	var/needs_to_close = 0
@@ -271,7 +269,7 @@
 			user.visible_message("<span class='danger'>\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W].</span>",\
 			"You [blocked ? "weld" : "unweld"] \the [src] with \the [W].",\
 			"You hear something being welded.")
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			update_icon()
 			return
 
@@ -290,7 +288,7 @@
 									"You start to remove the electronics from [src].")
 			if(do_after(user,30/C.toolspeed))
 				if(blocked && density && hatch_open)
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src.loc, C.usesound, 100, 1)
 					user.visible_message("<span class='danger'>[user] has removed the electronics from \the [src].</span>",
 										"You have removed the electronics from [src].")
 
@@ -467,7 +465,7 @@
 				do_set_light = TRUE
 
 		if (hashatch)
-			if (hatchstate)
+			if (hatchstate && hatch_image)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle

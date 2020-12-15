@@ -48,7 +48,7 @@ In short:
 	KillMobs()
 	OverlayAndAmbientSet()
 
-	rune_boost += 9001	//basically removing the rune cap
+	SScult.rune_boost += 9001	//basically removing the rune cap
 
 /datum/universal_state/hell/proc/AreaSet()
 	for(var/area/A in all_areas)

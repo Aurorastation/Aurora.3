@@ -38,6 +38,7 @@
 	var/load_offset_x = 0		//pixel_x offset for item overlay
 	var/load_offset_y = 0		//pixel_y offset for item overlay
 	var/mob_offset_y = 0		//pixel_y offset for mob overlay
+	var/flying = FALSE
 
 //-------------------------------------------
 // Standard procs
@@ -367,10 +368,27 @@
 	if(!damage)
 		return
 	visible_message("<span class='danger'>[user] [attack_message] the [src]!</span>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name]</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>attacked [src.name]</span>")
 	user.do_attack_animation(src)
 	src.health -= damage
 	if(prob(10))
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	spawn(1) healthcheck()
 	return 1
+
+/obj/vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+	if (flying)
+		return FALSE
+
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
+		return FALSE
+
+	if (!dest.is_hole)
+		return FALSE
+
+	// See if something prevents us from falling.
+	for(var/atom/A in below)
+		if(!A.CanPass(src, dest))
+			return FALSE
+
+	return TRUE

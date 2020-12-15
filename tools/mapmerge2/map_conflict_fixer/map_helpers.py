@@ -7,15 +7,6 @@ from datetime import datetime
 
 tgm_header = "//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE"
 
-try:
-    version = sys.version_info
-    if version.major < 3 or (version.major == 3 and version.minor < 5):
-        print("ERROR: You are running an incompatible version of Python. The current minimum version required is [3.5].\nYour version: {}".format(sys.version))
-        sys.exit()
-except:
-    print("ERROR: Something went wrong, you might be running an incompatible version of Python. The current minimum version required is [3.5].\nYour version: {}".format(sys.version))
-    sys.exit()
-
 import collections
 
 error = {0:"OK", 1:"WARNING: Detected key length difference, not merging.", 2:"WARNING: Detected map size difference, not merging."}
@@ -177,9 +168,8 @@ def write_dictionary_tgm(filename, dictionary, header = None): #write dictionary
 def write_grid_coord_small(filename, grid, maxx, maxy): #thanks to YotaXP for finding out about this one
     with open(filename, "a", newline='\n') as output:
         output.write("\n")
-
         for x in range(1, maxx+1):
-            output.write("({},{},1) = {{\"\n".format(x, 1, 1))
+            output.write("({},{},1) = {{\"\n".format(x, 1))
             for y in range(1, maxy):
                 output.write("{}\n".format(grid[x,y]))
             output.write("{}\n\"}}\n".format(grid[x,maxy]))

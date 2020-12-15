@@ -9,7 +9,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
 		)
 	var/uses = 4.0
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	item_state = "paper"
 	throw_speed = 4
 	throw_range = 20
@@ -19,11 +19,11 @@
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/O = H.internal_organs_by_name[pick(BP_EYES,"appendix",BP_KIDNEYS,BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
+			var/obj/item/organ/O = H.internal_organs_by_name[pick(BP_EYES, BP_APPENDIX, BP_KIDNEYS, BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
 			if(O == null)
-				to_chat(user, span("notice", "You can't make any sense of the arcane glyphs. . . maybe you should try again."))
+				to_chat(user, SPAN_NOTICE("You can't make any sense of the arcane glyphs. . . maybe you should try again."))
 			else
-				to_chat(user, span("alert", "As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!"))
+				to_chat(user, SPAN_ALERT("As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!"))
 				user.visible_message("<span class='danger'>A flash of smoke pours out of [user]'s orifices!</span>")
 				playsound(user, 'sound/magic/lightningshock.ogg', 40, 1)
 				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
@@ -66,7 +66,7 @@
 
 	var/A
 
-	A = input(user, "Area to jump to", "BOOYEA", A) in teleportlocs
+	A = input(user, "Area to jump to", "BOOYEA", A)  as null|anything in teleportlocs
 	var/area/thearea = teleportlocs[A]
 
 	if (user.stat || user.restrained())
@@ -79,7 +79,7 @@
 	smoke.attach(user)
 	smoke.start()
 	var/list/L = list()
-	for(var/turf/T in get_area_turfs(thearea.type))
+	for(var/turf/T in get_area_turfs(thearea))
 		if(!T.density && !T.is_hole)
 			var/clear = 1
 			for(var/obj/O in T)

@@ -56,15 +56,15 @@
 /obj/machinery/shield_gen/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/card/id))
 		var/obj/item/card/id/C = W
-		if(access_captain in C.access || access_security in C.access || access_engine in C.access)
+		if((access_captain in C.access) || (access_security in C.access) || (access_engine in C.access))
 			src.locked = !src.locked
 			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 			updateDialog()
 		else
-			to_chat(user, span("alert", "Access denied."))
+			to_chat(user, SPAN_ALERT("Access denied."))
 	else if(W.iswrench())
 		src.anchored = !src.anchored
-		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
+		src.visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
 
 		if(active)
 			toggle()
@@ -86,6 +86,8 @@
 		..()
 
 /obj/machinery/shield_gen/attack_ai(user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/shield_gen/attack_hand(mob/user)
@@ -216,14 +218,14 @@
 		covered_turfs = null
 
 		for(var/mob/M in view(5,src))
-			to_chat(M, "\icon[src] You hear heavy droning start up.")
+			to_chat(M, "[icon2html(src, M)] You hear heavy droning start up.")
 	else
 		for(var/obj/effect/energy_field/D in field)
 			field.Remove(D)
 			D.loc = null
 
 		for(var/mob/M in view(5,src))
-			to_chat(M, "\icon[src] You hear heavy droning fade out.")
+			to_chat(M, "[icon2html(src, M)] You hear heavy droning fade out.")
 
 /obj/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)

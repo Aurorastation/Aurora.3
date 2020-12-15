@@ -21,11 +21,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 		else
 			to_chat(H, "<span class='warning'>You are unable to equip that.</span>")
 
-/mob/living/carbon/human/proc/equip_in_one_of_slots(obj/item/W, list/slots, del_on_fail = 1)
-	for (var/slot in slots)
-		if (equip_to_slot_if_possible(W, slots[slot], del_on_fail = 0))
+/mob/living/carbon/human/proc/equip_in_one_of_slots(obj/item/W, list/slots, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE)
+	for(var/slot in slots)
+		if(equip_to_slot_if_possible(W, slot, del_on_fail, disable_warning, redraw_mob, ignore_blocked))
 			return slot
-	if (del_on_fail)
+	if(del_on_fail)
 		qdel(W)
 	return null
 
@@ -382,13 +382,13 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if(w_uniform) items += w_uniform
 
 	if(include_carried)
-		if(slot_l_hand)     items += l_hand
-		if(slot_r_hand)     items += r_hand
-		if(slot_l_store)    items += l_store
-		if(slot_r_store)    items += r_store
-		if(slot_legcuffed)  items += legcuffed
-		if(slot_handcuffed) items += handcuffed
-		if(slot_s_store)    items += s_store
+		if(l_hand)     items += l_hand
+		if(r_hand)     items += r_hand
+		if(l_store)    items += l_store
+		if(r_store)    items += r_store
+		if(legcuffed)  items += legcuffed
+		if(handcuffed) items += handcuffed
+		if(s_store)    items += s_store
 
 	return items
 

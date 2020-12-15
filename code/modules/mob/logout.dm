@@ -1,4 +1,6 @@
 /mob/Logout()
+	SHOULD_CALL_PARENT(TRUE)
+
 	SSnanoui.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
 	player_list -= src
 	disconnect_time = world.realtime
@@ -27,4 +29,3 @@
 	if (mob_thinks)
 		MOB_START_THINKING(src)
 	..()
-	return 1

@@ -1,20 +1,21 @@
-/obj/item/custom_ka_upgrade/cells/attack_self(mob/user as mob)
-
+/obj/item/custom_ka_upgrade/cells/attack_self(mob/user)
 	if(is_pumping)
 		return
 
 	if(pump_restore)
 		is_pumping = TRUE
 		if(stored_charge >= cell_increase)
-			to_chat(user,"The pump on the [src] refuses to move.")
+			to_chat(user, SPAN_WARNING("The pump on \the [src] refuses to move."))
 		else
-			if(!pump_delay || do_after(user,pump_delay,use_user_turf = -1))
-				if(isturf(src.loc))
-					to_chat(user,"You pump \the [src].")
-				else
-					to_chat(user,"You pump \the [src.loc].")
-				stored_charge = min(stored_charge + pump_restore,cell_increase)
-				playsound(src,'sound/weapons/kinetic_reload.ogg', 50, 0)
+			if(!pump_delay || do_after(user, pump_delay, use_user_turf = -1))
+				if(last_pump < world.time)
+					if(isturf(src.loc))
+						to_chat(user, SPAN_NOTICE("You pump \the [src]."))
+					else
+						to_chat(user, SPAN_NOTICE("You pump \the [src.loc]."))
+					last_pump = world.time + 100 // every ten seconds
+				stored_charge = min(stored_charge + pump_restore, cell_increase)
+				playsound(src, 'sound/weapons/kinetic_reload.ogg', 50, FALSE)
 
 		is_pumping = FALSE
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -148,24 +149,24 @@
 	//Pump Action
 	name = "pump action KA cell"
 	build_name = "pump-action"
-	desc = "A clusterfuck of circuitry and battery parts all snuggly fit inside a solid, static plastisteel frame. A single pump is enough for any shot of any weapon."
+	desc = "A clusterfuck of circuitry and battery parts all snuggly fit inside a solid, static plastisteel frame. A single pump is enough to fully charge any set-up."
 	icon_state = "cell_illegal"
 	firedelay_increase = 0
 	recoil_increase = 0
 	cost_increase = -100
-	stored_charge = 1
-	cell_increase = 1
+	stored_charge = 5
+	cell_increase = 5
 	capacity_increase = 0
 	mod_limit_increase = 0
 
-	pump_restore = 1
+	pump_restore = 30
 	pump_delay = 0.3 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3,TECH_MAGNET = 3,TECH_POWER = 3, TECH_ILLEGAL = 4)
 
-/obj/item/custom_ka_upgrade/cells/kinetic_charging
-	name = "kinetic charging KA cell"
-	build_name = "kinetic recharging"
+/obj/item/custom_ka_upgrade/cells/inertia_charging
+	name = "inertial charging KA cell"
+	build_name = "inertial recharging"
 	desc = "A curious cell and pump combo that automatically charges based on how much charge is already present in the cell."
 	icon_state = "cell_burst"
 	firedelay_increase = 0.1 SECONDS
@@ -181,7 +182,7 @@
 
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 6)
 
-/obj/item/custom_ka_upgrade/cells/kinetic_charging/on_update(var/obj/item/gun/custom_ka/the_gun)
+/obj/item/custom_ka_upgrade/cells/inertia_charging/on_update(var/obj/item/gun/custom_ka/the_gun)
 	stored_charge = min(stored_charge + round(stored_charge*0.2),cell_increase)
 
 

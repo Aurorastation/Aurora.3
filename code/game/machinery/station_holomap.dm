@@ -52,7 +52,8 @@
 	holomap_datum.initialize_holomap(T, reinit = TRUE)
 
 	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
-	small_station_map.layer = LIGHTING_LAYER + 0.1
+	small_station_map.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	small_station_map.filters = filter(type = "drop_shadow", color = light_color + "F0", size = 1, offset = 1, x = 0, y = 0)
 
 	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir

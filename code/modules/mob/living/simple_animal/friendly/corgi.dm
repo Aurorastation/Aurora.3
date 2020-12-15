@@ -15,6 +15,7 @@
 	turns_per_move = 10
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/corgi
 	meat_amount = 3
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
@@ -53,7 +54,7 @@
 
 	if(!stat && !resting && !buckled)
 		if(prob(1))
-			visible_emote(pick("dances around","chases their tail"),0)
+			visible_emote(pick("dances around.","chases their tail."),0)
 			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 
 /mob/living/simple_animal/corgi/proc/do_dance(list/directions = list())

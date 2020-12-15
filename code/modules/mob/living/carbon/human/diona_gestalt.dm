@@ -12,7 +12,7 @@
 
 
 /mob/living/carbon/human/proc/setup_gestalt()
-	composition_reagent = "nutriment"//Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /datum/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
@@ -24,7 +24,7 @@
 	//These initial nymphs are the nymph which grows into a gestalt, and any others it had inside it
 	//There are no initial nymphs for a newly spawned diona player
 
-		if (mind && mind.name && name && mind.name != name)
+		if (mind?.name && mind.name != real_name)
 			verbs += /mob/living/carbon/human/proc/gestalt_set_name
 			var/datum/language/L = locate(/datum/language/diona) in languages
 			var/newname
@@ -90,10 +90,10 @@
 
 
 //This is called when a gestalt is hit by an explosion. Nymphs will take damage too
-//Damage to nymphs depends on the severity of the blast, and on explosive-resistant armour worn by the gestalt
-//A severity 1 explosion without armour will usually kill all nymphs in the gestalt
+//Damage to nymphs depends on the severity of the blast, and on explosive-resistant armor worn by the gestalt
+//A severity 1 explosion without armor will usually kill all nymphs in the gestalt
 //Damage is randomised for each nymph, often some will survive and others wont
-//Nymphs have 100 health, so without armour there is a small possibility for each nymph to survive a severity 1 blast
+//Nymphs have 100 health, so without armor there is a small possibility for each nymph to survive a severity 1 blast
 /mob/living/carbon/human/proc/diona_contained_explosion_damage(var/severity)
 	var/damage = 0
 	var/damage_factor = 0.1 //Safety value
@@ -116,19 +116,19 @@
 	set name = "Check light level"
 
 	if (!DS.light_organ || DS.light_organ.is_broken() || DS.light_organ.is_bruised())
-		to_chat(usr, span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!"))
+		to_chat(usr, SPAN_DANGER("Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!"))
 		return
 	var/light = get_lightlevel_diona(DS)
 	if (light <= -0.75)
-		to_chat(usr, span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
+		to_chat(usr, SPAN_DANGER("It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
 	else if (light <= 0)
-		to_chat(usr, span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
+		to_chat(usr, SPAN_DANGER("This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
 	else if (light > 0 && light < 1.5)
-		to_chat(usr, span("warning", "The light here can sustain us, barely. It feels cold and distant."))
+		to_chat(usr, SPAN_WARNING("The light here can sustain us, barely. It feels cold and distant."))
 	else if (light <= 3)
-		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
+		to_chat(usr, SPAN_NOTICE("This light is comfortable and warm, Quite adequate for our needs."))
 	else
-		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while.."))
+		to_chat(usr, SPAN_NOTICE("This warm radiance is bliss. Here we are safe and energised! Stay a while.."))
 
 
 
@@ -215,18 +215,21 @@
 
 	if(DS)
 		DS.pause_regen = !DS.pause_regen
-		to_chat(usr, span("notice", "You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
+		to_chat(usr, SPAN_NOTICE("You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
 
 /mob/living/carbon/human/proc/diona_detach_nymph()
 	set name = "Detach nymph"
 	set desc = "Allows you to detach specific nymph, and control it."
 	set category = "Abilities"
 
+	if(use_check_and_message(src))
+		return
+
 	if(nutrition <= 150)
-		to_chat(src, span("warning", "You lack nutrition to perform this action!"))
+		to_chat(src, SPAN_WARNING("You lack nutrition to perform this action!"))
 		return
 	if(DS.stored_energy <= 60)
-		to_chat(src, span("warning", "You lack energy to perform this action!"))
+		to_chat(src, SPAN_WARNING("You lack energy to perform this action!"))
 		return
 	// Choose our limb to detach
 	var/list/exclude = organs_by_name - list(BP_GROIN, BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
@@ -235,9 +238,9 @@
 		return
 	var/obj/item/organ/external/O = organs_by_name[choice]
 	if(!O || O.is_stump())
-		to_chat(src, span("warning", "Cannot detach that!"))
+		to_chat(src, SPAN_WARNING("Cannot detach that!"))
 		return
-	
+
 	// Get rid of our limb and replace with stump
 	var/obj/item/organ/external/stump/stump = new (src, 0, O)
 	O.removed(null, TRUE)
@@ -253,7 +256,7 @@
 		parent_stump.update_damages()
 		parent.post_droplimb(src)
 		qdel(parent)
-	to_chat(src, span("notice", "You detach [O.name] nymph from your body."))
+	to_chat(src, SPAN_NOTICE("You detach [O.name] nymph from your body."))
 	qdel(O)
 
 	var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
@@ -290,10 +293,10 @@
 	var/mob/living/carbon/alien/diona/nymph = DS.nym.resolve()
 
 	if(!nymph)
-		to_chat(src, span("warning", "You have no nymph!"))
+		to_chat(src, SPAN_WARNING("You have no nymph!"))
 		return
 	else if(nymph.stat == DEAD)
-		to_chat(src, span("danger", "Your nymph is not responding! Something could have happened to it!"))
+		to_chat(src, SPAN_DANGER("Your nymph is not responding! Something could have happened to it!"))
 		return
 	else
 		nymph.key = key
@@ -301,8 +304,7 @@
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
-	var/bestHealth = 0
-
+	var/gestalt_health = (300 -  getFireLoss() - getBruteLoss() - getToxLoss()) / 6
 
 	var/nymphs_to_kill_off = 0
 
@@ -333,21 +335,17 @@
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
+		if(gestalt_health >= D.maxHealth * 0.20)
+			D.health = gestalt_health
+		else
+			D.health = D.maxHealth * 0.20
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
-		if (D.stat != DEAD && D.health > (D.maxHealth*0.1))//If a nymph is alive and has enough health, it will emerge from the gestalt
-			total_nymph += 1
-			D.stat = CONSCIOUS
-			D.stunned = 0
-			D.update_verbs()
-			if ((!D.key) && D.health > bestHealth)
-				bestHealth = D.health
-				bestNymph = D
-
-		else //If a nymph is too heavily damaged, it cannot survive and will be born dead
-			D.visible_message("[D] is too damaged to survive outside a gestalt, and expires with a pitiful chirrup", "You are too damaged to survive outside of your gestalt!", "You hear a pitiful chirrup!")
-			D.stat = DEAD
+		total_nymph += 1
+		D.stat = CONSCIOUS
+		D.stunned = 0
+		D.update_verbs()
 
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)

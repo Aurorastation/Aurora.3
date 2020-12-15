@@ -10,6 +10,10 @@
 
 	var/list/spawners = list() //List of the available spawner datums
 
+	// For special spawners that have mobile or object spawnpoints
+	var/list/spawn_types = list("Golems", "Borers")
+	var/list/spawn_atom = list()
+
 /datum/controller/subsystem/ghostroles/Recover()
 	src.spawnpoints = SSghostroles.spawnpoints
 	src.spawners = SSghostroles.spawners
@@ -27,14 +31,17 @@
 			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing data")
 			continue
 		//Check if we have a spawnpoint on the current map
-		if(!G.select_spawnpoint(FALSE))
+		if(!G.select_spawnlocation(FALSE) && G.loc_type == GS_LOC_POS)
 			log_debug("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		spawners[G.short_name] = G
-	
+
 	for (var/identifier in spawnpoints)
 		CHECK_TICK
 		update_spawnpoint_status_by_identifier(identifier)
+
+	for(var/spawn_type in spawn_types)
+		spawn_atom[spawn_type] = list()
 
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)
@@ -45,7 +52,7 @@
 
 	if(!spawnpoints[P.identifier])
 		spawnpoints[P.identifier] = list()
-	
+
 	spawnpoints[P.identifier].Add(P)
 	//Only update the status if the round is started. During initialization that´s taken care of at the end of init.
 	if(ROUND_IS_STARTED)
@@ -71,7 +78,7 @@
 		return null
 	if(!length(spawnpoints[identifier])) //If we have no spawnpoints for that identifier, return false
 		return null
-	
+
 	for (var/spawnpoint in spawnpoints[identifier])
 		CHECK_TICK
 		var/obj/effect/ghostspawpoint/P = spawnpoint
@@ -98,7 +105,7 @@
 /datum/controller/subsystem/ghostroles/proc/vui_interact(mob/user,var/spawnpoint=null)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
-		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", nstate = interactive_state)
+		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", state = interactive_state)
 		ui.data = vueui_data_change(list("spawnpoint"=spawnpoint,"current_tag"="All"),user,ui)
 	ui.open()
 
@@ -113,13 +120,18 @@
 			if(data["spawners"][G.short_name])
 				data["spawners"] -= G.short_name
 			continue
+		var/cant_spawn = G.cant_spawn(user)
 		LAZYINITLIST(data["spawners"][G.short_name])
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["name"], G.name, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., data)
+		if(cant_spawn)
+			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], "[G.desc] ([cant_spawn])", ., data)
+		else
+			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], cant_spawn, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["can_edit"], G.can_edit(user), ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["enabled"], G.enabled, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["count"], G.count, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["spawnatoms"], length(G.spawn_atoms), ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["max_count"], G.max_count, ., data)
 		VUEUI_SET_CHECK_LIST(data["spawners"][G.short_name]["tags"], G.tags, ., data)
 		VUEUI_SET_CHECK_LIST(data["spawners"][G.short_name]["spawnpoints"], G.spawnpoints, ., data)
@@ -177,3 +189,29 @@
 			for(var/i in S.spawnpoints)
 				update_spawnpoint_status_by_identifier(i)
 	return
+
+/datum/controller/subsystem/ghostroles/proc/add_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
+	if(ghost_role_name && spawn_atom)
+		var/datum/ghostspawner/G = spawners[ghost_role_name]
+		if(G)
+			G.spawn_atoms += spawn_atom
+			if(G.atom_add_message)
+				say_dead_direct("[G.atom_add_message]<br>Spawn in as it by using the ghost spawner menu in the ghost tab, and try to be good!")
+
+/datum/controller/subsystem/ghostroles/proc/remove_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
+	if(ghost_role_name && spawn_atom)
+		var/datum/ghostspawner/G = spawners[ghost_role_name]
+		if(G)
+			G.spawn_atoms -= spawn_atom
+
+/datum/controller/subsystem/ghostroles/proc/get_spawn_atoms(var/ghost_role_name)
+	var/datum/ghostspawner/G = spawners[ghost_role_name]
+	if(G)
+		return G.spawn_atoms
+	return list()
+
+//Returns the spawner with the specified (short) name or null
+/datum/controller/subsystem/ghostroles/proc/get_spawner(var/spawner_name)
+	if(spawner_name in spawners)
+		return spawners[spawner_name]
+	return null

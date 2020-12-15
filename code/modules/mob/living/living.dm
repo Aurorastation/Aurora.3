@@ -9,17 +9,34 @@
 	return
 
 //mob verbs are faster than object verbs. See above.
+var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
+	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
+		return FALSE
 	if(src.stat || !src.canmove || src.restrained())
-		return 0
+		return FALSE
 	if(src.status_flags & FAKEDEATH)
-		return 0
-	if(!..())
-		return 0
+		return FALSE
+	if(next_point_time >= world.time)
+		return FALSE
 
-	src.visible_message("<b>[src]</b> points to [A].")
-	return 1
+	next_point_time = world.time + 25
+	face_atom(A)
+	if(isturf(A))
+		if(pointing_effect)
+			QDEL_NULL(pointing_effect)
+		pointing_effect = new /obj/effect/decal/point(A)
+		pointing_effect.invisibility = invisibility
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
+	else
+		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
+		LAZYADD(A.filters, pointglow)
+		addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
+	visible_message("<b>\The [src]</b> points to \the [A].")
+	return TRUE
 
+/mob/living/proc/remove_filter(var/atom/A, var/filter_to_remove)
+	LAZYREMOVE(A.filters, filter_to_remove)
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -187,7 +204,7 @@ default behaviour is:
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
-		health = 100
+		health = maxHealth
 		stat = CONSCIOUS
 	else
 		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - getHalLoss()
@@ -363,7 +380,7 @@ default behaviour is:
 			return 1
 	return 0
 
-
+// Returns injection time modifier, if 0 then injection fails
 /mob/living/proc/can_inject()
 	return 1
 
@@ -612,9 +629,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(H.vessel.get_reagent_amount("blood"))
+												var/total_blood = round(H.vessel.get_reagent_amount(/datum/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent("blood", 1)
+													H.vessel.remove_reagent(/datum/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -665,7 +682,11 @@ default behaviour is:
 		spawn() C.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/holder/H)
-	if(H != src.loc) return
+	if(H != src.loc)
+		return
+	if(health < maxHealth * 0.6)
+		to_chat(src, SPAN_WARNING("You're too injured to escape..."))
+		return
 
 	var/mob/M = H.loc //Get our mob holder (if any).
 
@@ -697,7 +718,7 @@ default behaviour is:
 /mob/living/var/last_resist
 
 /mob/living/proc/resist_grab()
-	if(last_resist + 8 > world.time)
+	if(last_resist + 10 > world.time)
 		return
 	last_resist = world.time
 	if(stunned > 10)
@@ -719,35 +740,41 @@ default behaviour is:
 					resist_chance = 30 * resist_power
 				else
 					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
-				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
 				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 50 * resist_power
-				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
 				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 3 * resist_power
-				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
-			
+				resist_msg = SPAN_DANGER("[src] has broken free of [G.assailant]'s headlock!")
+
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
 
 	if(resisting)
-		visible_message(span("warning", "[src] resists!"))
+		visible_message(SPAN_WARNING("[src] resists!"))
 		setClickCooldown(25)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
 	set category = "IC"
 
+	if(last_special + 1 SECOND > world.time)
+		to_chat(src, SPAN_WARNING("You're too tired to do this now!"))
+		return
+	last_special = world.time
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
+	update_canmove()
+	update_icon()
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
@@ -880,9 +907,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = "iron"
+			src.composition_reagent = /datum/reagent/iron
 		else
-			src.composition_reagent = "protein"
+			src.composition_reagent = /datum/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -906,3 +933,61 @@ default behaviour is:
 		Paralyse(rand(8,16))
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
+
+/mob/living/proc/InStasis()
+	return FALSE
+
+/mob/living/update_icon()
+	for(var/aura in auras)
+		var/obj/aura/A = aura
+		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+		add_overlay(aura_overlay)
+
+/mob/living/proc/add_aura(var/obj/aura/aura)
+	LAZYDISTINCTADD(auras, aura)
+	update_icon()
+	return TRUE
+
+/mob/living/proc/remove_aura(var/obj/aura/aura)
+	LAZYREMOVE(auras, aura)
+	update_icon()
+	return TRUE
+
+/mob/living/proc/apply_radiation_effects()
+	var/area/A = get_area(src)
+	if(!A)
+		return FALSE
+	if(isNotStationLevel(A.z))
+		return FALSE
+	if(A.flags & RAD_SHIELDED)
+		return FALSE
+	. = TRUE
+
+/mob/living/Destroy()
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+	return ..()
+
+/mob/living/proc/needs_wheelchair()
+	return FALSE
+
+//called when the mob receives a bright flash
+/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(override_blindness_check || !(disabilities & BLIND))
+		..()
+		overlay_fullscreen("flash", type)
+		spawn(25)
+			if(src)
+				clear_fullscreen("flash", 25)
+		return 1
+
+/mob/living/verb/toggle_run_intent()
+	set hidden = 1
+	set name = "mov_intent"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()
+
+/mob/living/proc/add_hallucinate(var/amount)
+	hallucination += amount
+	hallucination += amount

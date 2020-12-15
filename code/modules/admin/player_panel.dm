@@ -29,16 +29,14 @@
 	else
 		alert("The game hasn't started yet!")
 
-var/datum/vueui_module/player_panel/global_player_panel
 /datum/vueui_module/player_panel
-	var/something = TRUE
 
-/datum/vueui_module/player_panel/ui_interact(var/mob/user)
+/datum/vueui_module/player_panel/ui_interact(mob/user)
 	if (!usr.client.holder)
 		return
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", nstate = interactive_state)
+		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", state = interactive_state)
 		ui.header = "minimal"
 		ui.auto_update_content = TRUE
 

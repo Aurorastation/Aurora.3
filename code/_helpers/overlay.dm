@@ -13,7 +13,7 @@
 	else
 		m_cache_icon = list()
 		m_cache[icon] = m_cache_icon
-	
+
 	if (!multiply)
 		multiply = make_screen_overlay(icon, icon_state)
 		multiply.blend_mode = BLEND_MULTIPLY
@@ -41,9 +41,17 @@
 
 	target.add_overlay(list(multiply, overlay))
 
-/proc/make_screen_overlay(icon, icon_state, brightness_factor = null)
+/proc/make_screen_overlay(icon, icon_state, brightness_factor = null, glow_radius = 1)
+	var/icon/base = new(icon, icon_state) // forgive us, but this is to get the width/height.
+	var/height = base.Height() // at least this is cached in most use cases
+	var/width = base.Width()
 	var/image/overlay = image(icon, icon_state)
-	overlay.layer = LIGHTING_LAYER + 0.1
+	overlay.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	var/image/underlay = image(overlay)
+	underlay.alpha = 128
+	underlay.transform = underlay.transform.Scale((width + glow_radius*2)/width, (height+glow_radius*2)/height)
+	underlay.filters = filter(type="blur", size=glow_radius)
+	overlay.underlays += underlay
 	if (brightness_factor)
 		overlay.color = list(
 			brightness_factor, 0, 0, 0,

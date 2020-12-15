@@ -22,7 +22,7 @@
 /obj/machinery/door/airlock/proc/execute_current_command()
 	set waitfor = FALSE
 	if(operating)
-		if (operating != -1)	// -1 is emagged.
+		if (emagged == 1)
 			// Come back and try again later.
 			queue_command()
 		return //emagged or busy doing something else
@@ -106,7 +106,7 @@
 /obj/machinery/door/airlock/proc/send_status(var/bumped = 0)
 	if(radio_connection)
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.data["tag"] = id_tag
 		signal.data["timestamp"] = world.time
 
@@ -154,9 +154,10 @@
 	return ..()
 
 /obj/machinery/airlock_sensor
+	name = "airlock sensor"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"
-	name = "airlock sensor"
+	layer = OBJ_LAYER
 
 	anchored = 1
 	power_channel = ENVIRON
@@ -183,7 +184,7 @@
 
 /obj/machinery/airlock_sensor/attack_hand(mob/user)
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.data["tag"] = master_tag
 	signal.data["command"] = command
 
@@ -197,7 +198,7 @@
 
 		if(abs(pressure - previousPressure) > 0.001 || previousPressure == null)
 			var/datum/signal/signal = new
-			signal.transmission_method = 1 //radio signal
+			signal.transmission_method = TRANSMISSION_RADIO
 			signal.data["tag"] = id_tag
 			signal.data["timestamp"] = world.time
 			signal.data["pressure"] = num2text(pressure)
@@ -233,9 +234,10 @@
 	command = "cycle_exterior"
 
 /obj/machinery/access_button
+	name = "access button"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
-	name = "access button"
+	layer = OBJ_LAYER
 
 	anchored = 1
 	power_channel = ENVIRON
@@ -257,7 +259,7 @@
 
 /obj/machinery/access_button/attackby(obj/item/I as obj, mob/user as mob)
 	//Swiping ID on the access button
-	if (istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda))
+	if (I.GetID())
 		attack_hand(user)
 		return
 	..()
@@ -269,7 +271,7 @@
 
 	else if(radio_connection)
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.data["tag"] = master_tag
 		signal.data["command"] = command
 

@@ -32,6 +32,8 @@
 	linkedholodeck = locate(linkedholodeck_area)
 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/HolodeckControl/attack_hand(var/mob/user as mob)
@@ -153,8 +155,8 @@
 		to_chat(user, "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>")
 		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator.")
 		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
-		return 1
 		src.updateUsrDialog()
+		return 1
 	else
 		..()
 
@@ -233,7 +235,7 @@
 		var/mob/M = obj.loc
 		if(ismob(M))
 			M.remove_from_mob(obj)
-			M.update_icons()	//so their overlays update
+			M.update_icon()	//so their overlays update
 
 	if(!silent)
 		var/obj/oldobj = obj

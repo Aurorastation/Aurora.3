@@ -7,4 +7,3 @@
 			client.eye = loc
 			client.perspective = EYE_PERSPECTIVE
 	src.view_core()
-	return

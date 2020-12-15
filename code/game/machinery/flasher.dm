@@ -5,6 +5,7 @@
 	desc = "A wall-mounted flashbulb device."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash1"
+	layer = OBJ_LAYER
 	var/id = null
 	var/range = 2 //this is roughly the size of brig cell
 	var/disable = 0
@@ -22,6 +23,7 @@
 	name = "portable flasher"
 	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
 	icon_state = "pflash1"
+	layer = OBJ_LAYER - 0.01
 	strength = 8
 	anchored = 0
 	base_state = "pflash"
@@ -57,7 +59,9 @@
 			user.visible_message("<span class='warning'>[user] has connected the [src]'s flashbulb!</span>", "<span class='warning'>You connect the [src]'s flashbulb!</span>")
 
 //Let the AI trigger them directly.
-/obj/machinery/flasher/attack_ai()
+/obj/machinery/flasher/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if (src.anchored)
 		return src.flash()
 	else
@@ -98,7 +102,7 @@
 			if(!O.blinded)
 				flick("flash", O:flash)
 		O.Weaken(flash_time)
-		flick("e_flash", O.flash)
+		O.flash_eyes()
 
 /obj/machinery/flasher/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))

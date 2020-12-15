@@ -6,6 +6,7 @@
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/clothing/gloves/fyellow                             //Cheap Chinese Crap
 	desc = "These gloves are cheap copies of the coveted gloves, no way this can end badly."
@@ -15,6 +16,7 @@
 	siemens_coefficient = 1			//Set to a default of 1, gets overridden in New()
 	permeability_coefficient = 0.05
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 	New()
 		//average of 0.5, somewhat better than regular gloves' 0.75
@@ -100,49 +102,49 @@
 	item_state = "yellow"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black/unathi
 	name = "black gloves"
 	desc = "Black gloves made for Unathi use."
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 //more snowflake gloves for the custom loadout
 
 /obj/item/clothing/gloves/red/unathi
  	name = "red gloves"
  	desc = "Red gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/blue/unathi
  	name = "blue gloves"
  	desc = "Blue gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/orange/unathi
  	name = "orange gloves"
  	desc = "Orange gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/purple/unathi
  	name = "purple gloves"
  	desc = "Purple gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/brown/unathi
  	name = "brown gloves"
  	desc = "Brown gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/green/unathi
  	name = "green gloves"
  	desc = "Green gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/white/unathi
  	name = "white gloves"
  	desc = "White gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/evening
 	name = "evening gloves"
@@ -155,11 +157,19 @@
 	icon_state = "black_leather"
 	item_state = "black_leather"
 
+/obj/item/clothing/gloves/black_leather/colour
+	icon_state = "full_leather_colour"
+	item_state = "full_leather_colour"
+
 /obj/item/clothing/gloves/fingerless
 	desc = "A pair of gloves that don't actually cover the fingers."
 	name = "fingerless gloves"
 	icon_state = "fingerlessgloves"
 	item_state = "fingerlessgloves"
 	fingerprint_chance = 100
-	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	clipped = TRUE
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+
+/obj/item/clothing/gloves/fingerless/colour
+	icon_state = "fingerlessgloves_colour"
+	item_state = "fingerlessgloves_colour"

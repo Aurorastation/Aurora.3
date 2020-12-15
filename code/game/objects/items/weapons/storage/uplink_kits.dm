@@ -99,6 +99,11 @@
 	name = "box (E)"
 	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive = 1)
 
+/obj/item/storage/box/syndie_kit/imp_deadman
+	name = "box (D)"
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive/deadman = 1)
+
+
 /obj/item/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"
 	starts_with = list(/obj/item/implanter/uplink = 1)
@@ -118,7 +123,7 @@
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
-		/obj/item/clothing/head/chameleon = 1,
+		/obj/item/clothing/head/softcap/chameleon = 1,
 		/obj/item/clothing/suit/chameleon = 1,
 		/obj/item/clothing/shoes/chameleon = 1,
 		/obj/item/storage/backpack/chameleon = 1,
@@ -152,6 +157,12 @@
 	desc = "For when you want to conduct voyeurism from afar."
 	starts_with = list(/obj/item/device/spy_bug = 6, /obj/item/device/spy_monitor = 1)
 
+/obj/item/storage/box/syndie_kit/spy/hidden
+	name = "box"
+	desc = "It's just an ordinary box."
+	icon_state = "box"
+	item_state = "box"
+
 /obj/item/storage/box/syndie_kit/g9mm
 	name = "smooth operator"
 	desc = "9mm with silencer kit."
@@ -168,38 +179,38 @@
 
 /obj/item/storage/box/syndie_kit/cigarette/fill()
 	..()
-	var/obj/item/storage/fancy/cigarettes/pack
-	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("aluminum" = 5, "potassium" = 5, "sulfur" = 5))
+	var/obj/item/storage/box/fancy/cigarettes/pack
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
+	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("aluminum" = 5, "potassium" = 5, "sulfur" = 5))
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
+	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("potassium" = 5, "sugar" = 5, "phosphorus" = 5))
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("potassium" = 5, "sugar" = 5, "phosphorus" = 5))
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	// Dylovene. Going with 1.5 rather than 1.6666666...
-	fill_cigarre_package(pack, list("potassium" = 1.5, "ammonia" = 1.5, "silicon" = 1.5))
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 1.5, /datum/reagent/ammonia = 1.5, /datum/reagent/silicon = 1.5))
 	// Mindbreaker
-	fill_cigarre_package(pack, list("silicon" = 4.5, "hydrazine" = 4.5, "dylovene" = 4.5))
+	fill_cigarre_package(pack, list(/datum/reagent/silicon = 4.5, /datum/reagent/hydrazine = 4.5, /datum/reagent/dylovene = 4.5))
 
 	pack.desc += " 'MB' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
-	pack.reagents.add_reagent("tricordrazine", 15 * pack.storage_slots)
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
+	pack.reagents.add_reagent(/datum/reagent/tricordrazine, 15 * pack.storage_slots)
 	pack.desc += " 'T' has been scribbled on it."
 
 	new /obj/item/flame/lighter/zippo(src)
 
-/proc/fill_cigarre_package(var/obj/item/storage/fancy/cigarettes/C, var/list/reagents)
+/proc/fill_cigarre_package(var/obj/item/storage/box/fancy/cigarettes/C, var/list/reagents)
 	for(var/reagent in reagents)
 		C.reagents.add_reagent(reagent, reagents[reagent] * C.storage_slots)
 
@@ -210,20 +221,18 @@
 
 /obj/item/storage/box/syndie_kit/armor
 	name = "boxed armor kit"
-	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1)
+	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
-	name = "suspicious briefcase"
-	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
 	starts_with = list(/obj/item/spacecash/c1000 = 10)
 
 /obj/item/storage/box/syndie_kit/stimulants
 	name = "box of stimulants"
-	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of norepinephrine, and a large empty cartridge."
+	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of inaprovaline, and a large empty cartridge."
 	starts_with = list(
 		/obj/item/personal_inhaler/combat = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine = 1,
-		/obj/item/reagent_containers/personal_inhaler_cartridge/large/norepinephrine = 1,
+		/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large = 1,
 	)
 
@@ -237,3 +246,10 @@
 /obj/item/storage/box/syndie_kit/random_weapon/Initialize()
 	.=..()
 	desc = "A sleek, sturdy box"
+
+/obj/item/storage/box/syndie_kit/sideeffectbegone
+	name = "box of sideeffect-be-gone injectors"
+	desc = "Comes with 4x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 4
+	)

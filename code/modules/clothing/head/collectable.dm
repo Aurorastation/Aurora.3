@@ -8,9 +8,6 @@
 	name = "ultra rare hat"
 	desc = "an ultra rare hat. It commands a certain respect."
 	icon_state = "petehat"
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
-		)
 
 /obj/item/clothing/head/collectable/slime
 	name = "collectable slime cap!"
@@ -41,6 +38,7 @@
 	item_state = "paper"
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/clothing/head/collectable/tophat
 	name = "collectable top hat"
@@ -52,10 +50,7 @@
 	name = "collectable captain's hat"
 	desc = "A Collectable Hat that'll make you look just like a real comdom!"
 	icon_state = "captain"
-	item_state_slots = list(
-		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat"
-		)
+	item_state = "caphat"
 
 /obj/item/clothing/head/collectable/police
 	name = "collectable police officer's hat"
@@ -64,8 +59,11 @@
 
 /obj/item/clothing/head/collectable/beret
 	name = "collectable beret"
-	desc = "A Collectable red Beret. It smells faintly of Garlic."
-	icon_state = "beret"
+	desc = "A Collectable red Beret. It smells faintly of garlic."
+	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon_state = "beret_red"
+	item_state = "beret_red"
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/collectable/welding
 	name = "collectable welding helmet"
@@ -92,12 +90,6 @@
 	name = "collectable pirate hat"
 	desc = "You'd make a great Dread Syndie Roberts!"
 	icon_state = "pirate"
-
-/obj/item/clothing/head/collectable/kitty
-	name = "collectable kitty ears"
-	desc = "The fur feels.....a bit too realistic."
-	icon_state = "kitty"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/collectable/rabbitears
 	name = "collectable rabbit ears"

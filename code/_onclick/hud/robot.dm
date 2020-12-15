@@ -52,6 +52,13 @@ var/obj/screen/robot_inventory
 	src.adding += using
 	action_intent = using
 
+// Up Hint
+	mymob.up_hint = new /obj/screen()
+	mymob.up_hint.icon = 'icons/mob/screen/robot.dmi'
+	mymob.up_hint.icon_state = "uphint0"
+	mymob.up_hint.name = "up hint"
+	mymob.up_hint.screen_loc = ui_up_hint
+
 //Cell
 	r.cells = new /obj/screen()
 	r.cells.icon = 'icons/mob/screen/robot.dmi'
@@ -72,6 +79,9 @@ var/obj/screen/robot_inventory
 	mymob.hands.icon_state = "nomod"
 	mymob.hands.name = "module"
 	mymob.hands.screen_loc = ui_borg_module
+
+	if(r.module)
+		mymob.hands.icon_state = lowertext(r.mod_type)
 
 //Module Panel
 	using = new /obj/screen()
@@ -104,21 +114,6 @@ var/obj/screen/robot_inventory
 	mymob.pullin.name = "pull"
 	mymob.pullin.screen_loc = ui_borg_pull
 
-	mymob.blind = new /obj/screen()
-	mymob.blind.icon = 'icons/mob/screen/full.dmi'
-	mymob.blind.icon_state = "blackimageoverlay"
-	mymob.blind.name = " "
-	mymob.blind.screen_loc = "1,1"
-	mymob.blind.invisibility = 101
-
-	mymob.flash = new /obj/screen()
-	mymob.flash.icon = 'icons/mob/screen/robot.dmi'
-	mymob.flash.icon_state = "blank"
-	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = ui_entire_screen
-	mymob.flash.layer = 17
-	mymob.flash.mouse_opacity = 0
-
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen/robot.dmi'
 	mymob.zone_sel.cut_overlays()
@@ -144,9 +139,8 @@ var/obj/screen/robot_inventory
 		mymob.hands,
 		mymob.healths,
 		r.cells,
+		mymob.up_hint,
 		mymob.pullin,
-		mymob.blind,
-		mymob.flash,
 		robot_inventory,
 		mymob.gun_setting_icon,
 		r.computer)
@@ -170,6 +164,9 @@ var/obj/screen/robot_inventory
 		return
 
 	var/mob/living/silicon/robot/r = mymob
+
+	if(!r.client || !r)
+		return
 
 	if(r.shown_robot_modules)
 		//Modules display is shown
@@ -204,7 +201,7 @@ var/obj/screen/robot_inventory
 				r.module.modules -= r.module.emag
 
 		if(r.malf_AI_module)
-			if(!((r.module.malf_AI_module in r.module.modules) && r.module.malf_AI_module == null))
+			if(!((r.module.malf_AI_module in r.module.modules) || r.module.malf_AI_module == null))
 				r.module.modules += r.module.malf_AI_module
 		else
 			if(r.module.malf_AI_module in r.module.modules)

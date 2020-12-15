@@ -15,7 +15,6 @@ var/global/list/topic_commands = list()				//List of all API commands available
 var/global/list/topic_commands_names = list()				//List of all API commands available
 
 var/global/list/landmarks_list = list()				//list of all landmarks created
-var/global/list/surgery_steps = list()				//list of all surgery steps  |BS12
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
@@ -36,8 +35,8 @@ var/global/list/all_areas = list()
 var/global/list/datum/species/all_species = list()
 var/global/list/all_languages = list()
 var/global/list/language_keys = list()					// Table of say codes for all languages
-var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
-var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
+var/global/list/whitelisted_species = list(SPECIES_HUMAN) // Species that require a whitelist check.
+var/global/list/playable_species = list()    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
 // Posters
 var/global/list/poster_designs = list()
@@ -56,19 +55,24 @@ var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
 var/global/list/body_marking_styles_list = list()
 var/global/list/chargen_disabilities_list = list()
-var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER)
+var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 
 //Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
 var/global/list/backbagstyles = list("Job-specific", "Grey")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
+//PDA choice
+var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
+
+//Headset choice
+var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset")
+
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
 
 // Runes
-var/global/list/rune_list = new()
 var/global/list/escape_list = list()
 var/global/list/endgame_exits = list()
 var/global/list/endgame_safespawns = list()
@@ -133,14 +137,6 @@ var/global/list/cloaking_devices = list()
 
 	sortTim(chargen_disabilities_list, /proc/cmp_text_asc)
 
-	//Surgery Steps - Initialize all /datum/surgery_step into a list
-	paths = subtypesof(/datum/surgery_step)
-	for(var/T in paths)
-		var/datum/surgery_step/S = new T
-		surgery_steps += S
-
-	sortTim(surgery_steps, /proc/cmp_surgery)
-
 	//List of job. I can't believe this was calculated multiple times per tick!
 	paths = subtypesof(/datum/job)
 	paths -= exclude_jobs
@@ -165,6 +161,8 @@ var/global/list/cloaking_devices = list()
 		rkey++
 		var/datum/species/S = new T
 		S.race_key = rkey //Used in mob icon caching.
+		if(length(S.autohiss_basic_map) || length(S.autohiss_extra_map) || length(S.autohiss_basic_extend) || length(S.autohiss_extra_extend))
+			S.has_autohiss = TRUE
 		all_species[S.name] = S
 
 	sortTim(all_species, /proc/cmp_text_asc)
@@ -173,8 +171,10 @@ var/global/list/cloaking_devices = list()
 	for (var/thing in all_species)
 		var/datum/species/S = all_species[thing]
 
-		if (!(S.spawn_flags & IS_RESTRICTED))
-			playable_species += S.name
+		if(!(S.spawn_flags & IS_RESTRICTED) && S.category_name)
+			if(!length(playable_species[S.category_name]))
+				playable_species[S.category_name] = list()
+			playable_species[S.category_name] += S.name
 		if(S.spawn_flags & IS_WHITELISTED)
 			whitelisted_species += S.name
 
@@ -185,6 +185,8 @@ var/global/list/cloaking_devices = list()
 		poster_designs += P
 
 	return 1
+
+var/global/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "\"" = TRUE)
 
 /* // Uncomment to debug chemical reaction list.
 /client/verb/debug_chemical_list()

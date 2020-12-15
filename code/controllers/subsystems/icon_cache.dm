@@ -44,6 +44,7 @@
 	var/list/markings_cache = list()	// [icon]-[icon_state]-[limb_name]-[color]
 	var/list/human_eye_cache = list()
 	var/list/human_lip_cache = list()
+	var/list/internal_organ_cache = list()
 	// Cached composited human hair (beard & hair).
 	// Key:
 	//    hair+beard: [beard_style][r_facial][g_facial][b_facial]_[hair_style][r_hair][g_hair][b_hair]
@@ -55,9 +56,6 @@
 	// This is an assoc list of all icon states in `icons/mob/collar.dmi`, used by human update-icons.
 	var/list/collar_states
 	var/list/uniform_states
-
-	// This is for the kitty ears item.
-	var/list/kitty_ear_cache = list()
 
 	var/list/ao_cache = list()
 

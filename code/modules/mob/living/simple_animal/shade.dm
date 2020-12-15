@@ -11,6 +11,7 @@
 	universal_speak = 1
 	speak_emote = list("hisses")
 	emote_hear = list("wails","screeches")
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "puts their hand through"
 	response_disarm = "flails at"
 	response_harm   = "punches"
@@ -39,6 +40,9 @@
 	visible_message("<span class='warning'>[src] lets out a contented sigh as their form unwinds.</span>")
 	new residue(loc)
 	qdel(src)
+
+/mob/living/simple_animal/shade/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
 	if(istype(O, /obj/item/device/soulstone))
@@ -79,7 +83,7 @@
 	heat_damage_per_tick = 0
 	cold_damage_per_tick = 0
 	unsuitable_atoms_damage = 0
-	incorporeal_move = 3
+	incorporeal_move = INCORPOREAL_SHADE
 	mob_size = 0
 	density = 0
 	speed = 1
@@ -92,7 +96,7 @@
 	var/datum/weakref/original_body
 	var/datum/weakref/possessed_body
 
-/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage_flags, var/def_zone, var/edge, var/sharp, var/used_weapon)
+/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage, var/damagetype, var/def_zone, var/blocked, var/used_weapon, var/damage_flags)
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/adjustBruteLoss()
@@ -356,4 +360,4 @@
 /obj/item/ectoplasm/bs/Initialize()
 	. = ..()
 	create_reagents(8)
-	reagents.add_reagent("bluespace_dust", 8)
+	reagents.add_reagent(/datum/reagent/bluespace_dust, 8)

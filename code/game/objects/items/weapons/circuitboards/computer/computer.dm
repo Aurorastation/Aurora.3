@@ -17,11 +17,6 @@
 	build_path = /obj/machinery/computer/borgupload
 	origin_tech = list(TECH_DATA = 4)
 
-/obj/item/circuitboard/pandemic
-	name = T_BOARD("PanD.E.M.I.C. 2200")
-	build_path = /obj/machinery/computer/pandemic
-	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
-
 /obj/item/circuitboard/scan_consolenew
 	name = T_BOARD("DNA machine")
 	build_path = /obj/machinery/computer/scan_consolenew
@@ -95,10 +90,6 @@
 	name = T_BOARD("Magix")
 	build_path = /obj/machinery/computer/pod/old/swf
 
-/obj/item/circuitboard/prisoner
-	name = T_BOARD("prisoner management console")
-	build_path = /obj/machinery/computer/prisoner
-
 /obj/item/circuitboard/rdservercontrol
 	name = T_BOARD("R&D server control console")
 	build_path = /obj/machinery/computer/rdservercontrol
@@ -107,14 +98,6 @@
 	name = T_BOARD("patient monitoring console")
 	build_path = /obj/machinery/computer/operating
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
-
-/obj/item/circuitboard/curefab
-	name = T_BOARD("cure fabricator")
-	build_path = /obj/machinery/computer/curer
-
-/obj/item/circuitboard/splicer
-	name = T_BOARD("disease splicer")
-	build_path = /obj/machinery/computer/diseasesplicer
 
 /obj/item/circuitboard/mining_shuttle
 	name = T_BOARD("mining shuttle console")

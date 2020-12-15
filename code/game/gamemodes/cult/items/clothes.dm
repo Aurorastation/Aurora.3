@@ -2,6 +2,7 @@
 	name = "ragged hood"
 	icon_state = "culthood"
 	desc = "A torn, dust-caked hood."
+	description_cult = "This can be reforged to become an eldritch voidsuit helmet."
 	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
 	armor = list(melee = 50, bullet = 30, laser = 50, energy = 20, bomb = 25, bio = 10, rad = 0)
@@ -10,8 +11,9 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/head/culthood/cultify()
-	new /obj/item/clothing/head/helmet/space/cult(get_turf(src))
-	..()
+	var/obj/item/clothing/head/helmet/space/cult/C = new /obj/item/clothing/head/helmet/space/cult(get_turf(src))
+	qdel(src)
+	return C
 
 /obj/item/clothing/head/culthood/alt
 	icon_state = "cult_hoodalt"
@@ -19,6 +21,7 @@
 /obj/item/clothing/suit/cultrobes
 	name = "ragged robes"
 	desc = "A ragged, dusty set of robes."
+	description_cult = "This can be reforged to become an eldritch voidsuit."
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -28,9 +31,29 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/suit/cultrobes/cultify()
-	new /obj/item/clothing/suit/space/cult(get_turf(src))
-	..()
+	var/obj/item/clothing/suit/space/cult/C = new /obj/item/clothing/suit/space/cult(get_turf(src))
+	qdel(src)
+	return C
 
 /obj/item/clothing/suit/cultrobes/alt
 	icon_state = "cultrobesalt"
 	item_state = "cultrobesalt"
+
+/obj/item/clothing/shoes/cult
+	name = "ragged boots"
+	desc = "A ragged, dusty pair of boots."
+	icon_state = "cult"
+	item_state = "cult"
+	force = 5
+	silent = 1
+	siemens_coefficient = 0.35 //antags don't get exceptions, it's just heavy armor by magical standards
+	armor = list(melee = 50, bullet = 30, laser = 50, energy = 20, bomb = 25, bio = 10, rad = 0)
+
+	cold_protection = FEET
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	species_restricted = null
+
+/obj/item/clothing/shoes/cult/cultify()
+	return

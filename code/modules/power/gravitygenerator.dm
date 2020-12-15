@@ -209,7 +209,7 @@
 				var/obj/item/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
 					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
-					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					broken_state++
 		if(GRAV_NEEDS_PLASTEEL)
 			if(istype(I, /obj/item/stack/material/plasteel))
@@ -230,11 +230,11 @@
 			..()
 	if(I.iscrowbar())
 		if(backpanelopen)
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
 			backpanelopen = 0
 		else
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			to_chat(user, "<span class='notice'>You open the back panel.</span>")
 			backpanelopen = 1
 
@@ -281,7 +281,7 @@
 
 	if(href_list["gentoggle"])
 		breaker = !breaker
-		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<font color='red'>OFF</font>"] by [usr.key].", "gravity")
+		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<span class='warning'>OFF</span>"] by [usr.key].", "gravity")
 		set_power()
 		src.updateUsrDialog()
 	else if(href_list["eshutoff"])
@@ -465,7 +465,7 @@
 	if(!Area)
 		return
 	to_world("<h2 class='alert'>Station Announcement:</h2>")
-	to_world(span("danger", "Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
+	to_world(SPAN_DANGER("Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
 	sleep(50)
 	set_state(FALSE)
 	sleep(30)
@@ -478,5 +478,5 @@
 				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
 				if(istype(boots))
 					continue
-			to_chat(M, span("danger", "Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
+			to_chat(M, SPAN_DANGER("Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(1)

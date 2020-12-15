@@ -1,7 +1,6 @@
 //wrapper
 /proc/do_teleport(ateleatom, adestination, aprecision=0, afteleport=1, aeffectin=null, aeffectout=null, asoundin=null, asoundout=null)
 	new /datum/teleport/instant/science(arglist(args))
-	return
 
 /datum/teleport
 	var/atom/movable/teleatom //atom to teleport
@@ -128,7 +127,7 @@
 	var/area/destarea = get_area(destination)
 	if(precision)
 		var/list/posturfs = circlerangeturfs(destination,precision)
-		destturf = safepick(posturfs)
+		destturf = LAZYPICK(posturfs, null)
 	else
 		destturf = get_turf(destination)
 
@@ -208,7 +207,7 @@
 							if(organs_to_gib.len)
 								var/obj/item/organ/external/E = pick(organs_to_gib)
 								to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
-								H.apply_damage(35, BRUTE, E, 0, sharp=0, edge=0)
+								H.apply_damage(35, BRUTE, E, 0)
 
 					else
 						if(newdest)

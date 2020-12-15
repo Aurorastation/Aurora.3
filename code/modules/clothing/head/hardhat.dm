@@ -7,9 +7,11 @@
 	light_overlay = "hardhat_light"
 	armor = list(melee = 30, bullet = 5, laser = 20,energy = 10, bomb = 20, bio = 10, rad = 20)
 	flags_inv = 0
+	w_class = ITEMSIZE_NORMAL
 	siemens_coefficient = 0.9
 	light_wedge = LIGHT_WIDE
 	drop_sound = 'sound/items/drop/helm.ogg'
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat_orange"
@@ -37,9 +39,9 @@
 	icon_state = "atmos_fire"
 	item_state = "atmos_fire"
 
-/obj/item/clothing/head/hardhat/emt
+/obj/item/clothing/head/hardhat/first_responder
 	name = "medical helmet"
-	desc = "A polymer helmet worn by EMTs and Paramedics throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
+	desc = "A polymer helmet worn by first responders throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
 	icon_state = "helmet_paramed"
 	item_state = "helmet_paramed"
 	light_overlay = "EMS_light"

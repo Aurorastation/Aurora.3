@@ -205,7 +205,7 @@
 	if(panel_notification)
 		new_notification("warning","You have <b>[notification_count] unread notifications!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!")
 	if(chat_notification)
-		to_chat(user,"<font color='red'><BIG><B>You have unacknowledged notifications.</B></BIG><br>Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!</font>")
+		to_chat(user,"<span class='warning'><BIG><B>You have unacknowledged notifications.</B></BIG><br>Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!</span>")
 
 /*
  * Helper proc for getting a count of active CCIA actions against the player's characters.

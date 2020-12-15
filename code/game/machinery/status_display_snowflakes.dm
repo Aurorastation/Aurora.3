@@ -6,7 +6,7 @@
 		message1 = "CARGO"
 		message2 = ""
 
-		var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
+		var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 		if (!shuttle)
 			message2 = "Error"
 		else if(shuttle.has_arrive_time())
@@ -42,7 +42,7 @@
 		message1 = "ARVLS"
 		message2 = ""
 
-		var/datum/shuttle/ferry/arrival/shuttle = SSarrivals.shuttle
+		var/datum/shuttle/autodock/ferry/arrival/shuttle = SSarrivals.shuttle
 		if (!shuttle)
 			message2 = "Error"
 		else if(shuttle.has_arrive_time())

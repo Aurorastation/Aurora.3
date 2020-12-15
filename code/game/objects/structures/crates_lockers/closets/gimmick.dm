@@ -18,7 +18,7 @@
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		if(W)
 			user.drop_from_inventory(W,loc)
@@ -59,12 +59,6 @@
 	new /obj/item/clothing/head/ushanka/grey(src)
 	new /obj/item/clothing/head/ushanka/grey(src)
 	new /obj/item/clothing/head/ushanka/grey(src)
-	new /obj/item/clothing/under/soviet(src)
-	new /obj/item/clothing/under/soviet(src)
-	new /obj/item/clothing/under/soviet(src)
-	new /obj/item/clothing/under/soviet(src)
-	new /obj/item/clothing/under/soviet(src)
-
 
 /obj/structure/closet/gimmick/tacticool
 	name = "tacticool gear closet"

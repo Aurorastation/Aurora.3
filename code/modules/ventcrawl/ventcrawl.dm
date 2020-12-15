@@ -23,8 +23,8 @@ var/global/list/can_enter_vent_with = list(
 /mob/living/proc/can_ventcrawl()
 	return 0
 
-/mob/living/Login()
-	. = ..()
+/mob/living/LateLogin()
+	..()
 	//login during ventcrawl
 	if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics)) //attach us back into the pipes
 		remove_ventcrawl()
@@ -32,7 +32,7 @@ var/global/list/can_enter_vent_with = list(
 
 /mob/living/carbon/slime/can_ventcrawl()
 	if(victim)
-		to_chat(src, span("warning", "You cannot ventcrawl while feeding."))
+		to_chat(src, SPAN_WARNING("You cannot ventcrawl while feeding."))
 		return FALSE
 	return TRUE
 
@@ -58,9 +58,12 @@ var/global/list/can_enter_vent_with = list(
 /mob/living/proc/ventcrawl_carry()
 	for(var/atom/A in src.contents)
 		if(!is_allowed_vent_crawl_item(A))
-			to_chat(src, "<span class='warning'>You can't be carrying that when vent crawling!</span>")
-			return 0
-	return 1
+			to_chat(src, SPAN_WARNING("You can't be carrying that when vent crawling!"))
+			return FALSE
+	return TRUE
+
+/mob/living/simple_animal/hostile/morph/ventcrawl_carry()
+	return TRUE
 
 /obj/machinery/atmospherics/AltClick(mob/living/user)
 	if(is_type_in_list(src, ventcrawl_machinery) && user.can_ventcrawl())

@@ -128,7 +128,7 @@
 
 /obj/item/landmine/frag/trigger(mob/living/L)
 	spark(src, 3, alldirs)
-	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,1)
+	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
 	qdel(src)
 
 /obj/item/landmine/radiation
@@ -149,7 +149,7 @@
 	spark(src, 3, alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
 		if(!target.blocks_air)
-			target.assume_gas("phoron", 30)
+			target.assume_gas(GAS_PHORON, 30)
 
 			target.hotspot_expose(1000, CELL_VOLUME)
 
@@ -162,7 +162,7 @@
 	spark(src, 3, alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
 		if(!target.blocks_air)
-			target.assume_gas("sleeping_agent", 30)
+			target.assume_gas(GAS_N2O, 30)
 
 	qdel(src)
 

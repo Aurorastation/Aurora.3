@@ -18,7 +18,7 @@
 	layer = 10
 	luminosity = 0
 	mouse_opacity = 0
-	var/lightswitch = 1
+	var/lightswitch = FALSE
 
 	var/eject = null
 
@@ -39,20 +39,7 @@
 //	var/list/lights				// list of all lights on this area
 	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
 	var/air_doors_activated = 0
-	var/list/ambience = list(
-		'sound/ambience/ambigen1.ogg',
-		'sound/ambience/ambigen3.ogg',
-		'sound/ambience/ambigen4.ogg',
-		'sound/ambience/ambigen5.ogg',
-		'sound/ambience/ambigen6.ogg',
-		'sound/ambience/ambigen7.ogg',
-		'sound/ambience/ambigen8.ogg',
-		'sound/ambience/ambigen9.ogg',
-		'sound/ambience/ambigen10.ogg',
-		'sound/ambience/ambigen11.ogg',
-		'sound/ambience/ambigen12.ogg',
-		'sound/ambience/ambigen14.ogg'
-	)
+	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/loop_ambience = TRUE
 	var/sound_env = STANDARD_STATION
@@ -104,6 +91,22 @@
 		power_change()		// all machines set to current power level
 
 	. = ..()
+
+/area/proc/is_prison()
+	return flags & PRISON
+
+/area/proc/is_no_crew_expected()
+	return flags & NO_CREW_EXPECTED
+
+/area/proc/set_lightswitch(var/state) // Set lights in area. TRUE for on, FALSE for off, NULL for initial state.
+	if(isnull(state))
+		state = initial(lightswitch)
+
+	lightswitch = state
+	var/obj/machinery/light_switch/L = locate() in src
+	if(L)
+		L.on = state
+		L.sync_lights()
 
 /area/proc/get_cameras()
 	. = list()
@@ -360,7 +363,7 @@ var/list/mob/living/forced_ambiance_list = new
 		if(has_gravity())
 			thunk(M)
 		else
-			to_chat(M, span("notice", "The sudden lack of gravity makes you feel weightless and float cluelessly!"))
+			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly!"))
 		M.update_floating( M.Check_Dense_Object() )
 
 /area/proc/thunk(mob)
@@ -428,6 +431,8 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/turbolift))
 			continue
+		if (istype(A, /area/security/penal_colony))
+			continue
 		if (istype(A, /area/mine))
 			continue
 
@@ -460,3 +465,23 @@ var/list/mob/living/forced_ambiance_list = new
 	if (turfs.len)
 		return pick(turfs)
 	else return null
+
+// Changes the area of T to A. Do not do this manually.
+// Area is expected to be a non-null instance.
+/proc/ChangeArea(var/turf/T, var/area/A)
+	if(!istype(A))
+		CRASH("Area change attempt failed: invalid area supplied.")
+	var/area/old_area = get_area(T)
+	if(old_area == A)
+		return
+	A.contents.Add(T)
+	if(old_area)
+		old_area.Exited(T, A)
+		for(var/atom/movable/AM in T)
+			old_area.Exited(AM, A)
+	A.Entered(T, old_area)
+	for(var/atom/movable/AM in T)
+		A.Entered(AM, old_area)
+
+	for(var/obj/machinery/M in T)
+		M.shuttle_move(T)

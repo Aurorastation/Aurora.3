@@ -61,14 +61,14 @@
 				T.resources["silver"] =   rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources["uranium"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources["diamond"] =  0
-				T.resources["phoron"] =   0
+				T.resources[MATERIAL_PHORON] =   0
 				T.resources["osmium"] =   0
 				T.resources["hydrogen"] = 0
 			else if(tmp_cell < deep_val) // Rare metals.
 				T.resources["gold"] =     rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources["silver"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources["uranium"] =  rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-				T.resources["phoron"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
+				T.resources[MATERIAL_PHORON] =   rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources["osmium"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources["hydrogen"] = 0
 				T.resources["diamond"] =  0
@@ -76,12 +76,17 @@
 			else                             // Deep metals.
 				T.resources["uranium"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources["diamond"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
-				T.resources["phoron"] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
+				T.resources[MATERIAL_PHORON] =   rand(RESOURCE_LOW_MIN, RESOURCE_LOW_MAX)
 				T.resources["osmium"] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
 				T.resources["hydrogen"] = rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-				T.resources["iron"] =     0
-				T.resources["gold"] =     0
-				T.resources["silver"] =   0
+				if(prob(40)) // A medium chance for these useful mats to appear in very small quantities
+					T.resources["iron"] =     rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
+					T.resources["gold"] =     rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
+					T.resources["silver"] =   rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
+				else
+					T.resources["iron"] =     0
+					T.resources["gold"] =     0
+					T.resources["silver"] =   0
 	return
 
 /datum/random_map/noise/ore/get_map_char(var/value)

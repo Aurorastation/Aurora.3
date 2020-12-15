@@ -26,7 +26,14 @@
 	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
 	if(port)
 		connect(port)
-		update_icon()
+	
+/obj/machinery/portable_atmospherics/canister/Initialize()
+	..()
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/portable_atmospherics/canister/LateInitialize()
+	update_icon()
 
 /obj/machinery/portable_atmospherics/machinery_process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
@@ -42,8 +49,8 @@
 
 /obj/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(
-		"oxygen" = O2STANDARD * MolesForPressure(),
-		"nitrogen" = N2STANDARD *  MolesForPressure())
+		GAS_OXYGEN = O2STANDARD * MolesForPressure(),
+		GAS_NITROGEN = N2STANDARD *  MolesForPressure())
 
 /obj/machinery/portable_atmospherics/proc/MolesForPressure(var/target_pressure = start_pressure)
 	return (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature)
@@ -133,8 +140,7 @@
 		A.analyze_gases(src, user)
 		return
 
-	return
-
+	return ..()
 
 
 /obj/machinery/portable_atmospherics/powered
@@ -195,3 +201,9 @@
 
 	log_admin("[user] ([user.ckey]) opened '[src.name]' containing [gases].", ckey=key_name(user))
 	message_admins("[key_name_admin(user)] opened '[src.name]' containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+
+/obj/machinery/portable_atmospherics/proc/log_open_userless(var/cause)
+	if(air_contents.gas.len == 0)
+		return
+
+	message_admins("'[src.name]' was opened[cause ? " by [cause]" : ""], containing [english_list(air_contents.gas)]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")

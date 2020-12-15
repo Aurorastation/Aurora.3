@@ -2,7 +2,7 @@
 
 	var/announced = FALSE             // Whether or not we have been announced to our holder yet.
 	var/suppressed = TRUE             // Whether or not we are suppressing our psi powers.
-	var/use_psi_armour = TRUE         // Whether or not we should automatically deflect/block incoming damage.
+	var/use_psi_armor = TRUE         // Whether or not we should automatically deflect/block incoming damage.
 	var/rebuild_power_cache = TRUE    // Whether or not we need to rebuild our cache of psi powers.
 
 	var/rating = 0                    // Overall psi rating.
@@ -17,7 +17,7 @@
 	var/list/base_ranks               // Assoc list of psi faculties to base rank, in case reset is needed
 	var/list/manifested_items         // List of atoms manifested/maintained by psychic power.
 	var/next_latency_trigger = 0      // world.time minimum before a trigger can be attempted again.
-	var/last_armor_check              // world.time of last armour check.
+	var/last_armor_check              // world.time of last armor check.
 	var/last_aura_size
 	var/last_aura_alpha
 	var/last_aura_color

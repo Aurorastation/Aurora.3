@@ -74,8 +74,8 @@
 	name = "Shorts, Fleet"
 	icon_state = "shorts_fleet"
 
-/datum/category_item/underwear/bottom/shorts_necropolis
-	name = "Shorts, Necropolis Industries"
+/datum/category_item/underwear/bottom/shorts_zavodskoi
+	name = "Shorts, Zavodskoi Interstellar"
 	icon_state = "shorts_necropolis"
 
 /datum/category_item/underwear/bottom/shorts_epmc
@@ -113,5 +113,6 @@
 	has_color = TRUE
 
 /datum/category_item/underwear/bottom/fishnet_lower
-	name = "Fishnets"
+	name = "Fishnet Bottoms"
 	icon_state = "fishnet_lower"
+	has_color = TRUE

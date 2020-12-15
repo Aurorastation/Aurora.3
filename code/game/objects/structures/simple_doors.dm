@@ -6,6 +6,7 @@
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
+	build_amt = 10
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
 	var/oreAmount = 7
@@ -71,9 +72,8 @@
 /obj/structure/simple_door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
 	if(isAI(user)) //so the AI can't open it
 		return
-	else if(isrobot(user)) //but cyborgs can
-		if(get_dist(user,src) <= 1) //not remotely though
-			return TryToSwitchState(user)
+	else if(isrobot(user) && Adjacent(user)) //but cyborgs can
+		return TryToSwitchState(user)
 
 /obj/structure/simple_door/attack_hand(mob/user as mob)
 	return TryToSwitchState(user)
@@ -190,19 +190,15 @@
 
 /obj/structure/simple_door/proc/CheckHealth()
 	if(health <= 0)
-		Dismantle(1)
-
-/obj/structure/simple_door/proc/Dismantle(devastated = 0)
-	material.place_dismantled_product(get_turf(src))
-	qdel(src)
+		dismantle()
 
 /obj/structure/simple_door/ex_act(severity = 1)
 	switch(severity)
 		if(1)
-			Dismantle(1)
+			dismantle()
 		if(2)
 			if(prob(20))
-				Dismantle(1)
+				dismantle()
 			else
 				health--
 				CheckHealth()

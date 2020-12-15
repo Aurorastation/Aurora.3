@@ -1,11 +1,13 @@
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
+	desc_info = "You can deconstruct this by welding it, and then wrenching the girder.<br>\
+	You can build a wall by using metal sheets and making a girder, then adding more material."
 	icon = 'icons/turf/wall_masks.dmi'
 	icon_state = "generic"
-	opacity = 1
-	density = 1
-	blocks_air = 1
+	opacity = TRUE
+	density = TRUE
+	blocks_air = TRUE
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
 
@@ -20,6 +22,8 @@
 	var/construction_stage
 	var/use_standard_smoothing
 	var/use_set_icon_state
+
+	var/under_turf = /turf/simulated/floor/plating
 
 	var/tmp/list/image/reinforcement_images
 	var/tmp/image/damage_image
@@ -59,6 +63,11 @@
 	if(!radiate())
 		STOP_PROCESSING(SSprocessing, src)
 
+/turf/simulated/wall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(!opacity && istype(mover) && mover.checkpass(PASSGLASS))
+		return TRUE
+	return ..()
+
 /turf/simulated/wall/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj,/obj/item/projectile/beam))
 		burn(2500)
@@ -73,9 +82,11 @@
 	take_damage(damage)
 	return
 
-/turf/simulated/wall/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
+/turf/simulated/wall/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
-	if(ismob(AM))
+	if(isliving(AM))
+		var/mob/living/M = AM
+		M.turf_collision(src, speed)
 		return
 
 	var/tforce = AM:throwforce * (speed/THROWFORCE_SPEED_DIVISOR)
@@ -104,35 +115,30 @@
 	. = ..(user)
 
 	if(!damage)
-		to_chat(user, "<span class='notice'>It looks fully intact.</span>")
+		to_chat(user, SPAN_NOTICE("It looks fully intact."))
 	else
 		var/dam = damage / material.integrity
 		if(dam <= 0.3)
-			to_chat(user, "<span class='warning'>It looks slightly damaged.</span>")
+			to_chat(user, SPAN_WARNING("It looks slightly damaged."))
 		else if(dam <= 0.6)
-			to_chat(user, "<span class='warning'>It looks moderately damaged.</span>")
+			to_chat(user, SPAN_WARNING("It looks moderately damaged."))
 		else
-			to_chat(user, "<span class='danger'>It looks heavily damaged.</span>")
+			to_chat(user, SPAN_DANGER("It looks heavily damaged."))
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		to_chat(user, "<span class='warning'>There is fungus growing on [src].</span>")
+		to_chat(user, SPAN_WARNING("There is fungus growing on [src]."))
 
 //Damage
 
-/turf/simulated/wall/melt()
-
+/turf/simulated/wall/melt(var/do_message = TRUE)
 	if(!can_melt())
 		return
 
-	src.ChangeTurf(/turf/simulated/floor/plating)
+	new /obj/effect/overlay/burnt_wall(get_turf(src), name, material, reinf_material)
+	src.ChangeTurf(under_turf)
 
-	var/turf/simulated/floor/F = src
-	if(!F)
-		return
-	F.burn_tile()
-	F.icon_state = "wall_thermite"
-	visible_message("<span class='danger'>\The [src] spontaneously combusts!.</span>") //!!OH SHIT!!
-	return
+	if(do_message)
+		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!
 
 /turf/simulated/wall/proc/take_damage(dam)
 	if(dam)
@@ -155,7 +161,7 @@
 
 	return
 
-/turf/simulated/wall/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)//Doesn't fucking work because walls don't interact with air :(
+/turf/simulated/wall/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
 	burn(exposed_temperature)
 
 /turf/simulated/wall/adjacent_fire_act(turf/simulated/floor/adj_turf, datum/gas_mixture/adj_air, adj_temp, adj_volume)
@@ -167,7 +173,7 @@
 
 /turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product, var/no_change = FALSE)
 	if (!no_change)	// No change is TRUE when this is called by destroy.
-		playsound(src, 'sound/items/Welder.ogg', 100, 1)
+		playsound(src, 'sound/items/welder.ogg', 100, 1)
 
 	if(!no_product)
 		if(reinf_material)
@@ -188,7 +194,7 @@
 	reinf_material = null
 
 	if (!no_change)
-		ChangeTurf(/turf/simulated/floor/plating)
+		ChangeTurf(under_turf)
 
 /turf/simulated/wall/ex_act(severity)
 	switch(severity)
@@ -218,26 +224,15 @@
 		return 0
 	return 1
 
-/turf/simulated/wall/proc/thermitemelt(mob/user as mob)
+/turf/simulated/wall/proc/thermitemelt(mob/user)
 	if(!can_melt())
 		return
-	var/obj/effect/overlay/O = new/obj/effect/overlay( src )
-	O.name = "Thermite"
-	O.desc = "Looks hot."
-	O.icon = 'icons/effects/fire.dmi'
-	O.icon_state = "2"
-	O.anchored = 1
-	O.density = 1
-	O.layer = 5
 
-	src.ChangeTurf(/turf/simulated/floor/plating)
-
-	var/turf/simulated/floor/F = src
-	F.burn_tile()
-	F.icon_state = "wall_thermite"
-	to_chat(user, "<span class='warning'>The thermite starts melting through the wall.</span>")
+	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
+	to_chat(user, SPAN_WARNING("The thermite starts melting through the wall."))
 
 	QDEL_IN(O, 100)
+	addtimer(CALLBACK(src, /atom/.proc/melt, FALSE), 100)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)

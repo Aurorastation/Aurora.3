@@ -1,3 +1,8 @@
+#define EVIDENCE_TYPE_BLOOD "Blood"
+#define EVIDENCE_TYPE_GSR "Gunshot Residue"
+#define EVIDENCE_TYPE_SALIVA "Saliva"
+#define EVIDENCE_TYPE_ADDITIONAL "Additional"
+
 /obj/item/forensics/swab
 	name = "swab kit"
 	desc = "A sterilized cotton swab and vial used to take forensic samples."
@@ -6,6 +11,7 @@
 	var/list/dna
 	var/used
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/forensics/swab/proc/is_used()
 	return used
@@ -80,11 +86,14 @@
 
 	var/list/choices = list()
 	if(A.blood_DNA)
-		choices |= "Blood"
+		choices |= EVIDENCE_TYPE_BLOOD
 	if(istype(A, /obj/item/clothing))
-		choices |= "Gunshot Residue"
+		choices |= EVIDENCE_TYPE_GSR
 	if(LAZYLEN(A.other_DNA) && A.other_DNA_type == "saliva")
-		choices |= "Saliva"
+		choices |= EVIDENCE_TYPE_SALIVA
+	var/list/list/additional_evidence = A.get_additional_forensics_swab_info()
+	if(additional_evidence && additional_evidence["type"] != "")
+		choices |= EVIDENCE_TYPE_ADDITIONAL + " - " + additional_evidence["type"]
 
 	var/choice
 	if(!choices.len)
@@ -99,13 +108,14 @@
 		return
 
 	var/sample_type
+	var/sample_message
 	switch (choice)
-		if ("Blood")
+		if (EVIDENCE_TYPE_BLOOD)
 			if(!A.blood_DNA || !A.blood_DNA.len) return
 			dna = A.blood_DNA.Copy()
 			sample_type = "blood"
 
-		if ("Gunshot Residue")
+		if (EVIDENCE_TYPE_GSR)
 			var/obj/item/clothing/B = A
 			if(!istype(B) || !B.gunshot_residue)
 				to_chat(user, "<span class='warning'>There is no residue on \the [A].</span>")
@@ -113,13 +123,23 @@
 			gsr = B.gunshot_residue
 			sample_type = "residue"
 
-		if ("Saliva")
+		if (EVIDENCE_TYPE_SALIVA)
 			if (!LAZYLEN(A.other_DNA)) return
 			dna = A.other_DNA.Copy()
 			sample_type = "saliva"
 
+		else //additional evidence
+			if(additional_evidence["dna"].len)
+				dna = additional_evidence["dna"].Copy()
+			if(additional_evidence["gsr"])
+				gsr = additional_evidence["gsr"]
+			sample_type = additional_evidence["sample_type"]
+			if(!sample_type)
+				crash_with("[user] swabbed \the [A.name] for additional evidence but there was no sample_type defined!")
+			sample_message = additional_evidence["sample_message"]
+
 	if(sample_type)
-		user.visible_message("\The [user] swabs \the [A] for a sample.", "You swab \the [A] for a sample.")
+		user.visible_message("\The [user] swabs \the [A] for a sample.", sample_message || "You swab \the [A] for a sample.")
 		set_used(sample_type, A)
 
 /obj/item/forensics/swab/proc/set_used(var/sample_str, var/atom/source)

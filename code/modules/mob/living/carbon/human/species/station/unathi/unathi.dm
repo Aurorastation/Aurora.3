@@ -1,8 +1,9 @@
 /datum/species/unathi
-	name = "Unathi"
+	name = SPECIES_UNATHI
 	short_name = "una"
 	name_plural = "Unathi"
-	bodytype = "Unathi"
+	category_name = "Unathi"
+	bodytype = BODYTYPE_UNATHI
 	icobase = 'icons/mob/human_races/unathi/r_lizard.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_lizard.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
@@ -14,7 +15,7 @@
 		/datum/unarmed_attack/claws,
 		/datum/unarmed_attack/bite/sharp
 	)
-	primitive_form = "Stok"
+	primitive_form = SPECIES_MONKEY_UNATHI
 	darksight = 3
 	gluttonous = GLUT_MESSY
 	stomach_capacity = 7
@@ -41,7 +42,7 @@
 	exhaust_threshold = 65
 
 	rarity_value = 3
-	breakcuffs = list(MALE)
+	break_cuffs = TRUE
 	mob_size = 10
 	climb_coeff = 1.35
 
@@ -88,13 +89,24 @@
 		"Your scales bristle against the cold."
 		)
 
+	pain_emotes_with_pain_level = list(
+			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,
+			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/wheeze, /decl/emote/audible/hiss) = 50,
+			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/hiss) = 20,
+		)
+
+	pain_messages = list("It hurts so much", "You really need some painkillers", "Ancestors, it hurts")
+
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
 	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
 	default_citizenship = CITIZENSHIP_IZWESKI
 
-	zombie_type = "Unathi Zombie"
+	zombie_type = SPECIES_ZOMBIE_UNATHI
+
+	default_accent = ACCENT_HEGEMON_PEASANT
+	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA)
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

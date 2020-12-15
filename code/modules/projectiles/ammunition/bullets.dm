@@ -22,6 +22,7 @@
 	desc = "A .38 bullet casing."
 	caliber = "38"
 	projectile_type = /obj/item/projectile/bullet/pistol
+	max_stack = 6
 
 /obj/item/ammo_casing/c38/rubber
 	desc = "A .38 rubber bullet casing."
@@ -46,6 +47,7 @@
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
+	max_stack = 15
 
 /obj/item/ammo_casing/c9mm/flash
 	desc = "A 9mm flash shell casing."
@@ -65,6 +67,7 @@
 	desc = "A 10mm bullet casing."
 	caliber = "10mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
+	max_stack = 10
 
 /obj/item/ammo_casing/c10mm/rubber
 	desc = "A 10mm rubber bullet casing."
@@ -74,6 +77,7 @@
 	desc = "A .45 bullet casing."
 	caliber = ".45"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
+	max_stack = 10
 
 /obj/item/ammo_casing/c45/practice
 	desc = "A .45 practice bullet casing."
@@ -93,19 +97,21 @@
 	desc = "A 12mm bullet casing."
 	caliber = "12mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
+	max_stack = 7
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
-	desc = "A 12 gauge slug."
+	desc = "A 12-gauge slug."
 	icon_state = "slshell"
 	spent_icon = "slshell-spent"
 	caliber = "shotgun"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
+	reload_sound = 'sound/weapons/reload_shell.ogg'
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
-	desc = "A 12 gauge shell."
+	desc = "A 12-gauge shell."
 	icon_state = "gshell"
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
@@ -113,7 +119,7 @@
 
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
-	desc = "A blank shell."
+	desc = "A 12-gauge blank shell."
 	icon_state = "blshell"
 	spent_icon = "blshell-spent"
 	projectile_type = /obj/item/projectile/bullet/blank
@@ -121,7 +127,7 @@
 
 /obj/item/ammo_casing/shotgun/practice
 	name = "shotgun shell"
-	desc = "A practice shell."
+	desc = "A 12-gauge practice shell."
 	icon_state = "pshell"
 	spent_icon = "pshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
@@ -129,7 +135,7 @@
 
 /obj/item/ammo_casing/shotgun/beanbag
 	name = "beanbag shell"
-	desc = "A beanbag shell."
+	desc = "A 12-gauge beanbag shell."
 	icon_state = "bshell"
 	spent_icon = "bshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag
@@ -139,11 +145,12 @@
 //is blocked by clothing that stops tasers and is vulnerable to EMP
 /obj/item/ammo_casing/shotgun/stunshell
 	name = "stun shell"
-	desc = "A 12 gauge taser cartridge."
+	desc = "A 12-gauge taser cartridge."
 	icon_state = "stunshell"
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_GLASS = 720)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
 	if(prob(100/severity)) BB = null
@@ -152,15 +159,16 @@
 //Does not stun, only blinds, but has area of effect.
 /obj/item/ammo_casing/shotgun/flash
 	name = "flash shell"
-	desc = "A chemical shell used to signal distress or provide illumination."
+	desc = "A 12-gauge chemical shell used to signal distress or provide illumination."
 	icon_state = "fshell"
 	spent_icon = "fshell-spent"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(DEFAULT_WALL_MATERIAL = 90, MATERIAL_GLASS = 90)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/incendiary
 	name = "incendiary shell"
-	desc = "A 12 gauge incendiary shell."
+	desc = "A 12-gauge incendiary shell."
 	icon_state = "ishell"
 	spent_icon = "ishell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
@@ -171,8 +179,16 @@
 	desc = "A 12-gauge shotgun slug fitted with a single-use ion pulse generator."
 	icon_state = "empshell"
 	spent_icon = "empshell-spent"
-	projectile_type  = /obj/item/projectile/ion
+	projectile_type = /obj/item/projectile/ion
 	matter = list(DEFAULT_WALL_MATERIAL = 260, MATERIAL_URANIUM = 200)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
+
+/obj/item/ammo_casing/shotgun/tracking
+	name = "tracking slug"
+	desc = "A 12-gauge shotgun slug fitted with a tracking implant, set to activate upon embedding flesh."
+	icon_state = "trackingshell"
+	spent_icon = "trackingshell-spent"
+	projectile_type = /obj/item/projectile/bullet/tracking
 
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
@@ -181,6 +197,7 @@
 	spent_icon = "ishell-spent"
 	caliber = "PPS"
 	projectile_type = /obj/item/projectile/bullet/rifle/tranq
+	max_stack = 6
 
 /obj/item/ammo_casing/a762
 	desc = "A 7.62mm bullet casing."
@@ -188,6 +205,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
+	max_stack = 2
 
 /obj/item/ammo_casing/a762/spent/Initialize()
 	. = ..()
@@ -201,6 +219,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
+	max_stack = 2
 
 /obj/item/ammo_casing/a556
 	desc = "A 5.56mm bullet casing."
@@ -208,6 +227,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a556
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
+	max_stack = 7
 
 /obj/item/ammo_casing/a556/ap
 	desc = "A 5.56mm armor piercing round."
@@ -223,6 +243,7 @@
 	icon_state = "rocketshell"
 	projectile_type = /obj/item/missile
 	caliber = "rocket"
+	max_stack = 1
 
 /obj/item/ammo_casing/chameleon
 	name = "chameleon bullets"
@@ -230,24 +251,13 @@
 	projectile_type = /obj/item/projectile/bullet/chameleon
 	caliber = ".45"
 
-/*
-/obj/item/ammo_casing/a418
-	desc = "A .418 bullet casing."
-	caliber = "357"
-	projectile_type = /obj/item/projectile/bullet/suffocationbullet
-
-/obj/item/ammo_casing/a666
-	desc = "A .666 bullet casing."
-	caliber = "357"
-	projectile_type = /obj/item/projectile/bullet/cyanideround
-*/
-
 /obj/item/ammo_casing/cap
 	name = "cap"
 	desc = "A cap for children toys."
 	caliber = "caps"
 	color = "#FF0000"
 	projectile_type = /obj/item/projectile/bullet/pistol/cap
+	max_stack = 6
 
 /obj/item/ammo_casing/flechette
 	desc = "A flechette casing."
@@ -255,6 +265,7 @@
 	icon_state = "flechette_casing"
 	caliber = "flechette"
 	projectile_type = /obj/item/projectile/bullet/flechette
+	max_stack = 4
 
 /obj/item/ammo_casing/flechette/explosive
 	projectile_type = /obj/item/projectile/bullet/flechette/explosive
@@ -265,6 +276,14 @@
 	caliber = "vintage"
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
+	max_stack = 6
+
+/obj/item/ammo_casing/slugger
+	projectile_type = /obj/item/projectile/bullet/rifle/slugger
+	caliber = "slugger"
+	icon_state = "slugger-sharp"
+	spent_icon = "slugger-spent"
+	max_stack = 2
 
 /obj/item/ammo_casing/gauss
 	name = "tungsten slug"
@@ -272,12 +291,14 @@
 	caliber = "gauss"
 	icon_state = "tungstenslug"
 	projectile_type = /obj/item/projectile/bullet/gauss
+	max_stack = 2
 
 /obj/item/ammo_casing/gauss/emp
 	name = "ion slug"
 	desc = "A heavy ion gauss slug."
 	icon_state = "empslug"
 	projectile_type = /obj/item/projectile/ion/gauss
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/plasma_slug
 	name = "plasma slug"
@@ -285,6 +306,7 @@
 	icon_state = "plasmaslug"
 	caliber = "plasma slug"
 	projectile_type = /obj/item/projectile/plasma
+	max_stack = 2
 
 /obj/item/ammo_casing/plasma_bolt
 	name = "plasma bolt"
@@ -292,6 +314,7 @@
 	icon_state = "plasmabolt"
 	caliber = "plasma bolt"
 	projectile_type = /obj/item/projectile/plasma/light
+	max_stack = 4
 
 /obj/item/ammo_casing/cannon
 	name = "cannonball"
@@ -300,7 +323,8 @@
 	caliber = "cannon"
 	projectile_type = /obj/item/projectile/bullet/cannonball
 	matter = list(DEFAULT_WALL_MATERIAL = 800)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
+	max_stack = 1
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -319,3 +343,11 @@
 	caliber = "nuke"
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/item/projectile/bullet/nuke
+	max_stack = 2
+
+/obj/item/ammo_casing/musket
+	name = "musket ball"
+	desc = "A solid ball made of lead."
+	icon_state = "musketball"
+	caliber = "musket"
+	projectile_type = /obj/item/projectile/bullet/pistol/strong

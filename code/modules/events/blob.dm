@@ -8,10 +8,10 @@
 	level_seven_announcement()
 
 /datum/event/blob/start()
-	var/turf/T = pick_area_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
+	var/turf/T = pick_subarea_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(!T)
 		log_and_message_admins("Blob failed to find a viable turf.")
-		kill()
+		kill(TRUE)
 		return
 
 	log_and_message_admins("Blob spawned at \the [get_area(T)]", location = T)
@@ -22,6 +22,7 @@
 /datum/event/blob/tick()
 	if(!Blob || !Blob.loc)
 		Blob = null
+		end()
 		kill()
 		return
 	if(IsMultiple(activeFor, 3))

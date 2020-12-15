@@ -5,31 +5,77 @@
  *			Sorting
  */
 
+// Determiner constants
+#define DET_NONE        0x00
+#define DET_DEFINITE    0x01 // the
+#define DET_INDEFINITE  0x02 // a, an, some
+#define DET_AUTO        0x04
+
 /*
  * Misc
  */
 
 //Returns a list in plain english as a string
-/proc/english_list(var/list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "" )
-	var/total = input.len
-	if (!total)
-		return "[nothing_text]"
-	else if (total == 1)
-		return "[input[1]]"
-	else if (total == 2)
-		return "[input[1]][and_text][input[2]]"
-	else
-		var/output = ""
-		var/index = 1
-		while (index < total)
-			if (index == total - 1)
-				comma_text = final_comma_text
+/proc/english_list(var/list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "")
+	// this proc cannot be merged with counting_english_list to maintain compatibility
+	// with shoddy use of this proc for code logic and for cases that require original order
+	switch(input.len)
+		if(0) return nothing_text
+		if(1) return "[input[1]]"
+		if(2) return "[input[1]][and_text][input[2]]"
+		else  return "[jointext(input, comma_text, 1, -1)][final_comma_text][and_text][input[input.len]]"
 
-			output += "[input[index]][comma_text]"
-			index++
+//Returns a newline-separated list that counts equal-ish items, outputting count and item names, optionally with icons and specific determiners
+/proc/counting_english_list(var/list/input, output_icons = TRUE, determiners = DET_NONE, nothing_text = "nothing", line_prefix = "\t", first_item_prefix = "\n", last_item_suffix = "\n", and_text = "\n", comma_text = "\n", final_comma_text = "")
+	var/list/counts = list() // counted input items
+	var/list/items = list() // actual objects for later reference (for icons and formatting)
 
-		return "[output][and_text][input[index]]"
+	// count items
+	for(var/item in input)
+		var/name = "[item]" // index items by name; usually works fairly well for loose equality
+		if(name in counts)
+			counts[name]++
+		else
+			counts[name] = 1
+			items.Add(item)
 
+	// assemble the output list
+	var/list/out = list()
+	var/i = 0
+	for(var/item in items)
+		var/name = "[item]"
+		var/count = counts[name]
+		var/item_str = line_prefix
+
+		if(count > 1)
+			item_str += "[count]x&nbsp;"
+
+		// atoms use special string conversion rules
+		if(isatom(item))
+			// atoms/items/objects can be pretty and whatnot
+			var/atom/A = item
+			if(output_icons && isicon(A.icon) && !ismob(A)) // mobs tend to have unusable icons
+				item_str += "[icon2html(A, viewers(get_turf(A)))]&nbsp;"
+			switch(determiners)
+				if(DET_NONE) item_str += A.name
+				if(DET_DEFINITE) item_str += "\the [A]"
+				if(DET_INDEFINITE) item_str += "\a [A]"
+				else item_str += name
+
+		if(i == 0)
+			item_str = first_item_prefix + item_str
+		if(i == items.len - 1)
+			item_str = item_str + last_item_suffix
+
+		out.Add(item_str)
+		i++
+
+	// finally return the list using regular english_list builder
+	return english_list(out, nothing_text, and_text, comma_text, final_comma_text)
+
+//A "preset" for counting_english_list that displays the list "inline" (comma separated)
+/proc/inline_counting_english_list(var/list/input, output_icons = TRUE, determiners = DET_NONE, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "", line_prefix = "", first_item_prefix = "", last_item_suffix = "")
+	return counting_english_list(input, output_icons, determiners, nothing_text, and_text, comma_text, final_comma_text)
 
 /proc/ConvertReqString2List(var/list/source_list)
 	var/list/temp_list = params2list(source_list)
@@ -37,12 +83,37 @@
 		temp_list[O] = text2num(temp_list[O])
 	return temp_list
 
+/proc/is_string_in_list(var/given_string, var/list/L, var/match_case = TRUE)
+	for(var/list_string in L)
+		if(match_case)
+			if(given_string == list_string)
+				return TRUE
+		else
+			if(uppertext(given_string) == uppertext(list_string))
+				return TRUE
+	return FALSE
+
+// Checks that all of the values are in the given list
+/proc/all_in_list(var/list/values, var/list/L)
+	if(!istype(values) || !istype(L))
+		return FALSE
+	for(var/value in values)
+		if(!(value in L))
+			return FALSE
+	return TRUE
+
+/proc/is_path_in_list(var/check_path, var/list/L)
+	for(var/path in L)
+		if(ispath(check_path, path))
+			return TRUE
+	return FALSE
+
 //Checks for specific types in a list
 /proc/is_type_in_list(var/datum/A, var/list/L)
 	for(var/type in L)
 		if(istype(A, type))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /proc/instances_of_type_in_list(var/datum/A, list/L, strict = FALSE)
 	. = 0
@@ -143,6 +214,12 @@
 		listfrom.len--
 		return picked
 	return null
+
+//Returns the first element from the list and removes it from the list
+/proc/popleft(list/L)
+	if(length(L))
+		. = L[1]
+		L.Cut(1,2)
 
 //Returns the next element in parameter list after first appearance of parameter element. If it is the last element of the list or not present in list, returns first element.
 /proc/next_in_list(element, list/L)
@@ -252,6 +329,8 @@
 #define BITSET(bitfield,index)   (bitfield)  |=  (1 << (index))
 #define BITRESET(bitfield,index) (bitfield)  &= ~(1 << (index))
 #define BITFLIP(bitfield,index)  (bitfield)  ^=  (1 << (index))
+#define BITFIELDMAX 0xFFFFFF
+#define BITFIELDMAX_16 0xFFFF
 
 //Converts a bitfield to a list of numbers (or words if a wordlist is provided)
 /proc/bitfield2list(bitfield = 0, list/wordlist)
@@ -264,7 +343,7 @@
 				r += wordlist[i]
 			bit = bit << 1
 	else
-		for(var/bit=1, bit<=65535, bit = bit << 1)
+		for(var/bit=1, bit<=BITFIELDMAX, bit = bit << 1)
 			if(bitfield & bit)
 				r += bit
 
@@ -690,3 +769,27 @@
 	for(var/entry in L)
 		if(istype(entry, type))
 			. += entry
+
+/proc/group_by(var/list/group_list, var/key, var/value)
+	var/values = group_list[key]
+	if(!values)
+		values = list()
+		group_list[key] = values
+
+	values += value
+
+/proc/list_keys(var/list/L) // Return a list of keys in a list
+	. = list()
+	for(var/e in L)
+		. += e
+
+// Return a list of the values in an assoc list (including null)
+/proc/list_values(var/list/L)
+	. = list()
+	for(var/e in L)
+		. += L[e]
+
+/proc/capitalize_list(var/list/L)
+	. = list()
+	for (var/string in L)
+		. += capitalize(string)

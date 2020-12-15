@@ -55,16 +55,19 @@
 
 /obj/proc/user_buckle_mob(mob/living/M, mob/user)
 	if(!ROUND_IS_STARTED)
-		to_chat(user, "<span class='warning'>You can't buckle anyone in before the game starts.</span>")
+		to_chat(user, SPAN_WARNING("You can't buckle anyone in before the game starts."))
 	if(!user.Adjacent(M) || user.restrained() || user.stat || istype(user, /mob/living/silicon/pai))
+		return
+	if(!M.can_buckle)
+		to_chat(user, SPAN_WARNING("\The [M] can't be buckled!"))
 		return
 	if(M == buckled_mob)
 		return
 	if(istype(M, /mob/living/carbon/slime))
-		to_chat(user, "<span class='warning'>The [M] is too squishy to buckle in.</span>")
+		to_chat(user, SPAN_WARNING("\The [M] is too squishy to buckle in."))
 		return
-	if (buckled_mob)
-		to_chat(user, "<span class='warning'>[buckled_mob.name] is already there, unbuckle them first!.</span>")
+	if(buckled_mob)
+		to_chat(user, SPAN_WARNING("\The [buckled_mob.name] is already there, unbuckle them first!."))
 		return
 
 	add_fingerprint(user)
@@ -73,7 +76,7 @@
 	if(buckle_mob(M))
 		if(M == user)
 			M.visible_message(\
-				"<span class='notice'>[M.name] buckles themselves to [src].</span>",\
+				"<b>[M.name]</b> buckles themselves to [src].",\
 				"<span class='notice'>You buckle yourself to [src].</span>",\
 				"<span class='notice'>You hear metal clanking.</span>")
 		else
@@ -87,12 +90,12 @@
 	if(M)
 		if(M != user)
 			M.visible_message(\
-				"<span class='notice'>[M.name] was unbuckled by [user.name]!</span>",\
+				"<b>[user.name]</b> unbuckles [M.name].", \
 				"<span class='notice'>You were unbuckled from [src] by [user.name].</span>",\
 				"<span class='notice'>You hear metal clanking.</span>")
 		else
 			M.visible_message(\
-				"<span class='notice'>[M.name] unbuckled themselves!</span>",\
+				"<b>[M.name]</b> unbuckles themselves.",\
 				"<span class='notice'>You unbuckle yourself from [src].</span>",\
 				"<span class='notice'>You hear metal clanking.</span>")
 		add_fingerprint(user)

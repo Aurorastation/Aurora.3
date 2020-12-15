@@ -192,32 +192,36 @@ proc/tg_list2text(list/list, glue=",")
 	return .
 
 // heat2color functions. Adapted from: http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/
-/proc/heat2color(temp)
-	return rgb(heat2color_r(temp), heat2color_g(temp), heat2color_b(temp))
+// light_adjustment makes the given colour a bit brighter so that set_light can use it to make the room a bit brighter - geeves
+/proc/heat2color(temp, var/for_light = FALSE)
+	return rgb(heat2color_r(temp, for_light), heat2color_g(temp, for_light), heat2color_b(temp, for_light))
 
-/proc/heat2color_r(temp)
+/proc/heat2color_r(temp, var/for_light = FALSE)
 	temp /= 100
 	if(temp <= 66)
-		. = 255
+		return 255
 	else
-		. = max(0, min(255, 329.698727446 * (temp - 60) ** -0.1332047592))
+		var/light_adjustment = for_light ? 15 : 0
+		return max(0, min(255, 329.698727446 * (temp - 60) ** -0.1332047592 + light_adjustment))
 
-/proc/heat2color_g(temp)
+/proc/heat2color_g(temp, var/for_light = FALSE)
 	temp /= 100
+	var/light_adjustment = for_light ? 15 : 0
 	if(temp <= 66)
-		. = max(0, min(255, 99.4708025861 * log(temp) - 161.1195681661))
+		return max(0, min(255, 99.4708025861 * log(temp) - 161.1195681661 + light_adjustment))
 	else
-		. = max(0, min(255, 288.1221695283 * ((temp - 60) ** -0.0755148492)))
+		return max(0, min(255, 288.1221695283 * ((temp - 60) ** -0.0755148492 + light_adjustment)))
 
-/proc/heat2color_b(temp)
+/proc/heat2color_b(temp, var/for_light = FALSE)
 	temp /= 100
 	if(temp >= 66)
-		. = 255
+		return 255
 	else
 		if(temp <= 16)
-			. = 0
+			return 0
 		else
-			. = max(0, min(255, 138.5177312231 * log(temp - 10) - 305.0447927307))
+			var/light_adjustment = for_light ? 15 : 0
+			return max(0, min(255, 138.5177312231 * log(temp - 10) - 305.0447927307 + light_adjustment))
 
 // Very ugly, BYOND doesn't support unix time and rounding errors make it really hard to convert it to BYOND time.
 // returns "YYYY-MM-DD" by default
@@ -295,3 +299,18 @@ proc/tg_list2text(list/list, glue=",")
 	var/g = hex2num(textg)
 	var/b = hex2num(textb)
 	return "rgba([r], [g], [b], [alpha])"
+
+/proc/type2parent(child)
+	var/string_type = "[child]"
+	var/last_slash = findlasttext(string_type, "/")
+	if(last_slash == 1)
+		switch(child)
+			if(/datum)
+				return null
+			if(/obj || /mob)
+				return /atom/movable
+			if(/area || /turf)
+				return /atom
+			else
+				return /datum
+	return text2path(copytext(string_type, 1, last_slash))

@@ -17,7 +17,7 @@
 /obj/item/storage/internal/attack_hand()
 	return		//make sure this is never picked up
 
-/obj/item/storage/internal/mob_can_equip()
+/obj/item/storage/internal/mob_can_equip(M, slot, disable_warning = FALSE)
 	return 0	//make sure this is never picked up
 
 //Helper procs to cleanly implement internal storages - storage items that provide inventory slots for other items.

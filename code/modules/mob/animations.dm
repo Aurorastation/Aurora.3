@@ -136,20 +136,16 @@ note dizziness decrements automatically in the mob's Life() proc.
 	animate(pixel_y = old_y, time = quarter_period, easing = SINE_EASING | EASE_IN, loop = -1)			//back
 
 /mob/proc/stop_floating()
-	animate(src, pixel_y = 0, time = 5, easing = SINE_EASING | EASE_IN) //halt animation
-	//reset the pixel offsets to zero
+	animate(src, pixel_y = get_standard_pixel_y(), time = 5, easing = SINE_EASING | EASE_IN) //halt animation
+	//reset the pixel offsets to defaults
 	is_floating = 0
 
-/atom/movable/proc/do_attack_animation(atom/A)
-
+/atom/movable/proc/do_attack_animation(atom/A, atom/movable/weapon, var/image/attack_image, var/initial_pixel_x = 0, var/initial_pixel_y = 0)
 	var/pixel_x_diff = 0
 	var/pixel_y_diff = 0
-	var/direction
-	if (loc == A.loc)
-		if (A.flags & ON_BORDER)
-			direction = A.dir
-	else
-		direction = get_dir(src, A)
+	var/turn_dir = 1
+
+	var/direction = get_dir(src, A)
 	switch(direction)
 		if(NORTH)
 			pixel_y_diff = 8
@@ -171,23 +167,54 @@ note dizziness decrements automatically in the mob's Life() proc.
 		if(SOUTHWEST)
 			pixel_x_diff = -8
 			pixel_y_diff = -8
-		else
-			return 0//No valid direction
-	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
-	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 2)
+	if(direction & NORTH)
+		pixel_y_diff = 8
+		turn_dir = rand(50) ? -1 : 1
+	else if(direction & SOUTH)
+		pixel_y_diff = -8
+		turn_dir = rand(50) ? -1 : 1
 
-/mob/do_attack_animation(atom/A)
-	..()
+	if(direction & EAST)
+		pixel_x_diff = 8
+	else if(direction & WEST)
+		pixel_x_diff = -8
+		turn_dir = -1
+
+	if(!initial_pixel_x)
+		initial_pixel_x = initial(pixel_x)
+	if(!initial_pixel_y)
+		initial_pixel_y = initial(pixel_y)
+
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
+	animate(pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, time = 2)
+	var/matrix/initial_transform = matrix(transform)
+	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
+
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform = rotated_transform, time = 2, easing = BACK_EASING | EASE_IN)
+	animate(pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, transform = initial_transform, time = 2, easing = SINE_EASING)
+
+// either attack_item OR attack_image should be used. if both are used, attack_image will be the one chosen
+/mob/do_attack_animation(atom/A, var/atom/attack_item, var/image/attack_image)
+	var/initial_pixel_x = get_standard_pixel_x()
+	var/initial_pixel_y = get_standard_pixel_y()
+	..(A, attack_item, attack_image, initial_pixel_x, initial_pixel_y)
 	is_floating = 0 // If we were without gravity, the bouncing animation got stopped, so we make sure we restart the bouncing after the next movement.
 
+	if(attack_item == FIST_ATTACK_ANIMATION) // only play the physical movement
+		return
 	// What icon do we use for the attack?
 	var/image/I
-	if(hand && l_hand) // Attacked with item in left hand.
-		I = image(l_hand.icon, A, l_hand.icon_state, A.layer + 1)
-	else if (!hand && r_hand) // Attacked with item in right hand.
-		I = image(r_hand.icon, A, r_hand.icon_state, A.layer + 1)
-	else // Attacked with a fist?
-		return
+	if(attack_image)
+		I = attack_image
+	else if(attack_item)
+		I = image(attack_item.icon, A, attack_item.icon_state, A.layer + 1)
+	else
+		if(hand && l_hand) // Attacked with item in left hand.
+			I = image(l_hand.icon, A, l_hand.icon_state, A.layer + 1)
+		else if (!hand && r_hand) // Attacked with item in right hand.
+			I = image(r_hand.icon, A, r_hand.icon_state, A.layer + 1)
+		else // Attacked with a fist?
+			return
 
 	// Who can see the attack?
 	var/list/viewing = list()
@@ -216,7 +243,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	var/matrix/M = new
 	M.Turn(pick(-20, 20))
 	// And animate the attack!
-	animate(I, alpha = 175, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 2, easing = CUBIC_EASING)
+	animate(I, alpha = 175, pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, pixel_z = 0, time = 2, easing = CUBIC_EASING)
 	sleep(2)
 	animate(I, transform = M, time = 1) // apply the fancy matrix
 	sleep(1)

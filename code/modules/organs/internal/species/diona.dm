@@ -1,3 +1,6 @@
+/obj/item/organ/internal/diona
+	unknown_pain_location = FALSE
+
 /obj/item/organ/internal/diona/process()
 	return
 

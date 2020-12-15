@@ -4,17 +4,11 @@
 	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
-	ambience = list(
-		'sound/ambience/ambimaint1.ogg',
-		'sound/ambience/ambimaint2.ogg',
-		'sound/ambience/ambimaint3.ogg',
-		'sound/ambience/ambimaint4.ogg',
-		'sound/ambience/ambimaint5.ogg'
-	)
+	ambience = AMBIENCE_MAINTENANCE
 	station_area = 1
 
 /area/maintenance/civ
-	name = "\improper Civilian Maintenance"
+	name = "Civilian Maintenance"
 	icon_state = "maintcentral"
 
 /area/maintenance/aft
@@ -89,7 +83,7 @@
 	icon_state = "maint_arrivals"
 
 /area/maintenance/store
-	name = "\improper Commissary Maintenance"
+	name = "Commissary Maintenance"
 	icon_state = "maint_cargo"
 
 /area/maintenance/bar
@@ -127,16 +121,20 @@
 	name = "Medical Sub-level Maintenance"
 	icon_state = "maint_engineering"
 
+/area/maintenance/medsublevel_port
+	name = "Old Quarantine"
+	icon_state = "maint_medbay"
+
 /area/maintenance/scisublevel
 	name = "Research Sub-level Maintenance"
 	icon_state = "maint_engineering"
 
 /area/maintenance/evahallway
-	name = "\improper EVA Maintenance"
+	name = "EVA Maintenance"
 	icon_state = "maint_eva"
 
 /area/maintenance/solarmaint
-	name = "\improper Surface - Solar Maintenance"
+	name = "Surface - Solar Maintenance"
 	icon_state = "maint_eva"
 	base_turf = /turf/space
 
@@ -145,7 +143,7 @@
 	icon_state = "maint_dormitory"
 
 /area/maintenance/incinerator
-	name = "\improper Incinerator"
+	name = "Incinerator"
 	icon_state = "disposal"
 
 /area/maintenance/library
@@ -161,7 +159,11 @@
 	icon_state = "maint_medbay"
 
 /area/maintenance/medbay_interstitial
-	name = "\improper Medbay Interstitial Maintenance"
+	name = "Medbay Interstitial Maintenance"
+	icon_state = "maint_medbay"
+
+/area/maintenance/medbay_virology
+	name = "Old Virology Lab"
 	icon_state = "maint_medbay"
 
 /area/maintenance/research_port
@@ -169,11 +171,11 @@
 	icon_state = "maint_research_port"
 
 /area/maintenance/telecoms_ladder
-	name = "\improper Telecoms Ladder Shaft"
+	name = "Telecoms Ladder Shaft"
 	icon_state = "tcomsatentrance"
 
 /area/maintenance/engineering_ladder
-	name = "\improper Engineering Ladder Shaft"
+	name = "Engineering Ladder Shaft"
 	icon_state = "maint_engineering"
 
 /area/maintenance/research_xenobiology
@@ -205,35 +207,35 @@
 	icon_state = "green"
 
 /area/maintenance/interstitial_main
-	name = "\improper Construction Level"
+	name = "Construction Level"
 	icon_state = "maintcentral"
 
 /area/maintenance/interstitial_cargo
-	name = "\improper Cargo - Interstitial"
+	name = "Cargo - Interstitial"
 	icon_state = "maint_cargo"
 
 /area/maintenance/interstitial_bridge
-	name = "\improper Bridge - Interstitial"
+	name = "Bridge - Interstitial"
 	icon_state = "maintcentral"
 
 /area/maintenance/interstitial_construction_site
-	name = "\improper Construction Zone"
+	name = "Construction Zone"
 	icon_state = "engineering_workshop"
 	flags = HIDE_FROM_HOLOMAP
 
 /area/maintenance/interstitial_construction_site/zone_2
-	name = "\improper Secondary Construction Zone"
+	name = "Secondary Construction Zone"
 
 /area/maintenance/interstitial_construction_site/office
-	name = "\improper Construction Office"
+	name = "Construction Office"
 
 /area/maintenance/elevator
-	name = "\improper Primary Elevator Shaft Maintenance"
+	name = "Primary Elevator Shaft Maintenance"
 	sound_env = SMALL_ENCLOSED
 	icon_state = "green"
 
 /area/maintenance/vault
-	name = "\improper Vault Maintenance"
+	name = "Vault Maintenance"
 	icon_state = "green"
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
@@ -242,6 +244,7 @@
 	name = "Substation"
 	icon_state = "substation"
 	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_SUBSTATION
 
 /area/maintenance/substation/engineering // Engineering
 	name = "Engineering Substation"
@@ -287,32 +290,33 @@
 /area/solar
 	requires_power = 1
 	always_unpowered = 1
+	ambience = AMBIENCE_SPACE
 	base_turf = /turf/space
 	station_area = 1
 
 	auxport
-		name = "\improper Roof Solar Array"
+		name = "Roof Solar Array"
 		icon_state = "panelsA"
 		base_turf = /turf/space
 
 	auxstarboard
-		name = "\improper Fore Starboard Solar Array"
+		name = "Fore Starboard Solar Array"
 		icon_state = "panelsA"
 
 	fore
-		name = "\improper Surface - Fore TComms Solar Array"
+		name = "Surface - Fore TComms Solar Array"
 		icon_state = "yellow"
 
 	aft
-		name = "\improper Aft Solar Array"
+		name = "Aft Solar Array"
 		icon_state = "aft"
 
 	starboard
-		name = "\improper Surface - Aft TComms Solar Array"
+		name = "Surface - Aft TComms Solar Array"
 		icon_state = "panelsS"
 
 	port
-		name = "\improper Surface - Port TComms Solar Array"
+		name = "Surface - Port TComms Solar Array"
 		icon_state = "panelsP"
 
 /area/maintenance/auxsolarport
@@ -338,4 +342,10 @@
 /area/maintenance/foresolar
 	name = "Solar Maintenance - Fore"
 	icon_state = "SolarcontrolA"
+	sound_env = SMALL_ENCLOSED
+
+/area/maintenance/workshop
+	name = "Research Maintenance - Auxiliary"
+	icon_state = "workshop"
+	turf_initializer = null
 	sound_env = SMALL_ENCLOSED

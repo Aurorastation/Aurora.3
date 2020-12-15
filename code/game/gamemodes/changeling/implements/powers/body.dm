@@ -69,10 +69,16 @@
 		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
 		return
 
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
 	if(H.handcuffed)
 		var/cuffs = H.handcuffed
 		H.u_equip(H.handcuffed)
 		qdel(cuffs)
+
+	if(H.buckled)
+		H.buckled.unbuckle_mob()
 
 	changeling.chem_charges--
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
@@ -253,8 +259,9 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent("hyperzine", 0.10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent("oxycodone", 0.10)
+	C.reagents.add_reagent(/datum/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
+	C.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.10)
+	C.reagents.add_reagent(/datum/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun
@@ -315,6 +322,22 @@
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_rapidregen)
 	feedback_add_details("changeling_powers", "RR")
 	return TRUE
+
+/mob/proc/changeling_mimic_accent()
+	set category = "Changeling"
+	set name = "Mimic Accent"
+	set desc = "Shape our vocal glands to mimic any accent we choose."
+
+	var/datum/changeling/changeling = changeling_power()
+	if(!changeling)
+		return
+
+	var/chosen_accent = input(src, "Choose an accent to mimic.", "Accent Mimicry") as null|anything in SSrecords.accents
+	if(!chosen_accent)
+		return
+
+	changeling.mimiced_accent = chosen_accent
+	to_chat(src, SPAN_NOTICE("We have chosen to mimic the [chosen_accent] accent."))
 
 // Fake Voice
 /mob/proc/changeling_mimicvoice()
@@ -434,7 +457,10 @@
 	if(!changeling)
 		return FALSE
 
-	var/mob/living/M = src
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
+	var/mob/living/carbon/human/M = src
 
 	if(alert("Are we sure we wish to reveal ourselves? This will only revert after ten minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
@@ -454,10 +480,18 @@
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
 
 	if(istype(M,/mob/living/carbon/human))
+		if(M.handcuffed)
+			var/cuffs = M.handcuffed
+			M.u_equip(M.handcuffed)
+			qdel(cuffs)
+
 		for(var/obj/item/I in M.contents)
 			if(isorgan(I))
 				continue
 			M.drop_from_inventory(I)
+
+	if(M.buckled)
+		M.buckled.unbuckle_mob()
 
 	if(M.mind)
 		M.mind.transfer_to(ling)

@@ -1,6 +1,7 @@
 /obj/machinery/meter
 	name = "meter"
 	desc = "It measures something."
+	desc_info = "Measures the volume and temperature of the pipe under the meter."
 	icon = 'icons/obj/meter.dmi'
 	icon_state = "meterX"
 	var/obj/machinery/atmospherics/pipe/target = null
@@ -53,7 +54,7 @@
 
 		var/datum/signal/signal = new
 		signal.source = src
-		signal.transmission_method = 1
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.data = list(
 			"tag" = id,
 			"device" = "AM",

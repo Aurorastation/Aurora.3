@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 512
-#error Your version of BYOND is too old to compile the code. At least BYOND 512 is required.
+#if DM_VERSION < 513
+#error Your version of BYOND is too old to compile the code. At least BYOND 513 is required.
 #endif
 
 
@@ -40,6 +40,7 @@ var/host = null //only here until check @ code\modules\ghosttrap\trap.dm:112 is 
 var/list/jobMax        = list()
 var/list/bombers       = list()
 var/list/admin_log     = list()
+var/list/signal_log    = list()
 var/list/lastsignalers = list() // Keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
 var/list/lawchanges    = list() // Stores who uploaded laws to which silicon-based lifeform, and what the law was.
 var/list/reg_dna       = list()
@@ -91,8 +92,6 @@ var/datum/moduletypes/mods = new()
 
 var/gravity_is_on = 1
 
-var/datum/server_greeting/server_greeting = null
-
 var/list/awaydestinations = list() // Away missions. A list of landmarks that the warpgate can take you to.
 
 // For FTP requests. (i.e. downloading runtime logs.)
@@ -134,8 +133,8 @@ var/static/list/scarySounds = list(
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg',
-	'sound/items/Welder.ogg',
-	'sound/items/Welder2.ogg',
+	'sound/items/welder.ogg',
+	'sound/items/welder_pry.ogg',
 	'sound/machines/airlock.ogg',
 	'sound/effects/clownstep1.ogg',
 	'sound/effects/clownstep2.ogg'

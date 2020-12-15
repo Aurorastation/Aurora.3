@@ -9,19 +9,20 @@
 	throwforce = 5.0
 	throw_speed = 3
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	var/charge = 0	// note %age conveted to actual charge in New
 	var/maxcharge = 1000
 	var/rigged = 0		// true if rigged to explode
 	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
+	recyclable = TRUE
 
 //currently only used by energy-type guns, that may change in the future.
 /obj/item/cell/device
 	name = "device power cell"
 	desc = "A small power cell designed to power handheld devices."
 	icon_state = "cell" //placeholder
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	force = 0
 	throw_speed = 5
 	throw_range = 7
@@ -94,7 +95,7 @@
 	origin_tech = list(TECH_POWER = 6)
 	icon_state = "hpcell"
 	maxcharge = 30000
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
+	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GOLD = 50, MATERIAL_SILVER = 50, MATERIAL_GLASS = 40)
 
 /obj/item/cell/hyper/empty/Initialize()
 	. = ..()
@@ -126,12 +127,26 @@
 /obj/item/cell/slime
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
+	desc_info = "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
-	icon = 'icons/mob/npc/slimes.dmi' //'icons/obj/harvest.dmi'
-	icon_state = "yellow slime extract" //"potato_battery"
-	maxcharge = 10000
+	icon = 'icons/mob/npc/slimes.dmi'
+	icon_state = "yellow slime extract"
+	maxcharge = 15000
 	matter = null
+	var/next_recharge
 
+/obj/item/cell/slime/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/cell/slime/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/cell/slime/process()
+	if(next_recharge < world.time)
+		charge = min(charge + (maxcharge / 10), maxcharge)
+		next_recharge = world.time + 1 MINUTE
 
 /obj/item/cell/device/emergency_light
 	name = "miniature power cell"

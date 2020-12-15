@@ -9,7 +9,7 @@
 	center_of_mass = null
 	force = 10
 	throwforce = 10
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	item_state_slots = list(
 		slot_l_hand_str = "stool",
 		slot_r_hand_str = "stool"
@@ -158,7 +158,7 @@
 			return
 		var/padding_type //This is awful but it needs to be like this until tiles are given a material var.
 		if(istype(W,/obj/item/stack/tile/carpet))
-			padding_type = "carpet"
+			padding_type = MATERIAL_CARPET
 		else if(istype(W,/obj/item/stack/material))
 			var/obj/item/stack/material/M = W
 			if(M.material && (M.material.flags & MATERIAL_PADDING))
@@ -178,7 +178,7 @@
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
 		remove_padding()
 	else
 		..()

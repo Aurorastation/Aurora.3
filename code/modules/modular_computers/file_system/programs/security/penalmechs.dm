@@ -1,13 +1,13 @@
 /datum/computer_file/program/penal_mechs
-	filename = "penalmechs"
+	filename = "penalrobotics"
 	filedesc = "Remote Penal Monitoring"
 	program_icon_state = "security"
-	extended_desc = "This program allows monitoring and control of active penal miner mechs."
+	extended_desc = "This program allows monitoring and control of active penal robotics."
 	required_access_run = access_armory
 	required_access_download = access_armory
-	requires_ntnet = 1
-	available_on_ntnet = 1
-	network_destination = "penal mining mech monitoring system"
+	requires_ntnet = TRUE
+	available_on_ntnet = TRUE
+	network_destination = "penal robotics monitoring system"
 	size = 11
 	usage_flags = PROGRAM_ALL_REGULAR
 	color = LIGHT_COLOR_ORANGE
@@ -18,7 +18,7 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-security-penalcontroller", 500, 400, "Penal Mech Monitoring")
-		ui.auto_update_content = 1
+		ui.auto_update_content = TRUE
 	ui.open()
 
 /datum/computer_file/program/penal_mechs/vueui_transfer(oldobj)
@@ -26,7 +26,7 @@
 		var/datum/vueui/ui = o
 		// Let's ensure our ui's autoupdate after transfer.
 		// TODO: revert this value on transfer out.
-		ui.auto_update_content = 1
+		ui.auto_update_content = TRUE
 	return TRUE
 
 /datum/computer_file/program/penal_mechs/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -43,7 +43,7 @@
 	var/list/robots = list()
 
 	if(signal.data["done"])
-		for(var/mech in SSvirtualreality.mechs["prisonmechs"])
+		for(var/mech in SSvirtualreality.mechs[REMOTE_PRISON_MECH])
 			var/mob/living/heavy_vehicle/M = mech
 
 			if(!ismech(M))
@@ -61,7 +61,7 @@
 			mechData["lockdown"] = M.lockdown
 			mechs[++mechs.len] = mechData
 
-		for(var/robot in SSvirtualreality.robots["prisonrobots"])
+		for(var/robot in SSvirtualreality.robots[REMOTE_PRISON_ROBOT])
 			var/mob/living/R = robot
 
 			if(!ismob(R))
@@ -110,7 +110,7 @@
 	if(href_list["terminate"])
 		var/mob/living/M = locate(href_list["terminate"]) in mob_list
 		if(M?.old_mob && M.vr_mob)
-			to_chat(M, span("warning", "Your connection to remote-controlled [M] is forcibly severed!"))
+			to_chat(M, SPAN_WARNING("Your connection to remote-controlled [M] is forcibly severed!"))
 			M.body_return()
 			return TRUE
 
@@ -119,8 +119,8 @@
 		if(ismob(M))
 			var/message = sanitize(input("Message to [M.old_mob]", "Set Message") as text|null)
 
-			to_chat(usr, span("notice", "Sending message to [M.old_mob]: [message]"))
-			to_chat(M, span("warning", "Remote Penal Monitoring: [message]"))
+			to_chat(usr, SPAN_NOTICE("Sending message to [M.old_mob]: [message]"))
+			to_chat(M, SPAN_WARNING("Remote Penal Monitoring: [message]"))
 			return TRUE
 
 
@@ -167,6 +167,6 @@
 	if(!current_camera)
 		return FALSE
 	var/viewflag = current_camera.check_eye(user)
-	if ( viewflag < 0 ) //camera doesn't work
+	if(viewflag < 0) //camera doesn't work
 		reset_current()
 	return viewflag

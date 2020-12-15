@@ -6,8 +6,11 @@
 /obj/item/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
+	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  To reload, click the weapon in your hand to unload (if needed), then add the appropiate ammo.  The description \
+	will tell you what caliber you need."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 	recoil = 1
 
@@ -63,11 +66,16 @@
 		return chambered.BB
 	return null
 
-/obj/item/gun/projectile/handle_post_fire()
+/obj/item/gun/projectile/handle_post_fire(mob/user)
 	..()
 	if(chambered)
 		chambered.expend()
 		process_chambered()
+	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.check_weapon_affinity(src))
+			unload_ammo(user, TRUE, TRUE)
+	update_maptext()
 
 /obj/item/gun/projectile/handle_click_empty()
 	..()
@@ -76,9 +84,9 @@
 /obj/item/gun/projectile/special_check(var/mob/user)
 	if(!..())
 		return FALSE
-	if(!jam_num && jam_chance && getAmmo())
+	if(!jam_num && jam_chance && get_ammo())
 		if(prob(jam_chance))
-			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
 			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
 	return TRUE
@@ -90,7 +98,7 @@
 	if(chambered.leaves_residue)
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
-			if(!H.gloves)
+			if(!istype(H.gloves, /obj/item/clothing))
 				H.gunshot_residue = chambered.caliber
 			else
 				var/obj/item/clothing/G = H.gloves
@@ -101,7 +109,8 @@
 			qdel(chambered)
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
-			playsound(chambered, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
+			chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
+			playsound(chambered, /decl/sound_category/casing_drop_sound, 50, FALSE)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -129,7 +138,7 @@
 				AM.forceMove(src)
 				ammo_magazine = AM
 				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
-				playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+				playsound(src.loc, AM.insert_sound, 50, FALSE)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
 					to_chat(user,"<span class='warning'>[src] is full!</span>")
@@ -144,8 +153,8 @@
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
 				if(count)
-					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src].</span>")
-					playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src] using \the [AM].</span>")
+					playsound(src.loc, AM.insert_sound, 50, FALSE)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
@@ -163,16 +172,19 @@
 		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
-		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
-
+		playsound(src.loc, C.reload_sound, 50, FALSE)
+	update_maptext()
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
-/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1)
+/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
 	if(ammo_magazine)
-		user.put_in_hands(ammo_magazine)
+		if(drop_mag)
+			ammo_magazine.forceMove(user.loc)
+		else
+			user.put_in_hands(ammo_magazine)
 		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
-		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+		playsound(src.loc, ammo_magazine.eject_sound, 50, FALSE)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 	else if(loaded.len)
@@ -183,7 +195,7 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.forceMove(T)
-					playsound(C, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
+					playsound(C, /decl/sound_category/casing_drop_sound, 50, FALSE)
 					count++
 				loaded.Cut()
 			if(count)
@@ -195,6 +207,7 @@
 			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
 	else
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+	update_maptext()
 	update_icon()
 
 /obj/item/gun/projectile/attackby(obj/item/A, mob/user)
@@ -203,11 +216,11 @@
 
 /obj/item/gun/projectile/attack_self(mob/user)
 	if(jam_num)
-		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 		jam_num--
 		if(!jam_num)
-			visible_message(span("danger", "\The [user] unjams \the [src]!"))
-			playsound(src.loc, 'sound/items/glowstick.ogg', 100, 1)
+			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
+			playsound(src.loc, 'sound/weapons/unjam.ogg', 100, TRUE)
 			unjam_cooldown = world.time
 	else if(unjam_cooldown + 2 SECONDS > world.time)
 		return
@@ -230,8 +243,7 @@
 			"[ammo_magazine] falls out and clatters on the floor!",
 			"<span class='notice'>[ammo_magazine] falls out and clatters on the floor!</span>"
 			)
-		if(auto_eject_sound)
-			playsound(user, auto_eject_sound, 40, 1)
+		playsound(user, ammo_magazine.eject_sound, 40, FALSE)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
@@ -244,10 +256,10 @@
 		to_chat(user, "<span class='warning'>It looks jammed.</span>")
 	if(ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
-	to_chat(user, "Has [getAmmo()] round\s remaining.")
+	to_chat(user, "Has [get_ammo()] round\s remaining.")
 	return
 
-/obj/item/gun/projectile/proc/getAmmo()
+/obj/item/gun/projectile/get_ammo()
 	var/bullets = 0
 	if(loaded)
 		bullets += loaded.len

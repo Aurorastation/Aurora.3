@@ -19,7 +19,8 @@
 		/////////
 		//OTHER//
 		/////////
-	var/datum/preferences/prefs = null
+	var/datum/preferences/prefs
+	var/datum/tooltip/tooltips
 	var/move_delay		= 1
 	var/moving			= null
 	var/adminobs		= null
@@ -59,7 +60,7 @@
 	var/account_join_date = null					// Date of the BYOND account creation in ISO 8601 format.
 	var/unacked_warning_count = 0
 
-	preload_rsc = 1
+	preload_rsc = PRELOAD_RSC
 
 		////////////
 		//PARALLAX//
@@ -74,3 +75,8 @@
 	var/obj/screen/plane_master/parallax_spacemaster/parallax_spacemaster = null
 
 	var/authed = TRUE
+
+	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.
+
+	///goonchat chatoutput of the client
+	var/datum/chatOutput/chatOutput

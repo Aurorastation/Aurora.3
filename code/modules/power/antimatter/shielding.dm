@@ -11,8 +11,8 @@ proc/cardinalrange(var/center)
 /obj/machinery/am_shielding
 	name = "antimatter reactor section"
 	desc = "A shielding component for an antimatter reactor. Looks delicate."
-	description_info = "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
-	description_antag = "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
+	desc_info = "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
+	desc_antag = "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
 
 	//icon = 'icons/obj/machines/antimatter.dmi'
 	icon = 'icons/obj/machines/new_ame.dmi'
@@ -226,7 +226,7 @@ proc/cardinalrange(var/center)
 /obj/item/device/am_shielding_container
 	name = "packaged antimatter reactor section"
 	desc = "A section of antimatter reactor shielding. Do not eat."
-	description_info = "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
+	desc_info = "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
 	icon = 'icons/obj/machines/antimatter.dmi'
 	icon_state = "box"
 	item_state = "electronic"
@@ -238,7 +238,7 @@ proc/cardinalrange(var/center)
 /obj/item/device/am_shielding_container/attackby(var/obj/item/I, var/mob/user)
 	if(I.ismultitool() && isturf(loc))
 		if(locate(/obj/machinery/am_shielding/) in loc)
-			to_chat(user, "<span class='warning'>\icon[src]There is already an antimatter reactor section there.</span>")
+			to_chat(user, "<span class='warning'>[icon2html(src, user)]There is already an antimatter reactor section there.</span>")
 			return
 
 		//Search for shielding first
@@ -254,7 +254,7 @@ proc/cardinalrange(var/center)
 			new/obj/machinery/am_shielding(src.loc, AMC)
 			qdel(src)
 		else //Stranded & Alone
-			to_chat(user, "<span class='warning'>\icon[src]Couldn't connect to an Antimatter Control Unit.</span>")
+			to_chat(user, "<span class='warning'>[icon2html(src, user)]Couldn't connect to an Antimatter Control Unit.</span>")
 			return
 
 	..()

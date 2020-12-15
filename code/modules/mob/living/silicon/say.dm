@@ -74,6 +74,8 @@
 			return TRUE
 		if(istype(other, /mob/living/silicon))
 			return TRUE
+		if (istype(other, /mob/living/announcer))
+			return TRUE
 		if(istype(other, /mob/living/carbon/brain))
 			return TRUE
 	return ..()
@@ -86,7 +88,7 @@
 		return
 
 	var/obj/machinery/hologram/holopad/H = src.holo
-	if(H && H.masters[src])//If there is a hologram and its master is the user.
+	if(H?.active_holograms[src])//If there is a hologram and its master is the user.
 		// AI can hear their own message, this formats it for them.
 		if(speaking)
 			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [speaking.format_message(message, verb)]</span></i>")
@@ -107,12 +109,12 @@
 				if(istype(I, /mob))
 					var/mob/M = I
 					listening += M
-					hearturfs += M.locs[1]
+					hearturfs += get_turf(M)
 					for(var/obj/O in M.contents)
 						listening_obj |= O
 				else if(istype(I, /obj))
 					var/obj/O = I
-					hearturfs += O.locs[1]
+					hearturfs += get_turf(O)
 					listening_obj |= O
 
 
@@ -120,7 +122,7 @@
 				if(M.stat == DEAD && M.client?.prefs.toggles & CHAT_GHOSTEARS)
 					M.hear_say(message, verb, speaking, null, null, src)
 					continue
-				if(M.loc && M.locs[1] in hearturfs)
+				if(M.loc && (get_turf(M) in hearturfs))
 					M.hear_say(message, verb, speaking, null, null, src)
 	else
 		to_chat(src, SPAN_WARNING("No holopad connected."))
@@ -135,7 +137,7 @@
 		return
 
 	var/obj/machinery/hologram/holopad/T = src.holo
-	if(T?.masters[src])
+	if(T?.active_holograms[src])
 		var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[message]</span></span>"
 		to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='name'>[real_name]</span> <span class='message'>[message]</span></span></i>")
 
@@ -148,7 +150,7 @@
 
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)
 	var/obj/machinery/hologram/holopad/T = src.holo
-	if(T?.masters[src]) //Is the AI using a holopad?
+	if(T?.active_holograms[src]) //Is the AI using a holopad?
 		src.holopad_emote(message)
 	else //Emote normally, then.
 		..()

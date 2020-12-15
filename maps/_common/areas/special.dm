@@ -2,345 +2,250 @@
 // CENTCOM
 
 /area/prison/solitary
-	name = "\improper CentComm Solitary Confinement"
+	name = "CentComm Solitary Confinement"
 	icon_state = "brig"
 	centcomm_area = 1
+	flags = PRISON
 
 /area/centcom
-	name = "\improper Centcom"
+	name = "Centcom"
 	icon_state = "centcom"
 	requires_power = 0
 	no_light_control = 1
 	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
+	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/control
-	name = "\improper Centcom Control"
+	name = "Centcom Control"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/centcom/spawning
-	name = "\improper Centcom Preparatory Wing"
+	name = "NTCC Odin Departures"
+	icon_state = "centcomspawn"
+	ambience = AMBIENCE_ARRIVALS
+
+/area/centcom/start
+	name = "New Player Spawn"
+	dynamic_lighting = 0
 
 /area/centcom/evac
-	name = "\improper Centcom Emergency Shuttle"
+	name = "Centcom Emergency Shuttle"
+	icon_state = "centcomevac"
 
 /area/centcom/suppy
-	name = "\improper Centcom Supply Shuttle"
+	name = "Centcom Supply Shuttle"
+	icon_state = "centcomsupply"
 
 /area/centcom/ferry
-	name = "\improper Centcom Transport Shuttle"
+	name = "Centcom Transport Shuttle"
+	icon_state = "centcomferry"
 
 /area/centcom/shuttle
-	name = "\improper Centcom Administration Shuttle"
+	name = "Centcom Administration Shuttle"
 
 /area/centcom/test
-	name = "\improper Centcom Testing Facility"
+	name = "Centcom Testing Facility"
 
 /area/centcom/living
-	name = "\improper Centcom Living Quarters"
+	name = "Centcom Living Quarters"
+	icon_state = "centcomliving"
 
 /area/centcom/specops
-	name = "\improper Centcom Special Ops"
+	name = "Centcom Special Ops"
+	icon_state = "centcomspecops"
 
 /area/centcom/creed
 	name = "Creed's Office"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/centcom/holding
-	name = "\improper Holding Facility"
+	name = "Holding Facility"
+	icon_state = "centcomhold"
+
+/area/centcom/checkpoint
 
 /area/centcom/checkpoint/fore
-	name = "\improper Fore Checkpoint"
+	name = "Fore Checkpoint"
+	icon_state = "centcomcheckfore"
 
 /area/centcom/checkpoint/aft
-	name = "\improper Aft Checkpoint"
+	name = "Aft Checkpoint"
+	icon_state = "centcomcheckaft"
+
+/area/centcom/bar
+	name = "Valkyrie's Rest"
 
 /area/centcom/legion
-	name = "\improper BLV The Tower - Deck 1"
+	name = "BLV The Tower - Deck 1"
 	icon_state = "blvtower"
+	flags = NO_CREW_EXPECTED
 
 /area/centcom/legion/hangar5
-	name = "\improper BLV The Tower - Hangar 5"
+	name = "BLV The Tower - Hangar 5"
 	icon_state = "blvhangar5"
+	ambience = AMBIENCE_HANGAR
+	sound_env = HANGAR
 
 /area/centcom/distress_prep
-	name = "\improper Distress Team Preparation"
-
-//SYNDICATES
-
-/area/syndicate_mothership
-	name = "\improper Mercenary Base"
-	icon_state = "syndie-ship"
-	requires_power = 0
-	dynamic_lighting = 0
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/syndicate_mothership/control
-	name = "\improper Mercenary Control Room"
-	icon_state = "syndie-control"
-
-/area/syndicate_mothership/elite_squad
-	name = "\improper Elite Mercenary Squad"
-	icon_state = "syndie-elite"
-
-/area/syndicate_mothership/raider_base
-	name = "\improper Pirate Hideout"
-	icon_state = "syndie-control"
-	dynamic_lighting = 1
-
-//THUNDERDOME
-
-/area/tdome
-	name = "\improper Thunderdome"
-	icon_state = "thunder"
-	requires_power = 0
-	dynamic_lighting = 0
-	sound_env = ARENA
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/tdome/tdome1
-	name = "\improper Thunderdome (Team 1)"
-	icon_state = "green"
-
-/area/tdome/tdome2
-	name = "\improper Thunderdome (Team 2)"
-	icon_state = "yellow"
-
-/area/tdome/tdomeadmin
-	name = "\improper Thunderdome (Admin.)"
-	icon_state = "purple"
-
-/area/tdome/tdomeobserve
-	name = "\improper Thunderdome (Observer.)"
-	icon_state = "purple"
-
-//ACTORS GUILD
-/area/acting
-	name = "\improper Centcom Acting Guild"
-	icon_state = "red"
-	dynamic_lighting = 0
-	requires_power = 0
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/acting/backstage
-	name = "\improper Backstage"
-
-/area/acting/stage
-	name = "\improper Stage"
-	dynamic_lighting = 1
-	icon_state = "yellow"
-
-//ENEMY
-
-//names are used
-/area/syndicate_station
-	name = "\improper Independent Station"
-	icon_state = "yellow"
-	requires_power = 0
-	flags = RAD_SHIELDED | SPAWN_ROOF
-	no_light_control = 1
-
-/area/syndicate_station/start
-	name = "\improper Mercenary Forward Operating Base"
-	icon_state = "yellow"
-	centcomm_area = 1
-	base_turf = /turf/space
-
-/area/syndicate_station/surface
-	name = "\improper Surface of the Station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/above
-	name = "\improper Above the Station"
-	icon_state = "northwest"
-
-/area/syndicate_station/under
-	name = "\improper Under the Station"
-	icon_state = "northeast"
-
-/area/syndicate_station/caverns
-	name = "\improper Caverns"
-	icon_state = "southeast"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/arrivals_dock
-	name = "\improper Docked with Station"
-	icon_state = "shuttle"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/transit
-	name = "\improper Hyperspace"
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
-	centcomm_area = 1
-
-/area/wizard_station
-	name = "\improper Wizard's Den"
-	icon_state = "yellow"
-	requires_power = 0
-	dynamic_lighting = 0
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/kataphract_chapter
-	name = "\improper Kataphract Chapter"
-	icon_state = "yellow"
-	requires_power = 1
-	dynamic_lighting = 1
-	no_light_control = 0
-	base_turf = /turf/space
-
-/area/kataphract_chapter/bridge
-	name = "\improper Kataphract Chapter - Bridge"
-	icon_state = "bridge"
-
-/area/kataphract_chapter/sparring_chamber
-	name = "\improper Kataphract Chapter - Sparring Chamber"
-	icon_state = "security"
-
-/area/kataphract_chapter/commissary
-	name = "\improper Kataphract Chapter - Commissary"
-	icon_state = "Warden"
-
-/area/kataphract_chapter/main_ring
-	name = "\improper Kataphract Chapter - Main Ring"
-	icon_state = "yellow"
-
-/area/kataphract_chapter/dorms
-	name = "\improper Kataphract Chapter - Dorms"
-	icon_state = "Sleep"
-
-/area/kataphract_chapter/toilets
-	name = "\improper Kataphract Chapter - Toilets"
-	icon_state = "toilet"
-
-/area/kataphract_chapter/office
-	name = "\improper Kataphract Chapter - Knight's Office"
-	icon_state = "law"
-
-/area/kataphract_chapter/cafeteria
-	name = "\improper Kataphract Chapter - Cafeteria"
-	icon_state = "kitchen"
-
-/area/kataphract_chapter/engineering
-	name = "\improper Kataphract Chapter - Engineering"
-	icon_state = "engineering_workshop"
-
-/area/kataphract_chapter/port_solars
-	name = "\improper Kataphract Chapter - Port Solars"
-	icon_state = "panelsA"
-
-/area/kataphract_chapter/starboard_solars
-	name = "\improper Kataphract Chapter - Starboard Solars"
-	icon_state = "panelsA"
-
-/area/kataphract_chapter/trading_area
-	name = "\improper Kataphract Chapter - Trading Area"
-	icon_state = "quartoffice"
-
-/area/kataphract_chapter/warehouse
-	name = "\improper Kataphract Chapter - Warehouse"
-	icon_state = "quartstorage"
-
-/area/kataphract_chapter/hangar
-	name = "\improper Kataphract Chapter - Hangar"
-	icon_state = "green"
-
-/area/kataphract_chapter/hull
-	name = "\improper Kataphract Chapter - Hull"
-	icon_state = "blue"
-
-/area/skipjack_station
-	name = "\improper Skipjack"
-	icon_state = "yellow"
-	requires_power = 0
-	no_light_control = 1
-	base_turf = /turf/space
-	flags = SPAWN_ROOF
-
-/area/skipjack_station/start
-	name = "\improper Skipjack"
-	icon_state = "yellow"
-	centcomm_area = 1
-
-/area/skipjack_station/transit
-	name = "\improper Hyperspace"
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
-	centcomm_area = 1
-
-/area/skipjack_station/surface
-	name = "\improper Surface of the Station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/skipjack_station/above
-	name = "\improper Above the Station"
-	icon_state = "northwest"
-
-/area/skipjack_station/under
-	name = "\improper Under the Station"
-	icon_state = "northeast"
-
-/area/skipjack_station/cavern
-	name = "\improper Caverns"
-	icon_state = "southeast"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-//DJSTATION
-
-/area/djstation
-	name = "\improper Listening Post"
-	icon_state = "LP"
-	no_light_control = 1
-
-/area/djstation/solars
-	name = "\improper Listening Post Solars"
-	icon_state = "LPS"
-
-
-//merchant station and shuttle
+	name = "Distress Team Preparation"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/merchant_station
-	name = "\improper Merchant Station"
+	name = "Merchant Station"
 	icon_state = "merchant"
 	requires_power = 0
 	dynamic_lighting = 1
 	no_light_control = 1
 	centcomm_area = 1
+	flags = NO_CREW_EXPECTED
+	ambience = AMBIENCE_HIGHSEC
 
 /area/merchant_station/warehouse
-	name = "\improper Merchant Warehouse"
+	name = "Merchant Warehouse"
 	icon_state = "merchant_ware"
+	sound_env = LARGE_ENCLOSED
 
-/area/merchant_station/transit
-	name = "\improper Hyperspace"
-	icon_state = "shuttle"
-	centcomm_area = 1
+// Antagonist Bases
 
-/area/merchant_ship
-	name = "\improper Merchant Ship"
-	icon_state = "yellow"
+/area/antag
+	name = "Unknown Blacksite"
+	icon_state = "dark"
+	requires_power = FALSE
+	no_light_control = TRUE
+	centcomm_area = TRUE
+	flags = NO_CREW_EXPECTED
+
+/area/antag/mercenary
+	name = "Mercenary Barracks"
+	icon_state = "merc"
+
+/area/antag/raider
+	name = "Raider Hideout"
+	icon_state = "raider"
+
+/area/antag/ninja
+	name = "Ninja Preparation"
+	icon_state = "ninja"
+
+/area/antag/burglar
+	name = "Burglar Hideout"
+	icon_state = "burglar"
+
+/area/antag/wizard
+	name = "Wizard Mind Palace"
+	icon_state = "wizard"
+	dynamic_lighting = FALSE
+
+
+//THUNDERDOME
+
+/area/tdome
+	name = "Thunderdome"
+	icon_state = "thunder"
 	requires_power = 0
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	sound_env = ARENA
 	no_light_control = 1
-
-/area/merchant_ship/start
-	name = "\improper Merchant Ship Docked"
-	icon_state = "yellow"
 	centcomm_area = 1
-	base_turf = /turf/space
+	flags = NO_CREW_EXPECTED
 
-/area/merchant_ship/docked
-	name = "\improper Docked with station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+/area/tdome/tdome1
+	name = "Thunderdome (Team 1)"
+	icon_state = "green"
+
+/area/tdome/tdome2
+	name = "Thunderdome (Team 2)"
+	icon_state = "yellow"
+
+/area/tdome/tdomeadmin
+	name = "Thunderdome (Admin.)"
+	icon_state = "purple"
+
+/area/tdome/tdomeobserve
+	name = "Thunderdome (Observer.)"
+	icon_state = "purple"
+
+// Kataphract Station
+
+/area/kataphract_chapter
+	name = "Kataphract Chapter"
+	icon_state = "yellow"
+	requires_power = 1
+	dynamic_lighting = 1
+	no_light_control = 0
+	base_turf = /turf/space
+	flags = NO_CREW_EXPECTED
+
+/area/kataphract_chapter/bridge
+	name = "Kataphract Chapter - Bridge"
+	icon_state = "bridge"
+	ambience = AMBIENCE_HIGHSEC
+
+/area/kataphract_chapter/sparring_chamber
+	name = "Kataphract Chapter - Sparring Chamber"
+	icon_state = "security"
+	sound_env = ARENA
+
+/area/kataphract_chapter/commissary
+	name = "Kataphract Chapter - Commissary"
+	icon_state = "Warden"
+
+/area/kataphract_chapter/main_ring
+	name = "Kataphract Chapter - Main Ring"
+	icon_state = "yellow"
+
+/area/kataphract_chapter/dorms
+	name = "Kataphract Chapter - Dormitory"
+	icon_state = "Sleep"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/kataphract_chapter/toilets
+	name = "Kataphract Chapter - Toilets"
+	icon_state = "toilet"
+	sound_env = SMALL_ENCLOSED
+
+/area/kataphract_chapter/office
+	name = "Kataphract Chapter - Knight's Office"
+	icon_state = "law"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/kataphract_chapter/cafeteria
+	name = "Kataphract Chapter - Cafeteria"
+	icon_state = "kitchen"
+
+/area/kataphract_chapter/engineering
+	name = "Kataphract Chapter - Engineering"
+	icon_state = "engineering_workshop"
+	ambience = AMBIENCE_ENGINEERING
+
+/area/kataphract_chapter/port_solars
+	name = "Kataphract Chapter - Port Solars"
+	icon_state = "panelsA"
+	ambience = AMBIENCE_SPACE
+
+/area/kataphract_chapter/starboard_solars
+	name = "Kataphract Chapter - Starboard Solars"
+	icon_state = "panelsA"
+	ambience = AMBIENCE_SPACE
+
+/area/kataphract_chapter/trading_area
+	name = "Kataphract Chapter - Trading Area"
+	icon_state = "quartoffice"
+
+/area/kataphract_chapter/warehouse
+	name = "Kataphract Chapter - Warehouse"
+	icon_state = "quartstorage"
+	sound_env = LARGE_ENCLOSED
+
+/area/kataphract_chapter/hangar
+	name = "Kataphract Chapter - Hangar"
+	icon_state = "green"
+	ambience = AMBIENCE_HANGAR
+	sound_env = HANGAR
+
+/area/kataphract_chapter/hull
+	name = "Kataphract Chapter - Hull"
+	icon_state = "blue"
 
 /area/beach
 	name = "Keelin's private beach"
@@ -350,40 +255,55 @@
 	requires_power = 0
 	no_light_control = 1
 
-//dungeon areas
+//Dungeons
 
 /area/dungeon/crashed_ship
-	name = "\improper Derelict Ship"
+	name = "Derelict Ship"
 	icon_state = "yellow"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/dungeon/tomb
-	name = "\improper Burial Chamber"
+	name = "Burial Chamber"
 	icon_state = "yellow"
 	flags = SPAWN_ROOF
 
 /area/dungeon/syndie_listening_post
-	name = "\improper Abandoned Listening Post"
+	name = "Abandoned Listening Post"
 	icon_state = "red"
 	flags = SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
 /area/dungeon/anomaly_outpost
-	name = "\improper Xenoarchaeological Outpost"
+	name = "Xenoarchaeological Outpost"
 	icon_state = "anomaly"
 	flags = SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
 /area/dungeon/sol_outpost
-	name = "\improper Solarian Outpost"
+	name = "Solarian Outpost"
 	icon_state = "red"
 	flags = SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
 /area/dungeon/crashed_satellite
-	name = "\improper Communications Satellite"
+	name = "Communications Satellite"
 	icon_state = "tcomsatcham"
+	no_light_control = 1
+
+/area/dungeon/skrell_ship
+    name = "Crashed Skrell Ship"
+    icon_state = "purple"
+    flags = RAD_SHIELDED | SPAWN_ROOF
+
+//Misc
+
+/area/beach
+	name = "Keelin's private beach"
+	icon_state = "yellow"
+	luminosity = 1
+	dynamic_lighting = 0
+	requires_power = 0
 	no_light_control = 1

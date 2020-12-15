@@ -110,6 +110,8 @@
 							I.mechassist()
 						if ("mechanical")
 							I.robotize()
+						if ("removed")
+							qdel(I)
 
 	if (apply_markings)
 		for(var/N in organs_by_name)
@@ -164,12 +166,12 @@
 		"Your head feels like it's going to implode!",
 		"Thousands of ants are tunneling in your head!"
 		)
-	to_chat(src, span("danger", "An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
+	to_chat(src, SPAN_DANGER("An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
 	seizure()
 	var/new_latencies = rand(2,4)
 	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 	for(var/i = 1 to new_latencies)
-		custom_pain(span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
+		custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
 		set_psi_rank(pick_n_take(faculties), 1)
 		sleep(30)
 		psi.update()
@@ -190,3 +192,68 @@
 	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
 		return TRUE
 	return FALSE
+
+/mob/living/carbon/human/proc/is_submerged()
+	if(lying && istype(loc, /turf/simulated/floor/beach/water)) // replace this when we port fluids
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/getCryogenicFactor(var/bodytemperature)
+	if(isSynthetic())
+		return 0
+	if(!species)
+		return 0
+
+	if(bodytemperature > species.cold_level_1)
+		return 0
+	else if(bodytemperature > species.cold_level_2)
+		. = 5 * (1 - (bodytemperature - species.cold_level_2) / (species.cold_level_1 - species.cold_level_2))
+		. = max(2, .)
+	else if(bodytemperature > species.cold_level_3)
+		. = 20 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
+		. = max(5, .)
+	else
+		. = 80 * (1 - bodytemperature / species.cold_level_3)
+		. = max(20, .)
+	return round(.)
+
+// Martial Art Helpers
+/mob/living/carbon/human/proc/check_martial_deflection_chance()
+	var/deflection_chance = 0
+	if(!length(known_martial_arts))
+		return deflection_chance
+	for(var/art in known_martial_arts)
+		var/datum/martial_art/M = art
+		deflection_chance = max(deflection_chance, M.deflection_chance)
+	return deflection_chance
+
+/mob/living/carbon/human/proc/check_weapon_affinity(var/obj/O, var/parry_chance)
+	if(!length(known_martial_arts))
+		return FALSE
+	var/parry_bonus = 0
+	for(var/art in known_martial_arts)
+		var/datum/martial_art/M = art
+		for(var/type in M.weapon_affinity)
+			if(istype(O, type))
+				if(parry_chance)
+					parry_bonus = max(parry_bonus, M.parry_multiplier)
+					continue
+				return TRUE
+	if(parry_chance)
+		return parry_bonus
+	return FALSE
+
+/mob/living/carbon/human/proc/check_no_guns()
+	if(!length(known_martial_arts))
+		return FALSE
+	for(var/art in known_martial_arts)
+		var/datum/martial_art/M = art
+		if(M.no_guns)
+			return M.no_guns_message
+	return FALSE
+
+/mob/living/carbon/human/get_standard_pixel_x()
+	return species.icon_x_offset
+
+/mob/living/carbon/human/get_standard_pixel_y()
+	return species.icon_y_offset

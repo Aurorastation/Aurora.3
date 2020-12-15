@@ -1,4 +1,4 @@
-
+var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and CIVILIAN
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
@@ -28,7 +28,7 @@ var/const/VIROLOGIST		=(1<<6)
 var/const/PSYCHIATRIST		=(1<<7)
 var/const/ROBOTICIST		=(1<<8)
 var/const/XENOBIOLOGIST		=(1<<9)
-var/const/PARAMEDIC			=(1<<10)
+var/const/MED_TECH			=(1<<10)
 var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
 
@@ -46,14 +46,11 @@ var/const/CARGOTECH			=(1<<7)
 var/const/MINER				=(1<<8)
 var/const/LAWYER			=(1<<9)
 var/const/CHAPLAIN			=(1<<10)
-var/const/CLOWN				=(1<<11)
-var/const/MIME				=(1<<12)
+var/const/VISITOR			=(1<<11)
+var/const/CONSULAR			=(1<<12)
 var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
-
-
-var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
 
 
 var/list/command_positions = list(
@@ -80,8 +77,8 @@ var/list/medical_positions = list(
 	"Surgeon",
 	"Psychiatrist",
 	"Pharmacist",
-	"Paramedic",
-	"Medical Resident"
+	"First Responder",
+	"Medical Intern"
 )
 
 
@@ -103,6 +100,7 @@ var/list/cargo_positions = list(
 var/list/civilian_positions = list(
 	"Head of Personnel",
 	"Corporate Liaison",
+	"Consular Officer",
 	"Bartender",
 	"Gardener",
 	"Chef",
@@ -110,7 +108,8 @@ var/list/civilian_positions = list(
 	"Librarian",
 	"Corporate Reporter",
 	"Chaplain",
-	"Assistant"
+	"Assistant",
+	"Visitor"
 )
 
 
@@ -131,7 +130,7 @@ var/list/nonhuman_positions = list(
 )
 
 /proc/guest_jobbans(var/job)
-	return ((job in command_positions) || job == "Corporate Liaison")
+	return ((job in command_positions) || job == "Corporate Liaison" || job == "Consular Officer")
 
 /proc/get_job_datums()
 	var/list/occupations = list()

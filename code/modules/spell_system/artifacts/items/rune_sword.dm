@@ -4,15 +4,15 @@
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "runesword0"
 	item_state = "runesword0"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	active_force = 40
 	active_throwforce = 40
-	active_w_class = 5
+	active_w_class = ITEMSIZE_HUGE
 	force = 20
 	throwforce = 30
 	throw_speed = 5
 	throw_range = 10
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 8)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -46,7 +46,7 @@
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
 		to_chat(user, "<span class='danger'>The sword refuses you as its true wielder, slashing your [affecting.name] instead!</span>")
 
-	user.apply_damage(active_force, BRUTE, zone, 0, sharp=1, edge=1)
+	user.apply_damage(active_force, BRUTE, zone, 0, damage_flags = DAM_SHARP|DAM_EDGE)
 
 	user.drop_from_inventory(src)
 

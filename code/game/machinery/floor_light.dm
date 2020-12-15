@@ -12,6 +12,7 @@ var/list/floor_light_cache = list()
 	active_power_usage = 20
 	power_channel = LIGHT
 	matter = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 2750)
+	recyclable = TRUE
 
 	var/on
 	var/on_state = "on"
@@ -27,13 +28,13 @@ var/list/floor_light_cache = list()
 	if(W.isscrewdriver())
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
 			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
 			return
-		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 		if(!do_after(user, 20/W.toolspeed))
 			return
 		if(!src || !WT.isOn())
@@ -51,7 +52,7 @@ var/list/floor_light_cache = list()
 			return
 		else
 			to_chat(user, "<span class='notice'>You lever off the [name].</span>")
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/crowbar_tile.ogg', 100, TRUE)
 			if(stat & BROKEN)
 				qdel(src)
 				return
@@ -65,7 +66,7 @@ var/list/floor_light_cache = list()
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
 			visible_message("<span class='danger'>\The [user] smashes \the [src]!</span>")
-			playsound(src, "shatter", 70, 1)
+			playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 			update_icon()
 			stat |= BROKEN
 		else

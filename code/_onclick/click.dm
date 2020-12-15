@@ -36,6 +36,10 @@
 /mob/proc/OnMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
 	if(istype(loc, /atom))
 		var/atom/A = loc
+		if(client && client.buildmode)
+			build_click(src, client.buildmode, params, A)
+			return
+
 		if(A.RelayMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params, src))
 			return
 
@@ -70,6 +74,14 @@
 		var/mob/living/heavy_vehicle/M = loc
 		return M.ClickOn(A, params, src)
 
+	// pAI handling
+	if(istype(loc.loc, /mob/living/bot))
+		var/mob/living/bot/B = loc.loc
+		if(!B.on)
+			to_chat(src, SPAN_WARNING("\The [B] isn't turned on!"))
+			return
+		return B.ClickOn(A, params)
+
 	if(client && client.buildmode)
 		build_click(src, client.buildmode, params, A)
 		return
@@ -77,19 +89,22 @@
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
-		return 1
+		return TRUE
+	if(modifiers["ctrl"] && modifiers["middle"])
+		pointed(A)
+		return TRUE
 	if(modifiers["middle"])
 		MiddleClickOn(A)
-		return 1
+		return TRUE
 	if(modifiers["shift"])
 		ShiftClickOn(A)
-		return 0
+		return FALSE
 	if(modifiers["alt"]) // alt and alt-gr (rightalt)
 		AltClickOn(A)
 		return
 	if(modifiers["ctrl"])
 		CtrlClickOn(A)
-		return 1
+		return TRUE
 
 	if(stat || paralysis || stunned || weakened)
 		return
@@ -146,7 +161,6 @@
 	sdepth = A.storage_depth_turf()
 	if(isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
 		if(A.Adjacent(src) || (W && W.attack_can_reach(src, A, W.reach)) ) // see adjacent.dm
-
 			if(W)
 				// Return 1 in attackby() to prevent afterattack() effects (when safely moving items for example)
 				var/resolved = W.resolve_attackby(A,src, params)
@@ -347,4 +361,56 @@
 			direction = WEST
 
 	if(direction != dir)
-		facedir(direction)
+		facedir(direction, TRUE)
+
+var/global/list/click_catchers
+
+/obj/screen/click_catcher
+	icon = 'icons/mob/screen_gen.dmi'
+	icon_state = "click_catcher"
+	plane = CLICKCATCHER_PLANE
+	mouse_opacity = 2
+	screen_loc = "CENTER-7,CENTER-7"
+
+/obj/screen/click_catcher/Destroy()
+	SHOULD_CALL_PARENT(FALSE)
+	return QDEL_HINT_LETMELIVE
+
+/proc/create_click_catcher()
+	. = list()
+	for(var/i = 0, i<15, i++)
+		for(var/j = 0, j<15, j++)
+			var/obj/screen/click_catcher/CC = new()
+			CC.screen_loc = "NORTH-[i],EAST-[j]"
+			. += CC
+
+/obj/screen/click_catcher/Click(location, control, params)
+	var/list/modifiers = params2list(params)
+	if(modifiers["middle"] && istype(usr, /mob/living/carbon))
+		var/mob/living/carbon/C = usr
+		C.swap_hand()
+	else
+		var/turf/T = screen_loc2turf(screen_loc, get_turf(usr))
+		if(T)
+			T.Click(location, control, params)
+	. = 1
+
+// Suppress the mouse macros
+/client/var/has_mouse_macro_warning
+/mob/proc/LogMouseMacro(verbused, params)
+	if(!client)
+		return
+	if(!client.has_mouse_macro_warning) // Log once
+		log_admin("[key_name(usr)] attempted to use a mouse macro: [verbused] [params]")
+/mob/verb/ClickSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".click"
+	LogMouseMacro(".click", params)
+/mob/verb/DblClickSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".dblclick"
+	LogMouseMacro(".dblclick", params)
+/mob/verb/MouseSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".mouse"
+	LogMouseMacro(".mouse", params)

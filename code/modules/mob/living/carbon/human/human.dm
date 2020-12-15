@@ -5,6 +5,8 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 
+	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
+
 	var/list/hud_list[10]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
@@ -125,29 +127,29 @@
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(!stomach || !stomach.is_usable())
 		if(!silent)
-			to_chat(src, span("warning", "Your stomach is not functional!"))
+			to_chat(src, SPAN_WARNING("Your stomach is not functional!"))
 		return FALSE
 
 	if(!stomach.can_eat_atom(victim))
 		if(!silent)
-			to_chat(src, span("warning", "You are not capable of devouring \the [victim] whole!"))
+			to_chat(src, SPAN_WARNING("You are not capable of devouring \the [victim] whole!"))
 		return FALSE
 
 	if(stomach.is_full(victim))
 		if(!silent)
-			to_chat(src, span("warning", "Your [stomach.name] is full!"))
+			to_chat(src, SPAN_WARNING("Your [stomach.name] is full!"))
 		return FALSE
 
 	if(species?.gluttonous & GLUT_MESSY)
 		if(ismob(victim))
 			var/mob/M = victim
 			if(ishuman(victim))
-				to_chat(src, span("warning", "You can't devour humanoids!"))
+				to_chat(src, SPAN_WARNING("You can't devour humanoids!"))
 				return FALSE
 			for(var/obj/item/grab/G in M.grabbed_by)
 				if(G && G.state < GRAB_NECK)
 					if(!silent)
-						to_chat(src, span("warning", "You need a tighter hold on \the [M]!"))
+						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
 		else
 			return FALSE
@@ -253,7 +255,7 @@
 			if (prob(50))
 				Paralyse(10)
 
-	// factor in armour
+	// factor in armor
 	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
 	b_loss *= protection
 	f_loss *= protection
@@ -400,9 +402,9 @@
 	dat += "<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
-	user << browse(dat, text("window=mob[name];size=340x540"))
-	onclose(user, "mob[name]")
-	return
+	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name), 350, 550)
+	mob_win.set_content(dat)
+	mob_win.open()
 
 // called when something steps onto a human
 // this handles mulebots and vehicles
@@ -418,50 +420,29 @@
 
 // Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
 /mob/living/carbon/human/proc/get_authentification_rank(var/if_no_id = "No id", var/if_no_job = "No job")
-	var/obj/item/device/pda/pda = wear_id
-	if (istype(pda))
-		if (pda.id)
-			return pda.id.rank
-		else
-			return pda.ownrank
+	var/obj/item/card/id/id = GetIdCard()
+	if(!istype(id))
+		return if_no_id
 	else
-		var/obj/item/card/id/id = get_idcard()
-		if(id)
-			return id.rank ? id.rank : if_no_job
-		else
-			return if_no_id
+		return id.rank ? id.rank : if_no_job
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No id", var/if_no_job = "No job")
-	var/obj/item/device/pda/pda = wear_id
-	if (istype(pda))
-		if (pda.id)
-			return pda.id.assignment
-		else
-			return pda.ownjob
+/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No ID", var/if_no_job = "No Job")
+	var/obj/item/card/id/I = GetIdCard()
+	if(istype(I))
+		return I.assignment ? I.assignment : if_no_job
 	else
-		var/obj/item/card/id/id = get_idcard()
-		if(id)
-			return id.assignment ? id.assignment : if_no_job
-		else
-			return if_no_id
+		return if_no_id
 
 //gets name from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
 /mob/living/carbon/human/proc/get_authentification_name(var/if_no_id = "Unknown")
-	var/obj/item/device/pda/pda = wear_id
-	if (istype(pda))
-		if (pda.id)
-			return pda.id.registered_name
-		else
-			return pda.owner
+	var/obj/item/card/id/I = GetIdCard()
+	if(istype(I))
+		return I.registered_name
 	else
-		var/obj/item/card/id/id = get_idcard()
-		if(id)
-			return id.registered_name
-		else
-			return if_no_id
+		return if_no_id
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a seperate proc as it'll be useful elsewhere
 /mob/living/carbon/human/proc/get_visible_name()
@@ -486,13 +467,9 @@
 //Useful when player is being seen by other mobs
 /mob/living/carbon/human/proc/get_id_name(var/if_no_id = "Unknown")
 	. = if_no_id
-	if(istype(wear_id,/obj/item/device/pda))
-		var/obj/item/device/pda/P = wear_id
-		return P.owner
-	if(wear_id)
-		var/obj/item/card/id/I = wear_id.GetID()
-		if(I)
-			return I.registered_name
+	var/obj/item/card/id/I = GetIdCard()
+	if(I)
+		return I.registered_name
 	return
 
 //gets ID card object from special clothes slot or null.
@@ -508,6 +485,11 @@
 		shock_damage *= base_siemens_coeff
 	if (shock_damage<1)
 		return 0
+
+	var/obj/item/organ/internal/augment/tesla/tesla = internal_organs_by_name[BP_AUG_TESLA]
+	if(tesla?.check_shock())
+		tesla.actual_charges = min(tesla.actual_charges+1, tesla.max_charges)
+		return FALSE
 
 	if(!def_zone)
 		//The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
@@ -527,7 +509,7 @@
 			if(7)//snowflake arc - only happens when they have long hair.
 				damage_areas = list(BP_R_HAND, BP_R_ARM, BP_CHEST, BP_HEAD)
 				h_style = "skinhead"
-				visible_message(span("warning", "[src]'s hair gets a burst of electricty through it, burning and turning to dust!"), span("danger", "your hair burns as the current flows through it, turning to dust!"), span("notice", "You hear a crackling sound, and smell burned hair!."))
+				visible_message(SPAN_WARNING("[src]'s hair gets a burst of electricty through it, burning and turning to dust!"), SPAN_DANGER("your hair burns as the current flows through it, turning to dust!"), SPAN_NOTICE("You hear a crackling sound, and smell burned hair!."))
 				update_hair()
 	else
 		damage_areas = list(def_zone)
@@ -568,22 +550,22 @@
 
 		apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4
-		playsound(loc, "sparks", 50, 1, -1)
+		playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
 
 	if (shock_damage > 15)
 		visible_message(
-		span("warning", "[src] was shocked by the [source]!"),
-		span("danger", "You feel a powerful shock course through your body!"),
-		span("warning", "You hear a heavy electrical crack.")
+		SPAN_WARNING("[src] was shocked by the [source]!"),
+		SPAN_DANGER("You feel a powerful shock course through your body!"),
+		SPAN_WARNING("You hear a heavy electrical crack.")
 		)
 		Stun(10)//This should work for now, more is really silly and makes you lay there forever
 		Weaken(10)
 
 	else
 		visible_message(
-		span("warning", "[src] was mildly shocked by the [source]."),
-		span("warning", "You feel a mild shock course through your body."),
-		span("warning", "You hear a light zapping.")
+		SPAN_WARNING("[src] was mildly shocked by the [source]."),
+		SPAN_WARNING("You feel a mild shock course through your body."),
+		SPAN_WARNING("You hear a light zapping.")
 		)
 
 	spark(loc, 5, alldirs)
@@ -636,19 +618,16 @@
 									U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecord"])
 		if(hasHUD(usr,"security"))
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -661,19 +640,16 @@
 					read = 1
 
 			if(!read)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecordComment"])
 		if(hasHUD(usr,"security"))
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -688,17 +664,14 @@
 					to_chat(usr, "<a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>")
 
 			if(!read)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
 			var/perpname = "wot"
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -718,12 +691,9 @@
 			var/perpname = "wot"
 			var/modified = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 
@@ -746,19 +716,16 @@
 								U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecord"])
 		if(hasHUD(usr,"medical"))
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -772,19 +739,16 @@
 					read = 1
 
 			if(!read)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecordComment"])
 		if(hasHUD(usr,"medical"))
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -799,17 +763,14 @@
 					to_chat(usr, "<a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>")
 
 			if(!read)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
 			var/perpname = "wot"
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -903,17 +864,17 @@
 
 	if(is_berserk())
 		if(!silent)
-			to_chat(src, span("warning", "You are in no state to use that!"))
+			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
 		return 0
 
 	if(!species.has_fine_manipulation)
 		if(!silent)
-			to_chat(src, span("warning", "You don't have the dexterity to use that!"))
+			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
 		return 0
 
 	if(disabilities & MONKEYLIKE)
 		if(!silent)
-			to_chat(src, span("warning", "You don't have the dexterity to use that!"))
+			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
 		return 0
 
 	return 1
@@ -942,7 +903,7 @@
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
-		visible_message(span("warning", "\The [src] begins playing \his ribcage like a xylophone. It's quite spooky."),span("notice", "You begin to play a spooky refrain on your ribcage."),span("warning", "You hear a spooky xylophone melody."))
+		visible_message(SPAN_WARNING("\The [src] begins playing [get_pronoun("his")] ribcage like a xylophone. It's quite spooky."), SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), SPAN_WARNING("You hear a spooky xylophone melody."))
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -972,7 +933,7 @@
 		nothing_to_puke = TRUE
 
 	if(nothing_to_puke)
-		custom_emote(1,"dry heaves.")
+		custom_emote(VISIBLE_MESSAGE,"dry heaves.")
 		return
 
 	var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
@@ -987,10 +948,10 @@
 
 	var/obj/effect/decal/cleanable/vomit/splat
 	if(vomitReceptacle)
-		src.visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
+		src.visible_message(SPAN_WARNING("[src] vomits into \the [vomitReceptacle]!"), SPAN_WARNING("You vomit into \the [vomitReceptacle]!"))
 		splat = new /obj/effect/decal/cleanable/vomit(vomitReceptacle)
 	else
-		src.visible_message(span("warning", "\The [src] vomits!"), span("warning", "You vomit!"))
+		src.visible_message(SPAN_WARNING("\The [src] vomits!"), SPAN_WARNING("You vomit!"))
 		var/turf/location = loc
 		if(istype(location, /turf/simulated))
 			splat = new /obj/effect/decal/cleanable/vomit(location)
@@ -1029,9 +990,9 @@
 
 	if(deliberate)
 		if(incapacitated())
-			to_chat(src, span("warning", "You cannot do that right now."))
+			to_chat(src, SPAN_WARNING("You cannot do that right now."))
 			return
-		visible_message(span("warning", "\The [src] retches a bit..."))
+		visible_message(SPAN_WARNING("\The [src] retches a bit..."))
 		if(!do_after(src, 30))
 			return
 		timevomit = max(timevomit, 5)
@@ -1040,10 +1001,10 @@
 	level = Clamp(level, 1, 3)
 
 	lastpuke = TRUE
-	to_chat(src, span("warning", "You feel nauseous..."))
+	to_chat(src, SPAN_WARNING("You feel nauseous..."))
 	if(level > 1)
 		sleep(150 / timevomit)	//15 seconds until second warning
-		to_chat(src, span("warning", "You feel like you are about to throw up!"))
+		to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 		if(level > 2)
 			sleep(100 / timevomit)	//and you have 10 more for mad dash to the bucket
 			empty_stomach()
@@ -1143,7 +1104,7 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message(span("notice", "\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!"), span("notice", "You change your appearance!"), span("warning", "Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
+	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_pronoun("his")] appearance!"), SPAN_NOTICE("You change your appearance!"), SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -1169,10 +1130,10 @@
 
 	var/say = sanitize(input("What do you wish to say"))
 	if(mRemotetalk in target.mutations)
-		target.show_message(span("notice", "You hear [src.real_name]'s voice: [say]"))
+		target.show_message(SPAN_NOTICE("You hear [src.real_name]'s voice: [say]"))
 	else
-		target.show_message(span("notice", "You hear a voice that seems to echo around the room: [say]"))
-	usr.show_message(span("notice", "You project your mind into [target.real_name]: [say]"))
+		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
+	usr.show_message(SPAN_NOTICE("You project your mind into [target.real_name]: [say]"))
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
 	for(var/mob/abstract/observer/G in dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
@@ -1218,10 +1179,21 @@
 		remoteview_target = null
 		reset_view(0)
 
-/mob/living/carbon/human/proc/get_visible_gender()
-	if(wear_suit && wear_suit.flags_inv & HIDEJUMPSUIT && ((head && head.flags_inv & HIDEMASK) || wear_mask))
-		return NEUTER
-	return gender
+/mob/living/carbon/human/succumb()
+	set hidden = TRUE
+
+	if(shock_stage > 50 && (maxHealth * 0.6) > get_total_health())
+		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
+		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
+	else
+		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
+
+/mob/living/carbon/human/get_gender()
+	var/skipitems = get_covered_clothes()
+	var/skipbody = get_covered_body_parts()
+	. = ..()
+	if((skipbody & FACE || (skipitems & (HIDEMASK|HIDEFACE))) && ((skipbody & UPPER_TORSO && skipbody & LOWER_TORSO) || (skipitems & HIDEJUMPSUIT))) //big suits/masks/helmets make it hard to tell their gender
+		. = PLURAL
 
 /mob/living/carbon/human/proc/increase_germ_level(n)
 	if(gloves)
@@ -1232,7 +1204,7 @@
 /mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
-		vessel.add_reagent("blood",560-vessel.total_volume)
+		vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
 		fixblood()
 
 	// Fix up all organs.
@@ -1256,19 +1228,14 @@
 						H.brainmob.mind.transfer_to(src)
 						qdel(H)
 
-	for (var/datum/disease/virus in viruses)
-		virus.cure()
-
-	for (var/ID in virus2)
-		var/datum/disease2/disease/V = virus2[ID]
-		V.cure(src)
-
 	losebreath = 0
 	shock_stage = 0
 
 	//Fix husks
 	mutations.Remove(HUSK)
 	status_flags &= ~DISFIGURED	//Fixes the unknown status
+	if(src.client)
+		SSjobs.EquipAugments(src, src.client.prefs)
 	update_body(1)
 	update_eyes()
 
@@ -1314,7 +1281,7 @@
 	if(istype(M))
 		if(!blood_DNA[M.dna.unique_enzymes])
 			blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-	hand_blood_color = blood_color
+	hand_blood_color = species.blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle
 	return 1 //we applied blood to the item
@@ -1338,9 +1305,12 @@
 
 	gunshot_residue = null
 	if(clean_feet && !shoes)
-		feet_blood_color = null
+		footprint_color = null
 		feet_blood_DNA = null
 		update_inv_shoes(1)
+
+	if(blood_color)
+		blood_color = null
 		return 1
 
 /mob/living/carbon/human/get_visible_implants(var/class = 0)
@@ -1369,12 +1339,12 @@
 			if(!istype(O,/obj/item/implant) && prob(5)) //Moving with things stuck in you could be bad.
 				// All kinds of embedded objects cause bleeding.
 				if(!can_feel_pain())
-					to_chat(src, span("warning", "You feel [O] moving inside your [organ.name]."))
+					to_chat(src, SPAN_WARNING("You feel [O] moving inside your [organ.name]."))
 				else
 					var/msg = pick( \
-						span("warning", "A spike of pain jolts your [organ.name] as you bump [O] inside."), \
-						span("warning", "Your movement jostles [O] in your [organ.name] painfully."), \
-						span("warning", "Your movement jostles [O] in your [organ.name] painfully."))
+						SPAN_WARNING("A spike of pain jolts your [organ.name] as you bump [O] inside."), \
+						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."), \
+						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."))
 					custom_pain(msg, 10, 10, organ)
 
 /mob/living/carbon/human/verb/check_pulse()
@@ -1390,35 +1360,35 @@
 		self = 1
 
 	if (src.species.flags & NO_BLOOD)
-		to_chat(usr, span("notice", self ? "Your species does not have a pulse." : "[src]'s species does not have a pulse."))
+		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
 	if(!self)
-		usr.visible_message(span("notice", "[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse."),\
+		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts [usr.get_pronoun("his")] hand on [src]'s wrist and begins counting their pulse."),\
 		"You begin counting [src]'s pulse")
 	else
-		usr.visible_message(span("notice", "[usr] begins counting their pulse."),\
+		usr.visible_message(SPAN_NOTICE("[usr] begins counting their pulse."),\
 		"You begin counting your pulse.")
 
 	if(pulse())
-		to_chat(usr, span("notice", "[self ? "You have a" : "[src] has a"] pulse! Counting..."))
+		to_chat(usr, SPAN_NOTICE("[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
-		to_chat(usr, span("danger", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
+		to_chat(usr, SPAN_WARNING("[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
 	if(do_mob(usr, src, 60))
 		var/pulsae = src.get_pulse(GETPULSE_HAND)
 		var/introspect = self ? "Your" : "[src]'s"
-		to_chat(usr, span("notice", "[introspect] pulse is [pulsae]."))
+		to_chat(usr, SPAN_NOTICE("[introspect] pulse is [pulsae]."))
 	else
-		to_chat(usr, span("warning", "You failed to check the pulse. Try again."))
+		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
 /mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
-			new_species = "Human"
+			new_species = SPECIES_HUMAN
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -1427,7 +1397,7 @@
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
-		new_species = "Human"
+		new_species = SPECIES_HUMAN
 
 	if(species)
 
@@ -1473,7 +1443,7 @@
 	spawn(0)
 		regenerate_icons()
 		if (vessel)
-			vessel.add_reagent("blood",560-vessel.total_volume)
+			vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
 			fixblood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
@@ -1505,6 +1475,9 @@
 	if(change_hair)
 		species.set_default_hair(src)
 
+	if(species.default_accent)
+		accent = species.default_accent
+
 	if(species)
 		return 1
 	else
@@ -1525,26 +1498,26 @@
 		verbs -= /mob/living/carbon/human/proc/bloody_doodle
 
 	if (src.gloves)
-		to_chat(src, span("warning", "Your [src.gloves] are getting in the way."))
+		to_chat(src, SPAN_WARNING("Your [src.gloves] are getting in the way."))
 		return
 
 	var/turf/simulated/T = src.loc
 	if (!istype(T)) //to prevent doodling out of mechs and lockers
-		to_chat(src, span("warning", "You cannot reach the floor."))
+		to_chat(src, SPAN_WARNING("You cannot reach the floor."))
 		return
 
 	var/direction = input(src,"Which way?","Tile selection") as anything in list("Here","North","South","East","West")
 	if (direction != "Here")
 		T = get_step(T,text2dir(direction))
-	if (!istype(T))
-		to_chat(src, span("warning", "You cannot doodle there."))
+	if (!istype(T) || !Adjacent(T))
+		to_chat(src, SPAN_WARNING("You cannot doodle there."))
 		return
 
 	var/num_doodles = 0
 	for (var/obj/effect/decal/cleanable/blood/writing/W in T)
 		num_doodles++
 	if (num_doodles > 4)
-		to_chat(src, span("warning", "There is no space to write on!"))
+		to_chat(src, SPAN_WARNING("There is no space to write on!"))
 		return
 
 	var/max_length = bloody_hands * 30 //tweeter style
@@ -1552,12 +1525,15 @@
 	var/message = sanitize(input("Write a message. It cannot be longer than [max_length] characters.","Blood writing", ""))
 
 	if (message)
+		if(!Adjacent(T))
+			to_chat(src, SPAN_WARNING("You're too far away!"))
+			return
 		var/used_blood_amount = round(length(message) / 30, 1)
 		bloody_hands = max(0, bloody_hands - used_blood_amount) //use up some blood
 
 		if (length(message) > max_length)
 			message += "-"
-			to_chat(src, span("warning", "You ran out of blood to write with!"))
+			to_chat(src, SPAN_WARNING("You ran out of blood to write with!"))
 
 		var/obj/effect/decal/cleanable/blood/writing/W = new(T)
 		W.basecolor = (hand_blood_color) ? hand_blood_color : "#A10808"
@@ -1565,8 +1541,12 @@
 		W.message = message
 		W.add_fingerprint(src)
 
+#define INJECTION_FAIL     0
+#define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
+#define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
+
 /mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone)
-	. = 1
+	. = BASE_INJECTION_MOD
 
 	if(!target_zone)
 		if(!user)
@@ -1574,26 +1554,39 @@
 		else
 			target_zone = user.zone_sel.selecting
 
+	. *= species.get_injection_modifier()
+
+	if(isvaurca(src))
+		user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s carapace!"))
+
 	var/obj/item/organ/external/affecting = get_organ(target_zone)
 	var/fail_msg
 	if(!affecting)
-		. = 0
+		. = INJECTION_FAIL
 		fail_msg = "They are missing that limb."
 	else if (affecting.status & ORGAN_ROBOT)
-		. = 0
+		. = INJECTION_FAIL
 		fail_msg = "That limb is robotic."
 	else
 		switch(target_zone)
 			if(BP_HEAD)
 				if(head && head.item_flags & THICKMATERIAL)
-					. = 0
+					. = INJECTION_FAIL
 			else
 				if(wear_suit && wear_suit.item_flags & THICKMATERIAL)
-					. = 0
+					if(istype(wear_suit, /obj/item/clothing/suit/space))
+						user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s suit!"))
+						. *= SUIT_INJECTION_MOD
+					else
+						. = INJECTION_FAIL
 	if(!. && error_msg && user)
 		if(!fail_msg)
 			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
-		to_chat(user, span("alert", "[fail_msg]"))
+		to_chat(user, SPAN_ALERT("[fail_msg]"))
+
+#undef INJECTION_FAIL
+#undef BASE_INJECTION_MOD
+#undef SUIT_INJECTION_MOD
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
 	var/list/equipment = list(src.head,src.wear_mask,src.glasses,src.w_uniform,src.wear_suit,src.gloves,src.shoes)
@@ -1701,11 +1694,11 @@
 	var/obj/item/organ/external/current_limb = organs_by_name[choice]
 
 	if(self)
-		U.visible_message(span("warning", "[U] tries to relocate their [current_limb.joint]..."), \
-		span("warning", "You brace yourself to relocate your [current_limb.joint]..."))
+		U.visible_message(SPAN_WARNING("[U] tries to relocate their [current_limb.joint]..."), \
+		SPAN_WARNING("You brace yourself to relocate your [current_limb.joint]..."))
 	else
-		U.visible_message(span("warning", "[U] tries to relocate [S]'s [current_limb.joint]..."), \
-		span("warning", "You begin to relocate [S]'s [current_limb.joint]..."))
+		U.visible_message(SPAN_WARNING("[U] tries to relocate [S]'s [current_limb.joint]..."), \
+		SPAN_WARNING("You begin to relocate [S]'s [current_limb.joint]..."))
 
 	if(!do_after(U, 30))
 		return
@@ -1713,13 +1706,13 @@
 		return
 
 	if(self)
-		U.visible_message(span("danger", "[U] pops their [current_limb.joint] back in!"), \
-		span("danger", "You pop your [current_limb.joint] back in!"))
-		playsound(src.loc, "fracture", 50, 1, -2)
+		U.visible_message(SPAN_DANGER("[U] pops their [current_limb.joint] back in!"), \
+		SPAN_DANGER("You pop your [current_limb.joint] back in!"))
+		playsound(src.loc, /decl/sound_category/fracture_sound, 50, 1, -2)
 	else
-		U.visible_message(span("danger", "[U] pops [S]'s [current_limb.joint] back in!"), \
-		span("danger", "You pop [S]'s [current_limb.joint] back in!"))
-		playsound(src.loc, "fracture", 50, 1, -2)
+		U.visible_message(SPAN_DANGER("[U] pops [S]'s [current_limb.joint] back in!"), \
+		SPAN_DANGER("You pop [S]'s [current_limb.joint] back in!"))
+		playsound(src.loc, /decl/sound_category/fracture_sound, 50, 1, -2)
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
@@ -1769,6 +1762,8 @@
 	if(stat)
 		return
 	var/datum/category_group/underwear/UWC = input(usr, "Choose underwear:", "Show/hide underwear") as null|anything in global_underwear.categories
+	if(!UWC)
+		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
 	if(!UWI || UWI.name == "None")
 		to_chat(src, "<span class='notice'>You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"].</span>")
@@ -1784,7 +1779,7 @@
 
 	if(stat) return
 	pulling_punches = !pulling_punches
-	to_chat(src, span("notice", "You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
+	to_chat(src, SPAN_NOTICE("You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
 	return
 
 /mob/living/carbon/human/proc/get_traumas()
@@ -1953,11 +1948,10 @@
 		return
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	if(istype(heart) && !(heart.status & ORGAN_DEAD))
-		var/active_breaths = 0
-		if(!nervous_system_failure() && active_breaths)
-			visible_message("\The [src] jerks and gasps for breath!")
+		if(!nervous_system_failure())
+			visible_message("<b>[src]</b> jerks and gasps for breath!")
 		else
-			visible_message("\The [src] twitches a bit as \his heart restarts!")
+			visible_message("<b>[src]</b> twitches a bit as [get_pronoun("his")] heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)
@@ -1967,7 +1961,7 @@
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		reagents.add_reagent("adrenaline", amount)
+		reagents.add_reagent(/datum/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)
@@ -1986,10 +1980,81 @@
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damtype == BRUTE)
+			if(P.damage_type == BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				var/scale = min(1, round(P.damage / 50, 0.2))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
+
+/mob/living/carbon/human/apply_radiation_effects()
+	. = ..()
+	if(. == TRUE)
+		if(src.is_diona())
+			var/damage = rand(15, 30)
+			src.adjustToxLoss(-damage)
+			if(prob(5))
+				damage = rand(20, 60)
+				src.adjustToxLoss(-damage)
+			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
+
+		src.apply_effect((rand(15,30)),IRRADIATE,blocked = src.getarmor(null, "rad"))
+		if(prob(4))
+			src.apply_effect((rand(20,60)),IRRADIATE,blocked = src.getarmor(null, "rad"))
+			if (prob(75))
+				randmutb(src) // Applies bad mutation
+				domutcheck(src,null,MUTCHK_FORCED)
+			else
+				randmutg(src) // Applies good mutation
+				domutcheck(src,null,MUTCHK_FORCED)
+
+/mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
+	var/used_accent = accent //starts with the mob's default accent
+
+	if(mind?.changeling)
+		used_accent = mind.changeling.mimiced_accent
+
+	if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
+		var/obj/item/rig/rig = back
+		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
+			used_accent = rig.speech.voice_holder.current_accent
+
+	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
+		if(gear)
+			var/obj/item/voice_changer/changer = locate() in gear
+			if(changer && changer.active && changer.current_accent)
+				used_accent = changer.current_accent
+
+	return ..(speaking, hearer, used_accent)
+
+/mob/living/carbon/human/proc/generate_valid_accent()
+	var/list/valid_accents = new()
+	for(var/current_accents in species.allowed_accents)
+		valid_accents += current_accents
+
+	return valid_accents
+
+/mob/living/carbon/human/proc/set_accent(var/new_accent)
+	accent = new_accent
+	if(!(accent in species.allowed_accents))
+		accent = species.default_accent
+	return TRUE
+
+/mob/living/carbon/human/verb/click_belt()
+	set hidden = 1
+	set name = "click_belt"
+	if(belt)
+		belt.Click()
+
+/mob/living/carbon/human/verb/click_uniform()
+	set hidden = 1
+	set name = "click_uniform"
+	if(w_uniform)
+		w_uniform.Click()
+
+/mob/living/carbon/human/verb/click_back()
+	set hidden = 1
+	set name = "click_back"
+	if(back)
+		back.Click()

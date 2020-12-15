@@ -25,7 +25,7 @@
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
-		set_flooring(get_flooring_data(floortype), mapload)
+		set_flooring(decls_repository.get_decl(floortype), mapload)
 
 /turf/simulated/floor/proc/set_flooring(decl/flooring/newflooring, mapload)
 	if (!mapload)
@@ -72,3 +72,8 @@
 /turf/simulated/floor/levelupdate()
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && src.flooring)
+
+/turf/simulated/floor/shuttle_ceiling
+	name = "hull plating"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "reinforced_light"

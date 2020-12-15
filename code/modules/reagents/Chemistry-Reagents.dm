@@ -1,6 +1,5 @@
 /datum/reagent
 	var/name = "Reagent"
-	var/id = "reagent"
 	var/description = "A non-descript chemical."
 	var/taste_description = "old rotten bandaids"
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
@@ -17,13 +16,18 @@
 	var/breathe_mul = 0.75
 	var/dose = 0
 	var/max_dose = 0
-	var/overdose = 0
+	var/overdose = 0 // Volume of a chemical required in the blood to meet overdose criteria.
+	var/od_minimum_dose = 5 // Metabolised dose of a chemical required to meet overdose criteria. 
 	var/scannable = 0 // Shows up on health analyzers.
 	var/affects_dead = 0
 	var/glass_icon_state = null
 	var/glass_name = null
 	var/glass_desc = null
 	var/glass_center_of_mass = null
+	var/condiment_icon_state = null
+	var/condiment_name = null
+	var/condiment_desc = null
+	var/condiment_center_of_mass = null
 	var/color = "#000000"
 	var/color_weight = 1
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
@@ -46,10 +50,9 @@
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
-		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
 		return
 
-	holder.remove_reagent(id, amount)
+	holder.remove_reagent(type, amount)
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /datum/reagent/proc/touch_mob(var/mob/living/M, var/amount)
@@ -80,8 +83,8 @@
 	removed = M.get_metabolism(removed)
 	max_dose = max(volume, max_dose)
 
-	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
-		overdose(M, alien, removed, dose/overdose)
+	if(overdose && (volume > overdose) && (dose > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
+		overdose(M, alien, removed, dose/overdose) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
 	if(dose == 0)
 		initial_effect(M,alien)
@@ -122,6 +125,16 @@
 
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	return
+
+// if your chem directly affects other chems, use this to make sure all the chem_effects are applied before the standard chem affect_thing is run
+/datum/reagent/proc/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	if(!istype(M))
+		return FALSE
+	if(!affects_dead && M.stat == DEAD)
+		return FALSE
+	if(alien & unaffected_species)
+		return FALSE
+	return TRUE
 
 /datum/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting_reagent)
 	M.adjustToxLoss(removed)

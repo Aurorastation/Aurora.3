@@ -3,7 +3,7 @@
 	desc = "Used to unlock things."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "keys"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/key_data = ""
 
 /obj/item/key/New(var/newloc,var/data)

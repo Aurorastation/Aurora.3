@@ -17,7 +17,6 @@
 
 /obj/machinery/computer/cloning/Initialize()
 	. = ..()
-	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/cryo(src, list(/proc/is_operable)))
 	updatemodules()
 
 /obj/machinery/computer/cloning/Destroy()
@@ -101,6 +100,8 @@
 	return
 
 /obj/machinery/computer/cloning/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/cloning/attack_hand(mob/user as mob)
@@ -267,8 +268,8 @@
 			src.menu = 4
 
 		else if (src.menu == 4)
-			var/obj/item/card/id/C = usr.get_active_hand()
-			if (istype(C)||istype(C, /obj/item/device/pda))
+			var/obj/item/card/id/C = usr.GetIdCard()
+			if (istype(C))
 				if(src.check_access(C))
 					src.records.Remove(src.active_record)
 					qdel(src.active_record)

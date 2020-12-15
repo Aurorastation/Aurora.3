@@ -99,10 +99,10 @@
 	data["buildable"] = get_build_options()
 	data["category"] = category
 	data["categories"] = categories
-	if(chargen_robolimbs )
+	if(fabricator_robolimbs)
 		var/list/T = list()
-		for(var/A in chargen_robolimbs )
-			var/datum/robolimb/R = chargen_robolimbs [A]
+		for(var/A in fabricator_robolimbs)
+			var/datum/robolimb/R = fabricator_robolimbs[A]
 			T += list(list("id" = A, "company" = R.company))
 		data["manufacturers"] = T
 		data["manufacturer"] = manufacturer
@@ -124,7 +124,8 @@
 		return
 
 	if(href_list["build"])
-		add_to_queue(text2num(href_list["build"]))
+		var/path = text2path(href_list["build"])
+		add_to_queue(path)
 
 	if(href_list["remove"])
 		remove_from_queue(text2num(href_list["remove"]))
@@ -134,7 +135,7 @@
 			category = href_list["category"]
 
 	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in chargen_robolimbs )
+		if(href_list["manufacturer"] in fabricator_robolimbs)
 			manufacturer = href_list["manufacturer"]
 
 	if(href_list["eject"])
@@ -223,9 +224,9 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message(span("warning", "[user] feeds the [target]'s hair into the [src] and flicks it on!"), span("alert", "You turn the [src] on!"))
+			user.visible_message(SPAN_WARNING("[user] feeds the [target]'s hair into the [src] and flicks it on!"), SPAN_ALERT("You turn the [src] on!"))
 			do_hair_pull(target)
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>")
+			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>")
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
@@ -235,29 +236,29 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message(span("alert", "[user] starts tugging on [target]'s head as the [src] keeps running!"), span("alert", "You start tugging on [target]'s head!"))
+			user.visible_message(SPAN_ALERT("[user] starts tugging on [target]'s head as the [src] keeps running!"), SPAN_ALERT("You start tugging on [target]'s head!"))
 			do_hair_pull(target)
 			spawn(10)
-			user.visible_message(span("alert", "[user] stops the [src] and leaves [target] resting as they are."), span("alert", "You turn the [src] off and let go of [target]."))
+			user.visible_message(SPAN_ALERT("[user] stops the [src] and leaves [target] resting as they are."), SPAN_ALERT("You turn the [src] off and let go of [target]."))
 
 /obj/machinery/mecha_part_fabricator/emag_act(var/remaining_charges, var/mob/user)
 	switch(emagged)
 		if(0)
 			emagged = 0.5
-			visible_message("\icon[src] <b>[src]</b> beeps: \"DB error \[Code 0x00F1\]\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"DB error \[Code 0x00F1\]\"")
 			sleep(10)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"Attempting auto-repair\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"Attempting auto-repair\"")
 			sleep(15)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"User DB corrupted \[Code 0x00FA\]. Truncating data structure...\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB corrupted \[Code 0x00FA\]. Truncating data structure...\"")
 			sleep(30)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"User DB truncated. Please contact your [current_map.company_name] system operator for future assistance.\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB truncated. Please contact your [current_map.company_name] system operator for future assistance.\"")
 			req_access = null
 			emagged = 1
 			return 1
 		if(0.5)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"DB not responding \[Code 0x0003\]...\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"DB not responding \[Code 0x0003\]...\"")
 		if(1)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"No records in User DB\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"No records in User DB\"")
 
 /obj/machinery/mecha_part_fabricator/proc/update_busy()
 	if(queue.len)
@@ -268,8 +269,10 @@
 	else
 		busy = 0
 
-/obj/machinery/mecha_part_fabricator/proc/add_to_queue(var/index)
-	var/datum/design/D = files.known_designs[index]
+/obj/machinery/mecha_part_fabricator/proc/add_to_queue(var/path)
+	var/datum/design/D = files.known_designs[path]
+	if(!D)
+		return
 	queue += D
 	update_busy()
 
@@ -300,7 +303,7 @@
 	if(D.build_path)
 		var/loc_offset = get_step(src, dir)
 		var/obj/new_item = D.Fabricate(loc_offset, src)
-		visible_message("\The [src] pings, indicating that \the [new_item] is complete.", "You hear a ping.")
+		visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.")
 		if(mat_efficiency != 1)
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)
@@ -315,11 +318,11 @@
 
 /obj/machinery/mecha_part_fabricator/proc/get_build_options()
 	. = list()
-	for(var/i = 1 to files.known_designs.len)
-		var/datum/design/D = files.known_designs[i]
-		if(!D.build_path || !(D.build_type & MECHFAB))
+	for(var/path in files.known_designs)
+		var/datum/design/D = files.known_designs[path]
+		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
 			continue
-		. += list(list("name" = D.name, "id" = i, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
+		. += list(list("name" = D.name, "id" = D.type, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
 
 /obj/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
 	var/list/F = list()
@@ -332,8 +335,9 @@
 
 /obj/machinery/mecha_part_fabricator/proc/update_categories()
 	categories = list()
-	for(var/datum/design/D in files.known_designs)
-		if(!D.build_path || !(D.build_type & MECHFAB))
+	for(var/path in files.known_designs)
+		var/datum/design/D = files.known_designs[path]
+		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
 			continue
 		categories |= D.category
 	if(!category || !(category in categories))
@@ -383,10 +387,9 @@
 	for(var/obj/machinery/computer/rdconsole/RDC in get_area(src))
 		if(!RDC.sync)
 			continue
-		for(var/datum/tech/T in RDC.files.known_tech)
+		for(var/id in RDC.files.known_tech)
+			var/datum/tech/T = RDC.files.known_tech[id]
 			files.AddTech2Known(T)
-		for(var/datum/design/D in RDC.files.known_designs)
-			files.AddDesign2Known(D)
 		files.RefreshResearch()
 		sync_message = "Sync complete."
 	update_categories()

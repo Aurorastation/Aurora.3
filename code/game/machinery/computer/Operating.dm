@@ -2,8 +2,9 @@
 
 /obj/machinery/computer/operating
 	name = "patient monitoring console"
-	density = 1
-	anchored = 1.0
+	desc = "A console that displays information on the status of the patient on an adjacent operating table."
+	density = TRUE
+	anchored = TRUE
 
 	light_color = LIGHT_COLOR_CYAN
 	icon_screen = "crew"
@@ -20,6 +21,8 @@
 			break
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
 		return
@@ -42,12 +45,11 @@
 
 	user.set_machine(src)
 	var/dat = "<HEAD><TITLE>Operating Computer</TITLE><META HTTP-EQUIV='Refresh' CONTENT='10'></HEAD><BODY>\n"
-	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
 	if(src.table && (src.table.check_victim()))
 		src.victim = src.table.victim
 		var/brain_result = victim.get_brain_status()
 		if(victim.isFBP())
-			brain_result = "normal"
+			brain_result = "<span class='danger'>N/A</span>"
 		dat += {"
 <B>Patient Information:</B><BR>
 Brain Activity: <b>[brain_result]</b><br>
@@ -62,8 +64,9 @@ Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
 <BR>
 <B>No Patient Detected</B>
 "}
-	user << browse(dat, "window=op")
-	onclose(user, "op")
+	var/datum/browser/op_win = new(user, "op", capitalize_first_letters(name), 200, 200)
+	op_win.set_content(dat)
+	op_win.open()
 
 /obj/machinery/computer/operating/Topic(href, href_list)
 	if(..())

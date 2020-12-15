@@ -1,6 +1,6 @@
 /obj/machinery/gumballmachine
 	name = "gumball machine"
-	desc = "A colorful candy machine."
+	desc = "A lithe device with a glass globe on top, which can be operated to dispense various candies."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
 	layer = 2.9
@@ -32,7 +32,7 @@
 
 /obj/machinery/gumballmachine/examine(mob/user)
 	..(user)
-	to_chat(user, span("notice", "\The [src] costs [gumprice] credits to use."))
+	to_chat(user, SPAN_NOTICE("\The [src] costs [gumprice] credits to use."))
 
 /obj/machinery/gumballmachine/update_icon()
 	switch(amountleft)
@@ -63,16 +63,16 @@
 	if (istype(W, /obj/item/spacecash))
 		var/obj/item/spacecash/C = W
 		if(!on)
-			to_chat(user, span("warning", "\The [src] has no power!"))
+			to_chat(user, SPAN_WARNING("\The [src] has no power!"))
 			return
 		if(amountleft <= 0)
-			to_chat(user, span("warning", "There's no more [typeofcandy] left!"))
+			to_chat(user, SPAN_WARNING("There's no more [typeofcandy] left!"))
 			return
 		if(C.worth < gumprice)
-			to_chat(user, span("warning", "You don't think this is enough to buy what you want from this."))
+			to_chat(user, SPAN_WARNING("You don't think this is enough to buy what you want from this."))
 			return
 		else
-			visible_message(span("info", "\The [user] inserts a bill into \the [src]."))
+			visible_message(SPAN_INFO("\The [user] inserts a bill into \the [src]."))
 			var/changeleftover = C.worth - gumprice
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
@@ -86,7 +86,7 @@
 		if(prob(25))
 			smashgumball()
 		else
-			visible_message(span("warning", "\The [user] bash's \the [src] with \the [W]."))
+			visible_message(SPAN_WARNING("\The [user] bash's \the [src] with \the [W]."))
 
 
 
@@ -97,7 +97,7 @@
 
 /obj/machinery/gumballmachine/proc/smashgumball()
 	icon_state = "[initialicon]_broken"
-	playsound(get_turf(src), "shatter", 75, 1)
+	playsound(get_turf(src), /decl/sound_category/glass_break_sound, 75, 1)
 	if(amountleft)
 		var/amountleftinside = amountleft
 		for(var/i = 1;i<=amountleftinside,i++)

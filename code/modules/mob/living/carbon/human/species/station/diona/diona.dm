@@ -1,8 +1,10 @@
 /datum/species/diona
-	name = "Diona"
+	name = SPECIES_DIONA
 	short_name = "dio"
 	name_plural = "Dionaea"
-	bodytype = "Diona"
+	category_name = "Diona"
+	bodytype = BODYTYPE_DIONA
+	total_health = 240
 	age_min = 1
 	age_max = 1000
 	default_genders = list(NEUTER)
@@ -19,7 +21,8 @@
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/consume_nutrition_from_air,
-		/mob/living/carbon/human/proc/create_structure
+		/mob/living/carbon/human/proc/create_structure,
+		/mob/living/carbon/proc/sample
 	)
 	//primitive_form = "Nymph"
 	slowdown = 7
@@ -29,7 +32,6 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
@@ -37,16 +39,28 @@
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
 	stomach_capacity = 10 //Big boys.
-	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
-	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
-	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
-	Minoris primary being ringed with a cloud of singing space-station-sized entities.<br/><br/>The Dionaea coexist peacefully with \
-	all known species, especially the Skrell. Their communal mind makes them slow to react, and they have difficulty understanding \
-	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
-	water and other radiation."
+	blurb = "A mysterious plant-like race hailing from the depths of space. Dionae (D. Primis) are a rather strange, cryptic species in comparison to the rest found in the \
+	Orion Spur. They have various forms comprised of cat-sized caterpillar-like creatures with a curious, childlike disposition - called Dionae Nymphs. \
+	Almost every aspect of the species is a mystery; their origins, their behaviour, and functions. What is known is that they are capable of great intellectual and biological \
+	feats that are studied across the Spur. Biologically, Dionae are a form of gestalt consciousness, however, it is only evident in forms that amount to two or more Nymphs.\
+	Dionae survive primarily on off of the electromagnetic spectrum and biological matter."
 
-	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
-	resist_mod = 2 // Reasonably stronk, not moreso than an Unathi or robot.
+	organ_low_pain_message = "<b>The nymph making up our %PARTNAME% feels injured.</b>"
+	organ_med_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% can barely manage the pain!</font></b>"
+	organ_high_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
+
+	organ_low_burn_message = "<b>The nymph making up our %PARTNAME% notes a burning injury.</b>"
+	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% burns terribly!</font></span>"
+	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font></span>"
+
+	halloss_message = "creaks and crumbles to the floor."
+	halloss_message_self = "We can't take this much pain..."
+	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
+	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
+
+	pain_mod = 0.5
+	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
+	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -86,12 +100,12 @@
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
-	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES
+	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
-	blood_color = "#97dd7c"
+	blood_color = COLOR_DIONA_BLOOD
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA
@@ -105,7 +119,12 @@
 	max_hydration_factor = -1
 
 	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
-	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
+	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_NONE, RELIGION_OTHER)
+
+	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
+	default_accent = ACCENT_ROOTSONG
+
+	alterable_internal_organs = list()
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
@@ -133,7 +152,7 @@
 		H.updatehealth()
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
+		to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0
 
 /datum/species/diona/can_understand(var/mob/other)
@@ -144,12 +163,6 @@
 
 /datum/species/diona/get_vision_organ(mob/living/carbon/human/H)
 	return H.organs_by_name[vision_organ]
-
-/datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
-	else
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (ishuman(H))
@@ -183,3 +196,6 @@
 	for(var/mob/living/carbon/alien/diona/D in H.contents)
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
+
+/datum/species/diona/has_psi_potential()
+	return FALSE

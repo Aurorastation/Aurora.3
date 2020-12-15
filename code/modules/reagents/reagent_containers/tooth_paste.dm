@@ -7,10 +7,7 @@
 	possible_transfer_amounts = null
 	amount_per_transfer_from_this = 5
 	volume = 20
-
-/obj/item/reagent_containers/toothpaste/Initialize()
-	. = ..()
-	reagents.add_reagent("toothpaste", 20)
+	reagents_to_add = list(/datum/reagent/drink/toothpaste = 20)
 
 /obj/item/reagent_containers/toothpaste/on_reagent_change()
 	update_icon()
@@ -41,7 +38,7 @@
 /obj/item/reagent_containers/toothbrush/update_icon()
 	cut_overlays()
 
-	if(reagents.has_reagent("toothpaste"))
+	if(reagents.has_reagent(/datum/reagent/drink/toothpaste))
 		add_overlay("toothpaste_overlay")
 
 /obj/item/reagent_containers/toothbrush/attack_self(mob/user as mob)
@@ -51,7 +48,7 @@
 		playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 		if(do_after(user, 30))
 			user.visible_message(
-			"<span class='notice'>\The [user] brushes [user.get_pronoun(1)] teeth with \the [src]</span>",
+			"<span class='notice'>\The [user] brushes [user.get_pronoun("his")] teeth with \the [src]</span>",
 			"<span class='notice'>You brush your teeth with \the [src].</span>")
 			reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BREATHE)
 			update_icon()

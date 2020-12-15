@@ -6,7 +6,7 @@
 var/list/global_webhooks = list()
 
 /proc/global_initialize_webhooks()
-	if (!establish_db_connection(dbcon))
+	if(!establish_db_connection(dbcon))
 		var/file = return_file_text("config/webhooks.json")
 		if (file)
 			var/jsonData = json_decode(file)
@@ -52,7 +52,7 @@ var/list/global_webhooks = list()
 		else
 			Data["content"] = "[mention]"
 
-	var/datum/http_request/req = SShttp.post(url, body = json_encode(Data), headers = list("Content-Type" = "application/json"))
+	var/datum/http_request/req = http_create_post(url, body = json_encode(Data), headers = list("Content-Type" = "application/json"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())

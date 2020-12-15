@@ -6,11 +6,12 @@
 	item_state = "utility"
 	force = 2
 	storage_slots = 7
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 28
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
-	drop_sound = 'sound/items/drop/leather.ogg'
+	drop_sound = 'sound/items/drop/toolbelt.ogg'
+	pickup_sound = 'sound/items/pickup/toolbelt.ogg'
 
 	var/show_above_suit = 0
 
@@ -35,6 +36,7 @@
 	desc = "A sturdy belt for holding various tools."
 	icon_state = "utilitybelt"
 	item_state = "utility"
+	equip_sound = 'sound/items/equip/toolbelt.ogg'
 	can_hold = list(
 		///obj/item/combitool,
 		/obj/item/crowbar,
@@ -116,7 +118,7 @@
 		/obj/item/reagent_containers/personal_inhaler_cartridge,
 		/obj/item/personal_inhaler,
 		/obj/item/flame/lighter/zippo,
-		/obj/item/storage/fancy/cigarettes,
+		/obj/item/storage/box/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
 		/obj/item/device/flashlight/pen,
@@ -128,12 +130,11 @@
 		/obj/item/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/antibody_scanner,
 		/obj/item/device/radio
 		)
 
-/obj/item/storage/belt/medical/emt
-	name = "EMT utility belt"
+/obj/item/storage/belt/medical/first_responder
+	name = "first responder utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
@@ -151,20 +152,20 @@
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/reagent_containers/food/snacks/donut/,
+		/obj/item/reagent_containers/food/snacks/donut, // kek
 		/obj/item/melee/baton,
 		/obj/item/gun/energy/taser,
 		/obj/item/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/flashlight/flare,
-		/obj/item/device/flashlight/flare/glowstick,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/melee,
 		/obj/item/gun/projectile/sec,
+		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,
 		/obj/item/shield/energy,
@@ -202,7 +203,7 @@
 	icon_state = "swatbelt"
 	item_state = "swatbelt"
 	storage_slots = 9
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 28
 
 /obj/item/storage/belt/military
@@ -211,7 +212,7 @@
 	icon_state = "militarybelt"
 	item_state = "militarybelt"
 	storage_slots = 9 //same as a combat belt now
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space  = 28
 	can_hold = list(
 		/obj/item/grenade,
@@ -222,7 +223,7 @@
 		/obj/item/ammo_magazine,
 		/obj/item/melee/baton,
 		/obj/item/device/flashlight,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/melee,
 		/obj/item/shield/energy,
@@ -252,9 +253,9 @@
 	desc = "A belt used to hold most janitorial supplies."
 	icon_state = "janibelt"
 	item_state = "janibelt"
-	storage_slots = 6
-	w_class = 3
-	max_w_class = 3
+	storage_slots = 8
+	w_class = ITEMSIZE_NORMAL
+	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -279,7 +280,7 @@
 	icon_state = "soulstonebelt"
 	item_state = "soulstonebelt"
 	storage_slots = 5
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space  = 28
 	can_hold = list(
 		/obj/item/gun/energy/wand
@@ -300,8 +301,8 @@
 	icon_state = "explorer"
 	item_state = "explorer"
 	storage_slots = 9
-	w_class = 4
-	max_w_class = 4 //Pickaxes are big.
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_LARGE //Pickaxes are big.
 	can_hold = list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -327,7 +328,7 @@
 		/obj/item/shovel,
 		/obj/item/stack/material/animalhide,
 		/obj/item/flame/lighter,
-		/obj/item/storage/fancy/cigarettes,
+		/obj/item/storage/box/fancy/cigarettes,
 		/obj/item/reagent_containers/food/drinks/bottle,
 		/obj/item/stack/medical,
 		/obj/item/reagent_containers/hypospray,
@@ -341,7 +342,8 @@
 		/obj/item/warp_core,
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
-		/obj/item/gun/custom_ka
+		/obj/item/gun/custom_ka,
+		/obj/item/device/orbital_dropper
 		)
 
 /obj/item/storage/belt/hydro
@@ -350,8 +352,8 @@
 	icon_state = "growbelt"
 	item_state = "growbelt"
 	storage_slots = 9
-	w_class = 3
-	max_w_class = 4
+	w_class = ITEMSIZE_NORMAL
+	max_w_class = ITEMSIZE_LARGE
 	can_hold = list(
 		/obj/item/reagent_containers/glass,
 		/obj/item/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
@@ -376,7 +378,7 @@
 	icon_state = "securitybelt"
 	item_state = "security"
 	storage_slots = 9
-	max_w_class = 4
+	max_w_class = ITEMSIZE_LARGE
 	max_storage_space = 28
 
 	can_hold = list(
@@ -389,7 +391,7 @@
 		/obj/item/ammo_magazine,
 		/obj/item/melee/baton,
 		/obj/item/device/flashlight,
-		/obj/item/device/pda,
+		/obj/item/modular_computer/handheld,
 		/obj/item/device/radio/headset,
 		/obj/item/melee,
 		/obj/item/crowbar,
@@ -415,9 +417,15 @@
 	desc = "A dorky fannypack for keeping small items in."
 	icon_state = "fannypack_leather"
 	item_state = "fannypack_leather"
-	max_w_class = 2
+	max_w_class = ITEMSIZE_SMALL
 	storage_slots = null
 	max_storage_space = 8
+
+/obj/item/storage/belt/fannypack/component
+	name = "component pouch"
+	desc = "A dorky fannypack for keeping small items in. Also stores magickal components!"
+	starts_with = list(/obj/item/toy/snappop/syndi = 3, /obj/item/reagent_containers/glass/beaker/vial/random/toxin = 2, /obj/item/storage/pill_bottle/dice = 1)
+	max_storage_space = 14
 
 /obj/item/storage/belt/fannypack/black
  	name = "black fannypack"
@@ -472,8 +480,8 @@
 	item_state = "hammerbelt"
 	contained_sprite = TRUE
 	storage_slots = 1
-	max_w_class = 2
-	description_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
+	max_w_class = ITEMSIZE_SMALL
+	desc_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
 	much combat prowess despite her position as head of the town watch but is a capable commander for defensive tactics."

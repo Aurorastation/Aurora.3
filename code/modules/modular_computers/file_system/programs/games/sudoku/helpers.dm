@@ -56,9 +56,9 @@
 	//If we havent found any conflict and all tiles are filled, then the user has won the game.
 	else if (empty == 0)
 		message = "Congratulations! You win the game!"
-		if (!wongame)
+		if (!won_game)
 			playsound(get_turf(program.computer), 'sound/magic/light.ogg', 50, 1)
-		wongame = 1
+		won_game = 1
 		.=-1
 
 

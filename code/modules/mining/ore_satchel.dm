@@ -1,7 +1,7 @@
 /obj/item/storage/bag/ore
 	name = "mining satchel"
 	desc = "This little bugger can be used to store and transport ores."
-	description_info = "You can attach a warp extraction pack to it, then click on an ore box that has a warp extraction beacon signaller attached to it to link them. Then ore put into this will be bluespace teleported into the ore box."
+	desc_info = "You can attach a warp extraction pack to it, then click on an ore box that has a warp extraction beacon signaller attached to it to link them. Then ore put into this will be bluespace teleported into the ore box."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
@@ -13,12 +13,16 @@
 
 /obj/item/storage/bag/ore/examine(mob/user)
 	..()
-	if(user.Adjacent(src))
+	if(user.Adjacent(src) && linked_beacon)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction pack</b> inside.")))
 
 /obj/item/storage/bag/ore/drone
 	// this used to be 400. The inventory system FUCKING DIED at this.
 	max_storage_space = 200
+
+// An ore satchel that starts with an attached warp pack
+/obj/item/storage/bag/ore/bluespace
+	linked_beacon = TRUE
 
 /obj/item/storage/bag/ore/Destroy()
 	linked_box = null

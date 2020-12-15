@@ -24,7 +24,7 @@
 #define SOUND_MINIMUM_PRESSURE 10
 
 #define PRESSURE_DAMAGE_COEFFICIENT 4 // The amount of pressure damage someone takes is equal to (pressure / HAZARD_HIGH_PRESSURE)*PRESSURE_DAMAGE_COEFFICIENT, with the maximum of MAX_PRESSURE_DAMAGE.
-#define MAX_HIGH_PRESSURE_DAMAGE 4 // This used to be 20... I got this much random rage for some retarded decision by polymorph?! Polymorph now lies in a pool of blood with a katana jammed in his spleen. ~Errorage --PS: The katana did less than 20 damage to him :(
+#define MAX_HIGH_PRESSURE_DAMAGE 4
 #define LOW_PRESSURE_DAMAGE 0.5 // The amount of damage someone takes when in a low pressure area. (The pressure threshold is so low that it doesn't make sense to do any calculations, so it just applies this flat value).
 
 #define MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND (MINIMUM_AIR_TO_SUSPEND*R_IDEAL_GAS_EQUATION*T20C)/CELL_VOLUME			// Minimum pressure difference between zones to suspend
@@ -54,6 +54,10 @@
 // Phoron fire properties.
 #define PHORON_MINIMUM_BURN_TEMPERATURE    (T0C +  126) //400 K - autoignite temperature in tanks and canisters - enclosed environments I guess
 #define PHORON_FLASHPOINT                  (T0C +  246) //519 K - autoignite temperature in air if that ever gets implemented.
+
+// Hydrogen fire properties.
+#define HYDROGEN_MINIMUM_BURN_TEMPERATURE   (T0C + 268) // 541 K - autoignite temperature in tanks and canisters
+#define HYDROGEN_FLASHPOINT                 (T0C + 536) // 809 K - autoignite temperature in air
 
 //These control the mole ratio of oxidizer and fuel used in the combustion reaction
 #define FIRE_REACTION_OXIDIZER_AMOUNT	3 //should be greater than the fuel amount if fires are going to spread much
@@ -92,8 +96,18 @@
 // Defines how much of certain gas do the Atmospherics tanks start with. Values are in kpa per tile (assuming 20C)
 #define ATMOSTANK_NITROGEN      90000 // A lot of N2 is needed to produce air mix, that's why we keep 90MPa of it
 #define ATMOSTANK_OXYGEN        40000 // O2 is also important for airmix, but not as much as N2 as it's only 21% of it.
-#define ATMOSTANK_CO2           25000 // CO2 and PH are not critically important for station, only for toxins and alternative coolants, no need to store a lot of those.
+#define ATMOSTANK_CO2           25000 // CO2, PH and H2 are not critically important for station, only for toxins and alternative coolants, no need to store a lot of those.
 #define ATMOSTANK_PHORON        25000
+#define ATMOSTANK_PHORON_SCARCE 2500  // we're also in the middle of a phoron shortage - the old ATMOSTANK_PHORON define is staying in case someone wants to map in a phoron tank or something
+#define ATMOSTANK_HYDROGEN      25000
 #define ATMOSTANK_NITROUSOXIDE  10000 // N2O doesn't have a real useful use, i guess it's on station just to allow refilling of sec's riot control canisters?
 
 #define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.
+
+#define GAS_OXYGEN				"oxygen"
+#define GAS_CO2					"carbon_dioxide"
+#define GAS_N2O					"sleeping_agent"
+#define GAS_NITROGEN			"nitrogen"
+#define GAS_NO2					"nitrodioxide"
+#define GAS_PHORON				"phoron"
+#define GAS_HYDROGEN            "hydrogen"

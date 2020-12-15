@@ -4,6 +4,9 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
+	var/datum/wires/airlock/blueprint/airlock_wires
+	var/datum/wires/vending/blueprint/vending_wires
+
 	var/const/AREA_ERRNONE = 0
 	var/const/AREA_STATION = 1
 	var/const/AREA_SPACE =   2
@@ -19,8 +22,13 @@
 	var/const/ROOM_ERR_SPACE = -1
 	var/const/ROOM_ERR_TOOLARGE = -2
 
-/obj/item/blueprints/attack_self(mob/user as mob)
-	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
+/obj/item/blueprints/Initialize(mapload, ...)
+	. = ..()
+	airlock_wires = new(src)
+	vending_wires = new(src)
+
+/obj/item/blueprints/attack_self(mob/user)
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 	add_fingerprint(user)
 	interact()
@@ -28,13 +36,13 @@
 
 /obj/item/blueprints/Topic(href, href_list)
 	..()
-	if ((usr.restrained() || usr.stat || usr.get_active_hand() != src))
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS) || usr.get_active_hand() != src)
 		return
-	if (!href_list["action"])
+	if(!href_list["action"])
 		return
 	switch(href_list["action"])
 		if ("create_area")
-			if (get_area_type()!=AREA_SPACE)
+			if(get_area_type() != AREA_SPACE)
 				interact()
 				return
 			create_area()
@@ -43,34 +51,42 @@
 				interact()
 				return
 			edit_area()
+		if("airlock_wires")
+			airlock_wires.get_wire_diagram(usr)
+		if("vending_wires")
+			vending_wires.get_wire_diagram(usr)
 
 /obj/item/blueprints/interact()
 	var/area/A = get_area()
 	var/text = {"<HTML><head><title>[src]</title></head><BODY>
-<h2>[station_name()] blueprints</h2>
-<small>Property of [current_map.company_name]. For heads of staff only. Store in high-secure storage.</small><hr>
-"}
+				<h2>[station_name()] blueprints</h2>
+				<small>Property of [current_map.company_name]. For heads of staff only. Store in high-secure storage.</small><hr>
+				"}
 	switch (get_area_type())
 		if (AREA_SPACE)
 			text += {"
-<p>According the blueprints, you are now in <b>outer space</b>.  Hold your breath.</p>
-<p><a href='?src=\ref[src];action=create_area'>Mark this place as new area.</a></p>
-"}
+					<p>According the blueprints, you are now in <b>outer space</b>.  Hold your breath.</p>
+					<p><a href='?src=\ref[src];action=create_area'>Mark this place as new area.</a></p>
+					"}
 		if (AREA_STATION)
 			text += {"
-<p>According the blueprints, you are now in <b>\"[A.name]\"</b>.</p>
-<p>You may <a href='?src=\ref[src];action=edit_area'>
-move an amendment</a> to the drawing.</p>
-"}
+					<p>According the blueprints, you are now in <b>\"[A.name]\"</b>.</p>
+					<p>You may <a href='?src=\ref[src];action=edit_area'>
+					move an amendment</a> to the drawing.</p>
+					"}
 		if (AREA_SPECIAL)
 			text += {"
-<p>This place isn't noted on the blueprint.</p>
-"}
-		else
-			return
+						<p>This place isn't noted on the blueprint.</p>
+					"}
+
+	text += "<br><a href='?src=\ref[src];action=airlock_wires'>View Airlock Wire Schema</a><br>"
+	text += "<br><a href='?src=\ref[src];action=vending_wires'>View Vending Machine Wire Schema</a><br>"
+
 	text += "</BODY></HTML>"
-	usr << browse(text, "window=blueprints")
-	onclose(usr, "blueprints")
+
+	var/datum/browser/blueprints_win = new(usr, "blueprints", capitalize_first_letters(name))
+	blueprints_win.set_content(text)
+	blueprints_win.open()
 
 
 /obj/item/blueprints/proc/get_area()
@@ -85,8 +101,7 @@ move an amendment</a> to the drawing.</p>
 		/area/shuttle,
 		/area/centcom,
 		/area/tdome,
-		/area/syndicate_station,
-		/area/wizard_station
+		/area/antag
 	)
 	for (var/type in SPECIALS)
 		if ( istype(A,type) )
@@ -172,7 +187,7 @@ move an amendment</a> to the drawing.</p>
 		CHECK_TICK
 
 /obj/item/blueprints/proc/check_tile_is_border(var/turf/T2,var/dir)
-	if (istype(T2, /turf/space))
+	if (istype(T2, /turf/space) || istype(T2, /turf/unsimulated/floor/asteroid))
 		return BORDER_SPACE //omg hull breach we all going to die here
 	if (get_area_type(T2.loc)!=AREA_SPACE)
 		return BORDER_BETWEEN

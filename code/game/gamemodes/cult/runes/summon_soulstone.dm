@@ -1,8 +1,9 @@
-/obj/effect/rune/summon_soulstone
-	can_talisman = TRUE
+/datum/rune/summon_soulstone
+	name = "soul stone creation rune"
+	desc = "This rune is used to create a soul stone for our usage."
 
-/obj/effect/rune/summon_soulstone/do_rune_action(mob/living/user, obj/O = src)
-	user.say("N[pick("'","`")]ath reth sh'yro eth d'raggathnor!")
-	new /obj/item/device/soulstone(get_turf(O))
-	qdel(O)
+/datum/rune/summon_soulstone/do_rune_action(mob/living/user, atom/movable/A)
+	user.say("N'ath reth sh'yro eth d'raggathnor!")
+	new /obj/item/device/soulstone(get_turf(A))
+	qdel(A)
 	return TRUE

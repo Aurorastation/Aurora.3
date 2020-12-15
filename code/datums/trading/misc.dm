@@ -88,8 +88,7 @@
 		/obj/item/clothing/mask/gas/sexyclown                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/clown_shoes                    = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/rank/clown                     = TRADER_THIS_TYPE,
-		/obj/item/device/pda/clown                              = TRADER_THIS_TYPE,
-		/obj/item/cartridge/clown                        = TRADER_THIS_TYPE,
+		/obj/item/modular_computer/handheld/pda/civilian/clown  = TRADER_THIS_TYPE,
 		/obj/item/stamp/clown                            = TRADER_THIS_TYPE,
 		/obj/item/storage/backpack/clown                 = TRADER_THIS_TYPE,
 		/obj/item/bananapeel                             = TRADER_THIS_TYPE,
@@ -144,7 +143,6 @@
 		/obj/item/clothing/glasses/monocle              = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/smokable/pipe           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/plaguedoctor        = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/hastur                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/imperium_monk           = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/judgerobe               = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/wizrobe/magusred        = TRADER_THIS_TYPE,
@@ -153,8 +151,6 @@
 		/obj/item/clothing/suit/armor/tajara            = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/gladiator              = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/kilt                   = TRADER_THIS_TYPE,
-		/obj/item/clothing/under/redcoat                = TRADER_THIS_TYPE,
-		/obj/item/clothing/under/soviet                 = TRADER_THIS_TYPE,
 		/obj/item/material/harpoon               = TRADER_THIS_TYPE,
 		/obj/item/material/sword                 = TRADER_ALL,
 		/obj/item/material/scythe                = TRADER_THIS_TYPE,
@@ -162,7 +158,11 @@
 		/obj/item/material/twohanded/baseballbat = TRADER_THIS_TYPE,
 		/obj/item/material/twohanded/pike        = TRADER_ALL,
 		/obj/item/material/twohanded/zweihander  = TRADER_THIS_TYPE,
-		/obj/item/melee/whip                     = TRADER_THIS_TYPE
+		/obj/item/melee/whip                     = TRADER_THIS_TYPE,
+		/obj/item/grenade/dynamite               = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/musket          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/powder_horn = TRADER_THIS_TYPE,
+		/obj/item/ammo_casing/musket             = TRADER_THIS_TYPE
 	)
 
 

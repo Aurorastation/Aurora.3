@@ -32,7 +32,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/assembly_holder            = TRADER_BLACKLIST_ALL,
 		/obj/item/device/encryptionkey              = TRADER_BLACKLIST_SUB, //Why should ai want NT encryption keys?
 		/obj/item/device/radio                      = TRADER_BLACKLIST_ALL,
-		/obj/item/device/pda                        = TRADER_BLACKLIST_SUB,
 		/obj/item/device/chameleon                  = TRADER_BLACKLIST, // Why should it want a chameleon projector
 		/obj/item/device/dociler                    = TRADER_BLACKLIST, //Item unobtaineable
 		/obj/item/device/flashlight/drone           = TRADER_BLACKLIST, // No drone stuff
@@ -70,8 +69,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/depth_scanner              = TRADER_BLACKLIST, // Xenoarch
 		/obj/item/device/beacon_locator             = TRADER_BLACKLIST, // Telescience
 		/obj/item/device/telepad_beacon             = TRADER_BLACKLIST, // Telescience
-		/obj/item/device/udp_debugger               = TRADER_BLACKLIST, // Circuits
-		/obj/item/device/antibody_scanner           = TRADER_BLACKLIST // Virology
+		/obj/item/device/udp_debugger               = TRADER_BLACKLIST // Circuits
 	)
 
 	possible_trading_items = list(
@@ -89,7 +87,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/backpack/fluff              = TRADER_BLACKLIST_ALL, // Custom items, let's not
 		/obj/item/storage/belt/champion               = TRADER_THIS_TYPE,
 		/obj/item/storage/briefcase                   = TRADER_THIS_TYPE,
-		/obj/item/storage/fancy                       = TRADER_SUBTYPES_ONLY,
+		/obj/item/storage/box/fancy                       = TRADER_SUBTYPES_ONLY,
 		/obj/item/storage/laundry_basket              = TRADER_THIS_TYPE,
 		/obj/item/storage/secure/briefcase            = TRADER_THIS_TYPE,
 		/obj/item/storage/bag/plants                  = TRADER_THIS_TYPE,
@@ -105,9 +103,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/clothing/glasses/sunglasses/blindfold/tape = TRADER_BLACKLIST, // Literally just tape over someone's eyes
 		/obj/item/clothing/glasses/chameleon                 = TRADER_BLACKLIST, // traitor stuff
 		/obj/item/clothing/glasses/sunglasses/bst            = TRADER_BLACKLIST, // BlueSpaceTech glasses
-		/obj/item/clothing/glasses/fluff                     = TRADER_BLACKLIST_ALL, // Custom items
-		/obj/item/clothing/glasses/welding/fluff             = TRADER_BLACKLIST_ALL, // Custom items
-		/obj/item/clothing/glasses/regular/fluff             = TRADER_BLACKLIST_ALL // Custom items
+		/obj/item/clothing/glasses/welding/fluff             = TRADER_BLACKLIST_ALL // Custom items
 	)
 
 	insult_drop = 0
@@ -183,9 +179,9 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/box/gloves                             = TRADER_THIS_TYPE,
 		/obj/item/storage/box/cdeathalarm_kit                    = TRADER_THIS_TYPE,
 		/obj/item/storage/box/beakers                            = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/stoxin         = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/glass/bottle/polysomnine = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
 		/obj/item/device/handheld_medical                        = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced/bruise_pack/spaceklot   = TRADER_THIS_TYPE

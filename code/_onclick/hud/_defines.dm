@@ -52,10 +52,14 @@
 #define ui_dropbutton "EAST-4:22,SOUTH:5"
 #define ui_drop_throw "EAST-1:28,SOUTH+1:7"
 #define ui_pull_resist "EAST-2:26,SOUTH+1:7"
+#define ui_morph_resist "EAST-2:26,SOUTH:5"
 #define ui_acti "EAST-2:26,SOUTH:5"
 #define ui_movi "EAST-3:24,SOUTH:5"
 #define ui_zonesel "EAST-1:28,SOUTH:5"
 #define ui_acti_alt "EAST-1:28,SOUTH:5" //alternative intent switcher for when the interface is hidden (F12)
+
+// vampire
+#define ui_suck "EAST-4:22,SOUTH:5"
 
 #define ui_borg_pull "EAST-3:24,SOUTH+1:7"
 #define ui_borg_module "EAST-2:26,SOUTH+1:7"
@@ -80,10 +84,12 @@
 #define ui_alien_oxygen "EAST-1:28,NORTH-4:25"
 
 //Middle right (status indicators)
-#define ui_nutrition "EAST-0:4,CENTER-2:11"
-#define ui_hydration "EAST-1:20,CENTER-2:11"
+#define ui_nutrition "EAST-1:28,CENTER-2:11"
+#define ui_nutrition_small "EAST:4,CENTER-2:24"
 #define ui_temp "EAST-1:28,CENTER-1:13"
 #define ui_health "EAST-1:28,CENTER:15"
+#define ui_health_east_loc "EAST-1:28" // used to manipulate the position of the healths screen element, must be same as the one above
+#define ui_health_east_template "EAST-1:" // ditto
 #define ui_internal "EAST-1:28,CENTER+1:17"
 
 //borgs
@@ -132,6 +138,7 @@
 #define ui_ai_track_with_camera "SOUTH:6+1,WEST+2:16"
 #define ui_ai_camera_light "SOUTH:6+1,WEST+3:16"
 #define ui_ai_sensor "SOUTH:6+1,WEST+4:16"
+#define ui_ai_mech "SOUTH:6+1,WEST+5:16"
 
 #define ui_ai_core "SOUTH:6,WEST+1:16"
 #define ui_ai_crew_monitor "SOUTH:6,WEST+2:16"

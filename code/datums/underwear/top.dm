@@ -78,3 +78,43 @@
 	name = "Swimming Top"
 	icon_state = "swimtop"
 	has_color = TRUE
+
+/datum/category_item/underwear/top/sarashi
+	name = "Sarashi, Stomach"
+	icon_state = "sarashi_stomach"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/sarashi_torso
+	name = "Sarashi, Torso"
+	icon_state = "sarashi_torso"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/sarashi_mchest
+	name = "Sarashi, Male Chest"
+	icon_state = "sarashi_mchest"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/sarashi_fchest
+	name = "Sarashi, Female Chest"
+	icon_state = "sarashi_fchest"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_base
+	name = "Fishnet Top"
+	icon_state = "fishnet_body"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_sleeves
+	name = "Fishnet Top, Sleeves"
+	icon_state = "fishnet_sleeves"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_gloves
+	name = "Fishnet Top, Gloves"
+	icon_state = "fishnet_gloves"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_simple
+	name = "Fishnet Top, Simple"
+	icon_state = "fishnet_simple"
+	has_color = TRUE

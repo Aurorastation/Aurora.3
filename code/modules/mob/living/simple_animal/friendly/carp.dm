@@ -16,11 +16,15 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 	response_help = "brushes"
 	response_disarm = "attempts to push"
 	response_harm = "injures"
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	gender = NEUTER
+	faction = "carp"
+	flying = TRUE
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
@@ -47,8 +51,16 @@
 
 	possession_candidate = TRUE
 
+/mob/living/simple_animal/carp/update_icon()
+	..()
+	if(resting || stat == DEAD)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood_overlay(TRUE)
+
 /mob/living/simple_animal/carp/fall_impact()
-	src.visible_message(span("notice","\The [src] gently floats to a stop."))
+	src.visible_message(SPAN_NOTICE("\The [src] gently floats to a stop."))
 	return FALSE
 
 //Basic friend AI
@@ -76,7 +88,7 @@
 		var/current_dist = get_dist(src, friend)
 
 		if(movement_target != friend)
-			if(current_dist > follow_dist && friend in oview(src))
+			if(current_dist > follow_dist && (friend in oview(src)))
 				//stop existing movement
 				walk_to(src,0)
 				turns_since_scan = 0

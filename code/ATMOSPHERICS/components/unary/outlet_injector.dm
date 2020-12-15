@@ -1,19 +1,20 @@
-//Basically a one way passive valve. If the pressure inside is greater than the environment then gas will flow passively, 
+//Basically a one way passive valve. If the pressure inside is greater than the environment then gas will flow passively,
 //but it does not permit gas to flow back from the environment into the injector. Can be turned off to prevent any gas flow.
 //When it receives the "inject" signal, it will try to pump it's entire contents into the environment regardless of pressure, using power.
 
 /obj/machinery/atmospherics/unary/outlet_injector
+	name = "air injector"
+	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
+	desc_info = "Outputs the pipe's gas into the atmosphere, similar to an airvent.  It can be controlled by a nearby atmospherics computer. \
+	A green light on it means it is on."
 	icon = 'icons/atmos/injector.dmi'
 	icon_state = "map_injector"
 	layer = 3
 
-	name = "air injector"
-	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
-
 	use_power = 0
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 15000	//15000 W ~ 20 HP
-	
+
 	var/injecting = 0
 
 	var/volume_rate = 50	//flow rate limit
@@ -22,11 +23,13 @@
 	var/id = null
 	var/datum/radio_frequency/radio_connection
 
+	var/broadcast_status_next_process = FALSE
+
 	level = 1
 
 /obj/machinery/atmospherics/unary/outlet_injector/Initialize()
 	. = ..()
-	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500	//Give it a small reservoir for injecting. Also allows it to have a higher flow rate limit than vent pumps, to differentiate injectors a bit more. 
+	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500	//Give it a small reservoir for injecting. Also allows it to have a higher flow rate limit than vent pumps, to differentiate injectors a bit more.
 
 /obj/machinery/atmospherics/unary/outlet_injector/update_icon()
 	if(!powered())
@@ -54,23 +57,27 @@
 	last_power_draw = 0
 	last_flow_rate = 0
 
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
 		return
-	
+
 	var/power_draw = -1
 	var/datum/gas_mixture/environment = loc.return_air()
-	
+
 	if(environment && air_contents.temperature > 0)
 		var/transfer_moles = (volume_rate/air_contents.volume)*air_contents.total_moles //apply flow rate limit
 		power_draw = pump_gas(src, air_contents, environment, transfer_moles, power_rating)
-	
+
 	if (power_draw >= 0)
 		last_power_draw = power_draw
 		use_power(power_draw)
-		
+
 		if(network)
 			network.update = 1
-	
+
 	return 1
 
 /obj/machinery/atmospherics/unary/outlet_injector/proc/inject()
@@ -80,7 +87,7 @@
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (!environment)
 		return 0
-	
+
 	injecting = 1
 
 	if(air_contents.temperature > 0)
@@ -103,7 +110,7 @@
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 
 	signal.data = list(
@@ -142,10 +149,10 @@
 		volume_rate = between(0, number, air_contents.volume)
 
 	if(signal.data["status"])
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(var/i)

@@ -8,7 +8,7 @@
 	standard 0 if fail
 */
 
-/mob/living/proc/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/sharp = 0, var/edge = 0, var/damage_flags)
+/mob/living/proc/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/damage_flags)
 	if(!damage || (blocked >= 100))
 		return 0
 	switch(damagetype)
@@ -26,7 +26,6 @@
 			adjustCloneLoss(damage * BLOCKED_MULT(blocked))
 		if(PAIN)
 			adjustHalLoss(damage * BLOCKED_MULT(blocked))
-	flash_weak_pain()
 	updatehealth()
 	return 1
 

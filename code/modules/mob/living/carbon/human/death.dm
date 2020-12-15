@@ -3,7 +3,7 @@
 
 	for(var/obj/item/organ/I in internal_organs)
 		I.removed()
-		if(istype(loc,/turf))
+		if(isturf(loc))
 			I.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
 
 	for(var/obj/item/organ/external/E in src.organs)
@@ -27,7 +27,6 @@
 		..()
 
 /mob/living/carbon/human/death(gibbed)
-
 	if(stat == DEAD)
 		return
 
@@ -64,7 +63,6 @@
 	callHook("death", list(src, gibbed))
 
 	if(!gibbed)
-		handle_organs()
 		if(species.death_sound)
 			playsound(loc, species.death_sound, 80, 1, 1)
 
@@ -75,11 +73,16 @@
 	if(wearing_rig)
 		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
 
-	. = ..(gibbed,species.death_message, species.death_message_range)
+	. = ..(gibbed, species.death_message, species.death_message_range)
+
+	if(!gibbed) //We want to handle organs one last time to make sure that hearts don't report a positive pulse after death.
+		handle_organs()
+
 	handle_hud_list()
 
 /mob/living/carbon/human/proc/ChangeToHusk()
-	if(HUSK in mutations)	return
+	if(HUSK in mutations)
+		return
 
 	if(f_style)
 		f_style = "Shaved"		//we only change the icon_state of the hair datum, so it doesn't mess up their UI/UE
@@ -87,9 +90,14 @@
 		h_style = "Bald"
 	update_hair(0)
 
+	name = "Unknown"
+	real_name = "Unknown"
+
+	scrub_flavor_text()
+
 	mutations.Add(HUSK)
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
-	update_body(1)
+	update_body(TRUE)
 	return
 
 /mob/living/carbon/human/proc/Drain()
@@ -97,7 +105,7 @@
 	mutations |= HUSK
 	return
 
-/mob/living/carbon/human/proc/ChangeToSkeleton()
+/mob/living/carbon/human/proc/ChangeToSkeleton(var/keep_name = FALSE)
 	if(SKELETON in src.mutations)	return
 
 	if(f_style)
@@ -106,17 +114,21 @@
 		h_style = "Bald"
 	update_hair(0)
 
+	if(!keep_name)
+		name = "Unknown"
+		real_name = "Unknown"
+		scrub_flavor_text()
+
 	mutations.Add(SKELETON)
 	status_flags |= DISFIGURED
-	update_body(0)
+	update_body(TRUE)
 	return
 
-/mob/living/carbon/human/proc/vr_disconnect()
-	// Come out of VR right before you die, how depressing - geeves
-	// Also come out of VR if your VR body dies
-	if(vr_mob || old_mob)
-		body_return()
+/mob/living/carbon/human/proc/scrub_flavor_text()
+	for(var/text in flavor_texts)
+		flavor_texts[text] = null
 
+/mob/living/carbon/human/proc/vr_disconnect()
 	if(remote_network)
 		SSvirtualreality.remove_robot(src, remote_network)
 		remote_network = null

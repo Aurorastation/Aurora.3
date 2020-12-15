@@ -25,7 +25,7 @@
 		if(user.a_intent == I_HURT)
 			user.visible_message("<span class='danger'>\The [user] hammers on the lift button!</span>")
 		else
-			user.visible_message("<span class='notice'>\The [user] presses the lift button.</span>")
+			user.visible_message("<b>\The [user]</b> presses the lift button.")
 
 
 /obj/structure/lift/Initialize(mapload, datum/turbolift/_lift)
@@ -33,6 +33,8 @@
 	return ..(mapload)
 
 /obj/structure/lift/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/structure/lift/attack_generic(var/mob/user)
@@ -100,6 +102,8 @@
 /obj/structure/lift/panel/interact(var/mob/user)
 	if(!..())
 		return
+	if(istype(user, /mob/living/heavy_vehicle)) // terrible, i know, but it shat out runtimes otherwise
+		user = usr
 
 	var/dat = list()
 	dat += "<html><body><hr><b>Lift panel</b><hr>"

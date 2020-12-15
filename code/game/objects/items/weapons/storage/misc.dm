@@ -3,8 +3,9 @@
 	desc = "It's a small container with dice inside."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "dicebag"
-	use_sound = "rustle"
+	use_sound = /decl/sound_category/rustle_sound
 	drop_sound = 'sound/items/drop/hat.ogg'
+	pickup_sound = 'sound/items/pickup/hat.ogg'
 	starts_with = list(
 		/obj/item/dice = 1,
 		/obj/item/dice/d20 = 1
@@ -28,8 +29,8 @@
 	icon_state = "card_holder_empty"
 	can_hold = list(/obj/item/deck, /obj/item/battle_monsters/deck, /obj/item/hand, /obj/item/pack/, /obj/item/card) //sneaky folks can hide ID and other cards
 	storage_slots = 1 //can hold one deck
-	use_sound = "sound/items/drop/shoes.ogg"
-	drop_sound = "sound/items/drop/hat.ogg"
+	use_sound = 'sound/items/drop/shoes.ogg'
+	drop_sound = 'sound/items/drop/hat.ogg'
 
 /obj/item/storage/card/update_icon()
 	if(contents.len)
@@ -50,26 +51,27 @@
 	update_icon()
 
 //cigarette papers
-/obj/item/storage/fancy/cigpaper
+/obj/item/storage/box/fancy/cigpaper
 	name = "\improper Gen. Eric cigarette paper"
 	desc = "A ubiquitous brand of cigarette paper, allegedly endorsed by 24th century war hero General Eric Osmundsun for rolling your own cigarettes. Osmundsun died in a freak kayak accident. As it ate him alive during his last campaign. It was pretty freaky."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaperbook_generic"
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	max_storage_space = 10
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/paper/cig = 10)
 	make_exact_fit()
 
-/obj/item/storage/fancy/cigpaper/update_icon()
+/obj/item/storage/box/fancy/cigpaper/update_icon()
 	. = ..()
 	if(contents.len)
 		icon_state = "[initial(icon_state)]"
@@ -86,13 +88,14 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	starts_with = list(/obj/item/paper/cig/filter = 10)
 	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 
-/obj/item/storage/fancy/cigpaper/fine
+/obj/item/storage/box/fancy/cigpaper/fine
 	name = "\improper Trident cigarette paper"
 	desc = "A fancy brand of Trident cigarette paper, for rolling your own cigarettes. Like a person who appreciates the finer things in life."
 	icon = 'icons/obj/cigs_lighters.dmi'
@@ -112,8 +115,9 @@
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	use_sound = 'sound/items/storage/pillbottle.ogg'
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco = 6)
@@ -145,22 +149,24 @@
 	item_state = "Dpacket"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/fine = 6)
 
-/obj/item/storage/fancy/chewables/tobacco/nico
+/obj/item/storage/box/fancy/chewables/tobacco/nico
 	name = "box of Nico-Tine gum"
 	desc = "A Sol-approved brand of nicotine gum. Cut out the middleman for your addiction fix."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "chew_nico"
 	item_state = "Epacket"
+	icon_type = "gum stick"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/nico = 6)
 	storage_slots = 6
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 
-/obj/item/storage/fancy/chewables/tobacco/update_icon()
+/obj/item/storage/box/fancy/chewables/tobacco/update_icon()
 	icon_state = "[initial(icon_state)][contents.len]"
 
 //loose leaf
@@ -183,7 +189,8 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	max_storage_space = 8
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/chewables/rollable/fine

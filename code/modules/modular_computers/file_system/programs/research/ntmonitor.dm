@@ -7,11 +7,11 @@
 	requires_ntnet = TRUE
 	required_access_run = access_network
 	required_access_download = access_heads
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	color = LIGHT_COLOR_GREEN
 	
 	available_on_ntnet = TRUE
-	nanomodule_path = /datum/nano_module/computer_ntnetmonitor/
+	nanomodule_path = /datum/nano_module/computer_ntnetmonitor
 
 /datum/nano_module/computer_ntnetmonitor
 	name = "NTNet Diagnostics and Monitoring"
@@ -33,6 +33,7 @@
 	data["config_systemcontrol"] = ntnet_global.setting_systemcontrol
 
 	data["ntnetlogs"] = ntnet_global.logs
+	data["ntnetmessages"] = ntnet_global.messages
 	data["ntnetmaxlogs"] = ntnet_global.setting_maxlogcount
 
 

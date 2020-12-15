@@ -55,15 +55,18 @@
 				else
 					var/datum/record/R = src.vars[variable]
 					record[variable] = R.Listify()
-			else if(deep && istype(src.vars[variable], /list) && is_list_containing_type(src.vars[variable], /datum/record))
+			else if(deep && islist(src.vars[variable]) && is_list_containing_type(src.vars[variable], /datum/record))
 				record[variable] = list()
 				for(var/subr in src.vars[variable])
 					var/datum/record/r = subr
 					record[variable] += list(r.Listify())
-				var/list/L = to_update[variable]
-				if(L.len != LAZYLEN(record[variable]))
+				var/llen = 0
+				if((variable in to_update) && islist(to_update[variable]))
+					var/list/L = to_update[variable]
+					llen = L.len
+				if(llen != LAZYLEN(record[variable]))
 					. = record
-			else if(istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
+			else if(islist(src.vars[variable]) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])
 					record[variable] = src.vars[variable]
 					. = record
@@ -129,12 +132,12 @@
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
 	..()
 	if (!H)
-		var/mob/living/carbon/human/dummy = SSmob.get_mannequin("New record")
-		photo_front = getFlatIcon(dummy, SOUTH, always_use_defdir = TRUE)
-		photo_side = getFlatIcon(dummy, WEST, always_use_defdir = TRUE)
+		var/mob/living/carbon/human/dummy/mannequin/dummy = SSmob.get_mannequin("New record")
+		photo_front = getFlatIcon(dummy, SOUTH)
+		photo_side = getFlatIcon(dummy, WEST)
 	else
-		photo_front = getFlatIcon(H, SOUTH, always_use_defdir = TRUE)
-		photo_side = getFlatIcon(H, WEST, always_use_defdir = TRUE)
+		photo_front = getFlatIcon(H, SOUTH)
+		photo_side = getFlatIcon(H, WEST)
 	if(!nid)
 		nid = generate_record_id()
 	id = nid

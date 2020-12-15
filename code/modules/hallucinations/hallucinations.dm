@@ -1,6 +1,6 @@
 #define NO_THOUGHT 1	//Hallucinated thoughts will not occur on this hallucination's end()
 #define NO_EMOTE 2		//User will not emote to others when this hallucination ends
-#define HEARING_DEPENDENT 3	//deaf characters will not experience this hallucination
+#define HEARING_DEPENDENT 4	//deaf characters will not experience this hallucination
 
 //Power Defines
 #define HAL_POWER_LOW 30
@@ -59,3 +59,16 @@
 		else
 			for(var/mob/M in oviewers(world.view, holder))	//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
 				to_chat(M, "<B>[holder]</B> [chosen_emote]")
+
+//For adding accent tags when you imagine people talking to you
+/datum/hallucination/proc/get_hallucinated_accent(var/mob/living/talker, var/mob/hearer)
+	var/hal_accent
+	if(ishuman(talker))
+		var/mob/living/carbon/human/T = talker
+		hal_accent = T.accent ? T.accent : pick(SSrecords.accents)
+	else
+		hal_accent = pick(SSrecords.accents)
+	var/datum/accent/a = SSrecords.accents[hal_accent]
+
+	var/final_icon = a.tag_icon
+	return "<img src=\"[final_icon].png\">"

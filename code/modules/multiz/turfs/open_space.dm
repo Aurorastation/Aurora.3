@@ -25,7 +25,7 @@
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
 	if (istype(mover) && isturf(oldloc))
 		if (mover.Check_Shoegrip(FALSE) && mover.can_fall(below, src))
-			to_chat(mover, span("notice", "You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
+			to_chat(mover, SPAN_NOTICE("You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
 			return FALSE
 
 	return ..()
@@ -176,7 +176,7 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(1))
 			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 			new /obj/structure/lattice(locate(src.x, src.y, src.z))
 		return
 
@@ -187,7 +187,7 @@
 			if (S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
@@ -217,7 +217,7 @@
 /turf/simulated/open/is_plating()
 	return TRUE
 
-/turf/simulated/open/AddTracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
+/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
 	return
 
 //Returns the roof type of the turf below

@@ -1,6 +1,7 @@
 /obj/machinery/optable
 	name = "operating table"
 	desc = "Used for advanced medical procedures."
+	desc_info = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
 	var/modify_state = "table2"
@@ -65,7 +66,7 @@
 
 		suppressing = !suppressing
 		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."))
-		playsound(loc, "switchsounds", 50, 1)
+		playsound(loc, /decl/sound_category/switch_sound, 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
 	if(air_group || (height == 0)) 

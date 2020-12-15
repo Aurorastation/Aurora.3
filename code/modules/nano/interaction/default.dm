@@ -17,6 +17,12 @@
 	return STATUS_UPDATE									// Ghosts can view updates
 
 /mob/living/silicon/pai/default_can_use_topic(var/src_object)
+	if(src_object == parent_computer)
+		if(!parent_computer.pAI_lock)
+			return STATUS_INTERACTIVE
+		else
+			to_chat(src, SPAN_WARNING("Error. pAI Access Lock systems still engaged."))
+			return ..()
 	if((src_object == src || src_object == radio) && !stat)
 		return STATUS_INTERACTIVE
 	else
@@ -62,6 +68,16 @@
 /atom/proc/contents_nano_distance(var/src_object, var/mob/living/user)
 	return user.shared_living_nano_distance(src_object)
 
+/mob/living/heavy_vehicle/contents_nano_distance(src_object, mob/living/user)
+	if(src_object in contents)
+		return STATUS_INTERACTIVE
+	if(hatch_closed && body.pilot_coverage == 100 && !istype(user, /mob/living/simple_animal/spiderbot)) // spiderbots get a pass cuz they need a bone, call it RFID bullshit
+		to_chat(user, SPAN_WARNING("You can't interact with things outside \the [src] if its hatch is closed!"))
+		return STATUS_CLOSE
+	if(!src.Adjacent(src_object))
+		return STATUS_CLOSE
+	return STATUS_INTERACTIVE
+
 /mob/living/proc/shared_living_nano_distance(var/atom/movable/src_object)
 	if (!(src_object in view(4, src))) 	// If the src object is not in visable, disable updates
 		return STATUS_CLOSE
@@ -79,14 +95,20 @@
 	. = shared_nano_interaction(src_object)
 	if(. != STATUS_CLOSE)
 		if(loc)
-			. = min(., loc.contents_nano_distance(src_object, src))
-	if(STATUS_INTERACTIVE)
+			if(istype(loc, /mob/living/heavy_vehicle))
+				return loc.contents_nano_distance(src_object, src)
+			else
+				. = min(., loc.contents_nano_distance(src_object, src))
+	if(. == STATUS_INTERACTIVE)
 		return STATUS_UPDATE
 
 /mob/living/carbon/human/default_can_use_topic(var/src_object)
 	. = shared_nano_interaction(src_object)
 	if(. != STATUS_CLOSE)
 		if(loc)
-			. = min(., loc.contents_nano_distance(src_object, src))
+			if(istype(loc, /mob/living/heavy_vehicle))
+				. = loc.contents_nano_distance(src_object, src)
+			else
+				. = min(., loc.contents_nano_distance(src_object, src))
 		else
 			. = min(., shared_living_nano_distance(src_object))

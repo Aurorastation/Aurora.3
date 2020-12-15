@@ -2,8 +2,8 @@
 	severity = 2
 	felony = 1
 
-	min_fine = 100
-	max_fine = 1000
+	min_fine = 0
+	max_fine = 0
 
 /datum/law/med_severity/srs_failure_execute
 	name = "i201 - Failure to Execute an Order with Serious Consequences"
@@ -63,7 +63,7 @@
 
 /datum/law/med_severity/assault
 	name = "i208 - Assault"
-	desc = "To cause severe injury to another employee. "
+	desc = "To cause severe injury to another employee. To cause irreparable damage to the chassis of a free IPC."
 	id = "i208"
 
 	min_brig_time = 15
@@ -103,7 +103,7 @@
 
 /datum/law/med_severity/sabotage
 	name = "i213 - Sabotage"
-	desc = "To hinder the efforts of the crew or station with malicious intent."
+	desc = "To hinder the efforts of the crew or station with malicious intent. To cause irreparable damage to the chassis or positronic brain of an owned IPC."
 	id = "i213"
 
 	min_brig_time = 15
@@ -119,7 +119,7 @@
 
 /datum/law/med_severity/grand_theft
 	name = "i215 - Grand Theft"
-	desc = "To steal items that are dangerous, of a high value, or a sensitive nature."
+	desc = "To steal items that are dangerous, of a high value, or a sensitive nature. Applicable to the theft of an owned IPC."
 	id = "i215"
 
 	min_brig_time = 15

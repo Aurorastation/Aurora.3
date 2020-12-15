@@ -60,27 +60,27 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
-		owner.emote("me",1,"winces slightly.")
+		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
 		owner.emote("cough")
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
-		owner.emote("me", 1, "coughs up blood!")
+		owner.visible_message("<b>[owner]</b> coughs up blood!")
 		owner.drip(10)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
+			owner.visible_message("<b>[owner]</b> gasps for air!")
 			owner.losebreath += 5
 
 	if(stage >= 3)
 		set_light(1, l_color = "#E6E600")
 		if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent("phoron", 8)
-			owner.reagents.add_reagent("koispaste", 5)
+			owner.reagents.add_reagent(/datum/reagent/toxin/phoron, 8)
+			owner.reagents.add_reagent(/datum/reagent/kois, 5)
 
 	if(stage >= 4)
 		if(prob(10))
@@ -90,8 +90,8 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent("koispaste",10)
-			R.add_reagent("phoron",10)
+			R.add_reagent(/datum/reagent/kois,10)
+			R.add_reagent(/datum/reagent/toxin/phoron,10)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
 
 			S.attach(T)
@@ -130,12 +130,12 @@
 			to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
 		else
 			to_chat(owner, "<span class='warning'>You feel a stinging pain in your head!</span>")
-		owner.emote("me",1,"winces slightly.")
+		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
+			owner.visible_message("<b>[owner]</b> gasps for air!")
 			owner.losebreath += 5
 
 	if(stage >= 3)
@@ -146,7 +146,7 @@
 
 		if(prob(5))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent("blackkois", 4)
+			owner.reagents.add_reagent(/datum/reagent/kois/black, 4)
 
 		else if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel disorientated!</span>")
@@ -188,8 +188,8 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent("blackkois",10)
-			R.add_reagent("phoron",5)
+			R.add_reagent(/datum/reagent/kois/black,10)
+			R.add_reagent(/datum/reagent/toxin/phoron,5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)
@@ -215,16 +215,52 @@
 	icon_state = "blacktumor"
 	dead_icon = "blacktumor"
 
-	organ_tag = "zombie"
-
-	parent_organ = BP_CHEST
+	organ_tag = BP_ZOMBIE_PARASITE
+	parent_organ = BP_HEAD
 	stage_interval = 150
+
+	var/last_heal = 0
+	var/heal_rate = 5 SECONDS
 
 /obj/item/organ/internal/parasite/zombie/process()
 	..()
 
 	if (!owner)
 		return
+
+	if(length(owner.bad_external_organs) && last_heal + heal_rate < world.time && iszombie(owner))
+		var/list/organs_to_heal = owner.bad_external_organs
+		shuffle(organs_to_heal)
+		for(var/thing in organs_to_heal)
+			var/obj/item/organ/external/O = thing
+			if(istype(O, /obj/item/organ/external/head)) // the head is the weak point
+				continue
+			var/healed = FALSE
+			if(O.status & ORGAN_ARTERY_CUT)
+				O.status &= ~ORGAN_ARTERY_CUT
+				owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
+				healed = TRUE
+			else if(O.status & ORGAN_TENDON_CUT)
+				O.status &= ~ORGAN_TENDON_CUT
+				owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
+				healed = TRUE
+			else if(O.status & ORGAN_BROKEN)
+				var/list/brute_wounds = list()
+				for(var/wound in O.wounds)
+					var/datum/wound/W = wound
+					if(W.damage_type in list(CUT, BRUISE, PIERCE))
+						brute_wounds += W
+				for(var/wound in brute_wounds)
+					var/datum/wound/W = wound
+					W.damage = max(min(W.damage, (O.min_broken_damage / length(brute_wounds))), 0)
+				O.status &= ~ORGAN_BROKEN
+				owner.visible_message(SPAN_WARNING("The shattered bone in \the [owner]'s [O] melds back together..."), SPAN_NOTICE("The shattered bone in your [O] melds back together..."))
+				healed = TRUE
+			if(healed)
+				last_heal = world.time
+				heal_rate += 2 SECONDS
+				O.update_damages()
+				break
 
 	if(prob(10) && (owner.can_feel_pain()))
 		to_chat(owner, "<span class='warning'>You feel a burning sensation on your skin!</span>")

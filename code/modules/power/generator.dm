@@ -70,7 +70,7 @@
 				circ1 = null
 				circ2 = null
 
-/obj/machinery/power/generator/proc/updateicon()
+/obj/machinery/power/generator/update_icon()
 	cut_overlays()
 	if(!(stat & (NOPOWER|BROKEN)) && lastgenlev)
 		add_overlay("teg-op[lastgenlev]")
@@ -139,10 +139,12 @@
 		genlev = 1
 	if(genlev != lastgenlev)
 		lastgenlev = genlev
-		updateicon()
+		update_icon()
 	add_avail(effective_gen)
 
 /obj/machinery/power/generator/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	attack_hand(user)
 
 /obj/machinery/power/generator/attackby(obj/item/W as obj, mob/user as mob)
@@ -221,4 +223,4 @@
 
 /obj/machinery/power/generator/power_change()
 	..()
-	updateicon()
+	update_icon()

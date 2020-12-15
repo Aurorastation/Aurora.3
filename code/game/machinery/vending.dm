@@ -9,22 +9,32 @@
 	var/price = 0  // Price to buy one
 	var/display_color = null  // Display color for vending machine listing
 	var/category = CAT_NORMAL  // CAT_HIDDEN for contraband, CAT_COIN for premium
+	var/icon/product_icon
+	var/icon/icon_state
 
 /datum/data/vending_product/New(var/path, var/name = null, var/amount = 1, var/price = 0, var/color = null, var/category = CAT_NORMAL)
 	..()
 
-	src.product_path = path
+	product_path = path
+	var/atom/A = new path(null)
 
 	if(!name)
-		var/atom/tmp = path
-		src.product_name = initial(tmp.name)
+		product_name = initial(A.name)
 	else
-		src.product_name = name
+		product_name = name
 
 	src.amount = amount
 	src.price = price
 	src.display_color = color
 	src.category = category
+	if(istype(A, /obj/item/seeds))
+		// thanks seeds for being overlays defined at runtime
+		var/obj/item/seeds/S = A
+		product_icon = S.update_appearance(TRUE)
+	else
+		product_icon = new /icon(A.icon, A.icon_state)
+	icon_state = product_icon
+	QDEL_NULL(A)
 
 /**
  *  A vending machine
@@ -37,10 +47,10 @@
 	layer = 2.9
 	anchored = 1
 	density = 1
-	clicksound = "button"
+	clicksound = /decl/sound_category/button_sound
 
 	var/icon_vend //Icon_state when vending
-	var/icon_deny //Icon_state when denying access
+	var/deny_time // How long the physical icon state lasts, used cut the deny overlay
 
 	// Power
 	use_power = 1
@@ -51,6 +61,7 @@
 	var/active = 1 //No sales pitches if off!
 	var/vend_ready = 1 //Are we ready to vend?? Is it time??
 	var/vend_delay = 10 //How long does it take to vend?
+	var/vending = FALSE
 
 	var/categories = CAT_NORMAL // Bitmask of cats we're currently showing
 	var/datum/data/vending_product/currently_vending = null // What we're requesting payment for right now
@@ -99,15 +110,25 @@
 	var/restock_items = 0	//If items can be restocked into the vending machine
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
 	var/random_itemcount = 1 //If the number of items should be randomized
+	var/sel_key = 0
 
 	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
 
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
-	var/vending_sound = "machines/vending/vending_drop.ogg"
+	var/vending_sound = 'sound/machines/vending/vending_drop.ogg'
 
-/obj/machinery/vending/Initialize()
+	var/global/list/screen_overlays
+	var/exclusive_screen = TRUE // Are we not allowed to show the deny and screen states at the same time?
+
+	var/ui_size = 80 // this is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
+	var/datum/asset/spritesheet/vending/v_asset
+
+	light_range = 2
+	light_power = 1
+
+/obj/machinery/vending/Initialize(mapload)
 	. = ..()
 	wires = new(src)
 	if(src.product_slogans)
@@ -121,11 +142,32 @@
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
 
-	src.build_inventory()
+	add_screen_overlay()
+	build_inventory()
 	power_change()
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/vending/LateInitialize()
+	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
+
+/obj/machinery/vending/proc/reset_light()
+	set_light(initial(light_range), initial(light_power), initial(light_color))
+
+/obj/machinery/vending/proc/add_screen_overlay(var/deny = FALSE)
+	if(!LAZYLEN(screen_overlays))
+		LAZYINITLIST(screen_overlays)
+	if(!("[icon_state]-screen" in screen_overlays) || (deny && !("[icon_state]-deny" in screen_overlays)))
+		var/list/states = icon_states(icon)
+		if ("[icon_state]-screen" in states)
+			screen_overlays["[icon_state]-screen"] = make_screen_overlay(icon, "[icon_state]-screen")
+		if ("[icon_state]-deny" in states)
+			screen_overlays["[icon_state]-deny"] = make_screen_overlay(icon, "[icon_state]-deny")
+	add_overlay(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
+	reset_light()
+
 /**
- *  Build src.produdct_records from the products lists
+ *  Build src.product_records from the products lists
  *
  *  src.products, src.contraband, src.premium, and src.prices allow specifying
  *  products that the vending machine is to carry without manually populating
@@ -210,7 +252,7 @@
 		var/handled = 0
 
 		if (currently_vending.amount < 1)
-			visible_message(span("warning","\The [src] buzzes and flashes a message on its LCD: <b>\"Out of stock.\"</b>"))
+			visible_message(SPAN_WARNING("\The [src] buzzes and flashes a message on its LCD: <b>\"Out of stock.\"</b>"))
 			src.status_error = 1
 			playsound(src.loc, 'sound/machines/buzz-two.ogg', 35, 1)
 			currently_vending = null
@@ -229,10 +271,11 @@
 			handled = 1
 
 		if(paid)
+			SSvueui.check_uis_for_change(src)
 			src.vend(currently_vending, usr)
 			return
 		else if(handled)
-			SSnanoui.update_uis(src)
+			SSvueui.check_uis_for_change(src)
 			return // don't smack that machine with your 2 credits
 
 	if (I || istype(W, /obj/item/spacecash))
@@ -242,10 +285,9 @@
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
+		add_screen_overlay()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
-
-		SSnanoui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
 	else if(W.ismultitool()||W.iswirecutter())
 		if(src.panel_open)
@@ -256,7 +298,7 @@
 		coin = W
 		categories |= CAT_COIN
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
 		return
 	else if(W.iswrench())
 		if(!can_move)
@@ -264,14 +306,15 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
-			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
+			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", SPAN_NOTICE("You start unsecuring \the [src] from the floor."))
 		else
-			user.visible_message("[user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
+			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", SPAN_NOTICE("You start securing \the [src] to the floor."))
 
 		if(do_after(user, 20/W.toolspeed))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored
+			power_change()
 		return
 
 	else if(istype(W,/obj/item/vending_refill))
@@ -320,13 +363,13 @@
 
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
-		to_chat(usr, "\icon[cashmoney] <span class='warning'>That is not enough money.</span>")
+		to_chat(user, "[icon2html(cashmoney, user)] <span class='warning'>That is not enough money.</span>")
 		return 0
 
 	if(istype(cashmoney, /obj/item/spacecash/bundle))
 		// Bundles can just have money subtracted, and will work
 
-		visible_message("<span class='info'>\The [usr] inserts some cash into \the [src].</span>")
+		visible_message("<span class='info'>\The [user] inserts some cash into \the [src].</span>")
 		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
 		cashmoney_bundle.worth -= currently_vending.price
 
@@ -341,13 +384,13 @@
 		// This is really dirty, but there's no superclass for all bills, so we
 		// just assume that all spacecash that's not something else is a bill
 
-		visible_message("<span class='info'>\The [usr] inserts a bill into \the [src].</span>")
+		visible_message("<span class='info'>\The [user] inserts a bill into \the [src].</span>")
 		var/left = cashmoney.worth - currently_vending.price
-		usr.drop_from_inventory(cashmoney,get_turf(src))
+		user.drop_from_inventory(cashmoney,get_turf(src))
 		qdel(cashmoney)
 
 		if(left)
-			spawn_money(left, src.loc, user)
+			spawn_money(left, get_turf(user), user)
 
 	// Vending machines have no idea who paid with cash
 	credit_purchase("(cash)")
@@ -458,6 +501,8 @@
 	SSeconomy.add_transaction_log(vendor_account,T)
 
 /obj/machinery/vending/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/vending/attack_hand(mob/user as mob)
@@ -468,46 +513,73 @@
 		if(src.shock(user, 100))
 			return
 
-	wires.Interact(user)
-	ui_interact(user)
+	if (panel_open)
+		wires.Interact(user)
+	else
+		ui_interact(user)
 
-/**
- *  Display the NanoUI window for the vending machine.
- *
- *  See NanoUI documentation for details.
- */
-/obj/machinery/vending/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+// VueUI implementation of vending machines.
+/obj/machinery/vending/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+
 	user.set_machine(src)
 
-	var/list/data = list()
-	if(currently_vending)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "machinery-vending", 425, 500, capitalize(name), state=state)
+
+	ui.open(v_asset)
+
+/obj/machinery/vending/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	LAZYINITLIST(data)
+	LAZYINITLIST(data["products"])
+
+	VUEUI_SET_CHECK_IFNOTSET(data["ui_size"], ui_size, ., data)
+
+	if(currently_vending || !vend_ready)
 		data["mode"] = 1
-		data["product"] = currently_vending.product_name
-		data["price"] = currently_vending.price
-		data["message_err"] = 0
+		data["sel_key"] = sel_key
+		data["sel_name"] = capitalize_first_letters(strip_improper(currently_vending.product_name))
+		data["sel_price"] = currently_vending.price
+		data["sel_icon"] = v_asset.icon_tag(ckey("[currently_vending.product_path]"), FALSE)
 		data["message"] = src.status_message
 		data["message_err"] = src.status_error
 	else
 		data["mode"] = 0
-		var/list/listed_products = list()
+		data["sel_key"] = 0
+		data["sel_name"] = 0
+		data["sel_price"] = 0
+		data["sel_icon"] = 0
+		data["message"] = ""
+		data["message_err"] = 0
 
-		for(var/key = 1 to src.product_records.len)
-			var/datum/data/vending_product/I = src.product_records[key]
+	if(!(LAZYLEN(data["products"])) || LAZYLEN(data["products"]) != LAZYLEN(product_records))
+		data["products"] = list()
+		for(var/key = 1 to LAZYLEN(product_records))
+			var/t_key = num2text(key)
+			var/datum/data/vending_product/I = product_records[key]
 
-			if(!(I.category & src.categories))
+			if(!(I.category & categories))
 				continue
 
-			listed_products.Add(list(list(
-				"key" = key,
-				"name" = I.product_name,
-				"price" = I.price,
-				"color" = I.display_color,
-				"amount" = I.amount)))
+			var/product_name = capitalize_first_letters(strip_improper(I.product_name))
+			var/icon_tag = v_asset.icon_tag(ckey("[I.product_path]"), FALSE)
 
-		data["products"] = listed_products
+			LAZYINITLIST(data["products"][t_key])
 
-	if(src.coin)
-		data["coin"] = src.coin.name
+			VUEUI_SET_CHECK(data["products"][t_key]["key"], t_key, ., data)
+			VUEUI_SET_CHECK(data["products"][t_key]["name"], product_name, ., data)
+			VUEUI_SET_CHECK(data["products"][t_key]["price"], I.price, ., data)
+			VUEUI_SET_CHECK(data["products"][t_key]["amount"], I.amount, ., data)
+			VUEUI_SET_CHECK(data["products"][t_key]["icon_tag"], icon_tag, ., data)
+
+	else if(sel_key && product_records[text2num(sel_key)])
+		var/datum/data/vending_product/V = product_records[text2num(sel_key)]
+		VUEUI_SET_CHECK(data["products"][sel_key]["amount"], V.amount, ., data)
+
+	if(coin)
+		data["coin"] = coin.name
+	else
+		data["coin"] = null
 
 	if(src.panel_open)
 		data["panel"] = 1
@@ -515,13 +587,10 @@
 	else
 		data["panel"] = 0
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "vending_machine.tmpl", src.name, 440, 600)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/vending/Topic(href, href_list)
+
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	if(stat & (BROKEN|NOPOWER))
 		return
@@ -533,9 +602,7 @@
 			to_chat(usr, "There is no coin in this machine.")
 			return
 
-		coin.forceMove(src.loc)
-		if(!usr.get_active_hand())
-			usr.put_in_hands(coin)
+		usr.put_in_hands(coin)
 		to_chat(usr, "<span class='notice'>You remove the [coin] from the [src]</span>")
 		coin = null
 		categories &= ~CAT_COIN
@@ -543,11 +610,19 @@
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
 		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
-				flick(icon_deny,src)
+				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course
+				if(exclusive_screen)
+					cut_overlays()
+					addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+				add_screen_overlay(deny = TRUE)
+				addtimer(CALLBACK(src, /atom/.proc/cut_overlay, screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
+				set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
+				addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
+				addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
 				return
 
 			var/key = text2num(href_list["vendItem"])
+			sel_key = href_list["vendItem"]
 			var/datum/data/vending_product/R = product_records[key]
 
 			// This should not happen unless the request from NanoUI was bad
@@ -555,6 +630,7 @@
 				return
 
 			if(R.price <= 0)
+				src.currently_vending = R
 				src.vend(R, usr)
 			else if(istype(usr,/mob/living/silicon)) //If the item is not free, provide feedback if a synth is trying to buy something.
 				to_chat(usr, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
@@ -571,49 +647,62 @@
 		else if (href_list["cancelpurchase"])
 			src.currently_vending = null
 
+		else if (href_list["reset"])
+			// reset button that nobody should ever (hopefully) see
+			src.currently_vending = null
+			src.vend_ready = 1
+
 		else if ((href_list["togglevoice"]) && (src.panel_open))
 			src.shut_up = !src.shut_up
 
 		src.add_fingerprint(usr)
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
 
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
+
 	if (!R || R.amount < 1)
 		return
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
-		flick(src.icon_deny,src)
+		if(exclusive_screen)
+			cut_overlays()
+			addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+		add_screen_overlay(deny = TRUE)
+		addtimer(CALLBACK(src, /atom/.proc/cut_overlay, screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
+		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
+		addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
 		return
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
 	src.status_error = 0
-	SSnanoui.update_uis(src)
 
 	if (R.category & CAT_COIN)
 		if(!coin)
-			to_chat(user, "<span class='notice'>You need to insert a coin to get this item.</span>")
+			to_chat(user, SPAN_NOTICE("You need a coin to vend this item."))
 			return
+
 		if(coin.string_attached)
 			if(prob(50))
-				to_chat(user, "<span class='notice'>You successfully pull the coin out before \the [src] could swallow it.</span>")
-				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
-				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
+				to_chat(user, SPAN_NOTICE("You successfully pull the coin out before \the [src] could swallow it!"))
 			else
-				to_chat(user, "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>")
-				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
-				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
-				qdel(coin)
-				coin = null
-				categories &= ~CAT_COIN
+				to_chat(user, SPAN_WARNING("You weren't able to pull the coin out fast enough, and the machine ate it!"))
+				QDEL_NULL(coin)
 		else
-			src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
-			playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
-			qdel(coin)
-			coin = null
+			QDEL_NULL(coin)
+
+		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out its 'premium' item after a moment."))
+		playsound(loc, 'sound/items/poster_being_created.ogg', 50, 1)
+
+		R.amount--
+		SSvueui.check_uis_for_change(src)
+
+		if(!coin)
 			categories &= ~CAT_COIN
 
-	R.amount--
+	else
+		R.amount--
+		SSvueui.check_uis_for_change(src)
 
 	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
 		spawn(0)
@@ -623,28 +712,35 @@
 	use_power(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
-	playsound(src.loc, "sound/[vending_sound]", 100, 1)
-	spawn(src.vend_delay)
-		var/obj/vended = new R.product_path(get_turf(src))
-		src.status_message = ""
-		src.status_error = 0
-		src.vend_ready = 1
-		currently_vending = null
-		SSnanoui.update_uis(src)
-		if(istype(vended,/obj/item/reagent_containers/))
-			var/obj/item/reagent_containers/RC = vended
-			if(RC.reagents)
-				switch(temperature_setting)
-					if(-1)
-						use_power(RC.reagents.set_temperature(cooling_temperature))
-					if(1)
-						use_power(RC.reagents.set_temperature(heating_temperature))
+	playsound(src.loc, vending_sound, 100, 1)
+	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
+
+/obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
+
+	var/vending_usr_dir = get_dir(src, user)
+	var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
+	if(Adjacent(user))
+		user.put_in_hands(vended)
+	src.status_message = ""
+	src.status_error = 0
+	src.vend_ready = 1
+	currently_vending = null
+	SSvueui.check_uis_for_change(src)
+	if(istype(vended,/obj/item/reagent_containers/))
+		var/obj/item/reagent_containers/RC = vended
+		if(RC.reagents)
+			switch(temperature_setting)
+				if(-1)
+					use_power(RC.reagents.set_temperature(cooling_temperature))
+				if(1)
+					use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
+
 	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")
 	R.amount++
 
-	SSnanoui.update_uis(src)
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/vending/machinery_process()
 	if(stat & (BROKEN|NOPOWER))
@@ -680,14 +776,19 @@
 
 /obj/machinery/vending/power_change()
 	..()
+	if(!anchored)
+		stat |= NOPOWER
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
+		cut_overlays()
+		set_light(0)
+	else if(!(stat & NOPOWER))
+		icon_state = initial(icon_state)
+		add_screen_overlay()
 	else
-		if( !(stat & NOPOWER) )
-			icon_state = initial(icon_state)
-		else
-			spawn(rand(0, 15))
-				src.icon_state = "[initial(icon_state)]-off"
+		icon_state = "[initial(icon_state)]-off"
+		cut_overlays()
+		set_light(0)
 
 //Oh no we're malfunctioning!  Dump out some product and break.
 /obj/machinery/vending/proc/malfunction()
@@ -699,8 +800,9 @@
 			continue
 
 		while(R.amount>0)
-			new dump_path(src.loc)
+			new dump_path(get_random_turf_in_range(src, 1, 1, TRUE))
 			R.amount--
+			SSvueui.check_uis_for_change(src)
 		break
 
 	stat |= BROKEN
@@ -722,6 +824,7 @@
 			continue
 
 		R.amount--
+		SSvueui.check_uis_for_change(src)
 		throw_item = new dump_path(src.loc)
 		break
 	if (!throw_item)

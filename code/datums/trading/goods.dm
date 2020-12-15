@@ -108,7 +108,6 @@
 	possible_origins = list("Space Eagle", "Banana Democracy", "Forever 22", "Textiles Factory Warehouse Outlet", "Blocks Brothers")
 	speech = list(
 		"hail_generic"      = "Hello, sir! Welcome to ORIGIN!",
-		"hail_Vox"          = "Well hello sir! I don't believe we have any clothes that fit you... but you can still look!",
 		"hail_deny"         = "We do not trade with rude customers. Consider yourself blacklisted.",
 		"trade_complete"    = "Thank you for shopping at ORIGIN. Remember: We cannot accept returns without the original tags!",
 		"trade_blacklist"   = "Hm, how about no?",
@@ -135,12 +134,9 @@
 		/obj/item/clothing/under/pj                              = TRADER_BLACKLIST,
 		/obj/item/clothing/under/rank                            = TRADER_BLACKLIST,
 		/obj/item/clothing/under/shorts                          = TRADER_BLACKLIST,
-		/obj/item/clothing/under/stripper                        = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/swimsuit                        = TRADER_BLACKLIST,
 		/obj/item/clothing/under/syndicate                       = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/tactical                        = TRADER_BLACKLIST,
-		/obj/item/clothing/under/vox                             = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/wedding                         = TRADER_BLACKLIST,
 		/obj/item/clothing/under/punpun                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/fluff                           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/dress/fluff                     = TRADER_BLACKLIST_ALL,
@@ -168,7 +164,6 @@
 		/obj/item/clothing/shoes/magboots               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/swat                   = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/syndigaloshes          = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/jackboots/toeless/fluff = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/black/bst              = TRADER_BLACKLIST
 	)
 
@@ -187,8 +182,6 @@
 		/obj/item/clothing/gloves/rig                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/chameleon             = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/gloves/swat/fluff            = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/gloves/black/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
@@ -198,7 +191,7 @@
 		/obj/item/clothing/head/bomb_hood               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/caphat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/centhat                 = TRADER_BLACKLIST,
-		/obj/item/clothing/head/chameleon               = TRADER_BLACKLIST,
+		/obj/item/clothing/head/softcap/chameleon               = TRADER_BLACKLIST,
 		/obj/item/clothing/head/collectable             = TRADER_BLACKLIST,
 		/obj/item/clothing/head/culthood                = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/helmet                  = TRADER_BLACKLIST_ALL,
@@ -256,7 +249,6 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/device/core_sampler              = TRADER_THIS_TYPE,
 		/obj/item/device/depth_scanner             = TRADER_THIS_TYPE,
 		/obj/item/device/beacon_locator            = TRADER_THIS_TYPE,
-		/obj/item/device/antibody_scanner          = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced           = TRADER_BLACKLIST
 	)
 

@@ -7,8 +7,8 @@ var/datum/antagonist/ninja/ninjas
 	bantype = "ninja"
 	landmark_id = "ninjastart"
 	welcome_text = "<span class='info'>You are an elite stealth agent. You can equip your suit with the latest technology using your uplink.</span>"
-	restricted_species = list("Diona")
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
+	restricted_species = list(SPECIES_DIONA)
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudninja"
 	required_age = 10
 
@@ -161,3 +161,6 @@ var/datum/antagonist/ninja/ninjas
 		else
 			directive += "There are no special supplemental instructions at this time."
 	return directive
+
+/datum/antagonist/ninja/get_antag_radio()
+	return "Ninja"

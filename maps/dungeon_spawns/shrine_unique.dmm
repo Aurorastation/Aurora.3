@@ -21,7 +21,6 @@
 /area/mine/unexplored)
 "g" = (
 /obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
 	dir = 4
 	},
 /turf/simulated/floor/phoron,
@@ -32,14 +31,12 @@
 /area/mine/unexplored)
 "i" = (
 /obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
 	dir = 8
 	},
 /turf/simulated/floor/phoron,
 /area/mine/unexplored)
 "j" = (
 /obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
 	dir = 1
 	},
 /turf/simulated/floor/phoron,

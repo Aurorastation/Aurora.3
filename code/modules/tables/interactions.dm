@@ -8,6 +8,8 @@
 			return !density
 		else
 			return 1
+	if(istype(mover, /obj/structure/closet/crate))
+		return TRUE
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))
@@ -63,7 +65,7 @@
 		var/mob/living/carbon/human/H = am
 		if(H.a_intent != I_HELP || H.m_intent == "run")
 			throw_things(H)
-		else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
+		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 			throw_things(H)
 	else if((isliving(am) && !issmall(am)) || isslime(am))
 		throw_things(am)
@@ -119,7 +121,7 @@
 			var/mob/living/carbon/human/H = user
 			if(H.a_intent != I_HELP || H.m_intent == "run")
 				throw_things(H)
-			else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
+			else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 				throw_things(H)
 		else if(!issmall(user) || isslime(user))
 			throw_things(user)
@@ -181,17 +183,15 @@
 			else
 				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 				return
-			qdel(W)
-			return
 
-	if(!dropsafety(W))
+	if(!W.dropsafety())
 		return
 
 	if(istype(W, /obj/item/melee/energy/blade))
 		var/obj/item/melee/energy/blade/blade = W
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-		playsound(src.loc, "sparks", 50, 1)
+		playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 		user.visible_message("<span class='danger'>\The [src] was sliced apart by [user]!</span>")
 		break_to_parts()
 		return
@@ -223,6 +223,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 /obj/structure/table/proc/auto_align(obj/item/W, click_parameters)
 	if(!W.center_of_mass)
 		W.randpixel_xy()
+		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
 		return
 
 	if(!click_parameters)
@@ -238,6 +239,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 
 		W.pixel_x = (CELLSIZE * (0.5 + cell_x)) - W.center_of_mass["x"]
 		W.pixel_y = (CELLSIZE * (0.5 + cell_y)) - W.center_of_mass["y"]
+		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
 
 #undef CELLS
 #undef CELLSIZE

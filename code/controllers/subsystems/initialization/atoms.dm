@@ -13,6 +13,8 @@ var/datum/controller/subsystem/atoms/SSatoms
 	var/initialized = INITIALIZATION_INSSATOMS
 	var/old_initialized
 
+	var/list/late_misc_firers // this is a list of things that fire when late misc init is called
+
 	var/list/late_loaders
 	var/list/created_atoms
 	var/list/late_qdel
@@ -53,7 +55,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 				++count
 				CHECK_TICK
 
-	admin_notice(span("danger", "Initialized [count] atoms."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Initialized [count] atoms."), R_DEBUG)
 	log_ss("atoms", "Initialized [count] atoms.")
 
 	initialized = INITIALIZATION_INNEW_REGULAR
@@ -62,7 +64,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 		for(var/I in late_loaders)
 			var/atom/A = I
 			A.LateInitialize()
-		admin_notice(span("danger", "Late-initialized [late_loaders.len] atoms."), R_DEBUG)
+		admin_notice(SPAN_DANGER("Late-initialized [late_loaders.len] atoms."), R_DEBUG)
 		log_ss("atoms", "Late initialized [late_loaders.len] atoms")
 		late_loaders.Cut()
 
@@ -71,7 +73,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 		for(var/thing in late_qdel)
 			qdel(thing)
 
-		admin_notice(span("danger", "Late-qdeleted [num_qdels] atoms."), R_DEBUG)
+		admin_notice(SPAN_DANGER("Late-qdeleted [num_qdels] atoms."), R_DEBUG)
 		log_ss("atoms", "Late qdeleted [num_qdels] atoms.")
 
 		late_qdel.Cut()

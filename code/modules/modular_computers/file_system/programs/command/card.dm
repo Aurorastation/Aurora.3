@@ -1,40 +1,35 @@
 /datum/computer_file/program/card_mod
 	filename = "cardmod"
-	filedesc = "ID card modification program"
+	filedesc = "ID Card Modification Program"
 	nanomodule_path = /datum/nano_module/program/card_mod
 	program_icon_state = "id"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	required_access_run = access_change_ids
 	required_access_download = access_change_ids
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
-	requires_ntnet = 0
+	requires_ntnet = FALSE
 	size = 8
 	color = LIGHT_COLOR_BLUE
 
 /datum/nano_module/program/card_mod
 	name = "ID card modification program"
-	var/mod_mode = 1
-	var/is_centcom = 0
-	var/show_assignments = 0
+	var/is_centcom = FALSE
+	var/show_assignments = FALSE
 
 /datum/nano_module/program/card_mod/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	data["src"] = "\ref[src]"
 	data["station_name"] = station_name()
-	data["manifest"] = SSrecords.get_manifest()
 	data["assignments"] = show_assignments
-	if(program && program.computer)
+	if(program?.computer)
 		data["have_id_slot"] = !!program.computer.card_slot
 		data["have_printer"] = !!program.computer.nano_printer
 		data["authenticated"] = program.can_run(user)
-		if(!program.computer.card_slot)
-			mod_mode = 0 //We can't modify IDs when there is no card reader
 	else
 		data["have_id_slot"] = 0
 		data["have_printer"] = 0
 		data["authenticated"] = 0
-	data["mmode"] = mod_mode
 	data["centcom_access"] = is_centcom
 
 	if(program && program.computer && program.computer.card_slot)
@@ -86,7 +81,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "identification_computer.tmpl", name, 600, 700, state = state)
-		ui.auto_update_layout = 1
+		ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)
 		ui.open()
 
@@ -107,57 +102,41 @@
 
 /datum/computer_file/program/card_mod/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 
 	var/mob/user = usr
 	var/obj/item/card/id/user_id_card = user.GetIdCard()
 	var/obj/item/card/id/id_card = computer.card_slot.stored_card
 	var/datum/nano_module/program/card_mod/module = NM
 	switch(href_list["action"])
-		if("switchm")
-			if(href_list["target"] == "mod")
-				module.mod_mode = 1
-			else if (href_list["target"] == "manifest")
-				module.mod_mode = 0
+
 		if("togglea")
 			if(module.show_assignments)
-				module.show_assignments = 0
+				module.show_assignments = FALSE
 			else
-				module.show_assignments = 1
+				module.show_assignments = TRUE
 		if("print")
-			if(computer && computer.nano_printer) //This option should never be called if there is no printer
-				if(module.mod_mode)
-					if(can_run(user, 1))
-						var/contents = {"<h4>Access Report</h4>
-									<u>Prepared By:</u> [user_id_card.registered_name ? user_id_card.registered_name : "Unknown"]<br>
-									<u>For:</u> [id_card.registered_name ? id_card.registered_name : "Unregistered"]<br>
-									<hr>
-									<u>Assignment:</u> [id_card.assignment]<br>
-									<u>Account Number:</u> #[id_card.associated_account_number]<br>
-									<u>Blood Type:</u> [id_card.blood_type]<br><br>
-									<u>Access:</u><br>
-								"}
+			if(computer?.nano_printer && can_run(user, 1)) //This option should never be called if there is no printer
+				var/contents = {"<h4>Access Report</h4>
+							<u>Prepared By:</u> [user_id_card.registered_name ? user_id_card.registered_name : "Unknown"]<br>
+							<u>For:</u> [id_card.registered_name ? id_card.registered_name : "Unregistered"]<br>
+							<hr>
+							<u>Assignment:</u> [id_card.assignment]<br>
+							<u>Account Number:</u> #[id_card.associated_account_number]<br>
+							<u>Blood Type:</u> [id_card.blood_type]<br><br>
+							<u>Access:</u><br>
+						"}
 
-						var/known_access_rights = get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM)
-						for(var/A in id_card.access)
-							if(A in known_access_rights)
-								contents += "  [get_access_desc(A)]"
+				var/known_access_rights = get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM)
+				for(var/A in id_card.access)
+					if(A in known_access_rights)
+						contents += "  [get_access_desc(A)]"
 
-						if(!computer.nano_printer.print_text(contents,"access report"))
-							to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
-							return
-						else
-							computer.visible_message("<span class='notice'>\The [computer] prints out paper.</span>")
+				if(!computer.nano_printer.print_text(contents,"access report"))
+					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
+					return
 				else
-					var/contents = {"<h4>Crew Manifest</h4>
-									<br>
-									[SSrecords.get_manifest(1)]
-									"}
-					if(!computer.nano_printer.print_text(contents,text("crew manifest ([])", worldtime2text())))
-						to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
-						return
-					else
-						computer.visible_message("<span class='notice'>\The [computer] prints out paper.</span>")
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 		if("eject")
 			if(computer && computer.card_slot)
 				if(id_card)
@@ -173,7 +152,7 @@
 								break
 						R.rank = id_card.assignment
 						R.real_rank = real_title
-				computer.proc_eject_id(user)
+				computer.eject_id()
 		if("suspend")
 			if(computer && can_run(user, 1))
 				id_card.assignment = "Suspended"
@@ -210,7 +189,7 @@
 								jobdatum = J
 								break
 						if(!jobdatum)
-							to_chat(usr, "<span class='warning'>No log exists for this job: [t1]</span>")
+							to_chat(usr, SPAN_WARNING("No log exists for this job: [t1]"))
 							return
 
 						access = jobdatum.get_access(t1)
@@ -233,7 +212,7 @@
 		id_card.name = text("[id_card.registered_name]'s ID Card ([id_card.assignment])")
 
 	SSnanoui.update_uis(NM)
-	return 1
+	return TRUE
 
 /datum/computer_file/program/card_mod/proc/remove_nt_access(var/obj/item/card/id/id_card)
 	id_card.access -= get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM)

@@ -85,16 +85,16 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 			CHECK_TICK
 
-	admin_notice(span("danger", "Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
 	starttime = REALTIMEOFDAY
 	// Tick once to clear most lights.
 	fire(FALSE, TRUE)
 
-	admin_notice(span("danger", "Processed [processed_lights] light sources."), R_DEBUG)
-	admin_notice(span("danger", "Processed [processed_corners] light corners."), R_DEBUG)
-	admin_notice(span("danger", "Processed [processed_overlays] light overlays."), R_DEBUG)
-	admin_notice(span("danger", "Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Processed [processed_lights] light sources."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Processed [processed_corners] light corners."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Processed [processed_overlays] light overlays."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
 	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 

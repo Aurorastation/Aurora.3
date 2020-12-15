@@ -13,12 +13,6 @@
 
 // Shims for some list procs in lists.dm.
 #define isemptylist(L) (!LAZYLEN(L))
-#define safepick(L) LAZYPICK(L,null)
-#define listgetindex(L,I) LAZYACCESS(L,I)
-
-#if DM_VERSION < 513
-#define islist(L) istype(L,/list)
-#endif
 
 // binary search sorted insert
 // IN: Object to be inserted

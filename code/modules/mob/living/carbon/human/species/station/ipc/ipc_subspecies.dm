@@ -1,9 +1,9 @@
 /datum/species/machine/shell
-	name = "Shell Frame"
+	name = SPECIES_IPC_SHELL
 	hide_name = TRUE
 	short_name = "jak"
 	name_plural = "Shells"
-	bodytype = "Human"
+	bodytype = BODYTYPE_HUMAN
 	default_genders = list(MALE, FEMALE)
 
 	burn_mod = 1.2
@@ -44,20 +44,20 @@
 		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_UNDERWEAR | HAS_SOCKS | HAS_SKIN_PRESET
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_SKIN_PRESET | HAS_UNDERWEAR | HAS_SOCKS | HAS_LIPS
 
 	has_limbs = list(
-		BP_CHEST =  list("path" = /obj/item/organ/external/chest/shell),
-		BP_GROIN =  list("path" = /obj/item/organ/external/groin/shell),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/shell),
-		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/shell),
-		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/shell),
-		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/shell),
-		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/shell),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/shell),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/shell),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/shell),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/shell)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc/shell),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/ipc/shell),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/ipc/shell),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc/shell),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc/shell),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/ipc/shell),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/ipc/shell),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/shell),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/shell),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/shell),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/shell)
 		)
 
 	base_color = "#25032"
@@ -68,7 +68,13 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
+
+	bodyfall_sound = /decl/sound_category/bodyfall_sound
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
 
 /datum/species/machine/shell/get_light_color()
 	return
@@ -76,15 +82,14 @@
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
 	return
 
-
 /datum/species/machine/shell/rogue
-	name = "Rogue Shell"
+	name = SPECIES_IPC_SHELL_ROGUE
 	short_name = "roguejak"
 	name_plural = "Rogue Shells"
 
 	spawn_flags = IS_RESTRICTED
 
-	breakcuffs = list(MALE, FEMALE)
+	break_cuffs = TRUE
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
@@ -94,9 +99,9 @@
 	)
 
 	unarmed_types = list(
-		/datum/unarmed_attack/stomp/ipc, 
-		/datum/unarmed_attack/kick/ipc,  
-		/datum/unarmed_attack/terminator, 
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc,
+		/datum/unarmed_attack/terminator,
 		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
@@ -108,11 +113,12 @@
 	return
 
 /datum/species/machine/industrial
-	name = "Hephaestus G1 Industrial Frame"
+	name = SPECIES_IPC_G1
 	short_name = "ind"
 	name_plural = "Industrials"
 	bald = 1
-	bodytype = "Heavy Machine"
+	bodytype = BODYTYPE_IPC_INDUSTRIAL
+	mob_size = 12
 
 	unarmed_types = list(/datum/unarmed_attack/industrial)
 
@@ -134,21 +140,21 @@
 	show_ssd = "completely quiescent"
 
 	has_limbs = list(
-		BP_CHEST =  list("path" = /obj/item/organ/external/chest/industrial),
-		BP_GROIN =  list("path" = /obj/item/organ/external/groin/industrial),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/industrial),
-		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/industrial),
-		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/industrial),
-		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/industrial),
-		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/industrial),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/industrial),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc/industrial),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/ipc/industrial),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/ipc/industrial),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc/industrial),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc/industrial),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/ipc/industrial),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/ipc/industrial),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/industrial),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/industrial),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/industrial),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial)
 		)
 
 	flags = IS_IPC | ACCEPTS_COOLER
-	appearance_flags = HAS_EYE_COLOR
+	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	heat_level_1 = 800
 	heat_level_2 = 1600
@@ -164,7 +170,8 @@
 	sprint_charge_factor = 1.1
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag
 		)
 
 /datum/species/machine/industrial/get_light_color()
@@ -174,11 +181,11 @@
 	return
 
 /datum/species/machine/terminator
-	name = "Military Frame"
+	name = SPECIES_IPC_TERMINATOR
 	short_name = "hks"
 	name_plural = "HKs"
 	bald = 1
-	bodytype = "Heavy Machine"
+	bodytype = BODYTYPE_IPC_INDUSTRIAL
 
 	blurb = "\[REDACTED\]"
 
@@ -191,8 +198,8 @@
 	unarmed_types = list(/datum/unarmed_attack/terminator)
 	rarity_value = 20
 
-	language = "Hephaestus Darkcomms"
-	name_language = "Hephaestus Darkcomms"
+	language = LANGUAGE_TERMINATOR
+	name_language = LANGUAGE_TERMINATOR
 
 	eyes = "eyes_terminator"
 	has_floating_eyes = 1
@@ -205,7 +212,7 @@
 
 	flash_mod = 0
 	siemens_coefficient = 0
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 	mob_size = 20
 
 	show_ssd = "laying inert, its activation glyph dark"
@@ -223,12 +230,9 @@
 
 	flags = IS_IPC | ACCEPTS_COOLER
 	spawn_flags = IS_RESTRICTED
-	appearance_flags = HAS_HAIR_COLOR
+	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
-	blood_color = "#1F181F"
-	flesh_color = "#575757"
-	virus_immune = 1
 	reagent_tag = IS_MACHINE
 
 	inherent_verbs = list(
@@ -285,9 +289,9 @@
 // -- Branded units --
 
 /datum/species/machine/industrial/hephaestus
-	name = "Hephaestus G2 Industrial Frame"
+	name = SPECIES_IPC_G2
 	short_name = "hif"
-	bodytype = "Heavy Machine"
+	bodytype = BODYTYPE_IPC_INDUSTRIAL
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
@@ -310,7 +314,7 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/crush
+		/mob/living/carbon/human/proc/check_tag
 	)
 
 	examine_color = "#688359"
@@ -318,17 +322,17 @@
 	blurb = "An extremely durable and heavy Industrial model branded by Hephaestus Industries. It is their improved Industrial model, with thicker plating and improved power cell. Its actuators struggle to carry the immense weight, however, making the unit quite slow. This chassis would be seen in roles where it would be dangerous or inefficient to use a less durable unit, such as engineering, security, and mining. While this unit still possesses built-in cooling conduits, the increased plating and thickness of said plating proved a difficult challenge for the engineers to develop good cooling, so the unit suffers somewhat from increased heat loads. Overtaxing its hardware will quickly lead to overheating."
 
 	has_limbs = list(
-		BP_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/hephaestus),
-		BP_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/hephaestus),
-		BP_HEAD   = list("path" = /obj/item/organ/external/head/industrial/hephaestus),
-		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/hephaestus),
-		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/hephaestus),
-		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/hephaestus),
-		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/hephaestus),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/hephaestus),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/hephaestus),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/hephaestus),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/hephaestus)
+		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/hephaestus),
+		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/hephaestus),
+		BP_HEAD   = list("path" = /obj/item/organ/external/head/ipc/industrial/hephaestus),
+		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/ipc/industrial/hephaestus),
+		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/ipc/industrial/hephaestus),
+		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/ipc/industrial/hephaestus),
+		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/ipc/industrial/hephaestus),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/industrial/hephaestus),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/industrial/hephaestus),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/industrial/hephaestus),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/hephaestus)
 	)
 
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
@@ -336,9 +340,9 @@
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
 /datum/species/machine/industrial/xion
-	name = "Xion Industrial Frame"
+	name = SPECIES_IPC_XION
 	short_name = "xmf"
-	bodytype = "Heavy Machine"
+	bodytype = BODYTYPE_IPC_INDUSTRIAL
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
@@ -348,7 +352,7 @@
 		/datum/unarmed_attack/industrial/xion)
 
 	brute_mod = 0.9
-	grab_mod = 0.9 
+	grab_mod = 0.9
 	resist_mod = 8
 
 	heat_level_1 = 700
@@ -367,21 +371,21 @@
 	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. This unit can perform EVA without assistance."
 
 	has_limbs = list(
-		BP_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/xion),
-		BP_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/xion),
-		BP_HEAD   = list("path" = /obj/item/organ/external/head/industrial/xion),
-		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/xion),
-		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/xion),
-		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/xion),
-		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/xion),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/xion),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/xion),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/xion),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/xion)
+		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/xion),
+		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/xion),
+		BP_HEAD   = list("path" = /obj/item/organ/external/head/ipc/industrial/xion),
+		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/ipc/industrial/xion),
+		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/ipc/industrial/xion),
+		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/ipc/industrial/xion),
+		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/ipc/industrial/xion),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/industrial/xion),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/industrial/xion),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/industrial/xion),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/xion)
 	)
 
 /datum/species/machine/industrial/xion/remote
-	name = "Remote Xion Industrial Frame"
+	name = SPECIES_IPC_XION_REMOTE
 	short_name = "rem_xmf"
 
 	spawn_flags = IS_RESTRICTED
@@ -398,9 +402,9 @@
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
 /datum/species/machine/zenghu
-	name = "Zeng-Hu Mobility Frame"
+	name = SPECIES_IPC_ZENGHU
 	short_name = "zhf"
-	bodytype = "Zeng-Hu Mobility Frame"
+	bodytype = BODYTYPE_IPC_ZENGHU
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
@@ -415,38 +419,40 @@
 
 	slowdown = -1.2
 
-	appearance_flags = HAS_EYE_COLOR
+	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	examine_color = "#ff00ff"
 
 	blurb = "Being a corporation focused primarily on medical sciences and treatments, Zeng-Hu Pharmaceuticals had little interest in the market of synthetics in the beginning (especially considering a good portion of Zeng-Hu employees are Skrellian). However, after seeing the advances in almost all fields of the galactic market after the advent of synthetics, Zeng-Hu set aside some funds for their own robotics department, focused mainly on medical service and even science related operations. Having taken some inspiration from biological life, the chassis has an interesting leg design: digitigrade legs provide the chassis with enhanced speed. A downside to this development was the reduction of metals on the chassis. Most plates covering the sensitive interior electronics are polymer casts to reduce the weight of the unit, resulting in a not-so-durable android."
 
 	has_limbs = list(
-		BP_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/zenghu),
-		BP_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/zenghu),
-		BP_HEAD   = list("path" = /obj/item/organ/external/head/industrial/zenghu),
-		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/zenghu),
-		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/zenghu),
-		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/zenghu),
-		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/zenghu),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/zenghu),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/zenghu),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/zenghu),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/zenghu)
+		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/zenghu),
+		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/zenghu),
+		BP_HEAD   = list("path" = /obj/item/organ/external/head/ipc/industrial/zenghu),
+		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/ipc/industrial/zenghu),
+		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/ipc/industrial/zenghu),
+		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/ipc/industrial/zenghu),
+		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/ipc/industrial/zenghu),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/industrial/zenghu),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/industrial/zenghu),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/industrial/zenghu),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/zenghu)
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag
 		)
+
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
 /datum/species/machine/bishop
-	name = "Bishop Accessory Frame"
+	name = SPECIES_IPC_BISHOP
 	short_name = "bcf"
-	bodytype = "Bishop Accessory Frame"
+	bodytype = BODYTYPE_IPC_BISHOP
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
@@ -460,37 +466,43 @@
 	brute_mod = 1.2
 	grab_mod = 1.1
 	resist_mod = 4
+	num_alternate_languages = 3
 
-	appearance_flags = HAS_EYE_COLOR
+	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	examine_color = "#00afea"
 
 	blurb = "Bishop Cybernetics frames are among the sleeker, flashier frames widely produced for IPCs. This brand-new, high end design has a focus on pioneering energy efficiency without sacrifice, fitting to Bishop's company vision. Cutting-edge technology in power management means this frame can operate longer while running more demanding processing algorithms than most. This extreme push to minimize power draw means this frame can be equipped with all sorts of extra equipment: a hologram for a face, flashing status displays and embedded lights solely meant for show. The one thing holding this frame back from perfection is the same common criticism leveled against almost all Bishop products: the shiny chrome and glass meant to put all of this tech on display means it's exposed and fragile. It's because of Bishop's unrelenting pursuit of vanity in their designs that these frames often suffer from issues with reliability and struggle to safely perform the same work as cheaper, more rugged frames."
 
 	has_limbs = list(
-		BP_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/bishop),
-		BP_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/bishop),
-		BP_HEAD   = list("path" = /obj/item/organ/external/head/industrial/bishop),
-		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/bishop),
-		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/bishop),
-		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/bishop),
-		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/bishop),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/bishop),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/bishop),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/bishop),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/bishop)
+		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/bishop),
+		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/bishop),
+		BP_HEAD   = list("path" = /obj/item/organ/external/head/ipc/industrial/bishop),
+		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/ipc/industrial/bishop),
+		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/ipc/industrial/bishop),
+		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/ipc/industrial/bishop),
+		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/ipc/industrial/bishop),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/industrial/bishop),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/industrial/bishop),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/industrial/bishop),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/bishop)
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag
 		)
+
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
 /datum/species/machine/unbranded
-	name = "Unbranded Frame"
+	name = SPECIES_IPC_UNBRANDED
 	short_name = "unbran"
 	name_plural = "Unbranded Frames"
 
@@ -507,25 +519,26 @@
 	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
-		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbranded),
-		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbranded),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbranded),
-		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbranded),
-		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbranded),
-		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/unbranded),
-		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbranded),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/unbranded),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbranded),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/unbranded),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbranded)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc/unbranded),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/ipc/unbranded),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/ipc/unbranded),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc/unbranded),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc/unbranded),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/ipc/unbranded),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/ipc/unbranded),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/unbranded),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/unbranded),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/unbranded),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/unbranded)
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag
 		)
 
 /datum/species/machine/unbranded/remote
-	name = "Remote Unbranded Frame"
+	name = SPECIES_IPC_UNBRANDED_REMOTE
 	short_name = "rem_unbran"
 	name_plural = "Remote Unbranded Frames"
 

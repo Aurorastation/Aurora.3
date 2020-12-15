@@ -3,13 +3,12 @@
 	var/streak = ""
 	var/max_streak_length = 6
 	var/current_target = null
-	var/datum/martial_art/base = null // The permanent style
 	var/deflection_chance = 0 //Chance to deflect projectiles
 	var/help_verb = null
 	var/no_guns = FALSE	//set to TRUE to prevent users of this style from using guns
 	var/no_guns_message = ""	//message to tell the style user if they try and use a gun while no_guns = TRUE (DISHONORABRU!)
 	var/temporary = 0
-	var/weapon_affinity	//if this martial art has any interaction with a weapon, also spawns said weapon when the manual is used
+	var/list/weapon_affinity	//if this martial art has any interaction with a weapon
 	var/parry_multiplier = 1	//if this martial art increases the chance of parrying with the weapon
 	var/list/possible_weapons //if any weapon is spawned when you use the martial art manual
 
@@ -34,7 +33,7 @@
 		streak = copytext(streak,2)
 	return
 
-/datum/martial_art/proc/basic_hit(var/mob/living/carbon/human/A,var/mob/living/carbon/human/D)	//copy pasta of the regular unarmed attack, but can be replaced by something else
+/datum/martial_art/proc/basic_hit(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)	//copy pasta of the regular unarmed attack, but can be replaced by something else
 	var/rand_damage = rand(1, 5)
 	var/block = 0
 	var/accurate = 0
@@ -69,7 +68,7 @@
 			if(!D.lying)
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
-				attack_message = "[A] attempted to strike [D], but \he rolled out of the way!"
+				attack_message = "[A] attempted to strike [D], but [D.get_pronoun("he")] rolled out of the way!"
 				D.set_dir(pick(cardinal))
 			miss_type = 1
 
@@ -89,7 +88,7 @@
 		D.visible_message("<span class='danger'>[attack_message]</span>")
 
 	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
-	A.attack_log += text("\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</font>")
+	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</span>")
 	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [A.name] ([A.ckey])</font>")
 	msg_admin_attack("[key_name(A)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
@@ -98,8 +97,7 @@
 
 	var/real_damage = rand_damage
 	var/hit_dam_type = attack.damage_type
-	var/is_sharp = 0
-	var/is_edge = 0
+	var/damage_flags = attack.damage_flags()
 
 	real_damage += attack.get_unarmed_damage(A)
 	real_damage *= D.damage_multiplier
@@ -120,47 +118,45 @@
 				hit_dam_type = PAIN
 
 			if(G.sharp)
-				is_sharp = 1
+				damage_flags |= DAM_SHARP
 
 			if(G.edge)
-				is_edge = 1
+				damage_flags |= DAM_EDGE
 
 			if(istype(A.gloves,/obj/item/clothing/gloves/force))
 				var/obj/item/clothing/gloves/force/X = A.gloves
 				real_damage *= X.amplification
 
-	if(attack.sharp)
-		is_sharp = 1
+	var/armor = D.run_armor_check(hit_zone, "melee")
 
-	if(attack.edge)
-		is_edge = 1
+	attack.apply_effects(A, D, armor, rand_damage, hit_zone)
 
-	var/armour = D.run_armor_check(hit_zone, "melee")
-
-	attack.apply_effects(A, D, armour, rand_damage, hit_zone)
-
-	D.apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, armor, damage_flags = damage_flags)
 
 	return 1
 
-/datum/martial_art/proc/teach(var/mob/living/carbon/human/H,var/make_temporary=0)
+/datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
 	if(help_verb)
 		H.verbs += help_verb
-	if(make_temporary)
-		temporary = 1
-	if(temporary)
-		if(H.martial_art)
-			base = H.martial_art.base
-	else
-		base = src
-	H.martial_art = src
+		to_chat(H, SPAN_NOTICE("You can review the combos by recalling the teachings of this art in your abilities tab."))
+	LAZYADD(H.known_martial_arts, src)
+	if(!H.primary_martial_art)
+		to_chat(H, SPAN_NOTICE("Your primary martial art has been set to [src.name]. You will use this when fighting barehanded."))
+		H.primary_martial_art = src
+	if(length(H.known_martial_arts) > 1)
+		to_chat(H, SPAN_NOTICE("Now that you know more than one martial art, you can select your primary martial art in the abilities tab."))
+		H.verbs += /mob/living/carbon/human/proc/select_primary_martial_art
 
 /datum/martial_art/proc/remove(var/mob/living/carbon/human/H)
-	if(H.martial_art != src)
-		return
-	H.martial_art = base
+	LAZYREMOVE(H.known_martial_arts, src)
+	if(H.primary_martial_art == src)
+		if(length(H.known_martial_arts))
+			H.primary_martial_art = H.known_martial_arts[1]
+		else
+			H.primary_martial_art = null
 	if(help_verb)
 		H.verbs -= help_verb
+	qdel(src)
 
 /datum/martial_art/proc/TornadoAnimate(mob/living/carbon/human/A)
 	set waitfor = FALSE
@@ -168,7 +164,7 @@
 		if(!A)
 			break
 		A.set_dir(i)
-		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
+		playsound(A.loc, "punch", 15, 1, -1)
 
 /obj/item/martial_manual
 	name = "SolCom manual"

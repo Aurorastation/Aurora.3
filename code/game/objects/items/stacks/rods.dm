@@ -1,8 +1,8 @@
 var/global/list/datum/stack_recipe/rod_recipes = list(
 	new /datum/stack_recipe("grille", /obj/structure/grille, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("floor-mounted catwalk", /obj/structure/lattice/catwalk/indoor, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
-	new /datum/stack_recipe("grate, dark", /obj/structure/lattice/catwalk/indoor/grate, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
-	new /datum/stack_recipe("grate, light", /obj/structure/lattice/catwalk/indoor/grate/light, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
+	new /datum/stack_recipe("grate, dark", /obj/structure/lattice/catwalk/indoor/grate, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
+	new /datum/stack_recipe("grate, light", /obj/structure/lattice/catwalk/indoor/grate/light, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("mine track", /obj/structure/track, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("cane", /obj/item/cane, 1, time = 6),
 	new /datum/stack_recipe("crowbar", /obj/item/crowbar, 1, time = 6),
@@ -17,19 +17,28 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 /obj/item/stack/rods
 	name = "metal rod"
 	desc = "Some rods. Can be used for building, or something."
+	desc_info = "Made from metal sheets.  You can build a grille by using it in your hand. \
+	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 	singular_name = "metal rod"
 	icon_state = "rods"
 	flags = CONDUCT
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	force = 9.0
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 1875)
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	recyclable = TRUE
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
-	drop_sound = 'sound/items/drop/sword.ogg'
+
+/obj/item/stack/rods/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/rods/cyborg
 	name = "metal rod synthesizer"

@@ -87,6 +87,9 @@
 /obj/structure/largecrate/animal/adhomai/rafama
 	held_type = /mob/living/simple_animal/hostile/retaliate/rafama
 
+/obj/structure/largecrate/animal/adhomai/schlorrgo
+	held_type = /mob/living/simple_animal/schlorrgo
+
 /obj/structure/largecrate/animal/hakhma
 	name = "hakhma crate"
 	held_type = /mob/living/simple_animal/hakhma

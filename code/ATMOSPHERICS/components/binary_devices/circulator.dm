@@ -4,6 +4,8 @@
 /obj/machinery/atmospherics/binary/circulator
 	name = "circulator"
 	desc = "A gas circulator turbine and heat exchanger."
+	desc_info = "This generates electricity, depending on the difference in temperature between each side of the machine.  The meter in \
+	the center of the machine gives an indicator of how much elecrtricity is being generated."
 	icon = 'icons/obj/pipes.dmi'
 	icon_state = "circ-off"
 	anchored = FALSE

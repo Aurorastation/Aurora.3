@@ -7,11 +7,11 @@
 /datum/uplink_item/item/badassery/balloon
 	name = "For showing that You Are The BOSS (Useless Balloon)"
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
-	path = /obj/item/toy/syndicateballoon
+	path = /obj/item/toy/balloon/syndicate
 
 /datum/uplink_item/item/badassery/balloon/NT
 	name = "For showing that you love NT SOO much (Useless Balloon)"
-	path = /obj/item/toy/nanotrasenballoon
+	path = /obj/item/toy/balloon/nanotrasen
 
 /**************
 * Random Item *
@@ -76,4 +76,4 @@
 		var/obj/structure/largecrate/C = /obj/structure/largecrate
 		icon = image(initial(C.icon), initial(C.icon_state))
 
-	return "\icon[icon]"
+	return "[icon2html(icon, usr)]"

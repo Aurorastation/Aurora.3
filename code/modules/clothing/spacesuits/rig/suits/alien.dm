@@ -11,7 +11,7 @@
 	vision_restriction = TINT_HEAVY
 	offline_vision_restriction = TINT_BLIND
 
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
@@ -30,6 +30,16 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
+/obj/item/rig/unathi/fancy/ninja
+
+	initial_modules = list(
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/device/door_hack
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/vaurca
 	name = "combat exoskeleton control module"
@@ -42,7 +52,7 @@
 	slowdown = 2
 	offline_slowdown = 3
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
 	air_type =   /obj/item/tank/phoron
@@ -73,7 +83,7 @@
 /obj/item/rig/tesla
 	name = "tesla suit control module"
 	desc = "A tajaran hardsuit designated to be used by the special forces of the Tesla Brigade."
-	description_fluff = "Formed in 2461, the Tesla Brigade is an experimental force composed of augmented veterans. Created after the intense casualties of the Das'nrra campaign and the \
+	desc_fluff = "Formed in 2461, the Tesla Brigade is an experimental force composed of augmented veterans. Created after the intense casualties of the Das'nrra campaign and the \
 	severe loss of Republican Guard units. Additional funding and focus was placed on a previously shelved proposal for heavily armed shock and high technology assault troopers. A \
 	special unit designated to withstand the numerical disadvantages and prolonged engagements special forces of the Republic often faces."
 	suit_type = "tesla suit"
@@ -85,7 +95,7 @@
 	offline_slowdown = 3
 	siemens_coefficient = 0
 
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
@@ -96,3 +106,24 @@
 		/obj/item/rig_module/mounted/tesla)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_UTILITY
+
+/obj/item/rig/tesla/process()
+	..()
+	if(wearer)
+		var/obj/item/organ/internal/augment/tesla/T = wearer.internal_organs_by_name[BP_AUG_TESLA]
+		if(T && !T.is_broken())
+			if(cell)
+				cell.give(T.max_charges)
+
+/obj/item/rig/tesla/ninja
+
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/tesla_coil,
+		/obj/item/rig_module/mounted/tesla,
+		/obj/item/rig_module/device/door_hack)
+
+/obj/item/rig/tesla/ninja/Initialize()
+	. = ..()
+	new /obj/item/device/augment_implanter/advanced_tesla(get_turf(src))

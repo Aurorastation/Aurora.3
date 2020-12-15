@@ -30,7 +30,7 @@
 	world.log <<  "## ERROR: [msg][log_end]"
 
 /proc/shutdown_logging()
-	call(RUST_G, "log_close_all")()
+	dll_call(RUST_G, "log_close_all")
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
@@ -49,6 +49,14 @@
 	if (config.log_admin)
 		game_log("ADMIN", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_ckey_target"=html_encode(ckey_target)))
+
+/proc/log_signal(var/text)
+	if(length(signal_log) >= 100)
+		signal_log.Cut(1, 2)
+	signal_log.Add("|[time_stamp()]| [text]")
+	if(config.log_signaler)
+		game_log("SIGNALER", text)
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
 
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (config.log_debug)
@@ -121,17 +129,6 @@
 	if (config.log_adminchat)
 		game_log("ADMINSAY", text)
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]",level = SEVERITY_NOTICE, category = "ADMINSAY")
-
-/proc/log_pda(text, level = SEVERITY_NOTICE, ckey = "", ckey_target = "")
-	if (config.log_pda)
-		game_log("PDA", text)
-	send_gelf_log(
-		short_message = text,
-		long_message = "[time_stamp()]: [text]",
-		level = level,
-		category="PDA",
-		additional_data = list("_ckey" = html_encode(ckey), "_ckey_target" = html_encode(ckey_target))
-	)
 
 /proc/log_ntirc(text, level = SEVERITY_NOTICE, ckey = "", conversation = "")
 	if (config.log_pda)

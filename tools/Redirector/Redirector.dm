@@ -29,7 +29,7 @@ world
 
 	var/link = ""
 
-mob/Login()
+/mob/LateLogin()
 	..()
 
 	var/list/weights = list()

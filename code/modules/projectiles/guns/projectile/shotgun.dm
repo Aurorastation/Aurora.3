@@ -1,7 +1,6 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
 	desc = "A strange shotgun that doesn't seem to belong anywhere. You feel like you shouldn't be able to see this and should... submit an issue?"
-
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -38,6 +37,9 @@
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
+	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  After firing, you will need to pump the gun, by clicking on the gun in your hand.  To reload, load more shotgun \
+	shells into the gun."
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
@@ -54,9 +56,9 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
-	var/pump_fail_msg = "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
-	var/pump_snd = 'sound/weapons/shotgunpump.ogg'
 	var/has_wield_state = TRUE
+	var/rack_sound = 'sound/weapons/shotgun_pump.ogg'
+	var/rack_verb = "pump"
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
@@ -70,20 +72,23 @@
 
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	if(!wielded)
-		to_chat(M, pump_fail_msg)
-		return
+		if(!do_after(M, 20, TRUE)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
+			return
 
-	playsound(M, pump_snd, 60, 1)
+	playsound(M, rack_sound, 60, FALSE)
+	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src)) //Eject casing
+		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
 		chambered = null
 
-	if(loaded.len)
+	if(length(loaded))
 		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
 		loaded -= AC //Remove casing from loaded list.
 		chambered = AC
 
+	update_maptext()
 	update_icon()
 
 /obj/item/gun/projectile/shotgun/pump/update_icon()
@@ -107,7 +112,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
 	name = "naval shotgun"
-	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Necropolis Industries."
+	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Zavodskoi Interstellar."
 	icon = 'icons/obj/guns/malella.dmi'
 	icon_state = "malella"
 	item_state = "malella"
@@ -117,6 +122,7 @@
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
+	desc_info = "Use in hand to unload, alt click to change firemodes."
 	icon = 'icons/obj/guns/dshotgun.dmi'
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
@@ -125,7 +131,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	flags = CONDUCT
 	is_wieldable = TRUE
@@ -144,6 +150,15 @@
 
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel"
+
+/obj/item/gun/projectile/shotgun/doublebarrel/attack_self(mob/user)
+	unload_ammo(user, TRUE)
+
+/obj/item/gun/projectile/shotgun/doublebarrel/AltClick(mob/user)
+	if(Adjacent(user))
+		var/datum/firemode/new_mode = switch_firemodes(user)
+		if(new_mode)
+			to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
 
 /obj/item/gun/projectile/shotgun/doublebarrel/update_icon()
 	..()
@@ -169,7 +184,7 @@
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
 	is_wieldable = FALSE
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 5
 	slot_flags &= ~SLOT_BACK	//you can't sling it on your back
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
@@ -186,7 +201,7 @@
 	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 5
 
 /obj/item/gun/projectile/shotgun/foldable
@@ -196,7 +211,7 @@
 	icon_state = "overunder"
 	item_state = "overunder"
 	slot_flags = SLOT_BELT
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 1
@@ -221,7 +236,7 @@
 		slot_flags = initial(slot_flags)
 		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	else
-		w_class = 4
+		w_class = ITEMSIZE_LARGE
 		slot_flags &= ~SLOT_BELT
 		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
 	to_chat(user, "You [folded ? "fold" : "unfold"] \the [src].")

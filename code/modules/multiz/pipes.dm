@@ -54,7 +54,7 @@
 
 /obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
 	if(istype(M))
-		to_chat(M, span("notice", "You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level."))
+		to_chat(M, SPAN_NOTICE("You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level."))
 		. = ..()
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)

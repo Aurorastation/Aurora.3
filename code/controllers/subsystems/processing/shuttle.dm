@@ -1,81 +1,156 @@
-var/datum/controller/subsystem/processing/shuttle/shuttle_controller
+var/datum/controller/subsystem/processing/shuttle/SSshuttle
 
 /datum/controller/subsystem/processing/shuttle
-	name = "Shuttles"
-	init_order = SS_INIT_SHUTTLE
+	name = "Shuttle"
+	wait = 2 SECONDS
+	flags = 0
 	priority = SS_PRIORITY_SHUTTLE
-	flags = 0	// Override parent.
-	var/list/shuttles
+	init_order = SS_INIT_MISC                    //Should be initialized after all maploading is over and atoms are initialized, to ensure that landmarks have been initialized.
+
+	var/overmap_halted = FALSE                   //Whether ships can move on the overmap; used for adminbus.
+	var/list/ships = list()                      //List of all ships.
+	var/list/shuttles = list()                   //maps shuttle tags to shuttle datums, so that they can be looked up.
+	var/list/process_shuttles = list()           //simple list of shuttles, for processing
+	var/list/registered_shuttle_landmarks = list()
+	var/last_landmark_registration_time
+	var/list/docking_registry = list()           //Docking controller tag -> docking controller program, mostly for init purposes.
+	var/list/shuttle_areas = list()              //All the areas of all shuttles.
+
+	var/list/landmarks_awaiting_sector = list()  //Stores automatic landmarks that are waiting for a sector to finish loading.
+	var/list/landmarks_still_needed = list()     //Stores landmark_tags that need to be assigned to the sector (landmark_tag = sector) when registered.
+	var/list/shuttles_to_initialize = list()     //A queue for shuttles to initialize at the appropriate time.
+	var/list/sectors_to_initialize               //Used to find all sector objects at the appropriate time.
+	var/block_queue = TRUE
+
+	var/tmp/list/working_shuttles
 
 /datum/controller/subsystem/processing/shuttle/New()
-	NEW_SS_GLOBAL(shuttle_controller)
-	shuttles = list()
+	NEW_SS_GLOBAL(SSshuttle)
 
-/datum/controller/subsystem/processing/shuttle/Recover()
-	src.shuttles = shuttle_controller.shuttles
+/datum/controller/subsystem/processing/shuttle/Initialize()
+	last_landmark_registration_time = world.time
+	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.
+		var/datum/shuttle/shuttle = shuttle_type
+		if(!(shuttle in current_map.map_shuttles))
+			continue
+		if(!initial(shuttle.defer_initialisation))
+			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)
+	block_queue = FALSE
+	clear_init_queue()
+	. = ..()
 
-/datum/controller/subsystem/processing/shuttle/proc/setup_shuttle_docks()
-	for(var/shuttle_tag in shuttles)
-		var/datum/shuttle/shuttle = shuttles[shuttle_tag]
-		shuttle.init_docking_controllers()
-		shuttle.dock() //makes all shuttles docked to something at round start go into the docked state
+/datum/controller/subsystem/processing/shuttle/fire(resumed = FALSE)
+	if (!resumed)
+		working_shuttles = process_shuttles.Copy()
 
-	for(var/obj/machinery/embedded_controller/C in SSmachinery.processing_machines)
-		if(istype(C.program, /datum/computer/file/embedded_program/docking))
-			C.program.tag = null //clear the tags, 'cause we don't need 'em anymore
+	while(working_shuttles.len)
+		var/datum/shuttle/shuttle = working_shuttles[working_shuttles.len]
+		working_shuttles.len--
+		if(shuttle.process_state && (shuttle.process(wait, times_fired, src) == PROCESS_KILL))
+			process_shuttles -= shuttle
 
-/datum/controller/subsystem/processing/shuttle/Initialize(timeofday)
-	var/datum/shuttle/ferry/shuttle
+		if(TICK_CHECK)
+			return
 
-	// Escape shuttle.
-	shuttle = new/datum/shuttle/ferry/emergency()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/escape/centcom)
-	shuttle.area_station = locate(/area/shuttle/escape/station)
-	shuttle.area_transition = locate(/area/shuttle/escape/transit)
-	shuttle.docking_controller_tag = "escape_shuttle"
-	shuttle.dock_target_station = "escape_dock"
-	shuttle.dock_target_offsite = "centcom_dock"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN
-	//shuttle.docking_controller_tag = "supply_shuttle"
-	//shuttle.dock_target_station = "cargo_bay"
-	shuttles["Escape"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
-	if(!shuttle)
-		log_debug("Escape shuttle does not exist!")
-	else
-		emergency_shuttle.shuttle = shuttle
+/datum/controller/subsystem/processing/shuttle/proc/clear_init_queue()
+	if(block_queue)
+		return
+	initialize_shuttles()
+	initialize_sectors()
 
-	// Supply shuttle
-	shuttle = new/datum/shuttle/ferry/supply()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/supply/dock)
-	shuttle.area_station = locate(/area/supply/station)
-	shuttle.docking_controller_tag = "supply_shuttle"
-	shuttle.dock_target_station = "cargo_bay"
-	shuttles["Supply"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+/datum/controller/subsystem/processing/shuttle/proc/initialize_shuttles()
+	var/list/shuttles_made = list()
+	for(var/shuttle_type in shuttles_to_initialize)
+		var/shuttle = initialize_shuttle(shuttle_type)
+		if(shuttle)
+			shuttles_made += shuttle
+	hook_up_motherships(shuttles_made)
+	shuttles_to_initialize = null
 
-	SScargo.shuttle = shuttle
+/datum/controller/subsystem/processing/shuttle/proc/initialize_sectors()
+	for(var/sector in sectors_to_initialize)
+		initialize_sector(sector)
+	sectors_to_initialize = null
 
-	shuttle = new/datum/shuttle/ferry/arrival()
-	shuttle.location = 1
-	shuttle.warmup_time = 5
-	shuttle.area_station = locate(/area/shuttle/arrival/station)
-	shuttle.area_offsite = locate(/area/shuttle/arrival/centcom)
-	shuttle.area_transition = locate(/area/shuttle/arrival/transit)
-	shuttle.docking_controller_tag = "arrival_shuttle"
-	shuttle.dock_target_station = "arrival_dock"
-	shuttle.dock_target_offsite = "centcom_setup"
-	shuttle.transit_direction = EAST
-	shuttle.move_time = 60
-	shuttles["Arrival"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+/datum/controller/subsystem/processing/shuttle/proc/register_landmark(shuttle_landmark_tag, obj/effect/shuttle_landmark/shuttle_landmark)
+	if (registered_shuttle_landmarks[shuttle_landmark_tag])
+		CRASH("Attempted to register shuttle landmark with tag [shuttle_landmark_tag], but it is already registered!")
+	if (istype(shuttle_landmark))
+		registered_shuttle_landmarks[shuttle_landmark_tag] = shuttle_landmark
+		last_landmark_registration_time = world.time
 
-	SSarrivals.shuttle = shuttle
+		var/obj/effect/overmap/visitable/O = landmarks_still_needed[shuttle_landmark_tag]
+		if(O) //These need to be added to sectors, which we handle.
+			try_add_landmark_tag(shuttle_landmark_tag, O)
+			landmarks_still_needed -= shuttle_landmark_tag
+		else if(istype(shuttle_landmark, /obj/effect/shuttle_landmark/automatic)) //These find their sector automatically
+			O = map_sectors["[shuttle_landmark.z]"]
+			if(O)
+				O.add_landmark(shuttle_landmark, shuttle_landmark.shuttle_restricted)
+			else
+				landmarks_awaiting_sector += shuttle_landmark
 
-	current_map.setup_shuttles()
-	..()
+/datum/controller/subsystem/processing/shuttle/proc/get_landmark(var/shuttle_landmark_tag)
+	return registered_shuttle_landmarks[shuttle_landmark_tag]
+
+//Checks if the given sector's landmarks have initialized; if so, registers them with the sector, if not, marks them for assignment after they come in.
+//Also adds automatic landmarks that were waiting on their sector to spawn.
+/datum/controller/subsystem/processing/shuttle/proc/initialize_sector(obj/effect/overmap/visitable/given_sector)
+	given_sector.populate_sector_objects() // This is a late init operation that sets up the sector's map_z and does non-overmap-related init tasks.
+
+	for(var/landmark_tag in given_sector.initial_generic_waypoints)
+		if(!try_add_landmark_tag(landmark_tag, given_sector))
+			landmarks_still_needed[landmark_tag] = given_sector
+	
+	for(var/shuttle_name in given_sector.initial_restricted_waypoints)
+		for(var/landmark_tag in given_sector.initial_restricted_waypoints[shuttle_name])
+			if(!try_add_landmark_tag(landmark_tag, given_sector))
+				landmarks_still_needed[landmark_tag] = given_sector
+
+	var/landmarks_to_check = landmarks_awaiting_sector.Copy()
+	for(var/thing in landmarks_to_check)
+		var/obj/effect/shuttle_landmark/automatic/landmark = thing
+		if(landmark.z in given_sector.map_z)
+			given_sector.add_landmark(landmark, landmark.shuttle_restricted)
+			landmarks_awaiting_sector -= landmark
+
+/datum/controller/subsystem/processing/shuttle/proc/try_add_landmark_tag(landmark_tag, obj/effect/overmap/visitable/given_sector)
+	var/obj/effect/shuttle_landmark/landmark = get_landmark(landmark_tag)
+	if(!landmark)
+		return FALSE
+
+	if(landmark.landmark_tag in given_sector.initial_generic_waypoints)
+		given_sector.add_landmark(landmark)
+		. = TRUE
+	for(var/shuttle_name in given_sector.initial_restricted_waypoints)
+		if(landmark.landmark_tag in given_sector.initial_restricted_waypoints[shuttle_name])
+			given_sector.add_landmark(landmark, shuttle_name)
+			. = TRUE
+
+/datum/controller/subsystem/processing/shuttle/proc/initialize_shuttle(var/shuttle_type)
+	var/datum/shuttle/shuttle = shuttle_type
+	if(initial(shuttle.category) != shuttle_type)
+		shuttle = new shuttle()
+		shuttle_areas |= shuttle.shuttle_area
+		return shuttle
+
+/datum/controller/subsystem/processing/shuttle/proc/hook_up_motherships(shuttles_list)
+	for(var/datum/shuttle/S in shuttles_list)
+		if(S.mothershuttle && !S.motherdock)
+			var/datum/shuttle/mothership = shuttles[S.mothershuttle]
+			if(mothership)
+				S.motherdock = S.current_location.landmark_tag
+				mothership.shuttle_area |= S.shuttle_area
+			else
+				error("Shuttle [S] was unable to find mothership [mothership]!")
+
+/datum/controller/subsystem/processing/shuttle/proc/toggle_overmap(new_setting)
+	if(overmap_halted == new_setting)
+		return
+	overmap_halted = !overmap_halted
+	for(var/ship in ships)
+		var/obj/effect/overmap/visitable/ship/ship_effect = ship
+		overmap_halted ? ship_effect.halt() : ship_effect.unhalt()
+
+/datum/controller/subsystem/processing/shuttle/stat_entry()
+	..("Shuttles:[shuttles.len], Ships:[ships.len], L:[registered_shuttle_landmarks.len][overmap_halted ? ", HALT" : ""]")

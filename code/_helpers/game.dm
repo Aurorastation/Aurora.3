@@ -1,14 +1,5 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/proc/dopage(src,target)
-	var/href_list
-	var/href
-	href_list = params2list("src=\ref[src]&[target]=1")
-	href = "src=\ref[src];[target]=1"
-	src:temphtml = null
-	src:Topic(href, href_list)
-	return null
-
 /proc/is_on_same_plane_or_station(var/z1, var/z2)
 	if(z1 == z2)
 		return 1
@@ -99,8 +90,9 @@
 	return dist
 
 /proc/circlerangeturfs(center=usr,radius=3)
-
 	var/turf/centerturf = get_turf(center)
+	if(radius == 1)
+		return list(centerturf)
 	var/list/turfs = new/list()
 	var/rsq = radius * (radius+0.5)
 
@@ -124,39 +116,43 @@
 			turfs += T
 	return turfs
 
-
-
-//var/debug_mob = 0
+// Will recursively loop through an atom's locs until it finds the atom loc above a turf
+/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3)
+	if(recursion_limit <= 0 || isturf(O.loc))
+		return O
+	else
+		O = O.loc
+		recursion_limit--
+		return recursive_loc_turf_check(O, recursion_limit)
 
 // Will recursively loop through an atom's contents and check for mobs, then it will loop through every atom in that atom's contents.
 // It will keep doing this until it checks every content possible. This will fix any problems with mobs, that are inside objects,
 // being unable to hear people due to being in a box within a bag.
+// Does not return list, as list is passed as reference.
 
 /proc/recursive_content_check(var/atom/O,  var/list/L = list(), var/recursion_limit = 3, var/client_check = 1, var/sight_check = 1, var/include_mobs = 1, var/include_objects = 1)
 
 	if(!recursion_limit)
-		return L
+		return 
 
 	for(var/I in O.contents)
 
 		if(ismob(I))
 			if(!sight_check || isInSight(I, O))
-				L |= recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
+				recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
 				if(include_mobs)
 					if(client_check)
 						var/mob/M = I
 						if(M.client)
-							L |= M
+							L += M
 					else
-						L |= I
+						L += I
 
-		else if(istype(I,/obj/))
+		else if(isobj(I))
 			if(!sight_check || isInSight(I, O))
-				L |= recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
+				recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
 				if(include_objects)
-					L |= I
-
-	return L
+					L += I
 
 // Returns a list of mobs and/or objects in range of R from source. Used in radio and say code.
 
@@ -172,13 +168,13 @@
 
 	for(var/I in range)
 		if(ismob(I))
-			hear |= recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
+			recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
 			if(include_mobs)
 				var/mob/M = I
 				if(M.client)
 					hear += M
-		else if(istype(I,/obj/))
-			hear |= recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
+		else if(istype(I, /obj/))
+			recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
 			if(include_objects)
 				hear += I
 
@@ -231,12 +227,14 @@
 		if (!AM.loc)
 			continue
 
+		var/turf/AM_turf = get_turf(AM)
+
 		if(ismob(AM))
 			mobs[AM] = TRUE
-			hearturfs[AM.locs[1]] = TRUE
+			hearturfs[AM_turf] = TRUE
 		else if(isobj(AM))
 			objs[AM] = TRUE
-			hearturfs[AM.locs[1]] = TRUE
+			hearturfs[AM_turf] = TRUE
 
 	for(var/m in player_list)
 		var/mob/M = m
@@ -248,17 +246,18 @@
 			if (!mobs[M])
 				mobs[M] = TRUE
 			continue
-		if(M.loc && hearturfs[M.locs[1]])
+
+		var/turf/M_turf = get_turf(M)
+		if(M.loc && hearturfs[M_turf])
 			if (!mobs[M])
 				mobs[M] = TRUE
 
 	for(var/o in listening_objects)
 		var/obj/O = o
-		if(O && O.loc && hearturfs[O.locs[1]])
+		var/turf/O_turf = get_turf(O)
+		if(O && O.loc && hearturfs[O_turf])
 			if (!objs[O])
 				objs[O] = TRUE
-
-#define SIGN(X) ((X<0)?-1:1)
 
 proc
 	inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
@@ -290,7 +289,6 @@ proc
 				if(T.opacity)
 					return 0
 		return 1
-#undef SIGN
 
 proc/isInSight(var/atom/A, var/atom/B)
 	var/turf/Aturf = get_turf(A)

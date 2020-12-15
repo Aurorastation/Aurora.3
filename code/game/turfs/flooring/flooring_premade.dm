@@ -3,7 +3,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /decl/flooring/carpet
-	footstep_sound = "carpet"
+	footstep_sound = /decl/sound_category/carpet_footstep
 
 /turf/simulated/floor/carpet/blue
 	name = "blue carpet"
@@ -14,6 +14,10 @@
 	name = "rubber carpet"
 	icon_state = "rub_carpet"
 	initial_flooring = /decl/flooring/carpet/rubber
+
+/turf/simulated/floor/carpet/art
+	icon_state = "artcarpet"
+	initial_flooring = /decl/flooring/carpet/art
 
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
@@ -32,14 +36,14 @@
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
-	footstep_sound = "wood"
+	footstep_sound = /decl/sound_category/wood_footstep
 
 /turf/simulated/floor/grass
 	name = "grass patch"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
-	footstep_sound = "grass"
+	footstep_sound = /decl/sound_category/grass_footstep
 
 /turf/simulated/floor/grass/alt
 	icon = 'icons/turf/total_floors.dmi'
@@ -57,7 +61,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced"
 	initial_flooring = /decl/flooring/reinforced
-	footstep_sound = "plating"
+	footstep_sound = /decl/sound_category/plating_footstep
 
 /turf/simulated/floor/reinforced/airless
 	oxygen = 0
@@ -82,6 +86,9 @@
 	nitrogen = 0
 	phoron = ATMOSTANK_PHORON
 
+/turf/simulated/floor/reinforced/phoron/scarce
+	phoron = ATMOSTANK_PHORON_SCARCE
+
 /turf/simulated/floor/reinforced/carbon_dioxide
 	oxygen = 0
 	nitrogen = 0
@@ -95,7 +102,12 @@
 	. = ..()
 	if(!air)
 		make_air()
-	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
+	air.adjust_gas(GAS_N2O, ATMOSTANK_NITROUSOXIDE)
+
+/turf/simulated/floor/reinforced/hydrogen
+	oxygen = 0
+	nitrogen = 0
+	hydrogen = ATMOSTANK_HYDROGEN
 
 /turf/simulated/floor/cult
 	name = "engraved floor"
@@ -111,6 +123,10 @@
 	name = "dark floor"
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
+
+/turf/simulated/floor/tiled/dark/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/tiled/red
 	name = "red floor"
@@ -212,7 +228,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
-	footstep_sound = "plating"
+	footstep_sound = /decl/sound_category/plating_footstep
 
 	roof_type = null
 
@@ -259,7 +275,10 @@
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
-	footstep_sound = "snow"
+	footstep_sound = /decl/sound_category/snow_footstep
+	does_footprint = TRUE
+	footprint_color = COLOR_SNOW
+	track_distance = 4
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()
@@ -268,7 +287,7 @@
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowplating"
-	footstep_sound = "snow"
+	footstep_sound = /decl/sound_category/snow_footstep
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
@@ -320,4 +339,4 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(ishuman(user))
 		ChangeTurf(/turf/space)
-		to_chat(user, span("notice","You clear away the metal foam."))
+		to_chat(user, SPAN_NOTICE("You clear away the metal foam."))

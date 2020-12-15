@@ -356,7 +356,7 @@ var/bomb_set
 		off_station = 2
 
 	if(SSticker.mode && SSticker.mode.name == "Mercenary")
-		var/obj/machinery/computer/shuttle_control/multi/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/syndicate)
+		var/obj/machinery/computer/shuttle_control/multi/antag/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/antag/syndicate)
 		if(syndie_location)
 			SSticker.mode:syndies_didnt_escape = isNotAdminLevel(syndie_location.z)
 		SSticker.mode:nuke_off_station = off_station
@@ -396,7 +396,7 @@ var/bomb_set
 	desc = "Better keep this safe."
 	icon_state = "nucleardisk"
 	item_state = "card-id"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 /obj/item/disk/nuclear/Initialize()
 	. = ..()
@@ -434,7 +434,7 @@ var/bomb_set
 
 /obj/machinery/nuclearbomb/station/LateInitialize()
 	for(var/turf/simulated/floor/T in RANGE_TURFS(1, src))
-		T.set_flooring(get_flooring_data(/decl/flooring/reinforced/circuit/red))
+		T.set_flooring(decls_repository.get_decl(/decl/flooring/reinforced/circuit/red))
 		flash_tiles += T
 	update_icon()
 

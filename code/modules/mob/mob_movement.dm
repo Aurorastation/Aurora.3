@@ -8,7 +8,6 @@
 		return (!mover.density || !density || lying)
 	else
 		return (!mover.density || !density || lying)
-	return
 
 /mob/proc/setMoveCooldown(var/timeout)
 	if(client)
@@ -55,17 +54,23 @@
 				var/mob/living/carbon/C = usr
 				C.toggle_throw_mode()
 			else
-				to_chat(usr, "<span class='warning'>This mob type cannot throw items.</span>")
+				to_chat(usr, SPAN_WARNING("This mob type cannot throw items."))
 			return
 		if(NORTHWEST)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				if(!C.get_active_hand())
-					to_chat(usr, "<span class='warning'>You have nothing to drop in your hand.</span>")
+					to_chat(usr, SPAN_WARNING("You have nothing to drop in your hand."))
 					return
 				drop_item()
+			else if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				var/I = R.get_active_hand()
+				if(istype(I, /obj/item/gripper))
+					var/obj/item/gripper/G = I
+					G.drop_item()
 			else
-				to_chat(usr, "<span class='warning'>This mob type cannot drop items.</span>")
+				to_chat(usr, SPAN_WARNING("This mob type cannot drop items."))
 			return
 
 //This gets called when you press the delete button.
@@ -73,7 +78,7 @@
 	set hidden = 1
 
 	if(!usr.pulling)
-		to_chat(usr, "<span class='notice'>You are not pulling anything.</span>")
+		to_chat(usr, SPAN_NOTICE("You are not pulling anything."))
 		return
 	usr.stop_pulling()
 
@@ -164,7 +169,6 @@
 
 		src.move_speed = world.time - src.l_move_time
 		src.l_move_time = world.time
-		src.m_flag = 1
 		if ((A != src.loc && A && A.z == src.z))
 			src.last_move = get_dir(A, src.loc)
 
@@ -252,13 +256,14 @@
 			for(var/mob/M in range(mob, 1))
 				if(M.pulling == mob)
 					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
-						to_chat(src, "<span class='notice'>You're restrained! You can't move!</span>")
+						to_chat(src, SPAN_NOTICE("You're restrained! You can't move!"))
 						return 0
 					else
 						M.stop_pulling()
 
 		if(mob.pinned.len)
-			to_chat(src, "<span class='notice'>You're pinned to a wall by [mob.pinned[1]]!</span>")
+			to_chat(src, SPAN_WARNING("You're pinned to a wall by [mob.pinned[1]]!"))
+			move_delay = world.time + 1 SECOND // prevent spam
 			return 0
 
 		move_delay = world.time - leftover//set move delay
@@ -297,7 +302,7 @@
 		if (mob_is_human)
 			var/mob/living/carbon/human/H = mob
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
-			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally)) //This will return false if we collapse from exhaustion
+			if (H.m_intent == "run" && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally))) //This will return false if we collapse from exhaustion
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			else
 				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
@@ -385,20 +390,19 @@
 /client/proc/Process_Incorpmove(direct)
 	var/turf/mobloc = get_turf(mob)
 	switch(mob.incorporeal_move)
-		if(1)
+		if(INCORPOREAL_GHOST)
 			var/turf/T = get_step(mob, direct)
 			if(mob.check_holy(T))
-				to_chat(mob, "<span class='warning'>You cannot get past holy grounds while you are in this plane of existence!</span>")
+				to_chat(mob, SPAN_WARNING("You cannot get past holy grounds while you are in this plane of existence!"))
 				return
 			else
 				mob.forceMove(get_step(mob, direct))
 				mob.dir = direct
-		if(2)
-			anim(mobloc,mob,'icons/mob/mob.dmi',,"shadow",,mob.dir)
+		if(INCORPOREAL_NINJA, INCORPOREAL_BSTECH)
+			anim(mobloc, mob, 'icons/mob/mob.dmi', null, "shadow", null, mob.dir)
 			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct
-
-		if(3)
+		if(INCORPOREAL_SHADE)
 			if(!mob.canmove || mob.anchored)
 				return
 			move_delay = 1 + world.time
@@ -406,19 +410,19 @@
 			for(var/obj/structure/window/W in T)
 				if(istype(W, /obj/structure/window/phoronbasic) || istype(W, /obj/structure/window/phoronreinforced))
 					if(W.is_full_window())
-						to_chat(mob, "<span class='warning'>\The [W] obstructs your movement!</span>")
+						to_chat(mob, SPAN_WARNING("\The [W] obstructs your movement!"))
 						return
 
 					if((direct & W.dir) && W.density)
-						to_chat(mob, "<span class='warning'>\The [W] obstructs your movement!</span>")
+						to_chat(mob, SPAN_WARNING("\The [W] obstructs your movement!"))
 						return
 			if(istype(T, /turf/simulated/wall/phoron) || istype(T, /turf/simulated/wall/ironphoron))
-				to_chat(mob, "<span class='warning'>\The [T] obstructs your movement!</span>")
+				to_chat(mob, SPAN_WARNING("\The [T] obstructs your movement!"))
 				return
 
 			for(var/mob/living/L in T)
 				if(L.is_diona() == DIONA_WORKER)
-					to_chat(mob, "<span class='danger'>You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!</span>")
+					to_chat(mob, SPAN_DANGER("You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!"))
 					var/mob/living/carbon/alien/diona/D = new /mob/living/carbon/alien/diona(L)
 					var/mob/living/simple_animal/shade/bluespace/BS = mob
 					if (!(/mob/living/carbon/proc/echo_eject in L.verbs))
@@ -457,6 +461,9 @@
 // Return 1 for movement, 0 for none,
 // -1 to allow movement but with a chance of slipping
 /mob/proc/Allow_Spacemove(var/check_drift = 0)
+	if(status_flags & NOFALL || incorporeal_move == INCORPOREAL_BSTECH)
+		return 1
+
 	if(!Check_Dense_Object()) //Nothing to push off of so end here
 		return 0
 
@@ -469,36 +476,41 @@
 //If there's no gravity then there's no up or down so naturally you can't stand on anything.
 //For the same reason lattices in space don't count - those are things you grip, presumably.
 /mob/proc/check_solid_ground()
-	if(istype(loc, /turf/space))
+	var/turf/T = get_turf(src)
+
+	if (!T) // nullspace so sure, have gravity.
+		return 1
+	else if (istype(T, /turf/space))
 		return 0
 
-	if(!lastarea)
-		lastarea = get_area(loc)
-	if(!lastarea.has_gravity())
+	var/area/A = T.loc
+
+	if (!A.has_gravity())
 		return 0
 
 	return 1
 
 
 /mob/proc/Check_Dense_Object() //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
-
 	var/shoegrip = Check_Shoegrip()
 
 	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //we only care for non-space turfs
 		if(T.density)	//walls work
-			return 1
+			return TRUE
 		else
 			var/area/A = T.loc
 			if(A.has_gravity() || shoegrip)
-				return 1
+				return TRUE
 
 	for(var/obj/O in orange(1, src))
 		if(istype(O, /obj/structure/lattice))
-			return 1
+			return TRUE
+		if(istype(O, /obj/structure/ladder))
+			return TRUE
 		if(O && O.density && O.anchored)
-			return 1
+			return TRUE
 
-	return 0
+	return FALSE
 
 /mob/proc/Check_Shoegrip()
 	return 0
@@ -513,7 +525,7 @@
 //return 1 if slipped, 0 otherwise
 /mob/proc/handle_spaceslipping()
 	if(prob(slip_chance(5)) && !buckled)
-		to_chat(src, "<span class='warning'>You slipped!</span>")
+		to_chat(src, SPAN_WARNING("You slipped!"))
 		src.inertia_dir = src.last_move
 		step(src, src.inertia_dir)
 		return 1

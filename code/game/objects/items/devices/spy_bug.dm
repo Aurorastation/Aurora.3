@@ -8,7 +8,7 @@
 
 	flags = CONDUCT
 	force = 5.0
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5.0
 	throw_range = 15
@@ -36,6 +36,8 @@
 		to_chat(user, "Needs to be both configured and brought in contact with monitor device to be fully functional.")
 
 /obj/item/device/spy_bug/attack_self(mob/user)
+	radio.broadcasting = !radio.broadcasting
+	to_chat(user, "\The [src]'s radio is [radio.broadcasting ? "broadcasting" : "not broadcasting"] now. The current frequency is [radio.frequency].")
 	radio.attack_self(user)
 
 /obj/item/device/spy_bug/attackby(obj/W as obj, mob/living/user as mob)
@@ -56,7 +58,7 @@
 	icon_state = "pda"
 	item_state = "electronic"
 
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1, TECH_ILLEGAL = 3)
 
@@ -156,9 +158,9 @@
 	return 0
 
 /obj/item/device/radio/spy
-	listening = 0
+	listening = FALSE
 	frequency = 1473
-	broadcasting = 0
-	canhear_range = 1
+	broadcasting = FALSE
+	canhear_range = 7
 	name = "spy device"
 	icon_state = "syn_cypherkey"

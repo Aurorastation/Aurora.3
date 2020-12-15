@@ -5,6 +5,11 @@
 	slot = slot_gloves
 	sort_category = "Gloves and Handwear"
 
+/datum/gear/gloves/fingerless_colour
+	display_name = "fingerless gloves (colourable)"
+	path = /obj/item/clothing/gloves/fingerless/colour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/gloves/color
 	display_name = "gloves selection"
 	path = /obj/item/clothing/gloves/black
@@ -27,13 +32,15 @@
 	gloves["lyodsuit gloves"] = /obj/item/clothing/gloves/lyodsuit
 	gear_tweaks += new/datum/gear_tweak/path(gloves)
 
+/datum/gear/gloves/full_leather
+	display_name = "full leather gloves (colourable)"
+	path = /obj/item/clothing/gloves/black_leather/colour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/gloves/evening
 	display_name = "evening gloves"
 	path = /obj/item/clothing/gloves/evening
-
-/datum/gear/gloves/evening/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/gloves/ring
 	display_name = "ring selection"

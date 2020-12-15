@@ -4,13 +4,6 @@
 	item_state = "bl_suit"
 	worn_state = "black"
 
-/obj/item/clothing/under/color/blackf
-	name = "feminine black jumpsuit"
-	desc = "It's very smart and in a ladies-size!"
-	icon_state = "black"
-	item_state = "bl_suit"
-	worn_state = "blackf"
-
 /obj/item/clothing/under/color/blue
 	name = "blue jumpsuit"
 	icon_state = "blue"
@@ -85,6 +78,13 @@
 	icon_state = "psyche"
 	item_state = "psyche"
 	worn_state = "psyche"
+
+/obj/item/clothing/under/rainbow
+	name = "rainbow"
+	desc = "rainbow"
+	icon_state = "rainbow"
+	item_state = "rainbow"
+	worn_state = "rainbow"
 
 /obj/item/clothing/under/lightblue
 	name = "lightblue jumpsuit"
@@ -162,3 +162,10 @@
 	icon_state = "darkred"
 	item_state = "r_suit"
 	worn_state = "darkred"
+
+/obj/item/clothing/under/color/colorable
+	name = "colorable jumpsuit"
+	desc = "A non-descript jumpsuit in 167,777,216 designer colors."
+	icon_state = "white"
+	item_state = "w_suit"
+	worn_state = "colorable"

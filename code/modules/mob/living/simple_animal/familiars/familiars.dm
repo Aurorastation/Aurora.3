@@ -25,6 +25,9 @@
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
 
+/mob/living/simple_animal/familiar/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /mob/living/simple_animal/familiar/carcinus
 	name = "crab"
 	desc = "A small crab said to be made of stone and starlight."
@@ -34,7 +37,7 @@
 	icon_dead = "evilcrab_dead"
 
 	speak_emote = list("chitters","clicks")
-
+	organ_names = list("head", "carapace")
 
 	health = 200
 	maxHealth = 200
@@ -67,7 +70,8 @@
 	melee_damage_upper = 15
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 
 	min_oxy = 0
 
@@ -85,6 +89,7 @@
 	icon_state = "horror"
 	icon_living = "horror"
 	icon_dead = "horror_dead"
+	organ_names = list("meaty core")
 
 /mob/living/simple_animal/familiar/horror/Initialize()
 	. = ..()
@@ -92,10 +97,12 @@
 		icon_state = "horror_alt"
 		icon_living = "horror_alt"
 		icon_dead = "horror_alt_dead"
+		organ_names = list("head", "chest", "tail", "leg")
 	else if(prob(25))
 		icon_state = "abomination"
 		icon_living = "abomination"
 		icon_dead = "abomination_dead"
+		organ_names = list("head", "chest", "tail", "leg")
 
 	speak_emote = list("moans", "groans")
 
@@ -192,10 +199,8 @@
 	desc = "A small rodent. It looks very old."
 	body_color = "gray"
 
-
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-
 
 	health = 25
 	maxHealth = 25
@@ -204,6 +209,7 @@
 	attacktext = "nibbled"
 	universal_speak = 1
 	universal_understand = 1
+	stop_automated_movement = TRUE
 
 	min_oxy = 1 //still require a /bit/ of air.
 	max_co2 = 0
@@ -218,3 +224,6 @@
 	add_language(LANGUAGE_TCB)
 	name = initial(name)
 	desc = initial(desc)
+
+/mob/living/simple_animal/rat/familiar/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

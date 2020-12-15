@@ -31,8 +31,8 @@
 		var/mob/living/simple_animal/borer/B = src.loc
 		var/mob/living/captive_brain/H = src
 
-		to_chat(H, span("danger", "You begin doggedly resisting the parasite's control (this will take approximately sixty seconds)."))
-		to_chat(B.host, span("danger", "You feel the captive mind of [src] begin to resist your control."))
+		to_chat(H, SPAN_DANGER("You begin doggedly resisting the parasite's control (this will take approximately sixty seconds)."))
+		to_chat(B.host, SPAN_DANGER("You feel the captive mind of [src] begin to resist your control."))
 
 		addtimer(CALLBACK(src, .proc/eject_borer, B, H), rand(200, 250) + B.host.getBrainLoss())
 		return
@@ -43,8 +43,8 @@
 	if(!borer?.controlling)
 		return
 
-	to_chat(host, span("danger", "With an immense exertion of will, you regain control of your body!"))
-	to_chat(borer.host, span("danger", "You feel control of the host brain ripped from your grasp, and retract your probosci before the wild neural impulses can damage you."))
+	to_chat(host, SPAN_DANGER("With an immense exertion of will, you regain control of your body!"))
+	to_chat(borer.host, SPAN_DANGER("You feel control of the host brain ripped from your grasp, and retract your probosci before the wild neural impulses can damage you."))
 	borer.detach()
 	verbs -= /mob/living/carbon/proc/release_control
 	verbs -= /mob/living/carbon/proc/punish_host

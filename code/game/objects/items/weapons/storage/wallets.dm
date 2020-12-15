@@ -3,8 +3,8 @@
 	desc = "It can hold a few small and personal things."
 	storage_slots = 10
 	icon_state = "wallet"
-	w_class = 2
-	max_w_class = 2
+	w_class = ITEMSIZE_SMALL
+	max_w_class = ITEMSIZE_SMALL
 	can_hold = list(
 		/obj/item/spacecash,
 		/obj/item/card,
@@ -64,7 +64,7 @@
 	overlays.Cut()
 	if(front_id)
 		var/tiny_state = "id-generic"
-		if("id-"+front_id.icon_state in icon_states(icon))
+		if(("id-" + front_id.icon_state) in icon_states(icon))
 			tiny_state = "id-"+front_id.icon_state
 		var/image/tiny_image = new/image(icon, icon_state = tiny_state)
 		tiny_image.appearance_flags = RESET_COLOR
@@ -171,8 +171,8 @@
 	item_state = "lanyard"
 	overlay_state = "lanyard"
 	attack_verb = list("whipped", "lashed", "lightly garroted")
-	w_class = 1
-	max_w_class = 1
+	w_class = ITEMSIZE_TINY
+	max_w_class = ITEMSIZE_TINY
 	can_hold = list(
 		/obj/item/card,
 		/obj/item/clothing/accessory/badge,
@@ -186,7 +186,8 @@
 	var/plastic_film_overlay_state = "plasticfilm"
 	var/front_id_overlay_state
 
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/storage/wallet/lanyard/New()
 	..()

@@ -2,8 +2,10 @@
 
 /obj/machinery/mineral/processing_unit_console
 	name = "ore redemption console"
-	icon = 'icons/obj/machines/mining_machines.dmi'
-	icon_state = "console"
+	desc = "A handy console which can be use to retrieve mining points for use in the mining vendor, or to set processing values for various ore types."
+	desc_info = "Up to date settings for the refinery can be found in the Aurorastation Guide to Mining wikipage."
+	icon = 'icons/obj/terminals.dmi'
+	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
 	use_power = 1
@@ -20,6 +22,12 @@
 	var/list/datum/alloy/alloy_mats = list()
 	var/waste = 0
 	var/idx = 0
+
+/obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
+	. = ..()
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+	add_overlay(screen_overlay)
+	set_light(1.4, 1, COLOR_CYAN)
 
 /obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
@@ -87,23 +95,24 @@
 		if(machine.ores_processing[ore])
 			switch(machine.ores_processing[ore])
 				if(0)
-					dat += "<font color='red'>not processing</font>"
+					dat += "<span class='warning'>not processing</span>"
 				if(1)
 					dat += "<font color='orange'>smelting</font>"
 				if(2)
-					dat += "<font color='blue'>compressing</font>"
+					dat += "<span class='notice'>compressing</span>"
 				if(3)
 					dat += "<font color='gray'>alloying</font>"
 		else
-			dat += "<font color='red'>not processing</font>"
+			dat += "<span class='warning'>not processing</span>"
 		dat += ".</td><td width = 30><a href='?src=\ref[src];toggle_smelting=[ore]'>\[change\]</a></td></tr>"
 
 	dat += "</table><hr>"
 	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
 	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
-	user << browse(dat, "window=processor_console;size=400x500")
-	onclose(user, "processor_console")
-	return
+	
+	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
+	processor_win.set_content(dat)
+	processor_win.open()
 
 /obj/machinery/mineral/processing_unit_console/Topic(href, href_list)
 	if(..())
@@ -115,8 +124,7 @@
 		if(istype(inserted_id))
 			if(href_list["choice"] == "eject")
 				inserted_id.forceMove(loc)
-				if(!usr.get_active_hand())
-					usr.put_in_hands(inserted_id)
+				usr.put_in_hands(inserted_id)
 				inserted_id = null
 			if(href_list["choice"] == "claim")
 				if(access_mining_station in inserted_id.access)
@@ -176,10 +184,10 @@
 
 /obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
 	if(!inserted_id)
-		to_chat(user, span("warning", "No ID inserted. Cannot digitally sign."))
+		to_chat(user, SPAN_WARNING("No ID inserted. Cannot digitally sign."))
 		return
 	if(!input_mats.len && !output_mats.len && !alloy_mats)
-		to_chat(user, span("warning", "There is no data to print."))
+		to_chat(user, SPAN_WARNING("There is no data to print."))
 		return
 	if(printing)
 		return
@@ -253,7 +261,7 @@
 	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
-	
+
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
 	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
 
@@ -273,6 +281,7 @@
 
 /obj/machinery/mineral/processing_unit
 	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is //i'm gay // based and redpilled
+	desc = "A large smelter and compression machine which heats up ore, then applies the process specified within the ore redemption console, outputting the result to the other side."
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "furnace-off"
 	density = TRUE
@@ -335,7 +344,7 @@
 		if(!O)
 			break
 		if(!isnull(ores_stored[O.material]))
-			ores_stored[O.material]++
+			ores_stored[O.material] = ores_stored[O.material] + 1
 
 		qdel(O)
 
@@ -388,7 +397,7 @@
 							sheets += total - 1
 
 						for(var/i = 0, i < total, i++)
-							console.alloy_mats[A]++
+							console.alloy_mats[A] = console.alloy_mats[A] + 1
 							new A.product(get_turf(output))
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
@@ -407,7 +416,7 @@
 					use_power(100)
 					ores_stored[metal] -= 2
 					sheets += 2
-					console.output_mats[M]++
+					console.output_mats[M] += 1
 					new M.stack_type(get_turf(output))
 
 			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
@@ -421,17 +430,17 @@
 					if(console)
 						console.points += O.worth
 					use_power(100)
-					ores_stored[metal]--
+					ores_stored[metal] -= 1
 					sheets++
-					console.output_mats[M]++
+					console.output_mats[M] += 1
 					new M.stack_type(get_turf(output))
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
 				use_power(500)
-				ores_stored[metal]--
+				ores_stored[metal] -= 1
 				sheets++
-				console.input_mats[O]++
+				console.input_mats[O] += 1
 				console.waste++
 				new /obj/item/ore/slag(get_turf(output))
 		else

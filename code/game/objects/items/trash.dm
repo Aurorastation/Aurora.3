@@ -4,9 +4,14 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
+		)
 	desc = "General waste material, refuse or litter. Dispose responsibly."
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return
@@ -21,11 +26,11 @@
 
 /obj/item/trash/raisins
 	name = "\improper 4no raisins"
-	icon_state= "4no_raisins"
+	icon_state = "4no_raisins"
 
 /obj/item/trash/candy
 	name = "candy wrapper"
-	icon_state= "candy"
+	icon_state = "candy"
 
 /obj/item/trash/cheesie
 	name = "\improper Cheesie Honkers"
@@ -50,12 +55,13 @@
 /obj/item/trash/waffles
 	name = "square tray"
 	icon_state = "waffles"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/plate
 	name = "plate"
 	icon_state = "plate"
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/trash/plate/steak
 	icon_state = "steak"
@@ -64,6 +70,7 @@
 	name = "snack bowl"
 	icon_state	= "snack_bowl"
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/trash/pistachios
 	name = "pistachios pack"
@@ -76,13 +83,14 @@
 /obj/item/trash/tray
 	name = "tray"
 	icon_state = "tray"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/candle
 	name = "candle"
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle4"
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/trash/liquidfood
 	name = "\improper \"LiquidFood\" ration"
@@ -100,16 +108,18 @@
 	name = "maps salty ham"
 	icon_state = "maps-used"
 	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 
 /obj/item/trash/nathisnack
 	name = "razi-snack corned beef"
 	icon_state = "cbeef-used"
 	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 
 /obj/item/trash/brownies
 	name = "square tray"
 	icon_state = "brownies"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/snacktray
 	name = "snacktray"
@@ -129,8 +139,17 @@
 
 /obj/item/trash/can
 	name = "used can"
-	icon_state = "can-used"
+	icon_state = "cola"
 	drop_sound = 'sound/items/drop/soda.ogg'
+	pickup_sound = 'sound/items/pickup/soda.ogg'
+	randpixel = 4
+
+/obj/item/trash/can/Initialize()
+	. = ..()
+	randpixel_xy()
+
+/obj/item/trash/can/adhomian_can
+	icon_state = "can-used"
 
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
@@ -147,24 +166,65 @@
 /obj/item/trash/grease //used for generic plattered food. example is lasagna.
 	name = "square tray"
 	icon_state = "grease"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy! miniature cookies"
 	icon_state = "cookiesnack"
+
+/obj/item/trash/admints
+	name = "\improper Ad-mints"
+	icon_state = "admint_pack"
+
+/obj/item/trash/gum
+	name = "\improper Chewy Fruit flavored gum"
+	icon_state = "gum_pack"
 
 /obj/item/trash/stew
 	name = "empty pot"
 	icon = 'icons/obj/food.dmi'
 	icon_state = "stew_empty"
 	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 
 /obj/item/trash/coffee
 	name = "empty cup"
 	icon_state = "coffee_vended"
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 
 /obj/item/trash/ramen
 	name = "cup ramen"
 	icon_state = "ramen"
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+
+/obj/item/trash/candybowl
+	name = "empty candy bowl"
+	icon_state = "candy_bowl"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/diona_bites
+	name = "dionae bites"
+	icon_state = "dionaebitesempty"
+
+/obj/item/trash/ricetub
+	name = "empty rice tub"
+	icon_state = "ricetub"
+
+/obj/item/trash/ricetub/attackby(obj/item/W, mob/living/user)
+	if(istype(W, /obj/item/material/kitchen/utensil/fork/chopsticks))
+		var/obj/item/trash/ricetub_s/T = new()
+		to_chat(user, SPAN_NOTICE("You reattach the [W] to \the [src]"))
+		src.Destroy()
+		W.Destroy()
+		user.put_in_inactive_hand(T) //Because the chopsticks are in the active hand
+
+/obj/item/trash/ricetub_s
+	name = "empty rice tub"
+	icon_state = "ricetub_s"
+
+/obj/item/trash/seaweed
+	name = "empty moss pack"
+	icon_state = "seaweed"

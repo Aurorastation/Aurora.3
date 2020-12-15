@@ -28,7 +28,6 @@
 	var/fire_alert = 0
 	var/pressure_alert = 0
 	var/temperature_alert = 0
-	var/in_stasis = 0
 
 /mob/living/carbon/human/Life()
 	set background = BACKGROUND_ENABLED
@@ -46,9 +45,6 @@
 	if(wearing_rig && wearing_rig.offline)
 		wearing_rig = null
 
-	in_stasis = istype(loc, /obj/structure/closet/body_bag/cryobag) && loc:opened == 0
-	if(in_stasis) loc:used++
-
 	..()
 
 	if(life_tick%30==5)//Makes huds update every 10 seconds instead of every 30 seconds
@@ -57,7 +53,7 @@
 	voice = GetVoice()
 
 	//No need to update all of these procs if the guy is dead.
-	if(stat != DEAD && !in_stasis)
+	if(stat != DEAD)
 		//Updates the number of stored chemicals for powers
 		handle_changeling()
 
@@ -82,15 +78,13 @@
 
 		handle_shared_dreaming()
 
-	handle_stasis_bag()
-
 	if(!handle_some_updates())
 		return											//We go ahead and process them 5 times for HUD images and other stuff though.
 
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if(mind && mind.vampire)
+	if(mind?.vampire)
 		handle_vampire()
 
 /mob/living/carbon/human/think()
@@ -103,13 +97,13 @@
 	return 1
 
 /mob/living/carbon/human/breathe()
-	if(!in_stasis)
+	if(!InStasis())
 		..()
 
 // Calculate how vulnerable the human is to under- and overpressure.
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
-/mob/living/carbon/human/proc/get_pressure_weakness()
+/mob/living/carbon/human/get_pressure_weakness()
 	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
 
 	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
@@ -223,21 +217,8 @@
 		if (prob(10))
 			stuttering = max(10, stuttering)
 
-/mob/living/carbon/human/proc/handle_stasis_bag()
-	// Handle side effects from stasis bag
-	if(in_stasis)
-		// First off, there's no oxygen supply, so the mob will slowly take brain damage
-		adjustOxyLoss(0.1)
-
-		// Next, the method to induce stasis has some adverse side-effects, manifesting
-		// as cloneloss
-		adjustCloneLoss(0.1)
-		if(stat != DEAD)
-			blinded = TRUE
-			stat = UNCONSCIOUS
-
 /mob/living/carbon/human/handle_mutations_and_radiation()
-	if(in_stasis)
+	if(InStasis())
 		return
 
 	if(getFireLoss())
@@ -274,7 +255,7 @@
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
+				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
 						to_chat(src, "<span class='warning'>Your hair falls out.</span>")
 						h_style = "Bald"
@@ -308,14 +289,6 @@
 	if(head && (head.item_flags & BLOCK_GAS_SMOKE_EFFECT))
 		return
 	..()
-
-/mob/living/carbon/human/handle_post_breath(datum/gas_mixture/breath)
-	..()
-	//spread some viruses while we are at it
-	if(breath && virus2.len > 0 && prob(10))
-		for(var/mob/living/carbon/M in view(1,src))
-			src.spread_disease_to(M)
-
 
 /mob/living/carbon/human/get_breath_from_internal(volume_needed=BREATH_VOLUME)
 	if(internal)
@@ -406,40 +379,38 @@
 		//Body temperature is too hot.
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)	return 1	//godmode
-
+		var/burn_dam = 0
 		if(bodytemperature < species.heat_level_2)
-			take_overall_damage(burn=HEAT_DAMAGE_LEVEL_1, used_weapon = "High Body Temperature")
-			fire_alert = max(fire_alert, 2)
+			burn_dam = HEAT_DAMAGE_LEVEL_1
 		else if(bodytemperature < species.heat_level_3)
-			take_overall_damage(burn=HEAT_DAMAGE_LEVEL_2, used_weapon = "High Body Temperature")
-			fire_alert = max(fire_alert, 2)
+			burn_dam = HEAT_DAMAGE_LEVEL_2
 		else
-			take_overall_damage(burn=HEAT_DAMAGE_LEVEL_3, used_weapon = "High Body Temperature")
-			fire_alert = max(fire_alert, 2)
+			burn_dam = HEAT_DAMAGE_LEVEL_3
+		take_overall_damage(burn = burn_dam, used_weapon = "extreme heat")
+		fire_alert = max(fire_alert, 2)
 
 	else if(bodytemperature <= species.cold_level_1)
 		fire_alert = max(fire_alert, 1)
-		if(status_flags & GODMODE)	return 1	//godmode
+		if(status_flags & GODMODE)
+			return 1
 
-		if (is_diona() == DIONA_WORKER)
-			diona_contained_cold_damage()
+		var/burn_dam = 0
 
-		if(status_flags & GODMODE)	return 1	//godmode
-
-		if(!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			if(bodytemperature > species.cold_level_2)
-				take_overall_damage(burn=COLD_DAMAGE_LEVEL_1, used_weapon = "High Body Temperature")
-				fire_alert = max(fire_alert, 1)
-			else if(bodytemperature > species.cold_level_3)
-				take_overall_damage(burn=COLD_DAMAGE_LEVEL_2, used_weapon = "High Body Temperature")
-				fire_alert = max(fire_alert, 1)
-			else
-				take_overall_damage(burn=COLD_DAMAGE_LEVEL_3, used_weapon = "High Body Temperature")
-				fire_alert = max(fire_alert, 1)
+		if(bodytemperature > species.cold_level_2)
+			burn_dam = COLD_DAMAGE_LEVEL_1
+		else if(bodytemperature > species.cold_level_3)
+			burn_dam = COLD_DAMAGE_LEVEL_2
+		else
+			burn_dam = COLD_DAMAGE_LEVEL_3
+		SetStasis(getCryogenicFactor(bodytemperature), STASIS_COLD)
+		if(!chem_effects[CE_CRYO])
+			take_overall_damage(burn = burn_dam, used_weapon = "extreme cold")
+			fire_alert = max(fire_alert, 1)
 
 	// Account for massive pressure differences.  Done by Polymorph
 	// Made it possible to actually have something that can protect against high pressure... Done by Errorage. Polymorph now has an axe sticking from his head for his previous hardcoded nonsense!
-	if(status_flags & GODMODE)	return 1	//godmode
+	if(status_flags & GODMODE)
+		return 1	//godmode
 
 	if(adjusted_pressure >= species.hazard_high_pressure)
 		var/pressure_damage = min( ( (adjusted_pressure / species.hazard_high_pressure) -1 )*PRESSURE_DAMAGE_COEFFICIENT , MAX_HIGH_PRESSURE_DAMAGE)
@@ -467,8 +438,6 @@
 
 	if (is_diona())
 		diona_handle_temperature(DS)
-
-	return
 
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
@@ -613,7 +582,7 @@
 	return min(1,thermal_protection)
 
 /mob/living/carbon/human/handle_chemicals_in_body()
-	if(in_stasis)
+	if(InStasis())
 		return
 
 	chem_effects.Cut()
@@ -641,15 +610,26 @@
 			if(prob(nausea))
 				delayed_vomit()
 
+		if(CE_ITCH in chem_effects)
+			var/itching = chem_effects[CE_ITCH]
+			if(CE_NOITCH in chem_effects)
+				itching -= chem_effects[CE_NOITCH]
+			if(itching < 5)
+				if(prob(5))
+					to_chat(src, SPAN_WARNING(pick("You have an annoying itch.", "You have a slight itch.")))
+			if(itching >= 5)
+				if(prob(2))
+					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
+
 		if(CE_FEVER in chem_effects)
 			var/normal_temp = species?.body_temperature || (T0C+37)
 			var/fever = chem_effects[CE_FEVER]
 			if(CE_NOFEVER in chem_effects)
-				fever -= chem_effects[CE_NOFEVER] // a dose of 16u paracetamol should offset a stage 4 virus
+				fever -= chem_effects[CE_NOFEVER] // a dose of 16u Perconol should offset a stage 4 virus
 			bodytemperature = Clamp(bodytemperature+fever, normal_temp, normal_temp + 9) // temperature should range from 37C to 46C, 98.6F to 115F
 			if(fever > 1)
 				if(prob(20/3)) // every 30 seconds, roughly
-					to_chat(src, span("warning", pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
+					to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
 				if(prob(20)) // once every 10 seconds, roughly
 					drowsyness += 4
 				if(prob(20))
@@ -660,7 +640,7 @@
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
-			if(I.contaminated && !(isvaurca(src) && src.species.has_organ["filtration bit"]))
+			if(I.contaminated && !(isvaurca(src) && src.species.has_organ[BP_FILTRATION_BIT]))
 				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
 		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
 
@@ -721,7 +701,7 @@
 		return 0
 
 	//SSD check, if a logged player is awake put them back to sleep!
-	if(species.show_ssd && !client && !teleop)
+	if(species.show_ssd && (!client && !vr_mob) && !teleop)
 		Sleeping(2)
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
 		blinded = 1
@@ -736,7 +716,7 @@
 			return 1
 
 		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
-			handle_hallucinations() 
+			handle_hallucinations()
 
 		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
@@ -744,7 +724,7 @@
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
-		if(paralysis || sleeping || in_stasis)
+		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			stat = UNCONSCIOUS
 
@@ -762,16 +742,12 @@
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
-			if(prob(2) && health && !failed_last_breath && !isSynthetic())
+			if(prob(2) && health && !failed_last_breath && !isSynthetic() && !InStasis())
 				if(!paralysis)
 					emote("snore")
-				else
-					emote("groan")
-
-
 
 		//CONSCIOUS
-		else if(!in_stasis)
+		else if(!InStasis())
 			stat = CONSCIOUS
 			willfully_sleeping = FALSE
 
@@ -781,17 +757,6 @@
 		if(embedded_flag && !(life_tick % 10))
 			if(!embedded_needs_process())
 				embedded_flag = 0
-
-		//Ears
-		if(sdisabilities & DEAF)	//disabled-deaf, doesn't get better on its own
-			ear_deaf = max(ear_deaf, 1)
-		else if(ear_deaf)			//deafness, heals slowly over time
-			ear_deaf = max(ear_deaf-1, 0)
-		else if(istype(l_ear, /obj/item/clothing/ears/earmuffs) || istype(r_ear, /obj/item/clothing/ears/earmuffs))	//resting your ears with earmuffs heals ear damage faster
-			ear_damage = max(ear_damage-0.15, 0)
-			ear_deaf = max(ear_deaf, 1)
-		else if(ear_damage < 25)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
-			ear_damage = max(ear_damage-0.05, 0)
 
 		//Resting
 		if(resting)
@@ -837,61 +802,53 @@
 		return
 
 	if(stat != DEAD)
-		if(stat == UNCONSCIOUS && health < maxHealth/2)
-			var/ovr
+		if(stat == UNCONSCIOUS && health < maxHealth / 2)
+			//Critical damage passage overlay
+			var/severity = 0
 			switch(health - maxHealth/2)
-				if(-20 to -10)
-					ovr = "passage1"
-				if(-30 to -20)
-					ovr = "passage2"
-				if(-40 to -30)
-					ovr = "passage3"
-				if(-50 to -40)
-					ovr = "passage4"
-				if(-60 to -50)
-					ovr = "passage5"
-				if(-70 to -60)
-					ovr = "passage6"
-				if(-80 to -70)
-					ovr = "passage7"
-				if(-90 to -80)
-					ovr = "passage8"
-				if(-95 to -90)
-					ovr = "passage9"
-				if(-INFINITY to -95)
-					ovr = "passage10"
-
-			if (ovr != last_brute_overlay)
-				damageoverlay.cut_overlay(last_brute_overlay)
-				damageoverlay.add_overlay(ovr)
-				last_brute_overlay = ovr
+				if(-20 to -10)			severity = 1
+				if(-30 to -20)			severity = 2
+				if(-40 to -30)			severity = 3
+				if(-50 to -40)			severity = 4
+				if(-60 to -50)			severity = 5
+				if(-70 to -60)			severity = 6
+				if(-80 to -70)			severity = 7
+				if(-90 to -80)			severity = 8
+				if(-95 to -90)			severity = 9
+				if(-INFINITY to -95)	severity = 10
+			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
+		else
+			clear_fullscreen("crit")
+			//Oxygen damage overlay
+			if(getOxyLoss())
+				var/severity = 0
+				switch(getOxyLoss())
+					if(10 to 20)		severity = 1
+					if(20 to 25)		severity = 2
+					if(25 to 30)		severity = 3
+					if(30 to 35)		severity = 4
+					if(35 to 40)		severity = 5
+					if(40 to 45)		severity = 6
+					if(45 to INFINITY)	severity = 7
+				overlay_fullscreen("oxy", /obj/screen/fullscreen/oxy, severity)
 			else
-				//Oxygen damage overlay
-				update_oxy_overlay()
+				clear_fullscreen("oxy")
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
-		var/ovr
 		if(hurtdamage)
+			var/severity = 0
 			switch(hurtdamage)
-				if(10 to 25)
-					ovr = "brutedamageoverlay1"
-				if(25 to 40)
-					ovr = "brutedamageoverlay2"
-				if(40 to 55)
-					ovr = "brutedamageoverlay3"
-				if(55 to 70)
-					ovr = "brutedamageoverlay4"
-				if(70 to 85)
-					ovr = "brutedamageoverlay5"
-				if(85 to INFINITY)
-					ovr = "brutedamageoverlay6"
-
-		if(last_brute_overlay != ovr)
-			damageoverlay.cut_overlay(last_brute_overlay)
-			damageoverlay.add_overlay(ovr)
-			last_brute_overlay = ovr
+				if(10 to 25)		severity = 1
+				if(25 to 40)		severity = 2
+				if(40 to 55)		severity = 3
+				if(55 to 70)		severity = 4
+				if(70 to 85)		severity = 5
+				if(85 to INFINITY)	severity = 6
+			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
+		else
+			clear_fullscreen("brute")
 
 		if(healths)
 			healths.overlays.Cut()
@@ -914,19 +871,24 @@
 
 				// Apply a fire overlay if we're burning.
 				if(on_fire)
-					health_images += image('icons/mob/screen1_health.dmi',"burning")
+					var/image/burning_image = image('icons/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
+					health_images += burning_image
 
 				// Show a general pain/crit indicator if needed.
 				if(is_asystole())
-					health_images += image('icons/mob/screen1_health.dmi',"hardcrit")
+					var/image/hardcrit_image = image('icons/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
+					health_images += hardcrit_image
 				else if(trauma_val)
 					if(can_feel_pain())
 						if(trauma_val > 0.7)
-							health_images += image('icons/mob/screen1_health.dmi',"softcrit")
+							var/image/softcrit_image = image('icons/mob/screen1_health.dmi', "softcrit", pixel_x = species.healths_overlay_x)
+							health_images += softcrit_image
 						if(trauma_val >= 1)
-							health_images += image('icons/mob/screen1_health.dmi',"hardcrit")
+							var/image/hardcrit_image = image('icons/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
+							health_images += hardcrit_image
 				else if(no_damage)
-					health_images += image('icons/mob/screen1_health.dmi',"fullhealth")
+					var/image/fullhealth_image = image('icons/mob/screen1_health.dmi', "fullhealth", pixel_x = species.healths_overlay_x)
+					health_images += fullhealth_image
 
 				healths.overlays += health_images
 
@@ -945,11 +907,11 @@
 					nut_icon = 3
 				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
 					nut_icon = 4
-				var/new_val = "nutrition[nut_icon]"
+				var/new_val = "[isSynthetic() ? "charge" : "nutrition"][nut_icon]"
 				if (nutrition_icon.icon_state != new_val)
 					nutrition_icon.icon_state = new_val
 			if(hydration_icon)
-				var/hyd_factor = max(0,min(hydration / max_hydration,1))
+				var/hyd_factor = max_hydration ? Clamp(hydration / max_hydration, 0, 1) : 1
 				var/hyd_icon = 5
 				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
 					hyd_icon = 0
@@ -1049,7 +1011,7 @@
 	return 1
 
 /mob/living/carbon/human/handle_random_events()
-	if(in_stasis)
+	if(InStasis())
 		return
 
 	// Puke if toxloss is too high
@@ -1096,20 +1058,21 @@
 		return 0
 
 	if(shock_stage == 10)
-		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 10, nohalloss = TRUE)
+		custom_pain("[pick(species.pain_messages)]!", 10, nohalloss = TRUE)
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
-			visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
-		eye_blurry = max(2, eye_blurry)
-		stuttering = max(stuttering, 5)
+			visible_message("<b>[src]</b> is having trouble keeping [get_pronoun("his")] eyes open.")
+		if(prob(30))
+			eye_blurry = max(2, eye_blurry)
+			stuttering = max(stuttering, 5)
 
 	if(shock_stage == 40)
 		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60)
-			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
+			visible_message("<b>[src]</b>'s body becomes limp.", SPAN_DANGER("Your body becomes limp."))
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
@@ -1146,8 +1109,6 @@
 			holder.icon_state = "0" 	// X_X
 		else if(is_asystole())
 			holder.icon_state = "flatline"
-		else if(isFBP(src))
-			holder.icon_state = "2"
 		else
 			holder.icon_state = "[pulse()]"
 		hud_list[HEALTH_HUD] = holder
@@ -1161,22 +1122,11 @@
 		hud_list[LIFE_HUD] = holder
 
 	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
-		var/foundVirus = 0
-		for(var/datum/disease/D in viruses)
-			if(!D.hidden[SCANNER])
-				foundVirus++
-		for (var/ID in virus2)
-			if (SSrecords.find_record("id", "[ID]", RECORD_VIRUS))
-				foundVirus = 1
-				break
-
 		var/image/holder = hud_list[STATUS_HUD]
 		if(stat == DEAD)
 			holder.icon_state = "huddead"
 		else if(status_flags & XENO_HOST)
 			holder.icon_state = "hudxeno"
-		else if(foundVirus)
-			holder.icon_state = "hudill"
 		else
 			holder.icon_state = "hudhealthy"
 
@@ -1187,8 +1137,6 @@
 			holder2.icon_state = "hudxeno"
 		else if(has_brain_worms())
 			holder2.icon_state = "hudbrainworm"
-		else if(virus2.len)
-			holder2.icon_state = "hudill"
 		else
 			holder2.icon_state = "hudhealthy"
 
@@ -1326,6 +1274,20 @@
 	update_equipment_vision()
 	species.handle_vision(src)
 
+/mob/living/carbon/human/handle_hearing()
+	..()
+
+	if(ear_damage < HEARING_DAMAGE_LIMIT)
+		//Hearing aids allow our ear_deaf to reach zero, if we have a hearing disability
+		if(ear_deaf <= 1 && (sdisabilities & DEAF) && has_hearing_aid())
+			setEarDamage(-1, max(ear_deaf-1, 0))
+
+		if(istype(l_ear, /obj/item/clothing/ears/earmuffs) || istype(r_ear, /obj/item/clothing/ears/earmuffs))	//resting your ears with earmuffs heals ear damage faster
+			adjustEarDamage(-0.15, 0)
+			setEarDamage(-1, max(ear_deaf, 1))
+		else if(ear_damage < HEARING_DAMAGE_SLOW_HEAL)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
+			adjustEarDamage(-0.05, 0)
+
 /mob/living/carbon/human/update_sight()
 	..()
 	if(stat == DEAD)
@@ -1341,17 +1303,17 @@
 		return
 
 	if (failed_last_breath || (getOxyLoss() + get_shock()) > exhaust_threshold)//Can't catch our breath if we're suffocating
-		flash_pain()
+		flash_pain(getOxyLoss()/2)
 		return
 
 	if (nutrition <= 0)
 		if (prob(1.5))
-			to_chat(src, span("warning", "You feel hungry and exhausted, eat something to regain your energy!"))
+			to_chat(src, SPAN_WARNING("You feel hungry and exhausted, eat something to regain your energy!"))
 		return
 
 	if (hydration <= 0)
 		if (prob(1.5))
-			to_chat(src, span("warning", "You feel thirsty and exhausted, drink something to regain your energy!"))
+			to_chat(src, SPAN_WARNING("You feel thirsty and exhausted, drink something to regain your energy!"))
 		return
 
 	if (stamina != max_stamina)
@@ -1368,23 +1330,18 @@
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	var/new_oxy
 	if(getOxyLoss())
+		var/severity = 0
 		switch(getOxyLoss())
-			if(10 to 20)
-				new_oxy = "oxydamageoverlay1"
-			if(20 to 25)
-				new_oxy = "oxydamageoverlay2"
-			if(25 to 30)
-				new_oxy = "oxydamageoverlay3"
-			if(30 to 35)
-				new_oxy = "oxydamageoverlay4"
-			if(35 to 40)
-				new_oxy = "oxydamageoverlay5"
-			if(40 to 45)
-				new_oxy = "oxydamageoverlay6"
-			if(45 to INFINITY)
-				new_oxy = "oxydamageoverlay7"
+			if(10 to 20)		severity = 1
+			if(20 to 25)		severity = 2
+			if(25 to 30)		severity = 3
+			if(30 to 35)		severity = 4
+			if(35 to 40)		severity = 5
+			if(40 to 45)		severity = 6
+			if(45 to INFINITY)	severity = 7
+		new_oxy = "oxydamageoverlay[severity]"
 
-		if (new_oxy != last_oxy_overlay)
+		if(new_oxy != last_oxy_overlay)
 			damageoverlay.cut_overlay(last_oxy_overlay)
 			damageoverlay.add_overlay(new_oxy)
 			last_oxy_overlay = new_oxy

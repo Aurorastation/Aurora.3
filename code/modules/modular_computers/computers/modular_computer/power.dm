@@ -1,17 +1,16 @@
-/obj/item/modular_computer/proc/power_failure(var/malfunction = 0)
+/obj/item/modular_computer/proc/power_failure(var/malfunction = FALSE)
 	if(enabled) // Shut down the computer
-		visible_message("<span class='danger'>\The [src]'s screen flickers briefly and then goes dark.</span>")
+		visible_message(SPAN_WARNING("\The [src]'s screen flickers briefly and then goes dark."))
 		if(active_program)
-			active_program.event_powerfailure(0)
+			active_program.event_powerfailure(FALSE)
 		for(var/datum/computer_file/program/PRG in idle_threads)
-			PRG.event_powerfailure(1)
-		shutdown_computer(0)
-
+			PRG.event_powerfailure(TRUE)
+		shutdown_computer(FALSE)
 	power_has_failed = TRUE
 	update_icon()
 
-// Tries to use power from battery. Passing 0 as parameter results in this proc returning whether battery is functional or not.
-/obj/item/modular_computer/proc/battery_power(var/power_usage = 0)
+// Tries to use power from battery. Passing false as parameter results in this proc returning whether battery is functional or not.
+/obj/item/modular_computer/proc/battery_power(var/power_usage = FALSE)
 	apc_powered = FALSE
 	if(!battery_module || !battery_module.check_functionality() || battery_module.battery.charge <= 0)
 		return FALSE
@@ -51,15 +50,14 @@
 // Handles power-related things, such as battery interaction, recharging, shutdown when it's discharged
 /obj/item/modular_computer/proc/handle_power()
 	var/power_usage = screen_on ? base_active_power_usage : base_idle_power_usage
-	if (enabled)
+	if(enabled)
 		for(var/obj/item/computer_hardware/H in get_all_components())
 			if(H.enabled)
 				power_usage += H.power_usage
 		last_power_usage = power_usage
 
-	
 	if(computer_use_power(power_usage))
-		if (power_has_failed)
+		if(power_has_failed)
 			power_has_failed = FALSE
 			update_icon()
 		return

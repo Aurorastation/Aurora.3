@@ -12,7 +12,6 @@
 	name = "mounted ion rifle"
 	desc = "An exosuit-mounted ion rifle. Handle with care."
 	icon_state = "mecha_ion"
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	holding_type = /obj/item/gun/energy/rifle/ionrifle/mounted/mech
 
 /obj/item/mecha_equipment/mounted_system/taser/laser
@@ -31,7 +30,7 @@
 /obj/item/mecha_equipment/mounted_system/pulse
 	name = "heavy pulse cannon"
 	desc = "A weapon for combat exosuits. The eZ-13 mk2 heavy pulse rifle shoots powerful pulse-based beams, capable of destroying structures."
-	icon_state = "railauto"
+	icon_state = "pulse"
 	holding_type = /obj/item/gun/energy/pulse/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
@@ -41,7 +40,7 @@
 	desc = "A weapon for combat exosuits. Shoots armor penetrating xray beams."
 	icon_state = "mecha_xray"
 	holding_type = /obj/item/gun/energy/xray/mounted/mech
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
 /obj/item/mecha_equipment/mounted_system/blaster
@@ -68,22 +67,22 @@
 /obj/item/gun/energy/rifle/ionrifle/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
-	has_safety = FALSE	
+	has_safety = FALSE
 
 /obj/item/gun/energy/laser/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
-	has_safety = FALSE	
+	has_safety = FALSE
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
-	has_safety = FALSE	
+	has_safety = FALSE
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
-	has_safety = FALSE	
+	has_safety = FALSE
 
 /*Launchers*/
 
@@ -98,7 +97,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadefrag
 	name = "frag grenade launcher"
 	desc = "The SGL-6FR grenade launcher is designed to launch primed fragmentation grenades."
-	icon_state = "mecha_fraglnchr"
+	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
@@ -106,7 +105,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadeflash
 	name = "flashbang launcher"
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
-	icon_state = "mecha_grenadelnchr"
+	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedfl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
@@ -114,7 +113,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadetear
 	name = "teargas launcher"
 	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
-	icon_state = "mecha_grenadelnchr"
+	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedtgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
@@ -122,7 +121,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadesmoke
 	name = "smoke grenade launcher"
 	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
-	icon_state = "mecha_grenadelnchr"
+	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedsgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
@@ -287,3 +286,157 @@
 	if(istype(C))
 		return C.charge/C.maxcharge
 	return null
+
+/obj/item/mecha_equipment/shield
+	name = "exosuit shield droid"
+	desc = "The Hephaestus Armature system is a well liked energy deflector system designed to stop any projectile before it has a chance to become a threat."
+	icon_state = "shield_droid"
+	var/obj/aura/mechshield/aura
+	var/max_charge = 150
+	var/charge = 150
+	var/last_recharge = 0
+	var/charging_rate = 7500 * CELLRATE
+	var/cooldown = 3.5 SECONDS // Time until we can recharge again after a blocked impact
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+
+/obj/item/mecha_equipment/shield/installed(mob/living/heavy_vehicle/_owner)
+	. = ..()
+	aura = new /obj/aura/mechshield(_owner)
+	aura.added_to(_owner)
+	aura.set_holder(src)
+
+/obj/item/mecha_equipment/shield/uninstalled()
+	QDEL_NULL(aura)
+	. = ..()
+
+/obj/item/mecha_equipment/shield/attack_self(mob/user)
+	. = ..()
+	if(.)
+		toggle()
+
+/obj/item/mecha_equipment/shield/proc/stop_damage(var/damage)
+	var/difference = damage - charge
+	charge = Clamp(charge - damage, 0, max_charge)
+
+	last_recharge = world.time
+
+	if(difference > 0)
+		for(var/mob/pilot in owner.pilots)
+			to_chat(pilot, FONT_LARGE(SPAN_WARNING("Warning: Deflector shield failure detected, shutting down.")))
+		toggle()
+		playsound(get_turf(owner),'sound/mecha/internaldmgalarm.ogg', 35, TRUE)
+		return difference
+	else
+		return FALSE
+
+/obj/item/mecha_equipment/shield/proc/toggle()
+	if(!aura)
+		return
+	aura.toggle()
+	aura.dir = owner.dir
+	if(aura.dir == NORTH)
+		aura.layer = MECH_UNDER_LAYER
+	else
+		aura.layer = ABOVE_MOB_LAYER
+	playsound(owner,'sound/weapons/flash.ogg', 35, TRUE)
+	update_icon()
+	if(aura.active)
+		START_PROCESSING(SSprocessing, src)
+	else
+		STOP_PROCESSING(SSprocessing, src)
+	owner.update_icon()
+
+/obj/item/mecha_equipment/shield/update_icon()
+	. = ..()
+	if(!aura)
+		return
+	if(aura.active)
+		icon_state = "shield_droid_a"
+	else
+		icon_state = "shield_droid"
+
+/obj/item/mecha_equipment/shield/process()
+	if(charge >= max_charge)
+		return
+	if((world.time - last_recharge) < cooldown)
+		return
+	var/obj/item/cell/cell = owner.get_cell()
+
+	var/actual_required_power = Clamp(max_charge - charge, 0, charging_rate)
+	charge += cell.use(actual_required_power)
+
+/obj/item/mecha_equipment/shield/get_hardpoint_status_value()
+	return charge / max_charge
+
+/obj/item/mecha_equipment/shield/get_hardpoint_maptext()
+	return "[(aura && aura.active) ? "ONLINE" : "OFFLINE"]: [round((charge / max_charge) * 100)]%"
+
+/obj/aura/mechshield
+	icon = 'icons/mecha/shield.dmi'
+	name = "mechshield"
+	var/obj/item/mecha_equipment/shield/shields
+	var/active = FALSE
+	layer = ABOVE_MOB_LAYER
+	pixel_x = 8
+	pixel_y = 4
+	mouse_opacity = 0
+
+/obj/aura/mechshield/added_to(mob/living/target)
+	..()
+	target.vis_contents += src
+	dir = target.dir
+
+/obj/aura/mechshield/proc/set_holder(var/obj/item/mecha_equipment/shield/holder)
+	shields = holder
+
+/obj/aura/mechshield/Destroy()
+	if(user)
+		user.vis_contents -= src
+	shields = null
+	. = ..()
+
+/obj/aura/mechshield/proc/toggle()
+	active = !active
+
+	update_icon()
+
+	if(active)
+		flick("shield_raise", src)
+	else
+		flick("shield_drop", src)
+
+
+/obj/aura/mechshield/update_icon()
+	. = ..()
+	if(active)
+		icon_state = "shield"
+	else
+		icon_state = "shield_null"
+
+/obj/aura/mechshield/bullet_act(obj/item/projectile/P, var/def_zone)
+	if(!active)
+		return
+	if(shields?.charge)
+		P.damage = shields.stop_damage(P.damage)
+		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."))
+		flick("shield_impact", src)
+		playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
+		//light up the night.
+		new /obj/effect/effect/smoke/illumination(get_turf(src), 5, 4, 1, "#ffffff")
+		if(P.damage <= 0)
+			return AURA_FALSE|AURA_CANCEL
+
+		spark(get_turf(src), 5, global.alldirs)
+		playsound(get_turf(src), /decl/sound_category/spark_sound, 25, TRUE)
+
+/obj/aura/mechshield/hitby(atom/movable/M, var/speed)
+	. = ..()
+	if(!active)
+		return
+	if(shields.charge && speed <= 5)
+		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash briefly as they deflect \the [M]."))
+		flick("shield_impact", src)
+		playsound(user, 'sound/effects/basscannon.ogg', 10, TRUE)
+		return AURA_FALSE|AURA_CANCEL
+	//Too fast!

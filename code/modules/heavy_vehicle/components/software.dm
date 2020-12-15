@@ -1,4 +1,4 @@
-#define T_BOARD_MECHA(name)	"vehicle software (" + (name) + ")"
+#define T_BOARD_MECHA(name)	"" + "vehicle software " + "(" + (name) + ")"
 
 /obj/item/circuitboard/exosystem
 	name = "vehicle software template"

@@ -130,6 +130,21 @@ var/list/slot_equipment_priority = list( \
 	if(hand)	return r_hand
 	else		return l_hand
 
+//Returns the thing if it's a subtype of the requested thing, taking priority of the active hand
+/mob/proc/get_type_in_hands(var/type)
+	if(hand)
+		if(istype(l_hand, type))
+			return l_hand
+		else if(istype(r_hand, type))
+			return r_hand
+		return
+	else
+		if(istype(r_hand, type))
+			return r_hand
+		else if(istype(l_hand, type))
+			return l_hand
+		return
+
 //Puts the item into your l_hand if possible and calls all necessary triggers/updates. returns 1 on success.
 /mob/proc/put_in_l_hand(var/obj/item/W)
 	if(lying || !istype(W))
@@ -153,11 +168,19 @@ var/list/slot_equipment_priority = list( \
 //Puts the item our active hand if possible. Failing that it tries our inactive hand. Returns 1 on success.
 //If both fail it drops it on the floor and returns 0.
 //This is probably the main one you need to know :)
-/mob/proc/put_in_hands(var/obj/item/W)
+/mob/proc/put_in_hands(var/obj/item/W, var/check_adjacency = FALSE)
 	if(!W || !istype(W))
 		return 0
-
-	W.forceMove(get_turf(src))
+	var/move_to_src = TRUE
+	if(check_adjacency)
+		move_to_src = FALSE
+		var/turf/origin = get_turf(W)
+		if(Adjacent(origin))
+			move_to_src = TRUE
+	if(move_to_src)
+		W.forceMove(get_turf(src))
+	else
+		W.forceMove(get_turf(W))
 	W.layer = initial(W.layer)
 	W.dropped()
 	return 0
@@ -172,7 +195,7 @@ var/list/slot_equipment_priority = list( \
 		if(!(W && W.loc))
 			return 1
 		W.forceMove(target)
-		update_icons()
+		update_icon()
 		return 1
 	return 0
 
@@ -204,7 +227,7 @@ var/list/slot_equipment_priority = list( \
 		return
 
 	if(I.drop_sound)
-		playsound(I, I.drop_sound, 25, 0, required_asfx_toggles = ASFX_DROPSOUND)
+		playsound(I, I.drop_sound, DROP_SOUND_VOLUME, 0, required_asfx_toggles = ASFX_DROPSOUND)
 
 /*
 	Removes the object from any slots the mob might have, calling the appropriate icon update proc.
@@ -239,7 +262,11 @@ var/list/slot_equipment_priority = list( \
 
 /mob/proc/canUnEquip(obj/item/I)
 	if(!I) //If there's nothing to drop, the drop is automatically successful.
-		return 1
+		return TRUE
+	if(istype(loc, /obj))
+		var/obj/O = loc
+		if(!O.can_hold_dropped_items())
+			return FALSE
 	var/slot = get_inventory_slot(I)
 	return slot && I.mob_can_unequip(src, slot)
 
@@ -302,12 +329,12 @@ var/list/slot_equipment_priority = list( \
 //Outdated but still in use apparently. This should at least be a human proc.
 /mob/proc/get_equipped_items(var/include_carried = 0)
 	. = list()
-	if(slot_back) . += back
-	if(slot_wear_mask) . += wear_mask
+	if(back) . += back
+	if(wear_mask) . += wear_mask
 
 	if(include_carried)
-		if(slot_l_hand) . += l_hand
-		if(slot_r_hand) . += r_hand
+		if(l_hand) . += l_hand
+		if(r_hand) . += r_hand
 
 
 
@@ -319,16 +346,19 @@ var/list/slot_equipment_priority = list( \
 	src.throw_mode_off()
 	if(stat || !target)
 		return
-	if(target.type == /obj/screen) return
+	if(target.type == /obj/screen)
+		return
 
 	var/atom/movable/item = src.get_active_hand()
 
-	if(!item) return
+	if(!item)
+		return
 
-	if (istype(item, /obj/item/grab))
+	var/can_throw = TRUE
+	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
-		if(ismob(item))
+		if(ismob(item) && G.state >= GRAB_NECK)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
@@ -342,13 +372,15 @@ var/list/slot_equipment_priority = list( \
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
 				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
+				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>")
 				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
 
 			qdel(G)
+		else
+			can_throw = FALSE
 
-	if(!item) return //Grab processing has a chance of returning null
-
+	if(!item || !can_throw)
+		return //Grab processing has a chance of returning null
 
 	src.remove_from_mob(item)
 	item.loc = src.loc
@@ -357,27 +389,24 @@ var/list/slot_equipment_priority = list( \
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
 		return
 
-
 	//actually throw it!
-	if (item)
-		src.visible_message("<span class='warning'>[src] has thrown [item].</span>")
-
+	if(item)
+		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
-
-
 /*
 		if(istype(src.loc, /turf/space) || (src.flags & NOGRAV)) //they're in space, move em one space in the opposite direction
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
 */
-
 		if(istype(item,/obj/item))
 			var/obj/item/W = item
 			W.randpixel_xy()
+			var/volume = W.get_volume_by_throwforce_and_or_w_class()
+			playsound(src, 'sound/effects/throw.ogg', volume, TRUE, -1)
 
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
 

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/icelance.dmi'
 	icon_state = "icelance"
 	item_state = "icelance"
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	max_shots = 3
 	accuracy = -1
 	accuracy_wielded = 2
@@ -24,7 +24,7 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	description_fluff = "The Tui'ad \"Icelance\" laser rifle is an energy weapon of Tajaran design. Clumsy overheating handguns and rifles that slowly fire long bolts of \
+	desc_fluff = "The Tui'ad \"Icelance\" laser rifle is an energy weapon of Tajaran design. Clumsy overheating handguns and rifles that slowly fire long bolts of \
 	concentrated energy are used by high ranking soldiers or special operatives of the Republican army, but their durability is dubious in comparison to the mass-produced, \
 	single shot or bolt action rifles that the majority of Tajaran soldiers use."
 
@@ -44,6 +44,7 @@
 		if(do_after(user,20))
 			to_chat(user, "<span class='notice'>You finish charging \the [src].</span>")
 			power_supply.give(charge_cost)
+			update_maptext()
 			update_icon()
 			is_charging = FALSE
 		else

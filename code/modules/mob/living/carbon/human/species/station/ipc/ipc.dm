@@ -1,10 +1,11 @@
 /datum/species/machine
-	name = "Baseline Frame"
+	name = SPECIES_IPC
 	short_name = "ipc"
 	name_plural = "Baselines"
-	bodytype = "Machine"
+	category_name = "Integrated Positronic Chassis"
+	bodytype = BODYTYPE_IPC
 	age_min = 1
-	age_max = 30
+	age_max = 60
 	economic_modifier = 3
 	default_genders = list(NEUTER)
 
@@ -57,7 +58,7 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	heat_level_1 = 600		
+	heat_level_1 = 600
 	heat_level_2 = 1200
 	heat_level_3 = 2400
 
@@ -66,16 +67,16 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/change_monitor
+		/mob/living/carbon/human/proc/change_monitor,
+		/mob/living/carbon/human/proc/check_tag
 	)
 
 	flags = IS_IPC
-	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
-	blood_color = "#1F181F"
+	blood_color = COLOR_IPC_BLOOD
 	flesh_color = "#575757"
-	virus_immune = 1
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
@@ -111,8 +112,14 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
+	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA, CITIZENSHIP_GOLDEN)
 	default_citizenship = CITIZENSHIP_NONE
+	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+
+	alterable_internal_organs = list()
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
@@ -130,7 +137,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
-			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
+			to_chat(H, SPAN_DANGER("ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
 		else
 			return 1
@@ -146,28 +153,24 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	return sanitizeName(new_name, allow_numbers = 1)
 
 /datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
-	if (!new_machine || !player)
+	if(!new_machine || !player)
+		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
+		if(tag)
+			tag.serial_number = uppertext(dd_limittext(md5(new_machine.real_name), 12))
+			tag.ownership_info = IPC_OWNERSHIP_COMPANY
+			tag.citizenship_info = CITIZENSHIP_BIESEL
 		return
 
-	if (establish_db_connection(dbcon))
+	var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 
-		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
-
-		var/status = TRUE
-		var/list/query_details = list("ckey" = player.ckey, "character_name" = player.prefs.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
-		query.Execute(query_details)
-
-		if (query.NextRow())
-			status = text2num(query.item[1])
-		else
-			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name, tag_status) VALUES (:ckey:, :character_name:, 1)")
-			log_query.Execute(query_details)
-
-		if (!status)
-			new_machine.internal_organs_by_name -= BP_IPCTAG
-			new_machine.internal_organs -= tag
-			qdel(tag)
+	if(player.prefs.machine_tag_status)
+		tag.serial_number = player.prefs.machine_serial_number
+		tag.ownership_info = player.prefs.machine_ownership_status
+		tag.citizenship_info = new_machine.citizenship
+	else
+		new_machine.internal_organs_by_name -= BP_IPCTAG
+		new_machine.internal_organs -= tag
+		qdel(tag)
 
 /datum/species/machine/proc/update_tag(var/mob/living/carbon/human/target, var/client/player)
 	if (!target || !player)
@@ -302,4 +305,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
+	return FALSE
+
+/datum/species/machine/has_psi_potential()
 	return FALSE

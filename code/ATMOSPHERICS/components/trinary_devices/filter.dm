@@ -22,6 +22,7 @@
 	 2: Nitrogen: Nitrogen ONLY
 	 3: Carbon Dioxide: Carbon Dioxide ONLY
 	 4: Sleeping Agent (N2O)
+	 5: Hydrogen (H2)
 	*/
 	var/filter_type = -1
 	var/list/filtered_out = list()
@@ -40,15 +41,17 @@
 	. = ..()
 	switch(filter_type)
 		if(0) //removing hydrocarbons
-			filtered_out = list("phoron")
+			filtered_out = list(GAS_PHORON)
 		if(1) //removing O2
-			filtered_out = list("oxygen")
+			filtered_out = list(GAS_OXYGEN)
 		if(2) //removing N2
-			filtered_out = list("nitrogen")
+			filtered_out = list(GAS_NITROGEN)
 		if(3) //removing CO2
-			filtered_out = list("carbon_dioxide")
+			filtered_out = list(GAS_CO2)
 		if(4)//removing N2O
-			filtered_out = list("sleeping_agent")
+			filtered_out = list(GAS_N2O)
+		if(5)//removing H2
+			filtered_out = list(GAS_HYDROGEN)
 
 	air1.volume = ATMOS_DEFAULT_VOLUME_FILTER
 	air2.volume = ATMOS_DEFAULT_VOLUME_FILTER
@@ -169,6 +172,8 @@
 			current_filter_type = "Carbon Dioxide"
 		if(4)
 			current_filter_type = "Nitrous Oxide"
+		if(5)
+			current_filter_type = "Hydrogen"
 		if(-1)
 			current_filter_type = "Nothing"
 		else
@@ -183,6 +188,7 @@
 			<A href='?src=\ref[src];filterset=2'>Nitrogen</A><BR>
 			<A href='?src=\ref[src];filterset=3'>Carbon Dioxide</A><BR>
 			<A href='?src=\ref[src];filterset=4'>Nitrous Oxide</A><BR>
+			<A href='?src=\ref[src];filterset=5'>Hydrogen</A><BR>
 			<A href='?src=\ref[src];filterset=-1'>Nothing</A><BR>
 			<HR>
 			<B>Set Flow Rate Limit:</B>
@@ -205,15 +211,17 @@
 		filtered_out.Cut()	//no need to create new lists unnecessarily
 		switch(filter_type)
 			if(0) //removing hydrocarbons
-				filtered_out += "phoron"
+				filtered_out += GAS_PHORON
 			if(1) //removing O2
-				filtered_out += "oxygen"
+				filtered_out += GAS_OXYGEN
 			if(2) //removing N2
-				filtered_out += "nitrogen"
+				filtered_out += GAS_NITROGEN
 			if(3) //removing CO2
-				filtered_out += "carbon_dioxide"
+				filtered_out += GAS_CO2
 			if(4)//removing N2O
-				filtered_out += "sleeping_agent"
+				filtered_out += GAS_N2O
+			if(5)//removing H2
+				filtered_out += GAS_HYDROGEN
 
 	if (href_list["temp"])
 		src.temp = null

@@ -2,6 +2,7 @@
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
 	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
 	germ_level = 0
 
@@ -11,6 +12,7 @@
 	var/status = 0
 	var/vital //Lose a vital limb, die immediately.
 	var/rejecting   // Is this organ already being rejected?
+	var/is_augment = FALSE
 
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
@@ -28,18 +30,19 @@
 	var/robotic_name
 	var/robotic_sprite
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
-	
+
 	//Lists.
 	var/list/transplant_data
 	var/list/datum/autopsy_data/autopsy_data = list()
 	var/list/organ_verbs	//verb that are added when you gain the organ
 	var/list/trace_chemicals = list() // traces of chemicals in the organ,
 									  // links chemical IDs to number of ticks for which they'll stay in the blood
-	
+
 	//DNA stuff.
 	var/datum/dna/dna
 	var/datum/species/species
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
+	var/list/species_restricted //used by augments and biomods to see what species can have this augment
 
 /obj/item/organ/New(loc, ...)
 	..()
@@ -90,7 +93,7 @@
 		max_damage = min_broken_damage * 2
 	if(istype(holder))
 		src.owner = holder
-		species = all_species["Human"]
+		species = all_species[SPECIES_HUMAN]
 		if(holder.dna)
 			dna = holder.dna.Clone()
 			species = all_species[dna.species]
@@ -168,7 +171,7 @@
 
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 		if(B && !(status & ORGAN_ROBOT) && prob(40))
-			reagents.remove_reagent("blood",0.1)
+			reagents.remove_reagent(/datum/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,B,1)
 		if(config.organs_decay) damage += rand(1,3)
@@ -213,7 +216,7 @@
 			germ_level++
 
 	if(germ_level >= INFECTION_LEVEL_ONE)
-		owner.add_chemical_effect(CE_FEVER, germ_level/INFECTION_LEVEL_ONE) //10u of paracetamol minimum for a level 3 infection
+		owner.add_chemical_effect(CE_FEVER, germ_level/INFECTION_LEVEL_ONE) //10u of Perconol minimum for a level 3 infection
 
 	if (germ_level >= INFECTION_LEVEL_TWO)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
@@ -243,7 +246,7 @@
 						germ_level += rand(2,3)
 					if(501 to INFINITY)
 						germ_level += rand(3,5)
-						owner.reagents.add_reagent("toxin", rand(1,2))
+						owner.reagents.add_reagent(/datum/reagent/toxin, rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
@@ -266,7 +269,7 @@
 	if(!owner)
 		return
 
-	var/antibiotics = owner.reagents?.get_reagent_amount("thetamycin")
+	var/antibiotics = owner.reagents?.get_reagent_amount(/datum/reagent/thetamycin)
 
 	if (!germ_level || antibiotics < 5)
 		return
@@ -291,7 +294,7 @@
 	W.time_inflicted = world.time
 
 //Note: external organs have their own version of this proc
-/obj/item/organ/proc/take_damage(amount, var/silent=0)
+/obj/item/organ/proc/take_damage(var/amount, var/silent = 0)
 	if(src.status & ORGAN_ROBOT)
 		src.damage = between(0, src.damage + (amount * 0.8), max_damage)
 	else
@@ -364,7 +367,7 @@
 
 	if(owner && vital)
 		if(user)
-			user.attack_log += "\[[time_stamp()]\]<font color='red'> removed a vital organ ([src]) from [owner.name] ([owner.ckey]) [user ? "(INTENT: [uppertext(user.a_intent)])" : ""]</font>"
+			user.attack_log += "\[[time_stamp()]\]<span class='warning'> removed a vital organ ([src]) from [owner.name] ([owner.ckey]) [user ? "(INTENT: [uppertext(user.a_intent)])" : ""]</span>"
 			owner.attack_log += "\[[time_stamp()]\]<font color='orange'> had a vital organ ([src]) removed by [user.name] ([user.ckey]) (INTENT: [uppertext(user.a_intent)])</font>"
 			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
 		owner.death()

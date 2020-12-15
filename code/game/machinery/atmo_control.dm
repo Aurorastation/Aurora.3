@@ -1,7 +1,13 @@
+#define SIGNAL_OXYGEN 1
+#define SIGNAL_PHORON 2
+#define SIGNAL_NITROGEN 4
+#define SIGNAL_CARBON_DIOXIDE 8
+#define SIGNAL_HYDROGEN 16
+
 /obj/machinery/air_sensor
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "gsensor1"
-	name = "Gas Sensor"
+	name = "gas Sensor"
 	desc = "Measures the gas content of the atmosphere around the sensor."
 
 	anchored = 1
@@ -11,15 +17,15 @@
 	var/frequency = 1439
 
 	var/on = 1
-	var/output = 3
+	var/output = 0
+	var/output_pressure = TRUE
+	var/output_temperature = TRUE
 	//Flags:
-	// 1 for pressure
-	// 2 for temperature
-	// Output >= 4 includes gas composition
-	// 4 for oxygen concentration
-	// 8 for phoron concentration
-	// 16 for nitrogen concentration
-	// 32 for carbon dioxide concentration
+	// 1 for oxygen concentration
+	// 2 for phoron concentration
+	// 4 for nitrogen concentration
+	// 8 for carbon dioxide concentration
+	// 16 for hydrogen concentration
 
 	var/datum/radio_frequency/radio_connection
 
@@ -29,33 +35,36 @@
 /obj/machinery/air_sensor/machinery_process()
 	if(on)
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.data["tag"] = id_tag
 		signal.data["timestamp"] = world.time
 
 		var/datum/gas_mixture/air_sample = return_air()
 
-		if(output&1)
+		if(output_pressure)
 			signal.data["pressure"] = num2text(round(air_sample.return_pressure(),0.1),)
-		if(output&2)
+		if(output_temperature)
 			signal.data["temperature"] = round(air_sample.temperature,0.1)
 
-		if(output>4)
+		if(output)
 			var/total_moles = air_sample.total_moles
 			if(total_moles > 0)
-				if(output&4)
-					signal.data["oxygen"] = round(100*air_sample.gas["oxygen"]/total_moles,0.1)
-				if(output&8)
-					signal.data["phoron"] = round(100*air_sample.gas["phoron"]/total_moles,0.1)
-				if(output&16)
-					signal.data["nitrogen"] = round(100*air_sample.gas["nitrogen"]/total_moles,0.1)
-				if(output&32)
-					signal.data["carbon_dioxide"] = round(100*air_sample.gas["carbon_dioxide"]/total_moles,0.1)
+				if(output&SIGNAL_OXYGEN)
+					signal.data[GAS_OXYGEN] = round(100*air_sample.gas[GAS_OXYGEN]/total_moles,0.1)
+				if(output&SIGNAL_PHORON)
+					signal.data[GAS_PHORON] = round(100*air_sample.gas[GAS_PHORON]/total_moles,0.1)
+				if(output&SIGNAL_NITROGEN)
+					signal.data[GAS_NITROGEN] = round(100*air_sample.gas[GAS_NITROGEN]/total_moles,0.1)
+				if(output&SIGNAL_CARBON_DIOXIDE)
+					signal.data[GAS_CO2] = round(100*air_sample.gas[GAS_CO2]/total_moles,0.1)
+				if(output&SIGNAL_HYDROGEN)
+					signal.data[GAS_HYDROGEN] = round(100*air_sample.gas[GAS_HYDROGEN]/total_moles,0.1)
 			else
-				signal.data["oxygen"] = 0
-				signal.data["phoron"] = 0
-				signal.data["nitrogen"] = 0
-				signal.data["carbon_dioxide"] = 0
+				signal.data[GAS_OXYGEN] = 0
+				signal.data[GAS_PHORON] = 0
+				signal.data[GAS_NITROGEN] = 0
+				signal.data[GAS_CO2] = 0
+				signal.data[GAS_HYDROGEN] = 0
 		signal.data["sigtype"]="status"
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
@@ -75,10 +84,10 @@ obj/machinery/air_sensor/Destroy()
 	return ..()
 
 /obj/machinery/computer/general_air_control
+	name = "atmosphere monitoring console"
+	desc = "A console that gives an atmospheric condition readout of various sensors connected to it."
 	icon_screen = "tank"
 	light_color = LIGHT_COLOR_CYAN
-
-	name = "Computer"
 
 	var/frequency = 1439
 	var/list/sensors = list()
@@ -101,7 +110,7 @@ obj/machinery/computer/general_air_control/Destroy()
 		var/list/sdata = sensor_information[id_tag]
 		LAZYINITLIST(data["sensors"][id_tag])
 		VUEUI_SET_CHECK(data["sensors"][id_tag]["name"], long_name, ., data)
-		for(var/datapoint in list("pressure", "temperature", "oxygen", "nitrogen", "carbon_dioxide", "phoron"))
+		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
 			VUEUI_SET_CHECK(data["sensors"][id_tag][datapoint], sdata[datapoint], ., data)
 
 /obj/machinery/computer/general_air_control/attack_hand(mob/user)
@@ -185,7 +194,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	if(!radio_connection)
 		return 0
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 	if(href_list["in_refresh_status"])
 		input_info = null
@@ -271,7 +280,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	if(!radio_connection)
 		return
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 	if(href_list["in_refresh_status"])
 		input_info = null
@@ -332,7 +341,7 @@ obj/machinery/computer/general_air_control/Destroy()
 					injecting = 1
 
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.source = src
 
 		signal.data = list(
@@ -375,7 +384,7 @@ obj/machinery/computer/general_air_control/Destroy()
 			return 0
 
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.source = src
 		signal.data = list(
 			"tag" = device_tag,
@@ -394,7 +403,7 @@ obj/machinery/computer/general_air_control/Destroy()
 			return 0
 
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.source = src
 		signal.data = list(
 			"tag" = device_tag,
@@ -409,7 +418,7 @@ obj/machinery/computer/general_air_control/Destroy()
 			return 0
 
 		var/datum/signal/signal = new
-		signal.transmission_method = 1 //radio signal
+		signal.transmission_method = TRANSMISSION_RADIO
 		signal.source = src
 		signal.data = list(
 			"tag" = device_tag,
@@ -418,3 +427,9 @@ obj/machinery/computer/general_air_control/Destroy()
 		)
 
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+
+#undef SIGNAL_OXYGEN
+#undef SIGNAL_PHORON
+#undef SIGNAL_NITROGEN
+#undef SIGNAL_CARBON_DIOXIDE
+#undef SIGNAL_HYDROGEN

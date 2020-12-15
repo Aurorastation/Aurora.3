@@ -72,3 +72,4 @@
 	if(H.max_stamina)
 		H.max_stamina *= 0.8
 		H.stamina = H.max_stamina
+

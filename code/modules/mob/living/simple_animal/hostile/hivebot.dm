@@ -14,6 +14,7 @@
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebot"
 	blood_type = "#000000"
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	health = 15
 	maxHealth = 15
 	harm_intent_damage = 3
@@ -23,6 +24,7 @@
 	attacktext = "slashed"
 	projectilesound = 'sound/weapons/bladeslice.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
+	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0
@@ -41,8 +43,25 @@
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 
+/mob/living/simple_animal/hostile/hivebot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
+
+/mob/living/simple_animal/hostile/hivebot/update_icon()
+	..()
+	if(resting || stat == DEAD)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood_overlay(TRUE)
+
+/mob/living/simple_animal/hostile/hivebot/get_blood_overlay_name()
+	if(stance == HOSTILE_STANCE_IDLE)
+		return "blood_overlay"
+	else
+		return "blood_overlay_armed"
 
 /mob/living/simple_animal/hostile/hivebot/guardian
 	health = 80
@@ -77,6 +96,7 @@
 	health = 100
 	maxHealth = 100
 	icon_state = "hivebotbomber"
+	organ_names = list("head", "core", "bottom thruster")
 	attacktext = "bumped"
 	move_to_delay = 8
 	var/has_exploded = FALSE
@@ -101,7 +121,7 @@
 		burst()
 
 /mob/living/simple_animal/hostile/hivebot/bomber/proc/burst()
-	fragem(src,10,30,2,3,5,1,0)
+	fragem(src,10,30,2,3,5,1,FALSE)
 	src.gib()
 
 /mob/living/simple_animal/hostile/hivebot/range
@@ -159,7 +179,7 @@
 	LoseTarget()
 	stance = HOSTILE_STANCE_TIRED
 	addtimer(CALLBACK(src, .proc/wakeup), 50)
-	visible_message(span("danger","[src] suffers a teleportation malfunction!"))
+	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
@@ -174,27 +194,24 @@
 	damage = 10
 	damage_type = PAIN
 	taser_effect = 1
-	agony = 40
+	agony = 30
 	armor_penetration = 40
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
-/obj/item/projectile/beam/hivebot/toxic
-	name = "concentrated gamma burst"
-	damage = 15
-	damage_type = TOX
-	irradiate = 30
-	taser_effect = 0
-	muzzle_type = /obj/effect/projectile/muzzle/bfg
-	tracer_type = /obj/effect/projectile/tracer/bfg
-	impact_type = /obj/effect/projectile/impact/bfg
+/obj/item/projectile/beam/hivebot/harmless
+	name = "harmless electrical discharge"
+	damage = 0
+	damage_type = PAIN
+	taser_effect = TRUE
+	agony = 0
 
 /obj/item/projectile/beam/hivebot/incendiary
 	name = "archaic energy welder"
 	damage_type = BURN
 	damage = 20
-	incinerate = 10
+	incinerate = 5
 	taser_effect = 0
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
@@ -215,11 +232,13 @@
 	icon_living = "hivebotbeacon_active"
 	health = 300
 	maxHealth = 300
+	blood_type = "#000000"
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebot
 	wander = 0
 	stop_automated_movement = 1
 	status_flags = 0
+	organ_names = list("head", "core", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	faction = "hivebot"
 	ranged = 1
 	rapid = 1
@@ -248,12 +267,6 @@
 	var/list/close_destinations = list()
 	var/area/latest_area
 	attack_emote = "focuses on"
-
-/mob/living/simple_animal/hostile/hivebotbeacon/toxic
-	projectiletype = /obj/item/projectile/beam/hivebot/toxic
-	projectilesound = 'sound/weapons/laser3.ogg'
-	rapid = 0
-
 /mob/living/simple_animal/hostile/hivebotbeacon/incendiary
 	projectiletype = /obj/item/projectile/beam/hivebot/incendiary
 	projectilesound = 'sound/weapons/plasma_cutter.ogg'
@@ -265,7 +278,7 @@
 		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 		S.set_up(5, 0, src.loc)
 		S.start()
-		visible_message(span("danger","[src] warps in!"))
+		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 		addtimer(CALLBACK(src, .proc/activate_beacon), 450)
 	latest_area = get_area(src)
@@ -281,7 +294,7 @@
 			destinations += T
 	var/area/A = get_area(src)
 	if(!isNotStationLevel(A.z))
-		var/list/area_turfs = get_area_turfs(A, null, 0, FALSE)
+		var/list/area_turfs = get_area_turfs(A)
 		var/list/floor_turfs = list()
 		for(var/turf/simulated/floor/T in (area_turfs))
 			if(turf_clear(T))
@@ -340,7 +353,7 @@
 		if(activated == -1)
 			return
 		else
-			visible_message(span("warning","[src] suddenly activates!"))
+			visible_message(SPAN_WARNING("[src] suddenly activates!"))
 			icon_state = "hivebotbeacon_raising"
 			sleep(16)
 			icon_state = "hivebotbeacon_active"
@@ -373,7 +386,7 @@
 	S.start()
 
 	if(random_turf)
-		visible_message(span("danger","[src] disappears in a cloud of smoke!"))
+		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		do_teleport(src, random_turf)
 
@@ -384,7 +397,7 @@
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
 	if(!bot_amt)
-		visible_message(span("danger","[src] disappears in a cloud of smoke!"))
+		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
 		qdel(src)
@@ -394,9 +407,9 @@
 		return
 
 	if(linked_bots.len < max_bots)
-		visible_message(span("warning","[src] radiates with energy!"))
+		visible_message(SPAN_WARNING("[src] radiates with energy!"))
 
-		if(guard_amt < 4)
+		if(guard_amt < 4 && prob(50))
 			bot_type = GUARDIAN
 		else
 			var/selection = rand(1,100)
@@ -417,7 +430,7 @@
 			generate_warp_destinations()
 
 		var/turf/Destination
-		if(stance == HOSTILE_STANCE_IDLE && !(linked_bots.len < 12))
+		if(stance == HOSTILE_STANCE_IDLE && !(linked_bots.len < 10))
 			Destination = pick(destinations)
 		else
 			Destination = pick(close_destinations)
@@ -457,7 +470,7 @@
 		max_bots_reached = 1
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/calc_spawn_delay()
-	spawn_delay = 60*1.085**(linked_bots.len + 1)
+	spawn_delay = 80*1.085**(linked_bots.len + 1)
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
@@ -492,16 +505,18 @@
 	icon_state = "hivebotharvester"
 	health = 100
 	maxHealth = 100
+	blood_type = "#000000"
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	harm_intent_damage = 3
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	destroy_surroundings = 0
 	wander = 0
 	ranged = 1
-	rapid = 1
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
+	organ_names = list("head", "core", "side thruster", "harvesting array")
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0
@@ -568,7 +583,7 @@
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
 	LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
-	visible_message(span("danger","[src] suffers a teleportation malfunction!"))
+	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
@@ -598,9 +613,9 @@
 				if(I.matter)
 					busy = 1
 					update_icon()
-					src.visible_message(span("notice","[src] begins to harvest \the [I]."))
+					src.visible_message(SPAN_NOTICE("[src] begins to harvest \the [I]."))
 					if(do_after(src, 32))
-						src.visible_message(span("warning","[src] harvests \the [I]."))
+						src.visible_message(SPAN_WARNING("[src] harvests \the [I]."))
 						qdel(I)
 					busy = 0
 					update_icon()
@@ -608,11 +623,11 @@
 
 				if(istype(O, /obj/item/storage))
 					var/obj/item/storage/S = O
-					src.visible_message(span("notice","[src] begins to rip apart \the [S]."))
+					src.visible_message(SPAN_NOTICE("[src] begins to rip apart \the [S]."))
 					busy = 2
 					update_icon()
 					if(do_after(src, 32))
-						src.visible_message(span("warning","[src] rips \the [S] apart."))
+						src.visible_message(SPAN_WARNING("[src] rips \the [S] apart."))
 						S.spill(3, src.loc)
 						qdel(S)
 					busy = 0
@@ -621,11 +636,11 @@
 
 		if(istype(O, /obj/structure/table))
 			var/obj/structure/table/TB = O
-			src.visible_message(span("notice","[src] starts to dismantle \the [TB]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [TB]."))
 			busy = 2
 			update_icon()
 			if(do_after(src, 48))
-				src.visible_message(span("warning","[src] dismantles \the [TB]."))
+				src.visible_message(SPAN_WARNING("[src] dismantles \the [TB]."))
 				TB.break_to_parts(1)
 			busy = 0
 			update_icon()
@@ -634,11 +649,11 @@
 		if(istype(O, /obj/structure/bed))
 			var/obj/structure/bed/B = O
 			if(B.can_dismantle)
-				src.visible_message(span("notice","[src] starts to dismantle \the [B]."))
+				src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [B]."))
 				busy = 2
 				update_icon()
 				if(do_after(src, 48))
-					src.visible_message(span("warning","[src] dismantles \the [B]."))
+					src.visible_message(SPAN_WARNING("[src] dismantles \the [B]."))
 					B.dismantle()
 					qdel(B)
 				busy = 0
@@ -647,22 +662,22 @@
 
 		if(istype(O, /obj/item/stool))
 			var/obj/item/stool/S = O
-			src.visible_message(span("notice","[src] starts to dismantle \the [S]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."))
 			busy = 2
 			update_icon()
 			if(do_after(src, 32))
-				src.visible_message(span("warning","[src] dismantles \the [S]."))
+				src.visible_message(SPAN_WARNING("[src] dismantles \the [S]."))
 				S.dismantle()
 			busy = 0
 			update_icon()
 			return
 
 		if(istype(O, /obj/effect/decal/cleanable/blood/gibs/robot))
-			src.visible_message(span("notice","[src] starts to recycle \the [O]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to recycle \the [O]."))
 			busy = 1
 			update_icon()
 			if(do_after(src, 48))
-				src.visible_message(span("warning","[src] recycles \the [O]."))
+				src.visible_message(SPAN_WARNING("[src] recycles \the [O]."))
 				qdel(O)
 			busy = 0
 			update_icon()
@@ -672,11 +687,11 @@
 			var/turf/simulated/floor/T = src.loc
 			if(T.is_plating())
 				var/obj/structure/cable/C = O
-				src.visible_message(span("notice","[src] starts ripping up \the [C]."))
+				src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [C]."))
 				busy = 2
 				update_icon()
 				if(do_after(src, 32))
-					src.visible_message(span("warning","[src] rips \the [C]."))
+					src.visible_message(SPAN_WARNING("[src] rips \the [C]."))
 					if(C.powernet && C.powernet.avail)
 						spark(src, 3, alldirs)
 					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
@@ -688,12 +703,12 @@
 	if(istype(src.loc, /turf/simulated/floor))
 		var/turf/simulated/floor/T = src.loc
 		if(!T.is_plating())
-			src.visible_message(span("notice","[src] starts ripping up \the [T]."))
+			src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [T]."))
 			busy = 2
 			update_icon()
 			if(do_after(src, 32))
-				src.visible_message(span("warning","[src] rips up \the [T]."))
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
+				playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 				T.make_plating(1)
 			busy = 0
 			update_icon()
@@ -709,6 +724,11 @@
 			icon_state = "hivebotharvester_ripping"
 	else
 		icon_state = "hivebotharvester"
+	if(resting || stat == DEAD || busy)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood_overlay(TRUE)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/prospect()
 
@@ -734,17 +754,19 @@
 
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/W = T
+		rapid = 1
 		OpenFire(W)
+		rapid = 0
 		return
 
 	for(var/obj/O in T)
 		if(istype(O, /obj/structure/girder))
 			var/obj/structure/girder/G = O
-			src.visible_message(span("notice","[src] starts to tear \the [O] apart."))
+			src.visible_message(SPAN_NOTICE("[src] starts to tear \the [O] apart."))
 			busy = 1
 			if(do_after(src, 32))
 				src.do_attack_animation(G)
-				src.visible_message(span("warning","[src] tears \the [O] apart!"))
+				src.visible_message(SPAN_WARNING("[src] tears \the [O] apart!"))
 				G.dismantle()
 			busy = 0
 			continue
@@ -752,10 +774,10 @@
 		if((istype(O, /obj/machinery/door/firedoor) && O.density) || (istype(O, /obj/machinery/door/airlock) && O.density) || istype(O, /obj/machinery/door/blast) && O.density)
 			var/obj/machinery/door/D = O
 			if(D.stat & BROKEN)
-				src.visible_message(span("notice","[src] starts to tear \the [D] open."))
+				src.visible_message(SPAN_NOTICE("[src] starts to tear \the [D] open."))
 				busy = 1
 				if(do_after(src, 48))
-					src.visible_message(span("warning","[src] tears \the [D] apart!"))
+					src.visible_message(SPAN_WARNING("[src] tears \the [D] apart!"))
 					src.do_attack_animation(D)
 					new /obj/item/stack/material/steel(get_turf(D))
 					new /obj/item/stack/material/steel(get_turf(D))
@@ -767,7 +789,9 @@
 			else if(istype(D, /obj/machinery/door/airlock/multi_tile))
 				D.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
+				rapid = 1
 				OpenFire(D)
+				rapid = 0
 			return
 
 		if(istype(O, /obj/structure/window))
@@ -786,17 +810,19 @@
 
 		if(istype(O, /obj/structure/barricade) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
 			var/obj/structure/S = O
+			rapid = 1
 			OpenFire(S)
+			rapid = 0
 			return
 
 		if(istype(O, /obj/structure/reagent_dispensers))
 			var/obj/structure/reagent_dispensers/RD = O
-			src.visible_message(span("notice","[src] starts taking apart \the [RD]."))
+			src.visible_message(SPAN_NOTICE("[src] starts taking apart \the [RD]."))
 			busy = 1
 			if(do_after(src, 48))
 				src.do_attack_animation(RD)
 				RD.reagents.splash_turf(get_turf(RD.loc), RD.reagents.total_volume)
-				src.visible_message(span("danger","[RD] gets torn open, spreading its contents all over the area!"))
+				src.visible_message(SPAN_DANGER("[RD] gets torn open, spreading its contents all over the area!"))
 				new /obj/item/stack/material/steel(get_turf(RD))
 				new /obj/item/stack/material/steel(get_turf(RD))
 				qdel(RD)

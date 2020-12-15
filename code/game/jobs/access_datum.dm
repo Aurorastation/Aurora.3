@@ -389,10 +389,10 @@
 	desc = "Medical Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-/var/const/access_paramedic = 67
-/datum/access/access_paramedic
-	id = access_paramedic
-	desc = "Paramedic Equipment"
+/var/const/access_first_responder = 67
+/datum/access/access_first_responder
+	id = access_first_responder
+	desc = "First Responder Equipment"
 	region = ACCESS_REGION_MEDBAY
 
 /var/const/access_detective = 68
@@ -412,6 +412,16 @@ var/const/access_journalist = 70//journalist's office access
 	id = access_journalist
 	desc = "Journalist Office"
 	region = ACCESS_REGION_GENERAL
+
+var/const/access_it = 71 // allows some unique interactions with devices
+/datum/access/tech_support
+	id = access_it
+	desc = "Tech Support"
+
+var/const/access_consular = 72
+/datum/access/consular
+	id = access_consular
+	desc = "Consular"
 
 /******************
 * Central Command *

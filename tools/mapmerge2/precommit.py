@@ -5,6 +5,7 @@ import dmm
 from mapmerge import merge_map
 
 def main(repo):
+
     if repo.index.conflicts:
         print("You need to resolve merge conflicts first.")
         return 1

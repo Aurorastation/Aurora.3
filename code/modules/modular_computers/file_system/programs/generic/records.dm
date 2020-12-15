@@ -11,6 +11,7 @@
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
+	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 
 	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
 	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
@@ -32,7 +33,7 @@
 
 /datum/computer_file/program/records/medical
 	filename = "medrec"
-	filedesc = "Medical records"
+	filedesc = "Medical Records"
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
@@ -48,7 +49,7 @@
 
 /datum/computer_file/program/records/security
 	filename = "secrec"
-	filedesc = "Security records"
+	filedesc = "Security Records"
 	extended_desc = "Used to view, edit and maintain security records"
 	record_prefix = "Security "
 
@@ -64,11 +65,11 @@
 
 /datum/computer_file/program/records/employment
 	filename = "emprec"
-	filedesc = "Employment records"
+	filedesc = "Employment Records"
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
-	required_access_run = list(access_heads, access_lawyer)
+	required_access_run = list(access_heads, access_lawyer, access_consular)
 	required_access_download = access_heads
 	available_on_ntnet = TRUE
 
@@ -76,6 +77,12 @@
 	edit_type = RECORD_GENERAL
 	program_icon_state = "employment_record"
 	color = LIGHT_COLOR_BLUE
+
+/datum/computer_file/program/records/pai
+	available_on_ntnet = 1
+	extended_desc = "This program is used to view crew records."
+	usage_flags = PROGRAM_SILICON_PAI
+	edit_type = 0
 
 /datum/computer_file/program/records/New()
 	. = ..()

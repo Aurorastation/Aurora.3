@@ -15,6 +15,7 @@
         <td>{{data.name}}</td>
         <td>{{data.desc}}</td>
         <td v-if="data.max_count > 0">{{data.max_count - data.count}} / {{data.max_count}}</td>
+        <td v-else-if="data.spawnatoms > 0">{{data.spawnatoms}}</td>
         <td v-else>&infin;</td>
         <td class="action">
           <vui-button :disabled="(data.cant_spawn !== 0)" :params="{spawn: index, spawnpoint: spawnpoint}" icon="star">Spawn</vui-button> 
@@ -47,9 +48,9 @@ export default {
         return !data.tags.indexOf(this.current_tag) || this.current_tag == 'All'
       } else {
         //if we have a spawnpoint filter set, filter by spawnpoints
-        if(!data.hasOwnProperty('spawnpoints'))
+        if(!Object.prototype.hasOwnProperty.apply(data, ['spawnpoints']))
           return false
-        return !data.spawnpoints.indexOf(this.spawnpoint)
+        return data.spawnpoints && !data.spawnpoints.indexOf(this.spawnpoint)
       }
     }
   }

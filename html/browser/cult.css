@@ -1,0 +1,46 @@
+.uiTitle,
+head,
+header {
+	background-color: #4b1b1b;
+	color: #e02b2b;
+}
+
+body {
+	background-color: #3a1515;
+	color: #ec2d2d;
+}
+
+hr {
+	background-color: #581f1f;
+}
+
+h2 {
+	color: #cc2e2e;
+}
+
+a,
+a:link,
+a:visited,
+a:active,
+.linkOn,
+.linkOff {
+	background: #5a2222;
+	color: #ff6868;
+	transition: background 0.2s, color 0.2s;
+}
+
+a:hover {
+	background: #ff6868;
+	color: #5a2222;
+}
+
+.rune-block {
+	background-color: #3a1515;
+	color: #ec2d2d;
+	transition: background-color 0.2s, color 0.2s;
+}
+
+.rune-block:hover {
+	background-color: #240d0d;
+	color: #ff1616;
+}

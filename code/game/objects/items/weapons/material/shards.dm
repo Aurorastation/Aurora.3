@@ -8,7 +8,8 @@
 	randpixel = 8
 	sharp = 1
 	edge = 1
-	w_class = 2
+	recyclable = TRUE
+	w_class = ITEMSIZE_SMALL
 	force_divisor = 0.2 // 6 with hardness 30 (glass)
 	thrown_force_divisor = 0.4 // 4 with weight 15 (glass)
 	item_state = "shard-glass"
@@ -64,7 +65,7 @@
 		if(M.buckled) //wheelchairs, office chairs, rollerbeds
 			return
 
-		to_chat(M, span("danger", "You step on \the [src]!"))
+		to_chat(M, SPAN_DANGER("You step on \the [src]!"))
 		playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M

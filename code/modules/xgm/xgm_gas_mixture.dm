@@ -437,12 +437,10 @@
 	if(full_heat_capacity + s_full_heat_capacity)
 		temp_avg = (temperature * full_heat_capacity + other.temperature * s_full_heat_capacity) / (full_heat_capacity + s_full_heat_capacity)
 
-	//WOOT WOOT TOUCH THIS AND YOU ARE A RETARD.
 	if(connecting_tiles && (sharing_lookup_table.len >= connecting_tiles)) //6 or more interconnecting tiles will max at 42% of air moved per tick.
 		ratio = sharing_lookup_table[connecting_tiles]
 	else if(!connecting_tiles)
 		ratio = 1
-	//WOOT WOOT TOUCH THIS AND YOU ARE A RETARD
 
 	for(var/g in avg_gas)
 		gas[g] = max(0, (gas[g] - avg_gas[g]) * (1 - ratio) + avg_gas[g])

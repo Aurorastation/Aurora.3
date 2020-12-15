@@ -11,11 +11,12 @@
 	throwforce = 1.0
 	throw_speed = 1
 	throw_range = 2
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	var/access = list()
 	access = access_crate_cash
 	var/worth = 0
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/spacecash/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/spacecash))
@@ -172,6 +173,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	desc = "A card that holds an amount of money."
 	var/owner_name = "" //So the ATM can set it so the EFTPOS can put a valid name on transactions.
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/spacecash/ewallet/examine(mob/user)
 	..(user)

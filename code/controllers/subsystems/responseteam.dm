@@ -140,12 +140,12 @@
 	SSresponseteam.trigger_armed_response_team(choice)
 
 
-/hook/shuttle_moved/proc/close_response_blastdoors(var/area/departing, var/area/destination)
+/hook/shuttle_moved/proc/close_response_blastdoors(var/obj/effect/shuttle_landmark/start_location, var/obj/effect/shuttle_landmark/destination)
 	//Check if we are departing from the Odin
-	if(istype(departing,/area/shuttle/specops/centcom))
+	if(start_location.landmark_tag == "nav_ert_start")
 		SSresponseteam.close_ert_blastdoors()
 
 	//Check if we are departing from the TCFL base
-	else if(istype(departing,/area/shuttle/legion/centcom))
+	else if(start_location.landmark_tag == "nav_legion_start")
 		SSresponseteam.close_tcfl_blastdoors()
 	return TRUE

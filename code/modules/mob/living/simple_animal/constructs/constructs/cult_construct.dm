@@ -57,7 +57,7 @@
 	add_language(LANGUAGE_OCCULT)
 	for(var/spell in construct_spells)
 		src.add_spell(new spell, "const_spell_ready")
-	updateicon()
+	update_icon()
 	add_glow()
 
 /mob/living/simple_animal/construct/death()
@@ -77,12 +77,12 @@
 			if(getBruteLoss())
 				adjustBruteLoss(-5)
 				adjustFireLoss(-5)
-				user.visible_message(span("notice", "\The [user] mends some of \the [src]'s wounds."))
+				user.visible_message(SPAN_NOTICE("\The [user] mends some of \the [src]'s wounds."))
 			else
 				if (health < maxHealth)
-					to_chat(user, span("notice", "Healing \the [src] any further is beyond your abilities."))
+					to_chat(user, SPAN_NOTICE("Healing \the [src] any further is beyond your abilities."))
 				else
-					to_chat(user, span("notice", "\The [src] is undamaged."))
+					to_chat(user, SPAN_NOTICE("\The [src] is undamaged."))
 			return
 	return ..()
 
@@ -90,9 +90,9 @@
 	..(user)
 	if(health < maxHealth)
 		if(health >= maxHealth / 2)
-			to_chat(user, span("warning", "It looks slightly dented."))
+			to_chat(user, SPAN_WARNING("It looks slightly dented."))
 		else
-			to_chat(user, span("warning", "It looks severely dented!"))
+			to_chat(user, SPAN_WARNING("It looks severely dented!"))
 
 /mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
 	if(istype(A, /obj/effect/rune))
@@ -104,7 +104,7 @@
 
 /mob/living/simple_animal/construct/proc/add_glow()
 	cut_overlays()
-	var/overlay_layer = LIGHTING_LAYER + 0.1
+	var/overlay_layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	if(layer != MOB_LAYER)
 		overlay_layer = TURF_LAYER + 0.2
 
@@ -156,3 +156,6 @@
 		newstate = "[health_prefix]_health[newstate]"
 		if(healths.icon_state != newstate)
 			healths.icon_state = newstate
+
+/mob/living/simple_animal/construct/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

@@ -38,12 +38,3 @@
 	item_state = "bl_suit"
 	worn_state = "robotics"
 	siemens_coefficient = 0.75
-
-/obj/item/clothing/under/rank/roboticistalt
-	name = "roboticist's jumpsuit"
-	desc = "It's a slimming black jumpsuit with reinforced seams; great for industrial work."
-	icon_state = "robotics_alt"
-	item_state = "bl_suit"
-	worn_state = "robotics_alt"
-	siemens_coefficient = 0.75
-

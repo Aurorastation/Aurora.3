@@ -49,7 +49,7 @@
 	var/obj/item/organ/internal/eyes/eyes = D.get_eyes()
 	eyes.take_damage(rand(3,4), 1)
 	var/armor = D.getarmor_organ(affecting,"melee")
-	D.apply_damage(10,BRUTE, BP_HEAD, armor, sharp=1, edge=1)
+	D.apply_damage(10,BRUTE, BP_HEAD, armor, damage_flags = DAM_SHARP|DAM_EDGE)
 
 	return 1
 
@@ -59,7 +59,7 @@
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
 	var/armor_block = D.run_armor_check(affecting, "melee")
-	D.apply_damage(20, BRUTE, affecting, armor_block, sharp = TRUE, edge = TRUE)
+	D.apply_damage(20, BRUTE, affecting, armor_block, damage_flags = DAM_SHARP|DAM_EDGE)
 	if(prob(20))
 		D.apply_effect(4, WEAKEN)
 	return 1
@@ -71,7 +71,7 @@
 	var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
 	var/armor = D.getarmor_organ(organ,"melee")
 	A.visible_message("<span class='danger'>[A] stabs [D]'s [organ.name] with their claws!</span>")
-	D.apply_damage(organ.brute_dam, BRUTE, organ, armor, sharp= TRUE, edge= TRUE)
+	D.apply_damage(organ.brute_dam, BRUTE, organ, armor, damage_flags = DAM_SHARP|DAM_EDGE)
 	return 1
 
 /datum/martial_art/baghrar/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -89,9 +89,9 @@
 	return 1
 
 /datum/martial_art/baghrar/proc/baghrar_help()
-	set name = "Recall Teachings"
+	set name = "Recall Baghrar"
 	set desc = "Remember the martial techniques of the Baghrar."
-	set category = "Baghrar"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You twitch your ears and remember the techniques...</i></b>")
 	to_chat(usr, "<span class='notice'>Eye Rake</span>: Harm Disarm Harm. Strikes your target's face, damaging their eyes.")
@@ -102,9 +102,12 @@
 	name = "baghrar manual"
 	desc = "A manual designated to teach the user about the tajaran martial art of Baghrar."
 	martial_art = /datum/martial_art/baghrar
-	description_fluff = "An ancient martial art from Adhomai primarily used for sport and contests of strength. The fighting style consists of attacks against the opponent from the waist \
+	desc_fluff = "An ancient martial art from Adhomai primarily used for sport and contests of strength. The fighting style consists of attacks against the opponent from the waist \
 	up. The form of the attacks are primarily swiping motions which take advantage of a Tajara's claws to rake an opponents torso or head. Other moves include punching for friendlier \
 	matches or stabbing forward with the claws in typical matches. Modern Baghrariri, or people who fight in the Baghrar style for sport, usually fight with implements that cover and \
 	support their claws to avoid serious bodily damage. Modern Baghrar matches are decided upon with a point scoring system over three 10 minute rounds of fighting, but historical \
 	victories were secured by knocking opponents onto the ground."
 
+#undef EYE_RAKE
+#undef CLAW_PUNCH
+#undef RRAKNARR_STAB

@@ -1,5 +1,9 @@
 #define DEBUG
 
+// Flags
+#define ALL (~0) //For convenience.
+#define NONE 0
+
 // Turf-only flags.
 #define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
 #define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
@@ -58,6 +62,7 @@
 #define PARALLAX_DUST  0x2
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
+#define FLOATING_MESSAGES 0x10
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
@@ -68,8 +73,10 @@
 #define ASFX_VOX		8
 #define ASFX_DROPSOUND	16
 #define ASFX_ARCADE		32
+#define ASFX_RADIO		64
+#define ASFX_INSTRUMENT 128
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE|ASFX_RADIO|ASFX_INSTRUMENT)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.
@@ -123,10 +130,12 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED 1 //shielded from radiation, clearly
-#define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
-#define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
-#define FIRING_RANGE	8
+#define RAD_SHIELDED        1 //shielded from radiation, clearly
+#define SPAWN_ROOF          2 // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP   4 // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE        8
+#define NO_CREW_EXPECTED   16 // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define PRISON             32 // Marks prison area for purposes of checking if brigged/imprisoned
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -143,7 +152,7 @@
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
 
-#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon. 
+#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_WALL_MATERIAL "steel"
@@ -181,11 +190,16 @@
 #define PROGRAM_LAPTOP 2
 #define PROGRAM_TABLET 4
 #define PROGRAM_TELESCREEN 8
-#define PROGRAM_SILICON 16
+#define PROGRAM_SILICON_AI 16
 #define PROGRAM_WRISTBOUND 32
+#define PROGRAM_SILICON_ROBOT 64
+#define PROGRAM_SILICON_PAI 128
 
-#define PROGRAM_ALL (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN | PROGRAM_SILICON)
+#define PROGRAM_ALL (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN | PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT | PROGRAM_SILICON_PAI)
+#define PROGRAM_SILICON (PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT | PROGRAM_SILICON_PAI)
+#define PROGRAM_STATIONBOUND (PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT)
 #define PROGRAM_ALL_REGULAR (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN)
+#define PROGRAM_ALL_HANDHELD (PROGRAM_TABLET | PROGRAM_WRISTBOUND)
 
 #define PROGRAM_STATE_KILLED 0
 #define PROGRAM_STATE_BACKGROUND 1
@@ -199,9 +213,22 @@
 #define PROGRAM_ACCESS_LIST_ONE 2
 #define PROGRAM_ACCESS_LIST_ALL 3
 
+#define PROGRAM_NORMAL 1
+#define PROGRAM_SERVICE 2
+#define PROGRAM_TYPE_ALL (PROGRAM_NORMAL | PROGRAM_SERVICE)
+
+#define DEVICE_UNKNOWN 0
+#define DEVICE_COMPANY 1
+#define DEVICE_PRIVATE 2
+
+#define SCANNER_MEDICAL 1
+#define SCANNER_REAGENT 2
+#define SCANNER_GAS 4
+
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
+#define PROJECTILE_DODGED     -3 //this is similar to the above, but the check and message is run on the mob, instead of on the projectile code. basically just has a unique message
 
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
@@ -211,7 +238,7 @@
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	100//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	200//The total number of items we'll spawn in cargo stock
 
 #define STOCK_UNCOMMON_PROB	23
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
@@ -230,10 +257,6 @@
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
 
-#define LAYER_TABLE	2.8
-#define LAYER_UNDER_TABLE	2.79
-#define LAYER_ABOVE_TABLE	2.81
-
 // Stoplag.
 #define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
 #define CHECK_TICK if (TICK_CHECK) stoplag()
@@ -248,19 +271,16 @@
   )
 
 #define get_turf(A) (get_step(A, 0))
+#define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
+#define EAST_OF_TURF(T)		locate(T.x + 1, T.y, T.z)
+#define SOUTH_OF_TURF(T)	locate(T.x, T.y - 1, T.z)
+#define WEST_OF_TURF(T)		locate(T.x - 1, T.y, T.z)
 
 #define UNTIL(X) while(!(X)) stoplag()
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
-
-//Recipe type defines. Used to determine what machine makes them
-#define MICROWAVE			0x1
-#define FRYER				0x2
-#define OVEN				0x4
-#define CANDYMAKER			0x8
-#define CEREALMAKER			0x10
 
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)
@@ -277,16 +297,7 @@
 #define NL_PERMANENT_DISABLE 2
 
 // Used for creating soft references to objects. A manner of storing an item reference
-// as text so you don't necessarily fuck with an object's ability to be garbage collected.
-#if DM_VERSION < 513
-
-#define SOFTREF(A) "\ref[A]"
-
-#else
-
 #define SOFTREF(A) ref(A)
-
-#endif
 
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)
@@ -334,15 +345,11 @@
 #define isContactLevel(Z) ((Z) in current_map.contact_levels)
 #define isNotContactLevel(Z) !isContactLevel(Z)
 
-//Affects the chance that armour will block an attack. Should be between 0 and 1.
-//If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
-//Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
-#define ARMOR_BLOCK_CHANCE_MULT 1.0
-
 //Cargo Container Types
 #define CARGO_CONTAINER_CRATE "crate"
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
+#define CARGO_CONTAINER_BODYBAG "bodybag"
 
 // We should start using these.
 #define ITEMSIZE_TINY   1
@@ -350,6 +357,7 @@
 #define ITEMSIZE_NORMAL 3
 #define ITEMSIZE_LARGE  4
 #define ITEMSIZE_HUGE   5
+#define ITEMSIZE_IMMENSE 6
 
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special
@@ -432,3 +440,31 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 //Lying animation
 #define ANIM_LYING_TIME 2
+
+// Cooking appliances.
+#define MIX					1 << 0
+#define FRYER				1 << 1
+#define OVEN				1 << 2
+#define SKILLET				1 << 3
+#define SAUCEPAN			1 << 4
+#define POT					1 << 5
+#define GRILL				1 << 6
+
+// Cooking misc.
+// can_insert return values
+#define CANNOT_INSERT		0
+#define CAN_INSERT			1
+#define INSERT_GRABBED		2
+// check_contents return values
+#define CONTAINER_EMPTY		0
+#define CONTAINER_SINGLE	1
+#define CONTAINER_MANY		2
+//Misc text define. Does 4 spaces. Used as a makeshift tabulator.
+#define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
+#define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (isclient(I) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
+
+// check_items/check_reagents/check_fruits return values
+#define COOK_CHECK_FAIL		-1
+#define COOK_CHECK_EXTRA	0
+#define COOK_CHECK_EXACT	1
+

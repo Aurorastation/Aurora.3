@@ -3,7 +3,7 @@
 
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
 	suit = /obj/item/clothing/suit/storage/iacvest
-	head = /obj/item/clothing/head/soft/iacberet
+	head = /obj/item/clothing/head/softcap/iac
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	shoes = /obj/item/clothing/shoes/iac
@@ -11,7 +11,7 @@
 	belt = /obj/item/storage/belt/medical
 	back = /obj/item/storage/backpack/satchel_med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/tramadol = 1)
+	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/mortaphenyl = 1)
 	id = /obj/item/card/id/distress/iac
 
 	l_ear = /obj/item/device/radio/headset/distress
@@ -30,7 +30,7 @@
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/reagent_containers/syringe = 1,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = 1
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1
 	)
 
 /datum/outfit/admin/ert/iac/get_id_access()
@@ -54,7 +54,7 @@
 	name = "IAC Bodyguard"
 
 	accessory = /obj/item/clothing/accessory/storage/black_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 2, /obj/item/reagent_containers/hypospray/autoinjector/survival = 1)
+	accessory_contents = list(/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2, /obj/item/reagent_containers/hypospray/autoinjector/survival = 1)
 	suit = /obj/item/clothing/suit/storage/vest/heavy
 	head = /obj/item/clothing/head/helmet/iachelmet
 	mask = /obj/item/clothing/mask/gas/alt
@@ -73,7 +73,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 2,
+		/obj/item/ammo_magazine/c45x = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/melee/baton/loaded = 1,

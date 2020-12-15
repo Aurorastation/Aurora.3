@@ -5,7 +5,8 @@
 	icon_state = "sheet-hide"
 	default_type = "hide"
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/material/animalhide/human
 	name = "human skin"
@@ -60,6 +61,7 @@
 	singular_name = "alien hide piece"
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "chitin"
+	default_type = "alien hide"
 
 /obj/item/xenos_claw
 	name = "alien claw"
@@ -75,15 +77,17 @@
 
 /obj/item/stack/material/hairlesshide
 	name = "hairless hide"
-	desc = "This hide was stripped of it's hair, but still needs tanning."
+	desc = "This hide was stripped of it's hair, but still needs tanning. Maybe shove it in a washing machine?"
 	singular_name = "hairless hide piece"
 	icon_state = "sheet-hairlesshide"
+	default_type = "hairless hide"
 
 /obj/item/stack/material/wetleather
 	name = "wet leather"
 	desc = "This leather has been cleaned but still needs to be dried."
 	singular_name = "wet leather piece"
 	icon_state = "sheet-wetleather"
+	default_type = "wet leather"
 	var/wetness = 30 //Reduced when exposed to high temperautres
 	var/drying_threshold_temperature = 500 //Kelvin to start drying
 	icon_has_variants = TRUE
@@ -98,7 +102,7 @@
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
 		usr.visible_message("<span class='notice'>\The [usr] starts cutting hair off \the [src]</span>", "<span class='notice'>You start cutting the hair off \the [src]</span>", "You hear the sound of a knife rubbing against flesh")
 		if(do_after(user,50))
-			to_chat(usr, "<span class='notice'>You cut the hair from this [src.singular_name]</span>")
+			to_chat(usr, "<span class='notice'>You cut the hair from this [src.singular_name].</span>")
 			//Try locating an exisitng stack on the tile and add to there if possible
 			for(var/obj/item/stack/material/hairlesshide/HS in usr.loc)
 				if(HS.amount < 50)

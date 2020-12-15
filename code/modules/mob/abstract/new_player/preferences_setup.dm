@@ -22,6 +22,7 @@
 	randomize_hair_color("facial")
 
 	backbag = 2
+	pda_choice = 2
 	age = rand(getMinAge(),getMaxAge())
 	if(H)
 		copy_to(H,1)
@@ -193,7 +194,8 @@
 
 /datum/preferences/proc/dress_preview_mob(var/mob/living/carbon/human/mannequin)
 	copy_to(mannequin)
-	if(!dress_mob)
+
+	if(!equip_preview_mob)
 		return
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
@@ -220,43 +222,30 @@
 		var/list/leftovers = list()
 		var/list/used_slots = list()
 
-		SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
+		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
+			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
-		previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
+		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
+			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
 
-		SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
+		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)
+			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
 			SSatoms.ForceInitializeContents(mannequin)
 			mannequin.regenerate_icons()
 		else
-			mannequin.update_icons()
+			mannequin.update_icon()
 
-/datum/preferences/proc/update_preview_icon()
+/datum/preferences/proc/update_mannequin()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)
 	mannequin.species.create_organs(mannequin)
 	if(gender)
 		mannequin.change_gender(gender)
 	dress_preview_mob(mannequin)
+	return mannequin
 
-	preview_icon = icon('icons/effects/effects.dmi', "nothing")
-	preview_icon.Scale(48+32, 16+32)
-
-	mannequin.dir = NORTH
-	mannequin.update_tail_showing(1)
-	var/icon/stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 25, 17)
-
-	mannequin.dir = WEST
-	mannequin.update_tail_showing(1)
-	stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 1, 9)
-
-
-	mannequin.dir = SOUTH
-	mannequin.update_tail_showing(1)
-	stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 49, 1)
-
-	preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2) // Scaling here to prevent blurring in the browser.
+/datum/preferences/proc/update_preview_icon()
+	var/mannequin = update_mannequin()
+	update_character_previews(new /mutable_appearance(mannequin))

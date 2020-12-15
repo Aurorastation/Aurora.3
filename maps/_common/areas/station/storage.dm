@@ -51,10 +51,9 @@
 
 /area/storage/testroom
 	requires_power = 0
-	name = "\improper Test Room"
+	name = "Test Room"
 	icon_state = "storage"
 
 /area/storage/shields
-	name = "\improper Station Shield Control"
-	icon_state = "eva" 
-	
+	name = "Station Shield Control"
+	icon_state = "eva"

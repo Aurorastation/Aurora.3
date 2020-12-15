@@ -48,8 +48,8 @@ About the Holder:
 		get_master_reagent_name()
 			Ditto, but returns the name.
 
-		get_master_reagent_id()
-			Ditto, but returns ID.
+		get_master_reagent_type()
+			Ditto, but returns type.
 
 		update_total()
 			Updates total volume, called automatically.
@@ -111,7 +111,7 @@ About the Holder:
 
 			Calls touch() before checking the type of [target], calling splash_mob(target, amount), trans_to_turf(target, amount, multiplier, copy), or trans_to_obj(target, amount, multiplier, copy).
 
-		trans_id_to(var/atom/target, var/id, var/amount = 1)
+		trans_type_to(var/atom/target, var/id, var/amount = 1)
 			Transfers [amount] of [id] to [target]. Returns amount transferred.
 
 		splash_mob(var/mob/target, var/amount = 1, var/clothes = 1)
@@ -177,7 +177,11 @@ About Reagents:
 			Maximum amount of reagent that has ever been in a mob. Exists so dose won't grow infinitely when small amounts of reagent are added over time.
 
 		overdose
-			If [dose] is bigger than [overdose], overdose() proc is called every tick.
+		od_minimum_dose
+			If [volume] is bigger than [overdose]
+			AND
+			If [dose] is bigger than [od_minimum_dose]
+			THEN the overdose() proc is called every tick.
 
 		scannable
 			If set to 1, will show up on health analyzers by name.
@@ -239,7 +243,7 @@ About Reagents:
 			Ditto, breathing. Defaults to affect_blood with 75% dose.
 
 		overdose(var/mob/living/carbon/M, var/alien)
-			Called when dose is above overdose. Defaults to M.adjustToxLoss(REM).
+			Called when volume is above overdose and dose is greater than a minimum dose. Defaults to M.adjustToxLoss(REM).
 
 		initialize_data(var/newdata)
 			Called when reagent is created. Defaults to setting [data] to [newdata].

@@ -1,10 +1,11 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
-	desc = "The revised Mark II Necropolis Industries revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
+	desc = "The revised Mark II Zavodskoi Interstellar revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
 	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
 	accuracy = 1
+	offhand_accuracy = 1
 	caliber = "357"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
@@ -37,11 +38,11 @@
 	return ..()
 
 /obj/item/gun/projectile/revolver/mateba
-	name = "mateba"
-	desc = "The Mateba .454 Autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
-	icon = 'icons/obj/guns/mateba.dmi'
-	icon_state = "mateba"
-	item_state = "mateba"
+	name = "automatic revolver"
+	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
+	icon = 'icons/obj/guns/autorevolver.dmi'
+	icon_state = "autorevolver"
+	item_state = "autorevolver"
 	max_shells = 7
 	accuracy = 2
 	caliber = "454"
@@ -118,7 +119,7 @@
 	icon_state = "derringer"
 	item_state = "derringer"
 	accuracy = -1
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
@@ -257,6 +258,29 @@
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = null
 
-	description_fluff = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
+	desc_fluff = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
 	mechanism, with the need to manually eject each of the used cartridges, and reload one cartridge at a time through a loading gate. However, their cheap manufacturing cost has \
 	allowed countless copies to flood the Kingdom's markets."
+
+/obj/item/gun/projectile/revolver/knife
+	name = "knife-revolver"
+	desc = "An adhomian revolver with a blade attached to its barrel."
+	icon = 'icons/obj/guns/knifegun.dmi'
+	icon_state = "knifegun"
+	item_state = "knifegun"
+	max_shells = 6
+	caliber = "38"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = /obj/item/ammo_magazine/c38
+	force = 15
+	sharp = TRUE
+	edge = TRUE
+
+/obj/item/gun/projectile/revolver/knife/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(default_parry_check(user, attacker, damage_source) && prob(20))
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
+		playsound(user.loc, "punchmiss", 50, 1)
+		return TRUE
+	return FALSE

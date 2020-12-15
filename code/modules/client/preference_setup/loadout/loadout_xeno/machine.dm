@@ -2,8 +2,9 @@
 	display_name = "golden deep headchains"
 	path = /obj/item/clothing/head/headchain
 	cost = 1
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/goldenchains/New()
 	..()
@@ -17,8 +18,9 @@
 	display_name = "golden deep crests"
 	path = /obj/item/clothing/head/crest
 	cost = 1
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/goldencrests/New()
 	..()
@@ -32,8 +34,9 @@
 	display_name = "golden deep armchains"
 	path = /obj/item/clothing/gloves/armchain
 	cost = 1
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/gloves/armchains/New()
 	..()
@@ -47,8 +50,9 @@
 	display_name = "golden deep bracers"
 	path = /obj/item/clothing/gloves/goldbracer
 	cost = 1
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/gloves/bracers/New()
 	..()
@@ -62,8 +66,9 @@
 	display_name = "antennae"
 	path = /obj/item/clothing/head/antenna
 	cost = 1
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/antennae/New()
 	..()
@@ -71,28 +76,39 @@
 	antenna["antenna, curved"] = /obj/item/clothing/head/antenna
 	antenna["antenna, straight"] = /obj/item/clothing/head/antenna/straight
 	antenna["antenna, spiked"] = /obj/item/clothing/head/antenna/spiked
+	antenna["antenna, small spiked"] = /obj/item/clothing/head/antenna/spiked/small
 	antenna["antenna, side"] = /obj/item/clothing/head/antenna/side
 	antenna["antenna, dish"] = /obj/item/clothing/head/antenna/dish
 	antenna["antenna, double"] = /obj/item/clothing/head/antenna/double
 	antenna["antenna, left"] = /obj/item/clothing/head/antenna/double/left
 	antenna["antenna, right"] = /obj/item/clothing/head/antenna/double/right
-	antenna["antenna, trinary perfection"] = /obj/item/clothing/head/antenna/trinary_halo
+	antenna["antenna, left horn"] = /obj/item/clothing/head/antenna/double/left/horn
+	antenna["antenna, right horn"] = /obj/item/clothing/head/antenna/double/right/horn
+	antenna["antenna, circle"] = /obj/item/clothing/head/antenna/circle
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
-	gear_tweaks += list(gear_tweak_free_color_choice)
+
+/datum/gear/ears/trinary_halo
+	display_name = "trinary perfection antenna"
+	path = /obj/item/clothing/head/antenna/trinary_halo
+	cost = 1
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/headlights
 	display_name = "headlights"
 	path = /obj/item/device/flashlight/headlights
 	cost = 2
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 
 /datum/gear/suit/idris
 	display_name = "Idris Unit coats"
 	path = /obj/item/clothing/suit/armor/vest/idris
-	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/idris/New()
 	..()
@@ -104,3 +120,20 @@
 	idris["Black Idris Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/black
 	idris["Brown Idris Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/brown
 	gear_tweaks += new/datum/gear_tweak/path(idris)
+
+/datum/gear/uniform/goldendeep
+	display_name = "golden deep outfit selection"
+	description = "A selection of formal outfits worn by members of the Golden Deep."
+	path = /obj/item/clothing/under/goldendeep
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/uniform/goldendeep/New()
+	..()
+	var/goldendeep = list()
+	goldendeep["golden deep dress"] = /obj/item/clothing/under/goldendeep
+	goldendeep["golden deep wrap"] = /obj/item/clothing/under/goldendeep/wrap
+	goldendeep["golden deep vest"] = /obj/item/clothing/under/goldendeep/vest
+	goldendeep["golden deep suit"] = /obj/item/clothing/under/goldendeep/suit
+	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
+	gear_tweaks += new/datum/gear_tweak/path(goldendeep)

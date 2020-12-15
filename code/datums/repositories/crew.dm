@@ -82,7 +82,7 @@ var/global/datum/repository/crew/crew_repository = new()
 							if(-(INFINITY) to BLOOD_VOLUME_BAD)
 								crewmemberData["oxyg"] = OXYGENATION_STATE_NONE
 
-					crewmemberData["bodytemp"] = H.bodytemperature - T0C
+					crewmemberData["bodytemp"] = H.bodytemperature - T0C + (rand(-5, 5) / 10)
 
 				if(C.sensor_mode >= SUIT_SENSOR_TRACKING)
 					var/area/A = get_area(H)

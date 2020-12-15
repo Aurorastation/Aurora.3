@@ -4,6 +4,7 @@
 	desc = "A small, quivering sluglike creature."
 	speak_emote = list("chirrups")
 	emote_hear = list("chirrups")
+	organ_names = list("head", "rear segment", "central segment")
 	response_help  = "pokes"
 	response_disarm = "prods"
 	response_harm   = "stomps on"
@@ -21,7 +22,7 @@
 	maxHealth = 40
 	health = 40
 	pass_flags = PASSTABLE
-	universal_understand = 1
+	universal_understand = TRUE
 	holder_type = /obj/item/holder/borer
 	mob_size = 1
 	hunger_enabled = FALSE
@@ -33,12 +34,12 @@
 	var/mob/living/captive_brain/host_brain // Used for swapping control of the body back and forth.
 	var/controlling                         // Used in human death check.
 	var/has_reproduced
-	var/roundstart
+	var/request_player = TRUE
 
 /mob/living/simple_animal/borer/roundstart
-	roundstart = TRUE
+	request_player = FALSE
 
-/mob/living/simple_animal/borer/Login()
+/mob/living/simple_animal/borer/LateLogin()
 	..()
 	if(mind)
 		borers.add_antagonist(mind)
@@ -52,15 +53,20 @@
 	verbs += /mob/living/proc/hide
 
 	truename = "[pick("Primary","Secondary","Tertiary","Quaternary")]-[rand(1000,9999)]"
-	if(!roundstart)
-		request_player()
+	if(request_player && !ckey && !client)
+		SSghostroles.add_spawn_atom("borer", src)
+
+/mob/living/simple_animal/borer/death(gibbed, deathmessage)
+	SSghostroles.remove_spawn_atom("borer", src)
+	return ..(gibbed,deathmessage)
 
 /mob/living/simple_animal/borer/Life()
 	..()
 	if(host)
-		if(!stat && !host.stat)
+		if(!stat && host.stat != DEAD)
 			if(chemicals < 250)
 				chemicals++
+		if(host && !host.stat)
 			if(controlling && prob(host.getBrainLoss()/20))
 				host.say("*[pick(list("blink","blink_r","choke","drool","twitch","twitch_s","gasp"))]")
 
@@ -152,10 +158,9 @@
 	host = null
 	return
 
-//Procs for grabbing players.
-/mob/living/simple_animal/borer/proc/request_player()
-	var/datum/ghosttrap/G = get_ghost_trap("cortical borer")
-	G.request_player(src, "A cortical borer needs a player.")
+/mob/living/simple_animal/borer/assign_player(var/mob/user)
+	ckey = user.ckey
+	return src
 
 /mob/living/simple_animal/borer/cannot_use_vents()
 	return

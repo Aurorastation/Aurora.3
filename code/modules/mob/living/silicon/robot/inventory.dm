@@ -6,6 +6,18 @@
 	// TODO: see if refactoring this to return the gripped object (should one exist) works - would make a lot of edge cases a lot simpler
 	return module_active
 
+/mob/living/silicon/robot/proc/return_wirecutter()
+	for(var/obj/I in list(module_state_1, module_state_2, module_state_3))
+		if(I.iswirecutter())
+			return I
+	return
+
+/mob/living/silicon/robot/proc/return_multitool()
+	for(var/obj/I in list(module_state_1, module_state_2, module_state_3))
+		if(I.ismultitool())
+			return I
+	return
+
 /*-------TODOOOOOOOOOO--------*/
 
 //Verbs used by hotkeys.
@@ -24,72 +36,44 @@
 		return
 
 	if(module_state_1 == module_active)
-		if(istype(module_state_1,/obj/item/borg/sight))
-			sight_mode &= ~module_state_1:sight_mode
-		if (client)
-			client.screen -= module_state_1
-		contents -= module_state_1
-		module_active = null
-		module_state_1:loc = module //So it can be used again later
+		store_module(module_state_1)
+		set_module_active(null)
 		module_state_1 = null
 		inv1.icon_state = "inv1"
 	else if(module_state_2 == module_active)
-		if(istype(module_state_2,/obj/item/borg/sight))
-			sight_mode &= ~module_state_2:sight_mode
-		if (client)
-			client.screen -= module_state_2
-		contents -= module_state_2
-		module_active = null
-		module_state_2:loc = module
+		store_module(module_state_2)
+		set_module_active(null)
 		module_state_2 = null
 		inv2.icon_state = "inv2"
 	else if(module_state_3 == module_active)
-		if(istype(module_state_3,/obj/item/borg/sight))
-			sight_mode &= ~module_state_3:sight_mode
-		if (client)
-			client.screen -= module_state_3
-		contents -= module_state_3
-		module_active = null
-		module_state_3:loc = module
+		store_module(module_state_3)
+		set_module_active(null)
 		module_state_3 = null
 		inv3.icon_state = "inv3"
 
-	updateicon()
 	hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/uneq_all()
-	module_active = null
+	set_module_active(null)
 
 	if(module_state_1)
-		if(istype(module_state_1,/obj/item/borg/sight))
-			sight_mode &= ~module_state_1:sight_mode
-		if (client)
-			client.screen -= module_state_1
-		contents -= module_state_1
-		module_state_1:loc = module
+		store_module(module_state_1)
 		module_state_1 = null
 		inv1.icon_state = "inv1"
 	if(module_state_2)
-		if(istype(module_state_2,/obj/item/borg/sight))
-			sight_mode &= ~module_state_2:sight_mode
-		if (client)
-			client.screen -= module_state_2
-		contents -= module_state_2
-		module_state_2:loc = module
+		store_module(module_state_2)
 		module_state_2 = null
 		inv2.icon_state = "inv2"
 	if(module_state_3)
-		if(istype(module_state_3,/obj/item/borg/sight))
-			sight_mode &= ~module_state_3:sight_mode
-		if (client)
-			client.screen -= module_state_3
-		contents -= module_state_3
-		module_state_3:loc = module
+		store_module(module_state_3)
 		module_state_3 = null
 		inv3.icon_state = "inv3"
-	updateicon()
+	update_icon()
+	hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/activated(obj/item/O)
+	update_icon()
+
 	if(module_state_1 == O)
 		return 1
 	else if(module_state_2 == O)
@@ -98,7 +82,6 @@
 		return 1
 	else
 		return 0
-	updateicon()
 
 //Helper procs for cyborg modules on the UI.
 //These are hackish but they help clean up code elsewhere.
@@ -146,21 +129,21 @@
 				inv1.icon_state = "inv1 +a"
 				inv2.icon_state = "inv2"
 				inv3.icon_state = "inv3"
-				module_active = module_state_1
+				set_module_active(module_state_1)
 				return
 		if(2)
 			if(module_active != module_state_2)
 				inv1.icon_state = "inv1"
 				inv2.icon_state = "inv2 +a"
 				inv3.icon_state = "inv3"
-				module_active = module_state_2
+				set_module_active(module_state_2)
 				return
 		if(3)
 			if(module_active != module_state_3)
 				inv1.icon_state = "inv1"
 				inv2.icon_state = "inv2"
 				inv3.icon_state = "inv3 +a"
-				module_active = module_state_3
+				set_module_active(module_state_3)
 				return
 	return
 
@@ -172,17 +155,17 @@
 		if(1)
 			if(module_active == module_state_1)
 				inv1.icon_state = "inv1"
-				module_active = null
+				set_module_active(null)
 				return
 		if(2)
 			if(module_active == module_state_2)
 				inv2.icon_state = "inv2"
-				module_active = null
+				set_module_active(null)
 				return
 		if(3)
 			if(module_active == module_state_3)
 				inv3.icon_state = "inv3"
-				module_active = null
+				set_module_active(null)
 				return
 	return
 
@@ -231,22 +214,19 @@
 		O.layer = SCREEN_LAYER
 		O.screen_loc = inv1.screen_loc
 		contents += O
-		if(istype(module_state_1,/obj/item/borg/sight))
-			sight_mode |= module_state_1:sight_mode
+		O.on_module_hotbar(src)
 	else if(!module_state_2)
 		module_state_2 = O
 		O.layer = SCREEN_LAYER
 		O.screen_loc = inv2.screen_loc
 		contents += O
-		if(istype(module_state_2,/obj/item/borg/sight))
-			sight_mode |= module_state_2:sight_mode
+		O.on_module_hotbar(src)
 	else if(!module_state_3)
 		module_state_3 = O
 		O.layer = SCREEN_LAYER
 		O.screen_loc = inv3.screen_loc
 		contents += O
-		if(istype(module_state_3,/obj/item/borg/sight))
-			sight_mode |= module_state_3:sight_mode
+		O.on_module_hotbar(src)
 	else
 		to_chat(src, "<span class='notice'>You need to disable a module first!</span>")
 
@@ -304,7 +284,7 @@
 /mob/living/silicon/robot/proc/describe_module(var/slot)
 	var/list/index_module = list(module_state_1,module_state_2,module_state_3)
 	var/result = "   Hardpoint [slot] holds "
-	result += (index_module[slot]) ? "\icon[index_module[slot]] [index_module[slot]]." : "nothing."
+	result += (index_module[slot]) ? "[icon2html(index_module[slot], viewers(get_turf(src)))] [index_module[slot]]." : "nothing."
 	result += "\n"
 	return result
 

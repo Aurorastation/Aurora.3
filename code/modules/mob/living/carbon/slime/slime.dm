@@ -6,7 +6,7 @@
 	var/is_adult = 0
 	speak_emote = list("chirps")
 	mob_size = 4
-	composition_reagent = "slimejelly"
+	composition_reagent = /datum/reagent/slimejelly
 	layer = 5
 	maxHealth = 150
 	health = 150
@@ -41,7 +41,7 @@
 	var/holding_still = 0	// AI variable, cooloff-ish for how long it's going to stay in one place
 	var/target_patience = 0 // AI variable, cooloff-ish for how long it's going to follow its target
 
-	var/list/friends = list() // A list of friends; they are not considered targets for feeding; passed down after splitting
+	var/list/friends = list() // A list of friends; the higher their number value, the more we consider them a friend, people at 0 are no longer friends
 
 	var/list/speech_buffer = list() // Last phrase said near it and person who said it
 
@@ -157,9 +157,9 @@
 		tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	if(reagents)
-		if(reagents.has_reagent("hyperzine")) // Hyperzine slows slimes down
+		if(reagents.has_reagent(/datum/reagent/hyperzine)) // Hyperzine slows slimes down
 			tally *= 2
-		if(reagents.has_reagent("frostoil")) // Frostoil also makes them move VEEERRYYYYY slow
+		if(reagents.has_reagent(/datum/reagent/frostoil)) // Frostoil also makes them move VEEERRYYYYY slow
 			tally *= 5
 
 	if(health <= 0) // if damaged, the slime moves twice as slow
@@ -283,10 +283,10 @@
 	if(victim)
 		if(victim == M)
 			if(prob(60))
-				visible_message(span("warning", "[M] attempts to wrestle \the [name] off!"))
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off!"))
+				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 			else
-				visible_message(span("warning", "[M] manages to wrestle \the [name] off!"))
+				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(90) && !client)
@@ -304,10 +304,10 @@
 
 		else
 			if(prob(30))
-				visible_message(span("warning", "[M] attempts to wrestle \the [name] off of [victim]!"))
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off of [victim]!"))
+				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 			else
-				visible_message(span("warning", "[M] manages to wrestle \the [name] off of [victim]!"))
+				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(80) && !client)
@@ -343,7 +343,7 @@
 			LAssailant = WEAKREF(M)
 
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			visible_message(span("warning", "[M] has grabbed [src] passively!"))
+			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"))
 
 		else
 
@@ -364,23 +364,20 @@
 						sleep(3)
 						step_away(src,M,15)
 
-				playsound(loc, "punch", 25, 1, -1)
-				visible_message(span("danger", "[M] has punched [src]!"), \
-						span("danger", "[M] has punched [src]!"))
+				playsound(loc, /decl/sound_category/punch_sound, 25, 1, -1)
+				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
+						SPAN_DANGER("[M] has punched [src]!"))
 
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
-				visible_message(span("danger", "[M] has attempted to punch [src]!"))
+				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
+				visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"))
 	return
 
 /mob/living/carbon/slime/attackby(obj/item/W, mob/user)
 	if(W.force > 0)
 		attacked += 10
-		if(prob(25))
-			to_chat(user, span("danger", "[W] passes right through [src]!"))
-			return
 		if(discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			discipline = FALSE
 	if(W.force >= 3)

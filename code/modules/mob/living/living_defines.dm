@@ -18,6 +18,7 @@
 	var/t_phoron = null
 	var/t_oxygen = null
 	var/t_sl_gas = null
+	var/hydrogen = null
 	var/t_n2 = null
 
 	var/now_pushing = null
@@ -70,3 +71,4 @@
 	var/brute_mod = 1
 
 	var/limb_breaking = FALSE // used to limit people from queuing up limb-breaks
+	var/list/obj/aura/auras //Basically a catch-all aura/force-field thing.

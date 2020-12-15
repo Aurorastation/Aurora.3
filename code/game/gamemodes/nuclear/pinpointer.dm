@@ -4,7 +4,7 @@
 	icon_state = "pinoff"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -217,7 +217,7 @@
 
 /obj/item/pinpointer/nukeop
 	var/mode = 0	//Mode 0 locates disk, mode 1 locates the shuttle
-	var/obj/machinery/computer/shuttle_control/multi/syndicate/home = null
+	var/obj/machinery/computer/shuttle_control/multi/antag/syndicate/home = null
 
 /obj/item/pinpointer/nukeop/attack_self(mob/user as mob)
 	if(!active)

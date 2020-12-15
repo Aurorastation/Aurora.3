@@ -42,15 +42,15 @@
 
 	if(istype(W, /obj/item/card/id))
 		var/obj/item/card/id/C = W
-		if(access_captain in C.access || access_security in C.access || access_engine in C.access)
+		if((access_captain in C.access) || (access_security in C.access) || (access_engine in C.access))
 			src.locked = !src.locked
 			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 			updateDialog()
 		else
-			to_chat(user, span("alert", "Access denied."))
+			to_chat(user, SPAN_ALERT("Access denied."))
 	else if(W.iswrench())
 		src.anchored = !src.anchored
-		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
+		src.visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 
 		if(anchored)
 			spawn(0)
