@@ -253,41 +253,14 @@
 /obj/effect/blob/core/proc/get_health_percent()
 	return ((health / maxHealth) * 100)
 
-/*
-the master core becomes more vulnereable to damage as it weakens,
-but it also becomes more aggressive, and channels more of its energy into regenerating rather than spreading
-regen() will cover update_icon() for this proc
-*/
 /obj/effect/blob/core/proc/process_core_health()
-	switch(get_health_percent())
-		if(75 to INFINITY)
-			brute_resist = 3.5
-			fire_resist = 2
-			attack_cooldown = 60
-			regen_rate = 2
-			times_to_pulse = 4
-			if(reported_low_damage)
-				report_shield_status(CORE_SHIELD_HIGH)
-		if(50 to 74)
-			brute_resist = 2.5
-			fire_resist = 1.5
-			attack_cooldown = 50
-			regen_rate = 3
-			times_to_pulse = 3
-		if(34 to 49)
-			brute_resist = 1
-			fire_resist = 0.8
-			attack_cooldown = 40
-			regen_rate = 4
-			times_to_pulse = 2
-		if(-INFINITY to 33)
-			brute_resist = 0.5
-			fire_resist = 0.3
-			attack_cooldown = 30
-			regen_rate = 5
-			times_to_pulse = 1
-			if(!reported_low_damage)
-				report_shield_status(CORE_SHIELD_LOW)
+	var/health_percent = get_health_percent()
+	if(health_percent > 75)
+		if(reported_low_damage)
+			report_shield_status(CORE_SHIELD_HIGH)
+	else if(health_percent < 33)
+		if(!reported_low_damage)
+			report_shield_status(CORE_SHIELD_LOW)
 
 /obj/effect/blob/core/proc/report_shield_status(var/status)
 	if(status == CORE_SHIELD_LOW)
