@@ -751,7 +751,7 @@
 		var/mob/M = src.loc
 		M.update_inv_shoes()
 
-/obj/item/clothing/shoes/proc/trip_up()
+/obj/item/clothing/shoes/proc/trip_up(var/turf/walking, var/running)
 	if(!running)
 		if(footstep >= 2)
 			footstep = 0
