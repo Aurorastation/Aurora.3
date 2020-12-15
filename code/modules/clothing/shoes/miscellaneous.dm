@@ -195,6 +195,11 @@ obj/item/clothing/shoes/sandal/clogs
 		M = user
 	return eyestab(M,user)
 
+/obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
+	if(running)
+		if(prob(33))
+			L.Weaken(2)
+
 /obj/item/clothing/shoes/winter
 	name = "winter boots"
 	desc = "A pair of heavy winter boots made out of animal furs, reaching up to the knee."
