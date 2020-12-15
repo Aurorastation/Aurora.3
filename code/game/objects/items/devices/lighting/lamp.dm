@@ -24,8 +24,8 @@
 
 //Lava Lamps: Because we're already stuck in the 70ies with those fax machines.
 /obj/item/device/flashlight/lamp/lava
-	name = "lava lamp"
-	desc = "A kitchy throwback decorative light. Noir Edition."
+	name = "data encryption lamp"
+	desc = "Random oil globules within were parsed in photos for your protection. Enjoy this kitschy memorabilia by sticking it on your desk."
 	icon_state = "lavalamp"
 	brightness_on = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 200)
@@ -41,33 +41,25 @@
 	add_overlay(I)
 
 /obj/item/device/flashlight/lamp/lava/red
-	desc = "A kitchy red decorative light."
 	light_color = COLOR_RED
 
 /obj/item/device/flashlight/lamp/lava/blue
-	desc = "A kitchy blue decorative light."
 	light_color = COLOR_BLUE
 
 /obj/item/device/flashlight/lamp/lava/cyan
-	desc = "A kitchy cyan decorative light."
 	light_color = COLOR_CYAN
 
 /obj/item/device/flashlight/lamp/lava/green
-	desc = "A kitchy green decorative light."
 	light_color = COLOR_GREEN
 
 /obj/item/device/flashlight/lamp/lava/orange
-	desc = "A kitchy orange decorative light."
 	light_color = COLOR_ORANGE
 
 /obj/item/device/flashlight/lamp/lava/purple
-	desc = "A kitchy purple decorative light."
 	light_color = COLOR_PURPLE
 
 /obj/item/device/flashlight/lamp/lava/pink
-	desc = "A kitchy pink decorative light."
 	light_color = COLOR_PINK
 
 /obj/item/device/flashlight/lamp/lava/yellow
-	desc = "A kitchy yellow decorative light."
 	light_color = COLOR_YELLOW

@@ -1042,5 +1042,5 @@
 
 /obj/item/toy/desk/dippingbird
 	name = "dipping bird toy"
-	desc = "A ancient human bird idol, worshipped by clerks and desk jockeys."
+	desc = "Engineers marvel at this scale model of a primitive thermal engine. It's highly debated why the majority of owners were in low-level bureaucratic jobs."
 	icon_state = "dippybird"
