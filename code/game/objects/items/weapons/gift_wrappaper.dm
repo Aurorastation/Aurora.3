@@ -215,7 +215,7 @@
 		/obj/item/ore/coal,
 		/obj/item/stamp/clown,
 		/obj/item/organ/internal/heart/skrell,
-		/obj/item/toy/balloon/color)
+		/obj/item/toy/balloon/color,
 		/obj/item/storage/box/partypopper)
 
 	var/atom/movable/I = new gift_type(get_turf(user))
