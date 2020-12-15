@@ -39,6 +39,7 @@
 
 /obj/item/clothing/shoes/jackboots/thigh/handle_movement(var/turf/walking, var/running)
 	trip_up()
+	
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less black boots"
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."
