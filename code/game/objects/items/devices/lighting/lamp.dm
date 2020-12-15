@@ -38,7 +38,7 @@
 	cut_overlays()
 	var/image/I = image(icon = icon, icon_state = "lavalamp-[on ? "on" : "off"]")
 	I.color = light_color
-	overlays += I
+	add_overlay(I)
 
 /obj/item/device/flashlight/lamp/lava/red
 	desc = "A kitchy red decorative light."
