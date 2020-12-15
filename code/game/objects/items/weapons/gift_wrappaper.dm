@@ -83,7 +83,7 @@
 		/obj/item/bikehorn,
 		/obj/item/beach_ball,
 		/obj/item/beach_ball/holoball,
-		/obj/item/toy/balloon,
+		/obj/item/toy/waterballoon,
 		/obj/item/toy/blink,
 		/obj/item/toy/crossbow,
 		/obj/item/gun/projectile/revolver/capgun,
@@ -171,7 +171,7 @@
 		/obj/item/lipstick/random,
 		/obj/item/clothing/shoes/carp,
 		/obj/item/bikehorn,
-		/obj/item/toy/balloon,
+		/obj/item/toy/waterballoon,
 		/obj/item/toy/blink,
 		/obj/item/gun/projectile/revolver/capgun,
 		/obj/item/toy/prize/deathripley,
@@ -204,7 +204,7 @@
 		/obj/item/stack/material/animalhide/monkey,
 		/obj/item/stack/material/animalhide/xeno,
 		/obj/item/xmasgift/medium,
-		/obj/item/toy/syndicateballoon,
+		/obj/item/toy/balloon/syndicate,
 		/obj/item/toy/xmastree,
 		/obj/item/bluespace_crystal,
 		/obj/item/gun/energy/mousegun,
@@ -215,7 +215,7 @@
 		/obj/item/ore/coal,
 		/obj/item/stamp/clown,
 		/obj/item/organ/internal/heart/skrell,
-		/obj/item/latexballon,
+		/obj/item/toy/balloon/color)
 		/obj/item/storage/box/partypopper)
 
 	var/atom/movable/I = new gift_type(get_turf(user))
