@@ -1004,7 +1004,7 @@
 //baystation desk toys
 
 /obj/item/toy/desk
-	var/on = 0
+	var/on = FALSE
 	var/activation_sound = /decl/sound_category/switch_sound
 
 /obj/item/toy/desk/update_icon()
