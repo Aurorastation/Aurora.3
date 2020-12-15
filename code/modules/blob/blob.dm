@@ -15,11 +15,14 @@
 	var/maxHealth = 30
 	var/health
 	var/regen_rate = 5
+
+	// damage gets divided by these modifiers, based on damage type
 	var/brute_resist = 4.3
 	var/fire_resist = 0.8
 	var/laser_resist = 2	// Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
+
 	var/expandType = /obj/effect/blob
-	var/secondary_core_growth_chance = 5 //% chance to grow a secondary blob core instead of whatever was suposed to grown. Secondary cores are considerably weaker, but still nasty.
+	var/secondary_core_growth_chance = 5 //% chance to grow a secondary blob core instead of whatever was supposed to grow. Secondary cores are considerably weaker, but still nasty.
 	var/damage_min = 15
 	var/damage_max = 25
 	var/pruned = FALSE
@@ -86,8 +89,7 @@
 		return
 	var/obj/structure/girder/G = locate() in T
 	if(G)
-		if(prob(40))
-			G.dismantle()
+		G.take_damage(rand(40, 80))
 		return
 	var/obj/structure/window/W = locate() in T
 	if(W)
@@ -139,7 +141,7 @@
 	if(is_core)
 		inherited_core = src
 
-	if(!(locate(/obj/effect/blob/core) in range(T, 2)) && prob(secondary_core_growth_chance))
+	if(!(locate(/obj/effect/blob/core) in range(2, T)) && prob(secondary_core_growth_chance))
 		var/obj/effect/blob/core/secondary/S = new /obj/effect/blob/core/secondary(T)
 		S.parent_core = inherited_core
 	else
@@ -236,7 +238,7 @@
 	damage_min = 25
 	damage_max = 35
 	expandType = /obj/effect/blob/shield
-	product = /obj/item/blob_tendril/core
+	product = /obj/item/blob_core
 	is_core = TRUE
 
 	light_color = BLOB_COLOR_CORE
@@ -328,7 +330,7 @@ regen() will cover update_icon() for this proc
 	damage_min = 15
 	damage_max = 20
 	layer = BLOB_NODE_LAYER
-	product = /obj/item/blob_tendril/core/aux
+	product = /obj/item/blob_core/aux
 	pulse_power = 20 // Not as strong as big daddy core
 	times_to_pulse = 4
 
@@ -399,30 +401,28 @@ regen() will cover update_icon() for this proc
 	item_state = "blob_tendril"
 	w_class = ITEMSIZE_LARGE
 	attack_verb = list("smacked", "smashed", "whipped")
-	var/is_tendril = TRUE
 	var/types_of_tendril = list(TENDRIL_SOLID, TENDRIL_FIRE)
 
 /obj/item/blob_tendril/Initialize()
 	. = ..()
-	if(is_tendril)
-		var/tendril_type
-		tendril_type = pick(types_of_tendril)
-		reach = 2 // long range tentacle whips - geeves
-		switch(tendril_type)
-			if(TENDRIL_SOLID)
-				desc = "An incredibly dense, yet flexible, tendril, removed from an asteroclast."
-				force = 10
-				color = COLOR_BRONZE
-				origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 2)
-			if(TENDRIL_FIRE)
-				desc = "A tendril removed from an asteroclast. It's hot to the touch."
-				damtype = BURN
-				force = 15
-				color = COLOR_AMBER
-				origin_tech = list(TECH_POWER = 2, TECH_BIO = 2)
+	var/tendril_type
+	tendril_type = pick(types_of_tendril)
+	reach = 2 // long range tentacle whips - geeves
+	switch(tendril_type)
+		if(TENDRIL_SOLID)
+			desc = "An incredibly dense, yet flexible, tendril, removed from an asteroclast."
+			force = 10
+			color = COLOR_BRONZE
+			origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 2)
+		if(TENDRIL_FIRE)
+			desc = "A tendril removed from an asteroclast. It's hot to the touch."
+			damtype = BURN
+			force = 15
+			color = COLOR_AMBER
+			origin_tech = list(TECH_POWER = 2, TECH_BIO = 2)
 
 /obj/item/blob_tendril/afterattack(obj/O, mob/user)
-	if(is_tendril && prob(50))
+	if(prob(50))
 		force--
 		if(force <= 0)
 			visible_message(SPAN_NOTICE("\The [src] crumbles apart!"))
@@ -430,16 +430,15 @@ regen() will cover update_icon() for this proc
 			new /obj/effect/decal/cleanable/ash(get_turf(src))
 			qdel(src)
 
-/obj/item/blob_tendril/core
+/obj/item/blob_core
 	name = "asteroclast nucleus sample"
 	desc = "A sample taken from an asteroclast's nucleus. It pulses with energy."
 	icon_state = "core_sample"
 	item_state = "blob_core"
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 5, TECH_BIO = 7)
-	is_tendril = FALSE
 
-/obj/item/blob_tendril/core/aux
+/obj/item/blob_core/aux
 	name = "asteroclast auxiliary nucleus sample"
 	desc = "A sample taken from an asteroclast's auxiliary nucleus."
 	icon_state = "core_sample_2"
