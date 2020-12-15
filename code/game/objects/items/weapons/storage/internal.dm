@@ -84,3 +84,16 @@
 
 /obj/item/storage/internal/Adjacent(var/atom/neighbor)
 	return master_item.Adjacent(neighbor)
+
+/obj/item/storage/internal/skrell
+	name = "headtail storage"
+	icon = 'icons/obj/action_buttons/organs.dmi'
+	icon_state = "skrell_headpocket"
+	storage_slots = 1
+	max_storage_space = 2
+	max_w_class = ITEMSIZE_SMALL
+	use_sound = null
+
+/obj/item/storage/internal/skrell/Initialize()
+	. = ..()
+	name = initial(name)
