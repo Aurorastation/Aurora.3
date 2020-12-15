@@ -185,6 +185,7 @@ obj/item/clothing/shoes/sandal/clogs
 	slowdown = 0
 	force = 2
 	sharp = TRUE
+	var/footstep = 1
 
 /obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
@@ -196,9 +197,16 @@ obj/item/clothing/shoes/sandal/clogs
 	return eyestab(M,user)
 
 /obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
-	if(running)
-		if(prob(33))
-			L.Weaken(2)
+	if(!running)
+		if(footstep >= 2)
+			footstep = 0
+		else
+			footstep++
+	else
+		if(prob(25))
+			if(ismob(usr))
+				var/mob/M = usr
+				M.Weaken(2)
 
 /obj/item/clothing/shoes/winter
 	name = "winter boots"
