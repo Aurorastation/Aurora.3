@@ -85,6 +85,8 @@
 		return
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/SW = T
+		if(SW.reinf_material && SW.reinf_material.hardness > 60)
+			return TRUE
 		SW.take_damage(80)
 		return
 	var/obj/structure/girder/G = locate() in T
@@ -102,8 +104,8 @@
 	for(var/obj/machinery/door/D in T) // There can be several - and some of them can be open, locate() is not suitable
 		if(D.density)
 			attack_door(D)
-			if(istype(D, /obj/machinery/door/firedoor))
-				if(D.health <= 0)
+			if(D.health <= 0)
+				if(!D.open(TRUE))
 					D.visible_message(SPAN_WARNING("\The [src] bashes through \the [D], demolishing it!"))
 					qdel(D)
 			return
@@ -148,17 +150,18 @@
 		var/obj/effect/blob/B = new expandType(T, min(health, 30))
 		B.parent_core = inherited_core
 
-/obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs)
+/obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs, var/bad_dir)
 	sleep(4)
-	var/pushDir = pick(dirs)
+	var/pushDir = pick(dirs - bad_dir)
 	var/turf/T = get_step(src, pushDir)
-	var/obj/effect/blob/B = (locate() in T)
+	var/obj/effect/blob/B = locate() in T
 	if(!B)
 		if(prob(health))
-			expand(T)
-		return
-	if(forceLeft)
-		B.pulse(forceLeft - 1, dirs)
+			var/retry = expand(T)
+			if(retry)
+				pulse(forceLeft - 1, dirs, pushDir)
+	else if(forceLeft)
+		B.pulse(forceLeft - 1, dirs - get_dir(B, src))
 
 /obj/effect/blob/proc/attack_msg(atom/source)
 	source.visible_message(SPAN_WARNING("A tendril flies out from \the [src] and smashes into \the [source]!"), SPAN_DANGER("A tendril flies out from \the [src] and smashes into you!"))
@@ -178,16 +181,12 @@
 	L.apply_damage(rand(damage_min, damage_max), blob_damage, used_weapon = "blob tendril")
 
 /obj/effect/blob/proc/attempt_attack()
-	for(var/mob/living/victim in view(1, src))
+	var/mob/living/victim = locate() in view(1, src)
+	if(victim)
 		if(victim.stat == DEAD)
-			continue
-		if(!Adjacent(victim)) // prevents blobs from attacking people through wall corners and shit, hopefully - geeves
-			continue
+			return
 		attack_living(victim)
 		attack_time = world.time
-		for(var/obj/effect/blob/B in range(2, get_turf(src)))
-			B.attack_time = world.time
-		break
 
 /obj/effect/blob/bullet_act(var/obj/item/projectile/Proj)
 	if(!Proj)
@@ -225,7 +224,9 @@
 			damage = (W.force / brute_resist)
 
 	take_damage(damage)
-	return
+
+/obj/effect/blob/fire_act()
+	take_damage(rand(5, 20) / fire_resist)
 
 #define CORE_SHIELD_HIGH "high"
 #define CORE_SHIELD_LOW "low"
@@ -313,8 +314,8 @@ regen() will cover update_icon() for this proc
 	blob_may_process = FALSE
 	process_core_health()
 	regen()
-	for(var/i = 1; i < times_to_pulse + 1; i++)
-		pulse(pulse_power, global.alldirs)
+	for(var/i = 1 to times_to_pulse)
+		pulse(pulse_power, global.cardinal.Copy())
 	blob_may_process = TRUE
 	if(world.time < (attack_time + attack_cooldown))
 		return
