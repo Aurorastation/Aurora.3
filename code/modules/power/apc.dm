@@ -906,67 +906,64 @@
 
 	return ui_interact(user)
 
-/obj/machinery/power/apc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(!user)
-		return
+/obj/machinery/power/apc/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = ..() || list()
 	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
-	var/list/data = list(
-		"locked" = (locked && !emagged) ? TRUE : FALSE,
-		"isOperating" = operating,
-		"externalPower" = main_status,
-		"powerCellStatus" = cell ? cell.percent() : null,
-		"chargeMode" = chargemode,
-		"lightingMode" = night_mode,
-		"chargingStatus" = charging,
-		"totalLoad" = round(lastused_total),
-		"totalCharging" = round(lastused_charging),
-		"coverLocked" = coverlocked,
-		"failTime" = failure_timer * 2,
-		"siliconUser" = isAdmin || issilicon(user),
-		"emergencyMode" = !emergency_lights,
-		"time" = time,
-		"charge_mode" = charge_mode,
-
-		"powerChannels" = list(
-			list(
-				"title" = "Equipment",
-				"powerLoad" = lastused_equip,
-				"status" = equipment,
-				"topicParams" = list(
-					"auto" = list("eqp" = 3),
-					"on"   = list("eqp" = 2),
-					"off"  = list("eqp" = 1)
-				)
-			),
-			list(
-				"title" = "Lighting",
-				"powerLoad" = round(lastused_light),
-				"status" = lighting,
-				"topicParams" = list(
-					"auto" = list("lgt" = 3),
-					"on"   = list("lgt" = 2),
-					"off"  = list("lgt" = 1)
-				)
-			),
-			list(
-				"title" = "Environment",
-				"powerLoad" = round(lastused_environ),
-				"status" = environ,
-				"topicParams" = list(
-					"auto" = list("env" = 3),
-					"on"   = list("env" = 2),
-					"off"  = list("env" = 1)
-				)
+	data["locked"] = (locked && !emagged)
+	data["isOperating"] = operating
+	data["externalPower"] = main_status
+	data["powerCellStatus"] = cell?.percent()
+	data["chargeMode"] = chargemode
+	data["lightingMode"] = night_mode
+	data["chargingStatus"] = charging
+	data["totalLoad"] = round(lastused_total)
+	data["totalCharging"] = round(lastused_charging)
+	data["coverLocked"] = coverlocked
+	data["failTime"] = failure_timer * 2
+	data["siliconUser"] = isAdmin || issilicon(user)
+	data["emergencyMode"] = !emergency_lights
+	data["time"] = time
+	data["charge_mode"] = charge_mode
+	data["powerChannels"] = list(\
+		list(\
+			"title" = "Equipment",\
+			"powerLoad" = lastused_equip,\
+			"status" = equipment,\
+			"topicParams" = list(\
+				"auto" = list("eqp" = 3),\
+				"on"   = list("eqp" = 2),\
+				"off"  = list("eqp" = 1)\
+			)\
+		),
+		list(
+			"title" = "Lighting",
+			"powerLoad" = round(lastused_light),
+			"status" = lighting,
+			"topicParams" = list(
+				"auto" = list("lgt" = 3),
+				"on"   = list("lgt" = 2),
+				"off"  = list("lgt" = 1)
+			)
+		),
+		list(
+			"title" = "Environment",
+			"powerLoad" = round(lastused_environ),
+			"status" = environ,
+			"topicParams" = list(
+				"auto" = list("env" = 3),
+				"on"   = list("env" = 2),
+				"off"  = list("env" = 1)
 			)
 		)
 	)
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/power/apc/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, ui_key, "apc.tmpl", "[area.name] - APC", 665, data["siliconUser"] ? 540 : 480)
-		ui.set_initial_data(data)
+		ui = new(user, src, "machinery-power-apc", 665, (isobserver(user) && check_rights(R_ADMIN, FALSE, user) || issilicon(user)) ? 540 : 480, "[area.name] - APC", state = interactive_state)
 		ui.open()
-		ui.set_auto_update(TRUE)
+		ui.auto_update_content = TRUE
 
 /obj/machinery/power/apc/proc/report()
 	return "[area.name] : [equipment]/[lighting]/[environ] ([lastused_equip+lastused_light+lastused_environ]) : [cell? cell.percent() : "N/C"] ([charging])"
@@ -1035,21 +1032,21 @@
 
 /obj/machinery/power/apc/Topic(href, href_list)
 	if(..())
-		return TRUE
+		return TOPIC_NOACTION
 
 	if(!can_use(usr, 1))
-		return TRUE
+		return TOPIC_NOACTION
 
 	if (href_list["lmode"])
 		toggle_nightlight(href_list["lmode"])
 		update_icon()
-		return TRUE
+		return TOPIC_REFRESH
 
 	var/isAdmin = isobserver(usr) && check_rights(R_ADMIN, FALSE)
 	if(!issilicon(usr) && !isAdmin && locked && !emagged)
 		// Shouldn't happen, this is here to prevent href exploits
 		to_chat(usr, "You must unlock the panel to use this!")
-		return TRUE
+		return TOPIC_NOACTION
 
 	if (href_list["emergency_lights"])
 		emergency_lights = href_list["emergency_lights"] != "off"
@@ -1058,7 +1055,7 @@
 				L.no_emergency = emergency_lights	//If there was an override set on creation, keep that override
 				INVOKE_ASYNC(L, /obj/machinery/light/.proc/update, FALSE)
 			CHECK_TICK
-		return TRUE
+		return TOPIC_REFRESH
 
 	if (href_list["lock"])
 		coverlocked = !coverlocked
@@ -1107,7 +1104,8 @@
 				locked = !locked
 				update_icon()
 
-	return FALSE
+	SSvueui.check_uis_for_change(src)
+	return TOPIC_REFRESH
 
 /obj/machinery/power/apc/proc/toggle_breaker()
 	operating = !operating
