@@ -63,6 +63,7 @@
 /obj/item/device/flashlight/lamp/lava/purple
 	desc = "A kitchy purple decorative light."
 	light_color = COLOR_PURPLE
+
 /obj/item/device/flashlight/lamp/lava/pink
 	desc = "A kitchy pink decorative light."
 	light_color = COLOR_PINK
