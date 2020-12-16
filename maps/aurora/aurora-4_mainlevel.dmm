@@ -28597,6 +28597,7 @@
 /obj/structure/bed/chair/plastic{
 	dir = 1
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "aVl" = (
@@ -43380,6 +43381,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvi" = (
@@ -43388,6 +43390,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/glass_jar/gumball/medical,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvj" = (
@@ -43398,16 +43401,19 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/cups,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvk" = (
 /obj/structure/reagent_dispensers/water_cooler,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvm" = (
 /obj/structure/bed/chair/plastic{
 	dir = 1
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvn" = (
@@ -43424,6 +43430,7 @@
 /obj/structure/bed/chair/plastic{
 	dir = 1
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvo" = (
@@ -43434,6 +43441,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvq" = (
@@ -47256,6 +47264,12 @@
 /obj/structure/cryofeed{
 	dir = 2
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bCN" = (
@@ -47263,6 +47277,9 @@
 	dir = 2
 	},
 /obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -47273,6 +47290,9 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
@@ -47295,6 +47315,12 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
@@ -47708,6 +47734,9 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 32
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/ramp,
 /area/crew_quarters/sleep/main)
 "bDJ" = (
@@ -48103,6 +48132,9 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
@@ -48918,11 +48950,16 @@
 /area/crew_quarters/sleep/main)
 "bGx" = (
 /obj/structure/closet/secure_closet/personal,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bGy" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/firealarm/south,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bGz" = (
@@ -48931,11 +48968,13 @@
 	c_tag = "Cryogenics - Main Level";
 	dir = 1
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bGA" = (
 /obj/machinery/light,
 /obj/structure/closet/emcloset,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bGB" = (
@@ -48944,6 +48983,10 @@
 	pixel_x = 28
 	},
 /obj/structure/closet/emcloset,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bGC" = (
@@ -55174,7 +55217,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVd" = (
@@ -55742,7 +55784,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/bed/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bWq" = (
@@ -56539,9 +56580,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/structure/bed/chair/wood{
-	dir = 4
-	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bYm" = (
@@ -57046,12 +57084,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"bZs" = (
-/obj/structure/bed/chair/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "bZt" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
@@ -57324,16 +57356,6 @@
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
 	},
-/area/crew_quarters/bar)
-"bZT" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"bZU" = (
-/obj/structure/bed/chair/wood{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZV" = (
 /obj/structure/cable/green{
@@ -62295,10 +62317,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "deX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/chair/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
+/obj/structure/cryofeed{
+	dir = 2
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/main)
 "dfb" = (
 /obj/machinery/light{
 	dir = 8
@@ -62787,24 +62813,14 @@
 /turf/simulated/floor/tiled/old_dark,
 /area/maintenance/bar)
 "enp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/cryopod{
+	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/sign/christmas/lights{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/table/wood,
-/obj/item/flame/candle{
-	pixel_x = 1;
-	pixel_y = -8
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/main)
 "eqc" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -63802,10 +63818,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"gjM" = (
-/obj/structure/bed/chair/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "gmt" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -64798,6 +64810,12 @@
 	dir = 8
 	},
 /area/hallway/primary/starboard)
+"hVS" = (
+/obj/structure/bed/chair/wood{
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "hXd" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 1
@@ -65000,9 +65018,9 @@
 /area/security/brig/processing)
 "izh" = (
 /obj/structure/bed/chair/wood{
-	dir = 1
+	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "izC" = (
 /obj/structure/ladder/up{
@@ -66079,20 +66097,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "lhV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/landmark{
+	name = "JoinLateCryo"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/landmark{
+	name = "JoinLateCryo"
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/structure/sign/christmas/lights{
+	dir = 8
 	},
-/obj/structure/bed/chair/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/main)
 "lhZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -66952,22 +66967,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "mJe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/bed/chair/wood{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/main)
 "mJH" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -67818,11 +67821,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "org" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/bed/chair/wood{
-	dir = 1
+	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "orw" = (
 /obj/structure/ladder{
@@ -69518,12 +69520,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "rsk" = (
-/obj/structure/table/wood,
-/obj/item/flame/candle{
-	pixel_x = 1;
-	pixel_y = -8
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "rsz" = (
 /turf/simulated/floor/airless,
@@ -71822,21 +71819,9 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/storage)
 "vaF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/bed/chair/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
+/obj/structure/table/wood,
+/obj/item/flame/candle,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "vaK" = (
 /obj/structure/cable/yellow{
@@ -72434,9 +72419,20 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/cargo)
 "vUR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/small,
+/obj/item/xmasgift/small,
+/obj/item/xmasgift/small,
+/obj/item/xmasgift/small,
+/obj/item/xmasgift/small,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "vVT" = (
 /turf/simulated/wall,
@@ -72721,12 +72717,24 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "wqS" = (
-/obj/structure/table/wood,
-/obj/item/flame/candle{
-	pixel_x = 16;
-	pixel_y = 5
+/obj/structure/flora/tree/pine/xmas{
+	density = 0;
+	pixel_x = 0
 	},
-/turf/simulated/floor/wood,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/small,
+/obj/item/xmasgift/small,
+/obj/item/xmasgift/small,
+/obj/item/xmasgift/small,
+/obj/item/xmasgift/small,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "wra" = (
 /obj/structure/cable/green{
@@ -103306,7 +103314,7 @@ bWM
 bWM
 bWM
 bYi
-bZs
+bWa
 bWa
 bYZ
 bZt
@@ -103558,12 +103566,12 @@ bSM
 bVf
 bVZ
 bWn
-gjM
-wqS
-izh
 bWa
-rsk
-bZT
+bWa
+bWa
+bWa
+bWa
+bWa
 bWa
 bYZ
 wcO
@@ -103815,12 +103823,12 @@ hbG
 bVz
 bWa
 bWo
-gjM
-bZT
 izh
-bWa
-bZU
-bZU
+izh
+izh
+izh
+izh
+rsk
 bWa
 bYZ
 qGD
@@ -104072,12 +104080,12 @@ bJd
 bVz
 bWa
 bWo
-bWa
-bWa
-bWa
-bWa
-bWa
-bWa
+bZt
+vaF
+bZt
+vaF
+bZt
+hVS
 bWa
 bWQ
 bSM
@@ -104328,14 +104336,14 @@ bTu
 bMj
 bVz
 bWa
+bWo
+rsk
+rsk
+rsk
+rsk
 vaF
-bZs
+hVS
 bWa
-bWa
-bWa
-bWa
-bZs
-bZs
 bYZ
 bXE
 vBY
@@ -104585,14 +104593,14 @@ bTu
 bSP
 bVz
 bWa
-enp
-bZT
-bWa
-bWa
-bWa
-bWa
+bWo
 rsk
-bZT
+vUR
+wqS
+rsk
+bZt
+hVS
+bWa
 bYZ
 bZt
 bYY
@@ -104842,14 +104850,14 @@ bTu
 bSQ
 bVz
 bWa
-mJe
-bZU
+bWo
+rsk
+vUR
+vUR
+rsk
+bZt
+hVS
 bWa
-bZs
-bZs
-bWa
-bZU
-bZU
 bYZ
 wcO
 bYy
@@ -105100,12 +105108,12 @@ bSR
 bVz
 bWa
 bWo
-bWa
-bWa
 rsk
-bZT
-bWa
-bWa
+rsk
+rsk
+rsk
+vaF
+hVS
 bWa
 bYZ
 qGD
@@ -105357,12 +105365,12 @@ bIt
 bVz
 bWa
 bWo
-bWa
-bWa
-bZU
-bZU
-bWa
-bWa
+bZt
+vaF
+bZt
+vaF
+bZt
+hVS
 bWa
 bWQ
 bSM
@@ -105614,12 +105622,12 @@ uRY
 bVz
 bWa
 bWo
-bWa
-bWa
-bWa
-bWa
-bWa
-bWa
+org
+org
+org
+org
+org
+rsk
 bWa
 bYZ
 bXE
@@ -105841,8 +105849,8 @@ bAc
 bBG
 bBP
 bCM
-bDF
-bEG
+enp
+lhV
 bFy
 bGx
 bBP
@@ -105870,13 +105878,13 @@ bUH
 bST
 bVA
 bWa
-lhV
-wqS
-izh
+bWo
 bWa
-gjM
-wqS
-izh
+bWa
+bWa
+bWa
+bWa
+bWa
 bWa
 bYZ
 bZt
@@ -106128,12 +106136,12 @@ bTY
 bVA
 bWb
 bWp
-vUR
-org
 bWR
-deX
+bWR
+bWR
+bWR
 bVc
-izh
+bWa
 bWa
 bYZ
 wcO
@@ -106354,7 +106362,7 @@ bwd
 bwd
 bwd
 bBP
-bCM
+deX
 bDF
 bEG
 bFA
@@ -106615,7 +106623,7 @@ bCO
 bDG
 bEG
 bFB
-bGx
+mJe
 bBP
 bGr
 bGr
