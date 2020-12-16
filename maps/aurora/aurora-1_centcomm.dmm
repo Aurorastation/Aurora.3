@@ -2308,7 +2308,8 @@
 /area/centcom/specops)
 "ajY" = (
 /obj/machinery/vending/coffee/free{
-	pixel_x = 5;random_itemcount = 0
+	pixel_x = 5;
+	random_itemcount = 0
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -5754,6 +5755,7 @@
 	},
 /obj/machinery/vending/coffee/free{
 	pixel_x = -1;
+	
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -13351,6 +13353,7 @@
 "eVL" = (
 /obj/machinery/vending/coffee/free{
 	pixel_x = -1;
+	
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -15078,6 +15081,7 @@
 "fYz" = (
 /obj/machinery/vending/coffee/free{
 	pixel_x = -1;
+	
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -17671,6 +17675,7 @@
 "hBo" = (
 /obj/machinery/vending/cigarette/merchant{
 	pixel_x = 2;
+	
 	},
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
@@ -20502,6 +20507,7 @@
 "jvz" = (
 /obj/machinery/vending/coffee/free{
 	pixel_x = 2;
+	
 	},
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -30883,6 +30889,7 @@
 "pZr" = (
 /obj/machinery/vending/coffee/free{
 	pixel_x = -1;
+	
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -34062,6 +34069,7 @@
 "ssN" = (
 /obj/machinery/vending/coffee/free{
 	pixel_x = -1;
+	
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
