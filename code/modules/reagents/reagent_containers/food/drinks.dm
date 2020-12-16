@@ -1,8 +1,3 @@
-//drink_flags defines
-#define NO_EMPTY_ICON 1		//does NOT have an iconstate_empty icon. If adding empty icons for a drink, make sure it does not have this flag
-#define UNIQUE_EMPTY_ICON 2	//Uses the empty_icon_state listed. Should really only be used when one trash state applies to multiple drinks. Remove if one is added
-#define IS_GLASS 4		//Container is glass. Affects shattering, unacidable, etc.
-
 /*
 Standards for trash/empty states under the /drinks path:
 Adding Empty States: Trash/Empty states should be placed in the drinks_empty.dmi and should be the drink's icon_state name followed by _empty (ex: whiskeybottle_empty) and the NO_EMPTY_ICON flag should be removed.
@@ -44,11 +39,11 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		if(drink_flags & UNIQUE_EMPTY_ICON)
 			icon = 'icons/obj/drinks_empty.dmi'
 			icon_state = empty_icon_state
-			return
-		if(!(drink_flags & NO_EMPTY_ICON))
+		else if(drink_flags & UNIQUE_EMPTY_ICON_FILE)
+			icon_state = empty_icon_state
+		else if(!(drink_flags & NO_EMPTY_ICON))
 			icon = 'icons/obj/drinks_empty.dmi'
 			icon_state = "[initial(icon_state)]_empty"
-			return
 	else
 		icon = initial(icon)	//Necessary for refilling empty drinks
 		icon_state = initial(icon_state)
