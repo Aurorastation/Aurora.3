@@ -88,8 +88,8 @@ datum/preferences
 	var/static/list/preview_screen_locs = list(
 		"1" = "character_preview_map:1,5:-12",
 		"2" = "character_preview_map:1,3:15",
-		"4"  = "character_preview_map:1:7,2:10",
-		"8"  = "character_preview_map:1:-7,1:5",
+		"4"  = "character_preview_map:1:0,2:10",
+		"8"  = "character_preview_map:1:0,1:5",
 		"BG" = "character_preview_map:1,1 to 1,5"
 	)
 
