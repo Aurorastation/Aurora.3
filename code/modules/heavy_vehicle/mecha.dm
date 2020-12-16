@@ -9,6 +9,7 @@
 	mob_size = MOB_LARGE
 	mob_push_flags = ALLMOBS
 	can_buckle = FALSE
+	accent = ACCENT_TTS
 	var/decal
 
 	var/emp_damage = 0
@@ -26,6 +27,16 @@
 	var/obj/item/card/id/access_card
 	var/list/saved_access = list()
 	var/sync_access = TRUE
+
+	// Mob we're currently paired with or following | the names are saved to prevent metagaming when returning diagnostics
+	var/datum/weakref/leader
+	var/leader_name
+	var/datum/weakref/following
+	var/following_name
+
+	// Orders from our leader
+	var/nickname // we'll respond to our name or our nickname
+	var/follow_distance = 3
 
 	// Mob currently piloting the mech.
 	var/list/pilots
@@ -75,6 +86,8 @@
 	var/obj/screen/mecha/power/hud_power
 
 /mob/living/heavy_vehicle/Destroy()
+	unassign_leader()
+	unassign_following()
 
 	selected_system = null
 
@@ -198,6 +211,9 @@
 
 	// Build icon.
 	update_icon()
+
+	add_language(LANGUAGE_TCB)
+	set_default_language(LANGUAGE_TCB)
 
 	. = INITIALIZE_HINT_LATELOAD
 

@@ -51,7 +51,7 @@ var/list/floating_chat_colors = list()
 	I.maptext_height = 64
 	I.plane = FLOAT_PLANE
 	I.layer = HUD_LAYER - 0.01
-	I.pixel_x = -round(I.maptext_width/2) + 16
+	I.pixel_x = (-round(I.maptext_width/2) + 16) + holder.get_floating_chat_x_offset()
 
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder

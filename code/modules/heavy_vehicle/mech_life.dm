@@ -41,6 +41,20 @@
 	handle_vision()
 	handle_hud_icons()
 
+/mob/living/heavy_vehicle/think()
+	if(length(pilots))
+		return
+
+	if(following)
+		if(isturf(loc) && can_move())
+			var/mob/resolved_following = following.resolve()
+			if(resolved_following)
+				walk_to(src, resolved_following, follow_distance, legs.move_delay)
+			else
+				unassign_following()
+		else
+			walk(src, 0) // this stops them from moving
+
 /mob/living/heavy_vehicle/get_cell()
 	RETURN_TYPE(/obj/item/cell)
 	return body?.cell
