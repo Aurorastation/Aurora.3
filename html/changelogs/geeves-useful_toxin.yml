@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Toxin now does damage to any egg clusters that a nurse spider injected into someone."
-  - tweak: "The amount of toxin bottles in medical vendors have been lowered to 1, down from 4."
