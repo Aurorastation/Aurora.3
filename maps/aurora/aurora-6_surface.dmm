@@ -5526,6 +5526,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "eHm" = (
@@ -13802,6 +13803,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "lBF" = (
@@ -15193,6 +15195,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "mIL" = (
@@ -26838,6 +26841,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"vTS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/maintenance/store)
 "vVi" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -28990,6 +29008,7 @@
 "xFr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "xFQ" = (
@@ -54498,7 +54517,7 @@ tSy
 sRc
 oos
 uZD
-upr
+vTS
 uJK
 uJK
 uJK
