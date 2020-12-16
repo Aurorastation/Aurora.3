@@ -222,7 +222,7 @@
 	path = /obj/item/clothing/accessory/dogtags
 
 /datum/gear/accessory/holobadge
-	display_name = "badge, holo"
+	display_name = "badge, holographic"
 	path = /obj/item/clothing/accessory/badge/holo
 	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
 
@@ -232,6 +232,11 @@
 	holobadges["holobadge"] = /obj/item/clothing/accessory/badge/holo
 	holobadges["holobadge cord"] = /obj/item/clothing/accessory/badge/holo/cord
 	gear_tweaks += new/datum/gear_tweak/path(holobadges)
+
+/datum/gear/accessory/officerbadge
+	display_name = "badge, officer"
+	path = /obj/item/clothing/accessory/badge/officer
+	allowed_roles = list("Security Officer")
 
 /datum/gear/accessory/wardenbadge
 	display_name = "badge, warden"
@@ -246,7 +251,7 @@
 /datum/gear/accessory/detbadge
 	display_name = "badge, detective"
 	path = /obj/item/clothing/accessory/badge/dia
-	allowed_roles = list("Detective")
+	allowed_roles = list("Detective, Forensic Technician")
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"

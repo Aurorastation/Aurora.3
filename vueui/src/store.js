@@ -8,6 +8,7 @@ export default {
     status: 2,
     size: [400, 600],
     debug: 0,
+    debug_view: false,
     wtime: 0,
     roundstart_hour: 0
   },

@@ -298,12 +298,15 @@
 
 /datum/reagent/toxin/fertilizer/eznutrient
 	name = "EZ Nutrient"
+	color = "#168042"
 
 /datum/reagent/toxin/fertilizer/left4zed
 	name = "Left-4-Zed"
+	color = "#2A1680"
 
 /datum/reagent/toxin/fertilizer/robustharvest
 	name = "Robust Harvest"
+	color = "#801616"
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate
 	name = "Monoammonium Phosphate"
