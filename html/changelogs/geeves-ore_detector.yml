@@ -1,0 +1,8 @@
+author: Geeves, Happy Fox
+
+delete-after: True
+
+changes: 
+  - rscadd: "Replaced ore radars with ore detectors. It display pings in the darkness when it spots the ore, even through walls."
+  - rscadd: "Mining stationbounds and drones now get ore detectors."
+  - bugfix: "You can now see psi-pings through walls again."
