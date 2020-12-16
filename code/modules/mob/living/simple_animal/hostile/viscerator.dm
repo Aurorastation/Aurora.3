@@ -36,6 +36,12 @@
 	spark(T, 3, alldirs)
 	qdel(src)
 
+/mob/living/simple_animal/hostile/viscerator/CanPass(atom/movable/mover, turf/target, height, air_group)
+	. = ..()
+	if(.)
+		if(istype(mover, /mob/living/simple_animal/hostile/viscerator))
+			return FALSE
+
 /mob/living/simple_animal/hostile/viscerator/proc/wakeup()
 	stance = HOSTILE_STANCE_IDLE
 
