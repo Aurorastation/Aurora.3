@@ -27748,6 +27748,7 @@
 /area/hallway/secondary/entry/departure_lounge)
 "wIs" = (
 /obj/structure/sign/christmas/lights,
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert4"
 	},
