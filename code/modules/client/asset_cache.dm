@@ -488,9 +488,10 @@ var/list/asset_datums = list()
 	var/list/vending_products = list()
 	for(var/v_type in typesof(/obj/machinery/vending))
 		var/obj/machinery/vending/V = new v_type
-		for(var/list/p in list(V.products, V.contraband, V.premium))
-			for(var/k in p)
-				vending_products += k
+		for(var/c in V.products)
+			var/list/current_category = V.products[c]
+			for(var/p in current_category)
+				vending_products += p
 	for(var/path in vending_products)
 		var/obj/O = new path
 		var/icon_file = O.icon

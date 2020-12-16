@@ -68,8 +68,9 @@
 	var/list/valid_keys = list()
 	for(var/v_type in typesof(/obj/machinery/vending))
 		var/obj/machinery/vending/V = new v_type
-		for(var/list/p in list(V.products, V.contraband, V.premium))
-			for(var/k in p)
+		for(var/c in V.products)
+			var/list/current_category = V.products[c]
+			for(var/k in current_category)
 				vending_products += k
 				if(!ispath(k, /obj))
 					log_unit_test("Vending product [k] in vending machine [V] is not a subtype of /obj")

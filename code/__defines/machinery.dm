@@ -37,9 +37,13 @@
 #define AI_CAMERA_LUMINOSITY 6
 
 //Vending machines.
-#define CAT_NORMAL 1
-#define CAT_HIDDEN 2  // also used in corresponding wires/vending.dm
-#define CAT_COIN   4
+#define CAT_NORMAL "products"
+#define CAT_HIDDEN "contraband"
+#define CAT_COIN   "premium"
+
+#define VENDOR_STOCK "stock"
+#define VENDOR_PRICE "price"
+#define VENDOR_PRODUCT(type, stock, price) ##type = list(VENDOR_STOCK = stock, VENDOR_PRICE = price)
 
 // Camera networks
 #define NETWORK_CRESCENT "Crescent"

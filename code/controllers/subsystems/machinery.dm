@@ -171,11 +171,11 @@
 			NewPN.add_cable(PC)
 			propagate_network(PC, PC.powernet)
 
-/datum/controller/subsystem/machinery/proc/get_vend_datum(var/path, var/amt, var/price, var/category = CAT_NORMAL)
+/datum/controller/subsystem/machinery/proc/get_vend_datum(var/path, var/category = CAT_NORMAL)
 	for(var/datum/data/vending_product/product in vending_products)
-		if(product.product_path == path && product.stock_amount == amt && product.product_price == price && product.category == category)
+		if(product.product_path == path && product.category == category)
 			return product
-	var/datum/data/vending_product/new_product = new(path, price, amt, category)
+	var/datum/data/vending_product/new_product = new(path, category)
 	vending_products += new_product
 	return new_product
 

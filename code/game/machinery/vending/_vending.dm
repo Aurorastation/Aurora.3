@@ -6,7 +6,9 @@
 	layer = LAYER_STRUCTURE
 	anchored = TRUE
 	density = TRUE
+
 	clicksound = /decl/sound_category/button_sound
+	var/vending_sound = 'sound/machines/vending/vending_drop.ogg'
 
 	var/icon_vend //Icon_state when vending
 	var/screen_overlay // Idle overlay
@@ -20,29 +22,22 @@
 	var/vend_ready = TRUE
 	var/vend_delay = 1 SECOND
 
-	var/categories = CAT_NORMAL // Bitmask of cats we're currently showing
+	var/categories = list(CAT_NORMAL) // List of cats we're currently showing
 	var/datum/data/vending_product/currently_vending = null // What we're requesting payment for right now
 	var/status_message = "" // Status screen messages like "insufficient funds", displayed in NanoUI
 	var/status_error = FALSE // Set to 1 if status_message is an error
 
-	/*
-		Variables used to initialize the product list
-		These are used for initialization only, and so are optional if
-		product_records is specified
-	*/
 	var/list/products = list(
 		CAT_NORMAL = list(),
 		CAT_COIN = list(),
 		CAT_HIDDEN = list()
 	)
-	var/list/prices = list() // Prices for each item, list(/type/path = price), items not in the list don't have a price.
 
-	// List of vending_product items available. Datum: Amount
+	// Post-init product records. vending_product datum : list(VENDOR_STOCK = stock, VENDOR_PRICE = price)
 	var/list/product_records = list()
 
 	// Variables used to initialize advertising
 	var/product_slogans = "" // JSON of slogans
-	var/product_ads = "" // JSON of ads
 
 	// Stuff relating vocalizations
 	var/advertising = FALSE
@@ -52,7 +47,6 @@
 
 	// Things that can go wrong
 	var/electrified = FALSE
-	var/shoot_inventory = 0 //Fire items at customers! We're broken!
 
 	// Access
 	var/secure = TRUE
@@ -64,16 +58,12 @@
 	var/restock_items = FALSE //If items can be restocked into the vending machine
 	var/list/restock_blacklist = list() //Items that can not be restocked if restock_items is enabled
 	var/randomize_qty = TRUE //If the number of items should be randomized
-	var/sel_key = 0
+	var/sel_key = null
 
 	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
-
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
-	var/vending_sound = 'sound/machines/vending/vending_drop.ogg'
-
-	var/global/list/screen_overlays
 	var/exclusive_screen = TRUE // Are we not allowed to show the deny and screen states at the same time?
 
 	var/ui_size = 80 // this is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
@@ -117,12 +107,12 @@
 	for(var/cat in products)
 		var/list/current_category = products[cat]
 		for(var/P in current_category)
-			var/prod_price = prices[P] || 0
-			var/datum/data/vending_product/product = SSmachinery.get_vend_datum(P, products[P], prod_price, cat)
-			if(cat & CAT_NORMAL && randomize_qty)
-				product_records[product] = rand(1, product.stock_amount)
+			var/datum/data/vending_product/product = SSmachinery.get_vend_datum(P, products[P], cat)
+			if(CAT_NORMAL in cat && randomize_qty)
+				product_records[product][VENDOR_STOCK] = rand(1, P[VENDOR_STOCK])
 			else
-				product_records[product] = product.stock_amount
+				product_records[product][VENDOR_STOCK] = P[VENDOR_STOCK]
+			product_records[product][VENDOR_PRICE] = P[VENDOR_PRICE]
 
 /obj/machinery/vending/Destroy()
 	QDEL_NULL(wires)
@@ -146,11 +136,14 @@
 		to_chat(user, SPAN_NOTICE("You short out the ID scanner on \the [src]!"))
 		return TRUE
 
+/obj/machinery/vending/proc/get_initial_stock(var/datum/data/vending_product/VP)
+	return products[VP.category][VP.type][VENDOR_STOCK] || 0
+
 /obj/machinery/vending/proc/get_stock(var/datum/data/vending_product/VP)
-	return product_records[VP]
+	return product_records[VP][VENDOR_STOCK] || 0
 
 /obj/machinery/vending/proc/get_price(var/datum/data/vending_product/VP)
-	return prices[VP.product_path] || 0
+	return product_records[VP][VENDOR_PRICE] || 0
 
 /obj/machinery/vending/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/device/debugger))
@@ -158,14 +151,14 @@
 			to_chat(user, SPAN_WARNING("[icon2html(W, user)][W]: \"Software error detected. Rectifying.\""))
 			if(do_after(user, 10 SECONDS / W.toolspeed, act_target = src))
 				to_chat(user, SPAN_NOTICE("[icon2html(W, user)][W]: \"Solution found. Fix applied.\""))
-				advertising != initial(advertising)
+				advertising = !initial(advertising)
 		else
 			to_chat(user, SPAN_NOTICE("[icon2html(W, user)][W]: \"No issues detected. Have a NanoTrasen day!\""))
 
 	var/obj/item/card/id/I = W.GetID()
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 
-	if(currently_vending && length(prices) && (istype(I) || istype(W, /obj/item/spacecash)))
+	if(currently_vending && get_price(currently_vending) && (istype(I) || istype(W, /obj/item/spacecash)))
 		if(!istype(vendor_account) || vendor_account.suspended)
 			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))]: \"Payment account could not be reached. Contact customer support.\""))
 
@@ -195,7 +188,7 @@
 
 		user.drop_from_inventory(W, src)
 		coin = W
-		categories |= CAT_COIN
+		categories += CAT_COIN
 		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
 		SSvueui.check_uis_for_change(src)
 		return
@@ -285,15 +278,15 @@
 				status_error = TRUE
 				return FALSE
 
-		if(currently_vending.product_price > customer_account.money)
+		if(get_price(currently_vending) > customer_account.money)
 			status_message = "Error: Insufficient funds."
 			status_error = TRUE
 			return FALSE
 
-		customer_account.money -= currently_vending.product_price
+		customer_account.money -= get_price(currently_vending)
 
-		SSeconomy.charge_to_account(I.associated_account_number, "[vendor_account.owner_name] (via [name])", "Purchase of [currently_vending.product_name]", name, currently_vending.product_price)
-		SSeconomy.charge_to_account(vendor_account.account_number, "[customer_account.owner_name]", "Purchase of [currently_vending.product_name]", name, -currently_vending.product_price)
+		SSeconomy.charge_to_account(I.associated_account_number, "[vendor_account.owner_name] (via [name])", "Purchase of [currently_vending.product_name]", name, get_price(currently_vending))
+		SSeconomy.charge_to_account(vendor_account.account_number, "[customer_account.owner_name]", "Purchase of [currently_vending.product_name]", name, -get_price(currently_vending))
 
 	else
 		// Paying via cash or charge card.
@@ -303,24 +296,24 @@
 			var/obj/item/spacecash/ewallet/W = C
 			visible_message(SPAN_INFO("\The [user] swipes \the [W] through \the [src]."))
 			playsound(loc, 'sound/machines/id_swipe.ogg', 50, 1)
-			if(currently_vending.product_price > W.worth)
+			if(get_price(currently_vending) > W.worth)
 				status_message = "Error: Insufficient funds."
 				status_error = TRUE
 				return FALSE
 			else
-				W.worth -= currently_vending.product_price
-				SSeconomy.charge_to_account(vendor_account.account_number, "[W.owner_name] (chargecard)", "Purchase of [currently_vending.product_name]", name, -currently_vending.product_price)
+				W.worth -= get_price(currently_vending)
+				SSeconomy.charge_to_account(vendor_account.account_number, "[W.owner_name] (chargecard)", "Purchase of [currently_vending.product_name]", name, -get_price(currently_vending))
 				return TRUE
 
 		else
 			// Cold, hard cash.
-			if(currently_vending.product_price > C.worth)
+			if(get_price(currently_vending) > C.worth)
 				to_chat(user, SPAN_WARNING("[icon2html(C, user)] That's not enough money."))
 				return FALSE
 
 			if(istype(C, /obj/item/spacecash/bundle))
 				visible_message(SPAN_INFO("\The [user] inserts some cash into \the [src]."))
-				C.worth -= currently_vending.product_price
+				C.worth -= get_price(currently_vending)
 
 				if(C.worth <= 0)
 					user.drop_from_inventory(C, get_turf(src))
@@ -331,14 +324,14 @@
 				// Bills require weird chicanery because they're static bills.
 				// Enjoy the 2000s-era shitcode.
 				visible_message(SPAN_INFO("\The [user] inserts a bill into \the [src]."))
-				var/remaining = C.worth - currently_vending.product_price
+				var/remaining = C.worth - get_price(currently_vending)
 				user.drop_from_inventory(C, get_turf(src))
 				qdel(C)
 
 				if(remaining)
 					spawn_money(remaining, get_turf(user), user)
 
-			SSeconomy.charge_to_account(vendor_account.account_number, "Cash", "Purchase of [currently_vending.product_name]", name, -currently_vending.product_price)
+			SSeconomy.charge_to_account(vendor_account.account_number, "Cash", "Purchase of [currently_vending.product_name]", name, -get_price(currently_vending))
 			return TRUE
 
 /obj/machinery/vending/attack_ai(mob/user)
@@ -395,18 +388,20 @@
 	if(!(LAZYLEN(data["products"])) || LAZYLEN(data["products"]) != LAZYLEN(product_records))
 		data["products"] = list()
 		for(var/datum/data/vending_product/I in product_records)
-			if(!(I.category & categories))
+			if(!(I.category in categories))
 				continue
 
 			var/i_ref = "\ref[I]"
 			var/product_name = capitalize_first_letters(strip_improper(I.product_name))
 			var/icon_tag = v_asset.icon_tag(ckey("[I.product_path]"), FALSE)
+			var/item_price = get_price(I)
+			var/item_stock = get_stock(I)
 
 			LAZYINITLIST(data["products"][i_ref])
 			VUEUI_SET_CHECK(data["products"][i_ref]["ref"], "\ref[I]", ., data)
 			VUEUI_SET_CHECK(data["products"][i_ref]["name"], product_name, ., data)
-			VUEUI_SET_CHECK(data["products"][i_ref]["price"], get_price(I), ., data)
-			VUEUI_SET_CHECK(data["products"][i_ref]["amount"], get_stock(I), ., data)
+			VUEUI_SET_CHECK(data["products"][i_ref]["price"], item_price, ., data)
+			VUEUI_SET_CHECK(data["products"][i_ref]["amount"],item_stock, ., data)
 			VUEUI_SET_CHECK(data["products"][i_ref]["icon_tag"], icon_tag, ., data)
 
 	else if(sel_key)
@@ -461,7 +456,7 @@
 		if(!istype(P) || !(P.category & categories))
 			return
 
-		if(P.product_price <= 0)
+		if(get_price(P) <= 0)
 			currently_vending = P
 			vend(P, usr)
 		else if(issilicon(usr))
@@ -494,7 +489,7 @@
 	status_message = "Vending..."
 	status_error = FALSE
 
-	if(P.category & CAT_COIN)
+	if(P.category == CAT_COIN)
 		if(!coin)
 			to_chat(user, SPAN_NOTICE("You need a coin to vend this item."))
 			return
@@ -509,12 +504,12 @@
 			QDEL_NULL(coin)
 
 		if(!coin)
-			categories &= ~CAT_COIN
+			categories -= CAT_COIN
 
 		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out the 'premium' item after a moment."))
 		playsound(loc, 'sound/items/poster_being_created.ogg', 50, 1)
 
-	product_records[P]--
+	product_records[P][VENDOR_STOCK]--
 	SSvueui.check_uis_for_change(src)
 
 	if(vend_reply && (last_reply + (vend_delay + 200)) <= world.time)
@@ -544,11 +539,11 @@
 	if(istype(vended, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RC = vended
 		if(RC.reagents)
-		switch(temperature_setting)
-			if(-1)
-				use_power(RC.reagents.set_temperature(cooling_temperature))
-			if(1)
-				use_power(RC.reagents.set_temperature(heating_temperature))
+			switch(temperature_setting)
+				if(-1)
+					use_power(RC.reagents.set_temperature(cooling_temperature))
+				if(1)
+					use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/obj/item/I, mob/user)
 	if(!istype(I))
@@ -557,7 +552,7 @@
 	for(var/datum/data/vending_product/P in product_records)
 		if(P.product_path == I.type)
 			to_chat(user, SPAN_NOTICE("You insert \the [I] into the product receptor."))
-			product_records[P]++
+			product_records[P][VENDOR_STOCK]++
 			qdel(I)
 			break
 
@@ -583,12 +578,12 @@
 
 /obj/machinery/vending/proc/malfunction()
 	for(var/datum/data/vending_product/P in product_records)
-		if(product_records[P] <= 0 || P.product_path)
+		if(product_records[P][VENDOR_STOCK] <= 0 || P.product_path)
 			return
 
-		while(product_records[P] > 0)
+		while(product_records[P][VENDOR_STOCK] > 0)
 			new P.product_path(get_random_turf_in_range(src, 1, 1, TRUE))
-			product_records[P]--
+			product_records[P][VENDOR_STOCK]--
 			SSvueui.check_uis_for_change(src)
 		break
 

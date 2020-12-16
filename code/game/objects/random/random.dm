@@ -516,7 +516,7 @@
 /obj/random/vendor
 	name = "random vendor"
 	var/depleted = FALSE
-	var/scan_id = TRUE // Should the spawned vendor check IDs
+	var/secure = TRUE // Should the spawned vendor check IDs
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
@@ -564,7 +564,7 @@
 			// Clamp to an integer so we don't get 0.78 of a screwdriver.
 			V.products[content] = round(V.products[content])
 
-	V.scan_id &= scan_id
+	V.secure &= secure
 
 /obj/random/glowstick
 	name = "random glowstick"

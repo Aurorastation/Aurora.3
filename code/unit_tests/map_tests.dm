@@ -269,6 +269,7 @@ datum/unit_test/wire_test/start_test()
 /datum/unit_test/mapped_products/start_test()
 	var/checks = 0
 	var/failed_checks = 0
+	var/failed = FALSE
 	var/list/obj/machinery/vending/V_to_test = list()
 
 	for(var/obj/machinery/vending/T in world)
@@ -276,10 +277,16 @@ datum/unit_test/wire_test/start_test()
 		V_to_test += T
 	for(var/obj/machinery/vending/V in V_to_test)
 		var/obj/machinery/vending/temp_V = new V.type
-		if(length(difflist(V.products, temp_V.products)) || length(difflist(V.contraband, temp_V.contraband)) || length(difflist(V.premium, temp_V.premium)))
+		if(length(difflist(V.products, temp_V.products)))
+			log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z]) on [V.loc] has a mismatched product list. Likely a product category has been mapped-in or removed.")
 			failed_checks++
-
-			log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z] on [V.loc] has mapped-in products, contraband, or premium items.")
+			continue
+		for(var/p in 1 to length(V.products))
+			if(length(difflist(V.products[p], temp_V.products[p])))
+				failed = TRUE
+		if(failed)
+			failed_checks++
+			log_unit_test("Vending machine [V] at ([V.x],[V.y],[V.z]) on [V.loc] has mapped-in products, contraband, or premium items.")
 
 	if(failed_checks)
 		fail("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
