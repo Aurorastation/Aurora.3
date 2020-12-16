@@ -352,28 +352,23 @@
 	Consume(user)
 
 // This is purely informational UI that may be accessed by AIs or robots
-/obj/machinery/power/supermatter/ui_interact(mob/user)
-	var/data[0]
-
+/obj/machinery/power/supermatter/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = ..() || list()
 	data["integrity_percentage"] = round(get_integrity())
 	var/datum/gas_mixture/env = null
 	if(!istype(src.loc, /turf/space))
 		env = src.loc.return_air()
-
-	if(!env)
-		data["ambient_temp"] = 0
-		data["ambient_pressure"] = 0
-	else
-		data["ambient_temp"] = round(env.temperature)
-		data["ambient_pressure"] = round(env.return_pressure())
+	data["ambient_temp"] = round(env?.temperature)
+	data["ambient_pressure"] = round(env?.return_pressure())
 	data["detonating"] = grav_pulling
+	return data
 
+/obj/machinery/power/supermatter/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "machinery-power-supermatter_crystal", 500, 300, "Supermatter Crystal", state = interactive_state)
 		ui.auto_update_content = TRUE
 		ui.open()
-
 
 /*
 /obj/machinery/power/supermatter/proc/transfer_energy()

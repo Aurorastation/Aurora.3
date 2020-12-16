@@ -183,8 +183,9 @@
 	delta_power *= SMESRATE
 
 	var/goal = (delta_power < 0) ? (charge) : (capacity - charge)
-
-	var/time_secs = (delta_power) ? ((goal / abs(delta_power)) * (round(world.time - last_time) / 10)) : (0)
+	var/old_time = last_time // this is to prevent runtime errors with
+	last_time = world.time   // accidental division by zero
+	time = world.time + (delta_power) ? ((goal / abs(delta_power)) / max(round(world.time - old_time), 1)) : (0)
 	// If it is negative - we are discharging
 	if(delta_power < 0)
 		charge_mode = 0
@@ -192,8 +193,6 @@
 		charge_mode = 1
 	else
 		charge_mode = 2
-	last_time = world.time
-	time = ((time_secs / 3600) > 1) ? ("[round(time_secs / 3600)] hours, [round((time_secs % 3600) / 60)] minutes") : ("[round(time_secs / 60)] minutes, [round(time_secs % 60)] seconds")
 
 /obj/machinery/power/smes/machinery_process()
 	if(stat & BROKEN)	return
@@ -371,45 +370,43 @@
 		return 0
 	return 1
 
-/obj/machinery/power/smes/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+VUEUI_MONITOR_VARS(/obj/machinery/power/smes, smesmonitor)
+	watch_var("name_tag", "nameTag")
+	watch_var("inputting", "charging")
+	watch_var("input_attempt", "chargeMode")
+	watch_var("input_level", "chargeLevel")
+	watch_var("input_level_max", "chargeMax")
+	watch_var("input_taken", "charge_taken", CALLBACK(null, .proc/transform_to_integer))
+	watch_var("output_attempt", "outputOnline")
+	watch_var("output_level", "outputLevel")
+	watch_var("output_level_max", "outputMax")
+	watch_var("outputLoad", "output_used", CALLBACK(null, .proc/transform_to_integer))
+	watch_var("time", "time")
+	watch_var("charge_mode", "charge_mode")
 
-	if(stat & BROKEN)
-		return
-
+/obj/machinery/power/smes/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	// this is the data which will be sent to the ui
-	var/data[0]
-	data["nameTag"] = name_tag
+	data = ..() || list()
 	if(capacity)
 		data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
 	else
 		data["storedCapacity"] = 0
-	data["charging"] = inputting
-	data["chargeMode"] = input_attempt
-	data["chargeLevel"] = input_level
-	data["chargeMax"] = input_level_max
-	data["charge_taken"] = round(input_taken)
-	data["outputOnline"] = output_attempt
-	data["outputLevel"] = output_level
-	data["outputMax"] = output_level_max
-	data["outputLoad"] = round(output_used)
 	data["failTime"] = failure_timer * 2
-	data["outputting"] = outputting
-	data["time"] = time
-	data["charge_mode"] = charge_mode
+	return data
 
-
+/obj/machinery/power/smes/ui_interact(mob/user)
+	if(stat & BROKEN)
+		return
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "smes.tmpl", "SMES Unit", 540, 420)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
+		ui = new(user, src, "machinery-power-smes", 540, 420, "SMES Unit")
 		// open the new ui window
 		ui.open()
 		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+		ui.auto_update_content = TRUE
 
 /obj/machinery/power/smes/proc/Percentage()
 	return round(100.0*charge/capacity, 0.1)

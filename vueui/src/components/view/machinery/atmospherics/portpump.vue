@@ -44,13 +44,13 @@
     </vui-item>
 
     <vui-item label="Power Switch:">
-      <vui-button :icon="on ? 'unlocked' : 'locked'" :params="{power : 1}">
+      <vui-button :icon="on ? 'lock-open' : 'lock'" :params="{power : 1}">
         {{on ? 'On' : 'Off'}}
       </vui-button>
     </vui-item>
 
     <vui-item label="Pump Direction:">
-      <vui-button :icon="pump_dir ? 'arrowreturn-1-e' : 'arrowreturn-1-w'" :params="{direction : 1}">
+      <vui-button :icon="pump_dir ? 'fa-var-share' : 'arrowreturn-1-w'" :params="{direction : 1}">
         {{pump_dir ? 'Out' : 'In'}}
       </vui-button>
     </vui-item>
