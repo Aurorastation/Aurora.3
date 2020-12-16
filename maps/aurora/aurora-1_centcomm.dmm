@@ -2376,8 +2376,7 @@
 /area/centcom/specops)
 "ajY" = (
 /obj/machinery/vending/coffee/free{
-	pixel_x = 5;
-	random_itemcount = 0
+	pixel_x = 5
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -5857,8 +5856,7 @@
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 3;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/ripped,
 /obj/item/reagent_containers/blood/OMinus{
@@ -9932,17 +9930,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/tdome/tdome1)
-"cwQ" = (
-/obj/structure/bed/chair/comfy/beige{
-	dir = 1
-	},
-/obj/structure/sign/christmas/lights{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/centcom/bar)
 "cxn" = (
 /obj/structure/closet/crate/secure/legion,
 /turf/unsimulated/floor{
@@ -9981,12 +9968,24 @@
 	},
 /area/centcom/holding)
 "czD" = (
-/obj/structure/bed/chair/comfy/beige{
-	dir = 1
+/obj/structure/flora/tree/pine/xmas{
+	density = 0;
+	pixel_x = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/carpet,
 /area/centcom/bar)
 "cAr" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -12044,9 +12043,12 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "dKe" = (
-/obj/structure/bed/chair/comfy/beige,
 /obj/structure/sign/christmas/lights{
 	dir = 4
+	},
+/obj/machinery/camera/network/crescent{
+	c_tag = "Crescent Bar East";
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -12216,10 +12218,20 @@
 	},
 /area/centcom/legion)
 "dOH" = (
-/obj/structure/bed/chair/comfy/beige,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/carpet,
 /area/centcom/bar)
 "dPn" = (
 /obj/vehicle/droppod/syndie{
@@ -13590,8 +13602,7 @@
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -1;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -25087,8 +25098,7 @@
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 34;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -32441,8 +32451,7 @@
 	name = "blood closet";
 	pixel_x = -29;
 	pixel_y = 30;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -35035,17 +35044,23 @@
 /turf/space/dynamic,
 /area/shuttle/merchant)
 "rkV" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar East";
-	dir = 8
-	},
-/obj/structure/table/reinforced/wood,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/large,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift/medium,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/item/xmasgift,
+/obj/effect/decal/fake_object/light_source/invisible,
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/simulated/floor/carpet,
 /area/centcom/bar)
 "rkX" = (
 /turf/simulated/wall/shuttle/unique/transfer{
@@ -40363,8 +40378,7 @@
 /obj/structure/closet/secure_closet/medical_wall{
 	name = "medical supplies";
 	pixel_x = 28;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/storage/backpack/messenger/med,
 /turf/simulated/floor/tiled/dark,
@@ -74826,8 +74840,8 @@ jcv
 xkI
 gwf
 vpg
+vpg
 dOH
-eOT
 czD
 vpg
 vpg
@@ -75085,7 +75099,7 @@ xhC
 vpg
 dKe
 rkV
-cwQ
+rkV
 kOI
 hjw
 ijf
