@@ -1,7 +1,0 @@
-author: Chevy
-
-delete-after: True
-
-changes:
-  - rscadd: "Added thirteen new cocktail recipes with unique sprites inspired by the lore.  Now, you too can taste a Cloudy Oran or a Jovian Storm!"
-  - tweak: "Changed the cuba libre recipe I changed a while back.  It should now be simpler to make in large quantities."
