@@ -1,9 +1,3 @@
-/obj/item/clothing/gloves/captain
-	desc = "Regal blue gloves, with a nice gold trim. Swanky."
-	name = "captain's gloves"
-	icon_state = "captain"
-	item_state = "captain"
-
 /obj/item/clothing/gloves/cyborg
 	desc = "beep boop borp"
 	name = "cyborg gloves"
@@ -62,6 +56,7 @@
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
+	desc_info = "You can make balloons with these using some cable coil."
 	icon_state = "latex"
 	item_state = "latex"
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
@@ -70,12 +65,25 @@
 	fingerprint_chance = 75
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
+	var/balloon = /obj/item/toy/balloon/latex
+
+/obj/item/clothing/gloves/latex/attackby(var/obj/O, mob/user as mob)
+	if(istype(O, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = O
+		if(C.use(1))
+			var/obj/item/L = new src.balloon
+			user.drop_from_inventory(L,get_turf(src))
+			to_chat(user, "<span class='notice'>You make a balloon.</span>")
+			qdel(src)
+		else
+			to_chat(user, "<span class='warning'>You need one length of cable to finish the balloon!</span>")
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves."
 	icon_state = "nitrile"
 	item_state = "nitrile"
+	balloon = /obj/item/toy/balloon/latex/nitrile
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"

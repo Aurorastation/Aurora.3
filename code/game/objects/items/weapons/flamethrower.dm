@@ -13,15 +13,21 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 1, TECH_PHORON = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
-	var/status = 0
+	var/secured = 0
 	var/throw_amount = 100
-	var/lit = 0	//on or off
-	var/operating = 0//cooldown
+	var/lit = FALSE	//on or off
+	var/operating = FALSE //cooldown
 	var/turf/previousturf = null
 	var/obj/item/weldingtool/weldtool = null
 	var/obj/item/device/assembly/igniter/igniter = null
 	var/obj/item/tank/phoron/ptank = null
 
+/obj/item/flamethrower/examine(mob/user)
+	..()
+	if(ptank)
+		to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(ptank.air_contents.return_pressure(), 10)] kPa left in it."))
+	else
+		to_chat(user, SPAN_WARNING("There's no phoron tank [igniter ? "" : "or igniter"] installed!"))
 
 /obj/item/flamethrower/Destroy()
 	if(weldtool)
@@ -51,7 +57,7 @@
 /obj/item/flamethrower/update_icon()
 	cut_overlays()
 	if(igniter)
-		add_overlay("+igniter[status]")
+		add_overlay("+igniter[secured]")
 	if(ptank)
 		add_overlay("+ptank")
 	if(lit)
@@ -62,7 +68,13 @@
 	return
 
 /obj/item/flamethrower/afterattack(atom/target, mob/user, proximity)
-	if(!proximity) return
+	if(proximity)
+		return
+	if(!ptank)
+		return
+	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have enough fuel left to throw!"))
+		return
 	// Make sure our user is still holding us
 	if(user && user.get_active_hand() == src)
 		var/turf/target_turf = get_turf(target)
@@ -72,7 +84,7 @@
 
 /obj/item/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
-	if(W.iswrench() && !status)//Taking this apart
+	if(W.iswrench() && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(weldtool)
 			weldtool.forceMove(T)
@@ -88,8 +100,8 @@
 		return
 
 	if(W.isscrewdriver() && igniter && !lit)
-		status = !status
-		to_chat(user, "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>")
+		secured = !secured
+		to_chat(user, "<span class='notice'>[igniter] is now [secured ? "secured" : "unsecured"]!</span>")
 		update_icon()
 		return
 
@@ -120,52 +132,57 @@
 
 
 /obj/item/flamethrower/attack_self(mob/user as mob)
-	if(user.stat || user.restrained() || user.lying)	return
-	user.set_machine(src)
+	if(use_check_and_message(user))
+		return
 	if(!ptank)
-		to_chat(user, "<span class='notice'>Attach a phoron tank first!</span>")
+		to_chat(user, SPAN_WARNING("Attach a phoron tank first!"))
 		return
-	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[lit ? "<span class='warning'>Lit</span>" : "Unlit"]</a>)</B><BR>\n Tank Pressure: [ptank.air_contents.return_pressure()]<BR>\nAmount to throw: <A HREF='?src=\ref[src];amount=-100'>-</A> <A HREF='?src=\ref[src];amount=-10'>-</A> <A HREF='?src=\ref[src];amount=-1'>-</A> [throw_amount] <A HREF='?src=\ref[src];amount=1'>+</A> <A HREF='?src=\ref[src];amount=10'>+</A> <A HREF='?src=\ref[src];amount=100'>+</A><BR>\n<A HREF='?src=\ref[src];remove=1'>Remove phorontank</A> - <A HREF='?src=\ref[src];close=1'>Close</A></TT>")
-	user << browse(dat, "window=flamethrower;size=600x300")
-	onclose(user, "flamethrower")
-	return
-
-
-/obj/item/flamethrower/Topic(href,href_list[])
-	if(href_list["close"])
-		usr.unset_machine()
-		usr << browse(null, "window=flamethrower")
+	var/list/options = list(
+		"Eject Tank" = image('icons/obj/tank.dmi', "phoron"),
+		"Light" = image('icons/effects/effects.dmi', "exhaust"),
+		"Lower Pressure" = image('icons/mob/screen/radial.dmi', "radial_sub"),
+		"Raise Pressure" = image('icons/mob/screen/radial.dmi', "radial_add")
+	)
+	var/handle = show_radial_menu(user, user, options, radius = 42, tooltips=TRUE)
+	if(!handle)
 		return
-	if(usr.stat || usr.restrained() || usr.lying)	return
-	usr.set_machine(src)
-	if(href_list["light"])
-		if(!ptank)	return
-		if(ptank.air_contents.gas[GAS_PHORON] < 1)	return
-		if(!status)	return
-		lit = !lit
-		if(lit)
-			START_PROCESSING(SSprocessing, src)
-	if(href_list["amount"])
-		throw_amount = throw_amount + text2num(href_list["amount"])
-		throw_amount = max(50, min(5000, throw_amount))
-	if(href_list["remove"])
-		if(!ptank)	return
-		usr.put_in_hands(ptank)
-		ptank = null
-		lit = 0
-		usr.unset_machine()
-		usr << browse(null, "window=flamethrower")
-	for(var/mob/M in viewers(1, loc))
-		if((M.client && M.machine == src))
-			attack_self(M)
+	switch(handle)
+		if("Eject Tank")
+			if(!ptank)
+				return
+			user.put_in_hands(ptank)
+			ptank = null
+			lit = FALSE
+		if("Light")
+			if(!ptank || !secured)
+				return
+			if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
+				to_chat(user, SPAN_WARNING("\The [src] doesn't have any flammable fuel to light!"))
+				return
+			lit = !lit
+			to_chat(user, SPAN_NOTICE("You [lit ? "light" : "extinguish"] \the [src]."))
+			if(lit)
+				START_PROCESSING(SSprocessing, src)
+		if("Lower Pressure")
+			change_pressure(-50, user)
+		if("Raise Pressure")
+			change_pressure(50, user)
+		else return
+
 	update_icon()
-	return
 
+/obj/item/flamethrower/proc/change_pressure(var/pressure, var/mob/user)
+	if(!pressure)
+		return
+	throw_amount += pressure
+	throw_amount = Clamp(50, throw_amount, 5000)
+	if(ismob(user))
+		to_chat(user, SPAN_NOTICE("Pressure has been adjusted to [throw_amount] kPa."))
 
 //Called from turf.dm turf/dblclick
 /obj/item/flamethrower/proc/flame_turf(turflist)
 	if(!lit || operating)	return
-	operating = 1
+	operating = TRUE
 	playsound(src, fire_sound, 70, 1)
 	for(var/turf/T in turflist)
 		if(T.density || istype(T, /turf/space))
@@ -178,32 +195,23 @@
 		ignite_turf(T)
 		sleep(1)
 	previousturf = null
-	operating = 0
-	for(var/mob/M in viewers(1, loc))
-		if((M.client && M.machine == src))
-			attack_self(M)
-	return
+	operating = FALSE
 
 
 /obj/item/flamethrower/proc/ignite_turf(turf/target)
-	//TODO: DEFERRED Consider checking to make sure tank pressure is high enough before doing this...
-	//Transfer 5% of current tank air contents to turf
-	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
-	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas[GAS_PHORON]*15,get_dir(loc,target))
-	air_transfer.gas[GAS_PHORON] = 0
+	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02 * (throw_amount / 100))
+	new /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target, air_transfer.get_by_flag(XGM_GAS_FUEL) * 15, get_dir(loc, target))
+	for(var/g in air_transfer.gas)
+		if(gas_data.flags[g] & XGM_GAS_FUEL)
+			air_transfer.gas[g] = 0
 	target.assume_air(air_transfer)
-	//Burn it based on transfered gas
-	//target.hotspot_expose(part4.air_contents.temperature*2,300)
-	target.hotspot_expose((ptank.air_contents.temperature*2) + 380,500) // -- More of my "how do I shot fire?" dickery. -- TLE
-	//location.hotspot_expose(1000,500,1)
-	return
+	target.hotspot_expose((ptank.air_contents.temperature*2) + 400, 500)
 
-/obj/item/flamethrower/full/New(var/loc)
-	..()
+/obj/item/flamethrower/full/Initialize()
+	. = ..()
 	weldtool = new /obj/item/weldingtool(src)
-	weldtool.status = 0
+	weldtool.status = FALSE
 	igniter = new /obj/item/device/assembly/igniter(src)
-	igniter.secured = 0
-	status = 1
+	igniter.secured = FALSE
+	secured = TRUE
 	update_icon()
-	return

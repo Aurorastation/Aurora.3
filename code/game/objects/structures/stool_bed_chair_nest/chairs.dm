@@ -78,34 +78,35 @@
 /obj/structure/bed/chair/comfy
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
+	base_icon = "comfychair"
 	build_amt = 2
 
-/obj/structure/bed/chair/comfy/brown/Initialize(mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_LEATHER)
+/obj/structure/bed/chair/comfy/brown/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-/obj/structure/bed/chair/comfy/red/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CARPET)
+/obj/structure/bed/chair/comfy/red/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/chair/comfy/teal/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
+/obj/structure/bed/chair/comfy/teal/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
 
-/obj/structure/bed/chair/comfy/black/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
+/obj/structure/bed/chair/comfy/black/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
 
-/obj/structure/bed/chair/comfy/green/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
+/obj/structure/bed/chair/comfy/green/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
 
-/obj/structure/bed/chair/comfy/purp/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
+/obj/structure/bed/chair/comfy/purp/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
 
-/obj/structure/bed/chair/comfy/blue/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
+/obj/structure/bed/chair/comfy/blue/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
 
-/obj/structure/bed/chair/comfy/beige/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
+/obj/structure/bed/chair/comfy/beige/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
 
-/obj/structure/bed/chair/comfy/lime/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
+/obj/structure/bed/chair/comfy/lime/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 /obj/structure/bed/chair/office
 	anchored = 0
@@ -212,8 +213,8 @@
 /obj/structure/bed/chair/plastic
 	color = "#CCCCCC"
 
-/obj/structure/bed/chair/plastic/Initialize(mapload)
-	. = ..(mapload, MATERIAL_PLASTIC)
+/obj/structure/bed/chair/plastic/New(var/newloc)
+	..(newloc, MATERIAL_PLASTIC)
 
 /obj/structure/bed/chair/wood
 	name = "wooden chair"
@@ -229,8 +230,11 @@
 		return
 	..()
 
+/obj/structure/bed/chair/wood/New(var/newloc)
+	..(newloc, MATERIAL_WOOD)
+
 /obj/structure/bed/chair/wood/Initialize(mapload)
-	. = ..(mapload, "wood")
+	.=..()
 	var/image/I = image(icon, "[icon_state]_over")
 	I.layer = FLY_LAYER
 	add_overlay(I)
