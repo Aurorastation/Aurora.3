@@ -12,12 +12,11 @@
 	brightness_on = 4
 	light_wedge = LIGHT_WIDE
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi',
-		"Machine" = 'icons/mob/species/machine/helmet.dmi',
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
+		BODYTYPE_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/helmet.dmi',
+		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi',
 	)
 
 /obj/item/clothing/gloves/rig
@@ -30,16 +29,14 @@
 	gender = PLURAL
 	punch_force = 5
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/gloves.dmi',
-		"Unathi" = 'icons/mob/species/unathi/gloves.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/gloves.dmi',
-		"Machine" = 'icons/mob/species/machine/gloves.dmi',
-		"Vox" = 'icons/mob/species/vox/gloves.dmi'
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/gloves.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/gloves.dmi',
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/gloves.dmi',
+		BODYTYPE_IPC = 'icons/mob/species/machine/gloves.dmi',
 	)
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
-	item_flags = SILENT
 	body_parts_covered = FEET
 	cold_protection = FEET
 	heat_protection = FEET
@@ -47,23 +44,11 @@
 	gender = PLURAL
 	icon_base = null
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi',
-		"Unathi" = 'icons/mob/species/unathi/shoes.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/shoes.dmi',
-		"Machine" = 'icons/mob/species/machine/shoes.dmi',
-		"Vox" = 'icons/mob/species/vox/shoes.dmi'
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/shoes.dmi',
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/shoes.dmi',
+		BODYTYPE_IPC = 'icons/mob/species/machine/shoes.dmi',
 	)
-	var/footstep = 1	//used for footsteps.
-
-/obj/item/clothing/shoes/magboots/rig/handle_movement(var/turf/walking, var/running)
-	if(!running)
-		if(footstep >= 2)
-			footstep = 0
-			playsound(src, 'sound/machines/rig/rigstep.ogg', 20, TRUE)
-		else
-			footstep++
-	else
-		playsound(src, 'sound/machines/rig/rigstep.ogg', 50, TRUE)
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
@@ -79,11 +64,10 @@
 	resilience = 0.2
 	can_breach = 1
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
-		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi',
-		"Machine" = 'icons/mob/species/machine/suit.dmi',
-		"Vox" = 'icons/mob/species/vox/suit.dmi'
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/suit.dmi',
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
+		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi',
 		)
 
 	supporting_limbs = list()

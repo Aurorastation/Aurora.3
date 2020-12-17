@@ -148,6 +148,12 @@
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = 1
 				anchored = 1
+	else if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else
+			togglelock(user)
 	else if(!opened)
 		if(!broken && istype(W,/obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/ChainSawVar = W
@@ -170,7 +176,7 @@
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
-				playsound(loc, "sparks", 50, 1)
+				playsound(loc, /decl/sound_category/spark_sound, 50, 1)
 		else if(W.iswelder())
 			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
@@ -193,6 +199,8 @@
 				)
 			else
 				togglelock(user)
+		else if(istype(W, /obj/item/ducttape))
+			return
 		else
 			togglelock(user)//Attempt to lock locker if closed
 
@@ -274,4 +282,3 @@
 		var/obj/structure/bigDelivery/BD = loc
 		BD.unwrap()
 	open()
-

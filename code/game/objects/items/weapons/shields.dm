@@ -37,6 +37,7 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_shield.dmi'
 		)
 	var/base_block_chance = 50
+	recyclable = TRUE
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
@@ -70,7 +71,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 7500)
 	attack_verb = list("shoved", "bashed")
@@ -139,7 +140,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
 	var/shield_power = 150
@@ -174,7 +175,7 @@
 				active = 0
 				force = 3
 				update_icon()
-				w_class = 1
+				w_class = ITEMSIZE_TINY
 				playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 				shield_power = initial(shield_power)
 				return 0
@@ -217,14 +218,14 @@
 	if (active)
 		force = 10
 		update_icon()
-		w_class = 4
+		w_class = ITEMSIZE_LARGE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] is now active.</span>")
 
 	else
 		force = 3
 		update_icon()
-		w_class = 1
+		w_class = ITEMSIZE_TINY
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] can now be concealed.</span>")
 
@@ -291,7 +292,7 @@
 	throwforce = 3.0
 	throw_speed = 3
 	throw_range = 4
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 
@@ -319,7 +320,7 @@
 		force = 5
 		throwforce = 5
 		throw_speed = 2
-		w_class = 4
+		w_class = ITEMSIZE_LARGE
 		slot_flags = SLOT_BACK
 		to_chat(user, SPAN_NOTICE("You extend \the [src] downward with a sharp snap of your wrist."))
 	else
@@ -328,7 +329,7 @@
 		force = 3
 		throwforce = 3
 		throw_speed = 3
-		w_class = 3
+		w_class = ITEMSIZE_NORMAL
 		slot_flags = 0
 		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 

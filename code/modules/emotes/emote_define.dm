@@ -30,8 +30,12 @@
 		return emote_message_3p_target
 	return emote_message_3p
 
-/decl/emote/proc/do_emote(var/atom/user, var/extra_params)
+/decl/emote/proc/can_do_emote(var/mob/user)
+	if(conscious && user.stat != CONSCIOUS)
+		return FALSE
+	return TRUE
 
+/decl/emote/proc/do_emote(var/atom/user, var/extra_params)
 	if(ismob(user) && check_restraints)
 		var/mob/M = user
 		if(M.restrained())
@@ -46,19 +50,14 @@
 				target = thing
 				break
 
-	var/datum/gender/user_gender = gender_datums[user.gender]
-	var/datum/gender/target_gender
-	if(target)
-		target_gender = gender_datums[target.gender]
-
 	var/use_3p
 	var/use_1p
 	if(emote_message_1p)
 		if(target && emote_message_1p_target)
 			use_1p = get_emote_message_1p(user, target, extra_params)
-			use_1p = replacetext(use_1p, "TARGET_THEM", target_gender.him)
-			use_1p = replacetext(use_1p, "TARGET_THEIR", target_gender.his)
-			use_1p = replacetext(use_1p, "TARGET_SELF", target_gender.self)
+			use_1p = replacetext(use_1p, "TARGET_THEM", target.get_pronoun("him"))
+			use_1p = replacetext(use_1p, "TARGET_THEIR", target.get_pronoun("his"))
+			use_1p = replacetext(use_1p, "TARGET_SELF", target.get_pronoun("himself"))
 			use_1p = replacetext(use_1p, "TARGET", "<b>\the [target]</b>")
 		else
 			use_1p = get_emote_message_1p(user, null, extra_params)
@@ -67,21 +66,24 @@
 	if(emote_message_3p)
 		if(target && emote_message_3p_target)
 			use_3p = get_emote_message_3p(user, target, extra_params)
-			use_3p = replacetext(use_3p, "TARGET_THEM", target_gender.him)
-			use_3p = replacetext(use_3p, "TARGET_THEIR", target_gender.his)
-			use_3p = replacetext(use_3p, "TARGET_SELF", target_gender.self)
+			use_3p = replacetext(use_3p, "TARGET_THEM", target.get_pronoun("him"))
+			use_3p = replacetext(use_3p, "TARGET_THEIR", target.get_pronoun("his"))
+			use_3p = replacetext(use_3p, "TARGET_SELF", target.get_pronoun("himself"))
 			use_3p = replacetext(use_3p, "TARGET", "<b>\the [target]</b>")
 		else
 			use_3p = get_emote_message_3p(user, null, extra_params)
-		use_3p = replacetext(use_3p, "USER_THEM", user_gender.him)
-		use_3p = replacetext(use_3p, "USER_THEIR", user_gender.his)
-		use_3p = replacetext(use_3p, "USER_SELF", user_gender.self)
+		use_3p = replacetext(use_3p, "USER_THEM", user.get_pronoun("him"))
+		use_3p = replacetext(use_3p, "USER_THEIR", user.get_pronoun("his"))
+		use_3p = replacetext(use_3p, "USER_SELF", user.get_pronoun("himself"))
 		use_3p = replacetext(use_3p, "USER", "<b>\the [user]</b>")
 		use_3p = capitalize(use_3p)
 
 	var/use_range = emote_range
 	if (!use_range)
 		use_range = world.view
+
+	if(!target_check(user, target))
+		return
 
 	if(ismob(user))
 		var/mob/M = user
@@ -96,6 +98,9 @@
 	return
 
 /decl/emote/proc/check_user(var/atom/user)
+	return TRUE
+
+/decl/emote/proc/target_check(var/atom/user, var/atom/target)
 	return TRUE
 
 /decl/emote/proc/can_target()

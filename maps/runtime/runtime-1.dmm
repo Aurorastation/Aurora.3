@@ -80,8 +80,8 @@
 	},
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
@@ -104,8 +104,8 @@
 	pixel_y = 23
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -113,7 +113,9 @@
 /obj/machinery/power/smes/buildable{
 	charge = 1e+006;
 	input_attempt = 1;
-	output_attempt = 1
+	input_level = 200000;
+	output_attempt = 1;
+	output_level = 200000
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -134,10 +136,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Master Grid";
+	name_tag = "Master"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "as" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
 	icon_state = "radiation";
@@ -170,10 +176,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ay" = (
-/obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/decal/warning_stripes,
+/obj/machinery/power/smes/magical{
+	output_attempt = 1
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -240,6 +249,8 @@
 	dir = 1
 	},
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -263,7 +274,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/gravity_gen)
 "aI" = (
@@ -318,6 +329,10 @@
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
+/obj/item/device/radio/intercom{
+	name = "Common Channel";
+	pixel_x = -27
+	},
 /turf/simulated/floor/plating,
 /area/engineering)
 "aP" = (
@@ -372,6 +387,8 @@
 /area/engineering/gravity_gen)
 "aU" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -425,6 +442,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Engine Airlock";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "be" = (
@@ -443,11 +464,14 @@
 	pixel_x = -24
 	},
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/item/device/analyzer,
 /obj/item/wrench,
 /obj/structure/table/standard,
@@ -473,7 +497,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "bk" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
@@ -484,10 +511,17 @@
 /obj/item/screwdriver,
 /obj/item/wirecutters,
 /obj/structure/table/standard,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Technical Storage";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/item/storage/box/lights/mixed,
 /obj/item/device/lightreplacer,
 /obj/structure/table/standard,
@@ -523,7 +557,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "bs" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/bridge)
 "bt" = (
@@ -544,6 +578,8 @@
 /area/hallway/secondary/entry)
 "bw" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -558,9 +594,9 @@
 	},
 /obj/structure/cable,
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
 /obj/machinery/alarm{
 	locked = 0;
@@ -598,9 +634,9 @@
 	pixel_x = -24
 	},
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
 /obj/structure/closet/secure_closet/captains,
 /obj/effect/floor_decal/corner/blue{
@@ -679,9 +715,9 @@
 	pixel_x = -24
 	},
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+	pixel_y = 1
 	},
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/corner/blue{
@@ -697,6 +733,8 @@
 /area/hallway/secondary/entry)
 "bR" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /obj/structure/closet/emcloset,
@@ -729,11 +767,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "bU" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bV" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "bW" = (
@@ -772,7 +810,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bZ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -816,7 +854,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cd" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -880,14 +918,20 @@
 /area/hallway/secondary/entry)
 "ck" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "cl" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/item/modular_computer/console/preset/ai,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cm" = (
@@ -897,10 +941,14 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cn" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/machinery/account_database,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "co" = (
@@ -914,19 +962,12 @@
 "cp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cq" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/white{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
 "cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
@@ -942,7 +983,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cu" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -965,6 +1006,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -976,6 +1019,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/machinery/ai_status_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -998,10 +1044,15 @@
 	dir = 4
 	},
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -1057,7 +1108,10 @@
 /obj/item/stack/rods{
 	amount = 50
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/white{
 	dir = 8
@@ -1106,7 +1160,7 @@
 /turf/simulated/floor/tiled,
 /area/construction)
 "cO" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/construction)
 "cP" = (
@@ -1199,6 +1253,8 @@
 /area/storage/primary)
 "dd" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1211,6 +1267,8 @@
 /area/construction)
 "df" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1220,12 +1278,16 @@
 /area/construction)
 "dg" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "dh" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1332,7 +1394,10 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dA" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/item/material/twohanded/fireaxe,
 /obj/item/extinguisher,
 /obj/structure/table/standard,
@@ -1346,7 +1411,10 @@
 "dC" = (
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/tubes,
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
@@ -1357,8 +1425,26 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"eI" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Corridor 1";
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -21
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"gF" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "ie" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1374,8 +1460,55 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/gravity_gen)
+"kc" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Engine Output";
+	name_tag = "Engine Output"
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering)
+"kM" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Airlock"
+	},
+/obj/machinery/light/small{
+	brightness_range = 16;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering)
+"mn" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Bridge";
+	departmentType = 5;
+	name = "Bridge RC";
+	pixel_y = -30
+	},
+/obj/machinery/computer/security,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "ob" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/structure/cable{
@@ -1395,12 +1528,65 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"tT" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/bridge)
+"uI" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry)
+"wk" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/item/modular_computer/console/preset/command,
+/turf/simulated/floor/tiled,
+/area/bridge)
+"yC" = (
+/obj/structure/lattice,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"zP" = (
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Corridor 2";
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -21
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "Bd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
 /area/construction)
+"Ct" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"FZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_one)
 "Go" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1425,6 +1611,8 @@
 /area/maintenance/maintcentral)
 "HK" = (
 /obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1435,6 +1623,42 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"Kz" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/blue{
+	dir = 4
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Atmospherics";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"Ly" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Central Corridor 3";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"RL" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge";
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -21
+	},
+/obj/machinery/computer/station_alert/all,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "TP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1444,6 +1668,34 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"Uf" = (
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
+"UF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"WS" = (
+/obj/turbolift_map_holder/runtime{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
+"YP" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/item/modular_computer/console/preset/command/captain,
+/turf/simulated/floor/tiled,
+/area/bridge)
 
 (1,1,1) = {"
 aa
@@ -2379,7 +2631,7 @@ ae
 af
 ak
 ax
-aL
+Kz
 aL
 bk
 af
@@ -2389,7 +2641,7 @@ ck
 bB
 cx
 bB
-bB
+eI
 cK
 cV
 de
@@ -2486,7 +2738,7 @@ ad
 ab
 ab
 ab
-ab
+yC
 ab
 ab
 ab
@@ -2547,7 +2799,7 @@ ab
 bs
 bE
 cb
-cm
+wk
 bs
 cA
 bB
@@ -2601,7 +2853,7 @@ ab
 bs
 bE
 cb
-cm
+mn
 br
 cA
 bB
@@ -2654,7 +2906,7 @@ ab
 ab
 bs
 bF
-cb
+tT
 cm
 cs
 cA
@@ -2709,7 +2961,7 @@ aa
 bs
 bG
 cb
-cm
+RL
 br
 cA
 bB
@@ -2763,7 +3015,7 @@ aa
 bs
 bH
 cb
-cm
+YP
 bs
 cA
 bB
@@ -2810,7 +3062,7 @@ ad
 aa
 aa
 ah
-aC
+kM
 ah
 aa
 aa
@@ -2819,9 +3071,9 @@ bI
 cc
 cn
 br
-cA
+UF
 bB
-bB
+zP
 cP
 cP
 cP
@@ -2923,7 +3175,7 @@ aO
 ba
 bl
 bt
-bJ
+FZ
 ce
 cp
 bJ
@@ -3026,7 +3278,7 @@ ac
 ae
 ah
 ap
-aC
+kc
 aC
 bc
 bm
@@ -3251,7 +3503,7 @@ bP
 bY
 ck
 bB
-cx
+Ly
 bB
 bB
 cS
@@ -3357,8 +3609,8 @@ at
 bv
 bQ
 ch
-cq
-cq
+uI
+uI
 cE
 cF
 cG
@@ -3583,9 +3835,9 @@ cP
 cP
 cP
 cP
-cP
-cP
-cP
+Ct
+Ct
+Ct
 cP
 cP
 cP
@@ -3635,13 +3887,13 @@ ae
 ae
 ae
 ae
+gF
 ae
 ae
 ae
 ae
 ae
-ae
-ae
+gF
 ae
 ae
 ae
@@ -3743,13 +3995,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+WS
+ac
 aa
 aa
 aa
@@ -3797,13 +4049,13 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 ab
 ab
 ab
@@ -3851,13 +4103,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -3905,13 +4157,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -3959,13 +4211,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -4013,13 +4265,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 aa
 aa
 aa

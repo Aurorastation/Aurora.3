@@ -1,9 +1,3 @@
-//CCIAA's PDA.
-/obj/item/device/pda/central
-	default_cartridge = /obj/item/cartridge/captain
-	icon_state = "pda-h"
-	detonate = 0
-
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
 	w_class = ITEMSIZE_TINY
@@ -46,7 +40,7 @@
 	set name = "Start Recording"
 	set category = "Recorder"
 
-	if(!check_rights(R_CCIAA,FALSE))
+	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(use_check_and_message(usr))
@@ -87,7 +81,7 @@
 			selected_report = new(report_id, time2text(world.realtime, "YYYY_MM_DD"), report_name)
 		return
 	//If we are ready to record, but no interviewee is selected
-	else if(!selected_report && !interviewee_id)
+	else if(selected_report && !interviewee_id)
 		to_chat(usr,"<span class='notice'>The device beeps and flashes \"Fingerprint of interviewee required\"</span>")
 		return
 	//If the report has been selected and the person scanned their frinterprint
@@ -130,7 +124,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE))
+	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(!recording)
@@ -189,7 +183,7 @@
 	set name = "Reset Recorder"
 	set category = "Recorder"
 
-	if(!check_rights(R_CCIAA,FALSE))
+	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 
@@ -231,7 +225,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE))
+	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(recording)
@@ -249,7 +243,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE))
+	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(!recording)
@@ -270,7 +264,7 @@
 
 /obj/item/device/taperecorder/cciaa/attack_self(mob/user)
 	//If we are a ccia agent, then always go to the record function (to prompt for the report or start the recording)
-	if(check_rights(R_CCIAA,FALSE))
+	if(check_rights(R_CCIAA,FALSE) && !user.character_id)
 		record()
 		return
 

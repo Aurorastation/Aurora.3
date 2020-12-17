@@ -29,6 +29,7 @@
 	name = "Asset Protection Lead"
 
 	l_pocket = /obj/item/pinpointer
+	r_hand = /obj/item/device/orbital_dropper/icarus_drones
 
 /datum/outfit/admin/deathsquad/get_id_access()
 	return get_all_accesses()

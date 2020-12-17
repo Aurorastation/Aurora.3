@@ -1,5 +1,6 @@
 #ignore misc BYOND files
 Thumbs.db
+*.swp
 *.log
 *.rsc
 *.int

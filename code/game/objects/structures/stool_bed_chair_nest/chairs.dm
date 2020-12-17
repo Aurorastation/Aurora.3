@@ -4,6 +4,9 @@
 	icon_state = "chair_preview"
 	color = "#666666"
 	base_icon = "chair"
+
+	build_amt = 1
+
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
@@ -75,37 +78,40 @@
 /obj/structure/bed/chair/comfy
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
+	base_icon = "comfychair"
+	build_amt = 2
 
-/obj/structure/bed/chair/comfy/brown/Initialize(mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_LEATHER)
+/obj/structure/bed/chair/comfy/brown/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-/obj/structure/bed/chair/comfy/red/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CARPET)
+/obj/structure/bed/chair/comfy/red/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/chair/comfy/teal/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
+/obj/structure/bed/chair/comfy/teal/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
 
-/obj/structure/bed/chair/comfy/black/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
+/obj/structure/bed/chair/comfy/black/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
 
-/obj/structure/bed/chair/comfy/green/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
+/obj/structure/bed/chair/comfy/green/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
 
-/obj/structure/bed/chair/comfy/purp/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
+/obj/structure/bed/chair/comfy/purp/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
 
-/obj/structure/bed/chair/comfy/blue/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
+/obj/structure/bed/chair/comfy/blue/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
 
-/obj/structure/bed/chair/comfy/beige/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
+/obj/structure/bed/chair/comfy/beige/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
 
-/obj/structure/bed/chair/comfy/lime/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
+/obj/structure/bed/chair/comfy/lime/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 /obj/structure/bed/chair/office
 	anchored = 0
 	buckle_movable = 1
+	build_amt = 5
 
 /obj/structure/bed/chair/office/update_icon()
 	return
@@ -147,7 +153,7 @@
 		occupant.apply_effect(6, WEAKEN, blocked)
 		occupant.apply_effect(6, STUTTER, blocked)
 		occupant.apply_damage(10, BRUTE, def_zone, blocked)
-		playsound(src.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+		playsound(src.loc, "punch", 50, 1, -1)
 		if(istype(A, /mob/living))
 			var/mob/living/victim = A
 			def_zone = ran_zone()
@@ -207,13 +213,14 @@
 /obj/structure/bed/chair/plastic
 	color = "#CCCCCC"
 
-/obj/structure/bed/chair/plastic/Initialize(mapload)
-	. = ..(mapload, MATERIAL_PLASTIC)
+/obj/structure/bed/chair/plastic/New(var/newloc)
+	..(newloc, MATERIAL_PLASTIC)
 
 /obj/structure/bed/chair/wood
 	name = "wooden chair"
 	desc = "Old is never too old to not be in fashion."
 	icon_state = "wooden_chair"
+	build_amt = 3
 
 /obj/structure/bed/chair/wood/update_icon()
 	return
@@ -223,8 +230,11 @@
 		return
 	..()
 
+/obj/structure/bed/chair/wood/New(var/newloc)
+	..(newloc, MATERIAL_WOOD)
+
 /obj/structure/bed/chair/wood/Initialize(mapload)
-	. = ..(mapload, "wood")
+	.=..()
 	var/image/I = image(icon, "[icon_state]_over")
 	I.layer = FLY_LAYER
 	add_overlay(I)
@@ -273,3 +283,24 @@
 
 	else
 		icon_state = initial(icon_state)
+
+// pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
+/obj/structure/bed/chair/pool
+	name = "pool chair"
+	desc = "A simple plastic contraption that allows you to sit comfortably, dipping your feet into the pool."
+	icon_state = "pool_chair"
+
+/obj/structure/bed/chair/pool/update_icon()
+	return
+
+/obj/structure/bed/chair/pool/buckle_mob(mob/living/M)
+	if(!iscarbon(M))
+		return FALSE
+	return ..()
+
+/obj/structure/bed/chair/pool/post_buckle_mob(mob/living/M)
+	. = ..()
+	if(M == buckled_mob)
+		M.pixel_y = -6
+	else
+		M.pixel_y = initial(M.pixel_y)

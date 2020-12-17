@@ -53,6 +53,8 @@ THAT STUPID GAME KIT
 	src.data = dat
 
 /obj/item/game_kit/attack_ai(mob/user as mob, unused, flag)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user, unused, flag)
 
 /obj/item/game_kit/attack_hand(mob/user as mob, unused, flag)

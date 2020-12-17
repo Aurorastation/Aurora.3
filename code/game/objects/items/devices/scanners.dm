@@ -15,7 +15,7 @@ BREATH ANALYZER
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
@@ -30,7 +30,7 @@ BREATH ANALYZER
 	health_scan_mob(user, user, mode)
 	add_fingerprint(user)
 
-/proc/get_wound_severity(var/damage_ratio) //Used for ratios.
+/proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
 	var/degree = "none"
 
 	switch(damage_ratio)
@@ -44,18 +44,27 @@ BREATH ANALYZER
 			degree = "severe"
 		if(0.75 to 1)
 			degree = "extreme"
+
+	if(uppercase)
+		degree = capitalize(degree)
 	return degree
 
-/proc/get_severity(amount, var/tag = FALSE)
+/proc/get_severity(amount, var/uppercase = FALSE)
+	var/output = "none"
 	if(!amount)
-		return "none"
-	. = "minor"
-	if(amount > 50)
-		. = "severe"
+		output = "none"
+	else if(amount > 50)
+		output = "severe"
 	else if(amount > 25)
-		. = "significant"
+		output = "significant"
 	else if(amount > 10)
-		. = "moderate"
+		output = "moderate"
+	else
+		output = "minor"
+
+	if(uppercase)
+		output = capitalize(output)
+	return output
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
 	if(!just_scan)
@@ -302,7 +311,7 @@ BREATH ANALYZER
 	desc = "A hand-held environmental scanner which reports current gas levels."
 	icon_state = "atmos"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -336,7 +345,7 @@ BREATH ANALYZER
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
 	icon_state = "spectrometer"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT | OPENCONTAINER
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -379,10 +388,11 @@ BREATH ANALYZER
 				break
 		var/dat = "Trace Chemicals Found: "
 		for(var/R in blood_traces)
+			var/datum/reagent/C = new R()
 			if(details)
-				dat += "[R] ([blood_traces[R]] units) "
+				dat += "[C] ([blood_traces[R]] units) "
 			else
-				dat += "[R] "
+				dat += "[C] "
 		to_chat(user, "[dat]")
 		reagents.clear_reagents()
 	return
@@ -398,7 +408,7 @@ BREATH ANALYZER
 	desc = "A hand-held reagent scanner which identifies chemical agents."
 	icon_state = "spectrometer"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -447,7 +457,7 @@ BREATH ANALYZER
 	icon_state = "adv_spectrometer"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	throwforce = 0
 	throw_speed = 3
@@ -490,7 +500,7 @@ BREATH ANALYZER
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon_state = "price_scanner"
 	slot_flags = SLOT_BELT
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
@@ -509,7 +519,7 @@ BREATH ANALYZER
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's repository system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 0
@@ -564,14 +574,14 @@ BREATH ANALYZER
 		if(0 to 25)
 			to_chat(user,"Subject oxygen levels nominal.")
 		if(25 to 50)
-			to_chat(user,"<font color='blue'>Subject oxygen levels abnormal.</font>")
+			to_chat(user,"<span class='notice'>Subject oxygen levels abnormal.</span>")
 		if(50 to INFINITY)
-			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
+			to_chat(user,"<span class='notice'><b>Severe oxygen deprivation detected.</b></span>")
 
 	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
-			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")
+			to_chat(user,"<span class='warning'><b>Ruptured lung detected.</b></span>")
 		else if(L.is_damaged())
 			to_chat(user,"<b>Damaged lung detected.</b>")
 		else
@@ -587,11 +597,11 @@ BREATH ANALYZER
 		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
 			additional_string = "\[MODERATELY INTOXICATED\]"
 		if(INTOX_VOMIT to INTOX_BALANCE)
-			additional_string = "<font color='red'>\[HEAVILY INTOXICATED\]</font>"
+			additional_string = "<span class='warning'>\[HEAVILY INTOXICATED\]</span>"
 		if(INTOX_BALANCE to INTOX_DEATH)
-			additional_string = "<font color='red'>\[ALCOHOL POISONING LIKELY\]</font>"
+			additional_string = "<span class='warning'>\[ALCOHOL POISONING LIKELY\]</span>"
 		if(INTOX_DEATH to INFINITY)
-			additional_string = "<font color='red'>\[DEATH IMMINENT\]</font>"
+			additional_string = "<span class='warning'>\[DEATH IMMINENT\]</span>"
 	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)

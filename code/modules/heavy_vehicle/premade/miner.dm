@@ -18,10 +18,10 @@
 /mob/living/heavy_vehicle/premade/miner/remote
 	name = "remote mining mecha"
 	dummy_colour = "#ffc44f"
-	remote_network = "remotemechs"
+	remote_network = REMOTE_GENERIC_MECH
 	does_hardpoint_lock = FALSE
 
 /mob/living/heavy_vehicle/premade/miner/remote_prison
 	name = "penal mining mecha"
 	dummy_colour = "#302e2b"
-	remote_network = "prisonmechs"
+	remote_network = REMOTE_PRISON_MECH

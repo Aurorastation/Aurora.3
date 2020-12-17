@@ -17,13 +17,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GOLD = 2000, MATERIAL_SILVER = 3000, MATERIAL_GLASS = 2000)
 	build_path = /obj/item/rig_module/power_sink
 
-/datum/design/hardsuitmodules/meson_module
-	name = "Hardsuit Meson Scanner"
-	desc = "A layered, translucent visor system for a hardsuit."
-	req_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
-	build_path = /obj/item/rig_module/vision/meson
-
 /datum/design/hardsuitmodules/sechud_module
 	name = "Hardsuit Security HUD"
 	desc = "A simple tactical information system for a hardsuit."
@@ -114,3 +107,10 @@
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 5500)
 	build_path = /obj/item/rig_module/cooling_unit
+
+/datum/design/hardsuitmodules/foam_sprayer
+	name = "Mounted Foam Sprayer"
+	desc = "A shoulder-mounted metal foam sprayer."
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_POWER = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 6000)
+	build_path = /obj/item/rig_module/foam_sprayer

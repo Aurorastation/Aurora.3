@@ -18,7 +18,7 @@
 
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 	force = 5.0
 	throwforce = 10.0
@@ -30,7 +30,7 @@
 	var/integrity = 3
 	var/volume = 70
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
-						//If they have and we haven't scanned it with the PDA or gas analyzer then we might just breath whatever they put in it.
+						//If they have and we haven't scanned it with a computer or handheld gas analyzer then we might just breath whatever they put in it.
 /obj/item/tank/Initialize()
 	. = ..()
 
@@ -80,9 +80,10 @@
 	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
-	else if (istype(W,/obj/item/latexballon))
-		var/obj/item/latexballon/LB = W
-		LB.blow(src)
+
+	if (istype(W, /obj/item/toy/balloon))
+		var/obj/item/toy/balloon/B = W
+		B.blow(src)
 		src.add_fingerprint(user)
 
 	if(istype(W, /obj/item/device/assembly_holder))

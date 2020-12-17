@@ -4,8 +4,9 @@
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
 	density = 1
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	layer = OBJ_LAYER - 0.01
+	build_amt = 2
 	var/icon_closed = "closed"
 	var/icon_opened = "open"
 	var/welded_overlay_state = "welded"
@@ -23,9 +24,12 @@
 	var/store_misc = 1
 	var/store_items = 1
 	var/store_mobs = 1
+	var/maximum_mob_size = 15
 
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
+
+	slowdown = 5
 
 /obj/structure/closet/LateInitialize()
 	if (opened)	// if closed, any item at the crate's loc is put in the contents
@@ -65,13 +69,17 @@
 		to_chat(user, "\The [src] is full.")
 
 /obj/structure/closet/examine(mob/user)
-	if(..(user, 1) && !opened)
+	if(!src.opened && (..(user, 1) || isobserver(user)))
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
 		content_info(user, content_size)
-	if(linked_teleporter && Adjacent(user) && opened)
+
+	if(!src.opened && isobserver(user))
+		to_chat(user, "It contains: [counting_english_list(contents)]")
+
+	if(src.opened && linked_teleporter && (Adjacent(user) || isobserver(user)))
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
 
 /obj/structure/closet/proc/stored_weight()
@@ -83,6 +91,8 @@
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
+	if(istype(mover) && mover.checkpass(PASSTRACE))
+		return 1
 	return (!density)
 
 /obj/structure/closet/proc/can_open()
@@ -181,6 +191,8 @@
 	for(var/mob/living/M in loc)
 		if(M.buckled || M.pinned.len)
 			continue
+		if(M.mob_size >= maximum_mob_size)
+			continue
 		if(stored_units + added_units + M.mob_size > storage_capacity)
 			break
 		if(M.client)
@@ -277,7 +289,6 @@
 					to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				else
-					new /obj/item/stack/material/steel(loc)
 					user.visible_message(
 						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
 						"<span class='notice'>You cut apart [src] with [WT].</span>"
@@ -285,7 +296,7 @@
 					if(linked_teleporter)
 						linked_teleporter.forceMove(get_turf(src))
 						linked_teleporter = null
-					qdel(src)
+					dismantle()
 					return
 		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
 			var/obj/item/storage/laundry_basket/LB = W
@@ -298,13 +309,15 @@
 				"<span class='notice'>You hear rustling of clothes.</span>"
 			)
 			return
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		if(W)
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
 	else if(istype(W, /obj/item/stack/packageWrap))
+		return
+	else if(istype(W, /obj/item/ducttape))
 		return
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
@@ -326,6 +339,12 @@
 				"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
 				"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
 			)
+		else
+			attack_hand(user)
+	else if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
 		else
 			attack_hand(user)
 	else

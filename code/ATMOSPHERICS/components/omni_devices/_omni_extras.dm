@@ -10,6 +10,7 @@
 #define ATM_CO2		5
 #define ATM_P		6	//Phoron
 #define ATM_N2O		7
+#define ATM_H2		8	//Hydrogen
 
 //--------------------------------------------
 // Omni port datum
@@ -90,20 +91,21 @@
 		if("west")
 			return WEST
 		else
-			return 0
+			return FALSE
 
 /proc/mode_to_gasid(var/mode)
 	switch(mode)
-		if(ATM_O2) 
+		if(ATM_O2)
 			return GAS_OXYGEN
-		if(ATM_N2) 
+		if(ATM_N2)
 			return GAS_NITROGEN
-		if(ATM_CO2) 
+		if(ATM_CO2)
 			return GAS_CO2
-		if(ATM_P) 
+		if(ATM_P)
 			return GAS_PHORON
-		if(ATM_N2O) 
+		if(ATM_N2O)
 			return GAS_N2O
+		if(ATM_H2)
+			return GAS_HYDROGEN
 		else
 			return null
-	

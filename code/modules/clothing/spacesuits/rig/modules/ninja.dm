@@ -94,7 +94,7 @@
 	if(!M || !T)
 		return
 
-	playsound(T, "sparks", 50, 1)
+	playsound(T, /decl/sound_category/spark_sound, 50, 1)
 	anim(T, M, 'icons/mob/mob.dmi', ,"phaseout", ,M.dir)
 
 /obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)

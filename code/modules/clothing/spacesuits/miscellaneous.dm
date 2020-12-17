@@ -17,7 +17,10 @@
 /obj/item/clothing/head/helmet/space/deathsquad/beret
 	name = "officer's beret"
 	desc = "An armored beret commonly used by special operations officers."
-	icon_state = "beret_badge"
+	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon_state = "beret_sec"
+	item_state = "beret_sec"
+	contained_sprite = TRUE
 	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
 	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = BLOCKHAIR
@@ -59,7 +62,7 @@
 	desc = "Yarr."
 	icon_state = "pirate"
 	item_state = "pirate"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	slowdown = 0
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)

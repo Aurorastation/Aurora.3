@@ -239,7 +239,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/posibrain(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 1)
+	addtimer(CALLBACK(src, .proc/setup_brain), 30)
 
 /obj/item/organ/internal/mmi_holder/posibrain/proc/setup_brain()
 	if(owner)
@@ -380,58 +380,58 @@
 //Industrial//
 //////////////
 
-/obj/item/organ/external/head/industrial
+/obj/item/organ/external/head/ipc/industrial
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/chest/industrial
+/obj/item/organ/external/chest/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/groin/industrial
+/obj/item/organ/external/groin/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/arm/industrial
+/obj/item/organ/external/arm/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/arm/right/industrial
+/obj/item/organ/external/arm/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/leg/industrial
+/obj/item/organ/external/leg/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/leg/right/industrial
+/obj/item/organ/external/leg/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/foot/industrial
+/obj/item/organ/external/foot/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/foot/right/industrial
+/obj/item/organ/external/foot/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/hand/industrial
+/obj/item/organ/external/hand/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/hand/right/industrial
+/obj/item/organ/external/hand/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
@@ -440,68 +440,68 @@
 //Shell limbs//
 ///////////////
 
-/obj/item/organ/external/head/shell
+/obj/item/organ/external/head/ipc/shell
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/chest/shell
+/obj/item/organ/external/chest/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/groin/shell
+/obj/item/organ/external/groin/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/arm/shell
+/obj/item/organ/external/arm/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/arm/right/shell
+/obj/item/organ/external/arm/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/leg/shell
+/obj/item/organ/external/leg/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/leg/right/shell
+/obj/item/organ/external/leg/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/foot/shell
+/obj/item/organ/external/foot/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/foot/right/shell
+/obj/item/organ/external/foot/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/hand/shell
+/obj/item/organ/external/hand/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/hand/right/shell
+/obj/item/organ/external/hand/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
@@ -509,58 +509,58 @@
 
 //unbranded
 
-/obj/item/organ/external/head/unbranded
+/obj/item/organ/external/head/ipc/unbranded
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/chest/unbranded
+/obj/item/organ/external/chest/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/groin/unbranded
+/obj/item/organ/external/groin/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/arm/unbranded
+/obj/item/organ/external/arm/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/arm/right/unbranded
+/obj/item/organ/external/arm/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/leg/unbranded
+/obj/item/organ/external/leg/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/leg/right/unbranded
+/obj/item/organ/external/leg/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/foot/unbranded
+/obj/item/organ/external/foot/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/foot/right/unbranded
+/obj/item/organ/external/foot/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/hand/unbranded
+/obj/item/organ/external/hand/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/hand/right/unbranded
+/obj/item/organ/external/hand/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"

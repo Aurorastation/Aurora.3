@@ -7,14 +7,7 @@
 	item_state = "ba_suit"
 	worn_state = "ba_suit"
 
-/obj/item/clothing/under/rank/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
-	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
-	name = "captain's jumpsuit"
-	icon_state = "captain"
-	item_state = "b_suit"
-	worn_state = "captain"
-
-/obj/item/clothing/under/rank/cargo
+/obj/item/clothing/under/rank/quartermaster
 	name = "quartermaster's jumpsuit"
 	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
 	icon_state = "qm"
@@ -198,8 +191,8 @@
 /obj/item/clothing/under/rank/einstein_engines
 	name = "Einstein Engines uniform"
 	desc = "A uniform worn by Einstein Engines Incorporated employees and contractors."
-	icon_state = "einstein_engine"
-	worn_state = "einstein_engine"
+	icon_state = "einstein"
+	worn_state = "einstein"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
 	siemens_coefficient = 0.75
 

@@ -8,6 +8,7 @@
 	var/carbon_dioxide = 0
 	var/nitrogen = 0
 	var/phoron = 0
+	var/hydrogen = 0
 
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05
@@ -22,7 +23,7 @@
 	var/pathweight = 1          // How much does it cost to pathfind over this turf?
 	var/blessed = 0             // Has the turf been blessed?
 
-	var/footstep_sound = "tiles"
+	var/footstep_sound = /decl/sound_category/tiles_footstep
 
 	var/list/decals
 

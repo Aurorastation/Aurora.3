@@ -35,8 +35,10 @@
 	var/list/all_underwear = list()
 	var/list/all_underwear_metadata = list()
 	var/list/hide_underwear = list()
-	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
+	var/backbag = OUTFIT_BACKPACK		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
 	var/backbag_style = 1
+	var/pda_choice = OUTFIT_TAB_PDA
+	var/headset_choice = OUTFIT_HEADSET
 
 	var/last_chew = 0 // Used for hand chewing
 
@@ -102,7 +104,7 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
-	var/bodyfall_sound = "bodyfall"
+	var/bodyfall_sound = /decl/sound_category/bodyfall_sound
 
 	var/last_x = 0
 	var/last_y = 0
@@ -113,4 +115,5 @@
 
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
-	var/datum/martial_art/martial_art = null
+	var/datum/martial_art/primary_martial_art = null
+	var/list/datum/martial_art/known_martial_arts = null

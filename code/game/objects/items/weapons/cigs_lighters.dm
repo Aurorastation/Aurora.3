@@ -318,6 +318,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			light(SPAN_WARNING("[user] swings their [W], barely missing themselves. They light their [name] in the process."))
 	return
 
+/obj/item/clothing/mask/smokable/cigarette/catch_fire()
+	if(!lit)
+		light(SPAN_WARNING("\The [src] is lit by the flames!"))
+
+/obj/item/clothing/mask/smokable/cigarette/extinguish_fire()
+	if(lit)
+		die(TRUE)
+
 /obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
 	if(lit && H == user && istype(H))
 		var/obj/item/blocked = H.check_mouth_coverage()
@@ -630,6 +638,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cobpipeoff"
 	chem_volume = 30
 
+/obj/item/clothing/mask/smokable/pipe/bonepipe
+	name = "Europan bone pipe"
+	desc = "A smoking pipe made out of the bones of the Europan bone whale."
+	desc_fluff = "While most commonly associated with bone charms, bones from various sea creatures on Europa are used in a variety of goods, such as this smoking pipe. While smoking in submarines is often an uncommon occurrence, due to a lack of available air or space, these pipes are a common sight in the many stations of Europa. Higher-quality pipes typically have scenes etched into their bones, and can tell the story of their owner's time on Europa."
+	icon_state = "bonepipeoff"
+	item_state = "bonepipeoff"
+	icon_on = "bonepipeon"
+	icon_off = "bonepipeoff"
+	chem_volume = 30
+
 /////////
 //ZIPPO//
 /////////
@@ -735,6 +753,31 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "goldzippo"
 	item_state = "goldzippo"
 	flame_light_color = LIGHT_COLOR_BLUE
+
+/obj/item/flame/lighter/zippo/europa
+	name = "\improper Europan Zippo lighter"
+	desc = "A smokeless electrical coil lighter in the style of a zippo with the tricolour of the Jovian moon Europa on the side. It even its outside feels somewhat hot to the touch when it is turned on."
+	desc_fluff = "Traditional lighters are often frowned upon in the various submarines and underwater bases of Europa for the fumes their open flames produce. As a result, flameless lighters using heated metal coils that ignite flammable material upon contact are employed instead. These lighters are often prized personal possessions of those who own them, as with living space, privacy and individual possessions are a luxury in the cramped quarters of Europan vessels and stations. A side effect of having lighters that use electrically heated metal coils as opposed to flames however, is that the exteriors of the lighters themselves can become heated to a point of inflicting superficial burns if left on for relatively short periods of time."
+	icon_state = "europazippo"
+	item_state = "europazippo"
+	flame_light_power = 1
+
+/obj/item/flame/lighter/zippo/gadpathur
+	name = "\improper Gadpathurian Zippo lighter"
+	desc = "A zippo lighter with a depiction of the flag of the United Planetary Defense Council of Gadpathur. The nozzle seems to be especially small in order to produce a weaker and dimmer flame."
+	desc_fluff = "Owing to the relative poverty of Gadpathur and the ever-present need for gasmasks, smoking is a rare habit on the planet. Still, Gadpathurians who choose to smoke typically keep lighters with smaller nozzles, both to reduce light and thus attention in the confines of a bunker and to conserve on fuel which too is hoarded for their endless war preparations. The Gadpathurian flag emblazoned on the side of the lighter is not a common feature, with most Gadpathurians who stay on the planet preferring to place a symbol of their cadre in its stead."
+	icon_state = "gadpathurzippo"
+	item_state = "gadpathurzippo"
+	flame_light_power = 1
+
+/obj/item/flame/lighter/zippo/asoral
+	name = "\improper Asoral jet lighter"
+	desc = "A thin lighter made from a heat-resistant polymer and a nozzle that wouldn't be out of place on a jet. While it might bear the logo of the Asoral Orbital and Suborbital Racing network on it, it utilizes advanced fuel from Xanu Prime which burns hotter, causing a blue flame."
+	desc_fluff = "The Asoral jet lighter began as a publicity stunt by a few intrepid engineers looking to recycle old and underperforming racing probe engines. Although that particular plan ended in disaster, the Asoral Racing network ended up loving the concept and adopting a smaller and safer version of the lighter as a form of advertising. In a pinch, lighters such as these are known to serve as replacement igniters for racers' engines. Until recently, they were produced with a plume similar to that of an afterburner before the merger of Crosk's racing networks with those of Xanu Prime."
+	icon_state = "lighter-asoral"
+	item_state = "lighter-asoral"
+	flame_light_color = LIGHT_COLOR_BLUE
+	flame_light_range = 2
 
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()

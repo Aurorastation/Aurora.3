@@ -123,7 +123,7 @@
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
-		/obj/item/clothing/head/chameleon = 1,
+		/obj/item/clothing/head/softcap/chameleon = 1,
 		/obj/item/clothing/suit/chameleon = 1,
 		/obj/item/clothing/shoes/chameleon = 1,
 		/obj/item/storage/backpack/chameleon = 1,
@@ -156,6 +156,12 @@
 	name = "spy kit"
 	desc = "For when you want to conduct voyeurism from afar."
 	starts_with = list(/obj/item/device/spy_bug = 6, /obj/item/device/spy_monitor = 1)
+
+/obj/item/storage/box/syndie_kit/spy/hidden
+	name = "box"
+	desc = "It's just an ordinary box."
+	icon_state = "box"
+	item_state = "box"
 
 /obj/item/storage/box/syndie_kit/g9mm
 	name = "smooth operator"
@@ -218,8 +224,6 @@
 	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
-	name = "suspicious briefcase"
-	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
 	starts_with = list(/obj/item/spacecash/c1000 = 10)
 
 /obj/item/storage/box/syndie_kit/stimulants
@@ -242,3 +246,10 @@
 /obj/item/storage/box/syndie_kit/random_weapon/Initialize()
 	.=..()
 	desc = "A sleek, sturdy box"
+
+/obj/item/storage/box/syndie_kit/sideeffectbegone
+	name = "box of sideeffect-be-gone injectors"
+	desc = "Comes with 4x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 4
+	)

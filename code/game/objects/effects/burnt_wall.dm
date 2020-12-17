@@ -41,3 +41,6 @@
 	icon_state = "2"
 	anchored = TRUE
 	layer = 5
+
+/obj/effect/overlay/burnt_wall/steel/Initialize(mapload)
+	. = ..(mapload, "wall", MATERIAL_STEEL)

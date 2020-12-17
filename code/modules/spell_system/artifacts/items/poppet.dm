@@ -4,7 +4,7 @@
 	desc = "A rustic doll with a vague humanoid shape."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "poppet"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/datum/weakref/target = null
 	var/countenance = null //what species does it looks like?
 	var/cooldown_time = 120
@@ -69,7 +69,7 @@
 			H.confused += 10
 			H.stuttering += 5
 			to_chat(H, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")
-			playsound(get_turf(H), "punch", 50, 1, -1)
+			playsound(get_turf(H), /decl/sound_category/punch_sound, 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
 
@@ -96,7 +96,7 @@
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)
 			if(!(H.species.flags & NO_BREATHE))
-				H.emote("me", 1, "gasps for air!")
+				H.visible_message("<b>[H]</b> gasps for air!")
 				H.losebreath += 5
 
 		if(istype(W, /obj/item/bikehorn))

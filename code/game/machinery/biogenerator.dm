@@ -110,6 +110,14 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
+		"jug" = list(
+			name = "Empty Jug",
+			class = "Items",
+			object = /obj/item/reagent_containers/glass/fertilizer,
+			cost = 100,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
 		"custom_cigarettes" = list(
 			name = "Empty Cigarettes (x6)",
 			class = "Items",
@@ -578,7 +586,7 @@
 		else
 			points -= totake
 			use_power(totake * 0.25)
-			playsound(src.loc, "switchsounds", 50, 1)
+			playsound(src.loc, /decl/sound_category/switch_sound, 50, 1)
 			var/new_object = recipie_data["object"]
 			if(ispath(new_object, /obj/item/reagent_containers/pill))
 				if(!made_container)

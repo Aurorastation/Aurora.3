@@ -56,6 +56,8 @@
 	return
 
 /obj/machinery/ai_slipper/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/ai_slipper/attack_hand(mob/user as mob)

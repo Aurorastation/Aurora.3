@@ -1,6 +1,6 @@
 /decl/xgm_gas/oxygen
 	id = GAS_OXYGEN
-	name = GAS_OXYGEN
+	name = "Oxygen"
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.032	// kg/mol
 
@@ -8,7 +8,7 @@
 
 /decl/xgm_gas/nitrogen
 	id = GAS_NITROGEN
-	name = GAS_NITROGEN
+	name = "Nitrogen"
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.028	// kg/mol
 
@@ -31,9 +31,16 @@
 	//and following a N/Z ratio of 1.5, the molar mass of a monatomic gas is:
 	molar_mass = 0.405	// kg/mol
 
-	tile_overlay = "plasma-purple"
+	tile_overlay = "phoron"
 	overlay_limit = 0.7
 	flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT
+
+/decl/xgm_gas/hydrogen
+	id = GAS_HYDROGEN
+	name = "Hydrogen"
+	specific_heat = 100
+	molar_mass = 0.002
+	flags = XGM_GAS_FUEL
 
 /decl/xgm_gas/sleeping_agent
 	id = GAS_N2O

@@ -36,7 +36,7 @@
 	requires_ntnet = TRUE
 	required_access_download = access_heads
 	color = LIGHT_COLOR_ORANGE
-	usage_flags = PROGRAM_ALL_REGULAR
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 
 /datum/nano_module/camera_monitor
 	name = "Camera Monitoring program"
@@ -152,6 +152,12 @@
 	current_camera = null
 
 /datum/nano_module/camera_monitor/check_eye(var/mob/user as mob)
+	if(istype(ui_host(), /obj/machinery/computer))
+		var/obj/machinery/computer/C = ui_host()
+		if (C.use_check_and_message(user) || C.inoperable())
+			return -1
+	if(user.blinded)
+		return -1
 	if(!current_camera)
 		return 0
 	var/viewflag = current_camera.check_eye(user)

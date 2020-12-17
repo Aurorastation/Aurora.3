@@ -8,7 +8,7 @@
 	projectile_type = /obj/item/projectile/ion/stun
 	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	accuracy = 1
 	force = 10
 	flags = CONDUCT
@@ -104,7 +104,7 @@
 	item_state = "meteor_gun"
 	has_item_ratio = FALSE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	max_shots = 10
 	projectile_type = /obj/item/projectile/meteor
 	self_recharge = 1
@@ -120,7 +120,7 @@
 	contained_sprite = FALSE
 	icon_state = "pen"
 	item_state = "pen"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_BELT
 	can_turret = 0
 
@@ -145,7 +145,7 @@
 	item_state = "toxgun"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/effects/stealthoff.ogg'
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
 	can_turret = 1
@@ -160,7 +160,7 @@
 	item_state = "gyrorifle"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/effects/Buzz2.ogg'
 	force = 5
 	projectile_type = /obj/item/projectile/energy/bee
@@ -176,11 +176,12 @@
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
+	desc_antag = "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 	icon = 'icons/obj/guns/pestishock.dmi'
 	icon_state = "pestishock"
 	item_state = "pestishock"
 	has_item_ratio = FALSE
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	fire_sound = 'sound/weapons/taser2.ogg'
 	force = 5
 	projectile_type = /obj/item/projectile/beam/mousegun
@@ -197,10 +198,19 @@
 
 /obj/item/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
-		to_chat(user, "<span class='warning'>You overload \the [src]'s shock modulator.</span>")
+		to_chat(user, SPAN_WARNING("You overload \the [src]'s shock modulator."))
+		max_shots = initial(max_shots) + 4
 		projectile_type = /obj/item/projectile/beam/mousegun/emag
 		emagged = TRUE
+		QDEL_NULL(power_supply)
+		power_supply = new /obj/item/cell/device/variable(src, max_shots * charge_cost)
 		return TRUE
+
+/obj/item/gun/energy/mousegun/xenofauna
+	name = "xenofauna gun"
+	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
+	projectile_type = /obj/item/projectile/beam/mousegun/xenofauna
+	max_shots = 12
 
 /obj/item/gun/energy/net
 	name = "net gun"
@@ -212,7 +222,7 @@
 	projectile_type = /obj/item/projectile/beam/energy_net
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_HOLSTER | SLOT_BELT
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	max_shots = 4
 	fire_delay = 25
 	can_turret = 1
@@ -242,7 +252,7 @@
 	item_state = "bfg"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
 	projectile_type = /obj/item/projectile/energy/bfg
@@ -267,7 +277,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
 	slot_flags = SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	projectile_type = /obj/item/projectile/beam/gatlinglaser
 	max_shots = 80
@@ -320,7 +330,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
@@ -350,7 +360,7 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	accuracy = 3 // It's a massive beam, okay.
 	force = 60
 	projectile_type = /obj/item/projectile/beam/megaglaive
@@ -438,7 +448,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	accuracy = 0 // Overwrite just in case.
 	force = 15
 	projectile_type = /obj/item/projectile/beam/thermaldrill
@@ -502,7 +512,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 15
 	projectile_type = /obj/item/projectile/beam/thermaldrill
 	max_shots = 90
@@ -557,10 +567,10 @@
 	item_state = "tesla"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
-	projectile_type = /obj/item/projectile/energy/tesla
+	projectile_type = /obj/item/projectile/beam/tesla
 	slot_flags = SLOT_BACK
 	max_shots = 3
 	sel_mode = 1
@@ -583,7 +593,7 @@
 	item_state = "gravity_gun"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/magic/Repulse.ogg'
 	force = 30
 	projectile_type = /obj/item/projectile/energy/gravitydisabler

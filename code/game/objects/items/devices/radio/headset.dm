@@ -169,6 +169,11 @@
 	icon_state = "srv_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_service
 
+/obj/item/device/radio/headset/headset_service/alt
+	name = "service radio bowman headset"
+	icon_state = "srv_headset_alt"
+	icon_state = "headset_alt"
+
 /obj/item/device/radio/headset/heads/hop
 	name = "head of personnel's headset"
 	desc = "The headset of the guy who will one day be captain."
@@ -315,6 +320,23 @@
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/headset_warden
+	name = "warden radio headset"
+	desc = "This is used by your all-powerful overseer."
+	icon_state = "sec_headset"
+	ks2type = /obj/item/device/encryptionkey/headset_warden
+
+/obj/item/device/radio/headset/headset_warden/alt
+	name = "warden bowman headset"
+	icon_state = "sec_headset_alt"
+	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/headset_penal
+	name = "penal radio headset"
+	desc = "A headset used by people who have chosen or been chosen to work the fields."
+	icon_state = "mine_headset"
+	ks2type = /obj/item/device/encryptionkey/headset_penal
+
 /obj/item/device/radio/headset/heads/hos
 	name = "head of security's headset"
 	desc = "The headset of the man who protects your worthless lifes."
@@ -422,6 +444,11 @@
 	desc = "The headset of your worst enemy."
 	icon_state = "com_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_com
+
+/obj/item/device/radio/headset/representative/alt
+	name = "representative bowman headset"
+	icon_state = "com_headset_alt"
+	item_state = "headset_alt"
 
 /obj/item/device/radio/headset/heads/ai_integrated //No need to care about icons, it should be hidden inside the AI anyway.
 	name = "\improper AI subspace transceiver"

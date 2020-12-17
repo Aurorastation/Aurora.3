@@ -5,7 +5,7 @@
 	desc = "A folded bag designed for the storage and transportation of cadavers."
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
@@ -82,6 +82,12 @@
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)
 	contains_body = ..()
+	slowdown = 0
+	if(contains_body)
+		for(var/mob/living/M in contents)
+			if(M.stat != DEAD || M.status_flags & FAKEDEATH)
+				slowdown = initial(slowdown)
+				break
 	return contains_body
 
 /obj/structure/closet/body_bag/close()
@@ -89,6 +95,10 @@
 		density = 0
 		return TRUE
 	return FALSE
+
+/obj/structure/closet/body_bag/dump_contents(var/stored_units)
+	..()
+	slowdown = initial(slowdown)
 
 /obj/structure/closet/body_bag/MouseDrop(over_object, src_location, over_location)
 	..()
@@ -144,7 +154,7 @@
 	var/datum/gas_mixture/airtank
 
 	var/stasis_power = 20
-	var/degradation_time = 2 MINUTES //ticks until stasis power degrades
+	var/degradation_time = 60 // 2 minutes: 60 ticks * 2 seconds per tick
 
 /obj/structure/closet/body_bag/cryobag/Initialize()
 	. = ..()

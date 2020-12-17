@@ -70,7 +70,7 @@
 
 /datum/autolathe/recipe/bowl
 	name = "bowl"
-	path = /obj/item/reagent_containers/glass/beaker/bowl
+	path = /obj/item/reagent_containers/cooking_container/plate/bowl
 	category = "General"
 
 /datum/autolathe/recipe/crowbar
@@ -200,11 +200,6 @@
 /datum/autolathe/recipe/stockparts_box
 	name = "stock parts box"
 	path = /obj/item/storage/bag/stockparts_box
-	category = "Engineering"
-
-/datum/autolathe/recipe/rfd_ammo
-	name = "compressed matter cartridge"
-	path = /obj/item/rfd_ammo
 	category = "Engineering"
 
 /datum/autolathe/recipe/scalpel
@@ -516,12 +511,6 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/autolathe/recipe/rfd_construction
-	name = "rapid-fabrication-device c-class"
-	path = /obj/item/rfd/construction
-	hidden = 1
-	category = "Engineering"
-
 /datum/autolathe/recipe/electropack
 	name = "electropack"
 	path = /obj/item/device/radio/electropack
@@ -543,5 +532,11 @@
 /datum/autolathe/recipe/handcuffs
 	name = "handcuffs"
 	path = /obj/item/handcuffs
+	hidden = 1
+	category = "General"
+
+/datum/autolathe/recipe/brassknuckles
+	name = "brass knuckles"
+	path = /obj/item/clothing/gloves/brassknuckles
 	hidden = 1
 	category = "General"

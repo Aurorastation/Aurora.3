@@ -18,6 +18,7 @@
 	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	meat_amount = 5
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "hits"
@@ -137,7 +138,7 @@
 				if(stance_step in list(1,4,7)) //every 3 ticks
 					var/action = pick( list( "growls at [target_mob]", "stares angrily at [target_mob]", "prepares to attack [target_mob]", "closely watches [target_mob]" ) )
 					if(action)
-						custom_emote(1,action)
+						custom_emote(VISIBLE_MESSAGE,action)
 						speak_audio()
 			else
 				stance_step--
@@ -240,7 +241,7 @@
 
 
 /mob/living/simple_animal/hostile/bear/proc/tire_out()
-	custom_emote(1, "is worn out and needs to rest." )
+	custom_emote(VISIBLE_MESSAGE, "is worn out and needs to rest." )
 	set_stance(HOSTILE_STANCE_TIRED)
 	speak_audio()
 	stance_step = 0
@@ -294,7 +295,7 @@
 /mob/living/simple_animal/hostile/bear/FoundTarget()
 	if(target_mob)
 		turns_since_hit = 0
-		custom_emote(1,"stares alertly at [target_mob]")
+		custom_emote(VISIBLE_MESSAGE,"stares alertly at [target_mob]")
 		speak_audio()
 
 		//If we're idle, move up to alert.
@@ -323,7 +324,7 @@
 	var/targetname = target_mob.name
 	if(..())
 		turns_since_hit = 0
-		custom_emote(1, pick( list("crushes [targetname] in its arms","slashes at [targetname]", "bites [targetname]", "mauls [targetname]", "tears into [targetname]", "rends [targetname]") ) )
+		custom_emote(VISIBLE_MESSAGE, pick( list("crushes [targetname] in its arms","slashes at [targetname]", "bites [targetname]", "mauls [targetname]", "tears into [targetname]", "rends [targetname]") ) )
 		if (prob(15))
 			growl_loud()
 		else if (prob(10))
@@ -350,7 +351,7 @@
 	if (bearmode != former)
 		var/healthpercent
 		if (bearmode == BEARMODE_SPACE)
-			custom_emote(1, "looks bright, energised and aggressive!" )
+			custom_emote(VISIBLE_MESSAGE, "looks bright, energised and aggressive!" )
 			healthpercent = health / maxHealth
 			maxHealth = initial(maxHealth) * 1.5
 			health = maxHealth * healthpercent
@@ -359,7 +360,7 @@
 			turns_per_move -= 2
 			growl_loud()
 		else
-			custom_emote(1, "looks darker and more subdued." )
+			custom_emote(VISIBLE_MESSAGE, "looks darker and more subdued." )
 			healthpercent = health / maxHealth
 			maxHealth = initial(maxHealth)
 			health = maxHealth * healthpercent

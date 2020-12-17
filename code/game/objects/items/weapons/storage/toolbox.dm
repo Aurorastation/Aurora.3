@@ -14,8 +14,8 @@
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
-	w_class = 4
-	max_w_class = 3
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 14 //enough to hold all starting contents
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
@@ -141,7 +141,7 @@
 	if (..())
 		if (contents.len)
 			spill(3, get_turf(M))
-			playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
+			playsound(M, /decl/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
 			update_force()
 			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
@@ -156,7 +156,7 @@
 	item_state = "lunchbox_rainbow"
 	desc = "A little lunchbox. This one is the colors of the rainbow."
 	attack_verb = list("lunched")
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	max_storage_space = 8
 	var/filled = FALSE
 
@@ -221,4 +221,14 @@
 	desc = "A little lunchbox. This one is a sleek black and red."
 
 /obj/item/storage/toolbox/lunchbox/syndicate/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/schlorrgo
+	name = "patriotic lunchbox"
+	icon_state = "lunchbox_schlorrgo"
+	item_state = "lunchbox_schlorrgo"
+	desc = "A little lunchbox. This one has a Cool Schlorrgo stamp on \
+	it, a famous Adhomian cartoon character. Approved by the People's Republic of Adhomai."
+
+/obj/item/storage/toolbox/lunchbox/schlorrgo/filled
 	filled = TRUE

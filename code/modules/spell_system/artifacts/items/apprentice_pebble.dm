@@ -11,17 +11,14 @@
 	. = ..()
 	contract = new /obj/item/contract/apprentice(src)
 	SSghostroles.add_spawn_atom("apprentice", src)
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("A wizard apprentice pebble has been created in [A.name]! Spawn at it by using the ghost spawner menu in the ghost tab.")
-	
+
 /obj/item/apprentice_pebble/Destroy()
 	if(contract)
 		QDEL_NULL(contract)
 	SSghostroles.remove_spawn_atom("apprentice", src)
 	return ..()
 
-/obj/item/apprentice_pebble/proc/spawn_apprentice(var/mob/user)
+/obj/item/apprentice_pebble/assign_player(var/mob/user)
 	var/mob/living/carbon/human/G = new /mob/living/carbon/human(get_turf(src))
 	G.ckey = user.ckey
 	G.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
@@ -38,6 +35,8 @@
 	smoke.start()
 
 	qdel(src)
+
+	return G
 
 /obj/item/apprentice_pebble/pickup(mob/living/user)
 	..()

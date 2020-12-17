@@ -7,9 +7,11 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
-			"Diona",
-			"Vaurca Worker", 
-			"Vaurca Warrior",
+			SPECIES_DIONA,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI
 		)
 	)
 
@@ -22,7 +24,9 @@
 		allowed_role_types += job.type
 
 	// Really shitty hack until I get around to rewriting jobs a bit.
-	allowed_role_types -= /datum/job/merchant
+	var/list/disallowed_roles = list(/datum/job/consular, /datum/job/merchant)
+	for(var/disallowed_role in disallowed_roles)
+		allowed_role_types -= disallowed_role
 
 /datum/faction/nano_trasen/get_corporate_objectives(var/mission_level)
 	var/objective

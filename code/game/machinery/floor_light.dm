@@ -12,6 +12,7 @@ var/list/floor_light_cache = list()
 	active_power_usage = 20
 	power_channel = LIGHT
 	matter = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 2750)
+	recyclable = TRUE
 
 	var/on
 	var/on_state = "on"
@@ -65,7 +66,7 @@ var/list/floor_light_cache = list()
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
 			visible_message("<span class='danger'>\The [user] smashes \the [src]!</span>")
-			playsound(src, "glass_break", 70, 1)
+			playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 			update_icon()
 			stat |= BROKEN
 		else

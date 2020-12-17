@@ -95,7 +95,7 @@
 	if(stat & BROKEN)
 		return
 
-	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
+	if(W.GetID())
 		if(src.allowed(usr))
 			if(emagged)
 				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
@@ -114,6 +114,8 @@
 		return 1
 
 /obj/machinery/turretid/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	if(isLocked(user))
 		return
 

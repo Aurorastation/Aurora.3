@@ -85,7 +85,7 @@ var/list/forum_groupids_to_ranks = list()
 
 			//Split the line at every "-"
 			var/list/List = text2list(line, "-")
-			if(!List.len)
+			if(List.len != 2)
 				continue
 
 			//ckey is before the first "-"
@@ -94,12 +94,14 @@ var/list/forum_groupids_to_ranks = list()
 				continue
 
 			//rank follows the first "-"
-			var/rank = ""
-			if(List.len >= 2)
-				rank = ckeyEx(List[2])
+			var/rank = trim(List[2])
 
 			//load permissions associated with this rank
 			var/datum/admin_rank/rank_object = admin_ranks[rank]
+
+			if (!rank_object)
+				error("Unrecognized rank in admins.txt: \"[rank]\"")
+				continue
 
 			//create the admin datum and store it for later use
 			var/datum/admins/D = new /datum/admins(rank, rank_object?.rights || 0, ckey)
@@ -107,7 +109,7 @@ var/list/forum_groupids_to_ranks = list()
 			//find the client for a ckey if they are connected and associate them with the new admin datum
 			D.associate(directory[ckey])
 
-			log_debug("AdminRanks: Upaded Admins from Legacy System")
+			log_debug("AdminRanks: Updated Admins from Legacy System")
 
 	else
 		//The current admin system uses SQL

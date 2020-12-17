@@ -51,17 +51,17 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
-			"Baseline Frame",
-			"Hephaestus G1 Industrial Frame",
-			"Hephaestus G2 Industrial Frame",
-			"Xion Industrial Frame",
-			"Zeng-Hu Mobility Frame",
-			"Bishop Accessory Frame",
-			"Shell Frame",
-			"Unathi",
-			"Tajara",
-			"M'sai Tajara",
-			"Zhan-Khazan Tajara"
+			SPECIES_IPC,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_SHELL,
+			SPECIES_UNATHI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN
 		)
 	)
 
@@ -111,3 +111,9 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/zavodskoi
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/stamp/zavodskoi = 1
+	)

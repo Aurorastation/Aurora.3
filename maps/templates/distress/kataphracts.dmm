@@ -3,14 +3,14 @@
 /obj/machinery/power/emitter,
 /obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/centcom/distress_prep)
 "b" = (
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/centcom/distress_prep)
 "c" = (
@@ -46,8 +46,8 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/centcom/distress_prep)
 "d" = (
@@ -104,6 +104,7 @@
 	pixel_x = 4;
 	pixel_y = -6
 	},
+/obj/item/material/twohanded/pike/flag/hegemony,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},

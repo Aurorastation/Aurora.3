@@ -4,7 +4,7 @@
 	slot_flags = SLOT_BACK
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "welderpack"
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	var/max_fuel = 350
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
@@ -50,5 +50,5 @@
 
 /obj/item/weldpack/examine(mob/user)
 	..(user)
-	to_chat(user, text("\icon[] [] units of fuel left!", src, src.reagents.total_volume))
+	to_chat(user, text("[icon2html(src, user)] [] units of fuel left!", src.reagents.total_volume))
 	return

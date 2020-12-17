@@ -17,7 +17,7 @@
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
 	var/obj/item/device/paicard/card	// The card we inhabit
-	var/obj/item/device/radio/radio		// Our primary radio
+	var/obj/item/device/radio/pai/radio		// Our primary radio
 
 
 	var/chassis = "repairbot"   // A record of your chosen chassis.
@@ -82,7 +82,6 @@
 	var/screen				// Which screen our main window displays
 	var/subscreen			// Which specific function of the main screen is being displayed
 
-	var/obj/item/device/pda/ai/pai/pda = null
 	var/obj/item/modular_computer/parent_computer
 
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
@@ -147,6 +146,7 @@
 		P.set_light(l_range, l_power, l_color, uv, angle, no_update)
 
 /mob/living/silicon/pai/post_scoop()
+	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
 		P.set_light(light_range, light_power, light_color, uv_intensity, light_wedge)
@@ -165,8 +165,9 @@
 	sradio = new(src)
 	if(card)
 		if(!card.radio)
-			card.radio = new /obj/item/device/radio(src.card)
+			card.radio = new /obj/item/device/radio/pai(src.card)
 		radio = card.radio
+		card.recalculateChannels()
 
 	//Default languages without universal translator software
 
@@ -182,16 +183,7 @@
 	verbs += /mob/living/silicon/proc/computer_interact
 	verbs += /mob/living/silicon/proc/silicon_mimic_accent
 
-	//PDA
-	pda = new(src)
-	addtimer(CALLBACK(src, .proc/set_pda), 5)
 	. = ..()
-
-/mob/living/silicon/pai/proc/set_pda()
-	pda.ownjob = "Personal Assistant"
-	pda.owner = "[src]"
-	pda.name = "[pda.owner] ([pda.ownjob])"
-	pda.toff = TRUE
 
 
 /mob/living/silicon/pai/proc/set_custom_sprite()
@@ -323,8 +315,8 @@
 	open_up()
 
 /mob/living/silicon/pai/proc/open_up(var/loud = TRUE)
-	if(istype(card.loc, /mob/living/bot))
-		to_chat(src, SPAN_WARNING("You cannot unfold while inside the bot!"))
+	if(istype(card.loc, /mob/living/bot) || istype(card.loc, /obj/item/glass_jar))
+		to_chat(src, SPAN_WARNING("There is no room to unfold!"))
 		return FALSE
 
 	//I'm not sure how much of this is necessary, but I would rather avoid issues.
@@ -346,9 +338,6 @@
 						H.visible_message(SPAN_DANGER("\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!"))
 					break
 		holder.drop_from_inventory(card)
-	else if(istype(card.loc,/obj/item/device/pda))
-		var/obj/item/device/pda/holder = card.loc
-		holder.pai = null
 
 	src.client.perspective = EYE_PERSPECTIVE
 	src.client.eye = src
@@ -362,7 +351,6 @@
 		T.visible_message(SPAN_NOTICE("<b>[src]</b> folds outwards, expanding into a mobile form."))
 	canmove = TRUE
 	resting = FALSE
-
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
@@ -436,7 +424,7 @@
 	else
 		resting = !resting
 		icon_state = resting ? "[chassis]_rest" : "[chassis]"
-		to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+		to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
 
 	canmove = !resting
 
@@ -506,6 +494,7 @@
 	H.icon_state = "pai-[icon_state]"
 	grabber.update_inv_l_hand()
 	grabber.update_inv_r_hand()
+	post_scoop()
 	return H
 
 /mob/living/silicon/pai/MouseDrop(atom/over_object)
@@ -535,3 +524,6 @@
 
 	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
 	card.setEmotion(pai_emotions[selection])
+
+/obj/item/device/radio/pai
+	canhear_range = 0 // only people on their tile

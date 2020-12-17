@@ -242,8 +242,10 @@
 /obj/item/projectile/beam/mousegun/emag
 	name = "diffuse electrical arc"
 
-	taser_effect = 1
-	agony = 60
+	nodamage = FALSE
+	damage_type = BURN
+	damage = 15
+	agony = 30
 
 /obj/item/projectile/beam/mousegun/emag/mousepulse(turf/epicenter, range, log=0)
 	if(!epicenter)
@@ -276,6 +278,16 @@
 						A.gib()
 
 			to_chat(M, 'sound/effects/basscannon.ogg')
+	return TRUE
+
+/obj/item/projectile/beam/mousegun/xenofauna
+	nodamage = FALSE
+	damage = 10
+
+/obj/item/projectile/beam/mousegun/xenofauna/mousepulse(atom/target, range, log)
+	if(is_type_in_list(target, list(/mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/giant_spider)))
+		var/mob/living/simple_animal/SA = target
+		SA.take_organ_damage(0, 20)
 	return TRUE
 
 /obj/item/projectile/beam/shotgun
@@ -405,3 +417,30 @@
 	muzzle_type = /obj/effect/projectile/muzzle/tachyon
 	tracer_type = /obj/effect/projectile/tracer/tachyon
 	impact_type = /obj/effect/projectile/impact/tachyon
+
+/obj/item/projectile/beam/tesla
+	name = "tesla bolt"
+	icon_state = "lightning"
+	damage = 10
+	damage_type = BURN
+	pass_flags = PASSTABLE | PASSGRILLE
+	range = 40
+	eyeblur = 0
+
+	muzzle_type = /obj/effect/projectile/muzzle/tesla
+	tracer_type = /obj/effect/projectile/tracer/tesla
+	impact_type = /obj/effect/projectile/impact/tesla
+
+/obj/item/projectile/beam/tesla/on_impact(atom/target)
+	. = ..()
+	if(isliving(target))
+		tesla_zap(target, 3, 5000)
+
+/obj/item/projectile/beam/tesla/master
+	damage = 15
+
+/obj/item/projectile/beam/tesla/grandmaster
+	damage = 20
+
+/obj/item/projectile/beam/tesla/paramount
+	damage = 25

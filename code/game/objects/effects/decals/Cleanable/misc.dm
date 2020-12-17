@@ -139,3 +139,17 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
+
+/obj/effect/decal/cleanable/confetti
+	name = "confetti"
+	desc = "Tiny bits of colored paper thrown about for the janitor to enjoy!"
+	gender = PLURAL
+	density = FALSE
+	anchored = TRUE
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "confetti"
+
+/obj/effect/decal/cleanable/confetti/attack_hand(mob/user)
+	to_chat(user, SPAN_NOTICE("You start to meticulously pick up the confetti."))
+	if(do_after(user, 60))
+		qdel(src)

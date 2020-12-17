@@ -22,7 +22,7 @@
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 50000)
 	drop_sound = 'sound/items/drop/gun.ogg'
@@ -54,7 +54,7 @@
 /obj/item/rfd/examine(var/mob/user)
 	..()
 	if(loc == user)
-		to_chat(usr, "It currently holds [stored_matter]/30 matter-units.")
+		to_chat(user, "It currently holds [stored_matter]/30 matter-units.")
 
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
@@ -66,7 +66,6 @@
 		spark(get_turf(loc), 3, alldirs)
 
 /obj/item/rfd/attackby(obj/item/W, mob/user)
-
 	if(istype(W, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > 30)
 			to_chat(user, SPAN_NOTICE("The RFD can't hold any more matter-units."))
@@ -88,19 +87,32 @@
 		src.add_fingerprint(user)
 		return
 
-	if((crafting) && (istype(W,/obj/item/crossbowframe)))
-		var/obj/item/crossbowframe/F = W
-		if(F.buildstate == 5)
-			if(!user.unEquip(src))
+	if(crafting)
+		var/obj/item/crossbow // the thing we're gonna add, check what it is below
+		if(istype(W, /obj/item/crossbowframe))
+			var/obj/item/crossbowframe/F = W
+			if(F.buildstate != 5)
+				to_chat(user, SPAN_WARNING("You need to fully assemble the crossbow frame first!"))
 				return
-			qdel(F)
+			crossbow = F
+		else if(istype(W, /obj/item/gun/launcher/crossbow) && !istype(W, /obj/item/gun/launcher/crossbow/RFD))
+			var/obj/item/gun/launcher/crossbow/C = W
+			if(C.bolt)
+				to_chat(user, SPAN_WARNING("You need to remove \the [C.bolt] from \the [C] before you can attach it to \the [src]."))
+				return
+			if(C.cell)
+				to_chat(user, SPAN_WARNING("You need to remove \the [C.cell] from \the [C] before you can attach it to \the [src]."))
+				return
+			crossbow = C
+
+		if(crossbow)
+			qdel(crossbow)
 			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // can be found in crossbow.dm
 			forceMove(CB)
 			CB.stored_matter = src.stored_matter
+			qdel(src)
+			user.put_in_hands(CB)
 			add_fingerprint(user)
-			return
-		else
-			to_chat(user, SPAN_NOTICE("You need to fully assemble the crossbow frame first!"))
 			return
 	..()
 
@@ -127,9 +139,10 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "rfd"
 	item_state = "rfdammo"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 15000)
+	matter = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	recyclable = TRUE
 
 /*
 RFD Construction-Class
@@ -209,7 +222,7 @@ RFD Construction-Class
 			build_cost =  3
 			build_delay = 20
 			build_type = "window and grille section"
-			build_atom = /obj/effect/wingrille_spawn/reinforced
+			build_atom = /obj/effect/map_effect/wingrille_spawn/reinforced
 	else if(mode == RFD_AIRLOCK)
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3
@@ -428,13 +441,16 @@ RFD Mining-Class
 	icon_state = "rfd-m"
 	item_state = "rfd-m"
 
-/obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity)
+/obj/item/rfd/mining/attack_self(mob/user)
+	return
+
+/obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity, click_parameters, var/report_duplicate = TRUE)
 	if(!proximity)
 		return
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
-		if(R.stat || !R.cell || R.cell.charge <= 500)
+		if(R.stat || !R.cell || R.cell.charge <= 200)
 			if(last_fail <= world.time - 20) //Spam limiter.
 				last_fail = world.time
 				to_chat(user, SPAN_WARNING("You are unable to produce enough charge to use \the [src]!"))
@@ -454,7 +470,8 @@ RFD Mining-Class
 		return
 
 	if(locate(/obj/structure/track) in A)
-		to_chat(user, SPAN_WARNING("There is already a track on \the [A]!"))
+		if(report_duplicate)
+			to_chat(user, SPAN_WARNING("There is already a track on \the [A]!"))
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
@@ -467,7 +484,7 @@ RFD Mining-Class
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
-			R.cell.use(500)
+			R.cell.use(200)
 	else
 		stored_matter--
 		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/30</b> fabrication-units."))

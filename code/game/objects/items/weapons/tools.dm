@@ -292,7 +292,7 @@
 
 /obj/item/weldingtool/examine(mob/user)
 	if(..(user, 0))
-		to_chat(user, text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel ))
+		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
@@ -353,7 +353,7 @@
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(H.isSynthetic() && H == user && !(H.get_species() == "Military Frame"))
+		if(H.isSynthetic() && H == user && !(H.get_species() == SPECIES_IPC_TERMINATOR))
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
@@ -602,7 +602,7 @@
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = "crowbar"
+	usesound = /decl/sound_category/crowbar_sound
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
@@ -768,3 +768,59 @@
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
 	update_tool()
 	return TRUE
+
+/obj/item/steelwool
+	name = "steel wool"
+	desc = "Harvested from the finest NanoTrasen steel sheep."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "steel_wool"
+	flags = NOBLUDGEON
+	w_class = ITEMSIZE_SMALL
+	var/lit
+	matter = list(MATERIAL_STEEL = 40)
+
+/obj/item/steelwool/isFlameSource()
+	return lit
+
+/obj/item/steelwool/attackby(obj/item/W, mob/user)
+	if(W.isFlameSource())
+		ignite(W, user)
+	else if(istype(W, /obj/item/cell))
+		var/obj/item/cell/S = W
+		if(S.charge)
+			ignite(W, user)
+		else
+			to_chat(user, SPAN_WARNING("The cell isn't charged!"))
+
+/obj/item/steelwool/fire_act()
+	ignite()
+
+/obj/item/steelwool/proc/ignite(var/L, mob/user)
+	if(lit && user)
+		to_chat(user, SPAN_WARNING("The steel wool is already lit!"))
+		return
+	else
+		lit = TRUE
+		if(user)
+			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool with \the [L]"), SPAN_NOTICE("You hear a gentle flame crackling."))
+		playsound(get_turf(src), 'sound/items/flare.ogg', 50)
+		desc += " Watch your hands!"
+		icon_state = "burning_wool"
+		set_light(2, 2, LIGHT_COLOR_LAVA)
+		addtimer(CALLBACK(src, .proc/endburn), 120 SECONDS, TIMER_UNIQUE)
+
+/obj/item/steelwool/proc/endburn()
+	visible_message(SPAN_NOTICE("The steel wool burns out."))
+	if(ishuman(loc))
+		var/mob/living/carbon/human/user = loc
+		if(!user.gloves)
+			var/UserLoc = get_equip_slot()
+			if(UserLoc == slot_l_hand)
+				user.apply_damage(5, BURN, BP_L_HAND)
+				to_chat(user, SPAN_DANGER("The steel wool burns your left hand!"))
+			else if(UserLoc == slot_r_hand)
+				user.apply_damage(5, BURN, BP_R_HAND)
+				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
+	
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	qdel(src)

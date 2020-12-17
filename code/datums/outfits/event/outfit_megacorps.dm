@@ -130,7 +130,7 @@
 /datum/outfit/admin/megacorp/einstein_trooper/heavy
 	name = "Einstein Engines Asset Protection"
 
-	uniform = /obj/item/clothing/under/syndicate
+	uniform = /obj/item/clothing/under/rank/einstein_engines
 	back = /obj/item/rig/ert/assetprotection/einstein
 	belt = /obj/item/storage/belt/security/tactical
 	shoes = null

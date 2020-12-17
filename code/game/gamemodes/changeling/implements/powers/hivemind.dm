@@ -9,7 +9,7 @@
 	if(!mind.changeling.hivemind_members.len)
 		return
 	var/chosen_player = input("Choose a hivemind member to eject.", "Eject") as null|anything in mind.changeling.hivemind_members
-	if(!chosen_player || chosen_player == "None")
+	if(!chosen_player)
 		return
 	var/mob/abstract/hivemind/M = mind.changeling.hivemind_members[chosen_player]
 	M.ghost() //Deuces
@@ -34,4 +34,24 @@
 		to_chat(ling, message)
 
 /mob/proc/changeling_message_process(var/message)
-	return "<font color=[COLOR_LING_HIVEMIND]>[src] says, \"[message]\"</font>"
+	return "<font color=[COLOR_LING_HIVEMIND]><b>[src]</b> says, \"[formalize_text(message)]\"</font>"
+
+/mob/living/carbon/human/proc/changeling_release_morph()
+	set category = "Changeling"
+	set name = "Hivemind Release Morph"
+	set desc = "Releases a member of our internal hivemind as a morph, at the cost of one of our limbs."
+
+	if(!mind?.changeling)
+		return
+
+	if(!length(mind.changeling.hivemind_members))
+		to_chat(src, SPAN_WARNING("We have no internal hivemind members to release!"))
+		return
+
+	var/chosen_player = input("Choose a hivemind member to release as a morph.", "Hivemind Morph") as null|anything in mind.changeling.hivemind_members
+	if(!chosen_player)
+		return
+
+	var/mob/abstract/hivemind/M = mind.changeling.hivemind_members[chosen_player]
+	M.release_as_morph()
+	return TRUE

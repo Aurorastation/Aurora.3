@@ -175,15 +175,11 @@
 		see_invisible = SEE_INVISIBLE_LIVING // This is normal vision (25), setting it lower for normal vision means you don't "see" things like darkness since darkness
 							 // has a "invisible" value of 15
 
-	var/obj/item/borg/sight/hud/hud = (locate(/obj/item/borg/sight/hud) in src)
-	if(hud?.hud)
-		hud.hud.process_hud(src)
-	else
-		switch(sensor_mode)
-			if(SEC_HUD)
-				process_sec_hud(src, FALSE)
-			if(MED_HUD)
-				process_med_hud(src, FALSE)
+	switch(sensor_mode)
+		if(SEC_HUD)
+			process_sec_hud(src, FALSE)
+		if(MED_HUD)
+			process_med_hud(src, FALSE)
 
 	if(healths)
 		if(stat != DEAD)
@@ -265,23 +261,16 @@
 			else
 				bodytemp.icon_state = "temp-2"
 
-	client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired)
-
-	if((blind && stat != DEAD))
-		if(blinded)
-			blind.invisibility = 0
-		else
-			blind.invisibility = 101
-			if(disabilities & NEARSIGHTED)
-				client.screen += global_hud.vimpaired
-			if(eye_blurry)
-				client.screen += global_hud.blurry
-			if(druggy)
-				client.screen += global_hud.druggy
-
 	if(stat != DEAD)
-		if(machine)
-			if(machine.check_eye(src) < 0)
+		if(blinded)
+			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		else
+			clear_fullscreen("blind")
+			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
+			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+
+		if (machine)
+			if (machine.check_eye(src) < 0)
 				reset_view(null)
 		else
 			if(client && !client.adminobs)

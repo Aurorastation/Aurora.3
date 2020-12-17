@@ -3,7 +3,7 @@
 
 	uniform = /obj/item/clothing/under/rank/eridani_medic
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
-	head = /obj/item/clothing/head/beret/sec/eri
+	head = /obj/item/clothing/head/beret/security/eri
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -85,7 +85,7 @@
 /datum/outfit/admin/ert/med_eridani/paramedic
 	name = "Eridani Contractor Paramedic"
 
-	head = /obj/item/clothing/head/hardhat/emt
+	head = /obj/item/clothing/head/hardhat/first_responder
 	mask = /obj/item/clothing/mask/balaclava
 	back = /obj/item/storage/backpack/messenger/med
 	glasses = /obj/item/clothing/glasses/hud/health

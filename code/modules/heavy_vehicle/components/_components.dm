@@ -1,6 +1,6 @@
 /obj/item/mech_component
 	icon = 'icons/mecha/mech_parts.dmi'
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	pixel_x = -8
 	gender = PLURAL
 	var/on_mech_icon = 'icons/mecha/mech_parts.dmi'

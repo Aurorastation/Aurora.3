@@ -57,12 +57,10 @@
 	return used
 
 // Checks if the specified amount can be provided. If it can, it removes the amount
-// from the cell and returns 1. Otherwise does nothing and returns 0.
+// from the cell and returns 1. Otherwise drains the charge to exactly 0 and returns 0.
 /obj/item/cell/proc/checked_use(var/amount)
-	if(!check_charge(amount))
-		return 0
+	. = check_charge(amount)
 	use(amount)
-	return 1
 
 // recharge the cell
 /obj/item/cell/proc/give(var/amount)
@@ -86,9 +84,9 @@
 		return
 
 	if(maxcharge <= 2500)
-		to_chat(user, "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge], and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%.")
+		to_chat(user, "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%.")
 	else
-		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]!\nThe charge meter reads [round(src.percent() )]%.")
+		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!\nThe charge meter reads [round(src.percent() )]%.")
 
 /obj/item/cell/attackby(obj/item/W, mob/user)
 	..()

@@ -16,7 +16,7 @@ em						{font-style: normal;font-weight: bold;}
 
 /* OOC */
 .ooc					{font-weight: bold;}
-.ooc img.text_tag		{width: 32px; height: 10px;}
+.ooc img.text_tag		{width: 32px; height: 10px; vertical-align: middle;}
 
 .ooc .everyone			{color: #002eb8;}
 .ooc .looc				{color: #6699CC;}
@@ -52,6 +52,7 @@ em						{font-style: normal;font-weight: bold;}
 .entradio				{color: #bd893c;}
 
 .secradio				{color: #A30000;}
+.penradio				{color: #DB1270;}
 .engradio				{color: #A66300;}
 .medradio				{color: #0a5c47;}
 .sciradio				{color: #993399;}
@@ -97,7 +98,6 @@ h1.alert, h2.alert		{color: #000000;}
 .solcom					{color: #22228B;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
-.vox					{color: #AA00AA;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
 .yassa					{color: #400987;}

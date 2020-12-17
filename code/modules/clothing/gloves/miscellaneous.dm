@@ -1,9 +1,3 @@
-/obj/item/clothing/gloves/captain
-	desc = "Regal blue gloves, with a nice gold trim. Swanky."
-	name = "captain's gloves"
-	icon_state = "captain"
-	item_state = "captain"
-
 /obj/item/clothing/gloves/cyborg
 	desc = "beep boop borp"
 	name = "cyborg gloves"
@@ -62,6 +56,7 @@
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
+	desc_info = "You can make balloons with these using some cable coil."
 	icon_state = "latex"
 	item_state = "latex"
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
@@ -70,36 +65,49 @@
 	fingerprint_chance = 75
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
+	var/balloon = /obj/item/toy/balloon/latex
+
+/obj/item/clothing/gloves/latex/attackby(var/obj/O, mob/user as mob)
+	if(istype(O, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = O
+		if(C.use(1))
+			var/obj/item/L = new src.balloon
+			user.drop_from_inventory(L,get_turf(src))
+			to_chat(user, "<span class='notice'>You make a balloon.</span>")
+			qdel(src)
+		else
+			to_chat(user, "<span class='warning'>You need one length of cable to finish the balloon!</span>")
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves."
 	icon_state = "nitrile"
 	item_state = "nitrile"
+	balloon = /obj/item/toy/balloon/latex/nitrile
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Unathi use."
 	icon_state = "nitrile"
 	item_state = "nitrile"
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/latex/nitrile/tajara
 	name = "tajaran nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Tajara use."
 	icon_state = "nitrile"
 	item_state = "nitrile"
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
 	desc = "Sterile latex gloves. Designed for Unathi use."
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/latex/tajara
 	name = "tajaran latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
@@ -113,11 +121,11 @@
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/botanic_leather/tajara
 	name = "tajaran leather gloves"
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/watch
 	name = "watch"
@@ -125,7 +133,7 @@
 	desc_fluff = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	wired = 1
 	species_restricted = null
 	gender = NEUTER
@@ -177,7 +185,7 @@
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
-	set name = "Point at watch"
+	set name = "Point At Watch"
 	set src in usr
 
 	if(wired && !clipped)
@@ -189,7 +197,7 @@
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
-	set name = "Flip watch wrist"
+	set name = "Flip Watch Wrist"
 	set src in usr
 
 	if (usr.stat || usr.restrained())
@@ -318,7 +326,6 @@
 	name = "enhanced force gloves"
 	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.
 
-
 /obj/item/clothing/gloves/brassknuckles
 	name = "brass knuckles"
 	desc = "A pair of brass knuckles. Generally used to enhance the user's punches."
@@ -330,8 +337,10 @@
 	force = 5
 	punch_force = 5
 	clipped = 1
+	matter = list(DEFAULT_WALL_MATERIAL = 1000)
+
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = "pickup_sword"
+	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -344,7 +353,7 @@
 	force = 5
 	punch_force = 10
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -399,7 +408,7 @@
 	fingerprint_chance = 50
 	siemens_coefficient = 1
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER

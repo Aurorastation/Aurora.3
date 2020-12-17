@@ -16,7 +16,7 @@
 		Sprites used when the clothing item is refit. This is done by setting icon_override.
 		For best results, if this is set then sprite_sheets should be null and vice versa, but that is by no means necessary.
 		Ideally, sprite_sheets_refit should be used for "hard" clothing items that can't change shape very well to fit the wearer (e.g. helmets, voidsuits),
-		while sprite_sheets should be used for "flexible" clothing items that do not need to be refitted (e.g. vox wearing jumpsuits).
+		while sprite_sheets should be used for "flexible" clothing items that do not need to be refitted (e.g. special species wearing jumpsuits).
 	*/
 	var/list/sprite_sheets_refit = null
 
@@ -100,12 +100,12 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
+		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)	//humanoid bodytypes
 			species_restricted = list(
-				"Human",
-				"Skrell",
-				"Zeng-Hu Mobility Frame",
-				"Bishop Accessory Frame"
+				BODYTYPE_HUMAN,
+				BODYTYPE_SKRELL,
+				BODYTYPE_IPC_ZENGHU,
+				BODYTYPE_IPC_BISHOP
 			) //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)
@@ -127,8 +127,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Skrell", "Human")
-			species_restricted = list("Human", "Skrell", "Machine") // skrell helmets like to share
+		if(BODYTYPE_SKRELL, BODYTYPE_HUMAN)
+			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC) // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)
@@ -197,7 +197,7 @@
 			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src.loc, "glass_break", 70, 1)
+	playsound(src.loc, /decl/sound_category/glass_break_sound, 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -265,7 +265,7 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
@@ -310,7 +310,7 @@
 
 /obj/item/clothing/ears/offear
 	name = "Other ear"
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
@@ -327,7 +327,7 @@
 /obj/item/clothing/gloves
 	name = "gloves"
 	gender = PLURAL //Carn: for grammarically correct text-parsing
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/clothing/gloves.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
@@ -345,10 +345,7 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder","Vaurca Warform")
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi'
-		)
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -387,9 +384,9 @@
 		name = "modified [name]"
 		desc = "[desc]<br>They have had the fingertips cut off of them."
 		if("exclude" in species_restricted)
-			species_restricted -= "Unathi"
-			species_restricted -= "Tajara"
-			species_restricted -= "Vaurca"
+			species_restricted -= BODYTYPE_UNATHI
+			species_restricted -= BODYTYPE_TAJARA
+			species_restricted -= BODYTYPE_VAURCA
 		return
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
@@ -445,9 +442,9 @@
 		)
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
@@ -456,10 +453,6 @@
 	var/light_applied
 	var/brightness_on
 	var/on = 0
-
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
-		)
 
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
@@ -573,11 +566,11 @@
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/masks.dmi',
-		"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
-		"Unathi" = 'icons/mob/species/unathi/mask.dmi')
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/mask.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/mask.dmi'
+		)
 
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -606,6 +599,7 @@
 /obj/item/clothing/mask/proc/adjust_mask(mob/user, var/self = TRUE)
 	set name = "Adjust Mask"
 	set category = "Object"
+	set src in usr
 
 	if(!adjustable)
 		return
@@ -680,12 +674,8 @@
 	permeability_coefficient = 0.50
 	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/silent = 0
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi'
-		)
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
@@ -776,12 +766,8 @@
 	slot_flags = SLOT_OCLOTHING
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
-	w_class = 3
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
-
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi'
-		)
+	w_class = ITEMSIZE_NORMAL
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	valid_accessory_slots = list("armband","decor", "over")
 
@@ -818,7 +804,7 @@
 	permeability_coefficient = 0.90
 	slot_flags = SLOT_ICLOTHING
 	armor = null
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	equip_sound = 'sound/items/equip/jumpsuit.ogg'
 	var/has_sensor = 1 //For the crew computer 2 = unable to change mode
 	var/sensor_mode = 0
@@ -830,10 +816,7 @@
 	var/displays_id = 1
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/uniform.dmi',
-		"Golem" = 'icons/mob/uniform_fat.dmi')
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
@@ -1064,7 +1047,7 @@
 
 /obj/item/clothing/ring
 	name = "ring"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	icon = 'icons/obj/clothing/rings.dmi'
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER

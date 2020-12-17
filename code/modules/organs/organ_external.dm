@@ -684,7 +684,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				if (parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30))
 					parent.germ_level++
 
-	if(germ_level >= INFECTION_LEVEL_THREE && antibiotics < 30)	//overdosing is necessary to stop severe infections
+	if(germ_level >= INFECTION_LEVEL_THREE && antibiotics < 20)	//overdosing is necessary to stop severe infections
 		if (!(status & ORGAN_DEAD))
 			status |= ORGAN_DEAD
 			to_chat(owner, "<span class='notice'>You can't feel your [name] anymore...</span>")
@@ -998,18 +998,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
 	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
 		return
+	if(QDELETED(owner))
+		return
 
-	if(owner)
-		var/message = pick("broke in half", "shattered")
-		owner.visible_message(\
-			"<span class='warning'><font size=2>You hear a loud cracking sound coming from \the [owner]!</font></span>",\
-			"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
-			"You hear a sickening crack!")
-		if(owner.species && (owner.can_feel_pain()))
-			owner.emote("scream")
-			owner.flash_strong_pain()
+	var/message = pick("broke in half", "shattered")
+	owner.visible_message(\
+		"<span class='warning'><font size=2>You hear a loud cracking sound coming from \the [owner]!</font></span>",\
+		"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
+		"You hear a sickening crack!")
+	if(owner.species && owner.can_feel_pain())
+		owner.emote("scream")
+		owner.flash_strong_pain()
 
-	playsound(src.loc, "fracture", 100, 1, -2)
+	playsound(src.loc, /decl/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline fracture")
 	perma_injury = brute_dam
@@ -1020,7 +1021,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
 	check_rigsplints()
-	return
 
 /obj/item/organ/external/proc/mend_fracture()
 	if(status & ORGAN_ROBOT)
@@ -1038,10 +1038,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(company)
 		model = company
 		var/datum/robolimb/R = all_robolimbs[company]
-		/*if(species && !(species.name in R.species_can_use && species.get_bodytype() != "Machine"))
-			R = basic_robolimb*/
+
 		if(R)
-			if (!force_skintone)
+			if(!force_skintone)
 				force_icon = R.icon
 			if(R.lifelike)
 				status |= ORGAN_LIFELIKE
@@ -1134,7 +1133,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/is_robotic = status & ORGAN_ROBOT
 	var/mob/living/carbon/human/victim = owner
 
-	..()
+	..(null, user)
 
 	victim.bad_external_organs -= src
 

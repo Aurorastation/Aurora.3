@@ -17,7 +17,7 @@ var/datum/antagonist/burglar/burglars
 
 	hard_cap = 2
 	hard_cap_round = 3
-	initial_spawn_req = 1
+	initial_spawn_req = 2
 	initial_spawn_target = 2
 
 	faction = "syndicate"
@@ -46,8 +46,8 @@ var/datum/antagonist/burglar/burglars
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/raider/burglar, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/raider/burglar, FALSE)
+	player.preEquipOutfit(/datum/outfit/admin/syndicate/burglar, FALSE)
+	player.equipOutfit(/datum/outfit/admin/syndicate/burglar, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

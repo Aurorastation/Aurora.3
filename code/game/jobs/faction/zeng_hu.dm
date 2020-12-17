@@ -59,7 +59,7 @@
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Paramedic" = /datum/outfit/job/med_tech/paramed/zeng_hu,
-		"Emergency Medical Technician" = /datum/outfit/job/med_tech/paramed/zeng_hu,
+		"First Responder" = /datum/outfit/job/med_tech/paramed/zeng_hu,
 		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
 		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
@@ -70,12 +70,12 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
-			"Unathi",
-			"Tajara",
-			"M'sai Tajara",
-			"Zhan-Khazan Tajara",
-			"Vaurca Worker", 
-			"Vaurca Warrior"
+			SPECIES_UNATHI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
 		)
 	)
 
@@ -121,3 +121,9 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/zeng_hu
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/stamp/zeng_hu = 1
+	)

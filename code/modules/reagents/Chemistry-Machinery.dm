@@ -14,7 +14,7 @@
 	use_power = 1
 	idle_power_usage = 20
 	layer = 2.9
-	clicksound = "button"
+	clicksound = /decl/sound_category/button_sound
 
 	var/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
@@ -77,7 +77,10 @@
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
-			loaded_pill_bottle.forceMove(src.loc)
+			if(Adjacent(usr))
+				usr.put_in_hands(loaded_pill_bottle)
+			else
+				loaded_pill_bottle.forceMove(get_turf(src))
 			loaded_pill_bottle = null
 	else if(href_list["close"])
 		usr << browse(null, "window=chemmaster")
@@ -146,7 +149,10 @@
 			return
 		else if (href_list["eject"])
 			if(beaker)
-				beaker:loc = src.loc
+				if(Adjacent(usr))
+					usr.put_in_hands(beaker)
+				else
+					beaker:loc = get_turf(src)
 				beaker = null
 				reagents.clear_reagents()
 				icon_state = "mixer0"
@@ -171,7 +177,7 @@
 			if(reagents.total_volume/count < 1) //Sanity checking.
 				return
 			while (count-- && count >= 0)
-				var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(src.loc)
+				var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(get_turf(src))
 				if(!name) name = reagents.get_master_reagent_name()
 				P.name = "[name] pill"
 				P.pixel_x = rand(-7, 7) //random position
@@ -184,7 +190,7 @@
 		else if (href_list["createbottle"])
 			if(!condi)
 				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_master_reagent_name()), MAX_NAME_LEN)
-				var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(src.loc)
+				var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(get_turf(src))
 				if(!name) name = reagents.get_master_reagent_name()
 				P.name = "[name] bottle"
 				P.pixel_x = rand(-7, 7) //random position
@@ -193,7 +199,7 @@
 				reagents.trans_to_obj(P,60)
 				P.update_icon()
 			else
-				var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(src.loc)
+				var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(get_turf(src))
 				reagents.trans_to_obj(P,50)
 		else if(href_list["change_pill"])
 			var/dat = "<table>"
@@ -218,6 +224,8 @@
 	return
 
 /obj/machinery/chem_master/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/chem_master/attack_hand(mob/user as mob)
@@ -381,6 +389,8 @@
 	return 0
 
 /obj/machinery/reagentgrinder/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	interact(user)
 
 /obj/machinery/reagentgrinder/attack_hand(mob/user as mob)
@@ -417,7 +427,7 @@
 
 
 		dat = {"
-	<b>Processing chamber contains:</b><br>
+	<b>Processing Chamber contains:</b><br>
 	[processing_chamber]<br>
 	[beaker_contents]<hr>
 	"}
@@ -429,10 +439,10 @@
 			dat += "<A href='?src=\ref[src];action=detach'>Detach the beaker</a><BR>"
 	else
 		dat += "Please wait..."
-	user << browse("<HEAD><TITLE>All-In-One Grinder</TITLE></HEAD><TT>[dat]</TT>", "window=reagentgrinder")
-	onclose(user, "reagentgrinder")
-	return
 
+	var/datum/browser/grindr_win = new(user, "reagentgrinder", capitalize_first_letters(name))
+	grindr_win.set_content(dat)
+	grindr_win.open()
 
 /obj/machinery/reagentgrinder/Topic(href, href_list)
 	if(..())
@@ -454,7 +464,7 @@
 		return
 	if (!beaker)
 		return
-	beaker.forceMove(src.loc)
+	beaker.forceMove(get_turf(src))
 	beaker = null
 	update_icon()
 
@@ -466,7 +476,7 @@
 		return
 
 	for(var/obj/item/O in holdingitems)
-		O.forceMove(src.loc)
+		O.forceMove(get_turf(src))
 		holdingitems -= O
 	holdingitems.Cut()
 
@@ -548,7 +558,7 @@
 			target.apply_damage(25, PAIN)
 			target.say("*scream")
 
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>")
+			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>")
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else

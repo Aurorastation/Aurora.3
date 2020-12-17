@@ -174,6 +174,7 @@ There are several things that need to be remembered:
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
 			animate(src, transform = M, time = ANIM_LYING_TIME)
+		handle_floating_message_orientation()
 
 	compile_overlays()
 	lying_prev = lying
@@ -584,10 +585,6 @@ There are several things that need to be remembered:
 			var/obj/item/card/id/id_card = wear_id
 			if(id_card.wear_over_suit == 1)
 				id_layer = ID_LAYER_ALT
-		else if(istype(wear_id, /obj/item/device/pda))
-			var/obj/item/device/pda/pda_device = wear_id
-			if(pda_device.wear_over_suit == 1)
-				id_layer = ID_LAYER_ALT
 
 		if (wear_id.color)
 			result_layer.color = wear_id.color
@@ -908,26 +905,36 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	if (istype(wear_suit, /obj/item))
+	if(wear_suit)
 		wear_suit.screen_loc = ui_oclothing
 
-		var/image/standing
+		var/image/result_layer = null
 
+		//Determine the icon to use
+		var/t_icon = INV_SUIT_DEF_ICON
 		if(wear_suit.contained_sprite)
 			wear_suit.auto_adapt_species(src)
-			var/state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
+			var/t_state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
 
-			standing = image(wear_suit.icon_override || wear_suit.icon, state)
-
+			result_layer = image(wear_suit.icon_override || wear_suit.icon, t_state)
 		else if(wear_suit.icon_override)
-			standing = image(wear_suit.icon_override, wear_suit.icon_state)
+			t_icon = wear_suit.icon_override
 		else if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[GET_BODY_TYPE])
-			standing = image(wear_suit.sprite_sheets[GET_BODY_TYPE], wear_suit.icon_state)
+			t_icon = wear_suit.sprite_sheets[GET_BODY_TYPE]
+		else if(wear_suit.item_icons && (slot_wear_suit_str in wear_suit.item_icons))
+			t_icon = wear_suit.item_icons[slot_wear_suit_str]
 		else
-			standing = image('icons/mob/suit.dmi', wear_suit.icon_state)
+			t_icon = INV_SUIT_DEF_ICON
 
-		if (wear_suit.color)
-			standing.color = wear_suit.color
+		if(!result_layer) //Create the image
+			result_layer = image(t_icon, wear_suit.icon_state)
+
+		if(wear_suit.color)
+			result_layer.color = wear_suit.color
+
+		var/image/worn_overlays = wear_suit.worn_overlays(t_icon)
+		if(worn_overlays)
+			result_layer.overlays.Add(worn_overlays)
 
 		var/list/ovr
 
@@ -935,18 +942,18 @@ There are several things that need to be remembered:
 			var/obj/item/clothing/suit/S = wear_suit
 			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
 			bloodsies.color = wear_suit.blood_color
-			ovr = list(standing, bloodsies)
+			ovr = list(result_layer, bloodsies)
 
 		// Accessories - copied from uniform, BOILERPLATE because fuck this system.
 		var/obj/item/clothing/suit/suit = wear_suit
 		if(istype(suit) && LAZYLEN(suit.accessories))
 			if (!ovr)
-				ovr = list(standing)
+				ovr = list(result_layer)
 
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
 				ovr += A.get_mob_overlay()
 
-		overlays_raw[SUIT_LAYER] = ovr || standing
+		overlays_raw[SUIT_LAYER] = ovr || result_layer
 		update_tail_showing(0)
 	else
 		overlays_raw[SUIT_LAYER] = null
@@ -958,6 +965,7 @@ There are several things that need to be remembered:
 
 	if(update_icons)
 		update_icon()
+
 
 /mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
 	if (QDELING(src))
@@ -1145,7 +1153,12 @@ There are several things that need to be remembered:
 			r_hand.auto_adapt_species(src)
 			t_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_tag)][r_hand.item_state][WORN_RHAND]"
 
-			overlays_raw[R_HAND_LAYER] = image(r_hand.icon_override || r_hand.icon, t_state)
+			result_layer = image(r_hand.icon_override || r_hand.icon, t_state)
+
+			if(r_hand.color)
+				result_layer.color = r_hand.color
+
+			overlays_raw[R_HAND_LAYER] = result_layer
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				t_state = r_hand.item_state_slots[slot_r_hand_str]
@@ -1155,7 +1168,7 @@ There are several things that need to be remembered:
 			if(r_hand.item_icons && (slot_r_hand_str in r_hand.item_icons))
 				t_icon = r_hand.item_icons[slot_r_hand_str]
 			else if(r_hand.icon_override)
-				t_state += "_r"
+				t_state += WORN_RHAND
 				t_icon = r_hand.icon_override
 			else
 				t_icon = INV_R_HAND_DEF_ICON
@@ -1190,7 +1203,12 @@ There are several things that need to be remembered:
 			l_hand.auto_adapt_species(src)
 			t_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
 
-			overlays_raw[L_HAND_LAYER] = image(l_hand.icon_override || l_hand.icon, t_state)
+			result_layer = image(l_hand.icon_override || l_hand.icon, t_state)
+
+			if(l_hand.color)
+				result_layer.color = l_hand.color
+
+			overlays_raw[L_HAND_LAYER] = result_layer
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				t_state = l_hand.item_state_slots[slot_l_hand_str]
@@ -1200,7 +1218,7 @@ There are several things that need to be remembered:
 			if(l_hand.item_icons && (slot_l_hand_str in l_hand.item_icons))
 				t_icon = l_hand.item_icons[slot_l_hand_str]
 			else if(l_hand.icon_override)
-				t_state += "_l"
+				t_state += WORN_LHAND
 				t_icon = l_hand.icon_override
 			else
 				t_icon = INV_L_HAND_DEF_ICON
@@ -1467,4 +1485,3 @@ There are several things that need to be remembered:
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
 #undef GET_TAIL_LAYER
-

@@ -5,7 +5,7 @@
 	icon_state = "pneumatic"
 	item_state = "pneumatic"
 	slot_flags = SLOT_BELT
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	flags = CONDUCT
 	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
@@ -13,7 +13,7 @@
 	needspin = FALSE
 
 	var/fire_pressure                                   // Used in fire checks/pressure checks.
-	var/max_w_class = 3                                 // Hopper intake size.
+	var/max_w_class = ITEMSIZE_NORMAL                                 // Hopper intake size.
 	var/max_storage_space = 20                       // Total internal storage size.
 	var/obj/item/tank/tank = null                // Tank of gas for use in firing the cannon.
 
@@ -217,5 +217,5 @@
 /obj/item/gun/launcher/pneumatic/small
 	name = "small pneumatic cannon"
 	desc = "It looks smaller than your garden variety cannon"
-	max_w_class = 1
-	w_class = 3
+	max_w_class = ITEMSIZE_TINY
+	w_class = ITEMSIZE_NORMAL

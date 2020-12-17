@@ -176,8 +176,8 @@
 		list("antibiotics",		"thetamycin",		/datum/reagent/thetamycin,			80),
 		list("antitoxins",		"dylovene",			/datum/reagent/dylovene,			80),
 		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
-		list("saline",			"saline",			/datum/reagent/saline,				80),
 		list("hyronalin",		"hyronalin",		/datum/reagent/hyronalin,			80),
+		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			80),
 		list("radium",			"radium",			/datum/reagent/radium,				80)
 		)
 
@@ -196,8 +196,8 @@
 		list("antibiotics",		"thetamycin",		/datum/reagent/thetamycin,			20),
 		list("antitoxins",		"dylovene",			/datum/reagent/dylovene,			20),
 		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
-		list("saline",			"saline",			/datum/reagent/saline,				80),
 		list("hyronalin",		"hyronalin",		/datum/reagent/hyronalin,			20),
+		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			20),
 		list("radium",			"radium",			/datum/reagent/radium,				20)
 		)
 
@@ -250,7 +250,7 @@
 	if(!charge)
 		return FALSE
 
-	var/chems_to_use = 10
+	var/chems_to_use = 5
 	if(charge.charges <= 0)
 		to_chat(user, SPAN_WARNING("Insufficient chems!"))
 		return FALSE
@@ -291,8 +291,7 @@
 		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			30),
 		list("hyperzine",		"hyperzine",		/datum/reagent/hyperzine,			30),
 		list("oxycomorphine",	"oxycomorphine",	/datum/reagent/oxycomorphine,		30),
-		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
-		list("saline",			"saline",			/datum/reagent/saline,				80)
+		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -309,8 +308,7 @@
 		list("hyperzine",		"hyperzine",		/datum/reagent/hyperzine,		30),
 		list("oxycomorphine",	"oxycomorphine",	/datum/reagent/oxycomorphine,	30),
 		list("phoron",			"phoron",			/datum/reagent/toxin/phoron,	60),
-		list("kois",			"k'ois paste",		/datum/reagent/kois,			80),
-		list("saline",			"saline",			/datum/reagent/saline,			80)
+		list("kois",			"k'ois paste",		/datum/reagent/kois,			80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"
@@ -491,8 +489,6 @@
 	..()
 	jets.holder = null
 	jets.ion_trail.bind(jets)
-
-/obj/item/rig_module/foam_sprayer
 
 /obj/item/rig_module/device/paperdispenser
 	name = "hardsuit paper dispenser"
@@ -711,7 +707,7 @@
 		// Combat type actuators are better, they allow you to jump instantly onto
 		// a ledge. Regular actuators make you have to climb the rest of the way.
 		if (!combatType)
-			H.visible_message(SPAN_NOTICE("\The [H] starts pulling \himself up onto the [valid_climbable]."), SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
+			H.visible_message(SPAN_NOTICE("\The [H] starts pulling [H.get_pronoun("himself")] up onto the [valid_climbable]."), SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
 			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
 				H.visible_message(SPAN_WARNING("\The [H] is interrupted and falls!"), SPAN_DANGER("You are interrupted and fall back down!"))
 
@@ -819,3 +815,47 @@ var/global/list/lattice_users = list()
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice disengaged. Pain receptors restored."))
 	lattice_users.Remove(H)
+
+/obj/item/rig_module/foam_sprayer
+	name = "mounted foam sprayer"
+	desc = "A shoulder-mounted metal foam sprayer."
+	selectable = TRUE
+	icon_state = "actuators"
+
+	interface_name = "integrated foam sprayer"
+	interface_desc = "Projects a line of metal foam where the user selects."
+
+	use_power_cost = 150
+
+	var/spray_distance = 5
+
+	category = MODULE_GENERAL
+
+/obj/item/rig_module/foam_sprayer/engage(atom/target, mob/user)
+	if(!..())
+		return FALSE
+
+	if(!target)
+		return FALSE
+
+	target = get_turf(target)
+	holder.wearer.visible_message("<b>[user]</b> sprays metal foam at \the [target]!", SPAN_NOTICE("You spray metal foam at \the [target]."))
+	var/list/turf_list = getline(user, get_turf(target))
+	turf_list -= turf_list[1] // remove the tile we're on
+	var/counter = spray_distance
+	var/turf/previous_turf
+	for(var/t in turf_list)
+		var/turf/T = t
+		if(!counter)
+			break
+		if(T.contains_dense_objects() || istype(T, /turf/space))
+			break
+		if(previous_turf && LinkBlocked(previous_turf, T))
+			break
+		if(counter == spray_distance)
+			new /obj/effect/effect/foam/spray/initial(t, TRUE)
+		else
+			new /obj/effect/effect/foam/spray(t, TRUE)
+		counter--
+		previous_turf = T
+		sleep(1)

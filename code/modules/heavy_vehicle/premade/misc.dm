@@ -1,13 +1,24 @@
 /obj/item/mech_component/propulsion/spider
 	name = "quadlegs"
 	exosuit_desc_string = "hydraulic quadlegs"
-	desc = "Xion Manufacturing Group's arachnid series boasts more leg per leg than the leading competitor."
+	desc = "Xion Manufacturing Group's arachnid series boasts more leg per leg than the leading competitor. Useful for vehicles requiring tight, instant turning."
 	icon_state = "spiderlegs"
 	max_damage = 160
 	move_delay = 4
 	turn_delay = 1
 	power_use = 2500
 	trample_damage = 10
+
+/obj/item/mech_component/propulsion/spider/heavy
+	name = "industrial quadlegs"
+	exosuit_desc_string = "hydraulic quadlegs"
+	desc = "A titan's take on the arachnid series from Xion Manufacturing Group. Much heavier than its smaller counterpart at the sacrifice of acceleration and power draw."
+	icon_state = "spiderlegs-industrial"
+	max_damage = 250
+	move_delay = 5
+	turn_delay = 1
+	power_use = 7500
+	trample_damage = 25
 
 /obj/item/mech_component/propulsion/tracks
 	name = "tracks"

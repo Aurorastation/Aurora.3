@@ -19,7 +19,10 @@
 	can_buckle = TRUE
 	buckle_dir = SOUTH
 	buckle_lying = 1
+
+	build_amt = 2
 	var/material/padding_material
+
 	var/base_icon = "bed"
 	var/can_dismantle = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
@@ -27,11 +30,11 @@
 	var/makes_rolling_sound = TRUE
 	var/buckle_sound = 'sound/effects/buckle.ogg'
 
-/obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
-	. = ..()
+	slowdown = 5
+
+/obj/structure/bed/New(newloc, var/new_material = DEFAULT_WALL_MATERIAL, var/new_padding_material)
+	..(newloc)
 	color = null
-	if(!new_material)
-		new_material = DEFAULT_WALL_MATERIAL
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -103,7 +106,6 @@
 		if(can_dismantle)
 			playsound(src.loc, W.usesound, 50, 1)
 			dismantle()
-			qdel(src)
 	else if(istype(W,/obj/item/stack))
 		if(padding_material)
 			to_chat(user, "\The [src] is already padded.")
@@ -170,10 +172,10 @@
 	padding_material = SSmaterials.get_material_by_name(padding_type)
 	update_icon()
 
-/obj/structure/bed/proc/dismantle()
-	material.place_sheet(get_turf(src))
+/obj/structure/bed/dismantle()
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
+	..()
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -185,7 +187,7 @@
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 
 /obj/structure/bed/padded/New(var/newloc)
-	..(newloc, MATERIAL_PLASTIC, MATERIAL_COTTON)
+	..(newloc, MATERIAL_PLASTIC, MATERIAL_CLOTH)
 
 /obj/structure/bed/aqua
 	name = "aquabed"
@@ -211,6 +213,7 @@
 	var/obj/item/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	slowdown = 0
 
 /obj/structure/bed/roller/update_icon()
 	overlays.Cut()
@@ -354,7 +357,7 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
 	var/bedpath = /obj/structure/bed/roller
-	w_class = 4.0 // Can't be put in backpacks. Oh well.
+	w_class = ITEMSIZE_LARGE // Can't be put in backpacks. Oh well.
 
 /obj/item/roller/hover
 	name = "medical hoverbed"

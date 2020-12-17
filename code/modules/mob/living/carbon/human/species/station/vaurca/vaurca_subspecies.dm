@@ -1,10 +1,10 @@
 /datum/species/bug/type_b
-	name = "Vaurca Warrior"
+	name = SPECIES_VAURCA_WARRIOR
 	short_name = "vaw"
 	name_plural = "Type BA"
 	language = LANGUAGE_VAURCA
-	primitive_form = "Vaurca Worker"
-	greater_form = "Vaurca Breeder"
+	primitive_form = SPECIES_VAURCA_WORKER
+	greater_form = SPECIES_VAURCA_BREEDER
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
 
@@ -40,15 +40,17 @@
 		)
 
 /datum/species/bug/type_c
-	name = "Vaurca Breeder"
+	name = SPECIES_VAURCA_BREEDER
 	short_name = "vab"
 	name_plural = "Type CB"
-	bodytype = "Vaurca Breeder"
-	primitive_form = "Vaurca Warrior"
+	bodytype = BODYTYPE_VAURCA_BREEDER
+	primitive_form = SPECIES_VAURCA_WARRIOR
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
+	healths_x = 22
+	healths_overlay_x = 9
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
 	slowdown = 2
@@ -56,7 +58,7 @@
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	grab_mod = 4
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 	mob_size = 30
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
@@ -88,11 +90,11 @@
 	return
 
 /datum/species/bug/type_big
-	name = "Vaurca Warform"
+	name = SPECIES_VAURCA_WARFORM
 	short_name = "vam"
 	name_plural = "Type BA"
-	bodytype = "Vaurca Warform"
-	primitive_form = "Vaurca Warrior"
+	bodytype = BODYTYPE_VAURCA_WARFORM
+	primitive_form = SPECIES_VAURCA_WARRIOR
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
@@ -110,7 +112,7 @@
 	toxins_mod = 1
 	grab_mod = 10
 	total_health = 200
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	break_cuffs = TRUE
 	mob_size = 30
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
@@ -145,16 +147,16 @@
 		)
 
 	has_organ = list(
-		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET       = /obj/item/organ/vaurca/neuralsocket,
 		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
 		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
-		"phoron reservoir"    = /obj/item/organ/vaurca/reservoir,
-		"mechanical liver"    = /obj/item/organ/internal/liver/vaurca/robo,
-		"mechanical kidneys"  = /obj/item/organ/internal/kidneys/vaurca/robo,
+		BP_PHORON_RESERVOIR    = /obj/item/organ/vaurca/reservoir,
+		BP_VAURCA_LIVER    = /obj/item/organ/internal/liver/vaurca/robo,
+		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
-		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
+		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
+		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit
 	)
 
 	default_h_style = "Bald"

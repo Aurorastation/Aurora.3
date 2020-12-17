@@ -178,6 +178,13 @@
 	key = "scream"
 	emote_message_3p = "USER screams!"
 
+/decl/emote/audible/scream/can_do_emote(var/mob/living/user)
+	. = ..()
+	if(. && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!H.can_feel_pain())
+			return FALSE
+
 /decl/emote/audible/grunt
 	key = "grunt"
 	emote_message_3p = "USER grunts."
@@ -189,6 +196,13 @@
 	emote_message_3p_target = "<span class='warning'>USER slaps TARGET across the face!</span>"
 	emote_message_3p = "USER slaps USER_SELF across the face!"
 	emote_sound = 'sound/effects/snap.ogg'
+
+/decl/emote/audible/slap/target_check(var/atom/user, var/atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(!target.Adjacent(user))
+		return FALSE
+	return TRUE
 
 /decl/emote/audible/snap
 	key = "snap"

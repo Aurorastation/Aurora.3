@@ -86,6 +86,8 @@
 		..()
 
 /obj/machinery/shield_gen/attack_ai(user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/shield_gen/attack_hand(mob/user)
@@ -216,14 +218,14 @@
 		covered_turfs = null
 
 		for(var/mob/M in view(5,src))
-			to_chat(M, "\icon[src] You hear heavy droning start up.")
+			to_chat(M, "[icon2html(src, M)] You hear heavy droning start up.")
 	else
 		for(var/obj/effect/energy_field/D in field)
 			field.Remove(D)
 			D.loc = null
 
 		for(var/mob/M in view(5,src))
-			to_chat(M, "\icon[src] You hear heavy droning fade out.")
+			to_chat(M, "[icon2html(src, M)] You hear heavy droning fade out.")
 
 /obj/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)

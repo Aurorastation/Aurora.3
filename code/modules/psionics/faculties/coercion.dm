@@ -33,12 +33,12 @@
 				continue
 			if(prob(60) && iscarbon(M))
 				var/mob/living/carbon/C = M
-				if(C.can_feel_pain())
-					M.emote("scream")
+				C.emote("scream")
 			to_chat(M, SPAN_DANGER("Your senses are blasted into oblivion by a psionic scream!"))
 			M.eye_blind = max(M.eye_blind,3)
 			M.ear_deaf = max(M.ear_deaf,6)
-			M.confused = rand(3,8)
+			if(!M.isSynthetic())
+				M.confused = max(M.confused, rand(3,8))
 		return TRUE
 
 /datum/psionic_power/coercion/mindread
@@ -239,11 +239,15 @@
 	. = ..()
 	if(.)
 		user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
+		if(target.stat == DEAD)
+			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
+			return
+
 		var/text = input("What would you like to say?", "Speak to creature", null, null)
 		text = sanitize(text)
-
 		if(!text)
 			return
+		text = formalize_text(text)
 
 		if(target.stat == DEAD)
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
@@ -271,9 +275,6 @@
 			to_chat(H, SPAN_CULT("<b>You sense [user]'s psyche link with your psi-receiver, a thought sliding into your mind:</b> [text]"))
 		else
 			to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness slips into your mind:</b> [text]"))
-			if(istype(H))
-				if(H.can_commune() || H.stat >= UNCONSCIOUS)
-					return
 
 /datum/psionic_power/coercion/psiping
 	name =              "Psi Ping"
@@ -295,17 +296,15 @@
 		if(!do_after(user, 3 SECONDS))
 			return
 		var/list/dirs = list()
+		var/turf/our_turf = get_turf(user)
 		for(var/mob/living/L in range(20))
 			var/turf/T = get_turf(L)
 			if(!T || L == user || L.stat == DEAD || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
-			if(L.isSynthetic() || L.is_diona() || isvaurca(L))
-				var/obj/item/organ/internal/augment/psiaug = locate() in L
-				if(!psiaug)
-					continue
-			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T)
-			ping_image.plane = LIGHTING_LAYER+1
-			ping_image.layer = LIGHTING_LAYER+1
+			if(L.is_psi_blocked())
+				continue
+			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
+			pixel_shift_to_turf(ping_image, our_turf, T)
 			user << ping_image
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
 			var/direction = num2text(get_dir(user, L))

@@ -6,18 +6,18 @@
 	icon_state = "plastic-explosive0"
 	item_state = "plasticx"
 	flags = NOBLUDGEON
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_ILLEGAL = 2)
 	var/datum/wires/explosive/c4/wires = null
+	var/detonate_time = 0
 	var/timer = 10
 	var/atom/target = null
 	var/open_panel = 0
-	var/image_overlay = null
+	var/obj/effect/plastic_explosive/effect_overlay
 
 /obj/item/plastique/Initialize()
 	. = ..()
 	wires = new(src)
-	image_overlay = image('icons/obj/assemblies.dmi', "plastic-explosive2")
 
 /obj/item/plastique/Destroy()
 	qdel(wires)
@@ -48,27 +48,24 @@
 	if(deploy_check(user))
 		return
 	to_chat(user, SPAN_NOTICE("Planting explosives..."))
-	user.do_attack_animation(target)
 
 	if(do_after(user, 50, TRUE, target))
+		user.do_attack_animation(target)
 		deploy_c4(target, user)
 
 /obj/item/plastique/proc/deploy_check(var/mob/user)
 	return FALSE
 
-/obj/item/plastique/proc/deploy_c4(var/atom/movable/target, mob/user)
-	user.drop_item() //TODO: Look into this
-	src.target = target
-	loc = null
+/obj/item/plastique/proc/deploy_c4(var/atom/movable/explode_target, mob/user)
+	user.drop_from_inventory(src, get_turf(user))
+	src.target = explode_target
 
-	if(ismob(target))
-		add_logs(user, target, "planted [name] on")
-		user.visible_message("<span class='danger'>[user.name] finished planting an explosive on [target.name]!</span>")
 	log_and_message_admins("planted [src.name] on [target.name] with [src.timer] second fuse", user, get_turf(target))
 
-	target.add_overlay(image_overlay, TRUE)
+	new /obj/effect/plastic_explosive(get_turf(user), target, src)
 	to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
 
+	detonate_time = world.time + (timer * 10)
 	addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
 
 /obj/item/plastique/proc/explode(turf/location)
@@ -76,7 +73,7 @@
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	target.cut_overlay(image_overlay, TRUE)
+	QDEL_NULL(effect_overlay)
 	if(location)
 		explosion(location, -1, -1, 2, 3, spreading = 0)
 
@@ -120,13 +117,13 @@
 	var/obj/item/plastique/C4 = new /obj/item/plastique(target)
 	C4.timer = src.timer
 	C4.target = target
-	C4.loc = null
 
 	log_and_message_admins("planted [C4.name] on [target.name] with [C4.timer] second fuse", user, get_turf(target))
 
-	C4.target.add_overlay(image_overlay, TRUE)
+	new /obj/effect/plastic_explosive(get_turf(user), target, C4)
 	to_chat(user, SPAN_NOTICE("Bomb has been planted. Timer counting down from [C4.timer]."))
 
+	C4.detonate_time = world.time + (timer * 10)
 	addtimer(CALLBACK(C4, .proc/explode, get_turf(target)), timer * 10)
 	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
 	can_deploy = FALSE

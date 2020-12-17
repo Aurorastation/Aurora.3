@@ -7,7 +7,7 @@
 	icon_state = "eriflestun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	max_shots = 20
 	fire_delay = 6
@@ -34,6 +34,14 @@
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="eriflestun", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/laser1.ogg')
 		)
+
+/obj/item/gun/energy/rifle/update_icon()
+	..()
+	if(wielded)
+		item_state = "[initial(icon_state)]-wielded"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
 
 
 /obj/item/gun/energy/rifle/laser

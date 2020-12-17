@@ -168,12 +168,19 @@ var/list/slot_equipment_priority = list( \
 //Puts the item our active hand if possible. Failing that it tries our inactive hand. Returns 1 on success.
 //If both fail it drops it on the floor and returns 0.
 //This is probably the main one you need to know :)
-/mob/proc/put_in_hands(var/obj/item/W)
+/mob/proc/put_in_hands(var/obj/item/W, var/check_adjacency = FALSE)
 	if(!W || !istype(W))
 		return 0
-	if(isturf(W.loc))
-		W.do_pickup_animation(src)
-	W.forceMove(get_turf(src))
+	var/move_to_src = TRUE
+	if(check_adjacency)
+		move_to_src = FALSE
+		var/turf/origin = get_turf(W)
+		if(Adjacent(origin))
+			move_to_src = TRUE
+	if(move_to_src)
+		W.forceMove(get_turf(src))
+	else
+		W.forceMove(get_turf(W))
 	W.layer = initial(W.layer)
 	W.dropped()
 	return 0
@@ -365,7 +372,7 @@ var/list/slot_equipment_priority = list( \
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
 				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
+				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>")
 				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
 
 			qdel(G)

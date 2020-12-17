@@ -40,6 +40,13 @@
 	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/computer_hardware/network_card
 
+/datum/design/item/modularcomponent/netcard/signaler
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 1)
+	build_type = IMPRINTER
+	materials = list(DEFAULT_WALL_MATERIAL = 300, MATERIAL_GLASS = 150)
+	chemicals = list(/datum/reagent/acid = 20)
+	build_path = /obj/item/computer_hardware/network_card/signaler
+
 /datum/design/item/modularcomponent/netcard/advanced
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 2)
 	build_type = IMPRINTER
@@ -95,11 +102,21 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/computer_hardware/tesla_link
 
+/datum/design/item/modularcomponent/teslalink/charging_cable
+	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 200)
+	build_path = /obj/item/computer_hardware/tesla_link/charging_cable
+
 // Batteries
 /datum/design/item/modularcomponent/battery/normal
 	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 400)
 	build_path = /obj/item/computer_hardware/battery_module
+
+/datum/design/item/modularcomponent/battery/hotswap
+	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 600)
+	build_path = /obj/item/computer_hardware/battery_module/hotswap
 
 /datum/design/item/modularcomponent/battery/advanced
 	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
@@ -162,3 +179,11 @@
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/computer_hardware/ai_slot
+
+// Flashlight
+
+/datum/design/item/modularcomponent/flashlight
+	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	build_type = IMPRINTER
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
+	build_path = /obj/item/computer_hardware/flashlight

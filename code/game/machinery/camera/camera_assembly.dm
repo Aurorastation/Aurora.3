@@ -3,7 +3,7 @@
 	desc = "A pre-fabricated security camera kit, ready to be assembled and mounted to a surface."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "cameracase"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	anchored = 0
 
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
@@ -125,6 +125,11 @@
 
 	// Upgrades!
 	if(is_type_in_list(W, possible_upgrades) && !is_type_in_list(W, upgrades)) // Is a possible upgrade and isn't in the camera already.
+		if(istype(W, /obj/item/stock_parts/scanning_module))
+			var/obj/item/stock_parts/scanning_module/SM = W
+			if(SM.rating < 2)
+				to_chat(user, SPAN_WARNING("That scanning module doesn't seem advanced enough."))
+				return
 		to_chat(user, "You attach \the [W] into the assembly inner circuits.")
 		upgrades += W
 		user.remove_from_mob(W)

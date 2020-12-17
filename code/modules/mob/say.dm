@@ -68,38 +68,38 @@
 
 	message = process_chat_markup(message, list("~", "_"))
 
-	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message'>\"[message]\"</span>", src)
+	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message linkify'>\"[message]\"</span>", src)
 
 /mob/proc/say_understands(var/mob/other,var/datum/language/speaking = null)
 
 	if (src.stat == 2)		//Dead
-		return 1
+		return TRUE
 
 	//Universal speak makes everything understandable, for obvious reasons.
 	else if(src.universal_speak || src.universal_understand)
-		return 1
+		return TRUE
 
 	//Languages are handled after.
 	if (!speaking)
 		if(!other)
-			return 1
+			return TRUE
 		if(other.universal_speak)
-			return 1
+			return TRUE
 		if(isAI(src) && ispAI(other))
-			return 1
+			return TRUE
 		if (istype(other, src.type) || istype(src, other.type))
-			return 1
-		return 0
+			return TRUE
+		return FALSE
 
 	if(speaking.flags & INNATE)
-		return 1
+		return TRUE
 
 	//Language check.
 	for(var/datum/language/L in src.languages)
 		if(speaking.name == L.name)
-			return 1
+			return TRUE
 
-	return 0
+	return FALSE
 
 /*
    ***Deprecated***

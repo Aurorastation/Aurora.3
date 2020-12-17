@@ -5,7 +5,7 @@
 	icon_state = "waterpack"
 	item_state = "waterpack"
 	contained_sprite = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	slot_flags = SLOT_BACK
 
 	var/obj/item/reagent_containers/spray/chemsprayer/mister/noz
@@ -95,7 +95,7 @@
 	icon_state = "mister"
 	item_state = "mister"
 	contained_sprite = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 50
 	volume = 500
 	slot_flags = 0

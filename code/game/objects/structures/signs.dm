@@ -4,7 +4,7 @@
 	opacity = 0
 	density = 0
 	layer = 3.5
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/structure/sign/ex_act(severity)
 	switch(severity)
@@ -40,7 +40,7 @@
 	name = "sign"
 	desc = ""
 	icon = 'icons/obj/decals.dmi'
-	w_class = 5		//big
+	w_class = ITEMSIZE_HUGE		//big
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
@@ -249,6 +249,16 @@
 	name = "\improper Telecommunications"
 	desc = "A direction sign, pointing out which way Telecommunications is."
 	icon_state = "direction_tcom"
+
+/obj/structure/sign/directions/tram
+	name = "\improper Tram Station"
+	desc = "A direction sign, pointing out which way the Tram is."
+	icon_state = "direction_tram"
+
+/obj/structure/sign/directions/mndl
+	name = "\improper Mendell Transport Shuttle"
+	desc = "A direction sign, pointing out which way the Mendell City Transport Shuttle is."
+	icon_state = "direction_mndl"
 
 /obj/structure/sign/directions/all
 	name = "\improper All directions"
@@ -618,6 +628,77 @@
 	var/flag_path
 	var/flag_size = 0
 
+/obj/structure/sign/flag/zavodskoi
+	name = "Zavodskoi Interstellar flag"
+	desc = "The logo of Zavodskoi Interstellar on a flag."
+	icon_state = "zavodskoi"
+
+/obj/structure/sign/flag/zavodskoi/left
+	icon_state = "zavodskoi_l"
+
+/obj/structure/sign/flag/zavodskoi/right
+	icon_state = "zavodskoi_r"
+
+/obj/item/flag/zavodskoi
+	name = "Zavodskoi Interstellar flag"
+	desc = "The logo of Zavodskoi Interstellar on a flag."
+	flag_path = "zavodskoi"
+
+/obj/item/flag/zavodskoi/l
+	flag_size = 1
+
+/obj/structure/sign/flag/idris
+	name = "Idris Incorporated flag"
+	desc = "The logo of Idris Incorporated on a flag."
+	icon_state = "idris"
+
+/obj/structure/sign/flag/idris/left
+	icon_state = "idris_l"
+
+/obj/structure/sign/flag/idris/right
+	icon_state = "idris_r"
+
+/obj/item/flag/idris
+	name = "Idris Incorporated flag"
+	desc = "The logo of Idris Incorporated on a flag."
+	flag_path = "idris"
+
+/obj/item/flag/idris/l
+	flag_size = 1
+
+/obj/structure/sign/flag/trinaryperfection
+	name = "Trinary Perfection flag"
+	desc = "The flag of the Trinary Perfection."
+	desc_fluff = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
+	icon_state = "trinaryperfection"
+
+/obj/structure/sign/flag/trinaryperfection/left
+	icon_state = "trinaryperfection_l"
+
+
+/obj/structure/sign/flag/trinaryperfection/right
+	icon_state = "trinaryperfection_r"
+
+/obj/item/flag/trinaryperfection
+	name = "Trinary Perfection flag"
+	desc = "The flag of the Trinary Perfection."
+	desc_fluff = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
+	flag_path = "trinaryperfection"
+
+/obj/item/flag/trinaryperfection/l
+	flag_size = 1
+
+/obj/item/flag/diona
+	name = "Imperial Diona standard"
+	desc = "A green Dominian standard which represents the dionae within the Empire."
+	flag_path = "diona"
+
+/obj/structure/sign/flag/diona
+	name = "Imperial Diona standard"
+	desc = "A green Dominian standard which represents the dionae within the Empire."
+	icon_state = "diona"
+
+
 /obj/structure/sign/flag/biesel
 	name = "Republic of Biesel flag"
 	desc = "The colours and symbols of the Republic of Biesel."
@@ -705,10 +786,10 @@
 		desc = "You can't make out anything from the flag's original print. It's ruined."
 		add_fingerprint(user)
 
-/obj/structure/sign/flag/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
 	..()
 
-	if(istype(W, /obj/item/flame/lighter))
+	if(W.isFlameSource())
 
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
 

@@ -81,6 +81,7 @@
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
+	slowdown = 0
 
 // Examine to see tank pressure
 /obj/structure/closet/airbubble/examine(mob/user)
@@ -417,7 +418,7 @@
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)
 			return 0
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		user.drop_item()
 	else if(istype(W, /obj/item/handcuffs/cable))

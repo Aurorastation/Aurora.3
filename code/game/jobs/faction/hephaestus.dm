@@ -70,8 +70,8 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
-			"Vaurca Worker", 
-			"Vaurca Warrior"
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
 		)
 	)
 
@@ -112,3 +112,9 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/hephaestus
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/stamp/hephaestus = 1
+	)

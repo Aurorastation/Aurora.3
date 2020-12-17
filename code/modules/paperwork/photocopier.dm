@@ -14,6 +14,8 @@
 	var/maxcopies = 10	//how many copies can be copied at once- idea shamelessly stolen from bs12's copier!
 
 /obj/machinery/photocopier/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
@@ -106,7 +108,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
 			to_chat(user, SPAN_NOTICE("You insert \the [O] into \the [src]."))
 			flick("photocopier_toner", src)
-			playsound(loc, "switchsounds", 50, 1)
+			playsound(loc, /decl/sound_category/switch_sound, 50, 1)
 			var/obj/item/device/toner/T = O
 			toner += T.toner_amount
 			user.drop_from_inventory(O,get_turf(src))

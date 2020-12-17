@@ -20,7 +20,7 @@
 	..()
 	pixel_x = rand(-10,10)
 	pixel_y = rand(-10,10)
-	if(w_class > 0 && w_class < 4)
+	if(w_class > 0 && w_class < ITEMSIZE_LARGE)
 		icon_state = "gift[w_class]"
 	else
 		icon_state = "gift[pick(1, 2, 3)]"
@@ -83,7 +83,7 @@
 		/obj/item/bikehorn,
 		/obj/item/beach_ball,
 		/obj/item/beach_ball/holoball,
-		/obj/item/toy/balloon,
+		/obj/item/toy/waterballoon,
 		/obj/item/toy/blink,
 		/obj/item/toy/crossbow,
 		/obj/item/gun/projectile/revolver/capgun,
@@ -130,7 +130,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/xmasgift/Initialize()
 	..()
@@ -171,7 +171,7 @@
 		/obj/item/lipstick/random,
 		/obj/item/clothing/shoes/carp,
 		/obj/item/bikehorn,
-		/obj/item/toy/balloon,
+		/obj/item/toy/waterballoon,
 		/obj/item/toy/blink,
 		/obj/item/gun/projectile/revolver/capgun,
 		/obj/item/toy/prize/deathripley,
@@ -204,12 +204,8 @@
 		/obj/item/stack/material/animalhide/monkey,
 		/obj/item/stack/material/animalhide/xeno,
 		/obj/item/xmasgift/medium,
-		/obj/item/toy/syndicateballoon,
+		/obj/item/toy/balloon/syndicate,
 		/obj/item/toy/xmastree,
-		/obj/item/clothing/accessory/medal/gold/heroism,
-		/obj/item/clothing/accessory/medal/nobel_science,
-		/obj/item/clothing/accessory/medal/bronze_heart,
-		/obj/item/clothing/accessory/medal/silver/valor,
 		/obj/item/bluespace_crystal,
 		/obj/item/gun/energy/mousegun,
 		/obj/item/gun/energy/wand/toy,
@@ -219,7 +215,8 @@
 		/obj/item/ore/coal,
 		/obj/item/stamp/clown,
 		/obj/item/organ/internal/heart/skrell,
-		/obj/item/latexballon)
+		/obj/item/toy/balloon/color,
+		/obj/item/storage/box/partypopper)
 
 	var/atom/movable/I = new gift_type(get_turf(user))
 	user.remove_from_mob(src)
@@ -231,7 +228,7 @@
 /obj/item/xmasgift/medium
 	icon_state = "gift2"
 	item_state = "gift2"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/xmasgift/medium/attack_self(mob/user)
 	var/gift_type = pick(
@@ -301,7 +298,7 @@
 /obj/item/xmasgift/large
 	icon_state = "gift3"
 	item_state = "gift3"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/xmasgift/large/attack_self(mob/user)
 	var/gift_type = pick(

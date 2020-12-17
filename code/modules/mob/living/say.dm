@@ -10,6 +10,7 @@ var/list/department_radio_keys = list(
 	  ":m" = "Medical",		".m" = "Medical",
 	  ":e" = "Engineering", ".e" = "Engineering",
 	  ":s" = "Security",	".s" = "Security",
+	  ":q" = "Penal",		".q" = "Penal",
 	  ":w" = "whisper",		".w" = "whisper",
 	  ":t" = "Mercenary",	".t" = "Mercenary",
 	  ":x" = "Raider",		".x" = "Raider",
@@ -30,6 +31,7 @@ var/list/department_radio_keys = list(
 	  ":M" = "Medical",		".M" = "Medical",
 	  ":E" = "Engineering",	".E" = "Engineering",
 	  ":S" = "Security",	".S" = "Security",
+	  ":Q" = "Penal",		".Q" = "Penal",
 	  ":W" = "whisper",		".W" = "whisper",
 	  ":T" = "Mercenary",	".T" = "Mercenary",
 	  ":X" = "Raider",		".X" = "Raider",
@@ -102,6 +104,9 @@ proc/get_radio_key_from_channel(var/channel)
 	var/list/returns[4]
 	var/speech_problem_flag = 0
 	if((HULK in mutations) && health >= 25 && length(message))
+		var/ending = copytext(message, length(message), (length(message) + 1))
+		if(ending && correct_punctuation[ending])
+			message = copytext(message, 1, length(message)) // cut off the punctuation
 		message = "[uppertext(message)]!!!"
 		verb = pick("yells","roars","hollers")
 		speech_problem_flag = 1
@@ -132,11 +137,12 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[4] = world.view
 	return returns
 
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
 	if(message_mode == "intercom")
 		for(var/obj/item/device/radio/intercom/I in view(1, null))
-			I.talk_into(src, message, verb, speaking)
 			used_radios += I
+			if(I.talk_into(src, message, verb, speaking))
+				successful_radio += I
 	return 0
 
 /mob/living/proc/handle_speech_sound()
@@ -153,7 +159,7 @@ proc/get_radio_key_from_channel(var/channel)
 		return "asks"
 	return verb
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -165,7 +171,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(emote.Find(message))
 		if(emote.group[1] == "*") return emote(copytext(message, 2))
-		if(emote.group[1] == "^") return custom_emote(1, copytext(message,2))
+		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
 
 	//parse the radio code and consume it
 	if (message_mode)
@@ -175,11 +181,7 @@ proc/get_radio_key_from_channel(var/channel)
 			message = copytext(message,3)
 
 	message = trim(message)
-
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "*" = TRUE, "/" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending] && !(HULK in mutations))
-		message += "."
+	message = formalize_text(message)
 
 	//parse the language code and consume it
 	if(!speaking)
@@ -223,13 +225,14 @@ proc/get_radio_key_from_channel(var/channel)
 	if (speaking)
 		if (speaking.flags & NONVERBAL)
 			if (prob(30))
-				src.custom_emote(1, "[pick(speaking.signlang_verb)].")
+				src.custom_emote(VISIBLE_MESSAGE, "[pick(speaking.signlang_verb)].")
 
 		if (speaking.flags & SIGNLANG)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking)
 
 	var/list/obj/item/used_radios = new
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name))
+	var/list/successful_radio = new // passes a list because standard vars don't work when passed
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio))
 		return 1
 
 	var/list/handle_v = handle_speech_sound()
@@ -240,19 +243,19 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 	//speaking into radios
-	if(used_radios.len)
+	if(length(used_radios))
 		italics = 1
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
 		var/msg
 		if(!speaking || !(speaking.flags & NO_TALK_MSG))
-			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]]</span>"
-		for(var/mob/living/M in hearers(5, src))
-			if((M != src) && msg)
+			msg = "<span class='notice'>\The [src] [length(successful_radio) ? "talks into" : "tries talking into"] \the [used_radios[1]]</span>."
+		for(var/mob/living/M in hearers(5, src) - src)
+			if(msg)
 				M.show_message(msg)
-			if (speech_sound)
-				sound_vol *= 0.5
+		if(speech_sound)
+			sound_vol *= 0.5
 
 	var/list/listening = list()
 	var/list/listening_obj = list()
@@ -269,7 +272,7 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
 
 
 	var/list/hear_clients = list()
@@ -289,6 +292,9 @@ proc/get_radio_key_from_channel(var/channel)
 		spawn(0)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
+
+	if(mind)
+		mind.last_words = message
 
 	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 	return 1
@@ -320,5 +326,5 @@ proc/get_radio_key_from_channel(var/channel)
 /obj/effect/speech_bubble
 	var/mob/parent
 
-/mob/living/proc/GetVoice()
+/mob/proc/GetVoice()
 	return name

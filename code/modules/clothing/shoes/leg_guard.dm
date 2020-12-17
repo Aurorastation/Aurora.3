@@ -4,7 +4,7 @@
 	icon_state = "leg_guards_riot"
 	item_state = "jackboots"
 	body_parts_covered = LEGS|FEET
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 	force = 3
@@ -24,7 +24,7 @@
 	desc = "These will protect your legs and feet from energy weapons."
 	icon_state = "leg_guards_laser"
 	siemens_coefficient = 0
-	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 25, bullet = 25, laser = 80, energy = 40, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/shoes/leg_guard/bulletproof
 	name = "ballistic leg guards"

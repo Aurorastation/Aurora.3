@@ -10,7 +10,7 @@
 	then click where you want to fire.  To reload, click the weapon in your hand to unload (if needed), then add the appropiate ammo.  The description \
 	will tell you what caliber you need."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 	recoil = 1
 
@@ -66,11 +66,15 @@
 		return chambered.BB
 	return null
 
-/obj/item/gun/projectile/handle_post_fire()
+/obj/item/gun/projectile/handle_post_fire(mob/user)
 	..()
 	if(chambered)
 		chambered.expend()
 		process_chambered()
+	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.check_weapon_affinity(src))
+			unload_ammo(user, TRUE, TRUE)
 	update_maptext()
 
 /obj/item/gun/projectile/handle_click_empty()
@@ -106,7 +110,7 @@
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
 			chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
-			playsound(chambered, "casing_drop", 50, FALSE)
+			playsound(chambered, /decl/sound_category/casing_drop_sound, 50, FALSE)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -173,9 +177,12 @@
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
-/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1)
+/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
 	if(ammo_magazine)
-		user.put_in_hands(ammo_magazine)
+		if(drop_mag)
+			ammo_magazine.forceMove(user.loc)
+		else
+			user.put_in_hands(ammo_magazine)
 		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
 		playsound(src.loc, ammo_magazine.eject_sound, 50, FALSE)
 		ammo_magazine.update_icon()
@@ -188,7 +195,7 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.forceMove(T)
-					playsound(C, "casing_drop", 50, FALSE)
+					playsound(C, /decl/sound_category/casing_drop_sound, 50, FALSE)
 					count++
 				loaded.Cut()
 			if(count)

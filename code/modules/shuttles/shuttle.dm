@@ -203,6 +203,7 @@
 							shake_camera(M, 10, 1)
 							M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
 							M.throw_at_random(FALSE, 4, 1)
+							M.Weaken(3)
 
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
@@ -231,6 +232,8 @@
 			if(SW.outside_window)
 				var/turf/target_turf = get_turf(SW)
 				target_turf.ChangeTurf(destination.base_turf)
+		for(var/obj/effect/energy_field/ef in sub_area)
+			qdel(ef)
 
 	// Remove all powernets that were affected, and rebuild them.
 	var/list/cables = list()

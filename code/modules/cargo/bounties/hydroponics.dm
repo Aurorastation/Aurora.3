@@ -91,7 +91,7 @@
 				/datum/seed/nifberries,
 				/datum/seed/dyn,
 				/datum/seed/wulumunusha,
-				/datum/seed/sugartree)
+				/datum/seed/nmshaan)
 
 /datum/bounty/item/hydroponicist/produce/mushroom
 	name = "Produce - Mushrooms"

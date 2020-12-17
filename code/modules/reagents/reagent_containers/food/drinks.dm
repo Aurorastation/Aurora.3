@@ -1,8 +1,3 @@
-//drink_flags defines
-#define NO_EMPTY_ICON 1		//does NOT have an iconstate_empty icon. If adding empty icons for a drink, make sure it does not have this flag
-#define UNIQUE_EMPTY_ICON 2	//Uses the empty_icon_state listed. Should really only be used when one trash state applies to multiple drinks. Remove if one is added
-#define IS_GLASS 4		//Container is glass. Affects shattering, unacidable, etc.
-
 /*
 Standards for trash/empty states under the /drinks path:
 Adding Empty States: Trash/Empty states should be placed in the drinks_empty.dmi and should be the drink's icon_state name followed by _empty (ex: whiskeybottle_empty) and the NO_EMPTY_ICON flag should be removed.
@@ -36,16 +31,19 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
 	update_icon()
 
+/obj/item/reagent_containers/food/drinks/on_rag_wipe(var/obj/item/reagent_containers/glass/rag/R)
+	clean_blood()
+
 /obj/item/reagent_containers/food/drinks/update_icon()
 	if(!reagents.total_volume)
 		if(drink_flags & UNIQUE_EMPTY_ICON)
 			icon = 'icons/obj/drinks_empty.dmi'
 			icon_state = empty_icon_state
-			return
-		if(!(drink_flags & NO_EMPTY_ICON))
+		else if(drink_flags & UNIQUE_EMPTY_ICON_FILE)
+			icon_state = empty_icon_state
+		else if(!(drink_flags & NO_EMPTY_ICON))
 			icon = 'icons/obj/drinks_empty.dmi'
 			icon_state = "[initial(icon_state)]_empty"
-			return
 	else
 		icon = initial(icon)	//Necessary for refilling empty drinks
 		icon_state = initial(icon_state)
@@ -123,7 +121,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	name = "golden cup"
 	icon_state = "golden_cup"
 	item_state = "" //nope :(
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 14
 	throwforce = 10
 	amount_per_transfer_from_this = 20
@@ -278,7 +276,9 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/waterbottle
 	name = "bottled water"
-	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
+	desc = "A fresh bottle of water from the finest bottling plants on Silversun."
+	desc_fluff = "Previously introduced to the vending machines by Skrellian request, this water used to come straight from the Martian poles. Ever since the Martian catastrophe, however, an Idris subsidiary has since stepped in to fill the gap in the market \
+	and 'Martian Water' has become a prized collector's item."
 	icon_state = "waterbottle"
 	flags = 0 //starts closed
 	center_of_mass = list("x"=16, "y"=8)
