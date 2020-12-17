@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed a maths error that caused flamethrower minimum fuel requirement to be too high."
