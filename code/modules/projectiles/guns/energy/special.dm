@@ -199,12 +199,18 @@
 /obj/item/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		to_chat(user, SPAN_WARNING("You overload \the [src]'s shock modulator."))
-		max_shots = 10
+		max_shots = initial(max_shots) + 4
 		projectile_type = /obj/item/projectile/beam/mousegun/emag
 		emagged = TRUE
 		QDEL_NULL(power_supply)
 		power_supply = new /obj/item/cell/device/variable(src, max_shots * charge_cost)
 		return TRUE
+
+/obj/item/gun/energy/mousegun/xenofauna
+	name = "xenofauna gun"
+	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
+	projectile_type = /obj/item/projectile/beam/mousegun/xenofauna
+	max_shots = 12
 
 /obj/item/gun/energy/net
 	name = "net gun"

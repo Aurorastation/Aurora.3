@@ -204,6 +204,7 @@
 #define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
 #define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
+#define INV_SHOES_DEF_ICON 'icons/mob/feet.dmi'
 
 // IPC tags
 #define IPC_OWNERSHIP_SELF "Self Owned"

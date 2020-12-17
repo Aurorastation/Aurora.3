@@ -96,6 +96,7 @@
 #define slot_w_uniform_str	"slot_w_uniform"
 #define slot_head_str		"slot_head"
 #define slot_wear_suit_str	"slot_suit"
+#define slot_shoes_str "slot_shoes"
 
 //itemstate suffixes. Used for containedsprite worn items
 #define WORN_LHAND	"_lh"

@@ -150,9 +150,9 @@ obj/item/organ/vaurca/neuralsocket/process()
 		else
 			to_chat(user, "<span class='notice'>Tank is empty!</span>")
 		src.add_fingerprint(user)
-	else if (istype(W,/obj/item/latexballon))
-		var/obj/item/latexballon/LB = W
-		LB.blow(src)
+	else if (istype(W,/obj/item/toy/balloon))
+		var/obj/item/toy/balloon/B = W
+		B.blow(src)
 		src.add_fingerprint(user)
 
 /obj/item/organ/vaurca/preserve/attack_self(mob/user as mob)

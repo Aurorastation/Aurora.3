@@ -456,7 +456,7 @@
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
-		/obj/item/reagent_containers/glass/bottle/toxin = 4,
+		/obj/item/reagent_containers/glass/bottle/toxin = 1,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
 		/obj/item/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
@@ -815,6 +815,7 @@
 		/obj/item/material/kitchen/utensil/fork = 12,
 		/obj/item/material/kitchen/utensil/knife = 12,
 		/obj/item/material/kitchen/utensil/spoon = 12,
+		/obj/item/material/kitchen/utensil/fork/chopsticks = 12,
 		/obj/item/material/knife = 2,
 		/obj/item/material/hatchet/butch = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
@@ -849,6 +850,7 @@
 		/obj/item/material/kitchen/utensil/fork/plastic = 12,
 		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
 		/obj/item/material/kitchen/utensil/knife/plastic = 12,
+		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12
 	)
 

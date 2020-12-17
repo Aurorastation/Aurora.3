@@ -233,7 +233,7 @@
 	holobadges["holobadge cord"] = /obj/item/clothing/accessory/badge/holo/cord
 	gear_tweaks += new/datum/gear_tweak/path(holobadges)
 
-/datum/gear/accessory/wardenbadge
+/datum/gear/accessory/officerbadge
 	display_name = "badge, officer"
 	path = /obj/item/clothing/accessory/badge/officer
 	allowed_roles = list("Security Officer")
