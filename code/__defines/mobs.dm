@@ -85,6 +85,10 @@
 #define I_GRAB		"grab"
 #define I_HURT		"harm"
 
+//movement intents
+#define M_WALK "walk"
+#define M_RUN  "run"
+
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
 #define BP_R_FOOT "r_foot"
