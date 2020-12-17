@@ -81,7 +81,7 @@
 					wearable = 1
 
 			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
-				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
+				to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
 	return 1
 
@@ -190,7 +190,7 @@
 	if(!material)
 		return
 	var/turf/T = get_turf(src)
-	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
+	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"))
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
@@ -212,7 +212,7 @@
 			if(!(def_zone in list(BP_CHEST, BP_GROIN)))
 				reflectchance /= 2
 			if(P.starting && prob(reflectchance))
-				visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
 
 				// Find a turf near or on the original location to bounce to
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
@@ -372,12 +372,12 @@
 	..()
 	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
 		if (clipped)
-			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
 			update_icon()
 			return
 
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
-		user.visible_message("<span class='warning'>[user] cuts the fingertips off of \the [src].</span>","<span class='warning'>You cut the fingertips off of \the [src].</span>")
+		user.visible_message(SPAN_WARNING("[user] cuts the fingertips off of \the [src]."),SPAN_WARNING("You cut the fingertips off of \the [src]."))
 
 		clipped = 1
 		siemens_coefficient += 0.25
@@ -505,9 +505,9 @@
 	if(!success)
 		return 0
 	else if(success == 2)
-		to_chat(user, "<span class='warning'>You are already wearing a hat.</span>")
+		to_chat(user, SPAN_WARNING("You are already wearing a hat."))
 	else if(success == 1)
-		to_chat(user, "<span class='notice'>You crawl under \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return 1
 
 /obj/item/clothing/head/return_own_image()
@@ -663,6 +663,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
+	var/blood_overlay_type = "shoe"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
@@ -689,11 +690,11 @@
 	holding.forceMove(get_turf(usr))
 
 	if(usr.put_in_hands(holding))
-		usr.visible_message("<span class='danger'>\The [usr] pulls \a [holding] out of their boot!</span>")
+		usr.visible_message(SPAN_DANGER("\The [usr] pulls \a [holding] out of their boot!"))
 		holding = null
 		playsound(get_turf(src), 'sound/weapons/holster/unholster_knife.ogg', 25)
 	else
-		to_chat(usr, "<span class='warning'>Your need an empty, unbroken hand to do that.</span>")
+		to_chat(usr, SPAN_WARNING("Your need an empty, unbroken hand to do that."))
 		holding.forceMove(src)
 
 	if(!holding)
@@ -706,12 +707,13 @@
 /obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
 	if(can_hold_knife && is_type_in_list(I, list(/obj/item/material/shard, /obj/item/material/kitchen/utensil, /obj/item/material/knife)))
 		if(holding)
-			to_chat(user, "<span class='warning'>\The [src] is already holding \a [holding].</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is already holding \a [holding]."))
 			return
 		user.unEquip(I)
 		I.forceMove(src)
 		holding = I
-		user.visible_message("<span class='notice'>\The [user] shoves \the [I] into \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] shoves \the [I] into \the [src]."))
+		playsound(get_turf(src), 'sound/weapons/holster/holster_knife.ogg', 25)
 		verbs |= /obj/item/clothing/shoes/proc/draw_knife
 		update_icon()
 	else
@@ -720,26 +722,26 @@
 /obj/item/clothing/shoes/verb/toggle_layer()
 	set name = "Switch Shoe Layer"
 	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return 0
 
 	if(shoes_under_pants == -1)
-		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		to_chat(usr, SPAN_NOTICE("[src] cannot be worn above your suit!"))
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
 
 /obj/item/clothing/shoes/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	worn_overlay = null
 	if(holding)
-		overlays += image(icon, "[icon_state]_knife")
+		worn_overlay = "knife"
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 	if(ismob(usr))
 		var/mob/M = usr
 		M.update_inv_shoes()
-	return ..()
-
-/obj/item/clothing/shoes/update_icon()
-	cut_overlays()
-	if(holding)
-		add_overlay("[icon_state]_knife")
 	return ..()
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
@@ -960,7 +962,7 @@
 		switch(sensor_mode)
 			if(0)
 				for(var/mob/V in viewers(usr, 1))
-					V.show_message("<span class='warning'>[usr] disables [src.loc]'s remote sensing equipment.</span>", 1)
+					V.show_message(SPAN_WARNING("[usr] disables [src.loc]'s remote sensing equipment."), 1)
 			if(1)
 				for(var/mob/V in viewers(usr, 1))
 					V.show_message("[usr] turns [src.loc]'s remote sensors to binary.", 1)
@@ -986,7 +988,7 @@
 
 	update_rolldown_status()
 	if(rolled_down == -1)
-		to_chat(usr, "<span class='notice'>You cannot roll down [src]!</span>")
+		to_chat(usr, SPAN_NOTICE("You cannot roll down [src]!"))
 	if((rolled_sleeves == 1) && !(rolled_down))
 		rolled_sleeves = 0
 		return
@@ -1015,10 +1017,10 @@
 
 	update_rollsleeves_status()
 	if(rolled_sleeves == -1)
-		to_chat(usr, "<span class='notice'>You cannot roll up your [src]'s sleeves!</span>")
+		to_chat(usr, SPAN_NOTICE("You cannot roll up your [src]'s sleeves!"))
 		return
 	if(rolled_down == 1)
-		to_chat(usr, "<span class='notice'>You must roll up your [src] first!</span>")
+		to_chat(usr, SPAN_NOTICE("You must roll up your [src] first!"))
 		return
 
 	rolled_sleeves = !rolled_sleeves
@@ -1028,14 +1030,14 @@
 			item_state = "[initial(item_state)]_r"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
-		to_chat(usr, "<span class='notice'>You roll up your [src]'s sleeves.</span>")
+		to_chat(usr, SPAN_NOTICE("You roll up your [src]'s sleeves."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite)
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, "<span class='notice'>You roll down your [src]'s sleeves.</span>")
+		to_chat(usr, SPAN_NOTICE("You roll down your [src]'s sleeves."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/rank/Initialize()
