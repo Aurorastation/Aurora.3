@@ -17093,15 +17093,14 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "aDj" = (
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert0"
+/obj/structure/flora/ausbushes/leafybush{
+	pixel_x = -2
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "aDk" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "aDl" = (
 /obj/structure/grille,
@@ -18257,14 +18256,25 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "aEY" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+/obj/effect/overlay/palmtree_r{
+	pixel_x = 16;
+	pixel_y = 36
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
+/obj/item/towel_flat{
+	color = "#ff0000";
+	pixel_x = 16;
+	pixel_y = -5
 	},
+/obj/item/xmasgift{
+	pixel_x = 11;
+	pixel_y = 11
+	},
+/obj/item/xmasgift{
+	layer = 3.1;
+	pixel_x = 20;
+	pixel_y = 7
+	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "aEZ" = (
 /obj/structure/table/steel,
@@ -23746,8 +23756,7 @@
 /area/security/prison)
 "aNx" = (
 /obj/machinery/cryopod{
-	dir = 4;
-	icon_state = "body_scanner_0"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
@@ -26873,17 +26882,17 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aSy" = (
-/obj/structure/window/reinforced/tinted/frosted,
 /obj/machinery/washing_machine,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
 "aSz" = (
-/obj/structure/window/reinforced/tinted/frosted,
 /obj/structure/table/standard,
 /obj/structure/bedsheetbin,
 /obj/item/toy/figure/hos,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
 "aSA" = (
@@ -28895,10 +28904,11 @@
 /area/crew_quarters/heads/hop)
 "aVJ" = (
 /obj/structure/closet/secure_closet/hop,
-/obj/item/book/manual/wiki/security_space_law,
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
+/obj/item/storage/box/partypopper,
+/obj/item/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aVK" = (
@@ -31211,9 +31221,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "aZw" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -31706,9 +31714,7 @@
 	pixel_y = -28
 	},
 /obj/structure/sign/christmas/lights,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert4"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "bak" = (
 /obj/structure/cryofeed,
@@ -43615,10 +43621,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "bvN" = (
 /obj/structure/bed/chair{
@@ -43678,9 +43682,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert0"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "bvS" = (
 /turf/simulated/wall/r_wall,
@@ -44064,10 +44066,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert3"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "bwH" = (
 /obj/structure/bed/chair{
@@ -44113,9 +44113,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "bwM" = (
 /obj/structure/window/reinforced{
@@ -44958,9 +44956,8 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "byf" = (
 /obj/structure/bed/chair{
@@ -45022,10 +45019,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "bym" = (
 /obj/machinery/door/airlock/external{
@@ -45609,6 +45604,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = 23;
+	pixel_y = -22
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -50403,18 +50402,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
-/area/hydroponics)
-"bJT" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/structure/sign/christmas/lights{
-	dir = 1
-	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert4"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "bJU" = (
 /obj/machinery/light{
@@ -50425,9 +50413,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "bJV" = (
 /obj/structure/window/reinforced{
@@ -50438,9 +50424,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "bJW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -50479,9 +50463,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert4"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "bKa" = (
 /obj/effect/floor_decal/corner/green/full{
@@ -51126,9 +51108,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert3"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "bLF" = (
 /obj/structure/window/reinforced,
@@ -53860,8 +53840,11 @@
 "bSq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/clothing/head/cakehat,
 /obj/structure/sign/christmas/lights,
+/obj/item/clothing/head/cakehat{
+	pixel_x = -3;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSr" = (
@@ -55752,7 +55735,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "bWo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -55766,7 +55749,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "bWp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -56229,6 +56212,7 @@
 "bXq" = (
 /obj/structure/table/rack,
 /obj/random/arcade,
+/obj/item/clothing/head/festive/santa,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bXr" = (
@@ -62597,9 +62581,7 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "dFK" = (
 /obj/machinery/light/small/emergency{
@@ -62662,9 +62644,7 @@
 "dMe" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/sign/christmas/lights,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert3"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "dMw" = (
 /obj/structure/sign/christmas/lights{
@@ -62737,15 +62717,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
-"dVt" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/structure/sign/christmas/lights{
-	dir = 8
-	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert4"
-	},
-/area/hydroponics)
 "dVB" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/sign/christmas/lights{
@@ -62782,8 +62753,10 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/cargo)
 "dYy" = (
-/obj/structure/table/wood,
-/obj/item/flame/candle,
+/obj/structure/table/reinforced/wood,
+/obj/item/flame/candle{
+	pixel_y = 6
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "dYN" = (
@@ -63026,9 +62999,7 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert0"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "eJy" = (
 /obj/item/stack/rods,
@@ -63882,7 +63853,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "gjM" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/chair/wood/wings{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -64013,6 +63984,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/chapel/main)
+"gzW" = (
+/obj/structure/table/reinforced/wood,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "gBi" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -64071,10 +64046,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
 "gGa" = (
-/obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
+/obj/effect/decal/fake_object{
+	dir = 8;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "shell3";
+	name = "shell";
+	pixel_x = 5;
+	pixel_y = -6
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "gGr" = (
 /obj/machinery/power/apc{
@@ -64276,6 +64256,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/lino/grey,
+/area/crew_quarters/bar)
+"hbN" = (
+/obj/item/flame/candle{
+	pixel_y = 6
+	},
+/obj/structure/table/reinforced/wood,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "hcd" = (
 /obj/effect/floor_decal/spline/plain{
@@ -64563,9 +64550,7 @@
 /obj/structure/sign/christmas/lights,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "hza" = (
 /obj/structure/bed/chair/comfy/black{
@@ -65088,6 +65073,11 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
+"ivR" = (
+/obj/structure/table/wood,
+/obj/item/clothing/head/festive/santa,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "ixU" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -65561,7 +65551,7 @@
 /turf/simulated/floor/airless,
 /area/maintenance/cargo)
 "jNx" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/chair/wood/wings{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -65971,9 +65961,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "kGv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -66065,9 +66053,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "kRK" = (
 /obj/structure/cable{
@@ -66192,6 +66178,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"lcs" = (
+/obj/item/clothing/head/festive/santa,
+/obj/structure/table/reinforced/wood,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "lcQ" = (
 /obj/structure/sign/christmas/lights{
 	dir = 8
@@ -66340,15 +66331,6 @@
 /obj/structure/grille/broken,
 /turf/simulated/floor/airless,
 /area/maintenance/cargo)
-"ltT" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/structure/sign/christmas/lights{
-	dir = 8
-	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
-/area/hydroponics)
 "luk" = (
 /obj/machinery/atmospherics/unary/freezer{
 	icon_state = "freezer"
@@ -66872,6 +66854,7 @@
 /obj/structure/table/rack,
 /obj/random/arcade,
 /obj/random/arcade,
+/obj/item/clothing/head/festive/santa,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "mxN" = (
@@ -66925,15 +66908,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"mBR" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/structure/sign/christmas/lights{
-	dir = 1
-	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
-/area/hydroponics)
 "mBV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -68764,9 +68738,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "pKY" = (
 /obj/item/stack/tile/floor_white{
@@ -69684,16 +69656,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"rwF" = (
-/obj/structure/sign/christmas/lights{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
-/area/hydroponics)
 "rxp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -70333,7 +70295,7 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "sEV" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/chair/wood/wings{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -70436,9 +70398,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert0"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "sNG" = (
 /obj/structure/cable{
@@ -71862,9 +71822,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "vak" = (
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert3"
+/obj/structure/flora/rock/pile{
+	density = 0;
+	pixel_x = -1;
+	pixel_y = -6
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "vap" = (
 /obj/structure/grille,
@@ -72187,9 +72150,11 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/cargo)
 "vCz" = (
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
+/obj/item/xmasgift/medium{
+	pixel_x = -5;
+	pixel_y = 14
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge)
 "vDL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -72257,9 +72222,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hydroponics)
 "vIC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -102773,10 +102736,10 @@ bHj
 gnc
 bJb
 bJS
-ltT
+pJF
 pJF
 sNw
-dVt
+pJF
 dEG
 bGr
 bOQ
@@ -103029,7 +102992,7 @@ bGq
 bHq
 gnc
 bJb
-bJT
+vIq
 bKO
 rNi
 rNi
@@ -103566,13 +103529,13 @@ bSM
 bVf
 bVZ
 bWn
-bWa
-bWa
-bWa
-bWa
-bWa
-bWa
-bWa
+bZs
+bZs
+bZs
+bZs
+bZs
+bZs
+bZs
 bYZ
 wcO
 bYy
@@ -103800,7 +103763,7 @@ bka
 bHs
 bIh
 bJc
-mBR
+vIq
 eEQ
 bLz
 bMh
@@ -103829,7 +103792,7 @@ gjM
 gjM
 gjM
 bZs
-bWa
+bZs
 bYZ
 dMD
 tiJ
@@ -104080,13 +104043,13 @@ bJd
 bVz
 bWa
 bWo
-bZt
+gzW
 dYy
-bZt
+lcs
 dYy
-bZt
+gzW
 sEV
-bWa
+bZs
 bWQ
 bSM
 bSM
@@ -104341,9 +104304,9 @@ bZs
 bZs
 bZs
 bZs
-dYy
+hbN
 sEV
-bWa
+bZs
 bYZ
 bXE
 tPg
@@ -104598,11 +104561,11 @@ bZs
 kWt
 wVv
 bZs
-bZt
+gzW
 sEV
-bWa
+bZs
 bYZ
-bZt
+ivR
 bYY
 bSM
 caP
@@ -104855,9 +104818,9 @@ bZs
 kWt
 kWt
 bZs
-bZt
+gzW
 sEV
-bWa
+bZs
 bYZ
 wcO
 bYy
@@ -105112,9 +105075,9 @@ bZs
 bZs
 bZs
 bZs
-dYy
+hbN
 sEV
-bWa
+bZs
 bYZ
 dMD
 tiJ
@@ -105343,7 +105306,7 @@ bGr
 bIm
 bJg
 bJZ
-rwF
+sNw
 bLE
 bMk
 bLx
@@ -105365,13 +105328,13 @@ bIt
 bVz
 bWa
 bWo
-bZt
+gzW
 dYy
-bZt
+lcs
 dYy
-bZt
+gzW
 sEV
-bWa
+bZs
 bWQ
 bSM
 bSM
@@ -105628,7 +105591,7 @@ jNx
 jNx
 jNx
 bZs
-bWa
+bZs
 bYZ
 bXE
 tPg
@@ -105879,13 +105842,13 @@ bST
 bVA
 bWa
 bWo
-bWa
-bWa
-bWa
-bWa
-bWa
-bWa
-bWa
+bZs
+bZs
+bZs
+bZs
+bZs
+bZs
+bZs
 bYZ
 bZt
 jnD

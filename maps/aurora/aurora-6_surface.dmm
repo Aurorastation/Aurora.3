@@ -203,6 +203,7 @@
 /area/maintenance/bridge_elevator/surface)
 "agH" = (
 /obj/machinery/papershredder,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
 "agI" = (
@@ -1488,6 +1489,9 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "Surface Bridge"
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
 "bbs" = (
@@ -1915,6 +1919,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "bvh" = (
@@ -2498,9 +2503,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "bRW" = (
 /obj/structure/cable/green{
@@ -2564,6 +2567,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "bUz" = (
@@ -3309,9 +3313,16 @@
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert0"
+/obj/effect/overlay/palmtree_r{
+	density = 0;
+	pixel_x = 6;
+	pixel_y = 2
 	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -20;
+	pixel_y = -3
+	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "czc" = (
 /turf/simulated/floor/tiled,
@@ -3788,9 +3799,11 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
+/obj/item/beach_ball{
+	pixel_x = -4;
+	pixel_y = 4
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "cTI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4715,6 +4728,19 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research)
+"dWB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "dXj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -5642,6 +5668,13 @@
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"eLG" = (
+/obj/structure/sign/christmas/lights,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/turf/simulated/floor/beach/sand/alt,
+/area/hallway/secondary/entry/fore)
 "eNk" = (
 /obj/structure/closet/crate/internals{
 	name = "emergency equipment"
@@ -5682,6 +5715,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "eOD" = (
@@ -7506,9 +7540,11 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
+/obj/item/xmasgift/large{
+	pixel_x = 8;
+	pixel_y = 10
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "gtC" = (
 /obj/structure/table/wood,
@@ -7695,8 +7731,8 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "gzB" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -8575,11 +8611,17 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-21"
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "hjt" = (
 /obj/structure/bed/chair{
 	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
@@ -9311,9 +9353,9 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights,
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/beach/sand{
-	icon_state = "desert4"
+	icon_state = "desert"
 	},
 /area/hydroponics/garden)
 "hQn" = (
@@ -10015,12 +10057,15 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/reedbush{
-	pixel_x = -7
+	pixel_x = -3;
+	pixel_y = 4
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
+/obj/structure/sign/christmas/lights{
+	dir = 8
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge/levela)
 "ipR" = (
 /obj/structure/closet/wardrobe/pjs,
@@ -10553,9 +10598,11 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
+/obj/item/towel{
+	pixel_x = 11;
+	pixel_y = -9
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "iKC" = (
 /obj/machinery/door/firedoor,
@@ -11279,7 +11326,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "jxp" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert1"
 	},
@@ -15556,6 +15603,10 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
+/obj/structure/sign/christmas/lights,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
 "mZb" = (
@@ -15714,8 +15765,7 @@
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -30;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -16594,13 +16644,11 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "nQN" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "nRp" = (
 /obj/machinery/shield_gen,
@@ -16698,10 +16746,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "nWM" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -16770,6 +16818,9 @@
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-20"
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
@@ -17499,9 +17550,12 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
+/obj/structure/flora/rock{
+	icon_state = "basalt2";
+	pixel_x = -5;
+	pixel_y = 8
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "oEV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17867,6 +17921,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/filingcabinet/chestdrawer,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
 "oSR" = (
@@ -17946,11 +18001,19 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
+/obj/item/xmasgift{
+	pixel_x = 4;
+	pixel_y = 8
 	},
+/obj/item/xmasgift{
+	pixel_x = -8;
+	pixel_y = 7
+	},
+/obj/item/xmasgift,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge/levela)
 "oXg" = (
 /obj/structure/sign/christmas/lights{
@@ -19945,9 +20008,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "qwH" = (
 /obj/machinery/door/firedoor,
@@ -21193,9 +21254,17 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
+/obj/effect/decal/fake_object{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "shell3";
+	name = "shell";
+	pixel_x = -6;
+	pixel_y = -5
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge/levela)
 "rxm" = (
 /obj/machinery/atm{
@@ -24608,9 +24677,12 @@
 /area/shuttle/research)
 "ugU" = (
 /obj/structure/sign/christmas/lights,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert3"
+/obj/effect/overlay/palmtree_l{
+	density = 0;
+	pixel_x = 1;
+	pixel_y = 16
 	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "uhm" = (
 /obj/structure/cable/green{
@@ -27133,10 +27205,17 @@
 	name = "adjusted light fixture";
 	pixel_y = -15
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert3"
+/obj/effect/decal/fake_object{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "shell2";
+	name = "shell";
+	pixel_x = 1;
+	pixel_y = 11
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/beach/sand/alt,
 /area/bridge/levela)
 "whm" = (
 /obj/machinery/access_button{
@@ -27165,10 +27244,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "whI" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -27750,7 +27829,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet,
 /obj/random/junk,
-/obj/effect/spider/stickyweb,
 /obj/item/reagent_containers/food/snacks/cb01,
 /obj/item/reagent_containers/food/snacks/cb02,
 /obj/item/reagent_containers/food/snacks/cb07,
@@ -27758,6 +27836,10 @@
 /obj/item/reagent_containers/food/snacks/candy,
 /obj/item/trash/candy,
 /obj/item/trash/candy,
+/obj/item/storage/box/candy{
+	name = "dusty candy box"
+	},
+/obj/effect/spider/stickyweb,
 /turf/simulated/floor/plating,
 /area/store)
 "wIq" = (
@@ -27766,10 +27848,19 @@
 /area/hallway/secondary/entry/departure_lounge)
 "wIs" = (
 /obj/structure/sign/christmas/lights,
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert4"
+/obj/item/towel_flat{
+	color = "#ff0000";
+	pixel_x = 16;
+	pixel_y = 7
 	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "shell3";
+	name = "shell";
+	pixel_x = -12;
+	pixel_y = -1
+	},
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "wJr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -28171,6 +28262,9 @@
 	pixel_x = -22;
 	pixel_y = 11
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
 "wWa" = (
@@ -28432,6 +28526,9 @@
 	pixel_y = 14
 	},
 /obj/item/folder/white,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
 "xkb" = (
@@ -29313,6 +29410,9 @@
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "xWz" = (
@@ -29602,16 +29702,14 @@
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
 "yiE" = (
-/obj/structure/flora/ausbushes/genericbush,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/beach/sand/alt,
 /area/hallway/secondary/entry/fore)
 "yiM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -57539,7 +57637,7 @@ vQy
 eKR
 res
 qwB
-oEQ
+eLG
 res
 mcK
 vHg
@@ -78399,7 +78497,7 @@ hdM
 hdM
 iDv
 dmH
-cZC
+dWB
 pBR
 fdu
 fdu
@@ -78913,7 +79011,7 @@ akw
 vdL
 meU
 bFh
-cZC
+dWB
 pBR
 fdu
 fdu

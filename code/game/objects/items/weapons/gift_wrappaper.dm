@@ -336,6 +336,15 @@
 		/mob/living/simple_animal/crab,
 		/mob/living/simple_animal/parrot,
 		/mob/living/simple_animal/hostile/commanded/dog/pug,
-		/obj/item/target/alien)
+		/obj/item/target/alien,
+		/obj/item/storage/box/candy)
 
 	return picked_gift_type
+
+/obj/item/xmasgift/schlorrgo
+	gift_type = /mob/living/simple_animal/schlorrgo
+	w_class = ITEMSIZE_NORMAL
+
+/obj/item/xmasgift/viscerator
+	gift_type = /mob/living/simple_animal/hostile/viscerator
+	w_class = ITEMSIZE_NORMAL

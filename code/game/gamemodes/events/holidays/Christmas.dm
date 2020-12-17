@@ -62,5 +62,9 @@
 /obj/item/clothing/head/festive/santa
 	name = "santa hat"
 	icon_state = "santahat"
+	desc = "A cheap fabric santa hat."
+
+/obj/item/clothing/head/festive/santa/beard
+	desc = "A cheap fabric santa hat, this one with a beard."
 	body_parts_covered = HEAD
-	desc = "A cheap fabric santa hat, with a fake beard and a little bell at the end."
+	icon_state = "santahat_alt"
