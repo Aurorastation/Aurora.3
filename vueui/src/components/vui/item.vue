@@ -1,7 +1,7 @@
 <template>
   <div class="item">
-    <div class="itemLabel" :style="{ width: (1 - balance) * 100 + '%' }">{{ label }}</div>
-    <div class="itemContent" :style="{ width: balance * 100 + '%' }"><slot/></div>
+    <div v-if="label" class="itemLabel" :style="{ width: (1 - balance) * 100 + '%' }">{{ label }}</div>
+    <div class="itemContent" :style="{ width: (label ? balance : 1) * 100 + '%' }"><slot/></div>
   </div>
 </template>
 
