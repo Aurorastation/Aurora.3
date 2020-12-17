@@ -43,7 +43,6 @@ changes:
   - rscadd: "Surge damage has special interactions with the mechanical heart and eyes."
   - tweak: "EMP damage is no longer randomized. It is now much more consistent."
   - tweak: "IPC battery is no longer represented as nutrition. Instead, the microbattery organ contains a super-capacity cell that is used for all their actions. This is represented with a new HUD icon."
-  - rscadd: "IPCs can now be revived by replacing the microbattery organ, aka putting it back in! Make sure that the cell inside is charged. It can be removed with screwdriver and then crowbar."
   - tweak: "Hardsuits can now be charged in robot chargers if you are wearing them."
   - rscadd: "Ion bolts now have a hit sound."
   - rscdel: "Removed the ion rifle lethal mode."

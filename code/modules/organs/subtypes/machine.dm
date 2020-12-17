@@ -145,13 +145,6 @@
 				cell = W
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
 
-/obj/item/organ/internal/cell/replaced()
-	..()
-	// This is very ghetto way of rebooting an IPC. TODO better way.
-	if(owner && owner.stat == DEAD)
-		owner.stat = CONSCIOUS
-		owner.visible_message(SPAN_DANGER("\The [owner] twitches visibly!"))
-
 /obj/item/organ/internal/cell/listen()
 	if(get_charge())
 		return "faint hum of the power bank"
