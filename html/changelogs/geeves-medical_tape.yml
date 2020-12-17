@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added some medical taperolls to the medical sub-level equipment area and EMT room. Also gave medical borgs medical taperolls."
-  - rscadd: "Crumpled tape now stores who crumpled it, provided the crumpler had an ID to track them with."
-  - rscadd: "Tape now physically blocks passage, unless the mover has their intent set to harm, or their move intent set to run."
-  - rscadd: "Lifting tape now actually works as you'd expect it to. It plays a little animation and goes transparent. If you don't have access, it crumples, if you do, it doesn't. People can now pass over without crumpling it or needing intents set."
