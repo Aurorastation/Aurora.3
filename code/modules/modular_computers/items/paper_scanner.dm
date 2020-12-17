@@ -88,8 +88,9 @@
 		var/data_to_save = ""
 		for(var/thing in pages_to_scan)
 			var/obj/item/paper/page = thing
-			data_to_save += page.info
+			var/p_info = html2pencode(page.info)
+			data_to_save += strip_html_properly(p_info)
 			data_to_save += "\[br\]"
 		F.stored_data = data_to_save
 		if(!drive.store_file(F))
-			to_chat(usr, SPAN_WARNING("\The [drive] does not have enough space to store the latest scanned file."))
+			to_chat(user, SPAN_WARNING("\The [drive] does not have enough space to store the latest scanned file."))

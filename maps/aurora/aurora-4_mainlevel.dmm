@@ -67697,6 +67697,7 @@
 "tIQ" = (
 /obj/machinery/vending/dinnerware/plastic{
 	pixel_x = -4;
+	
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,

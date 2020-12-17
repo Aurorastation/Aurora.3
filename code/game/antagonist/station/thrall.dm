@@ -25,6 +25,17 @@ var/datum/antagonist/thrall/thralls = null
 
 	thralls = src
 
+/datum/antagonist/thrall/handle_latelogin(var/mob/user)
+	var/datum/mind/M = user.mind
+	if(!M)
+		return
+	if(M.vampire.master_image)
+		user.client.images += M.vampire.master_image
+
 /datum/antagonist/thrall/update_antag_mob(var/datum/mind/player)
 	..()
 	player.current.vampire_make_thrall()
+
+/datum/antagonist/thrall/remove_antagonist(datum/mind/player, show_message, implanted)
+	player.vampire.lose_master(player.current)
+	return ..()

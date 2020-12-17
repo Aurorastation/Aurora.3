@@ -485,6 +485,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	which smells of the barrel it was aged in. The region and producer are on the label."
 	icon = 'icons/obj/custom_items/leonce_cognac.dmi'
 	icon_state = "leonce_cognac"
+	empty_icon_state = "leonce_cognac_empty"
+	drink_flags = UNIQUE_EMPTY_ICON_FILE | IS_GLASS
 
 
 /obj/item/clothing/suit/storage/fluff/sonorous_mantle //Maraziite Throw Over - Sonorous Zouzoror - sleepywolf

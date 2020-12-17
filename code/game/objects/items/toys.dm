@@ -979,7 +979,6 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
 
-//This should really be somewhere else but I don't know where. w/e
 /obj/item/inflatable_duck
 	name = "inflatable duck"
 	desc = "No bother to sink or swim when you can just float!"
@@ -1044,3 +1043,24 @@
 	name = "dipping bird toy"
 	desc = "Engineers marvel at this scale model of a primitive thermal engine. It's highly debated why the majority of owners were in low-level bureaucratic jobs."
 	icon_state = "dippybird"
+
+/obj/item/toy/partypopper
+	name = "party popper"
+	desc = "Instructions : Aim away from face. Wait for appropriate timing. Pull cord, enjoy confetti."
+	icon_state = "partypopper"
+	w_class = ITEMSIZE_TINY
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+
+/obj/item/toy/partypopper/attack_self(mob/user)
+	if(icon_state == "partypopper")
+		spark(src, 1, user.dir)
+		user.visible_message(SPAN_NOTICE("[user] pulls on the string, releasing a burst of confetti!"), SPAN_NOTICE("You pull on the string, releasing a burst of confetti!"))
+		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
+		icon_state = "partypopper_e"
+		var/turf/T = get_step(src, user.dir)
+		if(!turf_clear(T))
+			T = get_turf(src)
+		new /obj/effect/decal/cleanable/confetti(T)
+	else
+		to_chat(user, SPAN_NOTICE("The [src] is already spent!"))
