@@ -27,6 +27,9 @@
 	desc = "Taller synthleather boots with an artificial shine."
 	icon_state = "kneeboots"
 	item_state = "kneeboots"
+	
+/obj/item/clothing/shoes/jackboots/knee/handle_movement(var/turf/walking, var/running)
+	trip_up(walking, running)
 
 /obj/item/clothing/shoes/jackboots/thigh
 	name = "thigh-length black boots"
