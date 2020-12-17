@@ -512,6 +512,11 @@
 	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
 
+/obj/item/storage/box/partypopper
+	name = "party popper box"
+	desc = "Six cones of confetti conflagarating fun!"
+	starts_with = list(/obj/item/toy/partypopper = 6)
+
 /obj/item/storage/box/autoinjectors
 	name = "box of empty injectors"
 	desc = "Contains empty autoinjectors."

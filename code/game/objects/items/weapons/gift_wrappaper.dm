@@ -221,7 +221,8 @@
 		/obj/item/ore/coal,
 		/obj/item/stamp/clown,
 		/obj/item/organ/internal/heart/skrell,
-		/obj/item/toy/balloon/color)
+		/obj/item/toy/balloon/color,
+		/obj/item/storage/box/partypopper)
 
 	return picked_gift_type
 
