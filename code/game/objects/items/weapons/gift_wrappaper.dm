@@ -129,13 +129,14 @@
 	desc = "PRESENTS!!!! eek!"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
-	item_state = "gift1"
+	item_state = "gift"
 	w_class = ITEMSIZE_TINY
+	randpixel = 12
+	var/gift_type
 
 /obj/item/xmasgift/Initialize()
 	..()
-	pixel_x = rand(-10,10)
-	pixel_y = rand(-10,10)
+	randpixel_xy()
 	var/gift_benefactor = pick("the NanoTrasen Department of Christmas Affairs", "Miranda Trasen", "Joseph Dorne", "Isaac Asimov", "Baal D. Griffon", "the Sol Alliance (Sorry about the blockade!)",
 		"Hephaestus Industries", "Idris Incorporated", "Glorsh Omega II", "the Jargon Federation", "the People's Republic of Adhomai", "the Adhomai Liberation Army", "the Izweski Hegemony",
 		"the Zo'ra Hive","the Coalition of Colonies", "Digital Dingo", "Optimum Jeffrey", "Lemmy and the Clockworks", "President Hadii", "King Azunja","Supreme Commander Nated'Hakhan",
@@ -148,14 +149,19 @@
 		"respect","begrudging respect","love", "seasonal obligation")
 	desc = "To: <i>The [station_name()]</i><BR>From: <i>[gift_benefactor], with [pick_emotion]</i>"
 
+	if(!gift_type)
+		gift_type = get_gift_type()
+
+	if(ispath(gift_type, /mob/living/simple_animal))
+		if(ispath(gift_type, /mob/living/simple_animal/schlorrgo))
+			icon_state = "strangeschlorrgo"
+		else
+			icon_state = "strangepet"
+
 	return
 
-/obj/item/xmasgift/ex_act(var/severity = 2.0)
-	qdel(src)
-	return
-
-/obj/item/xmasgift/small/attack_self(mob/user)
-	var/gift_type = pick(
+/obj/item/xmasgift/proc/get_gift_type()
+	var/picked_gift_type = pick(
 		/obj/random/action_figure,
 		/obj/random/coin,
 		/obj/random/spacecash,
@@ -218,6 +224,13 @@
 		/obj/item/toy/balloon/color,
 		/obj/item/storage/box/partypopper)
 
+	return picked_gift_type
+
+/obj/item/xmasgift/ex_act(var/severity = 2.0)
+	qdel(src)
+	return
+
+/obj/item/xmasgift/attack_self(mob/user)
 	var/atom/movable/I = new gift_type(get_turf(user))
 	user.remove_from_mob(src)
 	user.put_in_hands(I)
@@ -227,11 +240,10 @@
 
 /obj/item/xmasgift/medium
 	icon_state = "gift2"
-	item_state = "gift2"
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/xmasgift/medium/attack_self(mob/user)
-	var/gift_type = pick(
+/obj/item/xmasgift/medium/get_gift_type()
+	var/picked_gift_type = pick(
 		/obj/item/sord,
 		/obj/random/booze,
 		/obj/random/random_flag,
@@ -264,7 +276,7 @@
 		/mob/living/simple_animal/rat/brown,
 		/mob/living/simple_animal/rat/gray,
 		/mob/living/simple_animal/rat/white,
-		/obj/item/xmasgift/small,
+		/obj/item/xmasgift,
 		/obj/item/tank/jetpack/void,
 		/obj/item/xmasgift/large,
 		/obj/item/reagent_containers/food/snacks/pudding,
@@ -287,21 +299,14 @@
 		/obj/item/device/megaphone,
 		/obj/item/device/violin)
 
-	var/atom/movable/I = new gift_type(get_turf(user))
-	user.remove_from_mob(src)
-	if (!user.put_in_hands(I))
-		user.forceMove(get_turf(src))
-	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
-	qdel(src)
-	return
+	return picked_gift_type
 
 /obj/item/xmasgift/large
 	icon_state = "gift3"
-	item_state = "gift3"
 	w_class = ITEMSIZE_NORMAL
 
-/obj/item/xmasgift/large/attack_self(mob/user)
-	var/gift_type = pick(
+/obj/item/xmasgift/large/get_gift_type()
+	var/picked_gift_type = pick(
 		/obj/random/plushie,
 		/obj/random/backpack,
 		/obj/item/inflatable_duck,
@@ -318,6 +323,7 @@
 		/mob/living/simple_animal/mushroom,
 		/mob/living/simple_animal/ice_tunneler,
 		/mob/living/simple_animal/carp/baby,
+		/mob/living/simple_animal/schlorrgo,
 		/mob/living/carbon/human/monkey/nupnup,
 		/obj/item/xmasgift/medium,
 		/obj/item/tank/jetpack,
@@ -330,11 +336,15 @@
 		/mob/living/simple_animal/crab,
 		/mob/living/simple_animal/parrot,
 		/mob/living/simple_animal/hostile/commanded/dog/pug,
-		/obj/item/target/alien)
+		/obj/item/target/alien,
+		/obj/item/storage/box/candy)
 
-	var/atom/movable/I = new gift_type(get_turf(user))
-	user.remove_from_mob(src)
-	user.put_in_hands(I)
-	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
-	qdel(src)
-	return
+	return picked_gift_type
+
+/obj/item/xmasgift/schlorrgo
+	gift_type = /mob/living/simple_animal/schlorrgo
+	w_class = ITEMSIZE_NORMAL
+
+/obj/item/xmasgift/viscerator
+	gift_type = /mob/living/simple_animal/hostile/viscerator
+	w_class = ITEMSIZE_NORMAL

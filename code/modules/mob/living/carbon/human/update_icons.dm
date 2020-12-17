@@ -745,43 +745,56 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[SHOES_LAYER] = null
-	overlays_raw[SHOES_LAYER_ALT] = null
 	if(check_draw_shoes())
-		var/image/standing
+		shoes.screen_loc = ui_shoes
+
+		var/image/result_layer = null
+
+		//Determine the icon to use
+		var/t_icon = INV_SHOES_DEF_ICON
 		if(shoes.contained_sprite)
 			shoes.auto_adapt_species(src)
-			var/state = "[UNDERSCORE_OR_NULL(shoes.icon_species_tag)][shoes.item_state][WORN_SHOES]"
+			var/t_state = "[UNDERSCORE_OR_NULL(shoes.icon_species_tag)][shoes.item_state][WORN_SHOES]"
 
-			standing = image(shoes.icon_override || shoes.icon, state)
-
+			result_layer = image(shoes.icon_override || shoes.icon, t_state)
 		else if(shoes.icon_override)
-			standing = image(shoes.icon_override, "[shoes.icon_state]")
+			t_icon = shoes.icon_override
 		else if(shoes.sprite_sheets && shoes.sprite_sheets[GET_BODY_TYPE])
-			standing = image("icon" = shoes.sprite_sheets[GET_BODY_TYPE], "icon_state" = "[shoes.icon_state]")
+			t_icon = shoes.sprite_sheets[GET_BODY_TYPE]
+		else if(shoes.item_icons && (slot_shoes_str in shoes.item_icons))
+			t_icon = shoes.item_icons[slot_shoes_str]
 		else
-			standing = image("icon" = 'icons/mob/feet.dmi', "icon_state" = "[shoes.icon_state]")
+			t_icon = INV_SHOES_DEF_ICON
+
+		if(!result_layer) //Create the image
+			result_layer = image(t_icon, shoes.icon_state)
+
+		if(shoes.color)
+			result_layer.color = shoes.color
+
+		var/image/worn_overlays = shoes.worn_overlays(t_icon)
+		if(worn_overlays)
+			result_layer.overlays.Add(worn_overlays)
+
+		var/list/ovr
+
+		if(shoes.blood_DNA)
+			var/obj/item/clothing/shoes/S = shoes
+			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
+			bloodsies.color = shoes.blood_color
+			ovr = list(result_layer, bloodsies)
 
 		//Shoe layer stuff from Polaris v1.0333a
 		var/shoe_layer = SHOES_LAYER
 		if(istype(shoes, /obj/item/clothing/shoes))
-			var/obj/item/clothing/shoes/ushoes = shoes
-			if(ushoes.shoes_under_pants == 1)
+			var/obj/item/clothing/shoes/S = shoes
+			if(S.shoes_under_pants == TRUE)
 				shoe_layer = SHOES_LAYER_ALT
 
-		standing.color = shoes.color
-
-		var/list/ovr
-
-		if(shoes.blood_color)
-			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
-			bloodsies.color = shoes.blood_color
-			ovr = list(standing, bloodsies)
-
-		overlays_raw[shoe_layer] = ovr || standing
+		overlays_raw[shoe_layer] = ovr || result_layer
 	else
-		if(footprint_color)
-			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
+		if(footprint_color)		// Handles bloody feet.
+			var/image/bloodsies = image(species.blood_mask, "shoeblood")
 			bloodsies.color = footprint_color
 			overlays_raw[SHOES_LAYER] = bloodsies
 		else

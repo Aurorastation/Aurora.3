@@ -24,15 +24,15 @@
 	var/material/padding_material
 
 	var/base_icon = "bed"
+	var/material_alteration = MATERIAL_ALTERATION_ALL
+	var/buckling_sound = 'sound/effects/buckle.ogg'
+
 	var/can_dismantle = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	var/apply_material_color = TRUE
 	var/makes_rolling_sound = TRUE
-	var/buckle_sound = 'sound/effects/buckle.ogg'
-
 	slowdown = 5
 
-/obj/structure/bed/New(newloc, var/new_material = DEFAULT_WALL_MATERIAL, var/new_padding_material)
+/obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)
 	..(newloc)
 	color = null
 	material = SSmaterials.get_material_by_name(new_material)
@@ -45,41 +45,42 @@
 
 /obj/structure/bed/buckle_mob(mob/living/M)
 	. = ..()
-	if(. && buckle_sound)
-		playsound(src, buckle_sound, 20)
+	if(. && buckling_sound)
+		playsound(src, buckling_sound, 20)
 
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()
 	// Prep icon.
 	icon_state = ""
 	cut_overlays()
-	var/list/stool_cache = SSicon_cache.stool_cache
 	// Base icon.
+	var/list/stool_cache = SSicon_cache.stool_cache
+
 	var/cache_key = "[base_icon]-[material.name]"
 	if(!stool_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
-		if(apply_material_color)
+		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
 		stool_cache[cache_key] = I
 	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
-		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]"
+		var/padding_cache_key = "[base_icon]-[padding_material.name]-padding"
 		if(!stool_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding")
-			if(apply_material_color)
+			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
 
 	// Strings.
-	desc = initial(desc)
-	if(padding_material)
-		name = "[padding_material.display_name] [initial(name)]" //this is not perfect but it will do for now.
-		desc += " It's made of [material.use_name] and covered with [padding_material.use_name]."
-	else
-		name = "[material.display_name] [initial(name)]"
-		desc += " It's made of [material.use_name]."
+	if(material_alteration & MATERIAL_ALTERATION_NAME)
+		name = padding_material ? "[padding_material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
+
+	if(material_alteration & MATERIAL_ALTERATION_DESC)
+		desc = initial(desc)
+		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name]." : " It's made of [material.use_name]."
+
 
 /obj/structure/bed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASSTABLE))
