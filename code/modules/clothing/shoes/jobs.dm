@@ -28,9 +28,6 @@
 	icon_state = "kneeboots"
 	item_state = "kneeboots"
 
-/obj/item/clothing/shoes/jackboots/knee/handle_movement(var/turf/walking, var/running)
-	trip_up()
-
 /obj/item/clothing/shoes/jackboots/thigh
 	name = "thigh-length black boots"
 	desc = "Even taller synthleather boots with an artificial shine."
@@ -38,8 +35,8 @@
 	item_state = "thighboots"
 
 /obj/item/clothing/shoes/jackboots/thigh/handle_movement(var/turf/walking, var/running)
-	trip_up()
-	
+	trip_up(walking, running)
+
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less black boots"
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."

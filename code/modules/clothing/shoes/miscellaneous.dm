@@ -195,7 +195,7 @@ obj/item/clothing/shoes/sandal/clogs
 	return eyestab(M,user)
 
 /obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
-	trip_up()
+	trip_up(walking, running)
 
 /obj/item/clothing/shoes/winter
 	name = "winter boots"
