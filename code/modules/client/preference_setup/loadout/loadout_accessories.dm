@@ -251,7 +251,7 @@
 /datum/gear/accessory/detbadge
 	display_name = "badge, detective"
 	path = /obj/item/clothing/accessory/badge/dia
-	allowed_roles = list("Detective, Forensic Technician")
+	allowed_roles = list("Detective", "Forensic Technician")
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"
