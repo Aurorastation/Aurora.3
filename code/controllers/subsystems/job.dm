@@ -695,7 +695,9 @@
 
 	// Delete them from datacore.
 
-	SSrecords.remove_record_by_field("name", H.real_name)
+	if(!SSrecords.remove_record_by_field("fingerprint", H.get_full_print()))
+		// didn't find a record by fingerprint, fallback to deleting by name
+		SSrecords.remove_record_by_field("name", H.real_name)
 	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)

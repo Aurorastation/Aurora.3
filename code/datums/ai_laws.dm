@@ -176,6 +176,7 @@ var/global/const/base_law_type = /datum/ai_laws/nanotrasen
 /datum/ai_laws/proc/delete_law(var/datum/ai_law/law)
 	if(istype(law))
 		law.delete_law(src)
+	sorted_laws.Cut()
 
 /datum/ai_law/proc/delete_law(var/datum/ai_laws/laws)
 

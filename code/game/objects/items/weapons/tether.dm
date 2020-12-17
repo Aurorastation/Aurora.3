@@ -35,10 +35,8 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/process()
 	var/turf/our_turf = get_turf(src)
-	for(var/tether in all_tethers)
+	for(var/tether in all_tethers - src)
 		var/obj/item/tethering_device/TD = tether
-		if(TD == src)
-			continue
 		if(!TD.active)
 			continue
 		var/turf/target_turf = get_turf(TD)

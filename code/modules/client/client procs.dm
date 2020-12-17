@@ -29,6 +29,14 @@
 			..()
 		return
 
+	if(href_list["vueuiclose"])
+		var/datum/vueui/ui = locate(href_list["src"])
+		if(istype(ui))
+			ui.close()
+		else // UI is an orphan, close it directly.
+			src << browse(null, "window=vueui[href_list["src"]]")
+		return
+
 	// asset_cache
 	if(href_list["asset_cache_confirm_arrival"])
 		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
@@ -744,10 +752,16 @@
 				return
 
 		if(istype(M) && !M.incapacitated())
-			var/obj/item/gun/gun = mob.get_active_hand()
-			if(istype(gun) && gun.can_autofire())
-				M.set_dir(get_dir(M, over_object))
-				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
+			var/obj/item/I = M.get_active_hand()
+			if(istype(I, /obj/item/gun))
+				var/obj/item/gun/gun = I
+				if(gun.can_autofire())
+					M.set_dir(get_dir(M, over_object))
+					gun.Fire(get_turf(over_object), M, params, (get_dist(over_object, M) <= 1), FALSE)
+
+			if(istype(I, /obj/item/rfd/mining) && isturf(over_object))
+				var/proximity = M.Adjacent(over_object)
+				var/obj/item/rfd/mining/RFDM = I
+				RFDM.afterattack(over_object, M, proximity, params, FALSE)
+
 	CHECK_TICK
-
-

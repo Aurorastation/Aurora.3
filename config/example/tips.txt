@@ -15,7 +15,7 @@ You can move an item out of the way by dragging it and then clicking on an adjac
 Maintenance is full of equipment that is randomized every round. Look around and see if anything is worth using. There are many places around the station to hide contraband. A few for starters: linen boxes, toilet cisterns, body bags. Experiment to find more!
 As the Captain, you are one of the highest priority targets on the station. Everything from revolutions, to mercenaries, to traitors that need to rob you of your antique laser gun or your life are things to worry about.
 As the Captain, you have absolute access and control over the station, but this does not mean that being a horrible person won't result in mutiny and a ban.
-As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and EMTs during a pirate raid, blob infestation, or some other crisis to keep people alive and fighting.
+As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and first responders during a pirate raid, blob infestation, or some other crisis to keep people alive and fighting.
 As a Physician, you can attempt to draw blood from a husk with a syringe to determine the cause. If you can extract blood, it was caused by extreme temperatures or lasers, if there is no blood to extract, it was caused by something unnatural.
 As a Physician, you can surgically implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.
 As a Physician, remember to target the correct limb and be on help intent when trying to perform surgery on someone.

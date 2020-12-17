@@ -389,10 +389,10 @@
 	desc = "Medical Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-/var/const/access_emt = 67
-/datum/access/access_emt
-	id = access_emt
-	desc = "EMT Equipment"
+/var/const/access_first_responder = 67
+/datum/access/access_first_responder
+	id = access_first_responder
+	desc = "First Responder Equipment"
 	region = ACCESS_REGION_MEDBAY
 
 /var/const/access_detective = 68

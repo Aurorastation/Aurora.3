@@ -8,7 +8,7 @@
 	var/no_guns = FALSE	//set to TRUE to prevent users of this style from using guns
 	var/no_guns_message = ""	//message to tell the style user if they try and use a gun while no_guns = TRUE (DISHONORABRU!)
 	var/temporary = 0
-	var/weapon_affinity	//if this martial art has any interaction with a weapon, also spawns said weapon when the manual is used
+	var/list/weapon_affinity	//if this martial art has any interaction with a weapon
 	var/parry_multiplier = 1	//if this martial art increases the chance of parrying with the weapon
 	var/list/possible_weapons //if any weapon is spawned when you use the martial art manual
 
