@@ -575,14 +575,17 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if(!user || isnull(user))
 		return 0
 
-	if (!act_target)
-		act_target = user
-
 	var/Location
+	var/act_location
 	if(use_user_turf)	//When this is true, do_after() will check whether the user's turf has changed, rather than the user's loc.
 		Location = get_turf(user)
 	else
 		Location = user.loc
+
+	if (!act_target)
+		act_target = user
+	else
+		act_location = get_turf(act_target)
 
 	var/holding = user.get_active_hand()
 
@@ -606,7 +609,11 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		else
 			user_loc_to_check = user.loc
 
-		if (!user || user.stat || user.weakened || user.stunned || (use_user_turf >= 0 && user_loc_to_check != Location))
+		if (!user || user.stat || user.weakened || user.stunned)
+			. = 0
+			break
+
+		if ((use_user_turf >= 0 && user_loc_to_check != Location) || (act_location && (get_turf(act_target) != act_location)))
 			. = 0
 			break
 
@@ -890,6 +897,91 @@ var/list/wall_items = typecacheof(list(
 		if (is_type_in_typecache(O, global.wall_items) && O.pixel_x == 0 && O.pixel_y == 0)
 			return 1
 	return 0
+
+// Returns a variable type as string, optionally with some details:
+// Objects (datums) get their type, paths get the type name, scalars show length (text) and value (numbers), lists show length.
+// Also attempts some detection of otherwise undetectable types using ref IDs
+var/global/known_proc = new /proc/get_type_ref_bytes
+/proc/get_debug_type(var/V, var/details = TRUE, var/print_numbers = TRUE, var/path_names = TRUE, var/text_lengths = TRUE, var/list_lengths = TRUE, var/show_useless_subtypes = TRUE)
+	// scalars / basic types
+	if(isnull(V))
+		return "null"
+	if(ispath(V))
+		return details && path_names ? "path([V])" : "path"
+	if(istext(V))
+		return details && text_lengths ? "text([length(V) ])" : "text"
+	if(isnum(V)) // Byond doesn't really differentiate between floats and ints, but we can sort of guess here
+		// also technically we could also say that 0 and 1 are boolean but that'd be quite silly
+		if(IsInteger(V) && V < 16777216 && V > -16777216)
+			return details && print_numbers ? "int([V])" : "int"
+		if(V >= INFINITY)
+			return details ? "float(+INF)" : "float"
+		if(V <= -INFINITY)
+			return details ? "float(-INF)" : "float"
+		return details && print_numbers ? "float([V])" : "float"
+	// Resource types
+	if(isicon(V))
+		return "icon"
+	if(isfile(V))
+		return "file"
+	// Types that don't inherit from /datum (note that /world is not here because you can't hold a reference to it)
+	if(islist(V))
+		return details && list_lengths ? "list([length(V)])" : "list"
+	if(isclient(V))
+		return "client"
+	if(istype(V, /savefile))
+		return "savefile"
+	// Finally actual objects that inherit from /datum
+	// We want to differentiate at least the basic "special" Byond types
+	var/datum/D = V
+	if(isarea(D))
+		return details ? "area([D.type])" : "area"
+	if(isturf(D))
+		return details ? "turf([D.type])" : "turf"
+	if(ismob(D))
+		return details ? "mob([D.type])" : "mob"
+	if(isobj(D))
+		return details ? "obj([D.type])" : "obj"
+	if(istype(D, /atom/movable)) // according to DM docs there should be no defined types under this but there certainly are some
+		return details ? "movable([D.type])" : "movable"
+	if(isatom(D))
+		return details ? "atom([D.type])" : "atom"
+	if(istype(D, /database))
+		return details && show_useless_subtypes ? "database([D.type])" : "database"
+	if(istype(D, /exception))
+		return details && show_useless_subtypes ? "exception([D.type])" : "exception"
+	if(istype(D, /mutable_appearance)) // must come before /image
+		return details && show_useless_subtypes ? "mutable_appearance([D.type])" : "mutable_appearance"
+	if(istype(D, /image))
+		return details ? "image([D.type])" : "image"
+	if(istype(D, /matrix))
+		return details && show_useless_subtypes ? "matrix([D.type])" : "matrix"
+	if(istype(D, /regex))
+		return details && show_useless_subtypes ? "regex([D.type])" : "regex"
+	if(istype(D, /sound))
+		return details ? "sound([D.type])" : "sound"
+	if(istype(D, /decl))
+		return details ? "decl([D.type])" : "decl"
+	if(isdatum(D))
+		return details ? "datum([D.type])" : "datum"
+	if(istype(D)) // let's future proof ourselves
+		return details ? "unknown-object([D.type])" : "unknown-object"
+	// some undetectable types
+	var/refType = get_type_ref_bytes(V)
+	if(refType == "")
+		return "unknown"
+	if(refType == get_type_ref_bytes(known_proc)) // it's a proc of some kind
+		if(istext(V?:name) && V:name != "") // procs with names are generally verbs
+			return "verb"
+		return "proc"
+	if(refType == "53")
+		return "filters"
+	if(refType == "3a")
+		return "appearance"
+	return "unknown-object([refType])" // If you see this you found a new undetectable type. Feel free to add it here.
+
+/proc/get_type_ref_bytes(var/V) // returns first 4 bytes from \ref which denote the object type (for objects that is)
+	return lowertext(copytext(ref(V), 4, 6))
 
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")

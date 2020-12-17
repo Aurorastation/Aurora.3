@@ -68,12 +68,16 @@
 	if(href_list["PC_enable_component"])
 		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_enable_component"])
 		if(H && istype(H) && !H.enabled)
-			H.enabled = TRUE
+			H.enable()
 		. = TRUE
 	if(href_list["PC_disable_component"])
 		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_disable_component"])
 		if(H && istype(H) && H.enabled)
-			H.enabled = 0
+			H.disable()
+		. = TRUE
+	if(href_list["PC_togglelight"])
+		if(flashlight)
+			flashlight.toggle()
 		. = TRUE
 	if(href_list["PC_shutdown"])
 		shutdown_computer()
@@ -148,6 +152,8 @@
 		VUEUI_SET_CHECK(data["apclinkicon"], "charging.gif", ., data)
 	else
 		VUEUI_SET_CHECK(data["apclinkicon"], "", ., data)
+
+	data["flashlight"] = flashlight?.enabled ? TRUE : FALSE
 
 	switch(get_ntnet_status())
 		if(0)

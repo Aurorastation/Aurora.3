@@ -35,6 +35,14 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/laser1.ogg')
 		)
 
+/obj/item/gun/energy/rifle/update_icon()
+	..()
+	if(wielded)
+		item_state = "[initial(icon_state)]-wielded"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
+
 
 /obj/item/gun/energy/rifle/laser
 	name = "laser rifle"

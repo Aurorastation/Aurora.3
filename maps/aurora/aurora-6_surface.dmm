@@ -6472,6 +6472,7 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/corner/blue/full,
+/obj/item/gun/energy/mousegun/xenofauna,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lW" = (
@@ -6518,6 +6519,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/item/gun/energy/mousegun/xenofauna,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "ma" = (
@@ -11821,6 +11823,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"wn" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/tcommsat/computer)
 "wp" = (
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "5,13"
@@ -39229,7 +39235,7 @@ bg
 bh
 cc
 cx
-ci
+wn
 dm
 dG
 dY

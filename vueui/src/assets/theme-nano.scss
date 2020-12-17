@@ -1,5 +1,17 @@
 // Theme that emulates nanoui look
+
+@use 'sass:color';
+@import './_mixins.scss';
+
+$scrollbar-color-multiplier: 1 !default;
+$color-bg: #FFFFFF !default;
+$text-color: rgba(255, 255, 255, 0.75) !default;
+$header-bg: #363636 !default;
+$shadow-color-core: #161616 !default;
+$shadow-color: rgba(0, 0, 0, 0.1) !default;
+
 .theme-nano {
+    $color-bg: #202020;
     font-size: 12px;
     line-height: 1.9em;
     font-family: Verdana, Geneva, sans-serif;
@@ -9,6 +21,39 @@
         background-color: #40628a;
         height: 1px;
     }
+
+    .uiTitleWrapper {
+        background-color: $header-bg;
+        box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
+        .uiTitleText {
+            color: #E9C183;
+        }
+        .uiTitleClose {
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    scrollbar-base-color: color.scale(
+        $color-bg,
+        $lightness: -25% * $scrollbar-color-multiplier);
+    scrollbar-face-color: color.scale(
+        $color-bg,
+        $lightness: 10% * $scrollbar-color-multiplier);
+    scrollbar-3dlight-color: color.scale(
+        $color-bg,
+        $lightness: 0% * $scrollbar-color-multiplier);
+    scrollbar-highlight-color: color.scale(
+        $color-bg,
+        $lightness: 0% * $scrollbar-color-multiplier);
+    scrollbar-track-color: color.scale(
+        $color-bg,
+        $lightness: -25% * $scrollbar-color-multiplier);
+    scrollbar-arrow-color: color.scale(
+        $color-bg,
+        $lightness: 50% * $scrollbar-color-multiplier);
+    scrollbar-shadow-color: color.scale(
+        $color-bg,
+        $lightness: 10% * $scrollbar-color-multiplier);
 
     a, .button, button, input[type=submit], input[type=button], input[type=reset]{
         display: inline-block;
@@ -128,37 +173,6 @@
         margin: 4px 0 4px 0;
         border: 1px solid #c2a26f;
     }
-    
-    .uiTitleWrapper {
-        background: url(resources/theme-nano/uiTitleBackground.png) repeat center;
-        box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
-        .uiTitleText {
-            color: #E9C183;
-        }
-    }
-
-    .uiTitleFluff {
-        display: block;
-        position: relative;
-        float: right;
-        top: 4px;
-        right: 10px;
-        width: 42px;
-        height: 24px;
-        background: url(resources/theme-nano/uiTitleFluff.png) 50% 50% no-repeat;
-    }
-
-    .uiStatusIcon {
-        &.uiStatusGood {
-            color: #4e7428;
-        }
-        &.uiStatusAverage {
-            color: #cb6400;
-        }
-        &.uiStatusBad {
-            color: #a70000;
-        }
-    }
 
     .displayBar {
         background: #000000;
@@ -209,9 +223,9 @@
         .uiTitleText {
             color: #4C401C;
         }
-    }
-    .uiTitleFluff {
-        background: url(resources/theme-nano/uiTitleFluff-light.png) 50% 50% no-repeat;
+        .uiTitleClose {
+            color: rgba(0, 0, 0, 1);
+        }
     }
 
     .good {

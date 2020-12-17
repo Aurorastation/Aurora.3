@@ -5,26 +5,6 @@
 	icon_state = "chefhat"
 	item_state = "chefhat"
 
-//Captain
-/obj/item/clothing/head/caphat
-	name = "captain's hat"
-	icon_state = "captain"
-	desc = "It's good being the king."
-	item_state_slots = list(
-		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat"
-		)
-
-/obj/item/clothing/head/caphat/cap
-	name = "captain's cap"
-	desc = "You fear to wear it for the negligence it brings."
-	icon_state = "capcap"
-
-/obj/item/clothing/head/caphat/formal
-	name = "parade hat"
-	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
-	icon_state = "officercap"
-
 //HOP
 /obj/item/clothing/head/caphat/hop
 	name = "crew resource's hat"

@@ -794,7 +794,7 @@
 /datum/chemical_reaction/plastication/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/stack/material/plastic(get_turf(holder.my_atom), created_volume)
 	return
-	
+
 /datum/chemical_reaction/uraniumsolidification
     name = "Uranium"
     id = "soliduranium"
@@ -1351,7 +1351,6 @@
 		/mob/living/simple_animal/hostile/krampus,
 		/mob/living/simple_animal/hostile/gift,
 		/mob/living/simple_animal/hostile/hivebotbeacon,
-		/mob/living/simple_animal/hostile/hivebotbeacon/toxic,
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,
@@ -2020,10 +2019,10 @@
 	required_reagents = list(/datum/reagent/alcohol/ethanol/gin = 2, /datum/reagent/drink/tonic = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/drink/cuba_libre
-	name = "Cuba Libre"
-	id = "cubalibre"
-	result = /datum/reagent/alcohol/ethanol/cubalibre
+/datum/chemical_reaction/drink/rumandcola
+	name = "Rum and Cola"
+	id = "rumandcola"
+	result = /datum/reagent/alcohol/ethanol/rumandcola
 	required_reagents = list(/datum/reagent/alcohol/ethanol/rum = 2, /datum/reagent/drink/space_cola = 1)
 	result_amount = 3
 
@@ -3669,3 +3668,101 @@
 	required_reagents = list(/datum/reagent/spacespice/pumpkinspice = 2, /datum/reagent/drink/syrup_simple = 3)
 	result_amount = 5
 	mix_message = "The solution takes on an orange hue and the aroma of pumpkin spice."
+
+/datum/chemical_reaction/drink/cuba_libre
+	name = "Cuba Libre"
+	id = "cubalibre"
+	result = /datum/reagent/alcohol/ethanol/cubalibre
+	required_reagents = list(/datum/reagent/alcohol/ethanol/rumandcola = 2, /datum/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/solarian_white
+	name = "Solarian White"
+	id = "solarian_white"
+	result = /datum/reagent/alcohol/ethanol/solarian_white
+	required_reagents = list(/datum/reagent/alcohol/ethanol/vodka = 1, /datum/reagent/drink/milk/cream = 1, /datum/reagent/drink/limejuice =1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/solarian_marine
+	name = "Solarian Marine"
+	id = "solarian_marine"
+	result = /datum/reagent/alcohol/ethanol/solarian_marine
+	required_reagents = list(/datum/reagent/drink/tea/securitea = 1, /datum/reagent/alcohol/ethanol/whiskey = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/cloudyoran
+	name = "Cloudy Oran"
+	id = "cloudyoran"
+	result = /datum/reagent/alcohol/ethanol/cloudyoran
+	required_reagents = list(/datum/reagent/alcohol/ethanol/sake = 1, /datum/reagent/drink/tea/greentea = 1, /datum/reagent/drink/milk/soymilk = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/djinntea
+	name = "Djinn Tea"
+	id = "djinntea"
+	result = /datum/reagent/alcohol/ethanol/djinntea
+	required_reagents = list(/datum/reagent/drink/dynjuice/cold = 1, /datum/reagent/alcohol/ethanol/gin = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/permanent_revolution
+	name = "Permanent Revolution"
+	id = "permanent_revolution"
+	result = /datum/reagent/alcohol/ethanol/permanent_revolution
+	required_reagents = list(/datum/reagent/alcohol/ethanol/absinthe = 1, /datum/reagent/alcohol/ethanol/vodka/mushroom = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/internationale
+	name = "Internationale"
+	id = "internationale"
+	result = /datum/reagent/alcohol/ethanol/internationale
+	required_reagents = list(/datum/reagent/alcohol/ethanol/victorygin = 1, /datum/reagent/alcohol/ethanol/vodka/mushroom = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/diona_mama
+	name = "Diona Mama"
+	id = "diona_mama"
+	result = /datum/reagent/alcohol/ethanol/diona_mama
+	required_reagents = list(/datum/reagent/alcohol/ethanol/absinthe = 2, /datum/reagent/drink/limejuice = 2, /datum/reagent/radium = 1, /datum/reagent/drink/ice = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/jovian_storm
+	name = "Jovian Storm"
+	id = "jovian_storm"
+	result = /datum/reagent/alcohol/ethanol/jovian_storm
+	required_reagents = list(/datum/reagent/alcohol/ethanol/rum = 2, /datum/reagent/drink/grenadine = 2, /datum/reagent/drink/lemonjuice = 1, /datum/reagent/drink/ice = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/primeminister
+	name = "Prime Minister"
+	id = "primeminister"
+	result = /datum/reagent/alcohol/ethanol/primeminister
+	required_reagents = list(/datum/reagent/alcohol/ethanol/rum = 4, /datum/reagent/alcohol/ethanol/vermouth = 1, /datum/reagent/drink/grenadine = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/peacetreaty
+	name = "Peace Treaty"
+	id = "peacetreaty"
+	result = /datum/reagent/alcohol/ethanol/peacetreaty
+	required_reagents = list(/datum/reagent/alcohol/ethanol/victorygin = 1, /datum/reagent/alcohol/ethanol/messa_mead = 1, /datum/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/fiscream
+	name = "Fisanduhian Cream"
+	id = "fiscream"
+	result = /datum/reagent/alcohol/ethanol/fiscream
+	required_reagents = list(/datum/reagent/alcohol/ethanol/fireball = 2, /datum/reagent/drink/milk/cream = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/fiscoffee
+	name = "Fisanduhian Coffee"
+	id = "fiscoffee"
+	result = /datum/reagent/alcohol/ethanol/coffee/fiscoffee
+	required_reagents = list(/datum/reagent/alcohol/ethanol/fiscream = 1, /datum/reagent/drink/coffee = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/fisfirebomb
+	name = "Fisanduhian Firebomb"
+	id = "fiscarbomb"
+	result = /datum/reagent/alcohol/ethanol/fisfirebomb
+	required_reagents = list(/datum/reagent/alcohol/ethanol/ale = 1, /datum/reagent/alcohol/ethanol/fiscream = 1)
+	result_amount = 2

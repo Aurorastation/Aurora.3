@@ -179,3 +179,11 @@
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/computer_hardware/ai_slot
+
+// Flashlight
+
+/datum/design/item/modularcomponent/flashlight
+	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	build_type = IMPRINTER
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
+	build_path = /obj/item/computer_hardware/flashlight

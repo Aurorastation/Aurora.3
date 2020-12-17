@@ -1,0 +1,144 @@
+---
+kind: pipeline
+type: docker
+name: code check
+
+clone:
+  depth: 50
+
+environment:
+  MACRO_COUNT: 0
+  GENDER_COUNT: 6
+  TO_WORLD_COUNT: 206
+
+trigger:
+  branch:
+  - master #avoid double builds on PRs
+
+steps:
+  - name: "Runtime - Compile and Run Unit Tests"
+    image: python:3.6-slim-buster
+    commands:
+      - pip install --user -r ./tools/requirements.txt
+      - pip install --user PyYaml -q # Why is that shit not in the requirements
+      - pip install --user beautifulsoup4 -q # Same here
+      - chmod +x ./scripts/code_check.sh && ./scripts/code_check.sh $PWD
+      - awk -f tools/indentation.awk **/*.dm
+      - python3 tools/TagMatcher/tag-matcher.py ../..
+      - python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+      - python3 tools/mapmerge2/travis_mapcheck.py
+      - echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
+      - echo "Completed Code Checks"
+  - name: "Run DreamChecker"
+    image: aurorastation/dm-buildimage:latest
+    commands:
+      - /opt/dreamchecker
+  - name: "Vue - Lint and Compile"
+    image: node:10-buster
+    commands:
+      - cd vueui
+      - npm install # TODO: Cache that shit
+      - (npm run lint | tee lint.log)
+      - npm run build
+---
+kind: pipeline
+type: docker
+name: dm-runtime
+
+clone:
+  depth: 50
+
+environment:
+  USE_MAP: runtime
+
+services:
+  - name: mariadb
+    image: mariadb:10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: game
+      MYSQL_USER: build
+      MYSQL_PASSWORD: build
+
+trigger:
+  branch:
+  - master #avoid double builds on PRs
+
+steps:
+  - name: "Migrate DB - Wing it without flyway"
+    image: mariadb:10.3
+    commands:
+      - sleep 20
+      - for f in SQL/migrate/*.sql; do mysql -h mariadb -uroot -proot game < $f && echo "Migrated $f"; done
+      - mysql -h mariadb -uroot -proot game -e "SHOW TABLES;"
+
+  - name: "Runtime - Compile and Run Unit Tests"
+    image: aurorastation/dm-buildimage:latest
+    commands:
+      - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+      - cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
+      - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
+      - grep "0 warnings" build_log.txt
+      - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+      - grep "All Unit Tests Passed" log.txt
+      - (! grep "runtime error:" log.txt)
+      - echo "Unit Tests Completed"
+---
+kind: pipeline
+type: docker
+name: dm-aurora
+
+clone:
+  depth: 50
+
+environment:
+  USE_MAP: aurora
+
+trigger:
+  branch:
+  - master #avoid double builds on PRs
+
+steps:
+  - name: "Aurora - Compile and Run Unit Tests"
+    image: aurorastation/dm-buildimage:latest
+    commands:
+      - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+      - cp config/example/* config/ && cp config/ut/config-nodb.txt config/config.txt
+      - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
+      - grep "0 warnings" build_log.txt
+      - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+      - grep "All Unit Tests Passed" log.txt
+      - (! grep "runtime error:" log.txt)
+      - echo "Unit Tests Completed"
+---
+kind: pipeline
+type: docker
+name: dm-exodus
+
+clone:
+  depth: 50
+
+environment:
+  USE_MAP: exodus
+
+trigger:
+  branch:
+  - master #avoid double builds on PRs
+
+steps:
+  - name: "Exodus - Compile and Run Unit Tests"
+    image: aurorastation/dm-buildimage:latest
+    commands:
+      - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+      - cp config/example/* config/ && cp config/ut/config-nodb.txt config/config.txt
+      - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
+      - grep "0 warnings" build_log.txt
+      - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+      - grep "All Unit Tests Passed" log.txt
+      - (! grep "runtime error:" log.txt)
+      - echo "Unit Tests Completed"
+---
+kind: signature
+hmac: 21286f11eaa90a42d926886ecc2df9312ad174051f5f42b51d4394cc578ae0ee
+
+...

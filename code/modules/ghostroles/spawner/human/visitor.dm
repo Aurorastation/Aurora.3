@@ -9,6 +9,8 @@
 	req_perms = null
 	max_count = 1
 
+	show_on_job_select = FALSE
+
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/random/visitor
 	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_TAJARA, SPECIES_UNATHI)

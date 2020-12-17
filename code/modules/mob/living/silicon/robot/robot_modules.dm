@@ -119,7 +119,7 @@ var/global/list/robot_modules = list(
 		else if(F.times_used)
 			F.times_used--
 
-	if(E?.reagents.total_volume < E.reagents.maximum_volume)
+	if(E && E.reagents.total_volume < E.reagents.maximum_volume)
 		E.reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
 
 	if(!synths.len)
@@ -202,9 +202,8 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/general/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
 	src.modules += new /obj/item/surgery/scalpel(src)
 	src.modules += new /obj/item/surgery/hemostat(src)
 	src.modules += new /obj/item/surgery/retractor(src)
@@ -284,13 +283,12 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/rescue/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/device/mass_spectrometer(src)
 	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.modules += new /obj/item/roller_holder(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/rescue(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/rescue(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/gripper/chemistry(src)
@@ -637,7 +635,7 @@ var/global/list/robot_modules = list(
 	src.modules += L
 
 	src.modules += new /obj/item/tray/robotray(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/service(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/service(src)
 	src.emag = new /obj/item/reagent_containers/food/drinks/bottle/small/beer(src)
 
 	var/datum/reagents/RG = new /datum/reagents(50)
@@ -692,6 +690,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/gripper/miner(src)
 	src.modules += new /obj/item/rfd/mining(src)
+	src.modules += new /obj/item/ore_detector(src)
 	src.modules += new /obj/item/mining_scanner(src)
 	src.modules += new /obj/item/ore_radar(src)
 	src.modules += new /obj/item/pen/robopen(src)
@@ -840,7 +839,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
 	src.modules += new /obj/item/plastique/cyborg(src)
 	src.modules += new /obj/item/grenade/smokebomb/cyborg(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -858,7 +857,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/combat/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/gun/energy/laser/mounted(src)
 	src.modules += new /obj/item/melee/hammer/powered(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
@@ -978,12 +976,20 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/mining_scanner(src)
 	modules += new /obj/item/device/gps/mining(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	modules += new /obj/item/rfd/mining(src)
+	modules += new /obj/item/tethering_device(src)
+	modules += new /obj/item/ore_detector(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(20000)
 	synths += metal
+
 	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
 	rods.synths = list(metal)
 	modules += rods
+
+	var/obj/item/stack/flag/purple/borg/beacons = new /obj/item/stack/flag/purple/borg(src)
+	beacons.synths = list(metal)
+	modules += beacons
 
 	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	emag.name = "Mounted Plasma Cutter"
@@ -1027,7 +1033,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_ROBOT =       TRUE,
 					LANGUAGE_DRONE =       TRUE,
 					LANGUAGE_EAL =         TRUE,
-					LANGUAGE_VOX =         TRUE,
 					LANGUAGE_CHANGELING =  TRUE,
 					LANGUAGE_BORER =       TRUE
 					)
@@ -1049,8 +1054,6 @@ var/global/list/robot_modules = list(
 	. = ..()
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
-	src.modules += new /obj/item/borg/sight/hud/med(src)
-	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/rfd/construction/borg/infinite(src)
 	src.modules += new /obj/item/extinguisher(src)
 	src.modules += new /obj/item/weldingtool/largetank(src)
@@ -1067,7 +1070,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/inflatable_dispenser(src)
 	// Medical
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
 	src.modules += new /obj/item/surgery/scalpel(src)
 	src.modules += new /obj/item/surgery/hemostat(src)
 	src.modules += new /obj/item/surgery/retractor(src)
@@ -1080,7 +1083,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/chemistry(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/rescue(src)
+	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/rescue(src)
 	src.modules += new /obj/item/roller_holder(src)
 	// Security
 	src.modules += new /obj/item/handcuffs/cyborg(src)

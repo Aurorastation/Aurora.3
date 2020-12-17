@@ -104,7 +104,7 @@
 	name = "water tank"
 	desc = "A tank filled with water."
 	icon_state = "watertank"
-	amount_per_transfer_from_this = 100
+	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/datum/reagent/water = 1000)
 
 /obj/structure/reagent_dispensers/lube

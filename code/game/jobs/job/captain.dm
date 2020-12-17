@@ -3,15 +3,14 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/captain
 	title = "Captain"
 	flag = CAPTAIN
-	department = "Command"
-	head_position = 1
+	departments = list(DEPARTMENT_COMMAND = JOBROLE_SUPERVISOR)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "company officials and Corporate Regulations"
-	selection_color = "#4747FF"
+	selection_color = "#114dc1"
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 	minimal_player_age = 14
@@ -32,7 +31,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	uniform = /obj/item/clothing/under/rank/captain
 	shoes = /obj/item/clothing/shoes/brown
 	head = /obj/item/clothing/head/caphat
-	l_ear = /obj/item/device/radio/headset/heads/captain
+	headset = /obj/item/device/radio/headset/heads/captain
+	bowman = /obj/item/device/radio/headset/heads/captain/alt
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
@@ -71,15 +71,14 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/hop
 	title = "Head of Personnel"
 	flag = HOP
-	department = "Civilian"
-	head_position = 1
+	departments = list(DEPARTMENT_CIVILIAN = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#9696FF"
+	selection_color = "#90524b"
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = 50
@@ -107,7 +106,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/hop
+	headset = /obj/item/device/radio/headset/heads/hop
+	bowman = /obj/item/device/radio/headset/heads/hop/alt
 	id = /obj/item/card/id/navy
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/hop
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop

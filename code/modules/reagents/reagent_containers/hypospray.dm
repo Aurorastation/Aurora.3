@@ -17,7 +17,7 @@
 	amount_per_transfer_from_this = 5
 	unacidable = 1
 	volume = 15
-	possible_transfer_amounts = null
+	possible_transfer_amounts = list(5, 10, 15)
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/gun.ogg'
@@ -42,17 +42,21 @@
 	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
+	possible_transfer_amounts = list(5, 10, 15, 30)
 	time = 0
 
 /obj/item/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
 	. = ..()
-	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [M] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [M] with \the [src]."))
+	if(isliving(M))
+		var/mob/living/L = M
 		var/inj_time = time
-		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
+		inj_time *= L.can_inject(user, TRUE)
+		if(!inj_time)
+			return
+		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
+		if(armorcheck && L.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			inj_time += 6 SECONDS
-		if(!do_mob(user, M, inj_time))
+		if(!do_mob(user, L, inj_time))
 			return 1
 
 /obj/item/reagent_containers/hypospray/update_icon()
@@ -105,6 +109,7 @@
 	var/empty_state = "autoinjector0"
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = null
 	volume = 5
 	time = 0
 
@@ -158,15 +163,11 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name = "autoinjector (inaprovaline)"
-	volume = 5
-	amount_per_transfer_from_this = 20
-	flags = 0
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
-	. =..()
+	. = ..()
 	reagents.add_reagent(/datum/reagent/inaprovaline, 5)
 	update_icon()
-	return
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
 	name = "sideeffects-be-gone! autoinjector"

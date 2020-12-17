@@ -97,6 +97,9 @@
 
 /obj/item/modular_computer/Destroy()
 	kill_program(TRUE)
+	if(registered_id)
+		registered_id.chat_registered = FALSE
+		registered_id = null
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
@@ -133,8 +136,8 @@
 			else
 				add_overlay(icon_state_screensaver)
 
-		if (screensaver_light_range && working)
-			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
+		if (screensaver_light_range && working && !flashlight)
+			set_light(screensaver_light_range, light_power, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
 		else
 			set_light(0)
 		return
@@ -144,13 +147,15 @@
 			holographic_overlay(src, src.icon, state)
 		else
 			add_overlay(state)
-		set_light(light_strength, l_color = active_program.color)
+		if(!flashlight)
+			set_light(light_range, light_power, l_color = active_program.color)
 	else
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_state_menu)
 		else
 			add_overlay(icon_state_menu)
-		set_light(light_strength, l_color = menu_light_color)
+		if(!flashlight)
+			set_light(light_range, light_power, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
 	if(tesla_link)
@@ -425,18 +430,18 @@
 /obj/item/modular_computer/proc/register_account(var/datum/computer_file/program/PRG = null)
 	var/obj/item/card/id/id = GetID()
 	if(PRG)
-		output_message(SPAN_NOTICE("\The [src] shows a notice: \"[PRG.filedesc] requires a registered NTNRC account. Registering automatically...\""))
+		output_notice("[PRG.filedesc] requires a registered NTNRC account. Registering automatically...")
 	if(!istype(id))
-		output_message(SPAN_WARNING("\The [src] shows an error: \"No ID card found!\""))
+		output_error("No ID card found!")
 		return FALSE
 	if(id.chat_registered)
-		output_message(SPAN_WARNING("\The [src] shows an error: \"This card is already registered to another account!\""))
+		output_error("This card is already registered to another account!")
 		return FALSE
 
 	id.chat_registered = TRUE
 	registered_id = id
-	output_message(SPAN_NOTICE("\The [src] beeps: \"Registration successful!\""))
-	playsound(get_turf(src), 'sound/machines/ping.ogg', 20, 0)
+	output_notice("Registration successful!")
+	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, 0)
 	return registered_id
 
 /obj/item/modular_computer/proc/unregister_account()

@@ -82,6 +82,8 @@
 
 
 /obj/machinery/power/generator_type2/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if(stat & (BROKEN|NOPOWER)) return
 	interact(user)
 

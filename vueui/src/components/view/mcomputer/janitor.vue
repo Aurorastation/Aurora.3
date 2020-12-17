@@ -39,7 +39,8 @@ export default {
   },
   methods: {
     generateName(n, k) {
-      if(n && k) {
+      if(n && !isNaN(k)) {
+        k += 1
         return n + " (#" + k + ")"
       }
     }

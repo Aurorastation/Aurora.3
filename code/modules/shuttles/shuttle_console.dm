@@ -13,6 +13,8 @@
 	ui_interact(user)
 
 /obj/machinery/computer/shuttle_control/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/computer/shuttle_control/attack_ghost(var/mob/abstract/observer/user)
