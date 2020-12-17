@@ -157,7 +157,7 @@ Contains:
 					else
 						to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 				use(used)
-				H.update_bandages(1)
+				H.update_bandages(TRUE)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery
 				if (do_surgery(H,user,src))
