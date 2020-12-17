@@ -137,11 +137,12 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[4] = world.view
 	return returns
 
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
 	if(message_mode == "intercom")
 		for(var/obj/item/device/radio/intercom/I in view(1, null))
+			used_radios += I
 			if(I.talk_into(src, message, verb, speaking))
-				used_radios += I
+				successful_radio += I
 	return 0
 
 /mob/living/proc/handle_speech_sound()
@@ -230,7 +231,8 @@ proc/get_radio_key_from_channel(var/channel)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking)
 
 	var/list/obj/item/used_radios = new
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name))
+	var/list/successful_radio = new // passes a list because standard vars don't work when passed
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio))
 		return 1
 
 	var/list/handle_v = handle_speech_sound()
@@ -241,19 +243,19 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 	//speaking into radios
-	if(used_radios.len)
+	if(length(used_radios))
 		italics = 1
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
 		var/msg
 		if(!speaking || !(speaking.flags & NO_TALK_MSG))
-			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]]</span>."
-		for(var/mob/living/M in hearers(5, src))
-			if((M != src) && msg)
+			msg = "<span class='notice'>\The [src] [length(successful_radio) ? "talks into" : "tries talking into"] \the [used_radios[1]]</span>."
+		for(var/mob/living/M in hearers(5, src) - src)
+			if(msg)
 				M.show_message(msg)
-			if (speech_sound)
-				sound_vol *= 0.5
+		if(speech_sound)
+			sound_vol *= 0.5
 
 	var/list/listening = list()
 	var/list/listening_obj = list()

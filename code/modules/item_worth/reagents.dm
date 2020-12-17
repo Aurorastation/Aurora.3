@@ -495,6 +495,45 @@
 /datum/reagent/alcohol/ethanol/tallrussian
 	value = 0.15
 
+/datum/reagent/alcohol/ethanol/solarian_white
+	value = 0.125
+
+/datum/reagent/alcohol/ethanol/solarian_marine
+	value = 0.2
+
+/datum/reagent/alcohol/ethanol/cloudyoran
+	value = 0.12
+
+/datum/reagent/alcohol/ethanol/djinntea
+	value = 0.12
+
+/datum/reagent/alcohol/ethanol/permanentrevolution
+	value = 0.13
+
+/datum/reagent/alcohol/ethanol/internationale
+	value = 0.13
+
+/datum/reagent/alcohol/ethanol/dionamama
+	value = 0.2
+
+/datum/reagent/alcohol/ethanol/jovianstorm
+	value = 0.13
+
+/datum/reagent/alcohol/ethanol/primeminister
+	value = 0.13
+
+/datum/reagent/alcohol/ethanol/peacetreaty
+	value = 0.15
+
+/datum/reagent/alcohol/ethanol/fiscream
+	value = 0.14
+
+/datum/reagent/alcohol/ethanol/coffee/fiscoffee
+	value = 0.13
+
+/datum/reagent/alcohol/ethanol/fisfirebomb
+	value = 0.15
+
 /datum/reagent/inaprovaline
 	value = 2.5
 

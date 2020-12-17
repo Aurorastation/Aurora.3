@@ -264,7 +264,7 @@ emp_act
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
 		effective_force /= 2 //half the effective force
-		if(!..(I, effective_force, blocked, hit_zone))
+		if(!..(I, user, effective_force, blocked, hit_zone))
 			return 0
 
 		attack_joint(affecting, I, blocked) //but can dislocate joints
@@ -444,6 +444,11 @@ emp_act
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O
+	else if(ishuman(AM))
+		var/mob/living/carbon/human/H = AM
+		H.Weaken(3)
+		Weaken(3)
+		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))
 
 /mob/living/carbon/human/embed(var/obj/O, var/def_zone=null)
 	if(!def_zone) ..()
@@ -564,3 +569,13 @@ emp_act
 		return 1
 	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
 	return 1
+
+/mob/living/carbon/human/set_on_fire()
+	..()
+	for(var/obj/item/I in contents)
+		I.catch_fire()
+
+/mob/living/carbon/human/extinguish_fire()
+	..()
+	for(var/obj/item/I in contents)
+		I.extinguish_fire()

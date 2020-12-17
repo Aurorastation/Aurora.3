@@ -575,7 +575,8 @@
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
 			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
-		qdel(in_chamber)
+
+		handle_post_fire(user, user, FALSE, FALSE, FALSE)
 		mouthshoot = FALSE
 		return
 	else

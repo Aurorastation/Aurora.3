@@ -737,7 +737,11 @@
 	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto [src.get_pronoun("him")]!"),
 		SPAN_DANGER("You had \the [src] fall onto you and strike you!"))
 
-	admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
+	if(istype(src, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/HV = src
+		admin_attack_log((HV.pilots.len ? HV.pilots[1] : null), L, "fell onto", "was fallen on by", "fell ontop of")
+	else
+		admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
 
 	playsound(L.loc, "sound/waepons/genhit[rand(1, 3)].ogg", 75, 1)
 

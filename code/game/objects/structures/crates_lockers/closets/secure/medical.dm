@@ -86,7 +86,7 @@
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
-	new /obj/item/clothing/suit/storage/medical_chest_rig/emt(src)
+	new /obj/item/clothing/suit/storage/medical_chest_rig/first_responder(src)
 
 
 /obj/structure/closet/secure_closet/CMO
@@ -191,6 +191,7 @@
 	icon_opened = "medical_wall_open"
 	icon_broken = "medical_wall_spark"
 	icon_off = "medical_wall_off"
+	store_mobs = FALSE
 	anchored = 1
 	density = 0
 	wall_mounted = 1
