@@ -46,6 +46,9 @@
 	icon_state = "wristbound_science"
 	_app_preset_type = /datum/modular_computer_app_presets/research
 
+/obj/item/modular_computer/handheld/wristbound/preset/advanced/research/robotics
+	_app_preset_type = /datum/modular_computer_app_presets/research/robotics
+
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 	icon_state = "wristbound_command"
 	_app_preset_type = /datum/modular_computer_app_presets/command

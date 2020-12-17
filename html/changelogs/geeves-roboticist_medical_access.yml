@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Robotocists have gained medical records on their PDAs."
+  - rscdel: "Roboticists no longer have a chemistry codex, scientists no longer have an AI maintenance utility."
