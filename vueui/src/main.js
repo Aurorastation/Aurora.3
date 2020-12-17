@@ -2,6 +2,7 @@
  * Vue.js based ui framework for SS13
  * Made for Aurora, by Karolis K.
  */
+import "core-js/stable"
 import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
