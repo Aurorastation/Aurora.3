@@ -2287,7 +2287,6 @@
 "amm" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Barracks";
-	opacity = 1;
 	req_access = list(150)
 	},
 /turf/unsimulated/floor{
@@ -2474,7 +2473,6 @@
 "amI" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Kitchen";
-	opacity = 1;
 	req_access = list(150)
 	},
 /turf/unsimulated/floor{
@@ -2897,8 +2895,7 @@
 /area/antag/mercenary)
 "anB" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Bathroom";
-	opacity = 1
+	name = "Bathroom"
 	},
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor"
@@ -2987,8 +2984,7 @@
 /area/antag/mercenary)
 "anK" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Suit Storage";
-	opacity = 1
+	name = "Suit Storage"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -3580,8 +3576,7 @@
 /area/shuttle/mercenary)
 "aoR" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Hardsuit Storage";
-	opacity = 1
+	name = "Hardsuit Storage"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -3763,7 +3758,6 @@
 "apo" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/simulated/floor/plating,
@@ -5522,7 +5516,6 @@
 "avK" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
@@ -5615,7 +5608,6 @@
 "awo" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Armory Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
@@ -5626,7 +5618,6 @@
 "awp" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Engineering Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
@@ -5682,7 +5673,6 @@
 "awB" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations Command";
-	opacity = 1;
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
@@ -5846,7 +5836,6 @@
 "axf" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Medical Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
@@ -5920,8 +5909,7 @@
 /area/centcom/living)
 "axr" = (
 /obj/machinery/door/airlock/centcom{
-	name = "NMSS Odin CCIA Administration";
-	opacity = 1
+	name = "NMSS Odin CCIA Administration"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -6342,8 +6330,7 @@
 /area/centcom)
 "ayx" = (
 /obj/machinery/door/airlock/centcom{
-	name = "To: NSS Exodus Processing";
-	opacity = 1
+	name = "To: NSS Exodus Processing"
 	},
 /turf/unsimulated/floor,
 /area/centcom/living)
@@ -7053,8 +7040,7 @@
 /area/centcom/creed)
 "aAS" = (
 /obj/machinery/door/airlock/centcom{
-	name = "NMSS Odin Sub-Deck";
-	opacity = 1
+	name = "NMSS Odin Sub-Deck"
 	},
 /turf/unsimulated/floor{
 	icon_state = "bluefull"
@@ -7468,7 +7454,6 @@
 "aCv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Creed's Office";
-	opacity = 1;
 	req_access = list(108,109)
 	},
 /obj/machinery/door/blast/regular{
@@ -7701,7 +7686,6 @@
 "aDq" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
@@ -8435,9 +8419,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"aGj" = (
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
 "aGk" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light/small{
@@ -8623,7 +8604,6 @@
 "aGM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -8838,7 +8818,7 @@
 /area/shuttle/skipjack)
 "aHD" = (
 /obj/structure/table/standard,
-/obj/item/legcuffs,
+/obj/item/handcuffs/legcuffs,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/skipjack)
 "aHE" = (
@@ -10168,7 +10148,6 @@
 "aLL" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Utility Closet";
-	opacity = 1;
 	req_access = list(109)
 	},
 /obj/structure/sign/christmas/wreath,
@@ -10775,8 +10754,7 @@
 /area/centcom/spawning)
 "aNg" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Bluespace Artillery Deck";
-	opacity = 1
+	name = "Bluespace Artillery Deck"
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -10892,7 +10870,6 @@
 "aNw" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Aurora II Prepatory Wing";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -11385,7 +11362,6 @@
 "aOD" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Arrivals Processing";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -11412,8 +11388,7 @@
 /area/centcom/holding)
 "aOJ" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Bluespace Artillery Deck";
-	opacity = 1
+	name = "Bluespace Artillery Deck"
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -12269,7 +12244,6 @@
 "aQI" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
@@ -13848,7 +13822,6 @@
 "aUt" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administration Shuttle";
-	opacity = 1;
 	req_access = list(108,109)
 	},
 /obj/machinery/door/blast/regular{
@@ -13966,7 +13939,6 @@
 "aUK" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Holding Cell";
-	opacity = 1;
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
@@ -14724,7 +14696,6 @@
 "aWr" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bridge";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -14755,7 +14726,6 @@
 "aWv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Communications Control";
-	opacity = 1;
 	req_access = list(104)
 	},
 /turf/unsimulated/floor{
@@ -14794,8 +14764,7 @@
 /area/centcom/ferry)
 "aWz" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Interview Room";
-	opacity = 1
+	name = "Interview Room"
 	},
 /turf/unsimulated/floor{
 	icon_state = "carpet"
@@ -14829,7 +14798,6 @@
 "aWC" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/regular{
@@ -14912,7 +14880,6 @@
 "aWM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Bay";
-	opacity = 1;
 	req_access = list(107)
 	},
 /turf/unsimulated/floor{
@@ -15680,7 +15647,6 @@
 "aYO" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/regular{
@@ -15857,7 +15823,6 @@
 "aZi" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Research Facility";
-	opacity = 1;
 	req_access = list(104)
 	},
 /turf/unsimulated/floor{
@@ -16464,7 +16429,6 @@
 "crG" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Fore Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -16526,7 +16490,6 @@
 	id_tag = "CentComArrivalsForeDrAft";
 	locked = 1;
 	name = "Fore Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -16562,7 +16525,6 @@
 "der" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Thunderdome";
-	opacity = 1;
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
@@ -16830,7 +16792,6 @@
 "evz" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Aft Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -16930,8 +16891,7 @@
 /area/centcom/holding)
 "eWW" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Traditional Vaurcesian Cuisine";
-	opacity = 1
+	name = "Traditional Vaurcesian Cuisine"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -16980,7 +16940,6 @@
 "fde" = (
 /obj/machinery/door/airlock/centcom{
 	name = "IAC Regional Outpost A23";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -17963,7 +17922,6 @@
 "iBj" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Romanovich Exploration Guild";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -18911,7 +18869,6 @@
 "oIe" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
@@ -18925,7 +18882,6 @@
 "oIB" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -19213,8 +19169,7 @@
 /area/centcom/spawning)
 "qkB" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Real Fake Doors! and Co";
-	opacity = 1
+	name = "Real Fake Doors! and Co"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -19499,7 +19454,6 @@
 "rzt" = (
 /obj/machinery/door/airlock/centcom{
 	name = "The Big Empty";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -19844,7 +19798,6 @@
 	id_tag = "CentComArrivalsAftDrAft";
 	locked = 1;
 	name = "Aft Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -19867,7 +19820,6 @@
 "tBx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = newlist()
 	},
 /turf/unsimulated/floor{
@@ -20257,7 +20209,6 @@
 "vdL" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Staff Only";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -20587,7 +20538,6 @@
 "xcE" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Security Checkpoint";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -20687,7 +20637,6 @@
 	id_tag = "CentComArrivalsAftDrFore";
 	locked = 1;
 	name = "Aft Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -25210,10 +25159,10 @@ aFf
 aFw
 dJT
 aFU
-aGj
-aGj
-aGj
-aGj
+aHl
+aHl
+aHl
+aHl
 aHa
 aHu
 aHC
@@ -25467,10 +25416,10 @@ dJT
 dJT
 dJT
 aFV
-aGj
-aGj
+aHl
+aHl
 aGF
-aGj
+aHl
 aHb
 dJT
 xQA
@@ -25724,9 +25673,9 @@ aaM
 aaM
 dJT
 aFW
-aGj
-aGj
-aGj
+aHl
+aHl
+aHl
 dJT
 dJT
 dJT
@@ -25982,8 +25931,8 @@ aaM
 dJT
 aFX
 aGk
-aGj
-aGj
+aHl
+aHl
 aGO
 aHc
 aHc
@@ -28552,8 +28501,8 @@ aaM
 dJT
 aFZ
 aGp
-aGj
-aGj
+aHl
+aHl
 aGO
 aHj
 aHv
@@ -28808,8 +28757,8 @@ aaM
 aaM
 dJT
 aGa
-aGj
-aGj
+aHl
+aHl
 aGK
 dJT
 dJT
@@ -29065,9 +29014,9 @@ dJT
 dJT
 dJT
 aGb
-aGj
+aHl
 aGB
-aGj
+aHl
 aGS
 aHk
 dJT
@@ -29323,7 +29272,7 @@ aFB
 dJT
 aGc
 aGq
-aGj
+aHl
 aGL
 aGT
 aGj

@@ -198,7 +198,7 @@
 		/obj/item/clothing/gloves/brassknuckles = 3,
 		/obj/item/reagent_containers/syringe/drugs = 3,
 		/obj/item/handcuffs = 2,
-		/obj/item/legcuffs = 2,
+		/obj/item/handcuffs/legcuffs = 2,
 		/obj/item/grenade/chem_grenade/gas = 2,
 		/obj/item/clothing/suit/storage/vest/heavy = 1,
 		/obj/item/device/radiojammer = 1,
