@@ -72,7 +72,7 @@
 		return
 	if(!ptank)
 		return
-	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 10)
+	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have enough fuel left to throw!"))
 		return
 	// Make sure our user is still holding us
