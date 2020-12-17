@@ -10,6 +10,7 @@
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
 	preview_icon = 'icons/mob/human_races/skrell/skrell_preview.dmi'
+	bandages_icon = 'icons/mob/bandage.dmi'
 	eyes = "skrell_eyes_s"
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)

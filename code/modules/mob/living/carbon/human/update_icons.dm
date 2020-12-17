@@ -236,7 +236,7 @@ There are several things that need to be remembered:
 				continue
 			var/bandage_level = O.bandage_level()
 			if(bandage_level)
-				standing_image.overlays += image(bandage_icon, "[O.icon_name][bandage_level]")
+				standing_image += image(bandage_icon, "[O.icon_name][bandage_level]")
 
 		overlays_raw[DAMAGE_LAYER] = standing_image
 

@@ -7,6 +7,7 @@
 	icobase = 'icons/mob/human_races/tajara/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'
 	preview_icon = 'icons/mob/human_races/tajara/tajaran_preview.dmi'
+	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "tajtail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
 	unarmed_types = list(

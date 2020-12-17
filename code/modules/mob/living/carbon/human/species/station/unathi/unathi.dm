@@ -7,6 +7,7 @@
 	icobase = 'icons/mob/human_races/unathi/r_lizard.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_lizard.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
+	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "sogtail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
 	unarmed_types = list(
