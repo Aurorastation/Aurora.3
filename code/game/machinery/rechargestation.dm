@@ -76,12 +76,12 @@
 		return ..()
 
 	if(!has_cell_power())
-		return 0
+		return FALSE
 	if(src.use_power == 1)
 		cell.use(idle_power_usage * CELLRATE)
 	else if(src.use_power >= 2)
 		cell.use(active_power_usage * CELLRATE)
-	return 1
+	return TRUE
 
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()
@@ -130,7 +130,6 @@
 	if(user.stat)
 		return
 	go_out()
-	return
 
 /obj/machinery/recharge_station/emp_act(severity)
 	if(occupant)
@@ -235,6 +234,10 @@
 		var/mob/living/carbon/human/H = M
 		if(!isnull(H.internal_organs_by_name[BP_CELL]))
 			return TRUE
+		if(istype(H.back, /obj/item/rig))
+			var/obj/item/rig/R = H.back
+			if(R.get_cell())
+				return TRUE
 	return FALSE
 
 /obj/machinery/recharge_station/proc/go_out()
