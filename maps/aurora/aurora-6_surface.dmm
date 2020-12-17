@@ -7770,7 +7770,7 @@
 /obj/effect/landmark/start{
 	name = "Quartermaster"
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "QMTint";
 	pixel_x = -20;
 	pixel_y = -25
@@ -17288,7 +17288,7 @@
 	},
 /area/shuttle/escape_pod/pod3)
 "oqU" = (
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "sconferenceprivacy";
 	pixel_y = 26;
 	req_access = list(66)
