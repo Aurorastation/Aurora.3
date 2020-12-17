@@ -61,7 +61,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
-	
+
 	if(t >= timeout_time)
 		log_admin(SPAN_DANGER("Timeout time [timeout_time] exceeded for asset: [asset_name] for client [client]. Please notify a developer."))
 
@@ -174,25 +174,6 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/send(client)
 	send_asset_list(client,assets,verify)
-
-/datum/asset/chem_master
-	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
-	var/max_pill_sprite = 20
-	var/list/assets = list()
-
-/datum/asset/chem_master/register()
-	for (var/i = 1 to max_pill_sprite)
-		var/name = "pill[i].png"
-		register_asset(name, icon('icons/obj/chemical.dmi', "pill[i]"))
-		assets += name
-
-	for (var/sprite in bottle_sprites)
-		var/name = "[sprite].png"
-		register_asset(name, icon('icons/obj/chemical.dmi', sprite))
-		assets += name
-
-/datum/asset/chem_master/send(client)
-	send_asset_list(client, assets)
 
 /datum/asset/group
 	_abstract = /datum/asset/group
@@ -527,4 +508,17 @@ var/list/asset_datums = list()
 				Insert(imgid, I, forced=I)
 			else
 				Insert(imgid, I)
+	return ..()
+
+/datum/asset/spritesheet/chem_master
+	name = "chemmaster"
+	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
+	var/max_pill_sprite = 20
+
+/datum/asset/spritesheet/chem_master/register()
+	for (var/i = 1 to max_pill_sprite)
+		Insert("pill[i]", 'icons/obj/chemical.dmi', "pill[i]")
+
+	for (var/sprite in bottle_sprites)
+		Insert(sprite, icon('icons/obj/chemical.dmi', sprite))
 	return ..()
