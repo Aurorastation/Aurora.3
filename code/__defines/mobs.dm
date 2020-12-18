@@ -85,6 +85,10 @@
 #define I_GRAB		"grab"
 #define I_HURT		"harm"
 
+//movement intents
+#define M_WALK "walk"
+#define M_RUN  "run"
+
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
 #define BP_R_FOOT "r_foot"
@@ -208,6 +212,7 @@
 #define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
 #define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
+#define INV_SHOES_DEF_ICON 'icons/mob/feet.dmi'
 
 // IPC tags
 #define IPC_OWNERSHIP_SELF "Self Owned"

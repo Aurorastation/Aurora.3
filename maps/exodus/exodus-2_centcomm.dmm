@@ -8838,7 +8838,6 @@
 /area/shuttle/skipjack)
 "aHD" = (
 /obj/structure/table/standard,
-/obj/item/legcuffs,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/skipjack)
 "aHE" = (

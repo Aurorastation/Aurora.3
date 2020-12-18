@@ -124,10 +124,11 @@
 
 	//handcuffed?
 	if(handcuffed)
-		if(istype(handcuffed, /obj/item/handcuffs/cable))
-			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(handcuffed, user)] restrained with cable!</span>\n"
-		else
-			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(handcuffed, user)] handcuffed!</span>\n"
+		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(handcuffed, user)] handcuffed!</span>\n"
+
+	//handcuffed?
+	if(legcuffed)
+		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(legcuffed, user)] legcuffed!</span>\n"
 
 	//buckled
 	if(buckled)

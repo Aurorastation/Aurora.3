@@ -7,6 +7,8 @@
 #define DROPLIMB_THRESHOLD_TEAROFF 2
 #define DROPLIMB_THRESHOLD_DESTROY 1
 
+#define FRACTURE_AND_TENDON_DAM_THRESHOLD 30 // if a weapon does more than this amount of damage, it's powerful enough to sever the tendon AND fracture the bone, if it's a sharp weapon
+
 /obj/item/organ/external
 	name = "external"
 	min_broken_damage = 30
@@ -279,7 +281,12 @@
 	handle_limb_gibbing(used_weapon, brute, burn)
 
 	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
-		fracture()
+		if(damage_flags & DAM_EDGE)
+			sever_tendon()
+			if(brute_dam > FRACTURE_AND_TENDON_DAM_THRESHOLD)
+				fracture()
+		else
+			fracture()
 
 	// High brute damage or sharp objects may damage internal organs
 	if(length(internal_organs))
@@ -552,10 +559,6 @@ This function completely restores a damaged organ to perfect condition.
 				if(trace_chemicals[chemID] <= 0)
 					trace_chemicals.Remove(chemID)
 
-		//Bone fractures
-		if(config.bones_can_break && !(status & ORGAN_ROBOT) && !(status & ORGAN_PLANT) && brute_dam > min_broken_damage * config.organ_health_multiplier)
-			src.fracture()
-
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
 
@@ -743,6 +746,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	number_wounds = 0
 	brute_dam = 0
 	burn_dam = 0
+	var/cut_dam = 0
 	status &= ~ORGAN_BLEEDING
 	var/clamped = 0
 
@@ -756,6 +760,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 			burn_dam += W.damage
 		else
 			brute_dam += W.damage
+			if(W.damage_type == CUT)
+				cut_dam += W.damage
 
 		if(!(status & ORGAN_ROBOT) && W.bleeding() && (H && !(H.species.flags & NO_BLOOD)))
 			W.bleed_timer--
@@ -771,7 +777,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	//Bone fractures
 	if(config.bones_can_break && brute_dam > min_broken_damage * config.organ_health_multiplier && !(status & ORGAN_ROBOT))
-		src.fracture()
+		if(cut_dam > brute_dam * 0.5)
+			sever_tendon()
+		else
+			fracture()
 	update_damage_ratios()
 
 /obj/item/organ/external/proc/update_damage_ratios()
@@ -1011,7 +1020,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	playsound(src.loc, /decl/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
-	broken_description = pick("Broken","Fracture","Hairline fracture")
+	broken_description = pick("Broken","Fracture","Hairline Fracture")
 	perma_injury = brute_dam
 
 	// Fractures have a chance of getting you out of restraints
@@ -1093,7 +1102,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return 0
 
 /obj/item/organ/external/is_usable()
-	return ..() && !is_dislocated() && !(status & ORGAN_TENDON_CUT) && (!can_feel_pain() || get_pain() < pain_disability_threshold) && brute_ratio < 1 && burn_ratio < 1
+	if(is_dislocated())
+		return FALSE
+	if(status & ORGAN_TENDON_CUT)
+		return FALSE
+	if(parent && (parent.status & ORGAN_TENDON_CUT))
+		return FALSE
+	if(can_feel_pain() && get_pain() > pain_disability_threshold)
+		return FALSE
+	if(brute_ratio > 1)
+		return FALSE
+	if(burn_ratio > 1)
+		return FALSE
+	return ..()
 
 /obj/item/organ/external/proc/is_malfunctioning()
 	if(BP_IS_ROBOTIC(src) && (brute_ratio + burn_ratio) >= 0.3 && prob(brute_dam + burn_dam) || (surge_damage > (MAXIMUM_SURGE_DAMAGE * 0.25)))
@@ -1292,9 +1313,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/sever_tendon()
 	if(!(limb_flags & ORGAN_HAS_TENDON) || (status & ORGAN_ROBOT) || (status & ORGAN_TENDON_CUT))
 		return FALSE
-	else
-		status |= ORGAN_TENDON_CUT
-		return TRUE
+
+	var/message = pick("tore apart", "ripped away")
+	owner.visible_message(\
+		"<span class='warning'><font size=2>You hear a loud snapping sound coming from \the [owner]!</font></span>",\
+		"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
+		"You hear a sickening snap!")
+	if(owner.species && owner.can_feel_pain())
+		owner.emote("scream")
+		owner.flash_strong_pain()
+
+	playsound(src.loc, 'sound/effects/snap.ogg', 40, 1, -2)
+	status |= ORGAN_TENDON_CUT
+	return TRUE
 
 // Damage procs
 /obj/item/organ/external/proc/get_brute_damage()

@@ -35,10 +35,69 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">18 December 2020</h2>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">AI and Stationbounds can no longer select Republican Siik as an accent.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes invisible remote control chairs.</li>
+				<li class="bugfix">Fixes detective badge job whitelists in the loadout.</li>
+			</ul>
+
 			<h2 class="date">17 December 2020</h2>
+			<h3 class="author">Furrycactus, Ferner, Happy_Fox updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">NanoTrasen finally began decorating for Christmas time, everyone's favourite commercial holiday. There were some delays due to the whole war and everything, but nothing will stop the Christmas cheer. Not even the mix-up from the fake-snow guy that's led to piles of Moghean sand filling the greenery areas. Whatever. Surely Unathi and people who usually celebrate the holiday during the Summer will be pleased.</li>
+				<li class="imageadd">Added some additional gift sprites by Happy_Fox</li>
+			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Fixed a maths error that caused flamethrower minimum fuel requirement to be too high.</li>
+				<li class="tweak">Increased the size of flamethrowers, they no longer fit in your backpack.</li>
+				<li class="rscadd">Made lit flamethrowers work as flame sources, which means they can now light cigarettes.</li>
+				<li class="rscadd">Added more useful failure messages to make the operation of a flamethrower a bit easier.</li>
+				<li class="rscadd">You can now light a flamethrower without an igniter, by lighting it with an external flame source.</li>
+				<li class="bugfix">Legcuff sprites work again.</li>
+				<li class="tweak">Legcuffing now works the same as handcuffing.</li>
+				<li class="rscadd">You can use cable restraints in-hand to turn them into weak legcuffs.</li>
+				<li class="rscadd">Sharp and edged weapons now sever tendons instead of breaking bones. Strong enough sharp and edged weapons sever tendons AND break bones.</li>
+				<li class="bugfix">Energy net projectors can now directly fire energy nets again.</li>
+				<li class="tweak">Improved energy net code a little. It should be more reliable when firing at people.</li>
+				<li class="tweak">Raised energy net health to 50, up from 25.</li>
+				<li class="rscadd">You can no longer damage an energy net with an empty hand while trapped inside it.</li>
+				<li class="rscadd">Damaging an energy net with a weapon while trapped inside it will do reduced damage.</li>
+				<li class="rscadd">Added some medical taperolls to the medical sub-level equipment area and EMT room. Also gave medical borgs medical taperolls.</li>
+				<li class="rscadd">Crumpled tape now stores who crumpled it, provided the crumpler had an ID to track them with.</li>
+				<li class="rscadd">Tape now physically blocks passage, unless the mover has their intent set to harm, or their move intent set to run.</li>
+				<li class="rscadd">Lifting tape now actually works as you'd expect it to. It plays a little animation and goes transparent. If you don't have access, it crumples, if you do, it doesn't. People can now pass over without crumpling it or needing intents set.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Makes canisters use VueUI.</li>
+				<li class="backend">Makes labels on vui-item components optional.</li>
+				<li class="backend">Includes core-js for IE/ECMAscript compatibility shims..</li>
+				<li class="tweak">Tweaks the numeric VueUI input to look more like the old NanoUI equivalent, with one plus/minus sign per power of 10 (+, ++, +++ for 1, 10, 100) instead of just identical buttons side-by-side.</li>
+				<li class="refactor">Converts the chemical dispenser to use VueUI.</li>
+				<li class="rscadd">Adds a numeric input selector to the chemical dispenser.</li>
+				<li class="rscadd">You can now empty ashtrays into disposal units by clicking the disposal unit with the ashtray in hand. On harm intent, you will disposal the ashtray instead.</li>
+				<li class="tweak">Tweaks messages when ashtrays are emptied out, hit, and used.</li>
+				<li class="rscadd">Ashtrays spill their contents when destroyed.</li>
+				<li class="rscadd">Using an ashtray in hand will dump its contents onto the ground.</li>
+				<li class="rscadd">Hitting an ashtray will now produce a sound and a visible message.</li>
+				<li class="bugfix">Fixes contagious UI styling due to an erroneous unscoped <style> tag.</li>
+				<li class="backend">Adds a check to ensure this never happens again.</li>
+				<li class="tweak">Makes all VueUI view components use scoped styles. This shouldn't change anything except for fixing the aforementioned bug.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes chair overlays and coloring once and for all. Also, added more accurate previews which help in mapping and examining.</li>
+				<li class="rscadd">Added a new buckling sound for shuttle chairs.</li>
+				<li class="imageadd">Jackboots and any shoes which can hold knives now also show up on the mob icon. Keep your eyes peeled!</li>
+				<li class="refactor">Refactors how shoes update their icons.</li>
+				<li class="rscadd">You can hit people with everything, even non-weapons. They won't do any damage, though...</li>
+				<li class="soundadd">Volume of hit sounds are now proportional to force applied. High damage, more loud.</li>
 			</ul>
 
 			<h2 class="date">16 December 2020</h2>
