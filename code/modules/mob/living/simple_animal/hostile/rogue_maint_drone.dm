@@ -47,7 +47,7 @@
 			return FALSE
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
-			if(H.isSynthetic())
+			if(H.isSynthetic() && !H.isShell())
 				return FALSE
 			if(istype(H.head, /obj/item/holder/drone))
 				return FALSE
