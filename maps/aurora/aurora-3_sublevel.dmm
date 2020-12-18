@@ -21468,6 +21468,22 @@
 	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aSH" = (

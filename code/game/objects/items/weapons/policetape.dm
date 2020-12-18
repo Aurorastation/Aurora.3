@@ -17,8 +17,14 @@ var/list/tape_roll_applications = list()
 	icon = 'icons/policetape.dmi'
 	anchored = 1
 	var/lifted = 0
+	var/list/crumplers
 	var/crumpled = 0
 	var/icon_base
+
+/obj/item/tape/examine(mob/user, distance)
+	. = ..()
+	if(LAZYLEN(crumplers) && Adjacent(user))
+		to_chat(user, SPAN_WARNING("\The [initial(name)] has been crumpled by [english_list(crumplers)]."))
 
 /obj/item/tape/New()
 	..()
@@ -41,6 +47,19 @@ var/list/tape_roll_applications = list()
 	desc = "A length of police tape.  Do not cross."
 	req_access = list(access_security)
 	icon_base = "police"
+
+/obj/item/taperoll/medical
+	name = "medical tape"
+	desc = "A roll of medical tape used to prevent overcrowding of hallways during emergencies."
+	icon_state = "medical_start"
+	tape_type = /obj/item/tape/medical
+	icon_base = "medical"
+
+/obj/item/tape/medical
+	name = "medical tape"
+	desc = "A length of medical tape. Better not cross it."
+	req_one_access = list(access_medical_equip)
+	icon_base = "medical"
 
 /obj/item/taperoll/engineering
 	name = "engineering tape"
@@ -137,41 +156,50 @@ var/list/tape_roll_applications = list()
 			tape_roll_applications[F] |= direction
 		return
 
-/obj/item/tape/proc/crumple()
+/obj/item/tape/proc/crumple(var/mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/card/id/ID = H.GetIdCard(TRUE)
+		if(ID && ID.registered_name)
+			LAZYDISTINCTADD(crumplers, ID.registered_name)
 	if(!crumpled)
-		crumpled = 1
+		crumpled = TRUE
 		icon_state = "[icon_state]_c"
 		name = "crumpled [name]"
 
 /obj/item/tape/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!lifted && ismob(mover))
 		var/mob/M = mover
-		add_fingerprint(M)
-		if (!allowed(M))	//only select few learn art of not crumpling the tape
-			to_chat(M, "<span class='warning'>You are not supposed to go past [src]...</span>")
-			crumple()
-	return ..(mover)
+		if(!allowed(M))	//only select few learn art of not crumpling the tape
+			if(M.a_intent != I_HURT && M.m_intent != M_RUN)
+				return FALSE
+			to_chat(M, SPAN_WARNING("You aren't supposed to go past the [initial(name)]..."))
+			crumple(mover)
+	return ..()
 
-/obj/item/tape/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tape/attackby(obj/item/W, mob/user)
 	breaktape(W, user)
 
-/obj/item/tape/attack_hand(mob/user as mob)
-	if (user.a_intent == I_HELP && src.allowed(user))
-		user.show_viewers(SPAN_NOTICE("[user] lifts [src], allowing passage."))
-		crumple()
-		lifted = 1
-		spawn(200)
-			lifted = 0
+/obj/item/tape/attack_hand(mob/user)
+	if(user.a_intent == I_HELP)
+		lifted = !lifted
+		user.visible_message("<b>[user]</b> [lifted ? "lifts" : "drops"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage.", SPAN_NOTICE("You [lifted ? "lift" : "drop"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage."))
+		var/shake_time = animate_shake()
+		sleep(shake_time)
+		if(!allowed(user))
+			crumple(user)
+		if(lifted)
+			animate(src, 1 SECOND, alpha = 150)
+		else
+			animate(src, 1 SECOND, alpha = initial(alpha))
 	else
 		breaktape(null, user)
 
-
-
 /obj/item/tape/proc/breaktape(obj/item/W as obj, mob/user as mob)
 	if(user.a_intent == I_HELP && ((!can_puncture(W) && src.allowed(user))))
-		to_chat(user, "You can't break the [src] with that!")
+		to_chat(user, SPAN_NOTICE("You can't break \the [src] with that!"))
 		return
-	user.show_viewers(SPAN_NOTICE("[user] breaks the [src]!"))
+	user.visible_message(SPAN_NOTICE("[user] breaks \the [src]!"))
 
 	var/dir[2]
 	var/icon_dir = src.icon_state
@@ -194,4 +222,3 @@ var/list/tape_roll_applications = list()
 			cur = get_step(cur,dir[i])
 
 	qdel(src)
-	return
