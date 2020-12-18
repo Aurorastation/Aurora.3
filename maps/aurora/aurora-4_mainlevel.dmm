@@ -46332,6 +46332,14 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bAO" = (
