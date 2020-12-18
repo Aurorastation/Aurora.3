@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import Utils from '@/utils'
 import ByWin from '@/byWin'
 export default {
   data() {
@@ -34,7 +33,7 @@ export default {
   methods: {
     closeUI($event) {
       $event.stopPropagation()
-      Utils.sendToTopicRaw({ src: this.uiref, vueuiclose: 1 })
+      this.$rtc({ src: this.uiref, vueuiclose: 1 })
       ByWin.setVisibility(0)
     },
     startDragging($event) {

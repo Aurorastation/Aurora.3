@@ -14,7 +14,7 @@
         <vui-input-numeric
           width="2.5em"
           v-model="state.amount"
-          @input="s({ amount: state.amount })"
+          @input="$atc({ amount: state.amount })"
           :button-count="2"
           :min="1"
           :max="state.beakerMaxVolume || 120"
@@ -60,7 +60,6 @@
 </template>
 
 <script>
-import Utils from '@/utils.js'
 export default {
   data() {
     return this.$root.$data
@@ -72,10 +71,7 @@ export default {
       } else {
         return `${num} units`
       }
-    },
-    s(parameters) {
-      Utils.sendToTopic(parameters)
-    },
+    }
   },
 }
 </script>

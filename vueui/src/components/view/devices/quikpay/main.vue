@@ -20,14 +20,13 @@
 </template>
 
 <script>
-import Utils from '@/utils.js'
 export default {
   data() {
     return this.$root.$data.state
   },
   methods: {
     accountChange(newAccount) {
-      Utils.sendToTopic({ changeaccount: newAccount })
+      this.$atc({ changeaccount: newAccount })
     },
   },
 }

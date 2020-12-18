@@ -49,14 +49,13 @@
 </template>
 
 <script>
-import Utils from '@/utils'
 export default {
   data() {
     return this.$root.$data.state
   },
   methods: {
     add(path, value) {
-      Utils.sendToTopic({
+      this.$atc({
         addtorecord: {
           value: value,
           key: path.split('.'),
