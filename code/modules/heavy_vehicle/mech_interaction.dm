@@ -238,6 +238,7 @@
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
+	walk(src, 0) // stop it from auto moving when the pilot gets in
 	return 1
 
 /mob/living/heavy_vehicle/proc/sync_access()
@@ -547,7 +548,7 @@
 
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())
-		handle_hear_say(speaker, message)
+		addtimer(CALLBACK(src, .proc/handle_hear_say, speaker, message), 0.5 SECONDS)
 	return ..()
 
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves
@@ -557,7 +558,6 @@
 		found_text = findtext(text, nickname)
 	if(found_text)
 		text = copytext(text, found_text) // I'm trimming the text each time so only information stated after eachother is valid
-		sleep(5)
 
 		// a quick way to figure out the remote control status of the mech
 		if(findtext(text, "report diagnostics"))
@@ -595,17 +595,13 @@
 					say("New paired leader, [leader_name], confirmed and added to temporary biometric database.")
 					return
 				// check for humans and their IDs
-				var/list/humans_in_view = list()
 				for(var/mob/living/carbon/human/H in view(world.view, src))
 					var/obj/item/card/id/ID = H.GetIdCard(TRUE)
 					if(ID?.registered_name) // we ID people based on their... ID
-						humans_in_view[ID.registered_name] = H
-				for(var/h in humans_in_view)
-					if(findtext(text, h))
-						var/mob/living/carbon/human/H = humans_in_view[h]
-						assign_leader(H)
-						say("New paired leader, [h], confirmed and added to temporary biometric database.")
-						break
+						if(findtext(text, ID.registered_name))
+							assign_leader(H)
+							say("New paired leader, [ID.registered_name], confirmed and added to temporary biometric database.")
+							break
 				return
 		else
 			var/mob/resolved_leader = leader.resolve()
@@ -613,7 +609,7 @@
 				say("Error, leader not found. Unassigning...")
 				unassign_leader()
 				return
-			if(speaker != resolved_leader)
+			if(speaker != resolved_leader || (speaker in pilots))
 				return
 
 			found_text = findtext(text, "set nickname to")
@@ -689,15 +685,11 @@
 					assign_following(speaker)
 					say("Following [speaker.name].")
 					return
-				var/list/humans_in_view = list()
 				for(var/mob/living/carbon/human/H in view(world.view, src))
 					var/obj/item/card/id/ID = H.GetIdCard(TRUE)
 					if(ID?.registered_name) // we ID people based on their... ID
-						humans_in_view[ID.registered_name] = H
-				for(var/h in humans_in_view)
-					if(findtext(text, h))
-						var/mob/living/carbon/human/H = humans_in_view[h]
-						assign_following(H)
-						say("Following [h].")
-						break
+						if(findtext(text, ID.registered_name))
+							assign_following(H)
+							say("Following [ID.registered_name].")
+							break
 				return
