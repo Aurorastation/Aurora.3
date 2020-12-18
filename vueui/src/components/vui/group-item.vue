@@ -1,8 +1,8 @@
 <template>
-  <div class="item">
-    <div class="itemLabel">{{ label }}</div>
-    <div class="itemContent"><slot/></div>
-  </div>
+  <tr class="item">
+    <td class="itemLabel">{{ label }}</td>
+    <td class="itemContent"><slot/></td>
+  </tr>
 </template>
 
 <script>
@@ -17,12 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div.item {
-  display: table-row;
-}
-
-.itemLabel, .itemContent {
-  display: table-cell;
+.itemContent {
   width: 10%;
 }
 

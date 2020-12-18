@@ -1,19 +1,21 @@
 <template>
   <div>
     <h3>Sensor Data:</h3>
-    <span v-if="state.sensors.length <= 0">No sensors connected.</span>
-    <div v-else v-for="(sdata, key) in state.sensors" :key="key">
-      <b>{{ sdata.name }}</b><br>
-      <vui-item v-if="sdata.pressure" label="Pressure:">{{ sdata.pressure }} kPa</vui-item>
-      <vui-item v-if="sdata.temperature" label="Temperature:">{{ sdata.temperature }} K</vui-item>
-      <vui-item v-if="sdata.oxygen || sdata.hydrogen || sdata.phoron || sdata.nitrogen || sdata.carbon_dioxide" label="Gas Composition:">
-        <span class="complist" v-if="sdata.oxygen">{{ sdata.oxygen }} O<sub>2</sub></span>
-        <span class="complist" v-if="sdata.nitrogen">{{ sdata.nitrogen }} N</span>
-        <span class="complist" v-if="sdata.carbon_dioxide">{{ sdata.carbon_dioxide }} CO<sub>2<sub/></sub></span>
-        <span class="complist" v-if="sdata.phoron">{{ sdata.phoron }} PH</span>
-        <span class="complist" v-if="sdata.hydrogen">{{ sdata.hydrogen }} H<sub>2</sub></span>
-      </vui-item>
-    </div>
+    <vui-group>
+      <vui-group-row v-if="state.sensors.length <= 0">No sensors connected.</vui-group-row>
+      <template v-else v-for="(sdata, key) in state.sensors">
+        <vui-group-row :key="key"><b>{{ sdata.name }}</b></vui-group-row>
+        <vui-group :key="key" v-if="sdata.pressure" label="Pressure:">{{ sdata.pressure }} kPa</vui-group>
+        <vui-group :key="key" v-if="sdata.temperature" label="Temperature:">{{ sdata.temperature }} K</vui-group>
+        <vui-group :key="key" v-if="sdata.oxygen || sdata.hydrogen || sdata.phoron || sdata.nitrogen || sdata.carbon_dioxide" label="Gas Composition:">
+          <span class="complist" v-if="sdata.oxygen">{{ sdata.oxygen }} O<sub>2</sub></span>
+          <span class="complist" v-if="sdata.nitrogen">{{ sdata.nitrogen }} N</span>
+          <span class="complist" v-if="sdata.carbon_dioxide">{{ sdata.carbon_dioxide }} CO<sub>2<sub/></sub></span>
+          <span class="complist" v-if="sdata.phoron">{{ sdata.phoron }} PH</span>
+          <span class="complist" v-if="sdata.hydrogen">{{ sdata.hydrogen }} H<sub>2</sub></span>
+        </vui-group>
+      </template>
+    </vui-group>
     <component v-if="state.control" :is="&quot;view-console-atmocontrol-&quot; + state.control"/>
   </div>
 </template>
