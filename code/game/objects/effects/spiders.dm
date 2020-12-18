@@ -79,6 +79,7 @@
 	name = "egg cluster"
 	desc = "They seem to pulse slightly with an inner life."
 	icon_state = "eggs"
+	health = 10
 	var/amount_grown = 0
 	var/last_itch = 0
 
@@ -118,6 +119,14 @@
 		if(world.time > last_itch + 30 SECONDS)
 			last_itch = world.time
 			to_chat(O.owner, "<span class='notice'>Your [O.name] itches.</span>")
+
+/obj/effect/spider/eggcluster/proc/take_damage(var/damage)
+	health -= damage
+	if(health <= 0)
+		var/obj/item/organ/external/O = loc
+		if(istype(O) && O.owner)
+			to_chat(O.owner, SPAN_WARNING("You feel something dissolve in your [O.name]..."))
+		qdel(src)
 
 /obj/effect/spider/spiderling
 	name = "spiderling"

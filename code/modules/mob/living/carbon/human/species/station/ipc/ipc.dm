@@ -135,7 +135,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		H.adjustNutritionLoss(cost * sprint_charge_factor)
 		if(H.nutrition <= 0 && H.max_nutrition > 0)
 			H.Weaken(15)
-			H.m_intent = "walk"
+			H.m_intent = M_WALK
 			H.hud_used.move_intent.update_move_icon(H)
 			to_chat(H, SPAN_DANGER("ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)

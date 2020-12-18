@@ -18,7 +18,8 @@
 	force = 3
 	armor = list(melee = 20, bullet = 5, laser = 5, energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.75
-	can_hold_knife = 1
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
@@ -66,7 +67,8 @@
 	force = 3
 	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
 	siemens_coefficient = 0.75
-	can_hold_knife = 1
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
