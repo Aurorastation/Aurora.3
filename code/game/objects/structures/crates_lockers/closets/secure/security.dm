@@ -9,30 +9,24 @@
 	icon_off = "capsecureoff"
 
 /obj/structure/closet/secure_closet/captains/fill()
-	//Appearance
+	// Backpack
 	if(prob(50))
 		new /obj/item/storage/backpack/captain(src)
 	else
 		new /obj/item/storage/backpack/satchel_cap(src)
-	new /obj/item/clothing/suit/captunic(src)
-	new /obj/item/clothing/suit/captunic/capjacket(src)
-	new /obj/item/clothing/head/caphat/cap(src)
-	new /obj/item/clothing/head/bandana/captain(src)
-	new /obj/item/clothing/under/rank/captain(src)
-	new /obj/item/clothing/suit/storage/vest(src)
-	new /obj/item/clothing/gloves/captain(src)
+	// Armor
 	new /obj/item/clothing/head/helmet(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/under/dress/dress_cap(src)
-	new /obj/item/clothing/head/caphat/formal(src)
-	new /obj/item/clothing/under/captainformal(src)
+	new /obj/item/clothing/suit/storage/vest(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
-	// acting captain briefcase
+	// uniform briefcases
+	new /obj/item/storage/briefcase/nt/captain(src)
+	new /obj/item/storage/briefcase/nt/captain_white(src)
+	new /obj/item/storage/briefcase/nt/captain_formal(src)
 	new /obj/item/storage/briefcase/nt/acap(src)
 
 /obj/structure/closet/secure_closet/captains2
@@ -296,6 +290,7 @@
 	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
 	new /obj/item/clothing/head/helmet(src)
+	new /obj/item/clothing/accessory/badge/officer(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
@@ -356,6 +351,7 @@
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/accessory/badge/dia(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/brown(src)
 	//Tools
@@ -379,13 +375,14 @@
 
 /obj/structure/closet/secure_closet/csi/fill()
 	//Appearance
-	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/suit/storage/forensics/blue(src)
 	new /obj/item/clothing/suit/storage/forensics/red(src)
 	new /obj/item/clothing/suit/storage/vest/csi(src)
 	new /obj/item/clothing/under/det/forensics(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/accessory/badge/dia(src)
+	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	//Tools

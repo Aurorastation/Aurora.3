@@ -2718,11 +2718,7 @@
 	},
 /area/shuttle/mercenary)
 "ani" = (
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"
@@ -3410,11 +3406,7 @@
 	},
 /area/shuttle/mercenary)
 "aoA" = (
-/obj/machinery/vending/assist{
-	contraband = null;
-	name = "AntagCorpVend";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4)
-	},
+/obj/machinery/vending/assist/synd,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -3525,11 +3517,7 @@
 	},
 /area/centcom)
 "aoL" = (
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -6671,11 +6659,7 @@
 	name = "\improper Raider Base"
 	})
 "azC" = (
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -8802,9 +8786,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"aHl" = (
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
 "aHm" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -8857,7 +8838,6 @@
 /area/shuttle/skipjack)
 "aHD" = (
 /obj/structure/table/standard,
-/obj/item/legcuffs,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/skipjack)
 "aHE" = (
@@ -29345,7 +29325,7 @@ aGq
 aGj
 aGL
 aGT
-aHl
+aGj
 aHu
 aHC
 aaM

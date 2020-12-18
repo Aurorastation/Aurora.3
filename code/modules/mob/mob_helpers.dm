@@ -1194,11 +1194,17 @@ proc/is_blind(A)
 		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
 
 /mob/assign_player(var/mob/user)
-  ckey = user.ckey
-  return src
+	ckey = user.ckey
+	return src
 
 /mob/proc/get_standard_pixel_x()
 	return initial(pixel_x)
 
 /mob/proc/get_standard_pixel_y()
 	return initial(pixel_y)
+
+/mob/proc/remove_nearsighted()
+	disabilities &= ~NEARSIGHTED
+
+/mob/proc/remove_deaf()
+	sdisabilities &= ~DEAF
