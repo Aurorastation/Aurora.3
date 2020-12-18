@@ -1,6 +1,8 @@
 <template>
   <div class="displayBar">
-    <div class="displayBarFill" :style="{ width: percentage + '%'}"><span><slot/></span></div>
+    <div class="displayBarFill" :style="{ width: percentage + '%' }">
+      <span><slot /></span>
+    </div>
   </div>
 </template>
 
@@ -9,34 +11,34 @@ export default {
   props: {
     value: {
       type: Number,
-      default: 50
+      default: 50,
     },
     max: {
       type: Number,
-      default: 100
+      default: 100,
     },
     min: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   computed: {
     percentage() {
-      return (Math.min(this.max, Math.max(this.value, this.min)) - this.min) / (this.max - this.min) * 100;
-    }
-  }
+      return ((Math.min(this.max, Math.max(this.value, this.min)) - this.min) / (this.max - this.min)) * 100
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .displayBarFill {
-    line-height: 1em;
-    white-space: nowrap;
-    overflow: visible;
-    text-align: center;
-    span {
-      vertical-align: middle;
-      margin-left: 2px;
-    }
+.displayBarFill {
+  line-height: 1em;
+  white-space: nowrap;
+  overflow: visible;
+  text-align: center;
+  span {
+    vertical-align: middle;
+    margin-left: 2px;
   }
+}
 </style>

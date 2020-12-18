@@ -6,121 +6,114 @@
  * @license MIT
  */
 
-export const IMPL_MEMORY = 0;
-export const IMPL_LOCAL_STORAGE = 1;
-export const IMPL_INDEXED_DB = 2;
+export const IMPL_MEMORY = 0
+export const IMPL_LOCAL_STORAGE = 1
+export const IMPL_INDEXED_DB = 2
 
-const INDEXED_DB_VERSION = 1;
-const INDEXED_DB_NAME = 'vueui';
-const INDEXED_DB_STORE_NAME = 'storage-v1';
+const INDEXED_DB_VERSION = 1
+const INDEXED_DB_NAME = 'vueui'
+const INDEXED_DB_STORE_NAME = 'storage-v1'
 
-const READ_ONLY = 'readonly';
-const READ_WRITE = 'readwrite';
+const READ_ONLY = 'readonly'
+const READ_WRITE = 'readwrite'
 
 const testGeneric = testFn => () => {
   try {
-    return Boolean(testFn());
+    return Boolean(testFn())
+  } catch {
+    return false
   }
-  catch {
-    return false;
-  }
-};
+}
 
 // Localstorage can sometimes throw an error, even if DOM storage is not
 // disabled in IE11 settings.
 // See: https://superuser.com/questions/1080011
-const testLocalStorage = testGeneric(() => (
-  window.localStorage && window.localStorage.getItem
-));
+const testLocalStorage = testGeneric(() => window.localStorage && window.localStorage.getItem)
 
-const testIndexedDb = testGeneric(() => (
-  (window.indexedDB || window.msIndexedDB)
-  && (window.IDBTransaction || window.msIDBTransaction)
-));
+const testIndexedDb = testGeneric(
+  () => (window.indexedDB || window.msIndexedDB) && (window.IDBTransaction || window.msIDBTransaction)
+)
 
 class MemoryBackend {
   constructor() {
-    this.impl = IMPL_MEMORY;
-    this.store = {};
+    this.impl = IMPL_MEMORY
+    this.store = {}
   }
 
   get(key) {
-    return this.store[key];
+    return this.store[key]
   }
 
   set(key, value) {
-    this.store[key] = value;
+    this.store[key] = value
   }
 
   remove(key) {
-    this.store[key] = undefined;
+    this.store[key] = undefined
   }
 
   clear() {
-    this.store = {};
+    this.store = {}
   }
 }
 
 class LocalStorageBackend {
   constructor() {
-    this.impl = IMPL_LOCAL_STORAGE;
+    this.impl = IMPL_LOCAL_STORAGE
   }
 
   get(key) {
-    const value = localStorage.getItem(key);
+    const value = localStorage.getItem(key)
     if (typeof value === 'string') {
-      return JSON.parse(value);
+      return JSON.parse(value)
     }
   }
 
   set(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, JSON.stringify(value))
   }
 
   remove(key) {
-    localStorage.removeItem(key);
+    localStorage.removeItem(key)
   }
 
   clear() {
-    localStorage.clear();
+    localStorage.clear()
   }
 }
 
 class IndexedDbBackend {
   constructor() {
-    this.impl = IMPL_INDEXED_DB;
+    this.impl = IMPL_INDEXED_DB
     /** @type {Promise<IDBDatabase>} */
     this.dbPromise = new Promise((resolve, reject) => {
-      const indexedDB = window.indexedDB || window.msIndexedDB;
-      const req = indexedDB.open(INDEXED_DB_NAME, INDEXED_DB_VERSION);
+      const indexedDB = window.indexedDB || window.msIndexedDB
+      const req = indexedDB.open(INDEXED_DB_NAME, INDEXED_DB_VERSION)
       req.onupgradeneeded = () => {
         try {
-          req.result.createObjectStore(INDEXED_DB_STORE_NAME);
+          req.result.createObjectStore(INDEXED_DB_STORE_NAME)
+        } catch (err) {
+          reject(new Error('Failed to upgrade IDB: ' + req.error))
         }
-        catch (err) {
-          reject(new Error('Failed to upgrade IDB: ' + req.error));
-        }
-      };
-      req.onsuccess = () => resolve(req.result);
+      }
+      req.onsuccess = () => resolve(req.result)
       req.onerror = () => {
-        reject(new Error('Failed to open IDB: ' + req.error));
-      };
-    });
+        reject(new Error('Failed to open IDB: ' + req.error))
+      }
+    })
   }
 
   getStore(mode) {
-    return this.dbPromise.then(db => db
-      .transaction(INDEXED_DB_STORE_NAME, mode)
-      .objectStore(INDEXED_DB_STORE_NAME));
+    return this.dbPromise.then(db => db.transaction(INDEXED_DB_STORE_NAME, mode).objectStore(INDEXED_DB_STORE_NAME))
   }
 
   async get(key) {
-    const store = await this.getStore(READ_ONLY);
+    const store = await this.getStore(READ_ONLY)
     return new Promise((resolve, reject) => {
-      const req = store.get(key);
-      req.onsuccess = () => resolve(req.result);
-      req.onerror = () => reject(req.error);
-    });
+      const req = store.get(key)
+      req.onsuccess = () => resolve(req.result)
+      req.onerror = () => reject(req.error)
+    })
   }
 
   async set(key, value) {
@@ -129,23 +122,23 @@ class IndexedDbBackend {
     // ironic, given the bug below!
     // See: https://github.com/mozilla/localForage/issues/161
     if (value === null) {
-      value = undefined;
+      value = undefined
     }
     // NOTE: We deliberately make this operation transactionless
-    const store = await this.getStore(READ_WRITE);
-    store.put(value, key);
+    const store = await this.getStore(READ_WRITE)
+    store.put(value, key)
   }
 
   async remove(key) {
     // NOTE: We deliberately make this operation transactionless
-    const store = await this.getStore(READ_WRITE);
-    store.delete(key);
+    const store = await this.getStore(READ_WRITE)
+    store.delete(key)
   }
 
   async clear() {
     // NOTE: We deliberately make this operation transactionless
-    const store = await this.getStore(READ_WRITE);
-    store.clear();
+    const store = await this.getStore(READ_WRITE)
+    store.clear()
   }
 }
 
@@ -158,40 +151,39 @@ class StorageProxy {
     this.backendPromise = (async () => {
       if (testIndexedDb()) {
         try {
-          const backend = new IndexedDbBackend();
-          await backend.dbPromise;
-          return backend;
-        }
-        catch {
+          const backend = new IndexedDbBackend()
+          await backend.dbPromise
+          return backend
+        } catch {
           return
         }
       }
       if (testLocalStorage()) {
-        return new LocalStorageBackend();
+        return new LocalStorageBackend()
       }
-      return new MemoryBackend();
-    })();
+      return new MemoryBackend()
+    })()
   }
 
   async get(key) {
-    const backend = await this.backendPromise;
-    return backend.get(key);
+    const backend = await this.backendPromise
+    return backend.get(key)
   }
 
   async set(key, value) {
-    const backend = await this.backendPromise;
-    return backend.set(key, value);
+    const backend = await this.backendPromise
+    return backend.set(key, value)
   }
 
   async remove(key) {
-    const backend = await this.backendPromise;
-    return backend.remove(key);
+    const backend = await this.backendPromise
+    return backend.remove(key)
   }
 
   async clear() {
-    const backend = await this.backendPromise;
-    return backend.clear();
+    const backend = await this.backendPromise
+    return backend.clear()
   }
 }
 
-export const storage = new StorageProxy();
+export const storage = new StorageProxy()

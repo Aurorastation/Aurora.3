@@ -3,27 +3,47 @@
     <div class="table border">
       <div class="header border">
         <div class="header-item">Name</div>
-        <div class="header-item"><vui-tooltip label="Pulse/Cell">Pulse rate or Cell Charge (IPCs)</vui-tooltip></div>
-        <div class="header-item"><vui-tooltip label="BP">Blood pressure</vui-tooltip></div>
-        <div class="header-item"><vui-tooltip label="Oxy">Oxygenation</vui-tooltip></div>
-        <div class="header-item"><vui-tooltip label="Temp">Temperature</vui-tooltip></div>
+        <div class="header-item">
+          <vui-tooltip label="Pulse/Cell">Pulse rate or Cell Charge (IPCs)</vui-tooltip>
+        </div>
+        <div class="header-item">
+          <vui-tooltip label="BP">Blood pressure</vui-tooltip>
+        </div>
+        <div class="header-item">
+          <vui-tooltip label="Oxy">Oxygenation</vui-tooltip>
+        </div>
+        <div class="header-item">
+          <vui-tooltip label="Temp">Temperature</vui-tooltip>
+        </div>
         <div class="header-item">Location</div>
         <template v-if="isAI">
-          <div class="header-item"/>
+          <div class="header-item" />
         </template>
       </div>
       <div class="sensor" v-for="sensor in crewmembers" :key="sensor.ref">
         <div class="item">{{ sensor.name }} ({{ sensor.ass }})</div>
-        <div class="item" :class="getPulseClass(sensor.tpulse)" v-if="sensor.cellCharge == -1">{{ sensor.pulse }}</div>
+        <div class="item" :class="getPulseClass(sensor.tpulse)" v-if="sensor.cellCharge == -1">
+          {{ sensor.pulse }}
+        </div>
         <div class="item" :class="getChargeClass(sensor.cellCharge)" v-else>{{ sensor.cellCharge }}%</div>
-        <div class="item" :class="getPressureClass(sensor.tpressure)" v-if="sensor.stype > 1">{{ sensor.pressure }}</div>
+        <div class="item" :class="getPressureClass(sensor.tpressure)" v-if="sensor.stype > 1">
+          {{ sensor.pressure }}
+        </div>
         <div class="item" v-else>N/A</div>
-        <div class="item" :class="getOxyClass(sensor.oxyg)">{{ toOxyLabel(sensor.oxyg) }}</div>
-        <div class="item"><span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span></div>
-        <div class="item" v-if="sensor.stype > 2">{{sensor.area}} ({{sensor.x}}, {{sensor.y}}, {{sensor.z}})</div>
+        <div class="item" :class="getOxyClass(sensor.oxyg)">
+          {{ toOxyLabel(sensor.oxyg) }}
+        </div>
+        <div class="item">
+          <span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span>
+        </div>
+        <div class="item" v-if="sensor.stype > 2">
+          {{ sensor.area }} ({{ sensor.x }}, {{ sensor.y }}, {{ sensor.z }})
+        </div>
         <div class="item" v-else>Not Available</div>
         <template v-if="isAI">
-          <div class="item"><vui-button :params="{track: sensor.ref}" :disabled="sensor.stype < 3">Track</vui-button></div>
+          <div class="item">
+            <vui-button :params="{ track: sensor.ref }" :disabled="sensor.stype < 3">Track</vui-button>
+          </div>
         </template>
       </div>
     </div>
@@ -42,74 +62,74 @@ export default {
     toOxyLabel(value) {
       switch (value) {
         case 5:
-          return "increased"
+          return 'increased'
         case 4:
-          return "normal"
+          return 'normal'
         case 3:
-          return "low"
+          return 'low'
         case 2:
-          return "very low"
+          return 'very low'
         case 1:
-          return "extremely low"
+          return 'extremely low'
         default:
-          return "N/A"
+          return 'N/A'
       }
     },
     getOxyClass(value) {
       switch (value) {
         case 5:
-          return "highlight"
+          return 'highlight'
         case 4:
-          return "good"
+          return 'good'
         case 3:
-          return "average"
+          return 'average'
         case 2:
-          return "bad"
+          return 'bad'
         case 1:
-          return "bad"
+          return 'bad'
         default:
-          return "neutral"
+          return 'neutral'
       }
     },
     getPulseClass(tpulse) {
       switch (tpulse) {
         case 0:
-          return "bad"
+          return 'bad'
         case 1:
-          return "average"
+          return 'average'
         case 2:
-          return "good"
+          return 'good'
         case 3:
-          return "highlight"
+          return 'highlight'
         case 4:
-          return "average"
+          return 'average'
         case 5:
-          return "bad"
+          return 'bad'
         default:
-          return "neutral"
+          return 'neutral'
       }
     },
     getPressureClass(tpressure) {
       switch (tpressure) {
         case 1:
-          return "bad"
+          return 'bad'
         case 2:
-          return "good"
+          return 'good'
         case 3:
-          return "average"
+          return 'average'
         case 4:
-          return "bad"
+          return 'bad'
         default:
-          return "neutral"
+          return 'neutral'
       }
     },
     getChargeClass(cellCharge) {
-      if(cellCharge > 10) {
-        return "highlight"
+      if (cellCharge > 10) {
+        return 'highlight'
       }
-        return "bad"
-    }
-  }
+      return 'bad'
+    },
+  },
 }
 </script>
 
@@ -122,9 +142,11 @@ export default {
     text-align: center;
     font-weight: bold;
   }
-  .header, .sensor {
+  .header,
+  .sensor {
     display: table-row;
-    .header-item, .item {
+    .header-item,
+    .item {
       display: table-cell;
       padding: 1px;
       vertical-align: middle;

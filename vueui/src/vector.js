@@ -8,6 +8,6 @@ export default {
     return Array.prototype.map.call(arrA, (v, i) => v * arrB[i])
   },
   scale(arrA, factor) {
-    return Array.prototype.map.call(arrA, (v) => v * factor)
-  }
+    return Array.prototype.map.call(arrA, v => v * factor)
+  },
 }

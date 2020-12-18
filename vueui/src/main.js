@@ -2,7 +2,7 @@
  * Vue.js based ui framework for SS13
  * Made for Aurora, by Karolis K.
  */
-import "core-js/stable"
+import 'core-js/stable'
 import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
@@ -20,24 +20,21 @@ const requireComponent = require.context(
 requireComponent.keys().forEach(fileName => {
   const componentConfig = requireComponent(fileName)
   const componentName = upperFirst(
-      camelCase(
-          // Strip the leading `'./` and extension from the filename
-          fileName.replace(/^\.\/(.*)\.\w+$/, '$1')
-      )
+    camelCase(
+      // Strip the leading `'./` and extension from the filename
+      fileName.replace(/^\.\/(.*)\.\w+$/, '$1')
+    )
   )
-  Vue.component(
-      componentName,
-      componentConfig.default || componentConfig
-  )
+  Vue.component(componentName, componentConfig.default || componentConfig)
 })
 
 Vue.config.productionTip = false
 global.Vue = Vue
 
-global.receiveUIState = (jsonState) => {
+global.receiveUIState = jsonState => {
   Store.loadState(JSON.parse(jsonState))
 }
-if (document.getElementById("app")) {
+if (document.getElementById('app')) {
   var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
   Store.loadState(state)
@@ -51,54 +48,56 @@ if (document.getElementById("app")) {
 
   new Vue({
     data: Store.state,
-    template: "<div id='content' tabindex='-1'><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
+    template:
+      "<div id='content' tabindex='-1'><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
     computed: {
       componentName() {
-        if(this.$root.$data.active.charAt(0) != "?") {
+        if (this.$root.$data.active.charAt(0) != '?') {
           return 'view-' + this.$root.$data.active
         }
         return null
       },
       templateString() {
-        if(this.$root.$data.active.charAt(0) == "?") {
-          return "<div>" + this.$root.$data.active.substr(1) + "</div>"
+        if (this.$root.$data.active.charAt(0) == '?') {
+          return '<div>' + this.$root.$data.active.substr(1) + '</div>'
         }
         return null
-      }
+      },
     },
     watch: {
       state: {
         handler() {
           Store.pushState()
         },
-        deep: true
-      }
+        deep: true,
+      },
     },
     mounted() {
       this.$el.focus()
-    }
+    },
   }).$mount('#app')
 }
 
-if (document.getElementById("header")) {
+if (document.getElementById('header')) {
   new Vue({
-    data: Store.state
+    data: Store.state,
   }).$mount('#header')
 }
 
-if (document.getElementById("dapp")) {
+if (document.getElementById('dapp')) {
   new Vue({
     data: Store.state,
-    template: '<div id="debug"><h2>Debug this UI with inspector by opening URL in your browser:</h2><pre>{{url}}</pre><h2>Current data of UI:</h2><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre><button @click="stop()">STOP WTIME TRACKING</button></div>',
+    template:
+      '<div id="debug"><h2>Debug this UI with inspector by opening URL in your browser:</h2><pre>{{url}}</pre><h2>Current data of UI:</h2><pre>{{ JSON.stringify(this.$root.$data, null, \'    \') }}</pre><button @click="stop()">STOP WTIME TRACKING</button></div>',
     methods: {
       stop() {
         window.clearInterval(window.__wtimetimer)
-      }
+      },
     },
     computed: {
       url() {
         return window.location.href + '?ext'
-      }
-    }
+      },
+    },
   }).$mount('#dapp')
 }

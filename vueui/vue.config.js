@@ -7,8 +7,9 @@ module.exports = {
   productionSourceMap: undefined,
   parallel: undefined,
   css: {
-    extract: true
+    extract: true,
   },
+  // prettier-ignore
   chainWebpack: config => {
     config
       .performance

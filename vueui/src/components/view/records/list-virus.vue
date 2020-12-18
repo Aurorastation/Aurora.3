@@ -1,8 +1,10 @@
 <template>
   <div>
-    <vui-input-search :input="records" v-model="filtered" :keys="['id', 'name', 'rank']"/>
+    <vui-input-search :input="records" v-model="filtered" :keys="['id', 'name', 'rank']" />
     <div v-for="record in filtered" :key="record.id">
-      <vui-button :params="{ setactive_virus: record.id}" @click="activeview = defaultview" push-state>{{ record.id }}: {{ record.name }}</vui-button>
+      <vui-button :params="{ setactive_virus: record.id }" @click="activeview = defaultview" push-state
+        >{{ record.id }}: {{ record.name }}</vui-button
+      >
     </div>
   </div>
 </template>
@@ -12,14 +14,13 @@ export default {
   data() {
     return {
       state: this.$root.$data.state,
-      filtered: []
+      filtered: [],
     }
-    
   },
   computed: {
     records() {
       return Object.values(this.state.record_viruses)
-    }
-  }
+    },
+  },
 }
 </script>

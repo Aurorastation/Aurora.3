@@ -7,7 +7,8 @@
           class="vui-progress"
           :max="s.disk_size"
           :value="s.disk_used"
-        >{{ s.disk_used }} GQ / {{ s.disk_size }} GQ</vui-progress>
+          >{{ s.disk_used }} GQ / {{ s.disk_size }} GQ</vui-progress
+        >
       </vui-group-item>
     </vui-group>
     <template v-if="s.queue_size">
@@ -21,11 +22,9 @@
         <tr v-for="program in queue" :key="program.filename">
           <td class="name">{{ program.filename }}</td>
           <td>
-            <vui-progress
-              class="vui-progress"
-              :max="program.size"
-              :value="program.progress"
-            >{{ program.progress.toFixed(2) }} GQ / {{ program.size }} GQ</vui-progress>
+            <vui-progress class="vui-progress" :max="program.size" :value="program.progress"
+              >{{ program.progress.toFixed(2) }} GQ / {{ program.size }} GQ</vui-progress
+            >
           </td>
           <td class="action">
             <vui-button :params="{ cancel: program.filename }">Cancel</vui-button>
@@ -46,19 +45,17 @@
         <vui-group-item :key="program.filename" label="Program name:">
           <b>{{ program.name }}</b>
         </vui-group-item>
-        <vui-group-item
-          :key="program.filename"
-          label="File name:"
-        >{{ program.filename }} ({{program.size}} GQ)</vui-group-item>
+        <vui-group-item :key="program.filename" label="File name:"
+          >{{ program.filename }} ({{ program.size }} GQ)</vui-group-item
+        >
         <vui-group-item :key="program.filename" label="Description:">{{ program.desc }}</vui-group-item>
         <vui-group-item :key="program.filename" label="File controls:">
-          <vui-button
-            :params="{ download: program.filename }"
-            :class="{ danger: !canDownload(program)}"
-          >Download</vui-button>
+          <vui-button :params="{ download: program.filename }" :class="{ danger: !canDownload(program) }"
+            >Download</vui-button
+          >
         </vui-group-item>
         <td colspan="2" :key="program.filename">
-          <hr>
+          <hr />
         </td>
       </template>
     </vui-group>
@@ -76,13 +73,10 @@ export default {
   computed: {
     unrestrictedPrograms() {
       var entries = Object.entries(this.s.available)
-        .filter(
-          ([key, value]) =>
-            !(key in this.s.installed) && !value.rest && !(key in this.s.queue)
-        )
+        .filter(([key, value]) => !(key in this.s.installed) && !value.rest && !(key in this.s.queue))
         .sort(([, avalue], [, bvalue]) => avalue.size - bvalue.size)
         .map(([key, value]) => {
-          value["filename"] = key
+          value['filename'] = key
           return value
         })
       return entries
@@ -101,11 +95,7 @@ export default {
   },
   methods: {
     canDownload(program) {
-      if (
-        program.size + this.s.queue_size + this.s.disk_used >
-        this.s.disk_size
-      )
-        return false
+      if (program.size + this.s.queue_size + this.s.disk_used > this.s.disk_size) return false
       return true
     },
   },
@@ -130,5 +120,5 @@ table {
 
 .vui-progress {
   width: 100%;
-}
-</style>>
+}</style
+>>

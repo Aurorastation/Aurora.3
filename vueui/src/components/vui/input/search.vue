@@ -1,15 +1,15 @@
 <template>
-  <input type="text" placeholder="Search..." v-model="searchValue">
+  <input type="text" placeholder="Search..." v-model="searchValue" />
 </template>
 
 <script>
-import Fuse from 'fuse.js';
+import Fuse from 'fuse.js'
 
 export default {
   data() {
     return {
       fuse: null,
-      searchValue: ""
+      searchValue: '',
     }
   },
   mounted() {
@@ -19,62 +19,62 @@ export default {
     keys: {
       type: Array,
       default() {
-        return [];
-      }
+        return []
+      },
     },
     includeScore: {
       type: Boolean,
-      default: false
+      default: false,
     },
     threshold: {
       type: Number,
-      default: 0.6
+      default: 0.6,
     },
     input: {
       type: Array,
       default() {
-        return [];
-      }
+        return []
+      },
     },
     value: {
       type: Array,
       default() {
-        return [];
-      }
-    }
+        return []
+      },
+    },
   },
   watch: {
     keys() {
-      this.fuse = null;
+      this.fuse = null
     },
     includeScore() {
-      this.fuse = null;
+      this.fuse = null
     },
     threshold() {
-      this.fuse = null;
+      this.fuse = null
     },
     input() {
       this.onFieldUpdate(this.searchValue)
     },
     searchValue(newValue) {
       this.onFieldUpdate(newValue)
-    }
+    },
   },
   methods: {
     onFieldUpdate(value) {
-      this.initFuse();
+      this.initFuse()
       var searchResult = this.fuse.search(value)
-      if(searchResult.length == 0) {
-        if(this.includeScore) {
-          searchResult = this.input.map(x => ({item: x, score: 0}))
+      if (searchResult.length == 0) {
+        if (this.includeScore) {
+          searchResult = this.input.map(x => ({ item: x, score: 0 }))
         } else {
-          searchResult = this.input;
+          searchResult = this.input
         }
       }
       this.$emit('input', searchResult)
     },
     initFuse() {
-      if(this.fuse != null) {
+      if (this.fuse != null) {
         this.fuse.setCollection(this.input)
         return
       }
@@ -83,10 +83,10 @@ export default {
         findAllMatches: true,
         keys: this.keys,
         includeScore: this.includeScore,
-        threshold: this.threshold
-      };
-      this.fuse = new Fuse(this.input, options);
-    }
-  }
+        threshold: this.threshold,
+      }
+      this.fuse = new Fuse(this.input, options)
+    },
+  },
 }
 </script>

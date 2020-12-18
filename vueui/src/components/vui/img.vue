@@ -1,5 +1,5 @@
 <template>
-  <img :src="source" @error="failedToLoad()">
+  <img :src="source" @error="failedToLoad()" />
 </template>
 
 <script>
@@ -7,39 +7,41 @@ export default {
   props: {
     name: {
       type: String,
-      default: ""
+      default: '',
     },
     maxTries: {
       type: Number,
-      default: 10
-    }
+      default: 10,
+    },
   },
   computed: {
     sourceBuster() {
-      if(this.failsToLoad && this.failsToLoad < this.maxTries) {
-        return "?t=" + this.failsToLoad
+      if (this.failsToLoad && this.failsToLoad < this.maxTries) {
+        return '?t=' + this.failsToLoad
       } else {
-        return ""
+        return ''
       }
     },
     source() {
-      return "vueuiimg_" + this.$root.$data.assets[this.name].ref + this.sourceBuster +".png"
-    }
+      return 'vueuiimg_' + this.$root.$data.assets[this.name].ref + this.sourceBuster + '.png'
+    },
   },
   data() {
     return {
-      failsToLoad: 0
+      failsToLoad: 0,
     }
   },
   methods: {
     failedToLoad() {
       setTimeout(() => {
         this.failsToLoad++
-        if(this.failsToLoad < this.maxTries) {
-          console.error(`Image ${this.name} failed to load ${this.failsToLoad} times. Please double check have you actually sent it to the client.`)
+        if (this.failsToLoad < this.maxTries) {
+          console.error(
+            `Image ${this.name} failed to load ${this.failsToLoad} times. Please double check have you actually sent it to the client.`
+          )
         }
       }, 300)
-    }
-  }
+    },
+  },
 }
 </script>

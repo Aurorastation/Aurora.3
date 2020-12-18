@@ -10,15 +10,15 @@ export default {
     debug: 0,
     debug_view: false,
     wtime: 0,
-    roundstart_hour: 0
+    roundstart_hour: 0,
   },
-  loadState (loadedState) {
+  loadState(loadedState) {
     this.isUpdating = true
     this.lastUpdateTime = Date.now()
     if (this.debug) console.log('Loaded state with', loadedState)
     this.state.assets = loadedState.assets
-    Object.keys(loadedState.state).forEach((key) => {
-        this.state.state[key] = loadedState.state[key]
+    Object.keys(loadedState.state).forEach(key => {
+      this.state.state[key] = loadedState.state[key]
     })
     this.state.active = loadedState.active
     this.state.uiref = loadedState.uiref
@@ -32,18 +32,18 @@ export default {
   },
   isUpdating: false,
   lastUpdateTime: null,
-  getStatePushString () {
-    return "vueuistateupdate=" + encodeURIComponent(this.getStatePushDataString())
+  getStatePushString() {
+    return 'vueuistateupdate=' + encodeURIComponent(this.getStatePushDataString())
   },
-  getStatePushDataString () {
+  getStatePushDataString() {
     return JSON.stringify(this.state)
   },
   pushState() {
-    if (this.isUpdating || (Date.now() - this.lastUpdateTime) < 100 ) {
+    if (this.isUpdating || Date.now() - this.lastUpdateTime < 100) {
       return
     }
     var r = new XMLHttpRequest()
-    r.open("GET", "?src=" + this.state.uiref + "&vueuipushonly=1&" + this.getStatePushString(), true);
+    r.open('GET', '?src=' + this.state.uiref + '&vueuipushonly=1&' + this.getStatePushString(), true)
     r.send()
-  }
+  },
 }

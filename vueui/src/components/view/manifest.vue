@@ -5,7 +5,7 @@
         <tr :class="'bg-dept-' + dept.toLowerCase()">
           <th colspan="3" class="fw-bold">{{ dept }}</th>
         </tr>
-        <tr v-for="entry in el" :key="entry.name" :class="{'fw-bold': entry.head}">
+        <tr v-for="entry in el" :key="entry.name" :class="{ 'fw-bold': entry.head }">
           <td>{{ entry.name }}</td>
           <td>{{ entry.rank }}</td>
           <td>{{ entry.active }}</td>
@@ -27,7 +27,7 @@ export default {
     let ret = this.$root.$data.state
     ret.manifestLen = function(manif) {
       let len = 0
-      Object.values(manif).forEach((val) => len += val.length)
+      Object.values(manif).forEach(val => (len += val.length))
       return len
     }
     return ret
@@ -47,11 +47,11 @@ table {
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
   border: 2px solid;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 
   td {
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   // middle (rank) column

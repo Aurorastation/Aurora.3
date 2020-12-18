@@ -16,7 +16,7 @@
           v-model="state['input'].setrate"
           :max="state.maxrate"
         />
-        <br>
+        <br />
         <vui-button push-state :params="{ in_set_flowrate: state['input'].setrate }">Set Flow Rate</vui-button>
       </vui-item>
     </div>
@@ -37,11 +37,8 @@
           v-model="state['output'].setpressure"
           :max="state.maxpressure"
         />
-        <br>
-        <vui-button
-          push-state
-          :params="{ out_set_pressure: state['output'].setpressure }"
-        >Set Pressure</vui-button>
+        <br />
+        <vui-button push-state :params="{ out_set_pressure: state['output'].setpressure }">Set Pressure</vui-button>
       </vui-item>
     </div>
     <vui-button v-else :params="{ out_refresh_status: 1 }">Search for output port</vui-button>
@@ -49,15 +46,15 @@
 </template>
 
 <script>
-import Utils from "../../../../utils.js";
+import Utils from '@/utils.js'
 export default {
   data() {
-    return this.$root.$data;
+    return this.$root.$data
   },
   methods: {
     s(parameters) {
-      Utils.sendToTopic(parameters);
-    }
-  }
-};
+      Utils.sendToTopic(parameters)
+    },
+  },
+}
 </script>

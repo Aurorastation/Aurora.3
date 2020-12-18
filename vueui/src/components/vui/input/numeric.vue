@@ -1,52 +1,66 @@
 <template>
   <div>
-    <vui-button v-for="bv in subButtons" :key="'-' + bv" :disabled="val - bv < min" @click="onUpdatedValue(-(10 ** bv))">{{"-".repeat(bv+1)}}</vui-button>
-    <input @keypress="onKeyPress" :style="{width: width}" ref="input" :value="val" @input="onFieldUpdate($event.target)">
-    <vui-button v-for="bv in addButtons" :key="'+' + bv" :disabled="val + bv > max" @click="onUpdatedValue(10 ** bv)">{{"+".repeat(bv+1)}}</vui-button>
+    <vui-button
+      v-for="bv in subButtons"
+      :key="'-' + bv"
+      :disabled="val - bv < min"
+      @click="onUpdatedValue(-(10 ** bv))"
+      >{{ '-'.repeat(bv + 1) }}</vui-button
+    >
+    <input
+      @keypress="onKeyPress"
+      :style="{ width: width }"
+      ref="input"
+      :value="val"
+      @input="onFieldUpdate($event.target)"
+    />
+    <vui-button v-for="bv in addButtons" :key="'+' + bv" :disabled="val + bv > max" @click="onUpdatedValue(10 ** bv)">{{
+      '+'.repeat(bv + 1)
+    }}</vui-button>
   </div>
 </template>
 
 <script>
-import Store from '../../../store.js'
+import Store from '@/store'
 export default {
   props: {
     value: {
       type: Number,
-      default: 0
+      default: 0,
     },
     buttonCount: {
       type: Number,
-      default: 1
+      default: 1,
     },
     min: {
       type: Number,
-      default: 0
+      default: 0,
     },
     max: {
       type: Number,
-      default: 100
+      default: 100,
     },
     pushState: {
       type: Boolean,
-      default: true
+      default: true,
     },
     width: {
       type: String,
-      default: '10em'
+      default: '10em',
     },
     decimalPlaces: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   data() {
     return {
-      val: this.value
+      val: this.value,
     }
   },
   computed: {
     subButtons() {
-      if(!this.buttonCount) return [];
+      if (!this.buttonCount) return []
       let buttons = []
       for (let i = this.buttonCount - 1; i >= 0; i--) {
         buttons.push(i)
@@ -54,59 +68,59 @@ export default {
       return buttons
     },
     addButtons() {
-      if(!this.buttonCount) return [];
+      if (!this.buttonCount) return []
       let buttons = []
       for (let i = 0; i < this.buttonCount; i++) {
         buttons.push(i)
       }
       return buttons
-    }
+    },
   },
   methods: {
     onFieldUpdate(field) {
       var _inival = this.val
       var int = Number(field.value)
-      if(isNaN(int)) {
+      if (isNaN(int)) {
         int = this.val
       }
       console.log(int, field.value, this.value, this.val)
       this.UpdateValue(int)
-      if(_inival == this.val && !(field.value.endsWith("."))) {
+      if (_inival == this.val && !field.value.endsWith('.')) {
         this.$refs.input.value = this.val
       }
     },
     onUpdatedValue(diff) {
       var int = this.value
-      if(diff) {
+      if (diff) {
         int += diff
       }
       this.UpdateValue(int)
     },
     UpdateValue(int) {
       int = +(Math.round(int + 'e+' + this.decimalPlaces) + 'e-' + this.decimalPlaces)
-      if(int > this.max) int = this.max
-      if(int < this.min) int = this.min
+      if (int > this.max) int = this.max
+      if (int < this.min) int = this.min
       this.val = int
-      this.$emit('input', int);
-      if(this.pushState) Store.pushState()
+      this.$emit('input', int)
+      if (this.pushState) Store.pushState()
     },
     onKeyPress(event) {
       this.$emit('keypress', event)
-    }
+    },
   },
   watch: {
     value() {
       this.val = this.value
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  div {
-    display: inline-block;
-  }
-  input {
-    text-align: center;
-  }
+div {
+  display: inline-block;
+}
+input {
+  text-align: center;
+}
 </style>

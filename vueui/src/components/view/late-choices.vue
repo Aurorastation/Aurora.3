@@ -1,15 +1,20 @@
 <template>
   <div>
     <div class="clear-both">
-      <vui-img name="character" class="character-image"/>
+      <vui-img name="character" class="character-image" />
       <p>
-        Welcome, <strong>{{ character_name }}</strong>.<br>
-        Round duration: <strong>{{ round_duration }}</strong><br>
-        Alert level: <strong :style="{color: alertLevelColor }">{{ alert_level }}</strong><br>
+        Welcome, <strong>{{ character_name }}</strong
+        >.<br />
+        Round duration: <strong>{{ round_duration }}</strong
+        ><br />
+        Alert level:
+        <strong :style="{ color: alertLevelColor }">{{ alert_level }}</strong
+        ><br />
       </p>
     </div>
     <div class="clear-both">
-      <strong v-if="shuttleStatusMessage">{{ shuttleStatusMessage }}</strong><br>
+      <strong v-if="shuttleStatusMessage">{{ shuttleStatusMessage }}</strong
+      ><br />
       Choose from the following available positions:
     </div>
     <div v-if="unique_role_available">
@@ -22,18 +27,28 @@
       <vui-button :params="{ ghostspawner: 1 }" class="d-block" icon="ghost">Ghost Spawner Menu</vui-button>
     </div>
     <div v-if="jobs_available > 0">
-      <div v-for="(el, dept) in fixedJobsList" :key="dept" class="mt-2 dept-block" :class="'border-dept-' + dept.toLowerCase()">
+      <div
+        v-for="(el, dept) in fixedJobsList"
+        :key="dept"
+        class="mt-2 dept-block"
+        :class="'border-dept-' + dept.toLowerCase()"
+      >
         <div class="dept mb-1" :class="'bg-dept-' + dept.toLowerCase()">
           {{ dept }}
         </div>
         <div v-for="job in el" :key="job.title">
           <vui-button :params="{ SelectedJob: job.title }" class="d-block mx-1">
-            <span :class="{ 'fw-bold': job.head}">{{ job.title }}</span>
-            <span v-if="job.total_positions != 1"> ({{ job.current_positions }}<span v-if="job.total_positions > 1"> / {{ job.total_positions }}</span>)</span>
+            <span :class="{ 'fw-bold': job.head }">{{ job.title }}</span>
+            <span v-if="job.total_positions != 1">
+              ({{ job.current_positions }}<span v-if="job.total_positions > 1"> / {{ job.total_positions }}</span
+              >)</span
+            >
           </vui-button>
         </div>
       </div>
-      <span class="fs-small fst-italic">Numbers in brackets show current amount of active players out of all available job slots for that job.</span>
+      <span class="fs-small fst-italic"
+        >Numbers in brackets show current amount of active players out of all available job slots for that job.</span
+      >
     </div>
     <div v-else class="fst-italic">
       No jobs available.
@@ -51,7 +66,7 @@ export default {
       return Object.fromEntries(Object.entries(this.jobs_list).filter(([, jobs]) => Object.entries(jobs).length > 0))
     },
     shuttleStatusMessage() {
-      switch(this.shuttle_status) {
+      switch (this.shuttle_status) {
         case 'post-evac':
           return 'The station has been evacuated.'
         case 'evac':
@@ -59,10 +74,10 @@ export default {
         case 'transfer':
           return 'The station is currently undergoing crew transfer procedures.'
       }
-        return null
+      return null
     },
     alertLevelColor() {
-      switch(this.alert_level.toLowerCase()) {
+      switch (this.alert_level.toLowerCase()) {
         case 'green':
           return 'inherit'
         case 'blue':
@@ -81,7 +96,8 @@ export default {
   float: left;
   height: 64px;
 }
-.gs-block, .dept-block {
+.gs-block,
+.dept-block {
   position: relative;
   border: 2px solid;
   .dept {

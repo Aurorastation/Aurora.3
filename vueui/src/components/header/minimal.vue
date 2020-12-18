@@ -1,53 +1,61 @@
 <template>
   <div class="uiTitleWrapper" draggable @mousedown.left="startDragging($event)" @mouseup.left="stopDragging($event)">
     <div class="titleBar">
-      <i class="fas ic-bug uiIcon24 uiDebugIcon" :class="debugClass" unselectable="on" @click="activateDebug()" @mousedown.left="prevent($event)"/>
+      <i
+        class="fas ic-bug uiIcon24 uiDebugIcon"
+        :class="debugClass"
+        unselectable="on"
+        @click="activateDebug()"
+        @mousedown.left="prevent($event)"
+      />
       <div class="uiTitleText" unselectable="on">{{ title }}</div>
-      <div class="uiTitleClose" unselectable="on" @click="closeUI($event)" @mousedown.left="prevent($event)">×</div>
+      <div class="uiTitleClose" unselectable="on" @click="closeUI($event)" @mousedown.left="prevent($event)">
+        ×
+      </div>
     </div>
-    <slot/>
+    <slot />
   </div>
 </template>
 
 <script>
-import Utils from '../../utils.js';
-import ByWin from '../../byWin'
+import Utils from '@/utils'
+import ByWin from '@/byWin'
 export default {
-  data () {
-    return this.$root.$data;
+  data() {
+    return this.$root.$data
   },
   computed: {
     debugClass() {
-      if (this.debug_view) return 'good';
-      if (this.debug) return 'bad';
-      return 'hidden';
-    }
+      if (this.debug_view) return 'good'
+      if (this.debug) return 'bad'
+      return 'hidden'
+    },
   },
   methods: {
     closeUI($event) {
-      $event.stopPropagation();
-      Utils.sendToTopicRaw({'src': this.uiref, 'vueuiclose': 1});
-      ByWin.setVisibility(0);
+      $event.stopPropagation()
+      Utils.sendToTopicRaw({ src: this.uiref, vueuiclose: 1 })
+      ByWin.setVisibility(0)
     },
     startDragging($event) {
-      ByWin.dragStartHandler($event);
+      ByWin.dragStartHandler($event)
     },
     stopDragging($event) {
-      ByWin.dragEndHandler($event);
+      ByWin.dragEndHandler($event)
     },
     prevent($event) {
-      $event.stopPropagation();
+      $event.stopPropagation()
     },
     activateDebug() {
       this.debug_view = !this.debug_view
-      if(this.debug_view) {
-        document.getElementById("content").classList.add("uiDebug");
-        document.getElementById("debug").classList.add("uiDebug");
+      if (this.debug_view) {
+        document.getElementById('content').classList.add('uiDebug')
+        document.getElementById('debug').classList.add('uiDebug')
       } else {
-        document.getElementById("content").classList.remove("uiDebug");
-        document.getElementById("debug").classList.remove("uiDebug");
+        document.getElementById('content').classList.remove('uiDebug')
+        document.getElementById('debug').classList.remove('uiDebug')
       }
-    }
-  }
+    },
+  },
 }
 </script>

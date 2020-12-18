@@ -17,6 +17,7 @@
         </td>
       </tr>
     </table>
+
     <h3>Tracking Implants</h3>
     <table class="table border">
       <tr class="header border">
@@ -38,9 +39,9 @@
 <script>
 export default {
   data() {
-    return this.$root.$data.state;
-  }
-};
+    return this.$root.$data.state
+  },
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-model="passcode" placeholder="Enter passcode..." autofocus>
+    <input v-model="passcode" placeholder="Enter passcode..." autofocus />
     <vui-button :params="{ passcode: passcode }">Submit</vui-button>
   </div>
 </template>
@@ -9,9 +9,8 @@
 export default {
   data() {
     return {
-      passcode: ""
+      passcode: '',
     }
-  }
+  },
 }
 </script>
-

@@ -27,7 +27,7 @@
 <script>
 export default {
   data() {
-    return this.$root.$data;
-  }
-};
+    return this.$root.$data
+  },
+}
 </script>

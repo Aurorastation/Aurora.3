@@ -1,6 +1,7 @@
 <template>
   <span class="tooltip label">
-    <slot name="label">{{label}}</slot><div class="tooltip content"><slot/></div>
+    <slot name="label">{{ label }}</slot>
+    <div class="tooltip content"><slot /></div>
   </span>
 </template>
 
@@ -9,9 +10,9 @@ export default {
   props: {
     label: {
       type: String,
-      default: ""
-    }
-  }
+      default: '',
+    },
+  },
 }
 </script>
 

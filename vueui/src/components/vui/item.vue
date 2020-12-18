@@ -1,37 +1,42 @@
 <template>
   <div class="item">
-    <div v-if="label" class="itemLabel" :style="{ width: (1 - balance) * 100 + '%' }">{{ label }}</div>
-    <div class="itemContent" :style="{ width: (label ? balance : 1) * 100 + '%' }"><slot/></div>
+    <div v-if="label" class="itemLabel" :style="{ width: (1 - balance) * 100 + '%' }">
+      {{ label }}
+    </div>
+    <div class="itemContent" :style="{ width: (label ? balance : 1) * 100 + '%' }">
+      <slot />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "vui-item",
+  name: 'vui-item',
   props: {
     label: {
       type: String,
-      default: ""
+      default: '',
     },
     balance: {
       type: Number,
-      default: 0.6
-    }
-  }
+      default: 0.6,
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .item {
-    width: 100%;
+  width: 100%;
 }
 
-.itemLabel, .itemContent {
-    display: inline-block
+.itemLabel,
+.itemContent {
+  display: inline-block;
 }
 
 .itemLabel {
-    width: 30%;
-    vertical-align: top;
+  width: 30%;
+  vertical-align: top;
 }
 </style>
