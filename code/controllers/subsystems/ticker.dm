@@ -142,6 +142,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if (pregame_timeleft <= 10 && !tipped)
 		send_tip_of_the_round()
+		callHook("before_roundstart")
 		tipped = TRUE
 
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)

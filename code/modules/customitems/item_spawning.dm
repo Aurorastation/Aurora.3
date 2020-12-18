@@ -1,27 +1,46 @@
-//TODO: Write explanation
+//This is the custom items system.
+//There are two main modes of operation: database-based and file-based
+//The operating mode is decided by the config.sql_enabled parameter
+//
+/// File
+// In File mode the system loads all the custom items from the custom_items.json into the custom_items list at roundstart
+// There is also a fallback mode for the DEPRECATED custom_items.txt. This fallback mode will be removed at some point.
+// You SHOULD migrate to json file (manually) or the db using the automatic migration feature described in the db section
+// When the equip_custom_items() proc is called for a specified mob, the custom_items list is iteraed over to determine which
+//  custom items belong to that mob of the player. Afterwards the items are spawned and applied to the mob (if the role/access match)
+//
+/// Database
+// In the database mode the custom items are NOT preloaded but fetched on demand based on the character id.
+// If the database is empty and one of the configuration files exists the configuration file is loaded into the custom_items list.
+// Afterwards a attempt is made to migrate the custom items into the database.
+// Once there are entries in the ss13_characters_custom_items table no more attempts to migrate the data are made.
+// To make it easier to find the round when that migration occured, the feedback variables
+//   custom_item_migration_success and custom_item_migration_error are set.
+
 
 /var/list/custom_items = list()
 
 //Loads the custom items from the json file if the db backend is disabled
-/hook/startup/proc/load_custom_items()
+/hook/before_roundstart/proc/load_custom_items()
 	var/load_from_file = 0
 
 	if (config.sql_enabled)
+		log_debug("Custom Items: Loading from SQL")
 		//If we have sql enabled we check if the db is empty. If so we migrate the json file to the db
 		//If the db is not empty we dont load the json file
 		if(!establish_db_connection(dbcon))
 			log_debug("Custom Items: Unable to establish database connection. - Aborting")
-			return
+			return 1
 
 		var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters_custom_items")
 		query.Execute()
 
 		if (!query.NextRow())
 			log_debug("Custom Items: Unable to fetch custom item count from database. - Aborting")
-			return
+			return 1
 		var/item_count = text2num(query.item[1])
 		if(item_count > 0)
-			return
+			return 1
 		//If there are no items in the db, migrate them
 		load_from_file = 2
 		log_debug("Custom Items: No items found in the database - attempting migration")
@@ -30,8 +49,10 @@
 		load_from_file = 1
 
 	if(load_from_file)
+		log_debug("Custom Items: Loading from File")
 		//Check if the json file exists
 		if(fexists("config/custom_items.json"))
+			log_debug("Custom Items: Loading from json")
 			var/list/loaded_items = list()
 			var/item_id = 0
 			try
@@ -52,7 +73,9 @@
 				ci.additional_data = item["additional_data"]
 				custom_items.Add(ci)
 			log_debug("Custom Items: Loaded [length(custom_items)] custom items")
-		else if(fexists("config/custom_items.txt"))
+		else if(fexists("config/custom_items.txt")) //TODO: Retire that at some point down the line
+			log_debug("Custom Items: Loading from txt")
+			log_and_message_admins("The deprecated custom_items.txt file is used. Migrate to SQL or JSON.")
 			//If we dont have the json file, we might have the old file so lets try that
 			var/datum/custom_item/current_data
 			for(var/line in text2list(file2text("config/custom_items.txt"), "\n"))
@@ -105,21 +128,37 @@
 						current_data.additional_data = field_data
 	if(load_from_file == 2) //insert the item into the db
 		log_debug("Custom Items: Migrating custom_items to database")
+		var/success_count = 0
+		var/error_count = 0
 		for(var/item in custom_items)
 			var/datum/custom_item/ci = item
-			//Fetch the character id of the character
-			var/DBQuery/char_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND name = :name: AND deleted_at IS NOT NULL ORDER BY id DESC")
-			char_query.Execute(list("ckey"=ckey(ci.usr_ckey),"name"=ci.usr_charname))
+			log_debug("Custom Items: Migrating Item for: [ci.usr_ckey] - [ci.usr_charname]")
 
+			if(!ci.item_path || ci.item_path == "")
+				log_debug("Custom Items: Invalid Item path")
+				error_count += 1
+				continue
+
+			//Fetch the character id of the character
+			var/DBQuery/char_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND name = :name: AND deleted_at IS NULL ORDER BY id DESC")
+			char_query.Execute(list("ckey"=ckey(ci.usr_ckey),"name"=ci.usr_charname))
 			if (!char_query.NextRow())
 				log_debug("Custom Items: Unable to find matching character for: ckey: [ci.usr_ckey] name: [ci.usr_charname]")
-				return
-
+				error_count += 1
+				continue
 			var/char_id = text2num(char_query.item[1])
 
-			var/DBQuery/item_insert_query = dbcon.NewQuery("INSERT INTO ss13_characters_custom_items (`char_id`, `item_path`, `item_data`, `req_access`, `req_titles`, `additional_data`) VALUES (:char_id:, :item_path:, :item_data:, :req_access:, :req_titles:, :additional_data:)")
-			item_insert_query.Execute(list("char_id"=char_id,"item_path"=ci.item_path,"item_data"=json_encode(ci.item_data),"req_access"=ci.req_access,"req_titles"=json_encode(ci.req_titles),"additional_data"=ci.additional_data))
+			try
+				var/DBQuery/item_insert_query = dbcon.NewQuery("INSERT INTO ss13_characters_custom_items (`char_id`, `item_path`, `item_data`, `req_access`, `req_titles`, `additional_data`) VALUES (:char_id:, :item_path:, :item_data:, :req_access:, :req_titles:, :additional_data:)")
+				item_insert_query.Execute(list("char_id"=char_id,"item_path"="[ci.item_path]","item_data"=json_encode(ci.item_data),"req_access"=ci.req_access,"req_titles"=json_encode(ci.req_titles),"additional_data"=ci.additional_data))
+			catch(var/exception/e)
+				log_debug("Custom Items: Failed to save item to db: [e]")
+				error_count += 1
+			success_count += 1
 
+		SSfeedback.feedback_set("custom_item_migration_success",success_count)
+		SSfeedback.feedback_set("custom_item_migration_error",error_count)
+	return 1
 
 /datum/custom_item
 	var/id
@@ -172,6 +211,7 @@
 
 		var/DBQuery/char_item_query = dbcon.NewQuery("SELECT id, char_id, ckey as usr_ckey, name as usr_charname, item_path, item_data, req_access, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters.custom_items.char_id")
 		while(char_item_query.NextRow())
+			CHECK_TICK
 			var/datum/custom_item/ci = new()
 			ci.id = text2num(char_item_query.item[1])
 			ci.character_id = text2num(char_item_query.item[2])
@@ -185,6 +225,7 @@
 			equip_custom_item_to_mob(ci,M)
 	else
 		for(var/item in custom_items)
+			CHECK_TICK
 			var/datum/custom_item/ci = item
 			if(lowertext(ci.usr_ckey) != lowertext(M.ckey))
 				continue
