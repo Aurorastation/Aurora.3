@@ -3,7 +3,7 @@
 	desc = "You sit in this. Either by will or force."
 	icon_state = "chair_preview"
 	base_icon = "chair"
-	color = "#666666"
+	var/item_chair = /obj/item/chair // if null it can't be picked up
 
 	build_amt = 1
 
@@ -25,6 +25,19 @@
 		E.part = SK
 		user.drop_from_inventory(SK,E)
 		SK.master = E
+		qdel(src)
+
+/obj/structure/bed/chair/MouseDrop(over_object, src_location, over_location)
+	. = ..()
+	if(over_object == usr && Adjacent(usr))
+		if(!item_chair || !usr.can_hold_items() || has_buckled_mobs() || src.flags_1 & NODECONSTRUCT_1)
+			return
+		if(!usr.canUseTopic(src, BE_CLOSE, ismonkey(usr)))
+			return
+		usr.visible_message("<span class='notice'>[usr] grabs \the [src.name].</span>", "<span class='notice'>You grab \the [src.name].</span>")
+		var/C = new item_chair(loc)
+		TransferComponents(C)
+		usr.put_in_hands(C)
 		qdel(src)
 
 /obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
