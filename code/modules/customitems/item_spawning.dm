@@ -16,7 +16,14 @@
 // Once there are entries in the ss13_characters_custom_items table no more attempts to migrate the data are made.
 // To make it easier to find the round when that migration occured, the feedback variables
 //   custom_item_migration_success and custom_item_migration_error are set.
-
+//
+/// Removed Features
+// The kits have been removed without replacement
+// The icon manipulation features have been removed without replacement
+// The name/desc field have been removed and replaced with the item_data system
+//  This allows to modify any (string/int) variable of a existing item via the custom_item system.
+//  The key in the item_data list is the name of the variable, and the value is the value of the variable.
+//  i.e. `item_data = list("name"="asdf")` would set the name of the item to asdf when its spawned in
 
 /var/list/custom_items = list()
 
@@ -156,8 +163,8 @@
 				error_count += 1
 			success_count += 1
 
-		SSfeedback.feedback_set("custom_item_migration_success",success_count)
-		SSfeedback.feedback_set("custom_item_migration_error",error_count)
+		feedback_set("custom_item_migration_success",success_count)
+		feedback_set("custom_item_migration_error",error_count)
 	return 1
 
 /datum/custom_item
