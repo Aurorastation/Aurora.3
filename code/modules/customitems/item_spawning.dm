@@ -28,7 +28,7 @@
 /var/list/custom_items = list()
 
 //Loads the custom items from the json file if the db backend is disabled
-/hook/before_roundstart/proc/load_custom_items()
+/hook/pregame_start/proc/load_custom_items()
 	var/load_from_file = 0
 
 	if (config.sql_enabled)
@@ -133,7 +133,7 @@
 						continue
 					if("additional_data")
 						current_data.additional_data = field_data
-	if(load_from_file == 2) //insert the item into the db
+	if(load_from_file == 2 && length(custom_items)) //insert the item into the db
 		log_debug("Custom Items: Migrating custom_items to database")
 		var/success_count = 0
 		var/error_count = 0
@@ -193,9 +193,9 @@
 		return
 
 	//Customize the item with the item_data
-	for(var/var_name in item_data["vars"])
+	for(var/var_name in item_data)
 		try
-			item.vars[var_name] = item_data["vars"][var_name]
+			item.vars[var_name] = item_data[var_name]
 		catch(var/exception/e)
 			log_debug("Custom Item: Bad variable name [var_name] in custom item with id [id]: [e]")
 
@@ -216,7 +216,8 @@
 			log_debug("Custom Items: Unable to establish database connection while loading item. - Aborting")
 			return
 
-		var/DBQuery/char_item_query = dbcon.NewQuery("SELECT id, char_id, ckey as usr_ckey, name as usr_charname, item_path, item_data, req_access, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters.custom_items.char_id")
+		var/DBQuery/char_item_query = dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_access, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
+		char_item_query.Execute(list("char_id"=M.character_id))
 		while(char_item_query.NextRow())
 			CHECK_TICK
 			var/datum/custom_item/ci = new()
@@ -228,6 +229,7 @@
 			ci.item_data = json_decode(char_item_query.item[6]) //TODO: try/catch
 			ci.req_access = text2num(char_item_query.item[7])
 			ci.req_titles = json_decode(char_item_query.item[8]) //TODO: try/catch
+			ci.additional_data = char_item_query.item[9]
 
 			equip_custom_item_to_mob(ci,M)
 	else
@@ -270,19 +272,13 @@
 	if(existing_item)
 		citem.apply_to_item(existing_item)
 	else
-		place_custom_item(M,citem)
+		var/obj/item/newitem = citem.spawn_item()
 
-// Places the item on the target mob.
-/proc/place_custom_item(mob/living/carbon/human/M, var/datum/custom_item/citem)
+		if(M.equip_to_appropriate_slot(newitem))
+			return newitem
 
-	if(!citem) return
-	var/obj/item/newitem = citem.spawn_item()
+		if(M.equip_to_storage(newitem))
+			return newitem
 
-	if(M.equip_to_appropriate_slot(newitem))
+		newitem.forceMove(get_turf(M.loc))
 		return newitem
-
-	if(M.equip_to_storage(newitem))
-		return newitem
-
-	newitem.forceMove(get_turf(M.loc))
-	return newitem
