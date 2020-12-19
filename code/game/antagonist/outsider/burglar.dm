@@ -17,7 +17,7 @@ var/datum/antagonist/burglar/burglars
 
 	hard_cap = 2
 	hard_cap_round = 3
-	initial_spawn_req = 1
+	initial_spawn_req = 2
 	initial_spawn_target = 2
 
 	faction = "syndicate"

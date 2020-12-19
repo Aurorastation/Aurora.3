@@ -83,7 +83,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/machinery/cryopod/robot, /obj/machinery/robotic_fabricator, /obj/effect/decal/cleanable/blood/gibs/robot, /obj/effect/decal/remains/robot,
 												 /obj/item/robot_parts, /obj/item/organ/internal/cell, /obj/item/organ/internal/data, /obj/item/toy/figure/borg)),
 
-					   "nanotrasen" = typecacheof(list(/obj/item/toy/nanotrasenballoon, /obj/item/soap/nanotrasen, /obj/structure/sign/flag/nanotrasen,
+					   "nanotrasen" = typecacheof(list(/obj/item/toy/balloon/nanotrasen, /obj/item/soap/nanotrasen, /obj/structure/sign/flag/nanotrasen,
 												 /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen, /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen, /obj/item/storage/toolbox/lunchbox/nt,
 												 /obj/structure/banner, /obj/structure/bed/chair/office/bridge, /obj/item/clothing/head/collectable/captain,
 												 /obj/item/clothing/head/helmet/space/void/captain, /obj/item/clothing/suit/space/void/captain, /obj/item/clothing/suit/storage/hooded/wintercoat/captain,
