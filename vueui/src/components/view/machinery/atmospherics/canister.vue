@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .item {
     width: 100%;
     margin: 4px 0 0 0;

@@ -727,10 +727,11 @@
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			stat = UNCONSCIOUS
-
 			adjustHalLoss(-3)
 			if (species.tail)
 				animate_tail_reset()
+			if(prob(2) && is_asystole() && isSynthetic())
+				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")]")
 
 		if(paralysis)
 			AdjustParalysis(-1)
@@ -910,6 +911,7 @@
 				var/new_val = "[isSynthetic() ? "charge" : "nutrition"][nut_icon]"
 				if (nutrition_icon.icon_state != new_val)
 					nutrition_icon.icon_state = new_val
+
 			if(hydration_icon)
 				var/hyd_factor = max_hydration ? Clamp(hydration / max_hydration, 0, 1) : 1
 				var/hyd_icon = 5
@@ -926,6 +928,14 @@
 				var/new_val = "thirst[hyd_icon]"
 				if (hydration_icon.icon_state != new_val)
 					hydration_icon.icon_state = new_val
+
+			if(isSynthetic())
+				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+				if (istype(IC))
+					var/chargeNum = Clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+					cells.icon_state = "charge[chargeNum]"
+				else
+					cells.icon_state = "charge-empty"
 
 		if(pressure)
 			var/new_pressure = "pressure[pressure_alert]"

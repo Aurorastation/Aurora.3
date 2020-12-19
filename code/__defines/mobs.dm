@@ -85,6 +85,10 @@
 #define I_GRAB		"grab"
 #define I_HURT		"harm"
 
+//movement intents
+#define M_WALK "walk"
+#define M_RUN  "run"
+
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
 #define BP_R_FOOT "r_foot"
@@ -99,6 +103,10 @@
 #define BP_GROIN  "groin"
 #define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
 #define BP_IS_ROBOTIC(org)  (org.status & ORGAN_ROBOT)
+
+#define ROBOTIC_NONE       0
+#define ROBOTIC_ASSISTED   1
+#define ROBOTIC_MECHANICAL 2
 
 //Generic organs
 #define BP_MOUTH    "mouth"

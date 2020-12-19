@@ -8419,6 +8419,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
+"aGj" = (
+/turf/simulated/floor/plating,
+/area/shuttle/skipjack)
 "aGk" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light/small{
@@ -8818,7 +8821,6 @@
 /area/shuttle/skipjack)
 "aHD" = (
 /obj/structure/table/standard,
-/obj/item/handcuffs/legcuffs,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/skipjack)
 "aHE" = (
@@ -25159,10 +25161,10 @@ aFf
 aFw
 dJT
 aFU
-aHl
-aHl
-aHl
-aHl
+aGj
+aGj
+aGj
+aGj
 aHa
 aHu
 aHC
@@ -25416,10 +25418,10 @@ dJT
 dJT
 dJT
 aFV
-aHl
-aHl
+aGj
+aGj
 aGF
-aHl
+aGj
 aHb
 dJT
 xQA
@@ -25673,9 +25675,9 @@ aaM
 aaM
 dJT
 aFW
-aHl
-aHl
-aHl
+aGj
+aGj
+aGj
 dJT
 dJT
 dJT
@@ -25931,8 +25933,8 @@ aaM
 dJT
 aFX
 aGk
-aHl
-aHl
+aGj
+aGj
 aGO
 aHc
 aHc
@@ -28501,8 +28503,8 @@ aaM
 dJT
 aFZ
 aGp
-aHl
-aHl
+aGj
+aGj
 aGO
 aHj
 aHv
@@ -28757,8 +28759,8 @@ aaM
 aaM
 dJT
 aGa
-aHl
-aHl
+aGj
+aGj
 aGK
 dJT
 dJT
@@ -29014,9 +29016,9 @@ dJT
 dJT
 dJT
 aGb
-aHl
+aGj
 aGB
-aHl
+aGj
 aGS
 aHk
 dJT
@@ -29272,7 +29274,7 @@ aFB
 dJT
 aGc
 aGq
-aHl
+aGj
 aGL
 aGT
 aGj

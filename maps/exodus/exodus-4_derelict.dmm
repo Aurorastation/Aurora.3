@@ -137,8 +137,8 @@
 "aB" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/item/stack/material/steel{
 	amount = 50
@@ -767,11 +767,11 @@
 /area/constructionsite/atmospherics)
 "cq" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
+	default_pressure_setting = 2000;
 	frequency = 1443;
 	input_tag = "d_air_in";
 	name = "Mixed Air Supply Control";
 	output_tag = "d_air_out";
-	default_pressure_setting = 2000;
 	sensors = list("d_air_sensor" = "Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -807,10 +807,10 @@
 	id_tag = "d_air_out";
 	internal_pressure_bound = 2000;
 	internal_pressure_bound_default = 2000;
-	use_power = 1;
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0
+	pump_direction = 0;
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/constructionsite/atmospherics)
@@ -880,10 +880,10 @@
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
-	use_power = 1;
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0
+	pump_direction = 0;
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/constructionsite/atmospherics)
@@ -955,10 +955,10 @@
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
-	use_power = 1;
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0
+	pump_direction = 0;
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/constructionsite/atmospherics)

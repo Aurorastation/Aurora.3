@@ -1035,7 +1035,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
 
-		output += "Current Charge Level: [nutrition]\n"
+		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		if(!C || !C.cell)
+			output += SPAN_DANGER("ERROR: NO BATTERY DETECTED")
+		else
+			output += "Current Charge Level: [C.percent()]\n"
 
 		var/toxDam = getToxLoss()
 		if(toxDam)
