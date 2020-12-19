@@ -72,7 +72,7 @@
 	icon_state = "anchor"
 	organ_tag = "anchor"
 	parent_organ = BP_HEAD
-	robotic = 2
+	robotic = ROBOTIC_MECHANICAL
 	var/suffered_revelation = FALSE
 
 /obj/item/organ/internal/anchor/Initialize()

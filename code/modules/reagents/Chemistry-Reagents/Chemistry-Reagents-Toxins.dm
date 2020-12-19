@@ -16,18 +16,24 @@
 /decl/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(strength && alien != IS_DIONA)
 		var/dam = (strength * removed)
-		if(target_organ && ishuman(M))
+		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
-			if(I)
-				var/can_damage = I.max_damage - I.damage
-				if(can_damage > 0)
-					if(dam > can_damage)
-						I.take_internal_damage(can_damage, silent=TRUE)
-						dam -= can_damage
-					else
-						I.take_internal_damage(dam, silent=TRUE)
-						dam = 0
+			if(target_organ)
+				var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
+				if(I)
+					var/can_damage = I.max_damage - I.damage
+					if(can_damage > 0)
+						if(dam > can_damage)
+							I.take_internal_damage(can_damage, silent=TRUE)
+							dam -= can_damage
+						else
+							I.take_internal_damage(dam, silent=TRUE)
+							dam = 0
+			for(var/organ in H.organs)
+				var/obj/item/organ/external/O = organ
+				var/obj/effect/spider/eggcluster/C = locate() in O
+				if(C)
+					C.take_damage(removed * 2)
 		if(dam)
 			M.adjustToxLoss(target_organ ? (dam * 0.5) : dam)
 

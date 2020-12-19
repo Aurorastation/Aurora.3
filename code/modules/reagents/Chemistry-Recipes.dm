@@ -3447,5 +3447,96 @@
 	name = "Cuba Libre"
 	id = "cubalibre"
 	result = /decl/reagent/alcohol/cubalibre
-	required_reagents = list(/decl/reagent/alcohol/rumandcola = 5, /decl/reagent/drink/limejuice = 1)
+	required_reagents = list(/decl/reagent/alcohol/rumandcola = 2, /decl/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/solarian_white
+	name = "Solarian White"
+	id = "solarian_white"
+	result = /decl/reagent/alcohol/solarian_white
+	required_reagents = list(/decl/reagent/alcohol/vodka = 1, /decl/reagent/drink/milk/cream = 1, /decl/reagent/drink/limejuice =1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/solarian_marine
+	name = "Solarian Marine"
+	id = "solarian_marine"
+	result = /decl/reagent/alcohol/solarian_marine
+	required_reagents = list(/decl/reagent/drink/tea/securitea = 1, /decl/reagent/alcohol/whiskey = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/cloudyoran
+	name = "Cloudy Oran"
+	id = "cloudyoran"
+	result = /decl/reagent/alcohol/cloudyoran
+	required_reagents = list(/decl/reagent/alcohol/sake = 1, /decl/reagent/drink/tea/greentea = 1, /decl/reagent/drink/milk/soymilk = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/djinntea
+	name = "Djinn Tea"
+	id = "djinntea"
+	result = /decl/reagent/alcohol/djinntea
+	required_reagents = list(/decl/reagent/drink/dynjuice/cold = 1, /decl/reagent/alcohol/gin = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/permanent_revolution
+	name = "Permanent Revolution"
+	id = "permanent_revolution"
+	result = /decl/reagent/alcohol/permanent_revolution
+	required_reagents = list(/decl/reagent/alcohol/absinthe = 1, /decl/reagent/alcohol/vodka/mushroom = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/internationale
+	name = "Internationale"
+	id = "internationale"
+	result = /decl/reagent/alcohol/internationale
+	required_reagents = list(/decl/reagent/alcohol/victorygin = 1, /decl/reagent/alcohol/vodka/mushroom = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/diona_mama
+	name = "Diona Mama"
+	id = "diona_mama"
+	result = /decl/reagent/alcohol/diona_mama
+	required_reagents = list(/decl/reagent/alcohol/absinthe = 2, /decl/reagent/drink/limejuice = 2, /decl/reagent/radium = 1, /decl/reagent/drink/ice = 1)
 	result_amount = 6
+
+/datum/chemical_reaction/drink/jovian_storm
+	name = "Jovian Storm"
+	id = "jovian_storm"
+	result = /decl/reagent/alcohol/jovian_storm
+	required_reagents = list(/decl/reagent/alcohol/rum = 2, /decl/reagent/drink/grenadine = 2, /decl/reagent/drink/lemonjuice = 1, /decl/reagent/drink/ice = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/primeminister
+	name = "Prime Minister"
+	id = "primeminister"
+	result = /decl/reagent/alcohol/primeminister
+	required_reagents = list(/decl/reagent/alcohol/rum = 4, /decl/reagent/alcohol/vermouth = 1, /decl/reagent/drink/grenadine = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/peacetreaty
+	name = "Peace Treaty"
+	id = "peacetreaty"
+	result = /decl/reagent/alcohol/peacetreaty
+	required_reagents = list(/decl/reagent/alcohol/victorygin = 1, /decl/reagent/alcohol/messa_mead = 1, /decl/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/fiscream
+	name = "Fisanduhian Cream"
+	id = "fiscream"
+	result = /decl/reagent/alcohol/fiscream
+	required_reagents = list(/decl/reagent/alcohol/fireball = 2, /decl/reagent/drink/milk/cream = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/fiscoffee
+	name = "Fisanduhian Coffee"
+	id = "fiscoffee"
+	result = /decl/reagent/alcohol/coffee/fiscoffee
+	required_reagents = list(/decl/reagent/alcohol/fiscream = 1, /decl/reagent/drink/coffee = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/fisfirebomb
+	name = "Fisanduhian Firebomb"
+	id = "fiscarbomb"
+	result = /decl/reagent/alcohol/fisfirebomb
+	required_reagents = list(/decl/reagent/alcohol/ale = 1, /decl/reagent/alcohol/fiscream = 1)
+	result_amount = 2

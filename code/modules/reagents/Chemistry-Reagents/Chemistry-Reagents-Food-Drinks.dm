@@ -2159,6 +2159,17 @@
 	glass_desc = "It has an oily smell and doesn't taste like typical gin."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
+/decl/reagent/alcohol/djinntea
+	name = "Djinn Tea"
+	description = "A mildly alcoholic spin on a popular Skrell drink."
+	color = "#84C0C0"
+	strength = 20
+	taste_description = "fizzy mint tea"
+
+	glass_icon_state = "djinnteaglass"
+	glass_name = "glass of Djinn Tea"
+	glass_desc = "A mildly alcoholic spin on a popular Skrell drink. Less good for you than the original."
+
 //Base type for alchoholic drinks containing coffee
 /decl/reagent/alcohol/coffee
 	overdose = 45
@@ -2236,6 +2247,18 @@
 	glass_name = "glass of sake"
 	glass_desc = "A glass of sake."
 	glass_center_of_mass = list("x"=16, "y"=12)
+
+/decl/reagent/alcohol/cloudyoran
+	name = "Cloudy Oran"
+	description = "Reminds Suits of home. Dregs, not so much."
+	color = "#F6F6F6"
+	strength = 15
+	taste_description = "soy milk putting on airs"
+
+	glass_icon_state = "cloudyoranglass"
+	glass_name = "glass of Cloudy Oran"
+	glass_desc = "A frothy white beverage. Reminds Suits of home. Dregs, not so much."
+	glass_center_of_mass = list("x"=16, "y"=5)
 
 /decl/reagent/alcohol/soju
 	name = "Soju"
@@ -2465,6 +2488,31 @@
 	glass_desc = "Tropical cocktail"
 	glass_center_of_mass = list("x"=16, "y"=5)
 
+/decl/reagent/alcohol/diona_mama
+	name = "Diona Mama"
+	description = "Lightly irradiated."
+	color = "#56A05D"
+	strength = 25
+	druggy = 25
+	taste_description = "tangy, irradiated licorice"
+
+	glass_icon_state = "dionamamaglass"
+	glass_name = "glass of Diona Mama"
+	glass_desc = "Lightly irradiated, just the way Dionae like it."
+	glass_center_of_mass = list("x"=16, "y"=5)
+
+/decl/reagent/alcohol/jovian_storm
+	name = "Jovian Storm"
+	description = "Named after Jupiter’s storm. It’ll blow you away."
+	color = "#AA856A"
+	strength = 15
+	taste_description = "stormy sweetness"
+
+	glass_icon_state = "jovianstormglass"
+	glass_name = "glass of Jovian Storm"
+	glass_desc = "A classic Callistean drink named after Jupiter’s storm. It’ll blow you away."
+	glass_center_of_mass = list("x"=16, "y"=5)
+
 /decl/reagent/alcohol/bananahonk
 	name = "Banana Mama"
 	description = "A drink from Clown Heaven."
@@ -2638,6 +2686,19 @@
 	glass_icon_state = "cubalibreglass"
 	glass_name = "glass of Cuba Libre"
 	glass_desc = "A classic mix of rum, cola, and lime."
+	glass_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/alcohol/rumandcola
+	name = "Rum and Cola"
+	description = "A classic cocktail consisting of rum and cola."
+	color = "#3E1B00"
+	strength = 10
+	taste_description = "cola"
+	carbonated = TRUE
+
+	glass_icon_state = "rumandcolaglass"
+	glass_name = "glass of Rum and Cola"
+	glass_desc = "A classic mix of rum and cola."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/alcohol/demonsblood
@@ -2818,6 +2879,19 @@
 	glass_desc = "An irish car bomb."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
+/decl/reagent/alcohol/fisfirebomb
+	name = "Fisanduhian Firebomb"
+	description = "Mmm, tastes like spicy chocolate..."
+	color = "#320C00"
+	strength = 50
+	taste_description = "anti-dominian sentiment"
+	carbonated = TRUE
+
+	glass_icon_state = "fisfirebombglass"
+	glass_name = "glass of Fisanduhian Firebomb"
+	glass_desc = "The somewhat spicier cousin to the Irish Car Bomb."
+	glass_center_of_mass = list("x"=16, "y"=8)
+
 /decl/reagent/alcohol/coffee/irishcoffee
 	name = "Irish Coffee"
 	description = "Coffee, and alcohol. More fun than a Mimosa to drink in the morning."
@@ -2831,6 +2905,19 @@
 	glass_desc = "Coffee and alcohol. More fun than a Mimosa to drink in the morning."
 	glass_center_of_mass = list("x"=15, "y"=10)
 
+/decl/reagent/alcohol/coffee/fiscoffee
+	name = "Fisanduhian Coffee"
+	description = "Coffee, and spicy alcohol. Popular among people who dislike Dominians."
+	color = "#A9501C"
+	strength = 50
+	caffeine = 0.3
+	taste_description = "giving up on peaceful coexistence"
+
+	glass_icon_state = "giscoffeeglass"
+	glass_name = "glass of Fisanduhian coffee"
+	glass_desc = "It's like an Irish coffee, but spicy and angry about Dominia."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
 /decl/reagent/alcohol/irishcream
 	name = "Irish Cream"
 	description = "Whiskey-imbued cream, what else would you expect from the Irish."
@@ -2841,6 +2928,18 @@
 	glass_icon_state = "irishcreamglass"
 	glass_name = "glass of Irish cream"
 	glass_desc = "It's cream, mixed with whiskey. What else would you expect from the Irish?"
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/decl/reagent/alcohol/fiscream
+	name = "Fisanduhian Cream"
+	description = "A sweet, slightly spicy alcoholic cream. Fisanduh is not yet lost."
+	color = "#C8AC97"
+	strength = 25
+	taste_description = "creamy spiced alcohol"
+
+	glass_icon_state = "irishcreamglass"
+	glass_name = "glass of Fisanduhian cream"
+	glass_desc = "A sweet, slightly spicy alcoholic cream. Fisanduh is not yet lost."
 	glass_center_of_mass = list("x"=16, "y"=9)
 
 /decl/reagent/alcohol/longislandicedtea
@@ -3257,6 +3356,59 @@
 	glass_desc = "A very nice looking drink. But that's just, like, your opinion, man."
 	glass_center_of_mass = list("x"=16, "y"=9)
 
+/decl/reagent/alcohol/solarian_white
+	name = "Solarian White"
+	description = "Despite the name, this is not a security officer."
+	color = "#C3D1D4"
+	strength = 30
+	taste_description = "creamy vodka and lime"
+
+	glass_icon_state = "solarianwhiteglass"
+	glass_name = "glass of Solarian White"
+	glass_desc = "A classic Solarian cocktail. Despite the name, this is not a security officer."
+
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/decl/reagent/alcohol/solarian_marine
+	name = "Solarian Marine"
+	description = "Drink too many of these, and you'll wake up invading Tau Ceti."
+	reagent_state = LIQUID
+	color = "#33567A"
+	strength = 35
+	taste_description = "polished boots and nationalism"
+
+	glass_icon_state = "solarianmarineglass"
+	glass_name = "Solarian Marine"
+	glass_desc = "Drink too many of these, and you'll wake up invading Tau Ceti."
+
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/decl/reagent/alcohol/permanent_revolution
+	name = "Permanent Revolution"
+	description = "You have nothing to lose but your sobriety."
+	color = "#A7AA60"
+	strength = 65
+	taste_description = "strong, earthy licorice"
+
+	glass_icon_state = "permanentrevolutionglass"
+	glass_name = "glass of Permanent Revolution"
+	glass_desc = "A Himean cocktail, so named for its tendency to make the room spin.  You have nothing to lose but your sobriety."
+
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/decl/reagent/alcohol/internationale
+	name = "Solarian White"
+	description = "The subversive's choice."
+	color = "#D9CCAA"
+	strength = 28
+	taste_description = "earthy, oily unity"
+
+	glass_icon_state = "internationaleglass"
+	glass_name = "glass of Internationale"
+	glass_desc = "The nearest thing the Orion Spur has to left unity. The subversive's choice."
+
+	glass_center_of_mass = list("x"=16, "y"=9)
+
 /decl/reagent/alcohol/whiskeycola
 	name = "Whiskey Cola"
 	description = "Whiskey, mixed with cola. Surprisingly refreshing."
@@ -3413,6 +3565,28 @@
 	glass_icon_state = "metropolitan"
 	glass_name = "glass of Metropolitan"
 	glass_desc = "What more could you ask for?"
+
+/decl/reagent/alcohol/primeminister
+	name = "Prime Minister"
+	description = "All the fun of power, none of the assassination risk!"
+	color = "#FF3C00"
+	strength = 30
+	taste_description = "political power"
+
+	glass_icon_state = "primeministerglass"
+	glass_name = "glass of Prime Minister"
+	glass_desc = "All the fun of power, none of the assassination risk!"
+
+/decl/reagent/alcohol/peacetreaty
+	name = "Peace Treaty"
+	description = "A diplomatic overture in a glass."
+	color = "#DFDF93"
+	strength = 21
+	taste_description = "tart, oily honey"
+
+	glass_icon_state = "peacetreatyglass"
+	glass_name = "glass of Peace Treaty"
+	glass_desc = "A diplomatic overture in a glass"
 
 /decl/reagent/alcohol/caruso
 	name = "Caruso"
@@ -4418,16 +4592,3 @@
 	condiment_desc = "A vegetarian friendly way to add a little extra pizazz to any dish."
 	condiment_icon_state = "dionaepowder"
 	condiment_center_of_mass = list("x"=16, "y"=10)
-
-/decl/reagent/alcohol/rumandcola
-	name = "Rum and Cola"
-	description = "A classic cocktail consisting of rum and cola."
-	color = "#3E1B00"
-	strength = 10
-	taste_description = "cola"
-	carbonated = TRUE
-
-	glass_icon_state = "rumandcolaglass"
-	glass_name = "glass of Rum and Cola"
-	glass_desc = "A classic mix of rum and cola."
-	glass_center_of_mass = list("x"=16, "y"=8)

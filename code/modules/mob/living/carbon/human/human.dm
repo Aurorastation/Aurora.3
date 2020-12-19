@@ -198,6 +198,10 @@
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
+		
+		var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+		if(IC && IC.cell)
+			stat("Battery charge:", "[IC.get_charge()]/[IC.cell.maxcharge]")
 
 		if(back && istype(back,/obj/item/rig))
 			var/obj/item/rig/suit = back

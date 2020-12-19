@@ -185,6 +185,12 @@
 
 	return pulse > PULSE_NONE || BP_IS_ROBOTIC(src) || (owner.status_flags & FAKEDEATH)
 
+/obj/item/organ/internal/heart/do_surge_effects()
+	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+	if(prob(surge_damage))
+		owner.custom_pain(SPAN_DANGER("Your [E.name] stings horribly!"), 15, FALSE, E)
+		sound_to(owner, sound('sound/effects/singlebeat.ogg', 0, 0, 0, 100))
+
 /obj/item/organ/internal/heart/listen()
 	if(BP_IS_ROBOTIC(src) && is_working())
 		if(is_bruised())

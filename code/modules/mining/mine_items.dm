@@ -25,7 +25,7 @@
 	new /obj/item/shovel(src)
 	new /obj/item/pickaxe(src)
 	new /obj/item/gun/custom_ka/frame01/prebuilt(src)
-	new /obj/item/ore_radar(src)
+	new /obj/item/ore_detector(src)
 	new /obj/item/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/book/manual/ka_custom(src)

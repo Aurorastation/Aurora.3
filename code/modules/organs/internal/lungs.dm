@@ -46,7 +46,7 @@
 /obj/item/organ/internal/lungs/process()
 	..()
 
-	if(!owner)
+	if(!owner || owner.stat == DEAD)
 		return
 
 	if(germ_level > INFECTION_LEVEL_ONE)

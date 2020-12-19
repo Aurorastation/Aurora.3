@@ -43,9 +43,28 @@
 	if(.)
 		update_icon()
 
-/obj/item/gun/energy/emp_act(severity)
+/obj/item/gun/energy/emp_act(var/severity)
 	..()
+	disable_cell_temp(severity)
 	queue_icon_update()
+
+/obj/item/gun/energy/proc/disable_cell_temp(var/severity)
+	set waitfor = FALSE
+	if(!power_supply)
+		return
+	var/mob/M
+	if(ismob(loc))
+		M = loc
+		to_chat(M, SPAN_DANGER("[src] locks up!"))
+		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
+	var/initial_charge = power_supply.charge
+	power_supply.charge = 0	
+	sleep(severity * 20)
+	power_supply.give(initial_charge)
+	update_maptext()
+	update_icon()
+	if(M && loc == M)
+		playsound(M, 'sound/weapons/laser_safetyoff.ogg', 30)
 
 /obj/item/gun/energy/get_cell()
 	return power_supply

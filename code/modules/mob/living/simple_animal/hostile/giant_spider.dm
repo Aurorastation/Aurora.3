@@ -39,6 +39,7 @@
 	speed = 3
 	mob_size = 6
 
+	attacktext = "bitten"
 	attack_emote = "skitters toward"
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
 

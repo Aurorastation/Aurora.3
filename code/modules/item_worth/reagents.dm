@@ -495,6 +495,45 @@
 /decl/reagent/alcohol/tallrussian
 	value = 0.15
 
+/decl/reagent/alcohol/solarian_white
+	value = 0.125
+
+/decl/reagent/alcohol/solarian_marine
+	value = 0.2
+
+/decl/reagent/alcohol/cloudyoran
+	value = 0.12
+
+/decl/reagent/alcohol/djinntea
+	value = 0.12
+
+/decl/reagent/alcohol/permanentrevolution
+	value = 0.13
+
+/decl/reagent/alcohol/internationale
+	value = 0.13
+
+/decl/reagent/alcohol/dionamama
+	value = 0.2
+
+/decl/reagent/alcohol/jovianstorm
+	value = 0.13
+
+/decl/reagent/alcohol/primeminister
+	value = 0.13
+
+/decl/reagent/alcohol/peacetreaty
+	value = 0.15
+
+/decl/reagent/alcohol/fiscream
+	value = 0.14
+
+/decl/reagent/alcohol/coffee/fiscoffee
+	value = 0.13
+
+/decl/reagent/alcohol/fisfirebomb
+	value = 0.15
+
 /decl/reagent/inaprovaline
 	value = 2.5
 

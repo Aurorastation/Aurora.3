@@ -115,6 +115,7 @@
 
 /obj/screen/fullscreen/flash/noise
 	icon_state = "noise"
+	alpha = 127
 
 /obj/screen/fullscreen/noise
 	icon = 'icons/effects/static.dmi'
