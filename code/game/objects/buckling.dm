@@ -22,7 +22,6 @@
 	unbuckle_mob()
 	return ..()
 
-
 /obj/proc/buckle_mob(mob/living/M)
 	if(!can_buckle || !istype(M) || M.buckled || M.pinned.len || (buckle_require_restraints && !M.restrained()))
 		return 0
@@ -100,4 +99,3 @@
 				"<span class='notice'>You hear metal clanking.</span>")
 		add_fingerprint(user)
 	return M
-

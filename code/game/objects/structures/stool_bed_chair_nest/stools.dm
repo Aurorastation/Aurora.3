@@ -44,6 +44,10 @@
 	name = "bar stool"
 	base_icon = "bar_stool"
 	icon_state = "bar_stool_preview"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
+		)
 
 /obj/item/stool/bar/padded
 	icon_state = "bar_stool_padded_preview"

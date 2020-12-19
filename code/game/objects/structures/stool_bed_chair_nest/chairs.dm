@@ -3,7 +3,7 @@
 	desc = "You sit in this. Either by will or force."
 	icon_state = "chair_preview"
 	base_icon = "chair"
-	var/item_chair = /obj/item/chair // if null it can't be picked up
+	var/item_chair = /obj/item/material/chair // if null it can't be picked up. Automatically applies materials.
 
 	build_amt = 1
 
@@ -17,7 +17,7 @@
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
 		var/obj/item/assembly/shock_kit/SK = W
 		if(!SK.status)
-			to_chat(user, "<span class='notice'>\The [SK] is not ready to be attached!</span>")
+			to_chat(user, SPAN_NOTICE("The [SK] is not ready to be attached!"))
 			return
 		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -30,13 +30,16 @@
 /obj/structure/bed/chair/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr))
-		if(!item_chair || !usr.can_hold_items() || has_buckled_mobs() || src.flags_1 & NODECONSTRUCT_1)
+		if(!item_chair || use_check_and_message(usr) || buckled_mob)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE, ismonkey(usr)))
-			return
-		usr.visible_message("<span class='notice'>[usr] grabs \the [src.name].</span>", "<span class='notice'>You grab \the [src.name].</span>")
-		var/C = new item_chair(loc)
+		usr.visible_message(SPAN_NOTICE("[usr] grabs \the [src.name]."), SPAN_NOTICE("You grab \the [src.name]."))
+		var/obj/item/material/chair/C = new item_chair(loc)
 		TransferComponents(C)
+		if(material_alteration & MATERIAL_ALTERATION_COLOR)
+			C.color = material.icon_colour
+		C.dir = dir
+		C.name = name
+		C.origin_type = src.type
 		usr.put_in_hands(C)
 		qdel(src)
 
@@ -104,6 +107,7 @@
 	icon_state = "comfychair_preview"
 	base_icon = "comfychair"
 	build_amt = 2
+	item_chair = null
 
 /obj/structure/bed/chair/comfy/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
@@ -138,6 +142,7 @@
 	anchored = 0
 	buckle_movable = 1
 	build_amt = 5
+	item_chair = null
 
 /obj/structure/bed/chair/office/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
@@ -185,7 +190,7 @@
 			victim.apply_effect(6, WEAKEN, blocked)
 			victim.apply_effect(6, STUTTER, blocked)
 			victim.apply_damage(10, BRUTE, def_zone, blocked)
-		occupant.visible_message("<span class='danger'>[occupant] crashed into \the [A]!</span>")
+		occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
 /obj/structure/bed/chair/office/light
 	icon_state = "officechair_white_preview"
@@ -245,6 +250,7 @@
 	base_icon = "wooden_chair"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	build_amt = 3
+	item_chair = /obj/item/material/chair/wood
 
 /obj/structure/bed/chair/wood/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
@@ -258,6 +264,7 @@
 	name = "winged chair"
 	icon_state = "wooden_chair_wings_preview"
 	base_icon = "wooden_chair_wings"
+	item_chair = /obj/item/material/chair/wood/wings
 
 /obj/structure/bed/chair/unmovable
 	can_dismantle = 0
@@ -292,6 +299,7 @@
 	name = "pool chair"
 	desc = "A simple plastic contraption that allows you to sit comfortably, dipping your feet into the pool."
 	icon_state = "pool_chair"
+	item_chair = null
 
 /obj/structure/bed/chair/pool/update_icon()
 	return
@@ -307,3 +315,51 @@
 		M.pixel_y = -6
 	else
 		M.pixel_y = initial(M.pixel_y)
+
+/obj/item/material/chair
+	name = "chair"
+	desc = "Bar brawl essential."
+	desc_info = "Click it while in hand to right it."
+	icon = 'icons/obj/furniture.dmi'
+	icon_state = "chair_toppled"
+	item_state = "chair"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
+		)
+	w_class = ITEMSIZE_HUGE
+	force = 8
+	throwforce = 10
+	throw_range = 3
+	use_material_name = FALSE
+	var/obj/structure/bed/chair/origin_type = /obj/structure/bed/chair
+
+/obj/item/material/chair/attack_self(mob/user)
+	plant(user)
+
+/obj/item/material/chair/proc/plant(mob/user)
+	for(var/obj/A in get_turf(loc))
+		if(istype(A, /obj/structure/bed))
+			to_chat(user, SPAN_DANGER("There is already a [A.name] here."))
+			return
+		if(A.density)
+			to_chat(user, SPAN_DANGER("There is already something here."))
+			return
+
+	user.visible_message(SPAN_NOTICE("[user] rights \the [src.name]."), SPAN_NOTICE("You right \the [name]."))
+	var/obj/structure/bed/chair/C = new origin_type(get_turf(loc))
+	TransferComponents(C)
+	C.dir = dir
+	qdel(src)
+
+// Because wood chairs are snowflake sprites.
+/obj/item/material/chair/wood
+	icon_state = "wooden_chair_toppled"
+	item_state = "woodenchair"
+	origin_type = /obj/structure/bed/chair/wood
+	applies_material_colour = FALSE
+
+/obj/item/material/chair/wood/wings
+	icon_state = "wooden_chair_wings_toppled"
+	item_state = "woodenchair"
+	origin_type = /obj/structure/bed/chair/wood/wings
