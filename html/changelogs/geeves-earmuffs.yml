@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Items that occupy both ear slots, such as earmuffs or headphones, have had their double-ear code improved, making it less likely to bug out and keep one fake item on the ear."
+  - tweak: "Earmuffs no longer make you unable to hear things such as speech, instead it just reduces the volume of actual in-game sounds by 60%, as well as giving it a padded room reverb."
+  - rscadd: "Added two earmuffs to the laser tag locker."
+  - rscadd: "Added a traitor set of earmuffs to the uplink for 2 TC, which work like earmuffs and a headset, but the latter functionality is kept hidden from non-antags."

@@ -1292,9 +1292,9 @@
 		if(ear_deaf <= 1 && (sdisabilities & DEAF) && has_hearing_aid())
 			setEarDamage(-1, max(ear_deaf-1, 0))
 
-		if(istype(l_ear, /obj/item/clothing/ears/earmuffs) || istype(r_ear, /obj/item/clothing/ears/earmuffs))	//resting your ears with earmuffs heals ear damage faster
+		if(protected_from_sound())	// resting your ears make them heal faster
 			adjustEarDamage(-0.15, 0)
-			setEarDamage(-1, max(ear_deaf, 1))
+			setEarDamage(-1)
 		else if(ear_damage < HEARING_DAMAGE_SLOW_HEAL)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
 			adjustEarDamage(-0.05, 0)
 
