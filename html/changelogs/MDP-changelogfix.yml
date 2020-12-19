@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - fix: "Fixes the changelog."
+  - bugfix: "Fixes the changelog."
   - backend: "Prevents uses of < and >, particularly when referencing things like <style> tags, from breaking changelogs in the future."
