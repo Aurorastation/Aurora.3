@@ -296,6 +296,14 @@
 		mymob.bodytemp.screen_loc = ui_temp
 		hud_elements |= mymob.bodytemp
 
+	if(hud_data.has_cell)
+		mymob.cells = new /obj/screen()
+		mymob.cells.icon = 'icons/mob/screen/robot.dmi'
+		mymob.cells.icon_state = "charge-empty"
+		mymob.cells.name = "cell"
+		mymob.cells.screen_loc = ui_nutrition
+		hud_elements |= target.cells
+
 	if(hud_data.has_nutrition)
 		mymob.nutrition_icon = new /obj/screen/food()
 		mymob.nutrition_icon.icon = 'icons/mob/status_hunger.dmi'

@@ -345,12 +345,18 @@
 		if(I_DISARM)
 			var/disarm_cost
 			var/usesStamina
+			var/obj/item/organ/internal/cell/cell = M.internal_organs_by_name[BP_CELL]
+			var/obj/item/cell/potato
+			if(cell)
+				potato = cell.cell
 
 			if(M.max_stamina > 0)
 				disarm_cost = M.max_stamina / 6
 				usesStamina = TRUE
 			else if(M.max_stamina <= 0)
-				disarm_cost = M.max_nutrition / 8
+				if(M.isSynthetic())
+					disarm_cost = potato.maxcharge / 24
+				disarm_cost = M.max_nutrition / 6
 				usesStamina = FALSE
 
 			if(usesStamina)
@@ -378,14 +384,15 @@
 			if(usesStamina)
 				M.stamina = M.stamina - disarm_cost //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
 				M.stamina = Clamp(M.stamina, 0, M.max_stamina)
+			else if(M.isSynthetic())
+				cell.use(disarm_cost)
 			else
-				M.nutrition = M.nutrition - disarm_cost
-				M.nutrition = Clamp(M.nutrition, 0, M.max_nutrition)
+				M.nutrition = Clamp(M.nutrition - disarm_cost, 0, M.max_nutrition)
 
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
-			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
 
+			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
 			var/list/holding = list(get_active_hand() = 40, get_inactive_hand() = 20)
 
 			//See if they have any weapons to retaliate with
