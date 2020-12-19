@@ -248,7 +248,8 @@
 	var/obj/item/I = M.wear_id
 	if(citem.req_access && citem.req_access > 0)
 		if(!(istype(I) && (citem.req_access in I.GetAccess())))
-			return
+			to_chat(M, "A custom item could not be equipped be due to lacking access.")
+			return FALSE
 
 	// Check for required job title.
 	if(citem.req_titles && citem.req_titles.len > 0)
@@ -259,7 +260,8 @@
 				has_title = 1
 				break
 		if(!has_title)
-			return
+			to_chat(M, "A custom item could not be equipped as you have joined with the wrong role.")
+			return FALSE
 
 	// ID cards and MCs are applied directly to the existing object rather than spawned fresh.
 	var/obj/item/existing_item
@@ -271,14 +273,16 @@
 	// Spawn and equip the item.
 	if(existing_item)
 		citem.apply_to_item(existing_item)
+		return TRUE
 	else
 		var/obj/item/newitem = citem.spawn_item()
 
 		if(M.equip_to_appropriate_slot(newitem))
-			return newitem
+			return TRUE
 
 		if(M.equip_to_storage(newitem))
-			return newitem
+			return TRUE
 
 		newitem.forceMove(get_turf(M.loc))
-		return newitem
+		to_chat(M, "A custom item has been placed on the floor as there was no space for it on your mob.")
+		return TRUE
