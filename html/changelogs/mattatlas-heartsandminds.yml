@@ -1,0 +1,50 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: MattAtlas
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - balance: "EMPs no longer deal permanent damage. Instead, they deal a temporary kind of damage called surge damage, that lasts for 10 seconds at maximum."
+  - rscadd: "Surge damage makes mechanical or assisted limbs count as broken and nonfunctional."
+  - rscadd: "Surge damage has special interactions with the mechanical heart and eyes."
+  - tweak: "EMP damage is no longer randomized. It is now much more consistent."
+  - tweak: "IPC battery is no longer represented as nutrition. Instead, the microbattery organ contains a super-capacity cell that is used for all their actions. This is represented with a new HUD icon."
+  - tweak: "Hardsuits can now be charged in robot chargers if you are wearing them."
+  - rscadd: "Ion bolts now have a hit sound."
+  - rscdel: "Removed the ion rifle lethal mode."
+  - tweak: "The ion rifle now has four shots."
+  - tweak: "EMP'd guns no longer get discharged. Instead, they lock up for an amount of time depending on the strength of the EMP."
