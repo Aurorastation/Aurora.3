@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes:
+  - bugfix: "Fixed an issue which caused the rogue maint drone event to spawn all the drones in the same area."
