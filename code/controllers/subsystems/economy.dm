@@ -77,7 +77,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	department_account.account_number = next_account_number
 	next_account_number += rand(1,500)
 	department_account.remote_access_pin = rand(1111, 111111)
-	department_account.money = 5000
+	department_account.money = 10000
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new()
