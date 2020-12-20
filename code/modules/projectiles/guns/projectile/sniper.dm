@@ -32,11 +32,11 @@
 	accuracy_wielded = -1
 
 /obj/item/gun/projectile/heavysniper/update_icon()
+	..()
 	if(bolt_open)
 		icon_state = "heavysniper-open"
 	else
 		icon_state = "heavysniper"
-	..()
 
 /obj/item/gun/projectile/heavysniper/attack_self(mob/user as mob)
 	bolt_open = !bolt_open
@@ -200,7 +200,6 @@
 
 /obj/item/gun/projectile/dragunov/update_icon()
 	..()
-
 	if(ammo_magazine)
 		icon_state = "dragunov"
 	else
