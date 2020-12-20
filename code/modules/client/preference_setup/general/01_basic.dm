@@ -190,7 +190,7 @@
 					query.NextRow()
 					var/count = text2num(query.item[1])
 					if(count > 0)
-						to_chat(user, SPAN_WARNING("Invalid name. You have already used this name for another character. If you have deleted the character contact a admin to restore it."))
+						to_chat(user, SPAN_WARNING("Invalid name. You have already used this name for another character. If you have deleted the character contact an admin to restore it."))
 						return TOPIC_NOACTION
 
 				pref.real_name = new_name
