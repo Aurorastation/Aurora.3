@@ -174,7 +174,6 @@ There are several things that need to be remembered:
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
 			animate(src, transform = M, time = ANIM_LYING_TIME)
-		handle_floating_message_orientation()
 
 	compile_overlays()
 	lying_prev = lying

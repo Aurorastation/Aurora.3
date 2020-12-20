@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "HUD icons are no longer coloured if you're blasted by paint, or are slightly transparent."
+  - bugfix: "Fixed the wonkiness of floating chat when transformations are applied on something."
