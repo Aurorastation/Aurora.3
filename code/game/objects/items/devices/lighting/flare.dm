@@ -116,7 +116,7 @@
 
 /obj/item/torch/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/glass/rag))
-		to_chat(user, SPAN_NOTICE("You addd \the [I] to \the [src]."))
+		to_chat(user, SPAN_NOTICE("You add \the [I] to \the [src]."))
 		var/obj/item/device/flashlight/flare/torch/T = new()
 		qdel(I)
 		user.put_in_hands(T)
