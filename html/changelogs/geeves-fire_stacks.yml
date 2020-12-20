@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a colour based fire system to the health indicator, which displays just how on fire you are. Green-ish means you're only a bit on fire, while red-purplish means even firesuits won't protect you anymore."
