@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Increased the amount of funds departments start with to 10k, up from 5k."
+  - rscadd: "Increased the amount of funds departments start with to 10k, up from 5k, except for the Cargo account."
