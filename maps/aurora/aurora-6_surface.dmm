@@ -8189,7 +8189,7 @@
 /turf/simulated/wall,
 /area/crew_quarters/fitness/pool)
 "gTo" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "gTW" = (
@@ -16825,7 +16825,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
 "obr" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
 	},
@@ -19518,7 +19518,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "pYG" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
@@ -24827,7 +24827,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
 	id = "poolcafe";
@@ -25261,7 +25261,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
@@ -25282,7 +25282,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "uBx" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/dark{
 	name = "heated dark floor";
@@ -29509,13 +29509,13 @@
 	layer = 2.9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stool/padded,
-/obj/item/stool/padded,
-/obj/item/stool/padded,
-/obj/item/stool/padded,
-/obj/item/stool/padded,
-/obj/item/stool/padded,
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
+/obj/item/material/stool/padded/red,
+/obj/item/material/stool/padded/red,
+/obj/item/material/stool/padded/red,
+/obj/item/material/stool/padded/red,
+/obj/item/material/stool/padded/red,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/wood,
 /area/store)
 "yaH" = (

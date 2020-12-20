@@ -1626,7 +1626,7 @@
 	},
 /area/centcom/evac)
 "ajw" = (
-/obj/item/stool,
+/obj/item/material/stool,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor"
@@ -3973,7 +3973,7 @@
 	},
 /area/shuttle/administration)
 "apU" = (
-/obj/item/stool,
+/obj/item/material/stool,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -4140,7 +4140,7 @@
 	},
 /area/shuttle/mercenary)
 "aqH" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -6300,15 +6300,15 @@
 	},
 /area/centcom/holding)
 "ayr" = (
-/obj/item/stool/padded,
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
+/obj/item/material/stool/padded/red,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"
 	},
 /area/centcom/holding)
 "ays" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"
@@ -6874,7 +6874,7 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape)
 "aAt" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7108,7 +7108,7 @@
 	name = "\improper Raider Base"
 	})
 "aBm" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/landmark{
 	name = "raiderstart"
 	},
@@ -8405,7 +8405,7 @@
 	},
 /area/centcom/holding)
 "aGg" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -9967,7 +9967,7 @@
 	},
 /area/centcom/specops)
 "aLk" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -10065,7 +10065,7 @@
 /area/centcom/control)
 "aLy" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
+/obj/item/material/stool,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -13932,7 +13932,7 @@
 	},
 /area/centcom/holding)
 "aUJ" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "red"
@@ -15501,7 +15501,7 @@
 	},
 /area/centcom/control)
 "aYv" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -20423,7 +20423,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "wtn" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "wtu" = (

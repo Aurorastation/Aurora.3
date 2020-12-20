@@ -660,8 +660,8 @@
 				update_icon()
 				return
 
-		if(istype(O, /obj/item/stool))
-			var/obj/item/stool/S = O
+		if(istype(O, /obj/item/material/stool))
+			var/obj/item/material/stool/S = O
 			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."))
 			busy = 2
 			update_icon()

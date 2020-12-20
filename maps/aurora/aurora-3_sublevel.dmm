@@ -11707,7 +11707,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/stool,
+/obj/item/material/stool,
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "auY" = (
@@ -12058,7 +12058,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
-/obj/item/stool,
+/obj/item/material/stool,
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "avD" = (
@@ -16471,7 +16471,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
 "aGW" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "aGX" = (
@@ -27869,7 +27869,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/security/penal_colony)
 "eNt" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "eSg" = (
@@ -28033,7 +28033,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
 "fdV" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/holofloor/desert,
 /area/medical/patient_wing_picnic)
 "fez" = (
@@ -35639,7 +35639,7 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
 "vll" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)

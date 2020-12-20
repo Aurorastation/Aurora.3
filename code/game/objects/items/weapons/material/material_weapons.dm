@@ -13,6 +13,7 @@
 
 	var/use_material_name = TRUE // Does the finished item put the material name in front of it?
 	var/use_material_sound = TRUE
+	var/use_material_shatter = TRUE // If it has a custom shatter message.
 	var/applies_material_colour = 1
 	var/unbreakable
 	var/force_divisor = 0.5
@@ -87,11 +88,11 @@
 
 /obj/item/material/proc/shatter(var/consumed)
 	var/turf/T = get_turf(src)
-	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
+	if(use_material_shatter)
+		T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		M.drop_from_inventory(src)
 	playsound(src, material.shatter_sound, 70, 1)
 	if(!consumed && drops_debris) material.place_shard(T)
 	qdel(src)
-

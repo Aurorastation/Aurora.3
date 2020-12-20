@@ -12,6 +12,11 @@
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
+/obj/structure/bed/chair/New()
+	..()
+	if(item_chair)
+		desc_info = "You can pick this up by dragging the chair onto yourself. "
+
 /obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
@@ -30,15 +35,18 @@
 /obj/structure/bed/chair/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr))
-		if(!item_chair || use_check_and_message(usr) || buckled_mob)
+		if(!item_chair || use_check_and_message(usr) || buckled_mob || !can_dismantle)
 			return
 		usr.visible_message(SPAN_NOTICE("[usr] grabs \the [src.name]."), SPAN_NOTICE("You grab \the [src.name]."))
-		var/obj/item/material/chair/C = new item_chair(loc)
+		var/obj/item/material/chair/C = new item_chair(loc, material.name) // Handles all the material code so you don't have to.
 		TransferComponents(C)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			C.color = material.icon_colour
+		if(blood_DNA)
+			C.blood_DNA |= blood_DNA // Transfer blood.
+			C.add_blood()
 		C.dir = dir
-		C.name = name
+		C.name = name // Get the name of the chair, rather.
 		C.origin_type = src.type
 		usr.put_in_hands(C)
 		qdel(src)
@@ -267,7 +275,7 @@
 	item_chair = /obj/item/material/chair/wood/wings
 
 /obj/structure/bed/chair/unmovable
-	can_dismantle = 0
+	can_dismantle = FALSE
 
 /obj/structure/bed/chair/shuttle
 	name = "shuttle chair"
@@ -318,7 +326,7 @@
 
 /obj/item/material/chair
 	name = "chair"
-	desc = "Bar brawl essential."
+	desc = "Bar brawl essential. Now all that's missing is a ragtime piano."
 	desc_info = "Click it while in hand to right it."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "chair_toppled"
@@ -328,14 +336,42 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
 		)
 	w_class = ITEMSIZE_HUGE
-	force = 8
+	force = 10	// Doesn't really matter. Will get overriden by set_material.
 	throwforce = 10
 	throw_range = 3
 	use_material_name = FALSE
+	applies_material_colour = FALSE
+	material = DEFAULT_WALL_MATERIAL
 	var/obj/structure/bed/chair/origin_type = /obj/structure/bed/chair
+
+/obj/item/material/chair/New(var/newloc, new_material)
+	..(newloc, origin_type.material.name)
 
 /obj/item/material/chair/attack_self(mob/user)
 	plant(user)
+
+/obj/item/material/chair/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+	if(prob(force / 2))
+		var/blocked = target.run_armor_check(hit_zone, "melee")
+		target.Weaken(force * BLOCKED_MULT(blocked))
+		target.apply_damage(force * 2, BRUTE, hit_zone, blocked, src)
+		user.visible_message("<span class='danger'>[user] [material.destruction_desc] \the [src] to pieces against \the [target]'s [hit_zone]!</span>")
+		use_material_shatter = FALSE
+		shatter()
+
+/obj/item/material/chair/ex_act(severity)
+	switch(severity)
+		if(1.0)
+			qdel(src)
+			return
+		if(2.0)
+			if (prob(50))
+				qdel(src)
+				return
+		if(3.0)
+			if (prob(5))
+				qdel(src)
+				return
 
 /obj/item/material/chair/proc/plant(mob/user)
 	for(var/obj/A in get_turf(loc))
@@ -347,9 +383,12 @@
 			return
 
 	user.visible_message(SPAN_NOTICE("[user] rights \the [src.name]."), SPAN_NOTICE("You right \the [name]."))
+	user.drop_from_inventory(src)
 	var/obj/structure/bed/chair/C = new origin_type(get_turf(loc))
 	TransferComponents(C)
-	C.dir = dir
+	C.dir = user.dir // Plant it where the user's facing
+	if(blood_DNA)
+		C.blood_DNA |= blood_DNA // Transfer blood.
 	qdel(src)
 
 // Because wood chairs are snowflake sprites.

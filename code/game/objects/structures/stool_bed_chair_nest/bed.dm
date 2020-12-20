@@ -34,6 +34,8 @@
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)
 	..(newloc)
+	if(can_buckle)
+		desc_info = "You can buckle yourself in by dragging yourself onto the chair. "
 	color = null
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))

@@ -1632,7 +1632,7 @@
 	id = "messhallshutters";
 	name = "Mess hall shutters"
 	},
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "adk" = (
@@ -1804,7 +1804,7 @@
 	id = "messhallshutters";
 	name = "Mess hall shutters"
 	},
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "adA" = (
@@ -4180,7 +4180,7 @@
 	},
 /area/security/investigations_storage)
 "ahM" = (
-/obj/item/stool/padded{
+/obj/item/material/stool/padded/red{
 	desc = "Apply butt. This particular stool looks tattered and old. Perhaps there have been budget cuts?";
 	name = "Tattered Stool"
 	},
@@ -4220,7 +4220,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ahQ" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -5206,7 +5206,7 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "ajT" = (
-/obj/item/stool,
+/obj/item/material/stool,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -6532,7 +6532,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "amc" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -18173,7 +18173,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/robotics/workshop)
 "aEQ" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/robotics/workshop)
 "aER" = (
@@ -18729,7 +18729,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFJ" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -18747,7 +18747,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFK" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -18765,7 +18765,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFL" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -19317,7 +19317,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGx" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGy" = (
@@ -19336,7 +19336,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGA" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -20109,7 +20109,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "aHN" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/landmark/start{
@@ -20659,7 +20659,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aIA" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
@@ -21098,7 +21098,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aJj" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -21125,7 +21125,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aJl" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
@@ -21537,7 +21537,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aJT" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -21564,7 +21564,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aJW" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -22208,7 +22208,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLa" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/landmark/start{
 	name = "Engineering Apprentice"
 	},
@@ -22218,7 +22218,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLb" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/landmark/start{
 	name = "Station Engineer"
 	},
@@ -22228,7 +22228,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLc" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/landmark/start{
 	name = "Atmospheric Technician"
 	},
@@ -25793,7 +25793,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQX" = (
@@ -29062,7 +29062,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aWa" = (
-/obj/item/stool,
+/obj/item/material/stool,
 /obj/structure/sign/double/map/right{
 	pixel_y = 32
 	},
@@ -30021,7 +30021,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/stool,
+/obj/item/material/stool,
 /obj/effect/landmark/start{
 	name = "Janitor"
 	},
@@ -32890,7 +32890,7 @@
 /area/crew_quarters/medbreak)
 "bco" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/sink{
 	pixel_y = 22
 	},
@@ -33219,7 +33219,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bcZ" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
 	dir = 8;
@@ -33782,7 +33782,7 @@
 /area/crew_quarters/medbreak)
 "bdU" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bdV" = (
@@ -39330,7 +39330,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "bnm" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -40318,7 +40318,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "boS" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -40910,7 +40910,7 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "bqd" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/lino/grey,
 /area/bridge/minibar)
 "bqe" = (
@@ -52557,7 +52557,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
@@ -52573,7 +52573,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
@@ -52857,7 +52857,7 @@
 /area/hallway/primary/aft)
 "bPA" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bPB" = (
@@ -53390,7 +53390,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bQV" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -53688,7 +53688,7 @@
 /turf/simulated/floor/carpet,
 /area/maintenance/bar)
 "bRX" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/carpet,
@@ -54782,7 +54782,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "bUk" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
@@ -55375,7 +55375,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/stool/bar/padded,
+/obj/item/material/stool/bar/padded/red,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVA" = (
@@ -55995,7 +55995,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
@@ -56944,7 +56944,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZc" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bZf" = (
@@ -62986,7 +62986,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "eGj" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -64092,7 +64092,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
 "gIw" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
@@ -64225,7 +64225,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "gYT" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "gZP" = (
@@ -64636,7 +64636,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "hFB" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/wood,
@@ -65683,7 +65683,7 @@
 /area/maintenance/security_starboard)
 "kbO" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -65973,7 +65973,7 @@
 /area/hydroponics)
 "kGv" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
+/obj/item/material/stool,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/cargo)
 "kGA" = (
@@ -66096,7 +66096,7 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "kVD" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/cable/green{
 	icon_state = "6-8"
 	},
@@ -66866,7 +66866,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "mxN" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -67495,7 +67495,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "nCJ" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
@@ -68931,7 +68931,7 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
 "qoC" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/cable/green{
 	icon_state = "4-10"
 	},
@@ -72019,7 +72019,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "vnm" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
@@ -73183,7 +73183,7 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/research_port)
 "xhU" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;

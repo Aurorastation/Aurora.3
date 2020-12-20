@@ -230,6 +230,9 @@
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
 
+/obj/structure/bed/chair/holochair
+	item_chair = null
+
 /obj/structure/bed/chair/holochair/Destroy()
 	return ..()
 

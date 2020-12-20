@@ -988,7 +988,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(user.loc,/turf)) return
-		if(!(locate(/obj/item/stool) in user.loc) && !(locate(/obj/structure/bed) in user.loc) && !(locate(/obj/structure/table) in user.loc) && !(locate(/obj/structure/toilet) in user.loc))
+		if(!(locate(/obj/item/material/stool) in user.loc) && !(locate(/obj/structure/bed) in user.loc) && !(locate(/obj/structure/table) in user.loc) && !(locate(/obj/structure/toilet) in user.loc))
 			to_chat(user, SPAN_WARNING("You have to be standing on top of a chair/table/bed to make a noose!"))
 			return FALSE
 		if(src.amount <= 24)

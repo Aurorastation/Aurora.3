@@ -229,10 +229,14 @@ There are several things that need to be remembered:
 //eg: ammo counters, primed grenade flashing, etc.
 //"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
 /obj/item/proc/worn_overlays(icon_file)
+	. = null
 	. = list()
+	var/mutable_appearance/M = null
 	if(build_from_parts)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
+		M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
 		M.appearance_flags = RESET_COLOR
+		if(worn_overlay_color)
+			M.color = worn_overlay_color
 		. += M
 
 //BASE MOB SPRITE

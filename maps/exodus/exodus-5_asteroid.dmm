@@ -474,7 +474,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/analysis)
 "bj" = (
@@ -708,7 +708,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bK" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bL" = (
@@ -1667,7 +1667,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "dB" = (
-/obj/item/stool/padded,
+/obj/item/material/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "dC" = (
