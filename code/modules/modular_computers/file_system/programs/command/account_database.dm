@@ -17,7 +17,10 @@
 
 /datum/computer_file/program/account_db/New()
 	..()
-	machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
+	if(current_map)
+		machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
+	else
+		machine_id = "NT-Net Relay Back-up Software DB" // created during map generation inside the ntnet relay, not used by players
 
 /datum/computer_file/program/account_db/proc/get_held_card()
 	var/obj/item/card/id/held_card
