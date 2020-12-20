@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes:
-  - bugfix: "Fixed the energy rifle and some other wieldable guns occasionally going invisible."
