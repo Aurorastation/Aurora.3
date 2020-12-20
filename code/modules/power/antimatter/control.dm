@@ -76,20 +76,19 @@
 	playsound(get_turf(src), 'sound/effects/air_seal.ogg', 25, TRUE, environment = SEWER_PIPE)
 	for(var/thing in linked_cores)
 		flick("core2", thing)
-	var/core_power = reported_core_efficiency	//Effectively how much fuel we can safely deal with
-	if(core_power <= 0)
+	if(reported_core_efficiency <= 0)
 		return FALSE //Something is wrong
 	var/core_damage = 0
 	var/fuel = fueljar.usefuel(fuel_injection)
 
 	stored_power = fuel * AM_POWER_FACTOR
 	// Now check if the cores could deal with it safely, this is done after so you can overload for more power if needed, still a bad idea
-	if(fuel > (2 * core_power))	//More fuel has been put in than the current cores can deal with
+	if(fuel > (2 * reported_core_efficiency))	//More fuel has been put in than the current cores can deal with
 		if(prob(50))
 			core_damage = 1	//Small chance of damage
-		if((fuel - core_power) > 5)
+		if((fuel - reported_core_efficiency) > 5)
 			core_damage = 5	//Now its really starting to overload the cores
-		if((fuel - core_power) > 10)
+		if((fuel - reported_core_efficiency) > 10)
 			core_damage = 20	//Welp now you did it, they wont stand much of this
 		if(core_damage == 0)
 			return
