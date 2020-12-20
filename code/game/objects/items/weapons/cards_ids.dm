@@ -282,15 +282,16 @@ var/const/NO_EMAG_ACT = -50
 				return 1
 	return ..()
 
-/obj/item/card/id/afterattack(obj/item/O, mob/user, proximity)
-	if(!proximity)
-		return
-	if(can_copy_access && istype(O, /obj/item/card/id))
-		var/obj/item/card/id/I = O
-		src.access |= I.access
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(player_is_antag(user.mind) || isgolem(user))
-			to_chat(user, SPAN_NOTICE(access_copy_msg))
+/obj/item/card/id/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/card/id))
+		var/obj/item/card/id/ID = W
+		if(ID.can_copy_access)
+			ID.access |= src.access
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			if(player_is_antag(user.mind) || isgolem(user))
+				to_chat(user, SPAN_NOTICE(ID.access_copy_msg))
+			return
+	. = ..()
 
 /obj/item/card/id/GetAccess()
 	return access
