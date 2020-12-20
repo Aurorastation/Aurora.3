@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "Increased the amount of funds departments start with to 10k, up from 5k, except for the Cargo account."
+  - tweak: "The vendor account now starts with 0 credits."
