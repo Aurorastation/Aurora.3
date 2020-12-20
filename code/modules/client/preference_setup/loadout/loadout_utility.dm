@@ -100,10 +100,17 @@
 /datum/gear/utility/fannypack/New()
 	..()
 	var/list/fannys = list()
-	for(var/fanny in typesof(/obj/item/storage/belt/fannypack))
-		var/obj/item/storage/belt/fannypack/fanny_type = fanny
-		fannys[initial(fanny_type.name)] = fanny_type
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(fannys))
+	fannys["leather fannypack"] = /obj/item/storage/belt/fannypack
+	fannys["black fannypack"] = /obj/item/storage/belt/fannypack/black
+	fannys["blue fannypack"] = /obj/item/storage/belt/fannypack/blue
+	fannys["cyan fannypack"] = /obj/item/storage/belt/fannypack/cyan
+	fannys["green fannypack"] = /obj/item/storage/belt/fannypack/green
+	fannys["orange fannypack"] = /obj/item/storage/belt/fannypack/orange
+	fannys["purple fannypack"] = /obj/item/storage/belt/fannypack/purple
+	fannys["red fannypack"] = /obj/item/storage/belt/fannypack/red
+	fannys["white fannypack"] = /obj/item/storage/belt/fannypack/white
+	fannys["yellow fannypack"] = /obj/item/storage/belt/fannypack/yellow
+	gear_tweaks += new/datum/gear_tweak/path(fannys)
 
 /datum/gear/utility/toolbelt_alt
 	display_name = "tool-belt, alt"

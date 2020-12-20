@@ -35,6 +35,424 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">20 December 2020</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an issue which caused the rogue maint drone event to spawn all the drones in the same area.</li>
+				<li class="bugfix">Fixed the energy rifle and some other wieldable guns occasionally going invisible.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a colour based fire system to the health indicator, which displays just how on fire you are. Green-ish means you&#x27;re only a bit on fire, while red-purplish means even firesuits won&#x27;t protect you anymore.</li>
+			</ul>
+
+			<h2 class="date">19 December 2020</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Folded wheelchairs now properly count for cargo bounties.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new event where hostile (non-player) drones spawn in maintenance.</li>
+				<li class="bugfix">Items that occupy both ear slots, such as earmuffs or headphones, have had their double-ear code improved, making it less likely to bug out and keep one fake item on the ear.</li>
+				<li class="tweak">Earmuffs no longer make you unable to hear things such as speech, instead it just reduces the volume of actual in-game sounds by 60%, as well as giving it a padded room reverb.</li>
+				<li class="rscadd">Added two earmuffs to the laser tag locker.</li>
+				<li class="rscadd">Added a traitor set of earmuffs to the uplink for 2 TC, which work like earmuffs and a headset, but the latter functionality is kept hidden from non-antags.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">EMPs no longer deal permanent damage. Instead, they deal a temporary kind of damage called surge damage, that lasts for 10 seconds at maximum.</li>
+				<li class="rscadd">Surge damage makes mechanical or assisted limbs count as broken and nonfunctional.</li>
+				<li class="rscadd">Surge damage has special interactions with the mechanical heart and eyes.</li>
+				<li class="tweak">EMP damage is no longer randomized. It is now much more consistent.</li>
+				<li class="tweak">IPC battery is no longer represented as nutrition. Instead, the microbattery organ contains a super-capacity cell that is used for all their actions. This is represented with a new HUD icon.</li>
+				<li class="tweak">Hardsuits can now be charged in robot chargers if you are wearing them.</li>
+				<li class="rscadd">Ion bolts now have a hit sound.</li>
+				<li class="rscdel">Removed the ion rifle lethal mode.</li>
+				<li class="tweak">The ion rifle now has four shots.</li>
+				<li class="tweak">EMP'd guns no longer get discharged. Instead, they lock up for an amount of time depending on the strength of the EMP.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the changelog.</li>
+				<li class="backend">Prevents uses of &lt; and &gt;, particularly when referencing things like &lt;style&gt; tags, from breaking changelogs in the future.</li>
+			</ul>
+
+			<h2 class="date">18 December 2020</h2>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">AI and Stationbounds can no longer select Republican Siik as an accent.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes invisible remote control chairs.</li>
+				<li class="bugfix">Fixes detective badge job whitelists in the loadout.</li>
+			</ul>
+
+			<h2 class="date">17 December 2020</h2>
+			<h3 class="author">Furrycactus, Ferner, Happy_Fox updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">NanoTrasen finally began decorating for Christmas time, everyone's favourite commercial holiday. There were some delays due to the whole war and everything, but nothing will stop the Christmas cheer. Not even the mix-up from the fake-snow guy that's led to piles of Moghean sand filling the greenery areas. Whatever. Surely Unathi and people who usually celebrate the holiday during the Summer will be pleased.</li>
+				<li class="imageadd">Added some additional gift sprites by Happy_Fox</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a maths error that caused flamethrower minimum fuel requirement to be too high.</li>
+				<li class="tweak">Increased the size of flamethrowers, they no longer fit in your backpack.</li>
+				<li class="rscadd">Made lit flamethrowers work as flame sources, which means they can now light cigarettes.</li>
+				<li class="rscadd">Added more useful failure messages to make the operation of a flamethrower a bit easier.</li>
+				<li class="rscadd">You can now light a flamethrower without an igniter, by lighting it with an external flame source.</li>
+				<li class="bugfix">Legcuff sprites work again.</li>
+				<li class="tweak">Legcuffing now works the same as handcuffing.</li>
+				<li class="rscadd">You can use cable restraints in-hand to turn them into weak legcuffs.</li>
+				<li class="rscadd">Sharp and edged weapons now sever tendons instead of breaking bones. Strong enough sharp and edged weapons sever tendons AND break bones.</li>
+				<li class="bugfix">Energy net projectors can now directly fire energy nets again.</li>
+				<li class="tweak">Improved energy net code a little. It should be more reliable when firing at people.</li>
+				<li class="tweak">Raised energy net health to 50, up from 25.</li>
+				<li class="rscadd">You can no longer damage an energy net with an empty hand while trapped inside it.</li>
+				<li class="rscadd">Damaging an energy net with a weapon while trapped inside it will do reduced damage.</li>
+				<li class="rscadd">Added some medical taperolls to the medical sub-level equipment area and EMT room. Also gave medical borgs medical taperolls.</li>
+				<li class="rscadd">Crumpled tape now stores who crumpled it, provided the crumpler had an ID to track them with.</li>
+				<li class="rscadd">Tape now physically blocks passage, unless the mover has their intent set to harm, or their move intent set to run.</li>
+				<li class="rscadd">Lifting tape now actually works as you'd expect it to. It plays a little animation and goes transparent. If you don't have access, it crumples, if you do, it doesn't. People can now pass over without crumpling it or needing intents set.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Makes canisters use VueUI.</li>
+				<li class="backend">Makes labels on vui-item components optional.</li>
+				<li class="backend">Includes core-js for IE/ECMAscript compatibility shims..</li>
+				<li class="tweak">Tweaks the numeric VueUI input to look more like the old NanoUI equivalent, with one plus/minus sign per power of 10 (+, ++, +++ for 1, 10, 100) instead of just identical buttons side-by-side.</li>
+				<li class="refactor">Converts the chemical dispenser to use VueUI.</li>
+				<li class="rscadd">Adds a numeric input selector to the chemical dispenser.</li>
+				<li class="rscadd">You can now empty ashtrays into disposal units by clicking the disposal unit with the ashtray in hand. On harm intent, you will disposal the ashtray instead.</li>
+				<li class="tweak">Tweaks messages when ashtrays are emptied out, hit, and used.</li>
+				<li class="rscadd">Ashtrays spill their contents when destroyed.</li>
+				<li class="rscadd">Using an ashtray in hand will dump its contents onto the ground.</li>
+				<li class="rscadd">Hitting an ashtray will now produce a sound and a visible message.</li>
+				<li class="bugfix">Fixes contagious UI styling due to an erroneous unscoped &ltstyle&gt tag.</li>
+				<li class="backend">Adds a check to ensure this never happens again.</li>
+				<li class="tweak">Makes all VueUI view components use scoped styles. This shouldn't change anything except for fixing the aforementioned bug.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes chair overlays and coloring once and for all. Also, added more accurate previews which help in mapping and examining.</li>
+				<li class="rscadd">Added a new buckling sound for shuttle chairs.</li>
+				<li class="imageadd">Jackboots and any shoes which can hold knives now also show up on the mob icon. Keep your eyes peeled!</li>
+				<li class="refactor">Refactors how shoes update their icons.</li>
+				<li class="rscadd">You can hit people with everything, even non-weapons. They won't do any damage, though...</li>
+				<li class="soundadd">Volume of hit sounds are now proportional to force applied. High damage, more loud.</li>
+			</ul>
+
+			<h2 class="date">16 December 2020</h2>
+			<h3 class="author">Chevy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added thirteen new cocktail recipes with unique sprites inspired by the lore.  Now, you too can taste a Cloudy Oran or a Jovian Storm!</li>
+				<li class="tweak">Changed the cuba libre recipe I changed a while back.  It should now be simpler to make in large quantities.</li>
+				<li class="rscadd">New energy rifle sprites.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed paper scanners causing text files to appear with unreadable black text.</li>
+				<li class="tweak">The character preview directions are now aligned correctly.</li>
+				<li class="rscadd">Added a mounted foam sprayer to the mechfab hardsuit modules tab. It's a hardsuit module that consumes 1500 cell charge to spray a line of metal foam.</li>
+				<li class="rscadd">Added some effects to metal foam walls that make them a bit more flashy when destroyed, as well as adding a click cooldown so they can't be spammed down.</li>
+				<li class="rscadd">Aggressively slamming someone through a metal foam wall now does some damage to them.</li>
+				<li class="rscadd">Clicking on a metal foam wall with building materials will now attempt to turn it into a wall, taking a bit longer than a standard girder would. Clicking on it with a floor tile will now turn it into plating, if the space below is an open space or actual space.</li>
+				<li class="rscadd">Throwing a humanoid at another humanoid will knock both over.</li>
+				<li class="imageadd">Gave the Captain's uniform new sprites.</li>
+				<li class="tweak">Viscerators can no longer be on the same tile as other viscerators.</li>
+				<li class="rscadd">Toxin now does damage to any egg clusters that a nurse spider injected into someone.</li>
+				<li class="tweak">The amount of toxin bottles in medical vendors have been lowered to 1, down from 4.</li>
+				<li class="tweak">Talking indicators now appear on the right, in order for them to not appear behind other HUD elements.</li>
+				<li class="rscadd">Thralls now get an icon next to their master to easier see and remember who they are. Likewise, vampires who have thralls now get little icons next to their thralls.</li>
+			</ul>
+			<h3 class="author">Geeves, Happy Fox updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Replaced ore radars with ore detectors. It display pings in the darkness when it spots the ore, even through walls.</li>
+				<li class="rscadd">Mining stationbounds and drones now get ore detectors.</li>
+				<li class="bugfix">You can now see psi-pings through walls again.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds party poppers and confetti. Hooray!</li>
+			</ul>
+
+			<h2 class="date">15 December 2020</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed burglars starting with a less required number of enemies than intended.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Pulling things down stairs will maintain the pull.</li>
+				<li class="bugfix">Fixed the Old Earth Luxury Cognac lacking an empty sprite.</li>
+			</ul>
+
+			<h2 class="date">13 December 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Cargo Tugs and Janicarts now get a UI when you click on them.</li>
+				<li class="tweak">Made interacting with the Pussywagon a bit nicer.</li>
+				<li class="rscadd">Emagging a cargo tug or janicart now makes it move faster.</li>
+				<li class="rscadd">Added an orderable pineapple pizza box, as well as a cheaper randomized pizza box.</li>
+				<li class="rscadd">Mining drones now come equipped with an RFD-M, a tethering device, and a stack of purple flags.</li>
+				<li class="rscadd">Mining drones can now bump against doors to open them.</li>
+				<li class="rscadd">Mining drones now have external airlock access.</li>
+				<li class="rscadd">You can now click-drag with the RFD-M to lay down track.</li>
+				<li class="tweak">The charge cost for robots using the RFD-M has been lowered to 200, down from 500.</li>
+				<li class="rscdel">Mining drones no longer appear as a unique role on the round join menu.</li>
+				<li class="tweak">Mining drone lights are now much brighter, and illuminate in a circle around the drone.</li>
+				<li class="bugfix">Flamethrowers can no longer fire with empty fuel tanks.</li>
+				<li class="bugfix">Flamethrowers now work with any flammable gas.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes beds spawning with the wrong materials.</li>
+				<li class="bugfix">Fixes chair materials.</li>
+			</ul>
+
+			<h2 class="date">12 December 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two xenofauna guns to the surface level checkpoint. They only do damage to carp, cavern dwellers, and spiders, inflicting pain on any other targets.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Flamethrowers can now launch fire more than one tile away from the user.</li>
+				<li class="tweak">The cone of the flamethrower has been narrowed somewhat, and its spread pattern somewhat randomized.</li>
+				<li class="rscadd">Flamethrowers now use a radial menu system rather than a basic HTML UI.</li>
+			</ul>
+
+			<h2 class="date">11 December 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed first responder jacket sprites.</li>
+			</ul>
+			<h3 class="author">Sparky_Hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added chopsticks, a new form of utensil. Available from the kitchen vendor now!</li>
+				<li class="rscadd">Rice Bowls now have the option to remove their chopsticks, and even put them back neatly when you're finished!</li>
+			</ul>
+			<h3 class="author">TheDocOct updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds five new variants of the Dominian cape, one for each Great House.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes detective badges not showing up in loadout. Bronze badges now have an onmob.</li>
+			</ul>
+
+			<h2 class="date">10 December 2020</h2>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a whole bunch of balloons, both seasonal and generic, as well as a whole bunch of features that they have.</li>
+			</ul>
+
+			<h2 class="date">09 December 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Changeling stings have been refactored. Now, you ready them when you click the ability. To use it, harm intent click your target with an empty hand. Clicking on the same sting ability will unprepare the sting.</li>
+				<li class="bugfix">Failing to speak into a radio will no longer just slap your message out loud, instead, you will still whisper, and the visible message for speaking will be 'tries speaking into the'.</li>
+				<li class="bugfix">Speaking on antagonist channels will no longer speak it out loud.</li>
+				<li class="rscadd">Replaced the fragile bottles of fertilizer with industrial jugs, sprites and sounds from Paradise.</li>
+				<li class="rscadd">The biogenerator can now print empty jugs.</li>
+				<li class="bugfix">You can no longer pour reagents from a container onto a tray or soil patch if the container's lid is on.</li>
+				<li class="rscadd">Catching on fire now shows a large message, being extinguished does as well.</li>
+				<li class="rscadd">Catching on fire will light any cigarettes on your person, being extinguished will likewise extinguish them.</li>
+				<li class="bugfix">Hitting rest will now make you lie down instantly.</li>
+				<li class="bugfix">Floating chat messages will now appear properly above resting humanoids.</li>
+				<li class="bugfix">Fixed maintenance-, mining-, and construction drones having weird lit up eyes. They should now update correctly.</li>
+				<li class="bugfix">Fixed the hat overlay of mining drones.</li>
+				<li class="bugfix">You can now punch people again.</li>
+				<li class="bugfix">Cult ghosts can no longer be clicked on or hovered over, thus they cannot block clicks.</li>
+				<li class="bugfix">Cancelling a vampire embrace by moving will no longer cause the target to instantly become a vampire.</li>
+				<li class="bugfix">You are no longer able to pull things when they fall down levels while you were pulling them.</li>
+				<li class="bugfix">Dead MALFs can no longer use their abilities.</li>
+				<li class="bugfix">Robots and AI no longer teleport things to themselves when ejecting them. (Like chem dispenser beakers).</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Vending machines spawned after mapload and/or by admins should no longer have missing icons.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes the default medbot messages. Medbots start with speech off.</li>
+				<li class="rscadd">Adds the ability for robotisists or doctors to give medbots custom messages instead.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Glass jars have been refactored.</li>
+				<li class="rscadd">Glass jars can now pick up animals held in hand.</li>
+				<li class="rscadd">Adds bronze badges for security officers.</li>
+				<li class="rscadd">Added detective badges to detective and forensic tech lockers, because they weren't there for some reason.</li>
+			</ul>
+
+			<h2 class="date">08 December 2020</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Repairing a robotic body part with a welding tool now fails (without damage) if it runs out of fuel before completion.</li>
+				<li class="bugfix">Nitroglycerin no longer explodes upon mixing, nor does it explode due to cold temperatures.</li>
+				<li class="bugfix">IPCs are no longer able to make their limbs human in character setup.</li>
+				<li class="bugfix">Stowing or equipping the RCD-T (malf fabricator) as a construction borg should no longer create an infinite inventory.</li>
+				<li class="bugfix">Using too low of a quality of scanning module in the camera upgrade process will now produce a warning.</li>
+				<li class="bugfix">Camera monitors should no longer trap players inside them if they lose power.</li>
+				<li class="bugfix">Writing in blood now checks for adjacency to the tile at each step of the writing process.</li>
+				<li class="bugfix">Rat skeletons (and other remains) now feel the effects of gravity, and should fall appropriately.</li>
+				<li class="bugfix">The unbitten half of a bitten chip is no longer able to infinitely produce nutrition via salsa or other dips.</li>
+				<li class="bugfix">Rods should no longer fail to superheat on a properly charged crossbow.</li>
+				<li class="bugfix">It is no longer possible to send hundreds of sheets of metal to the shadow realm by clicking on a girder repeatedly.</li>
+				<li class="bugfix">Meat kabobs can now be made using normal slabs of meat once again. Lasagna (2 flat dough, 2 meat, 2 tomato and 1 eggplant in the oven) and BLTs have had their recipes re-added as well.</li>
+				<li class="bugfix">Stasis bags should now degrade properly.</li>
+				<li class="bugfix">Committing suicide with a gun no longer summons bullets from hammerspace, nor does it completely break the gun.</li>
+				<li class="bugfix">Adjust Mask verb should now work properly.</li>
+				<li class="bugfix">Attempting to wet dry rags with sinks should no longer attempt to wipe down the sink (and thus the floor below it).</li>
+			</ul>
+			<h3 class="author">Karolis2011, JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Replaced VueUI titlebar backend with a custom-built version by Karolis2011.</li>
+				<li class="bugfix">Users with the windows taskbar unhidden should no longer experience issues with dragging/selecting elements on VueUI windows.</li>
+			</ul>
+
+			<h2 class="date">07 December 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Pick-up animations now work.</li>
+			</ul>
+
+			<h2 class="date">06 December 2020</h2>
+			<h3 class="author">Bellumes, Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two new asteroid dungeon map templates, one mapped by Bellumes and one by Ferner.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Emergency Medical Technicians have been renamed to First Responders, their duties remain the same, for now.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Mechatronic fabricators should now dispense synthskin and other non-industrial IPC limbs correctly.</li>
+				<li class="bugfix">Cryoing with the same mob name as another player should no longer remove both players from the manifest and records system.</li>
+				<li class="bugfix">Malf/traitor AI law deletion now correctly rebuilds the law list, so carding a malf AI no longer reveals extra laws (other than law zero).</li>
+				<li class="bugfix">Mobs that die while pointing no longer leave an infinite point marker.</li>
+				<li class="bugfix">Thermals, mesons, and material scanner overlays no longer function through security camera monitors.</li>
+				<li class="rscadd">Ported the titlebar replacement system from /tg/, adopted for Vue UIs. Vue-based UIs will now have their default BYOND titlebar replaced with a suitably themed equivalent, increasing available screen space and style.</li>
+				<li class="tweak">Scrollbars now scroll only the content of a UI, and not the entire window - this should be most notable while using modular computer programs.</li>
+				<li class="backend">Developers can toggle the debug interface on and off in-game via the bug icon, even without UIDEBUG defined.</li>
+			</ul>
+			<h3 class="author">Sparky_Hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Goggles worn of your forehead no longer block people squirting stuff into your eyes with droppers</li>
+			</ul>
+
+			<h2 class="date">05 December 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You can no longer hide large mobs inside closets.</li>
+				<li class="tweak">You can no longer hide inside wallclosets.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed airlock spawners not applying the correct cycle command to the buttons.</li>
+				<li class="bugfix">The csi kit now no longer goes invisible when carried in the hand on the other side of the player's sprite.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You can no longer ctrl-click to pull people out of grabs.</li>
+				<li class="tweak">Pipe and wiring overlays generated by the t-ray scanner now click on the floor tile instead of the object directly, making it easier to crowbar.</li>
+				<li class="tweak">T-ray scanner overlays are a little more transparent now.</li>
+				<li class="rscadd">Added Gun-Kata to the Martial Arts uplink for 4 TC. It allows the user to reload projectile weapons by clicking on magazines with the gun in-hand, as well as automatically ejecting magazines to the floor when they're empty.</li>
+				<li class="rscadd">Added a grenade that spawns lubed up viscerators. These viscerators coat the floor with lube when killed.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Crates no longer pass through barricades or other objects that allow small objects (PASSTABLE) through.</li>
+				<li class="refactor">Crates being lifted (and other timed interactions with objects) now stop being lifted if the crate is moved.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the ability to roll up newspaper to bat people in the head with.</li>
+			</ul>
+
+			<h2 class="date">04 December 2020</h2>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Replaces DMItool with contemporary /tg/ version.</li>
+			</ul>
+
+			<h2 class="date">03 December 2020</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed colorable bandanas, softcaps and berets being darker than they're suppposed to be.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Removed the grilles in the penal colony, making it more difficult to escape.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Non-NT/EPMC Liaisons should now once again spawn with an energy pistol and a camera.</li>
+				<li class="bugfix">Unanchoring and moving vending machines should now properly update their powered status.</li>
+				<li class="bugfix">Taping papers to lockers should no longer attempt to unlock/lock them.</li>
+				<li class="bugfix">Medbots and their assemblies should now apply toxin/fire/O2 medkit skins properly.</li>
+				<li class="bugfix">Polymorph wands should now correctly change the species of their targets.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Computer clock now should show correct time.</li>
+			</ul>
+			<h3 class="author">Stryker updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the water bottle flavor text to be more in line with lore.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Glass jar mob size has been fixed.</li>
+			</ul>
+
+			<h2 class="date">02 December 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removed the component pouch from the loadout.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Using an item on a wall will no longer cause it to play the feeling around message. If you want to feel for an opening, use an empty hand.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the date calculation for the Adhomian watch.</li>
+			</ul>
+
+			<h2 class="date">01 December 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed the sleeping carp martial art from the uplink.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Lowered the cost of various uplink items across the board.</li>
+				<li class="tweak">The sideeffect b-gone injector box on the uplink now spawns with four injectors.</li>
+				<li class="rscdel">Removed the AMR and its ammo from the uplink.</li>
+				<li class="tweak">Optimized explosion code a little, it should be a teeny bit faster.</li>
+				<li class="rscadd">Added a full stop to the sentence saying which slot you're holding your animal / pAI / drone.</li>
+				<li class="bugfix">Species with off-centre alignments will now retain those alignments after attacking or after being grabbed.</li>
+				<li class="rscadd">You can now destroy the energy fields that shield generators make by hitting it, as long as your weapon is strong enough.</li>
+				<li class="rscadd">Energy shields now fade in and fade out, instead of just popping into existence.</li>
+				<li class="tweak">Ported Pipe- and Floor Painter sprites from Paradise.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added back clock to modular computers.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Gloves and mobs no longer keep a hardref to the mob whose blood they are covered in.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes pAIs unfolding out of glass jars.</li>
+			</ul>
+
 			<h2 class="date">26 November 2020</h2>
 			<h3 class="author">Ferner updated:</h3>
 			<ul class="changes bgimages16">

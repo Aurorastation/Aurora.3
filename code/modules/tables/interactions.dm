@@ -8,6 +8,8 @@
 			return !density
 		else
 			return 1
+	if(istype(mover, /obj/structure/closet/crate))
+		return TRUE
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))
@@ -61,7 +63,7 @@
 	..()
 	if(ishuman(am))
 		var/mob/living/carbon/human/H = am
-		if(H.a_intent != I_HELP || H.m_intent == "run")
+		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
 			throw_things(H)
 		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 			throw_things(H)
@@ -117,7 +119,7 @@
 		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if(H.a_intent != I_HELP || H.m_intent == "run")
+			if(H.a_intent != I_HELP || H.m_intent == M_RUN)
 				throw_things(H)
 			else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 				throw_things(H)

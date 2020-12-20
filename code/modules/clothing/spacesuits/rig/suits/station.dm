@@ -228,7 +228,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(access_emt)
+	req_access = list(access_first_responder)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,

@@ -14,6 +14,7 @@
 	build_amt = 2
 	var/material/reinf_material
 	var/reinforcing = 0
+	var/plating = FALSE
 
 /obj/structure/girder/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -213,10 +214,17 @@
 		to_chat(user, "<span class='notice'>This material is too soft for use in wall construction.</span>")
 		return 0
 
-	to_chat(user, "<span class='notice'>You begin adding the plating...</span>")
+	if(!plating)
+		to_chat(user, "<span class='notice'>You begin adding the plating...</span>")
+		plating = TRUE
+	else
+		return TRUE
 
 	if(!do_after(user,40) || !S.use(2))
+		plating = FALSE
 		return 1 //once we've gotten this far don't call parent attackby()
+
+	plating = FALSE
 
 	if(anchored)
 		to_chat(user, "<span class='notice'>You added the plating!</span>")

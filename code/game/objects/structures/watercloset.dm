@@ -454,6 +454,9 @@
 
 	// Filling/emptying open reagent containers
 	var/obj/item/reagent_containers/RG = O
+	if (istype(RG, /obj/item/reagent_containers/glass/rag))
+		return
+
 	if (istype(RG) && RG.is_open_container())
 		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
 
@@ -551,7 +554,7 @@
 	if(!I) return 								//Item's been destroyed while washing
 	if(user.get_active_hand() != I) return		//Person has switched hands or the item in their hands
 
-	O.clean_blood()
+	I.clean_blood()
 	user.visible_message( \
 		SPAN_NOTICE("[user] washes \a [I] using \the [src]."), \
 		SPAN_NOTICE("You wash \a [I] using \the [src]."))

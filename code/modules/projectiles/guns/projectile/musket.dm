@@ -35,13 +35,6 @@
 
 	var/has_powder = FALSE
 
-/obj/item/gun/projectile/musket/update_icon()
-	if(wielded)
-		item_state = "musket-wielded"
-	else
-		item_state = "musket"
-	update_held_icon()
-
 /obj/item/gun/projectile/musket/special_check(mob/user)
 	if(!has_powder)
 		to_chat(user, SPAN_WARNING("\The [src] is not loaded with gunpowder!"))

@@ -193,9 +193,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	else if(nanoui_menu == 3)
 		nanoui_data["contracts_found"] = 0
 
-		establish_db_connection(dbcon)
-
-		if (dbcon.IsConnected())
+		if(establish_db_connection(dbcon))
 			nanoui_data["contracts"] = list()
 
 			if (!nanoui_data["contracts_current_page"])
@@ -260,9 +258,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	if(nanoui_menu == 31)
 		nanoui_data["contracts_found"] = 0
 
-		establish_db_connection(dbcon)
-
-		if (dbcon.IsConnected())
+		if (config.sql_enabled && establish_db_connection(dbcon))
 			nanoui_data["contracts"] = list()
 
 			if (!nanoui_data["contracts_current_page"])

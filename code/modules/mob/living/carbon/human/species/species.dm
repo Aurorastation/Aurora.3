@@ -467,9 +467,15 @@
 /datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
-	H.sight |= get_vision_flags(H)
-	H.sight |= H.equipment_vision_flags
-	H.sight |= vision[1]
+	if(H.machine && H.machine.check_eye(H) >= 0 && H.client.eye != H)
+		// we inherit sight flags from the machine
+		H.sight &= ~(get_vision_flags(H))
+		H.sight &= ~(H.equipment_vision_flags)
+		H.sight &= ~(vision[1])
+	else
+		H.sight |= get_vision_flags(H)
+		H.sight |= H.equipment_vision_flags
+		H.sight |= vision[1]
 
 	if(H.stat == DEAD)
 		return 1
@@ -489,7 +495,7 @@
 	if(!H.client)//no client, no screen to update
 		return 1
 
-	H.set_fullscreen(H.eye_blind && !H.equipment_prescription, "blind", /obj/screen/fullscreen/blind)
+	H.set_fullscreen(H.eye_blind, "blind", /obj/screen/fullscreen/blind)
 	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
 	if(config.welder_vision)
@@ -561,7 +567,7 @@
 		H.flash_pain(H.get_shock())
 
 	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
-		H.m_intent = "walk"
+		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
 		H.flash_pain(H.get_shock())

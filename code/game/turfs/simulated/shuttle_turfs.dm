@@ -292,6 +292,8 @@
 	icon_state = "5,4"
 
 /obj/structure/shuttle_part/raider
+	name = "Skipjack"
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands."
 	icon = 'icons/turf/shuttles_unique/raider_shuttle.dmi'
 	icon_state = "4,1"
 

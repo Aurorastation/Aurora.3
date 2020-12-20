@@ -134,7 +134,7 @@
 			user.visible_message("<b>[user]</b> starts scraping the rot away with \the [W].", SPAN_NOTICE("You start scraping the rot away with \the [W]."))
 			if(do_after(user, rand(3 SECONDS, 5 SECONDS), TRUE))
 				user.visible_message("<b>[user]</b> scrapes away the rot with \the [W].", SPAN_NOTICE("You start scraping away the rot with \the [W]."))
-				playsound(src, W.hitsound, 10, TRUE)
+				playsound(src, W.hitsound, W.get_clamped_volume(), TRUE)
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					WR.scrape(user)
 				return
@@ -377,9 +377,8 @@
 		return
 
 	else if(!istype(W,/obj/item/rfd/construction) && !istype(W, /obj/item/reagent_containers))
-		//At this point we know that they probably wanna hit it.
 		if(user.a_intent != I_HURT || !W.force)
-			return attack_hand(user)
+			return
 
 		var/damage_to_deal = W.force
 		var/weaken = 0

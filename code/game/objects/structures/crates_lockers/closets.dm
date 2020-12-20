@@ -24,6 +24,7 @@
 	var/store_misc = 1
 	var/store_items = 1
 	var/store_mobs = 1
+	var/maximum_mob_size = 15
 
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
@@ -190,6 +191,8 @@
 	for(var/mob/living/M in loc)
 		if(M.buckled || M.pinned.len)
 			continue
+		if(M.mob_size >= maximum_mob_size)
+			continue
 		if(stored_units + added_units + M.mob_size > storage_capacity)
 			break
 		if(M.client)
@@ -313,6 +316,8 @@
 		else
 			user.drop_item()
 	else if(istype(W, /obj/item/stack/packageWrap))
+		return
+	else if(istype(W, /obj/item/ducttape))
 		return
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
