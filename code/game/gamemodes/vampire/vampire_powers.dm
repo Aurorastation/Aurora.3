@@ -342,7 +342,7 @@
 
 	var/list/victims = list()
 	for(var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(istype(T) && (T.l_ear || T.r_ear) && istype((T.l_ear || T.r_ear), /obj/item/clothing/ears/earmuffs))
+		if(T.protected_from_sound())
 			continue
 		if(!vampire_can_affect_target(T, 0))
 			continue
@@ -750,8 +750,7 @@
 	thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
 	var/datum/vampire/T_vampire = T.mind.antag_datums[MODE_VAMPIRE]
-	T_vampire.master = src
-	vampire.thralls += T
+	T_vampire.assign_master(T, src, vampire)
 	to_chat(T, SPAN_NOTICE("You have been forced into a blood bond by [T_vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them."))
 	to_chat(src, SPAN_NOTICE("You have completed the thralling process. They are now your slave and will obey your commands."))
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")

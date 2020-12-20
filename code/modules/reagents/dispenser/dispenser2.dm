@@ -33,51 +33,51 @@
 /obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
 		if(user)
-			to_chat(user, "<span class='warning'>\The [C] will not fit in \the [src]!</span>")
+			to_chat(user, SPAN_WARNING("[C] will not fit in [src]!"))
 		return
 
 	if(cartridges.len >= DISPENSER_MAX_CARTRIDGES)
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] does not have any slots open for \the [C] to fit into!</span>")
+			to_chat(user, SPAN_WARNING("[src] does not have any slots open for [C] to fit into!"))
 		return
 
 	if(!C.label)
 		if(user)
-			to_chat(user, "<span class='warning'>\The [C] does not have a label!</span>")
+			to_chat(user, SPAN_WARNING("[C] does not have a label!"))
 		return
 
 	if(cartridges[C.label])
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] already contains a cartridge with that label!</span>")
+			to_chat(user, SPAN_WARNING("[src] already contains a cartridge with that label!"))
 		return
 
 	if(user)
 		user.drop_from_inventory(C,src)
-		to_chat(user, "<span class='notice'>You add \the [C] to \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You add [C] to [src]."))
 	else
 		C.forceMove(src)
 
 	cartridges[C.label] = C
 	sortTim(cartridges, /proc/cmp_text_asc)
-	SSnanoui.update_uis(src)
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
 	cartridges -= label
-	SSnanoui.update_uis(src)
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You begin to [anchored ? "un" : ""]fasten \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
 		if (do_after(user, 20))
 			user.visible_message(
-				"<span class='notice'>\The [user] [anchored ? "un" : ""]fastens \the [src].</span>",
-				"<span class='notice'>You have [anchored ? "un" : ""]fastened \the [src].</span>",
+				SPAN_NOTICE("[user] [anchored ? "un" : ""]fastens [src]."),
+				SPAN_NOTICE("You have [anchored ? "un" : ""]fastened [src]."),
 				"You hear a ratchet.")
 			anchored = !anchored
 		else
-			to_chat(user, "<span class='notice'>You decide not to [anchored ? "un" : ""]fasten \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You decide not to [anchored ? "un" : ""]fasten [src]."))
 
 	else if(istype(W, /obj/item/reagent_containers/chem_disp_cartridge))
 		add_cartridge(W, user)
@@ -87,82 +87,75 @@
 		if(!label) return
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = remove_cartridge(label)
 		if(C)
-			to_chat(user, "<span class='notice'>You remove \the [C] from \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove [C] from [src]."))
 			C.forceMove(loc)
 
 	else if(istype(W, /obj/item/reagent_containers/glass) || istype(W, /obj/item/reagent_containers/food))
 		if(container)
-			to_chat(user, "<span class='warning'>There is already \a [container] on \the [src]!</span>")
+			to_chat(user, SPAN_WARNING("There is already \a [container] on [src]!"))
 			return
 
 		var/obj/item/reagent_containers/RC = W
 
 		if(!accept_drinking && istype(RC,/obj/item/reagent_containers/food))
-			to_chat(user, "<span class='warning'>This machine only accepts beakers!</span>")
+			to_chat(user, SPAN_WARNING("This machine only accepts beakers!"))
 			return
 
 		if(!RC.is_open_container())
-			to_chat(user, "<span class='warning'>You don't see how \the [src] could dispense reagents into \the [RC].</span>")
+			to_chat(user, SPAN_WARNING("You don't see how [src] could dispense reagents into [RC]."))
 			return
 
 		container =  RC
 		user.drop_from_inventory(RC,src)
-		to_chat(user, "<span class='notice'>You set \the [RC] on \the [src].</span>")
-		SSnanoui.update_uis(src) // update all UIs attached to src
+		to_chat(user, SPAN_NOTICE("You set [RC] on [src]."))
+		SSvueui.check_uis_for_change(src) // update all UIs attached to src
 		if(icon_state_active)
 			icon_state = icon_state_active
 
 	else
 		return ..()
 
-/obj/machinery/chemical_dispenser/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/chemical_dispenser/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = ..() || data || list()
 	// this is the data which will be sent to the ui
-	if(container && !container.reagents)  //sanity check in case you destroyed the container... such as if you dispensed acid into an acidable bucket.
-		container = null
-	var/data[0]
 	data["amount"] = amount
-	data["isBeakerLoaded"] = container ? 1 : 0
 	data["glass"] = accept_drinking
+	data["isBeakerLoaded"] = !!container
+	data["beakerMaxVolume"] = container?.reagents?.maximum_volume
+	data["beakerCurrentVolume"] = container?.reagents?.total_volume
 	var beakerD[0]
 	if(container && container.reagents && container.reagents.reagent_list.len)
 		for(var/datum/reagent/R in container.reagents.reagent_list)
 			beakerD[++beakerD.len] = list("name" = R.name, "volume" = R.volume)
 	data["beakerContents"] = beakerD
-
-	if(container)
-		data["beakerCurrentVolume"] = container.reagents.total_volume
-		data["beakerMaxVolume"] = container.reagents.maximum_volume
-	else
-		data["beakerCurrentVolume"] = null
-		data["beakerMaxVolume"] = null
-
 	var chemicals[0]
 	for(var/label in cartridges)
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
 		chemicals[++chemicals.len] = list("label" = label, "amount" = C.reagents.total_volume)
 	data["chemicals"] = chemicals
+	return data
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/chemical_dispenser/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, ui_key, "chem_disp.tmpl", ui_title, 390, 680)
-		ui.set_initial_data(data)
-		ui.open()
+		ui = new(user, src, "machinery-chemdisp", 390, 680, ui_title, state = interactive_state)
+	ui.open()
 
 /obj/machinery/chemical_dispenser/Topic(href, href_list)
 	if(..())
-		return 1
+		return TOPIC_NOACTION
 
 	if(href_list["amount"])
 		amount = round(text2num(href_list["amount"]), 1) // round to nearest 1
-		amount = max(0, min(120, amount)) // Since the user can actually type the commands himself, some sanity checking
+		amount = between(amount, 1, container?.reagents?.maximum_volume || 120) // Since the user can actually type the commands himself, some sanity checking
 
 	else if(href_list["dispense"])
 		var/label = href_list["dispense"]
-		if(cartridges[label] && container && container.is_open_container())
+		if(cartridges[label] && container?.is_open_container())
 			var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
 			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 			C.reagents.trans_to(container, amount)
+			addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 2 SECONDS) //Just in case we get no new data
 
 	else if(href_list["ejectBeaker"])
 		if(container)
@@ -171,9 +164,10 @@
 			container = null
 			if(icon_state_active)
 				icon_state = initial(icon_state)
+			SSvueui.check_uis_for_change(src)
 
 	add_fingerprint(usr)
-	return 1 // update UIs attached to this object
+	return TOPIC_REFRESH // update UIs attached to this object
 
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))

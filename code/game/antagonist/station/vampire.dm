@@ -81,6 +81,8 @@ var/datum/antagonist/vampire/vamp = null
 	if(!M)
 		return
 	var/datum/vampire/vampire = M.antag_datums[MODE_VAMPIRE]
+	if(vampire.master_image)
+		user.client.images += M.vampire.master_image
 	if(vampire.status & VAMP_ISTHRALL)
 		return
 	vampire.blood_hud = new /obj/screen/vampire/blood()
@@ -89,6 +91,11 @@ var/datum/antagonist/vampire/vamp = null
 	user.client.screen += vampire.blood_hud
 	user.client.screen += vampire.frenzy_hud
 	user.client.screen += vampire.blood_suck_hud
+
+	for(var/thrall in M.vampire.thralls)
+		var/mob/T = thrall
+		if(T?.mind?.vampire.thrall_image)
+			user.client.images += T.mind.vampire.thrall_image
 
 /datum/antagonist/vampire/proc/vampire_help()
 	set category = "Vampire"
