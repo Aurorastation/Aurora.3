@@ -278,7 +278,7 @@ var/const/NO_EMAG_ACT = -50
 				religion = H.religion
 				age = H.age
 				src.add_fingerprint(H)
-				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!</span>")
+				to_chat(user, SPAN_NOTICE("Biometric Imprinting Successful!"))
 				return 1
 	return ..()
 
