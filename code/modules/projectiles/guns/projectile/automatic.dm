@@ -143,11 +143,6 @@
 /obj/item/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
-	if(wielded)
-		item_state = (ammo_magazine)? "arifle-wielded" : "arifle-wielded-empty"
-	else
-		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
-	update_held_icon()
 
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "battle rifle"
@@ -167,12 +162,6 @@
 		icon_state = "battlerifle"
 	else
 		icon_state = "battlerifle-empty"
-	if(wielded)
-		item_state = "battlerifle-wielded"
-	else
-		item_state = "battlerifle"
-	update_held_icon()
-	return
 
 /datum/firemode/z8
 	var/use_launcher = 0
@@ -240,12 +229,6 @@
 		icon_state = "carbine"
 	else
 		icon_state = "carbine-empty"
-	if(wielded)
-		item_state = "carbine-wielded"
-	else
-		item_state = "carbine"
-	update_held_icon()
-	return
 
 /obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
 	..()
@@ -310,10 +293,6 @@
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/update_icon()
 	icon_state = "l6[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len*2, 25) : "-empty"]"
-	if(wielded)
-		item_state = "l6closedmag-wielded"
-	else
-		item_state = initial(item_state)
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
@@ -354,14 +333,6 @@
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 14
-
-/obj/item/gun/projectile/automatic/rifle/adhomian/update_icon()
-	..()
-	if(wielded)
-		item_state = "tsarrayut-wielded"
-	else
-		item_state = "tsarrayut"
-	update_held_icon()
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"
