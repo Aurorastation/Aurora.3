@@ -873,6 +873,8 @@
 				// Apply a fire overlay if we're burning.
 				if(on_fire)
 					var/image/burning_image = image('icons/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
+					var/midway_point = FIRE_MAX_STACKS / 2
+					burning_image.color = color_rotation((midway_point - fire_stacks) * 3)
 					health_images += burning_image
 
 				// Show a general pain/crit indicator if needed.
