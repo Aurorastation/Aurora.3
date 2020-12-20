@@ -24,7 +24,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 	create_station_account()
 
-	for(var/account in station_accounts)
+	for(var/account in department_funds)
 		create_department_account(account)
 
 	..()
@@ -76,7 +76,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	department_account.account_number = next_account_number
 	next_account_number += rand(1,500)
 	department_account.remote_access_pin = rand(1111, 111111)
-	department_account.money = station_accounts[department]
+	department_account.money = department_funds[department]
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new()

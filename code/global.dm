@@ -147,7 +147,7 @@ var/max_explosion_range = 14
 var/global/obj/item/device/radio/intercom/global_announcer = new(null)
 
 // the number next to it denotes how much money the department receives when its account is generated
-var/list/station_accounts = list(
+var/list/department_funds = list(
 	"Command" = 10000,
 	"Medical" = 10000,
 	"Engineering" = 10000,
