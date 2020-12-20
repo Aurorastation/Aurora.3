@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported the accounts terminal UI over to VueUI, replaced the accounts terminal with a modular console."

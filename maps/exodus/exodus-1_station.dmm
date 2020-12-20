@@ -42645,7 +42645,7 @@
 /obj/machinery/keycard_auth{
 	pixel_x = -24
 	},
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},

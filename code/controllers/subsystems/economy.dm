@@ -96,7 +96,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	return TRUE
 
 //Create a "normal" player account
-/datum/controller/subsystem/economy/proc/create_account(var/new_owner_name = "Default user", var/starting_funds = 0, var/obj/machinery/account_database/source_db)
+/datum/controller/subsystem/economy/proc/create_account(var/new_owner_name = "Default user", var/starting_funds = 0, var/datum/computer_file/program/account_db/source_db)
 	//create a new account
 	var/datum/money_account/M = new()
 	M.owner_name = new_owner_name
@@ -121,31 +121,27 @@ var/datum/controller/subsystem/economy/SSeconomy
 		T.time = worldtime2text()
 		T.source_terminal = source_db.machine_id
 
-		//create a sealed package containing the account details
-		var/obj/item/smallDelivery/P = new /obj/item/smallDelivery(source_db.loc)
+		if(source_db.computer.nano_printer)
+			var/pname = "Account information: [M.owner_name]"
+			var/info = "<b>Account details (confidential)</b><br><hr><br>"
+			info += "<i>Account holder:</i> [M.owner_name]<br>"
+			info += "<i>Account number:</i> [M.account_number]<br>"
+			info += "<i>Account pin:</i> [M.remote_access_pin]<br>"
+			info += "<i>Starting balance:</i> [M.money]电<br>"
+			info += "<i>Date and time:</i> [worldtime2text()], [worlddate2text()]<br><br>"
+			info += "<i>Creation terminal ID:</i> [source_db.machine_id]<br>"
+			var/obj/item/card/id/held_card = source_db.get_held_card()
+			info += "<i>Authorised NT officer overseeing creation:</i> [held_card.registered_name]<br>"
 
-		var/obj/item/paper/R = new /obj/item/paper(P)
-		P.wrapped = R
-		var/pname = "Account information: [M.owner_name]"
-		var/info = "<b>Account details (confidential)</b><br><hr><br>"
-		info += "<i>Account holder:</i> [M.owner_name]<br>"
-		info += "<i>Account number:</i> [M.account_number]<br>"
-		info += "<i>Account pin:</i> [M.remote_access_pin]<br>"
-		info += "<i>Starting balance:</i> $[M.money]<br>"
-		info += "<i>Date and time:</i> [worldtime2text()], [worlddate2text()]<br><br>"
-		info += "<i>Creation terminal ID:</i> [source_db.machine_id]<br>"
-		info += "<i>Authorised NT officer overseeing creation:</i> [source_db.held_card.registered_name]<br>"
-
-		R.set_content_unsafe(pname, info)
-
-		//stamp the paper
-		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-		stampoverlay.icon_state = "paper_stamp-cent"
-		if(!R.stamped)
-			R.stamped = new
-		R.stamped += /obj/item/stamp
-		R.add_overlay(stampoverlay)
-		R.stamps += "<HR><i>This paper has been stamped by the Accounts Database.</i>"
+			var/obj/item/paper/R = source_db.computer.nano_printer.print_text(info, pname, "#deebff")
+			//stamp the paper
+			var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+			stampoverlay.icon_state = "paper_stamp-cent"
+			if(!R.stamped)
+				R.stamped = new
+			R.stamped += /obj/item/stamp
+			R.add_overlay(stampoverlay)
+			R.stamps += "<HR><i>This paper has been stamped by the Accounts Database.</i>"
 
 	//add the account
 	add_transaction_log(M,T)
