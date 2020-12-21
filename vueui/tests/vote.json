@@ -10,7 +10,8 @@
       "allow_vote_mode": 0,
       "allow_extra_antags": 0,
       "question": "",
-      "is_code_red": 0
+      "is_code_red": 0,
+      "isstaff": 0
     },
     "assets": [],
     "active": "misc-voting",
