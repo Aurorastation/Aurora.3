@@ -25,7 +25,7 @@ module.exports = async function (signale) {
     }
   }
 
-  app.listen(5221, () => {
+  var server = app.listen(5221, () => {
     signale.info(`Puppeteer web server listening at http://localhost:5221`)
   })
 
@@ -87,5 +87,6 @@ module.exports = async function (signale) {
   // })
 
   await browser.close()
+  server.close()
   return {results}
 }
