@@ -19,21 +19,21 @@
 	if(on)
 		layCable(new_turf,M_Dir)
 
-/obj/machinery/cablelayer/attack_hand(mob/user as mob)
+/obj/machinery/cablelayer/attack_hand(mob/user)
 	if(!cable && !on)
-		to_chat(user, "<span class='warning'>\The [src] doesn't have any cable loaded.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded."))
 		return
 	on = !on
-	user.visible_message("\The [user] [!on?"dea":"a"]ctivates \the [src].", SPAN_NOTICE("You switch \the [src] [on? "on" : "off"]."))
+	user.visible_message("\The [user] [!on ? "de" : ""]activates \the [src].", SPAN_NOTICE("You switch \the [src] [on ? "on" : "off"]."))
 	return
 
-/obj/machinery/cablelayer/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/cablelayer/attackby(var/obj/item/O, var/mob/user)
 	if(O.iscoil())
 		var/result = load_cable(O)
 		if(!result)
-			to_chat(user, "<span class='warning'>\The [src]'s cable reel is full.</span>")
+			to_chat(user, SPAN_WARNING("\The [src]'s cable reel is full."))
 		else
-			to_chat(user, "You load [result] lengths of cable into [src].")
+			to_chat(user, SPAN_NOTICE("You load [result] lengths of cable into \the [src]."))
 		return
 
 	if(O.iswirecutter())
@@ -47,7 +47,7 @@
 				var/obj/item/stack/cable_coil/CC = new(get_turf(src), m, cable_color)
 				user.put_in_hands(CC)
 		else
-			to_chat(usr, "<span class='warning'>There's no more cable on the reel.</span>")
+			to_chat(user, SPAN_WARNING("There's no more cable on the reel."))
 		return
 
 	if(O.ismultitool())
@@ -79,7 +79,7 @@
 		on = FALSE
 		reset()
 		playsound(loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
-		visible_message("A red light flashes on \the [src].")
+		visible_message(SPAN_WARNING("A red light flashes on \the [src]."))
 		return
 	var/cable_color = cable.color
 	cable.use(amount)
