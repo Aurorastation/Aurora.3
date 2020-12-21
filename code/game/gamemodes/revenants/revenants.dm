@@ -8,7 +8,7 @@
 	max_autotraitor_delay = 6 MINUTES
 	antag_scaling_coeff = 4 // four people can handle one revenant pretty easily
 	round_description = "A bluespace tear has opened up in the space around us, who knows what could invade?"
-	extended_round_description = "Bluespace is dangerous."
+	extended_round_description = "This a wave defense gamemode. The crew all have to work together to repel an endless horde of bluespace horrors."
 	antag_tags = list(MODE_REVENANT)
 
 /datum/game_mode/revenants/process_autoantag()
