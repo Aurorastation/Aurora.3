@@ -4,7 +4,6 @@
 	desc = "A creature borne of bluespace, you are here to wreak havoc and put an end to bluespace experimentation, one station at a time."
 	tags = list("Antagonist")
 
-	antagonist = TRUE
 	observers_only = TRUE
 	show_on_job_select = FALSE
 

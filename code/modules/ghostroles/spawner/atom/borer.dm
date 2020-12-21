@@ -4,7 +4,7 @@
 	desc = "Infest crew, reproduce, repeat."
 	tags = list("Antagonist")
 
-	antagonist = TRUE
+	observers_only = TRUE
 
 	loc_type = GS_LOC_ATOM
 	atom_add_message = "A borer has been birthed!"
