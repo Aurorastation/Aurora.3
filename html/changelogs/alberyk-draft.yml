@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed antag drafting. People that voted for the round won't be selected for antag if they don't have their options enabled."
