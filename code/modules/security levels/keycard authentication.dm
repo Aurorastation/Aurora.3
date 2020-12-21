@@ -169,6 +169,11 @@ var/global/maint_all_access = 0
 	security_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.","Attention!")
 
 /obj/machinery/door/airlock/allowed(mob/M)
-	if(maint_all_access && src.check_access_list(list(access_maint_tunnels)))
+	var/obj/item/id = M.GetIdCard()
+	var/list/A = id.GetAccess()
+	var/maint_sec_access = ((security_level > 0) && has_access(access_security, null, A))
+	var/maint_fr_access = ((security_level > 0) && has_access(access_first_responder, null, M.GetIdCard().GetAccess()))
+	var/exceptional_circumstances = maint_all_access || maint_sec_access || maint_fr_access
+	if(exceptional_circumstances && src.check_access_list(list(access_maint_tunnels)))
 		return 1
 	return ..(M)
