@@ -1,0 +1,11 @@
+{
+  "name": "vueui-report",
+  "version": "1.0.0",
+  "description": "Tools for building VueUI BYOND UI framework reports.",
+  "main": "index.mjs",
+  "author": "Karolis K.",
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "signale": "^1.4.0"
+  }
+}
