@@ -3,5 +3,5 @@ author: Sparky_Hotdog
 delete-after: True
 
 changes:
-  - tweak: "Security now recieves maintainance access during yellow, blue, red and delta alerts. The same applies to First Responders"
-  - rscdel: "First Responders no longer have maintainance access from roundstart."
+  - tweak: "Security now recieves maintainance access during yellow, blue, red and delta alerts."
+
