@@ -1373,6 +1373,12 @@
 	},
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
+"aVt" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "aVE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -47423,7 +47429,7 @@ rYN
 rYN
 fdu
 kKF
-kKF
+aVt
 fdu
 rYN
 rYN
@@ -56186,7 +56192,7 @@ fdu
 fdu
 fdu
 kKF
-kKF
+aVt
 kKF
 kKF
 kKF

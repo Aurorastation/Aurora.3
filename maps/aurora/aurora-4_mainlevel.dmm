@@ -72225,6 +72225,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"vHb" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "vIq" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/sign/christmas/lights{
@@ -89371,7 +89377,7 @@ aab
 aab
 aab
 aab
-aab
+vHb
 aab
 aab
 aab
@@ -91884,7 +91890,7 @@ aaa
 aaa
 aab
 aab
-aab
+vHb
 aox
 qba
 aij
@@ -102660,7 +102666,7 @@ aab
 aab
 aab
 aab
-aab
+vHb
 aad
 aaB
 aaJ
@@ -117144,7 +117150,7 @@ vAC
 vAC
 mmQ
 blN
-aab
+vHb
 aab
 aab
 aab

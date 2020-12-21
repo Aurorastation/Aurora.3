@@ -4,6 +4,7 @@
 	desc = "Serve your Master. Cast Spells."
 	tags = list("Antagonist")
 
+	antagonist = TRUE
 	loc_type = GS_LOC_ATOM
 	atom_add_message = "A wizard apprentice pebble has been created!"
 

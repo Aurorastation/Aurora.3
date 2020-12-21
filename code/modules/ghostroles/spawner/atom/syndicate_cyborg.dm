@@ -4,6 +4,7 @@
 	desc = "Join in as a Syndicate Cyborg, assist your summoner in their goals, try and make the round fun for the people you're overequipped to deal with."
 	tags = list("Antagonist")
 
+	antagonist = TRUE
 	respawn_flag = MINISYNTH //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 	jobban_job = "Cyborg"
 	loc_type = GS_LOC_ATOM

@@ -4,6 +4,7 @@
 	desc = "Be a Familiar, act cute, probably end up killing many people somehow."
 	tags = list("Antagonist")
 
+	antagonist = TRUE
 	loc_type = GS_LOC_ATOM
 	atom_add_message = "A wizard familiar has been summoned"
 

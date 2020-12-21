@@ -57,6 +57,7 @@
 #define MODE_TRAITOR "traitor"
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
+#define MODE_REVENANT "revenant"
 #define MODE_GOLEM "golem"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25

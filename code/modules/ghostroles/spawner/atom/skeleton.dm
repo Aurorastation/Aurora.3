@@ -4,6 +4,7 @@
 	desc = "Serve your Master. Fight things."
 	tags = list("Antagonist")
 
+	antagonist = TRUE
 	loc_type = GS_LOC_ATOM
 	atom_add_message = "A skeleton has been created!"
 
