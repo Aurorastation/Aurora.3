@@ -4,7 +4,7 @@ const path = require('path')
 const vueuiPath = path.resolve(config.vueui)
 module.exports = async function (signale) {
   try {
-    const { stdout, stderr } = await processPromisify.exec('npm install', {
+    const { stdout, stderr } = await processPromisify.exec('npm run lint --colors', {
       cwd: vueuiPath,
     })
     return {

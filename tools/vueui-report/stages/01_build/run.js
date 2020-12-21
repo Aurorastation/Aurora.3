@@ -4,12 +4,11 @@ const path = require('path')
 const vueuiPath = path.resolve(config.vueui)
 module.exports = async function (signale) {
   try {
-    const { stdout, stderr } = await processPromisify.exec('npm install', {
+    const { stdout, stderr } = await processPromisify.exec('npm install --colors', {
       cwd: vueuiPath,
     })
     signale.debug("Install done. Building...")
-    const { stdout2, stderr2 } = await processPromisify.exec(
-      'npm run build-dev',
+    const build = await processPromisify.exec('npm run build-dev --colors',
       {
         cwd: vueuiPath,
       }
@@ -17,7 +16,7 @@ module.exports = async function (signale) {
     signale.debug("Build done.")
     return {
       install: stdout,
-      build: stdout2
+      build
     }
   } catch (error) {
     return {fail: error}

@@ -5,7 +5,10 @@
   "main": "index.mjs",
   "author": "Karolis K.",
   "dependencies": {
+    "ansi-to-html": "^0.6.14",
     "fs-extra": "^9.0.1",
-    "signale": "^1.4.0"
+    "signale": "^1.4.0",
+    "vue": "^2.6.12",
+    "vue-server-renderer": "^2.6.12"
   }
 }

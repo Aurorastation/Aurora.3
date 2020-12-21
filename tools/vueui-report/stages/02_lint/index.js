@@ -1,7 +1,7 @@
 const run = require('./run')
-const format = require('./format')
+const component = require('./component')
 module.exports = {
   name: () => 'Lint',
   run,
-  format
+  component
 }
