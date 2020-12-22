@@ -16,16 +16,16 @@
 /obj/structure/ore_box/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/ore))
 		user.drop_from_inventory(W, src)
-	else if(istype(W, /obj/item/storage/bag/ore))
-		var/obj/item/storage/bag/ore/satchel = W
-		if(satchel.linked_beacon)
-			if(!warp_core)
-				to_chat(user, SPAN_WARNING("\The [src] doesn't have a warp beacon!"))
-				return
-			satchel.linked_box = src
-			to_chat(user, SPAN_NOTICE("You link \the [satchel] to \the [src]."))
-			return
 	else if(istype(W, /obj/item/storage))
+		if(istype(W, /obj/item/storage/bag/ore))
+			var/obj/item/storage/bag/ore/satchel = W
+			if(satchel.linked_beacon)
+				if(!warp_core)
+					to_chat(user, SPAN_WARNING("\The [src] doesn't have a warp beacon!"))
+					return
+				satchel.linked_box = src
+				to_chat(user, SPAN_NOTICE("You link \the [satchel] to \the [src]."))
+				return
 		var/obj/item/storage/S = W
 		S.hide_from(user)
 		for(var/obj/item/ore/O in S.contents)
