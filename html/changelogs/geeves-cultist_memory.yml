@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - backend: "Converted how Vampire and Changeling variables are handled on the backend, let me know if there's something funky."
-  - rscadd: "Cultists can now memorize up to three runes, and can scribe them at will without a tome, at the cost of taking three times longer to do so. Check the Cultists tab in the top right. Only specific runes can be memorized."
