@@ -124,7 +124,7 @@ var/global/photo_count = 0
 /obj/item/device/camera
 	name = "camera"
 	icon = 'icons/obj/bureaucracy.dmi'
-	desc = "A polaroid camera."
+	desc = "A digital camera."
 	icon_state = "camera"
 	item_state = "electropack"
 	w_class = ITEMSIZE_SMALL

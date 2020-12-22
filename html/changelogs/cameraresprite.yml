@@ -1,0 +1,6 @@
+author: Sparky_Hotdog
+
+delete-after: True
+
+changes:
+  - imageadd: "Changes the camera and photograph sprites to be (slightly) more 25th century."
