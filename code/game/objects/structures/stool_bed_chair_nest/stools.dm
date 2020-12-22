@@ -16,20 +16,20 @@
 		if(!held_item || use_check_and_message(usr) || buckled_mob || !can_dismantle)
 			return
 		usr.visible_message(SPAN_NOTICE("[usr] grabs \the [src.name]."), SPAN_NOTICE("You grab \the [src.name]."))
-		var/obj/item/material/stool/S = new held_item(src.loc, material, padding_material ? padding_material : null) // Handles all the material code so you don't have to.
+		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material ? padding_material.name : null) // Handles all the material code so you don't have to.
 		TransferComponents(S)
-		if(material_alteration & MATERIAL_ALTERATION_COLOR)
+		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
 			S.color = material.icon_colour
 		if(material_alteration & MATERIAL_ALTERATION_NAME)
 			S.name = name // Get the name and desc of the stool, rather. We already went through all the trouble in New in bed.dm
 		if(material_alteration & MATERIAL_ALTERATION_DESC)
 			S.desc = desc
 		if(blood_DNA)
-			S.blood_DNA |= blood_DNA // Transfer blood.
+			S.blood_DNA |= blood_DNA // Transfer blood, if any.
 			S.add_blood()
-		S.base_icon = base_icon
 		S.dir = dir
 		S.origin_type = src.type
+		S.add_fingerprint(usr)
 		usr.put_in_hands(S)
 		qdel(src)
 
@@ -69,9 +69,10 @@
 /obj/structure/bed/stool/bar
 	name = "bar stool"
 	desc = "It has some unsavory stains on it..."
-	base_icon = "bar_stool"
 	icon_state = "bar_stool_preview"
 	item_state = "bar_stool"
+	base_icon = "bar_stool"
+	held_item = /obj/item/material/stool/bar
 
 /obj/structure/bed/stool/bar/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
@@ -94,19 +95,19 @@
 /obj/structure/bed/stool/bar/padded/black/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
 
-/obj/structure/bed/stool/bar/green/New(var/newloc)
+/obj/structure/bed/stool/bar/padded/green/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
 
-/obj/structure/bed/stool/bar/purp/New(var/newloc)
+/obj/structure/bed/stool/bar/padded/purp/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
 
-/obj/structure/bed/stool/bar/blue/New(var/newloc)
+/obj/structure/bed/stool/bar/padded/blue/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
 
-/obj/structure/bed/stool/bar/beige/New(var/newloc)
+/obj/structure/bed/stool/bar/padded/beige/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
 
-/obj/structure/bed/stool/bar/lime/New(var/newloc)
+/obj/structure/bed/stool/bar/padded/lime/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 /obj/structure/bed/stool/bar/wood/New(var/newloc)
@@ -114,17 +115,16 @@
 
 /obj/structure/bed/stool/hover
 	name = "hoverstool"
-	desc = "Apply butt. Now as comfortable as a cloud."
+	desc = "As comfortable as a cloud."
 	icon_state = "hover_stool"
-	item_state = "hoverstool"
+	item_state = "hover_stool"
+	base_icon = "hover_stool"
+	can_dismantle = FALSE
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	held_item = /obj/item/material/stool/hover
 
-/obj/structure/bed/stool/hover/New(var/newloc, var/new_material)
+/obj/structure/bed/stool/hover/New(var/newloc)
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
-
-/obj/structure/bed/stool/hover/Initialize()
-	.=..()
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
 /obj/item/material/stool
@@ -133,9 +133,10 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
 		)
-	icon_state = "stool_preview" //Ideally you shouldn't be able to see this
+	icon_state = "stool_toppled_preview"
 	item_state = "stool"
 	var/base_icon = "stool"
+	desc_info = "Use in-hand or alt-click to right this."
 	randpixel = 0
 	center_of_mass = null
 	force = 10	// Doesn't really matter. Will get overriden by set_material.
@@ -151,10 +152,13 @@
 /obj/item/material/stool/New(var/newloc, var/new_material, var/new_padding_material)
 	..(newloc, new_material)	// new_material handled in material_weapons.dm
 	if(new_padding_material)
-		padding_material = new_padding_material
+		padding_material = SSmaterials.get_material_by_name(new_padding_material)
 	update_icon()
 
 /obj/item/material/stool/attack_self(mob/user)
+	deploy(user)
+
+/obj/item/material/stool/AltClick(mob/user)
 	deploy(user)
 
 /obj/item/material/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
@@ -200,13 +204,13 @@
 	qdel(src)
 
 /obj/item/material/stool/update_icon()
-	icon_state = base_icon
+	icon_state = "[base_icon]_toppled"
 	cut_overlays()
-	if(padding_material)
+	if(padding_material)	// Handles padding overlay and inhand overlays.
+		var/image/padding_overlay = image(icon, "[base_icon]_toppled_padding")
+		padding_overlay.appearance_flags = RESET_COLOR
 		build_from_parts = TRUE
 		worn_overlay = "padding"
-		var/image/padding_overlay = image(icon, "[base_icon]_padding")
-		padding_overlay.appearance_flags = RESET_COLOR
 		if(padding_material.icon_colour)
 			padding_overlay.color = padding_material.icon_colour
 			worn_overlay_color = padding_material.icon_colour
@@ -239,8 +243,12 @@
 				shatter(src)
 				return
 
+/obj/item/material/stool/bar
+	icon_state = "bar_stool_toppled_preview"
+	item_state = "bar_stool"
+	base_icon = "bar_stool"
+
 /obj/item/material/stool/hover
-	name = "hoverstool"
-	desc = "Apply butt. Now as comfortable as a cloud."
-	icon_state = "hover_stool"
-	item_state = "hoverstool"
+	icon_state = "hover_stool_toppled"
+	item_state = "hover_stool"
+	base_icon = "hover_stool"

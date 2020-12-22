@@ -206,16 +206,19 @@
 /obj/structure/bed/stool/chair/office/hover
 	name = "hoverchair"
 	desc = "Adjusts itself to the sitter's weight resulting in a most comfortable sitting experience. Like floating on a cloud."
-	icon_state = "hover_chair"
+	icon_state = "hover_chair_preview"
+	base_icon = "hover_chair"
 	makes_rolling_sound = FALSE
 	can_dismantle = FALSE
+	held_item = null
 
-/obj/structure/bed/stool/chair/office/hover/Initialize()
-	.=..()
+/obj/structure/bed/stool/chair/office/hover/New(var/newloc)
+	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
 /obj/structure/bed/stool/chair/office/hover/command
-	icon_state = "hover_command"
+	icon_state = "hover_command_preview"
+	base_icon = "hover_command"
 
 // Chair types
 /obj/structure/bed/stool/chair/plastic
@@ -303,6 +306,7 @@
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "chair_toppled"
 	item_state = "chair"
+	base_icon = "chair"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
@@ -318,10 +322,12 @@
 /obj/item/material/stool/chair/wood
 	icon_state = "wooden_chair_toppled"
 	item_state = "woodenchair"
+	base_icon = "wooden_chair"
 	origin_type = /obj/structure/bed/stool/chair/wood
 	applies_material_colour = FALSE
 
 /obj/item/material/stool/chair/wood/wings
 	icon_state = "wooden_chair_wings_toppled"
 	item_state = "woodenchair"
+	base_icon= "wooden_chair_wings"
 	origin_type = /obj/structure/bed/stool/chair/wood/wings

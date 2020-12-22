@@ -257,7 +257,7 @@
 		..()
 
 /obj/structure/bed/roller/proc/collapse()
-	visible_message("<b>[usr]</b> collapses \the [src].")
+	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
 	new held_item(get_turf(src))
 	qdel(src)
 
@@ -283,13 +283,13 @@
 	if(!beaker)
 		return
 	if(do_mob(user, target, 1 SECOND))
-		visible_message("<b>[user]</b> attaches [target] to the IV on \the [src].")
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> attaches [target] to the IV on \the [src]."), SPAN_NOTICE("You attach the IV to \the [target]."))
 		iv_attached = TRUE
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
 /obj/structure/bed/roller/proc/detach_iv(mob/living/carbon/human/target, mob/user)
-	visible_message("<b>[user]</b> takes [target] off the IV on \the [src].")
+	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), SPAN_NOTICE("You take the IV off \the [target]."))
 	iv_attached = FALSE
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)
@@ -358,36 +358,34 @@
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_folded"
-	drop_sound = 'sound/items/drop/axe.ogg'
-	pickup_sound = 'sound/items/pickup/axe.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
-	var/bedpath = /obj/structure/bed/roller
+	var/origin_type = /obj/structure/bed/roller
 	w_class = ITEMSIZE_LARGE // Can't be put in backpacks. Oh well.
 
 /obj/item/roller/hover
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
 	icon_state = "hover_folded"
-	bedpath = /obj/structure/bed/roller/hover
+	origin_type = /obj/structure/bed/roller/hover
 
 /obj/item/roller/attack_self(mob/user)
-		var/obj/structure/bed/roller/R = new bedpath(user.loc)
-		R.add_fingerprint(user)
-		qdel(src)
+	var/obj/structure/bed/roller/R = new origin_type(user.loc)
+	R.add_fingerprint(user)
+	qdel(src)
 
 /obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
-
 	if(istype(W,/obj/item/roller_holder))
 		var/obj/item/roller_holder/RH = W
 		if(!RH.held)
-			to_chat(user, "<span class='notice'>You collect the roller bed.</span>")
+			to_chat(user, SPAN_NOTICE("You collect the roller bed."))
 			src.forceMove(RH)
 			RH.held = src
 			return
-
 	..()
 
-/obj/item/roller_holder
+/obj/item/roller_holder // For robots.
 	name = "roller bed rack"
 	desc = "A rack for carrying a collapsed roller bed."
 	icon = 'icons/obj/rollerbed.dmi'
@@ -399,12 +397,10 @@
 	held = new /obj/item/roller(src)
 
 /obj/item/roller_holder/attack_self(mob/user as mob)
-
 	if(!held)
-		to_chat(user, "<span class='notice'>The rack is empty.</span>")
+		to_chat(user, SPAN_NOTICE("The rack is empty."))
 		return
-
-	to_chat(user, "<span class='notice'>You deploy the roller bed.</span>")
+	to_chat(user, SPAN_NOTICE("You deploy the roller bed."))
 	var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
 	R.add_fingerprint(user)
 	qdel(held)
