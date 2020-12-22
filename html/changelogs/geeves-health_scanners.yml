@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Health analyzers now report whether the limbs have been bandaged or salved as well."
