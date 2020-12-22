@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Skrell in Srom now get a health indicator that reflects that of their body, which gives them a rough idea of which state they're in."

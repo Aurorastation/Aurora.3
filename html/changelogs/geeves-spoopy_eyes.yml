@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "When vampires frenzy, their eyes will start glowing bright red."
-  - rscdel: "Going hulk now really never turns someone green."

@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Refactored sculpting block code, it should work a bit nicer now."
-  - rscadd: "You can now turn sculpting blocks into ladders, but only upwards. This ladder can be knocked out with a pickaxe or a plasma cutter."
-  - tweak: "Anchoring or unanchoring a sculpting block now takes 5 seconds."

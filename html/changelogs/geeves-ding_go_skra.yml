@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Computer ringtones no longer amplify according to the amount of mobs around you."

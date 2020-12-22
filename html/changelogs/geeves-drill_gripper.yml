@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Mining drone and stationbound drill maintenance grippers can now pick up warp extraction gear, pack and core. They can also be used to remove the core from an ore box."
-  - rscadd: "Gripping an item with a gripper now plays a pick-up animation."
