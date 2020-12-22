@@ -32,11 +32,8 @@
 
 /obj/item/gun/launcher/harpoon/update_icon()
 	icon_state = "[initial(icon_state)]-[harpoons.len]"
-	if(wielded)
-		item_state = "[initial(item_state)]-[harpoons.len]-w"
-	else
-		item_state = "[initial(icon_state)]-[harpoons.len]"
-	update_held_icon()
+	item_state = "[initial(item_state)]-[harpoons.len]"	
+	..()
 
 /obj/item/gun/launcher/harpoon/special_check(mob/user)
 	if(!wielded)

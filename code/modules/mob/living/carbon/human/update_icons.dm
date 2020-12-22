@@ -174,7 +174,6 @@ There are several things that need to be remembered:
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
 			animate(src, transform = M, time = ANIM_LYING_TIME)
-		handle_floating_message_orientation()
 
 	compile_overlays()
 	lying_prev = lying
@@ -221,6 +220,24 @@ There are several things that need to be remembered:
 		LAZYADD(ovr, DI)
 
 	overlays_raw[DAMAGE_LAYER] = ovr
+	update_bandages(update_icons)
+	if(update_icons)
+		update_icon()
+
+/mob/living/carbon/human/proc/update_bandages(var/update_icons = TRUE)
+	var/bandage_icon = species.bandages_icon
+	if(!bandage_icon)
+		return
+	var/image/standing_image = overlays_raw[DAMAGE_LAYER]
+	if(standing_image)
+		for(var/obj/item/organ/external/O in organs)
+			if(O.is_stump())
+				continue
+			var/bandage_level = O.bandage_level()
+			if(bandage_level)
+				standing_image += image(bandage_icon, "[O.icon_name][bandage_level]")
+
+		overlays_raw[DAMAGE_LAYER] = standing_image
 
 	if(update_icons)
 		update_icon()

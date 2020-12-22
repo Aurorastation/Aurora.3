@@ -4569,7 +4569,7 @@
 	pixel_x = -36;
 	pixel_y = 29
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "HoS";
 	pixel_x = -8;
 	pixel_y = 30
@@ -6176,7 +6176,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "FT Op";
 	pixel_x = 28;
 	pixel_y = 12
@@ -8549,7 +8549,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "FT Op";
 	pixel_x = 28;
 	pixel_y = 24
@@ -42665,7 +42665,7 @@
 	pixel_x = 26;
 	pixel_y = 17
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "HoP";
 	pixel_x = 36;
 	pixel_y = 18
@@ -44819,7 +44819,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "Psy";
 	pixel_x = -25
 	},
@@ -44928,7 +44928,7 @@
 	pixel_y = 13;
 	req_access = list(47)
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "RD";
 	pixel_x = -26;
 	pixel_y = 21
@@ -45140,7 +45140,7 @@
 /obj/effect/landmark/start{
 	name = "Quartermaster"
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "QM";
 	pixel_x = 24;
 	pixel_y = -24
@@ -50202,7 +50202,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "isoA_window_tint";
 	pixel_y = 26
 	},
@@ -50254,7 +50254,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "isoB_window_tint";
 	pixel_y = 26
 	},
@@ -55054,7 +55054,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "CE";
 	pixel_x = 36;
 	pixel_y = 18
@@ -59511,7 +59511,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_eva)
 "ciT" = (
-/obj/machinery/button/holosign{
+/obj/machinery/button/switch/holosign{
 	_wifi_id = "OR1";
 	pixel_x = 24;
 	pixel_y = 2
@@ -59586,7 +59586,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/locker_room)
 "cjc" = (
-/obj/machinery/button/holosign{
+/obj/machinery/button/switch/holosign{
 	_wifi_id = "OR2";
 	pixel_x = -24;
 	pixel_y = 2
@@ -75109,7 +75109,7 @@
 /obj/structure/bed/stool/chair/comfy/brown{
 	dir = 8
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "Detective";
 	pixel_x = -28;
 	pixel_y = 12
@@ -76494,7 +76494,7 @@
 	req_access = list(38);
 	specialfunctions = 4
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "rep_inner";
 	pixel_x = -28;
 	pixel_y = -14
@@ -76757,7 +76757,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "journalist";
 	pixel_x = -24;
 	pixel_y = -12

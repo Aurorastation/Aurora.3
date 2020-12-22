@@ -22057,7 +22057,7 @@
 	pixel_x = -2;
 	pixel_y = 6
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "CCIABS";
 	pixel_x = 5
 	},

@@ -2,8 +2,8 @@
 	var/drons = severity * 2 - 1
 	var/groups = rand(3, 8)
 
-	var/list/spots = get_infestation_turfs()
 	for(var/i = 0 to groups)
+		var/list/spots = get_infestation_turfs()
 		if(!LAZYLEN(spots))
 			break
 		var/turf/T = pick(spots)
