@@ -26,9 +26,8 @@ var/global/ntnrc_uid = 0
 		if(C.program_state > PROGRAM_STATE_KILLED)
 			C.computer.output_message("<b>([get_title(C)]) <i>[username]</i>:</b> [message] (<a href='byond://?src=\ref[C];Reply=1;target=[src.title]'>Reply</a>)", 0)
 			if(!C.silent && C.username != username && C.program_state == PROGRAM_STATE_BACKGROUND)
-				for (var/mob/O in hearers(2, get_turf(C.computer)))
-					playsound(C.computer, 'sound/machines/twobeep.ogg', 50, 1)
-					C.computer.output_message(text("[icon2html(C.computer, O)] *[C.ringtone]*"))
+				playsound(C.computer, 'sound/machines/twobeep.ogg', 50, 1)
+				C.computer.output_message("*[C.ringtone]*")
 			else if(C.username == username)
 				ntnet_global.add_log(message, C.computer.network_card, TRUE)
 
