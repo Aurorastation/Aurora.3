@@ -341,14 +341,10 @@
 
 	pointing_effect = new /obj/effect/decal/point(tile)
 	pointing_effect.invisibility = invisibility
-	addtimer(CALLBACK(src, .proc/clear_point), 20)
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
 
 	face_atom(A)
 	return 1
-
-/mob/proc/clear_point()
-	QDEL_NULL(pointing_effect)
-
 /datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
 	var/list/container = list()
 	var/master
@@ -756,6 +752,10 @@
 
 		if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
 			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			return
+
+		if(length(M.grabbed_by))
+			to_chat(src, SPAN_WARNING("You can't pull someone being held in a grab!"))
 			return
 
 		// If your size is larger than theirs and you have some

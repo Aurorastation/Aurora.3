@@ -1,6 +1,7 @@
 /datum/rune/communicate
 	name = "communication rune"
 	desc = "This rune is used to send a message to all acolytes."
+	rune_flags = CAN_MEMORIZE
 
 /datum/rune/communicate/do_rune_action(mob/living/user, atom/movable/A)
 	var/input = input(user, "Please choose a message to tell to the other acolytes.", "Voice of Blood", "")//sanitize() below, say() and whisper() have their own

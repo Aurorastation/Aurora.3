@@ -296,15 +296,15 @@
 		if(!do_after(user, 3 SECONDS))
 			return
 		var/list/dirs = list()
+		var/turf/our_turf = get_turf(user)
 		for(var/mob/living/L in range(20))
 			var/turf/T = get_turf(L)
 			if(!T || L == user || L.stat == DEAD || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
 			if(L.is_psi_blocked())
 				continue
-			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T)
-			ping_image.plane = LIGHTING_LAYER+1
-			ping_image.layer = LIGHTING_LAYER+1
+			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
+			pixel_shift_to_turf(ping_image, our_turf, T)
 			user << ping_image
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
 			var/direction = num2text(get_dir(user, L))

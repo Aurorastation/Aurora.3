@@ -1,8 +1,9 @@
 /obj/item/device/pipe_painter
 	name = "pipe painter"
-	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "labeler1"
-	item_state = "flight"
+	icon = 'icons/obj/contained_items/tools/pipe_painter.dmi'
+	icon_state = "pipe_painter"
+	item_state = "pipe_painter"
+	contained_sprite = TRUE
 	var/list/modes
 	var/mode
 

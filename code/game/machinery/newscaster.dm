@@ -809,10 +809,14 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/item/newspaper
 	name = "newspaper"
 	desc = "An issue of The Griffon, the newspaper circulating aboard most stations."
+	desc_info = "You can alt-click this to roll it up."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "newspaper"
+	item_state = "newspaper"
 	w_class = ITEMSIZE_SMALL	//Let's make it fit in trashbags!
-	attack_verb = list("bapped")
+	attack_verb = list("bapped", "thwacked", "educated")
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	var/screen = 0
 	var/pages = 0
 	var/curr_page = 0
@@ -820,10 +824,19 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/datum/feed_message/important_message = null
 	var/scribble=""
 	var/scribble_page = null
-	drop_sound = 'sound/items/drop/wrapper.ogg'
-	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	var/rolled = FALSE // Whether the newspaper is rolled or not, making it a deadly weapon.
 
-obj/item/newspaper/attack_self(mob/user as mob)
+/obj/item/newspaper/attack_self(mob/user as mob)
+	if(user.a_intent == I_GRAB)
+		if(!rolled)
+			user.visible_message(SPAN_NOTICE("\The [user] rolls up \the [src]."),\
+								 SPAN_NOTICE("You roll up \the [src]."))
+			rolled(user)
+		return
+	if(rolled)
+		user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to read it."),\
+						     SPAN_NOTICE("You unroll \the [src] to read it."))
+		rolled(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/dat
@@ -904,7 +917,7 @@ obj/item/newspaper/attack_self(mob/user as mob)
 		to_chat(user, "The paper is full of intelligible symbols!")
 
 
-obj/item/newspaper/Topic(href, href_list)
+/obj/item/newspaper/Topic(href, href_list)
 	var/mob/living/U = usr
 	..()
 	if ((src in U.contents) || ( istype(loc, /turf) && in_range(src, U) ))
@@ -936,8 +949,12 @@ obj/item/newspaper/Topic(href, href_list)
 			src.attack_self(src.loc)
 
 
-obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.ispen())
+		if(rolled)
+			user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to write on it."),\
+						     	 SPAN_NOTICE("You unroll \the [src] to write on it."))
+			rolled()
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
 		else
@@ -952,6 +969,16 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 			src.attack_self(user)
 		return
 
+/obj/item/newspaper/proc/rolled(mob/user)
+	if(ishuman(user) && Adjacent(user) && !user.incapacitated())
+		if(rolled)
+			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+		else
+			playsound(src, drop_sound, DROP_SOUND_VOLUME)
+		rolled = !rolled
+		icon_state = "newspaper[rolled ? "_rolled" : ""]"
+		item_state = icon_state
+		update_icon()
 
 ////////////////////////////////////helper procs
 

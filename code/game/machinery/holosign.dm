@@ -51,16 +51,13 @@
 	on_icon = "surgery"
 ////////////////////SWITCH///////////////////////////////////////
 
-/obj/machinery/button/holosign
+/obj/machinery/button/switch/holosign
 	name = "holosign switch"
 	desc = "A remote control switch for holosign."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "holosign_switch"
 
-/obj/machinery/button/holosign/update_icon()
-	return
-
-/obj/machinery/button/holosign/attack_hand(mob/user as mob)
+/obj/machinery/button/switch/holosign/attack_hand(mob/user as mob)
 	if(..())
 		return
 	add_fingerprint(user)
@@ -68,8 +65,7 @@
 	use_power(5)
 
 	active = !active
-	icon_state = "light[active]"
-
+	update_icon()
 	for(var/obj/machinery/holosign/M in SSmachinery.all_machines)
 		if (M.id == src.id)
 			INVOKE_ASYNC(M, /obj/machinery/holosign/proc/toggle)

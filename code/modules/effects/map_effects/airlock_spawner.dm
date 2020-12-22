@@ -76,7 +76,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	if(one_door_only != DOOR_FLIPPED_PLACEMENT)
 		A = new door_type(T)
 		handle_door_stuff(A, is_this_an_interior_airlock)
-	var/obj/machinery/access_button/the_button = spawn_button(T, is_this_an_interior_airlock ? interior_direction : exterior_direction)
+	var/obj/machinery/access_button/the_button = spawn_button(T, is_this_an_interior_airlock ? interior_direction : exterior_direction, is_this_an_interior_airlock) //Creates a button, with position and specific cycle command depending on door direction/if it's interior or exterior
 	if(one_door_only == DOOR_NORMAL_PLACEMENT) //We only need one door, we are done
 		return
 	if(!(tiles_in_x_direction % 2) && (is_this_an_interior_airlock && north_or_south_interior || !is_this_an_interior_airlock && north_or_south_exterior)) //Handle extra airlock for aesthetics
@@ -97,7 +97,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	A.name = door_name
 	A.lock()
 
-/obj/effect/map_effect/airlock/proc/spawn_button(turf/T, some_direction)
+/obj/effect/map_effect/airlock/proc/spawn_button(turf/T, some_direction, is_this_an_interior_airlock)
 	var/obj/machinery/access_button/the_button = new(T)
 	the_button.master_tag = id_to_link
 	the_button.set_frequency(radio_frequency)
@@ -115,6 +115,12 @@ This spawner places pipe leading up to the interior door, you will need to finis
 			the_button.pixel_x -= 7
 			the_button.pixel_y -= 25
 	the_button.req_access = required_access
+
+	if(is_this_an_interior_airlock)
+		the_button.command = "cycle_interior"
+	else
+		the_button.command = "cycle_exterior"
+
 	return the_button
 
 /obj/effect/map_effect/airlock/proc/handle_control_placement() //Stick the sensor and controller on the same bit of wall, this will ONLY be unsuitable if airlocks are on both the south and west turfs

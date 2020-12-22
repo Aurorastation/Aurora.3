@@ -61,7 +61,7 @@
 		return
 	if(owner.species.has_organ[owner.species.vision_organ])
 		var/obj/item/organ/internal/eyes/eyes = owner.get_eyes()
-		if(eyes && species.eyes)
+		if(eyes && species.eyes && !(owner.mind?.vampire && (owner.mind.vampire.status & VAMP_FRENZIED)))
 			var/eyecolor
 			if (eyes.eye_colour)
 				eyecolor = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
@@ -99,6 +99,12 @@
 	compile_overlays()
 
 	return mob_icon
+
+/obj/item/organ/external/head/get_additional_images(var/mob/living/carbon/human/H)
+	if(H.mind?.vampire && (H.mind.vampire.status & VAMP_FRENZIED))
+		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy", EFFECTS_ABOVE_LIGHTING_LAYER)
+		return_image.appearance_flags = KEEP_APART
+		return list(return_image)
 
 /obj/item/organ/external/proc/apply_markings(restrict_to_robotic = FALSE)
 	if (!cached_markings)
@@ -206,6 +212,9 @@
 
 	return mob_icon
 
+/obj/item/organ/external/proc/get_additional_images(var/mob/living/carbon/human/H)
+	return
+
 // new damage icon system
 // adjusted to set damage_state to brute/burn code only (without r_name0 as before)
 /obj/item/organ/external/update_icon()
@@ -286,3 +295,17 @@ var/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888","#6666
 	var/list/hud_colours = !BP_IS_ROBOTIC(src) ? flesh_hud_colours : robot_hud_colours
 	hud_damage_image.color = hud_colours[max(1,min(Ceiling(dam_state*hud_colours.len),hud_colours.len))]
 	return hud_damage_image
+
+/obj/item/organ/external/proc/bandage_level()
+	if(damage_state_text() == "00")
+		return 0
+	if(!is_bandaged())
+		return 0
+	if(burn_dam + brute_dam == 0)
+		. = 0
+	else if (burn_dam + brute_dam < (max_damage * 0.25 / 2))
+		. = 1
+	else if (burn_dam + brute_dam < (max_damage * 0.75 / 2))
+		. = 2
+	else
+		. = 3

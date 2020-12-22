@@ -52,6 +52,9 @@
 	if(pulledby)
 		crumble()
 
+/obj/effect/decal/remains/can_fall()
+	return TRUE
+
 /obj/effect/decal/remains/attack_hand(mob/user)
 	crumble()
 
