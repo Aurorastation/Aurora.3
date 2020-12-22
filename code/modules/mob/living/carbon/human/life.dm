@@ -796,6 +796,11 @@
 	var/tmp/last_frenzy_state
 	var/tmp/last_oxy_overlay
 
+/mob/living/carbon/human/can_update_hud()
+	if((!client && !bg) || QDELETED(src))
+		return FALSE
+	return TRUE
+
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()
