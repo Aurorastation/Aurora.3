@@ -277,8 +277,10 @@ There are several things that need to be remembered:
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
 	var/is_frenzied = FALSE
-	if(mind?.vampire && (mind.vampire.status & VAMP_FRENZIED))
-		is_frenzied = TRUE
+	if(mind)
+		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+		if(vampire && (vampire.status & VAMP_FRENZIED))
+			is_frenzied = TRUE
 	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!hulk][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
