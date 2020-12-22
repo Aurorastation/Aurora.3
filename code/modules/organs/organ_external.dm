@@ -320,6 +320,8 @@
 	update_damages()
 	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
+	if(status & ORGAN_BLEEDING)
+		owner.update_bandages()
 
 	return update_icon()
 
