@@ -171,7 +171,7 @@ var/global/maint_all_access = 0
 /obj/machinery/door/airlock/allowed(mob/M)
 	var/obj/item/id = M.GetIdCard()
 	var/list/A = id.GetAccess()
-	var/maint_sec_access = ((security_level > 0) && has_access(access_security, null, A))
+	var/maint_sec_access = ((security_level > SEC_LEVEL_GREEN) && has_access(access_security, accesses = A))
 	var/exceptional_circumstances = maint_all_access || maint_sec_access
 	if(exceptional_circumstances && src.check_access_list(list(access_maint_tunnels)))
 		return 1
