@@ -33,25 +33,25 @@
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /*
- * Balloons
+ * Water Balloons
  */
-/obj/item/toy/balloon
+/obj/item/toy/waterballoon
 	name = "water balloon"
 	desc = "A translucent balloon. There's nothing in it."
 	icon_state = "waterballoon-e"
-	item_state = "balloon-empty"
+	item_state = "waterballoon-e"
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
-/obj/item/toy/balloon/New()
+/obj/item/toy/waterballoon/New()
 	var/datum/reagents/R = new/datum/reagents(10)
 	reagents = R
 	R.my_atom = src
 
-/obj/item/toy/balloon/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/toy/waterballoon/attack(mob/living/carbon/human/M as mob, mob/user as mob)
 	return
 
-/obj/item/toy/balloon/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+/obj/item/toy/waterballoon/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity) return
 	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to_obj(src, 10)
@@ -60,7 +60,7 @@
 		src.update_icon()
 	return
 
-/obj/item/toy/balloon/attackby(obj/O as obj, mob/user as mob)
+/obj/item/toy/waterballoon/attackby(obj/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/reagent_containers/glass))
 		if(O.reagents)
 			if(O.reagents.total_volume < 1)
@@ -77,7 +77,7 @@
 	src.update_icon()
 	return
 
-/obj/item/toy/balloon/throw_impact(atom/hit_atom)
+/obj/item/toy/waterballoon/throw_impact(atom/hit_atom)
 	if(src.reagents.total_volume >= 1)
 		src.visible_message("<span class='warning'>\The [src] bursts!</span>","You hear a pop and a splash.")
 		src.reagents.touch_turf(get_turf(hit_atom))
@@ -87,31 +87,191 @@
 		QDEL_IN(src, 5)
 	return
 
-/obj/item/toy/balloon/update_icon()
+/obj/item/toy/waterballoon/update_icon()
 	if(src.reagents.total_volume >= 1)
 		icon_state = "waterballoon"
-		item_state = "balloon"
 	else
 		icon_state = "waterballoon-e"
-		item_state = "balloon-empty"
+	item_state = icon_state
 
-/obj/item/toy/syndicateballoon
-	name = "criminal balloon"
-	desc = "There is a tag on the back that reads \"FUK NT!11!\"."
+/*
+ * Balloons
+ */
+
+ #define BALLOON_NORMAL	0
+ #define BALLOON_BLOW	1
+ #define BALLOON_BURST	2
+
+/obj/item/toy/balloon
+	name = "balloon"
+	desc_info = "You can fill it up with gas using a tank."
+	desc_fluff = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
+	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
+	w_class = ITEMSIZE_HUGE
+	var/datum/gas_mixture/air_contents = null
+	var/status = 0 // 0 = normal, 1 = blow, 2 = burst
+
+/obj/item/toy/balloon/attack_self(mob/user as mob)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(user.a_intent == I_HELP)
+		user.visible_message("<span class='notice'><b>\The [user]</b> pokes [src]!</span>","<span class='notice'>You poke [src]!</span>")
+	else if (user.a_intent == I_HURT)
+		user.visible_message("<span class='warning'><b>\The [user]</b> punches [src]!</span>","<span class='warning'>You punch [src]!</span>")
+	else if (user.a_intent == I_GRAB)
+		if(prob(66))
+			user.visible_message("<span class='warning'><b>\The [user]</b> attempts to pop [src]!</span>","<span class='warning'>You attempt to pop [src]!</span>")
+		else
+			user.visible_message("<span class='warning'><b>\The [user]</b> pops [src]!</span>","<span class='warning'>You pop [src]!</span>")
+			burst()
+	else
+		user.visible_message("<span class='notice'><b>\The [user]</b> lightly bats the [src].</span>","<span class='notice'>You lightly bat the [src].</span>")
+
+/obj/item/toy/balloon/update_icon()
+	switch(status)
+		if(BALLOON_BURST)
+			if(("[initial(icon_state)]_burst") in icon_states(icon))
+				icon_state = "[initial(icon_state)]_burst"
+				item_state = icon_state
+			else
+				qdel(src) // Just qdel it if it doesn't have a burst state.
+		if(BALLOON_BLOW)
+			if(("[initial(icon_state)]_blow") in icon_states(icon)) //Only give blow icon_state if it has one. For those who can't be bothered to sprite. (Also a catch to prevent invisible sprites.)
+				icon_state = "[initial(icon_state)]_blow"
+	update_held_icon()
+
+/obj/item/toy/balloon/proc/blow(obj/item/tank/T)
+	if(status == BALLOON_BURST)
+		return
+	else
+		src.air_contents = T.remove_air_volume(3)
+		status = BALLOON_BLOW
+		update_icon()
+
+/obj/item/toy/balloon/proc/burst()
+	playsound(src, 'sound/weapons/gunshot/gunshot1.ogg', 100, 1)
+	status = BALLOON_BURST
+	update_icon()
+	if(air_contents)
+		loc.assume_air(air_contents)
+
+/obj/item/toy/balloon/ex_act(severity)
+	burst()
+	switch(severity)
+		if(1)
+			qdel(src)
+		if(2)
+			if(prob(50))
+				qdel(src)
+
+/obj/item/toy/balloon/bullet_act()
+	burst()
+
+/obj/item/toy/balloon/fire_act(datum/gas_mixture/air, temperature, volume)
+	if(temperature > T0C+100)
+		burst()
+	return
+
+/obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
+	if(can_puncture(W))
+		burst()
+
+/obj/item/toy/balloon/latex
+	desc = "Leaves a starchy taste in your mouth after blowing into it."
+	icon_state = "latexballoon"
+	item_state = "latexballoon"
+
+/obj/item/toy/balloon/latex/nitrile
+	desc = "I hope you aren't going to re-use these for medical purposes."
+	icon_state = "nitrileballoon"
+	item_state = "nitrileballoon"
+
+/obj/item/toy/balloon/syndicate
+	name = "'criminal' balloon"
+	desc = "Across the balloon is printed: \"FUK CAPITALISM!11!\""
 	icon_state = "syndballoon"
 	item_state = "syndballoon"
-	drop_sound = 'sound/items/drop/rubber.ogg'
-	pickup_sound = 'sound/items/pickup/rubber.ogg'
-	w_class = ITEMSIZE_LARGE
 
-/obj/item/toy/nanotrasenballoon
-	name = "nanotrasen balloon"
-	desc = "Across the balloon the following is printed: \"Man, I love NanoTrasen soooo much. I use only NT products. You have NO idea.\""
+/obj/item/toy/balloon/nanotrasen
+	name = "'motivational' balloon"
+	desc = "Across the balloon is printed: \"Man, I love corporate soooo much. I use only brand name products. You have NO idea.\""
 	icon_state = "ntballoon"
 	item_state = "ntballoon"
-	w_class = ITEMSIZE_LARGE
-	drop_sound = 'sound/items/drop/rubber.ogg'
-	pickup_sound = 'sound/items/pickup/rubber.ogg'
+
+/obj/item/toy/balloon/fellowship
+	name = "fellowship balloon"
+	desc = "Across the balloon is printed: \"Fellowship R Friends!\""
+	icon_state = "fellowshipballoon"
+	item_state = "fellowshipballoon"
+
+/obj/item/toy/balloon/fellowshiphead
+	name = "fellowship head balloon"
+	desc = "Across the balloon is printed: \"Follow Fellows Forwards With The Fellowship!\""
+	icon_state = "fellowshipheadballoon"
+	item_state = "fellowshipheadballoon"
+
+/obj/item/toy/balloon/contender
+	name = "contender balloon"
+	desc = "Across the balloon is printed: \"Contenders R Cool!\""
+	icon_state = "contenderballoon"
+	item_state = "contenderballoon"
+
+/obj/item/toy/balloon/contenderhead
+	name = "contender head balloon"
+	desc = "Across the balloon is printed: \"Converge With Comrades in the Contenders!\""
+	icon_state = "contenderheadballoon"
+	item_state = "contenderheadballoon"
+
+/obj/item/toy/balloon/bat
+	name = "giant bat balloon"
+	desc = "A large, kitschy balloon in the shape of a spooky bat with orange eyes."
+	desc_fluff = "There's a tag that reads: \"Apparition Halloween LLC.\""
+	icon_state = "batballoon"
+
+/obj/item/toy/balloon/ghost
+	name = "giant ghost balloon"
+	desc = "Oh no, it's a ghost! Oh wait, it's just a kitschy balloon. Phew!"
+	desc_fluff = "There's a tag that reads: \"Apparition Halloween LLC.\""
+	icon_state = "ghostballoon"
+
+/obj/item/toy/balloon/xmastree
+	name = "giant christmas tree balloon"
+	desc = "Mandatory at inter-generational christmas gatherings and office parties."
+	desc_fluff = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
+	icon_state = "xmastreeballoon"
+
+/obj/item/toy/balloon/candycane
+	name = "giant candy cane balloon"
+	desc = "Kris Kringle ain't got nothing on this candied confection."
+	desc_fluff = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
+	icon_state = "candycaneballoon"
+
+/obj/item/toy/balloon/color /// To color it, VV the 'color' var with a hex color code with the # included.
+	desc = "It's a plain little balloon. Comes in many colors!"
+	icon_state = "colorballoon"
+	item_state = "colorballoon"
+	build_from_parts = TRUE
+	worn_overlay = "string"
+	randpixel = 5
+
+/obj/item/toy/balloon/color/Initialize()
+	. = ..()
+	if(build_from_parts)
+		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		update_icon()
+		randpixel_xy()
+
+/obj/item/toy/balloon/color/update_icon() // Only color the balloon, not the string.
+	..()
+	if(status == BALLOON_BURST)
+		worn_overlay = null
+	cut_overlay()
+	if(worn_overlay)
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+
+#undef BALLOON_NORMAL
+#undef BALLOON_BLOW
+#undef BALLOON_BURST
 
 /*
  * Fake telebeacon
@@ -344,7 +504,7 @@
 /obj/item/toy/snappop/Crossed(H as mob|obj)
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/M = H
-		if(M.m_intent == "run")
+		if(M.m_intent == M_RUN)
 			to_chat(M, SPAN_WARNING("You step on the snap pop!"))
 			do_pop()
 
@@ -819,18 +979,6 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
 
-/* NYET.
-/obj/item/toddler
-	icon_state = "toddler"
-	name = "toddler"
-	desc = "This baby looks almost real. Wait, did it just burp?"
-	force = 5
-	w_class = ITEMSIZE_LARGE
-	slot_flags = SLOT_BACK
-*/
-
-//This should really be somewhere else but I don't know where. w/e
-
 /obj/item/inflatable_duck
 	name = "inflatable duck"
 	desc = "No bother to sink or swim when you can just float!"
@@ -851,3 +999,24 @@
 	throwforce = 1
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+
+/obj/item/toy/partypopper
+	name = "party popper"
+	desc = "Instructions : Aim away from face. Wait for appropriate timing. Pull cord, enjoy confetti."
+	icon_state = "partypopper"
+	w_class = ITEMSIZE_TINY
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+
+/obj/item/toy/partypopper/attack_self(mob/user)
+	if(icon_state == "partypopper")
+		spark(src, 1, user.dir)
+		user.visible_message(SPAN_NOTICE("[user] pulls on the string, releasing a burst of confetti!"), SPAN_NOTICE("You pull on the string, releasing a burst of confetti!"))
+		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
+		icon_state = "partypopper_e"
+		var/turf/T = get_step(src, user.dir)
+		if(!turf_clear(T))
+			T = get_turf(src)
+		new /obj/effect/decal/cleanable/confetti(T)
+	else
+		to_chat(user, SPAN_NOTICE("The [src] is already spent!"))

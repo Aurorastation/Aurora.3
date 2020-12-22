@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .logout {
   margin-right: 0;
   margin-left: auto;

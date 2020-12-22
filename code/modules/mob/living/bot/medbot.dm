@@ -13,7 +13,8 @@
 	var/mob/living/carbon/human/patient = null
 	var/mob/ignored = list() // Used by emag
 	var/last_newpatient_speak = 0
-	var/vocal = 1
+	var/message = null
+	var/speech = 0
 
 	//Healing vars
 	var/obj/item/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
@@ -38,8 +39,7 @@
 	if(!on)
 		return
 
-	if(vocal && prob(1))
-		var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of medbay is this? Everyone's dropping like dead flies.", "Delicious!")
+	if(speech && prob(1))
 		say(message)
 
 	if(patient)
@@ -157,8 +157,8 @@
 		dat += "<a href='?src=\ref[src];use_beaker=1'>[use_beaker ? "Loaded Beaker (When available)" : "Internal Synthesizer"]</a><br>"
 
 		dat += "Treatment report is [declare_treatment ? "on" : "off"]. <a href='?src=\ref[src];declaretreatment=[1]'>Toggle</a><br>"
-
-		dat += "The speaker switch is [vocal ? "on" : "off"]. <a href='?src=\ref[src];togglevoice=[1]'>Toggle</a><br>"
+		dat += "The speaker switch is [speech ? "on" : "off"]. <a href='?src=\ref[src];speaker=[1]'>Toggle</a><br>"
+		dat += "Message is [message ? message : "unset"]. <a href='?src=\ref[src];msg=[1]'>Set</a><br>"
 
 	var/datum/browser/bot_win = new(user, "automed", "Automatic Medibot v1.2 Controls")
 	bot_win.set_content(dat)
@@ -222,11 +222,18 @@
 		else
 			to_chat(usr, "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>")
 
-	else if (href_list["togglevoice"] && (!locked || issilicon(usr)))
-		vocal = !vocal
-
 	else if (href_list["declaretreatment"] && (!locked || issilicon(usr)))
 		declare_treatment = !declare_treatment
+
+	else if (href_list["msg"] && (!locked || issilicon(usr)))
+		var/I = sanitize(input(usr,"What will this medbot say?", "Set Message") as text|null)
+		if(!I)
+			return
+		message = I
+		speech = 1
+
+	else if (href_list["speaker"] && (!locked || issilicon(usr)))
+		speech = !speech
 
 	attack_hand(usr)
 	return

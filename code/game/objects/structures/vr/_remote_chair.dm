@@ -1,7 +1,8 @@
 /obj/structure/bed/chair/remote
 	name = "virtual reality centre"
 	desc = "A comfortable chair with full audio-visual transposition centres."
-	icon_state = "shuttlechair_down"
+	icon_state = "shuttlechair_preview"
+	base_icon = "shuttlechair"
 	var/portable_type
 	can_dismantle = FALSE
 	var/remote_network // Which network does this remote control belong to?
@@ -45,7 +46,7 @@
 		if(H.old_mob)
 			to_chat(H, SPAN_WARNING("The chair rejects you! You cannot recursively control bodies."))
 			return
-	add_overlay(image('icons/obj/furniture.dmi', src, "vr_helmet", MOB_LAYER + 1))
+	add_overlay(image('icons/obj/furniture.dmi', src, "vr_helmet", FLY_LAYER))
 	START_PROCESSING(SSprocessing, src)
 
 
