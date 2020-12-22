@@ -59,9 +59,14 @@
 	cut_overlays()
 	if(!owner || !owner.species)
 		return
+	var/is_frenzied = FALSE
+	if(owner.mind)
+		var/datum/vampire/vampire = owner.mind.antag_datums[MODE_VAMPIRE]
+		if(vampire && (vampire.status & VAMP_FRENZIED))
+			is_frenzied = TRUE
 	if(owner.species.has_organ[owner.species.vision_organ])
 		var/obj/item/organ/internal/eyes/eyes = owner.get_eyes()
-		if(eyes && species.eyes && !(owner.mind?.vampire && (owner.mind.vampire.status & VAMP_FRENZIED)))
+		if(eyes && species.eyes && !is_frenzied)
 			var/eyecolor
 			if (eyes.eye_colour)
 				eyecolor = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
@@ -101,7 +106,10 @@
 	return mob_icon
 
 /obj/item/organ/external/head/get_additional_images(var/mob/living/carbon/human/H)
-	if(H.mind?.vampire && (H.mind.vampire.status & VAMP_FRENZIED))
+	if(!H.mind)
+		return
+	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
+	if(vampire && (vampire.status & VAMP_FRENZIED))
 		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy", EFFECTS_ABOVE_LIGHTING_LAYER)
 		return_image.appearance_flags = KEEP_APART
 		return list(return_image)
