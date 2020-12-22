@@ -9151,6 +9151,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
+/obj/machinery/biogenerator/small/west,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "hIb" = (
