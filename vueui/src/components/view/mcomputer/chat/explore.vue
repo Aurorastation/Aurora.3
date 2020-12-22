@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-if="channelTitle != null">
-      <input type="text" v-model="channelTitle">
+      <input type="text" v-model="channelTitle" @keydown.enter="new_channel()">
       <vui-button @click="new_channel()">New channel</vui-button>
     </template>
     <vui-button v-else @click="channelTitle = ''">New channel</vui-button><br>

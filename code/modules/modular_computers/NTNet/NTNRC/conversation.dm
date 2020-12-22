@@ -143,8 +143,8 @@ var/global/ntnrc_uid = 0
 		return
 	var/datum/ntnet_message/new_title/msg = new(Cl)
 	msg.title = newTitle
-	title = newTitle
 	process_message(msg)
+	title = newTitle
 
 /datum/ntnet_conversation/proc/cl_set_password(var/datum/computer_file/program/chat_client/Cl, var/newPassword)
 	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || direct)

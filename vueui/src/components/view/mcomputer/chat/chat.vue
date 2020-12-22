@@ -7,12 +7,12 @@
       </template>
       <template v-if="channel.can_manage">
         <template v-if="password != null">
-          <input type="text" v-model="password" @keypress.enter="set_password">
+          <input type="text" v-model="password" @keydown.enter="set_password">
           <vui-button @click="set_password">Set password</vui-button>
         </template>
         <vui-button v-else-if="!channel.direct" @click="password = ''">Set password</vui-button>
         <template v-if="title != null">
-          <input type="text" v-model="title" @keypress.enter="set_title">
+          <input type="text" v-model="title" @keydown.enter="set_title">
           <vui-button @click="set_title">Change title</vui-button>
         </template>
         <vui-button v-else-if="!channel.direct" @click="title = channel.title">Change title</vui-button>
@@ -25,9 +25,9 @@
         <vui-button v-if="channel.can_manage && !channel.direct" :params="{kick: {target: reference, user: uref}}">Kick</vui-button>
       </div>
     </div>
-    <div>
-      <input ref="msg" class="message-input" type="text" v-model="send_buffer" @keyup.enter="send_msg"/>
-      <vui-button @click="send_msg">Send</vui-button>
+    <div class="message-container">
+      <input class="message-input" type="text" v-model="send_buffer" @keydown.enter="send_msg"/>
+      <vui-button @click="send_msg" class="message-send">Send</vui-button>
     </div>
     <div class="message-chat" ref="chat">
       <div v-for="(msg, index) in messages" :key="index">{{ msg }}</div>
@@ -88,5 +88,14 @@ export default {
   border: 1px solid #40628a;
   padding: 0.4em;
   box-sizing: border-box;
+}
+
+.message-container {
+  display: flex;
+}
+
+.message-input {
+  width: 80%;
+  flex-grow: 1;
 }
 </style>
