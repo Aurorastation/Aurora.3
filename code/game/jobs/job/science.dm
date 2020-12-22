@@ -157,9 +157,9 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
-	tab_pda = /obj/item/modular_computer/handheld/pda/research
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
-	tablet = /obj/item/modular_computer/handheld/preset/research
+	tab_pda = /obj/item/modular_computer/handheld/pda/research/robotics
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research/robotics
+	tablet = /obj/item/modular_computer/handheld/preset/research/robotics
 	id = /obj/item/card/id/white
 	belt = /obj/item/storage/belt/utility
 
