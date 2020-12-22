@@ -574,11 +574,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		switch(new_state)
 			if("Normal")
-				pref.organ_data[limb] = null
-				pref.rlimb_data[limb] = null
+				pref.organ_data -= limb
+				pref.rlimb_data -= limb
 				if(third_limb)
-					pref.organ_data[third_limb] = null
-					pref.rlimb_data[third_limb] = null
+					pref.organ_data -= third_limb
+					pref.rlimb_data -= third_limb
 			if("Amputated")
 				pref.organ_data[limb] = "amputated"
 				pref.rlimb_data[limb] = null
@@ -744,4 +744,3 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.rlimb_data[organ] = null
 	while(null in pref.rlimb_data)
 		pref.rlimb_data -= null*/
-

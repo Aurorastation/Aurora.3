@@ -441,13 +441,16 @@ RFD Mining-Class
 	icon_state = "rfd-m"
 	item_state = "rfd-m"
 
-/obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity)
+/obj/item/rfd/mining/attack_self(mob/user)
+	return
+
+/obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity, click_parameters, var/report_duplicate = TRUE)
 	if(!proximity)
 		return
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
-		if(R.stat || !R.cell || R.cell.charge <= 500)
+		if(R.stat || !R.cell || R.cell.charge <= 200)
 			if(last_fail <= world.time - 20) //Spam limiter.
 				last_fail = world.time
 				to_chat(user, SPAN_WARNING("You are unable to produce enough charge to use \the [src]!"))
@@ -467,7 +470,8 @@ RFD Mining-Class
 		return
 
 	if(locate(/obj/structure/track) in A)
-		to_chat(user, SPAN_WARNING("There is already a track on \the [A]!"))
+		if(report_duplicate)
+			to_chat(user, SPAN_WARNING("There is already a track on \the [A]!"))
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
@@ -480,7 +484,7 @@ RFD Mining-Class
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
-			R.cell.use(500)
+			R.cell.use(200)
 	else
 		stored_matter--
 		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/30</b> fabrication-units."))

@@ -398,7 +398,7 @@
 	if(!temp_set) // so initial temperature-setting doesn't make stuff explode
 		temp_set = TRUE
 		return
-	if(abs(added_energy) > (specific_heat * 5 / volume)) // can explode via cold or heat shock
+	if(added_energy > (specific_heat * 5 / volume))
 		explode()
 
 /datum/reagent/nitroglycerin/apply_force(var/force)

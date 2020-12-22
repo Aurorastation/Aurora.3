@@ -169,6 +169,16 @@
 			safety_overlay = image(gun_gui_icons,"[safety()]")
 			add_overlay(safety_overlay, TRUE)
 
+	if(is_wieldable)
+		if(wielded)
+			var/list/gun_states = icon_states(icon)
+			if(("[item_state]-wielded_lh" in gun_states) || ("[item_state]-wielded_rh" in gun_states))
+				item_state = "[item_state]-wielded"
+		else
+			item_state = replacetext(item_state,"-wielded","")
+
+	update_held_icon()
+
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
 //Otherwise, if you want handle_click_empty() to be called, check in consume_next_projectile() and return null there.
@@ -245,11 +255,6 @@
 	else
 		action_button_name = ""
 		verbs -= /obj/item/gun/verb/wield_gun
-
-
-/obj/item/gun/emp_act(severity)
-	for(var/obj/O in contents)
-		O.emp_act(severity)
 
 /obj/item/gun/afterattack(atom/A, mob/living/user, adjacent, params)
 	if(adjacent) return //A is adjacent, is the user, or is on the user's person
@@ -580,7 +585,8 @@
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
 			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
-		qdel(in_chamber)
+
+		handle_post_fire(user, user, FALSE, FALSE, FALSE)
 		mouthshoot = FALSE
 		return
 	else

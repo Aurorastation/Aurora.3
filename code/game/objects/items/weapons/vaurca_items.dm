@@ -391,13 +391,6 @@
 	accuracy_wielded = -1
 	fire_delay_wielded = 1
 
-/obj/item/gun/launcher/crossbow/vaurca/update_icon()
-	if(wielded)
-		item_state = "gaussrifle-wielded"
-	else
-		item_state = "gaussrifle"
-	update_held_icon()
-
 /obj/item/gun/launcher/crossbow/vaurca/consume_next_projectile(mob/user=null)
 	return bolt
 

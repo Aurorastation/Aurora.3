@@ -198,6 +198,10 @@
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
+		
+		var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+		if(IC && IC.cell)
+			stat("Battery charge:", "[IC.get_charge()]/[IC.cell.maxcharge]")
 
 		if(back && istype(back,/obj/item/rig))
 			var/obj/item/rig/suit = back
@@ -1509,7 +1513,7 @@
 	var/direction = input(src,"Which way?","Tile selection") as anything in list("Here","North","South","East","West")
 	if (direction != "Here")
 		T = get_step(T,text2dir(direction))
-	if (!istype(T))
+	if (!istype(T) || !Adjacent(T))
 		to_chat(src, SPAN_WARNING("You cannot doodle there."))
 		return
 
@@ -1525,6 +1529,9 @@
 	var/message = sanitize(input("Write a message. It cannot be longer than [max_length] characters.","Blood writing", ""))
 
 	if (message)
+		if(!Adjacent(T))
+			to_chat(src, SPAN_WARNING("You're too far away!"))
+			return
 		var/used_blood_amount = round(length(message) / 30, 1)
 		bloody_hands = max(0, bloody_hands - used_blood_amount) //use up some blood
 

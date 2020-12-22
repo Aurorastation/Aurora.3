@@ -10,6 +10,8 @@
 	req_access = list(access_mining, access_robotics)
 	id_card_type = /obj/item/card/id/minedrone
 	speed = -1
+	hat_x_offset = 1
+	hat_y_offset = -12
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade
@@ -114,6 +116,12 @@
 		start_self_destruct(TRUE)
 	return TRUE
 
+/mob/living/silicon/robot/drone/mining/update_robot_light()
+	if(lights_on)
+		set_light(5, 1, LIGHT_COLOR_FIRE, angle = LIGHT_OMNI)
+	else
+		set_light(0)
+
 /**********************Minebot Upgrades**********************/
 
 /obj/item/device/mine_bot_upgrade
@@ -183,3 +191,10 @@
 	M.recalculate_synth_capacities()
 	qdel(src)
 	return TRUE
+
+/mob/living/silicon/robot/drone/mining/roundstart/Initialize()
+	. = ..()
+	if(SSticker.current_state == GAME_STATE_PLAYING)
+		request_player()
+	else
+		LAZYADD(SSatoms.late_misc_firers, src)
