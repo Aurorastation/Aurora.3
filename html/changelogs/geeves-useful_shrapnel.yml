@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Shrapnel now does damage when you move, again. This only occurs if you're running."

@@ -1342,16 +1342,17 @@
 		if(organ.status & ORGAN_SPLINTED) //Splints prevent movement.
 			continue
 		for(var/obj/item/O in organ.implants)
-			if(!istype(O,/obj/item/implant) && prob(5)) //Moving with things stuck in you could be bad.
-				// All kinds of embedded objects cause bleeding.
+			if(m_intent == "run" && !istype(O, /obj/item/implant) && prob(5)) //Moving quickly with things stuck in you could be bad.
 				if(!can_feel_pain())
 					to_chat(src, SPAN_WARNING("You feel [O] moving inside your [organ.name]."))
 				else
 					var/msg = pick( \
 						SPAN_WARNING("A spike of pain jolts your [organ.name] as you bump [O] inside."), \
 						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."), \
-						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."))
+						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully.") \
+					)
 					custom_pain(msg, 10, 10, organ)
+				organ.take_damage(rand(1, 3), 0, DAM_EDGE)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
