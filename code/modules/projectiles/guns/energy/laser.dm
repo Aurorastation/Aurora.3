@@ -202,14 +202,6 @@ obj/item/gun/energy/retro
 	turret_is_lethal = TRUE
 	turret_sprite_set = "laser"
 
-/obj/item/gun/energy/laser/shotgun/update_icon()
-	..()
-	if(wielded)
-		item_state = "[initial(icon_state)]-wielded"
-	else
-		item_state = initial(item_state)
-	update_held_icon()
-
 /obj/item/gun/energy/laser/shotgun/research
 	name = "expedition shotgun"
 	desc = "A Nanotrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
