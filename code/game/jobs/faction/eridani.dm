@@ -46,7 +46,7 @@
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
 		"Paramedic" = /datum/outfit/job/med_tech/paramed/eridani,
-		"Emergency Medical Technician" = /datum/outfit/job/med_tech/paramed/eridani,
+		"First Responder" = /datum/outfit/job/med_tech/paramed/eridani,
 		"Corporate Liaison" = /datum/outfit/job/representative/eridani
 	)
 

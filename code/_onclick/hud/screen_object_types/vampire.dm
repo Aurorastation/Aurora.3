@@ -10,9 +10,9 @@
 
 /obj/screen/vampire/blood/Click(var/location, var/control, var/params)
 	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		to_chat(H, SPAN_NOTICE("You have [H.mind.vampire.blood_usable]u of blood to use for vampiric powers."))
-		to_chat(H, SPAN_WARNING("If it drops too low, you will go into a blood frenzy. You can only store a maximum of [VAMPIRE_MAX_USABLE_BLOOD]u."))
+		var/datum/vampire/vampire = usr.mind.antag_datums[MODE_VAMPIRE]
+		to_chat(usr, SPAN_NOTICE("You have [vampire.blood_usable]u of blood to use for vampiric powers."))
+		to_chat(usr, SPAN_WARNING("If it drops too low, you will go into a blood frenzy. You can only store a maximum of [VAMPIRE_MAX_USABLE_BLOOD]u."))
 
 /obj/screen/vampire/frenzy
 	name = "frenzy count"
@@ -21,9 +21,9 @@
 
 /obj/screen/vampire/frenzy/Click(var/location, var/control, var/params)
 	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		to_chat(H, SPAN_WARNING("Your frenzy counter is at [H.mind.vampire.frenzy]."))
-		to_chat(H, SPAN_WARNING("If it raises too high, you will gain incredible power, but they will be very unsubtle. You can lower your frenzy counter by getting out of holy areas and by obtaining usable blood."))
+		var/datum/vampire/vampire = usr.mind.antag_datums[MODE_VAMPIRE]
+		to_chat(usr, SPAN_WARNING("Your frenzy counter is at [vampire.frenzy]."))
+		to_chat(usr, SPAN_WARNING("If it raises too high, you will gain incredible power, but they will be very unsubtle. You can lower your frenzy counter by getting out of holy areas and by obtaining usable blood."))
 
 /obj/screen/vampire/suck
 	name = "blood_suck"

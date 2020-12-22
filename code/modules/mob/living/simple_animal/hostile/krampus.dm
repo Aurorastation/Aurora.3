@@ -197,6 +197,6 @@
 			new /obj/item/xmasgift/large(get_turf(src))
 
 		else
-			new /obj/item/xmasgift/small(get_turf(src))
+			new /obj/item/xmasgift(get_turf(src))
 
 	qdel(src)

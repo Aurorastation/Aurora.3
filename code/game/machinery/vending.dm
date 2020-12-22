@@ -143,17 +143,13 @@
 		src.ads_list += text2list(src.product_ads, ";")
 
 	add_screen_overlay()
-
-	src.build_inventory()
+	build_inventory()
 	power_change()
 
-	if(mapload)
-		return INITIALIZE_HINT_LATELOAD
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/vending/LateInitialize()
-	var/path = "/datum/asset/spritesheet/vending/"
-	path = path + ckey(replacetext("[type]", "/obj/machinery/vending/", ""))
-	v_asset = get_asset_datum(text2path(path))
+	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))

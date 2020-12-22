@@ -4,7 +4,7 @@ type: docker
 name: code check
 
 clone:
-  depth: 10
+  depth: 50
 
 environment:
   MACRO_COUNT: 0
@@ -46,7 +46,7 @@ type: docker
 name: dm-runtime
 
 clone:
-  depth: 10
+  depth: 50
 
 environment:
   USE_MAP: runtime
@@ -89,7 +89,7 @@ type: docker
 name: dm-aurora
 
 clone:
-  depth: 10
+  depth: 50
 
 environment:
   USE_MAP: aurora
@@ -116,7 +116,7 @@ type: docker
 name: dm-exodus
 
 clone:
-  depth: 10
+  depth: 50
 
 environment:
   USE_MAP: exodus
@@ -139,6 +139,6 @@ steps:
       - echo "Unit Tests Completed"
 ---
 kind: signature
-hmac: 8701beacaf9803b02a101438456552c67a4d1aa852f2754666a3e6fbf6ffff2f
+hmac: 21286f11eaa90a42d926886ecc2df9312ad174051f5f42b51d4394cc578ae0ee
 
 ...

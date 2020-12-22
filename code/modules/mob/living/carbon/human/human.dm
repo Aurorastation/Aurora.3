@@ -198,6 +198,10 @@
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
+		
+		var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+		if(IC && IC.cell)
+			stat("Battery charge:", "[IC.get_charge()]/[IC.cell.maxcharge]")
 
 		if(back && istype(back,/obj/item/rig))
 			var/obj/item/rig/suit = back
@@ -206,12 +210,14 @@
 			stat(null, "Suit charge: [cell_status]")
 
 		if(mind)
-			if(mind.vampire)
-				stat("Usable Blood", mind.vampire.blood_usable)
-				stat("Total Blood", mind.vampire.blood_total)
-			if(mind.changeling)
-				stat("Chemical Storage", mind.changeling.chem_charges)
-				stat("Genetic Damage Time", mind.changeling.geneticdamage)
+			var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+			if(vampire)
+				stat("Usable Blood", vampire.blood_usable)
+				stat("Total Blood", vampire.blood_total)
+			var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+			if(changeling)
+				stat("Chemical Storage", changeling.chem_charges)
+				stat("Genetic Damage Time", changeling.geneticdamage)
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
@@ -1336,16 +1342,17 @@
 		if(organ.status & ORGAN_SPLINTED) //Splints prevent movement.
 			continue
 		for(var/obj/item/O in organ.implants)
-			if(!istype(O,/obj/item/implant) && prob(5)) //Moving with things stuck in you could be bad.
-				// All kinds of embedded objects cause bleeding.
+			if(m_intent == "run" && !istype(O, /obj/item/implant) && prob(5)) //Moving quickly with things stuck in you could be bad.
 				if(!can_feel_pain())
 					to_chat(src, SPAN_WARNING("You feel [O] moving inside your [organ.name]."))
 				else
 					var/msg = pick( \
 						SPAN_WARNING("A spike of pain jolts your [organ.name] as you bump [O] inside."), \
 						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."), \
-						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."))
+						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully.") \
+					)
 					custom_pain(msg, 10, 10, organ)
+				organ.take_damage(rand(1, 3), 0, DAM_EDGE)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
@@ -1509,7 +1516,7 @@
 	var/direction = input(src,"Which way?","Tile selection") as anything in list("Here","North","South","East","West")
 	if (direction != "Here")
 		T = get_step(T,text2dir(direction))
-	if (!istype(T))
+	if (!istype(T) || !Adjacent(T))
 		to_chat(src, SPAN_WARNING("You cannot doodle there."))
 		return
 
@@ -1525,6 +1532,9 @@
 	var/message = sanitize(input("Write a message. It cannot be longer than [max_length] characters.","Blood writing", ""))
 
 	if (message)
+		if(!Adjacent(T))
+			to_chat(src, SPAN_WARNING("You're too far away!"))
+			return
 		var/used_blood_amount = round(length(message) / 30, 1)
 		bloody_hands = max(0, bloody_hands - used_blood_amount) //use up some blood
 
@@ -2009,8 +2019,10 @@
 /mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	var/used_accent = accent //starts with the mob's default accent
 
-	if(mind?.changeling)
-		used_accent = mind.changeling.mimiced_accent
+	if(mind)
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling?.mimiced_accent)
+			used_accent = changeling.mimiced_accent
 
 	if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
 		var/obj/item/rig/rig = back

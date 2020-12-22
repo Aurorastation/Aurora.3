@@ -22,7 +22,6 @@
 	else
 		icon_state = "[initial(icon_state)]-empty"
 
-
 /obj/item/gun/projectile/plasma/bolter
 	name = "plasma bolter"
 	desc = "A miniaturized, less efficient version of the infamous plasma slammer. Sacrifices much of its power for a more compact frame."
@@ -47,4 +46,3 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	projectile_type = /obj/item/projectile/plasma
-
