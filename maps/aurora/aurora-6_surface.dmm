@@ -15636,8 +15636,7 @@
 "naj" = (
 /obj/structure/closet/walllocker/emerglocker/west{
 	pixel_x = -27;
-	pixel_y = 3;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = 3
 	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
@@ -23726,8 +23725,7 @@
 	dir = 9
 	},
 /obj/structure/closet/walllocker/emerglocker/west{
-	pixel_x = -29;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_x = -29
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
