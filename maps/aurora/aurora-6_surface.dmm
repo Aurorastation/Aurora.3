@@ -7776,7 +7776,7 @@
 /obj/effect/landmark/start{
 	name = "Quartermaster"
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "QMTint";
 	pixel_x = -20;
 	pixel_y = -25
@@ -15642,8 +15642,7 @@
 "naj" = (
 /obj/structure/closet/walllocker/emerglocker/west{
 	pixel_x = -27;
-	pixel_y = 3;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = 3
 	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
@@ -17294,7 +17293,7 @@
 	},
 /area/shuttle/escape_pod/pod3)
 "oqU" = (
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "sconferenceprivacy";
 	pixel_y = 26;
 	req_access = list(66)
@@ -23732,8 +23731,7 @@
 	dir = 9
 	},
 /obj/structure/closet/walllocker/emerglocker/west{
-	pixel_x = -29;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_x = -29
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
