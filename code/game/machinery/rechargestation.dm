@@ -76,40 +76,50 @@
 		return ..()
 
 	if(!has_cell_power())
-		return 0
+		return FALSE
 	if(src.use_power == 1)
 		cell.use(idle_power_usage * CELLRATE)
 	else if(src.use_power >= 2)
 		cell.use(active_power_usage * CELLRATE)
-	return 1
+	return TRUE
 
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()
+	if(!isrobot(occupant) && !ishuman(occupant))
+		return
+
+	var/obj/item/cell/target
 	if(isrobot(occupant))
 		var/mob/living/silicon/robot/R = occupant
 
 		if(R.module)
 			R.module.respawn_consumable(R, charging_power * CELLRATE / 250) //consumables are magical, apparently
-		if(R.cell && !R.cell.fully_charged())
-			var/diff = min(R.cell.maxcharge - R.cell.charge, charging_power * CELLRATE) // Capped by charging_power / tick
-			var/charge_used = cell.use(diff)
-			R.cell.give(charge_used*charging_efficiency)
+		target = R.cell
 
 		//Lastly, attempt to repair the cyborg if enabled
 		if(weld_rate && R.getBruteLoss() && cell.checked_use(weld_power_use * weld_rate * CELLRATE))
 			R.adjustBruteLoss(-weld_rate)
 		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
 			R.adjustFireLoss(-wire_rate)
-	else if(ishuman(occupant))
-		var/mob/living/carbon/human/H = occupant
-		if(!isnull(H.internal_organs_by_name[BP_CELL]) && H.nutrition < H.max_nutrition)
-			H.adjustNutritionLoss(-10)
-			cell.use(7000/H.max_nutrition*10)
 
+	if(ishuman(occupant))
+		var/mob/living/carbon/human/H = occupant
+		var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]
+		if(IC)
+			target = IC.cell
+		if((!target || target.percent() > 95) && istype(H.back, /obj/item/rig))
+			var/obj/item/rig/R = H.back
+			if(R.cell && !R.cell.fully_charged())
+				target = R.cell
+
+	if(target && !target.fully_charged())
+		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE) // Capped by charging_power / tick
+		var/charge_used = cell.use(diff)
+		target.give(charge_used*charging_efficiency)
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
-	to_chat(user, "The charge meter reads: [round(chargepercentage())]%")
+	to_chat(user, "The charge meter reads: [round(chargepercentage())]%.")
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
@@ -120,7 +130,6 @@
 	if(user.stat)
 		return
 	go_out()
-	return
 
 /obj/machinery/recharge_station/emp_act(severity)
 	if(occupant)
@@ -220,12 +229,16 @@
 	if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
 		if(R.cell)
-			return 1
+			return TRUE
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(!isnull(H.internal_organs_by_name[BP_CELL]))
-			return 1
-	return 0
+			return TRUE
+		if(istype(H.back, /obj/item/rig))
+			var/obj/item/rig/R = H.back
+			if(R.get_cell())
+				return TRUE
+	return FALSE
 
 /obj/machinery/recharge_station/proc/go_out()
 	if(!occupant)
