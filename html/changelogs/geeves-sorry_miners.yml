@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed mining satchels not being able to put ore in ore boxes."
