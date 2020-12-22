@@ -84,8 +84,10 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if(mind?.vampire)
-		handle_vampire()
+	if(mind)
+		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+		if(vampire)
+			handle_vampire()
 
 /mob/living/carbon/human/think()
 	..()
@@ -1041,8 +1043,10 @@
 			playsound_simple(null, pick(scarySounds), 50, TRUE)
 
 /mob/living/carbon/human/proc/handle_changeling()
-	if(mind && mind.changeling)
-		mind.changeling.regenerate()
+	if(mind)
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling)
+			changeling.regenerate()
 
 /mob/living/carbon/human/proc/handle_shock()
 	if(status_flags & GODMODE)

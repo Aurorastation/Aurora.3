@@ -210,12 +210,14 @@
 			stat(null, "Suit charge: [cell_status]")
 
 		if(mind)
-			if(mind.vampire)
-				stat("Usable Blood", mind.vampire.blood_usable)
-				stat("Total Blood", mind.vampire.blood_total)
-			if(mind.changeling)
-				stat("Chemical Storage", mind.changeling.chem_charges)
-				stat("Genetic Damage Time", mind.changeling.geneticdamage)
+			var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+			if(vampire)
+				stat("Usable Blood", vampire.blood_usable)
+				stat("Total Blood", vampire.blood_total)
+			var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+			if(changeling)
+				stat("Chemical Storage", changeling.chem_charges)
+				stat("Genetic Damage Time", changeling.geneticdamage)
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
@@ -2016,8 +2018,10 @@
 /mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	var/used_accent = accent //starts with the mob's default accent
 
-	if(mind?.changeling)
-		used_accent = mind.changeling.mimiced_accent
+	if(mind)
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling?.mimiced_accent)
+			used_accent = changeling.mimiced_accent
 
 	if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
 		var/obj/item/rig/rig = back
