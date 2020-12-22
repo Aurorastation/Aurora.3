@@ -184,7 +184,7 @@
 /mob/proc/vampire_start_frenzy(var/force_frenzy = 0)
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	if (vampire.status & VAMP_FRENZIED)
-		return
+		return TRUE
 
 	var/probablity = force_frenzy ? 100 : vampire.frenzy * 0.5
 
@@ -199,12 +199,19 @@
 		sight |= SEE_MOBS
 
 		verbs += /mob/living/carbon/human/proc/grapple
+		
+		return TRUE
+
+/mob/living/carbon/human/vampire_start_frenzy()
+	. = ..()
+	if(.)
+		update_body()
 
 /mob/proc/vampire_stop_frenzy(var/force_stop = 0)
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 
 	if (!(vampire.status & VAMP_FRENZIED))
-		return
+		return TRUE
 
 	if (prob(force_stop ? 100 : vampire.blood_usable))
 		vampire.status &= ~VAMP_FRENZIED
@@ -219,6 +226,13 @@
 
 		verbs -= /mob/living/carbon/human/proc/grapple
 		regenerate_icons()
+		
+		return TRUE
+
+/mob/living/carbon/human/vampire_stop_frenzy()
+	. = ..()
+	if(.)
+		update_body()
 
 // Removes all vampire powers.
 /mob/proc/remove_vampire_powers()
