@@ -250,7 +250,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_courtroom)
 "acb" = (
-/obj/structure/bed/chair/holochair,
+/obj/structure/bed/stool/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acc" = (
@@ -353,7 +353,7 @@
 	dir = 1;
 	name = "Court Reporter's Box"
 	},
-/obj/structure/bed/chair/holochair,
+/obj/structure/bed/stool/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acp" = (
@@ -382,7 +382,7 @@
 	icon_state = "right";
 	name = "Witness Box"
 	},
-/obj/structure/bed/chair/holochair,
+/obj/structure/bed/stool/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "act" = (
@@ -392,7 +392,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acu" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
@@ -407,7 +407,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "acv" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
@@ -506,7 +506,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "acQ" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
@@ -515,7 +515,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "acR" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
@@ -582,7 +582,7 @@
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "adj" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
@@ -591,13 +591,13 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "adk" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "adl" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
@@ -674,7 +674,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "adH" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet,
@@ -687,7 +687,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "adI" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
@@ -721,7 +721,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "adS" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet{
@@ -734,14 +734,14 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "adT" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "adU" = (
-/obj/structure/bed/chair/holochair{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet,
@@ -1664,7 +1664,7 @@
 	},
 /area/centcom/evac)
 "ajQ" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor"
@@ -1685,7 +1685,7 @@
 	},
 /area/centcom/evac)
 "ajZ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -1694,7 +1694,7 @@
 	},
 /area/centcom/evac)
 "aka" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -1722,7 +1722,7 @@
 /turf/template_noop,
 /area/template_noop)
 "akk" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -1831,7 +1831,7 @@
 	},
 /area/centcom/evac)
 "akG" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -1840,7 +1840,7 @@
 	},
 /area/centcom/evac)
 "akH" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -1916,7 +1916,7 @@
 	},
 /area/centcom/evac)
 "akT" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4;
 	name = "Defense"
 	},
@@ -2029,7 +2029,7 @@
 	name = "\improper Ninja Base"
 	})
 "alo" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/landmark{
@@ -2464,7 +2464,7 @@
 	},
 /area/shuttle/mercenary)
 "amH" = (
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/comfy/black,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"
@@ -2502,7 +2502,7 @@
 	},
 /area/shuttle/mercenary)
 "amN" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle{
@@ -2510,7 +2510,7 @@
 	},
 /area/shuttle/mercenary)
 "amO" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -2543,7 +2543,7 @@
 	},
 /area/antag/mercenary)
 "amR" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -2590,7 +2590,7 @@
 	},
 /area/shuttle/mercenary)
 "amW" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle{
@@ -2607,7 +2607,7 @@
 	},
 /area/shuttle/mercenary)
 "amY" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -2842,7 +2842,7 @@
 	},
 /area/shuttle/mercenary)
 "anw" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle{
@@ -2850,7 +2850,7 @@
 	},
 /area/shuttle/mercenary)
 "anx" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -2923,10 +2923,10 @@
 	},
 /area/shuttle/mercenary)
 "anF" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle{
@@ -3519,7 +3519,7 @@
 	},
 /area/shuttle/mercenary)
 "aoM" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/button/flasher{
@@ -4261,7 +4261,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "aqW" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle{
@@ -5149,7 +5149,7 @@
 	},
 /area/centcom/test)
 "auK" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -5600,7 +5600,7 @@
 	},
 /area/centcom/living)
 "awh" = (
-/obj/structure/bed/chair/comfy/blue,
+/obj/structure/bed/stool/chair/comfy/blue,
 /turf/unsimulated/floor{
 	icon_state = "redfull"
 	},
@@ -5745,7 +5745,7 @@
 	},
 /area/centcom/specops)
 "awK" = (
-/obj/structure/bed/chair/comfy/red,
+/obj/structure/bed/stool/chair/comfy/red,
 /turf/unsimulated/floor{
 	icon_state = "bluefull"
 	},
@@ -5766,7 +5766,7 @@
 	},
 /area/centcom/specops)
 "awO" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -5795,7 +5795,7 @@
 	},
 /area/centcom/specops)
 "awS" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -5894,7 +5894,7 @@
 	},
 /area/shuttle/administration)
 "axn" = (
-/obj/structure/bed/chair/comfy/red{
+/obj/structure/bed/stool/chair/comfy/red{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -6101,7 +6101,7 @@
 	name = "\improper Raider Base"
 	})
 "axU" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -6437,7 +6437,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/specops)
 "ayU" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/specops)
 "ayV" = (
@@ -6448,7 +6448,7 @@
 	pixel_y = 25;
 	tag_door = "specops_shuttle_port_hatch"
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/specops)
 "ayW" = (
@@ -6573,7 +6573,7 @@
 	name = "\improper Raider Base"
 	})
 "azq" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
@@ -6608,7 +6608,7 @@
 	},
 /area/centcom/holding)
 "azv" = (
-/obj/structure/bed/chair/office/bridge,
+/obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "azx" = (
@@ -6751,13 +6751,13 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/specops)
 "azN" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/specops)
 "azO" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/light/small{
@@ -6970,7 +6970,7 @@
 /area/shuttle/escape)
 "aAG" = (
 /obj/structure/window/reinforced,
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/white,
@@ -7184,11 +7184,11 @@
 	},
 /area/centcom/specops)
 "aBv" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/shuttle,
 /area/shuttle/transport1)
 "aBw" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -7274,7 +7274,7 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/transport1)
 "aBL" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle,
@@ -7305,7 +7305,7 @@
 	},
 /area/centcom/control)
 "aBR" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -7376,13 +7376,13 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/transport1)
 "aCd" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/transport1)
 "aCe" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/light,
@@ -7514,7 +7514,7 @@
 	},
 /area/centcom/holding)
 "aCO" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"
@@ -7605,7 +7605,7 @@
 	},
 /area/centcom/specops)
 "aDc" = (
-/obj/structure/bed/chair/wood/wings{
+/obj/structure/bed/stool/chair/wood/wings{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -7631,7 +7631,7 @@
 	},
 /area/centcom/holding)
 "aDf" = (
-/obj/structure/bed/chair/wood/wings{
+/obj/structure/bed/stool/chair/wood/wings{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -7819,7 +7819,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
 "aDX" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -7832,7 +7832,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "aEa" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "aEb" = (
@@ -7901,7 +7901,7 @@
 	},
 /area/centcom/holding)
 "aEm" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -7910,7 +7910,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
 "aEp" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -7946,7 +7946,7 @@
 	},
 /area/centcom/holding)
 "aEB" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/reagent_dispensers/peppertank{
@@ -8214,13 +8214,13 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/skipjack)
 "aFy" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/skipjack)
 "aFz" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/item/clothing/glasses/thermal/plain/monocle,
@@ -8636,7 +8636,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aGP" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -8649,7 +8649,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/skipjack)
 "aGR" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -8721,7 +8721,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/skipjack)
 "aHe" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
@@ -8732,7 +8732,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/skipjack)
 "aHg" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
@@ -8916,7 +8916,7 @@
 	},
 /area/centcom/ferry)
 "aHX" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -9028,7 +9028,7 @@
 	},
 /area/tdome)
 "aIn" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "carpetside"
@@ -9237,7 +9237,7 @@
 /turf/unsimulated/beach/sand,
 /area/beach)
 "aJu" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/landmark{
 	name = "endgame_exit"
 	},
@@ -9624,7 +9624,7 @@
 	},
 /area/antag/wizard)
 "aKp" = (
-/obj/structure/bed/chair/wood/wings{
+/obj/structure/bed/stool/chair/wood/wings{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -9649,7 +9649,7 @@
 	},
 /area/antag/wizard)
 "aKs" = (
-/obj/structure/bed/chair/wood/wings{
+/obj/structure/bed/stool/chair/wood/wings{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -10242,7 +10242,7 @@
 	},
 /area/centcom/control)
 "aLT" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -10347,7 +10347,7 @@
 /turf/simulated/floor/plating,
 /area/centcom/spawning)
 "aMg" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/camera/network/crescent{
@@ -10448,7 +10448,7 @@
 	},
 /area/centcom/control)
 "aMu" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -10778,7 +10778,7 @@
 	},
 /area/centcom/specops)
 "aNi" = (
-/obj/structure/bed/chair/comfy/blue{
+/obj/structure/bed/stool/chair/comfy/blue{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -10879,7 +10879,7 @@
 	},
 /area/centcom/holding)
 "aNx" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/camera/network/crescent{
@@ -11052,7 +11052,7 @@
 	},
 /area/centcom/holding)
 "aNT" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -11108,7 +11108,7 @@
 	},
 /area/centcom/living)
 "aNZ" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/ghostspawpoint{
 	identifier = "OdinCheckpoint";
 	name = "igs - OdinCheckpoint"
@@ -11261,7 +11261,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "aOr" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -11518,7 +11518,7 @@
 	},
 /area/centcom/creed)
 "aOY" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -11527,7 +11527,7 @@
 	},
 /area/centcom/holding)
 "aOZ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -11807,7 +11807,7 @@
 	},
 /area/centcom/holding)
 "aPG" = (
-/obj/structure/bed/chair/comfy/blue{
+/obj/structure/bed/stool/chair/comfy/blue{
 	dir = 1
 	},
 /obj/machinery/light,
@@ -11816,7 +11816,7 @@
 	},
 /area/centcom/living)
 "aPH" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/landmark{
 	name = "LateJoinMerchant"
 	},
@@ -11829,7 +11829,7 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "aPI" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/landmark{
 	name = "CCIAAgent"
 	},
@@ -11838,7 +11838,7 @@
 	},
 /area/centcom/control)
 "aPJ" = (
-/obj/structure/bed/chair/comfy/blue{
+/obj/structure/bed/stool/chair/comfy/blue{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -12121,7 +12121,7 @@
 	},
 /area/centcom/holding)
 "aQu" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -12576,14 +12576,14 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aRA" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aRB" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -12591,7 +12591,7 @@
 	},
 /area/centcom/control)
 "aRC" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -12629,7 +12629,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aRI" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle,
@@ -12693,7 +12693,7 @@
 	},
 /area/centcom/control)
 "aRQ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -12824,7 +12824,7 @@
 	},
 /area/centcom/specops)
 "aSb" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "carpetside"
@@ -12952,7 +12952,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "aSt" = (
-/obj/structure/bed/chair/comfy/blue{
+/obj/structure/bed/stool/chair/comfy/blue{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -13082,7 +13082,7 @@
 /turf/simulated/floor/shuttle,
 /area/centcom/spawning)
 "aSH" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13111,7 +13111,7 @@
 	},
 /area/centcom/holding)
 "aSL" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -13198,7 +13198,7 @@
 	},
 /area/centcom/holding)
 "aSZ" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /turf/unsimulated/floor{
 	dir = 9;
 	icon_state = "carpetside"
@@ -13509,7 +13509,7 @@
 	},
 /area/centcom/control)
 "aTI" = (
-/obj/structure/bed/chair/comfy/blue,
+/obj/structure/bed/stool/chair/comfy/blue,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -13856,7 +13856,7 @@
 	},
 /area/centcom/holding)
 "aUx" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -14607,7 +14607,7 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/specops)
 "aWg" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -14863,7 +14863,7 @@
 	name = "\improper Ninja Base"
 	})
 "aWK" = (
-/obj/structure/bed/chair/comfy/red{
+/obj/structure/bed/stool/chair/comfy/red{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -14971,7 +14971,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/specops)
 "aXc" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -15525,7 +15525,7 @@
 	},
 /area/centcom/holding)
 "aYz" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle,
@@ -15594,7 +15594,7 @@
 	},
 /area/centcom/holding)
 "aYI" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control switch for port-side blast doors.";
 	id = "CentComPort";
@@ -15611,7 +15611,7 @@
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -15766,7 +15766,7 @@
 	},
 /area/centcom/control)
 "aZb" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -15800,7 +15800,7 @@
 	},
 /area/shuttle/administration)
 "aZf" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -16051,7 +16051,7 @@
 	},
 /area/centcom/specops)
 "aZM" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -16201,7 +16201,7 @@
 	},
 /area/centcom/shared_dream)
 "bib" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle{
@@ -16340,7 +16340,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bXa" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -16409,7 +16409,7 @@
 	},
 /area/centcom/holding)
 "cjq" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
@@ -16438,7 +16438,7 @@
 	},
 /area/centcom/holding)
 "cuW" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/landmark{
@@ -16573,7 +16573,7 @@
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/comfy/black,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
@@ -16782,7 +16782,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/unmovable,
+/obj/structure/bed/stool/chair/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -16833,7 +16833,7 @@
 	},
 /area/tdome)
 "eGH" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape)
 "eLT" = (
@@ -16857,7 +16857,7 @@
 	},
 /area/centcom/holding)
 "eRv" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -16922,7 +16922,7 @@
 	},
 /area/shuttle/legion)
 "faW" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -16973,7 +16973,7 @@
 	},
 /area/centcom/holding)
 "fgc" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
 	},
 /obj/machinery/status_display{
@@ -17309,7 +17309,7 @@
 /turf/simulated/floor/beach/water/ocean,
 /area/centcom/shared_dream)
 "gov" = (
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/stool/chair/wood,
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
@@ -17388,7 +17388,7 @@
 	},
 /area/centcom/holding)
 "gDf" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -17503,7 +17503,7 @@
 	},
 /area/tdome)
 "hjm" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -17524,7 +17524,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "hko" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/white,
@@ -17586,7 +17586,7 @@
 	},
 /area/shuttle/skipjack)
 "hqq" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -17645,7 +17645,7 @@
 	dir = 1;
 	pixel_y = -32
 	},
-/obj/structure/bed/chair/unmovable{
+/obj/structure/bed/stool/chair/unmovable{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -17663,7 +17663,7 @@
 	},
 /area/centcom/spawning)
 "hCC" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/landmark{
 	name = "tdomeobserve"
 	},
@@ -17691,7 +17691,7 @@
 	},
 /area/centcom/spawning)
 "hES" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/light/small/emergency{
@@ -17726,13 +17726,13 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
 "hIH" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
 	},
 /obj/machinery/status_display{
@@ -17785,7 +17785,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "hVa" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/blue,
@@ -17902,7 +17902,7 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
 "ixO" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -17931,7 +17931,7 @@
 	},
 /area/centcom/spawning)
 "iBr" = (
-/obj/structure/bed/chair/unmovable,
+/obj/structure/bed/stool/chair/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18280,7 +18280,7 @@
 	},
 /area/tdome)
 "kPr" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -18314,7 +18314,7 @@
 	name = "skrell_entry"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -18412,7 +18412,7 @@
 	},
 /area/centcom/spawning)
 "lHB" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
@@ -18518,7 +18518,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "mwM" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/disposalpipe/segment,
 /obj/effect/landmark{
 	name = "tdomeobserve"
@@ -18656,7 +18656,7 @@
 	},
 /area/centcom/holding)
 "nrU" = (
-/obj/structure/bed/chair/unmovable{
+/obj/structure/bed/stool/chair/unmovable{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -18968,7 +18968,7 @@
 	},
 /area/centcom/spawning)
 "pll" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -19053,7 +19053,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -19086,7 +19086,7 @@
 	},
 /area/centcom/holding)
 "pQl" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/effect/landmark/start{
@@ -19288,7 +19288,7 @@
 	},
 /area/centcom/shared_dream)
 "qGF" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -19441,7 +19441,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/legion)
 "ryW" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
@@ -19851,7 +19851,7 @@
 	},
 /area/centcom/holding)
 "tEt" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -19950,7 +19950,7 @@
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -20133,7 +20133,7 @@
 	},
 /area/centcom/holding)
 "uRX" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -20202,7 +20202,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "vcI" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "redyellowfull"
@@ -20222,7 +20222,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "viY" = (
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/comfy/black,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20333,7 +20333,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "vTb" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -20347,7 +20347,7 @@
 	},
 /area/centcom/ferry)
 "vWC" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -20652,7 +20652,7 @@
 /turf/simulated/floor/shuttle/yellow,
 /area/shuttle/escape)
 "xCV" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/effect/ghostspawpoint{

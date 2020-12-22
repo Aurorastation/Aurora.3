@@ -10,9 +10,6 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
-	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -29,14 +26,18 @@
 
 	var/can_dismantle = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	var/makes_rolling_sound = TRUE
+	var/makes_rolling_sound = FALSE
+	var/held_item = null
 	slowdown = 5
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)
 	..(newloc)
 	if(can_buckle)
-		desc_info = "You can buckle yourself in by dragging yourself onto the chair. "
-	color = null
+		desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
+	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
+	the buckles instead. "
+	if(held_item)
+		desc_info += "Click and drag this onto yourself to pick it up. "
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -56,24 +57,24 @@
 	icon_state = ""
 	cut_overlays()
 	// Base icon.
-	var/list/stool_cache = SSicon_cache.stool_cache
+	var/list/furniture_cache = SSicon_cache.furniture_cache
 
 	var/cache_key = "[base_icon]-[material.name]"
-	if(!stool_cache[cache_key])
+	if(!furniture_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
-		stool_cache[cache_key] = I
-	add_overlay(stool_cache[cache_key])
+		furniture_cache[cache_key] = I
+	add_overlay(furniture_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-[padding_material.name]-padding"
-		if(!stool_cache[padding_cache_key])
+		if(!furniture_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding")
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = padding_material.icon_colour
-			stool_cache[padding_cache_key] = I
-		add_overlay(stool_cache[padding_cache_key])
+			furniture_cache[padding_cache_key] = I
+		add_overlay(furniture_cache[padding_cache_key])
 
 	// Strings.
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
@@ -211,8 +212,9 @@
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_down"
 	anchored = FALSE
+	makes_rolling_sound = TRUE
 	var/base_state = "standard"
-	var/item_bedpath = /obj/item/roller
+	held_item = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
@@ -256,7 +258,7 @@
 
 /obj/structure/bed/roller/proc/collapse()
 	visible_message("<b>[usr]</b> collapses \the [src].")
-	new item_bedpath(get_turf(src))
+	new held_item(get_turf(src))
 	qdel(src)
 
 /obj/structure/bed/roller/process()
@@ -345,7 +347,7 @@
 	icon_state = "hover_down"
 	base_state = "hover"
 	makes_rolling_sound = FALSE
-	item_bedpath = /obj/item/roller/hover
+	held_item = /obj/item/roller/hover
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()

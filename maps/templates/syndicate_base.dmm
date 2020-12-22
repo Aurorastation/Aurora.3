@@ -90,7 +90,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict)
 "ap" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle{
@@ -774,7 +774,7 @@
 /turf/simulated/floor/lino,
 /area/derelict)
 "bX" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1268,7 +1268,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "ds" = (
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/comfy/black,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
@@ -1369,7 +1369,7 @@
 	},
 /area/derelict)
 "dG" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1402,7 +1402,7 @@
 	},
 /area/derelict)
 "dJ" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1439,7 +1439,7 @@
 	},
 /area/derelict)
 "dQ" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1625,7 +1625,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "en" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	icon_state = "bridge";
 	dir = 4
 	},
@@ -2270,7 +2270,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "fY" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict)
@@ -2292,7 +2292,7 @@
 /turf/simulated/floor/wood,
 /area/derelict)
 "gd" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2315,7 +2315,7 @@
 /turf/simulated/floor/wood,
 /area/derelict)
 "gf" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2376,7 +2376,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "gr" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,

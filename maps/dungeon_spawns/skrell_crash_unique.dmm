@@ -34,7 +34,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "ah" = (
-/obj/structure/bed/chair/office/hover{
+/obj/structure/bed/stool/chair/office/hover{
 	icon_state = "hover_chair";
 	dir = 1
 	},
@@ -110,7 +110,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "av" = (
-/obj/structure/bed/chair/office/hover/command{
+/obj/structure/bed/stool/chair/office/hover/command{
 	icon_state = "hover_command";
 	dir = 1
 	},
@@ -539,7 +539,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bP" = (
-/obj/structure/bed/chair/office/hover,
+/obj/structure/bed/stool/chair/office/hover,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bR" = (

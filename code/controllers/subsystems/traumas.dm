@@ -85,7 +85,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 
 					   "nanotrasen" = typecacheof(list(/obj/item/toy/balloon/nanotrasen, /obj/item/soap/nanotrasen, /obj/structure/sign/flag/nanotrasen,
 												 /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen, /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen, /obj/item/storage/toolbox/lunchbox/nt,
-												 /obj/structure/banner, /obj/structure/bed/chair/office/bridge, /obj/item/clothing/head/collectable/captain,
+												 /obj/structure/banner, /obj/structure/bed/stool/chair/office/bridge, /obj/item/clothing/head/collectable/captain,
 												 /obj/item/clothing/head/helmet/space/void/captain, /obj/item/clothing/suit/space/void/captain, /obj/item/clothing/suit/storage/hooded/wintercoat/captain,
 												 /obj/item/clothing/under/captainformal, /obj/item/clothing/under/rank/captain, /obj/item/toy/figure/captain, /obj/item/card/id/captains_spare,
 												 /obj/item/gun/energy/captain, /obj/item/stamp/captain, /obj/item/storage/backpack/captain, /obj/item/clothing/suit/armor/vest/security)),

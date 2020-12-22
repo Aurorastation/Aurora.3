@@ -259,7 +259,7 @@
 /area/dungeon/anomaly_outpost)
 "aQ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,

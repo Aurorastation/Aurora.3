@@ -45,7 +45,7 @@
 /area/hallway/secondary/entry/stairs)
 "acs" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -157,7 +157,7 @@
 /obj/machinery/status_display{
 	pixel_y = -32
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -700,7 +700,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "axX" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/status_display{
@@ -977,7 +977,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/bed/stool/chair/comfy/teal{
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
@@ -1243,7 +1243,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
 "aQz" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
@@ -1276,7 +1276,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "aSb" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -1433,7 +1433,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "aZf" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -1708,7 +1708,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "bjE" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -1940,7 +1940,7 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "bvR" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -1975,7 +1975,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "bwu" = (
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/comfy/black,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
@@ -3440,7 +3440,7 @@
 	name = "General Listening Channel";
 	pixel_y = 24
 	},
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/comfy/black,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "cEB" = (
@@ -3662,7 +3662,7 @@
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "cNK" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -4018,7 +4018,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "dgL" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -4098,7 +4098,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/qm)
 "dlc" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/purple/diagonal{
 	dir = 4
 	},
@@ -4344,7 +4344,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
@@ -4434,7 +4434,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
 "dzz" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
@@ -4671,7 +4671,7 @@
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice)
 "dUX" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
@@ -4850,7 +4850,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -4915,7 +4915,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/departure_lounge)
 "edT" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5121,14 +5121,14 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/computer)
 "enk" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "enx" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5300,7 +5300,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research)
 "esJ" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -5365,7 +5365,7 @@
 /turf/simulated/wall,
 /area/solar/starboard)
 "ezp" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -5446,7 +5446,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "eCC" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5991,7 +5991,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "eYu" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -6003,7 +6003,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "eZy" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6171,7 +6171,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "ffJ" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
@@ -6647,7 +6647,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
 "fBZ" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -6846,7 +6846,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "fKm" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -6928,7 +6928,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "fPB" = (
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/comfy/beige,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/departure_lounge)
 "fPR" = (
@@ -7375,7 +7375,7 @@
 /turf/simulated/floor/plating,
 /area/store)
 "gny" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -7750,7 +7750,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "gAy" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the office door.";
 	id = "qmdoor";
@@ -8097,7 +8097,7 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/departure_lounge)
 "gPQ" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -8199,7 +8199,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research)
 "gUk" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -8550,7 +8550,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/comfy/black,
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
@@ -8617,7 +8617,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "hjt" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
@@ -8626,7 +8626,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
 "hjy" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -10076,7 +10076,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "iqa" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -10101,7 +10101,7 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
 "iqt" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -10425,7 +10425,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/departure_lounge)
 "iER" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -10453,7 +10453,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "iFB" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/status_display{
@@ -10802,7 +10802,7 @@
 /area/hallway/secondary/entry/fore)
 "iXR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/old,
 /area/store)
 "iYM" = (
@@ -11981,7 +11981,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/comfy/black,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
@@ -12199,7 +12199,7 @@
 	layer = 6;
 	name = "adjusted window"
 	},
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12303,7 +12303,7 @@
 	},
 /area/crew_quarters/fitness/pool)
 "kpy" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "kqa" = (
@@ -12962,7 +12962,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
 "kRG" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -13446,7 +13446,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -13828,7 +13828,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "lBg" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -13867,7 +13867,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	desc = "A seat for a lifeguard.";
 	dir = 8;
 	name = "lifeguard chair"
@@ -14171,7 +14171,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "lLT" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -14596,7 +14596,7 @@
 /turf/simulated/wall,
 /area/crew_quarters/toilet)
 "mfc" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -14778,7 +14778,7 @@
 /area/quartermaster/loading)
 "mox" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/old,
@@ -15348,7 +15348,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -15431,7 +15431,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -15646,7 +15646,7 @@
 	layer = 6;
 	name = "adjusted window"
 	},
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -15850,7 +15850,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -15998,7 +15998,7 @@
 /turf/simulated/floor/plating,
 /area/storage/shields)
 "nrZ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full{
@@ -16866,7 +16866,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
 "obJ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet{
@@ -17201,7 +17201,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "oof" = (
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/comfy/beige,
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
@@ -17688,7 +17688,7 @@
 	id_tag = "arrival_dock";
 	pixel_y = 25
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -17850,7 +17850,7 @@
 	},
 /area/crew_quarters/fitness/pool)
 "oQc" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 8
 	},
 /obj/machinery/alarm{
@@ -18139,7 +18139,7 @@
 	},
 /area/crew_quarters/fitness/pool)
 "pbO" = (
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/comfy/beige,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -18173,7 +18173,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "pcC" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/status_display{
@@ -18425,7 +18425,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
@@ -18536,7 +18536,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/bed/stool/chair/comfy/teal{
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
@@ -18583,7 +18583,7 @@
 /turf/simulated/floor/airless/ceiling,
 /area/mine/explored)
 "pvp" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -19325,11 +19325,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "pSh" = (
-/obj/structure/bed/chair/office/bridge/pilot,
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/research)
 "pSJ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -19477,7 +19477,7 @@
 /turf/simulated/floor/airless,
 /area/solar/port)
 "pXe" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -19569,7 +19569,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
 "pZP" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -19701,7 +19701,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "qiy" = (
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/comfy/beige{
 	dir = 1
 	},
 /obj/machinery/light,
@@ -19959,7 +19959,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "qvG" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple/diagonal{
@@ -20078,7 +20078,7 @@
 /turf/simulated/wall/r_wall,
 /area/tcommsat/chamber)
 "qyQ" = (
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/comfy/beige,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Waiting Room";
 	dir = 8
@@ -20089,7 +20089,7 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/departure_lounge)
 "qzS" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -20501,7 +20501,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "qVt" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple/diagonal{
@@ -20865,7 +20865,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "rhT" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -21180,7 +21180,7 @@
 	c_tag = "Surface Emergency Dock - Entrance";
 	network = list("Civilian Surface","Emergency Dock")
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
@@ -21482,7 +21482,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "rFo" = (
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/comfy/beige{
 	dir = 1
 	},
 /obj/machinery/light,
@@ -21953,7 +21953,7 @@
 	},
 /area/shuttle/escape_pod/pod2)
 "sbS" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
@@ -22070,7 +22070,7 @@
 /area/hallway/secondary/entry/fore)
 "shs" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
@@ -22241,7 +22241,7 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "smI" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
@@ -22346,7 +22346,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "spP" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -22425,7 +22425,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -22601,7 +22601,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "sBl" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -22715,7 +22715,7 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/explored)
 "sFZ" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -23271,7 +23271,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "ted" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -23376,7 +23376,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
 	},
@@ -23540,7 +23540,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -23685,7 +23685,7 @@
 /turf/simulated/wall,
 /area/hallway/secondary/entry/fore)
 "twn" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -23784,7 +23784,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 12"
 	},
@@ -24115,7 +24115,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -24258,7 +24258,7 @@
 /area/security/bridge_surface_checkpoint)
 "tMN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/comfy/beige{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -24531,7 +24531,7 @@
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -24977,7 +24977,7 @@
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "uqD" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -25106,7 +25106,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -25721,7 +25721,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "uWD" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -25790,7 +25790,7 @@
 /turf/simulated/floor/plating,
 /area/storage/shields)
 "vaJ" = (
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/comfy/beige{
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights,
@@ -26141,7 +26141,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
 "vqK" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -26292,7 +26292,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow/full{
@@ -26433,7 +26433,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "vAp" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights,
@@ -26801,7 +26801,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -27140,7 +27140,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "wfJ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -27383,7 +27383,7 @@
 /area/security/checkpoint2)
 "wqs" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/lino/grey,
 /area/store)
 "wqL" = (
@@ -27673,7 +27673,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "wEk" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
@@ -27691,7 +27691,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
 "wEl" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/comfy/black{
 	dir = 1;
 	icon_state = "chair_padding_over"
 	},
@@ -28126,7 +28126,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "wQX" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
@@ -28591,7 +28591,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/sign/christmas/lights{
 	dir = 1
 	},
@@ -28608,7 +28608,7 @@
 /area/crew_quarters/fitness)
 "xnw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -28798,7 +28798,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "xwv" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -29084,7 +29084,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "xEU" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -29471,7 +29471,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -29519,7 +29519,7 @@
 /turf/simulated/floor/wood,
 /area/store)
 "yaH" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,

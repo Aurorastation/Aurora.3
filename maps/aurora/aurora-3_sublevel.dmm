@@ -4331,14 +4331,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ajT" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "ajU" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4461,7 +4461,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "akn" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -5897,7 +5897,7 @@
 	},
 /area/turret_protected/ai)
 "amQ" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8312,7 +8312,7 @@
 	},
 /area/turret_protected/ai)
 "apM" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -8967,7 +8967,7 @@
 /area/medical/patient_wing_hallway)
 "aqE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/bed/stool/chair/comfy/teal{
 	dir = 4
 	},
 /obj/machinery/power/apc{
@@ -10585,7 +10585,7 @@
 /turf/simulated/floor,
 /area/bridge/aibunker)
 "atm" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
@@ -10881,7 +10881,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atQ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/case_button/shuttle{
@@ -11326,7 +11326,7 @@
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 1
 	},
-/obj/structure/bed/chair/plastic,
+/obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "auA" = (
@@ -13534,7 +13534,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "azQ" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13949,7 +13949,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -16583,7 +16583,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -16988,7 +16988,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -19044,7 +19044,7 @@
 /area/medical/patient_wing_hallway)
 "aMy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair/comfy/teal,
+/obj/structure/bed/stool/chair/comfy/teal,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "aMz" = (
@@ -19418,7 +19418,7 @@
 /turf/simulated/floor/plating,
 /area/medical/morgue)
 "aNm" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/structure/bed/stool/chair/wheelchair{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -19521,7 +19521,7 @@
 /area/medical/patient_wing_hallway)
 "aNz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/bed/stool/chair/comfy/teal{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -19764,7 +19764,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/morgue)
 "aOd" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/structure/bed/stool/chair/wheelchair{
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
@@ -20114,7 +20114,7 @@
 /area/medical/patient_wing_hallway)
 "aOZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/bed/stool/chair/comfy/teal{
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
@@ -20472,7 +20472,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aPX" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -20501,7 +20501,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQb" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -20804,7 +20804,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQG" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -21016,7 +21016,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/hallway)
 "aRq" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -22104,7 +22104,7 @@
 /area/medical/medbay4)
 "aUo" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -22609,7 +22609,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -22791,7 +22791,7 @@
 /obj/effect/landmark/start{
 	name = "First Responder"
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -23048,7 +23048,7 @@
 /obj/effect/landmark/start{
 	name = "Physician"
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -23057,7 +23057,7 @@
 /obj/effect/landmark/start{
 	name = "Chief Medical Officer"
 	},
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/lime{
@@ -23133,7 +23133,7 @@
 /obj/effect/landmark/start{
 	name = "Pharmacist"
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -27055,7 +27055,7 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_library)
 "dsZ" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -27801,7 +27801,7 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_post2)
 "eEH" = (
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/comfy/beige{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -27882,7 +27882,7 @@
 	pixel_y = -24
 	},
 /obj/structure/cable/green,
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/mauve/full,
@@ -28179,7 +28179,7 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora)
 "fyK" = (
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/comfy/beige,
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
@@ -28516,7 +28516,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "gfC" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -28731,7 +28731,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "gyi" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -29009,7 +29009,7 @@
 /area/engineering/atmos)
 "heM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/chair/remote/robot/bunker{
+/obj/structure/bed/stool/chair/remote/robot/bunker{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -29087,7 +29087,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -29589,7 +29589,7 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/medsublevel_port)
 "iwx" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -29754,7 +29754,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
 "iTG" = (
@@ -29894,7 +29894,7 @@
 	},
 /area/maintenance/medsublevel_port)
 "jhN" = (
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/comfy/beige,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "jig" = (
@@ -30424,7 +30424,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -30514,7 +30514,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
 "kPN" = (
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/comfy/beige{
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
@@ -30785,7 +30785,7 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
 "lxg" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -30884,7 +30884,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
 "lRe" = (
@@ -31431,7 +31431,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "mGh" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -32355,7 +32355,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/medical)
 "olG" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "opa" = (
@@ -32625,7 +32625,7 @@
 /area/mine/unexplored)
 "oUd" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -32794,7 +32794,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "ptY" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
@@ -33208,7 +33208,7 @@
 	},
 /area/medical/patient_wing_picnic)
 "qjw" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/airless{
@@ -33718,7 +33718,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -33895,13 +33895,13 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "rDB" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -34038,7 +34038,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -34405,7 +34405,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -34438,7 +34438,7 @@
 	},
 /area/mine/unexplored)
 "tbe" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -34842,7 +34842,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /obj/effect/landmark/start{
@@ -35228,7 +35228,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /obj/effect/landmark/start{
@@ -35835,7 +35835,7 @@
 /turf/simulated/floor,
 /area/engineering/backup_SMES)
 "vFc" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
@@ -35885,7 +35885,7 @@
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 1
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -36234,7 +36234,7 @@
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 4
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /obj/effect/landmark/start{
@@ -36708,7 +36708,7 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_c)
 "xrn" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "xrs" = (
@@ -37030,7 +37030,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
 "xRr" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -37105,7 +37105,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
 "xVZ" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -37119,7 +37119,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /turf/simulated/floor/wood,
 /area/medical/patient_c)
 "xXX" = (

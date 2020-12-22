@@ -102,12 +102,12 @@
 	new /obj/structure/cult/forge(get_turf(src))
 	qdel(src)
 
-/obj/structure/bed/chair/cultify()
-	var/obj/structure/bed/chair/wood/wings/I = new /obj/structure/bed/chair/wood/wings(get_turf(src))
+/obj/structure/bed/stool/chair/cultify()
+	var/obj/structure/bed/stool/chair/wood/wings/I = new /obj/structure/bed/stool/chair/wood/wings(get_turf(src))
 	I.dir = dir
 	qdel(src)
 
-/obj/structure/bed/chair/wood/wings/cultify()
+/obj/structure/bed/stool/chair/wood/wings/cultify()
 	return
 
 /obj/structure/bookcase/cultify()

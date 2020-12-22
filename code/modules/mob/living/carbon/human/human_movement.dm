@@ -36,7 +36,7 @@
 		if (hydration < (max_hydration * 0.1))
 			tally++
 
-	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
+	if(istype(buckled, /obj/structure/bed/stool/chair/wheelchair))
 		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())

@@ -5,7 +5,7 @@
 	reward_high = 3900
 	required_count = 4
 	random_count = 2
-	wanted_types = list(/obj/structure/bed/chair/comfy)
+	wanted_types = list(/obj/structure/bed/stool/chair/comfy)
 
 /datum/bounty/item/engineer/smes_coil
 	name = "Superconductive magnetic coil"

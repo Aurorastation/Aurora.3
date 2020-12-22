@@ -77,7 +77,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "ak" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -235,7 +235,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/comfy/beige,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "aI" = (
@@ -250,7 +250,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/comfy/beige{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -286,7 +286,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "aP" = (
-/obj/structure/bed/chair/comfy/blue{
+/obj/structure/bed/stool/chair/comfy/blue{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -902,7 +902,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cO" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -919,7 +919,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "cQ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1259,7 +1259,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eb" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ec" = (
@@ -1302,7 +1302,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "eh" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1331,7 +1331,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
 "en" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/light/small{

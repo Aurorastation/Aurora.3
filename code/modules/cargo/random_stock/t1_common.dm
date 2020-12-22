@@ -187,7 +187,7 @@ STOCK_ITEM_COMMON(wheelchair, 1)
 				T = U
 				break
 
-	new /obj/structure/bed/chair/wheelchair(T)
+	new /obj/structure/bed/stool/chair/wheelchair(T)
 
 STOCK_ITEM_COMMON(trap, 2)
 	new /obj/item/trap(L)
@@ -361,7 +361,7 @@ STOCK_ITEM_COMMON(officechair, 1.2)
 			if (turf_clear(U))
 				T = U
 				break
-	new /obj/structure/bed/chair/office/dark(T)
+	new /obj/structure/bed/stool/chair/office/dark(T)
 
 STOCK_ITEM_COMMON(booze, 3.7)
 	if(prob(8))//Spare keg of beer or xuizi juice

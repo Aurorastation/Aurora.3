@@ -39,6 +39,6 @@
 	add_fingerprint(user)
 
 /obj/item/assembly/shock_kit/receive_signal()
-	if(istype(loc, /obj/structure/bed/chair/e_chair))
-		var/obj/structure/bed/chair/e_chair/C = loc
+	if(istype(loc, /obj/structure/bed/stool/chair/e_chair))
+		var/obj/structure/bed/stool/chair/e_chair/C = loc
 		C.shock()

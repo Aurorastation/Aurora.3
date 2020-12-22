@@ -342,7 +342,7 @@
 			LateSpawn(H, rank)
 
 		// Moving wheelchair if they have one
-		if(H.buckled && istype(H.buckled, /obj/structure/bed/chair/wheelchair))
+		if(H.buckled && istype(H.buckled, /obj/structure/bed/stool/chair/wheelchair))
 			H.buckled.forceMove(H.loc)
 			H.buckled.set_dir(H.dir)
 

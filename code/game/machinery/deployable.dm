@@ -345,7 +345,7 @@ for reference:
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "barrier_kit"
 	w_class = ITEMSIZE_LARGE
-	kit_product = /obj/structure/bed/chair/remote/mech/portable
+	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
 
 /obj/item/deployable_kit/remote_mech/attack_self(mob/user)
@@ -358,4 +358,4 @@ for reference:
 /obj/item/deployable_kit/remote_mech/brig
 	name = "brig mech control centre assembly kit"
 	desc = "A quick assembly kit to put together a brig mech control centre."
-	kit_product = /obj/structure/bed/chair/remote/mech/prison/portable
+	kit_product = /obj/structure/bed/stool/chair/remote/mech/prison/portable

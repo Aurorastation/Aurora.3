@@ -1,4 +1,4 @@
-/obj/structure/bed/chair/e_chair
+/obj/structure/bed/stool/chair/e_chair
 	name = "electric chair"
 	desc = "Looks absolutely SHOCKING!"
 	icon_state = "echair0"
@@ -6,10 +6,10 @@
 	var/obj/item/assembly/shock_kit/part = null
 	var/last_time = 0
 
-/obj/structure/bed/chair/e_chair/update_icon()
+/obj/structure/bed/stool/chair/e_chair/update_icon()
 	return
 
-/obj/structure/bed/chair/e_chair/Initialize()
+/obj/structure/bed/stool/chair/e_chair/Initialize()
 	. = ..()
 	add_overlay(image('icons/obj/furniture.dmi', src, "echair_over", MOB_LAYER + 1))
 	if(!part)
@@ -20,16 +20,16 @@
 		part.part1.master = part
 		part.part2.master = part
 
-/obj/structure/bed/chair/e_chair/Destroy()
+/obj/structure/bed/stool/chair/e_chair/Destroy()
 	if (part)
 		part.master = null
 		part = null
 
 	. = ..()
 
-/obj/structure/bed/chair/e_chair/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/bed/stool/chair/e_chair/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
-		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
+		var/obj/structure/bed/stool/chair/C = new /obj/structure/bed/stool/chair(loc)
 		playsound(loc, W.usesound, 50, 1)
 		C.set_dir(dir)
 		part.forceMove(get_turf(src))
@@ -37,7 +37,7 @@
 		part = null
 		qdel(src)
 
-/obj/structure/bed/chair/e_chair/verb/toggle()
+/obj/structure/bed/stool/chair/e_chair/verb/toggle()
 	set name = "Toggle Electric Chair"
 	set category = "Object"
 	set src in oview(1)
@@ -54,7 +54,7 @@
 		icon_state = "echair1"
 	to_chat(usr, "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>")
 
-/obj/structure/bed/chair/e_chair/proc/shock()
+/obj/structure/bed/stool/chair/e_chair/proc/shock()
 	if(!on)
 		return
 

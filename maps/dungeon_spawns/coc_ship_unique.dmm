@@ -648,7 +648,7 @@
 	},
 /area/dungeon/crashed_ship)
 "nF" = (
-/obj/structure/bed/chair/comfy/red,
+/obj/structure/bed/stool/chair/comfy/red,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled,
 /area/dungeon/crashed_ship)
@@ -682,7 +682,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "nX" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "nY" = (
@@ -751,7 +751,7 @@
 	},
 /area/dungeon/crashed_ship)
 "pv" = (
-/obj/structure/bed/chair/office/bridge/pilot{
+/obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1036,7 +1036,7 @@
 /turf/simulated/floor/plating,
 /area/dungeon/crashed_ship)
 "uV" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1922,13 +1922,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "XY" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "Yb" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,

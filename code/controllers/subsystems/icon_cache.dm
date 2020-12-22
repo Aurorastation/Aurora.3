@@ -21,7 +21,7 @@
 	var/list/magazine_icondata_keys = list()
 	var/list/magazine_icondata_states = list()
 
-	var/list/stool_cache = list()
+	var/list/furniture_cache = list()
 	var/list/floor_light_cache = list()
 	var/list/ashtray_cache = list()
 
