@@ -87,8 +87,12 @@
 		tally = max(0, tally-3)
 
 	var/turf/T = get_turf(src)
-	if(T && !mind.changeling) // changelings don't get movement costs
-		tally += T.movement_cost
+	if(T) // changelings don't get movement costs
+		var/datum/changeling/changeling
+		if(mind)
+			changeling = mind.antag_datums[MODE_CHANGELING]
+		if(!changeling)
+			tally += T.movement_cost
 
 	tally += config.human_delay
 
@@ -161,7 +165,7 @@
 			return
 		last_x = x
 		last_y = y
-		if (m_intent == "run")
+		if (m_intent == M_RUN)
 			playsound(src, footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
