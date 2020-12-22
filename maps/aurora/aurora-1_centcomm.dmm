@@ -22188,8 +22188,7 @@
 "jDe" = (
 /obj/structure/closet/walllocker/emerglocker/north{
 	pixel_x = -26;
-	pixel_y = -3;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -3
 	},
 /obj/structure/closet/crate/secure/gear{
 	name = "secure crate";
@@ -22965,8 +22964,7 @@
 	tag_door = "legion_shuttle_hatch"
 	},
 /obj/structure/closet/walllocker/emerglocker/south{
-	pixel_y = -28;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
@@ -25208,8 +25206,7 @@
 /area/antag/burglar)
 "lvr" = (
 /obj/structure/closet/walllocker/emerglocker/south{
-	pixel_y = -27;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -27
 	},
 /obj/structure/bed/chair/shuttle{
 	dir = 4
@@ -34797,8 +34794,7 @@
 /obj/structure/closet/walllocker/emerglocker/north{
 	layer = 3;
 	pixel_x = -1;
-	pixel_y = 29;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = 29
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -35239,8 +35235,7 @@
 "rtG" = (
 /obj/structure/bed/chair/shuttle,
 /obj/structure/closet/walllocker/emerglocker{
-	pixel_y = 31;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = 31
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -39824,8 +39819,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/closet/walllocker/emerglocker{
 	pixel_x = 27;
-	pixel_y = -1;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
