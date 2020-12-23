@@ -304,11 +304,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
 	weldermes = "<span class='notice'>USER casually lights the NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME.</span>"
-
-/obj/item/clothing/mask/smokable/cigarette/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco,10)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,5) // 2/3 ratio, Adds 0.03 units per second
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco = 10,
+		/decl/reagent/mental/nicotine = 5
+	)
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -365,6 +364,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla
 	burn_rate = 0.015
+	reagents_to_add = list(/decl/reagent/toxin/tobacco = 15)
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla/Initialize()
 	. = ..()
@@ -373,56 +373,43 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	burn_rate = 0.015
-
-/obj/item/clothing/mask/smokable/cigarette/acmeco/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco,5)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,5)
-	reagents.add_reagent(/decl/reagent/lexorin,2)
-	reagents.add_reagent(/decl/reagent/serotrotium,3)
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco = 5,
+		/decl/reagent/mental/nicotine = 5,
+		/decl/reagent/lexorin = 2,
+		/decl/reagent/serotrotium = 3
+	)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
 	burn_rate = 0.015
 	chem_volume = 15
-
-/obj/item/clothing/mask/smokable/cigarette/blank/Initialize()
-	. = ..()
-	reagents.clear_reagents()
+	reagents_to_add = null
 
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco
-
-/obj/item/clothing/mask/smokable/cigarette/dromedaryco/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco,5)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,10)
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco = 5,
+		/decl/reagent/mental/nicotine = 10
+	)
 
 /obj/item/clothing/mask/smokable/cigarette/nicotine
-
-/obj/item/clothing/mask/smokable/cigarette/nicotine/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/rich,5)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,10)
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco/rich = 5,
+		/decl/reagent/mental/nicotine = 10
+	)
 
 /obj/item/clothing/mask/smokable/cigarette/rugged
-
-/obj/item/clothing/mask/smokable/cigarette/rugged/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/fake,10)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,5)
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco/fake = 10,
+		/decl/reagent/mental/nicotine = 5
+	)
 
 /obj/item/clothing/mask/smokable/cigarette/adhomai
 	name = "adhomian cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
-
-/obj/item/clothing/mask/smokable/cigarette/adhomai/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco,5)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,5)
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco = 5,
+		/decl/reagent/mental/nicotine = 5
+	)
 
 ////////////
 // CIGARS //
@@ -445,12 +432,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-
-/obj/item/clothing/mask/smokable/cigarette/cigar/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/rich,25)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,5) // 1/5 Ratio
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco/rich = 25,
+		/decl/reagent/mental/nicotine = 5
+	)
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana
 	name = "premium Havanian cigar"
@@ -460,13 +445,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cigar2off"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
 	chem_volume = 60
-
-/obj/item/clothing/mask/smokable/cigarette/cigar/havana/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/rich,15)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,5) // 1/6 Ratio
-	reagents.add_reagent(/decl/reagent/tricordrazine,10)
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco/rich = 15,
+		/decl/reagent/mental/nicotine = 5,
+		/decl/reagent/tricordrazine = 10
+	)
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
 	name = "\improper Cohiba robusto cigar"
@@ -476,13 +459,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cigar2off"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
 	chem_volume = 120
-
-/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/rich,30)
-	reagents.add_reagent(/decl/reagent/mental/nicotine,10) //1/6 Ratio
-	reagents.add_reagent(/decl/reagent/tricordrazine,20)
+	reagents_to_add = list(
+		/decl/reagent/toxin/tobacco/rich = 30,
+		/decl/reagent/mental/nicotine = 10,
+		/decl/reagent/tricordrazine = 20
+	)
 
 /obj/item/trash/cigbutt
 	name = "cigarette butt"
