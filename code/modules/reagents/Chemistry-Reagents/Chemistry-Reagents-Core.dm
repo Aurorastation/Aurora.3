@@ -13,7 +13,6 @@
 	fallback_specific_heat = 3.617
 
 /decl/reagent/blood/mix_data(var/datum/reagents/reagents, var/list/newdata, var/newamount, var/datum/reagents/holder)
-	. = ..()
 	var/list/data = REAGENT_DATA(reagents, type)
 	if(LAZYACCESS(newdata, "trace_chem"))
 		var/list/other_chems = LAZYACCESS(newdata, "trace_chem")

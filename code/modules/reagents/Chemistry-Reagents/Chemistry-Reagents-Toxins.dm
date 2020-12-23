@@ -799,5 +799,4 @@
 	taste_description = "iron"
 	taste_mult = 1.3
 	fallback_specific_heat = 3.617
-	strength = 1 // equivalent to amount * 0.5 units of toxin, which is what was used before
 	target_organ = BP_KIDNEYS
