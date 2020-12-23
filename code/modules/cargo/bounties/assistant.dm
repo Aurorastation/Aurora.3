@@ -80,7 +80,7 @@
 	reward_low = 2300
 	reward_high = 4000
 	required_count = 2
-	wanted_types = list(/obj/structure/bed/chair/wheelchair)
+	wanted_types = list(/obj/structure/bed/chair/wheelchair, /obj/item/wheelchair)
 
 /datum/bounty/item/assistant/film
 	name = "Camera Film"

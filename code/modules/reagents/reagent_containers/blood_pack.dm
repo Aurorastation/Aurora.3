@@ -44,7 +44,8 @@
 		if(51 to INFINITY)	icon_state = "full"
 
 /obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
-	if (user == M && (user.mind.vampire))
+	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
+		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if (being_feed)
 			to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
 			return
@@ -61,10 +62,10 @@
 				blood_taken = min(5, REAGENT_VOLUME(reagents, /decl/reagent/blood)/4)
 
 				reagents.remove_reagent(/decl/reagent/blood, blood_taken*4)
-				user.mind.vampire.blood_usable += blood_taken
+				vampire.blood_usable += blood_taken
 
 				if (blood_taken)
-					to_chat(user, "<span class='notice'>You have accumulated [user.mind.vampire.blood_usable] [user.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+					to_chat(user, "<span class='notice'>You have accumulated [vampire.blood_usable] [vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 
 				if (REAGENT_VOLUME(reagents, /decl/reagent/blood) < 1)
 					break

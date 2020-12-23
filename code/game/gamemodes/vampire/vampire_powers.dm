@@ -56,8 +56,8 @@
 		return
 
 	var/datum/vampire/draining_vamp = null
-	if(T.mind?.vampire)
-		draining_vamp = T.mind.vampire
+	if(T.mind)
+		draining_vamp = T.mind.antag_datums[MODE_VAMPIRE]
 
 	var/target_aware = !!T.client
 
@@ -85,7 +85,7 @@
 	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
 	while(do_mob(src, T, 50) && vampire.status & VAMP_DRAINING && vampire.blood_usable < VAMPIRE_MAX_USABLE_BLOOD)
-		if(!mind.vampire)
+		if(!vampire)
 			to_chat(src, SPAN_DANGER("Your fangs have disappeared!"))
 			return
 
@@ -342,7 +342,7 @@
 
 	var/list/victims = list()
 	for(var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(istype(T) && (T.l_ear || T.r_ear) && istype((T.l_ear || T.r_ear), /obj/item/clothing/ears/earmuffs))
+		if(T.protected_from_sound())
 			continue
 		if(!vampire_can_affect_target(T, 0))
 			continue
@@ -498,7 +498,8 @@
 	last_valid_turf = get_turf(owner.loc)
 	owner.forceMove(src)
 
-	if(owner.mind.vampire.status & VAMP_FULLPOWER)
+	var/datum/vampire/vampire = owner_mob.mind.antag_datums[MODE_VAMPIRE]
+	if(vampire.status & VAMP_FULLPOWER)
 		for(var/obj/item/grab/G in list(owner.l_hand, owner.r_hand))
 			G.affecting.vampire_phase_out(get_turf(G))
 			G.affecting.forceMove(src)
@@ -748,8 +749,9 @@
 	to_chat(T, SPAN_DANGER("Your mind blanks as you finish feeding from [src]'s wrist."))
 	thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
-	T.mind.vampire.assign_master(T, src, vampire)
-	to_chat(T, SPAN_NOTICE("You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them."))
+	var/datum/vampire/T_vampire = T.mind.antag_datums[MODE_VAMPIRE]
+	T_vampire.assign_master(T, src, vampire)
+	to_chat(T, SPAN_NOTICE("You have been forced into a blood bond by [T_vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them."))
 	to_chat(src, SPAN_NOTICE("You have completed the thralling process. They are now your slave and will obey your commands."))
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
@@ -882,29 +884,29 @@
 		to_chat(src, SPAN_WARNING("Your fangs are already sunk into a victim's neck!"))
 		return
 
-	if(T.mind.vampire)
-		var/datum/vampire/draining_vamp = T.mind.vampire
+	if(T.mind)
+		var/datum/vampire/draining_vamp = T.mind.antag_datums[MODE_VAMPIRE]
+		if(draining_vamp)
+			if(draining_vamp.status & VAMP_ISTHRALL)
+				var/choice_text = ""
+				var/denial_response = ""
+				if(draining_vamp.master == src)
+					choice_text = "[T] is your thrall. Do you wish to release them from the blood bond and give them the chance to become your equal?"
+					denial_response = "You opt against giving [T] a chance to ascend, and choose to keep them as a servant."
+				else
+					choice_text = "You can feel the taint of another master running in the veins of [T]. Do you wish to release them of their blood bond, and convert them into a vampire, in spite of their master?"
+					denial_response = "You choose not to continue with the Embrace, and permit [T] to keep serving their master."
 
-		if(draining_vamp.status & VAMP_ISTHRALL)
-			var/choice_text = ""
-			var/denial_response = ""
-			if(draining_vamp.master == src)
-				choice_text = "[T] is your thrall. Do you wish to release them from the blood bond and give them the chance to become your equal?"
-				denial_response = "You opt against giving [T] a chance to ascend, and choose to keep them as a servant."
+				if(alert(src, choice_text, "Choices", "Yes", "No") == "No")
+					to_chat(src, SPAN_NOTICE("[denial_response]"))
+					return
+
+				thralls.remove_antagonist(T.mind, 0, 0)
+				qdel(draining_vamp)
+				draining_vamp = null
 			else
-				choice_text = "You can feel the taint of another master running in the veins of [T]. Do you wish to release them of their blood bond, and convert them into a vampire, in spite of their master?"
-				denial_response = "You choose not to continue with the Embrace, and permit [T] to keep serving their master."
-
-			if(alert(src, choice_text, "Choices", "Yes", "No") == "No")
-				to_chat(src, SPAN_NOTICE("[denial_response]"))
+				to_chat(src, SPAN_WARNING("You feel corruption running in [T]'s blood. Much like yourself, [T.get_pronoun("he")] is already a spawn of the Veil, and cannot be Embraced."))
 				return
-
-			thralls.remove_antagonist(T.mind, 0, 0)
-			qdel(draining_vamp)
-			draining_vamp = null
-		else
-			to_chat(src, SPAN_WARNING("You feel corruption running in [T]'s blood. Much like yourself, [T.get_pronoun("he")] is already a spawn of the Veil, and cannot be Embraced."))
-			return
 
 	vampire.status |= VAMP_DRAINING
 
@@ -914,7 +916,7 @@
 
 	var/drained_all_blood = FALSE
 	while(do_mob(src, T, 50))
-		if(!mind.vampire)
+		if(!vampire)
 			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
 		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
@@ -947,8 +949,9 @@
 	to_chat(T, SPAN_DANGER("You awaken. Moments ago, you were dead, your conciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power."))
 	to_chat(src, SPAN_WARNING("You have corrupted another mortal with the taint of the Veil. Beware: they will awaken hungry and maddened; not bound to any master."))
 
-	T.mind.vampire.blood_usable = 0
-	T.mind.vampire.frenzy = 250
+	var/datum/vampire/T_vampire = T.mind.antag_datums[MODE_VAMPIRE]
+	T_vampire.blood_usable = 0
+	T_vampire.frenzy = 250
 	T.vampire_check_frenzy()
 
 	vampire.status &= ~VAMP_DRAINING

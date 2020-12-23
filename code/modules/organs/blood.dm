@@ -172,11 +172,8 @@
 	if(!should_have_organ(BP_HEART))
 		reagents.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood), temperature = species?.body_temperature)
 		return
-	var/list/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
-	if(blood_incompatible(LAZYACCESS(injected_data, "blood_type"), LAZYACCESS(injected_data, "species")))
-		reagents.add_reagent(/decl/reagent/toxin, amount * 0.5)
-	else
-		vessel.add_reagent(/decl/reagent/blood, amount, injected_data, temperature = species?.body_temperature)
+	// Incompatibility is handled in mix_data now.
+	vessel.add_reagent(/decl/reagent/blood, amount, injected_data, temperature = species?.body_temperature)
 	..()
 
 proc/blood_incompatible(donor,receiver,donor_species,receiver_species)

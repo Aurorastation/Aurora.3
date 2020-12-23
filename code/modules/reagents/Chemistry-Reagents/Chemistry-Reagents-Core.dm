@@ -13,6 +13,7 @@
 	fallback_specific_heat = 3.617
 
 /decl/reagent/blood/mix_data(var/datum/reagents/reagents, var/list/newdata, var/newamount, var/datum/reagents/holder)
+	. = ..()
 	var/list/data = REAGENT_DATA(reagents, type)
 	if(LAZYACCESS(newdata, "trace_chem"))
 		var/list/other_chems = LAZYACCESS(newdata, "trace_chem")
@@ -24,9 +25,10 @@
 			var/list/my_chems = data["trace_chem"]
 			for(var/chem in other_chems)
 				my_chems[chem] = my_chems[chem] + other_chems[chem]
-	if(blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species")))
-		remove_self(newamount * 0.5, holder)
-		holder.add_reagent(/decl/reagent/toxin, newamount * 0.5)
+	var/list/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
+	if(!(MODE_VAMPIRE in mind?.antag_datums) && blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species")))
+		remove_self(newamount * 0.5, holder) // So the blood isn't *entirely* useless
+		holder.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
 	. = data
 
 /decl/reagent/blood/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
@@ -50,11 +52,12 @@
 
 /decl/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
-		if (M.mind && M.mind.vampire)
+		if (M.mind && (MODE_VAMPIRE in M.mind.antag_datums))
 			if(LAZYLEN(REAGENT_DATA(holder, type) && M.dna.unique_enzymes == LAZYACCESS(holder.reagent_data[type], "blood_DNA"))) //so vampires can't drink their own blood
 				return
-			M.mind.vampire.blood_usable += removed
-			to_chat(M, "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
+			vampire.blood_usable += removed
+			to_chat(M, "<span class='notice'>You have accumulated [vampire.blood_usable] [vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 			return
 	var/dose = M.chem_doses[type]
 	if(dose > 5)

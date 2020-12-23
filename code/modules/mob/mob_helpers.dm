@@ -19,6 +19,9 @@
 /mob/living/carbon/human/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
+/mob/living/carbon/human/proc/isShell()
+	return species && (species.name in list(SPECIES_IPC_SHELL, SPECIES_IPC_SHELL_ROGUE))
+
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A

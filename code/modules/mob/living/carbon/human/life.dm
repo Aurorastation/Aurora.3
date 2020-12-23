@@ -84,8 +84,10 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if(mind?.vampire)
-		handle_vampire()
+	if(mind)
+		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+		if(vampire)
+			handle_vampire()
 
 /mob/living/carbon/human/think()
 	..()
@@ -818,6 +820,11 @@
 	var/tmp/last_frenzy_state
 	var/tmp/last_oxy_overlay
 
+/mob/living/carbon/human/can_update_hud()
+	if((!client && !bg) || QDELETED(src))
+		return FALSE
+	return TRUE
+
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()
@@ -897,6 +904,8 @@
 				// Apply a fire overlay if we're burning.
 				if(on_fire)
 					var/image/burning_image = image('icons/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
+					var/midway_point = FIRE_MAX_STACKS / 2
+					burning_image.color = color_rotation((midway_point - fire_stacks) * 3)
 					health_images += burning_image
 
 				// Show a general pain/crit indicator if needed.
@@ -1063,8 +1072,10 @@
 			playsound_simple(null, pick(scarySounds), 50, TRUE)
 
 /mob/living/carbon/human/proc/handle_changeling()
-	if(mind && mind.changeling)
-		mind.changeling.regenerate()
+	if(mind)
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling)
+			changeling.regenerate()
 
 /mob/living/carbon/human/proc/handle_shock()
 	if(status_flags & GODMODE)
@@ -1316,9 +1327,9 @@
 		if(ear_deaf <= 1 && (sdisabilities & DEAF) && has_hearing_aid())
 			setEarDamage(-1, max(ear_deaf-1, 0))
 
-		if(istype(l_ear, /obj/item/clothing/ears/earmuffs) || istype(r_ear, /obj/item/clothing/ears/earmuffs))	//resting your ears with earmuffs heals ear damage faster
+		if(protected_from_sound())	// resting your ears make them heal faster
 			adjustEarDamage(-0.15, 0)
-			setEarDamage(-1, max(ear_deaf, 1))
+			setEarDamage(-1)
 		else if(ear_damage < HEARING_DAMAGE_SLOW_HEAL)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
 			adjustEarDamage(-0.05, 0)
 
