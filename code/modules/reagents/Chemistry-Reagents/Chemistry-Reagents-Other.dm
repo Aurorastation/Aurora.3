@@ -218,11 +218,12 @@
 /datum/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(ishuman(M))
-		if (M.mind && M.mind.vampire)
-			var/datum/vampire/vampire = M.mind.vampire
-			vampire.frenzy += removed * 5
-		else if(M.mind && cult.is_antagonist(M.mind) && prob(10))
-			cult.remove_antagonist(M.mind)
+		if(M.mind)
+			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
+			if(vampire)
+				vampire.frenzy += removed * 5
+			if(cult.is_antagonist(M.mind) && prob(10))
+				cult.remove_antagonist(M.mind)
 	if(alien && alien == IS_UNDEAD)
 		M.adjust_fire_stacks(10)
 		M.IgniteMob()
@@ -398,7 +399,7 @@
 	if(!temp_set) // so initial temperature-setting doesn't make stuff explode
 		temp_set = TRUE
 		return
-	if(abs(added_energy) > (specific_heat * 5 / volume)) // can explode via cold or heat shock
+	if(added_energy > (specific_heat * 5 / volume))
 		explode()
 
 /datum/reagent/nitroglycerin/apply_force(var/force)

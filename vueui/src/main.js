@@ -2,13 +2,14 @@
  * Vue.js based ui framework for SS13
  * Made for Aurora, by Karolis K.
  */
+import "core-js/stable"
 import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
 import Store from './store.js'
 import './assets/global.scss'
-import {setWindowKey, recallWindowGeometry} from './drag.js';
+import ByWin from './byWin'
 
 const requireComponent = require.context(
   './components', // The relative path of the components folder
@@ -40,11 +41,14 @@ if (document.getElementById("app")) {
   var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
   Store.loadState(state)
-  
+
   window.__wtimetimer = window.setInterval(() => {
     Store.state.wtime += 2
   }, 200)
-  
+
+  ByWin.setWindowKey(window.document.getElementById('vueui:windowId').getAttribute('content'))
+  ByWin.setupDrag()
+
   new Vue({
     data: Store.state,
     template: "<div id='content' tabindex='-1'><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
@@ -70,18 +74,8 @@ if (document.getElementById("app")) {
         deep: true
       }
     },
-    mounted: function () {
-      this.$nextTick(function() {
-        const options = {
-          size: [400, 600],
-        };
-        if (window.innerHeight && window.innerWidth) {
-          options.size = [window.innerWidth, window.innerHeight];
-        }
-        setWindowKey(document.getElementById('vueui:windowId').getAttribute('content'));
-        recallWindowGeometry(options);
-        document.getElementById('content').focus();
-      })
+    mounted() {
+      this.$el.focus()
     }
   }).$mount('#app')
 }
@@ -103,7 +97,7 @@ if (document.getElementById("dapp")) {
     },
     computed: {
       url() {
-        return window.location.href
+        return window.location.href + '?ext'
       }
     }
   }).$mount('#dapp')

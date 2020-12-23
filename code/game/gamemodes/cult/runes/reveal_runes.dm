@@ -1,7 +1,7 @@
 /datum/rune/reveal_runes
 	name = "revealing rune"
 	desc = "This rune is used to reveal hidden runes in a radius around us."
-	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
+	rune_flags = HAS_SPECIAL_TALISMAN_ACTION | CAN_MEMORIZE
 
 /datum/rune/reveal_runes/do_rune_action(mob/living/user, atom/movable/A)
 	reveal(user, A, 6, SPAN_WARNING("\The [A] turns into red dust, reveaing the surrounding runes."))

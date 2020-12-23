@@ -48,6 +48,7 @@
 	set desc = "50 CPU - Hacks a holopad shorting out its projector. Using a hacked holopad only turns on the audio feature."
 	set category = "Software"
 	var/price = 50
+
 	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price) || !ability_pay(user,price))
 		return
@@ -68,7 +69,11 @@
 	set desc = "100 CPU - Hacks existing camera, allowing you to add upgrade of your choice to it. Alternatively it lets you reactivate broken camera."
 	set category = "Software"
 	var/price = 100
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
 
 	if(target && !istype(target))
 		to_chat(user, "This is not a camera.")
@@ -129,6 +134,7 @@
 	set desc = "275 CPU - Uses station's emergency shielding system to create temporary barrier which lasts for few minutes, but won't resist gunfire."
 	set category = "Software"
 	var/price = 275
+
 	var/mob/living/silicon/ai/user = usr
 	if(!T || !istype(T))
 		return
@@ -148,8 +154,8 @@
 	set desc = "400 CPU - Causes cyclic short-circuit in machine, resulting in weak explosion after some time."
 	set category = "Software"
 	var/price = 400
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price))
 		return
 
@@ -226,7 +232,12 @@
 	set desc = "300 CPU - Hacks the gravity generator. Making gravity reverse for short moment and making victims fall down really hard on the floor."
 	set category = "Software"
 	var/price = 300
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
+
 	var/area/Area = get_area(user?.eyeobj.loc)
 	if(!Area)
 		return

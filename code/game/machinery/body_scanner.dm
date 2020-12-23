@@ -754,9 +754,9 @@
 	for(var/obj/item/organ/internal/i in occ["internal_organs"])
 
 		var/mech = ""
-		if(i.robotic == 1)
+		if(i.robotic == ROBOTIC_ASSISTED)
 			mech = "Assisted:"
-		if(i.robotic == 2)
+		if(i.robotic == ROBOTIC_MECHANICAL)
 			mech = "Mechanical:"
 
 		var/infection = get_infection_level(i.germ_level)

@@ -41,13 +41,43 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/poncho/dominia_cape
-	name = "dominia cape"
-	desc = "This is a cape in the style of Dominia nobility. It's the latest fashion across Dominian space."
+	name = "dominian cape"
+	desc = "This is a cape in the style of Dominian nobility. It's the latest fashion across Dominian space."
 	icon = 'icons/clothing/suits/capes/dominia.dmi'
 	icon_state = "dominian_cape"
 	item_state = "dominian_cape"
 	icon_override = null
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/dominia_cape/strelitz
+	name = "house strelitz cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Strelitz."
+	icon_state = "strelitz_cape"
+	item_state = "strelitz_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
+	name = "house volvalaad cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Volvalaad."
+	icon_state = "volvalaad_cape"
+	item_state = "volvalaad_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
+	name = "house kazhkz cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Kazhkz."
+	icon_state = "kazhkz_cape"
+	item_state = "kazhkz_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/caladius
+	name = "house caladius cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Caladius."
+	icon_state = "caladius_cape"
+	item_state = "caladius_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/zhao
+	name = "house zhao cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Zhao."
+	icon_state = "zhao_cape"
+	item_state = "zhao_cape"
 
 /obj/item/clothing/suit/storage/toggle/dominia
 	name = "dominia great coat"
