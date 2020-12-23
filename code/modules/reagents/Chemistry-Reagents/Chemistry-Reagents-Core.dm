@@ -24,8 +24,9 @@
 			var/list/my_chems = data["trace_chem"]
 			for(var/chem in other_chems)
 				my_chems[chem] = my_chems[chem] + other_chems[chem]
-	var/list/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
-	if(!(MODE_VAMPIRE in mind?.antag_datums) && blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species")))
+	var/datum/weakref/W = data["donor"]
+	var/mob/living/carbon/self = W.resolve()
+	if(!(MODE_VAMPIRE in self?.mind?.antag_datums) && blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species")))
 		remove_self(newamount * 0.5, holder) // So the blood isn't *entirely* useless
 		holder.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
 	. = data

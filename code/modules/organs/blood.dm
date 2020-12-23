@@ -173,7 +173,7 @@
 		reagents.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood), temperature = species?.body_temperature)
 		return
 	// Incompatibility is handled in mix_data now.
-	vessel.add_reagent(/decl/reagent/blood, amount, injected_data, temperature = species?.body_temperature)
+	vessel.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood), temperature = species?.body_temperature)
 	..()
 
 proc/blood_incompatible(donor,receiver,donor_species,receiver_species)

@@ -171,7 +171,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency
 	name = "autoinjector (emergency)"
-	reagents_to_add = list(/datum/reagent/inaprovaline = 2.5, /datum/reagent/dexalin = 2.5)
+	reagents_to_add = list(/decl/reagent/inaprovaline = 2.5, /decl/reagent/dexalin = 2.5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency/Initialize()
 	. = ..()
