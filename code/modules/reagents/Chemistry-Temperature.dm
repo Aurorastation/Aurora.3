@@ -63,6 +63,15 @@
 	return add_thermal_energy(-thermal_energy + get_thermal_energy_change(0,new_temperature), safety )
 
 /datum/reagents/proc/equalize_temperature()
+	switch(LAZYLEN(reagent_volumes))
+		if(0)
+			return FALSE
+		if(1)
+			if(LAZYACCESS(reagent_data, reagent_volumes[1]) && LAZYACCESS(reagent_data[reagent_volumes[1]], "last_thermal_energy"))
+				thermal_energy = reagent_data[reagent_volumes[1]]["last_thermal_energy"]
+				LAZYREMOVE(reagent_data[reagent_volumes[1]], "last_thermal_energy")
+			return FALSE
+
 	. = FALSE
 	var/total_separate_energy = 0
 
