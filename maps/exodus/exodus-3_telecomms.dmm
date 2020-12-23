@@ -22,8 +22,8 @@
 /area/derelict/ship)
 "al" = (
 /obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion_r";
-	dir = 4
+	dir = 4;
+	icon_state = "propulsion_r"
 	},
 /turf/template_noop,
 /area/derelict/ship)
@@ -148,8 +148,8 @@
 /area/derelict/ship)
 "aI" = (
 /obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion_l";
-	dir = 4
+	dir = 4;
+	icon_state = "propulsion_l"
 	},
 /turf/template_noop,
 /area/derelict/ship)
@@ -224,8 +224,8 @@
 /area/derelict/ship)
 "aT" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
@@ -465,8 +465,8 @@
 	pixel_x = -24
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
@@ -607,8 +607,8 @@
 /area/turret_protected/tcomsat)
 "cl" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/apc{
 	dir = 1;
@@ -1018,8 +1018,8 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "ds" = (
@@ -1031,8 +1031,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "dt" = (
@@ -1044,8 +1044,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "du" = (
@@ -1062,8 +1062,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "dv" = (
@@ -1080,8 +1080,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tcommsat/computer)
 "dw" = (
@@ -1206,8 +1206,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "dN" = (
@@ -1336,8 +1336,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tcommsat/computer)
 "dY" = (
@@ -1361,8 +1361,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 6
@@ -1376,8 +1376,8 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -1398,8 +1398,8 @@
 	},
 /obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -1417,8 +1417,8 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -1467,8 +1467,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "eh" = (
@@ -1489,8 +1489,8 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "ej" = (
@@ -1513,8 +1513,8 @@
 /area/tcommsat/chamber)
 "el" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/apc{
 	dir = 1;
@@ -1650,8 +1650,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "ev" = (
@@ -1716,8 +1716,8 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "eC" = (
@@ -1790,8 +1790,8 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "eL" = (
@@ -1892,8 +1892,8 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "eV" = (
@@ -1957,8 +1957,8 @@
 	pixel_x = -32
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -2031,8 +2031,8 @@
 	},
 /obj/structure/lattice,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2047,8 +2047,8 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "fo" = (
@@ -2060,8 +2060,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "fp" = (
@@ -2246,9 +2246,9 @@
 	external_pressure_bound = 140;
 	external_pressure_bound_default = 140;
 	icon_state = "map_vent_out";
-	use_power = 1;
 	pressure_checks = 0;
-	pressure_checks_default = 0
+	pressure_checks_default = 0;
+	use_power = 1
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -2284,10 +2284,10 @@
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
-	use_power = 1;
 	pressure_checks = 2;
 	pressure_checks_default = 2;
-	pump_direction = 0
+	pump_direction = 0;
+	use_power = 1
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -2334,8 +2334,8 @@
 	pixel_y = 24
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -2445,8 +2445,8 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "gg" = (
@@ -2458,8 +2458,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomfoyer)
 "gh" = (
@@ -2504,8 +2504,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomfoyer)
 "gm" = (
@@ -2517,8 +2517,8 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/turret_protected/tcomsat)
 "gn" = (
@@ -2617,8 +2617,8 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
@@ -2631,8 +2631,8 @@
 	mapped_in = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -2690,8 +2690,8 @@
 	name = "telecoms power monitoring"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/sensor{
 	long_range = 1;
@@ -2930,14 +2930,14 @@
 	id_tag = "telecoms_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	tag_airpump = "telecoms_pump";
-	tag_exterior_door = "telecoms_outer";
 	frequency = 1381;
 	id_tag = "telecoms_airlock";
-	tag_interior_door = "telecoms_inner";
 	pixel_y = -25;
 	req_access = list(13);
-	tag_chamber_sensor = "telecoms_sensor"
+	tag_airpump = "telecoms_pump";
+	tag_chamber_sensor = "telecoms_sensor";
+	tag_exterior_door = "telecoms_outer";
+	tag_interior_door = "telecoms_inner"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1381;
@@ -3123,8 +3123,8 @@
 /area/AIsattele)
 "hH" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/airless,
 /area/AIsattele)

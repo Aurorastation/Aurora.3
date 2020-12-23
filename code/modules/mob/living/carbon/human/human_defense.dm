@@ -187,31 +187,28 @@ emp_act
 				if(s.surge_left)
 					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
 				else
-					s.broken = 1
+					s.broken = TRUE
 					s.icon_state = "surge_ipc_broken"
 					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
-				return 1
+				return TRUE
 			else if(s.surge_left == 0.5)
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended.</span>")
 				for(var/obj/O in src)
-					if(!O)	continue
+					if(!O)
+						continue
 					O.emp_act(severity * 2) // EMP act takes reverse numbers
 				for(var/obj/item/organ/external/O  in organs)
 					O.emp_act(severity)
 					for(var/obj/item/organ/I  in O.internal_organs)
-						if(I.robotic == 0)	continue
+						if(I.robotic == ROBOTIC_NONE)
+							continue
 						I.emp_act(severity * 2) // EMP act takes reverse numbers
-				return 1
+				return TRUE
 			else
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
+
 	for(var/obj/O in src)
-		if(!O)	continue
 		O.emp_act(severity)
-	for(var/obj/item/organ/external/O  in organs)
-		O.emp_act(severity)
-		for(var/obj/item/organ/I  in O.internal_organs)
-			if(I.robotic == 0)	continue
-			I.emp_act(severity)
 	..()
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
@@ -447,6 +444,11 @@ emp_act
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O
+	else if(ishuman(AM))
+		var/mob/living/carbon/human/H = AM
+		H.Weaken(3)
+		Weaken(3)
+		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))
 
 /mob/living/carbon/human/embed(var/obj/O, var/def_zone=null)
 	if(!def_zone) ..()

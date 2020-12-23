@@ -32,15 +32,11 @@
 	accuracy_wielded = -1
 
 /obj/item/gun/projectile/heavysniper/update_icon()
+	..()
 	if(bolt_open)
 		icon_state = "heavysniper-open"
 	else
 		icon_state = "heavysniper"
-	if(wielded)
-		item_state = "heavysniper-wielded"
-	else
-		item_state = "heavysniper"
-	update_held_icon()
 
 /obj/item/gun/projectile/heavysniper/attack_self(mob/user as mob)
 	bolt_open = !bolt_open
@@ -108,17 +104,13 @@
 	has_scope = FALSE
 
 /obj/item/gun/projectile/heavysniper/unathi/update_icon()
+	..()
 	if(bolt_open && length(loaded))
 		icon_state = "slugger-open-loaded"
 	else if(bolt_open && !length(loaded))
 		icon_state = "slugger-open"
 	else
 		icon_state = "slugger"
-	if(wielded)
-		item_state = "slugger-wielded"
-	else
-		item_state = "slugger"
-	update_held_icon()
 
 /obj/item/gun/projectile/heavysniper/unathi/handle_post_fire(mob/user)
 	..()
@@ -169,15 +161,11 @@
 	accuracy_wielded = 2
 
 /obj/item/gun/projectile/heavysniper/tranq/update_icon()
+	..()
 	if(bolt_open)
 		icon_state = "tranqsniper-open"
 	else
 		icon_state = "tranqsniper"
-	if(wielded)
-		item_state = "tranqsniper-wielded"
-	else
-		item_state = "tranqsniper"
-	update_held_icon()
 
 /obj/item/gun/projectile/dragunov
 	name = "marksman rifle"
@@ -211,18 +199,11 @@
 	accuracy_wielded = 1
 
 /obj/item/gun/projectile/dragunov/update_icon()
-
+	..()
 	if(ammo_magazine)
 		icon_state = "dragunov"
 	else
 		icon_state = "dragunov-empty"
-
-	if(wielded)
-		item_state = "dragunov-wielded"
-	else
-		item_state = "dragunov"
-
-	update_held_icon()
 
 /obj/item/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)
@@ -278,10 +259,3 @@
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
-
-/obj/item/gun/projectile/automatic/rifle/w556/update_icon()
-	if(wielded)
-		item_state = "w556rifle-wielded"
-	else
-		item_state = "w556rifle"
-	update_held_icon()

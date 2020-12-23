@@ -2,6 +2,7 @@
 	short_name = "mining_drone"
 	name = "Mining Drone"
 	desc = "Join in as a Mining Drone, assist the miners, get lost on the asteroid and cry synthetic tears."
+	show_on_job_select = FALSE
 	tags = list("Stationbound")
 
 	respawn_flag = MINISYNTH //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)

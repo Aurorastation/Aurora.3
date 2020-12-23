@@ -3,7 +3,7 @@
 	icon_state = "augment"
 	parent_organ = BP_CHEST
 	organ_tag = "augment"
-	robotic = 2
+	robotic = ROBOTIC_MECHANICAL
 	emp_coeff = 2
 	is_augment = TRUE
 	species_restricted = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,

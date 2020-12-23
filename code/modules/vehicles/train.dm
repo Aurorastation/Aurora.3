@@ -118,10 +118,6 @@
 		user.forceMove(loc)			//for handling players stuck in src
 	else if(load)
 		unload(user)			//unload if loaded
-	else if(!load && !user.buckled)
-		load(user)				//else try climbing on board
-	else
-		return 0
 
 /obj/vehicle/train/verb/unlatch_v()
 	set name = "Unlatch"

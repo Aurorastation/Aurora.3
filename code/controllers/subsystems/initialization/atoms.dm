@@ -13,6 +13,8 @@ var/datum/controller/subsystem/atoms/SSatoms
 	var/initialized = INITIALIZATION_INSSATOMS
 	var/old_initialized
 
+	var/list/late_misc_firers // this is a list of things that fire when late misc init is called
+
 	var/list/late_loaders
 	var/list/created_atoms
 	var/list/late_qdel

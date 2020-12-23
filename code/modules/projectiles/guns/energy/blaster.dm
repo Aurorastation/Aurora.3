@@ -103,14 +103,6 @@
 
 	is_wieldable = TRUE
 
-/obj/item/gun/energy/blaster/rifle/update_icon()
-	..()
-	if(wielded)
-		item_state = "blaster_rifle-wielded"
-	else
-		item_state = initial(item_state)
-	update_held_icon()
-
 /obj/item/gun/energy/blaster/rifle/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
