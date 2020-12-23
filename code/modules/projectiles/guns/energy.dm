@@ -137,7 +137,6 @@
 	return
 
 /obj/item/gun/energy/update_icon()
-	..()
 	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
 		var/icon_state_ratio = ""
@@ -160,7 +159,8 @@
 		else
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
-	update_held_icon()
+			
+	..()
 
 /obj/item/gun/energy/handle_post_fire()
 	..()

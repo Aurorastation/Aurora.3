@@ -529,20 +529,18 @@
 /obj/structure/window/reinforced/crescent/shatter()
 	return
 
-/obj/machinery/button/windowtint
+/obj/machinery/button/switch/windowtint
 	name = "window tint control"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "light0"
 	desc = "A remote control switch for polarized windows."
 	var/range = 16
 
-/obj/machinery/button/windowtint/attack_hand(mob/user as mob)
+/obj/machinery/button/switch/windowtint/attack_hand(mob/user as mob)
 	if(..())
 		return 1
 
 	toggle_tint()
 
-/obj/machinery/button/windowtint/proc/toggle_tint()
+/obj/machinery/button/switch/windowtint/proc/toggle_tint()
 	use_power(5)
 
 	active = !active
@@ -554,10 +552,10 @@
 				W.toggle()
 				return
 
-/obj/machinery/button/windowtint/power_change()
+/obj/machinery/button/switch/windowtint/power_change()
 	..()
 	if(active && !powered(power_channel))
 		toggle_tint()
 
-/obj/machinery/button/windowtint/update_icon()
+/obj/machinery/button/switch/windowtint/update_icon()
 	icon_state = "light[active]"

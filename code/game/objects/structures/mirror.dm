@@ -10,11 +10,13 @@
 	var/list/ui_users = list()
 
 /obj/structure/mirror/attack_hand(mob/user as mob)
+	if(shattered)
+		return
 
-	if(shattered)	return
-
-	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
-		to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
+	if(user.mind)
+		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
+		if(vampire && !(vampire.status & VAMP_ISTHRALL))
+			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
 	if(ishuman(user))
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]
@@ -82,9 +84,10 @@
 	var/list/ui_users = list()
 
 /obj/item/mirror/attack_self(mob/user as mob)
-
-	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
-		to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
+	if(user.mind)
+		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
+		if(vampire && !(vampire.status & VAMP_ISTHRALL))
+			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
 	if(ishuman(user))
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]

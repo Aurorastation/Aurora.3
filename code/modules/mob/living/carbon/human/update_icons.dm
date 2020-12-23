@@ -174,7 +174,6 @@ There are several things that need to be remembered:
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
 			animate(src, transform = M, time = ANIM_LYING_TIME)
-		handle_floating_message_orientation()
 
 	compile_overlays()
 	lying_prev = lying
@@ -221,6 +220,24 @@ There are several things that need to be remembered:
 		LAZYADD(ovr, DI)
 
 	overlays_raw[DAMAGE_LAYER] = ovr
+	update_bandages(update_icons)
+	if(update_icons)
+		update_icon()
+
+/mob/living/carbon/human/proc/update_bandages(var/update_icons = TRUE)
+	var/bandage_icon = species.bandages_icon
+	if(!bandage_icon)
+		return
+	var/image/standing_image = overlays_raw[DAMAGE_LAYER]
+	if(standing_image)
+		for(var/obj/item/organ/external/O in organs)
+			if(O.is_stump())
+				continue
+			var/bandage_level = O.bandage_level()
+			if(bandage_level)
+				standing_image += image(bandage_icon, "[O.icon_name][bandage_level]")
+
+		overlays_raw[DAMAGE_LAYER] = standing_image
 
 	if(update_icons)
 		update_icon()
@@ -241,7 +258,6 @@ There are several things that need to be remembered:
 		return
 
 	var/husk_color_mod = rgb(96,88,80)
-	var/hulk_color_mod = rgb(48,224,40)
 
 	var/husk = (HUSK in mutations)
 	var/fat = (FAT in mutations)
@@ -260,7 +276,12 @@ There are several things that need to be remembered:
 		qdel(stand_icon)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!hulk][!!skeleton]"
+	var/is_frenzied = FALSE
+	if(mind)
+		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+		if(vampire && (vampire.status & VAMP_FRENZIED))
+			is_frenzied = TRUE
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!hulk][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
@@ -303,12 +324,14 @@ There are several things that need to be remembered:
 			else
 				base_icon.Blend(temp, ICON_OVERLAY)
 
+			var/list/add_images = part.get_additional_images(src)
+			if(add_images)
+				add_overlay(add_images, TRUE)
+		compile_overlays()
+
 		if(!(species.flags & NO_SCAN))
 			if(husk)
 				base_icon.ColorTone(husk_color_mod)
-			else if(hulk)
-				var/list/tone = ReadRGB(hulk_color_mod)
-				base_icon.MapColors(rgb(tone[1],0,0),rgb(0,tone[2],0),rgb(0,0,tone[3]))
 
 		//Handle husk overlay.
 		if(husk && ("overlay_husk" in icon_states(species.icobase)))
