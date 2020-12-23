@@ -595,8 +595,8 @@
 	desc = "A limited edition seasonal pastry."
 	icon_state = "donut_ps"
 	reagent_data = list(/decl/reagent/nutriment = list("pumpkin spice" = 1, "donut" = 2))
-	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/sprinkles = 1)
 
+	reagents_to_add = list(/decl/reagent/nutriment/sprinkles = 1)
 /obj/item/reagent_containers/food/snacks/donut/normal/Initialize()
 	. = ..()
 	if(prob(30))
@@ -610,7 +610,7 @@
 	desc = "Like life, it never quite tastes the same."
 	icon_state = "donut1"
 	filling_color = "#ED11E6"
-	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/sprinkles = 1)
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment = 5, /decl/reagent/nutriment/sprinkles = 1)
 	reagent_data = list(/decl/reagent/nutriment = list("sweetness" = 1, "donut" = 2))
 	bitesize = 10
 

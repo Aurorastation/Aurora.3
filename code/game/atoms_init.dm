@@ -31,7 +31,6 @@
 		for(var/v in reagents_to_add)
 			reagents.maximum_volume += max(LAZYACCESS(reagents_to_add, v) - REAGENTS_FREE_SPACE(reagents), 0)
 			reagents.add_reagent(v, LAZYACCESS(reagents_to_add, v), LAZYACCESS(reagent_data, v))
-		reagents.update_total() // to avoid temperature fuckups
 
 	if (light_power && light_range)
 		update_light()
