@@ -628,7 +628,7 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/Initialize()
 	. = ..()
 	if(!internal_bodyscanner)
-		var/obj/machinery/bodyscanner/S = new (src)
+		var/obj/machinery/body_scanconsole/S = new (src)
 		S.forceMove(src)
 		S.use_power = FALSE
 		internal_bodyscanner = S
