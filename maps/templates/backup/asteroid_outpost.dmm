@@ -453,7 +453,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "bL" = (
-/obj/item/material/stool/padded/red,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "bM" = (

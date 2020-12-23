@@ -1,4 +1,4 @@
-/obj/structure/bed/stool/chair	//YES, chairs are a type of bed, which are a type of stool. This works, believe me.	-Pete
+/obj/structure/bed/stool/chair	//YES, chairs are a type of bed, which are a type of stool. This works, believe me.	-Pete // Not anymore. - Wezzy
 	name = "chair"
 	desc = "You sit in this. Either by will or force."
 	icon_state = "chair_preview"
@@ -117,7 +117,7 @@
 
 /obj/structure/bed/stool/chair/office
 	name = "office chair"
-	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	material_alteration = MATERIAL_ALTERATION_DESC
 	makes_rolling_sound = TRUE
 	anchored = 0
 	buckle_movable = 1
@@ -299,6 +299,13 @@
 	else
 		M.pixel_y = initial(M.pixel_y)
 
+/obj/structure/bed/stool/chair/folding
+	name = "folding chair"
+	desc = "Temporary seating perfect for your next office party and/or wrestling match."
+	icon_state = "folding_chair_preview"
+	base_icon = "folding_chair"
+	held_item = /obj/item/material/stool/chair/folding
+
 /obj/item/material/stool/chair
 	name = "chair"
 	desc = "Bar brawl essential. Now all that's missing is a ragtime piano."
@@ -331,3 +338,9 @@
 	item_state = "woodenchair"
 	base_icon= "wooden_chair_wings"
 	origin_type = /obj/structure/bed/stool/chair/wood/wings
+
+/obj/item/material/stool/chair/folding
+	icon_state = "folding_chair_toppled"
+	item_state = "folding_chair"
+	base_icon = "folding_chair"
+	origin_type = /obj/structure/bed/stool/chair/folding

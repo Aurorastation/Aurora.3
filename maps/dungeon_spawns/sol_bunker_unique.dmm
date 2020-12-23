@@ -62,7 +62,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ap" = (
-/obj/item/material/stool/padded/red,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
@@ -92,7 +92,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "av" = (
-/obj/item/material/stool/padded/red,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/flour,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -108,7 +108,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ay" = (
-/obj/item/material/stool/padded/red,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "az" = (
@@ -137,7 +137,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "aD" = (
-/obj/item/material/stool/padded/red,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
@@ -148,7 +148,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "aF" = (
-/obj/item/material/stool/padded/red,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	brightness_color = "#FA8282"
@@ -433,7 +433,7 @@
 	brightness_color = "#FA8282";
 	dir = 1
 	},
-/obj/item/material/stool/padded/red,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/wood{
 	nitrogen = 0;
 	oxygen = 0

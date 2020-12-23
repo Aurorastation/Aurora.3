@@ -510,7 +510,7 @@
 /area/derelict/ship)
 "by" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/material/stool,
+/obj/structure/bed/stool,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bz" = (
