@@ -22,6 +22,7 @@
 	if(!REAGENT_DATA(holder, type))
 		LAZYINITLIST(holder.reagent_data[type])
 	LAZYSET(holder.reagent_data[type], "last_thermal_energy", amount) // on_heat_change() is called in equalize_temperature()
+	holder.equalize_temperature()
 
 /decl/reagent/proc/add_thermal_energy(amount, var/datum/reagents/holder)
 	set_thermal_energy(get_thermal_energy(holder) + amount, holder)

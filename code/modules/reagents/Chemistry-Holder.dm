@@ -48,8 +48,7 @@
 	for(var/R in reagent_volumes)
 		var/vol = reagent_volumes[R]
 		if(vol < MINIMUM_CHEMICAL_VOLUME)
-			reagent_volumes -= R
-			reagent_data -= R
+			del_reagent(R)
 		else
 			total_volume += vol
 			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
@@ -158,10 +157,9 @@
 	return TRUE
 
 /datum/reagents/proc/del_reagent(var/rtype)
-	if(REAGENT_VOLUME(src, rtype) <= 0)
-		return FALSE
 	var/decl/reagent/current = decls_repository.get_decl(rtype)
-	thermal_energy -= current.get_thermal_energy(src)
+	if(REAGENT_VOLUME(src, rtype) > 0)
+		thermal_energy -= current.get_thermal_energy(src)
 	if(ismob(my_atom))
 		current.final_effect(my_atom, src)
 	reagent_data -= rtype

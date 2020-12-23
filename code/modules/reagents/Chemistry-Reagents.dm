@@ -146,5 +146,5 @@
 /decl/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
 
-/decl/reagent/proc/mix_data(var/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
+/decl/reagent/proc/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return
