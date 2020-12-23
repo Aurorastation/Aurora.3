@@ -130,7 +130,6 @@
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
-	new /obj/item/rfd/construction/hephaestus(src)
 
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "atmospheric technician's locker"

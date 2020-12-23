@@ -116,7 +116,7 @@
 /obj/machinery/mech_recharger/hephaestus
 	name = "hephaestus exosuit dock"
 	desc = "A massive vehicle dock elevated slightly above the ground, constructed for equally massive charging speeds."
-	icon_state = "hep_recharge_floor"
+	icon_state = "supermechcharger"
 	idle_power_usage = 400
 	active_power_usage = 120 KILOWATTS
 

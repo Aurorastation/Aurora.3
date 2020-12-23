@@ -613,3 +613,192 @@ BREATH ANALYZER
 				++unknown
 		if(unknown)
 			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")
+
+
+/obj/item/device/advanced_healthanalyzer
+	name = "zeng-hu body analyzer"
+	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
+	icon_state = "zh-analyzer"
+	item_state = "healthanalyzer"
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_NORMAL
+	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
+
+/obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
+	if(do_after(user, 7 SECONDS, TRUE))
+		print_scan(M, user)
+		add_fingerprint(user)
+
+/obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
+	var/obj/item/paper/R = new(loc)
+	R.color = "#eeffe8"
+	R.set_content_unsafe("Scan ([M.name])", format_medical_data(get_medical_data(M)))
+
+	print(R, message = "\The [src] beeps, printing \the [R] after a moment.")
+
+
+/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/M)
+	if (!M || !ishuman(M))
+		return
+
+	var/mob/living/carbon/human/H = M
+
+	var/list/medical_data = list(
+		"stationtime" = worldtime2text(),
+		"brain_activity" = H.get_brain_status(),
+		"blood_volume" = H.get_blood_volume(),
+		"blood_oxygenation" = H.get_blood_oxygenation(),
+		"blood_pressure" = H.get_blood_pressure(),
+
+		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
+		"fireloss" = get_severity(H.getFireLoss(), TRUE),
+		"oxyloss" = get_severity(H.getOxyLoss(), TRUE),
+		"toxloss" = get_severity(H.getToxLoss(), TRUE),
+		"cloneloss" = get_severity(H.getCloneLoss(), TRUE),
+
+		"rads" = H.total_radiation,
+		"paralysis" = H.paralysis,
+		"bodytemp" = H.bodytemperature,
+		"borer_present" = H.has_brain_worms(),
+		"inaprovaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/inaprovaline),
+		"dexalin_amount" = H.reagents.get_reagent_amount(/datum/reagent/dexalin),
+		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/soporific),
+		"bicaridine_amount" = H.reagents.get_reagent_amount(/datum/reagent/bicaridine),
+		"dermaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/dermaline),
+		"blood_amount" = H.vessel.get_reagent_amount(/datum/reagent/blood),
+		"disabilities" = H.sdisabilities,
+		"lung_ruptured" = H.is_lung_ruptured(),
+		"external_organs" = H.organs.Copy(),
+		"internal_organs" = H.internal_organs.Copy(),
+		"species_organs" = H.species.has_organ //Just pass a reference for this, it shouldn't ever be modified outside of the datum.
+		)
+	return medical_data
+
+/obj/item/device/advanced_healthanalyzer/proc/format_medical_data(var/list/occ)
+	var/dat = "<span class='notice'><b>Scan performed at [occ["stationtime"]]</b></span><br>"
+	dat += "<span class='notice'><b>Target Statistics:</b></span><br>"
+	dat += text("Brain Activity: []<br>", occ["brain_activity"])
+	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
+	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
+	dat += text("Physical Trauma: []<br>", occ["bruteloss"])
+	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
+	dat += text("Systemic Organ Failure: []<br>", occ["toxloss"])
+	dat += text("Burn Severity: []<br><br>", occ["fireloss"])
+
+	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
+	dat += text("Genetic Tissue Damage: []<br>", occ["cloneloss"])
+	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
+	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
+
+	if(occ["borer_present"])
+		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
+
+	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
+	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
+	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
+	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
+	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
+
+	dat += "<HR><table border='1'>"
+	dat += "<tr>"
+	dat += "<th>Organ</th>"
+	dat += "<th>Burn Severity</th>"
+	dat += "<th>Physical Trauma</th>"
+	dat += "<th>Other Wounds</th>"
+	dat += "</tr>"
+
+	for(var/obj/item/organ/external/e in occ["external_organs"])
+		var/AN = ""
+		var/open = ""
+		var/infected = ""
+		var/imp = ""
+		var/bled = ""
+		var/robot = ""
+		var/splint = ""
+		var/internal_bleeding = ""
+		var/severed_tendon = ""
+		var/lung_ruptured = ""
+		var/dislocated = ""
+
+		dat += "<tr>"
+
+		if(e.status & ORGAN_ARTERY_CUT)
+			internal_bleeding = "Arterial bleeding."
+		if(e.status & ORGAN_TENDON_CUT)
+			severed_tendon = "Severed tendon."
+		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
+			lung_ruptured = "Lung ruptured."
+		if(e.status & ORGAN_SPLINTED)
+			splint = "Splinted."
+		if(e.is_dislocated())
+			dislocated = "Dislocated."
+		if(e.status & ORGAN_BLEEDING)
+			bled = "Bleeding."
+		if(e.status & ORGAN_BROKEN)
+			AN = "[e.broken_description]."
+		if(e.status & ORGAN_ROBOT)
+			robot = "Prosthetic."
+		if(e.open)
+			open = "Open."
+
+		var/infection = "[get_infection_level(e.germ_level)] infection"
+		if (infection == "")
+			infection = "None"
+		if(e.rejecting)
+			infected += " (being rejected)"
+
+		if (e.implants.len)
+			var/unknown_body = 0
+			for(var/I in e.implants)
+				if(is_type_in_list(I,known_implants))
+					imp += "[I] implanted:"
+				else
+					unknown_body++
+			if(unknown_body)
+				imp += "Unknown body present:"
+
+		if(!AN && !open && !infected & !imp)
+			AN = "None:"
+		if(!e.is_stump())
+			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
+		else
+			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
+		dat += "</tr>"
+
+	for(var/obj/item/organ/internal/i in occ["internal_organs"])
+
+		var/mech = ""
+		if(i.robotic == ROBOTIC_ASSISTED)
+			mech = "Assisted:"
+		if(i.robotic == ROBOTIC_MECHANICAL)
+			mech = "Mechanical:"
+
+		var/infection = get_infection_level(i.germ_level)
+		if (infection == "")
+			infection = "None"
+		else
+			infection = "[infection] infection"
+		if(i.rejecting)
+			infection += "(being rejected)"
+
+		var/necrotic = ""
+		if(i.get_scarring_level() > 0.01)
+			necrotic += ", [i.get_scarring_results()]"
+		if(i.status & ORGAN_DEAD)
+			necrotic = ", <span class='warning'>necrotic and decaying</span>"
+
+		dat += "<tr>"
+		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
+		dat += "</tr>"
+	dat += "</table>"
+
+	var/list/species_organs = occ["species_organs"]
+	for(var/organ_name in species_organs)
+		if(!locate(species_organs[organ_name]) in occ["internal_organs"])
+			dat += text("<span class='warning'>No [organ_name] detected.</span><BR>")
+
+	if(occ["sdisabilities"] & BLIND)
+		dat += text("<span class='warning'>Cataracts detected.</span><BR>")
+	if(occ["sdisabilities"] & NEARSIGHTED)
+		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
+	return dat

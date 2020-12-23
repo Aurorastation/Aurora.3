@@ -336,20 +336,6 @@ RFD Construction-Class
 /obj/item/rfd/construction/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat && !user.restrained())
 
-/obj/item/rfd/construction/hephaestus
-	name = "\improper Hephaestus Rapid-Fabrication-Device C-Class"
-	desc = "The Hephaestus take on an old RFD-C design. It’s a safer, higher-capacity version in company colors."
-	icon_state = "heph_rfd"
-	item_state = "heph_rfd"
-	stored_matter = 45
-
-/obj/item/rfd/construction/hephaestus/Initialize()
-	. = ..()
-	radial_modes = list(
-		"Floors and Walls" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "wallfloor"),
-		"Windows and Grille" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "grillewindow"),
-		"Airlock" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "airlock")
-	)
 
 /*
 RFD Service-Class
