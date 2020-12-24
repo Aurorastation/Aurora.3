@@ -94,7 +94,7 @@
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
 		BP_CELL    = /obj/item/organ/internal/cell,
-		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		"surge"   = /obj/item/organ/internal/surge/advanced
 	)
 
@@ -245,7 +245,7 @@
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/internal/cell/terminator,
-		BP_OPTICS = /obj/item/organ/internal/eyes/optical_sensor/terminator,
+		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/internal/data,
 		"surge"   = /obj/item/organ/internal/surge/advanced
 	)
@@ -393,7 +393,7 @@
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
 		BP_CELL    = /obj/item/organ/internal/cell,
-		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
 
@@ -547,7 +547,7 @@
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
 		BP_CELL    = /obj/item/organ/internal/cell,
-		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
 

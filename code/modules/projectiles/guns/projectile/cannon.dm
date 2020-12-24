@@ -22,14 +22,6 @@
 	found in museums and forgotten warehouses were adapted into portable weapons, combining modern and ancient tajaran technology. This weapon is usually found in the hands of the \
 	sailors and marines of the Royal Navy."
 
-/obj/item/gun/projectile/cannon/update_icon()
-	if(wielded)
-		item_state = "cannon-wielded"
-	else
-		item_state = "cannon"
-	update_held_icon()
-
-
 /obj/item/gun/projectile/cannon/special_check(mob/user)
 	if(!wielded)
 		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
@@ -62,17 +54,11 @@
 	causing the annihilation of the military base of Quizosa. The nuclear launcher was created by republican scientists as way to deploy this destructive force while on the field."
 
 /obj/item/gun/projectile/nuke/update_icon()
+	..()
 	if(ammo_magazine)
 		icon_state = "blockbuster-[(ammo_magazine.stored_ammo.len)]"
 	else
 		icon_state = "blockbuster-0"
-
-	if(wielded)
-		item_state = "blockbuster-wielded"
-	else
-		item_state = "blockbuster"
-
-	update_held_icon()
 
 /obj/item/gun/projectile/nuke/special_check(mob/user)
 	if(!wielded)

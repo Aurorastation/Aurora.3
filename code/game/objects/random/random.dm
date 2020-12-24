@@ -1220,9 +1220,8 @@
 		/obj/item/eightball/broken						= 1,
 		/obj/item/spirit_board					= 5,
 		/obj/item/device/laser_pointer					= 1,
-		/obj/item/clothing/accessory/badge/press/plastic = 2
-
-
+		/obj/item/clothing/accessory/badge/press/plastic = 2,
+		/obj/item/storage/box/partypopper						= 11
 	)
 
 /obj/random/arcade/orion
@@ -1495,7 +1494,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	spawnlist = list(
-		/obj/item/xmasgift/small = 0.5,
+		/obj/item/xmasgift = 0.5,
 		/obj/item/xmasgift/medium =  0.3,
 		/obj/item/xmasgift/large = 0.2
 	)
@@ -1689,4 +1688,17 @@
 		/obj/structure/reagent_dispensers/keg/beerkeg = 2,
 		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
 		/obj/structure/reagent_dispensers/keg/mead = 0.5
+	)
+
+/obj/random/pizzabox
+	name = "random pizzabox"
+	desc = "Contains a random pizzabox."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "pizzabox1"
+	spawnlist = list(
+		/obj/item/pizzabox/margherita,
+		/obj/item/pizzabox/vegetable,
+		/obj/item/pizzabox/mushroom,
+		/obj/item/pizzabox/meat,
+		/obj/item/pizzabox/pineapple
 	)

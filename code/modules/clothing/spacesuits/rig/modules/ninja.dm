@@ -165,8 +165,8 @@
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/fabricator/energy_net/engage(atom/target, mob/user)
-	if(holder && holder.wearer)
-		if(..(target) && target)
+	if(holder?.wearer && target)
+		if(..())
 			holder.wearer.Beam(target, "n_beam", , 10)
 		return TRUE
 	return FALSE
