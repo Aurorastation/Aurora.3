@@ -8,7 +8,6 @@ CREATE TABLE `ss13_characters_custom_items` (
 	`char_id` INT(11) NOT NULL,
 	`item_path` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_unicode_ci',
 	`item_data` LONGTEXT NOT NULL COLLATE 'utf8mb4_bin',
-	`req_access` SMALLINT(6) NULL DEFAULT NULL,
 	`req_titles` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_bin',
 	`additional_data` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
 	PRIMARY KEY (`id`) USING BTREE,

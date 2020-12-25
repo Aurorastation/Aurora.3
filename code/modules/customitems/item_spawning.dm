@@ -7,7 +7,7 @@
 // There is also a fallback mode for the DEPRECATED custom_items.txt. This fallback mode will be removed at some point.
 // You SHOULD migrate to json file (manually) or the db using the automatic migration feature described in the db section
 // When the equip_custom_items() proc is called for a specified mob, the custom_items list is iteraed over to determine which
-//  custom items belong to that mob of the player. Afterwards the items are spawned and applied to the mob (if the role/access match)
+//  custom items belong to that mob of the player. Afterwards the items are spawned and applied to the mob (if the role matches)
 //
 /// Database
 // In the database mode the custom items are NOT preloaded but fetched on demand based on the character id.
@@ -20,6 +20,7 @@
 /// Removed Features
 // The kits have been removed without replacement
 // The icon manipulation features have been removed without replacement
+// The required access has been removed without replacement
 // The name/desc field have been removed and replaced with the item_data system
 //  This allows to modify any (string/int) variable of a existing item via the custom_item system.
 //  The key in the item_data list is the name of the variable, and the value is the value of the variable.
@@ -75,9 +76,14 @@
 				ci.usr_ckey = item["ckey"]
 				ci.usr_charname = item["character_name"]
 				ci.item_path = text2path(item["item_path"])
-				ci.item_data["name"] = item["item_name"]
-				ci.item_data["desc"] = item["item_desc"]
+				if(item["item_data"])
+					ci.item_data = item["item_data"]
+				if(item["item_name"])
+					ci.item_data["name"] = item["item_name"]
+				if(item["item_desc"])
+					ci.item_data["desc"] = item["item_desc"]
 				ci.additional_data = item["additional_data"]
+				ci.req_titles = item["req_titles"]
 				custom_items.Add(ci)
 			log_debug("Custom Items: Loaded [length(custom_items)] custom items")
 		else if(fexists("config/custom_items.txt")) //TODO: Retire that at some point down the line
@@ -122,7 +128,7 @@
 					if("item_desc")
 						current_data.item_data["desc"] = field_data
 					if("req_access")
-						current_data.req_access = text2num(field_data)
+						continue
 					if("req_titles")
 						current_data.req_titles = text2list(field_data,", ")
 					if("kit_name")
@@ -156,8 +162,8 @@
 			var/char_id = text2num(char_query.item[1])
 
 			try
-				var/DBQuery/item_insert_query = dbcon.NewQuery("INSERT INTO ss13_characters_custom_items (`char_id`, `item_path`, `item_data`, `req_access`, `req_titles`, `additional_data`) VALUES (:char_id:, :item_path:, :item_data:, :req_access:, :req_titles:, :additional_data:)")
-				item_insert_query.Execute(list("char_id"=char_id,"item_path"="[ci.item_path]","item_data"=json_encode(ci.item_data),"req_access"=ci.req_access,"req_titles"=json_encode(ci.req_titles),"additional_data"=ci.additional_data))
+				var/DBQuery/item_insert_query = dbcon.NewQuery("INSERT INTO ss13_characters_custom_items (`char_id`, `item_path`, `item_data`, `req_titles`, `additional_data`) VALUES (:char_id:, :item_path:, :item_data:, :req_titles:, :additional_data:)")
+				item_insert_query.Execute(list("char_id"=char_id,"item_path"="[ci.item_path]","item_data"=json_encode(ci.item_data),"req_titles"=json_encode(ci.req_titles),"additional_data"=ci.additional_data))
 			catch(var/exception/e)
 				log_debug("Custom Items: Failed to save item to db: [e]")
 				error_count += 1
@@ -178,7 +184,6 @@
 	var/item_path
 	var/list/item_data = list()
 
-	var/req_access = 0
 	var/list/req_titles = list()
 
 	var/additional_data
@@ -216,7 +221,7 @@
 			log_debug("Custom Items: Unable to establish database connection while loading item. - Aborting")
 			return
 
-		var/DBQuery/char_item_query = dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_access, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
+		var/DBQuery/char_item_query = dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
 		char_item_query.Execute(list("char_id"=M.character_id))
 		while(char_item_query.NextRow())
 			CHECK_TICK
@@ -227,9 +232,8 @@
 			ci.usr_charname = char_item_query.item[4]
 			ci.item_path = text2path(char_item_query.item[5])
 			ci.item_data = json_decode(char_item_query.item[6]) //TODO: try/catch
-			ci.req_access = text2num(char_item_query.item[7])
-			ci.req_titles = json_decode(char_item_query.item[8]) //TODO: try/catch
-			ci.additional_data = char_item_query.item[9]
+			ci.req_titles = json_decode(char_item_query.item[7]) //TODO: try/catch
+			ci.additional_data = char_item_query.item[8]
 
 			equip_custom_item_to_mob(ci,M)
 	else
@@ -244,15 +248,8 @@
 
 
 /proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/M)
-	// Check for required access.
-	var/obj/item/I = M.wear_id
-	if(citem.req_access && citem.req_access > 0)
-		if(!(istype(I) && (citem.req_access in I.GetAccess())))
-			to_chat(M, "A custom item could not be equipped be due to lacking access.")
-			return FALSE
-
 	// Check for required job title.
-	if(citem.req_titles && citem.req_titles.len > 0)
+	if(citem.req_titles && length(citem.req_titles) > 0)
 		var/has_title
 		var/current_title = M.mind.role_alt_title ? M.mind.role_alt_title : M.mind.assigned_role
 		for(var/title in citem.req_titles)
