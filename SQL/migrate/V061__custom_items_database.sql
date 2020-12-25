@@ -12,7 +12,7 @@ CREATE TABLE `ss13_characters_custom_items` (
 	`additional_data` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
 	PRIMARY KEY (`id`) USING BTREE,
 	INDEX `FK_ss13_characters_custom_items_ss13_characters` (`char_id`) USING BTREE,
-	CONSTRAINT `FK_ss13_characters_custom_items_ss13_characters` FOREIGN KEY (`char_id`) REFERENCES `aurora_server`.`ss13_characters` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+	CONSTRAINT `FK_ss13_characters_custom_items_ss13_characters` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
 COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
