@@ -133,7 +133,8 @@ var/datum/controller/subsystem/economy/SSeconomy
 			var/obj/item/card/id/held_card = source_db.get_held_card()
 			info += "<i>Authorised NT officer overseeing creation:</i> [held_card.registered_name]<br>"
 
-			var/obj/item/paper/R = source_db.computer.nano_printer.print_text(info, pname, "#deebff")
+			var/obj/item/paper/R = source_db.computer.nano_printer.print_text("", pname, "#deebff")
+			R.set_content_unsafe(pname, info)
 			//stamp the paper
 			var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
 			stampoverlay.icon_state = "paper_stamp-cent"

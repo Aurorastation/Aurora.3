@@ -12,8 +12,6 @@
 	color = LIGHT_COLOR_BLUE
 
 	var/machine_id = ""
-	var/datum/money_account/detailed_account_view
-	var/creating_new_account = FALSE
 
 /datum/computer_file/program/account_db/New()
 	..()
@@ -62,6 +60,10 @@
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-command-accountdb", 400, 640, filedesc)
 	ui.open()
 
+/datum/computer_file/program/account_db/vueui_transfer(oldobj)
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-command-accountdb", 400, 640, filedesc)
+	return TRUE
+
 /datum/computer_file/program/account_db/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
@@ -74,47 +76,33 @@
 
 	var/obj/item/card/id/held_card = get_held_card()
 
-	data["src"] = "\ref[src]"
 	data["has_printer"] = !!computer.nano_printer
-	data["id_inserted"] = !!held_card
-	data["id_card"] = held_card ? text("[held_card.registered_name], [held_card.assignment]") : "-----"
+	data["id_card"] = held_card ? text("[held_card.registered_name], [held_card.assignment]") : FALSE
 	data["access_level"] = get_access_level()
 	data["machine_id"] = machine_id
-	data["creating_new_account"] = creating_new_account
-	data["detailed_account_view"] = !!detailed_account_view
 	data["station_account_number"] = SSeconomy.station_account.account_number
-	data["transactions"] = null
-	data["accounts"] = null
 
-	if (detailed_account_view)
-		data["account_number"] = detailed_account_view.account_number
-		data["owner_name"] = detailed_account_view.owner_name
-		data["money"] = detailed_account_view.money
-		data["suspended"] = detailed_account_view.suspended
-
-		var/list/trx = list()
-		for(var/datum/transaction/T in detailed_account_view.transactions)
-			trx.Add(list(list(\
-				"date" = T.date, \
-				"time" = T.time, \
-				"target_name" = T.target_name, \
-				"purpose" = T.purpose, \
-				"amount" = T.amount, \
-				"source_terminal" = T.source_terminal)))
-
-		if(length(trx))
-			data["transactions"] = trx
-
-	var/list/accounts = list()
-	for(var/M in SSeconomy.all_money_accounts)
-		var/datum/money_account/D = SSeconomy.get_account(M)
-		accounts.Add(list(list(\
-			"account_number"=D.account_number,\
-			"owner_name"=D.owner_name,\
-			"suspended"=D.suspended ? "SUSPENDED" : "")))
-
-	if(length(accounts))
-		data["accounts"] = accounts
+	data["accounts"] = list()
+	if(get_access_level())
+		for(var/M in SSeconomy.all_money_accounts)
+			var/datum/money_account/D = SSeconomy.get_account(M)
+			var/account_number = "[M]"
+			data["accounts"][account_number] = list()
+			data["accounts"][account_number]["no"] = D.account_number
+			data["accounts"][account_number]["owner"] = D.owner_name
+			data["accounts"][account_number]["sus"] = D.suspended
+			data["accounts"][account_number]["money"] = D.money
+			var/list/transactions = list()
+			data["accounts"][account_number]["transactions"] = transactions
+			for(var/datum/transaction/T in D.transactions)
+				var/Tref = ref(T)
+				transactions[Tref] = list()
+				transactions[Tref]["d"] = T.date
+				transactions[Tref]["t"] = T.time
+				transactions[Tref]["tar"] = T.target_name
+				transactions[Tref]["purp"] = T.purpose
+				transactions[Tref]["am"] = T.amount
+				transactions[Tref]["src"] = T.source_terminal
 
 	return data
 
@@ -122,137 +110,148 @@
 	if(..())
 		return TRUE
 
-	if(href_list["choice"])
-		switch(href_list["choice"])
-			if("create_account")
-				creating_new_account = TRUE
+	var/access_level = get_access_level()
 
-			if("add_funds")
-				var/amount = input("Enter the amount you wish to add", "Silently add funds") as num
-				if(detailed_account_view)
-					detailed_account_view.money = min(detailed_account_view.money + amount, FUND_CAP)
+	if(!access_level)
+		return
 
-			if("remove_funds")
-				var/amount = input("Enter the amount you wish to remove", "Silently remove funds") as num
-				if(detailed_account_view)
-					detailed_account_view.money = max(detailed_account_view.money - amount, -FUND_CAP)
+	if(href_list["create_account"])
+		var/account_name = href_list["create_account"]["name"]
+		var/starting_funds = max(href_list["create_account"]["funds"], 0)
 
-			if("toggle_suspension")
-				if(detailed_account_view)
-					detailed_account_view.suspended = !detailed_account_view.suspended
-					callHook("change_account_status", list(detailed_account_view))
+		starting_funds = Clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
+		starting_funds = min(starting_funds, FUND_CAP)								// Not authorized to give more than the fund cap.
 
-			if("finalise_create_account")
-				var/account_name = href_list["holder_name"]
-				var/starting_funds = max(text2num(href_list["starting_funds"]), 0)
+		SSeconomy.create_account(account_name, starting_funds, src)
 
-				starting_funds = Clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
-				starting_funds = min(starting_funds, FUND_CAP)								// Not authorized to give more than the fund cap.
+		if(starting_funds > 0)
+			//subtract the money
+			SSeconomy.station_account.money -= starting_funds
 
-				SSeconomy.create_account(account_name, starting_funds, src)
-				if(starting_funds > 0)
-					//subtract the money
-					SSeconomy.station_account.money -= starting_funds
+			//create a transaction log entry
+			var/datum/transaction/trx = create_transation(account_name, "New account activation", "([starting_funds])")
+			SSeconomy.add_transaction_log(SSeconomy.station_account,trx)
+	
+	if(href_list["suspend"])
+		var/account = href_list["suspend"]["account"]
 
-					//create a transaction log entry
-					var/datum/transaction/trx = create_transation(account_name, "New account activation", "([starting_funds])")
-					SSeconomy.add_transaction_log(SSeconomy.station_account,trx)
-				creating_new_account = 0
+		var/datum/money_account/Acc = SSeconomy.get_account(account)
+		if(Acc)
+			Acc.suspended = !Acc.suspended
+			callHook("change_account_status", list(Acc))
+		
+	
+	if(href_list["add_funds"] && access_level == 2)
+		var/account = href_list["add_funds"]["account"]
+		var/amount = href_list["add_funds"]["amount"]
 
-			if("view_account_detail")
-				detailed_account_view = SSeconomy.get_account(href_list["account_number"])
+		var/datum/money_account/Acc = SSeconomy.get_account(account)
+		if(Acc)
+			Acc.money = min(Acc.money + amount, FUND_CAP)
 
-			if("view_accounts_list")
-				detailed_account_view = null
-				creating_new_account = 0
+	if(href_list["remove_funds"] && access_level == 2)
+		var/account = href_list["remove_funds"]["account"]
+		var/amount = href_list["remove_funds"]["amount"]
 
-			if("revoke_payroll")
-				var/funds = detailed_account_view.money
-				var/account_trx = create_transation(SSeconomy.station_account.owner_name, "Revoke payroll", "([funds])")
-				var/station_trx = create_transation(detailed_account_view.owner_name, "Revoke payroll", funds)
+		var/datum/money_account/Acc = SSeconomy.get_account(account)
+		if(Acc)
+			Acc.money = max(Acc.money - amount, -FUND_CAP)
 
-				SSeconomy.station_account.money += funds
-				detailed_account_view.money = 0
+	if(href_list["revoke_payroll"])
+		var/account = href_list["revoke_payroll"]["account"]
 
-				SSeconomy.add_transaction_log(detailed_account_view,account_trx)
-				SSeconomy.add_transaction_log(SSeconomy.station_account,station_trx)
+		var/datum/money_account/Acc = SSeconomy.get_account(account)
+		if(Acc)
+			var/funds = Acc.money
+			var/account_trx = create_transation(SSeconomy.station_account.owner_name, "Revoke payroll", "[funds]")
+			var/station_trx = create_transation(Acc.owner_name, "Revoke payroll", funds)
 
-				callHook("revoke_payroll", list(detailed_account_view))
+			SSeconomy.station_account.money += funds
+			Acc.money = 0
 
-			if("print")
-				var/text
-				var/pname
-				if (detailed_account_view)
-					pname = "account #[detailed_account_view.account_number] details"
-					var/title = "Account #[detailed_account_view.account_number] Details"
-					text = {"
-						[accounting_letterhead(title)]
-						<u>Holder:</u> [detailed_account_view.owner_name]<br>
-						<u>Balance:</u> [detailed_account_view.money]电<br>
-						<u>Status:</u> [detailed_account_view.suspended ? "Suspended" : "Active"]<br>
-						<u>Transactions:</u> ([detailed_account_view.transactions.len])<br>
-						<table>
-							<thead>
-								<tr>
-									<td>Timestamp</td>
-									<td>Target</td>
-									<td>Reason</td>
-									<td>Value</td>
-									<td>Terminal</td>
-								</tr>
-							</thead>
-							<tbody>
-						"}
+			SSeconomy.add_transaction_log(Acc,account_trx)
+			SSeconomy.add_transaction_log(SSeconomy.station_account,station_trx)
 
-					for (var/datum/transaction/T in detailed_account_view.transactions)
-						text += {"
-									<tr>
-										<td>[T.date] [T.time]</td>
-										<td>[T.target_name]</td>
-										<td>[T.purpose]</td>
-										<td>[T.amount]</td>
-										<td>[T.source_terminal]</td>
-									</tr>
-							"}
+			callHook("revoke_payroll", list(Acc))
 
-					text += {"
-							</tbody>
-						</table>
-						"}
 
-				else
-					pname = "financial account list"
-					text = {"
-						[accounting_letterhead("Financial Account List")]
-						<table>
-							<thead>
-								<tr>
-									<td>Account Number</td>
-									<td>Holder</td>
-									<td>Balance</td>
-									<td>Status</td>
-								</tr>
-							</thead>
-							<tbody>
+	if(href_list["print"])
+
+		var/text
+		var/pname
+		var/datum/money_account/Acc = SSeconomy.get_account(href_list["print"])
+		if(Acc)
+			pname = "account #[Acc.account_number] details"
+			var/title = "Account #[Acc.account_number] Details"
+			text = {"
+				[accounting_letterhead(title)]
+				<u>Holder:</u> [Acc.owner_name]<br>
+				<u>Balance:</u> [Acc.money]电<br>
+				<u>Status:</u> [Acc.suspended ? "Suspended" : "Active"]<br>
+				<u>Transactions:</u> ([Acc.transactions.len])<br>
+				<table>
+					<thead>
+						<tr>
+							<td>Timestamp</td>
+							<td>Target</td>
+							<td>Reason</td>
+							<td>Value</td>
+							<td>Terminal</td>
+						</tr>
+					</thead>
+					<tbody>
+				"}
+
+			for (var/datum/transaction/T in Acc.transactions)
+				text += {"
+							<tr>
+								<td>[T.date] [T.time]</td>
+								<td>[T.target_name]</td>
+								<td>[T.purpose]</td>
+								<td>[T.amount]</td>
+								<td>[T.source_terminal]</td>
+							</tr>
 					"}
 
-					for(var/M in SSeconomy.all_money_accounts)
-						var/datum/money_account/D = SSeconomy.get_account(M)
-						text += {"
-								<tr>
-									<td>#[D.account_number]</td>
-									<td>[D.owner_name]</td>
-									<td>[D.money]电</td>
-									<td>[D.suspended ? "Suspended" : "Active"]</td>
-								</tr>
-						"}
+			text += {"
+					</tbody>
+				</table>
+				"}
 
-					text += {"
-							</tbody>
-						</table>
-					"}
+		else
+			pname = "financial account list"
+			text = {"
+				[accounting_letterhead("Financial Account List")]
+				<table>
+					<thead>
+						<tr>
+							<td>Account Number</td>
+							<td>Holder</td>
+							<td>Balance</td>
+							<td>Status</td>
+						</tr>
+					</thead>
+					<tbody>
+			"}
 
-				computer.nano_printer.print_text(text, pname, "#deebff")
+			for(var/M in SSeconomy.all_money_accounts)
+				var/datum/money_account/D = SSeconomy.get_account(M)
+				text += {"
+						<tr>
+							<td>#[D.account_number]</td>
+							<td>[D.owner_name]</td>
+							<td>[D.money]电</td>
+							<td>[D.suspended ? "Suspended" : "Active"]</td>
+						</tr>
+				"}
+
+			text += {"
+					</tbody>
+				</table>
+			"}
+
+		var/obj/item/paper/P = computer.nano_printer.print_text("", pname, "#deebff")
+		P.set_content_unsafe(pname, text)
 
 	SSvueui.check_uis_for_change(src)
 
