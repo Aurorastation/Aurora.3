@@ -44667,6 +44667,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bxy" = (
