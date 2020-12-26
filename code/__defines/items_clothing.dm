@@ -38,6 +38,7 @@
 #define BLOCK_GAS_SMOKE_EFFECT 0x10 // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
 #define FLEXIBLEMATERIAL       0x20 // At the moment, masks with this flag will not prevent eating even if they are covering your face.
 #define SOUNDPROTECTION        0x40 // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
+#define LIGHTSTEP              0x80 // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
 
 // Flags for pass_flags.
 #define PASSTABLE		0x1
