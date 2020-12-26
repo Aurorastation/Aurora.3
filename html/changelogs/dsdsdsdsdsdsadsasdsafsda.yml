@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes:
+  - tweak: "Vue numeric input no longer has repeated '-' and '+' symbols for larger adjustment buttons."
