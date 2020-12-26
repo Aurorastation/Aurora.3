@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added Coagzolug, a blood coagulation chemical created by mixing tricordrazine and cough syrup. It will slow bleeding, even arterial, while in the bloodstream."
-  - rscadd: "Added Coagzolug autoinjectors to mining brute packs and the EMT stabilization kit locker."

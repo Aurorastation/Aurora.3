@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Emergency energy shields have had their health reduced to 75, down from 200."
-  - rscadd: "Attacking emergency energy shields now play an animation. The less HP they have, the more transparent they become."
-  - rscadd: "You can now use a multitool on engineering tape to mark it as an emergency shield target. An emergency shield generator will deploy shields over it."
