@@ -666,7 +666,7 @@ BREATH ANALYZER
 		user.put_in_hands(R)
 	user.visible_message("\The [src] spits out a piece of paper.")
 
-/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/living/human/H)
+/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))
 		return
 
