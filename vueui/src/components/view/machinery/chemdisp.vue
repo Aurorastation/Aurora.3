@@ -71,7 +71,7 @@ export default {
       } else {
         return `${num} units`
       }
-    }
+    },
   },
 }
 </script>

@@ -45,8 +45,17 @@
 		if(istype(w_uniform,/obj/item/clothing/under))
 			var/obj/item/clothing/under/U = w_uniform
 			if(LAZYLEN(U.accessories))
-				tie_msg += ". Attached to it is [lowertext(english_list(U.accessories))]"
-				tie_msg_warn += "! Attached to it is [lowertext(english_list(U.accessories))]"
+				tie_msg += ". Attached to it is"
+				tie_msg_warn += "! Attached to it is"
+				var/list/accessory_descs = list()
+				for(var/accessory in U.accessories)
+					if(istype(accessory, /obj/item/clothing/accessory/holster)) //so you can't see what kind of gun a holster is holding from afar
+						accessory_descs += "\a [accessory]"
+					else	
+						accessory_descs += "<a href='?src=\ref[src];lookitem_desc_only=\ref[accessory]'>\a [accessory]</a>"
+
+				tie_msg += " [lowertext(english_list(accessory_descs))]"
+				tie_msg_warn += " [lowertext(english_list(accessory_descs))]"
 
 		if(w_uniform.blood_color)
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>[w_uniform.name]</a>[tie_msg_warn].</span>\n"
@@ -71,8 +80,14 @@
 		if(istype(wear_suit,/obj/item/clothing/suit))
 			var/obj/item/clothing/suit/U = wear_suit
 			if(LAZYLEN(U.accessories))
-				tie_msg += ". Attached to it is [lowertext(english_list(U.accessories))]"
-				tie_msg_warn += "! Attached to it is [lowertext(english_list(U.accessories))]"
+				tie_msg += ". Attached to it is"
+				tie_msg_warn += "! Attached to it is"
+				var/list/accessory_descs = list()
+				for(var/accessory in U.accessories)
+					accessory_descs += "<a href='?src=\ref[src];lookitem_desc_only=\ref[accessory]'>\a [accessory]</a>"
+
+				tie_msg += " [lowertext(english_list(accessory_descs))]"
+				tie_msg_warn += " [lowertext(english_list(accessory_descs))]"
 
 		if(wear_suit.blood_color)
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_suit, user)] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>[wear_suit.name]</a>[tie_msg_warn].</span>\n"

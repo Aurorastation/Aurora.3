@@ -336,6 +336,7 @@ RFD Construction-Class
 /obj/item/rfd/construction/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat && !user.restrained())
 
+
 /*
 RFD Service-Class
 */

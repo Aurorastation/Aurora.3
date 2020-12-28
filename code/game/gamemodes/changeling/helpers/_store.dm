@@ -220,9 +220,10 @@ var/list/datum/power/changeling/powerinstances = list()
 	set category = "Changeling"
 	set desc = "Buy new abilities with the genomes we obtained."
 
-	if(!usr || !usr.mind || !usr.mind.changeling)
+	var/datum/changeling/changeling = usr.mind.antag_datums[MODE_CHANGELING]
+	if(!usr || !usr.mind || !changeling)
 		return
-	src = usr.mind.changeling
+	src = changeling
 
 	if(!powerinstances.len)
 		for(var/P in powers)
@@ -480,7 +481,8 @@ var/list/datum/power/changeling/powerinstances = list()
 
 
 /datum/changeling/proc/purchasePower(var/datum/mind/M, var/power_name, var/remake_verbs = 1)
-	if(!M || !M.changeling)
+	var/datum/changeling/changeling = M.antag_datums[MODE_CHANGELING]
+	if(!M || !changeling)
 		return
 
 	var/datum/power/changeling/power = power_name
