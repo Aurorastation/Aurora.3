@@ -114,7 +114,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	return list(
 		"hair_colour"   = rgb(pref.r_hair, pref.g_hair, pref.b_hair),
 		"facial_colour" = rgb(pref.r_facial, pref.g_facial, pref.b_facial),
-		"grad_colour"   = rgb(pref.r_grad, pref.g_grad, pref.g_grad),
+		"grad_colour"   = rgb(pref.r_grad, pref.g_grad, pref.b_grad),
 		"skin_tone"     = pref.s_tone,
 		"skin_colour"   = rgb(pref.r_skin, pref.g_skin, pref.b_skin) ,
 		"hair_style"    = pref.h_style,
