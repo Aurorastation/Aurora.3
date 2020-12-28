@@ -1,5 +1,3 @@
 author: Skull132
-delte-after: True
-
-changes:
-  - bugfix: "Fixes fringe colour being saved in an invalid format."
+changes: []
+delte-after: true
