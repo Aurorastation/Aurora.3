@@ -61,14 +61,15 @@
 
 	if(href_list["Reply"])
 		. = TRUE
-		if(!channel || channel.title != href_list["target"])
-			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
+		var/datum/ntnet_conversation/C = locate(href_list["Reply"]) in ntnet_global.chat_channels
+		if(!istype(C))
+			to_chat(usr, SPAN_WARNING("The target channel couldn't be found and has likely been deleted!"))
 			return
 		var/message = send_message()
-		if(!channel || channel.title != href_list["target"])
-			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
+		if(!(C in ntnet_global.chat_channels))
+			to_chat(usr, SPAN_WARNING("The target channel couldn't be found and has likely been deleted!"))
 			return
-		add_message(message)
+		add_message(message, C)
 
 	if(href_list["PRG_joinchannel"])
 		. = TRUE
@@ -219,11 +220,16 @@
 		return
 	return message
 
-/datum/computer_file/program/chatclient/proc/add_message(var/message)
+/datum/computer_file/program/chatclient/proc/add_message(var/message, var/datum/ntnet_conversation/specific_channel)
 	if(!message)
 		return
-	channel.add_message(message, username, usr)
-	message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
+	var/datum/ntnet_conversation/sent_channel
+	if(specific_channel)
+		sent_channel = specific_channel
+	else
+		sent_channel = channel
+	sent_channel.add_message(message, username, usr)
+	message_dead(FONT_SMALL("<b>([sent_channel.get_dead_title()]) [username]:</b> [message]"))
 
 /datum/computer_file/program/chatclient/proc/direct_message()
 	var/clients = list()
