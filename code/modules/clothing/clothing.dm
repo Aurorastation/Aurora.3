@@ -678,6 +678,7 @@
 	var/overshoes = 0
 	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/silent = 0
+	var/last_trip = 0
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
@@ -760,10 +761,14 @@
 		else
 			footstep++
 	else
-		if(prob(25))
-			if(ismob(loc))
-				var/mob/M = loc
-				M.Weaken(2)
+		if(prob(5))
+			if(last_trip <= world.time - 20) //So you don't trip immediately after.
+				last_trip = world.time
+				if(ismob(loc))
+					var/mob/M = loc
+					M.Weaken(3)
+					to_chat(M, SPAN_WARNING("You trip from running in \the [src]!"))
+			return
 
 ///////////////////////////////////////////////////////////////////////
 //Suit
