@@ -236,6 +236,7 @@
 
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
+	var/default_g_style = "None"
 
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM)
@@ -607,6 +608,7 @@
 /datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
 	H.h_style = H.species.default_h_style
 	H.f_style = H.species.default_f_style
+	H.g_style = H.species.default_g_style
 	H.update_hair()
 
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)

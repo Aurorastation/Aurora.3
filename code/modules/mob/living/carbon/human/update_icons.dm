@@ -370,7 +370,7 @@ There are several things that need to be remembered:
 // This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
 // If `hair_is_visible` is FALSE, only facial hair will be drawn.
 /mob/living/carbon/human/proc/generate_hair_icon(hair_is_visible = TRUE)
-	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]"
+	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]_[(g_style && g_style != "None" && hair_is_visible) ? "[g_style][r_grad][g_grad][b_grad]" : "nograd"]"
 
 	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
 	if (!face_standing)	// Not cached, generate it from scratch.
@@ -387,11 +387,19 @@ There are several things that need to be remembered:
 
 		// Hair.
 		if(hair_is_visible)
+			var/icon/grad_s = null
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 			if(hair_style && (species.type in hair_style.species_allowed))
 				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)
+					if(g_style)
+						var/datum/sprite_accessory/gradient_style = hair_gradient_styles_list[g_style]
+						grad_s = new/icon("icon" = gradient_style.icon, "icon_state" = gradient_style.icon_state)
+						grad_s.Blend(hair_s, ICON_AND)
+						grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_MULTIPLY)
 					hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.icon_blend_mode)
+					if(!isnull(grad_s))
+						hair_s.Blend(grad_s, ICON_OVERLAY)
 
 				face_standing.Blend(hair_s, ICON_OVERLAY)
 
