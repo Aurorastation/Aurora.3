@@ -111,3 +111,21 @@
 /obj/machinery/mech_recharger/proc/stop_charging()
 	update_use_power(1)
 	charging = null
+
+
+/obj/machinery/mech_recharger/hephaestus
+	name = "hephaestus exosuit dock"
+	desc = "A massive vehicle dock elevated slightly above the ground, constructed for equally massive charging speeds."
+	icon_state = "supermechcharger"
+	idle_power_usage = 400
+	active_power_usage = 120 KILOWATTS
+
+	base_charge_rate = 120 KILOWATTS
+	repair = 1
+
+	component_types = list(
+		/obj/item/circuitboard/mech_recharger/hephaestus,
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/scanning_module = 2,
+		/obj/item/stock_parts/manipulator = 3
+	)
