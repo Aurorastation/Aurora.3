@@ -761,8 +761,8 @@
 			footstep++
 	else
 		if(prob(25))
-			if(ismob(usr))
-				var/mob/M = usr
+			if(ismob(loc))
+				var/mob/M = loc
 				M.Weaken(2)
 
 ///////////////////////////////////////////////////////////////////////
