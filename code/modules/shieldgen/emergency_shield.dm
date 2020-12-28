@@ -1,5 +1,5 @@
 /obj/machinery/shield
-	name = "Emergency energy shield"
+	name = "emergency energy shield"
 	desc = "An energy shield used to contain hull breaches."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "shield-old"
@@ -8,22 +8,38 @@
 	anchored = TRUE
 	unacidable = TRUE
 	atmos_canpass = CANPASS_NEVER
-	var/const/max_health = 200
-	var/health = max_health //The shield can only take so much beating (prevents perma-prisons)
+	var/health = 75 //The shield can only take so much beating (prevents perma-prisons)
 	var/shield_generate_power = 2500	//how much power we use when regenerating
 	var/shield_idle_power = 500		//how much power we use when just being sustained.
 
 /obj/machinery/shield/malfai
 	name = "emergency forcefield"
-	desc = "A weak forcefield which seems to be projected by the station's emergency atmosphere containment field"
-	health = max_health/2 // Half health, it's not suposed to resist much.
+	desc = "A forcefield which seems to be projected by the station's emergency atmosphere containment field."
+	health = 100
 
 /obj/machinery/shield/malfai/machinery_process()
 	health -= 0.5 // Slowly lose integrity over time
 	check_failure()
 
 /obj/machinery/shield/proc/check_failure()
-	if (src.health <= 0)
+	var/health_percentage = (health / initial(health)) * 100
+	switch(health_percentage)
+		if(-INFINITY to 25)
+			if(alpha != 150)
+				animate(src, 1 SECOND, alpha = 150)
+		if(26 to 50)
+			if(alpha != 175)
+				animate(src, 1 SECOND, alpha = 175)
+		if(51 to 75)
+			if(alpha != 210)
+				animate(src, 1 SECOND, alpha = 210)
+		if(76 to 90)
+			if(alpha != 230)
+				animate(src, 1 SECOND, alpha = 230)
+		if(91 to INFINITY)
+			if(alpha != initial(alpha))
+				animate(src, 1 SECOND, alpha = initial(alpha))
+	if(health <= 0)
 		visible_message("<span class='notice'>\The [src] dissipates!</span>")
 		qdel(src)
 		return
@@ -43,19 +59,18 @@
 	if(!height || air_group) return FALSE
 	else return ..()
 
-/obj/machinery/shield/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return
-
+/obj/machinery/shield/attackby(obj/item/W, mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src, W)
 	//Calculate damage
 	var/aforce = W.force
 	if(W.damtype == BRUTE || W.damtype == BURN)
-		src.health -= aforce
+		health -= aforce
 
 	//Play a fitting sound
 	playsound(src.loc, 'sound/effects/EMPulse.ogg', 75, 1)
 
 	check_failure()
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	..()
 
@@ -112,8 +127,9 @@
 
 	..()
 	return
+
 /obj/machinery/shieldgen
-	name = "Emergency shield projector"
+	name = "emergency shield projector"
 	desc = "Used to seal minor hull breaches."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "shieldoff"
@@ -121,8 +137,7 @@
 	opacity = FALSE
 	anchored = FALSE
 	req_access = list(access_engine)
-	var/const/max_health = 100
-	var/health = max_health
+	var/health = 100
 	var/active = FALSE
 	var/malfunction = FALSE //Malfunction causes parts of the shield to slowly dissapate
 	var/list/deployed_shields = list()
@@ -161,12 +176,19 @@
 	update_use_power(FALSE)
 
 /obj/machinery/shieldgen/proc/create_shields()
-	for(var/turf/target_tile in range(2, src))
-		if (istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/unsimulated/floor/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless) && !(locate(/obj/machinery/shield) in target_tile))
-			if (malfunction && prob(33) || !malfunction)
-				var/obj/machinery/shield/S = new /obj/machinery/shield(target_tile)
-				deployed_shields += S
-				use_power(S.shield_generate_power)
+	for(var/T in RANGE_TURFS(2, src))
+		var/turf/target_tile = T
+		var/obj/item/tape/engineering/E = locate() in target_tile
+		if(E?.shield_marker)
+			deploy_shield(target_tile)
+		else if(istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/unsimulated/floor/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless) && !(locate(/obj/machinery/shield) in target_tile))
+			if(malfunction && prob(33) || !malfunction)
+				deploy_shield(target_tile)
+
+/obj/machinery/shieldgen/proc/deploy_shield(var/turf/T)
+	var/obj/machinery/shield/S = new /obj/machinery/shield(T)
+	deployed_shields += S
+	use_power(S.shield_generate_power)
 
 /obj/machinery/shieldgen/proc/collapse_shields()
 	for(var/obj/machinery/shield/shield_tile in deployed_shields)
@@ -286,7 +308,7 @@
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
 		if(do_after(user, 30))
 			if (coil.use(1))
-				health = max_health
+				health = initial(health)
 				malfunction = FALSE
 				to_chat(user, "<span class='notice'>You repair the [src]!</span>")
 				update_icon()

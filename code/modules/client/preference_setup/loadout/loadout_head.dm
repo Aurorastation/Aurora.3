@@ -32,7 +32,7 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(bandanas)
 
-/datum/gear/head/bandana/colorable
+/datum/gear/head/bandana_color
 	display_name = "bandana (colorable)"
 	path = /obj/item/clothing/head/bandana/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -62,7 +62,7 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(softcaps)
 
-/datum/gear/head/softcap/colorable
+/datum/gear/head/softcap_color
 	display_name = "softcap (colorable)"
 	path = /obj/item/clothing/head/softcap/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -91,7 +91,7 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(berets)
 
-/datum/gear/head/beret/color
+/datum/gear/head/beret_color
 	display_name = "beret (colorable)"
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -245,7 +245,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -273,7 +273,7 @@
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/softcap/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/circuitry

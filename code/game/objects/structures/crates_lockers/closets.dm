@@ -24,6 +24,7 @@
 	var/store_misc = 1
 	var/store_items = 1
 	var/store_mobs = 1
+	var/maximum_mob_size = 15
 
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
@@ -131,9 +132,9 @@
 	dump_contents()
 
 	icon_state = icon_opened
-	opened = 1
+	opened = TRUE
 	playsound(loc, open_sound, 25, 0, -3)
-	density = 0
+	density = FALSE
 	return 1
 
 /obj/structure/closet/proc/close()
@@ -152,7 +153,7 @@
 		stored_units += store_mobs(stored_units)
 
 	icon_state = icon_closed
-	opened = 0
+	opened = FALSE
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
 			return
@@ -161,7 +162,7 @@
 		linked_teleporter.last_use = world.time
 
 	playsound(get_turf(src), close_sound, 25, 0, -3)
-	density = TRUE
+	density = initial(density)
 	return TRUE
 
 //Cham Projector Exception
@@ -189,6 +190,8 @@
 	var/added_units = 0
 	for(var/mob/living/M in loc)
 		if(M.buckled || M.pinned.len)
+			continue
+		if(M.mob_size >= maximum_mob_size)
 			continue
 		if(stored_units + added_units + M.mob_size > storage_capacity)
 			break
@@ -313,6 +316,8 @@
 		else
 			user.drop_item()
 	else if(istype(W, /obj/item/stack/packageWrap))
+		return
+	else if(istype(W, /obj/item/ducttape))
 		return
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W

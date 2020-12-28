@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Lowered the cost of various uplink items across the board."
-  - tweak: "The sideeffect b-gone injector box on the uplink now spawns with four injectors."
-  - rscdel: "Removed the AMR and its ammo from the uplink."

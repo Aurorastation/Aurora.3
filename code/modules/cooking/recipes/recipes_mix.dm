@@ -74,8 +74,8 @@
 /decl/recipe/monkeykabob
 	items = list(
 		/obj/item/stack/rods,
-		/obj/item/reagent_containers/food/snacks/meat/monkey,
-		/obj/item/reagent_containers/food/snacks/meat/monkey
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat
 	)
 	result = /obj/item/reagent_containers/food/snacks/monkeykabob
 
@@ -265,6 +265,16 @@
 		/obj/item/reagent_containers/food/snacks/bacon
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/bacon
+
+/decl/recipe/blt
+	fruit = list("tomato" = 1, "cabbage" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/bacon,
+		/obj/item/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/reagent_containers/food/snacks/blt
 
 /decl/recipe/fish_taco
 	appliance = MIX | SKILLET

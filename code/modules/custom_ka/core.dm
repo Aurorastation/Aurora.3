@@ -73,14 +73,6 @@
 /obj/item/gun/custom_ka/can_wield()
 	return 1
 
-/obj/item/gun/custom_ka/toggle_wield()
-	..()
-	if(wielded)
-		item_state = "[initial(item_state)]_w"
-	else
-		item_state = initial(item_state)
-	update_held_icon()
-
 /obj/item/gun/custom_ka/pickup(mob/user)
 	..()
 	if(can_wield())
@@ -311,12 +303,6 @@
 			name = "custom kinetic accelerator"
 	else
 		name = initial(name)
-
-	if(wielded)
-		item_state = "[initial(item_state)]_w"
-	else
-		item_state = initial(item_state)
-	update_held_icon()
 
 /obj/item/gun/custom_ka/proc/update_stats()
 	//pls don't bully me for this code

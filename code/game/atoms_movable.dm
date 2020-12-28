@@ -336,8 +336,7 @@
 	set waitfor = FALSE
 	if(!isturf(loc))
 		return
-	var/image/I = image(icon = src, loc = loc, layer = layer + 0.1)
-	I.plane = -1
+	var/image/I = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y)
 	I.transform *= 0.75
 	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
 	var/turf/T = get_turf(src)

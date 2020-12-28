@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a full stop to the sentence saying which slot you're holding your animal / pAI / drone."

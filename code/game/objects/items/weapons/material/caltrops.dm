@@ -22,8 +22,9 @@
 		var/damage_coef = 1
 		if(H.buckled)
 			return
-
 		if(H.resting)
+			return
+		if(H.shoes?.item_flags & LIGHTSTEP)
 			return
 
 		to_chat(H, SPAN_DANGER("You step on \the [src]!"))
@@ -35,7 +36,7 @@
 		if(H.shoes || H.wear_suit?.body_parts_covered & FEET)
 			damage_coef -= 0.1
 
-		if (H.m_intent == "run")
+		if (H.m_intent == M_RUN)
 			damage_coef += 0.4
 
 

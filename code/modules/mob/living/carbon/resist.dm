@@ -146,7 +146,7 @@
 		break_legcuffs()
 		return
 
-	var/obj/item/legcuffs/HC = legcuffed
+	var/obj/item/handcuffs/HC = legcuffed
 
 	//A default in case you are somehow legcuffed with something that isn't an obj/item/legcuffs type
 	var/breakouttime = 1200

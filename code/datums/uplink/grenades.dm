@@ -10,6 +10,12 @@
 	path = /obj/item/grenade/spawnergrenade/manhacks
 	desc = "A grenade that deploys five viscerator combat drones. Deadly in numbers, will not attack you or your allies."
 
+/datum/uplink_item/item/grenades/lubed_manhack
+	name = "Lubed Viscerator Delivery Grenade"
+	item_cost = 8
+	path = /obj/item/grenade/spawnergrenade/manhacks/lubed
+	desc = "A grenade that deploys five lubed viscerator combat drones. Deadly in numbers, will not attack you or your allies. Works best when killed."
+
 /datum/uplink_item/item/grenades/anti_photon
 	name = "5xPhoton Disruption Grenades"
 	item_cost = 2

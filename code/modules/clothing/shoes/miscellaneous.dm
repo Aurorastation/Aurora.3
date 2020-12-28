@@ -4,7 +4,7 @@
 	icon_state = "brown"
 	item_state = "brown"
 	permeability_coefficient = 0.05
-	item_flags = NOSLIP
+	item_flags = NOSLIP|LIGHTSTEP
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/list/clothing_choices = list()
 	siemens_coefficient = 0.75
@@ -26,7 +26,8 @@
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
 	siemens_coefficient = 0.5
-	can_hold_knife = 1
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
 
 /obj/item/clothing/shoes/swat/ert
 	species_restricted = null
@@ -40,7 +41,8 @@
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
 	siemens_coefficient = 0.35
-	can_hold_knife = 1
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -206,7 +208,8 @@ obj/item/clothing/shoes/sandal/clogs
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
 	siemens_coefficient = 0.75
-	can_hold_knife = 1
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
 
 /obj/item/clothing/shoes/winter/toeless
 	name = "toe-less winter boots"

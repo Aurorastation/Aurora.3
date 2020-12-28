@@ -133,8 +133,8 @@
 		/obj/item/device/radio
 		)
 
-/obj/item/storage/belt/medical/emt
-	name = "EMT utility belt"
+/obj/item/storage/belt/medical/first_responder
+	name = "first responder utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"

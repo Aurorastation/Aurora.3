@@ -85,7 +85,12 @@
 	if(armed)
 		if(israt(AM))
 			triggered(AM)
-		else if(istype(AM, /mob/living))
+		else if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			if(!(H.shoes?.item_flags & LIGHTSTEP))
+				triggered(H)
+				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
+		else if(isliving(AM))
 			var/mob/living/L = AM
 			triggered(L)
 			L.visible_message(SPAN_WARNING("\The [L] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
