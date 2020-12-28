@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Mining ore processors and Mining Vendors now find IDs wirelessly, allowing mining stationbounds to redeem points as well. Mining drones cannot utilize this system."

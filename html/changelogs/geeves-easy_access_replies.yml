@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Hitting reply on a message to the NTIRC client will now reply to that channel directly, instead of requiring it to be the active one when doing so."
