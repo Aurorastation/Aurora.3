@@ -80,7 +80,7 @@
 		// fall_collateral if the next turf is not open space.
 		if (isopenturf(victim.loc) && victim.loc:is_hole)
 			victim.forceMove(below)
-			if(victim.pulledby)
+			if(victim.pulledby && victim.pulledby.z != victim.z)
 				var/mob/M = victim.pulledby
 				M.stop_pulling()
 

@@ -1220,9 +1220,8 @@
 		/obj/item/eightball/broken						= 1,
 		/obj/item/spirit_board					= 5,
 		/obj/item/device/laser_pointer					= 1,
-		/obj/item/clothing/accessory/badge/press/plastic = 2
-
-
+		/obj/item/clothing/accessory/badge/press/plastic = 2,
+		/obj/item/storage/box/partypopper						= 11
 	)
 
 /obj/random/arcade/orion
@@ -1495,7 +1494,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	spawnlist = list(
-		/obj/item/xmasgift/small = 0.5,
+		/obj/item/xmasgift = 0.5,
 		/obj/item/xmasgift/medium =  0.3,
 		/obj/item/xmasgift/large = 0.2
 	)

@@ -1,6 +1,6 @@
 /obj/item/flamethrower
 	name = "flamethrower"
-	desc = "You are a firestarter!"
+	desc = "A flamethrower created by modifying a welding tool to fit an external gas tank."
 	icon = 'icons/obj/flamethrower.dmi'
 	icon_state = "flamethrowerbase"
 	item_state = "flamethrower_0"
@@ -10,12 +10,12 @@
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_COMBAT = 1, TECH_PHORON = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
-	var/secured = 0
+	var/secured = FALSE // Whether we have an igniter secured (screwdrivered) to us or not
 	var/throw_amount = 100
-	var/lit = FALSE	//on or off
+	var/lit = FALSE //on or off
 	var/operating = FALSE //cooldown
 	var/turf/previousturf = null
 	var/obj/item/weldingtool/weldtool = null
@@ -24,10 +24,15 @@
 
 /obj/item/flamethrower/examine(mob/user)
 	..()
-	if(ptank)
-		to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(ptank.air_contents.return_pressure(), 10)] kPa left in it."))
-	else
-		to_chat(user, SPAN_WARNING("There's no phoron tank [igniter ? "" : "or igniter"] installed!"))
+	if(Adjacent(user))
+		if(ptank)
+			to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(ptank.air_contents.return_pressure(), 10)] kPa left in it."))
+		else
+			to_chat(user, SPAN_WARNING("It has no gas tank installed."))
+		if(igniter)
+			to_chat(user, SPAN_NOTICE("It has \an [igniter] installed."))
+		else
+			to_chat(user, SPAN_WARNING("It has no igniter installed."))
 
 /obj/item/flamethrower/Destroy()
 	if(weldtool)
@@ -51,8 +56,6 @@
 			location = M.loc
 	if(isturf(location)) //start a fire if possible
 		location.hotspot_expose(700, 2)
-	return
-
 
 /obj/item/flamethrower/update_icon()
 	cut_overlays()
@@ -65,14 +68,16 @@
 		item_state = "flamethrower_1"
 	else
 		item_state = "flamethrower_0"
-	return
+
+/obj/item/flamethrower/isFlameSource()
+	return lit
 
 /obj/item/flamethrower/afterattack(atom/target, mob/user, proximity)
 	if(proximity)
 		return
 	if(!ptank)
 		return
-	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 10)
+	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have enough fuel left to throw!"))
 		return
 	// Make sure our user is still holding us
@@ -82,8 +87,10 @@
 			var/turflist = getline(user, target_turf)
 			flame_turf(turflist)
 
-/obj/item/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
-	if(user.stat || user.restrained() || user.lying)	return
+/obj/item/flamethrower/attackby(obj/item/W, mob/user)
+	if(use_check_and_message(user))
+		return
+
 	if(W.iswrench() && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(weldtool)
@@ -99,39 +106,47 @@
 		qdel(src)
 		return
 
-	if(W.isscrewdriver() && igniter && !lit)
+	else if(W.isscrewdriver() && igniter && !lit)
 		secured = !secured
-		to_chat(user, "<span class='notice'>[igniter] is now [secured ? "secured" : "unsecured"]!</span>")
+		to_chat(user, SPAN_NOTICE("[igniter] is now [secured ? "secured" : "unsecured"]!"))
 		update_icon()
 		return
 
-	if(isigniter(W))
+	else if(isigniter(W))
 		var/obj/item/device/assembly/igniter/I = W
-		if(I.secured)	return
-		if(igniter)		return
-		user.drop_from_inventory(I,src)
+		if(I.secured)
+			to_chat(user, SPAN_WARNING("\The [I] is not ready to attach yet! Use a screwdriver on it first."))
+			return
+		if(igniter)
+			to_chat(user, SPAN_WARNING("\The [src] already has an igniter installed."))
+			return
+		user.drop_from_inventory(I, src)
 		igniter = I
 		update_icon()
 		return
 
-	if(istype(W,/obj/item/tank/phoron))
+	else if(istype(W, /obj/item/tank/phoron))
 		if(ptank)
-			to_chat(user, "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>")
+			to_chat(user, SPAN_WARNING("There appears to already be a tank loaded in \the [src]!"))
 			return
-		user.drop_from_inventory(W,src)
+		user.drop_from_inventory(W, src)
 		ptank = W
 		update_icon()
 		return
 
-	if(istype(W, /obj/item/device/analyzer))
+	else if(istype(W, /obj/item/device/analyzer))
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
 		return
+
+	else if(W.isFlameSource()) // you can light it with external input, even without an igniter
+		attempt_lighting(user, TRUE)
+		update_icon()
+		return
 	..()
-	return
 
 
-/obj/item/flamethrower/attack_self(mob/user as mob)
+/obj/item/flamethrower/attack_self(mob/user)
 	if(use_check_and_message(user))
 		return
 	if(!ptank)
@@ -154,22 +169,41 @@
 			ptank = null
 			lit = FALSE
 		if("Light")
-			if(!ptank || !secured)
-				return
-			if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
-				to_chat(user, SPAN_WARNING("\The [src] doesn't have any flammable fuel to light!"))
-				return
-			lit = !lit
-			to_chat(user, SPAN_NOTICE("You [lit ? "light" : "extinguish"] \the [src]."))
-			if(lit)
-				START_PROCESSING(SSprocessing, src)
+			attempt_lighting(user)
 		if("Lower Pressure")
 			change_pressure(-50, user)
 		if("Raise Pressure")
 			change_pressure(50, user)
-		else return
+		else
+			return
 
 	update_icon()
+
+/obj/item/flamethrower/proc/attempt_lighting(var/mob/user, var/external)
+	if(!external) // if it's external input, we can't unlight it, but we don't need to check for an igniter either
+		if(lit) // you can extinguish the flamethrower without an igniter
+			lit = FALSE
+			to_chat(user, SPAN_NOTICE("You extinguish \the [src]."))
+			return
+		if(!secured) // can't light via the flamethrower unless we have an igniter secured
+			if(igniter)
+				to_chat(user, SPAN_WARNING("\The [igniter] isn't secured, you need to use a screwdriver on it first."))
+			else
+				to_chat(user, SPAN_WARNING("\The [src] doesn't have a secured igniter installed."))
+			return
+	if(lit)
+		to_chat(user, SPAN_WARNING("\The [src] is already lit."))
+		return
+	if(!ptank)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have a tank installed."))
+		return
+	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have any flammable fuel to light!"))
+		return
+	lit = TRUE
+	to_chat(user, SPAN_NOTICE("You light \the [src]."))
+	if(lit)
+		START_PROCESSING(SSprocessing, src)
 
 /obj/item/flamethrower/proc/change_pressure(var/pressure, var/mob/user)
 	if(!pressure)
