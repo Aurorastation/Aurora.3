@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Skrell can now store a single small item in their headtails via an ability in the top left corner of their screen. It can be emptied via the strip menu, same as pockets."
