@@ -1,8 +1,8 @@
 <template>
   <div>
-    <vui-button v-for="bv in subButtons" :key="'-' + bv" :disabled="val - bv < min" @click="onUpdatedValue(-(10 ** bv))">{{"-".repeat(bv+1)}}</vui-button>
+    <vui-button v-for="bv in subButtons" :key="'-' + bv" :disabled="val - bv < min" @click="onUpdatedValue(-(10 ** bv))">-</vui-button>
     <input @keypress="onKeyPress" :style="{width: width}" ref="input" :value="val" @input="onFieldUpdate($event.target)">
-    <vui-button v-for="bv in addButtons" :key="'+' + bv" :disabled="val + bv > max" @click="onUpdatedValue(10 ** bv)">{{"+".repeat(bv+1)}}</vui-button>
+    <vui-button v-for="bv in addButtons" :key="'+' + bv" :disabled="val + bv > max" @click="onUpdatedValue(10 ** bv)">+</vui-button>
   </div>
 </template>
 
