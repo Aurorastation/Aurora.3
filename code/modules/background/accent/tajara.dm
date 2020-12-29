@@ -1,6 +1,6 @@
 /datum/accent/republican_siik
 	name = ACCENT_REPUBICLANSIIK
-	description = "The dialect of north and central Ras'nrr. It was spoken by the Hadii dynasty and its subjects before being adopted as the official version of the People's Republic \
+	description = "The dialect of central Ras'nrr. It was spoken by the Hadii dynasty and its subjects before being adopted as the official version of the People's Republic \
 	Siik'maas. This variation is taught in all Republican schools since the end of the first revolution and is considered as the most pure and correct form. PRA citizens are encouraged \
 	to learn and adopt it, as speaking another accent is frowned upon. It is notable for its unusually rigid grammatical construction as opposed to most other Adhomian dialects. \
 	Republican Siik'maas is the language of Hadiist loyalists, both in and outside of S'rand'marr."
@@ -36,7 +36,7 @@
 
 /datum/accent/low_harr_siik
 	name = ACCENT_LOWHARRSIIK
-	description = "Native to the southern area of Harr'masir. In comparison to other Siik'maas dialects - it is the one that deviates the most from the standard version. Due to Republican \
+	description = "Native to the southern area of Harr'masir. In comparison to other Siik'maas dialects - it is the one that deviates the most from the standard version. Thanks to Republican \
 	propaganda, it has gained the fame of being the tongue of criminals and guerrilla fighters. Most speakers are Democratic People's Republic citizens. Its words are spoken in a hushed \
 	manner."
 	tag_icon = "tajara_low_harr"
@@ -44,7 +44,7 @@
 /datum/accent/amohda_siik
 	name = ACCENT_AMOHDASIIK
 	description = "Spoken by the Tajara from the island of Amohda. Despite past Republican attempts to destroy this dialect; it survived and is now undergoing a period of revival by Amohdan \
-	nationalists. It can also be found in the New kingdom because of the Amohda Exiles. Due to royalist influence, it has many Ya'ssa loan words. Amohdan Siik'maas has a characteristic \
+	nationalists. It can also be found in the New Kingdom because of the Amohda Exiles. Due to royalist influence, it has many Ya'ssa loan words. Amohdan Siik'maas has a characteristic \
 	drawl tone to it."
 	tag_icon = "tajara_amohda"
 
@@ -66,3 +66,10 @@
 	of rules, long-drawn-out sentences and compound words. Old Ya'ssa is a dying tongue; as the version taught by the New Kingdom of Adhomai has mostly replaced it in the post-revolution \
 	noble generation."
 	tag_icon = "tajara_oldyassa"
+
+/datum/accent/northrasnrr
+	name = ACCENT_NORTHRASNRR
+	description = "Northern Ras'nrr Siik'maas: while similar to the Republican Siik'maas, Northern Ras'nrr Siik’maas is relatively free from the Hadiist additions. It is known for its \
+	short, sharp vowel sounds and clear pronunciation. Most speakers are found in the DPRA controlled area of the region, but some do exist within the PRA borders."
+	tag_icon = "tajara_northrasnrr"
+
