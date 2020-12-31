@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Cable layer code has been updated to be a little bit more sane. It will no longer tear up floor tiles to turn it into plating."
+  - rscadd: "Cable layers can now use different colours of cable. Use a multitool on it to change the colour."
+  - rscadd: "The cable layer now plays a sound when it runs out of cable."
