@@ -131,7 +131,7 @@
 		// get_debug_type displays this
 	else if(istext(value))
 		debug_type = null // it's kinda annoying here; we can tell the type by the quotes
-		vtext = "\"[value]\""
+		vtext = "\"[html_encode(value)]\""
 	else if(isicon(value))
 		vtext = "[value]"
 	else if(isfile(value))
@@ -174,4 +174,4 @@
 
 	var/valuestr = make_view_variables_value(value, varname)
 
-	return "<li>[ecm]<span class='key'>[varname]</span> = [html_encode(valuestr)]</li>"
+	return "<li>[ecm]<span class='key'>[varname]</span> = [valuestr]</li>"
