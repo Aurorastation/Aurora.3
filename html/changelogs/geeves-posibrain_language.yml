@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Posibrains and MMI now get Tau Ceti Basic and EAL on spawn, as well as a TTS accent."
