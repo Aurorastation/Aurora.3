@@ -1,7 +1,0 @@
-author: Sparky_Hotdog
-
-delete-after: True
-
-changes:
-  - tweak: "Security now recieves maintainance access during yellow, blue, red and delta alerts."
-
