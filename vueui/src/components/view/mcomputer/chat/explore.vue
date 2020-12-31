@@ -7,7 +7,9 @@
     <vui-button v-else @click="channelTitle = ''">New channel</vui-button><br>
     <view-mcomputer-chat-channel-btn v-for="ref in displayed" :key="ref" :re="ref" :ch="s.channels[ref]"/>
     <h2>Users:</h2>
-    <vui-button v-for="(user ,ref) in s.users" :key="ref" :params="{direct: ref}">{{ user}}</vui-button>
+    <vui-input-search :input="users" v-model="users_result" :keys="['user']"/><br/>
+    <div v-for="u in users_result" :key="u.ref"><vui-button :params="{direct: u.ref}">{{ u.user }}</vui-button></div>
+    <pre>{{ users_result }}</pre>
   </div>
 </template>
 
@@ -17,7 +19,8 @@ export default {
   data() {
     return {
       s: this.$root.$data.state,
-      channelTitle: null
+      channelTitle: null,
+      users_result: []
     };
   },
   methods: {
@@ -29,6 +32,9 @@ export default {
   computed: {
     displayed() {
       return Object.keys(this.s.channels).filter(key => !this.s.channels[key].can_interact)
+    },
+    users() {
+      return Object.entries(this.s.users).map(v => ({ref: v[0], user: v[1]}))
     }
   }
 }
