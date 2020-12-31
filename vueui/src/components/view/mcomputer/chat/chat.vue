@@ -25,13 +25,12 @@
         <vui-button v-if="channel.can_manage && !channel.direct" :params="{kick: {target: reference, user: uref}}">Kick</vui-button>
       </div>
     </div>
+    <div class="message-chat" ref="chat">
+      <div v-for="(msg, index) in messages" :key="index">{{ msg }}</div>
+    </div>
     <div class="message-container">
       <input class="message-input" type="text" v-model="send_buffer" @keydown.enter="send_msg"/>
       <vui-button @click="send_msg" class="message-send">Send</vui-button>
-    </div>
-    <div class="message-chat" ref="chat">
-      <div v-for="(msg, index) in messages" :key="index">{{ msg }}</div>
-      <span ref="chatend"></span>
     </div>
   </div>
 </template>
@@ -45,6 +44,7 @@ export default {
       send_buffer: "",
       password: null,
       title: null,
+      wasAtBottom: true,
     }
   },
   computed: {
@@ -52,7 +52,7 @@ export default {
       return this.s.channels[this.reference]
     },
     messages() {
-      return this.channel.msg.reverse()
+      return this.channel.msg
     }
   },
   props: {
@@ -75,6 +75,22 @@ export default {
     set_title() {
       sendToTopic({change_title: {target: this.reference, title: this.title}})
       this.title = null
+    },
+    scrollBottom() {
+      let chat = this.$refs.chat
+      chat.scrollTop = chat.scrollHeight
+    }
+  },
+  mounted() {
+    this.scrollBottom()
+  },
+  beforeUpdate() {
+    let chat = this.$refs.chat
+    this.wasAtBottom = (chat.scrollHeight - chat.scrollTop === chat.clientHeight)
+  },
+  updated() {
+    if(this.wasAtBottom) {
+      this.scrollBottom()
     }
   }
 }
@@ -88,6 +104,8 @@ export default {
   border: 1px solid #40628a;
   padding: 0.4em;
   box-sizing: border-box;
+  height: 20em;
+  overflow-y: scroll;
 }
 
 .message-container {
