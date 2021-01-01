@@ -392,7 +392,7 @@
 
 	reagents.trans_to_mob(user, m_bitesize, CHEM_INGEST)
 	bitecount++
-	animate_shake()
+	shake_animation()
 	playsound(loc, pick('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'), 30, 1)
 
 	on_consume(user, user) //mob is both user and target for on_consume since it is feeding itself in this instance

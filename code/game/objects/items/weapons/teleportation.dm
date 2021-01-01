@@ -248,7 +248,7 @@ Frequency:
 	else
 		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
-		target_closet.animate_shake()
+		target_closet.shake_animation()
 		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 100, TRUE)
 
 /obj/item/closet_teleporter/Destroy()

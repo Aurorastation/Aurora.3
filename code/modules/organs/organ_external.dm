@@ -1209,7 +1209,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='danger'>Your [name] becomes a mangled mess!</span>",	\
 			"<span class='warning'>You hear a sickening crack.</span>")
 		else
-			owner.visible_message("<span class='warning'>\The [owner]'s [name] melts away, turning into mangled mess!</span>",	\
+			owner.visible_message("<span class='warning'>\The [owner]'s [name] melts away, turning into a mangled mess!</span>",	\
 			"<span class='danger'>Your [name] melts away!</span>",	\
 			"<span class='warning'>You hear a sickening sizzle.</span>")
 	disfigured = 1

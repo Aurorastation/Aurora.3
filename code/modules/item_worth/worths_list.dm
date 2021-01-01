@@ -713,7 +713,7 @@ var/list/worths = list(
 					/obj/structure/kitchenspike = 35,
 					/obj/structure/lattice = 1,
 					/obj/structure/morgue = 100,
-					/obj/structure/crematorium = 600,
+					/obj/structure/morgue/crematorium = 600,
 					/obj/structure/device/piano = 1200, //pianos are expensive,
 					/obj/structure/noticeboard = 15,
 					/obj/structure/safe/floor = 180,
@@ -885,4 +885,3 @@ var/list/worths = list(
 					/obj/vehicle/bike = 1500,
 					/obj/vehicle = 1000
 					) //Must be in descending order. Child before parents, otherwise it doesn't work.,
-
