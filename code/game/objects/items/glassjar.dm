@@ -219,6 +219,8 @@
 	for(var/i = 1 to GUMBALL_MAX)
 		var/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/G = new(src)
 		contained += G
+		
+	return INITIALIZE_HINT_LATELOAD
 
 #undef JAR_NOTHING
 #undef JAR_MONEY
