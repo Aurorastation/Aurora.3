@@ -728,8 +728,10 @@
 
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
-			stat = UNCONSCIOUS
-			adjustHalLoss(-3)
+			if(sleeping)
+				stat = UNCONSCIOUS
+
+			adjustHalLoss(-7)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -765,11 +767,11 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
-			adjustHalLoss(-3)
+			adjustHalLoss(-5)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-1)
+			adjustHalLoss(-3)
 
 		//Other
 		handle_statuses()
@@ -810,7 +812,7 @@
 		return
 
 	if(stat != DEAD)
-		if(stat == UNCONSCIOUS && health < maxHealth / 2)
+		if((stat == UNCONSCIOUS && health < maxHealth / 2) || paralysis || InStasis())
 			//Critical damage passage overlay
 			var/severity = 0
 			switch(health - maxHealth/2)
@@ -824,6 +826,8 @@
 				if(-90 to -80)			severity = 8
 				if(-95 to -90)			severity = 9
 				if(-INFINITY to -95)	severity = 10
+			if(paralysis || InStasis())
+				severity = max(severity, 8)
 			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
 		else
 			clear_fullscreen("crit")
@@ -857,6 +861,12 @@
 			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
 		else
 			clear_fullscreen("brute")
+
+		if(paralysis_indicator)
+			if(paralysis)
+				paralysis_indicator.icon_state = "paralysis1"
+			else
+				paralysis_indicator.icon_state = "paralysis0"
 
 		if(healths)
 			healths.overlays.Cut()

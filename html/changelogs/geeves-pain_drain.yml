@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a paralysis indicator to the HUD."
+  - tweak: "Being paralyzed will no longer make you asleep, instead, you will be awake with a crit overlay, and you will only be able to whisper."
+  - tweak: "Pain doesn't slow you down as much anymore. It's still pretty substantial, though."
+  - tweak: "You now lose pain damage much faster."
+  - rscadd: "A message now plays if you drop your items because of how much pain damage you have."
