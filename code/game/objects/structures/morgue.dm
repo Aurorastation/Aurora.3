@@ -220,7 +220,7 @@
 	..()
 
 /obj/structure/morgue/crematorium/proc/cremate(atom/A, mob/user)
-	if(cremating || connected)
+	if(cremating)
 		return //don't let you cremate something twice or w/e
 
 	cremating = TRUE
@@ -352,7 +352,7 @@
 			crematoriums += C
 	for(var/thing in crematoriums)
 		var/obj/structure/morgue/crematorium/C = thing
-		if(!C.cremating)
+		if(!C.cremating && !C.connected)
 			active = TRUE
 			update_icon()
 			C.cremate(user)
