@@ -38,7 +38,7 @@
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_mob_overlay()
-	var/I = icon-override ? icon_override : contained_sprite ? icon : INV_ACCESSORIES_DEF_ICON
+	var/I = icon_override ? icon_override : contained_sprite ? icon : INV_ACCESSORIES_DEF_ICON
 	if(!mob_overlay)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
