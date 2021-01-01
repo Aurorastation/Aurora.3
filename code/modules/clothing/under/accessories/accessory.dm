@@ -19,18 +19,17 @@
 	return ..()
 
 /obj/item/clothing/accessory/proc/get_inv_overlay()
+	if(!mob_overlay)
+		get_mob_overlay()
+	var/I = mob_overlay.icon
 	if(!inv_overlay)
-		if(!mob_overlay)
-			get_mob_overlay()
-
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
-		inv_overlay = image(icon = mob_overlay.icon, icon_state = tmp_icon_state, dir = SOUTH)
-		if(contained_sprite)
-			tmp_icon_state = "[tmp_icon_state]"
-			inv_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]_w", dir = SOUTH)
+		else if(contained_sprite)
+			tmp_icon_state = "[tmp_icon_state]_w"
+		inv_overlay = image(icon = I, icon_state = tmp_icon_state, dir = SOUTH)
 	if(color)
 		inv_overlay.color = color
 	if(build_from_parts)
@@ -39,24 +38,15 @@
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_mob_overlay()
-	var/I
-	if(icon_override)
-		I = icon_override
-	else if(contained_sprite)
-		I = icon
-	else
-		I = INV_ACCESSORIES_DEF_ICON
+	var/I = icon-override ? icon_override : contained_sprite ? : icon : INV_ACCESSORIES_DEF_ICON
 	if(!mob_overlay)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
-			mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
-			mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
-		else
-			mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+		mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 	if(color)
 		mob_overlay.color = color
 	if(build_from_parts)
