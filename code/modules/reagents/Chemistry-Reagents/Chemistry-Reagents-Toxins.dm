@@ -143,14 +143,6 @@
 	T.assume_gas(GAS_PHORON, amount, T20C)
 	remove_self(amount, holder)
 
-/decl/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
-	name = "Phoron Salts"
-	description = "A mysterious molten mixture with strange chemical properties. Incredibly deadly to all lifeforms, especially Vaurca."
-	reagent_state = SOLID
-	color = "#7C4876"
-	strength = 30
-	default_temperature = 130 //Kelvin
-
 /decl/reagent/toxin/cardox
 	name = "Cardox"
 	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."

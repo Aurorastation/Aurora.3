@@ -15,8 +15,8 @@
 	var/id = null
 	var/result = null
 	var/list/required_reagents = list()
-	var/list/required_temperatures_min = list() //Format: reagent name = required_kelvin. Temperatures must exceed this value to trigger.
-	var/list/required_temperatures_max = list() //Format: reagent name = required_kelvin. Temperatures must be less than this value to trigger.
+	var/required_temperature_min // Temperatures must exceed this value to trigger.
+	var/required_temperature_max // Temperatures must be less than this value to trigger.
 	var/list/catalysts = list()
 	var/list/inhibitors = list()
 	var/result_amount = 0
@@ -50,7 +50,11 @@
 	if(holder.has_any_reagent(inhibitors))
 		return 0
 
-	if(!holder.has_all_temperatures(required_temperatures_min, required_temperatures_max))
+	var/temp = holder.get_temperature()
+	if(required_temperature_min && (temp < required_temperature_min))
+		return 0
+
+	if(required_temperature_max && (temp < required_temperature_max))
 		return 0
 
 	return 1
@@ -110,7 +114,7 @@
 	//add the product
 	var/amt_produced = result_amount * reaction_progress
 	if(result)
-		holder.add_reagent(result, amt_produced, data, safety = 1, thermal_energy = total_thermal_energy)
+		holder.add_reagent(result, amt_produced, data, safety = 1, new_thermal_energy = total_thermal_energy)
 
 	on_reaction(holder, amt_produced, total_thermal_energy)
 
@@ -760,7 +764,7 @@
 	id = "raskara_dust"
 	result = /decl/reagent/raskara_dust
 	required_reagents = list(/decl/reagent/toxin/fertilizer/monoammoniumphosphate = 1, /decl/reagent/spacecleaner = 1, /decl/reagent/sodiumchloride = 2) // extinguisher, cleaner, salt
-	required_temperatures_min = list(/decl/reagent/toxin/fertilizer/monoammoniumphosphate = 400, /decl/reagent/spacecleaner = 400, /decl/reagent/sodiumchloride = 400) // barely over boiling point of water
+	required_temperature_min = T0C + 127 // barely over boiling point of water, 400C
 	result_amount = 2
 
 /datum/chemical_reaction/nightjuice
@@ -768,7 +772,7 @@
 	id = "night_juice"
 	result = /decl/reagent/night_juice
 	required_reagents = list(/decl/reagent/mental/corophenidate = 1, /decl/reagent/synaptizine = 1, /decl/reagent/nitroglycerin = 1)
-	required_temperatures_min = list(/decl/reagent/mental/corophenidate = T0C+200, /decl/reagent/synaptizine = T0C+200, /decl/reagent/nitroglycerin = T0C+200)
+	required_temperature_min = T0C + 200
 	result_amount = 3
 
 /* Solidification */
@@ -3222,7 +3226,7 @@
 	id = "water_to_ice"
 	result = /decl/reagent/drink/ice
 	required_reagents = list(/decl/reagent/water = 1)
-	required_temperatures_max = list(/decl/reagent/water = T0C)
+	required_temperature_max = T0C
 	result_amount = 1
 	mix_message = "The water freezes."
 	reaction_sound = ""
@@ -3232,20 +3236,10 @@
 	id = "ice_to_water"
 	result = /decl/reagent/water
 	required_reagents = list(/decl/reagent/drink/ice = 1)
-	required_temperatures_min = list(/decl/reagent/drink/ice = T0C + 25) // stop-gap fix to allow recipes requiring ice to be made without breaking the server with HALF_LIFE
+	required_temperature_min = T0C + 25 // stop-gap fix to allow recipes requiring ice to be made without breaking the server with HALF_LIFE
 	result_amount = 1
 	mix_message = "The ice melts."
 	reaction_sound = ""
-
-/datum/chemical_reaction/phoron_salt
-	name = "Phoron Salt"
-	id = "phoron_salt"
-	result = /decl/reagent/toxin/phoron_salt
-	required_reagents = list(/decl/reagent/sodiumchloride = 1, /decl/reagent/toxin/phoron = 2)
-	required_temperatures_min = list(/decl/reagent/sodiumchloride = 678, /decl/reagent/toxin/phoron = 73)
-	required_temperatures_max = list(/decl/reagent/toxin/phoron = 261)
-
-	result_amount = 1
 
 /datum/chemical_reaction/pyrosilicate
 	name = "Pyrosilicate"
@@ -3309,7 +3303,7 @@
 	id = "pyrosilicate_cryosurfactant"
 	result = null
 	required_reagents = list(/decl/reagent/pyrosilicate = 1, /decl/reagent/cryosurfactant = 1)
-	required_temperatures_min = list(/decl/reagent/pyrosilicate = T0C, /decl/reagent/cryosurfactant = T0C) //Does not react when below these temperatures.
+	required_temperature_min = T0C //Does not react when below these temperatures.
 	result_amount = 1
 
 /datum/chemical_reaction/pyrosilicate_cryosurfactant/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
@@ -3317,64 +3311,6 @@
 		var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
 		if(istype(T))
 			T.assume_gas(GAS_OXYGEN, created_volume*10, (created_thermal_energy/created_volume) )
-
-/datum/chemical_reaction/phoron_salt_fire
-	name = "Phoron Salt Fire"
-	id = "phoron_salt_fire"
-	result = null
-	result_amount = 1
-	required_reagents = list(/decl/reagent/toxin/phoron_salt = 1)
-	required_temperatures_min = list(/decl/reagent/toxin/phoron_salt = 134) //If it's above this temperature, then cause hellfire.
-	mix_message = "The solution begins to vibrate!"
-
-/datum/chemical_reaction/phoron_salt_fire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	var/turf/location = get_turf(holder.my_atom)
-	for(var/turf/simulated/floor/target_tile in range(0,location))
-		target_tile.assume_gas(GAS_PHORON, created_volume*2, created_thermal_energy / 25) //2 because there is 2 phoron in 1u of phoron salts
-		addtimer(CALLBACK(target_tile, /turf/simulated/floor/.proc/hotspot_expose, 700, 400), 1)
-	holder.del_reagent(/decl/reagent/toxin/phoron_salt)
-	return
-
-/datum/chemical_reaction/phoron_salt_coldfire
-	name = "Phoron Salt Coldfire"
-	id = "phoron_salt_coldfire"
-	result = null
-	result_amount = 1
-	required_reagents = list(/decl/reagent/toxin/phoron_salt = 1)
-	required_temperatures_max = list(/decl/reagent/toxin/phoron_salt = 113) //if it's below this temperature, then make a boom
-	mix_message = "The solution begins to shrink!"
-
-/datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	var/turf/location = get_turf(holder.my_atom)
-	var/thermal_energy_mod = max(0,1 - (max(0,created_thermal_energy)/28000))
-	var/volume_mod = min(1,created_volume/120)
-	var/explosion_mod = 3 + (thermal_energy_mod*volume_mod*320)
-	var/datum/effect/effect/system/reagents_explosion/e = new()
-	e.set_up(explosion_mod, location, 0, 0)
-	e.start()
-	holder.del_reagent(/decl/reagent/toxin/phoron_salt)
-	return
-
-/datum/chemical_reaction/mutone
-	name = "Mutone"
-	id = "mutone"
-	result = /decl/reagent/mutone
-	result_amount = 1
-	required_reagents = list(/decl/reagent/toxin/phoron_salt = 1, /decl/reagent/mutagen = 1)
-
-/datum/chemical_reaction/plexium
-	name = "Plexium"
-	id = "plexium"
-	result = /decl/reagent/plexium
-	result_amount = 1
-	required_reagents = list(/decl/reagent/toxin/phoron_salt = 1, /decl/reagent/alkysine = 1)
-
-/datum/chemical_reaction/venenum
-	name = "Venenum"
-	id = "venenum"
-	result = /decl/reagent/venenum
-	result_amount = 1
-	required_reagents = list(/decl/reagent/toxin/phoron_salt = 1, /decl/reagent/ryetalyn = 1)
 
 /datum/chemical_reaction/rmt
 	name = "RMT"
@@ -3397,7 +3333,7 @@
 	result = /decl/reagent/nutriment/caramel
 	required_reagents = list(/decl/reagent/sugar = 1)
 	result_amount = 1
-	required_temperatures_min = list(/decl/reagent/sugar = T0C + 82) // no maximum! i mean technically it should burn at some point but ehh
+	required_temperature_min = T0C + 82 // no maximum! i mean technically it should burn at some point but ehh
 	mix_message = "The sugar melts into a sticky, brown liquid."
 
 /datum/chemical_reaction/caramelsauce
@@ -3407,7 +3343,7 @@
 	required_reagents = list(/decl/reagent/nutriment/caramel = 2, /decl/reagent/drink/milk/cream = 1, /decl/reagent/drink/syrup_simple = 2)
 	result_amount = 5
 	mix_message = "The solution thickens into a glossy, brown sauce."
-	required_temperatures_max = list(/decl/reagent/nutriment/caramel = T0C + 82) // You don't want the syrup to crystallise/caramelise; that'd just make more caramel...
+	required_temperature_max = T0C + 82 // You don't want the syrup to crystallise/caramelise; that'd just make more caramel...
 
 /datum/chemical_reaction/simplesyrup
 	name = "Simple Syrup"
@@ -3415,8 +3351,8 @@
 	result = /decl/reagent/drink/syrup_simple
 	required_reagents = list(/decl/reagent/sugar = 2, /decl/reagent/water = 2) // simple syrup, the sugar dissolves and doesn't change the volume too much
 	result_amount = 2
-	required_temperatures_min = list(/decl/reagent/sugar = T0C + 30, /decl/reagent/water = T0C + 30)
-	required_temperatures_max = list(/decl/reagent/sugar = T0C + 82, /decl/reagent/water = T0C + 100) // Sugar caramelises after 82C, water boils at 100C.
+	required_temperature_min = T0C + 30
+	required_temperature_max = T0C + 100 // Sugar caramelises after 82C, water boils at 100C.
 	mix_message = "The sugar dissolves into the solution."
 
 /datum/chemical_reaction/caramelsyrup

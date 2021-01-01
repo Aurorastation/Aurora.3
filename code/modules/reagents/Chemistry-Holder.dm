@@ -48,8 +48,7 @@
 	for(var/R in reagent_volumes)
 		var/vol = reagent_volumes[R]
 		if(vol < MINIMUM_CHEMICAL_VOLUME)
-			reagent_volumes -= R
-			reagent_data -= R
+			del_reagent(R)
 		else
 			total_volume += vol
 			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
@@ -72,6 +71,15 @@
 /datum/reagents/proc/handle_reactions()
 	if(SSchemistry)
 		SSchemistry.mark_for_update(src)
+
+/datum/reagents/proc/has_reactions()
+	var/list/eligible_reactions = list()
+	for(var/thing in reagent_volumes)
+		eligible_reactions |= SSchemistry.chemical_reactions[thing]
+
+	for(var/datum/chemical_reaction/C in eligible_reactions)
+		if(C.can_happen(src))
+			return TRUE
 
 //returns 1 if the holder should continue reactiong, 0 otherwise.
 /datum/reagents/proc/process_reactions()
@@ -101,47 +109,48 @@
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
 
-	var/temps_updated = equalize_temperature()
 	update_holder(reactions = reaction_occured)
-	return temps_updated
+	return has_reactions()
 
 /* Holder-to-chemical */
 
-/datum/reagents/proc/add_reagent(var/rtype, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/thermal_energy = 0)
+/datum/reagents/proc/add_reagent(var/rtype, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/new_thermal_energy = 0)
 	if(amount <= 0)
 		return FALSE
-	thermal_energy /= amount // Re-multiplied later
+	new_thermal_energy /= amount // Re-multiplied later
 	amount = min(amount, REAGENTS_FREE_SPACE(src))
-	thermal_energy *= amount
+	new_thermal_energy *= amount
 	var/decl/reagent/newreagent = decls_repository.get_decl(rtype)
 	LAZYINITLIST(reagent_volumes)
 	if(!reagent_volumes[rtype])	// New reagent
 		reagent_volumes[rtype] = amount
+		total_volume += amount // so temperature calculations work
 		var/tmp_data = newreagent.initialize_data(data, src)
 		if(tmp_data)
 			LAZYSET(reagent_data, rtype, tmp_data)
 		if(temperature <= 0)
 			temperature = newreagent.default_temperature
-		if(thermal_energy > 0)
-			newreagent.set_thermal_energy(thermal_energy, src, TRUE)
+		if(new_thermal_energy > 0)
+			newreagent.set_thermal_energy(new_thermal_energy, src, safety = TRUE)
 		else
-			newreagent.set_temperature(temperature, src, TRUE)
-		if(!thermal_energy && round(temperature, 1) != round(newreagent.get_temperature(src), 1))
-			crash_with("Temperature [temperature] did not match [newreagent.get_temperature(src)] for NEW reagent [newreagent.type]!")
+			newreagent.set_temperature(temperature, src, safety = TRUE)
+		if(!new_thermal_energy && round(temperature, 1) != round(get_temperature(), 1))
+			crash_with("Temperature [temperature] did not match [get_temperature()] after adding NEW reagent [rtype]!")
 	else	// Existing reagent
-		var/old_energy = src.thermal_energy
+		var/old_energy = thermal_energy
 		reagent_volumes[rtype] += amount
+		total_volume += amount // so temperature calculations work
 		if(!isnull(data))
 			LAZYSET(reagent_data, rtype, newreagent.mix_data(data, amount, src))
 		if(temperature <= 0)
 			temperature = newreagent.default_temperature
-		newreagent.add_thermal_energy(old_energy, src, TRUE) // This part has the safety var set because thermal shock shouldn't occur due to it.
-		if(thermal_energy > 0) // This if-else is for the change from the current temperature.
-			newreagent.add_thermal_energy(thermal_energy - old_energy, src, FALSE)
+		newreagent.set_thermal_energy(old_energy, src, safety = TRUE) // This part has the safety var set because thermal shock shouldn't occur due to it.
+		if(new_thermal_energy > 0) // This if-else is for the change from the current temperature.
+			newreagent.add_thermal_energy(new_thermal_energy - old_energy, src, FALSE)
 		else
-			newreagent.add_thermal_energy(temperature*newreagent.specific_heat*amount - old_energy, src, FALSE)
-		if(!thermal_energy && round(temperature, 1) != round(newreagent.get_temperature(src), 1))
-			crash_with("Temperature [temperature] did not match [newreagent.get_temperature(src)] for EXISTING reagent [newreagent.type]!")
+			newreagent.add_thermal_energy(temperature*newreagent.specific_heat*amount - old_energy, src, safety = FALSE)
+		if(!new_thermal_energy && round(temperature, 1) != round(get_temperature(), 1))
+			crash_with("Temperature [temperature] did not match [get_temperature()] after adding EXISTING reagent [rtype]!")
 	UNSETEMPTY(reagent_volumes)
 	update_holder(!safety)
 	return TRUE
@@ -159,13 +168,13 @@
 
 /datum/reagents/proc/del_reagent(var/rtype)
 	if(REAGENT_VOLUME(src, rtype) <= 0)
+		LAZYREMOVE(reagent_data, rtype)
+		LAZYREMOVE(reagent_volumes, rtype)
 		return FALSE
 	var/decl/reagent/current = decls_repository.get_decl(rtype)
 	thermal_energy -= current.get_thermal_energy(src)
 	if(ismob(my_atom))
 		current.final_effect(my_atom, src)
-	reagent_data -= rtype
-	reagent_volumes -= rtype
 	if(primary_reagent == rtype)
 		primary_reagent = null
 	update_holder(FALSE)
@@ -246,7 +255,7 @@
 		var/decl/reagent/current = decls_repository.get_decl(_current)
 		var/amount_to_transfer = reagent_volumes[_current] * part
 		var/energy_to_transfer = current.get_thermal_energy(src) * (amount_to_transfer / reagent_volumes[_current])
-		target.add_reagent(_current, amount_to_transfer * multiplier, REAGENT_DATA(src, current), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
+		target.add_reagent(_current, amount_to_transfer * multiplier, REAGENT_DATA(src, _current), TRUE, new_thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(_current, amount_to_transfer, TRUE)
 
@@ -305,7 +314,7 @@
 	var/datum/reagents/F = new /datum/reagents(amount)
 	var/tmpdata = REAGENT_DATA(src, rtype)
 	var/transfering_thermal_energy = transfering_reagent.get_thermal_energy(src) * (amount/REAGENT_VOLUME(src, rtype))
-	F.add_reagent(rtype, amount, tmpdata, thermal_energy = transfering_thermal_energy)
+	F.add_reagent(rtype, amount, tmpdata, new_thermal_energy = transfering_thermal_energy)
 	remove_reagent(rtype, amount)
 
 

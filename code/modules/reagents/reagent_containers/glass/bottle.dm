@@ -157,12 +157,6 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/decl/reagent/cryosurfactant = 60)
 
-/obj/item/reagent_containers/glass/bottle/phoron_salt
-	name = "phoron salt bottle"
-	desc = "A small bottle. Contains phoron salt - a mysterious and unstable chemical."
-	icon_state = "bottle-4"
-	reagents_to_add = list(/decl/reagent/toxin/phoron_salt = 60)
-
 /obj/item/reagent_containers/glass/bottle/epinephrine
 	name = "epinephrine bottle"
 	desc = "A small bottle. Contains epinephrine. Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."

@@ -438,54 +438,6 @@
 	taste_description = "needles"
 	default_temperature = 100 //Kelvin
 
-/decl/reagent/mutone
-	name = "Mutone"
-	description = "A strange green powder with even stranger properties."
-	reagent_state = SOLID
-	color = "#11AA11"
-	metabolism = (5/60) //5u every 60 seconds.
-	taste_description = "sweet metal"
-	var/stored_value = 0 //Internal value. Every 10 units equals a dosage.
-
-/decl/reagent/mutone/initial_effect(var/mob/living/carbon/M, var/alien)
-	stored_value = metabolism
-
-/decl/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	stored_value += removed
-	if(stored_value >= 5)
-		to_chat(M, SPAN_NOTICE("You feel strange..."))
-		if(prob(25))
-			randmutb(M)
-		else
-			randmutg(M)
-		M.UpdateAppearance()
-		stored_value -= 5
-
-/decl/reagent/plexium
-	name = "Plexium"
-	description = "A yellow, fowl smelling liquid that seems to affect the brain in strange ways."
-	reagent_state = LIQUID
-	color = "#888822"
-	metabolism = 1 //1u every second
-	taste_description = "brain freeze"
-	var/stored_value = 0 //Internal value. Every 5 units equals a dosage.
-
-/decl/reagent/plexium/initial_effect(var/mob/living/carbon/M, var/alien)
-	stored_value = metabolism
-
-/decl/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
-	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
-	if(B && H.species && H.species.has_organ[BP_BRAIN] && !isipc(H))
-		stored_value += removed
-		if(stored_value >= 5)
-			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
-				B.gain_trauma_type(BRAIN_TRAUMA_MILD)
-			else if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE))
-				B.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
-			else if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
-				B.gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
-			stored_value -= 5
-
 /decl/reagent/venenum
 	name = "Venenum"
 	description = "A thick tar like liquid that seems to move around on it's own every now and then. Limited data shows it only works when injected into the bloodstream."

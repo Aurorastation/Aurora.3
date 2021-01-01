@@ -223,20 +223,8 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 				amount = inhibitor_amount
 			))
 
-		reactionData["temp_min"] = list()
-		for(var/reagent_path in CR.required_temperatures_min)
-			var/decl/reagent/required_reagent = reagent_path
-			reactionData["temp_min"] += list(list(
-				name = initial(required_reagent.name),
-				temp = CR.required_temperatures_min[reagent_path]
-			))
+		reactionData["temp_min"] = CR.required_temperature_min
 
-		reactionData["temp_max"] = list()
-		for(var/reagent_path in CR.required_temperatures_max)
-			var/decl/reagent/required_reagent = reagent_path
-			reactionData["temp_max"] += list(list(
-				name = initial(required_reagent.name),
-				temp = CR.required_temperatures_max[reagent_path]
-			))
+		reactionData["temp_max"] = CR.required_temperature_max
 
 		codex_data += list(reactionData)

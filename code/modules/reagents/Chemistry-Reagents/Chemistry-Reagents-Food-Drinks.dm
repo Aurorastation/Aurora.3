@@ -86,12 +86,12 @@
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
-	if(!islist(newdata) || !newdata.len)
+	if(isemptylist(newdata))
 		return
 	var/list/data = holder.reagent_data[type]
 	for(var/i in newdata)
-		if(!(i in data[type]))
-			data[i] = 0
+		if(!(i in data))
+			LAZYSET(data, i, 0)
 			continue
 		data[i] += newdata[i]
 	var/totalFlavor = 1

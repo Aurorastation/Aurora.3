@@ -30,7 +30,7 @@
 	. = ..()
 	if(blood_type != null)
 		name = "blood pack [blood_type]"
-		reagents.add_reagent(/decl/reagent/blood, 200, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
+		reagents.add_reagent(/decl/reagent/blood, 200)
 		update_icon()
 
 /obj/item/reagent_containers/blood/on_reagent_change()
