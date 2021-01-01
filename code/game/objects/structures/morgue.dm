@@ -220,7 +220,7 @@
 	..()
 
 /obj/structure/morgue/crematorium/proc/cremate(atom/A, mob/user)
-	if(cremating)
+	if(cremating || connected)
 		return //don't let you cremate something twice or w/e
 
 	cremating = TRUE
