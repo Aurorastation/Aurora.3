@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added the ability for exosuits to respond to verbal commands."
-  - rscadd: "The guide for the verbal commands will be on the Guide to Robotics wiki page."
