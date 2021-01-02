@@ -69,7 +69,7 @@
 
 /datum/accent/northrasnrr
 	name = ACCENT_NORTHRASNRR
-	description = "Northern Ras'nrr Siik'maas: while similar to the Republican Siik'maas, Northern Ras'nrr Siik’maas is relatively free from the Hadiist additions. It is known for its \
+	description = "While similar to the Republican Siik'maas, Northern Ras'nrr Siik’maas is relatively free from the Hadiist additions. It is known for its \
 	short, sharp vowel sounds and clear pronunciation. Most speakers are found in the DPRA controlled area of the region, but some do exist within the PRA borders."
 	tag_icon = "tajara_northrasnrr"
 
