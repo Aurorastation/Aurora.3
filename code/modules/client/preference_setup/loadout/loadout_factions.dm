@@ -23,6 +23,12 @@
 	path = /obj/item/clothing/accessory/armband/idris
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_windbreaker
+	display_name = "idris jacket"
+	path = /obj/item/clothing/suit/storage/toggle/idris
+	slot = slot_wear_suit
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/zavodskoi_beret
 	display_name = "black zavodskoi beret"
 	path = /obj/item/clothing/head/beret/security/zavodskoi
