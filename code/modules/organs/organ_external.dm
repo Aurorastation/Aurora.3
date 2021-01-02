@@ -379,7 +379,6 @@
 
 				var/edge_eligible = FALSE
 				var/blunt_eligible = FALSE
-				var/limb_destroy_mod = 1
 				var/maim_bonus = 0
 
 				if(isitem(used_weapon))
