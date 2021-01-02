@@ -74,7 +74,7 @@
 
 /datum/gear/accessory/tie
 	display_name = "tie selection (colourable)"
-	path = /obj/item/clothing/accessory/tie/col
+	path = /obj/item/clothing/accessory/tie/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/tie/New()
