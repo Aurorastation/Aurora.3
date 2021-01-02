@@ -6,6 +6,10 @@
 	var/mob/living/heavy_vehicle/owner
 	maptext_y = 11
 
+/obj/screen/mecha/proc/notify_user(var/mob/user, var/text)
+	if(user.loc == owner)
+		to_chat(user, text)
+
 /obj/screen/mecha/radio
 	name = "radio"
 	icon_state = "base"
@@ -136,15 +140,12 @@
 	var/modifiers = params2list(params)
 	if(modifiers["ctrl"])
 		if(owner.hardpoints_locked)
-			if(usr.loc == owner)
-				to_chat(usr, "<span class='warning'>Hardpoint ejection system is locked.</span>")
+			notify_user(usr, SPAN_WARNING("The hardpoint ejection system is locked."))
 			return
 		if(owner.remove_system(hardpoint_tag))
-			if(usr.loc == owner)
-				to_chat(usr, "<span class='notice'>You disengage and discard the system mounted to your [hardpoint_tag] hardpoint.</span>")
+			notify_user(usr, SPAN_NOTICE("You disengage and discard the system mounted to your [hardpoint_tag] hardpoint."))
 		else
-			if(usr.loc == owner)
-				to_chat(usr, "<span class='danger'>You fail to remove the system mounted to your [hardpoint_tag] hardpoint.</span>")
+			notify_user(usr, SPAN_DANGER("You fail to remove the system mounted to your [hardpoint_tag] hardpoint."))
 		return
 
 	if(owner.selected_hardpoint == hardpoint_tag)
@@ -206,8 +207,7 @@
 	owner.use_air = toggled
 	var/main_color = owner.use_air ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
-	if(usr.loc == owner)
-		to_chat(usr, "<span class='notice'>Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"].</span>")
+	notify_user(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
 
 /obj/screen/mecha/toggle/maint
 	name = "toggle maintenance protocol"
@@ -221,8 +221,7 @@
 	owner.maintenance_protocols = toggled
 	var/main_color = owner.maintenance_protocols ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
-	if(usr.loc == owner)
-		to_chat(usr, "<span class='notice'>Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"].</span>")
+	notify_user(usr, SPAN_NOTICE("Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"]."))
 
 /obj/screen/mecha/toggle/hardpoint
 	name = "toggle hardpoint lock"
@@ -232,15 +231,13 @@
 
 /obj/screen/mecha/toggle/hardpoint/toggled()
 	if(owner.force_locked)
-		if(usr.loc == owner)
-			to_chat(usr, "<span class='warning'>The locking system cannot be operated due to software restriction. Contact the manufacturer for more details.</span>")
+		notify_user(usr, SPAN_WARNING("The locking system cannot be operated due to software restriction. Contact the manufacturer for more details."))
 		return
 	toggled = !toggled
 	owner.hardpoints_locked = toggled
 	var/main_color = owner.hardpoints_locked ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
-	if(usr.loc == owner)
-		to_chat(usr, "<span class='notice'>Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"].</span>")
+	notify_user(usr, SPAN_NOTICE("Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"]."))
 
 /obj/screen/mecha/toggle/hatch
 	name = "toggle hatch lock"
@@ -250,12 +247,10 @@
 
 /obj/screen/mecha/toggle/hatch/toggled()
 	if(!owner.hatch_locked && !owner.hatch_closed)
-		if(usr.loc == owner)
-			to_chat(usr, "<span class='warning'>You cannot lock the hatch while it is open.</span>")
+		notify_user(usr, SPAN_WARNING("You cannot lock the hatch while it is open."))
 		return
 	if(owner.force_locked)
-		if(usr.loc == owner)
-			to_chat(usr, "<span class='warning'>The locking system cannot be operated due to software restriction. Contact the manufacturer for more details.</span>")
+		notify_user(usr, SPAN_WARNING("The locking system cannot be operated due to software restriction. Contact the manufacturer for more details."))
 		return
 	toggled = !toggled
 	owner.hatch_locked = toggled
@@ -267,8 +262,7 @@
 		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">LOCK</span>"
 		maptext_y = 11
 		maptext_x = 5
-	if(usr.loc == owner)
-		to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked.</span>")
+	notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked."))
 
 /obj/screen/mecha/toggle/hatch_open
 	name = "open or close hatch"
@@ -278,15 +272,13 @@
 
 /obj/screen/mecha/toggle/hatch_open/toggled()
 	if(owner.hatch_locked && owner.hatch_closed)
-		if(usr.loc == owner)
-			to_chat(usr, "<span class='warning'>You cannot open the hatch while it is locked.</span>")
+		notify_user(usr, SPAN_WARNING("You cannot open the hatch while it is locked."))
 		return
 	toggled = !toggled
 	owner.hatch_closed = toggled
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">[owner.hatch_closed ? "OPEN" : "CLOSE"]</span>"
 	maptext_x = owner.hatch_closed ? 4 : 3
-	if(usr.loc == owner)
-		to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ].</span>")
+	notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ]."))
 	owner.update_icon()
 
 // This is basically just a holder for the updates the mech does.
@@ -303,18 +295,15 @@
 
 /obj/screen/mecha/toggle/sensor/toggled()
 	if(!owner.head)
-		if(usr.loc == owner)
-			to_chat(usr, "<span class='warning'>I/O Error: Sensor systems not found.</span>")
+		notify_user(usr, SPAN_WARNING("I/O Error: Sensor systems not found."))
 		return
 	if(!owner.head.vision_flags)
-		if(usr.loc == owner)
-			to_chat(usr, "<span class='warning'>\The [owner.head] does not have any special sensor configurations.</span>")
+		notify_user(usr, SPAN_WARNING("\The [owner.head] does not have any special sensor configurations."))
 		return
 	toggled = !toggled
 	owner.head.active_sensors = toggled
 	var/main_color = owner.head.active_sensors ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">SENSOR</span>"
-	if(usr.loc == owner)
-		to_chat(usr, "<span class='notice'>[capitalize_first_letters(owner.head.name)] Advanced Sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active.</span>")
+	notify_user(usr, SPAN_NOTICE("[capitalize_first_letters(owner.head.name)] Advanced Sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active."))
 
 #undef BAR_CAP
