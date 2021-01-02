@@ -18,6 +18,16 @@
 	on_removed()
 	return ..()
 
+/obj/item/clothing/accessory/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/accessory/update_icon()
+	. = ..()
+	if(build_from_parts)
+		cut_overlays()
+		add_overlay(overlay_image(icon, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+
 /obj/item/clothing/accessory/proc/get_inv_overlay()
 	if(!mob_overlay)
 		get_mob_overlay()
@@ -34,7 +44,7 @@
 		inv_overlay.color = color
 	if(build_from_parts)
 		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(icon, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_mob_overlay()
@@ -61,7 +71,6 @@
 	has_suit = S
 	loc = has_suit
 	has_suit.add_overlay(get_inv_overlay())
-
 	if(user)
 		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
 		src.add_fingerprint(user)
