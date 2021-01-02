@@ -139,7 +139,7 @@
 		var/blood_max = 0
 		var/open_wound
 		var/list/do_spray = list()
-		for(var/obj/item/organ/external/temp in owner.organs)
+		for(var/obj/item/organ/external/temp in owner.bad_external_organs)
 			if((temp.status & ORGAN_BLEEDING) && !BP_IS_ROBOTIC(temp))
 				for(var/datum/wound/W in temp.wounds)
 					if(W.bleeding())
@@ -156,6 +156,8 @@
 			if(temp.status & ORGAN_ARTERY_CUT)
 				var/bleed_amount = Floor(owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250))
 				if(bleed_amount)
+					if(CE_BLOODCLOT in owner.chem_effects)
+						bleed_amount *= 0.8 // won't do much, but it'll help
 					if(open_wound)
 						blood_max += bleed_amount
 						do_spray += "[temp.name]"
@@ -170,7 +172,9 @@
 			if(PULSE_2FAST, PULSE_THREADY)
 				blood_max *= 1.5
 
-		if(CE_STABLE in owner.chem_effects)
+		if(CE_BLOODCLOT in owner.chem_effects)
+			blood_max *= 0.7
+		else if(CE_STABLE in owner.chem_effects)
 			blood_max *= 0.8
 
 		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && do_spray.len)

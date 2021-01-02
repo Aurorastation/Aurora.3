@@ -71,8 +71,26 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/engineering
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
-	req_one_access = list(access_engine,access_atmospherics)
+	desc_info = "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
+	req_one_access = list(access_engine, access_atmospherics)
 	icon_base = "engineering"
+	var/shield_marker = FALSE
+
+/obj/item/tape/engineering/examine(mob/user, distance)
+	. = ..()
+	if(shield_marker)
+		to_chat(user, SPAN_NOTICE("This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."))
+
+/obj/item/tape/engineering/attackby(obj/item/W, mob/user)
+	if(W.ismultitool())
+		shield_marker = !shield_marker
+		to_chat(user, SPAN_NOTICE("You [shield_marker ? "" : "un"]designate \the [src] as a target for an emergency shield generator."))
+		if(shield_marker)
+			animate(src, 1 SECOND, color = color_rotation(-60))
+		else
+			animate(src, 1 SECOND, color = initial(color))
+		return
+	return ..()
 
 /obj/item/taperoll/attack_self(mob/user as mob)
 	if(icon_state == "[icon_base]_start")

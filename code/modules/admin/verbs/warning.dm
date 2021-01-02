@@ -281,6 +281,8 @@
  */
 /client/proc/fetch_unacked_warning_count()
 	establish_db_connection(dbcon)
+	if (!dbcon)
+		return
 	if (!dbcon.IsConnected())
 		return
 	var/DBQuery/warning_count_query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
