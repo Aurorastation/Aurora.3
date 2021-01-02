@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Standard disruptors now have enough charge capacity for 8 shots in general, lethal shots no longer drain more."
+  - tweak: "Lethal disruptor shots now do 20 burn damage, down from 30."
+  - tweak: "Lethal disruptor shots no longer pass through windows and grilles."
+  - tweak: "Stun disruptor shots now do 25 agony damage, down from 45."
