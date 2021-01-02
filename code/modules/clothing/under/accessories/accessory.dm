@@ -175,17 +175,17 @@
 	name = "white tie"
 	icon_state = "whitetie"
 
-/obj/item/clothing/accessory/tie/col
+/obj/item/clothing/accessory/tie/colourable
 	name = "tie"
 	icon_state = "whitetie"
 
-/obj/item/clothing/accessory/tie/col/clip
-	name = "tie with a clip"
+/obj/item/clothing/accessory/tie/colourable/clip
+	name = "tie with a gold clip"
 	build_from_parts = TRUE
 	worn_overlay = "clip"
 	
-/obj/item/clothing/accessory/tie/col/clip/silver
-	name = "tie with a clip"
+/obj/item/clothing/accessory/tie/colourable/clip/silver
+	name = "tie with a silver clip"
 	worn_overlay = "sclip"
 
 /obj/item/clothing/accessory/tie/bowtie

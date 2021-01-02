@@ -80,9 +80,9 @@
 /datum/gear/accessory/tie/New()
 	..()
 	var/ties = list()
-	ties["tie"] = /obj/item/clothing/accessory/tie/col
-	ties["tie, gold clip"] = /obj/item/clothing/accessory/tie/col/clip
-	ties["tie, silver clip"] = /obj/item/clothing/accessory/tie/col/clip/silver
+	ties["tie"] = /obj/item/clothing/accessory/tie/colourable
+	ties["tie, gold clip"] = /obj/item/clothing/accessory/tie/colourable/clip
+	ties["tie, silver clip"] = /obj/item/clothing/accessory/tie/colourable/clip/silver
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 
 /datum/gear/accessory/horrible_tie
