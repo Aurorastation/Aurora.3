@@ -2739,7 +2739,8 @@
 /area/template_noop)
 "Dz" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/janitor)
 "DC" = (
 /obj/machinery/light{
@@ -3013,6 +3014,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/janitor)
+"FS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/janitor)
 "FV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -24656,8 +24661,8 @@ dD
 jm
 sW
 bl
-Vh
-Vh
+FS
+FS
 QK
 QK
 oG
