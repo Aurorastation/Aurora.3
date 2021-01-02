@@ -1661,6 +1661,7 @@
 #include "code\modules\heavy_vehicle\mech_construction.dm"
 #include "code\modules\heavy_vehicle\mech_damage.dm"
 #include "code\modules\heavy_vehicle\mech_damage_immunity.dm"
+#include "code\modules\heavy_vehicle\mech_helpers.dm"
 #include "code\modules\heavy_vehicle\mech_icon.dm"
 #include "code\modules\heavy_vehicle\mech_interaction.dm"
 #include "code\modules\heavy_vehicle\mech_life.dm"
