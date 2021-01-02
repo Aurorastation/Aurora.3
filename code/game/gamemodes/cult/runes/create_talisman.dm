@@ -1,7 +1,7 @@
 /datum/rune/talisman
 	name = "talisman creation rune"
 	desc = "This rune creates a talisman out of a rune around it."
-	rune_flags = NO_TALISMAN
+	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 /datum/rune/talisman/do_rune_action(mob/living/user, atom/movable/A)
 	var/obj/item/paper/new_talisman

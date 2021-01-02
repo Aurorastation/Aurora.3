@@ -25,7 +25,7 @@
 	new /obj/item/shovel(src)
 	new /obj/item/pickaxe(src)
 	new /obj/item/gun/custom_ka/frame01/prebuilt(src)
-	new /obj/item/ore_radar(src)
+	new /obj/item/ore_detector(src)
 	new /obj/item/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/book/manual/ka_custom(src)
@@ -1144,13 +1144,14 @@ var/list/total_extraction_beacons = list()
 /******************************Sculpting*******************************/
 /obj/item/autochisel
 	name = "auto-chisel"
+	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
 	icon = 'icons/obj/contained_items/tools/drills.dmi'
-	icon_state = "jackhammer"
+	icon_state = "chisel"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
-	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
 
+#define TRUE_QDEL 3
 /obj/structure/sculpting_block
 	name = "sculpting block"
 	desc = "A finely chiselled sculpting block, it is ready to be your canvas."
@@ -1159,89 +1160,162 @@ var/list/total_extraction_beacons = list()
 	density = TRUE
 	opacity = TRUE
 	anchored = FALSE
-	obj_flags = OBJ_FLAG_ROTATABLE
 	var/sculpted = FALSE
 	var/mob/living/T
 	var/times_carved = 0
-	var/last_struck = 0
+	var/busy_sculpting = FALSE
 
-/obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/sculpting_block/attackby(obj/item/C, mob/user)
+	if(C.iswrench())
+		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
+		if(do_after(user, 5 SECONDS, TRUE))
+			playsound(src.loc, C.usesound, 100, 1)
+			anchored = !anchored
 
-	if (C.iswrench())
-		playsound(src.loc, C.usesound, 100, 1)
-		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>")
-		anchored = !anchored
+	else if(istype(C, /obj/item/autochisel))
+		if(sculpted)
+			to_chat(user, SPAN_WARNING("\The [src] has already been sculpted!"))
+			return
+		if(busy_sculpting)
+			to_chat(user, SPAN_WARNING("Someone's already busy sculpting \the [src]!"))
+			return
 
-	if(istype(C, /obj/item/autochisel))
-		if(!sculpted)
-			if(last_struck)
-				return
+		busy_sculpting = TRUE
+
+		var/choice = input(user, "What would you like to sculpt?", "Sculpting Options") as null|anything in list("Sculpture", "Ladder")
+		if(!choice)
+			busy_sculpting = FALSE
+			return
+		choice = lowertext(choice)
+		var/result = sculpture_options(choice, user)
+		if(!result)
+			busy_sculpting = FALSE
+			return
+
+		user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."), SPAN_NOTICE("You begin sculpting."))
+
+		if(prob(25))
+			playsound(loc, 'sound/items/screwdriver.ogg', 20, TRUE)
+		else
+			playsound(loc, /decl/sound_category/pickaxe_sound, 20, TRUE)
+		
+		var/successfully_sculpted = FALSE
+		while(do_after(user, 2 SECONDS) && sculpture_process_check(choice, user))
+			if(times_carved <= 9)
+				times_carved++
+				playsound(loc, /decl/sound_category/pickaxe_sound, 20, TRUE)
+				continue
+			successfully_sculpted = TRUE
+			break
+
+		busy_sculpting = FALSE
+
+		if(!successfully_sculpted)
+			return
+
+		user.visible_message(SPAN_NOTICE("\The [user] finishes sculpting their magnum opus!"), SPAN_NOTICE("You finish sculpting a masterpiece."))
+		sculpted = finish_sculpture(choice, user)
+		if(sculpted == TRUE_QDEL)
+			qdel(src)
+
+/obj/structure/sculpting_block/proc/sculpture_options(var/choice, var/mob/user)
+	switch(choice)
+		if("sculpture")
+			var/mob/living/old_T
+			if(T)
+				old_T = T
+
+			var/list/choices = list()
+			for(var/mob/living/M in view(7,user))
+				choices += M
+			T = input(user, "Who do you wish to sculpt?", "Sculpt Options") as null|anything in choices
 			if(!T)
-				var/list/choices = list()
-				for(var/mob/living/M in view(7,user))
-					choices += M
-				T = input(user,"Who do you wish to sculpt?") as null|anything in choices
-				if(!T)
-					to_chat(user, SPAN_NOTICE("You decide against sculpting for now."))
-				user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."),
-					SPAN_NOTICE("You begin sculpting."))
+				to_chat(user, SPAN_NOTICE("You decide against sculpting for now."))
+				return FALSE
 
-			var/sculpting_coefficient = get_dist(user,T)
-			if(sculpting_coefficient <= 0)
-				sculpting_coefficient = 1
-
+			var/sculpting_coefficient = max(get_dist(user, T), 1)
 			if(sculpting_coefficient >= 7)
 				to_chat(user, SPAN_WARNING("You hardly remember what \the [T] really looks like! Bah!"))
 				T = null
+				return
 
-			user.visible_message(SPAN_NOTICE("\The [user] carves away at the sculpting block!"),
-				SPAN_NOTICE("You continue sculpting."))
+			if(old_T && T != old_T)
+				times_carved = 0
 
-			if(prob(25))
-				playsound(user, 'sound/items/screwdriver.ogg', 20, TRUE)
+			return TRUE
+		if("ladder")
+			var/turf/above = GET_ABOVE(src)
+			if(!above)
+				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
+				return FALSE
+			if(!isopenturf(above))
+				to_chat(user, SPAN_WARNING("The tile above you isn't open and can't accomodate a ladder."))
+				return FALSE
+			return TRUE
+
+/obj/structure/sculpting_block/proc/sculpture_process_check(var/choice, var/mob/user)
+	switch(choice)
+		if("sculpture")
+			if(!QDELETED(T) && get_dist(user, T) < 8)
+				return TRUE
+			return FALSE
+		if("ladder")
+			var/turf/above = GET_ABOVE(src)
+			if(!above)
+				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
+				return FALSE
+			if(!isopenturf(above))
+				to_chat(user, SPAN_WARNING("The tile above you isn't open and can't accomodate a ladder."))
+				return FALSE
+			return TRUE
+
+/obj/structure/sculpting_block/proc/finish_sculpture(var/choice, var/mob/user)
+	switch(choice)
+		if("sculpture")
+			appearance = T
+			color = list( // for anyone interested, this is called a color matrix
+				0.35, 0.3, 0.25,
+				0.35, 0.3, 0.25,
+				0.35, 0.3, 0.25
+			)
+			pixel_y += 8
+
+			var/image/pedestal_underlay = image('icons/obj/mining.dmi', icon_state = "pedestal")
+			pedestal_underlay.appearance_flags = RESET_COLOR
+			pedestal_underlay.pixel_y -= 8
+			underlays += pedestal_underlay
+
+			obj_flags = OBJ_FLAG_ROTATABLE
+
+			var/title = sanitize(input(usr, "If you would like to name your art, do so here.", "Christen Your Sculpture", "") as text|null)
+			if(title)
+				name = title
 			else
-				playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
-				spawn(3)
-					playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
-					spawn(3)
-						playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
+				name = T.name
 
-			last_struck = 1
-			if(do_after(user,(20)))
-				last_struck = 0
-				if(times_carved <= 9)
-					times_carved += 1
-					if(times_carved < 1)
-						to_chat(user, SPAN_NOTICE("You review your work and see there is more to do."))
-					return
-				else
-					sculpted = TRUE
-					user.visible_message(SPAN_NOTICE("\The [user] finishes sculpting their magnum opus!"),
-						SPAN_NOTICE("You finish sculpting a masterpiece."))
-					src.appearance = T
-					src.color = list(
-					    0.35, 0.3, 0.25,
-					    0.35, 0.3, 0.25,
-					    0.35, 0.3, 0.25
-					)
-					src.pixel_y += 8
-					var/image/pedestal_underlay = image('icons/obj/mining.dmi', icon_state = "pedestal")
-					pedestal_underlay.appearance_flags = RESET_COLOR
-					pedestal_underlay.pixel_y -= 8
-					src.underlays += pedestal_underlay
-					var/title = sanitize(input(usr, "If you would like to name your art, do so here.", "Christen Your Sculpture", "") as text|null)
-					if(title)
-						name = title
-					else
-						name = "*[T.name]*"
-					var/legend = sanitize(input(usr, "If you would like to describe your art, do so here.", "Story Your Sculpture", "") as message|null)
-					if(legend)
-						desc = legend
-					else
-						desc = "This is a sculpture of [T.name]. All craftsmanship is of the highest quality. It is decorated with rock and more rock. It is covered with rock. On the item is an image of a rock. The rock is [T.name]."
+			var/legend = sanitize(input(usr, "If you would like to describe your art, do so here.", "Story Your Sculpture", "") as message|null)
+			if(legend)
+				desc = legend
 			else
-				last_struck = 0
-		return
+				desc = "This is a sculpture of [T.name]. All craftsmanship is of the highest quality. It is decorated with rock and more rock. It is covered with rock. On the item is an image of a rock. The rock is [T.name]."
+
+			T = null // null T out, we don't need the ref to them anymore
+
+			return TRUE
+		if("ladder")
+			var/turf/above = GET_ABOVE(src)
+			if(!above)
+				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
+				return FALSE
+			if(!isopenturf(above))
+				to_chat(user, SPAN_WARNING("The tile above you isn't open and can't accomodate a ladder."))
+				return FALSE
+
+			new /obj/structure/ladder/up/mining(get_turf(src))
+			new /obj/structure/ladder/mining(above)
+			return TRUE_QDEL
+
+#undef TRUE_QDEL
 
 /******************************Gains Boroughs*******************************/
 

@@ -173,7 +173,7 @@
 			user.visible_message("<span class='danger'>\The [user] cuts [src]'s neck open with \the [W]!</span>")
 
 		if(W.hitsound)
-			playsound(loc, W.hitsound, 50, 1, -1)
+			playsound(loc, W.hitsound, W.get_clamped_volume(), 1, -1)
 
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src

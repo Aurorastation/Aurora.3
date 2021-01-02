@@ -834,20 +834,16 @@
 				if(issilicon(hacker))
 					to_chat(hacker, SPAN_NOTICE("Corrupt files transfered to [H]. They are now under your control until they are repaired."))
 			else if(cell && cell.charge > 0)
-				if(H.max_nutrition > 0 && H.nutrition < H.max_nutrition)
-					if(cell.charge >= H.max_nutrition)
-						H.adjustNutritionLoss(-50)
-						cell.charge -= 500
-					else
-						H.adjustNutritionLoss( -cell.charge / 10)
-						cell.charge = 0
-
+				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+				var/obj/item/cell/HC
+				if(C)
+					HC = C.cell
+				if(HC && HC.percent() < 95)
+					var/used = cell.use(500)
+					HC.give(used)
 					to_chat(user, SPAN_NOTICE("You slot your fingers into the APC interface and siphon off some of the stored charge for your own use."))
-
 					if (cell.charge < 0)
 						cell.charge = 0
-					if (H.nutrition > H.max_nutrition)
-						H.nutrition = H.max_nutrition
 					if (prob(0.5))
 						spark(src, 5, alldirs)
 						to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))

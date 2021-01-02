@@ -2,26 +2,28 @@
 /mob/proc/make_vampire()
 	if (!mind)
 		return
-	if (!mind.vampire)
-		mind.vampire = new /datum/vampire()
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+	if(!vampire)
+		mind.antag_datums[MODE_VAMPIRE] = new /datum/vampire()
+		vampire = mind.antag_datums[MODE_VAMPIRE]
 	// No powers to thralls. Ew.
-	if (mind.vampire.status & VAMP_ISTHRALL)
+	if(vampire.status & VAMP_ISTHRALL)
 		return
 
-	mind.vampire.blood_usable += 30
+	vampire.blood_usable += 30
 
 	if(client)
-		mind.vampire.blood_hud = new /obj/screen/vampire/blood()
-		mind.vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
-		client.screen += mind.vampire.blood_hud
-		client.screen += mind.vampire.frenzy_hud
+		vampire.blood_hud = new /obj/screen/vampire/blood()
+		vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
+		client.screen += vampire.blood_hud
+		client.screen += vampire.frenzy_hud
 
 	verbs += new /datum/antagonist/vampire/proc/vampire_help
 
 	for(var/datum/power/vampire/P in vampirepowers)
-		if(!(P in mind.vampire.purchased_powers))
+		if(!(P in vampire.purchased_powers))
 			if(!P.blood_cost)
-				mind.vampire.add_power(mind, P, 0)
+				vampire.add_power(mind, P, 0)
 		else if(P.isVerb && P.verbpath)
 			verbs += P.verbpath
 
@@ -29,10 +31,9 @@
 
 // Checks the vampire's bloodlevel and unlocks new powers based on that.
 /mob/proc/check_vampire_upgrade()
-	if (!mind.vampire)
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+	if(!vampire)
 		return
-
-	var/datum/vampire/vampire = mind.vampire
 
 	for (var/datum/power/vampire/P in vampirepowers)
 		if (P.blood_cost <= vampire.blood_total)
@@ -50,7 +51,7 @@
 	if (!ishuman(src))
 		return
 
-	var/datum/vampire/vampire = mind.vampire
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	if (!vampire)
 		log_debug("[src] has a vampire power but is not a vampire.")
 		return
@@ -73,26 +74,30 @@
 /mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE, var/affect_ipc = TRUE)
 	if (!T || !istype(T))
 		return FALSE
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	// How did you even get here?
-	if (!mind.vampire)
+	if (!vampire)
 		return FALSE
-	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind && T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
-		return TRUE
-	if (T.mind)
-		if (T.mind.assigned_role == "Chaplain")
-			if (notify)
+	var/datum/vampire/vampire_check
+	if(T.mind)
+		if(T.mind.assigned_role == "Chaplain")
+			if(notify)
 				to_chat(src, "<span class='warning'>Your connection with the Veil is not strong enough to affect a man as devout as them.</span>")
 			return FALSE
-		else if (T.mind.vampire && (!(T.mind.vampire.status & VAMP_ISTHRALL) || ((T.mind.vampire.status & VAMP_ISTHRALL) && !ignore_thrall)))
-			if (notify)
-				to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
-			return FALSE
-
+		vampire_check = T.mind.antag_datums[MODE_VAMPIRE]
+		if(vampire_check)
+			if(!(vampire_check.status & VAMP_ISTHRALL && ignore_thrall))
+				if(notify)
+					to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
+				return FALSE
+	if(vampire_check)
+		if((vampire.status & VAMP_FULLPOWER) && !(vampire_check.status & VAMP_FULLPOWER))
+			return TRUE
 	if(!affect_ipc && isipc(T))
 		if (notify)
 			to_chat(src, SPAN_WARNING("You lack the power to interact with mechanical constructs."))
 		return FALSE
-	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
+	if(is_special_character(T) && (!(vampire_check.status & VAMP_ISTHRALL)))
 		if (notify)
 			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
 		return FALSE
@@ -123,13 +128,14 @@
 		return
 
 	var/datum/vampire/thrall/thrall = new()
-	mind.vampire = thrall
+	mind.antag_datums[MODE_VAMPIRE] = thrall
 
 /mob/proc/vampire_check_frenzy(var/force_frenzy = 0)
-	if (!mind || !mind.vampire)
+	if(!mind)
 		return
-
-	var/datum/vampire/vampire = mind.vampire
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+	if(!vampire)
+		return
 	// Thralls don't frenzy.
 	if (vampire.status & VAMP_ISTHRALL)
 		return
@@ -176,10 +182,9 @@
 				vampire.last_frenzy_message = world.time
 
 /mob/proc/vampire_start_frenzy(var/force_frenzy = 0)
-	var/datum/vampire/vampire = mind.vampire
-
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	if (vampire.status & VAMP_FRENZIED)
-		return
+		return TRUE
 
 	var/probablity = force_frenzy ? 100 : vampire.frenzy * 0.5
 
@@ -194,12 +199,19 @@
 		sight |= SEE_MOBS
 
 		verbs += /mob/living/carbon/human/proc/grapple
+		
+		return TRUE
+
+/mob/living/carbon/human/vampire_start_frenzy()
+	. = ..()
+	if(.)
+		update_body()
 
 /mob/proc/vampire_stop_frenzy(var/force_stop = 0)
-	var/datum/vampire/vampire = mind.vampire
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 
 	if (!(vampire.status & VAMP_FRENZIED))
-		return
+		return TRUE
 
 	if (prob(force_stop ? 100 : vampire.blood_usable))
 		vampire.status &= ~VAMP_FRENZIED
@@ -214,60 +226,73 @@
 
 		verbs -= /mob/living/carbon/human/proc/grapple
 		regenerate_icons()
+		
+		return TRUE
+
+/mob/living/carbon/human/vampire_stop_frenzy()
+	. = ..()
+	if(.)
+		update_body()
 
 // Removes all vampire powers.
 /mob/proc/remove_vampire_powers()
-	if (!mind || !mind.vampire)
+	if(!mind)
 		return
-
-	for (var/datum/power/vampire/P in mind.vampire.purchased_powers)
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+	if(!vampire)
+		return
+	for (var/datum/power/vampire/P in vampire.purchased_powers)
 		if (P.isVerb)
 			verbs -= P.verbpath
 
-	if (mind.vampire.status & VAMP_FRENZIED)
+	if (vampire.status & VAMP_FRENZIED)
 		vampire_stop_frenzy(1)
 
 /mob/proc/handle_vampire()
-	if(mind.vampire.status & VAMP_ISTHRALL)
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+	if(vampire.status & VAMP_ISTHRALL)
 		return
 
 	// Apply frenzy while in the chapel.
 	if (istype(get_area(loc), /area/chapel))
-		mind.vampire.frenzy += 3
+		vampire.frenzy += 3
 
-	if (mind.vampire.blood_usable < 10)
-		mind.vampire.frenzy += 2
-	else if (mind.vampire.frenzy > 0)
-		mind.vampire.frenzy = max(0, mind.vampire.frenzy -= Clamp(mind.vampire.blood_usable * 0.1, 1, 10))
+	if (vampire.blood_usable < 10)
+		vampire.frenzy += 2
+	else if (vampire.frenzy > 0)
+		vampire.frenzy = max(0, vampire.frenzy -= Clamp(vampire.blood_usable * 0.1, 1, 10))
 
-	mind.vampire.frenzy = round(min(mind.vampire.frenzy, 450))
+	vampire.frenzy = round(min(vampire.frenzy, 450))
 
 	vampire_check_frenzy()
 
 	if(client)
-		if(!mind.vampire.blood_hud)
-			mind.vampire.blood_hud = new /obj/screen/vampire/blood()
-			client.screen += mind.vampire.blood_hud
-		if(!mind.vampire.frenzy_hud)
-			mind.vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
-			client.screen += mind.vampire.frenzy_hud
-		if(!mind.vampire.blood_suck_hud)
-			mind.vampire.blood_suck_hud = new /obj/screen/vampire/suck()
-			client.screen += mind.vampire.blood_suck_hud
+		if(!vampire.blood_hud)
+			vampire.blood_hud = new /obj/screen/vampire/blood()
+			client.screen += vampire.blood_hud
+		if(!vampire.frenzy_hud)
+			vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
+			client.screen += vampire.frenzy_hud
+		if(!vampire.blood_suck_hud)
+			vampire.blood_suck_hud = new /obj/screen/vampire/suck()
+			client.screen += vampire.blood_suck_hud
 
-		mind.vampire.blood_hud.maptext = SMALL_FONTS(7, mind.vampire.blood_usable)
-		if(mind.vampire.frenzy)
-			if(!mind.vampire.frenzy_hud.alpha)
-				animate(mind.vampire.frenzy_hud, 1 SECOND, alpha = 255, LINEAR_EASING)
-			mind.vampire.frenzy_hud.maptext = SMALL_FONTS(7, mind.vampire.frenzy)
+		vampire.blood_hud.maptext = SMALL_FONTS(7, vampire.blood_usable)
+		if(vampire.frenzy)
+			if(!vampire.frenzy_hud.alpha)
+				animate(vampire.frenzy_hud, 1 SECOND, alpha = 255, LINEAR_EASING)
+			vampire.frenzy_hud.maptext = SMALL_FONTS(7, vampire.frenzy)
 		else
-			if(mind.vampire.frenzy_hud.alpha)
-				animate(mind.vampire.frenzy_hud, 1 SECOND, alpha = 0, LINEAR_EASING)
-			mind.vampire.frenzy_hud.maptext = null
+			if(vampire.frenzy_hud.alpha)
+				animate(vampire.frenzy_hud, 1 SECOND, alpha = 0, LINEAR_EASING)
+			vampire.frenzy_hud.maptext = null
 
 /mob/living/carbon/human/proc/finish_vamp_timeout(vamp_flags = 0)
-	if (!mind || !mind.vampire)
+	if(!mind)
 		return FALSE
-	if (vamp_flags && !(mind.vampire.status & vamp_flags))
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+	if(!vampire)
+		return FALSE
+	if (vamp_flags && !(vampire.status & vamp_flags))
 		return FALSE
 	return TRUE

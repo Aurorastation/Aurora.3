@@ -787,11 +787,8 @@ mob/living/carbon/human/proc/change_monitor()
 
 	var/list/victims = list()
 
-	for (var/mob/living/carbon/human/T in hearers(2, src))
-		if (T == src)
-			continue
-
-		if (istype(T) && (T:l_ear || T:r_ear) && istype((T:l_ear || T:r_ear), /obj/item/clothing/ears/earmuffs))
+	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
+		if(T.protected_from_sound())
 			continue
 
 		to_chat(T, "<span class='danger'>You hear an ear piercing shriek and feel your senses go dull!</span>")
@@ -1038,7 +1035,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
 
-		output += "Current Charge Level: [nutrition]\n"
+		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		if(!C || !C.cell)
+			output += SPAN_DANGER("ERROR: NO BATTERY DETECTED")
+		else
+			output += "Current Charge Level: [C.percent()]\n"
 
 		var/toxDam = getToxLoss()
 		if(toxDam)
