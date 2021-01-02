@@ -36,13 +36,19 @@
 		for(var/mob/living/M in searching)
 			if(iscarbon(M))
 				var/mob/living/carbon/C = M
+				if(C.status_flags & FAKEDEATH)
+					icon_state = "morgue2"
+					break
 				switch(C.stat)
 					if(DEAD)
 						icon_state = "morgue2"
+						break
 					if(UNCONSCIOUS)
 						icon_state = "morgue3"
+						break
 					if(CONSCIOUS)
 						icon_state = "morgue4"
+						break
 	return
 
 /obj/structure/morgue/ex_act(severity)
@@ -96,9 +102,9 @@
 			return
 		t = sanitizeSafe(t, MAX_NAME_LEN)
 		if(t)
-			name = "initial[name]- '[t]'"
+			name = "[initial(name)] - '[t]'"
 		else
-			name = "initial[name]"
+			name = initial(name)
 	add_fingerprint(user)
 	return
 
@@ -138,7 +144,7 @@
 	density = TRUE
 	anchored = TRUE
 	throwpass = TRUE
-	layer = 2.0
+	layer = TURF_LAYER
 	var/obj/structure/morgue/connected = null
 
 /obj/structure/m_tray/Destroy()
@@ -258,7 +264,7 @@
 						cremating = initial(cremating)
 						locked = initial(locked)
 						update_icon()
-						break
+						continue
 
 					sleep(0.5 SECONDS)
 					if(prob(40))
@@ -299,15 +305,16 @@
 
 				admin_attack_log(A, M, "Cremated their victim.", "Was cremated.", "cremated")
 				if(desperation)
-					M.audible_message("<b>[M]'s</b> screams cease, as does any movement within the [src]. All that remains is a dull, empty silence.")
-				elses
-					M.audible_message("The [src] quietly shuts off. All that remains is a dull, empty silence.")
+					M.audible_message("<b>[M]'s</b> screams cease, as does any movement within \the [src]. All that remains is a dull, empty silence.")
+				else
+					M.audible_message("\The [src] quietly shuts off. All that remains is a dull, empty silence.")
 				M.dust()
 
 		for(var/obj/O in contents) //obj instead of obj/item so that bodybags and ashes get destroyed. We dont want tons and tons of ash piling up
 			qdel(O)
 
-		new /obj/effect/decal/cleanable/ash(src)
+		var/obj/effect/decal/cleanable/ash/C = new /obj/effect/decal/cleanable/ash(src)
+		C.layer = OBJ_LAYER
 		sleep(30)
 		cremating = initial(cremating)
 		locked = initial(locked)
