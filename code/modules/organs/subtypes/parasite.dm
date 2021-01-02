@@ -1,3 +1,7 @@
+#define INFECTION_SPEED_QUICK 35
+#define INFECTION_SPEED_NORMAL 20
+#define INFECTION_SPEED_SLOW 15
+
 /obj/item/organ/internal/parasite
 	name = "parasite"
 	icon = 'icons/mob/npc/alien.dmi'
@@ -8,8 +12,18 @@
 	var/stage = 1
 	var/max_stage = 4
 	var/stage_ticker = 0
+	var/infection_speed = 2 //Will be determined by get_infect_speed()
+	var/infect_speed_high = INFECTION_SPEED_QUICK	//The fastest this parasite will advance stages
+	var/infect_speed_low = INFECTION_SPEED_SLOW		//The slowest this parasite will advance stages
 	var/stage_interval = 600 //time between stages, in seconds
 	var/subtle = 0 //will the body reject the parasite naturally?
+
+/obj/item/organ/internal/parasite/Initialize()
+	. = ..()
+	get_infect_speed()
+
+/obj/item/organ/internal/parasite/proc/get_infect_speed() //Slightly randomizes how fast each infection progresses.
+	infection_speed = rand(infect_speed_low, infect_speed_high) / 10
 
 /obj/item/organ/internal/parasite/process()
 	..()
@@ -18,10 +32,11 @@
 		return
 
 	if(stage < max_stage)
-		stage_ticker += 2 //process ticks every ~2 seconds
+		stage_ticker += infection_speed 
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
+		get_infect_speed() //Each stage may progress faster or slower than the previous one
 		stage_effect()
 
 /obj/item/organ/internal/parasite/handle_rejection()
