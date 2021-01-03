@@ -2942,11 +2942,7 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 	taj_muzzle_female
-<<<<<<< HEAD
 		name = "Muzzle Color (Female)"
-=======
-		name = "Muzzle Color (Female)"
->>>>>>> WickedStuff
 		icon_state = "taj_muzzle_female"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
