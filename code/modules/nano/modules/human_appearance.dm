@@ -102,12 +102,12 @@
 					update_dna()
 					return 1
 	if(href_list["accent"])
-		if(can_change(APPEARANCE_GENDER) && (href_list["accent"] in valid_accents))
+		if(can_change(APPEARANCE_ACCENT) && (href_list["accent"] in valid_accents))
 			if(owner.set_accent(href_list["accent"]))
 				cut_and_generate_data()
 			return 1
 	if(href_list["language"])
-		if(can_change(APPEARANCE_GENDER) && (href_list["language"] in valid_languages))
+		if(can_change(APPEARANCE_LANGUAGE) && (href_list["language"] in valid_languages))
 			if(owner.add_or_remove_language(href_list["language"]))
 				cut_and_generate_data()
 			return 1
