@@ -431,3 +431,6 @@
 	if(QDELETED(src))
 		return
 	invisibility = old_invisibility
+
+/atom/movable/proc/get_floating_chat_x_offset()
+	return 0
