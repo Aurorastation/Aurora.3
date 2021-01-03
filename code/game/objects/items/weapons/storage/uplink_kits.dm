@@ -141,7 +141,7 @@
 		/obj/item/pen/chameleon = 1,
 		/obj/item/device/destTagger = 1,
 		/obj/item/stack/packageWrap = 1,
-		/obj/item/hand_labeler = 1
+		/obj/item/device/hand_labeler = 1
 	)
 
 /obj/item/storage/box/syndie_kit/special_pens

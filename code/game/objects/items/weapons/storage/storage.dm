@@ -323,12 +323,12 @@
 
 	if(LAZYLEN(can_hold))
 		if(!is_type_in_list(W, can_hold))
-			if(!stop_messages && ! istype(W, /obj/item/hand_labeler))
+			if(!stop_messages && ! istype(W, /obj/item/device/hand_labeler))
 				to_chat(usr, "<span class='notice'>[src] cannot hold \the [W].</span>")
 			return 0
 		var/max_instances = can_hold[W.type]
 		if(max_instances && instances_of_type_in_list(W, contents, TRUE) >= max_instances)
-			if(!stop_messages && !istype(W, /obj/item/hand_labeler))
+			if(!stop_messages && !istype(W, /obj/item/device/hand_labeler))
 				to_chat(usr, "<span class='notice'>[src] has no more space specifically for \the [W].</span>")
 			return 0
 
@@ -523,8 +523,8 @@
 			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
 			return
 
-	if(istype(W, /obj/item/hand_labeler))
-		var/obj/item/hand_labeler/HL = W
+	if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
 		if(HL.mode == 1)
 			return
 

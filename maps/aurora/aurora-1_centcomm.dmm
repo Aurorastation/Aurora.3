@@ -2432,7 +2432,7 @@
 /obj/item/shield/energy/legion,
 /obj/item/melee/energy/sword/knife,
 /obj/item/melee/telebaton,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sec,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
@@ -6325,7 +6325,7 @@
 	},
 /area/shuttle/administration)
 "aRx" = (
-/obj/item/device/megaphone{
+/obj/item/device/megaphone/red{
 	pixel_x = 1;
 	pixel_y = 4
 	},
@@ -9274,7 +9274,7 @@
 	pixel_x = 4;
 	pixel_y = 9
 	},
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_x = -6;
 	pixel_y = -4
 	},
@@ -14947,8 +14947,8 @@
 /area/centcom/holding)
 "fUN" = (
 /obj/structure/table/wood,
-/obj/item/device/megaphone,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sec,
+/obj/item/device/megaphone/sec,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -15116,7 +15116,7 @@
 /obj/item/storage/briefcase/aluminium,
 /obj/item/device/camera,
 /obj/item/device/taperecorder,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -16977,7 +16977,7 @@
 	pixel_x = 7;
 	pixel_y = 9
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -17499,7 +17499,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
 /obj/item/device/taperecorder,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "brown"
@@ -19436,7 +19436,7 @@
 /obj/item/folder{
 	pixel_y = 2
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "iJy" = (
@@ -21698,7 +21698,7 @@
 /obj/item/pen{
 	pixel_y = 16
 	},
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_y = 2
 	},
 /obj/structure/table/wood{
@@ -23674,7 +23674,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/merchant,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/stack/packageWrap,
 /obj/item/device/price_scanner,
 /turf/simulated/floor/wood,
@@ -25576,7 +25576,7 @@
 /obj/item/stack/packageWrap{
 	pixel_y = 5
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25814,7 +25814,7 @@
 "mRW" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "mSo" = (
@@ -27262,7 +27262,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/item/folder/blue,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -39492,7 +39492,7 @@
 	syndie = 1
 	},
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -39637,7 +39637,7 @@
 /obj/item/deck/cards,
 /obj/item/deck/cards,
 /obj/item/deck/tarot,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /obj/item/device/flashlight/lantern,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/clothing/mask/smokable/pipe,
@@ -40840,7 +40840,7 @@
 	pixel_x = -3;
 	pixel_y = 12
 	},
-/obj/item/device/megaphone{
+/obj/item/device/megaphone/red{
 	pixel_y = -4
 	},
 /obj/structure/table/standard,
@@ -41778,7 +41778,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/westright,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "brown"
