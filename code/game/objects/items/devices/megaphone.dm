@@ -91,7 +91,7 @@
 
 /obj/item/device/megaphone/engi
 	name = "engineering megaphone"
-	desc = "To make people get out of the construction zone."
+	desc = "To make people get out of construction sites."
 	desc_fluff = "At home in construction sites and road works, it'll stick by you in diverting traffic and dim-witted coworkers."
 	icon_state = "megaphone_engi"
 	item_state = "megaphone_engi"
@@ -99,7 +99,7 @@
 /obj/item/device/megaphone/cargo
 	name = "supply megaphone"
 	desc = "To make people to push crates."
-	desc_fluff = "Only certified forklift operators will be able to handle the sheer power of this megaphone. And the Quartermaster."
+	desc_fluff = "Only certified forklift operators will be able to handle the sheer power of this megaphone. Either that, or just be the Quartermaster."
 	icon_state = "megaphone_cargo"
 	item_state = "megaphone_cargo"
 
@@ -113,4 +113,5 @@
 /obj/item/device/megaphone/clown
 	name = "clown's megaphone"
 	desc = "Something that should not exist."
-	icon_state = "megaphone-clown"
+	icon_state = "megaphone_clown"
+	item_state = "megaphone_clown"
