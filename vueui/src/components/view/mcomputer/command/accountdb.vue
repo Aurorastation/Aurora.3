@@ -9,7 +9,7 @@
         <vui-group-row><vui-button @click="new_name = null" icon="arrow-left">Back to list</vui-button></vui-group-row>
         
         <vui-group-item label="Account Holder:"><input type="text" v-model="new_name"></vui-group-item>
-        <vui-group-item label="Initial Deposit:"><vui-input-numeric v-model="new_funds" :button-count="0" width="7em" :max="1000000"></vui-input-numeric></vui-group-item>
+        <vui-group-item label="Initial Deposit:"><vui-input-numeric v-model="new_funds" :button-count="0" width="7em" :max="1000000"/></vui-group-item>
         <vui-group-item><vui-button @click="create_account()" icon="plus-square">Create</vui-button></vui-group-item>
       </template>
       <template v-else-if="s.access_level">
@@ -34,13 +34,13 @@
               <h4>Silent fund adjustment</h4>
               <vui-button v-if="add_funds == null" @click="add_funds = 0">Add</vui-button>
               <template v-else>
-                <vui-input-numeric v-model="add_funds" :max="1000000"></vui-input-numeric>
+                <vui-input-numeric v-model="add_funds" :max="1000000"/>
                 <vui-button :params="{add_funds: {account: active, amount: add_funds}}">Add</vui-button>
               </template>
-              <br/>
+              <br>
               <vui-button v-if="remove_funds == null" @click="remove_funds = 0">Remove</vui-button>
               <template v-else>
-                <vui-input-numeric v-model="remove_funds" :max="1000000"></vui-input-numeric>
+                <vui-input-numeric v-model="remove_funds" :max="1000000"/>
                 <vui-button :params="{remove_funds: {account: active, amount: remove_funds}}">Remove</vui-button>
               </template>
             </template>
