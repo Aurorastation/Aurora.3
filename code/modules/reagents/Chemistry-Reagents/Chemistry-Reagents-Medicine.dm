@@ -563,7 +563,8 @@
 
 	if((locate(/datum/reagent/adrenaline) in M.reagents.reagent_list))
 		if(M.reagents.get_reagent_amount(/datum/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
-			overdose = volume/2 //Straight to overdose.
+			overdose = 10 //Volume of hyperzine required to OD reduced from 15u to 10u. 
+			od_minimum_dose = 0
 
 /datum/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(5*removed)
