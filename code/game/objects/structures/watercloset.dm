@@ -308,11 +308,11 @@
 					update_icons_required = TRUE
 			if(H.l_ear && washears)
 				if(H.l_ear.clean_blood())
-					H.update_inv_ears(0)
+					H.update_inv_l_ear(0)
 					update_icons_required = TRUE
 			if(H.r_ear && washears)
 				if(H.r_ear.clean_blood())
-					H.update_inv_ears(0)
+					H.update_inv_r_ear(0)
 					update_icons_required = TRUE
 			if(H.belt)
 				if(H.belt.clean_blood())

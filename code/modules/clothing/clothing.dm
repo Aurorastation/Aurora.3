@@ -295,7 +295,8 @@
 /obj/item/clothing/ears/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_ears()
+		M.update_inv_l_ear()
+		M.update_inv_r_ear()
 
 /obj/item/clothing/ears/offear
 	name = "Other ear"

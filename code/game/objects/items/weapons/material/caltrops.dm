@@ -22,8 +22,9 @@
 		var/damage_coef = 1
 		if(H.buckled)
 			return
-
 		if(H.resting)
+			return
+		if(H.shoes?.item_flags & LIGHTSTEP)
 			return
 
 		to_chat(H, SPAN_DANGER("You step on \the [src]!"))

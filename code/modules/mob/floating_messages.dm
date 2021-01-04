@@ -51,7 +51,7 @@ var/list/floating_chat_colors = list()
 	I.maptext_height = 64
 	I.plane = FLOAT_PLANE
 	I.layer = HUD_LAYER - 0.01
-	I.pixel_x = -round(I.maptext_width/2) + 16
+	I.pixel_x = (-round(I.maptext_width/2) + 16) + holder.get_floating_chat_x_offset()
 	I.appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
 
 	style = "font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [size]px; [style]"

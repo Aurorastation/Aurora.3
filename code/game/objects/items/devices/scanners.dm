@@ -625,3 +625,78 @@ BREATH ANALYZER
 				++unknown
 		if(unknown)
 			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")
+
+
+/obj/item/device/advanced_healthanalyzer
+	name = "zeng-hu body analyzer"
+	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
+	icon_state = "zh-analyzer"
+	item_state = "healthanalyzer"
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_NORMAL
+	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
+	var/obj/machinery/body_scanconsole/internal_bodyscanner = null //this is used to print the date and to deal with extra
+
+/obj/item/device/advanced_healthanalyzer/Initialize()
+	. = ..()
+	if(!internal_bodyscanner)
+		var/obj/machinery/body_scanconsole/S = new (src)
+		S.forceMove(src)
+		S.use_power = FALSE
+		internal_bodyscanner = S
+
+/obj/item/device/advanced_healthanalyzer/Destroy()
+	if(internal_bodyscanner)
+		QDEL_NULL(internal_bodyscanner)
+	return ..()
+
+/obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
+	if(!internal_bodyscanner)
+		return
+	if(do_after(user, 7 SECONDS, TRUE))
+		print_scan(M, user)
+		add_fingerprint(user)
+
+/obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
+	var/obj/item/paper/R = new(user.loc)
+	R.color = "#eeffe8"
+	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
+
+	if(ishuman(user) && !(user.l_hand && user.r_hand))
+		user.put_in_hands(R)
+	user.visible_message("\The [src] spits out a piece of paper.")
+
+/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/living/carbon/human/H)
+	if (!ishuman(H))
+		return
+
+	var/list/medical_data = list(
+		"stationtime" = worldtime2text(),
+		"brain_activity" = H.get_brain_status(),
+		"blood_volume" = H.get_blood_volume(),
+		"blood_oxygenation" = H.get_blood_oxygenation(),
+		"blood_pressure" = H.get_blood_pressure(),
+
+		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
+		"fireloss" = get_severity(H.getFireLoss(), TRUE),
+		"oxyloss" = get_severity(H.getOxyLoss(), TRUE),
+		"toxloss" = get_severity(H.getToxLoss(), TRUE),
+		"cloneloss" = get_severity(H.getCloneLoss(), TRUE),
+
+		"rads" = H.total_radiation,
+		"paralysis" = H.paralysis,
+		"bodytemp" = H.bodytemperature,
+		"borer_present" = H.has_brain_worms(),
+		"inaprovaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/inaprovaline),
+		"dexalin_amount" = H.reagents.get_reagent_amount(/datum/reagent/dexalin),
+		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/soporific),
+		"bicaridine_amount" = H.reagents.get_reagent_amount(/datum/reagent/bicaridine),
+		"dermaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/dermaline),
+		"blood_amount" = H.vessel.get_reagent_amount(/datum/reagent/blood),
+		"disabilities" = H.sdisabilities,
+		"lung_ruptured" = H.is_lung_ruptured(),
+		"external_organs" = H.organs.Copy(),
+		"internal_organs" = H.internal_organs.Copy(),
+		"species_organs" = H.species.has_organ
+		)
+	return medical_data
