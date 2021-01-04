@@ -11827,9 +11827,7 @@
 	pixel_y = 28
 	},
 /obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "avj" = (
 /obj/machinery/alarm{
@@ -18657,9 +18655,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_hallway)
 "aLr" = (
 /obj/structure/window/reinforced{
@@ -18670,9 +18666,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_hallway)
 "aLs" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -18688,9 +18682,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_hallway)
 "aLv" = (
 /obj/structure/window/reinforced,
@@ -18701,9 +18693,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_hallway)
 "aLy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18986,23 +18976,17 @@
 /area/medical/medbay4)
 "aMo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert3"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aMq" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aMs" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aMt" = (
 /obj/machinery/door/firedoor,
@@ -19441,12 +19425,10 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aNq" = (
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/beach/sand/alt,
 /area/medical/patient_wing_picnic)
 "aNt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19801,9 +19783,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aOi" = (
 /obj/machinery/door/firedoor/multi_tile{
@@ -20082,9 +20062,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aOV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -20364,9 +20342,7 @@
 	},
 /obj/structure/flora/ausbushes/stalkybush,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aPL" = (
 /obj/effect/decal/cleanable/blood,
@@ -20915,17 +20891,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
-/area/medical/patient_wing_picnic)
-"aQV" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aQX" = (
 /obj/machinery/light{
@@ -20935,9 +20901,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aQZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -26067,14 +26031,6 @@
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"bzd" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert0"
-	},
-/area/medical/patient_wing_picnic)
 "bBR" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/sign/vacuum{
@@ -26359,9 +26315,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert0"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "ceW" = (
 /obj/structure/disposalpipe/segment{
@@ -26558,9 +26512,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "cze" = (
 /obj/structure/sign/securearea{
@@ -27145,9 +27097,7 @@
 "dGd" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/reedbush,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "dGF" = (
 /obj/structure/bed,
@@ -28034,7 +27984,7 @@
 /area/maintenance/medsublevel)
 "fdV" = (
 /obj/item/stool/padded,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/beach/sand/alt,
 /area/medical/patient_wing_picnic)
 "fez" = (
 /obj/random/junk,
@@ -29141,9 +29091,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "hyS" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -29238,7 +29186,7 @@
 /area/outpost/engineering/hallway)
 "hHy" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/beach/sand/alt,
 /area/medical/patient_wing_picnic)
 "hHI" = (
 /obj/machinery/button/switch/crematorium{
@@ -30959,9 +30907,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "lXj" = (
 /obj/structure/cable/green{
@@ -31231,9 +31177,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert3"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "mtn" = (
 /obj/structure/window/reinforced,
@@ -32470,9 +32414,7 @@
 	pixel_y = 26
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "owq" = (
 /turf/unsimulated/chasm_mask,
@@ -33203,9 +33145,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "qjw" = (
 /obj/structure/bed/chair{
@@ -33372,12 +33312,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"qxo" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert1"
-	},
-/area/medical/patient_wing_picnic)
 "qBr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -37080,9 +37014,7 @@
 /area/maintenance/medsublevel_port)
 "xUC" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/beach/sand{
-	icon_state = "desert4"
-	},
+/turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "xUD" = (
 /obj/effect/floor_decal/corner/lime{
@@ -77253,7 +77185,7 @@ oZc
 aLm
 aMo
 aNo
-bzd
+hyq
 aOR
 hyq
 aOf
@@ -77514,7 +77446,7 @@ aNq
 aNq
 aNq
 aNq
-aQV
+msp
 aLm
 aSH
 aTv
@@ -78022,7 +77954,7 @@ vCz
 bvB
 aKo
 aLo
-qxo
+xUC
 fdV
 hHy
 hHy

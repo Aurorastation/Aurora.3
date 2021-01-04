@@ -150,6 +150,9 @@
 	return returns
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
+	if(paralysis || InStasis())
+		whisper_say(message, speaking, alt_name)
+		return TRUE
 	switch(message_mode)
 		if("intercom")
 			for(var/obj/item/device/radio/intercom/I in view(1))

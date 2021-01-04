@@ -120,15 +120,16 @@ This saves us from having to call add_fingerprint() any time something is put in
 			var/obj/item/I = W
 			if(I.flags_inv & (HIDEMASK|BLOCKHAIR|BLOCKHEADHAIR))
 				update_hair(0)	//rebuild hair
-				update_inv_ears(0)
+				update_inv_l_ear(0)
+				update_inv_r_ear(0)
 				update_inv_wear_mask(0)
 		update_inv_head()
 	else if (W == l_ear)
 		l_ear = null
-		update_inv_ears()
+		update_inv_l_ear()
 	else if (W == r_ear)
 		r_ear = null
-		update_inv_ears()
+		update_inv_r_ear()
 	else if (W == shoes)
 		shoes = null
 		update_inv_shoes()
@@ -142,7 +143,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 			var/obj/item/I = W
 			if(I.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR))
 				update_hair(0)	//rebuild hair
-				update_inv_ears(0)
+				update_inv_l_ear(0)
+				update_inv_r_ear(0)
 		if(internal)
 			if(internals)
 				internals.icon_state = "internal0"
@@ -203,7 +205,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 			src.wear_mask = W
 			if(wear_mask.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR))
 				update_hair(redraw_mob)	//rebuild hair
-				update_inv_ears(0)
+				update_inv_l_ear(0)
+				update_inv_r_ear(0)
 			W.equipped(src, slot)
 			update_inv_wear_mask(redraw_mob)
 		if(slot_handcuffed)
@@ -237,7 +240,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 				src.r_ear = O
 				O.layer = SCREEN_LAYER+0.01
 			W.equipped(src, slot)
-			update_inv_ears(redraw_mob)
+			update_inv_l_ear(redraw_mob)
 		if(slot_r_ear)
 			src.r_ear = W
 			if(r_ear.slot_flags & SLOT_TWOEARS)
@@ -246,7 +249,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 				src.l_ear = O
 				O.layer = SCREEN_LAYER+0.01
 			W.equipped(src, slot)
-			update_inv_ears(redraw_mob)
+			update_inv_r_ear(redraw_mob)
 		if(slot_glasses)
 			src.glasses = W
 			W.equipped(src, slot)
@@ -259,7 +262,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 			src.head = W
 			if(head.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR|HIDEMASK))
 				update_hair(redraw_mob)	//rebuild hair
-				update_inv_ears(0)
+				update_inv_l_ear(0)
+				update_inv_r_ear(0)
 				update_inv_wear_mask(0)
 			W.equipped(src, slot)
 			update_inv_head(redraw_mob)
