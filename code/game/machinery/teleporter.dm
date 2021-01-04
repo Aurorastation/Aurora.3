@@ -66,8 +66,7 @@
 						new /mob/living/simple_animal/hostile/carp(get_turf(H))
 				//
 			else
-				for(var/mob/O in hearers(src, null))
-					O.show_message("<span class='notice'>Locked In</span>", 2)
+				visible_message(SPAN_NOTICE("Locked in."), range = 2)
 				src.locked = L
 				one_time_use = 1
 
@@ -129,8 +128,7 @@
 		return
 
 	src.locked = L[desc]
-	for(var/mob/O in hearers(src, null))
-		O.show_message("<span class='notice'>Locked In</span>", 2)
+	visible_message(SPAN_NOTICE("Locked in."), range = 2)
 	src.add_fingerprint(usr)
 	return
 
