@@ -1,0 +1,6 @@
+author: Karolis2011
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported the accounts terminal UI over to VueUI."
