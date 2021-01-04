@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a laptop in the teleporter room, that has a remote teleporter control program loaded."
