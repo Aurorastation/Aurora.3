@@ -172,7 +172,8 @@
 	O.forceMove(src.loc)
 	if(user != O)
 		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
-
+	add_fingerprint(user)
+	return
 /*
  * Crematorium
  */
