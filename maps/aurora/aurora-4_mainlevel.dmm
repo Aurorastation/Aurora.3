@@ -20502,7 +20502,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aIQ" = (
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aIR" = (
@@ -32692,7 +32692,7 @@
 	name = "Desk Privacy Shutter";
 	pixel_y = -36
 	},
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bec" = (

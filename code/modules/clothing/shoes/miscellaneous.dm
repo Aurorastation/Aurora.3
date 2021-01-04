@@ -81,7 +81,6 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "clown"
 	item_state = "clown_shoes"
 	slowdown = 1
-	var/footstep = 1	//used for squeeks whilst walking
 	species_restricted = null
 
 /obj/item/clothing/shoes/clown_shoes/handle_movement(var/turf/walking, var/running)
@@ -196,6 +195,9 @@ obj/item/clothing/shoes/sandal/clogs
 	if((user.is_clumsy()) && prob(50))
 		M = user
 	return eyestab(M,user)
+
+/obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
+	trip_up(walking, running)
 
 /obj/item/clothing/shoes/winter
 	name = "winter boots"
