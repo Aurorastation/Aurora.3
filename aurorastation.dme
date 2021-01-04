@@ -2549,6 +2549,8 @@
 #include "code\modules\reagents\reagent_containers\tooth_paste.dm"
 #include "code\modules\reagents\reagent_containers\food\cans.dm"
 #include "code\modules\reagents\reagent_containers\food\condiment.dm"
+#include "code\modules\reagents\reagent_containers\food\custom_burgers.dm"
+#include "code\modules\reagents\reagent_containers\food\custom_rolls.dm"
 #include "code\modules\reagents\reagent_containers\food\drinks.dm"
 #include "code\modules\reagents\reagent_containers\food\lunch.dm"
 #include "code\modules\reagents\reagent_containers\food\sandwich.dm"

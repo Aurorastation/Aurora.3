@@ -3489,6 +3489,11 @@
 			if ("rodent")
 				result = new /obj/item/reagent_containers/food/snacks/burger/mouse(src)
 				to_chat(user, "You make a ratburger!")
+	
+	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/csandwich/roll/R = new(get_turf(src))
+		R.attackby(W,user)
+		qdel(src)
 
 	if (result)
 		if (W.reagents)
@@ -3507,13 +3512,17 @@
 		qdel(src)
 
 // Burger + cheese wedge = cheeseburger
-/obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/reagent_containers/food/snacks/cheesewedge/W as obj, mob/user as mob)
-	if(istype(W))// && !istype(src,/obj/item/reagent_containers/food/snacks/cheesewedge))
+/obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/reagent_containers/food/snacks/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/reagent_containers/food/snacks/cheesewedge))// && !istype(src,/obj/item/reagent_containers/food/snacks/cheesewedge))
 		new /obj/item/reagent_containers/food/snacks/burger/cheese(src)
 		to_chat(user, "You make a cheeseburger.")
 		qdel(W)
 		qdel(src)
 		return
+	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/csandwich/burger/B = new(get_turf(src))
+		B.attackby(W,user)
+		qdel(src)
 	else
 		..()
 
