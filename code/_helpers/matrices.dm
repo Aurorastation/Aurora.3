@@ -30,7 +30,7 @@
 	var/shake_dir = pick(-1, 1)
 	animate(src, transform=turn(matrix(), intensity*shake_dir), pixel_x=init_px + 2*shake_dir, time=1)
 	animate(transform=null, pixel_x=init_px, time=6, easing=ELASTIC_EASING)
-	return
+	return intensity
 
 // Color matrices:
 

@@ -38,17 +38,14 @@
 				var/mob/living/carbon/C = M
 				if(C.status_flags & FAKEDEATH)
 					icon_state = "morgue2"
-					break
 				switch(C.stat)
 					if(DEAD)
 						icon_state = "morgue2"
-						break
 					if(UNCONSCIOUS)
 						icon_state = "morgue3"
-						break
 					if(CONSCIOUS)
 						icon_state = "morgue4"
-						break
+			break
 	return
 
 /obj/structure/morgue/ex_act(severity)
@@ -95,7 +92,7 @@
 
 /obj/structure/morgue/attackby(obj/P, mob/user)
 	if(P.ispen())
-		var/t = input(user, "What would you like the label to be?", "[src.name]") as text
+		var/t = input(user, "What would you like the label to be?", name) as text
 		if(user.get_active_hand() != P)
 			return
 		if((!in_range(src, usr) > 1 && src.loc != user))
@@ -243,9 +240,12 @@
 		return
 	else
 		if(length(search_contents_for(/obj/item/disk/nuclear)))
-			to_chat(loc, "The button's status indicator flashes yellow, indicating that something important is inside the crematorium, and must be removed.")
+			to_chat(A, SPAN_WARNING("The crematorium buzzes, indicating that something important is inside the crematorium, and must be removed."))
+			cremating = initial(cremating)
+			locked = initial(locked)
+			update_icon()
 			return
-		src.audible_message(SPAN_WARNING("You hear a roar as the [src] activates."), 1)
+		src.audible_message(SPAN_WARNING("You hear a roar as \the [src] activates."), 1)
 		flick("crema_start", src)
 		update_icon()
 		var/desperation = 0
@@ -260,14 +260,14 @@
 					C.adjustFireLoss(20)
 					C.adjustBrainLoss(5)
 
-					if(C.stat == DEAD || !(C in searching)) //In case we die or are removed at any point.
+					if(!(C in searching)) //In case we are removed at any point.
 						cremating = initial(cremating)
 						locked = initial(locked)
 						update_icon()
 						continue
 
 					sleep(0.5 SECONDS)
-					if(prob(40))
+					if(prob(40) && (C.stat != DEAD))
 						desperation = rand(1,5)
 						switch(desperation) //This is messy. A better solution would probably be to make more sounds, but...
 							if(1)
@@ -295,6 +295,8 @@
 									shake_animation(9)
 								else
 									shake_animation()
+					else
+						sleep(5)
 
 			if(M.stat == DEAD)
 				if(round_is_spooky())
