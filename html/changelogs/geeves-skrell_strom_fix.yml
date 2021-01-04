@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Skrell no longer enter srom when in cryopods or when on neural suppressor operation tables."

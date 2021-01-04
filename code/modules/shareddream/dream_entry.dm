@@ -7,6 +7,15 @@ var/list/dream_entries = list()
 	// If they're an Unconsious person with the abillity to do Skrellepathy.
 	// If either changes, they should be nocked back to the real world.
 	if(can_commune() && stat == UNCONSCIOUS && sleeping > 1)
+		// added this in_commune_loc block to stop srom spam when waking up from cryo or while on the operation table
+		var/in_commune_loc = TRUE
+		if(istype(loc, /obj/machinery/cryopod))
+			in_commune_loc = FALSE
+		var/obj/machinery/optable/OP = locate() in loc
+		if(OP?.suppressing)
+			in_commune_loc = FALSE
+		if(!in_commune_loc)
+			return
 		if(!istype(bg) && client) // Don't spawn a brainghost if we're not logged in.
 			bg = new /mob/living/brain_ghost(src) // Generate a new brainghost.
 			if(isnull(bg)) // Prevents you from getting kicked if the brain ghost didn't spawn - geeves
