@@ -2844,16 +2844,58 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN)
 		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
-	taj_paw_socks
-		name = "Socks Coloration (Tajara)"
+	taj_pawsocks
+		name = "Socks Coloration (Full)"
 		icon_state = "taj_pawsocks"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-	
-	taj_paw_socks_alternate
-		name = "Socks Coloration (Alternate)"
+
+	taj_pawsocks_alternate
+		name = "Socks Coloration (Full Alternate)"
 		icon_state = "taj_pawsocks_alternate"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_gloves
+		name = "Socks Coloration (Gloves)"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_HAND,BP_R_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_socks
+		name = "Socks Coloration (Paws)"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_glovesfull
+		name = "Socks Coloration (Full Gloves)"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_socksfull
+		name = "Socks Coloration (Full Paws)"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+	
+	taj_glovesfull_alternate
+		name = "Socks Coloration (Full Gloves Alt)"
+		icon_state = "taj_pawsocks_alternate"
+		body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_pawsfull_alternate
+		name = "Socks Coloration (Full Paws Alt)"
+		icon_state = "taj_pawsocks_alternate"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_glovesfull_alternate2
+		name = "Socks Coloration (Full Gloves Alt 2)"
+		icon_state = "taj_bellyhandsfeet_minor"
+		body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 	una_paw_socks
@@ -2887,15 +2929,45 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_GROIN,BP_CHEST)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
-	patches
-		name = "Color Patches"
-		icon_state = "patches"
+	taj_patches_full
+		name = "Color Patches (Full)"
+		icon_state = "taj_patches"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_leftleg
+		name = "Color Patches (Left Leg)"
+		icon_state = "taj_patches"
+		body_parts = list(BP_L_FOOT,BP_L_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_rightleg
+		name = "Color Patches (Right Leg)"
+		icon_state = "taj_patches"
+		body_parts = list(BP_R_FOOT,BP_R_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_leftarm
+		name = "Color Patches (Left Arm)"
+		icon_state = "taj_patches"
+		body_parts = list(BP_L_ARM,BP_L_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_rightarm
+		name = "Color Patches (Right Arm)"
+		icon_state = "taj_patches"
+		body_parts = list(BP_R_ARM,BP_R_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_chest
+		name = "Color Patches (Torso)"
+		icon_state = "taj_patches"
+		body_parts = list(BP_CHEST,BP_GROIN)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 	patchesface
 		name = "Color Patches (Face)"
-		icon_state = "patchesface"
+		icon_state = "taj_patchesface"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
@@ -2903,6 +2975,12 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Color Bands"
 		icon_state = "bands"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/unathi,/datum/species/zombie/unathi)
+
+	tajara_bands
+		name = "Color Bands (Tajara)"
+		icon_state = "bands"
+		body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/unathi,/datum/species/zombie/unathi)
 
 	bandsface
