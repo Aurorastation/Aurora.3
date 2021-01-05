@@ -431,10 +431,9 @@
         return 0
 
     flipped = !flipped
-    icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
-    item_state = icon_state
+    item_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
     to_chat(usr, "You flip the belt [flipped ? "behind you" : "infront of you"].")
-    update_clothing_icon()
+    update_icon()
 
 /obj/item/storage/belt/fannypack/component
 	name = "component pouch"
