@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed blood overlays not disappearing when mobs are completely healed."
