@@ -104,6 +104,10 @@
 #define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
 #define BP_IS_ROBOTIC(org)  (org.status & ORGAN_ROBOT)
 
+#define ROBOTIC_NONE       0
+#define ROBOTIC_ASSISTED   1
+#define ROBOTIC_MECHANICAL 2
+
 //Generic organs
 #define BP_MOUTH    "mouth"
 #define BP_EYES     "eyes"
@@ -208,6 +212,8 @@
 #define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
 #define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
+#define INV_L_EAR_DEF_ICON 'icons/mob/l_ear.dmi'
+#define INV_R_EAR_DEF_ICON 'icons/mob/r_ear.dmi'
 #define INV_SHOES_DEF_ICON 'icons/mob/feet.dmi'
 
 // IPC tags

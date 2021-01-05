@@ -51,14 +51,8 @@ var/list/floating_chat_colors = list()
 	I.maptext_height = 64
 	I.plane = FLOAT_PLANE
 	I.layer = HUD_LAYER - 0.01
-	I.pixel_x = -round(I.maptext_width/2) + 16
-
-	if(ishuman(holder))
-		var/mob/living/carbon/human/H = holder
-		if(H.lying)
-			var/matrix/M = matrix()
-			M.Turn(-90)
-			animate(I, transform = M, time = 1)
+	I.pixel_x = (-round(I.maptext_width/2) + 16) + holder.get_floating_chat_x_offset()
+	I.appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
 
 	style = "font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [size]px; [style]"
 	I.maptext = "<center><span style=\"[style]\">[message]</span></center>"
@@ -76,12 +70,3 @@ var/list/floating_chat_colors = list()
 /proc/remove_floating_text(atom/movable/holder, image/I)
 	animate(I, 2, pixel_y = I.pixel_y + 10, alpha = 0)
 	LAZYREMOVE(holder.stored_chat_text, I)
-
-/mob/proc/handle_floating_message_orientation()
-	return
-
-/mob/living/carbon/human/handle_floating_message_orientation()
-	var/matrix/M = matrix()
-	M.Turn(lying ? -90 : 0)
-	for(var/thing in stored_chat_text)
-		animate(thing, transform = M, time = ANIM_LYING_TIME)

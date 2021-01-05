@@ -169,6 +169,25 @@
 	reagents.add_reagent(/datum/reagent/inaprovaline, 5)
 	update_icon()
 
+/obj/item/reagent_containers/hypospray/autoinjector/emergency
+	name = "autoinjector (emergency)"
+	reagents_to_add = list(/datum/reagent/inaprovaline = 2.5, /datum/reagent/dexalin = 2.5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/emergency/Initialize()
+	. = ..()
+	desc += " This auto-injector is to be used in emergencies. It contains a small amount of inaprovaline and dexalin."
+
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug
+	name = "autoinjector (coagzolug)"
+	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
+	volume = 5
+	flags = 0
+
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/coagzolug, 5)
+	update_icon()
+
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
 	name = "sideeffects-be-gone! autoinjector"
 	desc = "A special cocktail designed to counter the side-effects of various drugs. Has 2 uses."

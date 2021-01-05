@@ -9,6 +9,7 @@
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
 	var/can_buckle = TRUE
 
+	var/obj/screen/cells = null
 	var/obj/screen/flash = null
 	var/obj/screen/blind = null
 	var/obj/screen/hands = null
@@ -16,6 +17,7 @@
 	var/obj/screen/purged = null
 	var/obj/screen/internals/internals = null
 	var/obj/screen/oxygen = null
+	var/obj/screen/paralysis_indicator = null
 	var/obj/screen/i_select = null
 	var/obj/screen/m_select = null
 	var/obj/screen/toxin = null

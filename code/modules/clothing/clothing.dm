@@ -284,29 +284,19 @@
 	if(!canremove)
 		return
 
-	var/obj/item/clothing/ears/O
-	if(slot_flags & SLOT_TWOEARS )
-		O = (H.l_ear == src ? H.r_ear : H.l_ear)
-		user.u_equip(O)
-		if(!istype(src,/obj/item/clothing/ears/offear))
-			qdel(O)
-			O = src
-	else
-		O = src
+	if(slot_flags & SLOT_TWOEARS)
+		var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
+		qdel(OE)
 
 	user.u_equip(src)
-
-	if (O)
-		user.put_in_hands(O)
-		O.add_fingerprint(user)
-
-	if(istype(src,/obj/item/clothing/ears/offear))
-		qdel(src)
+	user.put_in_hands(src)
+	src.add_fingerprint(user)
 
 /obj/item/clothing/ears/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_ears()
+		M.update_inv_l_ear()
+		M.update_inv_r_ear()
 
 /obj/item/clothing/ears/offear
 	name = "Other ear"
@@ -315,12 +305,22 @@
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
-	New(var/obj/O)
-		name = O.name
-		desc = O.desc
-		icon = O.icon
-		icon_state = O.icon_state
-		set_dir(O.dir)
+/obj/item/clothing/ears/offear/proc/copy_ear(var/obj/O)
+	name = O.name
+	desc = O.desc
+	icon = O.icon
+	icon_state = O.icon_state
+	set_dir(O.dir)
+
+/obj/item/clothing/ears/offear/attack_hand(mob/living/carbon/human/H)
+	var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
+	OE.attack_hand(H)
+	qdel(src)
+
+/obj/item/clothing/ears/offear/attackby(obj/item/I, mob/user)
+	var/mob/living/carbon/human/H = loc // we will never not be on a humanoid
+	var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
+	OE.attackby(I, user)
 
 ///////////////////////////////////////////////////////////////////////
 //Gloves
@@ -668,6 +668,7 @@
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 	var/can_hold_knife
+	var/footstep = 1
 	var/obj/item/holding
 
 	var/shoes_under_pants = 0
@@ -677,6 +678,7 @@
 	var/overshoes = 0
 	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/silent = 0
+	var/last_trip = 0
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
@@ -751,6 +753,22 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_shoes()
+
+/obj/item/clothing/shoes/proc/trip_up(var/turf/walking, var/running)
+	if(!running)
+		if(footstep >= 2)
+			footstep = 0
+		else
+			footstep++
+	else
+		if(prob(5))
+			if(last_trip <= world.time - 20) //So you don't trip immediately after.
+				last_trip = world.time
+				if(ismob(loc))
+					var/mob/M = loc
+					M.Weaken(3)
+					to_chat(M, SPAN_WARNING("You trip from running in \the [src]!"))
+			return
 
 ///////////////////////////////////////////////////////////////////////
 //Suit

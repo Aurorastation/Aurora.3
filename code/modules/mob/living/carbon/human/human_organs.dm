@@ -91,7 +91,7 @@
 			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
 			stance_damage += 2
 			if(prob(10))
-				visible_message("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!")
+				visible_message(SPAN_WARNING("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!"))
 				spark(src, 5)
 		else if (E.is_broken() || !E.is_usable())
 			stance_damage += 1
@@ -108,10 +108,11 @@
 
 	// standing is poor
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
-		if(lying || resting)
-			return
-		emote("scream")
-		emote("collapse")
+		if(!(lying || resting))
+			emote("scream")
+			if(!weakened)
+				custom_emote(VISIBLE_MESSAGE, "collapses!")
+		Weaken(3)
 		next_stance_collapse = world.time + (rand(8, 16) SECONDS)
 
 /mob/living/carbon/human/proc/handle_grasp()
@@ -204,7 +205,12 @@
 	return FALSE
 
 /mob/living/carbon/human/is_asystole()
-	if(species.has_organ[BP_HEART] && !isSynthetic())
+	if(isSynthetic())
+		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		if(istype(C))
+			if(!C.is_usable() || !C.percent())
+				return TRUE
+	else if(should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 		if(!istype(heart) || !heart.is_working())
 			return TRUE

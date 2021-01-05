@@ -270,6 +270,13 @@
 		mymob.fire.screen_loc = ui_fire
 		hud_elements |= mymob.fire
 
+		mymob.paralysis_indicator = new /obj/screen/paralysis()
+		mymob.paralysis_indicator.icon = 'icons/mob/status_indicators.dmi'
+		mymob.paralysis_indicator.icon_state = "paralysis0"
+		mymob.paralysis_indicator.name = "paralysis"
+		mymob.paralysis_indicator.screen_loc = ui_paralysis
+		hud_elements |= mymob.paralysis_indicator
+
 		mymob.healths = new /obj/screen()
 		mymob.healths.icon = ui_style
 		mymob.healths.icon_state = "health0"
@@ -295,6 +302,14 @@
 		mymob.bodytemp.name = "body temperature"
 		mymob.bodytemp.screen_loc = ui_temp
 		hud_elements |= mymob.bodytemp
+
+	if(hud_data.has_cell)
+		mymob.cells = new /obj/screen()
+		mymob.cells.icon = 'icons/mob/screen/robot.dmi'
+		mymob.cells.icon_state = "charge-empty"
+		mymob.cells.name = "cell"
+		mymob.cells.screen_loc = ui_nutrition
+		hud_elements |= target.cells
 
 	if(hud_data.has_nutrition)
 		mymob.nutrition_icon = new /obj/screen/food()
@@ -477,3 +492,10 @@
 			to_chat(usr, SPAN_NOTICE("You are breathing easy."))
 		else
 			to_chat(usr, SPAN_DANGER("You cannot breathe!"))
+
+/obj/screen/paralysis/Click(var/location, var/control, var/params)
+	if(istype(usr) && usr.paralysis_indicator == src)
+		if(usr.paralysis)
+			to_chat(usr, SPAN_WARNING("You are completely paralyzed and cannot move!"))
+		else
+			to_chat(usr, SPAN_NOTICE("You are walking around completely fine."))
