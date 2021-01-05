@@ -2,7 +2,7 @@
   <div>
     <div v-if="has_linked_comp">
       <h3>Linked Computer Info</h3>
-      <span :class="comp_locked_in ? 'good' : 'bad'">{{ comp_locked_in ? 'Locked In' : 'Not Locked In' }}</span>
+      <span :class="comp_locked_in ? 'good' : 'bad'">{{ comp_locked_in ? 'Locked In ' : 'Not Locked In ' }}</span><span :class="comp_locked_in ? 'good' : 'bad'">({{ locked_in_name }})</span>
       <h3>Teleporter Beacons</h3>
       <table class="table border">
         <tr class="header border">
@@ -12,7 +12,7 @@
         <tr v-for="beacon in teleport_beacons" class="item border" :key="beacon.ref">
           <td>{{ beacon.beacon_name }}</td>
           <td>
-            <vui-button :params="{ beacon: beacon.ref }">Lock On</vui-button>
+            <vui-button :params="{ beacon: beacon.ref, name: beacon.beacon_name }">Lock On</vui-button>
           </td>
         </tr>
       </table>
@@ -25,7 +25,7 @@
         <tr v-for="implant in teleport_implants" class="item border" :key="implant.ref">
           <td>{{ implant.implant_name }}</td>
           <td>
-            <vui-button :params="{ implant: implant.ref }">Lock On</vui-button>
+            <vui-button :params="{ implant: implant.ref, name: implant.implant_name }">Lock On</vui-button>
           </td>
         </tr>
       </table>

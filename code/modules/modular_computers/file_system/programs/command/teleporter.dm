@@ -39,7 +39,15 @@
 	var/turf/T = get_turf(computer.loc)
 	if(QDELETED(linked_comp))
 		linked_comp = null
+
+	// block of root level data
 	data["has_linked_comp"] = !!linked_comp
+	LAZYINITLIST(data["nearby_comps"])
+	LAZYINITLIST(data["teleport_beacons"])
+	LAZYINITLIST(data["teleport_implants"])
+	data["comp_locked_in"] = FALSE
+	data["locked_in_name"] = "None"
+
 	if(!linked_comp)
 		var/list/near_comps_info = list()
 		for(var/obj/machinery/computer/teleporter/CT in range(3, T))
@@ -50,7 +58,9 @@
 			near_comps_info[++near_comps_info.len] = comp_info
 		data["nearby_comps"] = near_comps_info
 	else
-		data["comp_locked_in"] = !!linked_comp.locked
+		data["comp_locked_in"] = !!LAZYLEN(linked_comp.locked)
+		if(data["comp_locked_in"])
+			data["locked_in_name"] = linked_comp.locked[linked_comp.locked[1]]
 		var/list/area_index = list()
 
 		var/list/teleport_beacon_info = list()
@@ -107,12 +117,12 @@
 	if(href_list["comp"])
 		linked_comp = locate(href_list["comp"]) in range(3, get_turf(computer.loc))
 	else if(href_list["beacon"])
-		linked_comp.locked = locate(href_list["beacon"]) in teleportbeacons
-		computer.output_message(SPAN_NOTICE("Locked in."), 1)
+		LAZYCLEARLIST(linked_comp.locked)
+		LAZYSET(linked_comp.locked, locate(href_list["beacon"]) in teleportbeacons, href_list["name"])
 		linked_comp.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 	else if(href_list["implant"])
-		linked_comp.locked = locate(href_list["implant"]) in implants
-		computer.output_message(SPAN_NOTICE("Locked in."), 1)
+		LAZYCLEARLIST(linked_comp.locked)
+		LAZYSET(linked_comp.locked, locate(href_list["implant"]) in implants, href_list["name"])
 		linked_comp.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 
 	SSvueui.check_uis_for_change(src)

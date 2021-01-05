@@ -4,7 +4,7 @@
 	icon_screen = "teleport"
 	circuit = /obj/item/circuitboard/teleporter
 	dir = 4
-	var/obj/item/locked = null
+	var/list/locked
 	var/id = null
 	var/one_time_use = 0 //Used for one-time-use teleport cards (such as clown planet coordinates.)
 						 //Setting this to 1 will set src.locked to null after a player enters the portal and will not allow hand-teles to open portals to that location.
@@ -67,7 +67,8 @@
 				//
 			else
 				visible_message(SPAN_NOTICE("Locked in."), range = 2)
-				src.locked = L
+				LAZYCLEARLIST(locked)
+				LAZYSET(locked, L, C.data)
 				one_time_use = 1
 
 			src.add_fingerprint(usr)
@@ -127,7 +128,8 @@
 	if(get_dist(src, usr) > 1 && !issilicon(usr))
 		return
 
-	src.locked = L[desc]
+	LAZYCLEARLIST(locked)
+	LAZYSET(locked, L[desc], desc)
 	visible_message(SPAN_NOTICE("Locked in."), range = 2)
 	src.add_fingerprint(usr)
 	return
@@ -192,7 +194,7 @@
 /obj/machinery/teleport/hub/proc/teleport(atom/movable/M as mob|obj)
 	if (!com)
 		return
-	if (!com.locked)
+	if (!LAZYLEN(com.locked))
 		for(var/mob/O in hearers(src, null))
 			O.show_message("<span class='warning'>Failure: Cannot authenticate locked on coordinates. Please reinstate coordinate matrix.</span>")
 		return
@@ -200,11 +202,11 @@
 		if(prob(5) && !accurate) //oh dear a problem, put em in deep space
 			do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), 3), 2)
 		else
-			do_teleport(M, com.locked) //dead-on precision
+			do_teleport(M, com.locked[1]) //dead-on precision
 
 		if(com.one_time_use) //Make one-time-use cards only usable one time!
 			com.one_time_use = 0
-			com.locked = null
+			LAZYCLEARLIST(com.locked)
 	else
 		spark_system.queue()
 		accurate = 1
