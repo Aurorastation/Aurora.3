@@ -31045,7 +31045,7 @@
 	},
 /area/centcom/holding)
 "qjS" = (
-/obj/machinery/account_database{
+/obj/item/modular_computer/console/preset/command/account{
 	name = "CentComm Accounts database"
 	},
 /turf/unsimulated/floor{
