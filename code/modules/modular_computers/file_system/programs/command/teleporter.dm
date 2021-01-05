@@ -26,6 +26,10 @@
 		ui.auto_update_content = TRUE
 		. = TRUE
 
+/datum/computer_file/program/teleporter/vueui_on_transfer(datum/vueui/ui)
+	. = ..()
+	ui.auto_update_content = FALSE
+
 /datum/computer_file/program/teleporter/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
