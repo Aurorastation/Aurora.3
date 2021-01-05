@@ -336,9 +336,11 @@
 	else
 		blood_state = BLOOD_HEAVY
 
-	if(force_reset || (blood_state != BLOOD_NONE && current_blood_state != blood_state))
+	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
 			cut_overlay(blood_overlay)
+		if(blood_state == BLOOD_NONE)
+			return
 		var/blood_overlay_name = get_blood_overlay_name()
 		var/image/I = image(blood_overlay_icon, src, "[blood_overlay_name]-[blood_state]")
 		I.color = blood_type
