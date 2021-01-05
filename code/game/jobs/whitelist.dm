@@ -3,6 +3,14 @@
 var/list/whitelist = list()
 var/list/whitelist_jobconfig = list()
 
+/**
+* The config/whitelist_jobconfig.json file contains a list that associates a job name with a whitelist_status.
+* A job name in that case is any rank that /proc/jobban_isbanned(player, rank) checks for.
+* The status needs to be present in the ss13_whitelist_statuses table and assigned to the players that should have the whitelist.
+* This system only works with the sql based whitelists.
+* The file based whitelists are still supported but it is not possible to assign specific whitelists to specific players. (its either all or nothing)
+*/
+
 /hook/startup/proc/loadWhitelist()
 	if (config.usewhitelist)
 		load_whitelist_jobconfig()
@@ -37,9 +45,9 @@ var/list/whitelist_jobconfig = list()
 		if (rank in whitelist_jobconfig)
 			return check_whitelist(M, whitelist_jobconfig[rank])
 		else
-			return TRUE //If the rank does not exist in the whitelist config, we are whitelisted
+			return TRUE //If the rank does not exist in the whitelist config, the rank isnt whitelisted
 	else
-		return TRUE //If the whitelist_jobconfig isnt loaded, we also assume the player to be whitelisted
+		return TRUE //If the whitelist_jobconfig isnt loaded, there are no whitelists
 
 /proc/check_whitelist(mob/M, var/whitelist_id = 1)
 	if (config.sql_whitelists)
