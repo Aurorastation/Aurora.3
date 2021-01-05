@@ -1,11 +1,21 @@
 #define WHITELISTFILE "data/whitelist.txt"
 
 var/list/whitelist = list()
+var/list/whitelist_jobconfig = list()
 
 /hook/startup/proc/loadWhitelist()
 	if (config.usewhitelist)
+		load_whitelist_jobconfig()
 		load_whitelist()
 	return 1
+
+/proc/load_whitelist_jobconfig()
+	if(fexists("config/whitelist_jobconfig.json"))
+		log_debug("Whitelist JobConfig: Loading from json")
+		try
+			whitelist_jobconfig = json_decode(return_file_text("config/whitelist_jobconfig.json"))
+		catch(var/exception/e)
+			log_debug("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
 
 /proc/load_whitelist()
 	if (config.sql_whitelists)
@@ -22,11 +32,19 @@ var/list/whitelist = list()
 	if (!whitelist.len)
 		whitelist = null
 
-/proc/check_whitelist(mob/M)
+/proc/check_whitelist_rank(mob/M, var/rank)
+	if (length(whitelist_jobconfig))
+		if (rank in whitelist_jobconfig)
+			return check_whitelist(M, whitelist_jobconfig[rank])
+		else
+			return TRUE //If the rank does not exist in the whitelist config, we are whitelisted
+	else
+		return TRUE //If the whitelist_jobconfig isnt loaded, we also assume the player to be whitelisted
+
+/proc/check_whitelist(mob/M, var/whitelist_id = 1)
 	if (config.sql_whitelists)
-		var/head_of_staff_whitelist = 1
 		if (M.client && M.client.whitelist_status)
-			return (M.client.whitelist_status & head_of_staff_whitelist)
+			return (M.client.whitelist_status & whitelist_id)
 
 		return 0
 	else
@@ -43,9 +61,7 @@ var/list/whitelist = list()
 
 /proc/load_alienwhitelist()
 	if (config.sql_whitelists)
-		establish_db_connection(dbcon)
-
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
 			error("Database connection failed while loading alien whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
