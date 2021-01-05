@@ -420,6 +420,21 @@
 	max_w_class = ITEMSIZE_SMALL
 	storage_slots = null
 	max_storage_space = 8
+	var/flipped = FALSE
+
+/obj/item/storage/belt/fannypack/verb/ToggleFanny()
+    set name = "Adjust Fannypack"
+    set category = "Object"
+    set src in usr
+
+    if(use_check_and_message(usr))
+        return 0
+
+    flipped = !flipped
+    icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
+    item_state = icon_state
+    to_chat(usr, "You flip the belt [flipped ? "behind you" : "infront of you"].")
+    update_clothing_icon()
 
 /obj/item/storage/belt/fannypack/component
 	name = "component pouch"
