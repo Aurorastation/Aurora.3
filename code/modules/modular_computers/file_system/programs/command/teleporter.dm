@@ -9,7 +9,7 @@
 	available_on_ntnet = FALSE
 	required_access_run = access_heads
 	usage_flags = PROGRAM_LAPTOP
-	var/obj/machinery/computer/teleporter/linked_comp
+	var/datum/weakref/comp_ref
 
 /datum/computer_file/program/teleporter/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -41,8 +41,11 @@
 		. = data
 
 	var/turf/T = get_turf(computer.loc)
+	var/obj/machinery/computer/teleporter/linked_comp
+	if(comp_ref)
+		linked_comp = comp_ref.resolve()
 	if(QDELETED(linked_comp))
-		linked_comp = null
+		comp_ref = null
 
 	// block of root level data
 	data["has_linked_comp"] = !!linked_comp
@@ -119,12 +122,15 @@
 		return TRUE
 
 	if(href_list["comp"])
-		linked_comp = locate(href_list["comp"]) in range(3, get_turf(computer.loc))
+		var/obj/machinery/computer/teleporter/linked_comp = locate(href_list["comp"]) in range(3, get_turf(computer.loc))
+		comp_ref = WEAKREF(linked_comp)
 	else if(href_list["beacon"])
+		var/obj/machinery/computer/teleporter/linked_comp = comp_ref.resolve()
 		LAZYCLEARLIST(linked_comp.locked)
 		LAZYSET(linked_comp.locked, locate(href_list["beacon"]) in teleportbeacons, href_list["name"])
 		linked_comp.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 	else if(href_list["implant"])
+		var/obj/machinery/computer/teleporter/linked_comp = comp_ref.resolve()
 		LAZYCLEARLIST(linked_comp.locked)
 		LAZYSET(linked_comp.locked, locate(href_list["implant"]) in implants, href_list["name"])
 		linked_comp.visible_message(SPAN_NOTICE("Locked in."), range = 2)
