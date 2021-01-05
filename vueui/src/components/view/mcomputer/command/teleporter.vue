@@ -55,3 +55,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+table {
+  width: 100%;
+  text-align: center;
+}
+tr {
+  line-height: 135%;
+}
+</style>
