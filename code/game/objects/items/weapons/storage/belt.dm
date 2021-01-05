@@ -415,9 +415,11 @@
 /obj/item/storage/belt/fannypack
 	name = "leather fannypack"
 	desc = "A dorky fannypack for keeping small items in."
+	icon = 'icons/clothing/belts/fannypacks.dmi'
 	icon_state = "fannypack_leather"
 	item_state = "fannypack_leather"
 	max_w_class = ITEMSIZE_SMALL
+	contained_sprite = TRUE
 	storage_slots = null
 	max_storage_space = 8
 	var/flipped = FALSE
