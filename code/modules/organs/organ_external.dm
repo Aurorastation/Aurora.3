@@ -82,6 +82,7 @@
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
 	var/list/cached_markings	// The two above lists cached for perf. reasons.
+	var/list/additional_images
 
 	var/atom/movable/applied_pressure //Pressure applied to wounds. It'll make them bleed less, generally.
 
