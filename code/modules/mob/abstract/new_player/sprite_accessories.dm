@@ -2224,7 +2224,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_bangs_alt"
 			chatname = "short bangs"
 
-		taj_ears_amohdan_clean
+		taj_ears_shortfringe
 			name = "Tajara Short Fringe"
 			icon_state = "hair_shortfringe"
 			chatname = "short fringe"
