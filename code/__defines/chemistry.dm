@@ -76,6 +76,7 @@
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
 #define CE_OXYGENATED   "oxygenated"	// Dexalin
+#define CE_BLOODCLOT    "bloodclot"		// Coagzolug
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"

@@ -513,3 +513,20 @@
 	canremove = 0
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
+
+/obj/item/storage/backpack/service
+	name = "idris service backpack"
+	desc = "The infamously Idris Service Standard refers to this monstrous, self-stabilizing back-mounted utensil and service item holder, not anything professional."
+	icon_state = "idris_backpack"
+	storage_slots = 6
+	max_w_class = ITEMSIZE_LARGE
+	can_hold = list(
+		/obj/item/tray,
+		/obj/item/material/kitchen/utensil/fork,
+		/obj/item/material/kitchen/utensil/knife,
+		/obj/item/material/kitchen/utensil/spoon,
+		/obj/item/material/knife,
+		/obj/item/material/hatchet/butch,
+		/obj/item/reagent_containers/food/drinks/drinkingglass,
+		/obj/item/storage/toolbox/lunchbox/nt
+		)

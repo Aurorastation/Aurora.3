@@ -47,7 +47,11 @@
 		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
 
 /obj/item/soap/Crossed(AM as mob|obj)
-	if (istype(AM, /mob/living))
+	if(isliving(AM))
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			if(H.shoes?.item_flags & LIGHTSTEP)
+				return
 		var/mob/living/M =	AM
 		M.slip("the [src.name]",3)
 

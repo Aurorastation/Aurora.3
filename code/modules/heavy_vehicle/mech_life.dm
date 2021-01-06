@@ -41,6 +41,25 @@
 	handle_vision()
 	handle_hud_icons()
 
+/mob/living/heavy_vehicle/think()
+	var/mob/resolved_following
+	if(following)
+		resolved_following = following.resolve()
+
+	if(length(pilots))
+		if(resolved_following && !(resolved_following in pilots)) // if the person we're following is our pilot, we keep following them, otherwise we drop them
+			unassign_following()
+		return
+
+	if(following)
+		if(isturf(loc) && can_move())
+			if(resolved_following)
+				walk_to(src, resolved_following, follow_distance, legs.move_delay)
+			else
+				unassign_following()
+		else
+			walk(src, 0) // this stops them from moving
+
 /mob/living/heavy_vehicle/get_cell()
 	RETURN_TYPE(/obj/item/cell)
 	return body?.cell

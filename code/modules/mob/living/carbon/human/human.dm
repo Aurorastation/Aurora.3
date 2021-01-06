@@ -405,6 +405,7 @@
 		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
 	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
 	dat += "<BR><A href='?src=\ref[src];item=pockets'>Empty pockets</A>"
+	dat += species.get_strip_info("\ref[src]")
 	dat += "<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
@@ -590,6 +591,9 @@
 
 	if(href_list["item"])
 		handle_strip(href_list["item"],usr)
+
+	if(href_list["species"])
+		species.handle_strip(usr, src, href_list["species"])
 
 	if(href_list["criminal"])
 		if(hasHUD(usr,"security"))

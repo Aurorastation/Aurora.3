@@ -70,6 +70,10 @@
 	throw_range = 20
 
 /obj/item/bananapeel/Crossed(AM as mob|obj)
-	if (istype(AM, /mob/living))
+	if(isliving(AM))
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			if(H.shoes?.item_flags & LIGHTSTEP)
+				return
 		var/mob/living/M = AM
 		M.slip("the [src.name]",4)

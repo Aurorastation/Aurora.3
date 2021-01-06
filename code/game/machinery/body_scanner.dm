@@ -306,7 +306,8 @@
 	for(var/obj/machinery/bodyscanner/C in orange(1,src))
 		connected = C
 		break
-	connected.connected = src
+	if(connected)
+		connected.connected = src
 	update_icon()
 
 /obj/machinery/body_scanconsole/attack_ai(var/mob/user)

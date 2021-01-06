@@ -26,6 +26,7 @@
 	var/pillsprite = "1"
 	var/max_pill_count = 20
 	flags = OPENCONTAINER
+	var/datum/asset/spritesheet/chem_master/chem_asset
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
@@ -199,16 +200,23 @@
 				var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(get_turf(src))
 				reagents.trans_to_obj(P,50)
 		else if(href_list["change_pill"])
-			var/dat = "<table>"
+			if(!chem_asset)
+				chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
+			var/dat = chem_asset.css_tag()
+			dat += "<table>"
 			for(var/i = 1 to MAX_PILL_SPRITE)
-				dat += "<tr><td><a href=\"?src=\ref[src]&pill_sprite=[i]\"><img src=\"pill[i].png\" /></a></td></tr>"
+				var/pillicon = "pill[i]"
+				dat += "<tr><td><a href=\"?src=\ref[src]&pill_sprite=[i]\">[chem_asset.icon_tag(pillicon)]</a></td></tr>"
 			dat += "</table>"
 			usr << browse(dat, "window=chem_master")
 			return
 		else if(href_list["change_bottle"])
-			var/dat = "<table>"
+			if(!chem_asset)
+				chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
+			var/dat = chem_asset.css_tag()
+			dat += "<table>"
 			for(var/sprite in BOTTLE_SPRITES)
-				dat += "<tr><td><a href=\"?src=\ref[src]&bottle_sprite=[sprite]\"><img src=\"[sprite].png\" /></a></td></tr>"
+				dat += "<tr><td><a href=\"?src=\ref[src]&bottle_sprite=[sprite]\">[chem_asset.icon_tag(sprite)]</a></td></tr>"
 			dat += "</table>"
 			usr << browse(dat, "window=chem_master")
 			return
@@ -230,10 +238,9 @@
 		return
 	user.set_machine(src)
 
-	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
-	pill_icons.send(user.client)
-
-	var/dat = ""
+	if(!chem_asset)
+		chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
+	var/dat = chem_asset.css_tag()
 	if(!beaker)
 		dat = "Please insert beaker.<BR>"
 		if(src.loaded_pill_bottle)
@@ -276,9 +283,9 @@
 		else
 			dat += "Empty<BR>"
 		if(!condi)
-			dat += "<HR><BR><A href='?src=\ref[src];createpill=1'>Create pill (60 units max)</A><a href=\"?src=\ref[src]&change_pill=1\"><img src=\"pill[pillsprite].png\" /></a><BR>"
+			dat += "<HR><BR><A href='?src=\ref[src];createpill=1'>Create pill (60 units max)</A><a href=\"?src=\ref[src]&change_pill=1\">[chem_asset.icon_tag("pill[pillsprite]")]</a><BR>"
 			dat += "<A href='?src=\ref[src];createpill_multiple=1'>Create multiple pills</A><BR>"
-			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (60 units max)<a href=\"?src=\ref[src]&change_bottle=1\"><img src=\"[bottlesprite].png\" /></A>"
+			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (60 units max)<a href=\"?src=\ref[src]&change_bottle=1\">[chem_asset.icon_tag(bottlesprite)]</A>"
 		else
 			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (50 units max)</A>"
 	if(!condi)

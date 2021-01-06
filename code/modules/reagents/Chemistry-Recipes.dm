@@ -482,6 +482,13 @@
 	required_reagents = list(/decl/reagent/sodiumchloride = 1, /decl/reagent/alcohol = 1, /decl/reagent/radium = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/coagzolug
+	name = "Coagzolug"
+	id = "coagzolug"
+	result = /datum/reagent/coagzolug
+	required_reagents = list(/datum/reagent/tricordrazine = 1, /datum/reagent/coughsyrup = 1)
+	result_amount = 1 // result is 1. i imagine it's because of some whacky reaction
+
 /datum/chemical_reaction/surfactant
 	name = "Azosurfactant"
 	id = "surfactant"
