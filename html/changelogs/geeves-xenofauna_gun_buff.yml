@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Buffed the amount of damage the xenofauna gun does to spiders."
