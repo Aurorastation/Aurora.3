@@ -7,9 +7,9 @@
 	var/list/gunk = list(
 		/datum/reagent/water = 10,
 		/datum/reagent/carbon = 5,
-		/datum/reagent/nutriment/flour = 10,
-		/datum/reagent/spacecleaner = 8,
-		/datum/reagent/nutriment = 8,
+		/datum/reagent/nutriment/flour = 8,
+		/datum/reagent/spacecleaner = 6,
+		/datum/reagent/nutriment = 6,
 		/datum/reagent/capsaicin/condensed = 2,
 		/datum/reagent/mindbreaker = 0.5,
 		/datum/reagent/lube = 4,
@@ -45,7 +45,7 @@
 		/datum/reagent/toxin/spectrocybin = 0.1
 	)
 	var/list/gunk_data = list(
-		/datum/reagent/paint = list("#FE191A", "#FDFE7D", "#1242A8", "#6CDB38")
+		/datum/reagent/paint = list("#FE191A", "#aaaa79", "#5f89e6", "#6CDB38", "#B474B6")
 	)
 
 
@@ -67,9 +67,7 @@
 
 		if(vent && vent.loc && !vent.is_welded())
 			var/datum/reagent/chem = pickweight(gunk)
-			var/reagent_amount = rand(3,6) * 5 //15 to 30 units
-			if(chem.overdose && chem.overdose < reagent_amount) //Some have no OD set. Those that do, we limit to that so we don't have people dropping dead.
-				reagent_amount = chem.overdose
+			var/reagent_amount = rand(2,5) * 5 //10 to 25 units
 			var/datum/reagents/R = new/datum/reagents(reagent_amount)
 			R.my_atom = vent
 			R.add_reagent(chem, reagent_amount, pick(gunk_data[chem]))
