@@ -367,7 +367,7 @@
 	animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, transform = matrix() * 0, easing = CUBIC_EASING)
 	sleep(3)
 
-/atom/movable/proc/do_putdown_animation(atom/target, mob/user)
+/atom/movable/proc/do_putdown_animation(atom/target, mob/user, var/click_params)
 	if(QDELETED(src))
 		return
 	if(QDELETED(target))
@@ -386,6 +386,9 @@
 		I.dir = target.dir
 	flick_overlay(I, clients, 4)
 
+	if(istype(target, /obj/structure/table))
+		var/obj/structure/table/T = target
+		T.auto_align(src, click_params)
 	var/to_x = (target.x - old_turf.x) * 32 + pixel_x
 	var/to_y = (target.y - old_turf.y) * 32 + pixel_y
 	var/old_x = pixel_x
