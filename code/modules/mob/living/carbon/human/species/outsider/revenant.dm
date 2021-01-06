@@ -1,7 +1,7 @@
 /mob/living/carbon/human/revenant/Initialize(mapload)
 	. = ..(mapload, SPECIES_REVENANT)
 	alpha = 0
-	animate(src, 2 SECONDS, alpha = 255)
+	animate(src, 2 SECONDS, alpha = 180)
 
 /datum/species/revenant
 	name = SPECIES_REVENANT
