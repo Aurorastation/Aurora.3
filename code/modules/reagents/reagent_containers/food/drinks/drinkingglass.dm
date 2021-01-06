@@ -44,12 +44,8 @@
 		center_of_mass = list("x"=16, "y"=10)
 
 // for /obj/machinery/vending/sovietsoda
-/obj/item/reagent_containers/food/drinks/drinkingglass/soda/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/drink/sodawater, 50)
-	on_reagent_change()
+/obj/item/reagent_containers/food/drinks/drinkingglass/soda
+	reagents_to_add = list(/decl/reagent/drink/sodawater = 50)
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/cola/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/drink/space_cola, 50)
-	on_reagent_change()
+/obj/item/reagent_containers/food/drinks/drinkingglass/cola
+	reagents_to_add = list(/decl/reagent/drink/space_cola = 50)

@@ -127,10 +127,7 @@
 	desc = "A janitorial watertank backpack with nozzle to clean dirt and graffiti."
 	icon_state = "waterpackjani"
 	item_state = "waterpackjani"
-
-/obj/item/watertank/janitor/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/spacecleaner, 500)
+	reagents_to_add = list(/decl/reagent/spacecleaner = 500)
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/janitor
 	name = "janitor spray nozzle"

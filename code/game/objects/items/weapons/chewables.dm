@@ -187,9 +187,8 @@ obj/item/clothing/mask/chewable/Destroy()
 	item_state = null
 	wrapped = FALSE
 
-/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/tricordrazine, 5)
+/obj/item/clothing/mask/chewable/candy/gum/gumball/medical
+	reagents_to_add = list(/decl/reagent/tricordrazine = 5)
 
 
 /obj/item/storage/box/fancy/gum

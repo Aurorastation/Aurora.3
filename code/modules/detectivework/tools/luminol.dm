@@ -7,7 +7,4 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10)
 	volume = 250
-
-/obj/item/reagent_containers/spray/luminol/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/luminol, 250)
+	reagents_to_add = list(/decl/reagent/luminol = 250)

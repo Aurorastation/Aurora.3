@@ -366,11 +366,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	burn_rate = 0.015
 	reagents_to_add = list(/decl/reagent/toxin/tobacco = 15)
 
-/obj/item/clothing/mask/smokable/cigarette/vanilla/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco,15)
-
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	burn_rate = 0.015
 	reagents_to_add = list(
@@ -504,11 +499,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_on = "sausageon"
 	type_butt = /obj/item/trash/cigbutt/sausagebutt
 	chem_volume = 6
-
-/obj/item/clothing/mask/smokable/cigarette/rolled/sausage/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent(/decl/reagent/nutriment/protein,6)
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 6)
 
 /obj/item/trash/cigbutt/sausagebutt
 	name = "sausage butt"

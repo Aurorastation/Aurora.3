@@ -27,15 +27,11 @@
 	name = "honeycomb"
 	icon_state = "honeycomb"
 	desc = "Dripping with sugary sweetness."
-
-	New()
-		..()
-
-/obj/item/reagent_containers/food/snacks/honeycomb/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/nutriment/honey,10)
-	reagents.add_reagent(/decl/reagent/nutriment, 0.5)
-	reagents.add_reagent(/decl/reagent/sugar, 2)
+	reagents_to_add = list(
+		/decl/reagent/nutriment/honey = 10,
+		/decl/reagent/nutriment = 0.5,
+		/decl/reagent/sugar = 2
+	)
 	bitesize = 2
 
 /obj/item/book/manual/hydroponics_beekeeping

@@ -218,10 +218,7 @@
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=4)
-
-/obj/item/reagent_containers/food/drinks/bottle/whiskey/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/alcohol/whiskey, 100)
+	reagents_to_add = list(/decl/reagent/alcohol/whiskey = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/fireball
 	name = "Delta Cephei Cinnamon Fireball"
@@ -271,10 +268,7 @@
 				  They are known for their surprisingly affordable and incredible quality foods, as well as growing many crops used in pharmaceuticals and luxury items."
 	icon_state = "bitters"
 	center_of_mass = list("x"=16, "y"=9)
-
-/obj/item/reagent_containers/food/drinks/bottle/bitters/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/alcohol/bitters,40)
+	reagents_to_add = list(/decl/reagent/alcohol/bitters = 40)
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne
 	name = "Silverport's Bubbliest champagne"
@@ -282,10 +276,7 @@
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "champagnebottle"
 	center_of_mass = list("x"=16, "y"=4)
-
-/obj/item/reagent_containers/food/drinks/bottle/champagne/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/alcohol/champagne,100)
+	reagents_to_add = list(/decl/reagent/alcohol/champagne = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup
 	name = "Getmore's Bold Peppermint"

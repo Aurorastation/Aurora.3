@@ -163,11 +163,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name = "autoinjector (inaprovaline)"
-
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/inaprovaline, 5)
-	update_icon()
+	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency
 	name = "autoinjector (emergency)"
@@ -182,11 +178,7 @@
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
 	volume = 5
 	flags = 0
-
-/obj/item/reagent_containers/hypospray/autoinjector/coagzolug/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/coagzolug, 5)
-	update_icon()
+	reagents_to_add = list(/decl/reagent/coagzolug = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
 	name = "sideeffects-be-gone! autoinjector"
