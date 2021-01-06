@@ -58,7 +58,7 @@
 				if(feedback)
 					to_chat(user, SPAN_NOTICE("You collect \the [I]."))
 				if(isturf(I.loc) && I.Adjacent(user))
-					I.do_pickup_animation(user)
+					I.do_pickup_animation(user, loc)
 				I.forceMove(src)
 				wrapped = I
 				wrapped.pixel_x = 0
