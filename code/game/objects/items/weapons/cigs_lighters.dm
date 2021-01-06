@@ -356,10 +356,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				to_chat(user, SPAN_NOTICE("[src] is full."))
 
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
-	if(lit == TRUE)
-		user.visible_message(SPAN_NOTICE("[user] calmly drops and treads on the lit [src], putting it out instantly."))
+	if(lit)
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> calmly drops and treads on the lit [src], putting it out instantly."), SPAN_NOTICE("You calmly drop and tread on the lit [src], putting it out instantly."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		die(TRUE)
+	else // Cigarette packing. For compulsive smokers.
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	return ..()
 
 

@@ -302,8 +302,10 @@
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		user.visible_message("<b>[user]</b> casually pulls out a [icon_type] from \the [src] with their mouth.", range = 3)
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> casually pulls out a [icon_type] from \the [src] with their mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
+	if(M == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	else
 		..()
 
