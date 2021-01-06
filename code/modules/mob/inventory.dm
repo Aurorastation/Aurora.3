@@ -187,15 +187,18 @@ var/list/slot_equipment_priority = list( \
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
-/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target)
+/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target, var/click_params)
 	if(W)
 		if(!target)
 			target = loc
 		remove_from_mob(W)
 		if(!(W && W.loc))
 			return 1
-		INVOKE_ASYNC(W, /atom/movable/proc/do_putdown_animation, target, src)
-		W.forceMove(target)
+		INVOKE_ASYNC(W, /atom/movable/proc/do_putdown_animation, target, src, click_params)
+		if(istype(target, /obj/structure/table))
+			W.forceMove(target.loc)
+		else
+			W.forceMove(target)
 		update_icon()
 		return 1
 	return 0
@@ -280,10 +283,10 @@ var/list/slot_equipment_priority = list( \
 	return slot
 
 //This differs from remove_from_mob() in that it checks if the item can be unequipped first.
-/mob/proc/unEquip(obj/item/I, force = 0, var/atom/target) //Force overrides NODROP for things like wizarditis and admin undress.
+/mob/proc/unEquip(obj/item/I, force = 0, var/atom/target, var/click_params) //Force overrides NODROP for things like wizarditis and admin undress.
 	if(!(force || canUnEquip(I)))
 		return
-	drop_from_inventory(I, target)
+	drop_from_inventory(I, target, click_params)
 	return 1
 
 
