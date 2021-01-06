@@ -2219,6 +2219,16 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_bangs"
 			chatname = "bangs"
 
+		taj_ears_bangs_alt
+			name = "Tajara Bangs Alt"
+			icon_state = "hair_bangs_alt"
+			chatname = "short bangs"
+
+		taj_ears_amohdan_clean
+			name = "Tajara Short Fringe"
+			icon_state = "hair_shortfringe"
+			chatname = "short fringe"
+
 		taj_ears_bob
 			name = "Tajara Bob"
 			icon_state = "hair_bob"
@@ -2310,6 +2320,16 @@ Follow by example and make good judgement based on length which list to include 
 			name = "M'sai Bangs"
 			icon_state = "msai_bangs"
 			chatname = "bangs"
+
+		msai_ears_bangs_alt
+			name = "M'sai Bangs Alt"
+			icon_state = "msai_bangs_alt"
+			chatname = "smallbangs"
+
+		msai_ears_shortfringe
+			name = "M'sai Short Fringe"
+			icon_state = "msai_shortfringe"
+			chatname = "short fringe"
 
 		msai_ears_bob
 			name = "M'sai Bob"
