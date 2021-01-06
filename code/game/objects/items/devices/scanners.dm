@@ -20,17 +20,23 @@ BREATH ANALYZER
 	throw_range = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
-	var/mode = 1
+	var/verbose_mode = TRUE
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
-	var/data = health_scan_mob(M, user, mode)
+	var/data = health_scan_mob(M, user, verbose_mode)
 	add_fingerprint(user)
-	ui_interact(user, data)
+	if (user.client.prefs.health_scanner_ui_output)
+		ui_interact(user, data)
+	else
+		to_chat(user, data)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	var/data = health_scan_mob(user, user, mode)
+	var/data = health_scan_mob(user, user, verbose_mode)
 	add_fingerprint(user)
-	ui_interact(user, data)
+	if (user.client.prefs.health_scanner_ui_output)
+		ui_interact(user, data)
+	else
+		to_chat(user, data)
 
 /proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
 	var/degree = "none"
@@ -78,7 +84,7 @@ BREATH ANALYZER
 			return
 
 		if(!usr.IsAdvancedToolUser())
-			res += "<span class='warning'>You don't have the dexterity to do this!</span>"
+			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 			return
 
 		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
@@ -164,11 +170,11 @@ BREATH ANALYZER
 		dat += "[b]Blood pressure:[endb] N/A"
 
 	// Body temperature.
-	var/temperature_string
+	var/temperature_string = "Body temperature: "
 	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
-		temperature_string = "<span class='scan_warning'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+		temperature_string += "<span class='scan_warning'>[H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
 	else
-		temperature_string = "<span class='scan_green'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+		temperature_string += "<span class='scan_green'>[H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
 	dat += temperature_string
 
 	// Traumatic shock.
@@ -315,16 +321,16 @@ BREATH ANALYZER
 /obj/item/device/healthanalyzer/ui_interact(mob/user, data = "", var/datum/topic_state/state = default_state)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "analyzer-health", 600, 600, "Health Analyzer", list("healthdata" = data), state = state)
+		ui = new(user, src, "render-html", 600, 600, "Health Analyzer", list("renderdata" = data), state = state)
 	ui.open()
 
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
 	set category = "Object"
 
-	mode = !mode
+	verbose_mode = !verbose_mode
 
-	if(mode)
+	if(verbose_mode)
 		to_chat(usr, "The scanner now shows specific limb damage.")
 	else
 		to_chat(usr, "The scanner no longer shows limb damage.")

@@ -178,6 +178,7 @@ datum/preferences
 		)
 
 	var/fov_cone_alpha = 255
+	var/health_scanner_ui_output = FALSE
 
 /datum/preferences/New(client/C)
 	new_setup()

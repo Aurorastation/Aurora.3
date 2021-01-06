@@ -224,3 +224,15 @@
 		to_chat(src, "Space will no longer move.")
 	else
 		to_chat(src, "Space will now move.")
+
+/client/verb/switch_health_scanner_output()
+	set name = "Switch health scanner output"
+	set category = "Preferences"
+	set desc = "Switches health scanner output between chat and UI."
+
+	prefs.health_scanner_ui_output = !prefs.health_scanner_ui_output
+
+	if (prefs.toggles_secondary)
+		to_chat(src, "Handheld health scanner will now display results in UI window.")
+	else
+		to_chat(src, "Handheld health scanner will now display results in the chat window.")
