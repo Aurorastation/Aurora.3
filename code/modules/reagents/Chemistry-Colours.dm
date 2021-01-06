@@ -27,4 +27,7 @@
 	return color
 
 /decl/reagent/blood/get_color(var/datum/reagents/holder)
-	return LAZYLEN(REAGENT_DATA(holder, type)) ? holder.reagent_data[type]["blood_colour"] : color // return default if not set
+	if(!holder || isemptylist(REAGENT_DATA(holder, type)))
+		return color
+
+	return LAZYACCESS(holder.reagent_data[type], "blood_colour") || color // return default colour if not set

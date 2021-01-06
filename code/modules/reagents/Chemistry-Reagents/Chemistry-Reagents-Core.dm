@@ -12,23 +12,27 @@
 
 	fallback_specific_heat = 3.617
 
-/decl/reagent/blood/mix_data(var/datum/reagents/reagents, var/list/newdata, var/newamount, var/datum/reagents/holder)
-	var/list/data = REAGENT_DATA(reagents, type)
+/decl/reagent/blood/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
+	var/list/data = REAGENT_DATA(holder, type)
 	if(LAZYACCESS(newdata, "trace_chem"))
 		var/list/other_chems = LAZYACCESS(newdata, "trace_chem")
 		if(!data)
 			data = newdata.Copy()
-		else if(!data["trace_chem"])
-			data["trace_chem"] = other_chems.Copy()
+		else if(!LAZYACCESS(data, "trace_chem"))
+			LAZYSET(data, "trace_chem", other_chems.Copy())
 		else
-			var/list/my_chems = data["trace_chem"]
+			var/list/my_chems = LAZYACCESS(data, "trace_chem")
 			for(var/chem in other_chems)
 				my_chems[chem] = my_chems[chem] + other_chems[chem]
-	var/datum/weakref/W = data["donor"]
-	var/mob/living/carbon/self = W.resolve()
+	var/datum/weakref/W = LAZYACCESS(data, "donor")
+	var/mob/living/carbon/self = W?.resolve()
 	if(!(MODE_VAMPIRE in self?.mind?.antag_datums) && blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species")))
 		remove_self(newamount * 0.5, holder) // So the blood isn't *entirely* useless
-		holder.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
+		var/mob/living/carbon/human/recipient = holder.my_atom
+		if(istype(recipient) && holder == recipient.vessel)
+			recipient.reagents.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
+		else
+			holder.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
 	. = data
 
 /decl/reagent/blood/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
@@ -60,9 +64,9 @@
 			to_chat(M, "<span class='notice'>You have accumulated [vampire.blood_usable] [vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 			return
 	var/dose = M.chem_doses[type]
-	if(dose > 5)
-		M.adjustToxLoss(removed)
 	if(dose > 15)
+		M.adjustToxLoss(removed * 2)
+	else if(dose > 5)
 		M.adjustToxLoss(removed)
 
 /decl/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -70,8 +74,8 @@
 		return
 
 /decl/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.inject_blood(src, REAGENT_VOLUME(holder, type))
-	remove_self(REAGENT_VOLUME(holder, type))
+	M.inject_blood(REAGENT_VOLUME(holder, type), holder)
+	remove_self(REAGENT_VOLUME(holder, type), holder)
 
 #define WATER_LATENT_HEAT 19000 // How much heat is removed when applied to a hot turf, in J/unit (19000 makes 120 u of water roughly equivalent to 4L)
 /decl/reagent/water

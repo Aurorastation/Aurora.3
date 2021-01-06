@@ -54,7 +54,7 @@
 	if(required_temperature_min && (temp < required_temperature_min))
 		return 0
 
-	if(required_temperature_max && (temp < required_temperature_max))
+	if(required_temperature_max && (temp > required_temperature_max))
 		return 0
 
 	return 1

@@ -787,8 +787,15 @@
 	description = "A protein that works to carry oxygen. If freely floating in the bloodstream, however, it is toxic to the kidneys."
 	reagent_state = SOLID
 	color = "#C80000"
-	metabolism = REM * 0.1
+	metabolism = REM * 0.5 // 0.05/second by default, so it isn't outhealed.
 	taste_description = "iron"
 	taste_mult = 1.3
 	fallback_specific_heat = 3.617
 	target_organ = BP_KIDNEYS
+
+/decl/reagent/toxin/coagulated_blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	return // denatured blood isn't absorbed when eaten
+
+/decl/reagent/toxin/coagulated_blood/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.add_chemical_effect(CE_NEPHROTOXIC, 0) // deal no damage, but prevent regeneration
+	..()

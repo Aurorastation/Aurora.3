@@ -148,7 +148,7 @@
 		if(new_thermal_energy > 0) // This if-else is for the change from the current temperature.
 			newreagent.add_thermal_energy(new_thermal_energy - old_energy, src, FALSE)
 		else
-			newreagent.add_thermal_energy(temperature*newreagent.specific_heat*amount - old_energy, src, safety = FALSE)
+			newreagent.set_temperature(temperature, src, safety = FALSE)
 		if(!new_thermal_energy && round(temperature, 1) != round(get_temperature(), 1))
 			crash_with("Temperature [temperature] did not match [get_temperature()] after adding EXISTING reagent [rtype]!")
 	UNSETEMPTY(reagent_volumes)

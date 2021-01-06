@@ -449,6 +449,7 @@
 	ingest_mul = 0
 	breathe_mul = 0
 	touch_mul = 0
+	fallback_specific_heat = 28.464
 	var/stored_value = 0
 	var/datum/dna/stored_dna
 

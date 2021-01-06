@@ -45,3 +45,6 @@ changes:
   - rscadd: "Ports Bay's per-mob dose system. This will probably affect how much alcohol you have to drink to get/stay drunk."
   - rscdel: "Replaces the chem modifier system with CE_EFFECT. Funny, given that it was originally intended to be the other way around."
   - tweak: "Hot chemicals now do more damage; before, it would be rounded down to zero or outhealed in one tick."
+  - tweak: "Temperature is no longer per-reagent; it is now per-reagents-datum."
+  - rscdel: "Removes phoron salts pending a rework/replacement."
+  - tweak: "Having a chemical that is toxic to an organ in your system will now prevent that organ from regenerating."
