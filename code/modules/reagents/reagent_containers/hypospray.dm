@@ -185,7 +185,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/coagzolug, 5)
+	reagents.add_reagent(/decl/reagent/coagzolug, 5)
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone

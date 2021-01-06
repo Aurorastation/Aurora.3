@@ -1665,7 +1665,7 @@
 	if(prob(2))
 		to_chat(H, SPAN_WARNING(pick("Your muscles are stinging a bit.", "Your muscles ache.")))
 
-/datum/reagent/coagzolug
+/decl/reagent/coagzolug
 	name = "Coagzolug"
 	description = "A medicine that was stumbled upon by accident, coagzolug encourages blood to clot and slow down bleeding. An overdose causes dangerous blood clots capable of harming the heart."
 	reagent_state = LIQUID
@@ -1676,12 +1676,12 @@
 	taste_description = "throat-clenching sourness"
 	fallback_specific_heat = 1
 
-/datum/reagent/coagzolug/affect_blood(mob/living/carbon/M, alien, removed)
+/decl/reagent/coagzolug/affect_blood(mob/living/carbon/M, alien, removed)
 	. = ..()
 	M.add_chemical_effect(CE_BLOODCLOT)
 	M.make_dizzy(5)
 
-/datum/reagent/coagzolug/overdose(var/mob/living/carbon/H, var/alien)
+/decl/reagent/coagzolug/overdose(var/mob/living/carbon/H, var/alien)
 	if(prob(2))
 		to_chat(H, SPAN_WARNING(pick("You feel a clot shoot through your heart!", "Your veins feel like they're being shredded!")))
 		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]

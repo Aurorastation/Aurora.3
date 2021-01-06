@@ -485,8 +485,8 @@
 /datum/chemical_reaction/coagzolug
 	name = "Coagzolug"
 	id = "coagzolug"
-	result = /datum/reagent/coagzolug
-	required_reagents = list(/datum/reagent/tricordrazine = 1, /datum/reagent/coughsyrup = 1)
+	result = /decl/reagent/coagzolug
+	required_reagents = list(/decl/reagent/tricordrazine = 1, /decl/reagent/coughsyrup = 1)
 	result_amount = 1 // result is 1. i imagine it's because of some whacky reaction
 
 /datum/chemical_reaction/surfactant
