@@ -295,7 +295,8 @@
 /obj/item/clothing/ears/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_ears()
+		M.update_inv_l_ear()
+		M.update_inv_r_ear()
 
 /obj/item/clothing/ears/offear
 	name = "Other ear"
@@ -667,6 +668,7 @@
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 	var/can_hold_knife
+	var/footstep = 1
 	var/obj/item/holding
 
 	var/shoes_under_pants = 0
@@ -676,6 +678,7 @@
 	var/overshoes = 0
 	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/silent = 0
+	var/last_trip = 0
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
@@ -750,6 +753,22 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_shoes()
+
+/obj/item/clothing/shoes/proc/trip_up(var/turf/walking, var/running)
+	if(!running)
+		if(footstep >= 2)
+			footstep = 0
+		else
+			footstep++
+	else
+		if(prob(5))
+			if(last_trip <= world.time - 20) //So you don't trip immediately after.
+				last_trip = world.time
+				if(ismob(loc))
+					var/mob/M = loc
+					M.Weaken(3)
+					to_chat(M, SPAN_WARNING("You trip from running in \the [src]!"))
+			return
 
 ///////////////////////////////////////////////////////////////////////
 //Suit

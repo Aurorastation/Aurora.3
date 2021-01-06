@@ -201,10 +201,14 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
 
+/obj/item/projectile/energy/blaster/disruptor
+	damage = 20
+	pass_flags = PASSTABLE
+
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
-	agony = 45
+	agony = 25
 	speed = 0.4
 	damage_type = PAIN // Can't blow your own head off with a stunbolt.
 	taser_effect = TRUE

@@ -1,11 +1,12 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
-/obj/item/device/mmi/digital/New()
+/obj/item/device/mmi/digital/Initialize(mapload, ...)
+	. = ..()
 	src.brainmob = new(src)
+	brainmob.add_language(LANGUAGE_EAL)
 	src.brainmob.stat = CONSCIOUS
 	src.brainmob.container = src
 	src.brainmob.silent = 0
-	..()
 
 /obj/item/device/mmi/digital/transfer_identity(var/mob/living/carbon/H)
 	brainmob.dna = H.dna
