@@ -948,7 +948,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "co" = (
