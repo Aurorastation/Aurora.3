@@ -23,12 +23,14 @@ BREATH ANALYZER
 	var/mode = 1
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
-	health_scan_mob(M, user, mode)
+	var/data = health_scan_mob(M, user, mode)
 	add_fingerprint(user)
+	ui_interact(user, data)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	health_scan_mob(user, user, mode)
+	var/data = health_scan_mob(user, user, mode)
 	add_fingerprint(user)
+	ui_interact(user, data)
 
 /proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
 	var/degree = "none"
@@ -67,27 +69,28 @@ BREATH ANALYZER
 	return output
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
+	var/res = "" // the return string
 	if(!just_scan)
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-			to_chat(user, "Overall Status: Healthy</span>")
+			res += "<span class='notice'><b>Scan results for the floor:</b></span>"
+			res += "Overall Status: Healthy</span>"
 			return
 
 		if(!usr.IsAdvancedToolUser())
-			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+			res += "<span class='warning'>You don't have the dexterity to do this!</span>"
 			return
 
 		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
 
 	if(!istype(M, /mob/living/carbon/human))
-		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
+		res += "<span class='warning'>This scanner is designed for humanoid patients only.</span>"
 		return
 
 	var/mob/living/carbon/human/H = M
 
 	if(H.isSynthetic() && !H.isFBP())
-		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		res += "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>"
 		return
 
 	. = list()
@@ -303,9 +306,17 @@ BREATH ANALYZER
 	. = jointext(.,"<br>")
 	. = jointext(list(header,.),null)
 
-	to_chat(user, "<hr>")
-	to_chat(user, .)
-	to_chat(user, "<hr>")
+	res += "<hr>"
+	res += .
+	res += "<hr>"
+
+	return res
+
+/obj/item/device/healthanalyzer/ui_interact(mob/user, data = "", var/datum/topic_state/state = default_state)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "analyzer-health", 600, 600, "Health Analyzer", list("healthdata" = data), state = state)
+	ui.open()
 
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
