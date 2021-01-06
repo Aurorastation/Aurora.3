@@ -201,9 +201,8 @@
 		return
 
 	// Placing stuff on tables
-	if(user.unEquip(W, 0, src.loc))
+	if(user.unEquip(W, 0, src, click_parameters))
 		user.make_item_drop_sound(W)
-		auto_align(W, click_parameters)
 		return 1
 
 #define CELLS 8								//Amount of cells per row/column in grid

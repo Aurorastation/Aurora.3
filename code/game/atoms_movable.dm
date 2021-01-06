@@ -367,7 +367,7 @@
 	sleep(1)
 	animate(I, alpha = 0, transform = matrix(), time = 1)
 
-/atom/movable/proc/do_putdown_animation(atom/target, mob/user)
+/atom/movable/proc/do_putdown_animation(atom/target, mob/user, var/click_params)
 	if(QDELETED(src))
 		return
 	if(QDELETED(target))
@@ -393,6 +393,9 @@
 			viewing |= M.client
 	flick_overlay(I, viewing, 4)
 
+	if(istype(target, /obj/structure/table))
+		var/obj/structure/table/T = target
+		T.auto_align(src, click_params)
 	var/to_x = (target.x - old_turf.x) * 32 + pixel_x
 	var/to_y = (target.y - old_turf.y) * 32 + pixel_y
 	var/old_x = pixel_x
