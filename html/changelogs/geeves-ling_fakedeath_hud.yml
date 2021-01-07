@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Ling fakedeath now properly updates the medhud."
