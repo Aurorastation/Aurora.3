@@ -9,7 +9,7 @@
 	available_on_ntnet = FALSE
 	required_access_run = access_heads
 	usage_flags = PROGRAM_LAPTOP
-	var/datum/weakref/comp_ref
+	var/datum/weakref/station_ref
 
 /datum/computer_file/program/teleporter/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -41,33 +41,33 @@
 		. = data
 
 	var/turf/T = get_turf(computer.loc)
-	var/obj/machinery/computer/teleporter/linked_comp
-	if(comp_ref)
-		linked_comp = comp_ref.resolve()
-	if(QDELETED(linked_comp))
-		comp_ref = null
+	var/obj/machinery/teleport/station/linked_station
+	if(station_ref)
+		linked_station = station_ref.resolve()
+	if(QDELETED(linked_station))
+		station_ref = null
 
 	// block of root level data
-	data["has_linked_comp"] = !!linked_comp
-	LAZYINITLIST(data["nearby_comps"])
+	data["has_linked_station"] = !!linked_station
+	LAZYINITLIST(data["nearby_stations"])
 	LAZYINITLIST(data["teleport_beacons"])
 	LAZYINITLIST(data["teleport_implants"])
-	data["comp_locked_in"] = FALSE
+	data["station_locked_in"] = FALSE
 	data["locked_in_name"] = "None"
 
-	if(!linked_comp)
-		var/list/near_comps_info = list()
-		for(var/obj/machinery/computer/teleporter/CT in range(3, T))
-			var/list/comp_info = list(
-				"comp_name" = CT.name,
-				"ref" = "\ref[CT]"
+	if(!linked_station)
+		var/list/near_stations_info = list()
+		for(var/obj/machinery/teleport/station/S in range(3, T))
+			var/list/station_info = list(
+				"station_name" = "[S.name] ([S.x]-[S.y][S.z])",
+				"ref" = "\ref[S]"
 				)
-			near_comps_info[++near_comps_info.len] = comp_info
-		data["nearby_comps"] = near_comps_info
+			near_stations_info[++near_stations_info.len] = station_info
+		data["nearby_stations"] = near_stations_info
 	else
-		data["comp_locked_in"] = !!LAZYLEN(linked_comp.locked)
-		if(data["comp_locked_in"])
-			data["locked_in_name"] = linked_comp.locked[linked_comp.locked[1]]
+		data["station_locked_in"] = !!linked_station.locked_obj
+		if(data["station_locked_in"])
+			data["locked_in_name"] = linked_station.locked_obj_name
 		var/list/area_index = list()
 
 		var/list/teleport_beacon_info = list()
@@ -121,18 +121,34 @@
 	if(..())
 		return TRUE
 
-	if(href_list["comp"])
-		var/obj/machinery/computer/teleporter/linked_comp = locate(href_list["comp"]) in range(3, get_turf(computer.loc))
-		comp_ref = WEAKREF(linked_comp)
+	if(href_list["station"])
+		var/obj/machinery/teleport/station/linked_station = locate(href_list["station"]) in range(3, get_turf(computer.loc))
+		station_ref = WEAKREF(linked_station)
 	else if(href_list["beacon"])
-		var/obj/machinery/computer/teleporter/linked_comp = comp_ref.resolve()
-		LAZYCLEARLIST(linked_comp.locked)
-		LAZYSET(linked_comp.locked, locate(href_list["beacon"]) in teleportbeacons, href_list["name"])
-		linked_comp.visible_message(SPAN_NOTICE("Locked in."), range = 2)
+		var/obj/machinery/teleport/station/linked_station = station_ref.resolve()
+		var/obj/O = locate(href_list["beacon"]) in teleportbeacons
+		if(linked_station.locked_obj)
+			var/obj/LO = linked_station.locked_obj.resolve()
+			if(LO == O)
+				linked_station.disengage()
+				return
+		linked_station.locked_obj = WEAKREF(O)
+		linked_station.locked_obj_name = href_list["name"]
+		if(!linked_station.engaged)
+			linked_station.engage()
+		linked_station.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 	else if(href_list["implant"])
-		var/obj/machinery/computer/teleporter/linked_comp = comp_ref.resolve()
-		LAZYCLEARLIST(linked_comp.locked)
-		LAZYSET(linked_comp.locked, locate(href_list["implant"]) in implants, href_list["name"])
-		linked_comp.visible_message(SPAN_NOTICE("Locked in."), range = 2)
+		var/obj/machinery/teleport/station/linked_station = station_ref.resolve()
+		var/obj/O = locate(href_list["implant"]) in teleportbeacons
+		if(linked_station.locked_obj)
+			var/obj/LO = linked_station.locked_obj.resolve()
+			if(LO == O)
+				linked_station.disengage()
+				return
+		linked_station.locked_obj = WEAKREF(O)
+		linked_station.locked_obj_name = href_list["name"]
+		if(!linked_station.engaged)
+			linked_station.engage()
+		linked_station.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 
 	SSvueui.check_uis_for_change(src)

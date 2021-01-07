@@ -97,11 +97,6 @@
 	item_cost = 10
 	path = /obj/item/device/powersink
 
-/datum/uplink_item/item/tools/teleporter
-	name = "Teleporter Circuit Board"
-	item_cost = 4
-	path = /obj/item/circuitboard/teleporter
-
 /datum/uplink_item/item/tools/teleporter/New()
 	..()
 	antag_roles = list(MODE_MERCENARY)

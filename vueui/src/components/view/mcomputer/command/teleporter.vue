@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-if="has_linked_comp">
-      <h3>Linked Computer Info</h3>
-      <span :class="comp_locked_in ? 'good' : 'bad'">{{ comp_locked_in ? 'Locked In ' : 'Not Locked In ' }}</span><span :class="comp_locked_in ? 'good' : 'bad'">({{ locked_in_name }})</span>
+    <div v-if="has_linked_station">
+      <h3>Linked Station Info</h3>
+      <span :class="station_locked_in ? 'good' : 'bad'">{{ station_locked_in ? 'Locked In ' : 'Not Locked In ' }}</span><span :class="station_locked_in ? 'good' : 'bad'">({{ locked_in_name }})</span>
       <h3>Teleporter Beacons</h3>
       <table class="table border">
         <tr class="header border">
@@ -31,16 +31,16 @@
       </table>
     </div>
     <div v-else>
-      <h3>Nearby Teleportation Computers</h3>
+      <h3>Nearby Teleportation Stations</h3>
       <table class="table border">
         <tr class="header border">
           <th>Name</th>
           <th>Action</th>
         </tr>
-        <tr v-for="comp in nearby_comps" class="item border" :key="comp.ref">
-          <td>{{ comp.comp_name }}</td>
+        <tr v-for="station in nearby_stations" class="item border" :key="station.ref">
+          <td>{{ station.station_name }}</td>
           <td>
-            <vui-button :params="{ comp: comp.ref }">Link</vui-button>
+            <vui-button :params="{ station: station.ref }">Link</vui-button>
           </td>
         </tr>
       </table>
