@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "The sparks psionic ability now properly generates sparks, and no longer disallows you from operating your inventory."
