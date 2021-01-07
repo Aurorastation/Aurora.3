@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Emergency shield generators no longer infinitely stack shields when you use tape."
