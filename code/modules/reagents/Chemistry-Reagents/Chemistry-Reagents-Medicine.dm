@@ -404,8 +404,6 @@
 	if(.)
 		M.add_chemical_effect(CE_CLEARSIGHT)
 		M.add_chemical_effect(CE_STRAIGHTWALK)
-		if(prob(25))
-			M.add_chemical_effect(CE_HEPATOTOXIC)
 		M.add_chemical_effect(CE_PAINKILLER, 40)
 		M.add_chemical_effect(CE_HALLUCINATE, -1)
 
