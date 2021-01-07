@@ -21,11 +21,12 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/verbose_mode = TRUE
+	var/health_scanner_ui_output = FALSE
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
 	var/data = health_scan_mob(M, user, verbose_mode)
 	add_fingerprint(user)
-	if (user.client.prefs.health_scanner_ui_output)
+	if (health_scanner_ui_output)
 		ui_interact(user, data)
 	else
 		to_chat(user, data)
@@ -33,7 +34,7 @@ BREATH ANALYZER
 /obj/item/device/healthanalyzer/attack_self(mob/user)
 	var/data = health_scan_mob(user, user, verbose_mode)
 	add_fingerprint(user)
-	if (user.client.prefs.health_scanner_ui_output)
+	if (health_scanner_ui_output)
 		ui_interact(user, data)
 	else
 		to_chat(user, data)
@@ -334,6 +335,18 @@ BREATH ANALYZER
 		to_chat(usr, "The scanner now shows specific limb damage.")
 	else
 		to_chat(usr, "The scanner no longer shows limb damage.")
+
+/obj/item/device/healthanalyzer/verb/switch_health_scanner_output()
+	set name = "Switch health scanner output"
+	set category = "Object"
+	set desc = "Switches health scanner output between chat and UI."
+
+	health_scanner_ui_output = !health_scanner_ui_output
+
+	if (health_scanner_ui_output)
+		to_chat(src, "Handheld health scanner will now display results in UI window.")
+	else
+		to_chat(src, "Handheld health scanner will now display results in the chat window.")
 
 /obj/item/device/analyzer
 	name = "analyzer"
