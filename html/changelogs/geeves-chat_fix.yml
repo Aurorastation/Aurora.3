@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "You can now reply to a chat even without a channel active."
+  - bugfix: "Direct messaging will no longer fail silently if you're the only client active."

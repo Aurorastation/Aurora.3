@@ -207,16 +207,14 @@
 			channel.password = newpassword
 	if(href_list["PRG_directmessage"])
 		. = TRUE
-		direct_message()
+		direct_message(usr)
 
 /datum/computer_file/program/chatclient/proc/send_message()
-	if(!channel)
-		return
 	var/mob/living/user = usr
 	if(ishuman(user))
 		user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] computer's screen.")
-	var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
-	if(!message || !channel)
+	var/message = sanitize(input(user, "Enter a message to send: ") as null|text)
+	if(!message)
 		return
 	return message
 
@@ -228,21 +226,25 @@
 		sent_channel = specific_channel
 	else
 		sent_channel = channel
+	if(!sent_channel) // panikk - geeves
+		return
 	sent_channel.add_message(message, username, usr)
 	message_dead(FONT_SMALL("<b>([sent_channel.get_dead_title()]) [username]:</b> [message]"))
 
-/datum/computer_file/program/chatclient/proc/direct_message()
+/datum/computer_file/program/chatclient/proc/direct_message(var/mob/user)
 	var/clients = list()
 	var/names = list()
-	for(var/cl in ntnet_global.chat_clients)
+	for(var/cl in ntnet_global.chat_clients - src)
 		var/datum/computer_file/program/chatclient/C = cl
-		if(C.set_offline || C == src)
+		if(C.set_offline)
 			continue
 		clients[C.username] = C
 		names += C.username
-	names += "== Cancel =="
-	var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
-	if(picked == "== Cancel ==")
+	if(!length(names))
+		to_chat(user, SPAN_WARNING("You are the only user with an active account!"))
+		return
+	var/picked = input(user, "Select with whom you would like to start a conversation.") as null|anything in names
+	if(!picked)
 		return
 	var/datum/computer_file/program/chatclient/otherClient = clients[picked]
 	if(picked)
