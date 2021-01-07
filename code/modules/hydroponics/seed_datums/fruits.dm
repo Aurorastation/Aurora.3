@@ -283,6 +283,7 @@
 	seed_name = "banana"
 	display_name = "banana tree"
 	chems = list(/datum/reagent/drink/banana = list(10,10))
+	product_type = /obj/item/reagent_containers/food/snacks/grown/banana
 	trash_type = /obj/item/bananapeel
 	kitchen_tag = "banana"
 
