@@ -8,12 +8,16 @@
 
 /turf/proc/create_diona_nymph()
 	var/mob/living/carbon/alien/diona/D = new(src)
-	var/datum/ghosttrap/plant/P = get_ghost_trap("living plant")
-	P.request_player(D, "A diona nymph has split off from its gestalt. ")
-	sleep(120)
-	if(D)
-		if(!D.ckey || !D.client)
-			D.death()
+	var/datum/ghosttrap/nymph/P = get_ghost_trap("living nymph")
+	P.request_player(D, "A diona nymph has split off from its gestalt. ", 1 MINUTE)
+	addtimer(CALLBACK(src, .proc/check_diona_filled, D), 1 MINUTE)
+
+/turf/proc/check_diona_filled(var/mob/living/carbon/alien/diona/diona)
+	if(!diona)
+		return
+
+	if(!diona.ckey || !diona.client)
+		diona.death()
 
 //Probable future TODO: Refactor diona organs to be /obj/item/organ/external/bodypart/diona
 //Having them not inherit from specific bodypart classes is a problem
