@@ -322,7 +322,7 @@ BREATH ANALYZER
 /obj/item/device/healthanalyzer/ui_interact(mob/user, data = "", var/datum/topic_state/state = default_state)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "render-html", 600, 600, "Health Analyzer", list("renderdata" = data), state = state)
+		ui = new(user, src, "?<div v-html=\"$root.$data.state.html\"></div>", 600, 600, "Health Analyzer", list("html" = data), state = state)
 	ui.open()
 
 /obj/item/device/healthanalyzer/verb/toggle_mode()
@@ -344,9 +344,9 @@ BREATH ANALYZER
 	health_scanner_ui_output = !health_scanner_ui_output
 
 	if (health_scanner_ui_output)
-		to_chat(src, "Handheld health scanner will now display results in UI window.")
+		to_chat(usr, "Handheld health scanner will now display results in UI window.")
 	else
-		to_chat(src, "Handheld health scanner will now display results in the chat window.")
+		to_chat(usr, "Handheld health scanner will now display results in the chat window.")
 
 /obj/item/device/analyzer
 	name = "analyzer"
