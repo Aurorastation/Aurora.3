@@ -4,3 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "Added a laptop in the teleporter room, that has a remote teleporter control program loaded."
+  - rscdel: "Removed teleportation computers, their functionality have been shoved into the stations."
+  - tweak: "Fixed teleportation pads no longer need to be test fired to be accurate."
