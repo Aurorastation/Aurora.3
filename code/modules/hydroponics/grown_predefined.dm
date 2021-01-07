@@ -28,4 +28,8 @@
 	plantname = "koisspore"
 
 /obj/item/reagent_containers/food/snacks/grown/banana
+	icon = 'icons/obj/guns/banana_pistol.dmi'
+	icon_state = "banana"
+	item_state = "banana"
+	contained_sprite = TRUE
 	plantname = "banana"

@@ -240,6 +240,25 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 	var/can_silence = TRUE
 
+/obj/item/gun/projectile/pistol/banana
+	name = "banana"
+	desc = "A fruit. Delicious! Probably."
+	desc_info = null
+	desc_fluff = null
+	desc_antag = "This is a 9mm firearm disguised as a banana. What are you THINKING?"
+	icon = 'icons/obj/guns/banana_pistol.dmi'
+	icon_state = "banana"
+	item_state = "banana"
+	has_safety = FALSE
+	can_silence = FALSE
+	hide_examine_info = TRUE
+	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
+
+/obj/item/gun/projectile/pistol/banana/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("You know the item as banana, but a little piece of propped-up paper indicates it's a banana."))
+
 /obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
@@ -303,16 +322,9 @@
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
 	if(silenced)
-		icon_state = "pistol-silencer"
+		icon_state = "[initial(icon_state)]-silencer"
 	else
-		icon_state = "pistol"
-
-/obj/item/gun/projectile/pistol/update_icon()
-	..()
-	if(silenced)
-		icon_state = "pistol-silencer"
-	else
-		icon_state = "pistol"
+		icon_state = initial(icon_state)
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
 		icon_state = "[icon_state]-e"
 

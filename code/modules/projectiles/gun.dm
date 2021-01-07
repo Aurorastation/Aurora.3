@@ -79,6 +79,8 @@
 	var/list/dispersion = list(0)
 	var/reliability = 100
 
+	var/hide_examine_info = FALSE
+
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
@@ -626,7 +628,7 @@
 
 /obj/item/gun/examine(mob/user)
 	..()
-	if(get_dist(src, user) > 1)
+	if(hide_examine_info || get_dist(src, user) > 1)
 		return
 	if(needspin)
 		if(pin)

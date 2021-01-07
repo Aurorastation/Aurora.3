@@ -29,6 +29,12 @@
 	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/g9mm
 
+/datum/uplink_item/item/visible_weapons/b9mm
+	name = "Banana 9mm"
+	desc = "A 9mm pistol, disguised as a banana. Only for the most deep cover of operatives."
+	item_cost = 5 // cheaper, because you can't examine it for ANY info on your gun
+	path = /obj/item/gun/projectile/pistol/banana
+
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
 	item_cost = 5

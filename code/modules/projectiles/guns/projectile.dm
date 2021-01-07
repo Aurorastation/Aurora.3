@@ -250,14 +250,13 @@
 
 /obj/item/gun/projectile/examine(mob/user)
 	..(user)
-	if(get_dist(src, user) > 1)
+	if(hide_examine_info || get_dist(src, user) > 1)
 		return
 	if(jam_num)
 		to_chat(user, "<span class='warning'>It looks jammed.</span>")
 	if(ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
 	to_chat(user, "Has [get_ammo()] round\s remaining.")
-	return
 
 /obj/item/gun/projectile/get_ammo()
 	var/bullets = 0
