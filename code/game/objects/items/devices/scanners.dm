@@ -141,7 +141,7 @@ BREATH ANALYZER
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
 		pulse_result = "<span class='scan_danger'>0</span>"
-	dat += "Pulse rate: [pulse_result]bpm."
+	dat += "Pulse rate: [pulse_result] bpm."
 
 	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
