@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Captain and HoP radios now start with all the channels on, making them opt-out instead."
