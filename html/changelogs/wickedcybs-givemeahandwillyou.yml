@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - tweak: "Tweaked the Unathi hand sprite. The claws should be in the proper place now."
-  - tweak: "Tweaked the Unathi claws (hand) body pattern to match where the claws should actually be."
