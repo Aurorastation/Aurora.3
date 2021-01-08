@@ -138,8 +138,9 @@
 		step(O, get_dir(O, src))
 	return
 
-/obj/structure/table/attackby(obj/item/W as obj, mob/user as mob, var/click_parameters)
-	if (!W) return
+/obj/structure/table/attackby(obj/item/W, mob/user, var/click_parameters)
+	if (!W)
+		return
 
 	// Handle harm intent grabbing/tabling.
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
@@ -201,9 +202,10 @@
 		return
 
 	// Placing stuff on tables
-	if(user.unEquip(W, 0, src, click_parameters))
+	if(user.unEquip(W, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion
 		user.make_item_drop_sound(W)
-		return 1
+		auto_align(W, click_parameters)
+		return
 
 #define CELLS 8								//Amount of cells per row/column in grid
 #define CELLSIZE (world.icon_size/CELLS)	//Size of a cell in pixels
