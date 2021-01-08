@@ -178,10 +178,12 @@
 /obj/machinery/shieldgen/proc/create_shields()
 	for(var/T in RANGE_TURFS(2, src))
 		var/turf/target_tile = T
+		if(locate(/obj/machinery/shield) in target_tile)
+			continue
 		var/obj/item/tape/engineering/E = locate() in target_tile
 		if(E?.shield_marker)
 			deploy_shield(target_tile)
-		else if(istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/unsimulated/floor/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless) && !(locate(/obj/machinery/shield) in target_tile))
+		else if(istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/unsimulated/floor/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless))
 			if(malfunction && prob(33) || !malfunction)
 				deploy_shield(target_tile)
 
