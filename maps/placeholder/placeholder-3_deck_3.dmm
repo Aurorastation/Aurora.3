@@ -1096,7 +1096,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/janitor)
 "ek" = (
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/carpet,
 /area/janitor)
 "eu" = (
@@ -1881,6 +1881,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"ur" = (
+/turf/simulated/wall,
+/area/template_noop)
 "uS" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -28620,7 +28623,7 @@ ah
 ah
 ah
 ac
-at
+ur
 at
 at
 at
