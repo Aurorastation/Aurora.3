@@ -20,6 +20,7 @@
 	var/material/reinf_material
 	var/last_state
 	var/construction_stage
+	var/hitsound = 'sound/weapons/genhit.ogg'
 	var/use_standard_smoothing
 	var/use_set_icon_state
 
@@ -49,6 +50,7 @@
 	if(!isnull(rmaterialtype))
 		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
 	update_material()
+	hitsound = material.hitsound
 
 	if (material.radioactivity || (reinf_material && reinf_material.radioactivity))
 		START_PROCESSING(SSprocessing, src)
@@ -90,10 +92,9 @@
 		return
 
 	var/tforce = AM:throwforce * (speed/THROWFORCE_SPEED_DIVISOR)
-	if (tforce < 15)
-		return
-
-	take_damage(tforce)
+	playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
+	if(tforce >= 15)
+		take_damage(tforce)
 
 /turf/simulated/wall/proc/clear_plants()
 	for(var/obj/effect/overlay/wallrot/WR in src)
