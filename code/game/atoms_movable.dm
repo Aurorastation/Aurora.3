@@ -367,42 +367,47 @@
 	animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, transform = matrix() * 0, easing = CUBIC_EASING)
 	sleep(3)
 
-/atom/movable/proc/do_putdown_animation(atom/target, mob/user, var/click_params)
-	if(QDELETED(src))
-		return
-	if(QDELETED(target))
-		return
-	if(QDELETED(user))
-		return
+/atom/movable/proc/do_putdown_animation(atom/target, mob/user)
+	spawn()
+		if(QDELETED(src))
+			return
+		if(QDELETED(target))
+			return
+		if(QDELETED(user))
+			return
+		var/old_invisibility = invisibility // I don't know, it may be used. Basically turns the actual object invisible while the animation plays.
+		invisibility = 100
+		var/turf/old_turf = get_turf(user)
+		if(QDELETED(old_turf))
+			return
+		var/image/I = image(icon = src, loc = old_turf, layer = layer + 0.1)
+		I.transform = matrix() * 0
+		I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+		I.pixel_x = 0
+		I.pixel_y = 0
+		if (istype(target,/mob))
+			I.dir = target.dir
 
-	var/old_invisibility = invisibility // I don't know, it may be used. Basically turns the actual object invisible while the animation plays.
-	invisibility = 100
+		var/list/viewing = list()
+		for (var/mob/M in viewers(target))
+			if (M.client)
+				viewing |= M.client
+		flick_overlay(I, viewing, 4)
 
-	var/turf/old_turf = get_turf(user)
-	var/image/I = image(icon = src, loc = old_turf, layer = ABOVE_MOB_LAYER)
-	I.transform = matrix() * 0
-	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	if(ismob(target))
-		I.dir = target.dir
-	flick_overlay(I, clients, 4)
+		var/to_x = (target.x - old_turf.x) * 32 + pixel_x
+		var/to_y = (target.y - old_turf.y) * 32 + pixel_y
+		var/old_x = pixel_x
+		var/old_y = pixel_y
+		pixel_x = 0
+		pixel_y = 0
 
-	if(istype(target, /obj/structure/table))
-		var/obj/structure/table/T = target
-		T.auto_align(src, click_params)
-	var/to_x = (target.x - old_turf.x) * 32 + pixel_x
-	var/to_y = (target.y - old_turf.y) * 32 + pixel_y
-	var/old_x = pixel_x
-	var/old_y = pixel_y
-	pixel_x = 0
-	pixel_y = 0
-
-	animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, transform = matrix(), easing = CUBIC_EASING)
-	sleep(3)
-	if(QDELETED(src))
-		return
-	invisibility = old_invisibility
-	pixel_x = old_x
-	pixel_y = old_y
+		animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, transform = matrix(), easing = CUBIC_EASING)
+		sleep(3)
+		if(QDELETED(src))
+			return
+		invisibility = old_invisibility
+		pixel_x = old_x
+		pixel_y = old_y
 
 /atom/movable/proc/simple_move_animation(atom/target)
 	set waitfor = FALSE
