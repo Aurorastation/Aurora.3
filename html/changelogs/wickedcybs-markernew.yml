@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - tweak: "Adjusts Tajara body patterns, many will now colour better, look a bit cleaner and no longer give the species a plantigrade apperance. The native footwear was also tweaked to fit better, check it out. Please note that a small number of these patterns had their names slightly changed for consistencies sake, so you may need to reapply a few. Copy the RGB value on your now blank patterns to make that easier."
-  - rscadd: "Along with the changes to the old, added new and unused body patterns for Tajara, as well as differing male/female versions where applicable. Two new hairstyles as well. Bangs alt and Short Fringe."
