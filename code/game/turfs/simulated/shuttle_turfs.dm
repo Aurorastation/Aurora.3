@@ -117,6 +117,22 @@
 		underlay_appearance.appearance = T
 		underlays = U
 
+/turf/simulated/wall/shuttle/placeholder
+	icon = 'icons/turf/smooth/placeholder.dmi'
+	canSmoothWith = null
+
+/turf/simulated/wall/shuttle/placeholder/cardinal
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/placeholder
+	)
+
+/obj/structure/shuttle_part/placeholder
+	name = "spaceship alloy wall"
+	icon = 'icons/turf/smooth/placeholder.dmi'
+	icon_state = "map-shuttle"
+	outside_part = FALSE
+
 /turf/simulated/wall/shuttle/raider
 	icon = 'icons/turf/smooth/composite_metal.dmi'
 	icon_state = "composite_metal"
