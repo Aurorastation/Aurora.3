@@ -332,40 +332,40 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-/atom/movable/proc/do_pickup_animation(atom/target, atom/old_loc)
+/atom/movable/proc/do_pickup_animation(atom/target)
 	set waitfor = FALSE
-	if(QDELETED(src))
+	if(!isturf(loc))
 		return
-	if(QDELETED(target))
-		return
-	if(QDELETED(old_loc))
-		return
+	var/image/I = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y)
+	I.transform *= 0.75
+	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+	var/turf/T = get_turf(src)
+	var/direction
+	var/to_x = 0
+	var/to_y = 0
 
-	var/turf/old_turf = get_turf(old_loc)
-	var/image/I = image(icon = src, loc = old_turf, layer = ABOVE_MOB_LAYER)
-	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	if(ismob(target))
-		I.dir = target.dir
-
-	if(istype(old_loc, /obj/item/storage))
-		I.pixel_x += old_loc.pixel_x
-		I.pixel_y += old_loc.pixel_y
-
-	flick_overlay(I, clients, 7)
-
+	if(!QDELETED(T) && !QDELETED(target))
+		direction = get_dir(T, target)
+	if(direction & NORTH)
+		to_y = 32
+	else if(direction & SOUTH)
+		to_y = -32
+	if(direction & EAST)
+		to_x = 32
+	else if(direction & WEST)
+		to_x = -32
+	if(!direction)
+		to_y = 16
+	var/list/viewing = list()
+	for(var/mob/M in viewers(target))
+		if(M.client)
+			viewing |= M.client
+	flick_overlay(I, viewing, 7)
 	var/matrix/M = new
-	M.Turn(pick(30, -30))
-
-	animate(I, transform = M, time = 1)
+	M.Turn(pick(-30, 30))
+	animate(I, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = M, easing = CUBIC_EASING)
 	sleep(1)
-	animate(I, transform = matrix(), time = 1)
-	sleep(1)
-
-	var/to_x = (target.x - old_turf.x) * 32
-	var/to_y = (target.y - old_turf.y) * 32
-
-	animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, transform = matrix() * 0, easing = CUBIC_EASING)
-	sleep(3)
+	animate(I, alpha = 0, transform = matrix(), time = 1)
 
 /atom/movable/proc/do_putdown_animation(atom/target, mob/user)
 	spawn()
@@ -416,9 +416,13 @@
 	invisibility = 100
 	var/turf/old_turf = get_turf(src)
 	var/image/I = image(icon = src, loc = src.loc, layer = layer + 0.1)
-	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
 
-	flick_overlay(I, clients, 4)
+	var/list/viewing = list()
+	for(var/mob/M in viewers(target))
+		if(M.client)
+			viewing |= M.client
+	flick_overlay(I, viewing, 4)
 
 	var/to_x = (target.x - old_turf.x) * 32 + pixel_x
 	var/to_y = (target.y - old_turf.y) * 32 + pixel_y

@@ -324,11 +324,9 @@
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
-	throwing = 0
-	var/atom/old_loc = loc
-	if(user.put_in_active_hand(src) && old_loc)
-		if((user != old_loc) && (user != old_loc.get_holding_mob()))
-			do_pickup_animation(user, old_loc)
+	pixel_x = 0
+	pixel_y = 0
+	do_pickup_animation(user)
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
 /obj/item/proc/on_exit_storage(obj/item/storage/S as obj)
