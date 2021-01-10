@@ -52,7 +52,7 @@
 			adjustHalLoss(effect * BLOCKED_MULT(blocked)) //Changed this to use the wrapper function, it shouldn't directly alter the value
 		if(IRRADIATE)
 			var/rad_protection = blocked ? getarmor(null, "rad")/100 : 0
-			apply_radiation(max((1-rad_protection) * BLOCKED_MULT(blocked),0))//Rads auto check armor
+			apply_radiation(max((1 - rad_protection) * effect * BLOCKED_MULT(blocked),0))//Rads auto check armor
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
 				stuttering = max(stuttering, effect * BLOCKED_MULT(blocked))
