@@ -23,7 +23,6 @@
 #define FONT_GIANT(X) "<font size='5'>[X]</font>"
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
-
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
 
 #define isalien(A) istype(A, /mob/living/carbon/alien)

@@ -21,7 +21,6 @@
 #include "code\__defines\_macros.dm"
 #include "code\__defines\admin.dm"
 #include "code\__defines\antagonist.dm"
-#include "code\__defines\appearance.dm"
 #include "code\__defines\atmos.dm"
 #include "code\__defines\battle_monsters.dm"
 #include "code\__defines\callback.dm"
