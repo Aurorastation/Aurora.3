@@ -554,8 +554,8 @@
 
 /decl/reagent/hyperzine/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
 	if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5)
-		return 0
-	. = od_minimum_dose // Takes effect instantly.
+		return 0 // Takes effect instantly.
+	. = od_minimum_dose
 
 /decl/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(5))
