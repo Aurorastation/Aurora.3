@@ -205,7 +205,7 @@
 /mob/living/carbon/human/vampire_start_frenzy()
 	. = ..()
 	if(.)
-		update_body()
+		update_body(force_base_icon = TRUE)
 
 /mob/proc/vampire_stop_frenzy(var/force_stop = 0)
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
@@ -232,7 +232,7 @@
 /mob/living/carbon/human/vampire_stop_frenzy()
 	. = ..()
 	if(.)
-		update_body()
+		update_body(force_base_icon = TRUE)
 
 // Removes all vampire powers.
 /mob/proc/remove_vampire_powers()

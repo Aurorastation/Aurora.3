@@ -547,13 +547,21 @@
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
 
+/decl/reagent/hyperzine/get_overdose(mob/living/carbon/M, location, datum/reagents/holder)
+	if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5)
+		return 10 //Volume of hyperzine required to OD reduced from 15u to 10u.
+	. = ..()
+
+/decl/reagent/hyperzine/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
+	if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5)
+		return 0
+	. = od_minimum_dose // Takes effect instantly.
+
 /decl/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 	M.add_chemical_effect(CE_PULSE, 1)
-	if(REAGENT_VOLUME(M.reagents, /decl/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
-		overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
 
 /decl/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5*removed)
@@ -1378,7 +1386,7 @@
 	reagent_state = SOLID
 
 /decl/reagent/fluvectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/is_overdosed = overdose && (REAGENT_VOLUME(holder, type) > overdose) && (M.chem_doses[type] > od_minimum_dose)
+	var/is_overdosed = is_overdosing(M, holder = holder)
 	if(is_overdosed)
 		removed *= 2
 

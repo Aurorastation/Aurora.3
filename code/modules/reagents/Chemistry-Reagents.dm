@@ -54,6 +54,17 @@
 /decl/reagent/proc/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
 	return
 
+/decl/reagent/proc/get_overdose(mob/living/carbon/M, location, datum/reagents/holder)
+	return overdose
+
+/decl/reagent/proc/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
+	return od_minimum_dose
+
+/decl/reagent/proc/is_overdosing(mob/living/carbon/M, location, datum/reagents/holder)
+	var/OD = get_overdose(M, location, holder)
+	var/OD_min = get_od_min_dose(M, location, holder)
+	return OD && (REAGENT_VOLUME(holder, type) > OD) && (M.chem_doses[type] > OD_min) && (!location || (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
+
 /decl/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
 	if(!istype(M))
 		return
@@ -72,8 +83,8 @@
 
 	removed = M.get_metabolism(removed)
 
-	if(overdose && (REAGENT_VOLUME(holder, type) > overdose) && (M.chem_doses[type] > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
-		overdose(M, alien, removed, M.chem_doses[type]/overdose, holder) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
+	if(is_overdosing(M, location, holder))
+		overdose(M, alien, removed, M.chem_doses[type]/get_overdose(M, location, holder), holder) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
 	if(LAZYACCESS(M.chem_doses, type) == 0)
 		initial_effect(M,alien, holder)

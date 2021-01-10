@@ -694,7 +694,7 @@
 	else
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			if(M.chem_doses[type] <= (overdose + metabolism))
+			if(M.chem_doses[type] <= (get_overdose(H, holder = holder) + metabolism))
 				H.berserk_start()
 			else
 				H.berserk_process()
@@ -708,7 +708,7 @@
 
 /decl/reagent/toxin/spectrocybin/final_effect(mob/living/carbon/human/H, datum/reagents/holder)
 	. = ..()
-	if(istype(H) && H.chem_doses[type] >= overdose)
+	if(istype(H) && H.chem_doses[type] >= get_overdose(H, holder = holder))
 		H.berserk_stop()
 
 /decl/reagent/toxin/trioxin
