@@ -15,14 +15,13 @@
 		return
 
 	vessel.add_reagent(/decl/reagent/blood, species.blood_volume, temperature = species?.body_temperature)
-	fixblood()
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
-	if(!REAGENT_DATA(vessel, /decl/reagent/blood))
+	if(!REAGENT_VOLUME(vessel, /decl/reagent/blood))
 		return
-	var/new_blood_data = get_blood_data()
-	vessel.reagent_data[/decl/reagent/blood] = vessel.reagent_data[/decl/reagent/blood] ^ new_blood_data | new_blood_data
+	LAZYINITLIST(vessel.reagent_data)
+	LAZYSET(vessel.reagent_data, /decl/reagent/blood, get_blood_data())
 
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(var/amt as num, var/tar = src, var/spraydir)
@@ -160,7 +159,7 @@
 	vessel.trans_to_holder(container.reagents, amount)
 	return TRUE
 
-//Transfers blood from container ot vessels
+//Transfers blood from container to vessels
 /mob/living/carbon/proc/inject_blood(var/amount, var/datum/reagents/donor)
 	var/list/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
 	var/chems = LAZYACCESS(injected_data, "trace_chem")

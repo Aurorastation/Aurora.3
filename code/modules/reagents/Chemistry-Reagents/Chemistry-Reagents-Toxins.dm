@@ -591,7 +591,7 @@
 	var/nicotine = 0.2
 
 /decl/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.reagents.add_reagent(/decl/reagent/mental/nicotine, removed * nicotine)
+	holder.add_reagent(/decl/reagent/mental/nicotine, removed * nicotine)
 
 /decl/reagent/toxin/tobacco/rich
 	name = "Earth Tobacco"

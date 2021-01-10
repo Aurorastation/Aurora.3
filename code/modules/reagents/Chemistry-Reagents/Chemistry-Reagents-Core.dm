@@ -13,15 +13,15 @@
 	fallback_specific_heat = 3.617
 
 /decl/reagent/blood/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
-	var/list/data = REAGENT_DATA(holder, type)
+	var/list/data = ..()
 	if(LAZYACCESS(newdata, "trace_chem"))
 		var/list/other_chems = LAZYACCESS(newdata, "trace_chem")
 		if(!data)
 			data = newdata.Copy()
-		else if(!LAZYACCESS(data, "trace_chem"))
-			LAZYSET(data, "trace_chem", other_chems.Copy())
+		else if(!data["trace_chem"])
+			data["trace_chem"] = other_chems.Copy()
 		else
-			var/list/my_chems = LAZYACCESS(data, "trace_chem")
+			var/list/my_chems = data["trace_chem"]
 			for(var/chem in other_chems)
 				my_chems[chem] = my_chems[chem] + other_chems[chem]
 	var/datum/weakref/W = LAZYACCESS(data, "donor")
@@ -31,6 +31,7 @@
 		var/mob/living/carbon/human/recipient = holder.my_atom
 		if(istype(recipient) && holder == recipient.vessel)
 			recipient.reagents.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
+			// it has no effect if added to the vessel
 		else
 			holder.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
 	. = data

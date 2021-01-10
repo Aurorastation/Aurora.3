@@ -88,23 +88,24 @@
 /decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	if(isemptylist(newdata))
 		return
-	var/list/data = holder.reagent_data[type]
-	for(var/i in newdata)
-		if(!(i in data))
-			LAZYSET(data, i, 0)
-			continue
-		data[i] += newdata[i]
-	var/totalFlavor = 1
-	for(var/i in 1 to length(data))
-		totalFlavor += data[data[i]]
 
-	if (!totalFlavor)
-		return
+	//add the new taste data
+	var/list/data = ..()
+	for(var/taste in newdata)
+		if(taste in data)
+			data[taste] += newdata[taste]
+		else
+			data[taste] = newdata[taste]
 
-	for(var/i in data) //cull the tasteless
-		if(data[i] && data[i]/totalFlavor * 100 < 10)
-			data[i] = null
-			data -= data[i]
+	//cull all tastes below 10% of total
+	var/totalFlavor = 0
+	for(var/taste in data)
+		totalFlavor += data[taste]
+	if(totalFlavor)
+		for(var/taste in data) //cull the tasteless
+			if(data[taste] && data[taste]/totalFlavor < 0.1)
+				data -= taste
+	. = data
 
 /decl/reagent/nutriment/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(injectable)
@@ -161,22 +162,19 @@
 			H.delayed_vomit()
 	. = ..()
 
-/decl/reagent/nutriment/coating/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.
+/decl/reagent/nutriment/coating/initialize_data(var/list/newdata, var/datum/reagents/holder) // Called when the reagent is created.
 	var/list/data = ..()
-	LAZYSET(data, "cooked", FALSE)
-	if (holder && holder.my_atom && istype(holder.my_atom,/obj/item/reagent_containers/food/snacks))
-		data["cooked"] = TRUE
+	LAZYSET(data, "cooked", istype(holder?.my_atom,/obj/item/reagent_containers/food/snacks))
+	if(data["cooked"])
 		name = cooked_name
 	return data
 
 		//Batter which is part of objects at compiletime spawns in a cooked state
 
-
-//Handles setting the temperature when oils are mixed
-/decl/reagent/nutriment/coating/mix_data(var/newdata, var/newamount, var/datum/reagents/holder)
-	holder.reagent_data[type]["cooked"] = newdata["cooked"]
-	return ..()
-
+/decl/reagent/nutriment/coating/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
+	var/list/data = ..()
+	LAZYSET(data, "cooked", LAZYACCESS(newdata, "cooked"))
+	return data
 
 /decl/reagent/nutriment/coating/batter
 	name = "Batter Mix"
@@ -754,8 +752,9 @@
 
 /decl/reagent/drink/carrotjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(alien != IS_DIONA)
-		M.reagents.add_reagent(/decl/reagent/oculine, removed * 0.2)
+	if(alien == IS_DIONA)
+		return
+	holder.add_reagent(/decl/reagent/oculine, removed * 0.2)
 
 /decl/reagent/drink/grapejuice
 	name = "Grape Juice"
@@ -800,8 +799,9 @@
 
 /decl/reagent/drink/orangejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(alien != IS_DIONA)
-		M.adjustOxyLoss(-2 * removed)
+	if(alien == IS_DIONA)
+		return
+	M.adjustOxyLoss(-2 * removed)
 
 /decl/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
 	name = "Poison Berry Juice"

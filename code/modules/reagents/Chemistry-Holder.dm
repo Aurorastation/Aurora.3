@@ -48,7 +48,7 @@
 	for(var/R in reagent_volumes)
 		var/vol = reagent_volumes[R]
 		if(vol < MINIMUM_CHEMICAL_VOLUME)
-			del_reagent(R)
+			del_reagent(R, update = FALSE) // to avoid an infinite loop AND trigger final effects
 		else
 			total_volume += vol
 			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
@@ -126,7 +126,7 @@
 		reagent_volumes[rtype] = amount
 		total_volume += amount // so temperature calculations work
 		var/tmp_data = newreagent.initialize_data(data, src)
-		if(tmp_data)
+		if(LAZYLEN(tmp_data))
 			LAZYSET(reagent_data, rtype, tmp_data)
 		if(temperature <= 0)
 			temperature = newreagent.default_temperature
@@ -166,18 +166,19 @@
 	update_holder(!safety)
 	return TRUE
 
-/datum/reagents/proc/del_reagent(var/rtype)
+/datum/reagents/proc/del_reagent(var/rtype, update = TRUE)
+	var/decl/reagent/current = decls_repository.get_decl(rtype)
 	if(REAGENT_VOLUME(src, rtype) <= 0)
 		LAZYREMOVE(reagent_data, rtype)
 		LAZYREMOVE(reagent_volumes, rtype)
-		return FALSE
-	var/decl/reagent/current = decls_repository.get_decl(rtype)
-	thermal_energy -= current.get_thermal_energy(src)
+	else
+		thermal_energy -= current.get_thermal_energy(src)
 	if(ismob(my_atom))
 		current.final_effect(my_atom, src)
 	if(primary_reagent == rtype)
 		primary_reagent = null
-	update_holder(FALSE)
+	if(update)
+		update_holder(FALSE)
 	return FALSE
 
 /datum/reagents/proc/has_reagent(var/rtype, var/amount = 0)
@@ -254,7 +255,7 @@
 	for(var/_current in reagent_volumes)
 		var/decl/reagent/current = decls_repository.get_decl(_current)
 		var/amount_to_transfer = reagent_volumes[_current] * part
-		var/energy_to_transfer = current.get_thermal_energy(src) * (amount_to_transfer / reagent_volumes[_current])
+		var/energy_to_transfer = current.get_thermal_energy(src) * part
 		target.add_reagent(_current, amount_to_transfer * multiplier, REAGENT_DATA(src, _current), TRUE, new_thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
 		if(!copy)
 			remove_reagent(_current, amount_to_transfer, TRUE)
@@ -404,18 +405,19 @@
 
 	var/mob/living/carbon/C = target
 	if(istype(C))
-		if(type == CHEM_BREATHE)
-			var/datum/reagents/R = C.breathing
-			return C.inhale(src, R, amount, multiplier, copy, bypass_checks)
-		if(type == CHEM_BLOOD)
-			var/datum/reagents/R = C.reagents
-			return trans_to_holder(R, amount, multiplier, copy)
-		if(type == CHEM_INGEST)
-			var/datum/reagents/R = C.get_ingested_reagents()
-			return C.ingest(src, R, amount, multiplier, copy)
-		if(type == CHEM_TOUCH)
-			var/datum/reagents/R = C.touching
-			return trans_to_holder(R, amount, multiplier, copy)
+		switch(type)
+			if(CHEM_BREATHE)
+				var/datum/reagents/R = C.breathing
+				return C.inhale(src, R, amount, multiplier, copy, bypass_checks)
+			if(CHEM_BLOOD)
+				var/datum/reagents/R = C.reagents
+				return trans_to_holder(R, amount, multiplier, copy)
+			if(CHEM_INGEST)
+				var/datum/reagents/R = C.get_ingested_reagents()
+				return C.ingest(src, R, amount, multiplier, copy)
+			if(CHEM_TOUCH)
+				var/datum/reagents/R = C.touching
+				return trans_to_holder(R, amount, multiplier, copy)
 	else
 		//If the target has a reagent holder, we'll try to put it there instead. This allows feeding simple animals
 		if(target.reagents && type == CHEM_BLOOD || type == CHEM_INGEST)

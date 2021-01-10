@@ -75,15 +75,15 @@
 	if(overdose && (REAGENT_VOLUME(holder, type) > overdose) && (M.chem_doses[type] > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
 		overdose(M, alien, removed, M.chem_doses[type]/overdose, holder) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
-	if(M.chem_doses[type] == 0)
+	if(LAZYACCESS(M.chem_doses, type) == 0)
 		initial_effect(M,alien, holder)
 
-	M.chem_doses[type] += removed
+	LAZYSET(M.chem_doses, type, LAZYACCESS(M.chem_doses, type) + removed)
 
 	var/bodytempchange = Clamp((holder.get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
 	if(abs(bodytempchange) >= REAGENTS_BODYTEMP_MIN)
 		M.bodytemperature += round(bodytempchange,REAGENTS_BODYTEMP_MIN)
-		holder.set_temperature()
+		holder.set_temperature(holder.get_temperature() - round(bodytempchange,REAGENTS_BODYTEMP_MIN))
 
 	for(var/_R in M.bloodstr.reagent_volumes)
 		var/decl/reagent/R = decls_repository.get_decl(_R)
@@ -147,4 +147,4 @@
 	M.adjustToxLoss(REM)
 
 /decl/reagent/proc/mix_data(var/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
-	return
+	return REAGENT_DATA(holder, type)

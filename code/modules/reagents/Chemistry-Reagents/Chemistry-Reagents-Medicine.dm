@@ -858,17 +858,19 @@
 
 	fallback_specific_heat = 1.5
 
-/decl/reagent/mental/initialize_data(newdata)
-	LAZYSET(newdata, "last_tick_time", 0)
-	return newdata
+/decl/reagent/mental/initialize_data(newdata, datum/reagents/holder)
+	var/data = newdata
+	LAZYSET(data, "last_tick_time", 0)
+	return data
 
 /decl/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
-	if(!istype(H) || (world.time < holder.reagent_data[type]["last_tick_time"] && holder.reagent_data[type]["last_tick_time"] > removed) || messagedelay == -1)
+	if(!istype(H) || LAZYACCESS(H.chem_doses, type) < min_dose || (world.time < holder.reagent_data[type]["last_tick_time"] && holder.reagent_volumes[type] > removed) || messagedelay == -1)
 		return
 
 	var/hastrauma = 0 //whether or not the brain has trauma
 	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	var/bac = H.get_blood_alcohol()
+	var/mdelay = messagedelay
 
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
@@ -886,10 +888,10 @@
 					BT.on_gain()
 					hastrauma = 1
 		for(var/datum/brain_trauma/BT in dosage_traumas)
-			var/percentchance = max(0,dosage_traumas[BT] - H.chem_doses[type]*10) // If you've been taking this medication for a while then side effects are rarer.
+			var/percentchance = max(0,dosage_traumas[BT] - LAZYACCESS(H.chem_doses, type)*10) // If you've been taking this medication for a while then side effects are rarer.
 			if(!H.has_trauma_type(BT) && prob(percentchance))
 				B.gain_trauma(BT,FALSE)
-		if(REAGENT_VOLUME(holder, type) < H.chem_doses[type]*0.25) //If you haven't been taking your regular dose, then cause issues.
+		if(REAGENT_VOLUME(holder, type) < LAZYACCESS(H.chem_doses, type)/4) //If you haven't been taking your regular dose, then cause issues.
 			var/suppress_withdrawl = FALSE
 			for(var/k in suppressing_reagents)
 				var/decl/reagent/v = suppressing_reagents[k]
@@ -899,22 +901,22 @@
 			if(!suppress_withdrawl)
 				if (H.shock_stage < 20 && worstmessage.len)
 					to_chat(H, SPAN_DANGER("[pick(worstmessage)]"))
-				messagedelay = initial(messagedelay) * 0.25
+				mdelay /= 4
 				for(var/k in withdrawal_traumas)
 					var/datum/brain_trauma/BT = k
-					var/percentchance = max(withdrawal_traumas[k] * (H.chem_doses[type]/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
+					var/percentchance = max(withdrawal_traumas[k] * (LAZYACCESS(H.chem_doses, type)/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
 					if(!H.has_trauma_type(BT) && prob(percentchance))
 						B.gain_trauma(BT,FALSE)
-		else if(hastrauma || REAGENT_VOLUME(holder, type) < H.chem_doses[type]*0.5) //If your current dose is not high enough, then alert the player.
+		else if(hastrauma || REAGENT_VOLUME(holder, type) < LAZYACCESS(H.chem_doses, type)/2) //If your current dose is not high enough, then alert the player.
 			if (H.shock_stage < 10 && badmessage.len)
 				to_chat(H, SPAN_WARNING("[pick(badmessage)]"))
-			messagedelay = initial(messagedelay) * 0.5
+			mdelay /= 2
 		else
 			if (H.shock_stage < 5 && goodmessage.len)
 				to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
-			messagedelay = initial(messagedelay)
 
-	holder.reagent_data[type]["last_tick_time"] = world.time + (messagedelay SECONDS)
+	LAZYINITLIST(holder.reagent_data)
+	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (mdelay SECONDS))
 
 /decl/reagent/mental/nicotine
 	name = "Nicotine"
@@ -955,7 +957,7 @@
 	taste_description = "paper"
 	goodmessage = list("You feel focused.","You feel like you have no distractions.","You feel willing to work.")
 	badmessage = list("You feel a little distracted...","You feel slight agitation...","You feel a dislike towards work...")
-	worstmessage = list("You feel completely distrtacted...","You feel like you don't want to work...","You think you see things...")
+	worstmessage = list("You feel completely distracted...","You feel like you don't want to work...","You think you see things...")
 	suppress_traumas  = list(
 		/datum/brain_trauma/special/imaginary_friend = 20,
 		/datum/brain_trauma/mild/hallucinations = 10,
