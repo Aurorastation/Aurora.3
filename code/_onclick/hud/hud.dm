@@ -187,43 +187,47 @@ datum/hud/New(mob/owner)
 			if(inventory_shown && hud_shown)
 				switch(hud_data["slot"])
 					if(slot_head)
-						if(H.head)      H.head.screen_loc =      hud_data["loc"]
+						if(H.head)		H.head.screen_loc =		hud_data["loc"]
 					if(slot_shoes)
-						if(H.shoes)     H.shoes.screen_loc =     hud_data["loc"]
+						if(H.shoes)		H.shoes.screen_loc =	hud_data["loc"]
 					if(slot_l_ear)
-						if(H.l_ear)     H.l_ear.screen_loc =     hud_data["loc"]
+						if(H.l_ear)		H.l_ear.screen_loc =	hud_data["loc"]
 					if(slot_r_ear)
-						if(H.r_ear)     H.r_ear.screen_loc =     hud_data["loc"]
+						if(H.r_ear)		H.r_ear.screen_loc =	hud_data["loc"]
 					if(slot_gloves)
-						if(H.gloves)    H.gloves.screen_loc =    hud_data["loc"]
+						if(H.gloves)	H.gloves.screen_loc =	hud_data["loc"]
 					if(slot_glasses)
-						if(H.glasses)   H.glasses.screen_loc =   hud_data["loc"]
+						if(H.glasses)	H.glasses.screen_loc =	hud_data["loc"]
 					if(slot_w_uniform)
-						if(H.w_uniform) H.w_uniform.screen_loc = hud_data["loc"]
+						if(H.w_uniform)	H.w_uniform.screen_loc =hud_data["loc"]
 					if(slot_wear_suit)
-						if(H.wear_suit) H.wear_suit.screen_loc = hud_data["loc"]
+						if(H.wear_suit)	H.wear_suit.screen_loc =hud_data["loc"]
 					if(slot_wear_mask)
-						if(H.wear_mask) H.wear_mask.screen_loc = hud_data["loc"]
+						if(H.wear_mask)	H.wear_mask.screen_loc =hud_data["loc"]
+					if(slot_wrists)
+						if(H.wrists)	H.wrists.screen_loc =	hud_data["loc"]
 			else
 				switch(hud_data["slot"])
 					if(slot_head)
-						if(H.head)      H.head.screen_loc =      null
+						if(H.head)		H.head.screen_loc =		null
 					if(slot_shoes)
-						if(H.shoes)     H.shoes.screen_loc =     null
+						if(H.shoes)		H.shoes.screen_loc =	null
 					if(slot_l_ear)
-						if(H.l_ear)     H.l_ear.screen_loc =     null
+						if(H.l_ear)		H.l_ear.screen_loc =	null
 					if(slot_r_ear)
-						if(H.r_ear)     H.r_ear.screen_loc =     null
+						if(H.r_ear)		H.r_ear.screen_loc =	null
 					if(slot_gloves)
-						if(H.gloves)    H.gloves.screen_loc =    null
+						if(H.gloves)	H.gloves.screen_loc =	null
 					if(slot_glasses)
-						if(H.glasses)   H.glasses.screen_loc =   null
+						if(H.glasses)	H.glasses.screen_loc =	null
 					if(slot_w_uniform)
-						if(H.w_uniform) H.w_uniform.screen_loc = null
+						if(H.w_uniform)	H.w_uniform.screen_loc =null
 					if(slot_wear_suit)
-						if(H.wear_suit) H.wear_suit.screen_loc = null
+						if(H.wear_suit)	H.wear_suit.screen_loc =null
 					if(slot_wear_mask)
-						if(H.wear_mask) H.wear_mask.screen_loc = null
+						if(H.wear_mask)	H.wear_mask.screen_loc =null
+					if(slot_wrists)
+						if(H.wrists)	H.wrists.screen_loc =	null
 
 
 /datum/hud/proc/persistant_inventory_update()

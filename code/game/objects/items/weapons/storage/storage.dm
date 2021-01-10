@@ -84,10 +84,10 @@
 			return
 
 		switch(over_object.name)
-			if(BP_R_HAND)
+			if("right hand")
 				usr.u_equip(src)
 				usr.put_in_r_hand(src,FALSE)
-			if(BP_L_HAND)
+			if("left hand")
 				usr.u_equip(src)
 				usr.put_in_l_hand(src,FALSE)
 		src.add_fingerprint(usr)

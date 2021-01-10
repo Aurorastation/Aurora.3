@@ -127,75 +127,73 @@
 	name = "tajaran leather gloves"
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/gloves/watch
+/obj/item/clothing/wrists/bracelet
+	name = "bracelet"
+	desc = "A generic bracelet."
+
+/obj/item/clothing/wrists/watch
 	name = "watch"
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in black plastic."
 	desc_fluff = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
-	w_class = ITEMSIZE_TINY
-	wired = 1
-	species_restricted = null
-	gender = NEUTER
-	body_parts_covered = null
-	fingerprint_chance = 100
-	var/flipped = 0
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/wired = TRUE
+	var/screwed = TRUE
+	var/flipped = FALSE
 
-/obj/item/clothing/gloves/watch/silver
+/obj/item/clothing/wrists/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
 	desc_fluff = "To unleash the telemarketer in you!"
 	icon_state = "watch_silver"
 	item_state = "watch_silver"
 
-/obj/item/clothing/gloves/watch/gold
+/obj/item/clothing/wrists/watch/gold
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in <b>REAL</b> faux gold."
 	desc_fluff = "Be the jerk-ass pawn shop owner you'll never be."
 	icon_state = "watch_gold"
 	item_state = "watch_gold"
 
-/obj/item/clothing/gloves/watch/spy
+/obj/item/clothing/wrists/watch/spy
 	desc = "It's a GENUINE Spy-Tech Invisi-watch! <b>WARNING</b> : Does not actually make you invisible."
 	desc_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
 	icon_state = "watch_spy"
 	item_state = "watch_silver"
 
-/obj/item/clothing/gloves/watch/spy/checktime()
+/obj/item/clothing/wrists/watch/spy/checktime()
 	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
 
-/obj/item/clothing/gloves/watch/examine(mob/user)
+/obj/item/clothing/wrists/watch/examine(mob/user)
 	..()
 	if (get_dist(src, user) <= 1)
 		checktime()
 
-/obj/item/clothing/gloves/watch/verb/checktime()
+/obj/item/clothing/wrists/watch/verb/checktime()
 	set category = "Object"
 	set name = "Check Time"
 	set src in usr
 
-	if(wired && !clipped)
+	if(wired && screwed)
 		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
 			to_chat(usr, SPAN_WARNING("The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
-	else if(wired && clipped)
+	else if(wired && !screwed)
 		to_chat(usr, "You check your watch, realising it's still open.")
 	else
 		to_chat(usr, "You check your watch as it dawns on you that it's broken.")
 
-/obj/item/clothing/gloves/watch/verb/pointatwatch()
+/obj/item/clothing/wrists/watch/verb/pointatwatch()
 	set category = "Object"
 	set name = "Point At Watch"
 	set src in usr
 
-	if(wired && !clipped)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
-	else if(wired && clipped)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+	if(wired && screwed)
+		usr.visible_message (SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes"), SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
+	else if(wired && !screwed)
+		usr.visible_message (SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
 	else
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
 
-/obj/item/clothing/gloves/watch/verb/swapwrists()
+/obj/item/clothing/wrists/watch/verb/swapwrists()
 	set category = "Object"
 	set name = "Flip Watch Wrist"
 	set src in usr
@@ -211,21 +209,17 @@
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
 	update_clothing_icon()
 
-/obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
+/obj/item/clothing/wrists/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
-		if (clipped) //Using clipped because adding a new var for something is dumb
-			user.visible_message(SPAN_NOTICE("[user] screws the cover of the [src] closed."), SPAN_NOTICE("You screw the cover of the [src] closed."))
-			clipped = 0
-			return
-//		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
-		user.visible_message(SPAN_NOTICE("[user] unscrews the cover of the [src]."), SPAN_NOTICE("You unscrew the cover of the [src]."))
-		clipped = 1
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."), SPAN_NOTICE("You [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."))
+		playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
+		screwed = !screwed
 		return
 	if(wired)
 		return
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
-		if (!clipped)
+		if(screwed)
 			to_chat(user, SPAN_NOTICE("The [src] is not open."))
 			return
 
@@ -238,54 +232,49 @@
 			return
 
 		C.use(2)
-		wired = 1
+		wired = TRUE
 		to_chat(user, SPAN_NOTICE("You repair some wires in the [src]."))
 		return
 
-/obj/item/clothing/gloves/watch/emp_act(severity)
+/obj/item/clothing/wrists/watch/emp_act(severity)
 	if(prob(50/severity))
-		wired = 0
+		wired = FALSE
 	..()
 
-/obj/item/clothing/gloves/armchain
+/obj/item/clothing/wrists/armchain
 	name = "cobalt arm chains"
 	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
 	icon_state = "cobalt_armchains"
 	item_state = "cobalt_armchains"
+	gender = PLURAL
 	siemens_coefficient = 1.0
-	fingerprint_chance = 100
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/clothing/gloves/armchain/emerald
+/obj/item/clothing/wrists/armchain/emerald
 	name = "emerald arm chains"
 	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
 	icon_state = "emerald_armchains"
 	item_state = "emerald_armchains"
 
-/obj/item/clothing/gloves/armchain/ruby
+/obj/item/clothing/wrists/armchain/ruby
 	name = "ruby arm chains"
 	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
 	icon_state = "ruby_armchains"
 	item_state = "ruby_armchains"
 
-/obj/item/clothing/gloves/goldbracer
+/obj/item/clothing/wrists/goldbracer
 	name = "cobalt bracers"
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
 	icon_state = "cobalt_bracers"
 	item_state = "cobalt_bracers"
+	gender = PLURAL
 	siemens_coefficient = 1.0
-	fingerprint_chance = 100
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/gloves/goldbracer/emerald
+/obj/item/clothing/wrists/goldbracer/emerald
 	name = "emerald bracers"
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
 	icon_state = "emerald_bracers"
 	item_state = "emerald_bracers"
 
-/obj/item/clothing/gloves/goldbracer/ruby
+/obj/item/clothing/wrists/goldbracer/ruby
 	name = "ruby bracers"
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
 	icon_state = "ruby_bracers"

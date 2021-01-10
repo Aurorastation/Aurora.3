@@ -372,7 +372,8 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_r_ear]" = SLOT_EARS|SLOT_TWOEARS,
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
-	"[slot_tie]" = SLOT_TIE
+	"[slot_tie]" = SLOT_TIE,
+	"[slot_wrists]" = SLOT_WRISTS
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -762,6 +763,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.update_inv_pockets()
 		if (slot_s_store)
 			M.update_inv_s_store()
+		if (slot_wrists)
+			M.update_inv_wrists()
 
 // Attacks mobs that are adjacent to the target and user.
 /obj/item/proc/cleave(var/mob/living/user, var/mob/living/target)

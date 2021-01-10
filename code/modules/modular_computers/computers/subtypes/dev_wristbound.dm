@@ -8,7 +8,7 @@
 	icon_state_menu = "menu"
 	icon_state_screensaver = "standby"
 	hardware_flag = PROGRAM_WRISTBOUND
-	slot_flags = SLOT_GLOVES|SLOT_ID
+	slot_flags = SLOT_WRISTS|SLOT_ID
 	can_reset = TRUE
 	max_hardware_size = 1
 	menu_light_color = COLOR_GREEN
@@ -45,10 +45,10 @@
 			return
 
 		switch(over_object.name)
-			if(BP_R_HAND)
+			if("right hand")
 				usr.u_equip(src)
-				usr.put_in_r_hand(src,FALSE)
-			if(BP_L_HAND)
+				usr.put_in_r_hand(src)
+			if("left hand")
 				usr.u_equip(src)
-				usr.put_in_l_hand(src,FALSE)
+				usr.put_in_l_hand(src)
 		add_fingerprint(usr)

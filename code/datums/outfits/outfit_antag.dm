@@ -389,10 +389,10 @@
 	head = null
 
 	gloves = list(
-		/obj/item/clothing/gloves/watch,
-		/obj/item/clothing/gloves/watch/silver,
-		/obj/item/clothing/gloves/watch/gold,
-		/obj/item/clothing/gloves/watch/spy
+		/obj/item/clothing/wrists/watch,
+		/obj/item/clothing/wrists/watch/silver,
+		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/spy
 	)
 
 	l_ear = /obj/item/device/radio/headset/burglar
