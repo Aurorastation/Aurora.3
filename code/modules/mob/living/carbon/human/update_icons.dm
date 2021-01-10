@@ -255,7 +255,7 @@ There are several things that need to be remembered:
 		. += M
 
 //BASE MOB SPRITE
-/mob/living/carbon/human/proc/update_body(var/update_icons=1)
+/mob/living/carbon/human/proc/update_body(var/update_icons=1, var/force_base_icon = FALSE)
 	if (QDELING(src))
 		return
 
@@ -263,7 +263,6 @@ There are several things that need to be remembered:
 
 	var/husk = (HUSK in mutations)
 	var/fat = (FAT in mutations)
-	var/hulk = (HULK in mutations)
 	var/skeleton = (SKELETON in mutations)
 	var/g = (gender == FEMALE ? "f" : "m")
 
@@ -278,12 +277,12 @@ There are several things that need to be remembered:
 		qdel(stand_icon)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
-	var/is_frenzied = FALSE
+	var/is_frenzied = "nofrenzy"
 	if(mind)
 		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && (vampire.status & VAMP_FRENZIED))
-			is_frenzied = TRUE
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!hulk][!!skeleton][is_frenzied]"
+			is_frenzied = "frenzy"
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
@@ -298,7 +297,7 @@ There are several things that need to be remembered:
 		icon_key += SSicon_cache.get_organ_shortcode(part)
 
 	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
-	if (!base_icon)	// Icon ain't in the cache, so generate it.
+	if (!base_icon || force_base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 		base_icon = chest.get_icon(skeleton)
@@ -326,6 +325,7 @@ There are several things that need to be remembered:
 			else
 				base_icon.Blend(temp, ICON_OVERLAY)
 
+			part.cut_additional_images(src)
 			var/list/add_images = part.get_additional_images(src)
 			if(add_images)
 				add_overlay(add_images, TRUE)
