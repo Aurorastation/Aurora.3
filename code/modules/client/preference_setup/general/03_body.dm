@@ -27,6 +27,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["eyes_red"]          >> pref.r_eyes
 	S["eyes_green"]        >> pref.g_eyes
 	S["eyes_blue"]         >> pref.b_eyes
+	S["eyes_option"]       >> pref.eyes_option
 	S["b_type"]            >> pref.b_type
 	S["disabilities"]      >> pref.disabilities
 	S["organ_data"]        >> pref.organ_data
@@ -53,6 +54,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["eyes_red"]          << pref.r_eyes
 	S["eyes_green"]        << pref.g_eyes
 	S["eyes_blue"]         << pref.b_eyes
+	S["eyes_option"]       << pref.eyes_option
 	S["b_type"]            << pref.b_type
 	S["disabilities"]      << pref.disabilities
 	S["organ_data"]        << pref.organ_data
@@ -73,6 +75,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"facial_style" = "f_style",
 				"gradient_style" = "g_style",
 				"eyes_colour",
+				"eyes_option",
 				"b_type",
 				"disabilities",
 				"organs_data" = "organ_data",
@@ -99,6 +102,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			"facial_style",
 			"gradient_style",
 			"eyes_colour",
+			"eyes_option",
 			"b_type",
 			"disabilities",
 			"organs_data",
@@ -121,6 +125,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		"facial_style"  = pref.f_style,
 		"gradient_style"= pref.g_style,
 		"eyes_colour"   = rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes),
+		"eyes_option"   = pref.eyes_option,
 		"b_type"        = pref.b_type,
 		"disabilities"  = json_encode(pref.disabilities),
 		"organs_data"   = list2params(pref.organ_data),
@@ -159,6 +164,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.r_eyes      = GetRedPart(pref.eyes_colour)
 		pref.g_eyes      = GetGreenPart(pref.eyes_colour)
 		pref.b_eyes      = GetBluePart(pref.eyes_colour)
+		if(!pref.eyes_option)
+			pref.eyes_option = "Both Eyes"
 
 		if (istext(pref.organ_data))
 			pref.organ_data = params2list(pref.organ_data)
@@ -298,9 +305,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<a href='?src=\ref[src];gradient_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_grad, pref.g_grad, pref.b_grad))] "
 	out += " Style: <a href='?src=\ref[src];gradient_style=1'>[pref.g_style]</a><br>"
 
-	if(has_flag(mob_species, HAS_EYE_COLOR))
+	if(mob_species.vision_organ)
 		out += "<br><b>Eyes</b><br>"
-		out += "<a href='?src=\ref[src];eye_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes))] <br>"
+		if(has_flag(mob_species, HAS_EYE_COLOR))
+			out += "<a href='?src=\ref[src];eye_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes))]<br>"
+		if(!(mob_species.flags & IS_IPC))
+			out += "<a href='?src=\ref[src];eye_choice=1'>[pref.eyes_option]</a>"
 
 	if(has_flag(mob_species, HAS_SKIN_COLOR) || has_flag(mob_species, HAS_SKIN_PRESET))
 		if(has_flag(mob_species, HAS_SKIN_PRESET))
@@ -486,6 +496,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.r_eyes = GetRedPart(new_eyes)
 			pref.g_eyes = GetGreenPart(new_eyes)
 			pref.b_eyes = GetBluePart(new_eyes)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["eye_choice"])
+		if(!mob_species.vision_organ)
+			return TOPIC_NOACTION
+		var/eyes_option = input(user, "Choose your character's eye option:", "Character Preference") as null|anything in list("Both Eyes", "Left Eye", "Right Eye")
+		if(eyes_option && mob_species.vision_organ)
+			pref.eyes_option = eyes_option
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["skin_tone"])

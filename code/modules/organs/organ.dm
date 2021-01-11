@@ -417,9 +417,12 @@
 
 	// Apply our eye colour to the target.
 	if(istype(target) && eye_colour)
-		target.r_eyes = eye_colour[1]
-		target.g_eyes = eye_colour[2]
-		target.b_eyes = eye_colour[3]
+		if(eye_colour)
+			target.r_eyes = eye_colour[1]
+			target.g_eyes = eye_colour[2]
+			target.b_eyes = eye_colour[3]
+		message_admins("setting Both Eyes in replaced")
+		target.eyes_option = "Both Eyes"
 		target.update_eyes()
 	..()
 

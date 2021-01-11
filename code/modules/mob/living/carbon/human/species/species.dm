@@ -33,6 +33,7 @@
 	var/icon_x_offset = 0
 	var/icon_y_offset = 0
 	var/eyes = "eyes_s"                                  // Icon for eyes.
+	var/eyes_mask = "eyes_s_mask"
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/eyes_icon_blend = ICON_ADD                       // The icon blending mode to use for eyes.

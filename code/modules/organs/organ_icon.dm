@@ -71,15 +71,23 @@
 			if (eyes.eye_colour)
 				eyecolor = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
 
-			var/cache_key = "[species.eyes]_[eyecolor || "nocolor"]"
+			var/cache_key = "[species.eyes]_[eyecolor || "nocolor"]_[owner.eyes_option]"
 
 			var/icon/eyes_icon = SSicon_cache.human_eye_cache[cache_key]
 			if (!eyes_icon)
 				eyes_icon = new/icon(species.eyes_icons, species.eyes)
-				if(eyecolor)
-					eyes_icon.Blend(eyecolor, species.eyes_icon_blend)
-				else
-					eyes_icon.Blend(rgb(128,0,0), species.eyes_icon_blend)
+				if(owner.client)
+					switch(owner.eyes_option)
+						if("Left Eye")
+							message_admins("adding left eye mask: [species.eyes]_mask-l")
+							eyes_icon.AddAlphaMask(icon(species.eyes_icons, "[species.eyes]_mask-l"))
+						if("Right Eye")
+							message_admins("adding right eye mask: [species.eyes]_mask-r")
+							eyes_icon.AddAlphaMask(icon(species.eyes_icons, "[species.eyes]_mask-r"))
+					if(eyecolor)
+						eyes_icon.Blend(eyecolor, species.eyes_icon_blend)
+					else
+						eyes_icon.Blend(rgb(128,0,0), species.eyes_icon_blend)
 
 				SSicon_cache.human_eye_cache[cache_key] = eyes_icon
 

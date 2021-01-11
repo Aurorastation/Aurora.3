@@ -68,6 +68,7 @@ datum/preferences
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
+	var/eyes_option = "Both Eyes"		// Eye option | Both Eyes, Left Eye, Right Eye
 	var/species = SPECIES_HUMAN               //Species datum to use.
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
@@ -430,6 +431,7 @@ datum/preferences
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
+	character.eyes_option = eyes_option
 
 	character.h_style = h_style
 	character.r_hair = r_hair

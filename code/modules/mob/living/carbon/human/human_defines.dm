@@ -21,6 +21,7 @@
 	var/r_eyes = 0
 	var/g_eyes = 0
 	var/b_eyes = 0
+	var/eyes_option = "Both Eyes"
 
 	var/s_tone = 0	//Skin tone
 
