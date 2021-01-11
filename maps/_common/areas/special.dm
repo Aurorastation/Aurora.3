@@ -132,6 +132,10 @@
 	name = "Burglar Hideout"
 	icon_state = "burglar"
 
+/area/antag/loner
+	name = "Loner Basement"
+	icon_state = "loner"
+
 /area/antag/wizard
 	name = "Wizard Mind Palace"
 	icon_state = "wizard"
