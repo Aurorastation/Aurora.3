@@ -148,7 +148,7 @@
 
 /obj/item/clothing/gloves/grey/unathi
 	name = "grey gloves"
-	desc = "Grey gloves, made for Unathi use."
+	desc = "Grey gloves made for Unathi use."
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/white/unathi
@@ -158,7 +158,7 @@
 
 /obj/item/clothing/gloves/rainbow/unathi
 	name = "rainbow gloves"
-	desc = "Rainbow gloves, made for Unathi use."
+	desc = "Rainbow gloves made for Unathi use."
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/evening
@@ -174,7 +174,7 @@
 
 /obj/item/clothing/gloves/black_leather/unathi
 	name = "black leather gloves"
-	desc = "Black leather gloves, made for Unathi use."
+	desc = "Black leather gloves made for Unathi use."
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black_leather/colour
