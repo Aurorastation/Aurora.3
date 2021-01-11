@@ -504,7 +504,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/eyes_option = input(user, "Choose your character's eye option:", "Character Preference") as null|anything in list("Both Eyes", "Left Eye", "Right Eye")
 		if(eyes_option && mob_species.vision_organ)
 			pref.eyes_option = eyes_option
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["skin_tone"])
 		if(!has_flag(mob_species, HAS_SKIN_TONE))
