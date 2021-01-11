@@ -133,6 +133,7 @@
 	item_state = "candlepack"
 	icon_type = "candle"
 	storage_type = "pack"
+	w_class = ITEMSIZE_SMALL
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 5
