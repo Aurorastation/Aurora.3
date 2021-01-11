@@ -24,7 +24,7 @@
 	var/computer_emagged = FALSE							// Set to TRUE if computer that's running us was emagged. Computer updates this every Process() tick
 	var/ui_header											// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
 	var/color = "#FFFFFF"									// The color of light the computer should emit when this program is open.
-	var/service_state = PROGRAM_STATE_KILLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
+	var/service_state = PROGRAM_STATE_DISABLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
 	var/silent = FALSE
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp)
@@ -196,27 +196,6 @@
 	if(computer)
 		return computer.get_header_data()
 
-// This is performed on program startup. May be overriden to add extra logic. Remember to include ..() call. Return 1 on success, 0 on failure.
-// When implementing new program based device, use this to run the program.
-/datum/computer_file/program/proc/run_program(var/mob/user)
-	if(can_run(user, 1) || !requires_access_to_run)
-		if(nanomodule_path)
-			NM = new nanomodule_path(src, new /datum/topic_manager/program(src), src)
-		if(requires_ntnet && network_destination)
-			generate_network_log("Connection opened to [network_destination].")
-		program_state = PROGRAM_STATE_ACTIVE
-		return TRUE
-	return FALSE
-
-// Use this proc to kill the program. Designed to be implemented by each program if it requires on-quit logic, such as the NTNRC client.
-/datum/computer_file/program/proc/kill_program(var/forced = 0)
-	program_state = PROGRAM_STATE_KILLED
-	if(network_destination)
-		generate_network_log("Connection to [network_destination] closed.")
-	if(NM)
-		qdel(NM)
-		NM = null
-	return TRUE
 
 // This is called every tick when the program is enabled. Ensure you do parent call if you override it. If parent returns 1 continue with UI initialisation.
 // It returns 0 if it can't run or if NanoModule was used instead. I suggest using NanoModules where applicable.
@@ -247,15 +226,6 @@
 		return NM.check_eye(user)
 	else
 		return -1
-
-// Is called when program service is being activated
-// Returns 1 if service startup was sucessfull
-/datum/computer_file/program/proc/service_activate()
-	return FALSE
-
-// Is called when program service is being deactivated
-/datum/computer_file/program/proc/service_deactivate()
-	return
 
 /datum/computer_file/program/proc/message_dead(var/message)
 	for(var/mob/M in player_list)
