@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now click on a bed with a disk in hand to put the disk on the bed. Remember to put a blanket over it."

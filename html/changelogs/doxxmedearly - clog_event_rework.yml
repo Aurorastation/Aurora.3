@@ -1,6 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-
-changes:
-  - tweak: "Reworked scrubber backsurge odds to make certain things like mindbreaker less common. Reagent amounts are randomized between 10u and 25u now, instead of always being 35u."
-  - rscadd: "Added more reagent variety to backsurge events, as well as paint color variety."
