@@ -1,6 +1,0 @@
-author: Karolis2011
-delete-after: True
-changes:
-  - rscadd: "Modular computer chat client UI and internals been revamped."
-  - tweak: "Newest chat messages are now at the top instead of bottom of chat window."
-  - rscadd: "Now you can use chat client simultaneously on multiple devices."
