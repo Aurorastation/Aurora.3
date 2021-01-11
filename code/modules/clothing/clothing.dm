@@ -1074,20 +1074,3 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/undergloves = TRUE
-
-///////////////////////////////////////////////////////////////////////
-// Wrists : Watches and other baloney.
-
-/obj/item/clothing/wrists
-	name = "wrists"
-	w_class = ITEMSIZE_TINY
-	icon = 'icons/obj/clothing/wrists.dmi'
-	throwforce = 2
-	slot_flags = SLOT_WRISTS
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/wrists/update_clothing_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
-		M.update_inv_wrists()

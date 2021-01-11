@@ -1484,6 +1484,8 @@
 #include "code\modules\clothing\under\xenos\tajara.dm"
 #include "code\modules\clothing\under\xenos\unathi.dm"
 #include "code\modules\clothing\under\xenos\vaurca.dm"
+#include "code\modules\clothing\wrists\watches.dm"
+#include "code\modules\clothing\wrists\wrists.dm"
 #include "code\modules\cooking\trays.dm"
 #include "code\modules\cooking\machinery\gibber.dm"
 #include "code\modules\cooking\machinery\icecream.dm"
