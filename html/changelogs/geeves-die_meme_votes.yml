@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Voters that vote for the winning gamemode and do not ready up, have their ckeys displayed to the admins."

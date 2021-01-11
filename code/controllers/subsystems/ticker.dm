@@ -413,13 +413,16 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/can_start = src.mode.can_start()
 
-	if(can_start & GAME_FAILURE_NO_PLAYERS)
-		var/list/voted_not_ready = list()
-		for(var/mob/abstract/new_player/player in SSvote.round_voters)
-			if((player.client)&&(!player.ready))
-				voted_not_ready += player.ckey
+	var/list/voted_not_ready = list()
+	for(var/key in SSvote.round_voters)
+		var/mob/abstract/new_player/NP = new_player_list[key]
+		if(NP && !NP.ready)
+			voted_not_ready += key
+	if(length(voted_not_ready))
 		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
+
+	if(can_start & GAME_FAILURE_NO_PLAYERS)
 		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
 
 	if(can_start & GAME_FAILURE_NO_ANTAGS)

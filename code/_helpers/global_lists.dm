@@ -6,6 +6,7 @@ var/list/directory = list()							//list of all ckeys with associated client
 //This is for procs to replace all the goddamn 'in world's that are chilling around the code
 
 var/global/list/player_list = list()				//List of all mobs **with clients attached**. Excludes /mob/abstract/new_player
+var/global/list/new_player_list = list()			//List of all new players, including clientless
 var/global/list/mob_list = list()					//List of all mobs, including clientless
 var/global/list/human_mob_list = list()				//List of all human mobs and sub-types, including clientless
 var/global/list/silicon_mob_list = list()			//List of all silicon mobs, including clientless

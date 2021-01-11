@@ -6,6 +6,7 @@
 	var/totalPlayers = 0 //Player counts for the Lobby tab
 	var/totalPlayersReady = 0
 	var/datum/late_choices/late_choices_ui = null
+	var/stored_ckey
 	universal_speak = 1
 
 	invisibility = 101
@@ -24,6 +25,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	dead_mob_list -= src
 
 /mob/abstract/new_player/Destroy()
+	new_player_list -= stored_ckey
 	QDEL_NULL(late_choices_ui)
 	return ..()
 

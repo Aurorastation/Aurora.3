@@ -18,5 +18,7 @@
 	my_client = client
 	sight |= SEE_TURFS
 	player_list |= src
+	stored_ckey = ckey
+	new_player_list[stored_ckey] = src
 
 	client.playtitlemusic()
