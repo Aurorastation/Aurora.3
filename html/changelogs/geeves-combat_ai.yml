@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Non-ranged hostile mobs will now attempt to stay two tiles away from the player, lunging in to attack, and then taking a step back."
