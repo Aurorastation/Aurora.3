@@ -1029,6 +1029,7 @@
 /obj/item/toy/desk/newtoncradle
 	name = "\improper Newton's cradle"
 	desc = "A ancient 21th century super-weapon model demonstrating that Sir Isaac Newton is the deadliest sonuvabitch in space."
+	desc_fluff = "Aside from car radios, Eridanian Dregs are reportedly notorious for stealing these things. It is often theorized that the very same ball bearings are used in black-market cybernetics."
 	icon_state = "newtoncradle"
 
 /obj/item/toy/desk/fan
@@ -1040,11 +1041,13 @@
 /obj/item/toy/desk/officetoy
 	name = "office toy"
 	desc = "A generic microfusion powered office desk toy. Only generates magnetism and ennui."
+	desc_fluff = "The mechanism inside is a Hephasteus trade secret. No peeking!"
 	icon_state = "desktoy"
 
 /obj/item/toy/desk/dippingbird
 	name = "dipping bird toy"
 	desc = "Engineers marvel at this scale model of a primitive thermal engine. It's highly debated why the majority of owners were in low-level bureaucratic jobs."
+	desc_fluff = "One of the key essentials for every Eridanian suit - it's practically a rite of passage to own one of these things."
 	icon_state = "dippybird"
 
 /obj/item/toy/partypopper
