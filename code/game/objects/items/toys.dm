@@ -1032,6 +1032,7 @@
 /obj/item/toy/desk/fan
 	name = "office fan"
 	desc = "Your greatest fan."
+	desc_fluff = "For weeks, the atmospherics department faced a conundrum on how to lower temperatures in a localized area through complicated pipe channels and ventilation systems. The problem was promptly solved by ordering several desk fans."
 	icon_state = "fan"
 
 /obj/item/toy/desk/officetoy
