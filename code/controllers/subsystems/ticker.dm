@@ -416,7 +416,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/list/voted_not_ready = list()
 	for(var/key in SSvote.round_voters)
 		var/mob/abstract/new_player/NP = new_player_list[key]
-		if(NP && !NP.ready)
+		if(NP && (!NP.ready || !NP.client))
 			voted_not_ready += key
 	if(length(voted_not_ready))
 		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
