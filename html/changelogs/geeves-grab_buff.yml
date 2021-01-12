@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Having someone in a grab now has a chance to transfer any disarm or weapon attack attempts on you to them."
