@@ -46,6 +46,7 @@
 #define MODE_RAIDER_MAGE "raider mage"
 #define MODE_RAIDER "raider"
 #define MODE_BURGLAR "burglar"
+#define MODE_LONER "loner"
 #define MODE_WIZARD "wizard"
 #define MODE_CHANGELING "changeling"
 #define MODE_CULTIST "cultist"
