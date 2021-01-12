@@ -18639,7 +18639,6 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_hallway)
 "aLs" = (
@@ -18950,7 +18949,6 @@
 /area/medical/medbay4)
 "aMo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aMq" = (
@@ -18961,7 +18959,6 @@
 "aMs" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aMt" = (
@@ -20873,8 +20870,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aQX" = (
@@ -21415,6 +21410,22 @@
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = 22
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
@@ -26002,7 +26013,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "bBR" = (
@@ -26279,8 +26289,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "ceW" = (
@@ -26906,6 +26914,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"djB" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/grass/alt,
+/area/medical/patient_wing_picnic)
 "dkd" = (
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -27053,7 +27065,6 @@
 "dGd" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/reedbush,
-/obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "dGF" = (
@@ -30796,7 +30807,6 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "lXj" = (
@@ -33000,7 +33010,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
@@ -77764,7 +77773,7 @@ vCz
 bvB
 aKo
 aLo
-aMq
+djB
 fdV
 hHy
 hHy
@@ -78027,7 +78036,7 @@ hHy
 hHy
 fdV
 aNq
-cyD
+aQV
 aLm
 aSK
 aTx
@@ -78278,7 +78287,7 @@ unQ
 vCz
 dYW
 aLm
-aMq
+djB
 aNq
 aNq
 aNq

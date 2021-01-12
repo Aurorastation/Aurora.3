@@ -2937,7 +2937,7 @@
 	caffeine = 0.3
 	taste_description = "giving up on peaceful coexistence"
 
-	glass_icon_state = "giscoffeeglass"
+	glass_icon_state = "fiscoffeeglass"
 	glass_name = "glass of Fisanduhian coffee"
 	glass_desc = "It's like an Irish coffee, but spicy and angry about Dominia."
 	glass_center_of_mass = list("x"=15, "y"=10)
