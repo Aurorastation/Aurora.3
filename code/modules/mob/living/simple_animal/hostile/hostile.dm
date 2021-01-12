@@ -27,7 +27,8 @@
 	var/list/target_type_validator_map = list()
 	var/attack_emote = "stares menacingly at"
 
-	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
+	var/smart_melee = TRUE   // This makes melee mobs try to stay two tiles away from their target in combat, lunging in to attack only
+	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -140,7 +141,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 				walk_to(src, target_mob, 6, move_to_delay)
 		else
 			stance = HOSTILE_STANCE_ATTACKING
-			walk_to(src, target_mob, 2, move_to_delay)
+			var/move_distance = smart_melee ? 2 : 1
+			walk_to(src, target_mob, move_distance, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 	stop_automated_movement = 1
@@ -193,7 +195,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return T // no need to take a step back here
 	if(target)
 		face_atom(target)
-		if(!ranged)
+		if(!ranged && smart_melee)
 			addtimer(CALLBACK(src, .proc/PostAttack, target), 0.6 SECONDS)
 		return target
 
@@ -251,7 +253,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		LoseTarget()
 	var/target = target_mob
 	// This code checks if we are not going to hit our target
-	if(smart && !check_fire(target_mob))
+	if(smart_ranged && !check_fire(target_mob))
 		return
 	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
 
