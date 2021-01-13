@@ -41,7 +41,8 @@
 		do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), 3), 2)
 	else
 		do_teleport(M, teleport_obj) //dead-on precision
-	station.calibration = min(station.calibration + 5, 100)
+	if(ishuman(M))
+		station.calibration = min(station.calibration + 5, 100)
 
 /obj/machinery/teleport/pad/update_icon()
 	if(station?.engaged)
