@@ -107,3 +107,10 @@
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 5500)
 	build_path = /obj/item/rig_module/cooling_unit
+
+/datum/design/hardsuitmodules/foam_sprayer
+	name = "Mounted Foam Sprayer"
+	desc = "A shoulder-mounted metal foam sprayer."
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_POWER = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 6000)
+	build_path = /obj/item/rig_module/foam_sprayer

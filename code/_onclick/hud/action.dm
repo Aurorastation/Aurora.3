@@ -22,6 +22,7 @@
 	var/obj/screen/movable/action_button/button = null
 	var/button_icon = 'icons/obj/action_buttons/actions.dmi'
 	var/button_icon_state = "default"
+	var/button_icon_color
 	var/background_icon_state = "bg_default"
 	var/mob/living/owner
 
@@ -146,6 +147,8 @@
 		img = image(owner.button_icon,src,owner.button_icon_state)
 	img.pixel_x = 0
 	img.pixel_y = 0
+	if(owner.button_icon_color)
+		img.color = owner.button_icon_color
 	add_overlay(img)
 
 	if(!owner.IsAvailable())

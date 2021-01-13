@@ -13,7 +13,6 @@
 
 	rack_sound = 'sound/weapons/riflebolt.ogg'
 	rack_verb = "pull back the bolt on"
-	has_wield_state = TRUE
 
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -31,7 +30,6 @@
 	slot_flags &= ~SLOT_BACK
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 	can_bayonet = FALSE
-	has_wield_state = FALSE
 	if(bayonet)
 		qdel(bayonet)
 		bayonet = null
@@ -51,7 +49,6 @@
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	can_bayonet = FALSE
-	has_wield_state = FALSE
 
 /obj/item/gun/projectile/contender
 	name = "pocket rifle"
@@ -253,14 +250,6 @@
 /obj/item/gun/projectile/gauss/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "gauss_thumper" : "gauss_thumper-e"
-
-	if(wielded)
-		item_state = "gauss_thumper-wielded"
-	else
-		item_state = "gauss_thumper"
-
-	update_held_icon()
-	return
 
 /obj/item/gun/energy/gauss/mounted/mech
 	name = "heavy gauss cannon"

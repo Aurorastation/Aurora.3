@@ -168,10 +168,19 @@ var/list/slot_equipment_priority = list( \
 //Puts the item our active hand if possible. Failing that it tries our inactive hand. Returns 1 on success.
 //If both fail it drops it on the floor and returns 0.
 //This is probably the main one you need to know :)
-/mob/proc/put_in_hands(var/obj/item/W)
+/mob/proc/put_in_hands(var/obj/item/W, var/check_adjacency = FALSE)
 	if(!W || !istype(W))
 		return 0
-	W.forceMove(get_turf(src))
+	var/move_to_src = TRUE
+	if(check_adjacency)
+		move_to_src = FALSE
+		var/turf/origin = get_turf(W)
+		if(Adjacent(origin))
+			move_to_src = TRUE
+	if(move_to_src)
+		W.forceMove(get_turf(src))
+	else
+		W.forceMove(get_turf(W))
 	W.layer = initial(W.layer)
 	W.dropped()
 	return 0
@@ -184,11 +193,12 @@ var/list/slot_equipment_priority = list( \
 			target = loc
 		remove_from_mob(W)
 		if(!(W && W.loc))
-			return 1
+			return TRUE
+		W.do_putdown_animation(target, src)
 		W.forceMove(target)
 		update_icon()
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //Drops the item in our left hand
 /mob/proc/drop_l_hand(var/atom/target)

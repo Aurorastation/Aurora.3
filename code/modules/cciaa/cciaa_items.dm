@@ -255,11 +255,13 @@
 		sLogFile << "Recorder paused at: [get_time()]"
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
 		paused = TRUE
+		icon_state = "taperecorderpause"
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
 		paused = FALSE
+		icon_state = "taperecorderrecording"
 	return
 
 /obj/item/device/taperecorder/cciaa/attack_self(mob/user)

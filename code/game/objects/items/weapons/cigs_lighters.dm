@@ -318,6 +318,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			light(SPAN_WARNING("[user] swings their [W], barely missing themselves. They light their [name] in the process."))
 	return
 
+/obj/item/clothing/mask/smokable/cigarette/catch_fire()
+	if(!lit)
+		light(SPAN_WARNING("\The [src] is lit by the flames!"))
+
+/obj/item/clothing/mask/smokable/cigarette/extinguish_fire()
+	if(lit)
+		die(TRUE)
+
 /obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
 	if(lit && H == user && istype(H))
 		var/obj/item/blocked = H.check_mouth_coverage()
