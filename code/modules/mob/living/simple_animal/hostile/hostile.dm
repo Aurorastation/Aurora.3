@@ -200,6 +200,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
+	if(stat)
+		return
 	facing_dir = get_dir(src, target)
 	if(ishuman(target))
 		step_away(src, pick(RANGE_TURFS(2, target)))
