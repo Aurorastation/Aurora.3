@@ -22,6 +22,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
 	blood_overlay_icon = null
+	blood_amount = 150
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 200
 	health = 200
@@ -49,6 +50,7 @@
 	icon_state = "nurse"
 	icon_living = "nurse"
 	icon_dead = "nurse_dead"
+	blood_amount = 50
 	maxHealth = 40
 	health = 40
 	melee_damage_lower = 5
@@ -64,6 +66,7 @@
 	icon_state = "hunter"
 	icon_living = "hunter"
 	icon_dead = "hunter_dead"
+	blood_amount = 90
 	maxHealth = 120
 	health = 120
 	melee_damage_lower = 10
