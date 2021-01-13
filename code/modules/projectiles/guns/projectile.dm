@@ -271,16 +271,23 @@
 
 /obj/item/gun/projectile/get_print_info()
 	. = ""
-	var/obj/item/ammo_casing/casing = new ammo_type
-	var/obj/item/projectile/P = new casing.projectile_type
-	. += "Max Shots: [max_shells]<br>"
-	. += "Damage: [initial(P.damage)]<br>"
-	. += "Damage Type: [initial(P.damage_type)]<br>"
-	. += "Blocked by Armor Type: [initial(P.check_armor)]<br>"
-	. += "Stuns: [initial(P.stun) ? "true" : "false"]<br>"
-	if(P.shrapnel_type)
-		var/obj/item/S = new P.shrapnel_type
-		. += "Shrapnel Type: [S.name]<br><br>"
+	if(load_method & (SINGLE_CASING|SPEEDLOADER))
+		. += "Load Type: Single Casing or Speedloader<br>"
+		. += "Max Shots: [max_shells]<br>"
+		if(length(loaded))
+			var/obj/item/ammo_casing/casing = loaded[1]
+			var/obj/item/projectile/P = new casing.projectile_type
+			. += "<br><b>Projectile</b><br>"
+			. += P.get_print_info()
+		else
+			. += "No ammunition loaded."
 	else
-		. += "Shrapnel Type: none<br><br>"
+		. += "Load Type: Magazine<br>"
+		if(ammo_magazine)
+			var/obj/item/ammo_casing/casing = new ammo_magazine.ammo_type
+			var/obj/item/projectile/P = new casing.projectile_type
+			. += "<br><b>Projectile</b><br>"
+			. += P.get_print_info()
+		else
+			. += "No magazine inserted."
 	. += ..(FALSE)
