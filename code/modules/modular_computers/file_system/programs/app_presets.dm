@@ -246,7 +246,7 @@
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/chatclient(comp),
+		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/records/employment(comp),
