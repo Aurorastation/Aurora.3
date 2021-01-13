@@ -25,6 +25,7 @@
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
+	var/blood_amount = 50 // set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -193,7 +194,7 @@
 	if(health > maxHealth)
 		health = maxHealth
 
-	handle_blood_overlay()
+	handle_blood()
 	handle_stunned()
 	handle_weakened()
 	handle_paralysed()
@@ -321,9 +322,12 @@
 	if(purge)
 		purge -= 1
 
-/mob/living/simple_animal/proc/handle_blood_overlay(var/force_reset = FALSE)
+/mob/living/simple_animal/proc/handle_blood(var/force_reset = FALSE)
 	if(!blood_overlay_icon)
 		return
+
+	if(blood_amount <= 0 && stat != DEAD)
+		death()
 
 	var/current_blood_state = blood_state
 	var/blood_mod = health / maxHealth
@@ -331,10 +335,16 @@
 		blood_state = BLOOD_NONE
 	else if(blood_mod >= 0.7)
 		blood_state = BLOOD_LIGHT
+		blood_splatter(src, null, FALSE, sourceless_color = blood_color)
+		blood_amount--
 	else if(blood_mod >= 0.4)
 		blood_state = BLOOD_MEDIUM
+		blood_splatter(src, null, TRUE, sourceless_color = blood_color)
+		blood_amount -= 2
 	else
 		blood_state = BLOOD_HEAVY
+		blood_splatter(src, null, TRUE, sourceless_color = blood_color)
+		blood_amount -= 3
 
 	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
@@ -420,15 +430,6 @@
 	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
 	custom_emote(AUDIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
-/*
-mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj || Proj.nodamage)
-		return
-
-	adjustBruteLoss(Proj.damage)
-	return 0
-*/
-
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 	switch(M.a_intent)
@@ -471,9 +472,21 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/human/user)
+	if(istype(user))
+		var/datum/unarmed_attack/attack = user.get_unarmed_attack(src)
+		if(!attack)
+			simple_harm_attack(user)
+			return
+		attack.show_attack_simple(user, src, pick(organ_names))
+		apply_damage(attack.get_unarmed_damage(user), attack.damage_type)
+		user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+		return
+	simple_harm_attack(user)
+
+/mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
 	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
-	user.do_attack_animation(src)
+	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
@@ -536,15 +549,17 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		poke()
 
 	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
-	user.do_attack_animation(src)
+	if(O.hitsound)
+		playsound(loc, O.hitsound, O.get_clamped_volume(), 1, -1)
+	user.do_attack_animation(src, O)
 
 /mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
 	. = ..()
-	handle_blood_overlay()
+	handle_blood()
 
 /mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
 	. = ..()
-	handle_blood_overlay()
+	handle_blood()
 
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later

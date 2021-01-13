@@ -257,7 +257,7 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 		//AB is a universal receiver.
 	return 0
 
-proc/blood_splatter(var/target, var/datum/reagent/blood/source, var/large, var/spray_dir)
+proc/blood_splatter(var/target, var/datum/reagent/blood/source, var/large, var/spray_dir, var/sourceless_color)
 
 	var/obj/effect/decal/cleanable/blood/B
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
@@ -295,6 +295,9 @@ proc/blood_splatter(var/target, var/datum/reagent/blood/source, var/large, var/s
 
 	// If there's no data to copy, call it quits here.
 	if(!source)
+		if(sourceless_color)
+			B.basecolor = sourceless_color
+			B.update_icon()
 		return B
 
 	// Update appearance.

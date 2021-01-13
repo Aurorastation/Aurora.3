@@ -105,7 +105,11 @@ var/global/list/sparring_attack_cache = list()
 	if(!affecting)
 		return
 
-	user.visible_message("<span class='warning'>[user] [pick(attack_verb)] [target] in the [affecting.name]!</span>")
+	user.visible_message(SPAN_WARNING("[user] [pick(attack_verb)] [target] in the [affecting.name]!"))
+	playsound(user.loc, attack_sound, 25, 1, -1)
+
+/datum/unarmed_attack/proc/show_attack_simple(var/mob/living/carbon/human/user, var/mob/living/target, var/zone)
+	user.visible_message(SPAN_WARNING("[user] [pick(attack_verb)] [target] in the [zone]!"))
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /datum/unarmed_attack/proc/handle_eye_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target)

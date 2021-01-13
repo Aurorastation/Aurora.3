@@ -55,7 +55,7 @@
 		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	else
 		blood_overlay_icon = initial(blood_overlay_icon)
-	handle_blood_overlay(TRUE)
+	handle_blood(TRUE)
 
 /mob/living/simple_animal/hostile/hivebot/get_blood_overlay_name()
 	if(stance == HOSTILE_STANCE_IDLE)
@@ -728,7 +728,7 @@
 		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	else
 		blood_overlay_icon = initial(blood_overlay_icon)
-	handle_blood_overlay(TRUE)
+	handle_blood(TRUE)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/prospect()
 
