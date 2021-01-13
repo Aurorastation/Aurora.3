@@ -37,7 +37,11 @@
 	if(!teleport_obj)
 		station.locked_obj = null
 		return
-	do_teleport(M, teleport_obj)
+	if(prob(station.calibration)) //oh dear a problem, put em in deep space
+		do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), 3), 2)
+	else
+		do_teleport(M, teleport_obj) //dead-on precision
+	station.calibration = min(station.calibration + 5, 100)
 
 /obj/machinery/teleport/pad/update_icon()
 	if(station?.engaged)
@@ -58,6 +62,8 @@
 
 	var/id = null
 	var/engaged = FALSE
+
+	var/calibration = 0 // a percentage chance for teleporting into space instead of your target. 0 is perfectly calibrated, 100 is totally uncalibrated
 
 	var/datum/weakref/locked_obj
 	var/locked_obj_name
@@ -87,6 +93,7 @@
 	data["station_locked_in"] = !!locked_obj
 	if(data["station_locked_in"])
 		data["locked_in_name"] = locked_obj_name
+	data["calibration"] = 100 - calibration
 	var/list/area_index = list()
 
 	var/list/teleport_beacon_info = list()
@@ -140,7 +147,9 @@
 	if(..())
 		return TRUE
 
-	if(href_list["beacon"])
+	if(href_list["recalibrate"])
+		start_recalibration()
+	else if(href_list["beacon"])
 		var/obj/O = locate(href_list["beacon"]) in teleportbeacons
 		if(locked_obj)
 			var/obj/LO = locked_obj.resolve()
@@ -200,6 +209,14 @@
 			pad.update_icon()
 	else
 		icon_state = "controller"
+
+/obj/machinery/teleport/station/proc/start_recalibration()
+	audible_message(SPAN_NOTICE("Recalibrating..."))
+	addtimer(CALLBACK(src, .proc/recalibrate), 5 SECONDS, TIMER_UNIQUE)
+
+/obj/machinery/teleport/station/proc/recalibrate()
+	calibration = 0
+	audible_message(SPAN_NOTICE("Calibration complete."))
 
 /obj/machinery/teleport/station/Destroy()
 	pad = null

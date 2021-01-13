@@ -3,6 +3,7 @@
     <div v-if="has_linked_station">
       <h3>Linked Station Info</h3>
       <span :class="station_locked_in ? 'good' : 'bad'">{{ station_locked_in ? 'Locked In ' : 'Not Locked In ' }}</span><span :class="station_locked_in ? 'good' : 'bad'">({{ locked_in_name }})</span>
+      <br><span>Calibration: {{calibration}}%</span> <vui-button :params="{ recalibrate: 1 }">Recalibrate</vui-button>
       <h3>Teleporter Beacons</h3>
       <table class="table border">
         <tr class="header border">

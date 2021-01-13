@@ -54,6 +54,7 @@
 	LAZYINITLIST(data["teleport_implants"])
 	data["station_locked_in"] = FALSE
 	data["locked_in_name"] = "None"
+	data["calibration"] = 0
 
 	if(!linked_station)
 		var/list/near_stations_info = list()
@@ -68,6 +69,7 @@
 		data["station_locked_in"] = !!linked_station.locked_obj
 		if(data["station_locked_in"])
 			data["locked_in_name"] = linked_station.locked_obj_name
+		data["calibration"] = 100 - linked_station.calibration
 		var/list/area_index = list()
 
 		var/list/teleport_beacon_info = list()
@@ -124,6 +126,9 @@
 	if(href_list["station"])
 		var/obj/machinery/teleport/station/linked_station = locate(href_list["station"]) in range(3, get_turf(computer.loc))
 		station_ref = WEAKREF(linked_station)
+	else if(href_list["recalibrate"])
+		var/obj/machinery/teleport/station/linked_station = station_ref.resolve()
+		linked_station.start_recalibration()
 	else if(href_list["beacon"])
 		var/obj/machinery/teleport/station/linked_station = station_ref.resolve()
 		var/obj/O = locate(href_list["beacon"]) in teleportbeacons
