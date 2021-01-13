@@ -175,6 +175,13 @@ var/list/datum/power/changeling/powerinstances = list()
 	isVerb = FALSE
 	verbpath = /mob/proc/changeling_engorgedglands
 
+/datum/power/changeling/space_adaption
+	name = "UPGRADE: Space Adaption"
+	desc = "Our body chemistry changes to become resistant to the effects of low pressure, and we no longer have the need to breathe."
+	genomecost = 5
+	isVerb = FALSE
+	verbpath = /mob/proc/changeling_spaceadaption
+
 /datum/power/changeling/rapid_regeneration
 	name = "Rapid Regeneration"
 	desc = "We evolve the ability to rapidly regenerate, negating the need for stasis."

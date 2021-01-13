@@ -260,3 +260,12 @@
 
 /mob/living/carbon/human/proc/protected_from_sound()
 	return (l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION)
+
+/mob/living/carbon/human/proc/pressure_resistant()
+	if(COLD_RESISTANCE in mutations)
+		return TRUE
+	if(mind)
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling?.space_adapted)
+			return TRUE
+	return FALSE
