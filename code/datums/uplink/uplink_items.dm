@@ -70,7 +70,7 @@ var/datum/uplink/uplink
 
 /datum/uplink_item/proc/can_view(obj/item/device/uplink/U)
 	// Making the assumption that if no uplink was supplied, then we don't care about antag roles
-	if(!U || (!LAZYLEN(antag_roles) && !antag_job))
+	if(!U || (!length(antag_roles) && !antag_job))
 		return 1
 
 	// With no owner, there's no need to check antag status.
