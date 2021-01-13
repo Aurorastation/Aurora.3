@@ -1211,3 +1211,6 @@ proc/is_blind(A)
 
 /mob/proc/remove_deaf()
 	sdisabilities &= ~DEAF
+
+/mob/proc/get_antag_datum(var/antag_role)
+	return
