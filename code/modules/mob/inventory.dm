@@ -193,11 +193,12 @@ var/list/slot_equipment_priority = list( \
 			target = loc
 		remove_from_mob(W)
 		if(!(W && W.loc))
-			return 1
+			return TRUE
+		W.do_putdown_animation(target, src)
 		W.forceMove(target)
 		update_icon()
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //Drops the item in our left hand
 /mob/proc/drop_l_hand(var/atom/target)

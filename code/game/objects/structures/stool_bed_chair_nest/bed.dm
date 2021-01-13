@@ -82,6 +82,11 @@
 		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name]." : " It's made of [material.use_name]."
 
 
+/obj/structure/bed/forceMove(atom/dest)
+	. = ..()
+	if(buckled_mob)
+		buckled_mob.forceMove(dest)
+
 /obj/structure/bed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
@@ -159,6 +164,11 @@
 		var/obj/item/gripper/G = W
 		if(!G.wrapped)
 			user_unbuckle_mob(user)
+
+	else if(istype(W, /obj/item/disk))
+		user.drop_from_inventory(W, get_turf(src))
+		W.pixel_x = 10 //make sure they reach the pillow
+		W.pixel_y = -6
 
 	else if(!istype(W, /obj/item/bedsheet))
 		..()

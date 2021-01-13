@@ -8,6 +8,12 @@
 	use_me = 0 //Can't use the me verb, it's a freaking immobile brain
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "brain"
+	accent = ACCENT_TTS
+
+/mob/living/carbon/brain/Initialize()
+	. = ..()
+	add_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 /mob/living/carbon/brain/Destroy()
 	if(key)				//If there is a mob connected to this thing. Have to check key twice to avoid false death reporting.
@@ -15,34 +21,6 @@
 			death(1)	//Brains can die again. AND THEY SHOULD AHA HA HA HA HA HA
 		ghostize()		//Ghostize checks for key so nothing else is necessary.
 	container = null
-	return ..()
-
-/mob/living/carbon/brain/say_understands(var/other)//Goddamn is this hackish, but this say code is so odd
-	if (istype(other, /mob/living/silicon/ai))
-		if(!(container && istype(container, /obj/item/device/mmi)))
-			return 0
-		else
-			return 1
-	else if (istype(other, /mob/living/silicon/decoy))
-		if(!(container && istype(container, /obj/item/device/mmi)))
-			return 0
-		else
-			return 1
-	else if (istype(other, /mob/living/silicon/pai))
-		if(!(container && istype(container, /obj/item/device/mmi)))
-			return 0
-		else
-			return 1
-	else if (istype(other, /mob/living/silicon/robot))
-		if(!(container && istype(container, /obj/item/device/mmi)))
-			return 0
-		else
-			return 1
-	else if (istype(other, /mob/living/carbon/human))
-		return 1
-	else if (istype(other, /mob/living/carbon/slime))
-		return 1
-
 	return ..()
 
 /mob/living/carbon/brain/update_canmove()

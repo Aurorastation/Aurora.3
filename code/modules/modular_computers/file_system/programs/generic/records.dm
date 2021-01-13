@@ -37,7 +37,7 @@
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
-	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
+	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_robotics, access_hop)
 	required_access_download = access_heads
 	available_on_ntnet = TRUE
 

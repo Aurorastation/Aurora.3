@@ -79,8 +79,10 @@
 	var/obj/item/organ/external/head/face = organs_by_name[BP_HEAD]
 	if(face?.disfigured) // if your face is ruined, your ability to vocalize is also ruined
 		return "Unknown" // above ling voice mimicing so they don't get caught out immediately
-	if(mind?.changeling?.mimicing)
-		return mind.changeling.mimicing
+	if(mind)
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling?.mimicing)
+			return changeling.mimicing
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
 	return real_name
@@ -148,6 +150,9 @@
 	return returns
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
+	if(paralysis || InStasis())
+		whisper_say(message, speaking, alt_name)
+		return TRUE
 	switch(message_mode)
 		if("intercom")
 			for(var/obj/item/device/radio/intercom/I in view(1))

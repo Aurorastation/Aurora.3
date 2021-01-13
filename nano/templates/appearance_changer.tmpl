@@ -36,6 +36,19 @@
     </div>
 {{/if}}
 
+{{if data.change_language}}
+    <div class="item">
+        <div class="itemLabelNarrow">
+            Languages:
+        </div>
+        <div class="itemContentWide">
+            {{for data.languages}}
+                {{:helper.link(value.language, null, { 'language' : value.language}, null, null)}}
+            {{/for}}
+        </div>
+    </div>
+{{/if}}
+
 {{if data.change_eye_color || data.change_skin_tone || data.change_skin_color || data.change_hair_color || data.change_facial_hair_color}}
     <div class="item">
         <div class="itemLabelNarrow">

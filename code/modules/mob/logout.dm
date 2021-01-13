@@ -8,7 +8,8 @@
 	SSfeedback.update_status()
 
 	if(admin_datums[src.ckey])
-		if (SSticker.current_state == GAME_STATE_PLAYING) //Only report this stuff if we are currently playing.
+		var/datum/admins/A = admin_datums[src.ckey]
+		if (A.rights & (R_MOD|R_ADMIN) && SSticker.current_state == GAME_STATE_PLAYING) //Only report this stuff if we are currently playing.
 			var/admins_number = 0
 			var/admins_number_afk = 0
 			for (var/client/C in clients)

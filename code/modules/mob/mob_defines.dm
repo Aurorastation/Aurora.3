@@ -17,6 +17,7 @@
 	var/obj/screen/purged = null
 	var/obj/screen/internals/internals = null
 	var/obj/screen/oxygen = null
+	var/obj/screen/paralysis_indicator = null
 	var/obj/screen/i_select = null
 	var/obj/screen/m_select = null
 	var/obj/screen/toxin = null
