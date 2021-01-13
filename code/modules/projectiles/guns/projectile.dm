@@ -280,7 +280,7 @@
 			. += "<br><b>Projectile</b><br>"
 			. += P.get_print_info()
 		else
-			. += "No ammunition loaded."
+			. += "No ammunition loaded.<br>"
 	else
 		. += "Load Type: Magazine<br>"
 		if(ammo_magazine)
@@ -289,5 +289,5 @@
 			. += "<br><b>Projectile</b><br>"
 			. += P.get_print_info()
 		else
-			. += "No magazine inserted."
+			. += "No magazine inserted.<br>"
 	. += ..(FALSE)
