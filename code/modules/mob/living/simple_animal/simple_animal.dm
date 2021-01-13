@@ -636,7 +636,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	set name = "Make Sound"
 	set category = "Abilities"
 
-	if((usr && usr.stat == DEAD) || !make_sound)
+	if(stat || !make_sound) //Can't make noise if there's no noise or if you're unconscious/dead
 		return
 
 	if(usr && !sound_time)

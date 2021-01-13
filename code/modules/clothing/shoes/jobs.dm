@@ -28,18 +28,12 @@
 	desc = "Taller synthleather boots with an artificial shine."
 	icon_state = "kneeboots"
 	item_state = "kneeboots"
-	
-/obj/item/clothing/shoes/jackboots/knee/handle_movement(var/turf/walking, var/running)
-	trip_up(walking, running)
 
 /obj/item/clothing/shoes/jackboots/thigh
 	name = "thigh-length black boots"
 	desc = "Even taller synthleather boots with an artificial shine."
 	icon_state = "thighboots"
 	item_state = "thighboots"
-
-/obj/item/clothing/shoes/jackboots/thigh/handle_movement(var/turf/walking, var/running)
-	trip_up(walking, running)
 
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less black boots"
