@@ -12,7 +12,7 @@
 	return (holder.thermal_energy * get_thermal_fraction(holder))
 
 /decl/reagent/proc/set_thermal_energy(amount, var/datum/reagents/holder, safety = FALSE)
-	var/delta = (amount / get_thermal_fraction(holder)) - holder.thermal_energy
+	var/delta = amount / get_thermal_fraction(holder) - holder.thermal_energy
 	if(!round(delta, 1))
 		return
 	holder.add_thermal_energy(delta, safety) // this handles on_heat_change for us
@@ -47,7 +47,7 @@
 	return add_thermal_energy(-thermal_energy + set_energy, safety)
 
 /datum/reagents/proc/set_temperature(new_temperature, safety = FALSE)
-	return add_thermal_energy(-thermal_energy + get_thermal_energy_change(0,new_temperature), safety )
+	return set_thermal_energy(get_thermal_energy_change(0,new_temperature), safety)
 
 /datum/reagents/proc/add_thermal_energy(thermal_energy_to_add, safety = FALSE)
 	thermal_energy_to_add = max(-thermal_energy, thermal_energy_to_add)

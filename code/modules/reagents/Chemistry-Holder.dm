@@ -137,21 +137,18 @@
 		if(!new_thermal_energy && round(temperature, 1) != round(get_temperature(), 1))
 			crash_with("Temperature [temperature] did not match [get_temperature()] after adding NEW reagent [rtype]!")
 	else	// Existing reagent
-		var/old_energy = (newreagent.get_thermal_energy(src) / reagent_volumes[rtype])
+		var/old_energy = (newreagent.get_thermal_energy(src)/reagent_volumes[rtype]) * amount
 		reagent_volumes[rtype] += amount
-		old_energy *= reagent_volumes[rtype]
 		total_volume += amount // so temperature calculations work
 		if(!isnull(data))
 			LAZYSET(reagent_data, rtype, newreagent.mix_data(data, amount, src))
 		if(temperature <= 0)
 			temperature = newreagent.default_temperature
-		newreagent.set_thermal_energy(old_energy, src, safety = TRUE) // This part has the safety var set because thermal shock shouldn't occur due to it.
+		newreagent.add_thermal_energy(old_energy, src, safety = TRUE) // This part has the safety var set because thermal shock shouldn't occur due to it.
 		if(new_thermal_energy > 0) // This if-else is for the change from the current temperature.
 			newreagent.add_thermal_energy(new_thermal_energy - old_energy, src, FALSE)
 		else
 			newreagent.set_temperature(temperature, src, safety = FALSE)
-		if(!new_thermal_energy && round(temperature, 1) != round(get_temperature(), 1))
-			crash_with("Temperature [temperature] did not match [get_temperature()] after adding EXISTING reagent [rtype]!")
 	UNSETEMPTY(reagent_volumes)
 	update_holder(!safety)
 	return TRUE
