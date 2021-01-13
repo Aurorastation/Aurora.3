@@ -57,6 +57,11 @@
 
 /obj/item/landmine/Crossed(AM as mob|obj)
 	if(deployed)
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			if(H.shoes?.item_flags & LIGHTSTEP)
+				..()
+				return
 		if(isliving(AM))
 			var/mob/living/L = AM
 			if(L.mob_size >= 5)

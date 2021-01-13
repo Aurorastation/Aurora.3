@@ -190,6 +190,7 @@
 
 	if(isvaurca(speaker))
 		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
+		playsound(speaker, 'sound/voice/vaurca_antenna_twitch.ogg', 60, 1)
 
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
@@ -285,4 +286,3 @@
 	flags = WHITELISTED | NONVERBAL
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
 	partial_understanding = list(LANGUAGE_UNATHI = 50)
-

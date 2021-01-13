@@ -178,7 +178,8 @@
 	return
 
 /obj/item/device/flash/emp_act(severity)
-	if(broken)	return
+	if(broken)
+		return
 	flash_recharge()
 	switch(times_used)
 		if(0 to 5)
@@ -187,13 +188,10 @@
 				icon_state = "flashburnt"
 				return
 			times_used++
-			if(istype(loc, /mob/living/carbon))
+			if(iscarbon(loc))
 				var/mob/living/carbon/M = loc
-				var/safety = M.eyecheck(TRUE)
-				if(safety < FLASH_PROTECTION_MODERATE)
-					M.flash_eyes()
-					for(var/mob/O in viewers(M, null))
-						O.show_message("<span class='disarm'>[M] is blinded by the flash!</span>")
+				M.flash_eyes()
+				to_chat(M, SPAN_WARNING("Your [name] goes off!"))
 	..()
 
 /obj/item/device/flash/synthetic

@@ -137,7 +137,8 @@
 	starts_with = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/reagent_containers/pill/bicaridine = 2,
+		/obj/item/reagent_containers/pill/bicaridine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
 		/obj/item/device/healthanalyzer = 1
 	)
 

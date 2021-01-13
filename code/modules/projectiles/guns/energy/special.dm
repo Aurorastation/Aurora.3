@@ -1,6 +1,6 @@
 /obj/item/gun/energy/rifle/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: Stun and Lethal."
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by Nanotrasen."
 	icon = 'icons/obj/guns/ionrifle.dmi'
 	icon_state = "ionriflestun100"
 	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
@@ -14,17 +14,10 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	charge_cost = 300
-	max_shots = 10
-	secondary_projectile_type = /obj/item/projectile/ion
-	secondary_fire_sound = 'sound/weapons/laser1.ogg'
+	max_shots = 4
 	can_turret = 1
-	can_switch_modes = 1
 	turret_sprite_set = "ion"
-
-	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/laser1.ogg', charge_cost = 300),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/laser1.ogg', charge_cost = 450)
-		)
+	firemodes = list()
 
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
@@ -39,12 +32,8 @@
 		else
 			ratio = max(round(ratio, 0.25) * 100, 25)
 
-		if(modifystate)
-			icon_state = "[modifystate][ratio]"
-			item_state = "[modifystate][ratio]"
-		else
-			icon_state = "[initial(icon_state)][ratio]"
-			item_state = "[initial(icon_state)][ratio]"
+		icon_state = "[modifystate][ratio]"
+		item_state = "[modifystate][ratio]"
 	update_held_icon()
 
 /obj/item/gun/energy/rifle/ionrifle/mounted
