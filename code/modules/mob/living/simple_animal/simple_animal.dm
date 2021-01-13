@@ -25,7 +25,11 @@
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
-	var/blood_amount = 50 // set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
+
+	var/bleeding = FALSE
+	var/blood_amount = 50			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
+	var/previous_bleed_timer = 0	// they only bleed for as many seconds as force damage was applied to them
+	var/blood_timer_mod = 1			// tweak to change the amount of seconds a mob will bleed
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -335,16 +339,22 @@
 		blood_state = BLOOD_NONE
 	else if(blood_mod >= 0.7)
 		blood_state = BLOOD_LIGHT
-		blood_splatter(src, null, FALSE, sourceless_color = blood_color)
-		blood_amount--
 	else if(blood_mod >= 0.4)
 		blood_state = BLOOD_MEDIUM
-		blood_splatter(src, null, TRUE, sourceless_color = blood_color)
-		blood_amount -= 2
 	else
 		blood_state = BLOOD_HEAVY
-		blood_splatter(src, null, TRUE, sourceless_color = blood_color)
-		blood_amount -= 3
+
+	if(bleeding)
+		switch(blood_state)
+			if(BLOOD_LIGHT)
+				blood_splatter(src, null, FALSE, sourceless_color = blood_color)
+				blood_amount--
+			if(BLOOD_MEDIUM)
+				blood_splatter(src, null, TRUE, sourceless_color = blood_color)
+				blood_amount -= 2
+			if(BLOOD_HEAVY)
+				blood_splatter(src, null, TRUE, sourceless_color = blood_color)
+				blood_amount -= 3
 
 	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
@@ -555,7 +565,21 @@
 
 /mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
 	. = ..()
+	handle_bleeding_timer(damage)
 	handle_blood()
+
+/mob/living/simple_animal/proc/handle_bleeding_timer(var/damage_inflicted)
+	if(!blood_overlay_icon) // no blood, don't bother
+		return
+	if(damage_inflicted <= 0) // just to be safe
+		return
+	if(!bleeding || previous_bleed_timer <= damage_inflicted)
+		bleeding = TRUE
+		previous_bleed_timer = damage_inflicted
+		addtimer(CALLBACK(src, .proc/stop_bleeding), (damage_inflicted SECONDS) * blood_timer_mod, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/mob/living/simple_animal/proc/stop_bleeding()
+	bleeding = FALSE
 
 /mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
 	. = ..()
