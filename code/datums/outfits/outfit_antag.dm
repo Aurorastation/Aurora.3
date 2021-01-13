@@ -166,6 +166,21 @@
 	if(!H.shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
 
+/datum/outfit/admin/syndicate/mercenary/loner
+	name = "Loner"
+
+	head = /obj/item/clothing/head/helmet/space/psi_amp/lesser
+	l_ear = /obj/item/device/radio/headset/syndicate
+	r_pocket = /obj/item/device/special_uplink/burglar
+
+	backpack_contents = list(
+		/obj/item/storage/box/syndie_kit/space = 1,
+		/obj/item/gun/projectile/shotgun/foldable = 1,
+		/obj/item/device/multitool/hacktool = 1
+	)
+
+	id_access = "Lone Operative"
+
 /datum/outfit/admin/syndicate/raider
 	name = "Raider"
 	allow_backbag_choice = FALSE

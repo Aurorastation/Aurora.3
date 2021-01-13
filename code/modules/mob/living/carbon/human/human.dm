@@ -2042,16 +2042,41 @@
 	return ..(speaking, hearer, used_accent)
 
 /mob/living/carbon/human/proc/generate_valid_accent()
-	var/list/valid_accents = new()
+	var/list/valid_accents = list()
 	for(var/current_accents in species.allowed_accents)
 		valid_accents += current_accents
-
 	return valid_accents
+
+/mob/living/carbon/human/proc/generate_valid_languages()
+	var/list/available_languages = species.secondary_langs.Copy()
+	for(var/L in all_languages)
+		var/datum/language/lang = all_languages[L]
+		if(!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))
+			available_languages |= L
+	return available_languages
 
 /mob/living/carbon/human/proc/set_accent(var/new_accent)
 	accent = new_accent
 	if(!(accent in species.allowed_accents))
 		accent = species.default_accent
+	return TRUE
+
+/mob/living/carbon/human/proc/add_or_remove_language(var/language)
+	var/datum/language/new_language = all_languages[language]
+	if(!new_language || !istype(new_language))
+		to_chat(src, SPAN_WARNING("Invalid language!"))
+		return TRUE
+	if(new_language in languages)
+		if(remove_language(language))
+			to_chat(src, SPAN_NOTICE("You no longer know <b>[new_language.name]</b>."))
+		return TRUE
+	var/total_alternate_languages = languages.Copy()
+	total_alternate_languages -= all_languages[LANGUAGE_TCB]
+	if(length(total_alternate_languages) >= species.num_alternate_languages)
+		to_chat(src, SPAN_WARNING("You can't add any more languages!"))
+		return TRUE
+	if(add_language(language))
+		to_chat(src, SPAN_NOTICE("You now know <b>[language]</b>."))
 	return TRUE
 
 /mob/living/carbon/human/verb/click_belt()

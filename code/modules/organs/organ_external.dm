@@ -82,6 +82,7 @@
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
 	var/list/cached_markings	// The two above lists cached for perf. reasons.
+	var/list/additional_images
 
 	var/atom/movable/applied_pressure //Pressure applied to wounds. It'll make them bleed less, generally.
 
@@ -377,20 +378,21 @@
 
 			if((brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
 
-				var/edge_eligible = 0
+				var/edge_eligible = FALSE
+				var/blunt_eligible = FALSE
 				var/maim_bonus = 0
 
-				if(istype(used_weapon,/obj/item))
+				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
 					if(isprojectile(W))
 						var/obj/item/projectile/P = W
+						if(P.damage_flags & DAM_BULLET)
+							blunt_eligible = TRUE
 						maim_bonus += P.maim_rate
 					else if(W.w_class >= w_class && edge)
-						edge_eligible = 1
-				else if(edge)
-					edge_eligible = 1
+						edge_eligible = TRUE
 
-				if(edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
+				if(!blunt_eligible && edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
 					droplimb(0, DROPLIMB_EDGE)
 				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
 					droplimb(0, DROPLIMB_BURN)
@@ -1316,6 +1318,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(!(limb_flags & ORGAN_HAS_TENDON) || (status & ORGAN_ROBOT) || (status & ORGAN_TENDON_CUT))
 		return FALSE
 
+	. = TRUE
+	playsound(src.loc, 'sound/effects/snap.ogg', 40, 1, -2)
+	status |= ORGAN_TENDON_CUT
+	if(!owner)
+		return
+
 	var/message = pick("tore apart", "ripped away")
 	owner.visible_message(\
 		"<span class='warning'><font size=2>You hear a loud snapping sound coming from \the [owner]!</font></span>",\
@@ -1324,10 +1332,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(owner.species && owner.can_feel_pain())
 		owner.emote("scream")
 		owner.flash_strong_pain()
-
-	playsound(src.loc, 'sound/effects/snap.ogg', 40, 1, -2)
-	status |= ORGAN_TENDON_CUT
-	return TRUE
 
 // Damage procs
 /obj/item/organ/external/proc/get_brute_damage()
