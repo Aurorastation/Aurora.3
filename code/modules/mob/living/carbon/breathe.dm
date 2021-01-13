@@ -23,10 +23,9 @@
 /mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
 	if(species && (species.flags & NO_BREATHE))
 		return
-	if(mind)
-		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
-		if(changeling?.space_adapted)
-			return
+	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
+	if(changeling?.space_adapted)
+		return
 	
 	volume_needed *= (species?.breath_vol_mul || 1)
 
