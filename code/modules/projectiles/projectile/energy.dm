@@ -16,6 +16,11 @@
 	var/brightness = 7
 	var/light_duration = 5
 
+/obj/item/projectile/energy/flash/build_bullet_trail()
+	var/image/bullet_trail = image('icons/obj/projectiles.dmi', src, "trail")
+	bullet_trail.filters = filter(type = "blur", size = 2)
+	underlays += bullet_trail
+
 /obj/item/projectile/energy/flash/on_impact(var/atom/A, affected_limb)
 	var/turf/T = flash_range ? src.loc : get_turf(A)
 	if(!istype(T))

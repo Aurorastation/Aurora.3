@@ -99,6 +99,13 @@
 	var/impact_type
 	var/hit_effect
 
+/obj/item/projectile/Initialize()
+	. = ..()
+	build_bullet_trail()
+
+/obj/item/projectile/proc/build_bullet_trail()
+	return
+
 /obj/item/projectile/CanPass()
 	return TRUE
 

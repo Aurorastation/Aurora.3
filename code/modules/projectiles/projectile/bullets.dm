@@ -13,6 +13,11 @@
 
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
+/obj/item/projectile/bullet/build_bullet_trail()
+	var/image/bullet_trail = image('icons/obj/projectiles.dmi', src, "trail")
+	bullet_trail.filters = filter(type = "blur", size = 2)
+	underlays += bullet_trail
+
 /obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if (..(target, blocked, def_zone))
 		var/mob/living/L = target
