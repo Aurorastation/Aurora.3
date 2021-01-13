@@ -374,14 +374,13 @@
 	icon_state = "tendril"
 	item_state = "blob_tendril"
 	w_class = ITEMSIZE_LARGE
+	reach = 2 // long range tentacle whips - geeves
 	attack_verb = list("smacked", "smashed", "whipped")
 	var/types_of_tendril = list(TENDRIL_SOLID, TENDRIL_FIRE)
 
 /obj/item/blob_tendril/Initialize()
 	. = ..()
-	var/tendril_type
-	tendril_type = pick(types_of_tendril)
-	reach = 2 // long range tentacle whips - geeves
+	var/tendril_type = pick(types_of_tendril)
 	switch(tendril_type)
 		if(TENDRIL_SOLID)
 			desc = "An incredibly dense, yet flexible, tendril, removed from an asteroclast."
