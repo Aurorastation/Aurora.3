@@ -84,8 +84,10 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if(mind?.vampire)
-		handle_vampire()
+	if(mind)
+		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+		if(vampire)
+			handle_vampire()
 
 /mob/living/carbon/human/think()
 	..()
@@ -726,8 +728,10 @@
 
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
-			stat = UNCONSCIOUS
-			adjustHalLoss(-3)
+			if(sleeping)
+				stat = UNCONSCIOUS
+
+			adjustHalLoss(-7)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -763,11 +767,11 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
-			adjustHalLoss(-3)
+			adjustHalLoss(-5)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-1)
+			adjustHalLoss(-3)
 
 		//Other
 		handle_statuses()
@@ -794,6 +798,11 @@
 	var/tmp/last_frenzy_state
 	var/tmp/last_oxy_overlay
 
+/mob/living/carbon/human/can_update_hud()
+	if((!client && !bg) || QDELETED(src))
+		return FALSE
+	return TRUE
+
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()
@@ -803,7 +812,7 @@
 		return
 
 	if(stat != DEAD)
-		if(stat == UNCONSCIOUS && health < maxHealth / 2)
+		if((stat == UNCONSCIOUS && health < maxHealth / 2) || paralysis || InStasis())
 			//Critical damage passage overlay
 			var/severity = 0
 			switch(health - maxHealth/2)
@@ -817,6 +826,8 @@
 				if(-90 to -80)			severity = 8
 				if(-95 to -90)			severity = 9
 				if(-INFINITY to -95)	severity = 10
+			if(paralysis || InStasis())
+				severity = max(severity, 8)
 			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
 		else
 			clear_fullscreen("crit")
@@ -850,6 +861,12 @@
 			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
 		else
 			clear_fullscreen("brute")
+
+		if(paralysis_indicator)
+			if(paralysis)
+				paralysis_indicator.icon_state = "paralysis1"
+			else
+				paralysis_indicator.icon_state = "paralysis0"
 
 		if(healths)
 			healths.overlays.Cut()
@@ -1041,8 +1058,10 @@
 			playsound_simple(null, pick(scarySounds), 50, TRUE)
 
 /mob/living/carbon/human/proc/handle_changeling()
-	if(mind && mind.changeling)
-		mind.changeling.regenerate()
+	if(mind)
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling)
+			changeling.regenerate()
 
 /mob/living/carbon/human/proc/handle_shock()
 	if(status_flags & GODMODE)
@@ -1114,10 +1133,12 @@
 */
 
 
-/mob/living/carbon/human/proc/handle_hud_list()
+/mob/living/carbon/human/proc/handle_hud_list(var/force_update = FALSE)
+	if(force_update)
+		hud_updateflag = 1022
 	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
 		var/image/holder = hud_list[HEALTH_HUD]
-		if(stat == DEAD)
+		if(stat == DEAD || (status_flags & FAKEDEATH))
 			holder.icon_state = "0" 	// X_X
 		else if(is_asystole())
 			holder.icon_state = "flatline"
@@ -1127,7 +1148,7 @@
 
 	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
 		var/image/holder = hud_list[LIFE_HUD]
-		if(stat == DEAD)
+		if(stat == DEAD || (status_flags & FAKEDEATH))
 			holder.icon_state = "huddead"
 		else
 			holder.icon_state = "hudhealthy"
@@ -1135,7 +1156,7 @@
 
 	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
 		var/image/holder = hud_list[STATUS_HUD]
-		if(stat == DEAD)
+		if(stat == DEAD || (status_flags & FAKEDEATH))
 			holder.icon_state = "huddead"
 		else if(status_flags & XENO_HOST)
 			holder.icon_state = "hudxeno"
@@ -1143,7 +1164,7 @@
 			holder.icon_state = "hudhealthy"
 
 		var/image/holder2 = hud_list[STATUS_HUD_OOC]
-		if(stat == DEAD)
+		if(stat == DEAD || (status_flags & FAKEDEATH))
 			holder2.icon_state = "huddead"
 		else if(status_flags & XENO_HOST)
 			holder2.icon_state = "hudxeno"

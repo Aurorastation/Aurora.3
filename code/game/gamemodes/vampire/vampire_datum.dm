@@ -60,6 +60,7 @@
 /datum/vampire/proc/lose_master(var/mob/M)
 	QDEL_NULL(thrall_image)
 	QDEL_NULL(master_image)
-	if(master?.mind?.vampire)
-		master.mind.vampire.thralls -= M
+	if(master)
+		var/datum/vampire/master_vampire = master.mind.antag_datums[MODE_VAMPIRE]
+		master_vampire.thralls -= M
 	master = null

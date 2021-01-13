@@ -89,7 +89,7 @@
 			P.damage_flags &= ~DAM_LASER
 
 	if(!P.nodamage)
-		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
+		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = P)
 		bullet_impact_visuals(P, def_zone, damaged)
 	P.on_hit(src, absorb, def_zone)
 	return absorb

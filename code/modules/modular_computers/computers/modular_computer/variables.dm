@@ -4,6 +4,7 @@
 	name = "Modular Computer"
 	desc = "A modular computer. You shouldn't see this."
 
+	var/lexical_name = "computer"
 	var/enabled = FALSE										// Whether the computer is turned on.
 	var/screen_on = TRUE									// Whether the computer is active/opened/it's screen is on.
 	var/working = TRUE										// Whether the computer is working.
