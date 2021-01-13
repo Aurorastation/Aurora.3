@@ -207,3 +207,9 @@
 	desc = "These glasses make use of scanning technology to allow the wearer to see objects through solid walls and floors."
 	item_cost = 2
 	path = /obj/item/clothing/glasses/material
+
+/datum/uplink_item/item/tools/earmuff_headset
+	name = "Earmuff Headset"
+	desc = "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
+	item_cost = 2
+	path = /obj/item/device/radio/headset/earmuff

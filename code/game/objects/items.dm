@@ -319,7 +319,7 @@
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
 // This shit exists so that dropped() could almost exclusively be called when an item is dropped.
 /obj/item/proc/on_slotmove(var/mob/user)
-	if (zoom)
+	if(zoom)
 		zoom(user)
 
 // called just as an item is picked up (loc is not yet changed)
@@ -444,7 +444,7 @@ var/list/global/slot_flags_enumeration = list(
 			if(!istype(src, /obj/item/handcuffs))
 				return 0
 		if(slot_legcuffed)
-			if(!istype(src, /obj/item/legcuffs))
+			if(!istype(src, /obj/item/handcuffs))
 				return 0
 		if(slot_in_backpack) //used entirely for equipping spawned mobs or at round start
 			var/allow = 0
@@ -741,9 +741,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		if (slot_wear_id)
 			M.update_inv_wear_id()
 		if (slot_l_ear)
-			M.update_inv_ears()
+			M.update_inv_l_ear()
 		if (slot_r_ear)
-			M.update_inv_ears()
+			M.update_inv_r_ear()
 		if (slot_glasses)
 			M.update_inv_glasses()
 		if (slot_gloves)
@@ -840,3 +840,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
 		return
 	usr.UnarmedAttack(src)
+
+/obj/item/proc/catch_fire()
+	return
+
+/obj/item/proc/extinguish_fire()
+	return

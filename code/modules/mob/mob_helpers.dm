@@ -19,6 +19,9 @@
 /mob/living/carbon/human/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
+/mob/living/carbon/human/proc/isShell()
+	return species && (species.name in list(SPECIES_IPC_SHELL, SPECIES_IPC_SHELL_ROGUE))
+
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A
@@ -1194,11 +1197,20 @@ proc/is_blind(A)
 		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
 
 /mob/assign_player(var/mob/user)
-  ckey = user.ckey
-  return src
+	ckey = user.ckey
+	return src
 
 /mob/proc/get_standard_pixel_x()
 	return initial(pixel_x)
 
 /mob/proc/get_standard_pixel_y()
 	return initial(pixel_y)
+
+/mob/proc/remove_nearsighted()
+	disabilities &= ~NEARSIGHTED
+
+/mob/proc/remove_deaf()
+	sdisabilities &= ~DEAF
+
+/mob/proc/get_antag_datum(var/antag_role)
+	return
