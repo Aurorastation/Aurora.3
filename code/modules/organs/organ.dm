@@ -289,7 +289,7 @@
 	if(!owner)
 		return
 
-	var/antibiotics = REAGENT_DATA(owner.reagents, /decl/reagent/thetamycin)
+	var/antibiotics = owner.chem_doses[/decl/reagent/thetamycin]
 
 	if (!germ_level || antibiotics < 5)
 		return

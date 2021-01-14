@@ -166,15 +166,14 @@
 
 /datum/reagents/proc/del_reagent(var/rtype, update = TRUE)
 	var/decl/reagent/current = decls_repository.get_decl(rtype)
-	if(REAGENT_VOLUME(src, rtype) <= 0)
-		LAZYREMOVE(reagent_data, rtype)
-		LAZYREMOVE(reagent_volumes, rtype)
-	else
+	if(REAGENT_VOLUME(src, rtype) > 0)
 		thermal_energy -= current.get_thermal_energy(src)
 	if(ismob(my_atom))
 		current.final_effect(my_atom, src)
 	if(primary_reagent == rtype)
 		primary_reagent = null
+	LAZYREMOVE(reagent_data, rtype)
+	LAZYREMOVE(reagent_volumes, rtype)
 	if(update)
 		update_holder(FALSE)
 	return FALSE
