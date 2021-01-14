@@ -128,6 +128,11 @@
 	item_cost = 35
 	path = /obj/item/antag_spawner/borg_tele
 
+/datum/uplink_item/item/tools/thermal_drill
+	name = "Thermal Safe Drill"
+	item_cost = 8
+	path = /obj/item/thermal_drill
+
 /datum/uplink_item/item/tools/heatpatch
 	name = "HUDPatch, Thermal"
 	item_cost = 6

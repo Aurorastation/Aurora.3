@@ -8,10 +8,11 @@ FLOOR SAFES
 /obj/structure/safe
 	name = "safe"
 	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Scarborough Arms - 2 tumbler safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\""
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/safe.dmi'
 	icon_state = "safe"
 	anchored = 1
 	density = 1
+	var/broken = FALSE	//is the tumbler broken into
 	var/open = 0		//is the safe open?
 	var/tumbler_1_pos	//the tumbler position- from 0 to 71
 	var/tumbler_1_open	//the tumbler position to open at- 0 to 71
@@ -21,17 +22,21 @@ FLOOR SAFES
 	var/space = 0		//the combined w_class of everything in the safe
 	var/maxspace = 24	//the maximum combined w_class of stuff in the safe
 
+	// Variables (Drill)
+	var/obj/item/thermal_drill/drill = null // The currently placed thermal drill, if any.
+	var/time_to_drill = 300 SECONDS			// Drill duration of the current thermal drill.
+	var/last_drill_time = 0					// Last world.time the drill time was checked. Used to reduce time_to_drill accurately
+	var/image/drill_overlay					// The drill overlay image to display during the drilling process.
+	var/drill_x_offset = -13				// The X pixel offset for the drill
+	var/drill_y_offset = -3					// The Y pixel offset for the drill
 
-/obj/structure/safe/New()
+/obj/structure/safe/Initialize()
+	. = ..()
 	tumbler_1_pos = rand(0, 71)
 	tumbler_1_open = rand(0, 71)
 
 	tumbler_2_pos = rand(0, 71)
 	tumbler_2_open = min(71 , max( 1 , abs(tumbler_1_open + rand(-34, 34))))
-
-
-/obj/structure/safe/Initialize()
-	. = ..()
 	for(var/obj/item/I in loc)
 		if(space >= maxspace)
 			return
@@ -39,6 +44,20 @@ FLOOR SAFES
 			space += I.w_class
 			I.forceMove(src)
 
+/obj/structure/safe/examine(mob/user)
+	. = ..()
+	if(broken)
+		to_chat(user, SPAN_WARNING("\The [src]'s locking system has been drilled open!"))
+	else if(time_to_drill < 300 SECONDS)
+		var/time_left = max(round(time_to_drill / 10), 0)
+		to_chat(user, SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!"))
+
+/obj/structure/safe/Destroy()
+	if(drill)
+		drill.soundloop.stop()
+		drill.forceMove(loc)
+		drill = null
+	return ..()
 
 /obj/structure/safe/proc/check_unlocked(mob/user as mob, canhear)
 	if(user && canhear)
@@ -68,22 +87,64 @@ FLOOR SAFES
 
 /obj/structure/safe/update_icon()
 	if(open)
-		icon_state = "[initial(icon_state)]-open"
+		if(broken)
+			icon_state = "[initial(icon_state)]-open-broken"
+		else
+			icon_state = "[initial(icon_state)]-open"
 	else
-		icon_state = initial(icon_state)
+		if(broken)
+			icon_state = "[initial(icon_state)]-broken"
+		else
+			icon_state = initial(icon_state)
 
+	cut_overlay(drill_overlay)
+	if(istype(drill, /obj/item/thermal_drill))
+		var/drill_icon = istype(drill, /obj/item/thermal_drill/diamond_drill) ? "d" : "h"
+		var/state = "[initial(icon_state)]_[drill_icon]-drill-[isprocessing ? "on" : "off"]"
+		drill_overlay = image(icon = 'icons/effects/drill.dmi', icon_state = state, pixel_x = drill_x_offset, pixel_y = drill_y_offset)
+		add_overlay(drill_overlay)
 
 /obj/structure/safe/attack_hand(mob/user as mob)
-	user.set_machine(src)
-	var/dat = "<center>"
-	dat += "<a href='?src=\ref[src];open=1'>[open ? "Close" : "Open"] [src]</a> | <a href='?src=\ref[src];decrement=1'>-</a> [dial * 5] <a href='?src=\ref[src];increment=1'>+</a>"
-	if(open)
-		dat += "<table>"
-		for(var/i = contents.len, i>=1, i--)
-			var/obj/item/P = contents[i]
-			dat += "<tr><td><a href='?src=\ref[src];retrieve=\ref[P]'>[P.name]</a></td></tr>"
-		dat += "</table></center>"
-	user << browse("<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=safe;size=350x300")
+	if(drill)
+		switch(alert("What would you like to do?", "Thermal Drill", "Turn [isprocessing ? "Off" : "On"]", "Remove Drill", "Cancel"))
+			if("Turn On")
+				if(!drill || isprocessing)
+					return
+				if(broken)
+					to_chat(user, SPAN_WARNING("\The [src] is already broken open!"))
+					return
+				if(do_after(user, 2 SECONDS))
+					last_drill_time = world.time
+					drill.soundloop.start()
+					START_PROCESSING(SSprocessing, src)
+					update_icon()
+			if("Turn Off")
+				if(!drill || !isprocessing)
+					return
+				if(do_after(user, 2 SECONDS))
+					drill.soundloop.stop()
+					STOP_PROCESSING(SSprocessing, src)
+					update_icon()
+			if("Remove Drill")
+				if(isprocessing)
+					to_chat(user, "<span class='warning'>You cannot remove the drill while it's running!</span>")
+				else if(do_after(user, 2 SECONDS))
+					user.put_in_hands(drill)
+					drill = null
+					update_icon()
+			if("Cancel")
+				return
+	else
+		user.set_machine(src)
+		var/dat = "<center>"
+		dat += "<a href='?src=\ref[src];open=1'>[open ? "Close" : "Open"] [src]</a>[drill || broken ? "" : " | <a href='?src=\ref[src];decrement=1'>-</a> [dial * 5] <a href='?src=\ref[src];increment=1'>+</a>"]"
+		if(open)
+			dat += "<table>"
+			for(var/i = contents.len, i>=1, i--)
+				var/obj/item/P = contents[i]
+				dat += "<tr><td><a href='?src=\ref[src];retrieve=\ref[P]'>[P.name]</a></td></tr>"
+			dat += "</table></center>"
+		user << browse("<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=safe;size=350x300")
 
 
 /obj/structure/safe/Topic(href, href_list)
@@ -95,7 +156,10 @@ FLOOR SAFES
 		canhear = 1
 
 	if(href_list["open"])
-		if(check_unlocked())
+		if(drill)
+			to_chat(user, SPAN_WARNING("You can't open \the [src] if there's a drill attached."))
+			return
+		if(broken || check_unlocked())
 			to_chat(user, "<span class='notice'>You [open ? "close" : "open"] [src].</span>")
 			open = !open
 			update_icon()
@@ -156,9 +220,33 @@ FLOOR SAFES
 			return
 	else
 		if(istype(I, /obj/item/clothing/accessory/stethoscope))
-			to_chat(user, "Hold [I] in one of your hands while you manipulate the dial.")
-			return
+			attack_hand(user)
+		else if(istype(I, /obj/item/thermal_drill))
+			if(drill)
+				to_chat(user, "<span class='warning'>There is already a drill attached!</span>")
+			else if(do_after(user, 2 SECONDS))
+				user.drop_from_inventory(I, src)
+				drill = I
+				update_icon()
+		else
+			to_chat(user, "<span class='warning'>You can't put [I] into the safe while it is closed!</span>")
 
+/obj/structure/safe/process()
+	if(!drill)
+		return
+	time_to_drill -= (world.time - last_drill_time) * drill.time_multiplier
+	last_drill_time = world.time
+	if(prob(15))
+		spark(loc, 3, alldirs)
+	if(time_to_drill <= 0)
+		drill_open()
+
+/obj/structure/safe/proc/drill_open()
+	broken = TRUE
+	if(drill)
+		drill.soundloop.stop()
+	STOP_PROCESSING(SSprocessing, src)
+	update_icon()
 
 obj/structure/safe/ex_act(severity)
 	return
@@ -170,6 +258,8 @@ obj/structure/safe/ex_act(severity)
 	density = 0
 	level = 1	//underfloor
 	layer = 2.5
+	drill_x_offset = -1
+	drill_y_offset = 20
 
 /obj/structure/safe/floor/Initialize()
 	. = ..()
