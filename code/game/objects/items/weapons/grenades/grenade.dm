@@ -3,17 +3,13 @@
 	desc = "A hand held grenade, with an adjustable timer."
 	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/grenade.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_grenade.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_grenade.dmi',
-		)
 	icon_state = "grenade"
 	item_state = "grenade"
+	contained_sprite = TRUE
 	throw_speed = 4
 	throw_range = 20
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	contained_sprite = 1
 	var/active = 0
 	var/det_time = 30
 	var/fake = FALSE
@@ -63,7 +59,7 @@
 	if(active)
 		return
 
-	if(user)
+	if(user?.client)
 		msg_admin_attack("[user.name] ([user.ckey]) primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 
 	icon_state = initial(icon_state) + "_active"

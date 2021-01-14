@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added tesla grenades."
+  - rscadd: "Cavern Dwellers now throw a bio version of the tesla grenade."

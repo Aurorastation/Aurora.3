@@ -6,8 +6,11 @@
 	icon_state = "dweller" //icons from europa station
 	icon_living = "dweller"
 	icon_dead = "dweller_dead"
-	ranged = 1
+
+	ranged = TRUE
 	smart = TRUE
+	has_special_attack = TRUE
+
 	turns_per_move = 3
 	organ_names = list("head", "central segment", "tail")
 	response_help = "pets"
@@ -47,8 +50,16 @@
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
+	butchering_products = list(/obj/item/grenade/tesla/bio = 1)
+
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
+
+/mob/living/simple_animal/hostile/retaliate/cavern_dweller/do_special_attack(target, location, user)
+	var/obj/item/grenade/tesla/bio/B = new /obj/item/grenade/tesla/bio(location)
+	B.activate(src)
+	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] launches \the [B] at \the [target]!"))
+	B.throw_at(target, 7, 5, src)
 
 /obj/item/projectile/beam/cavern
 	name = "electrical discharge"

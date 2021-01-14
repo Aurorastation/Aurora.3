@@ -952,6 +952,7 @@
 #include "code\game\objects\items\weapons\grenades\grenade.dm"
 #include "code\game\objects\items\weapons\grenades\smokebomb.dm"
 #include "code\game\objects\items\weapons\grenades\spawnergrenade.dm"
+#include "code\game\objects\items\weapons\grenades\tesla_grenade.dm"
 #include "code\game\objects\items\weapons\implants\implant.dm"
 #include "code\game\objects\items\weapons\implants\implantcase.dm"
 #include "code\game\objects\items\weapons\implants\implantcircuits.dm"

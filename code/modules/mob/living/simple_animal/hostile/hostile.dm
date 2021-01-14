@@ -4,11 +4,15 @@
 	var/mob/living/target_mob
 	var/belongs_to_station = FALSE
 	var/attack_same = 0
-	var/ranged = 0
-	var/rapid = 0
+
+	var/ranged = FALSE
+	var/rapid = FALSE
 	var/projectiletype
 	var/projectilesound
 	var/casingtype
+	var/has_special_attack
+	var/special_attack_chance = 20
+
 	var/move_to_delay = 4 //delay for the automated movement.
 	var/attack_delay = DEFAULT_ATTACK_COOLDOWN
 	var/list/friends = list()
@@ -232,6 +236,12 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 				target_mob = FindTarget()
 				attacked_times = 0
 
+/mob/living/simple_animal/hostile/proc/can_do_special_attack()
+	if(!has_special_attack)
+		return FALSE
+	if(!prob(special_attack_chance))
+		return FALSE
+	return TRUE
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
 	if(!see_target())
@@ -240,15 +250,18 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	// This code checks if we are not going to hit our target
 	if(smart && !check_fire(target_mob))
 		return
-	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
 
-	if(rapid)
-		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
-		addtimer(shoot_cb, 1)
-		addtimer(shoot_cb, 4)
-		addtimer(shoot_cb, 6)
+	if(can_do_special_attack())
+		do_special_attack(target, loc, src)
 	else
-		shoot_wrapper(target, loc, src)
+		visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
+		if(rapid)
+			var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
+			addtimer(shoot_cb, 1)
+			addtimer(shoot_cb, 4)
+			addtimer(shoot_cb, 6)
+		else
+			shoot_wrapper(target, loc, src)
 
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
@@ -276,6 +289,9 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(casingtype)
 		new casingtype(loc)
 		playsound(src, /decl/sound_category/casing_drop_sound, 50, TRUE)
+
+/mob/living/simple_animal/hostile/proc/do_special_attack(target, location, user)
+	return
 
 /mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)

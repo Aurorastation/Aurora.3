@@ -359,9 +359,12 @@ emp_act
 		var/zone
 		if (istype(O.thrower, /mob/living))
 			var/mob/living/L = O.thrower
-			zone = check_zone(L.zone_sel.selecting)
+			if(L.zone_sel?.selecting)
+				zone = check_zone(L.zone_sel.selecting)
+			else
+				zone = ran_zone(BP_CHEST, 75)
 		else
-			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
+			zone = ran_zone(BP_CHEST, 75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
