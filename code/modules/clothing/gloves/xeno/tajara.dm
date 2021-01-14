@@ -27,13 +27,29 @@
  	desc = "Brown gloves made for Tajaran use."
  	species_restricted = list(BODYTYPE_TAJARA)
 
+/obj/item/clothing/gloves/light_brown/tajara
+	desc = "Light brown gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
+
 /obj/item/clothing/gloves/green/tajara
  	desc = "Green gloves made for Tajaran use."
  	species_restricted = list(BODYTYPE_TAJARA)
 
+/obj/item/clothing/gloves/grey/tajara
+	desc = "Grey gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
+
 /obj/item/clothing/gloves/white/tajara
  	desc = "White gloves made for Tajaran use."
  	species_restricted = list (BODYTYPE_TAJARA)
+
+/obj/item/clothing/gloves/rainbow/tajara
+	desc = "Rainbow gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/gloves/black_leather/tajara
+	desc = "Black leather gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/black/tajara/smithgloves
 	name = "machinist gloves"

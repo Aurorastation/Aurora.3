@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the Djinn Tea glass sprite, also added a placeholder for missing sprites."

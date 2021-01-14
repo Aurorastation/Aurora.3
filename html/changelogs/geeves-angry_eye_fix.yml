@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Vampire blood eyes now properly disappear when they lose frenzy."
