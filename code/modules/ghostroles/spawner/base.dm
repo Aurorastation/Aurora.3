@@ -181,6 +181,9 @@
 
 //Proc to enable the ghostspawner
 /datum/ghostspawner/proc/enable()
+	if((max_count - count) <= 0)
+		to_chat(usr, "The ghostspawner can not be enabled - No slots available")
+		return
 	if(usr)
 		log_and_message_admins("has enabled the ghostspawner [src.name]")
 	enabled = TRUE

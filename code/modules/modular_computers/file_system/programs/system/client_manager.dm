@@ -70,7 +70,7 @@
 	computer.enrolled = 2 // private devices
 	computer.hard_drive.store_file(new /datum/computer_file/program/filemanager(computer))
 	computer.hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(computer))
-	computer.hard_drive.store_file(new /datum/computer_file/program/chatclient(computer))
+	computer.hard_drive.store_file(new /datum/computer_file/program/chat_client(computer))
 	return TRUE
 
 //Set´s up the programs from the preset

@@ -636,9 +636,9 @@
 	name = "Saline Plus"
 	id = "saline"
 	result = /datum/reagent/saline
-	required_reagents = list(/datum/reagent/water = 2, /datum/reagent/sugar = 0.2, /datum/reagent/sodiumchloride = 0.4)
+	required_reagents = list(/datum/reagent/water = 2, /datum/reagent/sugar = 0.5, /datum/reagent/sodiumchloride = 1)
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
-	result_amount = 1
+	result_amount = 2
 
 /datum/chemical_reaction/cataleptinol
 	name = "Cataleptinol"
