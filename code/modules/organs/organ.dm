@@ -286,10 +286,10 @@
 
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
-	if(!owner)
+	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects))
 		return
 
-	var/antibiotics = owner.chem_doses[/decl/reagent/thetamycin]
+	var/antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
 	if (!germ_level || antibiotics < 5)
 		return
