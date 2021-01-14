@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Animals that only attack when attacked now properly add the person who attacks them to their target list."
+  - tweak: "Retaliating animals now only attack the person who attacked them."
