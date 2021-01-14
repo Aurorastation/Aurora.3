@@ -40,17 +40,16 @@
 
 	if(!istype(T) || amount < 3)
 		return
-
-	var/datum/weakref/W = holder.reagent_data[type]["donor"]
-	if (!W)
+	var/list/rdata = REAGENT_DATA(holder, type)
+	if(isemptylist(rdata))
+		return
+	var/datum/weakref/W = rdata["donor"]
+	var/mob/living/carbon/C = W?.resolve()
+	if (!C || istype(C, /mob/living/carbon/human))
 		blood_splatter(T, src, 1)
 		return
 
-	W = W.resolve()
-	if(istype(W, /mob/living/carbon/human))
-		blood_splatter(T, src, 1)
-
-	else if(istype(W, /mob/living/carbon/alien))
+	else if(istype(C, /mob/living/carbon/alien))
 		var/obj/effect/decal/cleanable/blood/B = blood_splatter(T, src, 1)
 		if(B)
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
