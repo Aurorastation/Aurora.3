@@ -19,64 +19,43 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 		if(new_label)
 			name = "solution tray ([new_label])"
 			to_chat(user, "<span class='notice'>You write on the label of the solution tray.</span>")
-	else
-		..(W, user)
+		return
+	..(W, user)
 
 /obj/item/storage/box/solution_trays
 	name = "solution tray box"
 	icon_state = "solution_trays"
 
-	fill()
-		..()
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
+/obj/item/storage/box/solution_trays/fill()
+	..()
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
 
 /obj/item/reagent_containers/glass/beaker/tungsten
 	name = "beaker 'tungsten'"
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/datum/reagent/tungsten,50)
-		update_icon()
+	reagents_to_add = list(/datum/reagent/tungsten = 50)
 
 /obj/item/reagent_containers/glass/beaker/oxygen
-	name = "beaker 'oxygen'"
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/datum/reagent/acetone,50)
-		update_icon()
+	name = "beaker 'acetone'"
+	reagents_to_add = list(/datum/reagent/acetone = 50)
 
 /obj/item/reagent_containers/glass/beaker/sodium
 	name = "beaker 'sodium'"
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/datum/reagent/sodium,50)
-		update_icon()
+	reagents_to_add = list(/datum/reagent/sodium = 50)
 
 /obj/item/reagent_containers/glass/beaker/lithium
 	name = "beaker 'lithium'"
-
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/datum/reagent/lithium,50)
-		update_icon()
+	reagents_to_add = list(/datum/reagent/lithium = 50)
 
 /obj/item/reagent_containers/glass/beaker/water
 	name = "beaker 'water'"
-
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/datum/reagent/water,50)
-		update_icon()
+	reagents_to_add = list(/datum/reagent/water = 50)
 
 /obj/item/reagent_containers/glass/beaker/fuel
 	name = "beaker 'fuel'"
-
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/datum/reagent/fuel,50)
-		update_icon()
+	reagents_to_add = list(/datum/reagent/fuel = 50)

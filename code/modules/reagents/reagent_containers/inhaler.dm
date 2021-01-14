@@ -130,41 +130,40 @@
 	name = "autoinhaler (dexalin)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains dexalin."
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/dexalin, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/dexalin/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/dexalin, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/peridaxon
 	name = "autoinhaler (peridaxon)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains peridaxon."
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/peridaxon, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/peridaxon/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/peridaxon, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/hyperzine
 	name = "autoinhaler (hyperzine)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains hyperzine."
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/hyperzine, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/hyperzine/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/hyperzine, volume)
+	update_icon()
 
 /obj/item/reagent_containers/inhaler/phoron
 	name = "autoinhaler (phoron)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains phoron."
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/phoron/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
+	update_icon()
+
 
 /obj/item/reagent_containers/inhaler/phoron_special
 	name = "vaurca autoinhaler (phoron)"
@@ -172,11 +171,11 @@
 	icon_state = "anthaler1"
 	empty_state = "anthaler0"
 	volume = 10
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/phoron_special/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/soporific
 	name = "autoinhaler (soporific)"
@@ -185,41 +184,43 @@
 	empty_state = "so_inhaler0"
 	volume = 10
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/soporific, volume)
-		update_icon()
-		return
+
+/obj/item/reagent_containers/inhaler/soporific/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/soporific, volume)
+	update_icon()
+
 
 /obj/item/reagent_containers/inhaler/space_drugs
 	name = "autoinhaler (space drugs)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains space drugs."
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/space_drugs, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/space_drugs/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/space_drugs, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/ammonia
 	name = "autoinhaler (ammonia)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains ammonia."
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/ammonia, volume)
-		update_icon()
-		return
+
+/obj/item/reagent_containers/inhaler/ammonia/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/ammonia, volume)
+	update_icon()
+
 
 /obj/item/reagent_containers/inhaler/pulmodeiectionem
 	name = "autoinhaler (pulmodeiectionem)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pulmodeiectionem."
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/pulmodeiectionem, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/pulmodeiectionem/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/pulmodeiectionem, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/pneumalin
 	name = "autoinhaler (pneumalin)"
@@ -228,8 +229,9 @@
 	empty_state = "so_inhaler0"
 	volume = 10
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/pneumalin, volume)
-		update_icon()
-		return
+
+/obj/item/reagent_containers/inhaler/pneumalin/Initialize()
+	. =..()
+	reagents.add_reagent(/datum/reagent/pneumalin, volume)
+	update_icon()
+

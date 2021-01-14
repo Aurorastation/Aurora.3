@@ -1,15 +1,12 @@
 //device to take core samples from mineral turfs - used for various types of analysis
 
+/obj/item/evidencebag/samplebag
+	name = "sample bag"
+	desc = "a bag for holding research samples."
 /obj/item/storage/box/samplebags
 	name = "sample bag box"
 	desc = "A box claiming to contain sample bags."
-	New()
-		for(var/i=0, i<7, i++)
-			var/obj/item/evidencebag/S = new(src)
-			S.name = "sample bag"
-			S.desc = "a bag for holding research samples."
-		..()
-		return
+	starts_with = list(/obj/item/evidencebag/samplebag = 7)
 
 //////////////////////////////////////////////////////////////////
 

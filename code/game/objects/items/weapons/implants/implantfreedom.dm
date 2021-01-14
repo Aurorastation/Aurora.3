@@ -8,53 +8,53 @@
 	var/uses = 1.0
 
 
-	New()
-		src.activation_emote = pick("blink", "blink_r", "eyebrow", "chuckle", "twitch_s", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
-		src.uses = rand(1, 5)
-		..()
-		return
+/obj/item/implant/freedom/New()
+	src.activation_emote = pick("blink", "blink_r", "eyebrow", "chuckle", "twitch_s", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
+	src.uses = rand(1, 5)
+	..()
+	return
 
 
-	trigger(emote, mob/living/carbon/source as mob)
-		if (src.uses < 1)	return 0
-		if (emote == src.activation_emote)
-			src.uses--
-			to_chat(source, "You feel a faint click.")
-			if (source.handcuffed)
-				var/obj/item/W = source.handcuffed
-				source.handcuffed = null
-				if(source.buckled && source.buckled.buckle_require_restraints)
-					source.buckled.unbuckle_mob()
-				source.update_inv_handcuffed()
-				if (source.client)
-					source.client.screen -= W
+/obj/item/implant/freedom/trigger(emote, mob/living/carbon/source as mob)
+	if (src.uses < 1)	return 0
+	if (emote == src.activation_emote)
+		src.uses--
+		to_chat(source, "You feel a faint click.")
+		if (source.handcuffed)
+			var/obj/item/W = source.handcuffed
+			source.handcuffed = null
+			if(source.buckled && source.buckled.buckle_require_restraints)
+				source.buckled.unbuckle_mob()
+			source.update_inv_handcuffed()
+			if (source.client)
+				source.client.screen -= W
+			if (W)
+				W.forceMove(source.loc)
+				dropped(source)
 				if (W)
-					W.forceMove(source.loc)
-					dropped(source)
-					if (W)
-						W.layer = initial(W.layer)
-			if (source.legcuffed)
-				var/obj/item/W = source.legcuffed
-				source.legcuffed = null
-				source.update_inv_legcuffed()
-				if (source.client)
-					source.client.screen -= W
+					W.layer = initial(W.layer)
+		if (source.legcuffed)
+			var/obj/item/W = source.legcuffed
+			source.legcuffed = null
+			source.update_inv_legcuffed()
+			if (source.client)
+				source.client.screen -= W
+			if (W)
+				W.forceMove(source.loc)
+				dropped(source)
 				if (W)
-					W.forceMove(source.loc)
-					dropped(source)
-					if (W)
-						W.layer = initial(W.layer)
-		return
+					W.layer = initial(W.layer)
+	return
 
 
-	implanted(mob/living/carbon/source)
-		source.mind.store_memory("Freedom implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.", 0, 0)
-		to_chat(source, "The implanted freedom implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.")
-		return 1
+/obj/item/implant/freedom/implanted(mob/living/carbon/source)
+	source.mind.store_memory("Freedom implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.", 0, 0)
+	to_chat(source, "The implanted freedom implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.")
+	return 1
 
 
-	get_data()
-		var/dat = {"
+/obj/item/implant/freedom/get_data()
+	var/dat = {"
 <b>Implant Specifications:</b><BR>
 <b>Name:</b> Freedom Beacon<BR>
 <b>Life:</b> optimum 5 uses<BR>
@@ -68,4 +68,4 @@ mechanisms<BR>
 <b>Integrity:</b> The battery is extremely weak and commonly after injection its
 life can drive down to only 1 use.<HR>
 No Implant Specifics"}
-		return dat
+	return dat

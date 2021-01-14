@@ -47,15 +47,15 @@
 /obj/structure/bookcase/manuals/xenoarchaeology
 	name = "Xenoarchaeology Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/book/manual/excavation(src)
-		new /obj/item/book/manual/mass_spectrometry(src)
-		new /obj/item/book/manual/materials_chemistry_analysis(src)
-		new /obj/item/book/manual/anomaly_testing(src)
-		new /obj/item/book/manual/anomaly_spectroscopy(src)
-		new /obj/item/book/manual/stasis(src)
-		update_icon()
+/obj/structure/bookcase/manuals/xenoarchaeology/New()
+	..()
+	new /obj/item/book/manual/excavation(src)
+	new /obj/item/book/manual/mass_spectrometry(src)
+	new /obj/item/book/manual/materials_chemistry_analysis(src)
+	new /obj/item/book/manual/anomaly_testing(src)
+	new /obj/item/book/manual/anomaly_spectroscopy(src)
+	new /obj/item/book/manual/stasis(src)
+	update_icon()
 
 //---- Lockers and closets
 
@@ -69,17 +69,16 @@
 	icon_broken = "secureresbroken"
 	icon_off = "secureresoff"
 
-	New()
-		..()
-		sleep(2)
-		new /obj/item/clothing/under/rank/scientist(src)
-		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-		new /obj/item/clothing/shoes/science(src)
-		new /obj/item/clothing/glasses/science(src)
-		new /obj/item/device/radio/headset/headset_sci(src)
-		new /obj/item/storage/belt/archaeology(src)
-		new /obj/item/storage/box/excavation(src)
-		return
+/obj/structure/closet/secure_closet/xenoarchaeologist/fill()
+	..()
+	new /obj/item/clothing/under/rank/scientist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
+	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/glasses/science(src)
+	new /obj/item/device/radio/headset/headset_sci(src)
+	new /obj/item/storage/belt/archaeology(src)
+	new /obj/item/storage/box/excavation(src)
+	return
 
 /obj/structure/closet/excavation
 	name = "Excavation tools"
@@ -87,24 +86,23 @@
 	icon_closed = "toolcloset"
 	icon_opened = "toolclosetopen"
 
-	New()
-		..()
-		sleep(2)
-		new /obj/item/storage/belt/archaeology(src)
-		new /obj/item/storage/box/excavation(src)
-		new /obj/item/device/flashlight/lantern(src)
-		new /obj/item/device/ano_scanner(src)
-		new /obj/item/device/depth_scanner(src)
-		new /obj/item/device/core_sampler(src)
-		new /obj/item/device/gps(src)
-		new /obj/item/device/beacon_locator(src)
-		new /obj/item/device/radio/beacon(src)
-		new /obj/item/pickaxe(src)
-		new /obj/item/device/measuring_tape(src)
-		new /obj/item/pickaxe/hand(src)
-		new /obj/item/storage/bag/fossils(src)
-		new /obj/item/hand_labeler(src)
-		return
+/obj/structure/closet/excavation/fill()
+	..()
+	new /obj/item/storage/belt/archaeology(src)
+	new /obj/item/storage/box/excavation(src)
+	new /obj/item/device/flashlight/lantern(src)
+	new /obj/item/device/ano_scanner(src)
+	new /obj/item/device/depth_scanner(src)
+	new /obj/item/device/core_sampler(src)
+	new /obj/item/device/gps(src)
+	new /obj/item/device/beacon_locator(src)
+	new /obj/item/device/radio/beacon(src)
+	new /obj/item/pickaxe(src)
+	new /obj/item/device/measuring_tape(src)
+	new /obj/item/pickaxe/hand(src)
+	new /obj/item/storage/bag/fossils(src)
+	new /obj/item/hand_labeler(src)
+	return
 
 //---- Isolation room air alarms
 

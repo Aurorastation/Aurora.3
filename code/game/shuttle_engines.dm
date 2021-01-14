@@ -11,9 +11,9 @@
 	anchored = 1
 	atmos_canpass = CANPASS_NEVER
 
-	CanPass(atom/movable/mover, turf/target, height, air_group)
-		if(!height || air_group) return 0
-		else return ..()
+/obj/structure/shuttle/window/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(!height || air_group) return 0
+	else return ..()
 
 /obj/structure/shuttle/engine
 	name = "engine"

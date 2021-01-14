@@ -469,18 +469,18 @@
 	var/target_temp = T0C - 40
 	var/cooling_power = 40
 
-	return_air()
-		var/datum/gas_mixture/gas = (..())
-		if(!gas)	return null
-		var/datum/gas_mixture/newgas = new/datum/gas_mixture()
-		newgas.copy_from(gas)
-		if(newgas.temperature <= target_temp)	return
+/obj/structure/closet/crate/freezer/return_air()
+	var/datum/gas_mixture/gas = (..())
+	if(!gas)	return null
+	var/datum/gas_mixture/newgas = new/datum/gas_mixture()
+	newgas.copy_from(gas)
+	if(newgas.temperature <= target_temp)	return
 
-		if((newgas.temperature - cooling_power) > target_temp)
-			newgas.temperature -= cooling_power
-		else
-			newgas.temperature = target_temp
-		return newgas
+	if((newgas.temperature - cooling_power) > target_temp)
+		newgas.temperature -= cooling_power
+	else
+		newgas.temperature = target_temp
+	return newgas
 
 /obj/structure/closet/crate/freezer/rations //For use in the escape shuttle
 	name = "emergency rations"
@@ -655,18 +655,16 @@
 	icon_opened = "hydrocrateopen"
 	icon_closed = "hydrocrate"
 
-/obj/structure/closet/crate/hydroponics/prespawned
-	//This exists so the prespawned hydro crates spawn with their contents.
-
-	fill()
-		new /obj/item/reagent_containers/spray/plantbgone(src)
-		new /obj/item/reagent_containers/spray/plantbgone(src)
-		new /obj/item/material/minihoe(src)
-//		new /obj/item/weedspray(src)
-//		new /obj/item/weedspray(src)
-//		new /obj/item/pestspray(src)
-//		new /obj/item/pestspray(src)
-//		new /obj/item/pestspray(src)
+//This exists so the prespawned hydro crates spawn with their contents.
+/obj/structure/closet/crate/hydroponics/prespawned/fill()
+	new /obj/item/reagent_containers/spray/plantbgone(src)
+	new /obj/item/reagent_containers/spray/plantbgone(src)
+	new /obj/item/material/minihoe(src)
+//	new /obj/item/weedspray(src)
+//	new /obj/item/weedspray(src)
+//	new /obj/item/pestspray(src)
+//	new /obj/item/pestspray(src)
+//	new /obj/item/pestspray(src)
 
 
 

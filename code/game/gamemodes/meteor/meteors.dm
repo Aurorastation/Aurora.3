@@ -185,60 +185,62 @@
 	shieldsoundrange = 310//This can be set larger than the dimensions of the map, to allow it to remain louder at extreme distance
 	dropamt = 5
 
-	ex_act(severity)
+/obj/effect/meteor/big/ex_act(severity)
+	return
+
+/obj/effect/meteor/big/Collide(atom/A)
+	if (done)
 		return
+	INVOKE_ASYNC(src, .proc/lateCollide, A)
 
-	Collide(atom/A)
-		if (!done)
-			spawn(0)
-				//Prevent meteors from blowing up the singularity's containment.
-				//Changing emitter and generator ex_act would result in them being bomb and C4 proof
-				if(!istype(A,/obj/machinery/power/emitter) && \
-					!istype(A,/obj/machinery/field_generator))
-					if(--src.hits <= 0)
-						qdel(src) //Dont blow up singularity containment if we get stuck there.
+/obj/effect/meteor/big/proc/lateCollide(atom/A)
+	//Prevent meteors from blowing up the singularity's containment.
+	//Changing emitter and generator ex_act would result in them being bomb and C4 proof
+	if(!istype(A,/obj/machinery/power/emitter) && \
+		!istype(A,/obj/machinery/field_generator))
+		if(--src.hits <= 0)
+			qdel(src) //Dont blow up singularity containment if we get stuck there.
+			return
 
-				if (istype(A, /obj/effect/energy_field))//If a big meteor impacts an energy field, then it detonates immediately with reduced power
-					done = 1
-					hits = 0
-					power *= 0.5
-					power_step *= 0.5
-					for(var/mob/M in player_list)
-						var/turf/T = get_turf(M)
-						if(!T || T.z != src.z)
-							continue
-						shake_camera(M, 3, get_dist(M.loc, src.loc) > 20 ? 1 : 3)
-					var/turf/T = src.loc
-					if (!T)
-						T = A.loc
+	if (istype(A, /obj/effect/energy_field))//If a big meteor impacts an energy field, then it detonates immediately with reduced power
+		done = 1
+		hits = 0
+		power *= 0.5
+		power_step *= 0.5
+		for(var/mob/M in player_list)
+			var/turf/T = get_turf(M)
+			if(!T || T.z != src.z)
+				continue
+			shake_camera(M, 3, get_dist(M.loc, src.loc) > 20 ? 1 : 3)
+		var/turf/T = src.loc
+		if (!T)
+			T = A.loc
 
-					if (T)
-						meteor_shield_impact_sound(T, shieldsoundrange)
-					explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
-					msg_admin_attack("Large Meteor impacted energy field and then exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
-					spawn()//Have to delay the qdel a little, or the playsound will throw a runtime
-						qdel(src)
+		if (T)
+			meteor_shield_impact_sound(T, shieldsoundrange)
+		explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
+		msg_admin_attack("Large Meteor impacted energy field and then exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+		QDEL_IN(src, 0)
 
-				else if (A)
-					for(var/mob/M in player_list)
-						var/turf/T = get_turf(M)
-						if(!T || T.z != src.z)
-							continue
-						shake_camera(M, 3, get_dist(M.loc, src.loc) > 20 ? 1 : 3)
-						playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
-					explosion(src.loc, 0, 1, 2, 3, 0)
-					make_debris()
-					meteor_effect()
+	else if (A)
+		for(var/mob/M in player_list)
+			var/turf/T = get_turf(M)
+			if(!T || T.z != src.z)
+				continue
+			shake_camera(M, 3, get_dist(M.loc, src.loc) > 20 ? 1 : 3)
+			playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
+		explosion(src.loc, 0, 1, 2, 3, 0)
+		make_debris()
+		meteor_effect()
 
-				if (--src.hits == 0 && !done)
-					done = 1
-					if(prob(detonation_chance) && !istype(A, /obj/structure/grille))
-						explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
-						msg_admin_attack("Large Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
-					else
-						msg_admin_attack("Large Meteor dissipated without a final explosion at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
-					spawn()
-						qdel(src)
+	if (--src.hits == 0 && !done)
+		done = 1
+		if(prob(detonation_chance) && !istype(A, /obj/structure/grille))
+			explosion(loc, power, power + power_step, power + power_step * 2, power + power_step * 3, 0)
+			msg_admin_attack("Large Meteor exploded at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+		else
+			msg_admin_attack("Large Meteor dissipated without a final explosion at coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+		QDEL_IN(src, 0)
 
 /obj/effect/meteor/dust
 	name = "space dust"

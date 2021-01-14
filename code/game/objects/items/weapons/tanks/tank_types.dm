@@ -65,10 +65,10 @@
 	desc = "Mixed anyone?"
 	icon_state = GAS_OXYGEN
 
-	examine(mob/user)
-		if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
-			to_chat(user, "<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>")
-			user << sound('sound/effects/alert.ogg')
+/obj/item/tank/air/examine(mob/user)
+	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
+		to_chat(user, "<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>")
+		user << sound('sound/effects/alert.ogg')
 
 /obj/item/tank/air/Initialize()
 	. = ..()

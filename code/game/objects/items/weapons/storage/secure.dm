@@ -28,104 +28,100 @@
 	max_storage_space = 14
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
-	examine(mob/user)
-		if(..(user, 1))
-			to_chat(user, text("The service panel is [src.open ? "open" : "closed"]."))
+/obj/item/storage/secure/examine(mob/user)
+	if(..(user, 1))
+		to_chat(user, text("The service panel is [src.open ? "open" : "closed"]."))
 
-	attackby(obj/item/W as obj, mob/user as mob)
-		if(locked)
-			if (istype(W, /obj/item/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
-				var/obj/item/melee/energy/blade/blade = W
-				blade.spark_system.queue()
-				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-				playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
-				return
+/obj/item/storage/secure/attackby(obj/item/W as obj, mob/user as mob)
+	if(!locked)
+		return ..() // -> storage/attackby() what with handle insertion, etc
 
-			if (W.isscrewdriver())
-				if (do_after(user, 20/W.toolspeed))
-					src.open =! src.open
-					user.show_message(text("<span class='notice'>You [] the service panel.</span>", (src.open ? "open" : "close")))
-				return
-			if ((W.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
-				user.show_message("<span class='notice'>Now attempting to reset internal memory, please hold.</span>", 1)
-				src.l_hacking = 1
-				if (do_after(usr, 100))
-					if (prob(40))
-						src.l_setshort = 1
-						src.l_set = 0
-						user.show_message("<span class='notice'>Internal memory reset. Please give it a few seconds to reinitialize.</span>", 1)
-						sleep(80)
-						src.l_setshort = 0
-						src.l_hacking = 0
-					else
-						user.show_message("<span class='warning'>Unable to reset internal memory.</span>", 1)
-						src.l_hacking = 0
-				else	src.l_hacking = 0
-				return
-			//At this point you have exhausted all the special things to do when locked
-			// ... but it's still locked.
-			return
-
-		// -> storage/attackby() what with handle insertion, etc
-		..()
-
-
-	MouseDrop(over_object, src_location, over_location)
-		if (locked)
-			src.add_fingerprint(usr)
-			return
-		..()
-
-
-	attack_self(mob/user as mob)
-		user.set_machine(src)
-		var/dat = text("<TT><B>[]</B><BR>\n\nLock Status: []",src, (src.locked ? "LOCKED" : "UNLOCKED"))
-		var/message = "Code"
-		if ((src.l_set == 0) && (!src.emagged) && (!src.l_setshort))
-			dat += text("<p>\n<b>5-DIGIT PASSCODE NOT SET.<br>ENTER NEW PASSCODE.</b>")
-		if (src.emagged)
-			dat += text("<p>\n<font color=red><b>LOCKING SYSTEM ERROR - 1701</b></font>")
-		if (src.l_setshort)
-			dat += text("<p>\n<font color=red><b>ALERT: MEMORY SYSTEM ERROR - 6040 201</b></font>")
-		message = text("[]", src.code)
-		if (!src.locked)
-			message = "*****"
-		dat += text("<HR>\n>[]<BR>\n<A href='?src=\ref[];type=1'>1</A>-<A href='?src=\ref[];type=2'>2</A>-<A href='?src=\ref[];type=3'>3</A><BR>\n<A href='?src=\ref[];type=4'>4</A>-<A href='?src=\ref[];type=5'>5</A>-<A href='?src=\ref[];type=6'>6</A><BR>\n<A href='?src=\ref[];type=7'>7</A>-<A href='?src=\ref[];type=8'>8</A>-<A href='?src=\ref[];type=9'>9</A><BR>\n<A href='?src=\ref[];type=R'>R</A>-<A href='?src=\ref[];type=0'>0</A>-<A href='?src=\ref[];type=E'>E</A><BR>\n</TT>", message, src, src, src, src, src, src, src, src, src, src, src, src)
-		send_theme_resources(user)
-		user << browse(enable_ui_theme(user, dat), "window=caselock;size=300x280")
-
-	Topic(href, href_list)
-		..()
-		if ((usr.stat || usr.restrained()) || (get_dist(src, usr) > 1))
-			return
-		if (href_list["type"])
-			if (href_list["type"] == "E")
-				if ((src.l_set == 0) && (length(src.code) == 5) && (!src.l_setshort) && (src.code != "ERROR"))
-					src.l_code = src.code
-					src.l_set = 1
-				else if ((src.code == src.l_code) && (src.emagged == 0) && (src.l_set == 1))
-					src.locked = 0
-					cut_overlays()
-					add_overlay(icon_opened)
-					src.code = null
-				else
-					src.code = "ERROR"
-			else
-				if ((href_list["type"] == "R") && (src.emagged == 0) && (!src.l_setshort))
-					src.locked = 1
-					cut_overlays()
-					src.code = null
-					src.close(usr)
-				else
-					src.code += text("[]", href_list["type"])
-					if (length(src.code) > 5)
-						src.code = "ERROR"
-			src.add_fingerprint(usr)
-			for(var/mob/M in viewers(1, src.loc))
-				if ((M.client && M.machine == src))
-					src.attack_self(M)
-				return
+	if (istype(W, /obj/item/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
+		var/obj/item/melee/energy/blade/blade = W
+		blade.spark_system.queue()
+		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
+		playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 		return
+
+	if (W.isscrewdriver())
+		if (do_after(user, 20/W.toolspeed))
+			src.open =! src.open
+			user.show_message(text("<span class='notice'>You [] the service panel.</span>", (src.open ? "open" : "close")))
+		return
+	if ((W.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
+		user.show_message("<span class='notice'>Now attempting to reset internal memory, please hold.</span>", 1)
+		src.l_hacking = 1
+		if (do_after(usr, 100))
+			if (prob(40))
+				src.l_setshort = 1
+				src.l_set = 0
+				user.show_message("<span class='notice'>Internal memory reset. Please give it a few seconds to reinitialize.</span>", 1)
+				sleep(80)
+				src.l_setshort = 0
+				src.l_hacking = 0
+			else
+				user.show_message("<span class='warning'>Unable to reset internal memory.</span>", 1)
+				src.l_hacking = 0
+		else	src.l_hacking = 0
+		return
+	//At this point you have exhausted all the special things to do when locked
+	// ... but it's still locked.
+
+
+/obj/item/storage/secure/MouseDrop(over_object, src_location, over_location)
+	if (!locked)
+		return ..()
+	src.add_fingerprint(usr)
+
+/obj/item/storage/secure/attack_self(mob/user as mob)
+	user.set_machine(src)
+	var/dat = text("<TT><B>[]</B><BR>\n\nLock Status: []",src, (src.locked ? "LOCKED" : "UNLOCKED"))
+	var/message = "Code"
+	if ((src.l_set == 0) && (!src.emagged) && (!src.l_setshort))
+		dat += text("<p>\n<b>5-DIGIT PASSCODE NOT SET.<br>ENTER NEW PASSCODE.</b>")
+	if (src.emagged)
+		dat += text("<p>\n<font color=red><b>LOCKING SYSTEM ERROR - 1701</b></font>")
+	if (src.l_setshort)
+		dat += text("<p>\n<font color=red><b>ALERT: MEMORY SYSTEM ERROR - 6040 201</b></font>")
+	message = text("[]", src.code)
+	if (!src.locked)
+		message = "*****"
+	dat += text("<HR>\n>[]<BR>\n<A href='?src=\ref[];type=1'>1</A>-<A href='?src=\ref[];type=2'>2</A>-<A href='?src=\ref[];type=3'>3</A><BR>\n<A href='?src=\ref[];type=4'>4</A>-<A href='?src=\ref[];type=5'>5</A>-<A href='?src=\ref[];type=6'>6</A><BR>\n<A href='?src=\ref[];type=7'>7</A>-<A href='?src=\ref[];type=8'>8</A>-<A href='?src=\ref[];type=9'>9</A><BR>\n<A href='?src=\ref[];type=R'>R</A>-<A href='?src=\ref[];type=0'>0</A>-<A href='?src=\ref[];type=E'>E</A><BR>\n</TT>", message, src, src, src, src, src, src, src, src, src, src, src, src)
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=caselock;size=300x280")
+
+/obj/item/storage/secure/Topic(href, href_list)
+	..()
+	if ((usr.stat || usr.restrained()) || (get_dist(src, usr) > 1))
+		return
+	if (href_list["type"])
+		if (href_list["type"] == "E")
+			if ((src.l_set == 0) && (length(src.code) == 5) && (!src.l_setshort) && (src.code != "ERROR"))
+				src.l_code = src.code
+				src.l_set = 1
+			else if ((src.code == src.l_code) && (src.emagged == 0) && (src.l_set == 1))
+				src.locked = 0
+				cut_overlays()
+				add_overlay(icon_opened)
+				src.code = null
+			else
+				src.code = "ERROR"
+		else
+			if ((href_list["type"] == "R") && (src.emagged == 0) && (!src.l_setshort))
+				src.locked = 1
+				cut_overlays()
+				src.code = null
+				src.close(usr)
+			else
+				src.code += text("[]", href_list["type"])
+				if (length(src.code) > 5)
+					src.code = "ERROR"
+		src.add_fingerprint(usr)
+		for(var/mob/M in viewers(1, src.loc))
+			if ((M.client && M.machine == src))
+				src.attack_self(M)
+			return
+	return
 
 /obj/item/storage/secure/emag_act(var/remaining_charges, var/mob/user, var/feedback)
 	if(!emagged)
@@ -156,18 +152,18 @@
 	throw_range = 4
 	w_class = ITEMSIZE_LARGE
 
-	attack_hand(mob/user as mob)
-		if ((src.loc == user) && (src.locked == 1))
-			to_chat(usr, "<span class='warning'>[src] is locked and cannot be opened!</span>")
-		else if ((src.loc == user) && (!src.locked))
-			src.open(usr)
-		else
-			..()
-			for(var/mob/M in range(1))
-				if (M.s_active == src)
-					src.close(M)
-		src.add_fingerprint(user)
-		return
+/obj/item/storage/secure/briefcase/attack_hand(mob/user as mob)
+	if ((src.loc == user) && (src.locked == 1))
+		to_chat(usr, "<span class='warning'>[src] is locked and cannot be opened!</span>")
+	else if ((src.loc == user) && (!src.locked))
+		src.open(usr)
+	else
+		..()
+		for(var/mob/M in range(1))
+			if (M.s_active == src)
+				src.close(M)
+	src.add_fingerprint(user)
+	return
 
 // -----------------------------
 //        Secure Safe
@@ -188,10 +184,5 @@
 	cant_hold = list(/obj/item/storage/secure/briefcase)
 	starts_with = list(/obj/item/paper = 1, /obj/item/pen = 1)
 
-	attack_hand(mob/user as mob)
-		return attack_self(user)
-
-/*obj/item/storage/secure/safe/HoS/New()
-	..()
-	//new /obj/item/storage/lockbox/clusterbang(src) This item is currently broken... and probably shouldnt exist to begin with (even though it's cool)
-*/
+/obj/item/storage/secure/safe/attack_hand(mob/user as mob)
+	return attack_self(user)

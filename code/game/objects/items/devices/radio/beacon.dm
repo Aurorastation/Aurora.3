@@ -37,9 +37,8 @@ var/global/list/teleportbeacons = list()
 	return
 
 
-/obj/item/device/radio/beacon/bacon //Probably a better way of doing this, I'm lazy.
-	proc/digest_delay()
-		QDEL_IN(src, 600)
+/obj/item/device/radio/beacon/bacon/proc/digest_delay() //Probably a better way of doing this, I'm lazy.
+	QDEL_IN(src, 600)
 
 
 // SINGULO BEACON SPAWNER
