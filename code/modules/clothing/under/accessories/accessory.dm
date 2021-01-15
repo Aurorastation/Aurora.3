@@ -49,6 +49,7 @@
 			mob_overlay = image("icon" = INV_ACCESSORIES_DEF_ICON, "icon_state" = "[tmp_icon_state]")
 	if(color)
 		mob_overlay.color = color
+	mob_overlay.appearance_flags = RESET_ALPHA
 	return mob_overlay
 
 //when user attached an accessory to S
