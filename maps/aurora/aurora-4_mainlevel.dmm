@@ -62191,6 +62191,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
+"icb" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "idi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -85907,7 +85913,7 @@ aab
 aab
 aab
 aab
-aab
+icb
 aab
 aab
 aab
@@ -88420,7 +88426,7 @@ aaa
 aaa
 aab
 aab
-aab
+icb
 aox
 qba
 aij
@@ -99196,7 +99202,7 @@ aab
 aab
 aab
 aab
-aab
+icb
 aad
 aaB
 aaJ
@@ -113680,7 +113686,7 @@ vAC
 vAC
 mmQ
 blN
-aab
+icb
 aab
 aab
 aab

@@ -57,6 +57,10 @@
 				if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!</span>")
 				if(5)		user.visible_message("<span class='danger'>[user] tears [user.get_pronoun("his")] [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!</span>")
 
+/datum/unarmed_attack/claws/shredding
+	shredding = TRUE
+	attack_name = "durable claws"
+
 /datum/unarmed_attack/claws/strong
 	attack_verb = list("slashed")
 	damage = 10

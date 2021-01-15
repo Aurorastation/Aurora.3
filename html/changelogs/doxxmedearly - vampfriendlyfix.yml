@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - bugfix: "Vampire's Presence ability should once more only affect IPCs if the vampire is at full power."

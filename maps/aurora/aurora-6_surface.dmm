@@ -14791,6 +14791,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
+"nmN" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "nnZ" = (
 /obj/structure/cable/yellow{
 	d2 = 2;
@@ -45179,7 +45185,7 @@ rYN
 rYN
 fdu
 kKF
-kKF
+nmN
 fdu
 rYN
 rYN
@@ -53942,7 +53948,7 @@ fdu
 fdu
 fdu
 kKF
-kKF
+nmN
 kKF
 kKF
 kKF

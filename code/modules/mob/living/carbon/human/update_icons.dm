@@ -251,7 +251,7 @@ There are several things that need to be remembered:
 	. = list()
 	if(build_from_parts)
 		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
-		M.appearance_flags = RESET_COLOR
+		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		. += M
 
 //BASE MOB SPRITE
@@ -584,6 +584,7 @@ There are several things that need to be remembered:
 				for(var/obj/item/clothing/accessory/A in under.accessories)
 					ovr += A.get_mob_overlay()
 
+		standing.appearance_flags = RESET_ALPHA
 		overlays_raw[UNIFORM_LAYER] = ovr || standing
 
 	if(update_icons)
@@ -632,6 +633,7 @@ There are several things that need to be remembered:
 				result_layer = list(result_layer, lanyard_card, plastic_film)
 			else
 				result_layer =  list(result_layer, plastic_film)
+		result_layer.appearance_flags = RESET_ALPHA
 		overlays_raw[id_layer] = result_layer
 
 	BITSET(hud_updateflag, ID_HUD)
@@ -671,10 +673,12 @@ There are several things that need to be remembered:
 			result_layer = list(result_layer, bloodsies)
 
 		gloves.screen_loc = ui_gloves
+		result_layer.appearance_flags = RESET_ALPHA
 		overlays_raw[GLOVES_LAYER] = result_layer
 	else if(blood_DNA)
-		var/image/bloodsies	= image(species.blood_mask, "bloodyhands")
+		var/image/bloodsies = image(species.blood_mask, "bloodyhands")
 		bloodsies.color = hand_blood_color
+		bloodsies.appearance_flags = RESET_ALPHA
 		overlays_raw[GLOVES_LAYER] = bloodsies
 	else
 		overlays_raw[GLOVES_LAYER] = null
@@ -704,6 +708,8 @@ There are several things that need to be remembered:
 		if(glasses.color)
 			glasses_overlay.color = glasses.color
 
+	if(glasses_overlay)
+		glasses_overlay.appearance_flags = RESET_ALPHA
 	overlays_raw[GLASSES_LAYER] = glasses_overlay
 
 	if(update_icons)
@@ -745,6 +751,8 @@ There are several things that need to be remembered:
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
+			if(result_layer)
+				result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[L_EAR_LAYER] = result_layer
 	else
 		overlays_raw[L_EAR_LAYER] = null
@@ -788,6 +796,8 @@ There are several things that need to be remembered:
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
+			if(result_layer)
+				result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[R_EAR_LAYER] = result_layer
 	else
 		overlays_raw[R_EAR_LAYER] = null
@@ -830,12 +840,15 @@ There are several things that need to be remembered:
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
 
+		if(result_layer)
+			result_layer.appearance_flags = RESET_ALPHA
 		var/list/ovr
 
 		if(shoes.blood_DNA)
 			var/obj/item/clothing/shoes/S = shoes
 			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
 			bloodsies.color = shoes.blood_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			ovr = list(result_layer, bloodsies)
 
 		//Shoe layer stuff from Polaris v1.0333a
@@ -850,6 +863,7 @@ There are several things that need to be remembered:
 		if(footprint_color)		// Handles bloody feet.
 			var/image/bloodsies = image(species.blood_mask, "shoeblood")
 			bloodsies.color = footprint_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			overlays_raw[SHOES_LAYER] = bloodsies
 		else
 			overlays_raw[SHOES_LAYER] = null
@@ -866,11 +880,15 @@ There are several things that need to be remembered:
 		if(s_store.contained_sprite)
 			s_store.auto_adapt_species(src)
 			var/state="[UNDERSCORE_OR_NULL(s_store.icon_species_tag)][s_store.item_state][WORN_SSTORE]"
-			overlays_raw[SUIT_STORE_LAYER] = image(s_store.icon_override || s_store.icon, state)
+			var/image/s_store_image = image(s_store.icon_override || s_store.icon, state)
+			s_store_image.appearance_flags = RESET_ALPHA
+			overlays_raw[SUIT_STORE_LAYER] = s_store_image
 			s_store.screen_loc = ui_sstore1
 		else
 			//s_store.auto_adapt_species(src)
-			overlays_raw[SUIT_STORE_LAYER] = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
+			var/image/s_store_image = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
+			s_store_image.appearance_flags = RESET_ALPHA
+			overlays_raw[SUIT_STORE_LAYER] = s_store_image
 			s_store.screen_loc = ui_sstore1		//TODO
 	else
 		overlays_raw[SUIT_STORE_LAYER] = null
@@ -907,12 +925,13 @@ There are several things that need to be remembered:
 			standing = image(t_icon, head.icon_state)
 
 		standing.color = head.color
-
+		standing.appearance_flags = RESET_ALPHA
 		var/list/ovr
 
 		if(head.blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "helmetblood")
 			bloodsies.color = head.blood_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			ovr = list(standing, bloodsies)
 
 		if(istype(head,/obj/item/clothing/head))
@@ -960,6 +979,7 @@ There are several things that need to be remembered:
 			t_icon = 'icons/mob/belt.dmi'
 
 		standing = image(t_icon, t_state)
+		standing.appearance_flags = RESET_ALPHA
 		var/list/ovr
 
 		if(belt.contents.len && istype(belt, /obj/item/storage/belt))
@@ -973,6 +993,8 @@ There are several things that need to be remembered:
 				else
 					c_icon = 'icons/mob/belt.dmi'
 					c_state = i.item_state || i.icon_state
+				var/image/belt_item_image = image(c_icon, c_state)
+				belt_item_image.appearance_flags = RESET_ALPHA
 				ovr += image(c_icon, c_state)
 
 		var/beltlayer = BELT_LAYER
@@ -1017,6 +1039,7 @@ There are several things that need to be remembered:
 		if(wear_suit.color)
 			result_layer.color = wear_suit.color
 
+		result_layer.appearance_flags = RESET_ALPHA
 		var/image/worn_overlays = wear_suit.worn_overlays(t_icon)
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
@@ -1027,6 +1050,7 @@ There are several things that need to be remembered:
 			var/obj/item/clothing/suit/S = wear_suit
 			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
 			bloodsies.color = wear_suit.blood_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			ovr = list(result_layer, bloodsies)
 
 		// Accessories - copied from uniform, BOILERPLATE because fuck this system.
@@ -1089,12 +1113,14 @@ There are several things that need to be remembered:
 
 		if (wear_mask.color)
 			standing.color = wear_mask.color
+		standing.appearance_flags = RESET_ALPHA
 
 		var/list/ovr
 
 		if( !istype(wear_mask, /obj/item/clothing/mask/smokable/cigarette) && wear_mask.blood_DNA )
 			var/image/bloodsies = image(species.blood_mask, "maskblood")
 			bloodsies.color = wear_mask.blood_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[FACEMASK_LAYER] = ovr || standing
@@ -1152,6 +1178,7 @@ There are several things that need to be remembered:
 		var/image/standing = image(overlay_icon, overlay_state)
 		if (back.color)
 			standing.color = back.color
+		standing.appearance_flags = RESET_ALPHA
 
 		overlays_raw[BACK_LAYER] = standing
 
@@ -1189,6 +1216,7 @@ There are several things that need to be remembered:
 			standing = image(handcuffed.sprite_sheets[GET_BODY_TYPE], "handcuff1")
 		else
 			standing = image('icons/mob/mob.dmi', "handcuff1")
+		standing.appearance_flags = RESET_ALPHA
 		overlays_raw[HANDCUFF_LAYER] = standing
 	else
 		overlays_raw[HANDCUFF_LAYER] = null
@@ -1209,6 +1237,7 @@ There are several things that need to be remembered:
 			standing = image(legcuffed.sprite_sheets[GET_BODY_TYPE], "legcuff1")
 		else
 			standing = image('icons/mob/mob.dmi', "legcuff1")
+		standing.appearance_flags = RESET_ALPHA
 		overlays_raw[LEGCUFF_LAYER] = standing
 
 		if(m_intent != M_WALK)
@@ -1243,6 +1272,7 @@ There are several things that need to be remembered:
 			if(r_hand.color)
 				result_layer.color = r_hand.color
 
+			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[R_HAND_LAYER] = result_layer
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
@@ -1267,6 +1297,7 @@ There are several things that need to be remembered:
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
+			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[R_HAND_LAYER] = result_layer
 
 	if(update_icons)
@@ -1293,6 +1324,7 @@ There are several things that need to be remembered:
 			if(l_hand.color)
 				result_layer.color = l_hand.color
 
+			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[L_HAND_LAYER] = result_layer
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
@@ -1317,6 +1349,7 @@ There are several things that need to be remembered:
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
+			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[L_HAND_LAYER] = result_layer
 
 	if(update_icons)
@@ -1432,7 +1465,10 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[FIRE_LAYER] = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
+	var/image/fire_image = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
+	if(fire_image)
+		fire_image.appearance_flags = RESET_ALPHA
+	overlays_raw[FIRE_LAYER] = fire_image
 
 	if(update_icons)
 		update_icon()
@@ -1459,11 +1495,13 @@ There are several things that need to be remembered:
 		if(overlay_state in surgery_states)
 			var/image/flesh = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
 			flesh.color = E.owner.species.flesh_color
+			flesh.appearance_flags = RESET_ALPHA
 			LAZYADD(overlays_to_add, flesh)
 		overlay_state = "[base_state]-blood"
 		if(overlay_state in surgery_states)
 			var/image/blood = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
 			blood.color = E.owner.species.blood_color
+			blood.appearance_flags = RESET_ALPHA
 			LAZYADD(overlays_to_add, blood)
 		overlay_state = "[base_state]-bones"
 		if(overlay_state in surgery_states)

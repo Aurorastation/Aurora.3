@@ -655,7 +655,7 @@
 	name = "Cough Syrup"
 	id = "coughsyrup"
 	result = /decl/reagent/coughsyrup
-	required_reagents = list(/decl/reagent/carbon = 1, /decl/reagent/ammonia = 1, /decl/reagent/water = 1)
+	required_reagents = list(/decl/reagent/carbon = 1, /decl/reagent/tungsten = 1, /decl/reagent/water = 1)
 	result_amount = 3
 
 //Mental Medication
