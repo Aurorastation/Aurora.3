@@ -48,3 +48,4 @@ changes:
   - tweak: "Temperature is no longer per-reagent; it is now per-reagents-datum."
   - rscdel: "Removes phoron salts pending a rework/replacement."
   - tweak: "Having a chemical that is toxic to an organ in your system will now prevent that organ from regenerating."
+  - bugfix: "Thetamycin now properly takes time to work on internal organs, as described on the wiki; a bit over five and a half minutes, to be exact. Treat infections early!"
