@@ -872,6 +872,7 @@
 
 /material/cloth
 	name = MATERIAL_CLOTH
+	stack_type = /obj/item/stack/material/cloth
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	door_icon_base = "wood"
 	ignition_point = T0C+232
