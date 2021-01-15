@@ -712,7 +712,7 @@
 	taste_description = "bitter gauze soaked in rubbing alcohol"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
-/decl/reagent/thetamycin/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, M.chem_doses[type]) // strength of antibiotics; amount absorbed, need >5u dose to begin to be effective which'll take ~5 minutes to metabolise. need >10u dose if administered orally.
 
