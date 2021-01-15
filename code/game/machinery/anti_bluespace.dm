@@ -1,3 +1,5 @@
+var/global/list/bluespace_inhibitors
+
 /obj/machinery/anti_bluespace
 	name = "bluespace inhibitor"
 	desc = "Scrambles any bluespace related activity and displaces it away from the beacon's area of effect."
@@ -8,6 +10,14 @@
 	use_power = 1
 	active_power_usage = 5000
 	idle_power_usage = 1000
+
+/obj/machinery/anti_bluespace/Initialize()
+	. = ..()
+	LAZYADD(bluespace_inhibitors, src)
+
+/obj/machinery/anti_bluespace/Destroy()
+	LAZYREMOVE(bluespace_inhibitors, src)
+	return ..()
 
 /obj/machinery/anti_bluespace/update_icon()
 	. = ..()
