@@ -22,5 +22,5 @@
 	client.playtitlemusic()
 
 	if (client.prefs.locked_into_ready)
-		to_chat(src, SPAN_WARNING("Your ready stats has been restored."))
+		to_chat(src, SPAN_WARNING("Your ready status has been restored."))
 		ready(TRUE)
