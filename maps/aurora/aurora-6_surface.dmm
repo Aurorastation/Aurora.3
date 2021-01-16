@@ -5479,6 +5479,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/stairs)
+"eTl" = (
+/obj/machinery/biogenerator/small/west,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "eTH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -56470,7 +56474,7 @@ bNO
 cNy
 voV
 hGZ
-osW
+eTl
 osW
 xpF
 rnJ
