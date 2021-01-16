@@ -44,6 +44,8 @@
 	var/is_global_banned = jobban_isbanned(preference_mob(), "Antagonist")
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
+		if(antag.flags & ANTAG_NO_ROUNDSTART_SPAWN)
+			continue
 		dat += "<tr><td>[antag.role_text]: </td><td>"
 		var/ban_reason = jobban_isbanned(preference_mob(), antag.bantype)
 		if(ban_reason == "AGE WHITELISTED")
