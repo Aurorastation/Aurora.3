@@ -43,7 +43,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
+/obj/item/fluff/kiara_altar //Pocket Altar - Kiara Branwen - witchbells
 	name = "pocket altar"
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 	icon = 'icons/obj/custom_items/kiara_altar.dmi'
@@ -93,15 +93,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	..()
-
-
-/obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris
-	name = "black fez"
-	desc = "It is a black fez, it bears an Emblem of the Astronomical symbol of Earth, It also has some nice tassels."
-	icon = 'icons/obj/custom_items/vittorio_fez.dmi'
-	icon_state = "vittorio_fez"
-	item_state = "vittorio_fez"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/fluff/centurion_cloak //Paludamentum - Centurion - cakeisossim
@@ -408,18 +399,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = FALSE
 
 
-/obj/item/clothing/accessory/badge/fluff/jane_badge //Tarnished Badge - Jane Pyre - somethingvile
-	name = "tarnished badge"
-	desc = "A worn, tarnished brass badge with ash and soot set deep in the grooves of its surface. The word, though faded and barely discernible, \"Pyre\" can be traced out lining its bottom edge."
-	icon = 'icons/obj/custom_items/jane_badge.dmi'
-	icon_state = "jane_badge"
-	item_state = "jane_badge"
-	slot_flags = SLOT_BELT | SLOT_TIE
-	contained_sprite = TRUE
-	stored_name = "Francis Pyre"
-	badge_string = "CPD"
-
-
 /obj/item/toy/plushie/fluff/oz_plushie //Mr. Monkey - Oz Auman - theiguanaman2
 	name = "\improper Mr.Monkey"
 	desc = "A calming toy monkey."
@@ -478,15 +457,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(..(user, 1))
 		to_chat(user, "It is [active ? "on" : "off"].")
 
-
-/obj/item/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
-	name = "old earth luxury cognac"
-	desc = "An unusually shaped crystal bottle, covered in elaborate etchings displaying the symbol of the house that produced it. Inside is a smooth, amber liquor, \
-	which smells of the barrel it was aged in. The region and producer are on the label."
-	icon = 'icons/obj/custom_items/leonce_cognac.dmi'
-	icon_state = "leonce_cognac"
-	empty_icon_state = "leonce_cognac_empty"
-	drink_flags = UNIQUE_EMPTY_ICON_FILE | IS_GLASS
 
 
 /obj/item/clothing/suit/storage/fluff/sonorous_mantle //Maraziite Throw Over - Sonorous Zouzoror - sleepywolf
@@ -783,7 +753,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/dress/fluff/katya_dress //Tailored Tajara Dress - Katya Al-Tahara - coalf
+/obj/item/clothing/under/dress/fluff/katya_dress //Tailored Tajara Dress - Katya Al-Azir - coalf
 	name = "tailored tajaran dress"
 	desc = "A simple long, blue and flowing dress, it has a knitted overthrow that fits over the shoulder and arms."
 	icon = 'icons/obj/custom_items/katya_clothing.dmi'
@@ -791,7 +761,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "katya_dress"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/fluff/katya_uniform //Messy Work Clothes - Katya Al-Tahara - coalf
+/obj/item/clothing/under/fluff/katya_uniform //Messy Work Clothes - Katya Al-Azir - coalf
 	name = "messy work clothes"
 	desc = "A simple pants and shirt combo. The white shirt has long since faded...and are those crumbs?"
 	icon = 'icons/obj/custom_items/katya_clothing.dmi'
@@ -913,7 +883,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rifler_holster"
 
 
-/obj/item/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - nursiekitty
+/obj/item/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - witchebells
 	name = "tote bag"
 	desc = "A sackcloth bag with an image of Moghes printed onto it. Floating above the planet are the words \"Save Moghes!\"."
 	icon = 'icons/obj/custom_items/xerius_bag.dmi'
@@ -1281,17 +1251,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/material/kitchen/utensil/fork/fluff/vedai_fork //Stainless Steel Fork - Vedai'Kwia Xizal - conspiir
-	desc = "A stainless steel fork. The word \"Kwia\" is engraved on the back of the handle."
-	icon = 'icons/obj/custom_items/vedai_fork.dmi'
-	icon_state = "vedai_fork"
-	applies_material_colour = FALSE
-
-/obj/item/material/kitchen/utensil/fork/fluff/vedai_fork/set_material(var/new_material)
-	..()
-	name = "stainless [material.display_name] [initial(name)]"
-
-
 /obj/item/sign/fluff/tokash_sign //Shark Jaw Trophy - Suvek Tokash - evandorf
 	name = "shark jaw trophy"
 	desc = "A pair of jaws from what must have been a large and impressive shark."
@@ -1626,15 +1585,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_SMALL
 
 
-/obj/item/clothing/suit/storage/dominia/fluff/naxxir_cape //Caladius Cape - Nazret Naxxir - conspiir
-	name = "caladius cape"
-	desc = "A fine Dominian cape tailored for a very short person. It is decorated in the purple colors of the Caladius House."
-	icon = 'icons/obj/custom_items/naxxir_cape.dmi'
-	icon_state = "naxxir_cape"
-	item_state = "naxxir_cape"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/naomi_coat //Reishi Queen Winter Coat - Naomi Marlowe - smifboy78
 	name = "reishi queen winter coat"
 	desc = "A worn purple winter-coat. On the back, \"Reishi Queen\" is stitched on top of a skull patch. It reeks of reishi."
@@ -1772,24 +1722,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
 	icon_state = "ramit_jacket"
 	item_state = "ramit_jacket"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/accessory/dressshirt/fluff/takahashi_uniform //High Collar Dress Shirt - Shiki Takahashi - nantei
-	name = "high collar dress shirt"
-	desc = "A casual dress shirt. This one has an abnormally high collar."
-	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
-	icon_state = "takahashi_uniform"
-	item_state = "takahashi_uniform"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/det_trench/fluff/takahashi_coat //High Collar Dress Shirt - Shiki Takahashi - nantei
-	name = "long trenchcoat"
-	desc = "A very long, black, canvas trench coat. It goes down just below the knees. It looks to be custom-fitted, with a layer of graphene for added armor. There is an infinity \
-	symbol on the back, similar to the Coalition of Colonies flag."
-	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
-	icon_state = "takahashi_coat"
-	item_state = "takahashi_coat"
 	contained_sprite = TRUE
 
 
@@ -2383,3 +2315,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 	to_chat(usr, "The systems that the credentials show the user is licensed to investigate in are [licensed_systems].")
 	to_chat(usr, "Additional endorsements registered on the card show: [supplementary_endorsements].")
 	return
+
+/obj/item/clothing/accessory/poncho/fluff/amos_vest //Ouerean Vest - Amos Zhujian - dronzthewolf
+	name = "ourean vest"
+	desc = "A  thin vest made of separate colors, this one is brown and turquoise, with something written in Sinta'Unathi on the right breast. While this is a traditional cut vest, it's made of modern machine-woven fabrics as is commonly done on Ouerea, and sized to fit a human."
+	icon = 'icons/obj/custom_items/amos_vest.dmi'
+	icon_state = "amos_vest"
+	item_state = "amos_vest"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+
+/obj/item/clothing/head/fluff/rhasdrimara_veil //Noble Adhomai Veil - Rhasdrimara Rhanmrero'Arhanja - chanterelle
+	name = "noble adhomai veil"
+	desc = "An antique veil of black lace worn by noble Tajaran women during times of mourning."
+	icon = 'icons/obj/custom_items/rhasdrimara_veil.dmi'
+	icon_state = "rhasdrimara_veil"
+	item_state = "rhasdrimara_veil"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
