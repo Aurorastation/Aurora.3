@@ -621,3 +621,6 @@ FAIL2TOPIC_ENABLED 0
 ## Lore Summary
 ## The text that will appear when the player clicks the lore button at the start screen
 LORE_SUMMARY
+
+## Forces all people who've voted for any gamemode to be readied.
+#FORCE_VOTERS_READY
