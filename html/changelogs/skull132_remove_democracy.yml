@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - rscadd: "Voting for any gamemode will now lock you as ready for the round. You cannot observe, either. Observers can no longer vote."
