@@ -4,4 +4,3 @@ delete-after: True
 
 changes:
   - rscadd: "Added the ability to colour Tajara ears via hair gradients."
-
