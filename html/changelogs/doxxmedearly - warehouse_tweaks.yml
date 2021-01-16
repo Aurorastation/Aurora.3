@@ -1,0 +1,9 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - tweak: "Reduced the number of total item spawns in cargo by about 10%."
+  - tweak: "Further adjusted cargo warehouse spawn probabilities."
+  - rscdel: "Removed some items from the warehouse spawn list."
+  - rscadd: "Added some items to the warehouse spawn list."
