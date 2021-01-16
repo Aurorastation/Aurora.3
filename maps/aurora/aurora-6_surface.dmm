@@ -14198,6 +14198,10 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
+"mNs" = (
+/obj/machinery/biogenerator/small/west,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "mNu" = (
 /obj/item/modular_computer/console/preset/supply,
 /turf/simulated/floor/tiled,
@@ -20938,6 +20942,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"sBQ" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "sCd" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
@@ -45179,7 +45189,7 @@ rYN
 rYN
 fdu
 kKF
-kKF
+sBQ
 fdu
 rYN
 rYN
@@ -53942,7 +53952,7 @@ fdu
 fdu
 fdu
 kKF
-kKF
+sBQ
 kKF
 kKF
 kKF
@@ -56464,7 +56474,7 @@ bNO
 cNy
 voV
 hGZ
-osW
+mNs
 osW
 xpF
 rnJ

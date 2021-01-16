@@ -27215,6 +27215,17 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"dSx" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "dSV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -32329,6 +32340,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"oCb" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "oFa" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "research_sensor";
@@ -52067,7 +52084,7 @@ nDL
 nDL
 tkm
 iOl
-aba
+oCb
 aba
 aba
 ale
@@ -71097,7 +71114,7 @@ aIZ
 aNT
 vnf
 awP
-aqA
+dSx
 ebn
 ayi
 akG
@@ -80862,7 +80879,7 @@ eEq
 baw
 cFw
 nzR
-aba
+oCb
 aba
 aba
 aaa

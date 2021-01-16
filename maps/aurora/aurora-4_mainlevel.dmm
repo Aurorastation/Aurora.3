@@ -59584,6 +59584,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
+"cNZ" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "cPY" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -85907,7 +85913,7 @@ aab
 aab
 aab
 aab
-aab
+cNZ
 aab
 aab
 aab
@@ -88420,7 +88426,7 @@ aaa
 aaa
 aab
 aab
-aab
+cNZ
 aox
 qba
 aij
@@ -99196,7 +99202,7 @@ aab
 aab
 aab
 aab
-aab
+cNZ
 aad
 aaB
 aaJ
@@ -113680,7 +113686,7 @@ vAC
 vAC
 mmQ
 blN
-aab
+cNZ
 aab
 aab
 aab

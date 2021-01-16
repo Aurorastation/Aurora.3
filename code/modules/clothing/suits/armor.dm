@@ -65,40 +65,11 @@
 	blood_overlay_type = "armor"
 	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/armor/vest/security
-	name = "security armor"
-	desc = "An armored vest that protects against some damage. This one has a corporate badge."
-	icon_state = "armorsec"
-	item_state = "armor"
-
-/obj/item/clothing/suit/armor/vest/warden
-	name = "warden's jacket"
-	desc = "An armored jacket with silver rank pips and livery."
-	icon_state = "warden_jacket"
-	item_state = "warden_jacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	pocket_slots = 4//Jackets have more slots
-
-/obj/item/clothing/suit/armor/vest/warden/commissar
-	name = "commissar's jacket"
-	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
-	icon_state = "commissar_warden"
-	item_state = "commissar_warden"
-
 /obj/item/clothing/suit/armor/vest/fib
 	name = "\improper FIB armored vest"
 	desc = "An armored vest used by Federal Investigations Bureau agents during operations."
 	icon_state = "fib_armor"
 	item_state = "fib_armor"
-
-/obj/item/clothing/suit/armor/hos
-	name = "head of security's jacket"
-	desc = "An armored jacket with golden rank pips and livery."
-	icon_state = "hos"
-	item_state = "hos"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(melee = 65, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
-	pocket_slots = 4//More slots because coat
 
 /obj/item/clothing/suit/storage/toggle/armor/hos
 	name = "armored trenchcoat"
@@ -193,15 +164,6 @@
 	flags_inv = 0
 	body_parts_covered = UPPER_TORSO|ARMS
 	pocket_slots = 4//coat, so more slots
-
-/obj/item/clothing/suit/armor/det_suit
-	name = "armor"
-	desc = "An armored vest with a detective's badge on it."
-	icon_state = "detective-armor"
-	item_state = "armor"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 //Reactive armor
 //When the wearer gets hit, this armor will teleport the user a short distance away (to safety or to more danger, no one knows. That's the fun of it!)
@@ -391,19 +353,19 @@
 
 /obj/item/clothing/suit/storage/vest/detective
 	name = "detective armor vest"
-	desc = "A simple kevlar plate carrier in a vintage brown, it has a detective's badge clipped to the chest."
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a detective's badge clipped to the chest."
 	icon_state = "detectivevest_nobadge"
 	item_state = "detectivevest_nobadge"
 	icon_badge = "detectivevest_badge"
 	icon_nobadge = "detectivevest_nobadge"
 
-/obj/item/clothing/suit/storage/vest/csi
+/obj/item/clothing/suit/storage/vest/ft
 	name = "forensic technician armor vest"
 	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a forensic technician's badge clipped to the chest."
-	icon_state = "csivest_nobadge"
-	item_state = "csivest_nobadge"
-	icon_badge = "csivest_badge"
-	icon_nobadge = "csivest_nobadge"
+	icon_state = "forensictech_nobadge"
+	item_state = "forensictech_nobadge"
+	icon_badge = "forensictech_badge"
+	icon_nobadge = "forensictech_nobadge"
 
 /obj/item/clothing/suit/storage/hazardvest/cadet
 	name = "cadet hazard vest"

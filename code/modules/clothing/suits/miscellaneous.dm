@@ -502,7 +502,7 @@
 	icon_state = "serv_dep_jacket"
 	item_state = "serv_dep_jacket"
 
-/obj/item/clothing/suit/storage/fib
+/obj/item/clothing/suit/storage/toggle/fib
 	name = "\improper FIB agent jacket"
 	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
 	icon_state = "fib_jacket"

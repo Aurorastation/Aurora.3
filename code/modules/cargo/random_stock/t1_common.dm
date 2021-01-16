@@ -10,7 +10,8 @@ STOCK_ITEM_COMMON(toolbox, 4)
 STOCK_ITEM_COMMON(meds, 5)
 	new /obj/random/medical(L)
 	new /obj/random/medical(L)
-	new /obj/random/medical(L)
+	if(prob(50))
+		new /obj/random/medical(L)
 
 STOCK_ITEM_COMMON(steel, 7)
 	new /obj/item/stack/material/steel(L, 50)
@@ -45,14 +46,13 @@ STOCK_ITEM_COMMON(lightreplacer, 1)
 STOCK_ITEM_COMMON(bodybag, 2.2)
 	if(prob(25))
 		new /obj/item/bodybag/cryobag(L)
-		new /obj/item/bodybag/cryobag(L)
 		if(prob(50))
 			new /obj/item/bodybag/cryobag(L)
 			new /obj/item/bodybag/cryobag(L)
 	else
 		new /obj/item/storage/box/bodybags(L)
 
-STOCK_ITEM_COMMON(lamp, 2.4)
+STOCK_ITEM_COMMON(lamp, 2)
 	var/obj/item/device/flashlight/lamp/P
 	if(prob(50))
 		P = new /obj/item/device/flashlight/lamp/green(L)
@@ -70,8 +70,6 @@ STOCK_ITEM_COMMON(sterile, 2)
 
 STOCK_ITEM_COMMON(light, 1.8)
 	new /obj/item/storage/box/lights/mixed(L)
-	if(prob(50))
-		new /obj/item/storage/box/lights/mixed(L)
 	if(prob(25))
 		new /obj/item/storage/box/lights/coloredmixed(L)
 	if(prob(15))
@@ -135,7 +133,7 @@ STOCK_ITEM_COMMON(smallcell, 4)
 
 //Spawns a random circuitboard
 //Allboards being a global list might be faster, but it didnt seem worth the extra memory
-STOCK_ITEM_COMMON(circuitboard, 2)
+STOCK_ITEM_COMMON(circuitboard, 1)
 	var/list/allboards = subtypesof(/obj/item/circuitboard)
 	var/list/exclusion = list(
 		/obj/item/circuitboard/unary_atmos,
@@ -149,18 +147,18 @@ STOCK_ITEM_COMMON(circuitboard, 2)
 
 STOCK_ITEM_COMMON(oxy, 3.2)
 	new /obj/random/smalltank(L)
-	new /obj/item/tank/oxygen(L)
 	if(prob(25))
 		new /obj/random/smalltank(L)
 		new /obj/random/smalltank(L)
-	if(prob(10))
+	if(prob(40))
 		new /obj/item/tank/oxygen(L)
 
 STOCK_ITEM_COMMON(belts, 2)
 	new /obj/random/belt(L)
-	new /obj/random/belt(L)
+	if(prob(50))
+		new /obj/random/belt(L)
 
-STOCK_ITEM_COMMON(backpack, 4.5)
+STOCK_ITEM_COMMON(backpack, 3.5)
 	new /obj/random/backpack(L)
 	new /obj/random/backpack(L)
 
@@ -194,14 +192,11 @@ STOCK_ITEM_COMMON(trap, 2)
 	if(prob(30))
 		new /obj/item/trap(L)
 
-STOCK_ITEM_COMMON(trays, 1.8)
-	new /obj/item/tray(L)
-
 STOCK_ITEM_COMMON(utensil, 2)
 	new /obj/item/storage/box/kitchen(L)
 
 STOCK_ITEM_COMMON(utilitygrenades, 1.5)
-	for(var/i in 1 to rand(1, 4))
+	for(var/i in 1 to rand(1, 3))
 		if(prob(50))
 			new /obj/item/grenade/chem_grenade/metalfoam(L)
 		else
@@ -231,7 +226,7 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 		var/gtype = pick(allgloves)
 		new gtype(L)
 
-STOCK_ITEM_COMMON(insulated, 1.8)
+STOCK_ITEM_COMMON(insulated, 1.5)
 	new /obj/item/clothing/gloves/yellow(L)
 	if(prob(50))
 		new /obj/item/clothing/gloves/yellow(L)
@@ -253,14 +248,12 @@ STOCK_ITEM_COMMON(scanners, 3.2)
 		/obj/item/barcodescanner = 1,
 		/obj/item/device/depth_scanner = 1
 	)
-	for(var/i in 1 to rand(1, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/stype = pickweight(possible)
 		new stype(L)
 
 STOCK_ITEM_COMMON(binoculars, 1.5)
 	new /obj/item/device/binoculars(L)
-	if(prob(50))
-		new /obj/item/device/binoculars(L)
 
 STOCK_ITEM_COMMON(flash, 1)
 	new /obj/item/device/flash(L)
@@ -292,9 +285,9 @@ STOCK_ITEM_COMMON(cleaning, 3.5)
 STOCK_ITEM_COMMON(bsdm, 1.5)
 	if(prob(50))
 		new /obj/item/clothing/glasses/sunglasses/blindfold(L)
-	if(prob(50))
+	if(prob(20))
 		new /obj/item/clothing/mask/muzzle(L)
-	if(prob(30))
+	if(prob(20))
 		new /obj/item/clothing/suit/straight_jacket(L)
 
 STOCK_ITEM_COMMON(charger, 2)
@@ -314,9 +307,6 @@ STOCK_ITEM_COMMON(smokebombs, 1.1)
 
 STOCK_ITEM_COMMON(jar, 2)
 	new /obj/item/glass_jar(L)
-
-STOCK_ITEM_COMMON(glasses, 1.2)
-	new /obj/item/storage/box/rxglasses(L)
 
 STOCK_ITEM_COMMON(pills, 1.2)
 	var/list/options = pick( \
@@ -354,14 +344,6 @@ STOCK_ITEM_COMMON(paperwork, 1.2)
 	else if(prob(15))
 		new /obj/item/pen/multi(L)
 
-STOCK_ITEM_COMMON(officechair, 1.2)
-	var/turf/T = get_turf(L)
-	if(!turf_clear(T))
-		for (var/turf/U in range(T,1))
-			if (turf_clear(U))
-				T = U
-				break
-	new /obj/structure/bed/chair/office/dark(T)
 
 STOCK_ITEM_COMMON(booze, 3.7)
 	if(prob(8))//Spare keg of beer or xuizi juice
@@ -378,7 +360,7 @@ STOCK_ITEM_COMMON(booze, 3.7)
 		var/list/drinks = subtypesof(/obj/item/reagent_containers/food/drinks/bottle)
 		drinks += subtypesof(/obj/item/reagent_containers/food/drinks/carton)
 
-		for (var/i in 1 to rand(1, 3))
+		for (var/i in 1 to rand(1, 2))
 			var/type = pick(drinks)
 			new type(L)
 
@@ -391,7 +373,7 @@ STOCK_ITEM_COMMON(plant, 3.5)
 				break
 	new /obj/structure/flora/pottedplant/random(T)
 
-STOCK_ITEM_COMMON(bag, 3.5)
+STOCK_ITEM_COMMON(bag, 2)
 	var/type = pick( \
 		/obj/item/storage/bag/trash, \
 		/obj/item/storage/bag/plasticbag, \
@@ -421,7 +403,7 @@ STOCK_ITEM_COMMON(hailer, 1.1)
 
 //A target, for target practice
 //Take em up to science for gun testing
-STOCK_ITEM_COMMON(target, 2)
+STOCK_ITEM_COMMON(target, 0.5)
 	var/turf/T = get_turf(L)
 	if(!turf_clear(T))
 		for(var/turf/U in range(T,1))
@@ -458,10 +440,8 @@ STOCK_ITEM_COMMON(posters, 3)
 	new /obj/item/contraband/poster(L)
 	if(prob(40))
 		new /obj/item/contraband/poster(L)
-	if(prob(20))
-		new /obj/item/contraband/poster(L)
 
-STOCK_ITEM_COMMON(parts, 5)
+STOCK_ITEM_COMMON(parts, 4)
 	var/list/parts = list(
 		/obj/item/stock_parts/console_screen = 3, //Low ranking parts, common
 		/obj/item/stock_parts/capacitor = 3,
@@ -488,7 +468,7 @@ STOCK_ITEM_COMMON(parts, 5)
 		/obj/item/stock_parts/subspace/transmitter = 0.5
 	)
 
-	for(var/i in 1 to rand(2, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/part = pickweight(parts)
 		new part(L)
 

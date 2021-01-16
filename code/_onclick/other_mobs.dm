@@ -2,6 +2,10 @@
 /atom/proc/attack_generic(mob/user as mob)
 	return 0
 
+// generic click on for pai
+/atom/proc/attack_pai(mob/user)
+	return
+
 /*
 	Humans:
 	Adds an exception for gloves, to allow special glove types like the ninja ones.

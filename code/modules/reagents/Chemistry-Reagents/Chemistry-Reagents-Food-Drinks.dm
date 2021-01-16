@@ -3718,7 +3718,7 @@
 	taste_description = "dryness"
 	carbonated = TRUE
 
-	glass_icon_state = "guinness_glass"
+	glass_icon_state = "guinnessglass"
 	glass_name = "glass of Guinness"
 	glass_desc = "A glass of Guinness."
 

@@ -11009,6 +11009,12 @@
 /obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site/zone_2)
+"OK" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "OM" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
@@ -42785,7 +42791,7 @@ mo
 mo
 mo
 mo
-ab
+OK
 ab
 ab
 ab
@@ -50706,7 +50712,7 @@ if
 im
 wo
 Zt
-ab
+OK
 ab
 ab
 aa

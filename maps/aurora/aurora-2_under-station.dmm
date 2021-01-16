@@ -265,6 +265,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
+"yA" = (
+/obj/structure/lattice,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/template_noop,
+/area/template_noop)
 "yX" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/small/emergency{
@@ -12767,7 +12774,7 @@ CN
 CN
 mc
 CN
-Ar
+yA
 CN
 UG
 sQ
