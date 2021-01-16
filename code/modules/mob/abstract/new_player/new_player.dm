@@ -8,7 +8,7 @@
 		prefs.locked_into_ready = FALSE
 
 	if (not_around.len)
-		log_and_message_admins("The following ckeys were voted but disconnected before roundstart: [not_around.Join(" ")].", null, null)
+		log_and_message_admins("The following ckeys have voted but disconnected before roundstart: [not_around.Join(" ")].", null, null)
 
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
 /mob/abstract/new_player
