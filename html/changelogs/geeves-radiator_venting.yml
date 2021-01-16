@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added borosillicate windows to the supermatter engine bay to prevent it from being vented when the radiators get breached."

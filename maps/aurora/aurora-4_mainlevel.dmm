@@ -23658,11 +23658,13 @@
 "aOp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aOq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aOr" = (
