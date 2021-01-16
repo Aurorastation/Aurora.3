@@ -8,12 +8,14 @@
 
 /turf/proc/create_diona_nymph()
 	var/mob/living/carbon/alien/diona/D = new(src)
-	var/datum/ghosttrap/plant/P = get_ghost_trap("living plant")
-	P.request_player(D, "A diona nymph has split off from its gestalt. ")
-	sleep(120)
-	if(D)
-		if(!D.ckey || !D.client)
-			D.death()
+	SSghostroles.add_spawn_atom("diona_nymph", D)
+	addtimer(CALLBACK(src, .proc/kill_diona_nymph, WEAKREF(D)), 3 MINUTES)
+
+/turf/proc/kill_diona_nymph(var/datum/weakref/diona_ref)
+	var/mob/living/carbon/alien/diona/D = diona_ref.resolve()
+	if(D && (!D.ckey || !D.client))
+		SSghostroles.remove_spawn_atom("diona_nymph", D)
+		D.death()
 
 //Probable future TODO: Refactor diona organs to be /obj/item/organ/external/bodypart/diona
 //Having them not inherit from specific bodypart classes is a problem
