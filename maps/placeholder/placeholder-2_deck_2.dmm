@@ -1014,7 +1014,7 @@
 	dir = 4;
 	icon_state = "freezer"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/janitor)
 "dC" = (
 /obj/machinery/seed_storage/xenobotany,
@@ -3962,6 +3962,10 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"AI" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "AJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 5
@@ -4059,7 +4063,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/janitor)
 "Bs" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Bw" = (
@@ -12715,7 +12719,7 @@ ac
 ac
 ac
 ac
-ac
+Eh
 ac
 ac
 Hf
@@ -12917,7 +12921,7 @@ ac
 ac
 ac
 ac
-ac
+Eh
 ac
 ac
 Hf
@@ -14331,7 +14335,7 @@ ac
 ac
 ac
 ac
-ac
+VL
 ac
 ac
 ac
@@ -27238,10 +27242,10 @@ xi
 xi
 xi
 xi
-xi
 sJ
-ac
-ac
+pU
+pU
+pU
 ac
 ac
 ab
@@ -27442,10 +27446,10 @@ XX
 az
 XX
 XX
-ac
-ac
-ac
-ac
+ab
+ab
+Ko
+Ko
 ab
 wN
 AP
@@ -27850,7 +27854,7 @@ ac
 ac
 ac
 ac
-ab
+iB
 CM
 CM
 CM
@@ -28052,7 +28056,7 @@ ac
 ac
 ac
 ac
-Bs
+iB
 ac
 ac
 ac
@@ -28254,7 +28258,7 @@ ac
 ac
 ac
 ac
-ac
+iB
 ac
 ac
 ac
@@ -28452,11 +28456,11 @@ VL
 VL
 VL
 XX
-ac
-ac
-ac
-ac
-ab
+Bs
+Bs
+Bs
+Bs
+iB
 ac
 ac
 pK
@@ -34349,7 +34353,7 @@ ac
 ac
 ac
 Eh
-hp
+bt
 aa
 aa
 aa
@@ -34509,7 +34513,7 @@ ab
 ab
 ab
 ab
-ab
+XX
 XX
 XX
 XX
@@ -34551,7 +34555,7 @@ ab
 ab
 ab
 Eh
-aa
+AI
 aa
 aa
 aa
@@ -34711,8 +34715,8 @@ ac
 ac
 ac
 ac
-ac
-XX
+jE
+NZ
 VL
 VL
 VL
@@ -34753,8 +34757,8 @@ ac
 ac
 ac
 Eh
-aa
-aa
+bE
+bE
 aa
 aa
 aa
@@ -34913,8 +34917,8 @@ ac
 ac
 ac
 ac
-ac
 XX
+NZ
 VL
 VL
 VL
@@ -34954,9 +34958,9 @@ ac
 ac
 ac
 ac
-bE
-aa
-aa
+dX
+za
+dX
 aa
 aa
 aa
@@ -35115,8 +35119,8 @@ ac
 ac
 ac
 ac
-ac
 XX
+NZ
 VL
 VL
 VL
@@ -35155,10 +35159,10 @@ ab
 ab
 ab
 ab
-Eh
+ab
 bE
-aa
-aa
+bE
+bE
 aa
 aa
 aa
@@ -35317,8 +35321,8 @@ gv
 ac
 ac
 ac
-ac
 XX
+QF
 VL
 VL
 VL
@@ -35519,7 +35523,7 @@ gG
 ac
 ac
 ac
-ac
+XX
 XX
 XX
 XX
