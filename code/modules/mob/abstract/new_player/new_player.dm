@@ -1,5 +1,16 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
+/hook/roundstart/proc/resolve_locked_ready()
+	var/list/not_around = list()
+	for (var/ckey in preferences_datums)
+		var/datum/preferences/prefs = preferences_datums[ckey]
+		if (prefs.locked_into_ready && !prefs.client)
+			not_around += ckey
 
+		prefs.locked_into_ready = FALSE
+
+	if (not_around.len)
+		log_and_message_admins("The following ckeys were voted but disconnected before roundstart: [not_around.Join(" ")].", null, null)
+
+//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
 /mob/abstract/new_player
 	var/ready = 0
 	var/spawning = 0 //Referenced when you want to delete the new_player later on in the code
