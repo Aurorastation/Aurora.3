@@ -1,3 +1,6 @@
+/mob/living/carbon/human/revenant
+	universal_understand = TRUE
+
 /mob/living/carbon/human/revenant/Initialize(mapload)
 	. = ..(mapload, SPECIES_REVENANT)
 	alpha = 0
