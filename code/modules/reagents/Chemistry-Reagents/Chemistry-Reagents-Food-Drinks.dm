@@ -118,7 +118,7 @@
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(1.5 * removed)
 	else if(alien != IS_UNATHI)
-		digest(M,removed, holder)
+		digest(M,removed, holder = holder)
 
 /decl/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(regen_factor * removed, 0)
@@ -209,7 +209,7 @@
 
 /decl/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
-		digest(M,removed, holder)
+		digest(M,removed, holder = holder)
 		return
 	..()
 
@@ -235,7 +235,7 @@
 
 /decl/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
-		digest(M, removed, holder)
+		digest(M, removed, holder = holder)
 		return
 	..()
 
@@ -258,7 +258,7 @@
 //Unathi can digest fats too
 /decl/reagent/nutriment/triglyceride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
-		digest(M, removed, holder)
+		digest(M, removed, holder = holder)
 		return
 	..()
 
@@ -696,10 +696,10 @@
 	fallback_specific_heat = 1.75
 
 /decl/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
+	digest(M,alien,removed * blood_to_ingest_scale, FALSE, holder)
 
 /decl/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	digest(M, alien, removed, holder)
+	digest(M, alien, removed, holder = holder)
 
 /decl/reagent/drink/proc/digest(var/mob/living/carbon/M, var/alien, var/removed, var/add_nutrition = TRUE, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
