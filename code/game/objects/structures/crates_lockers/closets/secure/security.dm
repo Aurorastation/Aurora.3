@@ -118,20 +118,24 @@
 	//Supply
 	new /obj/item/storage/box/flashbangs(src)
 	//Appearance
-	new /obj/item/storage/backpack/security(src)
-	new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/under/rank/head_of_security(src)
-	new /obj/item/clothing/under/rank/head_of_security/corp(src)
-	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
-	new /obj/item/clothing/suit/armor/hos(src)
+	if(prob(50))
+		new /obj/item/storage/backpack/security(src)
+	else
+		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
-	new /obj/item/clothing/head/hos/cap(src)
-	new /obj/item/clothing/head/hos/cap/alt(src)
+	if(prob(50))
+		new /obj/item/clothing/under/rank/head_of_security(src)
+		new /obj/item/clothing/head/beret/security/hos(src)
+		new /obj/item/clothing/head/hos(src)
+	else
+		new /obj/item/clothing/under/rank/head_of_security/corp(src)
+		new /obj/item/clothing/head/beret/security/hos/corp(src)
+		new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/head/beret/security/hos(src)
-	new /obj/item/clothing/head/beret/security/hos/alt(src)
+	new /obj/item/clothing/suit/security/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
+	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
@@ -165,16 +169,21 @@
 
 /obj/structure/closet/secure_closet/hos2/fill()
 	//Appearance
-	new /obj/item/storage/backpack/security(src)
-	new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/under/rank/head_of_security(src)
-	new /obj/item/clothing/under/rank/head_of_security/corp(src)
+	if(prob(50))
+		new /obj/item/storage/backpack/security(src)
+	else
+		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
-	new /obj/item/clothing/head/beret/security/hos(src)
-	new /obj/item/clothing/head/beret/security/hos/alt(src)
-	new /obj/item/clothing/head/hos/cap(src)
-	new /obj/item/clothing/head/hos/cap/alt(src)
+	if(prob(50))	// chance to spawn either corporate or regular outfit. to prevent locker bloat which makes it lag when right clicked
+		new /obj/item/clothing/under/rank/head_of_security(src)
+		new /obj/item/clothing/head/beret/security/hos(src)
+		new /obj/item/clothing/head/hos(src)
+	else
+		new /obj/item/clothing/under/rank/head_of_security/corp(src)
+		new /obj/item/clothing/head/beret/security/corp(src)
+		new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
+	new /obj/item/clothing/suit/security/hos(src)
 	//Tools
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/device/radio/headset/heads/hos(src)
@@ -206,15 +215,19 @@
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/suit/storage/vest/warden(src)
-	new /obj/item/clothing/under/rank/warden(src)
-	new /obj/item/clothing/under/rank/warden/corp(src)
-	new /obj/item/clothing/suit/armor/vest/warden(src)
-	new /obj/item/clothing/suit/armor/vest/warden/commissar(src)
-	new /obj/item/clothing/head/beret/security/warden(src)
-	new /obj/item/clothing/head/warden/commissar(src)
-	new /obj/item/clothing/head/warden(src)
-	new /obj/item/clothing/head/warden/alt(src)
+	if(prob(50))
+		if(prob(50))
+			new /obj/item/clothing/under/rank/warden(src)
+		else
+			new /obj/item/clothing/under/rank/warden/blue(src)
+		new /obj/item/clothing/head/beret/security/warden(src)
+		new /obj/item/clothing/head/warden(src)
+	else
+		new /obj/item/clothing/under/rank/warden/corp(src)
+		new /obj/item/clothing/head/beret/security/corp(src)
+		new /obj/item/clothing/head/warden/corp(src)
 	new /obj/item/clothing/head/helmet(src)
+	new	/obj/item/clothing/suit/security/warden(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
@@ -251,6 +264,7 @@
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/head/beret/security(src)
+	new /obj/item/clothing/head/softcap/security(src)
 	new /obj/item/clothing/suit/storage/hazardvest/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	//Tools
@@ -285,11 +299,20 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/head/softcap/security/corp(src)
-	new /obj/item/clothing/head/beret/security/corp(src)
-	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
+	if(prob(50))
+		if(prob(50))
+			new /obj/item/clothing/under/rank/security(src)
+		else
+			new /obj/item/clothing/under/rank/security/blue(src)
+		new /obj/item/clothing/head/beret/security/officer(src)
+		new /obj/item/clothing/head/softcap/security(src)
+	else
+		new /obj/item/clothing/under/rank/security/corp(src)
+		new /obj/item/clothing/head/beret/security/corp(src)
+		new /obj/item/clothing/head/softcap/security/corp(src)
 	new /obj/item/clothing/head/helmet(src)
+	new /obj/item/clothing/suit/security/officer(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	//Tools
@@ -375,9 +398,9 @@
 
 /obj/structure/closet/secure_closet/csi/fill()
 	//Appearance
-	new /obj/item/clothing/suit/storage/forensics/blue(src)
-	new /obj/item/clothing/suit/storage/forensics/red(src)
-	new /obj/item/clothing/suit/storage/vest/csi(src)
+	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/suit/storage/toggle/forensics(src)
+	new /obj/item/clothing/suit/storage/vest/ft(src)
 	new /obj/item/clothing/under/det/forensics(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)

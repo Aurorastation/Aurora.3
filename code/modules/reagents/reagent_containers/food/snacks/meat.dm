@@ -47,6 +47,10 @@
 	filling_color = "#BBBBAA"
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 6) //Chicken is low fat. Less total calories than other meats
 
+/obj/item/reagent_containers/food/snacks/meat/pig
+	name = "pig meat"
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 4)
+
 /obj/item/reagent_containers/food/snacks/meat/biogenerated
 	name = "bio meat"
 	desc = "Did this come from the Biogenerator, or is it a biohazard? Perhaps it is both."

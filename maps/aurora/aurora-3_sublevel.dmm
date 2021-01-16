@@ -36076,6 +36076,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"wvX" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "wwk" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -36436,6 +36447,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
+"xpY" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "xqo" = (
 /obj/structure/window/phoronreinforced{
 	dir = 8
@@ -52067,7 +52084,7 @@ nDL
 nDL
 tkm
 iOl
-aba
+xpY
 aba
 aba
 ale
@@ -71097,7 +71114,7 @@ aIZ
 aNT
 vnf
 awP
-aqA
+wvX
 ebn
 ayi
 akG
@@ -80862,7 +80879,7 @@ eEq
 baw
 cFw
 nzR
-aba
+xpY
 aba
 aba
 aaa

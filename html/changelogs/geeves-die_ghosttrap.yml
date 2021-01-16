@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - refactor: "Replaced the last of the ghosttrap system with the ghostspawner system. Rebooted drones, imaginary friends, split personalities, and grown mobs like diona now use it."
+  - tweak: "Grown mobs like diona nymphs now last three minutes after being born, instead of one minute."

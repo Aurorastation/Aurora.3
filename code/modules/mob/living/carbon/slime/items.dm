@@ -270,7 +270,7 @@
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
 	if(wizardy)
-		bluespace_golems.add_antagonist(G.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
+		wizard_golems.add_antagonist(G.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 	else
 		to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 

@@ -1296,6 +1296,12 @@
 	},
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
+"aVt" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "aVE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5473,6 +5479,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/stairs)
+"eTl" = (
+/obj/machinery/biogenerator/small/west,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "eTH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -45179,7 +45189,7 @@ rYN
 rYN
 fdu
 kKF
-kKF
+aVt
 fdu
 rYN
 rYN
@@ -53942,7 +53952,7 @@ fdu
 fdu
 fdu
 kKF
-kKF
+aVt
 kKF
 kKF
 kKF
@@ -56464,7 +56474,7 @@ bNO
 cNy
 voV
 hGZ
-osW
+eTl
 osW
 xpF
 rnJ

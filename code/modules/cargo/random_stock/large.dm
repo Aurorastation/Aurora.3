@@ -1,4 +1,4 @@
-STOCK_ITEM_LARGE(russian, 1)
+STOCK_ITEM_LARGE(russian, 0.5)
 	new /obj/structure/closet/gimmick/russian(L)
 
 STOCK_ITEM_LARGE(emergency, 2)
@@ -27,13 +27,13 @@ STOCK_ITEM_LARGE(biosuit, 3)
 STOCK_ITEM_LARGE(hydrotray, 3)
 	new /obj/machinery/portable_atmospherics/hydroponics(L)
 
-STOCK_ITEM_LARGE(oxycanister, 6)//Cargo should almost always have an oxycanister
+STOCK_ITEM_LARGE(oxycanister, 3)
 	new /obj/machinery/portable_atmospherics/canister/oxygen(L)
 
 STOCK_ITEM_LARGE(oxydispenser, 5)
 	new /obj/structure/dispenser/oxygen(L)
 
-STOCK_ITEM_LARGE(bubbleshield, 2)
+STOCK_ITEM_LARGE(bubbleshield, 0.5)
 	var/obj/O = new /obj/machinery/shield_gen(L)
 	var/turf/T = get_turf(O)
 	for (var/turf/U in range(O,1))
@@ -47,6 +47,9 @@ STOCK_ITEM_LARGE(watertank, 2)
 
 STOCK_ITEM_LARGE(fueltank, 2)
 	new /obj/structure/reagent_dispensers/fueltank(L)
+
+STOCK_ITEM_LARGE(lubetank, 2)
+	new /obj/structure/reagent_dispensers/lube(L)
 
 STOCK_ITEM_LARGE(airpump, 1)
 	var/obj/machinery/portable_atmospherics/powered/M = new /obj/machinery/portable_atmospherics/powered/pump/filled(L)
@@ -140,3 +143,6 @@ STOCK_ITEM_LARGE(dog, 0.2)
 STOCK_ITEM_LARGE(exosuit, 1.2) //A randomly generated exosuit in a very variable condition.
 	new /obj/machinery/mech_recharger(get_turf(L)) // exosuit would die without it otherwise
 	new /mob/living/heavy_vehicle/premade/random/extra(L)
+
+STOCK_ITEM_LARGE(unusualcrate, 0.1) //Like from the unknown object random event
+	new /obj/structure/closet/crate/loot(L)

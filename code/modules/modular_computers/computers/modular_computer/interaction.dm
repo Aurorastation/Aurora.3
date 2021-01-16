@@ -188,6 +188,10 @@
 		return attack_self(user)
 	return ..()
 
+// pai can take a look, but they cannot interact with the UI
+/obj/item/modular_computer/attack_pai(mob/user)
+	return attack_self(user)
+
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/item/modular_computer/attack_self(mob/user)
 	if(enabled && screen_on)

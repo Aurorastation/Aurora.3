@@ -35,7 +35,7 @@
 #define SPECIES_ZOMBIE_TAJARA		"Tajara Zombie"
 #define SPECIES_ZOMBIE_UNATHI		"Unathi Zombie"
 #define SPECIES_ZOMBIE_SKRELL		"Skrell Zombie"
-#define SPECIES_SHADOW				"Shadow"
+#define SPECIES_REVENANT			"Revenant"
 
 #define SPECIES_MONKEY				"Monkey"
 #define SPECIES_MONKEY_SKRELL		"Neaera"

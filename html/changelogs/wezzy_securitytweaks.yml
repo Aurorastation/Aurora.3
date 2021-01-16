@@ -38,4 +38,11 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - spellcheck: "Fixes a grammar problem with detective badge description."
+  - tweak: "Changes dark blue warden uniform to match the rest of the department, for consistency reasons and the fact it did not match with any other security accessories"
+  - imageadd: "Added unused blue and navy blue security jackets to the loadout, with some tweaking."
+  - imageadd: "Red forensic tech jacket has been removed for being out of place. In lieu of this, similar blue and navy blue variants have been added. The badge has been removed in order to further distance resemblance from the FIB jacket."
+  - imageadd: "FIB jacket has also been updated."
+  - rscadd: "FIB and forensic technician jackets are now able to open and close like labcoats."
+  - balance: "Removed the armor values from cosmetic coats in security lockers."
+  - rscadd: "Resprited warden and hos caps. added a corporate version as well, and moved them to an appropriate file, along with the commissar's cap."
+  - rscadd: "Finally, added corporate bandanas"

@@ -362,7 +362,7 @@
 	organ_hit_chance += 5 * damage_amt / organ_damage_threshold
 
 	if(encased && !(status & ORGAN_BROKEN)) //ribs protect
-		organ_hit_chance *= 0.6
+		organ_hit_chance *= 0.2
 
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))
@@ -431,14 +431,7 @@ This function completely restores a damaged organ to perfect condition.
 */
 /obj/item/organ/external/rejuvenate()
 	damage_state = "00"
-	src.status &= ~ORGAN_BROKEN
-	src.status &= ~ORGAN_BLEEDING
-	src.status &= ~ORGAN_SPLINTED
-	src.status &= ~ORGAN_CUT_AWAY
-	src.status &= ~ORGAN_DESTROYED
-	src.status &= ~ORGAN_DEAD
-	src.status &= ~ORGAN_MUTATED
-	src.status &= ~ORGAN_SPLINTED
+	status &= ~ORGAN_DAMAGE_STATES
 	perma_injury = 0
 	brute_dam = 0
 	burn_dam = 0

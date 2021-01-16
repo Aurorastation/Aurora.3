@@ -6750,6 +6750,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_virology)
+"ru" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "rA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/floodlight{
@@ -42785,7 +42791,7 @@ mo
 mo
 mo
 mo
-ab
+ru
 ab
 ab
 ab
@@ -50706,7 +50712,7 @@ if
 im
 wo
 Zt
-ab
+ru
 ab
 ab
 aa
