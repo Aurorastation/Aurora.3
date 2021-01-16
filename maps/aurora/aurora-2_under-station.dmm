@@ -36,6 +36,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
+"ep" = (
+/obj/structure/lattice,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/template_noop,
+/area/template_noop)
 "eu" = (
 /obj/structure/table/standard,
 /obj/item/storage/briefcase/inflatable,
@@ -460,13 +467,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
-"Uy" = (
-/obj/structure/lattice,
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/template_noop,
-/area/template_noop)
 "UG" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/cooling)
@@ -12774,7 +12774,7 @@ CN
 CN
 mc
 CN
-Uy
+ep
 CN
 UG
 sQ

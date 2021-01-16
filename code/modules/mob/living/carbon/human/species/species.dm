@@ -625,7 +625,7 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return /datum/reagent/nutriment
+	return /decl/reagent/nutriment
 
 /datum/species/proc/can_commune()
 	return FALSE

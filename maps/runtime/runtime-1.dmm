@@ -1452,12 +1452,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
-"iL" = (
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
 "jf" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1649,6 +1643,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"PS" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "RL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -3886,7 +3886,7 @@ ae
 bv
 cw
 bv
-iL
+PS
 ae
 ae
 ae

@@ -1214,7 +1214,7 @@
 /mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
-		vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
+		vessel.add_reagent(/decl/reagent/blood,560-vessel.total_volume, temperature = species.body_temperature)
 		fixblood()
 
 	// Fix up all organs.
@@ -1284,17 +1284,19 @@
 		L.bruise()
 
 //returns 1 if made bloody, returns 0 otherwise
-/mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
+/mob/living/carbon/human/add_blood(mob/living/carbon/C as mob)
 	if (!..())
-		return 0
+		return FALSE
 	//if this blood isn't already in the list, add it
-	if(istype(M))
-		if(!blood_DNA[M.dna.unique_enzymes])
-			blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-	hand_blood_color = species.blood_color
+	hand_blood_color = COLOR_HUMAN_BLOOD
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		if(!blood_DNA[H.dna.unique_enzymes])
+			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
+		hand_blood_color = H.species?.blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle
-	return 1 //we applied blood to the item
+	return TRUE //we applied blood to the item
 
 /mob/living/carbon/human/proc/get_full_print()
 	if(!dna ||!dna.uni_identity)
@@ -1454,8 +1456,7 @@
 	spawn(0)
 		regenerate_icons()
 		if (vessel)
-			vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
-			fixblood()
+			restore_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
@@ -1972,7 +1973,7 @@
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		reagents.add_reagent(/datum/reagent/adrenaline, amount)
+		reagents.add_reagent(/decl/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)

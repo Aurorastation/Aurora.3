@@ -129,7 +129,7 @@
 		if(!TS.Adjacent(TT))
 			activate_pin(3)
 			return
-		var/tramount = Clamp(min(transfer_amount, reagents.get_free_space()), 0, reagents.maximum_volume)
+		var/tramount = Clamp(min(transfer_amount, REAGENTS_FREE_SPACE(reagents)), 0, reagents.maximum_volume)
 		if(ismob(target))//Blood!
 			if(istype(target, /mob/living/carbon))
 				var/mob/living/carbon/T = target
@@ -145,21 +145,7 @@
 					else
 						activate_pin(3)
 					return
-				var/datum/reagent/B
-				if(istype(T, /mob/living/carbon/human))
-					var/mob/living/carbon/human/H = T
-					if(H.species && !H.has_organ(BP_HEART))
-						H.reagents.trans_to_obj(src, tramount)
-					else
-						B = T.take_blood(src, tramount)
-				else
-					B = T.take_blood(src,tramount)
-				if (B)
-					reagents.reagent_list |= B
-					reagents.update_total()
-					on_reagent_change()
-					reagents.handle_reactions()
-					B = null
+				T.take_blood(src,tramount)
 				visible_message( "<span class='notice'>[assembly] takes a blood sample from [target].</span>")
 			else
 				activate_pin(3)
@@ -229,11 +215,11 @@
 		if(!source.is_open_container() || !target.is_open_container())
 			return
 		if(direc)
-			if(!target.reagents.get_free_space())
+			if(!REAGENTS_FREE_SPACE(target.reagents))
 				return
 			source.reagents.trans_to(target, transfer_amount)
 		else
-			if(!source.reagents.get_free_space())
+			if(!REAGENTS_FREE_SPACE(source.reagents))
 				return
 			target.reagents.trans_to(source, transfer_amount)
 		activate_pin(2)
@@ -296,7 +282,8 @@
 
 /obj/item/integrated_circuit/reagent/storage/scan/do_work()
 	var/list/cont = list()
-	for(var/datum/reagent/RE in reagents.reagent_list)
+	for(var/_RE in reagents.reagent_volumes)
+		var/decl/reagent/RE = decls_repository.get_decl(_RE)
 		cont += RE.name
 	set_pin_data(IC_OUTPUT, 3, cont)
 	set_pin_data(IC_OUTPUT, 4, reagents.generate_taste_message(src))
@@ -348,14 +335,15 @@
 			return
 		if(!source.is_open_container() || !target.is_open_container())
 			return
-		if(!target.reagents.get_free_space())
+		if(!REAGENTS_FREE_SPACE(target.reagents))
 			return
-		for(var/datum/reagent/G in source.reagents.reagent_list)
+		for(var/_G in source.reagents.reagent_volumes)
+			var/decl/reagent/G = decls_repository.get_decl(_G)
 			if (!direc)
 				if(lowertext(G.name) in demand)
-					source.reagents.trans_type_to(target, G.type, transfer_amount)
+					source.reagents.trans_type_to(target, _G, transfer_amount)
 			else
 				if(!(lowertext(G.name) in demand))
-					source.reagents.trans_type_to(target, G.type, transfer_amount)
+					source.reagents.trans_type_to(target, _G, transfer_amount)
 		activate_pin(2)
 		push_data()

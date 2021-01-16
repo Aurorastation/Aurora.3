@@ -51,8 +51,8 @@
 
 	var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 	if(S)
-		for(var/datum/reagent/R in S.ingested.reagent_list)
-			if(R.type == /datum/reagent/rmt)
+		for(var/_R in S.ingested.reagent_volumes)
+			if(_R == /decl/reagent/rmt)
 				return 0
 
 	return 4
@@ -84,8 +84,8 @@
 
 		var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 		if(S)
-			for(var/datum/reagent/R in S.ingested.reagent_list)
-				if(R.type == /datum/reagent/rmt)
+			for(var/_R in S.ingested.reagent_volumes)
+				if(_R == /decl/reagent/rmt)
 					return
 
 		var/pain_message = pick("You feel sluggish as if something is weighing you down.",

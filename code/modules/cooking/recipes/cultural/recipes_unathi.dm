@@ -35,7 +35,7 @@
 		/obj/item/reagent_containers/food/snacks/egg,
 		/obj/item/reagent_containers/food/snacks/egg
 	)
-	reagents = list(/datum/reagent/blood = 15)
+	reagents = list(/decl/reagent/blood = 15)
 	result = /obj/item/reagent_containers/food/snacks/riztizkzi_sea
 
 /decl/recipe/father_breakfast
@@ -64,7 +64,7 @@
 		/obj/item/reagent_containers/food/snacks/fish,
 		/obj/item/reagent_containers/food/snacks/fish
 	)
-	reagents = list(/datum/reagent/spacespice = 1)
+	reagents = list(/decl/reagent/spacespice = 1)
 	fruit = list("cabbage" = 1, "lime" = 1)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/grilled_carp
 

@@ -202,7 +202,7 @@ Pen exclusive commands
 /obj/item/pen/reagent/sleepy
 	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Waffle Co.\""
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/datum/reagent/polysomnine = 22)
+	reagents_to_add = list(/decl/reagent/polysomnine = 22)
 
 
 /*
@@ -210,29 +210,29 @@ Pen exclusive commands
  */
 /obj/item/pen/reagent/paralysis
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/datum/reagent/toxin/dextrotoxin = 10)
+	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10)
 
 /obj/item/pen/reagent/healing
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/datum/reagent/tricordrazine = 10, /datum/reagent/dermaline = 5, /datum/reagent/bicaridine = 5)
+	reagents_to_add = list(/decl/reagent/tricordrazine = 10, /decl/reagent/dermaline = 5, /decl/reagent/bicaridine = 5)
 	icon_state = "pen_green"
 	colour = "green"
 
 /obj/item/pen/reagent/pacifier
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/datum/reagent/wulumunusha = 2, /datum/reagent/pacifier = 15, /datum/reagent/cryptobiolin = 10)
+	reagents_to_add = list(/decl/reagent/wulumunusha = 2, /decl/reagent/pacifier = 15, /decl/reagent/cryptobiolin = 10)
 	icon_state = "pen_blue"
 	colour = "blue"
 
 /obj/item/pen/reagent/hyperzine
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/datum/reagent/hyperzine = 10)
+	reagents_to_add = list(/decl/reagent/hyperzine = 10)
 	icon_state = "pen_yellow"
 	colour = "yellow"
 
 /obj/item/pen/reagent/poison
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/datum/reagent/toxin/cyanide = 1, /datum/reagent/lexorin = 20)
+	reagents_to_add = list(/decl/reagent/toxin/cyanide = 1, /decl/reagent/lexorin = 20)
 	icon_state = "pen_red"
 	colour = "red"
 
@@ -304,7 +304,7 @@ Pen exclusive commands
 	var/shadeColour = "#220000" //RGB
 	var/instant = 0
 	var/colourName = "red" //for updateIcon purposes
-	reagents_to_add = list(/datum/reagent/crayon_dust = 10)
+	reagents_to_add = list(/decl/reagent/crayon_dust = 10)
 
 /obj/item/pen/crayon/Initialize()
 	. = ..()
