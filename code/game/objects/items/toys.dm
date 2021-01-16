@@ -991,7 +991,6 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
-
 /obj/item/toy/xmastree
 	name = "miniature Christmas tree"
 	desc = "Now with 99% less pine needles."
@@ -1001,6 +1000,55 @@
 	throwforce = 1
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+
+
+//baystation desk toys
+
+/obj/item/toy/desk
+	var/on = FALSE
+	var/activation_sound = /decl/sound_category/switch_sound
+
+/obj/item/toy/desk/update_icon()
+	if(on)
+		icon_state = "[initial(icon_state)]-on"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/toy/desk/attack_self(mob/user)
+	activate(user)
+
+/obj/item/toy/desk/AltClick(mob/user)
+	activate(user)
+
+/obj/item/toy/desk/proc/activate(mob/user)
+	on = !on
+	playsound(src.loc, activation_sound, 75, 1)
+	update_icon()
+	return 1
+
+/obj/item/toy/desk/newtoncradle
+	name = "\improper Newton's cradle"
+	desc = "A ancient 21th century super-weapon model demonstrating that Sir Isaac Newton is the deadliest sonuvabitch in space."
+	desc_fluff = "Aside from car radios, Eridanian Dregs are reportedly notorious for stealing these things. It is often theorized that the very same ball bearings are used in black-market cybernetics."
+	icon_state = "newtoncradle"
+
+/obj/item/toy/desk/fan
+	name = "office fan"
+	desc = "Your greatest fan."
+	desc_fluff = "For weeks, the atmospherics department faced a conundrum on how to lower temperatures in a localized area through complicated pipe channels and ventilation systems. The problem was promptly solved by ordering several desk fans."
+	icon_state = "fan"
+
+/obj/item/toy/desk/officetoy
+	name = "office toy"
+	desc = "A generic microfusion powered office desk toy. Only generates magnetism and ennui."
+	desc_fluff = "The mechanism inside is a Hephasteus trade secret. No peeking!"
+	icon_state = "desktoy"
+
+/obj/item/toy/desk/dippingbird
+	name = "dipping bird toy"
+	desc = "Engineers marvel at this scale model of a primitive thermal engine. It's highly debated why the majority of owners were in low-level bureaucratic jobs."
+	desc_fluff = "One of the key essentials for every Eridanian suit - it's practically a rite of passage to own one of these things."
+	icon_state = "dippybird"
 
 /obj/item/toy/partypopper
 	name = "party popper"

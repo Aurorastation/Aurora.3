@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Internal organs protected by bones (like a ribcage) now have a x0.2 modifier to being hit, adjusted from x0.6."

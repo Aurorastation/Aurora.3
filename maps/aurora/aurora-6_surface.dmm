@@ -4198,6 +4198,10 @@
 	name = "survey shuttle"
 	},
 /area/shuttle/research)
+"dLW" = (
+/obj/machinery/biogenerator/small/west,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "dMM" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -56470,7 +56474,7 @@ bNO
 cNy
 voV
 hGZ
-osW
+dLW
 osW
 xpF
 rnJ

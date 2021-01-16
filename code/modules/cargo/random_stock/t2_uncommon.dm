@@ -72,7 +72,7 @@ STOCK_ITEM_UNCOMMON(specialcrayon, 1.5)
 		new /obj/item/pen/crayon/rainbow(L)
 
 STOCK_ITEM_UNCOMMON(contraband, 2)
-	for(var/i in 1 to rand(1, 4))
+	for(var/i in 1 to rand(1, 3))
 		new /obj/random/contraband(L)
 
 STOCK_ITEM_UNCOMMON(mediumcell, 3)
@@ -123,7 +123,7 @@ STOCK_ITEM_UNCOMMON(circuitboards, 3)
 	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
-	for(var/i in 1 to rand(2, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/type = pick(allboards)
 		new type(L)
 
@@ -171,7 +171,7 @@ STOCK_ITEM_UNCOMMON(MMI, 1.5)
 STOCK_ITEM_UNCOMMON(voidsuit, 2)
 	new /obj/random/voidsuit(L,1)
 
-STOCK_ITEM_UNCOMMON(violin, 2)
+STOCK_ITEM_UNCOMMON(violin, 1)
 	new /obj/item/device/violin(L)
 
 STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
@@ -193,18 +193,9 @@ STOCK_ITEM_UNCOMMON(carpet, 2)
 STOCK_ITEM_UNCOMMON(gift, 4)
 	new /obj/item/a_gift(L)
 
-STOCK_ITEM_UNCOMMON(coatrack, 1)
-	var/turf/T = get_turf(L)
-	if(!turf_clear(T))
-		for (var/turf/U in range(T,1))
-			if (turf_clear(U))
-				T = U
-				break
-	new /obj/structure/coatrack(T)
-
 STOCK_ITEM_UNCOMMON(riotshield, 2)
 	new /obj/item/shield/riot(L)
-	if(prob(40))
+	if(prob(20))
 		new /obj/item/shield/riot(L)
 
 STOCK_ITEM_UNCOMMON(fireaxe, 1)
@@ -267,7 +258,7 @@ STOCK_ITEM_UNCOMMON(manual, 2)
 	var/type = pick(booklist)
 	new type(L)
 
-STOCK_ITEM_UNCOMMON(spystuff, 1)
+STOCK_ITEM_UNCOMMON(spystuff, 0.75)
 	if(prob(40))
 		new /obj/item/device/radiojammer(L)
 	else
@@ -278,7 +269,7 @@ STOCK_ITEM_UNCOMMON(seeds, 1)
 		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds) - /obj/item/seeds/cutting)
 		new SP(L)
 
-STOCK_ITEM_UNCOMMON(rped, 2)
+STOCK_ITEM_UNCOMMON(rped, 1)
 	new /obj/item/storage/part_replacer(L)
 
 STOCK_ITEM_UNCOMMON(briefcase, 2)
@@ -369,8 +360,10 @@ STOCK_ITEM_UNCOMMON(wristbound, 0.5)
 STOCK_ITEM_UNCOMMON(pops, 0.5)
 	if(prob(85))
 		new /obj/item/storage/box/snappops(L)
-	else
+	else if (prob(25))
 		new /obj/item/storage/box/snappops/syndi(L)
+	else
+		new /obj/item/storage/box/partypopper(L)
 
 STOCK_ITEM_UNCOMMON(collectable_headwear, 0.5)
 	var/type = pick(subtypesof(/obj/item/clothing/head/collectable))
@@ -396,9 +389,8 @@ STOCK_ITEM_UNCOMMON(alt_glasses, 1)
 			/obj/item/clothing/glasses/threedglasses,
 			/obj/item/clothing/glasses/regular/hipster,
 			/obj/item/clothing/glasses/regular/scanners)
-	for(var/i in 1 to rand(1, 2))
-		var/type = pick(glasses)
-		new type(L)
+	var/type = pick(glasses)
+	new type(L)
 
 STOCK_ITEM_UNCOMMON(gumballs, 3)
 	new /obj/item/glass_jar/gumball(L)

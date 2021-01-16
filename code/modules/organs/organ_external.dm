@@ -362,7 +362,7 @@
 	organ_hit_chance += 5 * damage_amt / organ_damage_threshold
 
 	if(encased && !(status & ORGAN_BROKEN)) //ribs protect
-		organ_hit_chance *= 0.6
+		organ_hit_chance *= 0.2
 
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))

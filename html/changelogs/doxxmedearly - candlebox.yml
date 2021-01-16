@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - tweak: "Candle boxes now take up less inventory space. They still hold five candles."

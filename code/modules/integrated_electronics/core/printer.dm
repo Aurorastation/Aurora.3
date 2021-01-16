@@ -10,7 +10,6 @@
 
 	var/upgraded = FALSE  // When hit with an upgrade disk, will turn true, allowing it to print the higher tier circuits.
 	var/can_clone = FALSE // Same for above, but will allow the printer to duplicate a specific assembly.
-	var/current_category
 	var/obj/item/device/electronic_assembly/assembly_to_clone
 
 /obj/item/device/integrated_circuit_printer/upgraded
@@ -28,7 +27,7 @@
 			if(stack.use(num))
 				to_chat(user, "<span class='notice'>You add [num] sheet\s to \the [src].</span>")
 				metal += num * metal_per_sheet
-				interact(user)
+				SSvueui.check_uis_for_change(src)
 				return TRUE
 
 	if(istype(O,/obj/item/integrated_circuit))
@@ -36,7 +35,7 @@
 		user.unEquip(O)
 		metal = min(metal + O.w_class, max_metal)
 		qdel(O)
-		interact(user)
+		SSvueui.check_uis_for_change(src)
 		return TRUE
 
 	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/advanced))
@@ -45,7 +44,7 @@
 			return TRUE
 		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
 		upgraded = TRUE
-		interact(user)
+		SSvueui.check_uis_for_change(src)
 		return TRUE
 
 	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/clone))
@@ -54,7 +53,7 @@
 			return TRUE
 		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
 		can_clone = TRUE
-		interact(user)
+		SSvueui.check_uis_for_change(src)
 		return TRUE
 
 	return ..()
@@ -63,53 +62,33 @@
 	interact(user)
 
 /obj/item/device/integrated_circuit_printer/interact(mob/user)
-	var/window_height = 600
-	var/window_width = 500
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "devices-circuit-printer", 600, 500, "Integrated Circuit Printer")
+	ui.open()
 
-	if(isnull(current_category))
-		current_category = SSelectronics.printer_recipe_list[1]
+/obj/item/device/integrated_circuit_printer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	. = ..()
+	data = . || data || list()
 
-	var/HTML = "<center><h2>Integrated Circuit Printer</h2></center><br>"
-	HTML += "Metal: [metal/metal_per_sheet]/[max_metal/metal_per_sheet] sheets.<br>"
-	HTML += "Circuits available: [upgraded ? "Regular":"Advanced"]."
-	HTML += "Assembly Cloning: [can_clone ? "Available": "Unavailable"]."
-	if(assembly_to_clone)
-		HTML += "Assembly '[assembly_to_clone.name]' loaded."
-	HTML += "Crossed out circuits mean that the printer is not sufficentally upgraded to create that circuit.<br>"
-	HTML += "<hr>"
-	HTML += "Categories:"
-	for(var/category in SSelectronics.printer_recipe_list)
-		if(category != current_category)
-			HTML += " <a href='?src=\ref[src];category=[category]'>[category]</a> "
-		else // Bold the button if it's already selected.
-			HTML += " <b>[category]</b> "
-	HTML += "<hr>"
-	HTML += "<center><h4>[current_category]</h4></center>"
+	data["metal"] = metal / metal_per_sheet
+	data["metal_max"] = max_metal / metal_per_sheet
+	data["upgraded"] = upgraded
+	data["can_clone"] = can_clone
+	data["assembly_to_clone"] = assembly_to_clone ? assembly_to_clone.name : FALSE
+	
+	if(upgraded)
+		data["circuits"] = SSelectronics.printer_recipe_list_upgraded
+	else
+		data["circuits"] = SSelectronics.printer_recipe_list_basic
 
-	var/list/current_list = SSelectronics.printer_recipe_list[current_category]
-	for(var/obj/O in current_list)
-		var/can_build = TRUE
-		if(istype(O, /obj/item/integrated_circuit))
-			var/obj/item/integrated_circuit/IC = O
-			if((IC.spawn_flags & IC_SPAWN_RESEARCH) && (!(IC.spawn_flags & IC_SPAWN_DEFAULT)) && !upgraded)
-				can_build = FALSE
-		if(can_build)
-			HTML += "<A href='?src=\ref[src];build=[O.type]'>[O.name]</A>: [O.desc]<br>"
-		else
-			HTML += "<s>[O.name]: [O.desc]</s><br>"
-
-	var/datum/browser/B = new(user, "integrated_printer", null, window_width, window_height)
-	B.set_content(HTML)
-	B.open(FALSE)
+	return data
 
 /obj/item/device/integrated_circuit_printer/Topic(href, href_list)
 	if(..())
 		return 1
 
 	add_fingerprint(usr)
-
-	if(href_list["category"])
-		current_category = href_list["category"]
 
 	if(href_list["build"])
 		var/build_type = text2path(href_list["build"])
@@ -139,14 +118,15 @@
 		else
 			new build_type(get_turf(loc))
 
-	interact(usr)
+	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/integrated_circuit_printer/proc/can_print(build_type)
-	var/list/current_list = SSelectronics.printer_recipe_list[current_category]
+	for(var/category in SSelectronics.printer_recipe_list)
+		var/list/current_list = SSelectronics.printer_recipe_list[category]
 
-	for (var/obj/O in current_list)
-		if (O.type == build_type)
-			return TRUE
+		for (var/obj/O in current_list)
+			if (O.type == build_type)
+				return TRUE
 
 	return FALSE
 
