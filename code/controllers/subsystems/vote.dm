@@ -256,7 +256,9 @@ var/datum/controller/subsystem/vote/SSvote
 				if(SSticker.current_state >= 2)
 					return 0
 
-				extra_information = "By voting here you will be LOCKED INTO READY. You cannot redact your vote."
+				if (config.force_voters_ready)
+					extra_information = "By voting here you will be LOCKED INTO READY. You cannot redact your vote."
+
 				for (var/F in config.votable_modes)
 					var/datum/game_mode/M = gamemode_cache[F]
 					if(!M)
