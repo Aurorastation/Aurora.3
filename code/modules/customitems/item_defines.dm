@@ -528,35 +528,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/stamp/fluff/leland_stamp //Sol Alliance Government Foreign Relations Department Stamp - Leland Field - saudus
-	name = "\improper Sol Alliance foreign relations department stamp"
-	desc = "A stamp with the emblem of the Sol Alliance Foreign Relations Department. The text \"Diplomatic Observer, L. Field\" is inscribed on the handle."
-	icon = 'icons/obj/custom_items/leland_items.dmi'
-	icon_state = "leland_stamp"
-	item_state = "leland_stamp"
-
-/obj/item/clothing/accessory/badge/fluff/leland_badge //Sol Alliance Government Foreign Relations Department Badge - Leland Field - saudus
-	name = "\improper Sol Alliance foreign relations department badge"
-	desc = "A badge bearing the emblem of the Sol Alliance Foreign Relations Department. It has an inscription reading \"Leland Field, Diplomatic Observer\"."
-	icon = 'icons/obj/custom_items/leland_items.dmi'
-	icon_state = "leland_badge"
-	stored_name = "Leland Field"
-	badge_string = "Diplomatic Observer"
-
-/obj/item/clothing/accessory/badge/fluff/leland_badge/verb/flip()
-	set name = "Flip the Badge"
-	set desc = "Open or close the badge."
-	set category = "Object"
-	set src in usr
-
-	if(src.icon_state == "leland_badge")
-		src.icon_state = "leland_badge-info"
-		to_chat(usr, "You open \the [src].")
-	else
-		src.icon_state = "leland_badge"
-		to_chat(usr, "You close \the [src].")
-
-
 /obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Huz'kai - tomiixstarslasher
 	name = "gentleman's coat"
 	desc = "A blue gentleman's coat. It is very stylish, and appears to be very warm."
