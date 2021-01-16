@@ -18,6 +18,7 @@ var/datum/controller/subsystem/vote/SSvote
 	var/list/current_votes = list()
 	var/auto_muted = 0
 	var/last_transfer_vote = null
+	var/extra_information = null
 
 	var/list/round_voters = list()
 
@@ -56,6 +57,7 @@ var/datum/controller/subsystem/vote/SSvote
 	log_debug("The server has called a gamemode vote")
 
 /datum/controller/subsystem/vote/proc/reset()
+	extra_information = null
 	initiator = null
 	time_remaining = 0
 	mode = null
@@ -185,33 +187,38 @@ var/datum/controller/subsystem/vote/SSvote
 		log_game("Rebooting due to restart vote")
 		world.Reboot()
 
-/datum/controller/subsystem/vote/proc/submit_vote(ckey, vote)
-	if(mode)
-		if (mode == "crew_transfer")
-			if(config.vote_no_dead && usr && !usr.client.holder)
-				if (isnewplayer(usr))
-					to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
-					return 0
-				else if (isobserver(usr))
-					var/mob/abstract/observer/O = usr
-					if (O.started_as_observer)
-						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
-						return 0
-		if(vote in choices)
-			if(current_votes[ckey])
-				choices[current_votes[ckey]]["votes"]--
-			var/vote_descriptor = ""
-			if(isnewplayer(usr))
-				vote_descriptor = ", from the lobby"
-			else if(isobserver(usr))
-				vote_descriptor = ", as an observer"
-			log_vote("[ckey] submitted their vote for: [vote][vote_descriptor]")
-			voted += usr.ckey
-			choices[vote]["votes"]++	//check this
-			current_votes[ckey] = vote
-			return 1
-	return 0
+/datum/controller/subsystem/vote/proc/submit_vote(mob/M, vote, is_staff = FALSE)
+	if(!mode)
+		return FALSE
 
+	if (mode == "crew_transfer")
+		if(config.vote_no_dead && M && !M.client.holder)
+			if (isnewplayer(M))
+				to_chat(M, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+				return FALSE
+			else if (isobserver(M))
+				var/mob/abstract/observer/O = M
+				if (O.started_as_observer)
+					to_chat(M, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+					return FALSE
+	else if (mode == "gamemode")
+		if (!world.has_round_started() && config.force_voters_ready)
+			if (!isnewplayer(M) && !is_staff)
+				to_chat(M, SPAN_WARNING("Only new players can vote for gamemode at round start."))
+				return FALSE
+
+	if(choices[vote])
+		if(current_votes[M.ckey])
+			choices[current_votes[M.ckey]]["votes"]--
+		voted += M.ckey
+		choices[vote]["votes"]++	//check this
+		current_votes[M.ckey] = vote
+		. = TRUE
+
+	if (. && mode == "gamemode")
+		if (isnewplayer(M) && config.force_voters_ready && !is_staff)
+			var/mob/abstract/new_player/NP = M
+			NP.force_ready()
 
 /datum/controller/subsystem/vote/proc/initiate_vote(vote_type, initiator_key, automatic = FALSE)
 	if(!mode)
@@ -248,6 +255,8 @@ var/datum/controller/subsystem/vote/SSvote
 				round_voters.Cut() //Delete the old list, since we are having a new gamemode vote
 				if(SSticker.current_state >= 2)
 					return 0
+
+				extra_information = "By voting here you will be LOCKED INTO READY. You cannot redact your vote."
 				for (var/F in config.votable_modes)
 					var/datum/game_mode/M = gamemode_cache[F]
 					if(!M)
@@ -320,7 +329,7 @@ var/datum/controller/subsystem/vote/SSvote
 	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0)
 
 /datum/controller/subsystem/vote/Topic(href, list/href_list = list(), hsrc)
-	if(!usr || !usr.client)
+	if(!usr?.client)
 		return	//not necessary but meh...just in-case somebody does something stupid
 	if(href_list["open"])
 		OpenVotingUI(usr)
@@ -373,8 +382,8 @@ var/datum/controller/subsystem/vote/SSvote
 				initiate_vote("custom",usr.key)
 		if("vote")
 			var/t = href_list["vote"]
-			if(t) // It starts from 1, so there's no problem
-				if(submit_vote(usr.ckey, t))
+			if(t)
+				if(submit_vote(usr, t, isstaff))
 					SSvueui.check_uis_for_change(src)
 
 /datum/controller/subsystem/vote/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -398,6 +407,8 @@ var/datum/controller/subsystem/vote/SSvote
 		VUEUI_SET_CHECK(data["question"], capitalize(mode), ., data)
 	else
 		VUEUI_SET_CHECK(data["question"], question, ., data)
+
+	VUEUI_SET_CHECK(data["extra_information"], extra_information, ., data)
 	VUEUI_SET_CHECK(data["isstaff"], (user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))), ., data)
 	var/slevel = get_security_level()
 	VUEUI_SET_CHECK(data["is_code_red"], (slevel == "red" || slevel == "delta"), ., data)

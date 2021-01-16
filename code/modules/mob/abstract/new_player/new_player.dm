@@ -426,3 +426,14 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/show_message(msg, type, alt, alt_type)
 	return
+
+/mob/abstract/new_player/proc/force_ready()
+	if (!client.prefs.locked_into_ready)
+		to_chat(src, SPAN_WARNING("You are now locked into a readied state."))
+
+		if (!ready)
+			ready(TRUE)
+			var/obj/screen/new_player/selection/join_game/JG = locate() in client.screen
+			JG?.update_icon(src)
+
+		client.prefs.locked_into_ready = TRUE

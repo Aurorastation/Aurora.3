@@ -3,11 +3,6 @@
 	HUD.new_player_hud(ui_style, ui_color, ui_alpha)
 	HUD.mymob = src
 
-/datum/hud/new_player
-	hud_shown = TRUE
-	inventory_shown = FALSE
-	hotkey_ui_hidden = FALSE
-
 /datum/hud/proc/new_player_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#fffffe", var/ui_alpha = 255)
 	adding = list()
 	var/obj/screen/using
@@ -154,7 +149,10 @@
 	sound_to(player, 'sound/effects/menu_click.ogg')
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
-			player.ready(FALSE)
+			if (player.client.prefs.locked_into_ready)
+				to_chat(player, SPAN_WARNING("Your ready status is locked. You cannot alter it."))
+			else
+				player.ready(FALSE)
 		else
 			player.ready(TRUE)
 	else
@@ -223,10 +221,11 @@
 	if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 		// Cannot join without a saved character, if we're on SQL saves.
 		if (config.sql_saves && !client.prefs.current_character)
-			alert(src, "You have not saved your character yet. Please do so before readying up.")
-			return
+			to_chat(src, SPAN_WARNING("You have not saved your character yet."))
 		if(client.unacked_warning_count > 0)
-			alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
+			to_chat(src, SPAN_WARNING("You have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications."))
+		if (readying == FALSE && config.force_voters_ready && client.prefs.locked_into_ready)
+			to_chat(src, SPAN_WARNING("You have been locked into ready. You cannot unready."))
 			return
 
 		ready = readying
@@ -244,6 +243,10 @@
 		// Don't allow players to observe until initialization is more or less complete.
 		// Letting them join too early breaks things, they can wait.
 		alert(src, "Please wait, the map is not initialized yet.")
+		return 0
+
+	if (client?.prefs.locked_into_ready)
+		alert(src, "You have been locked into being ready. You can no longer observe.")
 		return 0
 
 	if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")

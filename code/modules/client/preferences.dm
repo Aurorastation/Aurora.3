@@ -10,6 +10,7 @@ datum/preferences
 	var/savefile_version = 0
 
 	//non-preference stuff
+	var/locked_into_ready = FALSE // Used to track voting and ready-lock status in pregame lobby.
 	var/warns = 0
 	var/muted = 0
 	var/last_ip

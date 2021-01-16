@@ -3,6 +3,11 @@
     <template v-if="mode">
       <h2>Vote: {{question}}</h2>
       Time Left: {{reman}} s<hr>
+
+      <template v-if="extra_information">
+        <p><b>{{extra_information}}</b></p>
+      </template>
+
       <table>
         <tr>
           <th>Choices</th><th>Votes</th><th v-if="mode == 'gamemode'">Minimum Players</th>
