@@ -1726,6 +1726,8 @@ Follow by example and make good judgement based on length which list to include 
 	none
 		name = "None"
 		icon_state = "none"
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell)
 
 	fade_up
 		name = "Fade (Up)"
@@ -1754,6 +1756,16 @@ Follow by example and make good judgement based on length which list to include 
 	horizontal
 		name = "Horizontal Split"
 		icon_state = "hsplit"
+
+	taj_inner_ear_fur
+		name = "Inner Ear Fur"
+		icon_state = "taj_innerearfur"
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan)
+
+	taj_msai_inner_ear_fur
+		name = "M'sai Inner Ear Fur"
+		icon_state = "taj_msai_innerearfur"
+		species_allowed = list(/datum/species/tajaran/m_sai)
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
