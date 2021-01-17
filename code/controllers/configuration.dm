@@ -321,6 +321,8 @@ var/list/gamemode_cache = list()
 	var/list/external_rsc_urls = list()
 
 	var/lore_summary
+	
+	var/use_dynamic_gamemode = FALSE
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -974,6 +976,9 @@ var/list/gamemode_cache = list()
 
 				if("lore_summary")
 					lore_summary = value
+
+				if ("use_dynamic_gamemode")
+					use_dynamic_gamemode = TRUE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
