@@ -2750,8 +2750,8 @@
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "kj" = (
-/obj/vehicle/train/cargo/engine,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "kk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4340,6 +4340,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"rY" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/janitor)
 "sb" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -8805,8 +8811,8 @@
 /turf/simulated/wall/r_wall,
 /area/template_noop)
 "Md" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor/tiled/dark,
+/obj/vehicle/train/cargo/engine,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "Me" = (
 /obj/structure/shuttle_part/placeholder{
@@ -20959,9 +20965,9 @@ zq
 zq
 Uj
 be
+be
 Uj
 Uj
-pg
 pg
 pg
 pg
@@ -21149,21 +21155,21 @@ Uj
 Uj
 Uj
 Uj
+xv
 Uj
+xv
 Uj
+xv
 Uj
-Uj
-Uj
-Uj
-Uj
+xv
 Uj
 Uj
 Uj
 Uj
 be
+be
 Uj
 kg
-pg
 pg
 pg
 pg
@@ -21363,9 +21369,9 @@ be
 be
 be
 be
+be
 Uj
 kg
-pg
 pg
 pg
 pg
@@ -21547,8 +21553,9 @@ Uj
 be
 be
 be
-ah
+Yu
 be
+Yu
 Yu
 Yu
 Yu
@@ -21567,7 +21574,6 @@ Yu
 be
 Uj
 Uj
-pg
 pg
 pg
 pg
@@ -21765,11 +21771,11 @@ fp
 fp
 Vh
 fp
+fp
 Yu
 be
 be
 xv
-pg
 pg
 pg
 pg
@@ -21949,7 +21955,7 @@ pg
 pg
 Uj
 Yu
-Yu
+ah
 Yu
 Yu
 be
@@ -21967,11 +21973,11 @@ Vh
 Vh
 Vh
 Vh
+Vh
 Yu
 be
 be
 xv
-pg
 pg
 pg
 pg
@@ -22169,11 +22175,11 @@ fp
 fp
 Vh
 fp
+fp
 Yu
 be
 be
-Uj
-pg
+xv
 pg
 TJ
 bF
@@ -22576,7 +22582,7 @@ oD
 JO
 Eh
 Cy
-Hl
+Vh
 Yu
 TJ
 TJ
@@ -22778,7 +22784,7 @@ dN
 Ed
 Bv
 Cy
-Hl
+Vh
 Yu
 TJ
 Vd
@@ -22980,7 +22986,7 @@ Vh
 Vh
 Vh
 Vh
-kj
+Vh
 Yu
 TJ
 Vd
@@ -23988,8 +23994,8 @@ Yu
 Yu
 Yu
 Yu
-EI
-EI
+KO
+Yu
 Tx
 Yu
 Yu
@@ -24173,7 +24179,7 @@ be
 be
 Yu
 be
-be
+rY
 be
 ah
 be
@@ -24194,7 +24200,7 @@ Vh
 Vh
 FY
 Yu
-Vh
+Hl
 Vh
 Vh
 Vh
@@ -24375,7 +24381,7 @@ be
 be
 Yu
 be
-be
+rY
 be
 Yu
 Yu
@@ -24383,10 +24389,10 @@ Yu
 Yu
 Yu
 Yu
-be
-be
-be
-be
+rg
+Yu
+Yu
+Yu
 be
 Yu
 qA
@@ -24396,7 +24402,7 @@ Vh
 Vh
 FY
 Yu
-Vh
+Hl
 Vh
 Vh
 Vh
@@ -24577,7 +24583,7 @@ be
 be
 ah
 be
-be
+rY
 be
 Yu
 aE
@@ -24588,7 +24594,7 @@ Yu
 be
 be
 be
-be
+rg
 be
 Yu
 ci
@@ -24598,7 +24604,7 @@ Vh
 Vh
 FY
 Yu
-Vh
+Hl
 Vh
 be
 be
@@ -24787,10 +24793,10 @@ Vh
 Vh
 Vh
 Yu
+ZZ
+Tl
 be
-be
-be
-be
+Yu
 be
 Yu
 ci
@@ -24800,7 +24806,7 @@ Vh
 Vh
 FY
 Yu
-Vh
+Md
 Vh
 Xx
 Xx
@@ -24991,8 +24997,8 @@ Yu
 Yu
 Yu
 Yu
-be
-be
+Yu
+Yu
 be
 Yu
 Vh
@@ -26413,7 +26419,7 @@ Hd
 Yu
 Yu
 KO
-KO
+Yu
 Yu
 Yu
 Vh
@@ -28407,14 +28413,14 @@ be
 be
 be
 be
-gw
+be
 be
 be
 be
 Vh
 be
-Yu
 be
+Yu
 be
 be
 be
@@ -28615,8 +28621,8 @@ Vh
 Vh
 Vh
 Vh
-Yu
 be
+Yu
 be
 be
 be
@@ -28816,9 +28822,9 @@ be
 be
 be
 be
-Nh
-Yu
+Vh
 be
+Yu
 be
 be
 be
@@ -29018,9 +29024,9 @@ Yu
 Yu
 Yu
 Yu
-Md
+Nh
 Yu
-be
+Yu
 be
 be
 be
@@ -29220,7 +29226,7 @@ VO
 tH
 tH
 Yu
-ci
+kj
 Yu
 Yu
 Yu
@@ -37090,7 +37096,7 @@ pD
 be
 Yu
 be
-be
+rY
 be
 Yu
 be
@@ -37292,7 +37298,7 @@ rD
 be
 Yu
 be
-be
+rY
 be
 Yu
 be
@@ -37494,7 +37500,7 @@ sk
 be
 ah
 be
-be
+rY
 be
 ah
 be
@@ -37696,7 +37702,7 @@ be
 be
 Yu
 be
-be
+rY
 be
 Yu
 be
@@ -37898,7 +37904,7 @@ be
 be
 Yu
 be
-be
+rY
 be
 Yu
 be
@@ -41564,7 +41570,7 @@ pg
 Uj
 be
 be
-Uj
+be
 Uj
 TJ
 bF
@@ -41766,8 +41772,8 @@ pg
 Uj
 be
 be
-Uj
-pg
+be
+xv
 pg
 TJ
 bF
@@ -41968,8 +41974,8 @@ pg
 Uj
 be
 be
+be
 xv
-pg
 pg
 pg
 pg
@@ -42170,8 +42176,8 @@ pg
 Uj
 be
 be
+be
 xv
-pg
 pg
 pg
 pg
@@ -42371,9 +42377,9 @@ pg
 pg
 Uj
 be
+be
 Uj
 Uj
-pg
 pg
 pg
 pg
@@ -42573,9 +42579,9 @@ pg
 pg
 xv
 be
+be
 Uj
 kg
-pg
 pg
 pg
 pg
@@ -42775,9 +42781,9 @@ kg
 kg
 xv
 be
+be
 Uj
 kg
-pg
 pg
 pg
 pg
@@ -42977,9 +42983,9 @@ pg
 pg
 Uj
 be
+be
 Uj
 Uj
-pg
 pg
 pg
 pg

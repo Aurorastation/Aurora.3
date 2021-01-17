@@ -1276,7 +1276,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp/bottom,
+/turf/simulated/floor/tiled/ramp,
 /area/janitor)
 "gI" = (
 /turf/simulated/floor/carpet/rubber,
@@ -2601,7 +2601,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/ramp/bottom,
 /area/janitor)
 "MY" = (
 /obj/structure/railing/mapped{
@@ -2624,15 +2624,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/janitor)
-"Nr" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/ramp,
 /area/janitor)
 "NS" = (
 /obj/machinery/door/airlock/maintenance,
@@ -19736,7 +19727,7 @@ aE
 nL
 ah
 ah
-Nr
+ah
 gF
 MU
 nd
