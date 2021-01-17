@@ -120,6 +120,21 @@ var/datum/controller/subsystem/vote/SSvote
 			to_world("<span class='vote'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></span>")
 			choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] - round(total_votes / 3))
 			greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
+	else if (mode == "dynamicintensity")
+		var/total_non_extended_votes = 0
+		var/highest_other = -1
+		for (var/choice in choices)
+			if (choice == "extended")
+				continue
+
+			var/choice_votes = choices[choice]["votes"]
+			total_non_extended_votes += choice_votes
+
+			if (choice_votes > highest_other)
+				highest_other = choice_votes
+
+		if (total_non_extended_votes > choices["extended"]["votes"])
+			greatest_votes = highest_other
 
 	//get all options with that many votes and return them in a list
 	. = list()
