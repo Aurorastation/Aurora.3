@@ -383,8 +383,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
-	var/list/runnable_modes = config.get_runnable_modes(master_mode)
+	var/list/runnable_modes = list()
 	if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+		runnable_modes = config.get_runnable_modes(master_mode)
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")

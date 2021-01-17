@@ -57,7 +57,7 @@ var/datum/controller/subsystem/vote/SSvote
 	log_debug("The server has called an antag intensity vote.")
 
 /datum/controller/subsystem/vote/proc/autodynamicantags()
-	initiate_vote("dynamicantags", "the server", 1)
+	initiate_vote("dynamicantag", "the server", 1)
 	log_debug("The server has called a dynamic antag vote.")
 
 /datum/controller/subsystem/vote/proc/reset()
@@ -72,7 +72,7 @@ var/datum/controller/subsystem/vote/SSvote
 
 /datum/controller/subsystem/vote/proc/get_result()
 	// this is really fucking dirty, someone please refactor vote types to be datums.
-	if (mode == "dynamicantags")
+	if (mode == "dynamicantag")
 		dynamic_gamemode.set_votes(choices)
 		return dynamic_gamemode.voted_tags
 
@@ -147,7 +147,7 @@ var/datum/controller/subsystem/vote/SSvote
 	var/list/winners = get_result()
 	var/text
 
-	if (mode == "dynamicantags")
+	if (mode == "dynamicantag")
 		if (SSticker.hide_mode)
 			text = "<b>The vote has ended.</b>"
 		else if (winners.len)
@@ -158,6 +158,8 @@ var/datum/controller/subsystem/vote/SSvote
 			text += "</b>"
 		else
 			text = "<b>No antags were chosen. Enjoy extended.</b>"
+		
+		. = winners
 	else
 		if(winners.len > 0)
 			if(winners.len > 1)
@@ -178,7 +180,6 @@ var/datum/controller/subsystem/vote/SSvote
 					text += "<b>Vote Result: [.]</b>"
 				else
 					text += "<b>The vote has ended.</b>" // What will be shown if it is a gamemode vote that isn't extended
-
 		else
 			text += "<b>Vote Result: Inconclusive - No Votes!</b>"
 			if(mode == "add_antagonist")
@@ -189,6 +190,7 @@ var/datum/controller/subsystem/vote/SSvote
 /datum/controller/subsystem/vote/proc/result()
 	. = announce_result()
 	var/restart = 0
+
 	if(.)
 		switch(mode)
 			if("restart")
@@ -336,7 +338,7 @@ var/datum/controller/subsystem/vote/SSvote
 				AddChoice("low", "Low", "A few antags.")
 				AddChoice("medium", "Medium", "A medium intensity round.")
 				AddChoice("high", "High", "A high intensity round.")
-			if ("dynamicantags")
+			if ("dynamicantag")
 				if(SSticker.current_state >= 2)
 					return 0
 
