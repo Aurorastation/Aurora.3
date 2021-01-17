@@ -29913,6 +29913,9 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 28
 	},
+/obj/effect/landmark{
+	name = "JoinLateCryoCommand"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "aYQ" = (
@@ -30706,6 +30709,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "bai" = (
+/obj/effect/landmark{
+	name = "JoinLateCryoCommand"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "baj" = (
