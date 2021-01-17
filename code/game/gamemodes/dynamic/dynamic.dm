@@ -46,6 +46,7 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 			intensity = INTENSITY_NONE
 
 	log_debug("DYNAMIC GM: Intensity set to [intensity]")
+	feedback_set_details("dynamic-gm-intensity", num2text(intensity))
 
 /datum/game_mode/dynamic/proc/set_votes(list/choices)
 	for (var/option in choices)
@@ -54,6 +55,7 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 			voted_tags[option] = votes
 
 	log_debug("DYNAMIC GM: Votes going for selection: [voted_tags.Join(", ")].")
+	feedback_set_details("dynamic-gm-votes", voted_tags.Join(","))
 
 //
 // @brief Returns a list of all antag tags that can be voted for with the current round's intensity.
@@ -104,3 +106,4 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 			antag_tags += tag
 
 	log_debug("DYNAMIC GM: Final antag tag selection: [antag_tags.Join(", ")].")
+	feedback_set_details("dynamic-gm-selection", antag_tags.Join(","))
