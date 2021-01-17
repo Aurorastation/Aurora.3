@@ -82,3 +82,11 @@
 	desc = "It's a janitor bandana with some fine nanotech lining. For the viscera cleaners of today!"
 	icon_state = "bandana_janitor"
 	item_state = "bandana_janitor"
+
+// Corporate.
+
+/obj/item/clothing/head/bandana/security/corp
+	name = "corporate security bandana"
+	desc = "It's a security bandana with some fine nanotech lining. Who knew a do-rag could be so oppresive?"
+	icon_state = "corp"
+	item_state = "corp"

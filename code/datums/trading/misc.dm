@@ -47,6 +47,7 @@
 		/mob/living/simple_animal/rat                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/parrot                 = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tindalos               = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/pig                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/cow                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/chick                  = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/chicken                = TRADER_THIS_TYPE,

@@ -62,9 +62,9 @@
 	// DNA sample from syringe.
 	if(!prints_prosthetics && istype(W,/obj/item/reagent_containers/syringe))
 		var/obj/item/reagent_containers/syringe/S = W
-		var/datum/reagent/blood/injected = locate() in S.reagents.reagent_list //Grab some blood
-		if(injected && injected.data)
-			loaded_dna = injected.data
+		if(REAGENT_DATA(S.reagents, /decl/reagent/blood))
+			loaded_dna = REAGENT_DATA(S.reagents, /decl/reagent/blood)
+			S.reagents.clear_reagents()
 			to_chat(user, "<span class='info'>You inject the blood sample into the bioprinter.</span>")
 		return
 	// Meat for biomass.
