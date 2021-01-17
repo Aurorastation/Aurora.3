@@ -181,6 +181,14 @@
 	else if (health < maxHealth)
 		to_chat(user, "<span class='warning'>It looks wounded.</span>")
 
+/mob/living/simple_animal/can_name(var/mob/living/M)
+	if(named)
+		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
+		return FALSE
+	if(stat == DEAD)
+		to_chat(M, SPAN_WARNING("You can't name a corpse."))
+		return FALSE
+	return TRUE
 
 /mob/living/simple_animal/Life()
 	..()
@@ -649,6 +657,32 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(client)
 		sound_time = FALSE
 		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+
+/mob/living/simple_animal/verb/change_name()
+	set name = "Name Animal"
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/living/M = usr
+	if(!M)	
+		return
+
+	if(can_name(M))
+		var/input = sanitizeSafe(input("What do you want to name \the [src]?","Choose a name") as null|text, MAX_NAME_LEN)
+		if(!input)
+			return
+
+		//check for adjacent and dead in case something happened while naming.
+		if(in_range(M,src) && (stat != DEAD))
+			to_chat(M, SPAN_NOTICE("You rename \the [src] to [input]."))
+			name = input
+			real_name = input
+			named = TRUE
+			do_nickname(M) //This is for commanded mobs who can have a short name, like guard dogs
+
+//This is for commanded mobs who can have a short name, like guard dogs. Does nothing for other mobs for now
+/mob/living/simple_animal/proc/do_nickname(var/mob/living/M)
+
 
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE

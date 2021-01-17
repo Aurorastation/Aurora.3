@@ -30,6 +30,24 @@
 		command_buffer.Add(lowertext(html_decode(message)))
 	return 0
 
+/mob/living/simple_animal/hostile/commanded/can_name(var/mob/living/M)
+	if(named)
+		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
+		return FALSE
+	if(master && (M != master))
+		to_chat(M, SPAN_WARNING("You can't name \the [src] because you aren't their master!"))
+		return FALSE
+	if(stat == DEAD)
+		to_chat(M, SPAN_WARNING("You can't name a corpse."))
+		return FALSE
+	return TRUE
+
+/mob/living/simple_animal/hostile/commanded/do_nickname(var/mob/living/M)
+	var/input = sanitizeSafe(input("What nickname do you want to give \the [src]?","Choose a name") as null|text, MAX_NAME_LEN)
+	if(!input)
+		return
+	short_name = input
+
 /mob/living/simple_animal/hostile/commanded/think()
 	while(command_buffer.len > 0)
 		var/mob/speaker = command_buffer[1]

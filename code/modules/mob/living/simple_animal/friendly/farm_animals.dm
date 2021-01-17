@@ -43,6 +43,15 @@
 			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/SP = locate() in loc
 			qdel(SP)
 
+/mob/living/simple_animal/hostile/retaliate/goat/can_name(var/mob/living/M)
+	if(named)
+		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
+		return FALSE
+	if(stat == DEAD)
+		to_chat(M, SPAN_WARNING("You can't name a corpse."))
+		return FALSE
+	return TRUE
+
 /mob/living/simple_animal/hostile/retaliate/goat/think()
 	..()
 	//chance to go crazy and start wacking stuff

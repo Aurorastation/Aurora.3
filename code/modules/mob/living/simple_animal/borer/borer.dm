@@ -60,6 +60,9 @@
 	SSghostroles.remove_spawn_atom("borer", src)
 	return ..(gibbed,deathmessage)
 
+/mob/living/simple_animal/borer/can_name(var/mob/living/M)
+	return FALSE
+
 /mob/living/simple_animal/borer/Life()
 	..()
 	if(host)

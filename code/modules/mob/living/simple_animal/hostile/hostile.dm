@@ -42,6 +42,12 @@
 	targets = null
 	return ..()
 
+/mob/living/simple_animal/hostile/can_name(var/mob/living/M)
+	if(faction && faction == M.faction) //In case the mob had a dociler used on it
+		return ..()
+	return FALSE
+
+
 /mob/living/simple_animal/hostile/proc/FindTarget()
 	if(!faction) //No faction, no reason to attack anybody.
 		return null
