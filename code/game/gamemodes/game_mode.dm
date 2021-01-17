@@ -649,6 +649,10 @@ var/global/list/additional_antag_types = list()
 /datum/game_mode/proc/check_antagonists_topic(href, href_list[])
 	return 0
 
+///
+/// @brief Populates antag_templates based on the antag_tags
+/// and additional_antag_types lists.
+///
 /datum/game_mode/proc/create_antagonists()
 
 	if(!config.traitor_scaling)

@@ -5,6 +5,7 @@
 	var/list/protected_jobs =      list()   // As above.
 	var/list/restricted_species =   list()  // species that cannot be this antag - Ryan784
 	var/required_age = null                 // how old should player clients be before being allowed to play this antag
+	var/intensity = 1
 
 	// Strings.
 	var/welcome_text = "Cry havoc and let slip the dogs of war!"
