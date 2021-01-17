@@ -114,6 +114,6 @@
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
-		/obj/item/gun/energy/pistol = 1,
+		/obj/item/gun/projectile/pistol = 1,
 		/obj/item/stamp/zavodskoi = 1
 	)

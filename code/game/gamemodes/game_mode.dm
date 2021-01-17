@@ -284,7 +284,8 @@ var/global/list/additional_antag_types = list()
 	for(var/datum/antagonist/antag in antag_templates)
 		if(!(antag.flags & ANTAG_OVERRIDE_JOB))
 			antag.attempt_spawn() //select antags to be spawned
-		antag.finalize_spawn() //actually spawn antags
+		if(!(antag.flags & ANTAG_NO_ROUNDSTART_SPAWN))
+			antag.finalize_spawn() //actually spawn antags
 
 	if(emergency_shuttle && auto_recall_shuttle)
 		emergency_shuttle.auto_recall = 1

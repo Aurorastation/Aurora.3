@@ -9,7 +9,6 @@
     <h2>Users:</h2>
     <vui-input-search :input="users" v-model="users_result" :keys="['user']"/><br/>
     <div v-for="u in users_result" :key="u.ref"><vui-button :params="{direct: u.ref}">{{ u.user }}</vui-button></div>
-    <pre>{{ users_result }}</pre>
   </div>
 </template>
 

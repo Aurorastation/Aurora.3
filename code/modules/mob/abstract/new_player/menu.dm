@@ -260,7 +260,7 @@
 
 		observer.started_as_observer = 1
 		close_spawn_windows()
-		var/obj/O = locate("landmark*Observer-Start")
+		var/obj/O = locate("landmark*Observer-Start") in landmarks_list
 		if(istype(O))
 			to_chat(src, "<span class='notice'>Now teleporting.</span>")
 			observer.forceMove(O.loc)

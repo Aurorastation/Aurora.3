@@ -53,13 +53,13 @@
 ****************/
 /datum/uplink_item/item/badassery/surplus
 	name = "Surplus Crate"
+	antag_roles = list(MODE_MERCENARY)
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT * 4
 	var/item_worth = DEFAULT_TELECRYSTAL_AMOUNT * 6
 	var/icon
 
 /datum/uplink_item/item/badassery/surplus/New()
 	..()
-	antag_roles = list(MODE_MERCENARY)
 	desc = "A crate containing [item_worth] telecrystal\s worth of surplus leftovers."
 
 /datum/uplink_item/item/badassery/surplus/get_goods(var/obj/item/device/uplink/U, var/loc)

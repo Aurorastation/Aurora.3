@@ -328,7 +328,6 @@
 	return
 
 /datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
-
 	for(var/obj/item/organ/organ in H.contents)
 		if((organ in H.organs) || (organ in H.internal_organs))
 			qdel(organ)
@@ -337,6 +336,8 @@
 	if(H.internal_organs)         H.internal_organs.Cut()
 	if(H.organs_by_name)          H.organs_by_name.Cut()
 	if(H.internal_organs_by_name) H.internal_organs_by_name.Cut()
+	if(H.bad_external_organs)     H.bad_external_organs.Cut()
+	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
 	H.organs = list()
 	H.internal_organs = list()
@@ -625,7 +626,7 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return /datum/reagent/nutriment
+	return /decl/reagent/nutriment
 
 /datum/species/proc/can_commune()
 	return FALSE

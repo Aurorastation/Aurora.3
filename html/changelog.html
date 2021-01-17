@@ -35,6 +35,141 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">17 January 2021</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Candle boxes now take up less inventory space. They still hold five candles.</li>
+				<li class="tweak">Reduced the number of total item spawns in cargo by about 10%.</li>
+				<li class="tweak">Further adjusted cargo warehouse spawn probabilities.</li>
+				<li class="rscdel">Removed some items from the warehouse spawn list.</li>
+				<li class="rscadd">Added some items to the warehouse spawn list.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Replaced the last of the ghosttrap system with the ghostspawner system. Rebooted drones, imaginary friends, split personalities, and grown mobs like diona now use it.</li>
+				<li class="tweak">Grown mobs like diona nymphs now last three minutes after being born, instead of one minute.</li>
+				<li class="bugfix">Antag datums are now properly cleared if your antag status is removed.</li>
+				<li class="tweak">Internal organs protected by bones (like a ribcage) now have a x0.2 modifier to being hit, adjusted from x0.6.</li>
+				<li class="rscadd">You can now pull both Unathi and Tajara gloves out of the nitrile glove box.</li>
+				<li class="rscadd">Added a minified biogenerator to the surface garden. It is quite inefficient, but you can move into its tile.</li>
+				<li class="rscadd">You can now colour simple webbings in the loadout.</li>
+				<li class="rscadd">Added pigs.</li>
+				<li class="rscadd">pAI can now click on deployed modular computers to turn them on or look a them, they can&#x27;t interact with them without being in them, though.</li>
+				<li class="rscadd">You can now repair pAI with nanopaste.</li>
+				<li class="rscadd">pAI can now examine even while folded up or carried or inside something.</li>
+				<li class="rscadd">pAI now start with the Access Local Computer verb instead of having to relog to gain it when they get put into a computer.</li>
+				<li class="rscadd">Airlocks no longer crush mobs that can pass through hatches, instead, the hatch will open to accomodate them. Access does not get taken into account.</li>
+				<li class="rscadd">Attacking a pAI card will now attack the pAI inside.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new flashy UI for integrated circuit printer.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Reagents now use /decl/s instead of /datum/s.</li>
+				<li class="refactor">Paint no longer has a color of its own and can instead be combined with other reagents to make colours stick to things. Colorific!</li>
+				<li class="rscadd">Blood is now body temperature.</li>
+				<li class="tweak">Injecting incompatible blood now creates a special toxin rather than the actual toxin chemical.</li>
+				<li class="rscadd">Ports Bay&#x27;s per-mob dose system. This will probably affect how much alcohol you have to drink to get/stay drunk.</li>
+				<li class="rscdel">Replaces the chem modifier system with CE_EFFECT. Funny, given that it was originally intended to be the other way around.</li>
+				<li class="tweak">Hot chemicals now do more damage; before, it would be rounded down to zero or outhealed in one tick.</li>
+				<li class="tweak">Temperature is no longer per-reagent; it is now per-reagents-datum.</li>
+				<li class="rscdel">Removes phoron salts pending a rework/replacement.</li>
+				<li class="tweak">Having a chemical that is toxic to an organ in your system will now prevent that organ from regenerating.</li>
+				<li class="bugfix">Thetamycin now properly takes time to work on internal organs, as described on the wiki; a bit over five and a half minutes, to be exact. Treat infections early!</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changes dark blue warden uniform to match the rest of the department, for consistency reasons and the fact it did not match with any other security accessories</li>
+				<li class="imageadd">Added unused blue and navy blue security jackets to the loadout, with some tweaking.</li>
+				<li class="imageadd">Red forensic tech jacket has been removed for being out of place. In lieu of this, similar blue and navy blue variants have been added. The badge has been removed in order to further distance resemblance from the FIB jacket.</li>
+				<li class="imageadd">FIB jacket has also been updated.</li>
+				<li class="rscadd">FIB and forensic technician jackets are now able to open and close like labcoats.</li>
+				<li class="balance">Removed the armor values from cosmetic coats in security lockers.</li>
+				<li class="rscadd">Resprited warden and hos caps. added a corporate version as well, and moved them to an appropriate file, along with the commissar&#x27;s cap.</li>
+				<li class="rscadd">Finally, added corporate bandanas</li>
+				<li class="rscadd">Adds lava lamps and desk toys.</li>
+			</ul>
+
+			<h2 class="date">15 January 2021</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a pause icon for the ccia recorder.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Vampire&#x27;s Presence ability should once more only affect IPCs if the vampire is at full power.</li>
+				<li class="tweak">Cough syrup is now made with carbon, water, and tungsten instead of carbon, water, and ammonia, to prevent recipe conflicts.</li>
+				<li class="bugfix">Plastic flaps no longer get stuck while trying to deconstruct them.</li>
+				<li class="bugfix">Animals no longer can make noises when dead or unconscious.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed giant spiders not having a blood overlay.</li>
+				<li class="bugfix">The Guinness glass has a sprite again.</li>
+				<li class="rscadd">Added a new gamemode, Loner. It features a single psionic operative.</li>
+				<li class="bugfix">Bluespace inhibitors now inhibit warp extraction packs.</li>
+				<li class="bugfix">Fixed humanoids bleeding after being rejuvenated.</li>
+				<li class="rscadd">Zavodskoi Liaisons now spawn with a 9mm pistol instead of an energy pistol.</li>
+				<li class="rscadd">Added a new wave defense gamemode, Revenants, wherein the station crew have to defend themselves from an endless wave of humanoid bluespace creatures.</li>
+				<li class="bugfix">Ling-sucking something without a client no longer gets you stuck in suck mode.</li>
+				<li class="bugfix">Fixed clusterbangs not working if they weren&#x27;t on a turf.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Four missing glove types added to the Unathi &amp; Tajara loadout selection, bringing it in parity with the normal glove selection humans have. Added options are light brown, grey, rainbow and black leather.</li>
+				<li class="bugfix">Fixes an oversight with the bangs Tajara hairstyle.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixes a grammar problem with detective badge description.</li>
+			</ul>
+
+			<h2 class="date">11 January 2021</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The ghostspawner can no longer be enabled if all the available slots have been used up.</li>
+			</ul>
+			<h3 class="author">Aticius updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">You can now flip fannypacks onto your butt.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reworked scrubber backsurge odds to make certain things like mindbreaker less common. Reagent amounts are randomized between 10u and 25u now, instead of always being 35u.</li>
+				<li class="rscadd">Added more reagent variety to backsurge events, as well as paint color variety.</li>
+				<li class="tweak">Changed the recipe for Saline Plus to be less obnoxious. The recipe is now 2u Water to 1u Sodium Chloride to 0.5u Sugar, and results in 2 units instead of 1.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Vampire blood eyes now properly disappear when they lose frenzy.</li>
+				<li class="rscadd">You can now click on a bed with a disk in hand to put the disk on the bed. Remember to put a blanket over it.</li>
+				<li class="bugfix">Fixed some uniforms not working when rolling down or rolling up sleeves.</li>
+				<li class="tweak">Thigh-high and knee-high boots no longer make you trip.</li>
+				<li class="tweak">Disruptor firerate has been increased back to 0.6s, up from 0.8s.</li>
+				<li class="tweak">Mini-disruptors now have 6 shots, up from 5.</li>
+				<li class="tweak">Disruptor stun shots now do 30 agony damage, up from 25.</li>
+				<li class="bugfix">Offworlders now get the same augs and tattoos that standard humans can get. Shells can now get color bands around their left foot as well.</li>
+				<li class="bugfix">Fixed the Djinn Tea glass sprite, also added a placeholder for missing sprites.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Modular computer chat client UI and internals been revamped.</li>
+				<li class="tweak">Newest chat messages are now at the top instead of bottom of chat window.</li>
+				<li class="rscadd">Now you can use chat client simultaneously on multiple devices.</li>
+				<li class="tweak">Adjusted how canister UI looks.</li>
+			</ul>
+			<h3 class="author">Kermit updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Having both hyperzine and adrenaline in your system no longer fast-tracks you to a hyperzine OD, but instead reduces the volume of hyperzine required to OD from 15u to 10u. Should be less dangerous to use hyperzine as a combat stimulant, though managing doses is still important.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a missing pixel on the Tajara short fringe hairstyle.</li>
+				<li class="bugfix">Fixed a shading issue with a mouth body pattern.</li>
+			</ul>
+
 			<h2 class="date">09 January 2021</h2>
 			<h3 class="author">Ferner updated:</h3>
 			<ul class="changes bgimages16">

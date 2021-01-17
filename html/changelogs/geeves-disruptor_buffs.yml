@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Disruptor firerate has been increased back to 0.6s, up from 0.8s."
-  - tweak: "Mini-disruptors now have 6 shots, up from 5."
-  - tweak: "Disruptor stun shots now do 30 agony damage, up from 25."

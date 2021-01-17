@@ -623,6 +623,22 @@
 				if(prob(2))
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
 
+		sprint_speed_factor = species.sprint_speed_factor
+		stamina_recovery = species.stamina_recovery
+		sprint_cost_factor = species.sprint_cost_factor
+		move_delay_mod = 0
+
+		if(CE_ADRENALINE in chem_effects)
+			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
+			max_stamina *= 1 + chem_effects[CE_ADRENALINE]
+			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
+			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
+
+		if(CE_SPEEDBOOST in chem_effects)
+			sprint_speed_factor += 0.2 * chem_effects[CE_SPEEDBOOST]
+			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
+			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
+
 		if(CE_FEVER in chem_effects)
 			var/normal_temp = species?.body_temperature || (T0C+37)
 			var/fever = chem_effects[CE_FEVER]
@@ -690,6 +706,14 @@
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()
+
+	for(var/_R in chem_doses)
+		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))
+			continue
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		chem_doses[_R] -= R.metabolism
+		if(chem_doses[_R] <= 0)
+			chem_doses -= _R
 
 	updatehealth()
 

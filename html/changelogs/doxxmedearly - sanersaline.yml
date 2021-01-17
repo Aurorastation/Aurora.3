@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - tweak: "Changed the recipe for Saline Plus to be less obnoxious. The recipe is now 2u Water to 1u Sodium Chloride to 0.5u Sugar, and results in 2 units instead of 1."

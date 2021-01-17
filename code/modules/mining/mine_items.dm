@@ -921,6 +921,14 @@ var/list/total_extraction_beacons = list()
 			return
 		if(A.anchored)
 			return
+		var/turf/T = get_turf(A)
+		for(var/found_inhibitor in bluespace_inhibitors)
+			var/obj/machinery/anti_bluespace/AB = found_inhibitor
+			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
+				continue
+			AB.use_power(AB.active_power_usage)
+			to_chat(user, SPAN_WARNING("A nearby bluespace inhibitor interferes with \the [src]!"))
+			return
 		to_chat(user, SPAN_NOTICE("You start attaching the pack to \the [A]..."))
 		if(do_after(user,50))
 			to_chat(user, SPAN_NOTICE("You attach the pack to \the [A] and activate it."))
@@ -968,11 +976,10 @@ var/list/total_extraction_beacons = list()
 	var/area/area_name = get_area(src)
 	name += " ([rand(100,999)]) ([area_name.name])"
 	total_extraction_beacons += src
-	..()
 
 /obj/structure/extraction_point/Destroy()
 	total_extraction_beacons -= src
-	. = ..()
+	return ..()
 
 /**********************Resonator**********************/
 

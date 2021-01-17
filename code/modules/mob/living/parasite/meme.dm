@@ -77,7 +77,7 @@ var/controlling
 	meme_points = min(meme_points + gain, MAXIMUM_MEME_POINTS)
 
 	// if there are sleep toxins in the host's body, that's bad
-	if(host.reagents.has_reagent(/datum/reagent/soporific))
+	if(host.reagents.has_reagent(/decl/reagent/soporific))
 		to_chat(src, "<span class='danger'>Something in your host's blood makes you lose consciousness, you fade away...</span>")
 		src.death()
 		return
