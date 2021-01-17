@@ -77,6 +77,7 @@
 	hood.item_state = "[icon_state]_hood"
 	icon_state = "[icon_state][suittoggled ? "_t" : ""]"
 	item_state = icon_state
+	update_icon()
 
 //hoodies and the like
 
@@ -206,6 +207,7 @@
 	item_state = icon_state
 	if(suittoggled)
 		CreateHood() //rebuild the hood with open/closed version
+	update_icon()
 	update_clothing_icon()
 	usr.update_inv_head()
 
@@ -238,3 +240,29 @@
 	Gus Maldarth was regarded as a martyr after being silenced by operatives allegedly working on the behalf of Sol."
 	icon_state = "hoodie_mars"
 	item_state = "hoodie_mars"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/colorable
+	icon_state = "coatwinter_w"
+	item_state = "coatwinter_w"
+	build_from_parts = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/colorable
+	worn_overlay = "collar_su"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/colorable/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/colorable/update_icon()
+	. = ..()
+	cut_overlays()
+	add_overlay(overlay_image(icon, "[icon_state]_collar", flags=RESET_COLOR))
+
+/obj/item/clothing/head/winterhood/colorable
+	icon_state = "coatwinter_w_hood"
+	build_from_parts = TRUE
+	worn_overlay = "collar_he"
+
+/obj/item/clothing/head/winterhood/colorable/update_icon()
+	. = ..()
+	cut_overlays()
+	add_overlay(overlay_image(icon, "[icon_state]_collar", flags=RESET_COLOR))

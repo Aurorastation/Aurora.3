@@ -908,8 +908,8 @@ There are several things that need to be remembered:
 		if(head.contained_sprite)
 			head.auto_adapt_species(src)
 			var/state = "[UNDERSCORE_OR_NULL(head.icon_species_tag)][head.item_state][WORN_HEAD]"
-
 			standing = image(head.icon_override || head.icon, state)
+			t_icon = head.icon
 		else if(head.icon_override)
 			t_icon = head.icon_override
 		else if(head.sprite_sheets && head.sprite_sheets[GET_BODY_TYPE])
@@ -1022,8 +1022,8 @@ There are several things that need to be remembered:
 		if(wear_suit.contained_sprite)
 			wear_suit.auto_adapt_species(src)
 			var/t_state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
-
 			result_layer = image(wear_suit.icon_override || wear_suit.icon, t_state)
+			t_icon = wear_suit.icon
 		else if(wear_suit.icon_override)
 			t_icon = wear_suit.icon_override
 		else if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[GET_BODY_TYPE])
