@@ -10,6 +10,7 @@ var/datum/antagonist/revenant/revenants = null
 	initial_spawn_target = 0
 	hard_cap = 12
 	hard_cap_round = 12
+	intensity = 3
 
 /datum/antagonist/revenant/New()
 	..()

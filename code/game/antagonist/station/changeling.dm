@@ -17,6 +17,7 @@
 		SPECIES_IPC_BISHOP
 	)
 	required_age = 10
+	intensity = 2
 
 	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you perform a Full DNA Extraction them."
 	antag_sound = 'sound/effects/antag_notice/ling_alert.ogg'

@@ -18,6 +18,7 @@ var/datum/antagonist/rogue_ai/malf
 	antaghud_indicator = "hudmalai"
 	required_age = 31
 	bantype = "rogue-ai"
+	intensity = 3
 
 /datum/antagonist/rogue_ai/New()
 	..()

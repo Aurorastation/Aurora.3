@@ -4,6 +4,7 @@ var/datum/antagonist/mutineer/loyalist/loyalists
 	role_text = "Loyalist"
 	role_text_plural = "Loyalists"
 	id = MODE_LOYALIST
+	intensity = 3
 
 /datum/antagonist/mutineer/loyalist/New()
 	..(1)

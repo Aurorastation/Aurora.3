@@ -13,6 +13,7 @@ var/datum/antagonist/mercenary/mercs
 	id_type = /obj/item/card/id/syndicate
 	antaghud_indicator = "hudoperative"
 	required_age = 10
+	intensity = 3
 
 	hard_cap = 4
 	hard_cap_round = 8

@@ -9,6 +9,7 @@ var/datum/antagonist/xenos/borer/borers
 	welcome_text = "Use your Infest power to crawl into the ear of a host and fuse with their brain. You can only take control temporarily, and at risk of hurting your host, so be clever and careful; your host is encouraged to help you however they can. Talk to your fellow borers with ,x."
 	antag_indicator = "brainworm"
 	antaghud_indicator = "hudborer"
+	intensity = 3
 
 	flags = ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB
 

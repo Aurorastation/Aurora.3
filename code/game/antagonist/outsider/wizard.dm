@@ -10,6 +10,7 @@ var/datum/antagonist/wizard/wizards
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudwizard"
 	required_age = 10
+	intensity = 1
 
 	hard_cap = 1
 	hard_cap_round = 3

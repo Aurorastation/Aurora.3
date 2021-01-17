@@ -14,6 +14,7 @@ var/datum/antagonist/revolutionary/revs
 	loss_feedback_tag = "No matter your efforts, you failed to thwart them."
 	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	antaghud_indicator = "contender"
+	intensity = 3
 
 	hard_cap = 3
 	hard_cap_round = 3

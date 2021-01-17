@@ -11,6 +11,7 @@ var/datum/antagonist/ninja/ninjas
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudninja"
 	required_age = 10
+	intensity = 2
 
 	initial_spawn_req = 2
 	initial_spawn_target = 2

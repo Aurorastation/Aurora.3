@@ -12,6 +12,7 @@ var/datum/antagonist/loner/loners
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudloner"
 	required_age = 7
+	intensity = 1
 
 	hard_cap = 1
 	hard_cap_round = 1

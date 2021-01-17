@@ -13,6 +13,7 @@ var/datum/antagonist/loyalists/loyalists
 	victory_feedback_tag = "You thwarted the Contenders in their devious ends."
 	loss_feedback_tag = "You were thwarted by the Contenders."
 	antaghud_indicator = "fellowship"
+	intensity = 3
 
 	hard_cap = 3
 	hard_cap_round = 3

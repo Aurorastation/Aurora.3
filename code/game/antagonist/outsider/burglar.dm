@@ -14,6 +14,7 @@ var/datum/antagonist/burglar/burglars
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
 	antaghud_indicator = "hudburglar"
 	required_age = 7
+	intensity = 1
 
 	hard_cap = 2
 	hard_cap_round = 3
