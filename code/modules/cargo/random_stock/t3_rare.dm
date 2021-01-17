@@ -91,7 +91,7 @@ STOCK_ITEM_RARE(exogear, 1.5)
 		/obj/item/mecha_equipment/sleeper = 0.9
 	)
 
-	for(var/i in 1 to rand(1,3))
+	for(var/i in 1 to rand(1,2))
 		var/type = pickweight(equips)
 		new type(L)
 
@@ -126,13 +126,6 @@ STOCK_ITEM_RARE(watertank, 1)
 	else
 		new /obj/item/watertank(L)
 
-STOCK_ITEM_RARE(bmonster, 0.5)
-	var/obj/item/battle_monsters/wrapped/W = pick(subtypesof(/obj/item/battle_monsters/wrapped))
-	new W(L)
-	if(prob(15))
-		W = pick(subtypesof(/obj/item/battle_monsters/wrapped))
-		new W(L)
-
 STOCK_ITEM_RARE(rare_clothing, 1)
 	var/list/clothing_picks = list(
 		/obj/item/clothing/under/elyra_holo,
@@ -153,5 +146,9 @@ STOCK_ITEM_RARE(rare_clothing, 1)
 	for(var/i in 1 to rand(1, 2))
 		var/obj/item/clothing/C = pick(clothing_picks)
 		new C(L)
+
+STOCK_ITEM_RARE(megacorp_goods, 0.25)
+	var/obj/item/adv_item = pick(/obj/item/storage/backpack/service, /obj/item/device/advanced_healthanalyzer)
+	new adv_item(L)
 
 STOCK_ITEM_RARE(nothing, 0)

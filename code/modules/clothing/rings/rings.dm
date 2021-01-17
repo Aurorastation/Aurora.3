@@ -40,10 +40,7 @@
 	desc = "A ring made from what appears to be silver."
 	icon_state = "material"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-
-/obj/item/clothing/ring/reagent/sleepy/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/polysomnine, 15)
+	reagents_to_add = list(/decl/reagent/polysomnine = 15)
 
 //Seals and Signet Rings
 

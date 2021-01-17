@@ -57,13 +57,6 @@
 	fire_resist = T0C+5200
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
-/obj/item/clothing/suit/johnny_coat
-	name = "johnny~~ coat"
-	desc = "Johnny~~"
-	icon_state = "johnny"
-	item_state = "johnny"
-
-
 /obj/item/clothing/suit/justice
 	name = "justice suit"
 	desc = "This pretty much looks ridiculous."
@@ -509,7 +502,7 @@
 	icon_state = "serv_dep_jacket"
 	item_state = "serv_dep_jacket"
 
-/obj/item/clothing/suit/storage/fib
+/obj/item/clothing/suit/storage/toggle/fib
 	name = "\improper FIB agent jacket"
 	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
 	icon_state = "fib_jacket"

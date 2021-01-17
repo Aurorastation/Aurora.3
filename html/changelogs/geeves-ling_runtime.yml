@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Ling-sucking something without a client no longer gets you stuck in suck mode."

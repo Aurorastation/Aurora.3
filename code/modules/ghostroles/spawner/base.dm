@@ -2,7 +2,10 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
+
+	var/observers_only = FALSE
 	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
+
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
@@ -70,6 +73,9 @@
 	if(req_species_whitelist)
 		if(!is_alien_whitelisted(user, req_species_whitelist))
 			return "Missing Species Whitelist"
+
+	if(observers_only && !isobserver(user))
+		return "Observers Only"
 
 	return FALSE
 

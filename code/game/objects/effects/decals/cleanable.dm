@@ -26,8 +26,9 @@
 	. = ..()
 	if (!mapload && ROUND_IS_STARTED)
 		SSfeedback.IncrementSimpleStat("messes_made")
-	
+
 	var/turf/T = get_turf(src)
-	if(T.is_space())
-		animate(src, alpha = 0, time = 5 SECONDS)
-		QDEL_IN(src, 5 SECONDS)
+	if(!T?.is_space())
+		return
+	animate(src, alpha = 0, time = 5 SECONDS)
+	QDEL_IN(src, 5 SECONDS)

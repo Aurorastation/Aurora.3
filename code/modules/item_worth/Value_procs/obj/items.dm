@@ -9,9 +9,9 @@
 /obj/item/reagent_containers/Value()
 	. = ..()
 	if(reagents)
-		for(var/a in reagents.reagent_list)
-			var/datum/reagent/reg = a
-			. += reg.value * reg.volume
+		for(var/a in reagents.reagent_volumes)
+			var/decl/reagent/reg = decls_repository.get_decl(a)
+			. += reg.value * reagents.reagent_volumes[a]
 	. = round(.)
 
 /obj/item/stack/Value(var/base)

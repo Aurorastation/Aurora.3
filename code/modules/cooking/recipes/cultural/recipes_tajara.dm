@@ -2,7 +2,7 @@
 /decl/recipe/tajaran_bread
 	appliance = OVEN
 	fruit = list("nifberries" = 1)
-	reagents = list(/datum/reagent/spacespice = 1)
+	reagents = list(/decl/reagent/spacespice = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/flatbread
 	)
@@ -11,7 +11,7 @@
 
 /decl/recipe/hardbread
 	appliance = OVEN
-	reagents = list(/datum/reagent/spacespice = 1)
+	reagents = list(/decl/reagent/spacespice = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tajaran_bread,
 		/obj/item/reagent_containers/food/snacks/tajaran_bread,
@@ -23,7 +23,7 @@
 /decl/recipe/tajaran_stew
 	appliance = SAUCEPAN | POT
 	fruit = list("nifberries" = 2, "mushroom" = 1, "mtear" = 1)
-	reagents = list(/datum/reagent/water = 10)
+	reagents = list(/decl/reagent/water = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
 		/obj/item/reagent_containers/food/snacks/meat/adhomai
@@ -33,12 +33,12 @@
 /decl/recipe/earthenroot_soup
 	appliance = SAUCEPAN | POT
 	fruit = list("earthenroot" = 2)
-	reagents = list(/datum/reagent/water = 10, /datum/reagent/spacespice = 1, /datum/reagent/sodiumchloride = 1)
+	reagents = list(/decl/reagent/water = 10, /decl/reagent/spacespice = 1, /decl/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/soup/earthenroot
 
 /decl/recipe/bloodpudding
 	appliance = SAUCEPAN | POT
-	reagents = list(/datum/reagent/nutriment/flour/nfrihi = 5, /datum/reagent/blood = 10)
+	reagents = list(/decl/reagent/nutriment/flour/nfrihi = 5, /decl/reagent/blood = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spreads/lard,
 		/obj/item/reagent_containers/food/snacks/meat/adhomai
@@ -58,7 +58,7 @@
 	name = "Fermented Hma'trra Meat"
 	id = "fermentedworm"
 	result = null
-	required_reagents = list(/datum/reagent/enzyme = 5)
+	required_reagents = list(/decl/reagent/enzyme = 5)
 
 /datum/chemical_reaction/fermentedworm/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/reagent_containers/food/snacks/fermented_worm(holder.my_atom.loc)
@@ -74,7 +74,7 @@
 // Tajaran Seafood
 /decl/recipe/spicy_clams
 	fruit = list("chili" = 1, "cabbage" = 1)
-	reagents = list(/datum/reagent/capsaicin = 1, /datum/reagent/spacespice = 1)
+	reagents = list(/decl/reagent/capsaicin = 1, /decl/reagent/spacespice = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/clam,
 		/obj/item/reagent_containers/food/snacks/clam
@@ -85,7 +85,7 @@
 /decl/recipe/tajcandy
 	appliance = OVEN
 	fruit = list("nmshaan" = 2)
-	reagents = list(/datum/reagent/drink/milk/adhomai = 5, /datum/reagent/nutriment/protein/egg = 3)
+	reagents = list(/decl/reagent/drink/milk/adhomai = 5, /decl/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
@@ -95,7 +95,7 @@
 /decl/recipe/scoutration
 	appliance = OVEN
 	fruit = list("nifberries" = 2)
-	reagents = list(/datum/reagent/sodiumchloride = 1)
+	reagents = list(/decl/reagent/sodiumchloride = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,

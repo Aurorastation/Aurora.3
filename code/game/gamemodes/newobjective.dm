@@ -1081,7 +1081,7 @@ datum
 						return 0
 
 			drugs
-				steal_target = /datum/reagent/space_drugs
+				steal_target = /decl/reagent/space_drugs
 				explanation_text = "Steal some space drugs."
 				weight = 40
 
@@ -1110,7 +1110,7 @@ datum
 
 
 			pacid
-				steal_target = /datum/reagent/acid/polyacid
+				steal_target = /decl/reagent/acid/polyacid
 				explanation_text = "Steal some polytrinic acid."
 				weight = 40
 
@@ -1149,25 +1149,25 @@ datum
 					target_name = pick(items)
 					switch(target_name)
 						if("Sulphuric acid")
-							steal_target = /datum/reagent/acid
+							steal_target = /decl/reagent/acid
 						if("Polytrinic acid")
-							steal_target = /datum/reagent/acid/polyacid
+							steal_target = /decl/reagent/acid/polyacid
 						if("Space Lube")
-							steal_target = /datum/reagent/lube
+							steal_target = /decl/reagent/lube
 						if("Unstable mutagen")
-							steal_target = /datum/reagent/mutagen
+							steal_target = /decl/reagent/mutagen
 						if("Leporazine")
-							steal_target = /datum/reagent/leporazine
+							steal_target = /decl/reagent/leporazine
 						if("Cryptobiolin")
-							steal_target =/datum/reagent/cryptobiolin
+							steal_target =/decl/reagent/cryptobiolin
 						if("Lexorin")
-							steal_target = /datum/reagent/lexorin
+							steal_target = /decl/reagent/lexorin
 						if("Kelotane")
-							steal_target = /datum/reagent/kelotane
+							steal_target = /decl/reagent/kelotane
 						if("Dexalin")
-							steal_target = /datum/reagent/dexalin
+							steal_target = /decl/reagent/dexalin
 						if("Tricordrazine")
-							steal_target = /datum/reagent/tricordrazine
+							steal_target = /decl/reagent/tricordrazine
 
 					explanation_text = "Steal a container filled with [target_name]."
 

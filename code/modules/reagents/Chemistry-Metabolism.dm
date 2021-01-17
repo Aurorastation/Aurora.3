@@ -10,17 +10,18 @@
 		parent = parent_mob
 
 /datum/reagents/metabolism/proc/metabolize()
-	if(parent)
-		var/metabolism_type = 0 //non-human mobs
-		if(ishuman(parent))
-			var/mob/living/carbon/human/H = parent
-			metabolism_type = H.species.reagent_tag
-		// run this first to get all the chem effects sorted
-		for(var/thing in reagent_list)
-			var/datum/reagent/R = thing
-			R.affect_chem_effect(parent, metabolism_type, metabolism_class)
-		// then run this to actually do what the chems do
-		for(var/thing in reagent_list)
-			var/datum/reagent/R = thing
-			R.on_mob_life(parent, metabolism_type, metabolism_class)
-		update_total()
+	if(!parent)
+		return
+	var/metabolism_type = 0 //non-human mobs
+	if(ishuman(parent))
+		var/mob/living/carbon/human/H = parent
+		metabolism_type = H.species.reagent_tag
+	// run this first to get all the chem effects sorted
+	for(var/_R in reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		R.affect_chem_effect(parent, metabolism_type, metabolism_class, src)
+	// then run this to actually do what the chems do
+	for(var/_current in reagent_volumes)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
+		current.on_mob_life(parent, metabolism_type, metabolism_class, src)
+	update_total()
