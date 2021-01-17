@@ -1,6 +1,3 @@
-/mob/living/carbon/human/revenant
-	universal_understand = TRUE
-
 /mob/living/carbon/human/revenant/Initialize(mapload)
 	. = ..(mapload, SPECIES_REVENANT)
 	alpha = 0
@@ -120,6 +117,7 @@
 	H.name = H.real_name
 	..()
 	H.gender = NEUTER
+	H.universal_understand = TRUE
 
 /datum/species/revenant/get_random_name()
 	return "Revenant"
