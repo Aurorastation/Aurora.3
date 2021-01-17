@@ -95,7 +95,19 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 		working_tags = shuffle(voted_tags)
 
 		var/selected = pickweight(working_tags)
-		var/datum/antagonist/antag = all_antag_types[tag]
+
+		// Shortcut if only 1 antag up for grabs.
+		if (working_tags.len == 1)
+			selected = working_tags[0]
+		else if (!selected)
+			continue
+
+		var/datum/antagonist/antag = all_antag_types[selected]
+
+		if (!antag)
+			error("DYNAMIC GM: Empty tag: [selected]")
+			voted_tags -= selected
+			continue
 
 		voted_tags -= selected
 
