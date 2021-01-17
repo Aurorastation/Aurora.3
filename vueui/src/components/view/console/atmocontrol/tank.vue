@@ -10,7 +10,7 @@
       <vui-item :balance="0.65" label="Flow Rate Limit:">{{ state['input'].rate }} L/s</vui-item>
       <vui-item :balance="0.65" label="Command:">
         <vui-input-numeric
-          @keypress.enter="$atc({ in_set_flowrate: state['input'].setrate })"
+          @keypress.enter="$toTopic({ in_set_flowrate: state['input'].setrate })"
           width="3em"
           :button-count="3"
           v-model="state['input'].setrate"
@@ -30,7 +30,7 @@
       <vui-item :balance="0.65" label="Max Output Pressure:">{{ state['output'].pressure }} kPa</vui-item>
       <vui-item :balance="0.65" label="Command:">
         <vui-input-numeric
-          @keypress.enter="$atc({ out_set_pressure: state['output'].setpressure })"
+          @keypress.enter="$toTopic({ out_set_pressure: state['output'].setpressure })"
           width="5em"
           :button-count="4"
           :decimal-places="2"

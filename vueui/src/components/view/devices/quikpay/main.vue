@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     accountChange(newAccount) {
-      this.$atc({ changeaccount: newAccount })
+      this.$toTopic({ changeaccount: newAccount })
     },
   },
 }

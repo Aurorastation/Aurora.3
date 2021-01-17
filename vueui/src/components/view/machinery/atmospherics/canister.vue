@@ -46,7 +46,7 @@
             :button-count="4"
             :min="minReleasePressure"
             :max="maxReleasePressure"
-            @input="$atc({ pressure_set: releasePressure })"
+            @input="$toTopic({ pressure_set: releasePressure })"
             >{{ releasePressure }} kPa&nbsp;</vui-input-numeric
           >
         </div>

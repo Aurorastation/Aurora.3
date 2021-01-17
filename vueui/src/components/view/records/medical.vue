@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     add(path, value) {
-      this.$atc({
+      this.$toTopic({
         addtorecord: {
           value: value,
           key: path.split('.'),

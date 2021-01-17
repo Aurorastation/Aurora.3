@@ -39,7 +39,7 @@ export default {
   methods: {
     closeUI($event) {
       $event.stopPropagation()
-      this.$rtc({ src: this.uiref, vueuiclose: 1 })
+      this.$toTopicRaw({ src: this.uiref, vueuiclose: 1 })
       ByWin.setVisibility(0)
     },
     startDragging($event) {

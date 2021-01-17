@@ -14,7 +14,7 @@
         <vui-input-numeric
           width="2.5em"
           v-model="state.amount"
-          @input="$atc({ amount: state.amount })"
+          @input="$toTopic({ amount: state.amount })"
           :button-count="2"
           :min="1"
           :max="state.beakerMaxVolume || 120"
