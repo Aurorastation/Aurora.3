@@ -23,12 +23,12 @@ FLOOR SAFES
 	var/maxspace = 24	//the maximum combined w_class of stuff in the safe
 
 	// Variables (Drill)
-	var/obj/item/thermal_drill/drill = null // The currently placed thermal drill, if any.
-	var/time_to_drill = 300 SECONDS			// Drill duration of the current thermal drill.
-	var/last_drill_time = 0					// Last world.time the drill time was checked. Used to reduce time_to_drill accurately
-	var/image/drill_overlay					// The drill overlay image to display during the drilling process.
-	var/drill_x_offset = -13				// The X pixel offset for the drill
-	var/drill_y_offset = -3					// The Y pixel offset for the drill
+	var/obj/item/thermal_drill/drill	// The currently placed thermal drill, if any.
+	var/time_to_drill = 300 SECONDS		// Drill duration of the current thermal drill.
+	var/last_drill_time = 0				// Last world.time the drill time was checked. Used to reduce time_to_drill accurately
+	var/image/drill_overlay				// The drill overlay image to display during the drilling process.
+	var/drill_x_offset = -13			// The X pixel offset for the drill
+	var/drill_y_offset = -3				// The Y pixel offset for the drill
 
 /obj/structure/safe/Initialize()
 	. = ..()
@@ -62,9 +62,9 @@ FLOOR SAFES
 /obj/structure/safe/proc/check_unlocked(mob/user as mob, canhear)
 	if(user && canhear)
 		if(tumbler_1_pos == tumbler_1_open)
-			to_chat(user, "<span class='notice'>You hear a [pick("tonk", "krunk", "plunk")] from [src].</span>")
+			to_chat(user, SPAN_NOTICE("You hear a [pick("tonk", "krunk", "plunk")] from [src]."))
 		if(tumbler_2_pos == tumbler_2_open)
-			to_chat(user, "<span class='notice'>You hear a [pick("tink", "krink", "plink")] from [src].</span>")
+			to_chat(user, SPAN_NOTICE("You hear a [pick("tink", "krink", "plink")] from [src]."))
 	if(tumbler_1_pos == tumbler_1_open && tumbler_2_pos == tumbler_2_open)
 		if(user) visible_message("<b>[pick("Spring", "Sprang", "Sproing", "Clunk", "Krunk")]!</b>")
 		return 1
@@ -114,6 +114,10 @@ FLOOR SAFES
 					to_chat(user, SPAN_WARNING("\The [src] is already broken open!"))
 					return
 				if(do_after(user, 2 SECONDS))
+					if(!drill || isprocessing)
+						return
+					if(broken)
+						return
 					last_drill_time = world.time
 					drill.soundloop.start()
 					START_PROCESSING(SSprocessing, src)
@@ -122,13 +126,17 @@ FLOOR SAFES
 				if(!drill || !isprocessing)
 					return
 				if(do_after(user, 2 SECONDS))
+					if(!drill || !isprocessing)
+						return
 					drill.soundloop.stop()
 					STOP_PROCESSING(SSprocessing, src)
 					update_icon()
 			if("Remove Drill")
 				if(isprocessing)
-					to_chat(user, "<span class='warning'>You cannot remove the drill while it's running!</span>")
+					to_chat(user, SPAN_WARNING("You cannot remove the drill while it's running!"))
 				else if(do_after(user, 2 SECONDS))
+					if(isprocessing)
+						return
 					user.put_in_hands(drill)
 					drill = null
 					update_icon()
@@ -160,13 +168,13 @@ FLOOR SAFES
 			to_chat(user, SPAN_WARNING("You can't open \the [src] if there's a drill attached."))
 			return
 		if(broken || check_unlocked())
-			to_chat(user, "<span class='notice'>You [open ? "close" : "open"] [src].</span>")
+			to_chat(user, SPAN_NOTICE("You [open ? "close" : "open"] [src]."))
 			open = !open
 			update_icon()
 			updateUsrDialog()
 			return
 		else
-			to_chat(user, "<span class='notice'>You can't [open ? "close" : "open"] [src], the lock is engaged!</span>")
+			to_chat(user, SPAN_NOTICE("You can't [open ? "close" : "open"] [src], the lock is engaged!"))
 			return
 
 	if(href_list["decrement"])
@@ -174,11 +182,11 @@ FLOOR SAFES
 		if(dial == tumbler_1_pos + 1 || dial == tumbler_1_pos - 71)
 			tumbler_1_pos = decrement(tumbler_1_pos)
 			if(canhear)
-				to_chat(user, "<span class='notice'>You hear a [pick("clack", "scrape", "clank")] from [src].</span>")
+				to_chat(user, SPAN_NOTICE("You hear a [pick("clack", "scrape", "clank")] from [src]."))
 			if(tumbler_1_pos == tumbler_2_pos + 37 || tumbler_1_pos == tumbler_2_pos - 35)
 				tumbler_2_pos = decrement(tumbler_2_pos)
 				if(canhear)
-					to_chat(user, "<span class='notice'>You hear a [pick("click", "chink", "clink")] from [src].</span>")
+					to_chat(user, SPAN_NOTICE("You hear a [pick("click", "chink", "clink")] from [src]."))
 			check_unlocked(user, canhear)
 		updateUsrDialog()
 		return
@@ -188,11 +196,11 @@ FLOOR SAFES
 		if(dial == tumbler_1_pos - 1 || dial == tumbler_1_pos + 71)
 			tumbler_1_pos = increment(tumbler_1_pos)
 			if(canhear)
-				to_chat(user, "<span class='notice'>You hear a [pick("clack", "scrape", "clank")] from [src].</span>")
+				to_chat(user, SPAN_NOTICE("You hear a [pick("clack", "scrape", "clank")] from [src]."))
 			if(tumbler_1_pos == tumbler_2_pos - 37 || tumbler_1_pos == tumbler_2_pos + 35)
 				tumbler_2_pos = increment(tumbler_2_pos)
 				if(canhear)
-					to_chat(user, "<span class='notice'>You hear a [pick("click", "chink", "clink")] from [src].</span>")
+					to_chat(user, SPAN_NOTICE("You hear a [pick("click", "chink", "clink")] from [src]."))
 			check_unlocked(user, canhear)
 		updateUsrDialog()
 		return
@@ -212,24 +220,24 @@ FLOOR SAFES
 		if(I.w_class + space <= maxspace)
 			space += I.w_class
 			user.drop_from_inventory(I,src)
-			to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
 			updateUsrDialog()
 			return
 		else
-			to_chat(user, "<span class='notice'>[I] won't fit in [src].</span>")
+			to_chat(user, SPAN_NOTICE("[I] won't fit in [src]."))
 			return
 	else
 		if(istype(I, /obj/item/clothing/accessory/stethoscope))
 			attack_hand(user)
 		else if(istype(I, /obj/item/thermal_drill))
 			if(drill)
-				to_chat(user, "<span class='warning'>There is already a drill attached!</span>")
+				to_chat(user, SPAN_WARNING("There is already a drill attached!"))
 			else if(do_after(user, 2 SECONDS))
 				user.drop_from_inventory(I, src)
 				drill = I
 				update_icon()
 		else
-			to_chat(user, "<span class='warning'>You can't put [I] into the safe while it is closed!</span>")
+			to_chat(user, SPAN_WARNING("You can't put [I] into the safe while it is closed!"))
 
 /obj/structure/safe/process()
 	if(!drill)
