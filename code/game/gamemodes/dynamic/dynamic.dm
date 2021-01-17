@@ -98,7 +98,7 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 
 		// Shortcut if only 1 antag up for grabs.
 		if (working_tags.len == 1)
-			selected = working_tags[0]
+			selected = working_tags[1]
 		else if (!selected)
 			continue
 
