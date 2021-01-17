@@ -685,8 +685,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		if(butchering_products)
 			for(var/path in butchering_products)
 				var/number = butchering_products[path]
-				for(var/i in 1 to number)
-					new path(get_turf(src))
+				if(number > 0 && number < 1)
+					if(prob(number * 100))
+						new path(get_turf(src))
+				else
+					for(var/i in 1 to number)
+						new path(get_turf(src))
 
 		if(issmall(src))
 			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
