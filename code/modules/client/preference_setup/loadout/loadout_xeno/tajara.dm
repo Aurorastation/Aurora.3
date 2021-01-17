@@ -14,8 +14,12 @@
 	taj_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/tajara
 	taj_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/tajara
 	taj_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/tajara
+	taj_gloves["light brown gloves"] = /obj/item/clothing/gloves/light_brown/tajara
 	taj_gloves["green gloves"] = /obj/item/clothing/gloves/green/tajara
+	taj_gloves["grey gloves"] = /obj/item/clothing/gloves/grey/tajara
 	taj_gloves["white gloves"] = /obj/item/clothing/gloves/white/tajara
+	taj_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/tajara
+	taj_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/tajara
 	taj_gloves["machinist gloves"] =  /obj/item/clothing/gloves/black/tajara/smithgloves
 	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)
 

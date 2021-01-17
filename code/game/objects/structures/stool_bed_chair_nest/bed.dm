@@ -165,6 +165,11 @@
 		if(!G.wrapped)
 			user_unbuckle_mob(user)
 
+	else if(istype(W, /obj/item/disk))
+		user.drop_from_inventory(W, get_turf(src))
+		W.pixel_x = 10 //make sure they reach the pillow
+		W.pixel_y = -6
+
 	else if(!istype(W, /obj/item/bedsheet))
 		..()
 

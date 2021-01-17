@@ -43,7 +43,8 @@
 		set_light(0)
 	if (ismob(src.loc))	//for reasons, this makes headlights work.
 		var/mob/M = src.loc
-		M.update_inv_ears()
+		M.update_inv_l_ear()
+		M.update_inv_r_ear()
 		M.update_inv_head()
 
 /obj/item/device/flashlight/attack_self(mob/user)
@@ -109,8 +110,8 @@
 				if(M.getBrainLoss() > 15)
 					to_chat(user, SPAN_NOTICE("There's visible lag between left and right pupils' reactions."))
 
-				var/list/pinpoint = list(/datum/reagent/oxycomorphine=1,/datum/reagent/mortaphenyl=5)
-				var/list/dilating = list(/datum/reagent/space_drugs=5,/datum/reagent/mindbreaker=1)
+				var/list/pinpoint = list(/decl/reagent/oxycomorphine=1,/decl/reagent/mortaphenyl=5)
+				var/list/dilating = list(/decl/reagent/space_drugs=5,/decl/reagent/mindbreaker=1)
 				var/datum/reagents/ingested = H.get_ingested_reagents()
 				if(H.reagents.has_any_reagent(pinpoint) || ingested.has_any_reagent(pinpoint))
 					to_chat(user, SPAN_NOTICE("\The [M]'s pupils are already pinpoint and cannot narrow any more."))

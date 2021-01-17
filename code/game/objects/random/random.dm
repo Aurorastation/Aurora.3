@@ -363,6 +363,35 @@
 		/obj/item/toy/balloon/candycane = 1
 	)
 
+/obj/random/desktoy
+	name = "random desk toy"
+	desc = "This is a random desk toy."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "dippybird"
+	spawnlist = list(
+		/obj/item/toy/desk/newtoncradle,
+		/obj/item/toy/desk/fan,
+		/obj/item/toy/desk/officetoy,
+		/obj/item/toy/desk/dippingbird
+	)
+
+/obj/random/lavalamp
+	name = "random lava lamp"
+	desc = "This is a random lava lamp."
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "lavalamp"
+	spawnlist = list(
+		/obj/item/device/flashlight/lamp/lava,
+		/obj/item/device/flashlight/lamp/lava/red,
+		/obj/item/device/flashlight/lamp/lava/orange,
+		/obj/item/device/flashlight/lamp/lava/yellow,
+		/obj/item/device/flashlight/lamp/lava/green,
+		/obj/item/device/flashlight/lamp/lava/cyan,
+		/obj/item/device/flashlight/lamp/lava/blue,
+		/obj/item/device/flashlight/lamp/lava/purple,
+		/obj/item/device/flashlight/lamp/lava/pink
+	)
+
 /obj/random/smalltank
 	name = "random small tank"
 

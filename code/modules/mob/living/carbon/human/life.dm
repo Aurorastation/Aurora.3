@@ -623,6 +623,22 @@
 				if(prob(2))
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
 
+		sprint_speed_factor = species.sprint_speed_factor
+		stamina_recovery = species.stamina_recovery
+		sprint_cost_factor = species.sprint_cost_factor
+		move_delay_mod = 0
+
+		if(CE_ADRENALINE in chem_effects)
+			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
+			max_stamina *= 1 + chem_effects[CE_ADRENALINE]
+			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
+			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
+
+		if(CE_SPEEDBOOST in chem_effects)
+			sprint_speed_factor += 0.2 * chem_effects[CE_SPEEDBOOST]
+			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
+			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
+
 		if(CE_FEVER in chem_effects)
 			var/normal_temp = species?.body_temperature || (T0C+37)
 			var/fever = chem_effects[CE_FEVER]
@@ -691,6 +707,14 @@
 	if(!isSynthetic())
 		handle_trace_chems()
 
+	for(var/_R in chem_doses)
+		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))
+			continue
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		chem_doses[_R] -= R.metabolism
+		if(chem_doses[_R] <= 0)
+			chem_doses -= _R
+
 	updatehealth()
 
 	return //TODO: DEFERRED
@@ -728,8 +752,10 @@
 
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
-			stat = UNCONSCIOUS
-			adjustHalLoss(-3)
+			if(sleeping)
+				stat = UNCONSCIOUS
+
+			adjustHalLoss(-7)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -765,11 +791,11 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
-			adjustHalLoss(-3)
+			adjustHalLoss(-5)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-1)
+			adjustHalLoss(-3)
 
 		//Other
 		handle_statuses()
@@ -810,7 +836,7 @@
 		return
 
 	if(stat != DEAD)
-		if(stat == UNCONSCIOUS && health < maxHealth / 2)
+		if((stat == UNCONSCIOUS && health < maxHealth / 2) || paralysis || InStasis())
 			//Critical damage passage overlay
 			var/severity = 0
 			switch(health - maxHealth/2)
@@ -824,6 +850,8 @@
 				if(-90 to -80)			severity = 8
 				if(-95 to -90)			severity = 9
 				if(-INFINITY to -95)	severity = 10
+			if(paralysis || InStasis())
+				severity = max(severity, 8)
 			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
 		else
 			clear_fullscreen("crit")
@@ -857,6 +885,12 @@
 			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
 		else
 			clear_fullscreen("brute")
+
+		if(paralysis_indicator)
+			if(paralysis)
+				paralysis_indicator.icon_state = "paralysis1"
+			else
+				paralysis_indicator.icon_state = "paralysis0"
 
 		if(healths)
 			healths.overlays.Cut()
@@ -1123,10 +1157,12 @@
 */
 
 
-/mob/living/carbon/human/proc/handle_hud_list()
+/mob/living/carbon/human/proc/handle_hud_list(var/force_update = FALSE)
+	if(force_update)
+		hud_updateflag = 1022
 	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
 		var/image/holder = hud_list[HEALTH_HUD]
-		if(stat == DEAD)
+		if(stat == DEAD || (status_flags & FAKEDEATH))
 			holder.icon_state = "0" 	// X_X
 		else if(is_asystole())
 			holder.icon_state = "flatline"
@@ -1136,7 +1172,7 @@
 
 	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
 		var/image/holder = hud_list[LIFE_HUD]
-		if(stat == DEAD)
+		if(stat == DEAD || (status_flags & FAKEDEATH))
 			holder.icon_state = "huddead"
 		else
 			holder.icon_state = "hudhealthy"
@@ -1144,7 +1180,7 @@
 
 	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
 		var/image/holder = hud_list[STATUS_HUD]
-		if(stat == DEAD)
+		if(stat == DEAD || (status_flags & FAKEDEATH))
 			holder.icon_state = "huddead"
 		else if(status_flags & XENO_HOST)
 			holder.icon_state = "hudxeno"
@@ -1152,7 +1188,7 @@
 			holder.icon_state = "hudhealthy"
 
 		var/image/holder2 = hud_list[STATUS_HUD_OOC]
-		if(stat == DEAD)
+		if(stat == DEAD || (status_flags & FAKEDEATH))
 			holder2.icon_state = "huddead"
 		else if(status_flags & XENO_HOST)
 			holder2.icon_state = "hudxeno"

@@ -10974,7 +10974,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aNJ" = (
-/obj/machinery/account_database{
+/obj/item/modular_computer/console/preset/command/account{
 	name = "CentComm Accounts database"
 	},
 /turf/unsimulated/floor{

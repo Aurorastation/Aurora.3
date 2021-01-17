@@ -210,7 +210,7 @@
 
 /obj/item/clothing/accessory/badge/dia
 	name = "\improper DIA badge"
-	desc = "This badge marks the holder of an investigative agent."
+	desc = "This badge marks the holder as an investigative agent."
 	icon_state = "diabadge"
 	overlay_state = "diabadge"
 	badge_string = "Corporate Investigator"

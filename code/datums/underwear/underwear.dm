@@ -70,4 +70,5 @@
 	var/image/I = image(icon = 'icons/mob/underwear.dmi', icon_state = icon_state)
 	for(var/datum/gear_tweak/gt in tweaks)
 		gt.tweak_item(I, metadata && metadata["[gt]"] ? metadata["[gt]"] : gt.get_default())
+	I.appearance_flags = RESET_ALPHA
 	return I
