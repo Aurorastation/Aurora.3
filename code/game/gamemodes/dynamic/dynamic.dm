@@ -1,3 +1,4 @@
+#define INTENSITY_INVALID -1
 #define INTENSITY_NONE 0
 #define INTENSITY_LOW 1
 #define INTENSITY_MED 2
@@ -54,21 +55,21 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 
 	log_debug("DYNAMIC GM: Votes going for selection: [voted_tags.Join(", ")].")
 
-///
-/// @brief Returns a list of all antag tags that can be voted for with the current round's intensity.
-///
+//
+// @brief Returns a list of all antag tags that can be voted for with the current round's intensity.
+//
 /datum/game_mode/dynamic/proc/get_votable_antags()
 	. = list()
 
 	for (var/tag in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[tag]
-		if (antag.intensity <= intensity)
+		if (antag.intensity != INTENSITY_INVALID && antag.intensity <= intensity)
 			. += tag
 
-///
-/// @brief Normalizes the votes for every tag in voted_tags to be in range of [100, 0].
-/// Removes tags which were not voted for.
-///
+//
+// @brief Normalizes the votes for every tag in voted_tags to be in range of [100, 0].
+// Removes tags which were not voted for.
+//
 /datum/game_mode/dynamic/proc/normalize_voted_antags()
 	var/total_votes = 0
 	for (var/tag in voted_tags)
@@ -80,10 +81,10 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 	for (var/tag in voted_tags)
 		voted_tags[tag] = (voted_tags[tag] / total_votes) * 100.0
 
-///
-/// @brief Selects the final antag tags to be used for the round, based on intensity and normalized votes.
-/// Populates antag_tags.
-///
+//
+// @brief Selects the final antag tags to be used for the round, based on intensity and normalized votes.
+// Populates antag_tags.
+//
 /datum/game_mode/dynamic/proc/select_antag_tags()
 	var/current_intensity = 0
 	var/list/working_tags

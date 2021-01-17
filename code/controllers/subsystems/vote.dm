@@ -234,6 +234,8 @@ var/datum/controller/subsystem/vote/SSvote
 
 /datum/controller/subsystem/vote/proc/initiate_vote(vote_type, initiator_key, automatic = FALSE)
 	if(!mode)
+		var/stop_round = FALSE
+
 		if(started_time != null && !(check_rights(R_ADMIN|R_MOD) || automatic))
 			// Transfer votes are their own little special snowflake
 			var/next_allowed_time = 0
@@ -267,6 +269,8 @@ var/datum/controller/subsystem/vote/SSvote
 				round_voters.Cut() //Delete the old list, since we are having a new gamemode vote
 				if(SSticker.current_state >= 2)
 					return 0
+
+				stop_round = TRUE
 				for (var/F in config.votable_modes)
 					var/datum/game_mode/M = gamemode_cache[F]
 					if(!M)
@@ -310,6 +314,7 @@ var/datum/controller/subsystem/vote/SSvote
 				if(SSticker.current_state >= 2)
 					return 0
 
+				stop_round = TRUE
 				question = "How intense should this round be?"
 				AddChoice("extended", "Extended", "No antags.")
 				AddChoice("low", "Low", "A few antags.")
@@ -319,6 +324,7 @@ var/datum/controller/subsystem/vote/SSvote
 				if(SSticker.current_state >= 2)
 					return 0
 
+				stop_round = TRUE
 				question = "What kind of antag(s) would you like to see?"
 				for (var/tag in dynamic_gamemode.get_votable_antags())
 					AddChoice(tag, capitalize(tag))
@@ -343,7 +349,7 @@ var/datum/controller/subsystem/vote/SSvote
 						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
 					if("custom")
 						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
-		if(mode == "gamemode" && round_progressing)
+		if(stop_round && round_progressing)
 			round_progressing = 0
 			to_world("<span class='warning'><b>Round start has been delayed.</b></span>")
 		SSvueui.check_uis_for_change(src)
