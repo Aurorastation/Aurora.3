@@ -46,11 +46,19 @@ var/datum/controller/subsystem/vote/SSvote
 
 /datum/controller/subsystem/vote/proc/autotransfer()
 	initiate_vote("crew_transfer","the server", 1)
-	log_debug("The server has called a crew transfer vote")
+	log_debug("The server has called a crew transfer vote.")
 
 /datum/controller/subsystem/vote/proc/autogamemode()
 	initiate_vote("gamemode","the server", 1)
-	log_debug("The server has called a gamemode vote")
+	log_debug("The server has called a gamemode vote.")
+
+/datum/controller/subsystem/vote/proc/autodynamicintensity()
+	initiate_vote("dynamicintensity", "the server", 1)
+	log_debug("The server has called an antag intensity vote.")
+
+/datum/controller/subsystem/vote/proc/autodynamicantags()
+	initiate_vote("dynamicantags", "the server", 1)
+	log_debug("The server has called a dynamic antag vote.")
 
 /datum/controller/subsystem/vote/proc/reset()
 	initiator = null
@@ -63,6 +71,11 @@ var/datum/controller/subsystem/vote/SSvote
 	SSvueui.check_uis_for_change(src)
 
 /datum/controller/subsystem/vote/proc/get_result()
+	// this is really fucking dirty, someone please refactor vote types to be datums.
+	if (mode == "dynamicantags")
+		dynamic_gamemode.set_votes(choices)
+		return dynamic_gamemode.voted_tags
+
 	//get the highest number of votes
 	var/greatest_votes = 0
 	var/total_votes = 0
@@ -118,30 +131,43 @@ var/datum/controller/subsystem/vote/SSvote
 /datum/controller/subsystem/vote/proc/announce_result()
 	var/list/winners = get_result()
 	var/text
-	if(winners.len > 0)
-		if(winners.len > 1)
-			if(mode != "gamemode" || SSticker.hide_mode == 0) // Here we are making sure we don't announce potential game modes
-				text = "<b>Vote Tied Between:</b>\n"
-				for(var/option in winners)
-					text += "\t[option]\n"
-		. = pick(winners)
 
-		for(var/key in current_votes)
-			if(current_votes[key] == .)
-				round_voters += key // Keep track of who voted for the winning round.
-
-		if((mode == "gamemode" && . == "Extended") || SSticker.hide_mode == 0) // Announce Extended gamemode, but not other gamemodes
-			text += "<b>Vote Result: [.]</b>"
+	if (mode == "dynamicantags")
+		if (SSticker.hide_mode)
+			text = "<b>The vote has ended.</b>"
+		else if (winners.len)
+			text = "<b>Modes which were voted for:"
+			for (var/tag in winners)
+				text += "\n[capitalize(tag)]"
+			
+			text += "</b>"
 		else
-			if(mode != "gamemode")
+			text = "<b>No antags were chosen. Enjoy extended.</b>"
+	else
+		if(winners.len > 0)
+			if(winners.len > 1)
+				if(mode != "gamemode" || SSticker.hide_mode == 0) // Here we are making sure we don't announce potential game modes
+					text = "<b>Vote Tied Between:</b>\n"
+					for(var/option in winners)
+						text += "\t[option]\n"
+			. = pick(winners)
+
+			for(var/key in current_votes)
+				if(current_votes[key] == .)
+					round_voters += key // Keep track of who voted for the winning round.
+
+			if((mode == "gamemode" && . == "Extended") || SSticker.hide_mode == 0) // Announce Extended gamemode, but not other gamemodes
 				text += "<b>Vote Result: [.]</b>"
 			else
-				text += "<b>The vote has ended.</b>" // What will be shown if it is a gamemode vote that isn't extended
+				if(mode != "gamemode")
+					text += "<b>Vote Result: [.]</b>"
+				else
+					text += "<b>The vote has ended.</b>" // What will be shown if it is a gamemode vote that isn't extended
 
-	else
-		text += "<b>Vote Result: Inconclusive - No Votes!</b>"
-		if(mode == "add_antagonist")
-			antag_add_failed = 1
+		else
+			text += "<b>Vote Result: Inconclusive - No Votes!</b>"
+			if(mode == "add_antagonist")
+				antag_add_failed = 1
 	log_vote(text)
 	to_world("<span class='vote'>[text]</span>")
 
@@ -169,8 +195,10 @@ var/datum/controller/subsystem/vote/SSvote
 					antag_add_failed = 1
 				else
 					additional_antag_types |= antag_names_to_ids[.]
+			if("dynamicintensity")
+				dynamic_gamemode.set_intensity(.)
 
-	if(mode == "gamemode") //fire this even if the vote fails.
+	if(mode in list("gamemode", "dynamicintensity", "dynamicantag")) //fire this even if the vote fails.
 		if(!round_progressing)
 			round_progressing = 1
 			to_world("<span class='warning'><b>The round will start soon.</b></span>")
@@ -272,11 +300,28 @@ var/datum/controller/subsystem/vote/SSvote
 				AddChoice("None")
 			if("custom")
 				question = input(usr,"What is the vote for?") as text|null
-				if(!question)	return 0
+				if(!question)
+					return 0
 				for(var/i=1,i<=10,i++)
 					var/option = capitalize(sanitize(input(usr,"Please enter an option or hit cancel to finish") as text|null))
 					if(!option || mode || !usr.client)	break
 					AddChoice(option)
+			if ("dynamicintensity")
+				if(SSticker.current_state >= 2)
+					return 0
+
+				question = "How intense should this round be?"
+				AddChoice("extended", "Extended", "No antags.")
+				AddChoice("low", "Low", "A few antags.")
+				AddChoice("medium", "Medium", "A medium intensity round.")
+				AddChoice("high", "High", "A high intensity round.")
+			if ("dynamicantags")
+				if(SSticker.current_state >= 2)
+					return 0
+
+				question = "What kind of antag(s) would you like to see?"
+				for (var/tag in dynamic_gamemode.get_votable_antags())
+					AddChoice(tag, capitalize(tag))
 			else
 				return 0
 		mode = vote_type

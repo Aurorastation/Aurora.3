@@ -130,11 +130,22 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (round_progressing)
 		pregame_timeleft--
 
-	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
-		if (!SSvote.time_remaining)
-			SSvote.autogamemode()
-			pregame_timeleft--
-			return
+	if (current_state == GAME_STATE_PREGAME)
+		if (!config.use_dynamic_gamemode)
+			if (pregame_timeleft == config.vote_autogamemode_timeleft && !SSvote.time_remaining)
+				SSvote.autogamemode()
+				pregame_timeleft--
+				return
+		else
+			if (pregame_timeleft == config.vote_autogamemode_timeleft && !SSvote.time_remaining)
+				SSvote.autodynamicintensity()
+				pregame_timeleft--
+				return
+			else if (pregame_timeleft == config.vote_autogamemode_timeleft - 2 && !SSvote.time_remaining)
+				if (dynamic_gamemode.intensity > 0)
+					SSvote.autodynamicantags()
+					pregame_timeleft--
+					return
 
 	if (pregame_timeleft <= 20 && !testmerges_printed)
 		print_testmerges()
