@@ -257,9 +257,9 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/source
 		blood_data = REAGENT_DATA(donor.reagents, /decl/reagent/blood)
 	else if(!source)
 		if(sourceless_color)
-			B.basecolor = sourceless_color
-			B.update_icon()
-		return B
+			splatter.basecolor = sourceless_color
+			splatter.update_icon()
+		return splatter
 	if(!islist(blood_data))
 		return splatter
 
