@@ -1,7 +1,7 @@
 const config = require('../../config')
 const path = require('path')
 const fs = require('fs-extra')
-const vueuiTestsPath = path.resolve(config.vueui, './tests')
+const vueuiTestsPath = path.resolve(config.vueui, './testcases')
 const vueuiDistPath = path.resolve(config.vueui, './dist')
 const klaw = require('klaw')
 const express = require('express')

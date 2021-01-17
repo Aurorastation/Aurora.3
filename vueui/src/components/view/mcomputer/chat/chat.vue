@@ -3,33 +3,35 @@
     <h3>{{ channel.title }}</h3>
     <div>
       <template v-if="!channel.direct">
-        <vui-button :params="{leave: reference}" @click="$emit('on-leave')">Leave</vui-button>
+        <vui-button :params="{ leave: reference }" @click="$emit('on-leave')">Leave</vui-button>
       </template>
       <template v-if="channel.can_manage">
         <template v-if="password != null">
-          <input type="text" v-model="password" @keydown.enter="set_password">
+          <input type="text" v-model="password" @keydown.enter="set_password" />
           <vui-button @click="set_password">Set password</vui-button>
         </template>
         <vui-button v-else-if="!channel.direct" @click="password = ''">Set password</vui-button>
         <template v-if="title != null">
-          <input type="text" v-model="title" @keydown.enter="set_title">
+          <input type="text" v-model="title" @keydown.enter="set_title" />
           <vui-button @click="set_title">Change title</vui-button>
         </template>
         <vui-button v-else-if="!channel.direct" @click="title = channel.title">Change title</vui-button>
-        <vui-button :params="{delete: reference}" @click="$emit('on-leave')">Delete channel</vui-button>
+        <vui-button :params="{ delete: reference }" @click="$emit('on-leave')">Delete channel</vui-button>
       </template>
     </div>
     <div>
       <div v-for="(user, uref) in channel.users" :key="uref">
         {{ user }}
-        <vui-button v-if="channel.can_manage && !channel.direct" :params="{kick: {target: reference, user: uref}}">Kick</vui-button>
+        <vui-button v-if="channel.can_manage && !channel.direct" :params="{ kick: { target: reference, user: uref } }"
+          >Kick</vui-button
+        >
       </div>
     </div>
     <div class="message-chat" ref="chat">
       <div v-for="(msg, index) in messages" :key="index">{{ msg }}</div>
     </div>
     <div class="message-container">
-      <input class="message-input" type="text" v-model="send_buffer" @keydown.enter="send_msg"/>
+      <input class="message-input" type="text" v-model="send_buffer" @keydown.enter="send_msg" />
       <vui-button @click="send_msg" class="message-send">Send</vui-button>
     </div>
   </div>
@@ -41,7 +43,7 @@ export default {
   data() {
     return {
       s: this.$root.$data.state,
-      send_buffer: "",
+      send_buffer: '',
       password: null,
       title: null,
       wasAtBottom: true,
@@ -53,12 +55,12 @@ export default {
     },
     messages() {
       return this.channel.msg
-    }
+    },
   },
   props: {
     reference: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   methods: {
@@ -66,33 +68,33 @@ export default {
       sendToTopic({
         send: { message: this.send_buffer, target: this.reference },
       })
-      this.send_buffer = ""
+      this.send_buffer = ''
     },
     set_password() {
-      sendToTopic({set_password: {target: this.reference, password: this.password}})
+      sendToTopic({ set_password: { target: this.reference, password: this.password } })
       this.password = null
     },
     set_title() {
-      sendToTopic({change_title: {target: this.reference, title: this.title}})
+      sendToTopic({ change_title: { target: this.reference, title: this.title } })
       this.title = null
     },
     scrollBottom() {
       let chat = this.$refs.chat
       chat.scrollTop = chat.scrollHeight
-    }
+    },
   },
   mounted() {
     this.scrollBottom()
   },
   beforeUpdate() {
     let chat = this.$refs.chat
-    this.wasAtBottom = (chat.scrollHeight - chat.scrollTop === chat.clientHeight)
+    this.wasAtBottom = chat.scrollHeight - chat.scrollTop === chat.clientHeight
   },
   updated() {
-    if(this.wasAtBottom) {
+    if (this.wasAtBottom) {
       this.scrollBottom()
     }
-  }
+  },
 }
 </script>
 
