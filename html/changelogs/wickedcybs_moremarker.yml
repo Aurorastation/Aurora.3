@@ -3,4 +3,4 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - rcsadd: "Added a new minor variant of the Tajara face pattern."
+  - rscadd: "Added a new minor variant of the Tajara face pattern."
