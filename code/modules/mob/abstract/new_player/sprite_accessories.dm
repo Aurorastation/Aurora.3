@@ -3677,6 +3677,12 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
+	taj_face_minor
+		name = "Cheeks Color (Minor)"
+		icon_state = "taj_face_minor"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
 	taj_face
 		name = "Cheeks Color"
 		icon_state = "taj_face"
