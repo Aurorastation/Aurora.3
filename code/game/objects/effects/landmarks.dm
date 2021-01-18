@@ -37,6 +37,10 @@
 			latejoin_cryo += loc
 			delete_me = 1
 			return
+		if("JoinLateCryoCommand")
+			latejoin_cryo_command += loc
+			delete_me = 1
+			return
 		if("JoinLateCyborg")
 			latejoin_cyborg += loc
 			delete_me = 1
