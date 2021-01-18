@@ -9,7 +9,7 @@
 
 	enabled = FALSE
 	landmark_name = "Revenant"
-	max_count = 1
+	max_count = 0
 
 	spawn_mob = /mob/living/carbon/human/revenant
 	respawn_flag = ANIMAL
