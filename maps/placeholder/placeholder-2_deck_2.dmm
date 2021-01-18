@@ -812,10 +812,14 @@
 /obj/structure/lattice,
 /obj/structure/railing/mapped,
 /obj/structure/cable/green{
-	icon_state = "11-2"
+	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
-/obj/machinery/atmospherics/pipe/zpipe/down/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/open,
 /area/janitor)
 "cF" = (
@@ -926,10 +930,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "cY" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/janitor)
 "cZ" = (
@@ -1759,7 +1763,6 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "gB" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1941,7 +1944,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/chair/comfy/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2095,7 +2098,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"ik" = (
+/obj/structure/closet/secure_closet/security,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "il" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
 /obj/structure/bed/chair/office/bridge,
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3416,6 +3429,14 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"rU" = (
+/obj/structure/table/reinforced,
+/obj/item/device/binoculars,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "rW" = (
 /obj/machinery/door/airlock/lift,
 /turf/simulated/floor/tiled/dark,
@@ -4125,6 +4146,12 @@
 /obj/machinery/power/supermatter,
 /turf/simulated/floor/greengrid/nitrogen,
 /area/janitor)
+"xq" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "xs" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped,
@@ -4137,6 +4164,22 @@
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
+"xA" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = -5
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -4379,6 +4422,21 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/janitor)
+"zf" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/janitor)
 "zp" = (
 /obj/machinery/vending/robotics,
@@ -5809,6 +5867,14 @@
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
+"IZ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "Ja" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/vending/dinnerware,
@@ -5999,6 +6065,12 @@
 /area/janitor)
 "Ko" = (
 /obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled,
+/area/janitor)
+"Kp" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/westleft,
+/obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Kr" = (
@@ -6236,6 +6308,7 @@
 /obj/structure/ladder{
 	pixel_y = 16
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/janitor)
 "Md" = (
@@ -6371,6 +6444,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"MT" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "MX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -6443,6 +6522,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"Ns" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/device/camera,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "Nt" = (
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
@@ -6478,11 +6565,11 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "NJ" = (
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/janitor)
 "NM" = (
 /obj/structure/toilet{
@@ -6534,6 +6621,7 @@
 /area/janitor)
 "NZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/janitor)
 "Of" = (
@@ -6720,6 +6808,13 @@
 "PG" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
+"PH" = (
+/obj/item/modular_computer/console/preset/security,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -7333,6 +7428,15 @@
 "TQ" = (
 /obj/structure/railing/mapped,
 /obj/structure/lattice,
+/obj/structure/cable/green{
+	icon_state = "11-8"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 8
+	},
 /turf/simulated/open,
 /area/janitor)
 "TR" = (
@@ -7428,11 +7532,11 @@
 /turf/simulated/floor/tiled/freezer,
 /area/janitor)
 "Uj" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -7828,6 +7932,7 @@
 /obj/structure/cable{
 	icon_state = "11-1"
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/janitor)
 "WS" = (
@@ -8212,6 +8317,15 @@
 /obj/structure/closet/coffin,
 /obj/structure/closet/coffin,
 /obj/structure/closet/coffin,
+/turf/simulated/floor/tiled,
+/area/janitor)
+"ZO" = (
+/obj/structure/table/reinforced,
+/obj/item/crowbar,
+/obj/item/device/flash,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ZQ" = (
@@ -17864,8 +17978,8 @@ ab
 ad
 Fi
 ad
-ad
-ad
+VL
+VL
 cQ
 ad
 ad
@@ -21104,11 +21218,11 @@ UE
 ac
 ac
 ab
-ac
-ac
-ac
-ac
-ac
+ZO
+MT
+MT
+rU
+IZ
 ab
 ac
 ac
@@ -21306,11 +21420,11 @@ ap
 ac
 ac
 ab
+Ns
 ac
 ac
 ac
-ac
-ac
+zf
 ap
 ac
 ac
@@ -21477,7 +21591,7 @@ XX
 ad
 ad
 ab
-cQ
+cY
 ab
 ab
 ab
@@ -21508,11 +21622,11 @@ az
 iB
 iB
 ab
-ac
-ac
-ac
+ik
+xq
+xA
 il
-bo
+PH
 ap
 ac
 ac
@@ -21679,7 +21793,7 @@ XX
 ad
 ad
 ab
-cY
+cQ
 ad
 ad
 ab
@@ -21713,7 +21827,7 @@ ab
 ab
 GL
 ab
-Wx
+Kp
 ap
 ap
 ac
@@ -22319,7 +22433,7 @@ ab
 ab
 ab
 ab
-NJ
+Tp
 hu
 hu
 ac
@@ -22521,7 +22635,7 @@ Pd
 ac
 Nr
 ab
-TX
+Ls
 ac
 ac
 ac
@@ -22723,7 +22837,7 @@ ab
 ab
 ab
 ab
-TX
+Ls
 ac
 ac
 ac
@@ -36019,7 +36133,7 @@ ad
 ad
 ad
 cQ
-XS
+bD
 NZ
 VL
 VL
@@ -36625,7 +36739,7 @@ gv
 ad
 ad
 Vh
-dW
+NJ
 WR
 VL
 VL
