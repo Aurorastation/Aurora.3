@@ -39,7 +39,6 @@ steps:
       - cd vueui
       - npm install # TODO: Cache that shit
       - (npm run lint | tee lint.log)
-      - grep "No lint errors found!" vueui/lint.log
       - npm run build
 ---
 kind: pipeline
