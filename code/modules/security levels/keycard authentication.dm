@@ -155,6 +155,8 @@
 	if(SSticker.mode.ert_disabled)
 		SSticker.mode.announce_ert_disabled()
 		return 1
+	if(world.time < config.time_to_call_emergency_shuttle) //uses the same value of when people are allowed to call an emergency shuttle
+		return 1
 	else
 		return 0
 

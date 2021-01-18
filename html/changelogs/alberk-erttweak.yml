@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - tweak: "Erts can now only be called after one hour in the round."
