@@ -23,6 +23,11 @@
 /obj/structure/closet/crate/can_close()
 	return 1
 
+/obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(opened)
+		return TRUE
+	return ..()
+
 /obj/structure/closet/crate/open()
 	if(opened)
 		return 0
