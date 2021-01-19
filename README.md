@@ -4,9 +4,7 @@
 
 **[Code](https://github.com/Aurorastation/Aurora.3)**
 
-[![Krihelimeter](http://www.krihelinator.xyz/badge/Aurorastation/Aurora.3)](http://www.krihelinator.xyz/repositories/Aurorastation/Aurora.3)
-
-[![Build Status](https://api.travis-ci.org/Aurorastation/Aurora.3.svg?branch=master)](https://travis-ci.org/Aurorastation/Aurora.3)
+[![Build Status](https://drone.wetskrell.org/api/badges/Aurorastation/Aurora.3/status.svg?branch=master)](https://drone.wetskrell.org/Aurorastation/Aurora.3)
 
 ---
 
