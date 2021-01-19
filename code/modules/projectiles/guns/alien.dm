@@ -60,7 +60,7 @@
 	addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
 	return new /obj/item/spike(src)
 
-//This gun only functions for armalis. The on-sprite is too huge to render properly on other sprites.
+//This gun only functions for vaurca warriors. The on-sprite is too huge to render properly on other sprites.
 /obj/item/gun/energy/noisecannon
 	name = "alien heavy cannon"
 	desc = "It's some kind of enormous alien weapon, as long as a man is tall."

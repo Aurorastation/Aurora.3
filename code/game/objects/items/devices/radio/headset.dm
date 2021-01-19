@@ -71,6 +71,18 @@
 			return ..(freq, level)
 	return -1
 
+/obj/item/device/radio/headset/attack_hand(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.l_ear != src && H.r_ear != src)
+			return ..()
+
+		if(slot_flags & SLOT_TWOEARS)
+			var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
+			qdel(OE)
+	
+	..()
+
 /obj/item/device/radio/headset/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if(keyslot1 || keyslot2)
@@ -168,6 +180,11 @@
 	desc = "Headset used by the service staff, tasked with keeping the station full, happy and clean."
 	icon_state = "srv_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_service
+
+/obj/item/device/radio/headset/headset_service/alt
+	name = "service radio bowman headset"
+	icon_state = "srv_headset_alt"
+	icon_state = "headset_alt"
 
 /obj/item/device/radio/headset/heads/hop
 	name = "head of personnel's headset"
@@ -383,6 +400,16 @@
 	translate_hivenet = 1
 	ks2type = /obj/item/device/encryptionkey/hivenet
 
+/obj/item/device/radio/headset/earmuff
+	name = "earmuffs"
+	desc = "Protects your hearing from loud noises, and quiet ones as well."
+	desc_antag = "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
+	icon = 'icons/obj/clothing/ears.dmi'
+	icon_state = "earmuffs"
+	item_state = "earmuffs"
+	item_flags = SOUNDPROTECTION
+	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
 /obj/item/device/radio/headset/syndicate
 	name = "military headset"
 	icon_state = "syn_headset"
@@ -439,6 +466,11 @@
 	desc = "The headset of your worst enemy."
 	icon_state = "com_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_com
+
+/obj/item/device/radio/headset/representative/alt
+	name = "representative bowman headset"
+	icon_state = "com_headset_alt"
+	item_state = "headset_alt"
 
 /obj/item/device/radio/headset/heads/ai_integrated //No need to care about icons, it should be hidden inside the AI anyway.
 	name = "\improper AI subspace transceiver"

@@ -17,7 +17,7 @@
 /turf/simulated/floor,
 /area/engineering/atmos)
 "aaf" = (
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aag" = (
 /turf/simulated/floor/reinforced/nitrogen,
@@ -38,7 +38,7 @@
 	frequency = 1441;
 	id_tag = "ph_sensor"
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aal" = (
 /obj/machinery/air_sensor{
@@ -90,14 +90,14 @@
 	id = "tox_in";
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aar" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
 	id_tag = "tox_out"
 	},
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
 "aas" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -930,6 +930,15 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
+"acm" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel,
+/obj/item/autopsy_scanner,
+/obj/machinery/firealarm/south,
+/obj/item/surgery/surgicaldrill,
+/turf/simulated/floor/tiled/white,
+/area/medical/morgue)
 "acn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1031,6 +1040,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acC" = (
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel,
+/obj/item/surgery/surgicaldrill,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/maintenance/medsublevel_port)
 "acD" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -3983,7 +4001,7 @@
 /area/engineering/atmos)
 "ajf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ajg" = (
@@ -4734,7 +4752,7 @@
 	name = "Canister Storage";
 	req_access = list(7)
 	},
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "akV" = (
@@ -18621,7 +18639,6 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_hallway)
 "aLs" = (
@@ -18932,7 +18949,6 @@
 /area/medical/medbay4)
 "aMo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aMq" = (
@@ -18943,7 +18959,6 @@
 "aMs" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "aMt" = (
@@ -19679,14 +19694,6 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/medical/morgue)
-"aOa" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/table/standard,
-/obj/item/surgery/scalpel,
-/obj/item/autopsy_scanner,
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/white,
 /area/medical/morgue)
 "aOb" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -20859,14 +20866,6 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
-"aQV" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
-/area/medical/patient_wing_picnic)
 "aQX" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -21406,6 +21405,22 @@
 	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/taperoll/medical{
+	pixel_x = -6;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aSH" = (
@@ -21470,22 +21485,22 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/emt{
+/obj/item/storage/belt/medical/first_responder{
 	pixel_y = 4
 	},
 /obj/item/clothing/accessory/stethoscope,
@@ -22358,8 +22373,8 @@
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "aVt" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
 "aVG" = (
@@ -22526,7 +22541,7 @@
 /area/medical/medbay4)
 "aWF" = (
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -22711,7 +22726,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8
@@ -24261,14 +24276,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/reinforced,
 /area/rnd/storage)
-"beT" = (
-/obj/structure/table/standard,
-/obj/item/surgery/scalpel,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/maintenance/medsublevel_port)
 "beW" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -25996,13 +26003,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"bzd" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass/alt,
-/area/medical/patient_wing_picnic)
 "bBR" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/sign/vacuum{
@@ -26277,8 +26277,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "ceW" = (
@@ -27051,7 +27049,6 @@
 "dGd" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/ausbushes/reedbush,
-/obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "dGF" = (
@@ -28133,16 +28130,6 @@
 /obj/structure/table/reinforced/wood,
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
-"fHw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "fHV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -29023,6 +29010,12 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"hyq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/grass/alt,
+/area/medical/patient_wing_picnic)
 "hyS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -29478,6 +29471,17 @@
 	},
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
+"iwX" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "iAw" = (
 /obj/structure/table/rack,
 /obj/item/shovel{
@@ -29626,19 +29630,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
-"iQM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "iRV" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
@@ -30273,6 +30264,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"kuZ" = (
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/reinforced,
+/area/rnd/storage)
 "kvS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -30812,7 +30808,6 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
 "lXj" = (
@@ -31074,6 +31069,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
+"msp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/grass/alt,
+/area/medical/patient_wing_picnic)
 "mtn" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -32372,6 +32373,12 @@
 /obj/machinery/power/crystal_agitator,
 /turf/simulated/floor,
 /area/security/penal_colony)
+"oJR" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "oKh" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 10
@@ -32437,11 +32444,6 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
-"oRX" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "oTN" = (
 /obj/structure/grille/broken,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -33021,7 +33023,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
@@ -33412,17 +33413,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"qUt" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "qUD" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -34287,7 +34277,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
-/turf/unsimulated/chasm_mask,
+/turf/simulated/floor,
 /area/engineering/atmos)
 "tdu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -36170,17 +36160,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
-"wHQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/prison)
 "wHR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/computer/power_monitor,
@@ -36872,6 +36851,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
+"xUC" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/grass/alt,
+/area/medical/patient_wing_picnic)
 "xUD" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -36949,17 +36932,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/security/penal_colony/prison)
 "ybc" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/full,
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/prison)
 "ybo" = (
@@ -52111,7 +52084,7 @@ nDL
 nDL
 tkm
 iOl
-aba
+oJR
 aba
 aba
 ale
@@ -56750,7 +56723,7 @@ aLH
 aPf
 aQr
 aVt
-aVt
+kuZ
 aVp
 beS
 bfs
@@ -70537,7 +70510,7 @@ kMM
 dYQ
 ktr
 xZJ
-qUt
+ybc
 xZJ
 xZJ
 kMM
@@ -70791,10 +70764,10 @@ aaa
 aaa
 aaa
 kMM
-iQM
-fHw
-fHw
-oRX
+ybc
+ybc
+ybc
+ybc
 xZJ
 jOO
 kMM
@@ -71051,7 +71024,7 @@ kMM
 qjL
 aUc
 xZJ
-wHQ
+ybc
 xZJ
 xZJ
 kMM
@@ -71141,7 +71114,7 @@ aIZ
 aNT
 vnf
 awP
-aqA
+iwX
 ebn
 ayi
 akG
@@ -71565,7 +71538,7 @@ kMM
 dYQ
 ktr
 xZJ
-qUt
+ybc
 xZJ
 xZJ
 kMM
@@ -71819,10 +71792,10 @@ aaa
 aaa
 aaa
 kMM
-iQM
-fHw
-fHw
-oRX
+ybc
+ybc
+ybc
+ybc
 xZJ
 jOO
 kMM
@@ -72079,7 +72052,7 @@ kMM
 qjL
 aUc
 xZJ
-wHQ
+ybc
 xZJ
 xZJ
 kMM
@@ -72593,7 +72566,7 @@ kMM
 dYQ
 ktr
 xZJ
-qUt
+ybc
 xZJ
 xZJ
 kMM
@@ -72847,10 +72820,10 @@ aaa
 aaa
 aaa
 kMM
-iQM
-fHw
-fHw
-oRX
+ybc
+ybc
+ybc
+ybc
 xZJ
 jOO
 kMM
@@ -73107,7 +73080,7 @@ kMM
 qjL
 aUc
 xZJ
-wHQ
+ybc
 xZJ
 xZJ
 kMM
@@ -73176,7 +73149,7 @@ hHI
 ayh
 jgi
 uSI
-beT
+acC
 awP
 aAP
 awP
@@ -75249,7 +75222,7 @@ aKf
 aLh
 aMl
 aMk
-aOa
+acm
 aGi
 aUZ
 aQl
@@ -77048,9 +77021,9 @@ oZc
 aLm
 aMo
 aNo
-bzd
+hyq
 aOR
-bzd
+hyq
 aOf
 aQU
 aLm
@@ -77309,7 +77282,7 @@ aNq
 aNq
 aNq
 aNq
-aQV
+msp
 aLm
 aSH
 aTv
@@ -77817,7 +77790,7 @@ vCz
 bvB
 aKo
 aLo
-aMq
+xUC
 fdV
 hHy
 hHy
@@ -78080,7 +78053,7 @@ hHy
 hHy
 fdV
 aNq
-cyD
+msp
 aLm
 aSK
 aTx
@@ -78331,7 +78304,7 @@ unQ
 vCz
 dYW
 aLm
-aMq
+xUC
 aNq
 aNq
 aNq
@@ -80906,7 +80879,7 @@ eEq
 baw
 cFw
 nzR
-aba
+oJR
 aba
 aba
 aaa

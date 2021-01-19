@@ -50,6 +50,14 @@
 		game_log("ADMIN", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_ckey_target"=html_encode(ckey_target)))
 
+/proc/log_signal(var/text)
+	if(length(signal_log) >= 100)
+		signal_log.Cut(1, 2)
+	signal_log.Add("|[time_stamp()]| [text]")
+	if(config.log_signaler)
+		game_log("SIGNALER", text)
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
+
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (config.log_debug)
 		game_log("DEBUG", text)

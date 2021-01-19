@@ -7,11 +7,12 @@
 	flags = RESTRICTED | HIVEMIND
 
 /datum/language/ling/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-
-	if(speaker.mind && speaker.mind.changeling)
-		..(speaker,message,speaker.mind.changeling.changelingID)
-	else
-		..(speaker,message)
+	if(speaker.mind)
+		var/datum/changeling/changeling = speaker.mind.antag_datums[MODE_CHANGELING]
+		if(changeling)
+			..(speaker,message, changeling.changelingID)
+			return
+	..(speaker,message)
 
 /datum/language/corticalborer
 	name = LANGUAGE_BORER
@@ -92,3 +93,15 @@
 
 /datum/language/terminator/get_random_name()
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
+
+/datum/language/revenant
+	name = LANGUAGE_REVENANT
+	desc = "The language of the forsaken bluespace inhabitants."
+	speech_verb = list("gargles")
+	ask_verb = list("gags")
+	exclaim_verb = list("retches")
+	colour = "revenant"
+	key = "c"
+	syllables = list("grhhg", "ghrohg", "grgugh", "grrhh", "hghh", "rghghh", "gghhh", "ggrh", "aghrh")
+	flags = RESTRICTED
+	partial_understanding = list(LANGUAGE_TCB = 80)

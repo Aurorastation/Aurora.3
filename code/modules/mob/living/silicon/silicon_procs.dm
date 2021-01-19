@@ -8,3 +8,6 @@
 
 	accent = chosen_accent
 	to_chat(src, SPAN_NOTICE("You have set your synthesizer to mimic the [chosen_accent] accent."))
+
+/mob/living/silicon/put_in_hands(obj/item/W)
+	..(W, TRUE)

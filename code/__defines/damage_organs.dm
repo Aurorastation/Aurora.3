@@ -46,6 +46,9 @@
 #define ORGAN_TENDON_CUT (1<<12)
 #define ORGAN_LIFELIKE   (1<<13)   // Robotic, made to appear organic.
 
+// the largest bitflag, in the WORLD
+#define ORGAN_DAMAGE_STATES ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED|ORGAN_ARTERY_CUT|ORGAN_TENDON_CUT
+
 // Limb behaviour defines.
 #define ORGAN_CAN_AMPUTATE (1<<0) //Can this organ be amputated?
 #define ORGAN_CAN_BREAK    (1<<1) //Can this organ break?

@@ -81,6 +81,18 @@ For a basic setup, simply copy every file from config/example to config.
 
 For more advanced setups, setting the server `tick_lag` in the config as well as configuring SQL are good first steps.
 
+
+#### Permissions
+
+Permissions with file-based config are handled through `admin_ranks.json`
+and `admins.txt`. To add yourself as the admin, simply find the rank with
+the suitable permissions from the `admin_ranks.json` file, copy its `"name"`
+field value, and input that into `admins.txt` like so:
+
+```cfg
+myckeyhere - Head Admin/Dev
+```
+
 ---
 
 ### SQL Setup

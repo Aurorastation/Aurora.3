@@ -41,7 +41,8 @@ There are several things that need to be remembered:
 		update_inv_r_hand()
 		update_inv_belt()
 		update_inv_wear_id()
-		update_inv_ears()
+		update_inv_l_ear()
+		update_inv_r_ear()
 		update_inv_s_store()
 		update_inv_pockets()
 		update_inv_back()
@@ -103,16 +104,17 @@ There are several things that need to be remembered:
 #define SUIT_STORE_LAYER 17
 #define BACK_LAYER       18
 #define HAIR_LAYER       19
-#define EARS_LAYER       20
-#define FACEMASK_LAYER   21
-#define HEAD_LAYER       22
-#define COLLAR_LAYER     23
-#define HANDCUFF_LAYER   24
-#define LEGCUFF_LAYER    25
-#define L_HAND_LAYER     26
-#define R_HAND_LAYER     27
-#define FIRE_LAYER       28		//If you're on fire
-#define TOTAL_LAYERS     28
+#define L_EAR_LAYER      20
+#define R_EAR_LAYER      21
+#define FACEMASK_LAYER   22
+#define HEAD_LAYER       23
+#define COLLAR_LAYER     24
+#define HANDCUFF_LAYER   25
+#define LEGCUFF_LAYER    26
+#define L_HAND_LAYER     27
+#define R_HAND_LAYER     28
+#define FIRE_LAYER       29		//If you're on fire
+#define TOTAL_LAYERS     29
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
@@ -220,6 +222,24 @@ There are several things that need to be remembered:
 		LAZYADD(ovr, DI)
 
 	overlays_raw[DAMAGE_LAYER] = ovr
+	update_bandages(update_icons)
+	if(update_icons)
+		update_icon()
+
+/mob/living/carbon/human/proc/update_bandages(var/update_icons = TRUE)
+	var/bandage_icon = species.bandages_icon
+	if(!bandage_icon)
+		return
+	var/image/standing_image = overlays_raw[DAMAGE_LAYER]
+	if(standing_image)
+		for(var/obj/item/organ/external/O in organs)
+			if(O.is_stump())
+				continue
+			var/bandage_level = O.bandage_level()
+			if(bandage_level)
+				standing_image += image(bandage_icon, "[O.icon_name][bandage_level]")
+
+		overlays_raw[DAMAGE_LAYER] = standing_image
 
 	if(update_icons)
 		update_icon()
@@ -231,20 +251,18 @@ There are several things that need to be remembered:
 	. = list()
 	if(build_from_parts)
 		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
-		M.appearance_flags = RESET_COLOR
+		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		. += M
 
 //BASE MOB SPRITE
-/mob/living/carbon/human/proc/update_body(var/update_icons=1)
+/mob/living/carbon/human/proc/update_body(var/update_icons=1, var/force_base_icon = FALSE)
 	if (QDELING(src))
 		return
 
 	var/husk_color_mod = rgb(96,88,80)
-	var/hulk_color_mod = rgb(48,224,40)
 
 	var/husk = (HUSK in mutations)
 	var/fat = (FAT in mutations)
-	var/hulk = (HULK in mutations)
 	var/skeleton = (SKELETON in mutations)
 	var/g = (gender == FEMALE ? "f" : "m")
 
@@ -259,7 +277,12 @@ There are several things that need to be remembered:
 		qdel(stand_icon)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!hulk][!!skeleton]"
+	var/is_frenzied = "nofrenzy"
+	if(mind)
+		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+		if(vampire && (vampire.status & VAMP_FRENZIED))
+			is_frenzied = "frenzy"
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
@@ -274,7 +297,7 @@ There are several things that need to be remembered:
 		icon_key += SSicon_cache.get_organ_shortcode(part)
 
 	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
-	if (!base_icon)	// Icon ain't in the cache, so generate it.
+	if (!base_icon || force_base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 		base_icon = chest.get_icon(skeleton)
@@ -302,12 +325,15 @@ There are several things that need to be remembered:
 			else
 				base_icon.Blend(temp, ICON_OVERLAY)
 
+			part.cut_additional_images(src)
+			var/list/add_images = part.get_additional_images(src)
+			if(add_images)
+				add_overlay(add_images, TRUE)
+		compile_overlays()
+
 		if(!(species.flags & NO_SCAN))
 			if(husk)
 				base_icon.ColorTone(husk_color_mod)
-			else if(hulk)
-				var/list/tone = ReadRGB(hulk_color_mod)
-				base_icon.MapColors(rgb(tone[1],0,0),rgb(0,tone[2],0),rgb(0,0,tone[3]))
 
 		//Handle husk overlay.
 		if(husk && ("overlay_husk" in icon_states(species.icobase)))
@@ -346,7 +372,7 @@ There are several things that need to be remembered:
 // This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
 // If `hair_is_visible` is FALSE, only facial hair will be drawn.
 /mob/living/carbon/human/proc/generate_hair_icon(hair_is_visible = TRUE)
-	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]"
+	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]_[(g_style && g_style != "None" && hair_is_visible) ? "[g_style][r_grad][g_grad][b_grad]" : "nograd"]"
 
 	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
 	if (!face_standing)	// Not cached, generate it from scratch.
@@ -363,11 +389,19 @@ There are several things that need to be remembered:
 
 		// Hair.
 		if(hair_is_visible)
+			var/icon/grad_s = null
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 			if(hair_style && (species.type in hair_style.species_allowed))
 				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)
+					if(g_style)
+						var/datum/sprite_accessory/gradient_style = hair_gradient_styles_list[g_style]
+						grad_s = new/icon("icon" = gradient_style.icon, "icon_state" = gradient_style.icon_state)
+						grad_s.Blend(hair_s, ICON_AND)
+						grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_MULTIPLY)
 					hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.icon_blend_mode)
+					if(!isnull(grad_s))
+						hair_s.Blend(grad_s, ICON_OVERLAY)
 
 				face_standing.Blend(hair_s, ICON_OVERLAY)
 
@@ -464,7 +498,8 @@ There are several things that need to be remembered:
 	update_inv_wear_id(FALSE)
 	update_inv_gloves(FALSE)
 	update_inv_glasses(FALSE)
-	update_inv_ears(FALSE)
+	update_inv_l_ear(FALSE)
+	update_inv_r_ear(FALSE)
 	update_inv_shoes(FALSE)
 	update_inv_s_store(FALSE)
 	update_inv_wear_mask(FALSE)
@@ -549,6 +584,7 @@ There are several things that need to be remembered:
 				for(var/obj/item/clothing/accessory/A in under.accessories)
 					ovr += A.get_mob_overlay()
 
+		standing.appearance_flags = RESET_ALPHA
 		overlays_raw[UNIFORM_LAYER] = ovr || standing
 
 	if(update_icons)
@@ -597,6 +633,7 @@ There are several things that need to be remembered:
 				result_layer = list(result_layer, lanyard_card, plastic_film)
 			else
 				result_layer =  list(result_layer, plastic_film)
+		result_layer.appearance_flags = RESET_ALPHA
 		overlays_raw[id_layer] = result_layer
 
 	BITSET(hud_updateflag, ID_HUD)
@@ -636,10 +673,12 @@ There are several things that need to be remembered:
 			result_layer = list(result_layer, bloodsies)
 
 		gloves.screen_loc = ui_gloves
+		result_layer.appearance_flags = RESET_ALPHA
 		overlays_raw[GLOVES_LAYER] = result_layer
 	else if(blood_DNA)
-		var/image/bloodsies	= image(species.blood_mask, "bloodyhands")
+		var/image/bloodsies = image(species.blood_mask, "bloodyhands")
 		bloodsies.color = hand_blood_color
+		bloodsies.appearance_flags = RESET_ALPHA
 		overlays_raw[GLOVES_LAYER] = bloodsies
 	else
 		overlays_raw[GLOVES_LAYER] = null
@@ -669,55 +708,99 @@ There are several things that need to be remembered:
 		if(glasses.color)
 			glasses_overlay.color = glasses.color
 
+	if(glasses_overlay)
+		glasses_overlay.appearance_flags = RESET_ALPHA
 	overlays_raw[GLASSES_LAYER] = glasses_overlay
 
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_ears(var/update_icons=1)
-	if (QDELING(src))
+/mob/living/carbon/human/update_inv_l_ear(var/update_icons=1)
+	if(QDELING(src))
 		return
 
-	overlays_raw[EARS_LAYER] = null
-
-	if (check_draw_ears())
-		var/result_layer
+	if(check_draw_ears())
 		if(l_ear)
-			var/t_type = l_ear.icon_state
+			l_ear.screen_loc = ui_l_ear
 
+			var/image/result_layer = null
+
+			//Determine the icon to use
+			var/t_icon = INV_L_EAR_DEF_ICON
 			if(l_ear.contained_sprite)
 				l_ear.auto_adapt_species(src)
-				t_type = "[UNDERSCORE_OR_NULL(l_ear.icon_species_tag)][l_ear.item_state][WORN_LEAR]"
-				result_layer = image(l_ear.icon_override || l_ear.icon, t_type)
-			else if(l_ear.icon_override)
-				result_layer = image(l_ear.icon_override, "[t_type]_l")
-			else if(l_ear.sprite_sheets && l_ear.sprite_sheets[GET_BODY_TYPE])
-				result_layer = image(l_ear.sprite_sheets[GET_BODY_TYPE], "[t_type]_l")
-			else
-				result_layer = image('icons/mob/ears.dmi', "[t_type]")
+				var/t_state = "[UNDERSCORE_OR_NULL(l_ear.icon_species_tag)][l_ear.item_state][WORN_LEAR]"
 
+				result_layer = image(l_ear.icon_override || l_ear.icon, t_state)
+			else if(l_ear.icon_override)
+				t_icon = l_ear.icon_override
+			else if(l_ear.sprite_sheets && l_ear.sprite_sheets[GET_BODY_TYPE])
+				t_icon = l_ear.sprite_sheets[GET_BODY_TYPE]
+			else if(l_ear.item_icons && (slot_l_ear_str in l_ear.item_icons))
+				t_icon = l_ear.item_icons[slot_l_ear_str]
+			else
+				t_icon = INV_L_EAR_DEF_ICON
+
+			if(!result_layer) //Create the image
+				result_layer = image(t_icon, l_ear.icon_state)
+
+			if(l_ear.color)
+				result_layer.color = l_ear.color
+
+			var/image/worn_overlays = l_ear.worn_overlays(t_icon)
+			if(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
+
+			if(result_layer)
+				result_layer.appearance_flags = RESET_ALPHA
+			overlays_raw[L_EAR_LAYER] = result_layer
+	else
+		overlays_raw[L_EAR_LAYER] = null
+
+	if(update_icons)
+		update_icon()
+
+/mob/living/carbon/human/update_inv_r_ear(var/update_icons=1)
+	if(QDELING(src))
+		return
+
+	if(check_draw_ears())
 		if(r_ear)
-			var/image/I
-			var/t_type = r_ear.icon_state
+			r_ear.screen_loc = ui_r_ear
+
+			var/image/result_layer = null
+
+			//Determine the icon to use
+			var/t_icon = INV_R_EAR_DEF_ICON
 			if(r_ear.contained_sprite)
 				r_ear.auto_adapt_species(src)
-				t_type = "[UNDERSCORE_OR_NULL(r_ear.icon_species_tag)][r_ear.item_state][WORN_REAR]"
-				I = image(r_ear.icon_override || r_ear.icon, t_type)
+				var/t_state = "[UNDERSCORE_OR_NULL(r_ear.icon_species_tag)][r_ear.item_state][WORN_REAR]"
 
+				result_layer = image(r_ear.icon_override || r_ear.icon, t_state)
 			else if(r_ear.icon_override)
-				I = image(r_ear.icon_override, "[t_type]_r")
+				t_icon = r_ear.icon_override
 			else if(r_ear.sprite_sheets && r_ear.sprite_sheets[GET_BODY_TYPE])
-				I = image(r_ear.sprite_sheets[GET_BODY_TYPE], "[t_type]_r")
+				t_icon = r_ear.sprite_sheets[GET_BODY_TYPE]
+			else if(r_ear.item_icons && (slot_r_ear_str in r_ear.item_icons))
+				t_icon = r_ear.item_icons[slot_r_ear_str]
 			else
-				I = image('icons/mob/ears.dmi', "[t_type]")
+				t_icon = INV_R_EAR_DEF_ICON
 
-			if (result_layer)
-				result_layer = list(result_layer, I)
-				I.color = r_ear.color
-			else
-				result_layer = I
+			if(!result_layer) //Create the image
+				result_layer = image(t_icon, r_ear.icon_state)
 
-		overlays_raw[EARS_LAYER] = result_layer
+			if(r_ear.color)
+				result_layer.color = r_ear.color
+
+			var/image/worn_overlays = r_ear.worn_overlays(t_icon)
+			if(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
+
+			if(result_layer)
+				result_layer.appearance_flags = RESET_ALPHA
+			overlays_raw[R_EAR_LAYER] = result_layer
+	else
+		overlays_raw[R_EAR_LAYER] = null
 
 	if(update_icons)
 		update_icon()
@@ -726,44 +809,61 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[SHOES_LAYER] = null
-	overlays_raw[SHOES_LAYER_ALT] = null
 	if(check_draw_shoes())
-		var/image/standing
+		shoes.screen_loc = ui_shoes
+
+		var/image/result_layer = null
+
+		//Determine the icon to use
+		var/t_icon = INV_SHOES_DEF_ICON
 		if(shoes.contained_sprite)
 			shoes.auto_adapt_species(src)
-			var/state = "[UNDERSCORE_OR_NULL(shoes.icon_species_tag)][shoes.item_state][WORN_SHOES]"
+			var/t_state = "[UNDERSCORE_OR_NULL(shoes.icon_species_tag)][shoes.item_state][WORN_SHOES]"
 
-			standing = image(shoes.icon_override || shoes.icon, state)
-
+			result_layer = image(shoes.icon_override || shoes.icon, t_state)
 		else if(shoes.icon_override)
-			standing = image(shoes.icon_override, "[shoes.icon_state]")
+			t_icon = shoes.icon_override
 		else if(shoes.sprite_sheets && shoes.sprite_sheets[GET_BODY_TYPE])
-			standing = image("icon" = shoes.sprite_sheets[GET_BODY_TYPE], "icon_state" = "[shoes.icon_state]")
+			t_icon = shoes.sprite_sheets[GET_BODY_TYPE]
+		else if(shoes.item_icons && (slot_shoes_str in shoes.item_icons))
+			t_icon = shoes.item_icons[slot_shoes_str]
 		else
-			standing = image("icon" = 'icons/mob/feet.dmi', "icon_state" = "[shoes.icon_state]")
+			t_icon = INV_SHOES_DEF_ICON
+
+		if(!result_layer) //Create the image
+			result_layer = image(t_icon, shoes.icon_state)
+
+		if(shoes.color)
+			result_layer.color = shoes.color
+
+		var/image/worn_overlays = shoes.worn_overlays(t_icon)
+		if(worn_overlays)
+			result_layer.overlays.Add(worn_overlays)
+
+		if(result_layer)
+			result_layer.appearance_flags = RESET_ALPHA
+		var/list/ovr
+
+		if(shoes.blood_DNA)
+			var/obj/item/clothing/shoes/S = shoes
+			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
+			bloodsies.color = shoes.blood_color
+			bloodsies.appearance_flags = RESET_ALPHA
+			ovr = list(result_layer, bloodsies)
 
 		//Shoe layer stuff from Polaris v1.0333a
 		var/shoe_layer = SHOES_LAYER
 		if(istype(shoes, /obj/item/clothing/shoes))
-			var/obj/item/clothing/shoes/ushoes = shoes
-			if(ushoes.shoes_under_pants == 1)
+			var/obj/item/clothing/shoes/S = shoes
+			if(S.shoes_under_pants == TRUE)
 				shoe_layer = SHOES_LAYER_ALT
 
-		standing.color = shoes.color
-
-		var/list/ovr
-
-		if(shoes.blood_color)
-			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
-			bloodsies.color = shoes.blood_color
-			ovr = list(standing, bloodsies)
-
-		overlays_raw[shoe_layer] = ovr || standing
+		overlays_raw[shoe_layer] = ovr || result_layer
 	else
-		if(footprint_color)
-			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
+		if(footprint_color)		// Handles bloody feet.
+			var/image/bloodsies = image(species.blood_mask, "shoeblood")
 			bloodsies.color = footprint_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			overlays_raw[SHOES_LAYER] = bloodsies
 		else
 			overlays_raw[SHOES_LAYER] = null
@@ -780,11 +880,15 @@ There are several things that need to be remembered:
 		if(s_store.contained_sprite)
 			s_store.auto_adapt_species(src)
 			var/state="[UNDERSCORE_OR_NULL(s_store.icon_species_tag)][s_store.item_state][WORN_SSTORE]"
-			overlays_raw[SUIT_STORE_LAYER] = image(s_store.icon_override || s_store.icon, state)
+			var/image/s_store_image = image(s_store.icon_override || s_store.icon, state)
+			s_store_image.appearance_flags = RESET_ALPHA
+			overlays_raw[SUIT_STORE_LAYER] = s_store_image
 			s_store.screen_loc = ui_sstore1
 		else
 			//s_store.auto_adapt_species(src)
-			overlays_raw[SUIT_STORE_LAYER] = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
+			var/image/s_store_image = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
+			s_store_image.appearance_flags = RESET_ALPHA
+			overlays_raw[SUIT_STORE_LAYER] = s_store_image
 			s_store.screen_loc = ui_sstore1		//TODO
 	else
 		overlays_raw[SUIT_STORE_LAYER] = null
@@ -821,12 +925,13 @@ There are several things that need to be remembered:
 			standing = image(t_icon, head.icon_state)
 
 		standing.color = head.color
-
+		standing.appearance_flags = RESET_ALPHA
 		var/list/ovr
 
 		if(head.blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "helmetblood")
 			bloodsies.color = head.blood_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			ovr = list(standing, bloodsies)
 
 		if(istype(head,/obj/item/clothing/head))
@@ -874,6 +979,7 @@ There are several things that need to be remembered:
 			t_icon = 'icons/mob/belt.dmi'
 
 		standing = image(t_icon, t_state)
+		standing.appearance_flags = RESET_ALPHA
 		var/list/ovr
 
 		if(belt.contents.len && istype(belt, /obj/item/storage/belt))
@@ -887,6 +993,8 @@ There are several things that need to be remembered:
 				else
 					c_icon = 'icons/mob/belt.dmi'
 					c_state = i.item_state || i.icon_state
+				var/image/belt_item_image = image(c_icon, c_state)
+				belt_item_image.appearance_flags = RESET_ALPHA
 				ovr += image(c_icon, c_state)
 
 		var/beltlayer = BELT_LAYER
@@ -931,6 +1039,7 @@ There are several things that need to be remembered:
 		if(wear_suit.color)
 			result_layer.color = wear_suit.color
 
+		result_layer.appearance_flags = RESET_ALPHA
 		var/image/worn_overlays = wear_suit.worn_overlays(t_icon)
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
@@ -941,6 +1050,7 @@ There are several things that need to be remembered:
 			var/obj/item/clothing/suit/S = wear_suit
 			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
 			bloodsies.color = wear_suit.blood_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			ovr = list(result_layer, bloodsies)
 
 		// Accessories - copied from uniform, BOILERPLATE because fuck this system.
@@ -1003,12 +1113,14 @@ There are several things that need to be remembered:
 
 		if (wear_mask.color)
 			standing.color = wear_mask.color
+		standing.appearance_flags = RESET_ALPHA
 
 		var/list/ovr
 
 		if( !istype(wear_mask, /obj/item/clothing/mask/smokable/cigarette) && wear_mask.blood_DNA )
 			var/image/bloodsies = image(species.blood_mask, "maskblood")
 			bloodsies.color = wear_mask.blood_color
+			bloodsies.appearance_flags = RESET_ALPHA
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[FACEMASK_LAYER] = ovr || standing
@@ -1066,6 +1178,7 @@ There are several things that need to be remembered:
 		var/image/standing = image(overlay_icon, overlay_state)
 		if (back.color)
 			standing.color = back.color
+		standing.appearance_flags = RESET_ALPHA
 
 		overlays_raw[BACK_LAYER] = standing
 
@@ -1103,6 +1216,7 @@ There are several things that need to be remembered:
 			standing = image(handcuffed.sprite_sheets[GET_BODY_TYPE], "handcuff1")
 		else
 			standing = image('icons/mob/mob.dmi', "handcuff1")
+		standing.appearance_flags = RESET_ALPHA
 		overlays_raw[HANDCUFF_LAYER] = standing
 	else
 		overlays_raw[HANDCUFF_LAYER] = null
@@ -1123,10 +1237,11 @@ There are several things that need to be remembered:
 			standing = image(legcuffed.sprite_sheets[GET_BODY_TYPE], "legcuff1")
 		else
 			standing = image('icons/mob/mob.dmi', "legcuff1")
+		standing.appearance_flags = RESET_ALPHA
 		overlays_raw[LEGCUFF_LAYER] = standing
 
-		if(m_intent != "walk")
-			m_intent = "walk"
+		if(m_intent != M_WALK)
+			m_intent = M_WALK
 			if(hud_used && hud_used.move_intent)
 				hud_used.move_intent.icon_state = "walking"
 
@@ -1157,6 +1272,7 @@ There are several things that need to be remembered:
 			if(r_hand.color)
 				result_layer.color = r_hand.color
 
+			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[R_HAND_LAYER] = result_layer
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
@@ -1181,6 +1297,7 @@ There are several things that need to be remembered:
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
+			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[R_HAND_LAYER] = result_layer
 
 	if(update_icons)
@@ -1207,6 +1324,7 @@ There are several things that need to be remembered:
 			if(l_hand.color)
 				result_layer.color = l_hand.color
 
+			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[L_HAND_LAYER] = result_layer
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
@@ -1231,6 +1349,7 @@ There are several things that need to be remembered:
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
+			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[L_HAND_LAYER] = result_layer
 
 	if(update_icons)
@@ -1346,7 +1465,10 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[FIRE_LAYER] = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
+	var/image/fire_image = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
+	if(fire_image)
+		fire_image.appearance_flags = RESET_ALPHA
+	overlays_raw[FIRE_LAYER] = fire_image
 
 	if(update_icons)
 		update_icon()
@@ -1373,11 +1495,13 @@ There are several things that need to be remembered:
 		if(overlay_state in surgery_states)
 			var/image/flesh = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
 			flesh.color = E.owner.species.flesh_color
+			flesh.appearance_flags = RESET_ALPHA
 			LAZYADD(overlays_to_add, flesh)
 		overlay_state = "[base_state]-blood"
 		if(overlay_state in surgery_states)
 			var/image/blood = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
 			blood.color = E.owner.species.blood_color
+			blood.appearance_flags = RESET_ALPHA
 			LAZYADD(overlays_to_add, blood)
 		overlay_state = "[base_state]-bones"
 		if(overlay_state in surgery_states)
@@ -1470,7 +1594,8 @@ There are several things that need to be remembered:
 #undef SUIT_STORE_LAYER
 #undef BACK_LAYER
 #undef HAIR_LAYER
-#undef EARS_LAYER
+#undef L_EAR_LAYER
+#undef R_EAR_LAYER
 #undef FACEMASK_LAYER
 #undef HEAD_LAYER
 #undef COLLAR_LAYER
@@ -1484,4 +1609,3 @@ There are several things that need to be remembered:
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
 #undef GET_TAIL_LAYER
-

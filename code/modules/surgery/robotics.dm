@@ -156,6 +156,12 @@
 	..()
 
 /decl/surgery_step/robotics/repair_brute/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(tool.iswelder())
+		var/obj/item/weldingtool/welder = tool
+		if(!welder.isOn())
+			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
+			SPAN_WARNING("Your [tool] is shut off!"))
+			return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> finishes patching damage to [target]'s [affected.name] with \the [tool].", \
 		SPAN_NOTICE("You finish patching damage to [target]'s [affected.name] with \the [tool]."))

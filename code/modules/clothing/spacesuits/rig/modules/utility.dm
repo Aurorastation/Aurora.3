@@ -170,15 +170,15 @@
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream."
 
 	charges = list(
-		list("tricordrazine",	"tricordrazine",	/datum/reagent/tricordrazine,		80),
-		list("mortaphenyl",		"mortaphenyl",		/datum/reagent/mortaphenyl,			80),
-		list("dexalin plus",	"dexalinp",			/datum/reagent/dexalin/plus,		80),
-		list("antibiotics",		"thetamycin",		/datum/reagent/thetamycin,			80),
-		list("antitoxins",		"dylovene",			/datum/reagent/dylovene,			80),
-		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
-		list("hyronalin",		"hyronalin",		/datum/reagent/hyronalin,			80),
-		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			80),
-		list("radium",			"radium",			/datum/reagent/radium,				80)
+		list("tricordrazine",	"tricordrazine",	/decl/reagent/tricordrazine,		80),
+		list("mortaphenyl",		"mortaphenyl",		/decl/reagent/mortaphenyl,			80),
+		list("dexalin plus",	"dexalinp",			/decl/reagent/dexalin/plus,		80),
+		list("antibiotics",		"thetamycin",		/decl/reagent/thetamycin,			80),
+		list("antitoxins",		"dylovene",			/decl/reagent/dylovene,			80),
+		list("nutrients",		"glucose",			/decl/reagent/nutriment/glucose,	80),
+		list("hyronalin",		"hyronalin",		/decl/reagent/hyronalin,			80),
+		list("synaptizine",		"synaptizine",		/decl/reagent/synaptizine,			80),
+		list("radium",			"radium",			/decl/reagent/radium,				80)
 		)
 
 	var/max_reagent_volume = 80 //Used when refilling.
@@ -190,15 +190,15 @@
 
 	//just over a syringe worth of each. Want more? Go refill. Gives the ninja another reason to have to show their face.
 	charges = list(
-		list("tricordrazine",	"tricordrazine",	/datum/reagent/tricordrazine,		20),
-		list("mortaphenyl",		"mortaphenyl",		/datum/reagent/mortaphenyl,			20),
-		list("dexalin plus",	"dexalinp",			/datum/reagent/dexalin/plus,		20),
-		list("antibiotics",		"thetamycin",		/datum/reagent/thetamycin,			20),
-		list("antitoxins",		"dylovene",			/datum/reagent/dylovene,			20),
-		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
-		list("hyronalin",		"hyronalin",		/datum/reagent/hyronalin,			20),
-		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			20),
-		list("radium",			"radium",			/datum/reagent/radium,				20)
+		list("tricordrazine",	"tricordrazine",	/decl/reagent/tricordrazine,		20),
+		list("mortaphenyl",		"mortaphenyl",		/decl/reagent/mortaphenyl,			20),
+		list("dexalin plus",	"dexalinp",			/decl/reagent/dexalin/plus,		20),
+		list("antibiotics",		"thetamycin",		/decl/reagent/thetamycin,			20),
+		list("antitoxins",		"dylovene",			/decl/reagent/dylovene,			20),
+		list("nutrients",		"glucose",			/decl/reagent/nutriment/glucose,	80),
+		list("hyronalin",		"hyronalin",		/decl/reagent/hyronalin,			20),
+		list("synaptizine",		"synaptizine",		/decl/reagent/synaptizine,			20),
+		list("radium",			"radium",			/decl/reagent/radium,				20)
 		)
 
 	category = MODULE_UTILITY
@@ -213,18 +213,18 @@
 
 	// Magical chemical filtration system, do not question it.
 	var/total_transferred = 0
-	for(var/datum/reagent/R in input_item.reagents.reagent_list)
+	for(var/_R in input_item.reagents.reagent_volumes)
 		for(var/chargetype in charges)
 			var/datum/rig_charge/charge = charges[chargetype]
-			if(charge.product_type == R.type)
+			if(charge.product_type == _R)
 
-				var/chems_to_transfer = R.volume
+				var/chems_to_transfer = input_item.reagents.reagent_volumes[_R]
 
 				if((charge.charges + chems_to_transfer) > max_reagent_volume)
 					chems_to_transfer = max_reagent_volume - charge.charges
 
 				charge.charges += chems_to_transfer
-				input_item.reagents.remove_reagent(R.type, chems_to_transfer)
+				input_item.reagents.remove_reagent(_R, chems_to_transfer)
 				total_transferred += chems_to_transfer
 
 				break
@@ -288,10 +288,10 @@
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 
 	charges = list(
-		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			30),
-		list("hyperzine",		"hyperzine",		/datum/reagent/hyperzine,			30),
-		list("oxycomorphine",	"oxycomorphine",	/datum/reagent/oxycomorphine,		30),
-		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80)
+		list("synaptizine",		"synaptizine",		/decl/reagent/synaptizine,			30),
+		list("hyperzine",		"hyperzine",		/decl/reagent/hyperzine,			30),
+		list("oxycomorphine",	"oxycomorphine",	/decl/reagent/oxycomorphine,		30),
+		list("nutrients",		"glucose",			/decl/reagent/nutriment/glucose,	80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -304,11 +304,11 @@
 	desc = "A complex web of tubing and needles suitable for vaurcan hardsuit use."
 
 	charges = list(
-		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,		30),
-		list("hyperzine",		"hyperzine",		/datum/reagent/hyperzine,		30),
-		list("oxycomorphine",	"oxycomorphine",	/datum/reagent/oxycomorphine,	30),
-		list("phoron",			"phoron",			/datum/reagent/toxin/phoron,	60),
-		list("kois",			"k'ois paste",		/datum/reagent/kois,			80)
+		list("synaptizine",		"synaptizine",		/decl/reagent/synaptizine,		30),
+		list("hyperzine",		"hyperzine",		/decl/reagent/hyperzine,		30),
+		list("oxycomorphine",	"oxycomorphine",	/decl/reagent/oxycomorphine,	30),
+		list("phoron",			"phoron",			/decl/reagent/toxin/phoron,	60),
+		list("kois",			"k'ois paste",		/decl/reagent/kois,			80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"
@@ -321,8 +321,8 @@
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 
 	charges = list(
-		list("dexalin",			"dexalin",		/datum/reagent/dexalin,			5),
-		list("inaprovaline",	"inaprovaline",	/datum/reagent/inaprovaline,	5)
+		list("dexalin",			"dexalin",		/decl/reagent/dexalin,			5),
+		list("inaprovaline",	"inaprovaline",	/decl/reagent/inaprovaline,	5)
 		)
 
 	interface_name = "chem dispenser"
@@ -346,10 +346,10 @@
 
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 	charges = list(
-		list("tricordrazine",	"tricordrazine",	/datum/reagent/tricordrazine,	40),
-		list("mortaphenyl",		"mortaphenyl",		/datum/reagent/mortaphenyl,		40),
-		list("dexalin",			"dexalin",			/datum/reagent/dexalin,			40),
-		list("inaprovaline",	"inaprovaline",		/datum/reagent/inaprovaline,	40)
+		list("tricordrazine",	"tricordrazine",	/decl/reagent/tricordrazine,	40),
+		list("mortaphenyl",		"mortaphenyl",		/decl/reagent/mortaphenyl,		40),
+		list("dexalin",			"dexalin",			/decl/reagent/dexalin,			40),
+		list("inaprovaline",	"inaprovaline",		/decl/reagent/inaprovaline,	40)
 		)
 
 /obj/item/rig_module/voice
@@ -489,8 +489,6 @@
 	..()
 	jets.holder = null
 	jets.ion_trail.bind(jets)
-
-/obj/item/rig_module/foam_sprayer
 
 /obj/item/rig_module/device/paperdispenser
 	name = "hardsuit paper dispenser"
@@ -817,3 +815,47 @@ var/global/list/lattice_users = list()
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice disengaged. Pain receptors restored."))
 	lattice_users.Remove(H)
+
+/obj/item/rig_module/foam_sprayer
+	name = "mounted foam sprayer"
+	desc = "A shoulder-mounted metal foam sprayer."
+	selectable = TRUE
+	icon_state = "actuators"
+
+	interface_name = "integrated foam sprayer"
+	interface_desc = "Projects a line of metal foam where the user selects."
+
+	use_power_cost = 150
+
+	var/spray_distance = 5
+
+	category = MODULE_GENERAL
+
+/obj/item/rig_module/foam_sprayer/engage(atom/target, mob/user)
+	if(!..())
+		return FALSE
+
+	if(!target)
+		return FALSE
+
+	target = get_turf(target)
+	holder.wearer.visible_message("<b>[user]</b> sprays metal foam at \the [target]!", SPAN_NOTICE("You spray metal foam at \the [target]."))
+	var/list/turf_list = getline(user, get_turf(target))
+	turf_list -= turf_list[1] // remove the tile we're on
+	var/counter = spray_distance
+	var/turf/previous_turf
+	for(var/t in turf_list)
+		var/turf/T = t
+		if(!counter)
+			break
+		if(T.contains_dense_objects() || istype(T, /turf/space))
+			break
+		if(previous_turf && LinkBlocked(previous_turf, T))
+			break
+		if(counter == spray_distance)
+			new /obj/effect/effect/foam/spray/initial(t, TRUE)
+		else
+			new /obj/effect/effect/foam/spray(t, TRUE)
+		counter--
+		previous_turf = T
+		sleep(1)

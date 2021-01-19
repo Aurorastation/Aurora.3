@@ -6,7 +6,7 @@ var/datum/antagonist/raider_mage/raider_mage
 	role_text_plural = "Raider Mages"
 	bantype = "raider"
 	antag_indicator = "magineer"
-	landmark_id = "voxstart"
+	landmark_id = "raiderstart"
 	welcome_text = "Use :H to talk on your encrypted channel."
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudmagineer"

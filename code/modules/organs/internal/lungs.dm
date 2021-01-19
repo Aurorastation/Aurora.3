@@ -46,7 +46,7 @@
 /obj/item/organ/internal/lungs/process()
 	..()
 
-	if(!owner)
+	if(!owner || owner.stat == DEAD)
 		return
 
 	if(germ_level > INFECTION_LEVEL_ONE)
@@ -234,7 +234,7 @@
 	if(toxins_pp > safe_toxins_max)
 		var/ratio = (poison/safe_toxins_max) * 10
 		if(reagents)
-			reagents.add_reagent(/datum/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+			reagents.add_reagent(/decl/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 			breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 		owner.phoron_alert = max(owner.phoron_alert, 1)
 	else

@@ -86,6 +86,9 @@
 	nitrogen = 0
 	phoron = ATMOSTANK_PHORON
 
+/turf/simulated/floor/reinforced/phoron/scarce
+	phoron = ATMOSTANK_PHORON_SCARCE
+
 /turf/simulated/floor/reinforced/carbon_dioxide
 	oxygen = 0
 	nitrogen = 0

@@ -41,7 +41,8 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/ce
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/heads/ce
+	headset = /obj/item/device/radio/headset/heads/ce
+	bowman = /obj/item/device/radio/headset/heads/ce/alt
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -96,7 +97,8 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/headset_eng
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -139,7 +141,8 @@
 	belt = /obj/item/storage/belt/utility
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/headset_eng
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -185,7 +188,8 @@
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
-	l_ear = /obj/item/device/radio/headset/headset_eng
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
 
 	belt_contents = list(
 		/obj/item/weldingtool = 1,
@@ -199,3 +203,7 @@
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
+	tablet = /obj/item/modular_computer/handheld/preset/engineering

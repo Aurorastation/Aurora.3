@@ -49,6 +49,7 @@ var/list/obj/item/device/uplink/world_uplinks = list()
 var/global/list/hair_styles_list = list()			//stores /datum/sprite_accessory/hair indexed by name
 var/global/list/hair_styles_male_list = list()
 var/global/list/hair_styles_female_list = list()
+var/global/list/hair_gradient_styles_list = list()
 var/global/list/facial_hair_styles_list = list()	//stores /datum/sprite_accessory/facial_hair indexed by name
 var/global/list/facial_hair_styles_male_list = list()
 var/global/list/facial_hair_styles_female_list = list()
@@ -64,6 +65,9 @@ var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/
 
 //PDA choice
 var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
+
+//Headset choice
+var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset")
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
@@ -101,6 +105,14 @@ var/global/list/cloaking_devices = list()
 	sortTim(hair_styles_list, /proc/cmp_text_asc)
 	sortTim(hair_styles_male_list, /proc/cmp_text_asc)
 	sortTim(hair_styles_female_list, /proc/cmp_text_asc)
+
+	//Gradients - Initialise all /datum/sprite_accessory/hair_gradients into an list indexed by hairgradient-style name
+	paths = subtypesof(/datum/sprite_accessory/hair_gradients)
+	for(var/path in paths)
+		var/datum/sprite_accessory/hair_gradients/H = new path()
+		hair_gradient_styles_list[H.name] = H
+
+	sortTim(hair_gradient_styles_list, /proc/cmp_text_asc)
 
 	//Facial Hair - Initialise all /datum/sprite_accessory/facial_hair into an list indexed by facialhair-style name
 	paths = subtypesof(/datum/sprite_accessory/facial_hair)

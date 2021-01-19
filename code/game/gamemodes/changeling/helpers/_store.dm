@@ -88,8 +88,8 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/hivemind_morph
 	name = "Hivemind Release Morph"
-	desc = "We release a hivemind member as a morph at the cost of a limb. They will be able to crawl inside vents and disguise themselves as objects."
-	genomecost = 2
+	desc = "We release a hivemind member as a morph. They will be able to crawl inside vents and disguise themselves as objects."
+	genomecost = 0
 	verbpath = /mob/living/carbon/human/proc/changeling_release_morph
 
 //Stings and sting accessorries
@@ -156,7 +156,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	name = "Adrenaline Sacs"
 	desc = "We evolve additional ways of producing stimulants throughout our body."
 	helptext = "Gives us the ability to instantly shrug off stuns, as well as producing some painkiller and stimulants."
-	genomecost = 3
+	genomecost = 1
 	verbpath = /mob/proc/changeling_unstun
 
 /datum/power/changeling/ChemicalSynth
@@ -220,9 +220,10 @@ var/list/datum/power/changeling/powerinstances = list()
 	set category = "Changeling"
 	set desc = "Buy new abilities with the genomes we obtained."
 
-	if(!usr || !usr.mind || !usr.mind.changeling)
+	var/datum/changeling/changeling = usr.mind.antag_datums[MODE_CHANGELING]
+	if(!usr || !usr.mind || !changeling)
 		return
-	src = usr.mind.changeling
+	src = changeling
 
 	if(!powerinstances.len)
 		for(var/P in powers)
@@ -480,7 +481,8 @@ var/list/datum/power/changeling/powerinstances = list()
 
 
 /datum/changeling/proc/purchasePower(var/datum/mind/M, var/power_name, var/remake_verbs = 1)
-	if(!M || !M.changeling)
+	var/datum/changeling/changeling = M.antag_datums[MODE_CHANGELING]
+	if(!M || !changeling)
 		return
 
 	var/datum/power/changeling/power = power_name
@@ -508,4 +510,3 @@ var/list/datum/power/changeling/powerinstances = list()
 		call(M.current, power.verbpath)()
 	else if(remake_verbs)
 		M.current.make_changeling()
-

@@ -130,9 +130,31 @@
 	if(!ui)
 		ui = new(user, src, "machinery-vending", 900, 600, capitalize(name), state=state)
 
-	v_asset = get_asset_datum(/datum/asset/spritesheet/vending/boozeomat)
+	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
 
 	ui.open(v_asset)
+
+/obj/machinery/vending/boozeomat/merchant
+	// boozeomat variant used on the merchant station
+	products = list(
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/ice = 12,
+		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/vodka = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/rum = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/wine = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/cognac = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/boukha = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 12,
+		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/brandy = 6,
+		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 6)
+	random_itemcount = 1
+	req_access = list()
+	restock_items = 1
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
@@ -154,6 +176,21 @@
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
 	restock_items = 1
 	light_color = COLOR_GUNMETAL
+
+/obj/machinery/vending/assist/synd
+	name = "Parts vendor"
+	desc = "Just a normal vending machine - nothing to see here."
+	contraband = null
+	random_itemcount = 0
+	products = list(
+		/obj/item/device/assembly/prox_sensor = 5,
+		/obj/item/device/assembly/signaler = 4,
+		/obj/item/device/assembly/infra = 4,
+		/obj/item/device/assembly/prox_sensor = 4,
+		/obj/item/handcuffs = 8,
+		/obj/item/device/flash = 4,
+		/obj/item/clothing/glasses/sunglasses = 4
+	)
 
 
 /obj/machinery/vending/coffee
@@ -196,6 +233,17 @@
 	temperature_setting = -1
 	light_color = COLOR_BROWN
 
+/obj/machinery/vending/coffee/free
+	name = "Free Hot Drinks machine"
+	desc = "A vending machine which dispenses complimentary hot drinks."
+	random_itemcount = 0
+	products = list(
+		/obj/item/reagent_containers/food/drinks/coffee = 12,
+		/obj/item/reagent_containers/food/drinks/tea = 8,
+		/obj/item/reagent_containers/food/drinks/h_chocolate = 8,
+		/obj/item/reagent_containers/food/snacks/donut/normal = 6
+	)
+	prices = list()
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -374,6 +422,27 @@
 	)
 	light_color = COLOR_BLUE_GRAY
 
+/obj/machinery/vending/cigarette/merchant
+	// Mapped in merchant station
+	premium = list()
+	prices = list()
+	products = list(
+		/obj/item/storage/box/fancy/cigarettes = 10,
+		/obj/item/storage/box/fancy/matches = 10,
+		/obj/item/flame/lighter/random = 4,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 5,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 5
+	)
+
+/obj/machinery/vending/cigarette/hacked
+	name = "hacked cigarette machine"
+	prices = list()
+	products = list(
+		/obj/item/storage/box/fancy/cigarettes = 10,
+		/obj/item/storage/box/fancy/matches = 10,
+		/obj/item/flame/lighter/zippo = 4,
+		/obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2
+	)
 
 /obj/machinery/vending/medical
 	name = "NanoMed Plus"
@@ -387,7 +456,7 @@
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
-		/obj/item/reagent_containers/glass/bottle/toxin = 4,
+		/obj/item/reagent_containers/glass/bottle/toxin = 1,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
 		/obj/item/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
@@ -402,7 +471,8 @@
 		/obj/item/reagent_containers/pill/antitox = 6,
 		/obj/item/reagent_containers/pill/cetahydramine = 6,
 		/obj/item/reagent_containers/pill/perconol = 6,
-		/obj/item/reagent_containers/food/drinks/medcup = 4
+		/obj/item/reagent_containers/food/drinks/medcup = 4,
+		/obj/item/storage/pill_bottle = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
@@ -745,6 +815,7 @@
 		/obj/item/material/kitchen/utensil/fork = 12,
 		/obj/item/material/kitchen/utensil/knife = 12,
 		/obj/item/material/kitchen/utensil/spoon = 12,
+		/obj/item/material/kitchen/utensil/fork/chopsticks = 12,
 		/obj/item/material/knife = 2,
 		/obj/item/material/hatchet/butch = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
@@ -771,6 +842,17 @@
 	restock_items = 1
 	random_itemcount = 0
 	light_color = COLOR_STEEL
+
+/obj/machinery/vending/dinnerware/plastic
+	name = "Utensil Vendor"
+	desc = "A kitchen and restaurant utensil vendor."
+	products = list(
+		/obj/item/material/kitchen/utensil/fork/plastic = 12,
+		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
+		/obj/item/material/kitchen/utensil/knife/plastic = 12,
+		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 12
+	)
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -964,7 +1046,7 @@
 		/obj/item/clothing/suit/storage/toggle/labcoat = 4,
 		/obj/item/clothing/under/rank/roboticist = 4,
 		/obj/item/stack/cable_coil = 4,
-		/obj/item/device/flash = 4,
+		/obj/item/device/flash/synthetic = 4,
 		/obj/item/cell/high = 12,
 		/obj/item/device/assembly/prox_sensor = 3,
 		/obj/item/device/assembly/signaler = 3,

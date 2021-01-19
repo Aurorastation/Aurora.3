@@ -1,6 +1,6 @@
 /mob
 	var/bloody_hands = null
-	var/mob/living/carbon/human/bloody_hands_mob
+	var/datum/weakref/bloody_hands_mob
 	var/track_footprint = 0
 	var/list/feet_blood_DNA
 	var/track_footprint_type
@@ -8,7 +8,7 @@
 
 /obj/item/clothing/gloves
 	var/transfer_blood = 0
-	var/mob/living/carbon/human/bloody_hands_mob
+	var/datum/weakref/bloody_hands_mob
 
 /obj/item/clothing/shoes/
 	var/track_footprint = 0
@@ -25,7 +25,6 @@
 	can_be_placed_into = null
 	flags = OPENCONTAINER | NOBLUDGEON
 	unacidable = 0
-	shatter = FALSE
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
@@ -140,23 +139,24 @@
 					to_chat(user, SPAN_NOTICE("You begin to bandage \a [W.desc] on [M]'s [affecting.name] with a rag."))
 					if(!do_mob(user, M, W.damage/10)) // takes twice as long as a normal bandage
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
-						break
-					for(var/datum/reagent/R in reagents.reagent_list)
-						var/strength = R.germ_adjust * R.volume/4
-						if(istype(R, /datum/reagent/alcohol))
-							var/datum/reagent/alcohol/A = R
+						return
+					for(var/_R in reagents.reagent_volumes)
+						var/decl/reagent/R = decls_repository.get_decl(_R)
+						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
+						if(istype(R, /decl/reagent/alcohol))
+							var/decl/reagent/alcohol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
 						if (W.germ_level <= 0)
-							W.disinfected = 1//The wound becomes disinfected if fully cleaned
+							W.disinfected = TRUE//The wound becomes disinfected if fully cleaned
 							break
 					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
 					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
-					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with a rag, tying it in place."), \
-					                     SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with a rag, tying it in place."))
+					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."), \
+					                     SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
 					W.bandage()
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
-					break // we can only do one at a time
+					return // we can only do one at a time
 			else if(reagents.total_volume)
 				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
 					user.do_attack_animation(src)
@@ -181,8 +181,8 @@
 	if(!proximity)
 		return
 
-	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass))
-		if(!reagents.get_free_space())
+	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass) || istype(A, /obj/structure/sink))
+		if(!REAGENTS_FREE_SPACE(reagents))
 			to_chat(user, SPAN_WARNING("\The [src] is already soaked."))
 			return
 
@@ -210,7 +210,7 @@
 //rag must have a minimum of 2 units welder fuel and at least 80% of the reagents must be welder fuel.
 //maybe generalize flammable reagents someday
 /obj/item/reagent_containers/glass/rag/proc/can_ignite()
-	var/fuel = reagents.get_reagent_amount(/datum/reagent/fuel)
+	var/fuel = REAGENT_VOLUME(reagents, /decl/reagent/fuel)
 	return (fuel >= 2 && fuel >= reagents.total_volume*0.8)
 
 /obj/item/reagent_containers/glass/rag/proc/ignite()
@@ -220,10 +220,10 @@
 		return
 
 	//also copied from matches
-	if(reagents.get_reagent_amount(/datum/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
+	if(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 		visible_message(SPAN_DANGER("\The [src] conflagrates violently!"))
 		var/datum/effect/effect/system/reagents_explosion/e = new()
-		e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
+		e.set_up(round(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 		e.start()
 		qdel(src)
 		return
@@ -267,7 +267,7 @@
 		qdel(src)
 		return
 
-	reagents.remove_reagent(/datum/reagent/fuel, reagents.maximum_volume/25)
+	reagents.remove_reagent(/decl/reagent/fuel, reagents.maximum_volume/25)
 	update_name()
 	update_icon()
 	burn_time--

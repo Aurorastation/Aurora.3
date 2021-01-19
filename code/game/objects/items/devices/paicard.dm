@@ -45,9 +45,10 @@
 		pai.death(0)
 	return ..()
 
-/obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
+/obj/item/device/paicard/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
+		return
 	else if(istype(C, /obj/item/device/encryptionkey))
 		if(length(installed_encryptionkeys) > 2)
 			to_chat(user, SPAN_WARNING("\The [src] already has the full number of possible encryption keys installed!"))
@@ -67,6 +68,7 @@
 				to_chat(pai, SPAN_NOTICE("You now have access to these radio channels: [english_list(radio.channels)]."))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
+		return
 	else if(C.isscrewdriver())
 		if(!length(installed_encryptionkeys))
 			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
@@ -77,10 +79,15 @@
 			EK.forceMove(get_turf(src))
 			installed_encryptionkeys -= EK
 		recalculateChannels()
+		return
+	else if(istype(C, /obj/item/stack/nanopaste))
+		if(!pai)
+			to_chat(user, SPAN_WARNING("You cannot repair a pAI device if there's no active pAI personality installed."))
+			return
+	pai.attackby(C, user)
 
 /obj/item/device/paicard/proc/recalculateChannels()
-	radio.channels = list()
-
+	radio.channels = list("Common" = radio.FREQ_LISTENING, "Entertainment" = radio.FREQ_LISTENING)
 	for(var/keyslot in installed_encryptionkeys)
 		var/obj/item/device/encryptionkey/EK = keyslot
 		for(var/ch_name in (EK.channels | EK.additional_channels))

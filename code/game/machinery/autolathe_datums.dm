@@ -378,11 +378,6 @@
 	path = /obj/item/device/destTagger
 	category = "General"
 
-/datum/autolathe/recipe/steelwool
-	name = "steel wool"
-	path = /obj/item/steelwool
-	category = "Tools"
-
 /datum/autolathe/recipe/debugger
 	name = "debugger"
 	path = /obj/item/device/debugger

@@ -21,7 +21,7 @@
 		return
 
 	if(reagents.total_volume)
-		if(!target.reagents.get_free_space())
+		if(!REAGENTS_FREE_SPACE(target.reagents))
 			to_chat(user, "<span class='notice'>[target] is full.</span>")
 			return
 
@@ -52,7 +52,7 @@
 					if (victim.head.body_parts_covered & EYES)
 						safe_thing = victim.head
 				if(victim.glasses)
-					if (!safe_thing)
+					if (!safe_thing && (victim.glasses.body_parts_covered & EYES))
 						safe_thing = victim.glasses
 
 				if(safe_thing)

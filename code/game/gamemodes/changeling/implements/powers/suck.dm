@@ -80,17 +80,18 @@
 	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
 	absorbDNA(newDNA)
 
-	if(T.mind && T.mind.changeling)
-		if(T.mind.changeling.absorbed_dna)
-			for(var/datum/absorbed_dna/dna_data in T.mind.changeling.absorbed_dna)	//steal all their loot
+	var/datum/changeling/changeling_check = T.get_antag_datum(MODE_CHANGELING)
+	if(changeling_check)
+		if(changeling_check.absorbed_dna)
+			for(var/datum/absorbed_dna/dna_data in changeling_check.absorbed_dna)	//steal all their loot
 				if(changeling.GetDNA(dna_data.name))
 					continue
 				absorbDNA(dna_data)
 				changeling.absorbedcount++
-			T.mind.changeling.absorbed_dna.len = TRUE
+			changeling_check.absorbed_dna.len = TRUE
 
-		if(T.mind.changeling.purchasedpowers)
-			for(var/datum/power/changeling/Tp in T.mind.changeling.purchasedpowers) //who the fuck named these variables?
+		if(changeling_check.purchasedpowers)
+			for(var/datum/power/changeling/Tp in changeling_check.purchasedpowers) //who the fuck named these variables?
 				if(Tp in changeling.purchasedpowers)
 					continue
 				else
@@ -100,11 +101,11 @@
 					else
 						src.make_changeling()
 
-		changeling.chem_charges += T.mind.changeling.chem_charges
-		changeling.geneticpoints += T.mind.changeling.geneticpoints
-		T.mind.changeling.chem_charges = 0
-		T.mind.changeling.geneticpoints = 0
-		T.mind.changeling.absorbedcount = 0
+		changeling.chem_charges += changeling_check.chem_charges
+		changeling.geneticpoints += changeling_check.geneticpoints
+		changeling_check.chem_charges = 0
+		changeling_check.geneticpoints = 0
+		changeling_check.absorbedcount = 0
 
 	changeling.absorbedcount++
 	changeling.isabsorbing = FALSE

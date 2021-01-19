@@ -126,7 +126,7 @@
 
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
-	var/milk_type = /datum/reagent/drink/milk
+	var/milk_type = /decl/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -336,9 +336,11 @@
 	else
 		blood_state = BLOOD_HEAVY
 
-	if(force_reset || (blood_state != BLOOD_NONE && current_blood_state != blood_state))
+	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
 			cut_overlay(blood_overlay)
+		if(blood_state == BLOOD_NONE)
+			return
 		var/blood_overlay_name = get_blood_overlay_name()
 		var/image/I = image(blood_overlay_icon, src, "[blood_overlay_name]-[blood_state]")
 		I.color = blood_type
@@ -373,10 +375,11 @@
 		if (!reagents || !reagents.total_volume)
 			return
 
-		for(var/datum/reagent/current in reagents.reagent_list)
-			var/removed = min(current.metabolism*digest_factor, current.volume)
-			if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
-				var/datum/reagent/nutriment/N = current
+		for(var/_current in reagents.reagent_volumes)
+			var/decl/reagent/current = decls_repository.get_decl(_current)
+			var/removed = min(current.metabolism*digest_factor, REAGENT_VOLUME(reagents, _current))
+			if (_current == /decl/reagent/nutriment)//If its food, it feeds us
+				var/decl/reagent/nutriment/N = current
 				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
 				if (getBruteLoss() > 0)
@@ -388,7 +391,7 @@
 					adjustFireLoss(-n)
 					heal_amount -= n
 				updatehealth()
-			current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
+			current.remove_self(removed, reagents)//If its not food, it just does nothing. no fancy effects
 
 /mob/living/simple_animal/can_eat()
 	if (!hunger_enabled || nutrition > max_nutrition * 0.9)
@@ -540,6 +543,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	. = ..()
 	handle_blood_overlay()
 
+/mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
+	. = ..()
+	handle_blood_overlay()
+
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later
 
@@ -629,7 +636,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	set name = "Make Sound"
 	set category = "Abilities"
 
-	if((usr && usr.stat == DEAD) || !make_sound)
+	if(stat || !make_sound) //Can't make noise if there's no noise or if you're unconscious/dead
 		return
 
 	if(usr && !sound_time)
@@ -792,7 +799,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return /datum/reagent/nutriment
+	return /decl/reagent/nutriment
 
 /mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
 	..()

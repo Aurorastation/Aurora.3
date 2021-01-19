@@ -101,9 +101,9 @@
 	if (beakers.len)
 		to_chat(user, "<span class='notice'>[src] contains:</span>")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
-			if(B.reagents && B.reagents.reagent_list.len)
-				for(var/datum/reagent/R in B.reagents.reagent_list)
-					to_chat(user, "<span class='notice'>[R.volume] units of [R.name]</span>")
+			for(var/_R in B.reagents.reagent_volumes)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
+				to_chat(user, "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>")
 
 /obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/reagent_containers/glass))
@@ -136,9 +136,10 @@
 		var/i = 1
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			dat += "Beaker [i] contains: "
-			if(B.reagents && B.reagents.reagent_list.len)
-				for(var/datum/reagent/R in B.reagents.reagent_list)
-					dat += "<br>    [R.volume] units of [R.name], "
+			if(LAZYLEN(B.reagents.reagent_volumes))
+				for(var/_R in B.reagents.reagent_volumes)
+					var/decl/reagent/R = decls_repository.get_decl(_R)
+					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
 					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")
 				else
@@ -195,13 +196,3 @@
 		unload_ammo(usr)
 	src.updateUsrDialog()
 	return
-
-/obj/item/gun/projectile/dartgun/alien
-	name = "alien dart gun"
-	desc = "A small gas-powered dartgun, fitted for nonhuman hands."
-
-/obj/item/gun/projectile/dartgun/vox/medical
-	starting_chems = list(/datum/reagent/kelotane, /datum/reagent/bicaridine, /datum/reagent/dylovene)
-
-/obj/item/gun/projectile/dartgun/vox/raider
-	starting_chems = list(/datum/reagent/space_drugs, /datum/reagent/soporific, /datum/reagent/impedrezene)

@@ -30,7 +30,7 @@
 	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/arrow/quill
-	name = "vox quill"
+	name = "alien quill"
 	desc = "A wickedly barbed quill from some bizarre animal."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "quill"
@@ -145,6 +145,9 @@
 			bolt = W
 			user.visible_message("<b>[user]</b> slides \the [bolt] into \the [src].", SPAN_NOTICE("You slide \the [bolt] into \the [src]."))
 			update_icon()
+			if(istype(W, /obj/item/arrow/rod) && W.throwforce < 15)
+				// un-heated converted arrow rod
+				superheat_rod(user)
 			return
 		else if(istype(W, /obj/item/stack/rods))
 			var/obj/item/stack/rods/R = W

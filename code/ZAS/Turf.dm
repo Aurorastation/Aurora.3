@@ -6,9 +6,9 @@
 
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
 	if (LAZYLEN(graphic_add))
-		add_overlay(graphic_add.Copy(), TRUE)	// We need to copy because SSoverlay will mutate this list & add appearance objects.
+		vis_contents += graphic_add
 	if(LAZYLEN(graphic_remove))
-		cut_overlay(graphic_remove.Copy(), TRUE)
+		vis_contents -= graphic_remove
 
 /turf/proc/update_air_properties()
 	var/block

@@ -11,6 +11,7 @@
 	density = 1
 	var/health = 100.0
 	flags = CONDUCT
+	obj_flags = OBJ_FLAG_SIGNALER
 	w_class = ITEMSIZE_HUGE
 
 	var/valve_open = 0
@@ -55,6 +56,12 @@
 	name = "Canister: \[O2 (Cryo)\]"
 
 /obj/machinery/portable_atmospherics/canister/phoron
+	name = "Canister \[Phoron\]"
+	icon_state = "orange"
+	canister_color = "orange"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/phoron_scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
 	canister_color = "orange"
@@ -131,6 +138,9 @@
 	else
 		update_flag |= 32
 
+	if(signaler)
+		update_flag |= 64
+
 	if(update_flag == old_flag)
 		return 1
 	else
@@ -162,6 +172,9 @@ update_flag
 	cut_overlays()
 	set_light(FALSE)
 
+	if(signaler)
+		add_overlay("signaler")
+
 	if(update_flag & 1)
 		add_overlay("can-open")
 	if(update_flag & 2)
@@ -182,7 +195,6 @@ update_flag
 		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(indicator_overlay)
 		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
-	return
 
 /obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > temperature_resistance)
@@ -191,20 +203,24 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/proc/healthcheck()
 	if(destroyed)
-		return 1
+		return TRUE
 
 	if (src.health <= 10)
 		var/atom/location = src.loc
 		location.assume_air(air_contents)
 
-		src.destroyed = 1
+		destroyed = TRUE
+		obj_flags &= ~OBJ_FLAG_SIGNALER
 		playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
-		src.density = 0
-		update_icon()
+		density = FALSE
 
 		if (src.holding)
 			src.holding.forceMove(src.loc)
 			src.holding = null
+
+		detach_signaler()
+
+		update_icon()
 
 		return 1
 	else
@@ -285,12 +301,17 @@ update_flag
 			valve_open = !valve_open
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer))
-		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
+	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer) && !issignaler(W) && !(W.iswirecutter() && signaler))
+		if(W.flags & NOBLUDGEON)
+			return
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
+		user.do_attack_animation(src, W)
+		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
 		src.health -= W.force
 		if(!istype(W, /obj/item/forensics))
 			src.add_fingerprint(user)
 		healthcheck()
+		return
 
 	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
 		var/datum/gas_mixture/thejetpack = W:air_contents
@@ -307,7 +328,8 @@ update_flag
 
 	..()
 
-	SSnanoui.update_uis(src) // Update all NanoUIs attached to src
+	update_icon()
+	SSvueui.check_uis_for_change(src) // Update all VueUIs attached to src
 
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
@@ -317,37 +339,36 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
 	return src.ui_interact(user)
 
-/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if (src.destroyed)
+/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user)
+	if(src.destroyed)
 		return
-
-	// this is the data which will be sent to the ui
-	var/data[0]
-	data["name"] = name
-	data["canLabel"] = can_label ? 1 : 0
-	data["portConnected"] = connected_port ? 1 : 0
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
-	data["releasePressure"] = round(release_pressure ? release_pressure : 0)
-	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
-	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
-	data["valveOpen"] = valve_open ? 1 : 0
-
-	data["hasHoldingTank"] = holding ? 1 : 0
-	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
-
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "canister.tmpl", "Canister", 480, 400)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
+		ui = new(user, src, "machinery-atmospherics-canister", 480, 400, "Canister", state = interactive_state)
 		// open the new ui window
 		ui.open()
 		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+		ui.auto_update_content = TRUE
+
+/obj/machinery/portable_atmospherics/canister/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = ..() || list()
+
+	// this is the data which will be sent to the ui
+	data["name"] = name
+	data["canLabel"] = can_label
+	data["portConnected"] = !!connected_port
+	data["tankPressure"] = round(air_contents.return_pressure() || 0)
+	data["releasePressure"] = round(release_pressure || 0)
+	data["minReleasePressure"] = round(ONE_ATMOSPHERE/10)
+	data["maxReleasePressure"] = round(10*ONE_ATMOSPHERE)
+	data["valveOpen"] = valve_open
+
+	data["hasHoldingTank"] = !!holding
+	if (holding)
+		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
+	return data
 
 /obj/machinery/portable_atmospherics/canister/Topic(href, href_list)
 
@@ -357,19 +378,20 @@ update_flag
 		return 0
 
 	if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr)) // exploit protection -walter0o
-		usr << browse(null, "window=canister")
+		var/datum/vueui/ui = href_list["vueui"]
+		ui?.close()
 		onclose(usr, "canister")
 		return
 
 	if(href_list["toggle"])
 		if (valve_open)
 			if (holding)
-				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
+				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into [holding]<br>"
 			else
 				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the <span class='warning'><b>air</b></span><br>"
 		else
 			if (holding)
-				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the [holding]<br>"
+				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into [holding]<br>"
 			else
 				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the <span class='warning'><b>air</b></span><br>"
 				log_open()
@@ -379,18 +401,14 @@ update_flag
 		if(holding)
 			if (valve_open)
 				valve_open = 0
-				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
+				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into [holding]<br>"
 			if(istype(holding, /obj/item/tank))
 				holding.manipulated_by = usr.real_name
 			usr.put_in_hands(holding)
 			holding = null
 
-	if (href_list["pressure_adj"])
-		var/diff = text2num(href_list["pressure_adj"])
-		if(diff > 0)
-			release_pressure = min(10*ONE_ATMOSPHERE, release_pressure+diff)
-		else
-			release_pressure = max(ONE_ATMOSPHERE/10, release_pressure+diff)
+	if (href_list["pressure_set"])
+		release_pressure = between(ONE_ATMOSPHERE/10, text2num(href_list["pressure_set"]), 10*ONE_ATMOSPHERE)
 
 	if (href_list["relabel"])
 		if (can_label)
@@ -415,34 +433,39 @@ update_flag
 
 	return 1
 
+/obj/machinery/portable_atmospherics/canister/do_signaler()
+	valve_open = !valve_open
+	if(valve_open)
+		log_open_userless("a signaler")
+
 /obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	. = ..()
 
 	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
-	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/phoron_scarce/Initialize()
+	. = ..()
+
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure()/2) // half of the default value
 
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()
 
 	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
 	. = ..()
 
 	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
 	. = ..()
 
 	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
-	update_icon()
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
@@ -459,26 +482,20 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/prechilled/Initialize()
 	. = ..()
 	src.air_contents.temperature = 80
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
-	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/Initialize()
 	. = ..()
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
-	src.update_icon()
-
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
 	src.air_contents.temperature = 283
-	src.update_icon()

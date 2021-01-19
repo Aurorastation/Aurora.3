@@ -27,6 +27,7 @@
 
 .theme-basic-dark {
     @extend .theme-basic;
+    $color-bg: #202020;
     color: white;
     background: black;
     a, .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {

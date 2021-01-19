@@ -206,6 +206,18 @@ BREATH ANALYZER
 					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[get_severity(org.burn_dam, TRUE)] burns</b></font>\]"
 				if(org.status & ORGAN_BLEEDING)
 					limb_result = "[limb_result] \[<span class='scan_danger'>bleeding</span>\]"
+				var/is_bandaged = org.is_bandaged()
+				var/is_salved = org.is_salved()
+				if(is_bandaged && is_salved)
+					var/icon/B = icon('icons/obj/stacks/medical.dmi', "bandaged")
+					var/icon/S = icon('icons/obj/stacks/medical.dmi', "salved")
+					limb_result = "[limb_result] \[[icon2html(B, user)] | [icon2html(S, user)]\]"
+				else if(is_bandaged)
+					var/icon/B = icon('icons/obj/stacks/medical.dmi', "bandaged")
+					limb_result = "[limb_result] \[[icon2html(B, user)]\]"
+				else if(is_salved)
+					var/icon/S = icon('icons/obj/stacks/medical.dmi', "salved")
+					limb_result = "[limb_result] \[[icon2html(S, user)]\]"
 				dat += limb_result
 		else
 			dat += "No detectable limb injuries."
@@ -253,11 +265,11 @@ BREATH ANALYZER
 	if(H.reagents.total_volume)
 		var/unknown = 0
 		var/reagentdata[0]
-		for(var/A in H.reagents.reagent_list)
-			var/datum/reagent/R = A
+		for(var/_R in H.reagents.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				reagentdata["[R.type]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.type), 1)]u [R.name]</span>"
+				reagentdata["[_R]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]</span>"
 			else
 				unknown++
 		if(reagentdata.len)
@@ -272,7 +284,8 @@ BREATH ANALYZER
 	var/datum/reagents/ingested = H.get_ingested_reagents()
 	if(ingested && ingested.total_volume)
 		var/unknown = 0
-		for(var/datum/reagent/R in ingested.reagent_list)
+		for(var/_R in ingested.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
 				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
@@ -377,20 +390,16 @@ BREATH ANALYZER
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 	if(reagents.total_volume)
-		var/list/blood_traces = list()
-		for(var/datum/reagent/R in reagents.reagent_list)
-			if(R.type != /datum/reagent/blood)
-				reagents.clear_reagents()
-				to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
-				return
-			else
-				blood_traces = params2list(R.data["trace_chem"])
-				break
+		if(LAZYLEN(reagents.reagent_volumes) > 1 || !REAGENT_DATA(reagents, /decl/reagent/blood))
+			reagents.clear_reagents()
+			to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
+			return
+		var/list/blood_traces = params2list(reagents.reagent_data[/decl/reagent/blood]["trace_chem"])
 		var/dat = "Trace Chemicals Found: "
-		for(var/R in blood_traces)
-			var/datum/reagent/C = new R()
+		for(var/_C in blood_traces)
+			var/decl/reagent/C = decls_repository.get_decl(_C)
 			if(details)
-				dat += "[C] ([blood_traces[R]] units) "
+				dat += "[C] ([blood_traces[_C]] units) "
 			else
 				dat += "[C] "
 		to_chat(user, "[dat]")
@@ -430,20 +439,16 @@ BREATH ANALYZER
 		return
 	if(!istype(O))
 		return
+	if(isemptylist(O.reagents?.reagent_volumes))
+		to_chat(user, "<span class='notice'>No active chemical agents found in [O].</span>")
+		return
 
-	if(!isnull(O.reagents))
-		var/dat = ""
-		if(O.reagents.reagent_list.len > 0)
-			var/one_percent = O.reagents.total_volume / 100
-			for (var/datum/reagent/R in O.reagents.reagent_list)
-				dat += "\n \t <span class='notice'>[R][details ? ": [R.volume / one_percent]%" : ""]"
-		if(dat)
-			to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
-		else
-			to_chat(user, "<span class='notice'>No active chemical agents found in [O].</span>")
-	else
-		to_chat(user, "<span class='notice'>No significant chemical agents found in [O].</span>")
-
+	var/dat = ""
+	var/one_percent = O.reagents.total_volume / 100
+	for (var/_R in O.reagents.reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		dat += "\n \t <span class='notice'>[R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
+	to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
 	return
 
 /obj/item/device/reagent_scanner/adv
@@ -606,10 +611,86 @@ BREATH ANALYZER
 
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0
-		for(var/datum/reagent/R in H.breathing.reagent_list)
+		for(var/_R in H.breathing.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				to_chat(user,"<span class='notice'>[R.name] found in subject's respitory system.</span>")
 			else
 				++unknown
 		if(unknown)
 			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")
+
+
+/obj/item/device/advanced_healthanalyzer
+	name = "zeng-hu body analyzer"
+	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
+	icon_state = "zh-analyzer"
+	item_state = "healthanalyzer"
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_NORMAL
+	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
+	var/obj/machinery/body_scanconsole/internal_bodyscanner = null //this is used to print the date and to deal with extra
+
+/obj/item/device/advanced_healthanalyzer/Initialize()
+	. = ..()
+	if(!internal_bodyscanner)
+		var/obj/machinery/body_scanconsole/S = new (src)
+		S.forceMove(src)
+		S.use_power = FALSE
+		internal_bodyscanner = S
+
+/obj/item/device/advanced_healthanalyzer/Destroy()
+	if(internal_bodyscanner)
+		QDEL_NULL(internal_bodyscanner)
+	return ..()
+
+/obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
+	if(!internal_bodyscanner)
+		return
+	if(do_after(user, 7 SECONDS, TRUE))
+		print_scan(M, user)
+		add_fingerprint(user)
+
+/obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
+	var/obj/item/paper/R = new(user.loc)
+	R.color = "#eeffe8"
+	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
+
+	if(ishuman(user) && !(user.l_hand && user.r_hand))
+		user.put_in_hands(R)
+	user.visible_message("\The [src] spits out a piece of paper.")
+
+/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/living/carbon/human/H)
+	if (!ishuman(H))
+		return
+
+	var/list/medical_data = list(
+		"stationtime" = worldtime2text(),
+		"brain_activity" = H.get_brain_status(),
+		"blood_volume" = H.get_blood_volume(),
+		"blood_oxygenation" = H.get_blood_oxygenation(),
+		"blood_pressure" = H.get_blood_pressure(),
+
+		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
+		"fireloss" = get_severity(H.getFireLoss(), TRUE),
+		"oxyloss" = get_severity(H.getOxyLoss(), TRUE),
+		"toxloss" = get_severity(H.getToxLoss(), TRUE),
+		"cloneloss" = get_severity(H.getCloneLoss(), TRUE),
+
+		"rads" = H.total_radiation,
+		"paralysis" = H.paralysis,
+		"bodytemp" = H.bodytemperature,
+		"borer_present" = H.has_brain_worms(),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
+		"disabilities" = H.sdisabilities,
+		"lung_ruptured" = H.is_lung_ruptured(),
+		"external_organs" = H.organs.Copy(),
+		"internal_organs" = H.internal_organs.Copy(),
+		"species_organs" = H.species.has_organ
+		)
+	return medical_data

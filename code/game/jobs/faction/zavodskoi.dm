@@ -113,5 +113,7 @@
 	id = /obj/item/card/id/zavodskoi
 
 	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/projectile/pistol = 1,
 		/obj/item/stamp/zavodskoi = 1
 	)

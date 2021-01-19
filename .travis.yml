@@ -13,7 +13,7 @@ env:
     NODE_VERSION=10
     RUST_G_VERSION="0.4.2+a2"
     PATH=/opt/python/3.7.1/bin:$PATH
-    SPACEMAN_DMM_VERSION="suite-1.4"
+    SPACEMAN_DMM_VERSION="suite-1.6"
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
