@@ -536,9 +536,9 @@
 	var/S = 0
 	for(var/obj/item/reagent_containers/food/snacks/grown/I in contents)
 		S += 5
-		if(I.reagents.get_reagent_amount(/datum/reagent/nutriment) < 0.1)
+		if(REAGENT_VOLUME(I.reagents, /decl/reagent/nutriment) < 0.1)
 			points += 1
-		else points += I.reagents.get_reagent_amount(/datum/reagent/nutriment) * 10 * eat_eff
+		else points += REAGENT_VOLUME(I.reagents, /decl/reagent/nutriment) * 10 * eat_eff
 		qdel(I)
 		CHECK_TICK
 	if(S)

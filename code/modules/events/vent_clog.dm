@@ -5,47 +5,52 @@
 	var/interval 	= 2
 	var/list/vents  = list()
 	var/list/gunk = list(
-		/datum/reagent/water = 10,
-		/datum/reagent/carbon = 5,
-		/datum/reagent/nutriment/flour = 8,
-		/datum/reagent/spacecleaner = 6,
-		/datum/reagent/nutriment = 6,
-		/datum/reagent/capsaicin/condensed = 2,
-		/datum/reagent/mindbreaker = 0.5,
-		/datum/reagent/lube = 4,
-		/datum/reagent/paint = 3,
-		/datum/reagent/drink/banana = 3,
-		/datum/reagent/space_drugs = 3,
-		/datum/reagent/water/holywater = 1,
-		/datum/reagent/drink/hot_coco = 3,
-		/datum/reagent/hyperzine = 0.75,
-		/datum/reagent/luminol = 2,
-		/datum/reagent/fuel = 3,
-		/datum/reagent/blood = 2,
-		/datum/reagent/sterilizine = 3,
-		/datum/reagent/verunol = 3,
-		/datum/reagent/toxin/fertilizer/monoammoniumphosphate = 1,
-		/datum/reagent/saline = 2,
-		/datum/reagent/mental/kokoreed = 0.5,
-		/datum/reagent/mental/vaam = 0.5,
-		/datum/reagent/toxin/tobacco = 3,
-		/datum/reagent/stone_dust = 0.5,
-		/datum/reagent/crayon_dust = 1,
-		/datum/reagent/alcohol/butanol = 2,
-		/datum/reagent/alcohol/ethanol = 2,
-		/datum/reagent/sugar = 2,
-		/datum/reagent/drink/coffee = 4,
-		/datum/reagent/wulumunusha = 0.25,
-		/datum/reagent/nutriment/virusfood = 2,
-		/datum/reagent/sodiumchloride = 2,
-		/datum/reagent/drink/zorasoda/venomgrass = 1,
-		/datum/reagent/nutriment/protein/egg = 2,
-		/datum/reagent/serotrotium = 1,
-		/datum/reagent/psilocybin = 0.5,
-		/datum/reagent/toxin/spectrocybin = 0.1
+		/decl/reagent/water = 10,
+		/decl/reagent/carbon = 5,
+		/decl/reagent/nutriment/flour = 8,
+		/decl/reagent/spacecleaner = 6,
+		/decl/reagent/nutriment = 6,
+		/decl/reagent/capsaicin/condensed = 2,
+		/decl/reagent/mindbreaker = 0.5,
+		/decl/reagent/lube = 4,
+		/decl/reagent/paint = 3,
+		/decl/reagent/drink/banana = 3,
+		/decl/reagent/space_drugs = 3,
+		/decl/reagent/water/holywater = 1,
+		/decl/reagent/drink/hot_coco = 3,
+		/decl/reagent/hyperzine = 0.75,
+		/decl/reagent/luminol = 2,
+		/decl/reagent/fuel = 3,
+		/decl/reagent/blood = 2,
+		/decl/reagent/sterilizine = 3,
+		/decl/reagent/verunol = 3,
+		/decl/reagent/toxin/fertilizer/monoammoniumphosphate = 1,
+		/decl/reagent/saline = 2,
+		/decl/reagent/mental/kokoreed = 0.5,
+		/decl/reagent/mental/vaam = 0.5,
+		/decl/reagent/toxin/tobacco = 3,
+		/decl/reagent/stone_dust = 0.5,
+		/decl/reagent/crayon_dust = 1,
+		/decl/reagent/alcohol/butanol = 2,
+		/decl/reagent/alcohol = 2,
+		/decl/reagent/sugar = 2,
+		/decl/reagent/drink/coffee = 4,
+		/decl/reagent/wulumunusha = 0.25,
+		/decl/reagent/nutriment/virusfood = 2,
+		/decl/reagent/sodiumchloride = 2,
+		/decl/reagent/drink/zorasoda/venomgrass = 1,
+		/decl/reagent/nutriment/protein/egg = 2,
+		/decl/reagent/serotrotium = 1,
+		/decl/reagent/psilocybin = 0.5,
+		/decl/reagent/toxin/spectrocybin = 0.1
 	)
-	var/list/gunk_data = list(
-		/datum/reagent/paint = list("#FE191A", "#AAAA79", "#5F89E6", "#6CDB38", "#B474B6", "#F0DD34")
+	var/list/paint_reagents = list(
+		/decl/reagent/crayon_dust/red,
+		/decl/reagent/crayon_dust/orange,
+		/decl/reagent/crayon_dust/yellow,
+		/decl/reagent/crayon_dust/green,
+		/decl/reagent/crayon_dust/blue,
+		/decl/reagent/crayon_dust/purple
 	)
 
 
@@ -66,11 +71,15 @@
 		var/obj/machinery/atmospherics/unary/vent_scrubber/vent = pick_n_take(vents)
 
 		if(vent && vent.loc && !vent.is_welded())
-			var/datum/reagent/chem = pickweight(gunk)
+			var/decl/reagent/chem = pickweight(gunk)
 			var/reagent_amount = rand(2,5) * 5 //10 to 25 units
 			var/datum/reagents/R = new/datum/reagents(reagent_amount)
 			R.my_atom = vent
-			R.add_reagent(chem, reagent_amount, pick(gunk_data[chem]))
+			R.add_reagent(chem, reagent_amount)
+			if(chem == /decl/reagent/paint) // so it's not just paint
+				var/chem2 = pick(paint_reagents)
+				R.maximum_volume += 1
+				R.add_reagent(chem2, 1)
 
 			var/datum/effect/effect/system/smoke_spread/chem/smoke = new
 			smoke.show_log = 0 // This displays a log on creation

@@ -29,7 +29,7 @@
 /obj/item/slime_extract/Initialize()
 	. = ..()
 	create_reagents(100)
-	reagents.add_reagent(/datum/reagent/slimejelly, 30)
+	reagents.add_reagent(/decl/reagent/slimejelly, 30)
 
 /obj/item/slime_extract/grey
 	name = "grey slime extract"

@@ -42,7 +42,7 @@ STOCK_ITEM_UNCOMMON(flare, 2)
 STOCK_ITEM_UNCOMMON(implants, 1)
 	if(prob(50))
 		new /obj/item/storage/box/cdeathalarm_kit(L)
-	else 
+	else
 		new /obj/item/storage/box/trackimp(L)
 
 STOCK_ITEM_UNCOMMON(flashbang, 0.75)
@@ -85,21 +85,21 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 		new type(L)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
-	var/list/chems = SSchemistry.chemical_reagents.Copy()
-	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/polysomnine/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
-		/datum/reagent/liquid_fire, /datum/reagent/philosopher_stone, /datum/reagent/toxin/undead, /datum/reagent/love_potion, /datum/reagent/shapesand, /datum/reagent/usolve,\
-		/datum/reagent/sglue, /datum/reagent/black_matter, /datum/reagent/bottle_lightning, /datum/reagent/toxin/trioxin, /datum/reagent/toxin/phoron_salt, /datum/reagent/toxin/nanites, /datum/reagent/nitroglycerin)
+	var/list/chems = decls_repository.get_decls_of_subtype(/decl/reagent/)
+	var/list/exclusion = list(/decl/reagent/drink, /decl/reagent, /decl/reagent/adminordrazine, /decl/reagent/polysomnine/beer2, /decl/reagent/azoth, /decl/reagent/elixir,\
+		/decl/reagent/liquid_fire, /decl/reagent/philosopher_stone, /decl/reagent/toxin/undead, /decl/reagent/love_potion, /decl/reagent/shapesand, /decl/reagent/usolve,\
+		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
-		var/datum/reagent/R = SSchemistry.chemical_reagents[rname]
+		var/decl/reagent/R = decls_repository.get_decl(rname)
 
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/alcohol/ethanol))
+		if (istype(R, /decl/reagent/drink) || istype(R, /decl/reagent/alcohol))
 			rname = pick(chems)
-			R = SSchemistry.chemical_reagents[rname]
+			R = decls_repository.get_decl(rname)
 		C.reagents.add_reagent(rname, C.volume)
 		C.setLabel(R.name)
 
@@ -384,7 +384,7 @@ STOCK_ITEM_UNCOMMON(pickaxes, 1)
 	new type(L)
 
 STOCK_ITEM_UNCOMMON(alt_glasses, 1)
-	var/list/glasses = list(/obj/item/clothing/glasses/regular/circle, 
+	var/list/glasses = list(/obj/item/clothing/glasses/regular/circle,
 			/obj/item/clothing/glasses/regular/jamjar,
 			/obj/item/clothing/glasses/threedglasses,
 			/obj/item/clothing/glasses/regular/hipster,

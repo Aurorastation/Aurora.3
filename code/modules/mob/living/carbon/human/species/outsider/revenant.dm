@@ -117,6 +117,7 @@
 	H.name = H.real_name
 	..()
 	H.gender = NEUTER
+	H.universal_understand = TRUE
 
 /datum/species/revenant/get_random_name()
 	return "Revenant"
