@@ -1,9 +1,10 @@
 <template>
   <div>
+    <vui-button @click="fliped = !fliped">Flip</vui-button>
     <div v-for="(row, rowi) in boardTiles" :key="rowi" class="tileRow">
       <div
         v-for="(tile, coli) in row"
-        :key="coli"
+        :key="rowi + '' + coli"
         class="tile"
         :class="tile.tile + (selectedTile == tile.pos ? ' sel' : '')"
         @click.stop="handleTileClick(tile.pos)"
@@ -66,13 +67,15 @@ export default {
       s: this.$root.$data.state,
       selected: null,
       selectedTile: null,
-      types: Object.keys(names).map((k) => ({n: names[k], i: icons[k], k}))
+      types: Object.keys(names).map((k) => ({n: names[k], i: icons[k], k})),
+      fliped: false
     }
   },
   computed: {
     boardTiles() {
+      const initial = Array.from(Array(64).keys(), (_, i) => ({ pos: i, tile: board[i] }))
       return chunk(
-        Array.from(Array(64).keys(), (_, i) => ({ pos: i, tile: board[i] })),
+        this.fliped ? initial.reverse() : initial,
         8
       )
     },

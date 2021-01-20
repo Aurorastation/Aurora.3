@@ -20,7 +20,7 @@
 /obj/item/board/ui_interact(mob/user, var/datum/topic_state/state = default_state)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "misc-boardgame-index", 450, 500, "Board", state = state)
+		ui = new(user, src, "misc-boardgame-index", 450, 550, "Board", state = state)
 	ui.open()
 
 /obj/item/board/vueui_data_change(list/data, mob/user, datum/vueui/ui)
