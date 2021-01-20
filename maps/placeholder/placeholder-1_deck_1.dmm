@@ -234,13 +234,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"aM" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
-/area/janitor)
 "aN" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8
@@ -287,13 +280,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/janitor)
-"aR" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4
-	},
 /area/janitor)
 "aS" = (
 /obj/machinery/conveyor{
@@ -2295,9 +2281,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/janitor)
 "lB" = (
@@ -2584,7 +2567,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "ny" = (
-/obj/machinery/door/window/eastleft,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -2594,6 +2576,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/window/eastright,
 /turf/simulated/floor/plating,
 /area/janitor)
 "nz" = (
@@ -26769,7 +26752,7 @@ be
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -26971,7 +26954,7 @@ be
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -27173,7 +27156,7 @@ be
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -27375,7 +27358,7 @@ TJ
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -27577,7 +27560,7 @@ TJ
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -27779,7 +27762,7 @@ TJ
 TJ
 be
 be
-WA
+be
 kE
 qi
 be
@@ -27981,7 +27964,7 @@ TJ
 TJ
 TJ
 be
-WA
+be
 kE
 qi
 be
@@ -28183,7 +28166,7 @@ TJ
 TJ
 TJ
 TJ
-WA
+be
 kE
 qi
 be
@@ -28385,7 +28368,7 @@ HS
 TJ
 TJ
 TJ
-WA
+be
 kE
 qi
 be
@@ -28587,7 +28570,7 @@ HS
 TJ
 TJ
 TJ
-WA
+be
 kE
 qi
 be
@@ -28789,7 +28772,7 @@ TJ
 TJ
 TJ
 TJ
-WA
+be
 kE
 qi
 be
@@ -28991,7 +28974,7 @@ TJ
 TJ
 TJ
 be
-WA
+be
 kE
 qi
 be
@@ -29193,7 +29176,7 @@ TJ
 TJ
 be
 be
-WA
+be
 kE
 qi
 be
@@ -29395,7 +29378,7 @@ TJ
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -29597,7 +29580,7 @@ TJ
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -29799,7 +29782,7 @@ be
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -30001,7 +29984,7 @@ be
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -30203,7 +30186,7 @@ be
 be
 be
 be
-WA
+be
 kE
 qi
 be
@@ -31408,7 +31391,7 @@ Yu
 be
 be
 Yu
-aM
+tN
 mi
 dQ
 be
@@ -31610,7 +31593,7 @@ Yu
 be
 Tl
 Yu
-aR
+Rj
 bk
 dQ
 be
@@ -37252,8 +37235,8 @@ mZ
 mZ
 oe
 Yu
-be
 pC
+nD
 au
 Yu
 TJ
@@ -37454,8 +37437,8 @@ Ry
 mZ
 ZE
 Yu
-be
 oP
+be
 Jo
 Yu
 TJ
@@ -37656,8 +37639,8 @@ ns
 ns
 ns
 Yu
-Yu
 Az
+Yu
 Yu
 Yu
 TJ
@@ -37858,8 +37841,8 @@ zq
 zq
 zq
 Uj
-be
 oP
+be
 be
 Yu
 TJ
@@ -38060,8 +38043,8 @@ pg
 pg
 pg
 Uj
-be
 oP
+be
 be
 Uj
 TJ
@@ -38261,9 +38244,9 @@ kg
 pg
 pg
 pg
-Uj
-be
+xv
 oP
+be
 be
 xv
 pg
@@ -38463,9 +38446,9 @@ kg
 pg
 pg
 pg
-Uj
-be
+xv
 oP
+be
 be
 xv
 pg
@@ -38665,9 +38648,9 @@ kg
 pg
 pg
 pg
-Uj
-be
+xv
 oP
+be
 be
 xv
 pg
@@ -38867,11 +38850,11 @@ kg
 pg
 pg
 pg
-Uj
-be
+xv
 oP
-Uj
-Uj
+be
+be
+xv
 pg
 pg
 pg
@@ -39069,11 +39052,11 @@ kg
 pg
 pg
 pg
-xv
-be
-oP
 Uj
-kg
+oP
+be
+Uj
+Uj
 pg
 pg
 pg
@@ -39271,9 +39254,9 @@ Uj
 kg
 kg
 kg
-xv
-be
+Uj
 oP
+be
 Uj
 kg
 pg
@@ -39474,10 +39457,10 @@ pg
 pg
 pg
 Uj
-be
 oP
+be
 Uj
-Uj
+kg
 pg
 pg
 pg
@@ -39675,11 +39658,11 @@ pg
 pg
 pg
 pg
-Uj
-be
-oP
 xv
-pg
+oP
+be
+Uj
+Uj
 pg
 pg
 pg
@@ -39877,9 +39860,9 @@ pg
 pg
 pg
 pg
-Uj
-pC
-ut
+xv
+oP
+be
 xv
 pg
 pg
@@ -40081,8 +40064,8 @@ pg
 pg
 Uj
 oP
-Uj
-Uj
+be
+xv
 pg
 pg
 pg
@@ -40281,10 +40264,10 @@ pg
 pg
 pg
 pg
-xv
+Uj
 oP
 Uj
-kg
+Uj
 pg
 pg
 pg
@@ -40685,10 +40668,10 @@ pg
 pg
 pg
 pg
-Uj
+xv
 oP
 Uj
-Uj
+kg
 pg
 pg
 pg
@@ -40888,9 +40871,9 @@ pg
 pg
 pg
 Uj
-YW
-wZ
-xv
+oP
+Uj
+Uj
 pg
 pg
 pg
@@ -41090,8 +41073,8 @@ pg
 pg
 pg
 Uj
-be
-oP
+YW
+wZ
 xv
 pg
 pg
@@ -41294,7 +41277,7 @@ pg
 Uj
 Nr
 Jo
-Uj
+xv
 pg
 pg
 pg

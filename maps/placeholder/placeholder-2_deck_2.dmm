@@ -93,6 +93,11 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/grass/alt,
 /area/template_noop)
+"at" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "au" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -288,6 +293,14 @@
 /area/janitor)
 "aY" = (
 /obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_x = -8;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_x = -9;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "aZ" = (
@@ -477,6 +490,10 @@
 "bz" = (
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"bA" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "bC" = (
 /obj/structure/shuttle_part/placeholder{
 	icon_state = "d3-3-f"
@@ -511,6 +528,11 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"bI" = (
+/obj/structure/table/standard,
+/obj/machinery/door/window/westright,
+/turf/simulated/floor/tiled,
+/area/janitor)
 "bJ" = (
 /obj/structure/shuttle_part/placeholder{
 	icon_state = "d3-6"
@@ -526,6 +548,22 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
+/area/janitor)
+"bL" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 4;
+	pixel_y = 7
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 8;
+	pixel_y = -7
+	},
+/turf/simulated/floor/plating,
+/area/janitor)
+"bM" = (
+/obj/structure/table/standard,
+/obj/machinery/door/window/westleft,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "bN" = (
 /obj/machinery/r_n_d/circuit_imprinter,
@@ -626,6 +664,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/janitor)
+"cb" = (
+/obj/machinery/door_timer{
+	pixel_x = 2
+	},
+/turf/simulated/wall,
+/area/janitor)
 "cc" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/cable/orange{
@@ -643,6 +687,10 @@
 "ce" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/carpet,
+/area/janitor)
+"cf" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "cg" = (
 /obj/machinery/optable,
@@ -838,8 +886,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "cH" = (
-/obj/machinery/cryopod,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/freezer,
+/turf/simulated/floor/tiled/freezer,
 /area/janitor)
 "cI" = (
 /obj/structure/shuttle_part/placeholder{
@@ -853,17 +901,6 @@
 	},
 /turf/simulated/wall,
 /area/janitor)
-"cK" = (
-/obj/structure/cryofeed,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/janitor)
 "cL" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -871,7 +908,8 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "cM" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/mopbucket,
+/obj/item/mop,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cO" = (
@@ -907,13 +945,10 @@
 	},
 /area/janitor)
 "cU" = (
-/obj/structure/cryofeed,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+/obj/structure/toilet/noose{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/freezer,
 /area/janitor)
 "cV" = (
 /obj/machinery/telepad{
@@ -1078,6 +1113,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"dx" = (
+/obj/machinery/door_timer,
+/turf/simulated/wall,
+/area/janitor)
 "dy" = (
 /obj/machinery/power/smes/magical,
 /turf/simulated/floor/plating,
@@ -1166,6 +1205,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"dN" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled,
+/area/janitor)
+"dO" = (
+/obj/structure/cryofeed,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/janitor)
 "dP" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
@@ -1193,6 +1247,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"dU" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -33
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "dV" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1207,23 +1267,36 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "dX" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "dZ" = (
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 4;
-	pixel_y = 7
+/obj/structure/cryofeed,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 8;
-	pixel_y = -7
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
+/area/janitor)
+"ea" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled,
 /area/janitor)
 "eb" = (
 /obj/structure/weightlifter,
 /turf/simulated/floor/tiled,
+/area/janitor)
+"ec" = (
+/obj/machinery/shower{
+	pixel_y = 20
+	},
+/obj/structure/curtain/open/shower,
+/obj/random/soap,
+/turf/simulated/floor/tiled/freezer,
 /area/janitor)
 "ed" = (
 /obj/structure/cable{
@@ -1234,6 +1307,15 @@
 "ee" = (
 /obj/structure/lattice,
 /turf/simulated/open/airless,
+/area/janitor)
+"eg" = (
+/obj/structure/sink{
+	pixel_y = 21
+	},
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/freezer,
 /area/janitor)
 "ei" = (
 /obj/structure/shuttle_part/placeholder{
@@ -1263,6 +1345,19 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/turf/simulated/floor/plating,
+/area/janitor)
+"eo" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/janitor)
 "ep" = (
@@ -1304,6 +1399,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
+"ex" = (
+/obj/structure/urinal{
+	dir = 8;
+	pixel_x = 32;
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/janitor)
 "ez" = (
 /obj/structure/shuttle_part/placeholder{
 	icon_state = "d2-1-f"
@@ -1311,7 +1414,7 @@
 /turf/simulated/wall,
 /area/template_noop)
 "eA" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "eC" = (
@@ -3592,6 +3695,13 @@
 	dir = 1
 	},
 /turf/simulated/open,
+/area/janitor)
+"tj" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/turf/simulated/floor/plating,
 /area/janitor)
 "tp" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -20822,7 +20932,7 @@ HN
 ab
 ac
 ac
-Uf
+tj
 za
 dX
 aa
@@ -23044,9 +23154,9 @@ Uj
 Uj
 ac
 ac
-Uf
+tj
 ad
-Uf
+tj
 aa
 aa
 aa
@@ -31527,7 +31637,7 @@ VL
 cE
 lF
 ab
-ad
+tj
 ab
 tX
 ac
@@ -31932,7 +32042,7 @@ MP
 JV
 ab
 ad
-Uf
+tj
 ai
 ai
 ai
@@ -32116,8 +32226,8 @@ Hg
 Hg
 ab
 az
-Tp
-Tp
+bI
+bM
 az
 ab
 ac
@@ -32131,7 +32241,7 @@ XX
 XX
 ab
 ab
-JV
+eo
 ab
 ab
 Eh
@@ -32721,7 +32831,7 @@ ab
 TW
 TW
 ab
-ac
+HN
 ac
 ac
 ac
@@ -32931,15 +33041,15 @@ ab
 ac
 ac
 ab
-ac
-ac
-ac
+bo
+HN
+cf
 ab
-ab
+dx
 aN
 ab
 ab
-ab
+dx
 aN
 ab
 Eh
@@ -33133,9 +33243,9 @@ TX
 ac
 ac
 az
-bo
+ac
+ac
 HN
-eA
 ab
 aY
 WO
@@ -33321,7 +33431,7 @@ XB
 tU
 ac
 ac
-JB
+at
 ab
 is
 HA
@@ -33337,7 +33447,7 @@ ac
 cS
 dc
 ac
-HN
+ac
 ab
 XU
 WO
@@ -33927,7 +34037,7 @@ ac
 ac
 ac
 ac
-ac
+bA
 ab
 Rn
 Rn
@@ -34150,8 +34260,8 @@ Kk
 ac
 ac
 ac
-ac
-ac
+EA
+EA
 ac
 ac
 KR
@@ -34351,11 +34461,11 @@ ab
 ab
 ac
 ac
-EA
-EA
+ac
+HN
+HN
 ac
 ac
-cM
 Eh
 Eh
 aa
@@ -34550,14 +34660,14 @@ ab
 aY
 be
 ab
-ac
-ac
-ac
-HN
-HN
-ac
-ac
 cM
+ac
+ac
+ac
+EA
+EA
+ac
+ac
 Eh
 bt
 aa
@@ -34745,7 +34855,7 @@ ax
 ax
 ac
 ac
-GL
+ab
 ac
 ac
 aN
@@ -34755,11 +34865,11 @@ aN
 ac
 ac
 ac
-EA
-EA
 ac
 ac
-cM
+ac
+ac
+ac
 Eh
 Eh
 aa
@@ -34947,10 +35057,10 @@ wp
 aG
 ac
 ac
-ab
+GL
 ac
 ac
-ab
+cb
 ba
 bw
 ab
@@ -35148,22 +35258,22 @@ ab
 ab
 ab
 ab
-XS
-ab
-ac
-ac
-ab
-ab
 ab
 ab
 ac
 ac
+ab
+ab
+ab
+ab
 ac
 ac
 ac
 ac
+ea
 ac
 ac
+eA
 Eh
 Eh
 aa
@@ -35360,12 +35470,12 @@ be
 ab
 ac
 ac
-ac
-ac
-ac
-ac
+dU
+ab
+ab
 cH
-cH
+ab
+ab
 Eh
 bt
 aa
@@ -35561,12 +35671,12 @@ WO
 WO
 aN
 ac
-ac
-ac
-ac
-ac
-ac
-cK
+dN
+dN
+ab
+ec
+sf
+ab
 cU
 Eh
 bt
@@ -35758,18 +35868,18 @@ ad
 ab
 ac
 ac
-ab
+cb
 ba
 bw
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+Lc
+dO
+dZ
+ab
+eg
+ex
+cH
+sf
 Eh
 bt
 aa
@@ -36358,8 +36468,8 @@ ab
 ad
 cL
 dW
-dW
 ed
+ad
 ad
 ab
 ac
@@ -36560,8 +36670,8 @@ ab
 ab
 ms
 ab
-ad
 cQ
+ad
 ad
 ab
 ac
@@ -36762,8 +36872,8 @@ ab
 hJ
 ad
 ab
-ad
 cQ
+ad
 ab
 ab
 ab
@@ -36964,8 +37074,8 @@ ab
 dy
 ad
 ab
-dZ
 cQ
+ad
 ab
 ac
 ac
@@ -37166,8 +37276,8 @@ ab
 ad
 ad
 ab
-ad
 cQ
+ad
 ab
 ac
 ac
@@ -37368,8 +37478,8 @@ ab
 CY
 ab
 ab
-ad
-cQ
+Vh
+ed
 ab
 ac
 ac
@@ -38176,7 +38286,7 @@ ai
 ai
 ai
 ab
-ad
+bL
 ad
 ab
 ac
