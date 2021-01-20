@@ -1012,3 +1012,6 @@ default behaviour is:
 /mob/living/proc/add_hallucinate(var/amount)
 	hallucination += amount
 	hallucination += amount
+
+/mob/living/set_respawn_time()
+	set_death_time(CREW, world.time)

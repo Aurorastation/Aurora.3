@@ -825,6 +825,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		return /obj/effect/gibspawner/generic
 
+/mob/living/simple_animal/set_respawn_time()
+	set_death_time(ANIMAL, world.time)
+
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM
