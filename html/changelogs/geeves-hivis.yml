@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported high-vis jackets from Bay. Added two to the engineering wardrobe locker, and added it to the jacket selection in the suit loadout."
