@@ -334,6 +334,21 @@ var/list/holder_mob_icon_cache = list()
 
 		..()
 
+/obj/item/holder/verb/change_animal_name()
+	set name = "Name Animal"
+	set category = "IC"
+	set src in usr
+
+	if(isanimal(contained))
+		var/mob/living/simple_animal/SA = contained
+		SA.change_name(usr)
+		sync(contained)
+	if(ishuman(contained))
+		var/mob/living/carbon/human/H = contained
+		if(H.isMonkey())
+			H.change_animal_name(usr)
+			sync(contained)
+
 //#TODO-MERGE
 //Port the reduced-duplication holder method from baystation upstream:
 //https://github.com/Baystation12/Baystation12/blob/master/code/modules/mob/holder.dm

@@ -661,7 +661,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"
 	set category = "IC"
-	set src in view(1)
 
 	var/mob/living/M = usr
 	if(!M)	

@@ -1214,7 +1214,6 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/change_animal_name()
 	set name = "Name Animal"
 	set category = "IC"
-	set src in view(1)
 
 	var/mob/living/M = usr
 	if(!M || usr == src)
