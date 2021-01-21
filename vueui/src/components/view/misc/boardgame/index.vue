@@ -173,7 +173,7 @@ export default {
       }
 
       &.black {
-        color: blue;
+        color: black;
       }
 
       &.red {
@@ -182,18 +182,18 @@ export default {
     }
 
     &.w {
-      background-color: white;
+      background-color: #66ccff;
 
       &.sel {
-        background-color: rgb(180, 172, 255);
+        background-color: #A5CCFF;
       }
     }
 
     &.b {
-      background-color: black;
+      background-color: #252536;
 
       &.sel {
-        background-color: rgb(10, 0, 99);
+        background-color: #382536;
       }
     }
   }
