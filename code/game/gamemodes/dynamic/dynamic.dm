@@ -115,7 +115,7 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 			continue
 		else
 			current_intensity += antag.intensity
-			antag_tags += tag
+			antag_tags += selected
 
 	log_debug("DYNAMIC GM: Final antag tag selection: [antag_tags.Join(", ")].")
 	feedback_set_details("dynamic-gm-selection", antag_tags.Join(","))
