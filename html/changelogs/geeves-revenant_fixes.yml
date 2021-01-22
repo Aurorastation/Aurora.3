@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the revenant gamemode assigning roundstart humans as revenants."
-  - bugfix: "Fixed all revenants spawning at the radiators."
