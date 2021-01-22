@@ -18,7 +18,14 @@
 	desc = "Contains blood used for transfusion."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "empty"
+	w_class = ITEMSIZE_SMALL
 	volume = 200
+
+	amount_per_transfer_from_this = 0.2
+	possible_transfer_amounts = list(0.2, 1, 2)
+	flags = OPENCONTAINER
+
+	var/datum/weakref/attached_mob
 
 	var/blood_type = null
 	var/vampire_marks = null
@@ -31,17 +38,32 @@
 	if(blood_type != null)
 		name = "blood pack [blood_type]"
 		reagents.add_reagent(/decl/reagent/blood, volume, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
+		w_class = ITEMSIZE_NORMAL
 		update_icon()
+
+/obj/item/reagent_containers/blood/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	attached_mob = null
+	return ..()
 
 /obj/item/reagent_containers/blood/on_reagent_change()
 	update_icon()
+	if(reagents.total_volume > volume / 2)
+		w_class = ITEMSIZE_NORMAL
+	else
+		w_class = ITEMSIZE_SMALL
 
 /obj/item/reagent_containers/blood/update_icon()
-	var/percent = round((reagents.total_volume / volume) * 100)
-	switch(percent)
-		if(0 to 9)			icon_state = "empty"
-		if(10 to 50) 		icon_state = "half"
-		if(51 to INFINITY)	icon_state = "full"
+	cut_overlays()
+	if(volume)
+		var/percent = round(reagents.total_volume / volume * 100)
+		if(reagents.total_volume)
+			var/image/filling = image('icons/obj/bloodpack.dmi', "[round(percent,25)]")
+			filling.color = reagents.get_color()
+			add_overlay(filling)
+		add_overlay(image('icons/obj/bloodpack.dmi', "top"))
+		if(attached_mob)
+			add_overlay(image('icons/obj/bloodpack.dmi', "dongle"))
 
 /obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
@@ -73,6 +95,63 @@
 			being_feed = FALSE
 	else
 		..()
+
+/obj/item/reagent_containers/blood/MouseDrop(over_object, src_location, over_location)
+	if(!ismob(loc))
+		return
+	var/turf/our_turf = get_turf(src)
+	var/turf/target_turf = get_turf(over_object)
+	if(!our_turf.Adjacent(target_turf))
+		return
+	if(attached_mob)
+		remove_iv_mob()
+	else if(ishuman(over_object))
+		visible_message(SPAN_WARNING("\The [usr] starts hooking \the [over_object] up to \the [src]."))
+		if(do_after(usr, 30))
+			to_chat(usr, SPAN_NOTICE("You hook \the [over_object] up to \the [src]."))
+			attached_mob = WEAKREF(over_object)
+			START_PROCESSING(SSprocessing, src)
+	update_icon()
+
+/obj/item/reagent_containers/blood/process()
+	if(!ismob(loc))
+		remove_iv_mob()
+		return
+
+	var/mob/attached
+	if(attached_mob)
+		attached = attached_mob.resolve()
+		if(!attached)
+			attached_mob = null
+			return PROCESS_KILL
+		if(!loc.Adjacent(attached))
+			attached_mob = null
+			visible_message(SPAN_WARNING("\The [attached] detaches from \the [src]."))
+			update_icon()
+			return PROCESS_KILL
+	else
+		remove_iv_mob()
+		return
+
+	var/mob/M = loc
+	if(M.l_hand != src && M.r_hand != src)
+		remove_iv_mob()
+		return
+
+	if(!reagents.total_volume)
+		remove_iv_mob()
+		return
+
+	reagents.trans_to_mob(attached, amount_per_transfer_from_this, CHEM_BLOOD)
+	update_icon()
+
+/obj/item/reagent_containers/blood/proc/remove_iv_mob()
+	if(attached_mob)
+		var/mob/M = attached_mob.resolve()
+		if(M)
+			visible_message(SPAN_NOTICE("\The [M] is taken off \the [src]."))
+		attached_mob = null
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/reagent_containers/blood/examine(mob/user, distance = 2)
 	if (..() && vampire_marks)
