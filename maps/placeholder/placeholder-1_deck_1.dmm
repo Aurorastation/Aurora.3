@@ -144,7 +144,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/janitor)
 "ay" = (
@@ -954,6 +954,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/plating,
 /area/janitor)
 "dY" = (
@@ -2019,6 +2020,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"jW" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "12-0"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/janitor)
 "jX" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/placeholder_tanks.dmi';
@@ -2709,10 +2725,6 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/janitor)
-"os" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor/tiled,
 /area/janitor)
 "ou" = (
 /obj/structure/window/reinforced{
@@ -3447,6 +3459,21 @@
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
+/area/janitor)
+"tO" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/janitor)
 "tT" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4489,7 +4516,6 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "Az" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -4499,6 +4525,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/plating,
 /area/janitor)
 "AA" = (
@@ -6214,6 +6241,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
+"Nd" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/janitor)
 "Ng" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -6651,6 +6690,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/turf/simulated/floor/plating,
+/area/janitor)
+"Qa" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
 /area/janitor)
 "Qd" = (
@@ -30958,10 +31010,10 @@ oP
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 Zy
 Zy
@@ -31160,10 +31212,10 @@ oP
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 ZQ
 ZQ
@@ -31362,10 +31414,10 @@ zc
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 Qi
 XT
@@ -31564,10 +31616,10 @@ xQ
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 nr
 hG
@@ -31766,10 +31818,10 @@ oP
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 Vm
 Aj
@@ -31968,10 +32020,10 @@ oP
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 Vm
 uC
@@ -31982,7 +32034,7 @@ rt
 Yu
 oP
 be
-be
+Yu
 Yu
 Yu
 KO
@@ -32170,10 +32222,10 @@ oP
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 Vm
 yQ
@@ -32184,8 +32236,8 @@ NX
 Yu
 oP
 be
-be
 Yu
+Vh
 Vh
 Vh
 dr
@@ -32372,10 +32424,10 @@ oP
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 Yu
 Yu
@@ -32386,8 +32438,8 @@ Yu
 Yu
 oP
 be
-be
 Yu
+Vh
 Vh
 Vh
 dr
@@ -32574,10 +32626,10 @@ oP
 Vh
 be
 Yu
-Vh
-Vh
-Vh
-Vh
+be
+be
+be
+be
 Yu
 Vh
 Vh
@@ -32588,8 +32640,8 @@ Yu
 be
 oP
 be
-be
 Yu
+Vh
 Vh
 Vh
 dr
@@ -32777,7 +32829,7 @@ Vh
 be
 Yu
 Yu
-os
+bE
 Yu
 Yu
 Yu
@@ -32786,12 +32838,12 @@ Vh
 pq
 AA
 AA
-nD
+al
 nD
 dj
 EC
-nD
-nD
+al
+AA
 AA
 ga
 dr
@@ -32991,9 +33043,9 @@ Vh
 Yu
 Yu
 Yu
-oP
+Az
 Yu
-Yu
+Vh
 Vh
 ia
 dr
@@ -33194,8 +33246,8 @@ dW
 be
 be
 be
-be
 Yu
+Vh
 Vh
 ia
 dr
@@ -33396,8 +33448,8 @@ Yu
 be
 Tl
 ZZ
-be
 Yu
+Vh
 Vh
 ia
 dr
@@ -33599,7 +33651,7 @@ oG
 oG
 oG
 oG
-Yu
+Vh
 Vh
 ia
 dr
@@ -33801,7 +33853,7 @@ Us
 yj
 VY
 oG
-Yu
+Vh
 Vh
 ia
 dr
@@ -34003,7 +34055,7 @@ Jr
 Jr
 Wk
 oG
-Yu
+Vh
 Vh
 ia
 dr
@@ -34205,7 +34257,7 @@ XR
 XR
 XR
 oG
-Yu
+Vh
 Vh
 ia
 nq
@@ -34407,7 +34459,7 @@ JG
 JG
 JG
 oG
-Yu
+Vh
 Vh
 ia
 dr
@@ -34609,7 +34661,7 @@ oG
 oG
 oG
 oG
-Yu
+Vh
 Vh
 ia
 dr
@@ -36427,7 +36479,7 @@ SX
 VW
 YL
 Yu
-be
+ah
 Yu
 ax
 Yu
@@ -36630,7 +36682,7 @@ Sg
 YY
 Yu
 be
-be
+jW
 oP
 Yu
 qI
@@ -36830,9 +36882,9 @@ oG
 OS
 OS
 Sm
-Yu
+oG
 be
-be
+oP
 oP
 Yu
 TJ
@@ -37032,10 +37084,10 @@ oG
 yA
 mZ
 oe
-Yu
+oG
 be
-be
-oP
+tO
+Nd
 Yu
 TJ
 We
@@ -37234,10 +37286,10 @@ oG
 mZ
 mZ
 oe
-Yu
-pC
-nD
-au
+oG
+be
+oP
+be
 Yu
 TJ
 We
@@ -37436,10 +37488,10 @@ oG
 Ry
 mZ
 ZE
-Yu
+oG
+be
 oP
 be
-Jo
 Yu
 TJ
 We
@@ -37638,10 +37690,10 @@ oG
 ns
 ns
 ns
-Yu
-Az
-Yu
-Yu
+oG
+be
+oP
+be
 Yu
 TJ
 We
@@ -37841,10 +37893,10 @@ zq
 zq
 zq
 Uj
-oP
-be
-be
-Yu
+Uj
+Qa
+Uj
+Uj
 TJ
 TJ
 hL
@@ -38043,8 +38095,8 @@ pg
 pg
 pg
 Uj
-oP
 be
+oP
 be
 Uj
 TJ
@@ -38245,8 +38297,8 @@ pg
 pg
 pg
 xv
-oP
 be
+oP
 be
 xv
 pg
@@ -38447,8 +38499,8 @@ pg
 pg
 pg
 xv
-oP
 be
+oP
 be
 xv
 pg
@@ -38649,8 +38701,8 @@ pg
 pg
 pg
 xv
-oP
 be
+oP
 be
 xv
 pg
@@ -38851,8 +38903,8 @@ pg
 pg
 pg
 xv
-oP
 be
+oP
 be
 xv
 pg
@@ -39053,8 +39105,8 @@ pg
 pg
 pg
 Uj
-oP
 be
+oP
 Uj
 Uj
 pg
@@ -39255,8 +39307,8 @@ kg
 kg
 kg
 Uj
-oP
 be
+oP
 Uj
 kg
 pg
@@ -39457,8 +39509,8 @@ pg
 pg
 pg
 Uj
-oP
 be
+oP
 Uj
 kg
 pg
@@ -39659,8 +39711,8 @@ pg
 pg
 pg
 xv
-oP
 be
+oP
 Uj
 Uj
 pg
@@ -39861,8 +39913,8 @@ pg
 pg
 pg
 xv
-oP
 be
+oP
 xv
 pg
 pg
@@ -40063,8 +40115,8 @@ pg
 pg
 pg
 Uj
-oP
-be
+pC
+ut
 xv
 pg
 pg
