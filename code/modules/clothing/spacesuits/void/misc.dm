@@ -104,6 +104,11 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
 
+/obj/item/clothing/head/helmet/space/void/lancer/unathi
+	desc = "A sleek helmet with a bright yellow visor, expertly made in and colored in the iconic branding of Ceres' Lance. This one is fitted to Unathi."
+	icon_override = 'icons/mob/species/unathi/helmet.dmi'
+	species_restricted = list(BODYTYPE_UNATHI)
+
 /obj/item/clothing/suit/space/void/lancer
 	name = "lancer voidsuit"
 	desc = "A bulky void suit with heavy plating. Looks to be colored in the branding of Ceres' Lance."
@@ -116,6 +121,11 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
+
+/obj/item/clothing/suit/space/void/lancer/unathi
+	desc = "A bulky void suit with heavy plating. Looks to be colored in the branding of Ceres' Lance. This one is fitted to Unathi."
+	icon_override = 'icons/mob/species/unathi/suit.dmi'
+	species_restricted = list(BODYTYPE_UNATHI)
 
 //Einstein Engines espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/einstein
