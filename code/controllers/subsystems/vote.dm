@@ -348,7 +348,7 @@ var/datum/controller/subsystem/vote/SSvote
 				switch(vote_type)
 					if("crew_transfer")
 						sound_to(C, sound('sound/effects/vote.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
-					if("gamemode")
+					if("gamemode", "dynamicantag", "dynamicintensity")
 						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
 					if("custom")
 						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
