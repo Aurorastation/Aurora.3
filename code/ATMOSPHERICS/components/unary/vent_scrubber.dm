@@ -52,6 +52,21 @@
 	if (frequency)
 		set_frequency(frequency)
 
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
+	if (initial(scrubbing_gas))
+		scrubbing_gas = initial(scrubbing_gas)
+	else
+		scrubbing_gas = list()
+		for (var/g in gas_data.gases)
+			if (g != GAS_OXYGEN && g != GAS_NITROGEN)
+				add_to_scrubbing(g)
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/add_to_scrubbing(new_gas)
+	scrubbing_gas |= new_gas
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/remove_from_scrubbing(old_gas)
+	scrubbing_gas -= old_gas
+
 /obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
 	broadcast_status()
@@ -243,7 +258,7 @@
 		toggle += GAS_N2O
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += GAS_N2O
-	
+
 	if(!isnull(signal.data["h2_scrub"]) && text2num(signal.data["h2_scrub"]) != (GAS_HYDROGEN in scrubbing_gas))
 		toggle += GAS_HYDROGEN
 	else if(signal.data["toggle_h2_scrub"])
