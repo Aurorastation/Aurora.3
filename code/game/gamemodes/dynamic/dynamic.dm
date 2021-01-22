@@ -13,6 +13,7 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 	config_tag = "dynamic"
 	votable = FALSE
 	end_on_antag_death = FALSE
+	announce_antag_templates = FALSE
 
 	required_players = 0
 	required_enemies = 0
@@ -31,8 +32,6 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 	select_antag_tags()
 
 	. = ..()
-
-	// TODO: PIN: How to deal with required players and enemies?
 
 /datum/game_mode/dynamic/proc/set_intensity(level_str)
 	switch (level_str)

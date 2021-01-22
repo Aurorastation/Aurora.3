@@ -8,6 +8,7 @@ var/global/list/additional_antag_types = list()
 	var/config_tag = null
 	var/votable = 1
 	var/probability = 0
+	var/announce_antag_templates = TRUE
 
 	var/required_players = 0                 // Minimum players for round to start if voted in.
 	var/max_players = 0			 			// Maximum players for round to start for secret voting. 0 means "doesn't matter"
@@ -141,7 +142,7 @@ var/global/list/additional_antag_types = list()
 			antag_summary += "[antag.role_text_plural]"
 			i++
 		antag_summary += "."
-		if(antag_templates.len > 1 && !SSticker.hide_mode)
+		if(antag_templates.len > 1 && !SSticker.hide_mode && announce_antag_templates)
 			to_world("[antag_summary]")
 		else
 			message_admins("[antag_summary]")
