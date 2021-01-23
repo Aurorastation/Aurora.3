@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Disassembled curtains and plastic flaps now produce the correct materials, instead of steel sheets."
