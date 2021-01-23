@@ -199,7 +199,6 @@ var/datum/controller/subsystem/vote/SSvote
 					additional_antag_types |= antag_names_to_ids[.]
 			if("dynamicintensity")
 				dynamic_gamemode.set_intensity(.)
-			if("dynamicantag")
 				master_mode = dynamic_gamemode.config_tag
 	if(mode in list("gamemode", "dynamicintensity", "dynamicantag")) //fire this even if the vote fails.
 		if(!round_progressing)
