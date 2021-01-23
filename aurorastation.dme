@@ -2212,6 +2212,7 @@
 #include "code\modules\modular_computers\file_system\programs\command\account_database.dm"
 #include "code\modules\modular_computers\file_system\programs\command\card.dm"
 #include "code\modules\modular_computers\file_system\programs\command\comm.dm"
+#include "code\modules\modular_computers\file_system\programs\command\teleporter.dm"
 #include "code\modules\modular_computers\file_system\programs\engineering\_engineering.dm"
 #include "code\modules\modular_computers\file_system\programs\games\arcade.dm"
 #include "code\modules\modular_computers\file_system\programs\games\sudoku\helpers.dm"
