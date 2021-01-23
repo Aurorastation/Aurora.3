@@ -101,6 +101,7 @@
 	if(player_is_antag(H.mind))
 		var/datum/ghostspawner/revenant/R = SSghostroles.get_spawner(MODE_REVENANT)
 		R.count = max(R.count - 1, 0)
+	revenants.kill_count++
 	INVOKE_ASYNC(src, .proc/spawn_gore, get_turf(H))
 	H.set_death_time(ANIMAL, world.time)
 	for(var/obj/item/I in H)
@@ -108,6 +109,8 @@
 	qdel(H)
 
 /datum/species/revenant/proc/spawn_gore(var/turf/T)
+	var/portal_type = pick(/obj/effect/portal/spawner/silver, /obj/effect/portal/spawner/gold, /obj/effect/portal/spawner/phoron)
+	new portal_type(T)
 	var/obj/effect/decal/cleanable/blood/gibs/G = new /obj/effect/decal/cleanable/blood/gibs(T)
 	G.basecolor = blood_color
 	G.fleshcolor = flesh_color
@@ -119,6 +122,7 @@
 	..()
 	H.gender = NEUTER
 	H.universal_understand = TRUE
+	H.add_language(LANGUAGE_REVENANT_RIFTSPEAK)
 
 /datum/species/revenant/get_random_name()
 	return "Revenant"

@@ -1108,6 +1108,21 @@
 		/obj/item/anomaly_core = 0.5
 	)
 
+/obj/random/highvalue/no_crystal
+	problist = list(
+		/obj/item/clothing/suit/armor/reactive = 0.5,
+		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
+		/obj/random/sword = 0.5,
+		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/melee/energy/axe = 0.5,
+		/obj/item/gun/projectile/automatic/terminator = 0.5,
+		/obj/item/rig/military = 0.5,
+		/obj/item/rig/unathi/fancy = 0.5,
+		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/anomaly_core = 0.5
+	)
+
 /obj/random/junk
 	name = "random trash"
 	desc = "This is toss."
