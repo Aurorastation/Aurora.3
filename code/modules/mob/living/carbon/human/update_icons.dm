@@ -982,12 +982,10 @@ There are several things that need to be remembered:
 		if(belt.color)
 			result_layer.color = belt.color
 
+		result_layer.appearance_flags = RESET_ALPHA
 		var/image/worn_overlays = belt.worn_overlays(t_icon)
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
-
-		if(result_layer)
-			result_layer.appearance_flags = RESET_ALPHA
 
 		var/list/ovr
 
@@ -1003,6 +1001,8 @@ There are several things that need to be remembered:
 					c_icon = INV_BELT_DEF_ICON
 					c_state = i.item_state || i.icon_state
 				var/image/belt_item_image = image(c_icon, c_state)
+				if(i.color)
+					belt_item_image.color = i.color
 				belt_item_image.appearance_flags = RESET_ALPHA
 				ovr += image(c_icon, c_state)
 

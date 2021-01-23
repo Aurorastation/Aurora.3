@@ -635,6 +635,9 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
+/obj/item/clothing/head/softcap/colorable
+	icon_state = "softcap_colorable"
+
 /obj/item/pipewrench/Initialize()
 	. = ..()
 	color = color_rotation(rand(-11, 12) * 15)
@@ -821,6 +824,6 @@
 			else if(UserLoc == slot_r_hand)
 				user.apply_damage(5, BURN, BP_R_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
-	
+
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)
