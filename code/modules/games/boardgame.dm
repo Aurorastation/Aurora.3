@@ -15,12 +15,16 @@
 	if(!isturf(loc)) //so if you want to play the game, you need to put it down somewhere
 		..()
 	else
-		ui_interact(M)
+		if(ui_interact(M))
+			..()
+		
 
 /obj/item/board/ui_interact(mob/user, var/datum/topic_state/state = default_state)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	. = TRUE
 	if (!ui)
-		ui = new(user, src, "misc-boardgame-index", 450, 550, "Board", state = state)
+		ui = new(user, src, "misc-boardgame", 450, 570, "Board", state = state)
+		. = FALSE
 	ui.open()
 
 /obj/item/board/vueui_data_change(list/data, mob/user, datum/vueui/ui)

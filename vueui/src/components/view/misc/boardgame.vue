@@ -1,29 +1,31 @@
 <template>
   <div>
     <vui-button @click="fliped = !fliped">Flip</vui-button>
-    <div v-for="(row, rowi) in boardTiles" :key="rowi" class="tileRow">
-      <div
-        v-for="(tile, coli) in row"
-        :key="rowi + '' + coli"
-        class="tile"
-        :class="tile.tile + (selectedTile == tile.pos ? ' sel' : '')"
-        @click.stop="handleTileClick(tile.pos)"
-      >
+    <div class="text-center">
+      <div v-for="(row, rowi) in boardTiles" :key="rowi" class="tileRow">
         <div
-          v-if="getPiece(tile.pos)"
-          class="piece fa"
-          :class="
-            getPieceClass(tile.pos) + (selected == tile.pos ? ' sel' : '')
-          "
-          @click.stop="handlePieceClick(tile.pos)"
-        />
+          v-for="(tile, coli) in row"
+          :key="rowi + '' + coli"
+          class="tile"
+          :class="tile.tile + (selectedTile == tile.pos ? ' sel' : '')"
+          @click.stop="handleTileClick(tile.pos)"
+        >
+          <div
+            v-if="getPiece(tile.pos)"
+            class="piece fa"
+            :class="
+              getPieceClass(tile.pos) + (selected == tile.pos ? ' sel' : '')
+            "
+            @click.stop="handlePieceClick(tile.pos)"
+          />
+        </div>
       </div>
     </div>
     <template v-if="selected != null">
       <vui-button @click="removePiece">Remove</vui-button>
     </template>
     <template v-if="selectedTile != null">
-      <div>
+      <div class="mt-1">
         Red: <vui-button v-for="(t, ti) in types" :key="'r' + ti" :icon="t.i" @click="spawn(t.k, 'red')">{{ t.n }}</vui-button>
       </div>
       <div>
@@ -34,7 +36,7 @@
 </template>
 
 <script>
-import Utils from '../../../../utils'
+import Utils from '@/utils'
 const board = "wbwbwbwbbwbwbwbwwbwbwbwbbwbwbwbwwbwbwbwbbwbwbwbwwbwbwbwbbwbwbwbw"
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
