@@ -1,10 +1,11 @@
 #define SEC_HUDTYPE "security"
 #define MED_HUDTYPE "medical"
 
-/mob/living/carbon/human/proc/get_covered_body_parts()
+/mob/living/carbon/human/proc/get_covered_body_parts(var/thick)
 	var/skipbody = 0
 	for(var/obj/item/clothing/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
-		skipbody |= C.body_parts_covered
+		if(!thick || (C.item_flags & THICKMATERIAL))
+			skipbody |= C.body_parts_covered
 	return skipbody
 
 /mob/living/carbon/human/proc/get_covered_clothes()
@@ -15,6 +16,7 @@
 
 /mob/living/carbon/human/examine(mob/user)
 	var/skipbody = get_covered_body_parts()
+	var/skipbody_thick = get_covered_body_parts(TRUE)
 	var/skipitems = get_covered_clothes()
 
 	//exosuits and helmets obscure our view and stuff.
@@ -281,23 +283,26 @@
 			if(temp.body_part & HEAD)
 				body_part &= ~HEAD
 				body_part |= (temp.body_part & FACE) ? HEAD : 0
-			if(skipbody & body_part)
+			if(skipbody_thick & body_part)
 				continue
-			if(temp.status & ORGAN_ASSISTED)
+			var/thin_covering = (skipbody & body_part) ? TRUE : FALSE
+			if((temp.status & ORGAN_ASSISTED) && !thin_covering)
 				if(!(temp.brute_dam + temp.burn_dam))
-					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] a robot [temp.name]!</span>\n"
-					// No need to notify about robotic limbs if they're not damaged, really.
 					continue
 				else
 					wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [temp.name].</span><br>"
-			else if(temp.wounds.len > 0 || temp.open)
-				if(temp.is_stump() && temp.parent_organ && organs_by_name[temp.parent_organ])
-					var/obj/item/organ/external/parent = organs_by_name[temp.parent_organ]
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [parent.name].</span><br>"
-				else
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [temp.name].</span><br>"
+			else if(length(temp.wounds) || temp.open)
+				if(!thin_covering)
+					if(temp.is_stump() && temp.parent_organ && organs_by_name[temp.parent_organ])
+						var/obj/item/organ/external/parent = organs_by_name[temp.parent_organ]
+						wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [parent.name].</span><br>"
+					else
+						wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [temp.name].</span><br>"
 				if(temp.status & ORGAN_BLEEDING)
-					is_bleeding["[temp.name]"] = "<span class='danger'>[get_pronoun("His")] [temp.name] is bleeding!</span><br>"
+					if(thin_covering)
+						is_bleeding["[temp.body_part_class()]"] = "<span class='danger'>[get_pronoun("He")] [temp.covered_bleed_report(species.blood_type)]</span><br>"
+					else
+						is_bleeding["[temp.name]"] = "<span class='danger'>[get_pronoun("His")] [temp.name] is bleeding!</span><br>"
 			else
 				wound_flavor_text["[temp.name]"] = ""
 			if(temp.dislocated == 2)
@@ -309,8 +314,9 @@
 	//If they have something that covers the limb, and it is not missing, put flavortext.  If it is covered but bleeding, add other flavortext.
 
 	for(var/limb in wound_flavor_text)
-		msg += wound_flavor_text[limb]
-		is_bleeding[limb] = null
+		if(wound_flavor_text[limb])
+			msg += wound_flavor_text[limb]
+			is_bleeding[limb] = null
 	for(var/limb in is_bleeding)
 		msg += is_bleeding[limb]
 	for(var/obj/item/organ/external/organ in src.organs)

@@ -104,3 +104,4 @@
 	key = "c"
 	syllables = list("grhhg", "ghrohg", "grgugh", "grrhh", "hghh", "rghghh", "gghhh", "ggrh", "aghrh")
 	flags = RESTRICTED
+	partial_understanding = list(LANGUAGE_TCB = 80)

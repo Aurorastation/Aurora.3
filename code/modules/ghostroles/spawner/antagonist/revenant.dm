@@ -14,6 +14,7 @@
 	spawn_mob = /mob/living/carbon/human/revenant
 	respawn_flag = ANIMAL
 
+	var/spawn_index = 1 // used to add a numerical identifier to the revenant. increases by 1 per spawn
 	var/has_fired = FALSE
 
 /datum/ghostspawner/revenant/spawn_mob(mob/user)
@@ -26,6 +27,9 @@
 		return
 
 	if(R)
+		R.real_name = "[R.real_name] ([spawn_index])"
+		R.name = R.real_name
+		spawn_index++
 		announce_ghost_joinleave(user, FALSE, "They are now a [name].")
 		R.ckey = user.ckey
 

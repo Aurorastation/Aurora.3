@@ -55,6 +55,7 @@
 	blood_color = "#0084b8"
 	flesh_color = "#0071db"
 
+	respawn_type = ANIMAL
 	remains_type = /obj/effect/decal/cleanable/ash
 	death_message = "dissolves into ash..."
 	death_message_range = 7
@@ -117,6 +118,7 @@
 	H.name = H.real_name
 	..()
 	H.gender = NEUTER
+	H.universal_understand = TRUE
 
 /datum/species/revenant/get_random_name()
 	return "Revenant"
