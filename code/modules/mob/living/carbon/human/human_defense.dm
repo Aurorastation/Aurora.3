@@ -211,6 +211,15 @@ emp_act
 		O.emp_act(severity)
 	..()
 
+/mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
+	if(a_intent != I_HELP)
+		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
+		for(var/obj/item/grab/G in holding)
+			if(G.affecting && prob(holding[G]))
+				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
+				return G.affecting
+	return src
+
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 	if(check_attack_throat(I, user))
 		return null

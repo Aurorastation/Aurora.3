@@ -114,9 +114,11 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 
-	var/hit_zone = M.resolve_item_attack(src, user, target_zone)
-	if(hit_zone)
-		apply_hit_effect(M, user, hit_zone)
+	var/mob/living/victim = M.get_attack_victim(src, user, target_zone)
+	if(victim)
+		var/hit_zone = victim.resolve_item_attack(src, user, target_zone)
+		if(hit_zone)
+			apply_hit_effect(victim, user, hit_zone)
 
 	return 1
 

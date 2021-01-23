@@ -400,7 +400,11 @@
 				for(var/obj/item/W in holding)
 					if(W && prob(holding[W]))
 						if(istype(W, /obj/item/grab))
-							continue
+							var/obj/item/grab/G = W
+							if(G.affecting)
+								visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [M]'s disarm attempt!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [M]'s disarm attempt!"))
+								G.attack_hand(M)
+							return
 						if(istype(W,/obj/item/gun))
 							var/list/turfs = list()
 							for(var/turf/T in view())
