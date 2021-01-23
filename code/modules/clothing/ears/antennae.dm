@@ -67,6 +67,7 @@
 	desc = "A decorative antenna. Despite being commonly seen on Shells, nobody knows what these actually do."
 	icon_state = "whip"
 	item_state = "whip"
+
 /obj/item/clothing/ears/antenna/trinary_halo
 	name = "trinary perfection antenna"
 	desc = "A decorative antenna that is commonly worn by IPCs who serve the Trinary Perfection. It resembles a golden gear."
