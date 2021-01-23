@@ -192,6 +192,8 @@
 	. = ..()
 	if(revenants.revenant_rift)
 		return INITIALIZE_HINT_QDEL
+	var/turf/T = get_turf(src)
+	log_and_message_admins("Revenant Bluespace Rift spawned at \the [get_area(T)]", null, T)
 	revenants.revenant_rift = src
 	soundloop = new(list(src), FALSE)
 	soundloop.start()

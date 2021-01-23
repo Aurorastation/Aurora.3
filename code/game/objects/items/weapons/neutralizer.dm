@@ -32,19 +32,20 @@
 /obj/item/bluespace_neutralizer/process()
 	if(active && !revenants.revenant_rift)
 		toggle()
-		return PROCESS_KILL
+		return
 	var/turf/our_turf = get_turf(src)
 	if(!(our_turf.z == revenants.revenant_rift.z && get_dist(src, revenants.revenant_rift) < 5 && isInSight(src, revenants.revenant_rift)))
 		tethered = FALSE
 		return
-	last_zap = world.time
 	if(!tethered)
 		visible_message(SPAN_DANGER("\The [src] tethers with \the [revenants.revenant_rift]!"))
+		last_zap = world.time
 		tethered = TRUE
 		Beam(revenants.revenant_rift, icon_state="n_beam", icon = 'icons/effects/beam.dmi', time=2, maxdistance=5, beam_datum_type=/datum/beam/held)
 		playsound(get_turf(src), 'sound/magic/Charge.ogg', 70, TRUE, extrarange = 30)
 		return
 	revenants.revenant_rift.reduce_health(world.time - last_zap)
+	last_zap = world.time
 	Beam(revenants.revenant_rift, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2, maxdistance=5, beam_datum_type=/datum/beam/held)
 	playsound(get_turf(src), 'sound/magic/LightningShock.ogg', 50, TRUE, extrarange = 30)
 
