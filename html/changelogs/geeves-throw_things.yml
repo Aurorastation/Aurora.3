@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "It is now impossible to miss pointblank throwing something at someone."
-  - rscadd: "You can now throw things past windows without it bumping into them."
