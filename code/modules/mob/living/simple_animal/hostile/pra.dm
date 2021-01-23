@@ -54,7 +54,7 @@
 
 	tameable = FALSE
 
-	smart = TRUE
+	smart_ranged = TRUE
 
 	mob_bump_flag = ROBOT
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
