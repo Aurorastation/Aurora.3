@@ -635,9 +635,6 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
-/obj/item/clothing/head/softcap/colorable
-	icon_state = "softcap_colorable"
-
 /obj/item/pipewrench/Initialize()
 	. = ..()
 	color = color_rotation(rand(-11, 12) * 15)
