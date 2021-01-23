@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Smart hostile mobs will now attempt to dodge around the player after making an attack."
