@@ -129,7 +129,7 @@
 		V.ex_act(2)
 		return
 	var/obj/machinery/camera/CA = locate() in T
-	if(CA)
+	if(CA && !(CA.stat & BROKEN))
 		CA.take_damage(30)
 		return
 
