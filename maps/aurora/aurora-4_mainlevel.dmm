@@ -44243,7 +44243,7 @@
 /area/medical/first_responder)
 "bzX" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "First Responder Garge Access";
+	name = "First Responder Garage Access";
 	req_access = list(67)
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -44678,7 +44678,7 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "firstrespondershutter";
-	name = "First Responder Garge Door"
+	name = "First Responder Garage Door"
 	},
 /turf/simulated/floor/plating,
 /area/medical/first_responder)
@@ -45041,7 +45041,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - First Responder Garge";
+	c_tag = "Medical - First Responder Garage";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
