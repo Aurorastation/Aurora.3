@@ -2,7 +2,11 @@ const { Signale } = require('signale')
 const Vue = require('vue')
 const fs = require('fs-extra')
 
-const stages = require('./stages')
+const stages = (() => {
+  if(process.env.CI)
+    return require('./stages').filter((stage) => stage.ci)
+  return require('./stages')
+})()
 
 
 // run
