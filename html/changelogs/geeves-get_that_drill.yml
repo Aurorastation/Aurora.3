@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Station safes now spawn with items in them again."
-  - rscadd: "You can now buy a thermal drill capable of drilling into the station safe for 8 telecrystals. It will take five minutes to do so."
