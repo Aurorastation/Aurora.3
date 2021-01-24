@@ -734,6 +734,7 @@
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
