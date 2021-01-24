@@ -270,7 +270,7 @@
 
 	var/list/data = list("unread" = "", "expired" = "")
 	if (count)
-		data["unread"] = "You have <b>[count] unread [count > 1 ? "warnings" : "warning"]!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
+		data["unread"] = "You have <b>[count] unread warning\s!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
 	if (count_expire)
 		data["expired"] = "[count_expire] of your warnings have expired."
 
