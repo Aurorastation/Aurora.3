@@ -2324,7 +2324,8 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_mane
 			name = "Tajara Mane"
 			icon_state = "hair_mane"
-			chatname = "mane"
+			gender = MALE
+			chatname = "long mane"
 
 //msai hair, longer ears
 	msai_ears
@@ -2431,7 +2432,8 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_mane
 			name = "M'sai Mane"
 			icon_state = "msai_mane"
-			chatname = "mane"
+			gender = MALE
+			chatname = "long mane"
 
 //vaurca antennae
 	vaurca_classic
