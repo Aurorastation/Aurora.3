@@ -37411,10 +37411,10 @@
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
 "btV" = (
-/obj/structure/displaycase,
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/displaycase/captain_laser,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "btW" = (
@@ -42645,7 +42645,7 @@
 /obj/machinery/keycard_auth{
 	pixel_x = -24
 	},
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
@@ -43710,7 +43710,8 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_cyborg_station)
 "bFk" = (
-/obj/machinery/computer/teleporter,
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/command/teleporter,
 /turf/simulated/floor/plating,
 /area/teleporter)
 "bFl" = (
@@ -43718,7 +43719,7 @@
 /turf/simulated/floor/plating,
 /area/teleporter)
 "bFm" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/simulated/floor/plating,
 /area/teleporter)
 "bFn" = (
@@ -45874,7 +45875,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = 29
 	},
-/obj/item/circuitboard/teleporter,
+/obj/machinery/mining/drill,
 /obj/item/circuitboard/aicore{
 	pixel_x = -2;
 	pixel_y = 4

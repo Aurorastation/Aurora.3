@@ -19225,7 +19225,8 @@
 /turf/simulated/floor/tiled,
 /area/security/nuke_storage)
 "aGR" = (
-/obj/machinery/computer/teleporter,
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/command/teleporter,
 /turf/simulated/floor/plating,
 /area/teleporter)
 "aGS" = (
@@ -19233,7 +19234,7 @@
 /turf/simulated/floor/plating,
 /area/teleporter)
 "aGT" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/plating,
 /area/teleporter)
@@ -19378,7 +19379,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHh" = (
-/obj/structure/displaycase,
+/obj/structure/displaycase/captain_laser,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHi" = (
@@ -20502,7 +20503,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aIQ" = (
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aIR" = (
@@ -23658,11 +23659,13 @@
 "aOp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aOq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aOr" = (
@@ -29913,6 +29916,9 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 28
 	},
+/obj/effect/landmark{
+	name = "JoinLateCryoCommand"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "aYQ" = (
@@ -30706,6 +30712,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "bai" = (
+/obj/effect/landmark{
+	name = "JoinLateCryoCommand"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "baj" = (
@@ -32692,7 +32701,7 @@
 	name = "Desk Privacy Shutter";
 	pixel_y = -36
 	},
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bec" = (
@@ -45332,7 +45341,6 @@
 	name = "Station Intercom (General)";
 	pixel_y = -30
 	},
-/obj/item/circuitboard/teleporter,
 /obj/item/circuitboard/aicore{
 	pixel_x = -2;
 	pixel_y = 4
@@ -62191,6 +62199,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
+"icb" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "idi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -85907,7 +85921,7 @@ aab
 aab
 aab
 aab
-aab
+icb
 aab
 aab
 aab
@@ -88420,7 +88434,7 @@ aaa
 aaa
 aab
 aab
-aab
+icb
 aox
 qba
 aij
@@ -99196,7 +99210,7 @@ aab
 aab
 aab
 aab
-aab
+icb
 aad
 aaB
 aaJ
@@ -113680,7 +113694,7 @@ vAC
 vAC
 mmQ
 blN
-aab
+icb
 aab
 aab
 aab

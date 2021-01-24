@@ -416,9 +416,7 @@ var/list/diona_banned_languages = list(
 
 	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [E].</span>",
 		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [E].</span>")
-	var/datum/reagents/vessel = get_vessel(0)
-	var/datum/reagent/B = vessel.get_master_reagent()
-	B.touch_turf(get_turf(src))
+	blood_splatter(get_turf(src), src, TRUE)
 	regenerate_icons()
 
 	DS.LMS = min(2, DS.LMS) //Prevents a message about darkness in light areas
@@ -636,18 +634,18 @@ var/list/diona_banned_languages = list(
 		//Attempt to find the blood vessel, but don't create a fake one if its not there.
 		//If the target doesn't have a vessel its probably due to someone not implementing it properly, like xenos
 		//We'll still allow it
-		var/datum/reagents/vessel = D.get_vessel(1)
 		var/newDNA
-		var/datum/reagent/blood/B = vessel.get_master_reagent()
-		var/total_blood = B.volume
+		var/datum/reagents/vessel
+
+		var/total_blood = REAGENT_VOLUME(vessel, /decl/reagent/blood)
 		var/remove_amount = total_blood * 0.05
 		if(ishuman(D))
 			var/mob/living/carbon/human/H = D
 			remove_amount = H.species.blood_volume * 0.05
 		if(remove_amount > 0)
-			vessel.remove_reagent(/datum/reagent/blood, remove_amount, TRUE)
+			vessel.remove_reagent(/decl/reagent/blood, remove_amount, TRUE)
 			user.adjustNutritionLoss(-remove_amount * 0.5)
-		var/list/data = vessel.get_data(/datum/reagent/blood)
+		var/list/data = REAGENT_DATA(vessel, /decl/reagent/blood)
 		newDNA = data["blood_DNA"]
 
 		if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
@@ -656,7 +654,7 @@ var/list/diona_banned_languages = list(
 		D.adjustBruteLoss(4)
 		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [D].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [D]!"))
 		to_chat(D, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
-		D.reagents.add_reagent(/datum/reagent/mortaphenyl/aphrodite, 5)
+		D.reagents.add_reagent(/decl/reagent/mortaphenyl/aphrodite, 5)
 		if(D.client)
 			INVOKE_ASYNC(src, .proc/memory_transfer, user, D)
 		if(newDNA in sampled_DNA)

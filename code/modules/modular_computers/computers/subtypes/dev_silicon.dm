@@ -53,7 +53,7 @@
 /obj/item/modular_computer/silicon/install_default_programs()
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
-	hard_drive.store_file(new /datum/computer_file/program/chatclient(src))
+	hard_drive.store_file(new /datum/computer_file/program/chat_client(src))
 	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
 	addtimer(CALLBACK(src, .proc/register_chat), 1 SECOND)
 
@@ -61,24 +61,6 @@
 	set_autorun("ntnrc_client")
 	enable_computer(null, TRUE) // passing null because we don't want the UI to open
 	minimize_program()
-
-/obj/item/modular_computer/silicon/verb/send_pda_message()
-	set category = "AI IM"
-	set name = "Send Direct Message"
-	set src in usr
-	if (usr.stat == DEAD)
-		to_chat(usr, "You can't send PDA messages because you are dead!")
-		return
-	var/datum/computer_file/program/chatclient/CL = hard_drive.find_file_by_name("ntnrc_client")
-	if(!istype(CL))
-		output_error("Chat client not installed!")
-		return
-	else if(CL.program_state == PROGRAM_STATE_KILLED)
-		run_program("ntnrc_client")
-
-	CL.direct_message()
-	if(CL.channel)
-		CL.add_message(CL.send_message())
 
 /obj/item/modular_computer/silicon/robot/drone/install_default_programs()
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))

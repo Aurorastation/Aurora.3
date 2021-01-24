@@ -8089,6 +8089,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
+"zN" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "zQ" = (
 /obj/structure/flora/pottedplant/random,
 /obj/structure/extinguisher_cabinet{
@@ -42785,7 +42791,7 @@ mo
 mo
 mo
 mo
-ab
+zN
 ab
 ab
 ab
@@ -50706,7 +50712,7 @@ if
 im
 wo
 Zt
-ab
+zN
 ab
 ab
 aa

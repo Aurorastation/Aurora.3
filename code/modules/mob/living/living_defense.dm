@@ -89,7 +89,7 @@
 			P.damage_flags &= ~DAM_LASER
 
 	if(!P.nodamage)
-		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
+		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = P)
 		bullet_impact_visuals(P, def_zone, damaged)
 	P.on_hit(src, absorb, def_zone)
 	return absorb
@@ -148,6 +148,9 @@
 	for(var/obj/O in L)
 		O.emp_act(severity)
 	..()
+
+/mob/living/proc/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
+	return src
 
 /mob/living/proc/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 	return target_zone
