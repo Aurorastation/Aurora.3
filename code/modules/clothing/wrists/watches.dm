@@ -6,7 +6,6 @@
 	item_state = "watch"
 	var/wired = TRUE
 	var/screwed = TRUE
-	var/flipped = FALSE
 
 /obj/item/clothing/wrists/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."

@@ -6,6 +6,14 @@
 	sort_category = "Wristwear"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/wrists/beaded
+	display_name = "beaded bracelet"
+	path = /obj/item/clothing/wrists/beaded
+
+/datum/gear/wrists/slap
+	display_name = "slap bracelet"
+	path = /obj/item/clothing/wrists/slap
+
 /datum/gear/wrists/watch
 	display_name = "watch selection"
 	description = "A selection of watches."
