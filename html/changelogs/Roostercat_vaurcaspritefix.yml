@@ -1,0 +1,7 @@
+author: Roostercat
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed a few Vaurca body markings being a few pixels off center."
+  
