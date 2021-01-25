@@ -19,7 +19,7 @@
 
 	if(can_feel_pain())
 		if(get_shock() >= 10)
-			tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
+			tally += (get_shock() / 30) //pain shouldn't slow you down if you can't even feel it
 
 	tally += ClothesSlowdown()
 

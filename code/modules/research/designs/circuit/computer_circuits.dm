@@ -13,11 +13,6 @@
 	name = "Patient Monitoring Console"
 	build_path = /obj/item/circuitboard/operating
 
-/datum/design/circuit/computer/teleconsole
-	name = "Teleporter Control Console"
-	req_tech = list(TECH_DATA = 3, TECH_BLUESPACE = 2)
-	build_path = /obj/item/circuitboard/teleporter
-
 /datum/design/circuit/computer/robocontrol
 	name = "Robotics Control Console"
 	req_tech = list(TECH_DATA = 4)

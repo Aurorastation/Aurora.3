@@ -111,8 +111,9 @@
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
-	path = /obj/item/clothing/accessory/storage/webbing
+	path = /obj/item/clothing/accessory/storage/webbing/grayscale
 	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"

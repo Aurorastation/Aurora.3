@@ -9,7 +9,7 @@
 	required_access_download = access_heads
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	color = LIGHT_COLOR_GREEN
-	
+
 	available_on_ntnet = TRUE
 	nanomodule_path = /datum/nano_module/computer_ntnetmonitor
 
@@ -58,24 +58,6 @@
 		. = TRUE
 		if(ntnet_global)
 			ntnet_global.toggleIDS()
-		return TRUE
-	if(href_list["toggleWireless"])
-		. = TRUE
-		if(!ntnet_global)
-			return TRUE
-
-		// NTNet is disabled. Enabling can be done without user prompt
-		if(ntnet_global.setting_disabled)
-			ntnet_global.setting_disabled = FALSE
-			return TRUE
-
-		// NTNet is enabled and user is about to shut it down. Let's ask them if they really want to do it, as wirelessly connected computers won't connect without NTNet being enabled (which may prevent people from turning it back on)
-		var/mob/user = usr
-		if(!user)
-			return TRUE
-		var/response = alert(user, "Really disable NTNet wireless? If your computer is connected wirelessly you won't be able to turn it back on! This will affect all connected wireless devices.", "NTNet shutdown", "Yes", "No")
-		if(response == "Yes")
-			ntnet_global.setting_disabled = TRUE
 		return TRUE
 	if(href_list["purgelogs"])
 		. = TRUE

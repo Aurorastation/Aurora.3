@@ -94,7 +94,7 @@
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/datum/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	START_PROCESSING(SSprocessing, src)
 	if(istype(AM, /obj))
@@ -110,7 +110,7 @@
 /turf/simulated/floor/beach/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/datum/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	if(istype(AM, /obj) && numobjects)
 		numobjects -= 1
@@ -123,7 +123,7 @@
 	..()
 
 /turf/simulated/floor/beach/water/process()
-	reagents.add_reagent(/datum/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	for(var/mob/living/L in src)
 		wash(L)
@@ -143,7 +143,7 @@
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(100)
-	W.reagents.add_reagent(/datum/reagent/water, 100)
+	W.reagents.add_reagent(/decl/reagent/water, 100)
 	W.set_up(O, 100)
 
 	if(iscarbon(O))
@@ -207,10 +207,10 @@
 					H.update_inv_glasses(0)
 			if(H.l_ear && washears)
 				if(H.l_ear.clean_blood())
-					H.update_inv_ears(0)
+					H.update_inv_l_ear(0)
 			if(H.r_ear && washears)
 				if(H.r_ear.clean_blood())
-					H.update_inv_ears(0)
+					H.update_inv_r_ear(0)
 			if(H.belt)
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)

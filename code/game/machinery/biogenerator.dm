@@ -2,7 +2,7 @@
 	name = "biogenerator"
 	desc = "An advanced machine that can be used to convert grown plantlike biological material into various other bio-goods."
 	icon = 'icons/obj/biogenerator.dmi'
-	icon_state = "biogen-stand"
+	icon_state = "biogen"
 	density = 1
 	anchored = 1
 	use_power = 1
@@ -390,18 +390,18 @@
 	reagents = R
 	R.my_atom = src
 	beaker = new /obj/item/reagent_containers/glass/bottle(src)
+	update_icon()
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
 
 /obj/machinery/biogenerator/update_icon()
 	if(!beaker)
-		icon_state = "biogen-empty"
+		icon_state = "[initial(icon_state)]-empty"
 	else if(!processing)
-		icon_state = "biogen-stand"
+		icon_state = "[initial(icon_state)]-stand"
 	else
-		icon_state = "biogen-work"
-	return
+		icon_state = "[initial(icon_state)]-work"
 
 /obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
@@ -536,9 +536,9 @@
 	var/S = 0
 	for(var/obj/item/reagent_containers/food/snacks/grown/I in contents)
 		S += 5
-		if(I.reagents.get_reagent_amount(/datum/reagent/nutriment) < 0.1)
+		if(REAGENT_VOLUME(I.reagents, /decl/reagent/nutriment) < 0.1)
 			points += 1
-		else points += I.reagents.get_reagent_amount(/datum/reagent/nutriment) * 10 * eat_eff
+		else points += REAGENT_VOLUME(I.reagents, /decl/reagent/nutriment) * 10 * eat_eff
 		qdel(I)
 		CHECK_TICK
 	if(S)
@@ -648,3 +648,37 @@
 
 	build_eff = man_rating
 	eat_eff = bin_rating
+
+/obj/machinery/biogenerator/small
+	icon_state = "biogen_small"
+	density = FALSE
+	capacity = 25
+
+	component_types = list(
+		/obj/item/circuitboard/biogenerator/small,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/manipulator
+	)
+
+/obj/machinery/biogenerator/small/north
+	dir = NORTH
+	pixel_y = -13
+	layer = MOB_LAYER + 0.1
+
+/obj/machinery/biogenerator/small/south
+	dir = SOUTH
+	pixel_y = 20
+	layer = OBJ_LAYER + 0.3
+
+/obj/machinery/biogenerator/small/east
+	dir = EAST
+	pixel_x = -12
+
+/obj/machinery/biogenerator/small/west
+	dir = WEST
+	pixel_x = 11
+
+/obj/machinery/biogenerator/small/RefreshParts()
+	..()
+	build_eff = max(build_eff - 1, 1)
+	eat_eff = max(eat_eff - 1, 1)

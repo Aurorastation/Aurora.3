@@ -53,7 +53,7 @@
 
 	if(!can_open)
 		to_chat(user, SPAN_NOTICE("You push the wall, but nothing happens."))
-		playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
+		playsound(src, hitsound, 25, TRUE)
 	else
 		toggle_open(user)
 	return FALSE
@@ -399,4 +399,5 @@
 			take_damage(damage_to_deal)
 		else
 			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [W], but it bounces off!"))
+			playsound(src, hitsound, 25, 1)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

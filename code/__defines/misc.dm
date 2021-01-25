@@ -201,6 +201,7 @@
 #define PROGRAM_ALL_REGULAR (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN)
 #define PROGRAM_ALL_HANDHELD (PROGRAM_TABLET | PROGRAM_WRISTBOUND)
 
+#define PROGRAM_STATE_DISABLED -1
 #define PROGRAM_STATE_KILLED 0
 #define PROGRAM_STATE_BACKGROUND 1
 #define PROGRAM_STATE_ACTIVE 2
@@ -238,12 +239,12 @@
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	200//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	180//The total number of items we'll spawn in cargo stock
 
-#define STOCK_UNCOMMON_PROB	23
+#define STOCK_UNCOMMON_PROB	25
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
 
-#define STOCK_RARE_PROB	2.8
+#define STOCK_RARE_PROB	3
 //The probability, as a percentage for each item, that we'll choose from the rare spawns list
 
 //If an item is not rare or uncommon, it will be chosen from the common spawns list.
