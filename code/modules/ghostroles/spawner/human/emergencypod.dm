@@ -118,7 +118,6 @@
 	pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 
 	backpack_contents = list(
-		/obj/item/storage/bible/fluff/oscar_bible = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)

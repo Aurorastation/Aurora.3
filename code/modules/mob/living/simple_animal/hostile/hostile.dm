@@ -27,7 +27,8 @@
 	var/list/target_type_validator_map = list()
 	var/attack_emote = "stares menacingly at"
 
-	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
+	var/smart_melee = TRUE   // This makes melee mobs try to stay two tiles away from their target in combat, lunging in to attack only
+	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -140,10 +141,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 				walk_to(src, target_mob, 6, move_to_delay)
 		else
 			stance = HOSTILE_STANCE_ATTACKING
-			walk_to(src, target_mob, 1, move_to_delay)
+			var/move_distance = smart_melee ? 2 : 1
+			walk_to(src, target_mob, move_distance, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
-
 	stop_automated_movement = 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
@@ -153,6 +154,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return 0
 	if(!see_target())
 		LoseTarget()
+	if(!ranged)
+		step_to(src, target_mob, 1)
 	if(get_dist(src, target_mob) <= 1)	//Attacking
 		AttackingTarget()
 		attacked_times += 1
@@ -172,22 +175,39 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			visible_message(SPAN_WARNING("\The [G.assailant] restrains \the [src] from attacking!"))
 			resist_grab()
 			return
+	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
-		return L
-	if(istype(target_mob, /obj/machinery/bot))
+		target = L
+	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		B.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
-		return B
-	if(istype(target_mob, /obj/machinery/porta_turret))
+		target = B
+	else if(istype(target_mob, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/T = target_mob
 		if(!T.raising && !T.raised)
 			return
+		face_atom(T)
 		src.do_attack_animation(T)
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
-		return T
+		return T // no need to take a step back here
+	if(target)
+		face_atom(target)
+		if(!ranged && smart_melee)
+			addtimer(CALLBACK(src, .proc/PostAttack, target), 0.6 SECONDS)
+		return target
+
+/mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
+	if(stat)
+		return
+	facing_dir = get_dir(src, target)
+	if(ishuman(target))
+		step_away(src, pick(RANGE_TURFS(2, target)))
+	else
+		step_away(src, target, 2)
+	facing_dir = null
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
@@ -238,7 +258,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		LoseTarget()
 	var/target = target_mob
 	// This code checks if we are not going to hit our target
-	if(smart && !check_fire(target_mob))
+	if(smart_ranged && !check_fire(target_mob))
 		return
 	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
 

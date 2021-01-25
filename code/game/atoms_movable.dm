@@ -92,7 +92,7 @@
 					continue
 				throw_impact(A, speed)
 			if(isobj(A))
-				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
+				if(A.density && !A.throwpass && !A.CanPass(src, target))
 					src.throw_impact(A,speed)
 
 // Prevents robots dropping their modules

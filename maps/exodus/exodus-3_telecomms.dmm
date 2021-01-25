@@ -3034,16 +3034,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
-"ho" = (
-/obj/machinery/computer/teleporter,
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "hp" = (
 /obj/machinery/teleport/station,
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "hq" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "hr" = (
@@ -35410,7 +35406,7 @@ gF
 gF
 gF
 hm
-ho
+gF
 gw
 bY
 aa

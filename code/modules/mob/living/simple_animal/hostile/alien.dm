@@ -38,7 +38,7 @@
 
 	tameable = FALSE
 	attack_emote = "growls at"
-	smart = TRUE
+	smart_ranged = TRUE
 
 	butchering_products = list(/obj/item/stack/material/animalhide/xeno = 5)
 

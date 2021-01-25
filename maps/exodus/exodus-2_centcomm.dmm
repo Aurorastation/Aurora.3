@@ -2065,7 +2065,6 @@
 	name = "\improper Ninja Base"
 	})
 "alr" = (
-/obj/machinery/computer/teleporter,
 /turf/simulated/floor/plating,
 /area/antag/ninja{
 	name = "\improper Ninja Base"
@@ -2077,7 +2076,7 @@
 	name = "\improper Ninja Base"
 	})
 "alt" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/simulated/floor/plating,
 /area/antag/ninja{
 	name = "\improper Ninja Base"
@@ -4693,7 +4692,7 @@
 	},
 /area/shuttle/mercenary)
 "asf" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -10058,7 +10057,7 @@
 	},
 /area/centcom/control)
 "aLx" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -12370,7 +12369,7 @@
 	},
 /area/centcom/spawning)
 "aQY" = (
-/obj/machinery/computer/teleporter,
+/obj/machinery/mining/drill,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
