@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed the gender restriction on all hairstyles."
