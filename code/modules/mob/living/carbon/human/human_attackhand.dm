@@ -106,16 +106,10 @@
 		if(I_HELP)
 			if(H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath))
 				if (cpr)
-					cpr = 0
+					cpr = FALSE
 					return
-				var/obj/item/main_hand = H.get_active_hand()
-				var/obj/item/off_hand = H.get_inactive_hand()
-				if (istype(main_hand) || istype(off_hand))
-					to_chat(H, SPAN_NOTICE("You cannot perform CPR with anything in your hands."))
-					return
-				cpr = 1
-				to_chat(H, SPAN_NOTICE("You begin performing CPR on \the [src]."))
-				cpr(H)
+				cpr = TRUE
+				cpr(H, TRUE)
 
 			else if(!(M == src && apply_pressure(M, M.zone_sel.selecting)))
 				help_shake_act(M)
@@ -431,17 +425,19 @@
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
 	return
 
-/mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H)
+/mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H, var/starting = FALSE)
 	var/obj/item/main_hand = H.get_active_hand()
 	var/obj/item/off_hand = H.get_inactive_hand()
 	if (istype(main_hand) || istype(off_hand))
-		cpr = 0
+		cpr = FALSE
 		to_chat(H, SPAN_NOTICE("You cannot perform CPR with anything in your hands."))
 		return
 	if(!(cpr && H.Adjacent(src) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath))) //Keeps doing CPR unless cancelled, or the target recovers
-		cpr = 0
+		cpr = FALSE
 		to_chat(H, SPAN_NOTICE("You stop performing CPR on \the [src]."))
 		return
+	else if (starting)
+		to_chat(H, SPAN_NOTICE("You begin performing CPR on \the [src]."))
 
 	H.do_attack_animation(src, null, image('icons/mob/screen/generic.dmi', src, "cpr", src.layer + 1))
 	var/starting_pixel_y = pixel_y
@@ -463,7 +459,7 @@
 	
 	if(!do_after(H, 3, FALSE)) //Chest compresssions are fast, need to wait for the loading bar to do mouth to mouth
 		to_chat(H, SPAN_NOTICE("You stop performing CPR on \the [src]."))
-		cpr = 0 //If it cancelled, cancel it. Simple.
+		cpr = FALSE //If it cancelled, cancel it. Simple.
 
 	if(!H.check_has_mouth())
 		to_chat(H, "<span class='warning'>You don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")

@@ -107,7 +107,7 @@
 	var/name_archive //For admin things like possession
 
 	var/timeofdeath = 0.0//Living
-	var/cpr = 0 //Whether the mob is performing cpr or not
+	var/cpr = FALSE //Whether the mob is performing cpr or not
 
 	var/bodytemperature = 310.055	//98.7 F
 	var/old_x = 0
