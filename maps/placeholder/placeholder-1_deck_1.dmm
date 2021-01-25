@@ -1161,6 +1161,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"fm" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/janitor)
 "fn" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -2266,8 +2270,8 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "ll" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/plating,
+/obj/machinery/computer/shuttle_control/lift,
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "ln" = (
 /obj/structure/cable/green{
@@ -2308,8 +2312,10 @@
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/janitor)
 "lB" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
+/obj/structure/ladder/up{
+	pixel_y = 13
+	},
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "lC" = (
 /obj/structure/shuttle_part/placeholder{
@@ -2332,7 +2338,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "lG" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/janitor)
 "lH" = (
@@ -2631,7 +2637,7 @@
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/janitor)
 "nM" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/janitor)
 "nN" = (
@@ -2810,7 +2816,7 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "pc" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/atmospherics/pipe/tank/oxygen,
 /turf/simulated/floor/plating,
 /area/janitor)
 "pg" = (
@@ -2839,7 +2845,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "pn" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating,
 /area/janitor)
 "pp" = (
@@ -2881,7 +2887,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "pD" = (
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/plating,
 /area/janitor)
 "pI" = (
@@ -3183,7 +3189,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "rD" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/janitor)
 "rE" = (
@@ -3275,7 +3281,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "sk" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/janitor)
 "sq" = (
@@ -6382,6 +6388,10 @@
 "NX" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
+/area/janitor)
+"NY" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/simulated/floor/plating,
 /area/janitor)
 "Oc" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -33419,20 +33429,20 @@ Uj
 bN
 cR
 Uj
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
 hM
-nM
-ll
-ll
-be
-Yu
-be
-be
-be
-Yu
-be
-be
-be
-be
+pc
+rD
+rD
 be
 Yu
 oP
@@ -33621,20 +33631,20 @@ gu
 bg
 bX
 Uj
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
 iE
-pc
-pD
-pD
-be
-Yu
-be
-be
-be
-Yu
-be
-be
-be
-be
+pn
+sk
+sk
 be
 Yu
 YW
@@ -33823,20 +33833,20 @@ gu
 bf
 cT
 Uj
-lB
-lB
-rD
-rD
-be
-Yu
-be
-be
-be
-Yu
 be
 be
 be
 be
+be
+be
+be
+be
+be
+be
+lG
+lG
+fm
+fm
 be
 Yu
 Yu
@@ -34025,20 +34035,20 @@ gu
 bQ
 cW
 Uj
-lG
-lG
-sk
-sk
-be
-ah
 be
 be
 be
-ah
-be
-be
-be
-be
+Uj
+Uj
+Uj
+Uj
+Uj
+Uj
+Uj
+nM
+nM
+NY
+NY
 be
 be
 be
@@ -34228,18 +34238,18 @@ ns
 Uj
 Uj
 be
-pn
-pn
 be
 be
-Yu
+Uj
+mZ
+mZ
+mZ
+mZ
+mZ
+Uj
 be
-be
-be
-Yu
-be
-be
-be
+pD
+pD
 be
 HN
 nD
@@ -34430,18 +34440,18 @@ aa
 Uj
 Uj
 be
+be
+be
+Uj
+ll
+mZ
+mZ
+mZ
+mZ
+Uj
+be
 pJ
 pJ
-be
-be
-Yu
-be
-be
-be
-Yu
-be
-be
-be
 be
 oP
 be
@@ -34634,13 +34644,13 @@ Uj
 Uj
 be
 be
-be
-be
-Yu
-be
-be
-be
-Yu
+Uj
+lB
+mZ
+mZ
+mZ
+mZ
+Uj
 be
 be
 be
@@ -34837,11 +34847,11 @@ Uj
 Uj
 Uj
 Uj
-Uj
-Uj
-Uj
-Uj
-Uj
+mZ
+mZ
+mZ
+mZ
+mZ
 Uj
 Uj
 Uj
@@ -35038,13 +35048,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Uj
+mZ
+mZ
+mZ
+mZ
+mZ
+Uj
 aa
 Uj
 Uj
@@ -35240,13 +35250,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Uj
+Uj
+Uj
+Uj
+Uj
+Uj
+Uj
 aa
 aa
 Uj
