@@ -529,7 +529,7 @@
 	// Short of a rewrite, this is necessary to stop monkeycubes being washed.
 	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
-	else if(istype(O, /obj/item/mop))
+	else if(istype(O, /obj/item/mop) || istype(O, /obj/item/reagent_containers/glass/rag))
 		O.reagents.add_reagent(/decl/reagent/water, 5)
 		to_chat(user, SPAN_NOTICE("You wet \the [O] in \the [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)

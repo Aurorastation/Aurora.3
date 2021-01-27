@@ -8744,7 +8744,7 @@
 	},
 /area/shuttle/skipjack)
 "cbf" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -20145,12 +20145,6 @@
 	icon_state = "dark2"
 	},
 /area/antag/mercenary)
-"jbP" = (
-/obj/machinery/computer/teleporter,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/antag/ninja)
 "jcc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -56697,7 +56691,7 @@ ioz
 ioz
 ioz
 ioz
-jbP
+ioz
 sFP
 aaM
 aaM

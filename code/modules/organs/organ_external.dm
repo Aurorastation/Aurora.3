@@ -692,6 +692,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		germ_level++
 		owner.adjustToxLoss(1)
 
+/obj/item/organ/external/proc/body_part_class()
+	return null
+
+/obj/item/organ/external/proc/covered_bleed_report(var/blood_type)
+	return "[owner.get_pronoun("has")] [blood_type] soaking through the clothes on their [src]!"
+
 //Updating wounds. Handles wound natural I had some free spachealing, internal bleedings and infections
 /obj/item/organ/external/proc/update_wounds()
 

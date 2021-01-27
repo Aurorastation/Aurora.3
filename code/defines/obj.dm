@@ -41,13 +41,6 @@
 			return copytext(rank, 2+length(prefix))
 	return rank
 
-/obj/effect/laser
-	name = "laser"
-	desc = "IT BURNS!!!"
-	icon = 'icons/obj/projectiles.dmi'
-	var/damage = 0.0
-	var/range = 10.0
-
 /obj/effect/projection
 	name = "Projection"
 	desc = "This looks like a projection of something."

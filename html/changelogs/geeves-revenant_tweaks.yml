@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Tau Ceti Basic speakers can now understand 80% of what revenants say."
-  - tweak: "Revenants can now universally understand all languages."
-  - tweak: "Revenants now spawn between 20 and 30 minutes into the round."
-  - rscadd: "Revenants now get a numerical identifier after their name that increments up from 1."
