@@ -101,17 +101,10 @@
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
 
+	hostile_nameable = TRUE
+
 	butchering_products = list(/obj/item/stack/material/animalhide = 5)
 	meat_amount = 8
-
-/mob/living/simple_animal/hostile/retaliate/rafama/can_name(var/mob/living/M)
-	if(named)
-		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
-		return FALSE
-	if(stat == DEAD)
-		to_chat(M, SPAN_WARNING("You can't name a corpse."))
-		return FALSE
-	return TRUE
 
 /mob/living/simple_animal/schlorrgo
 	name = "schlorrgo"

@@ -660,7 +660,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"
+	set desc = "Rename an animal."
 	set category = "IC"
+	set src in view(1)
 
 	var/mob/living/M = usr
 	if(!M)	
@@ -674,7 +676,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		//check for adjacent and dead in case something happened while naming.
 		if(in_range(M,src) && (stat != DEAD))
 			to_chat(M, SPAN_NOTICE("You rename \the [src] to [input]."))
-			name = input
+			name = "\proper [input]"
 			real_name = input
 			named = TRUE
 			do_nickname(M) //This is for commanded mobs who can have a short name, like guard dogs

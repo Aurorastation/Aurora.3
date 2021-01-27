@@ -1213,7 +1213,9 @@ mob/living/carbon/human/proc/change_monitor()
 //Used to rename monkey mobs since they are humans with a monkey species applied
 /mob/living/carbon/human/proc/change_animal_name()
 	set name = "Name Animal"
+	set desc = "Name a monkeylike animal."
 	set category = "IC"
+	set src in view(1)
 
 	var/mob/living/M = usr
 	if(!M || usr == src)
@@ -1225,7 +1227,7 @@ mob/living/carbon/human/proc/change_monitor()
 			return
 		if(stat != DEAD && in_range(M,src))
 			to_chat(M, SPAN_NOTICE("You rename \the [src] to [input]."))
-			name = input
+			name = "\proper [input]"
 			real_name = input
 			named = TRUE
 

@@ -29,6 +29,7 @@
 
 	var/smart_melee = TRUE   // This makes melee mobs try to stay two tiles away from their target in combat, lunging in to attack only
 	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
+	var/hostile_nameable = FALSE //If we can rename this hostile mob. Mostly to prevent repeat checks with guard dogs and hostile/retaliate farm animals
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -43,6 +44,8 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)
+	if(hostile_nameable)
+		return ..()
 	if(faction && faction == M.faction) //In case the mob had a dociler used on it
 		return ..()
 	return FALSE

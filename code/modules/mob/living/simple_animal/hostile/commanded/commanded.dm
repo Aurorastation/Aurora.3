@@ -5,6 +5,7 @@
 	melee_damage_upper = 0
 	density = FALSE
 	belongs_to_station = TRUE
+	hostile_nameable = TRUE
 	var/short_name = null
 	var/list/command_buffer = list()
 	var/list/known_commands = list("stay", "stop", "attack", "follow")
@@ -31,16 +32,10 @@
 	return 0
 
 /mob/living/simple_animal/hostile/commanded/can_name(var/mob/living/M)
-	if(named)
-		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
-		return FALSE
 	if(master && (M != master))
 		to_chat(M, SPAN_WARNING("You can't name \the [src] because you aren't their master!"))
 		return FALSE
-	if(stat == DEAD)
-		to_chat(M, SPAN_WARNING("You can't name a corpse."))
-		return FALSE
-	return TRUE
+	return ..()
 
 /mob/living/simple_animal/hostile/commanded/do_nickname(var/mob/living/M)
 	var/input = sanitizeSafe(input("What nickname do you want to give \the [src]?","Choose a name") as null|text, MAX_NAME_LEN)
