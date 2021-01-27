@@ -46,8 +46,6 @@
 	destroy_surroundings = FALSE
 	attack_emote = "blares a tiny siren"
 
-	named = TRUE
-
 /mob/living/simple_animal/hostile/commanded/baby_harvester/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
