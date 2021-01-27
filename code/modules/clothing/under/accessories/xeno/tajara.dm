@@ -58,7 +58,7 @@
 	item_state = "summer-shirt"
 
 /obj/item/clothing/accessory/poncho/tajarancloak
-	name = "commoner cloak"
+	name = "common cloak"
 	desc = "A tajaran cloak made with the middle class in mind, fancy but nothing special."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "taj_commoncloak"
@@ -72,7 +72,7 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fancy
-	name = "royal cloak"
+	name = "fancy cloak"
 	desc = "A cloak fashioned from the best materials, meant for tajara of high standing."
 	icon_state = "taj_fancycloak"
 	item_state = "taj_fancycloak"

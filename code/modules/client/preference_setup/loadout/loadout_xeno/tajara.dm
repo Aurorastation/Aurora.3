@@ -48,8 +48,8 @@
 /datum/gear/suit/tajara_cloak/New()
 	..()
 	var/tajarancloak = list()
-	tajarancloak["commoner cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak
-	tajarancloak["royal cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/fancy
+	tajarancloak["common cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak
+	tajarancloak["fancy cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/fancy
 	gear_tweaks += new/datum/gear_tweak/path(tajarancloak)
 
 /datum/gear/suit/tajara_priest
