@@ -21,6 +21,7 @@ var/list/holder_mob_icon_cache = list()
 
 	var/last_loc_general	//This stores a general location of the object. Ie, a container or a mob
 	var/last_loc_specific	//This stores specific extra information about the location, pocket, hand, worn on head, etc. Only relevant to mobs
+	var/no_name = FALSE		//If true, removes the change animal name verb for holders that don't allow name changes
 
 /obj/item/holder/proc/setup_unsafe_list()
 	unsafe_containers = typecacheof(list(
@@ -39,6 +40,8 @@ var/list/holder_mob_icon_cache = list()
 		item_state = icon_state
 
 	flags_inv |= ALWAYSDRAW
+	if(no_name)
+		verbs -= /obj/item/holder/verb/change_animal_name
 
 	START_PROCESSING(SSprocessing, src)
 
@@ -365,6 +368,7 @@ var/list/holder_mob_icon_cache = list()
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
 	slot_flags = SLOT_HEAD | SLOT_EARS | SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
+	no_name = TRUE
 
 /obj/item/holder/drone
 	name = "maintenance drone"
@@ -374,6 +378,7 @@ var/list/holder_mob_icon_cache = list()
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_LARGE
+	no_name = TRUE
 
 /obj/item/holder/drone/heavy
 	name = "construction drone"
@@ -448,6 +453,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "brainslug"
 	origin_tech = list(TECH_BIO = 6)
 	w_class = ITEMSIZE_TINY
+	no_name = TRUE
 
 /obj/item/holder/monkey
 	name = "monkey"
@@ -585,6 +591,7 @@ var/list/holder_mob_icon_cache = list()
 	icon = 'icons/mob/npc/pai.dmi'
 	dir = EAST
 	slot_flags = SLOT_HEAD
+	no_name = TRUE
 
 /obj/item/holder/pai/drone
 	icon_state = "repairbot_rest"
