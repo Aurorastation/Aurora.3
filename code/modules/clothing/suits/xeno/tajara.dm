@@ -24,35 +24,6 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/suit/storage/tajaran/cloak
-	name = "commoner cloak"
-	desc = "A tajaran cloak made with the middle class in mind, fancy but nothing special."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "taj_commoncloak"
-	item_state = "taj_commoncloak"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-
-/obj/item/clothing/suit/storage/tajaran/cloak/fancy
-	name = "royal cloak"
-	desc = "A cloak fashioned from the best materials, meant for tajara of high standing."
-	icon_state = "taj_fancycloak"
-	item_state = "taj_fancycloak"
-
-/obj/item/clothing/accessory/poncho/tajaran/cloak
-	name = "commoner cloak"
-	desc = "A tajaran cloak made with the middle class in mind, fancy but nothing special."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "taj_commoncloakponcho"
-	item_state = "taj_commoncloakponcho"
-	icon_override = null
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/poncho/tajaran/cloak/fancy
-	name = "royal cloak"
-	desc = "A cloak fashioned from the best materials, meant for tajara of high standing."
-	icon_state = "taj_fancycloakponcho"
-	item_state = "taj_fancycloakponcho"
-
 /obj/item/clothing/suit/storage/toggle/tajaran
 	name = "tajaran naval coat"
 	desc = "A thick wool coat from Adhomai."
