@@ -41,12 +41,12 @@
 			pieces[++pieces.len] = href_list["add"]["piece"]
 
 	if(href_list["change"])
-		if(verifyPiece(href_list["change"]["piece"]))
+		if(verifyPiece(href_list["change"]["piece"]) && isnum(href_list["change"]["index"]))
 			lastAction = pieces[href_list["change"]["index"]]
 			pieces[href_list["change"]["index"]] = href_list["change"]["piece"]
 
 	
-	if(href_list["remove"])
+	if(href_list["remove"] && isnum(href_list["remove"]["index"]))
 		lastAction = pieces[href_list["remove"]["index"]]
 		pieces -= list(pieces[href_list["remove"]["index"]])
 	
