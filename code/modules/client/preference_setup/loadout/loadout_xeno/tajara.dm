@@ -40,6 +40,20 @@
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
+/datum/gear/suit/tajara_cloak
+	display_name = "tajara cloak selection"
+	description = "A selection of tajaran native cloaks."
+	path = /obj/item/clothing/accessory/poncho/tajaran
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/suit/tajara_cloak/New()
+	..()
+	var/cloak = list()
+	cloak["commoner cloak"] = /obj/item/clothing/accessory/poncho/tajaran/cloak
+	cloak["royal cloak"] = /obj/item/clothing/accessory/poncho/tajaran/cloak/fancy
+	gear_tweaks += new/datum/gear_tweak/path(cloak)
+
 /datum/gear/suit/tajara_priest
 	display_name = "tajaran religious suits selection"
 	description = "A selection of tajaran religious robes."
