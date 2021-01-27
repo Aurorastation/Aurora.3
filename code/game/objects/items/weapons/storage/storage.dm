@@ -145,7 +145,6 @@
 /obj/item/storage/proc/open(mob/user as mob)
 	if (use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
-	user.visible_message(SPAN_NOTICE("[user] opens \the [src]."))
 	orient2hud(user)
 	if (user.s_active)
 		user.s_active.close(user)
@@ -153,7 +152,6 @@
 
 /obj/item/storage/proc/close(mob/user as mob)
 	hide_from(user)
-	user.visible_message(SPAN_NOTICE("[user] closes \the [src]."))
 	user.s_active = null
 	return
 

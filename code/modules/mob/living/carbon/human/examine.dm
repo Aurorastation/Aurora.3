@@ -28,6 +28,8 @@
 	var/skipeyes = skipitems & HIDEEYES
 	var/skipears = skipitems & HIDEEARS
 
+	var/list/visible_slots = list(w_uniform, head, wear_suit, s_store, back, l_hand, r_hand, gloves, belt, shoes, wear_mask, l_ear, r_ear, wear_id)
+
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
 	if(icon)
@@ -114,7 +116,7 @@
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [icon2html(back, user)] [fluid_color_type_map(back.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>[back]</a> on [get_pronoun("his")] back.</span>\n"
 		else
 			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(back, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>\a [back]</a> on [get_pronoun("his")] back.\n"
-
+	
 	//left hand
 	if(l_hand)
 		if(l_hand.blood_color)
@@ -194,6 +196,13 @@
 		var/id_name = wear_id
 		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_id, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_id]'>\a [id_name]</a>.\n"
 
+	//Open storage
+	if(s_active && !(s_active == (l_store || r_store)))
+		if (s_active in visible_slots)
+			msg += SPAN_NOTICE("[s_active] is open.") + "\n"
+		else
+			msg += SPAN_NOTICE("[get_pronoun("He")] has \the [s_active] open.") + "\n"
+	
 	//Jitters
 	if(is_jittery)
 		if(jitteriness >= 300)

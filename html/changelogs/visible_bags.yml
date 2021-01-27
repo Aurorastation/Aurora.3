@@ -3,4 +3,4 @@ author: Sparky_hotdog
 delete-after: True
 
 changes:
-  - rscadd: "Added a visible message whenever anyone opens or closes a container. Now you can see that assistant nicking your stuff in the corner."
+  - rscadd: "When you examine someone, you can see which bag, belt, or box they have open. Pockets are excluded."
