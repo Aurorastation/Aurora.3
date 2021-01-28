@@ -198,10 +198,7 @@
 
 	//Open storage
 	if(s_active && !(s_active == (l_store || r_store)))
-		if (s_active in visible_slots)
-			msg += SPAN_NOTICE("[s_active] is open.") + "\n"
-		else
-			msg += SPAN_NOTICE("[get_pronoun("He")] has \the [s_active] open.") + "\n"
+		msg += SPAN_NOTICE("[get_pronoun("He")] is looking at \the [s_active].") + "\n"
 	
 	//Jitters
 	if(is_jittery)
