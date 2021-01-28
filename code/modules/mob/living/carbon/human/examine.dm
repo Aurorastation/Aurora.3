@@ -28,8 +28,6 @@
 	var/skipeyes = skipitems & HIDEEYES
 	var/skipears = skipitems & HIDEEARS
 
-	var/list/visible_slots = list(w_uniform, head, wear_suit, s_store, back, l_hand, r_hand, gloves, belt, shoes, wear_mask, l_ear, r_ear, wear_id)
-
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
 	if(icon)
