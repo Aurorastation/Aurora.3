@@ -2203,6 +2203,12 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_victory"
 			chatname = "curls"
 
+		taj_ears_mane
+			name = "Tajara Mane"
+			icon_state = "hair_mane"
+			gender = MALE
+			chatname = "long mane"
+
 //msai hair, longer ears
 	msai_ears
 		icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -2304,6 +2310,12 @@ Follow by example and make good judgement based on length which list to include 
 			name = "M'sai Victory Curls"
 			icon_state = "msai_victory"
 			chatname = "curls"
+
+		msai_ears_mane
+			name = "M'sai Mane"
+			icon_state = "msai_mane"
+			gender = MALE
+			chatname = "long mane"
 
 //vaurca antennae
 	vaurca_classic
