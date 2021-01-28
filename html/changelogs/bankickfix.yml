@@ -1,4 +1,0 @@
-author: Karolis2011
-delete-after: True
-changes:
-  - bugfix: "Fixed ban / kick messages not showing up on goonchat."
