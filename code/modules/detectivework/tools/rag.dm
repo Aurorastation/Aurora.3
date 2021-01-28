@@ -33,6 +33,7 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/last_clean
 	var/clean_msg = FALSE
+	fragile = 0
 
 /obj/item/reagent_containers/glass/rag/Initialize()
 	. = ..()
