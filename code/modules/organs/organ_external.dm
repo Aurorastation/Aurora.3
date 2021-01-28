@@ -870,7 +870,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 		victim.shock_stage += min_broken_damage
 		victim.flash_strong_pain()
 
+	var/mob/living/carbon/human/last_owner = owner
 	removed(null, ignore_children)
+	if(istype(last_owner) && !QDELETED(last_owner) && length(last_owner.organs) <= 1)
+		last_owner.drop_all_limbs(FALSE, disintegrate) // drops the last remaining part, usually the torso, as an item
+
+	if(QDELETED(src))
+		return
 
 	if(parent_organ)
 		var/datum/wound/lost_limb/W = new(src, disintegrate, clean)

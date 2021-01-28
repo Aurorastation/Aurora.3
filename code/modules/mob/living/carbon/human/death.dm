@@ -132,3 +132,16 @@
 	if(remote_network)
 		SSvirtualreality.remove_robot(src, remote_network)
 		remote_network = null
+
+/mob/living/carbon/human/proc/drop_all_limbs(var/skip_qdel, var/droplimb_type = DROPLIMB_BLUNT)
+	for(var/thing in organs)
+		var/obj/item/organ/external/limb = thing
+		var/limb_can_amputate = (limb.limb_flags & ORGAN_CAN_AMPUTATE)
+		limb.limb_flags |= ORGAN_CAN_AMPUTATE
+		limb.droplimb(TRUE, droplimb_type, TRUE, TRUE)
+		if(!QDELETED(limb) && limb_can_amputate)
+			limb.limb_flags &= ~ORGAN_CAN_AMPUTATE
+	for(var/obj/O in contents)
+		unEquip(O, TRUE, get_turf(src))
+	if(!skip_qdel && !QDELETED(src))
+		qdel(src)
