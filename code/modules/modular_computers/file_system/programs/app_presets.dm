@@ -39,7 +39,6 @@
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
-		new /datum/computer_file/program/lighting_control(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp)
 	)
 	return _prg_list
@@ -63,7 +62,6 @@
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
-		new /datum/computer_file/program/lighting_control(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp),
 		new /datum/computer_file/program/scanner/gas(comp)
 	)
@@ -90,7 +88,6 @@
 		new /datum/computer_file/program/atmos_control(comp),
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
-		new /datum/computer_file/program/lighting_control(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp),
 		new /datum/computer_file/program/scanner/gas(comp)
@@ -586,7 +583,6 @@
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/suit_sensors(comp),
 		new /datum/computer_file/program/alarm_monitor(comp),
-		new /datum/computer_file/program/lighting_control(comp),
 		new /datum/computer_file/program/aidiag(comp),
 		new /datum/computer_file/program/records(comp)
 	)

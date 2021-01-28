@@ -28,22 +28,18 @@
 			if(SEC_LEVEL_GREEN)
 				security_announcement.Announce("[config.alert_desc_green]", "Attention! Security level lowered to green.")
 				security_level = SEC_LEVEL_GREEN
-				SSnightlight.end_temp_disable()
 			if(SEC_LEVEL_BLUE)
 				if(security_level < SEC_LEVEL_BLUE)
 					security_announcement_sound.Announce("[config.alert_desc_blue_upto]", "Attention! Security level elevated to blue.")
 				else
 					security_announcement.Announce("[config.alert_desc_blue_downto]", "Attention! Security level lowered to blue.")
 				security_level = SEC_LEVEL_BLUE
-				SSnightlight.end_temp_disable()
 			if(SEC_LEVEL_YELLOW)
 				security_announcement_sound.Announce("[config.alert_desc_yellow_to]", "Attention! Biohazard alert declared!")
 				security_level = SEC_LEVEL_YELLOW
-				SSnightlight.end_temp_disable()
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
 					security_announcement_sound.Announce("[config.alert_desc_red_upto]", "Attention! Security level elevated to red!")
-					SSnightlight.temp_disable()
 				else
 					security_announcement.Announce("[config.alert_desc_red_downto]", "Attention! Code red!")
 				security_level = SEC_LEVEL_RED
@@ -51,7 +47,6 @@
 			if(SEC_LEVEL_DELTA)
 				security_announcement_sound.Announce("[config.alert_desc_delta]", "Attention! Delta security level reached!", new_sound = 'sound/effects/siren.ogg')
 				security_level = SEC_LEVEL_DELTA
-				SSnightlight.temp_disable()
 
 		var/newlevel = get_security_level()
 		for(var/obj/machinery/firealarm/FA in SSmachinery.processing_machines)
