@@ -714,6 +714,15 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"ck" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/obj/machines/placeholder_shield.dmi';
+	icon_state = "shield";
+	name = "shield generator";
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating,
+/area/janitor)
 "cl" = (
 /obj/structure/closet/secure_closet/brig{
 	pixel_x = -7;
@@ -2373,7 +2382,7 @@
 /area/janitor)
 "ig" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/machinery/door/blast/shutters/open{
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
@@ -2853,12 +2862,6 @@
 "kl" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/spray/cleaner,
-/turf/simulated/floor/tiled,
-/area/janitor)
-"kp" = (
-/obj/structure/shuttle_part/placeholder{
-	icon_state = "d3-6"
-	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "kw" = (
@@ -31189,7 +31192,7 @@ Eh
 Eh
 ad
 ad
-ad
+ck
 ad
 XX
 WO
@@ -37671,11 +37674,11 @@ aa
 aa
 aa
 bV
-kp
-ac
-ac
-ac
-ac
+gK
+ad
+ad
+ad
+ad
 ab
 Bk
 Bk

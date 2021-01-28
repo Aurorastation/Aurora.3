@@ -1162,7 +1162,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "fm" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/janitor)
 "fn" = (
@@ -2270,8 +2270,8 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "ll" = (
-/obj/machinery/computer/shuttle_control/lift,
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/tank/oxygen,
+/turf/simulated/floor/plating,
 /area/janitor)
 "ln" = (
 /obj/structure/cable/green{
@@ -2338,7 +2338,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "lG" = (
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating,
 /area/janitor)
 "lH" = (
@@ -2637,7 +2637,7 @@
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/janitor)
 "nM" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/janitor)
 "nN" = (
@@ -2816,7 +2816,7 @@
 /turf/simulated/floor/reinforced,
 /area/janitor)
 "pc" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen,
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/janitor)
 "pg" = (
@@ -2845,7 +2845,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "pn" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/janitor)
 "pp" = (
@@ -2887,7 +2887,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "pD" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/plating,
 /area/janitor)
 "pI" = (
@@ -2904,7 +2904,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "pJ" = (
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/janitor)
 "pK" = (
@@ -3189,7 +3189,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "rD" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/plating,
 /area/janitor)
 "rE" = (
@@ -3281,7 +3281,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "sk" = (
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor/plating,
 /area/janitor)
 "sq" = (
@@ -6390,7 +6390,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "NY" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
 /turf/simulated/floor/plating,
 /area/janitor)
 "Oc" = (
@@ -33429,20 +33432,20 @@ Uj
 bN
 cR
 Uj
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
 hM
-pc
-rD
-rD
+ll
+nM
+nM
+pD
+pD
+be
+be
+be
+be
+be
+be
+be
+be
 be
 Yu
 oP
@@ -33631,20 +33634,20 @@ gu
 bg
 bX
 Uj
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
 iE
-pn
-sk
-sk
+lG
+pc
+pc
+pJ
+rD
+rD
+be
+be
+be
+be
+be
+be
+be
 be
 Yu
 YW
@@ -33833,20 +33836,20 @@ gu
 bf
 cT
 Uj
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-lG
-lG
 fm
 fm
+pn
+pn
+pJ
+sk
+sk
+be
+be
+be
+be
+be
+be
+be
 be
 Yu
 Yu
@@ -34045,10 +34048,10 @@ Uj
 Uj
 Uj
 Uj
-nM
-nM
-NY
-NY
+be
+be
+be
+be
 be
 be
 be
@@ -34248,8 +34251,8 @@ mZ
 mZ
 Uj
 be
-pD
-pD
+be
+be
 be
 HN
 nD
@@ -34443,15 +34446,15 @@ be
 be
 be
 Uj
-ll
+mZ
 mZ
 mZ
 mZ
 mZ
 Uj
+Uj
+Uj
 be
-pJ
-pJ
 be
 oP
 be
@@ -34650,9 +34653,9 @@ mZ
 mZ
 mZ
 mZ
-Uj
+NY
 be
-be
+NY
 be
 be
 oP
