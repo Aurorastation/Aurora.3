@@ -7,7 +7,7 @@
           v-for="(tile, coli) in row"
           :key="rowi + '' + coli"
           class="tile"
-          :class="tile.tile + (selectedTile == tile.pos ? ' sel' : '')"
+          :class="tile.tile + (selected == tile.pos ? ' sel' : '')"
           @click.stop="handleTileClick(tile.pos)"
         >
           <div
@@ -22,16 +22,24 @@
       </div>
     </div>
     <template v-if="selected != null">
-      <vui-button @click="removePiece">Remove</vui-button>
+      <template v-if="isPiece(selected)">
+        <vui-button @click="removePiece">Remove</vui-button>
+      </template>
+      <template v-else>
+        <div class="mt-1">
+          Red: <vui-button v-for="(t, ti) in types" :key="'r' + ti" :icon="t.i" @click="spawn(t.k, 'red')">{{ t.n }}</vui-button>
+        </div>
+        <div>
+          Black: <vui-button v-for="(t, ti) in types" :key="'b' + ti" :icon="t.i" @click="spawn(t.k, 'black')">{{ t.n }}</vui-button>
+        </div>
+      </template>
     </template>
-    <template v-if="selectedTile != null">
-      <div class="mt-1">
-        Red: <vui-button v-for="(t, ti) in types" :key="'r' + ti" :icon="t.i" @click="spawn(t.k, 'red')">{{ t.n }}</vui-button>
-      </div>
-      <div>
-        Black: <vui-button v-for="(t, ti) in types" :key="'b' + ti" :icon="t.i" @click="spawn(t.k, 'black')">{{ t.n }}</vui-button>
-      </div>
+    <template v-else-if="!s.pieces.length">
+      <vui-button @click="presetCheckers">Initialize checker board</vui-button>
+      <vui-button @click="presetChess">Initialize chess board</vui-button>
     </template>
+    
+    
   </div>
 </template>
 
@@ -63,12 +71,36 @@ const names = {
   "h-r": "Rook",
   "h-p": "Pawn",
 }
+
+const factionPresetter = (faction) => (t) => t ? {t, f: faction} : t 
+
+const checkersPreset = [
+  [null, 'c', null, 'c', null, 'c', null, 'c'].map(factionPresetter('red')),
+  ['c', null, 'c', null, 'c', null, 'c', null].map(factionPresetter('red')),
+  [null, 'c', null, 'c', null, 'c', null, 'c'].map(factionPresetter('red')),
+  [null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null],
+  ['c', null, 'c', null, 'c', null, 'c', null].map(factionPresetter('black')),
+  [null, 'c', null, 'c', null, 'c', null, 'c'].map(factionPresetter('black')),
+  ['c', null, 'c', null, 'c', null, 'c', null].map(factionPresetter('black')),
+].flat()
+
+const chessPreset = [
+  ['h-r', 'h-k', 'h-b', 'h-ki', 'h-qe', 'h-b', 'h-k', 'h-r'].map(factionPresetter('red')),
+  ['h-p', 'h-p', 'h-p', 'h-p', 'h-p', 'h-p', 'h-p', 'h-p'].map(factionPresetter('red')),
+  [null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null],
+  ['h-p', 'h-p', 'h-p', 'h-p', 'h-p', 'h-p', 'h-p', 'h-p'].map(factionPresetter('black')),
+  ['h-r', 'h-k', 'h-b', 'h-ki', 'h-qe', 'h-b', 'h-k', 'h-r'].map(factionPresetter('black')),
+].flat()
+
 export default {
   data() {
     return {
       s: this.$root.$data.state,
       selected: null,
-      selectedTile: null,
       types: Object.keys(names).map((k) => ({n: names[k], i: icons[k], k})),
       fliped: false
     }
@@ -94,6 +126,12 @@ export default {
       const index = this.s.pieces.indexOf(found) + 1
       return { index, ghost: false, ...found }
     },
+    isPiece(pos, piece = null) {
+      if(!piece) {
+        piece = this.getPiece(pos)
+      }
+      return piece && !piece.ghost
+    },
     getPieceClass(pos) {
       const piece = this.getPiece(pos)
       return 'ic-' + icons[piece.type] + ' ' + piece.faction + (piece.ghost ? ' ghost' : '')
@@ -104,43 +142,45 @@ export default {
       this.selected = null
     },
     spawn(type, faction) {
-      const piece = this.getPiece(this.selectedTile)
+      const piece = this.getPiece(this.selected)
       if(piece && !piece.ghost) {
         return 
       }
-      Utils.sendToTopic({ add: { piece: {type, faction, pos: this.selectedTile}} })
-      this.selectedTile = null
+      this.qspawn(type, faction, this.selected)
+      this.selected = null
+    },
+    qspawn(type, faction, pos) {
+      Utils.sendToTopic({ add: { piece: {type, faction, pos}} })
     },
     handlePieceClick(pos) {
-      if(this.selectedTile != null)
-      {
-        return;
-      }
-      const piece = this.getPiece(pos)
       if(this.selected == pos)
       {
         this.selected = null
       } else {
-        if(piece && !piece.ghost)
-          this.selected = pos
+        this.selected = pos
       }
     },
     handleTileClick(pos) {
-      if(this.selected != null)
+      if(this.selected == pos)
       {
-        const piece = this.getPiece(this.selected)
-        // Move selected to this tile
-        Utils.sendToTopic({ change: { piece: {...piecePurify(piece), pos}, index: piece.index} })
         this.selected = null
-        return
-      }
-      if(this.selectedTile == pos)
-      {
-        this.selectedTile = null
+      } else if (this.selected != null) {
+        const piece = this.getPiece(this.selected)
+        if(this.isPiece(null, piece)) {
+        // Move selected to this tile
+          Utils.sendToTopic({ change: { piece: {...piecePurify(piece), pos}, index: piece.index} })
+        }
+        this.selected = null
       } else {
-        this.selectedTile = pos
+        this.selected = pos
       }
     },
+    presetChess() {
+      chessPreset.forEach((val, p) => val ? this.qspawn(val.t, val.f, p) : '');
+    },
+    presetCheckers() {
+      checkersPreset.forEach((val, p) => val ? this.qspawn(val.t, val.f, p) : '');
+    }
   },
 }
 </script>
@@ -168,6 +208,10 @@ export default {
 
       &.ghost {
         opacity: 0.6;
+
+        &.sel {
+          text-shadow: none;
+        }
       }
 
       &.sel {
