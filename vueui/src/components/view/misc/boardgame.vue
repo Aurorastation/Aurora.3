@@ -62,7 +62,7 @@ const icons = {
   "h-p": "chess-pawn",
 }
 const names = {
-  c: "Cheker",
+  c: "Checker",
   "c-k": "Marked Checker",
   "h-ki": "King",
   "h-qe": "Queen",
