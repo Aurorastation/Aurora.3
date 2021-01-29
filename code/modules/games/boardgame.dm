@@ -28,7 +28,8 @@
 	ui.open()
 
 /obj/item/board/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	. = data = data || list()
+	data = data || list()
+	. = data
 	data["pieces"] = pieces
 	data["last"] = lastAction
 
@@ -56,7 +57,7 @@
 	if(!(piece["type"] in ALLOWED_BOARD_TYPES))
 		return FALSE
 	if(!(piece["faction"] in ALLOWED_BOARD_FACTIONS))
-		return 
+		return FALSE
 	if(!(IS_VALID_BOARD_POSITION(piece["pos"])))
 		return FALSE
 	return TRUE
