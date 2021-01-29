@@ -377,3 +377,8 @@
 	item_state = "dominia_amulet"
 	icon_state = "dominia_amulet"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/ushanka/dominia
+	name = "fisanduhian ushanka"
+	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way. This one has a large Fisanduhian flag on the front."
+	icon_state = "fishushanka"

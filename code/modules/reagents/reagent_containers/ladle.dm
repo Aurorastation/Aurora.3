@@ -17,7 +17,7 @@
 	if(!target.is_open_container() || !flag)
 		return ..(target, user, flag)
 	if(reagents.total_volume)
-		if(!target.reagents?.get_free_space())
+		if(!target.reagents || !REAGENTS_FREE_SPACE(target.reagents))
 			to_chat(user, SPAN_NOTICE("[target] is full."))
 			return TRUE
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this) //sprinkling reagents on generic non-mobs

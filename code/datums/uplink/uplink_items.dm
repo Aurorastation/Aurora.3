@@ -36,10 +36,6 @@ var/datum/uplink/uplink
 /datum/uplink_item/item
 	var/path = null
 
-/datum/uplink_item/New()
-	..()
-	antag_roles = list()
-
 /datum/uplink_item/proc/buy(var/obj/item/device/uplink/U, var/mob/user)
 	var/extra_args = extra_args(user)
 	if(!extra_args)
@@ -74,7 +70,7 @@ var/datum/uplink/uplink
 
 /datum/uplink_item/proc/can_view(obj/item/device/uplink/U)
 	// Making the assumption that if no uplink was supplied, then we don't care about antag roles
-	if(!U || (!antag_roles.len && !antag_job))
+	if(!U || (!length(antag_roles) && !antag_job))
 		return 1
 
 	// With no owner, there's no need to check antag status.

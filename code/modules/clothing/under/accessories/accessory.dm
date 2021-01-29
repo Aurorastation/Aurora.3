@@ -18,37 +18,51 @@
 	on_removed()
 	return ..()
 
-/obj/item/clothing/accessory/proc/get_inv_overlay()
-	if(!inv_overlay)
-		if(!mob_overlay)
-			get_mob_overlay()
+/obj/item/clothing/accessory/Initialize()
+	. = ..()
+	update_icon()
 
+/obj/item/clothing/accessory/update_icon()
+	. = ..()
+	if(build_from_parts)
+		cut_overlays()
+		add_overlay(overlay_image(icon, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+
+/obj/item/clothing/accessory/proc/get_inv_overlay()
+	if(!mob_overlay)
+		get_mob_overlay()
+	var/I = mob_overlay.icon
+	if(!inv_overlay)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
-		inv_overlay = image(icon = mob_overlay.icon, icon_state = tmp_icon_state, dir = SOUTH)
-		if(contained_sprite)
-			tmp_icon_state = "[tmp_icon_state]"
-			inv_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]_w", dir = SOUTH)
+		else if(contained_sprite)
+			tmp_icon_state = "[tmp_icon_state]_w"
+		inv_overlay = image(icon = I, icon_state = tmp_icon_state, dir = SOUTH)
 	if(color)
 		inv_overlay.color = color
+	if(build_from_parts)
+		inv_overlay.cut_overlays()
+		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_mob_overlay()
+	var/I = icon_override ? icon_override : contained_sprite ? icon : INV_ACCESSORIES_DEF_ICON
 	if(!mob_overlay)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_mob" in icon_states(icon_override))
+			if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
-			mob_overlay = image("icon" = icon_override, "icon_state" = "[tmp_icon_state]")
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
-			mob_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]")
-		else
-			mob_overlay = image("icon" = INV_ACCESSORIES_DEF_ICON, "icon_state" = "[tmp_icon_state]")
+		mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 	if(color)
 		mob_overlay.color = color
+	if(build_from_parts)
+		mob_overlay.cut_overlays()
+		mob_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	mob_overlay.appearance_flags = RESET_ALPHA
 	return mob_overlay
 
 //when user attached an accessory to S
@@ -58,7 +72,6 @@
 	has_suit = S
 	loc = has_suit
 	has_suit.add_overlay(get_inv_overlay())
-
 	if(user)
 		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
 		src.add_fingerprint(user)
@@ -163,11 +176,23 @@
 	name = "white tie"
 	icon_state = "whitetie"
 
+/obj/item/clothing/accessory/tie/colourable
+	name = "tie"
+	icon_state = "whitetie"
+
+/obj/item/clothing/accessory/tie/colourable/clip
+	name = "tie with a gold clip"
+	build_from_parts = TRUE
+	worn_overlay = "clip"
+	
+/obj/item/clothing/accessory/tie/colourable/clip/silver
+	name = "tie with a silver clip"
+	worn_overlay = "sclip"
+
 /obj/item/clothing/accessory/tie/bowtie
 	name = "bowtie"
 	desc = "Snazzy!"
 	icon_state = "bowtie"
-
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."

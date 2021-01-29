@@ -174,11 +174,10 @@
 			log_debug("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
 			create_reagents(5)
 
-		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
-		if(B && !(status & ORGAN_ROBOT) && prob(40))
-			reagents.remove_reagent(/datum/reagent/blood,0.1)
+		if(REAGENT_VOLUME(reagents, /decl/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))
+			reagents.remove_reagent(/decl/reagent/blood,0.1)
 			if (isturf(loc))
-				blood_splatter(src,B,1)
+				blood_splatter(src,src,TRUE)
 		if(config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
@@ -236,9 +235,6 @@
 		if(antibiotics < 5 && prob(round(germ_level/6)))
 			germ_level++
 
-	if(germ_level >= INFECTION_LEVEL_ONE)
-		owner.add_chemical_effect(CE_FEVER, germ_level/INFECTION_LEVEL_ONE) //10u of Perconol minimum for a level 3 infection
-
 	if (germ_level >= INFECTION_LEVEL_TWO)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 		//spread germs
@@ -267,7 +263,7 @@
 						germ_level += rand(2,3)
 					if(501 to INFINITY)
 						germ_level += rand(3,5)
-						owner.reagents.add_reagent(/datum/reagent/toxin, rand(1,2))
+						owner.reagents.add_reagent(/decl/reagent/toxin, rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
@@ -285,12 +281,15 @@
 /obj/item/organ/proc/is_usable()
 	return !(status & (ORGAN_CUT_AWAY|ORGAN_MUTATED|ORGAN_DEAD))
 
+/obj/item/organ/proc/is_infected()
+	return (germ_level >= INFECTION_LEVEL_ONE)
+
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
-	if(!owner)
+	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects))
 		return
 
-	var/antibiotics = owner.reagents?.get_reagent_amount(/datum/reagent/thetamycin)
+	var/antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
 	if (!germ_level || antibiotics < 5)
 		return
@@ -391,8 +390,8 @@
 	if (!reagents)
 		create_reagents(5)
 
-	var/datum/reagent/blood/organ_blood = locate(/datum/reagent/blood) in reagents.reagent_list
-	if(!organ_blood || !organ_blood.data["blood_DNA"])
+	var/blood_data = LAZYACCESS(reagents.reagent_data, /decl/reagent/blood)
+	if(!("blood_DNA" in blood_data))
 		owner.vessel.trans_to(src, 5, 1, 1)
 
 	if(owner && vital)

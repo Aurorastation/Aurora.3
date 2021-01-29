@@ -25,6 +25,7 @@
 	minbodytemp = 0
 
 	tameable = FALSE
+	smart_melee = FALSE
 
 	flying = TRUE
 	attack_emote = "buzzes at"
@@ -52,10 +53,8 @@
 	if(severity == 1.0)
 		apply_damage(5)
 
-/mob/living/simple_animal/hostile/viscerator/lube/Initialize()
-	. = ..()
-	create_reagents(30)
-	reagents.add_reagent(/datum/reagent/lube, 30)
+/mob/living/simple_animal/hostile/viscerator/lube
+	reagents_to_add = list(/decl/reagent/lube = 30)
 
 /mob/living/simple_animal/hostile/viscerator/lube/death()
 	reagents.splash(get_turf(src), 30)

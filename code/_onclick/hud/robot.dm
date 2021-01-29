@@ -120,9 +120,9 @@ var/obj/screen/robot_inventory
 	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 	// Computer device hud
-
-	r.computer.screen_loc = ui_oxygen
-	r.computer.layer = SCREEN_LAYER
+	if(r.computer)
+		r.computer.screen_loc = ui_oxygen
+		r.computer.layer = SCREEN_LAYER
 
 
 	//Handle the gun settings buttons

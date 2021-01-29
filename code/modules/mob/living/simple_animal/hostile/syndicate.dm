@@ -109,7 +109,7 @@
 /mob/living/simple_animal/hostile/syndicate/ranged
 	ranged = 1
 	rapid = 1
-	smart = TRUE
+	smart_ranged = TRUE
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	casingtype = /obj/item/ammo_casing/c10mm

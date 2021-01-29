@@ -140,6 +140,14 @@
 		return TRUE
 	return FALSE
 
+/proc/isrevenant(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_REVENANT)
+				return TRUE
+	return FALSE
+
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
@@ -1029,38 +1037,6 @@ proc/is_blind(A)
 
 	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
 		. |= TYPE_HUMANOID
-
-
-/mob/living/proc/get_vessel(create = FALSE)
-	if (!create)
-		return
-
-	//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
-	//We create an MD5 hash of the mob's reference to use as its DNA string.
-	//This creates unique DNA for each creature in a consistently repeatable process
-	var/datum/reagents/vessel = new/datum/reagents(600)
-	vessel.add_reagent(/datum/reagent/blood,560)
-	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.type == /datum/reagent/blood)
-			B.data = list(
-				"donor" = WEAKREF(src),
-				"species" = name,
-				"blood_DNA" = md5("\ref[src]"),
-				"blood_colour" = "#a10808",
-				"blood_type" = null,
-				"resistances" = null,
-				"trace_chem" = null
-			)
-
-			B.color = B.data["blood_colour"]
-
-	return vessel
-
-/mob/living/carbon/human/get_vessel(create = FALSE)
-	. = vessel
-
-/mob/living/carbon/alien/diona/get_vessel(create = FALSE)
-	. = vessel
 
 #undef SAFE_PERP
 

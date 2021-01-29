@@ -83,7 +83,7 @@
 	icon_state = "beret_janitor"
 	item_state = "beret_janitor"
 
-// alt. sec stuff, because security needs berets for every link in the chain of command
+// alt. sec stuff, because security needs berets for every link in the chain of command for some reason
 
 /obj/item/clothing/head/beret/security/officer
 	name = "officer beret"
@@ -92,13 +92,13 @@
 	item_state = "beret_officer"
 
 /obj/item/clothing/head/beret/security/hos
-	name = "blue commander beret"
-	desc = "A beret in security navy blue beret with a commander's rank emblem. For heads of security that are more inclined towards style than safety."
+	name = "commander beret"
+	desc = "A beret in security navy blue with a commander's rank emblem. For heads of security that are more inclined towards style than safety."
 	icon_state = "beret_hos"
 	item_state = "beret_hos"
 
-/obj/item/clothing/head/beret/security/hos/alt
-	name = "black commander beret"
+/obj/item/clothing/head/beret/security/hos/corp
+	name = "corporate commander beret"
 	desc = "A beret in corporate black with a commander's rank emblem. For heads of security that are more inclined towards style than safety."
 	icon_state = "corp"
 	item_state = "corp"
@@ -108,6 +108,12 @@
 	desc = "A beret in security navy blue with a warden's rank emblem. For wardens that are more inclined towards style than safety."
 	icon_state = "beret_warden"
 	item_state = "beret_warden"
+
+/obj/item/clothing/head/beret/security/warden/corp
+	name = "corporate warden beret"
+	desc = "A beret in corporate black with a warden's rank emblem. For wardens that are more inclined towards style than safety."
+	icon_state = "corp"
+	item_state = "corp"
 
 // Corporate.
 
