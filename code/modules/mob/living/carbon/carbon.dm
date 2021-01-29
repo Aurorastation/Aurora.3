@@ -493,3 +493,6 @@
 /mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	if(eyecheck() < intensity || override_blindness_check)
 		return ..()
+
+/mob/living/carbon/get_contained_external_atoms()
+	. = contents - internal_organs

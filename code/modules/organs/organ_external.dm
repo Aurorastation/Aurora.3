@@ -873,10 +873,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/mob/living/carbon/human/last_owner = owner
 	removed(null, ignore_children)
 	if(istype(last_owner) && !QDELETED(last_owner) && length(last_owner.organs) <= 1)
-		last_owner.drop_all_limbs(FALSE, disintegrate) // drops the last remaining part, usually the torso, as an item
-
-	if(QDELETED(src))
-		return
+		last_owner.drop_all_limbs(disintegrate) // drops the last remaining part, usually the torso, as an item
 
 	if(parent_organ)
 		var/datum/wound/lost_limb/W = new(src, disintegrate, clean)

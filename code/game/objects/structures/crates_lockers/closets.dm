@@ -106,17 +106,15 @@
 			return 0
 	return 1
 
-/obj/structure/closet/proc/dump_contents()
+/obj/structure/closet/dump_contents()
 	//Cham Projector Exception
-	for(var/obj/effect/dummy/chameleon/AD in src)
+	for(var/obj/effect/dummy/chameleon/AD in contents)
 		AD.forceMove(loc)
 
-	for(var/obj/I in src)
-		if(linked_teleporter && I == linked_teleporter)
-			continue
+	for(var/obj/I in contents - linked_teleporter)
 		I.forceMove(loc)
 
-	for(var/mob/M in src)
+	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
 			M.client.eye = M.client.mob
