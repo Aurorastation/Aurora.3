@@ -89,3 +89,40 @@
 
 /area/hallway/medical/upper
 	name = "Medical - Upper Atrium"
+
+//Research
+
+/area/rnd/conference
+	name = "Research - Conference Room"
+
+/area/maintenance/substation/xenoarcheology
+	name = "Xenoarcheology Substation"
+
+//Hangar
+
+/area/hangar
+	name = "Hangar"
+	icon_state = "bluenew"
+	ambience = AMBIENCE_HANGAR
+	sound_env = HANGAR
+	station_area = TRUE
+
+/area/hangar/briefing
+	name = "Expedition Briefing Room"
+	sound_env = LARGE_ENCLOSED
+
+/area/hangar/control
+	name = "Hangar Control Room"
+	sound_env = SMALL_ENCLOSED
+
+/area/hangar/intrepid
+	name = "Intrepid Hangar"
+
+/area/hangar/cargo
+	name = "Cargo Hangar"
+
+/area/hangar/auxiliary
+	name = "Auxiliary Hangar"
+
+/area/maintenance/substation/hangar
+	name = "Hangar Substation"
