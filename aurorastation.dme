@@ -2963,6 +2963,7 @@
 #include "maps\exodus\code\exodus_shuttles.dm"
 #include "maps\exodus\code\exodus_unittest.dm"
 #include "maps\placeholder\code\placeholder.dm"
+#include "maps\placeholder\code\placeholder_areas.dm"
 #include "maps\placeholder\code\placeholder_holodeck.dm"
 #include "maps\placeholder\code\placeholder_lifts.dm"
 #include "maps\placeholder\code\placeholder_shuttles.dm"
