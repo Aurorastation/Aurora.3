@@ -153,6 +153,9 @@ export default {
       Utils.sendToTopic({ add: { piece: {type, faction, pos}} })
     },
     handlePieceClick(pos) {
+      if(!this.isPiece(pos)) {
+        return this.handleTileClick(pos)
+      }
       if(this.selected == pos)
       {
         this.selected = null
@@ -166,7 +169,7 @@ export default {
         this.selected = null
       } else if (this.selected != null) {
         const piece = this.getPiece(this.selected)
-        if(this.isPiece(null, piece)) {
+        if(this.isPiece(null, piece) && !this.isPiece(pos)) {
         // Move selected to this tile
           Utils.sendToTopic({ change: { piece: {...piecePurify(piece), pos}, index: piece.index} })
         }
@@ -236,10 +239,10 @@ export default {
     }
 
     &.b {
-      background-color: #252536;
+      background-color: #3a3a3d;
 
       &.sel {
-        background-color: #382536;
+        background-color: #4C3A3D;
       }
     }
   }
