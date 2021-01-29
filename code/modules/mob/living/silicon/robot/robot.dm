@@ -131,6 +131,7 @@
 	var/image/panel_overlay
 	var/list/image/cached_panel_overlays
 	var/image/shield_overlay
+	var/datum/weakref/holo_map
 
 /mob/living/silicon/robot/Initialize(mapload, unfinished = FALSE)
 	spark_system = bind_spark(src, 5)
@@ -490,6 +491,20 @@
 	var/datum/robot_component/C = components[toggle]
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
+
+/mob/living/silicon/robot/verb/view_holomap()
+	set category = "Robot Commands"
+	set name = "View Holomap"
+	set desc = "View Holomap of the current level."
+	
+	var/obj/machinery/station_map/robot/holo_map
+	if(src.holo_map)
+		holo_map = src.holo_map.resolve()
+
+	if(!holo_map)
+		holo_map = new(src)
+		holo_map.startWatching(src)
+		src.holo_map = WEAKREF(holo_map)
 
 /obj/item/robot_module/janitor/verb/toggle_mop()
 	set category = "Robot Commands"
