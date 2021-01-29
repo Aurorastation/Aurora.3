@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "Clips on ties from the loadout now show on sprites."
