@@ -355,7 +355,7 @@
 	if(H)
 		if(H.species.siemens_coefficient == 0)
 			return
-		if(isvaurca(H)) //natural vaurca insulation
+		if(isvaurca(H) || H.is_diona()) //natural vaurca and dionae insulation
 			return
 		if(H.gloves && contact_zone == "hand")
 			var/obj/item/clothing/gloves/G = H.gloves
