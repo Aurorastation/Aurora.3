@@ -2221,10 +2221,12 @@
 /turf/simulated/floor/tiled/white,
 /area/quartermaster/break_room)
 "gZ" = (
-/obj/machinery/power/smes/magical,
 /obj/structure/cable/yellow,
 /obj/structure/cable{
 	icon_state = "0-2"
+	},
+/obj/machinery/power/smes/magical{
+	output_attempt = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smes/tesla)
@@ -2733,9 +2735,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "iC" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
@@ -4250,6 +4249,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"on" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/device/radio/intercom{
+	dir = 1;
+	pixel_y = -21
+	},
+/turf/simulated/floor/tiled,
+/area/medical/first_responder)
 "oo" = (
 /obj/machinery/light{
 	dir = 4
@@ -7745,13 +7752,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "Cb" = (
-/obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -21
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/obj/structure/cable{
+	icon_state = "12-0"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply,
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "Cc" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -8347,6 +8357,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "EA" = (
@@ -10049,14 +10060,6 @@
 /obj/item/clothing/suit/straight_jacket,
 /obj/item/mesmetron,
 /obj/random/plushie,
-/obj/machinery/power/apc/low{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "KZ" = (
@@ -10657,6 +10660,9 @@
 /area/rnd/xenobiology/xenoflora)
 "Ne" = (
 /obj/structure/bed/chair/comfy/brown,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "Nf" = (
@@ -11495,6 +11501,12 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/library)
+"Qn" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/wood,
+/area/medical/psych)
 "Qp" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -11771,13 +11783,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "RB" = (
-/obj/machinery/power/apc{
+/obj/machinery/firealarm/south,
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/power/apc/low{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/machinery/firealarm/south,
-/obj/structure/flora/pottedplant/random,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "RD" = (
@@ -11823,6 +11838,9 @@
 /area/crew_quarters/cafeteria)
 "RL" = (
 /obj/machinery/hologram/holopad,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "RM" = (
@@ -11849,6 +11867,9 @@
 /area/maintenance/substation/medical)
 "RO" = (
 /obj/machinery/light,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "RP" = (
@@ -12075,7 +12096,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "SD" = (
-/obj/structure/table/standard,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "SE" = (
@@ -12228,7 +12249,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "Tq" = (
-/obj/structure/table/standard,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "Tr" = (
@@ -12659,11 +12680,17 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "UF" = (
-/obj/structure/cable/green{
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/wood,
-/area/medical/psych)
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "UG" = (
 /obj/structure/bed/chair/plastic{
 	dir = 1
@@ -29233,7 +29260,7 @@ qG
 Yr
 XA
 XA
-IA
+Uo
 Ez
 kM
 kM
@@ -29844,8 +29871,8 @@ EG
 kM
 Ij
 KT
-He
-He
+Qn
+hQ
 RO
 CE
 MF
@@ -30045,7 +30072,7 @@ Uo
 Fj
 rv
 hQ
-UF
+hQ
 Ne
 Ps
 RY
@@ -33874,7 +33901,7 @@ My
 AO
 tp
 tp
-Cb
+tp
 Ha
 an
 Wr
@@ -34480,7 +34507,7 @@ Ko
 VF
 wN
 AP
-tp
+on
 Ha
 ao
 Ou
@@ -36486,8 +36513,8 @@ Ep
 Ep
 Ep
 Ep
-Sk
-cQ
+Cb
+UF
 Sk
 Sk
 jV

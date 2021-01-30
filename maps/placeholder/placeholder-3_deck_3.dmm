@@ -446,8 +446,8 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bt" = (
-/obj/structure/table/wood,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/table/reinforced/wood,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "bu" = (
@@ -471,11 +471,12 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bC" = (
-/obj/structure/table/wood,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/door/blast/shutters{
+/obj/machinery/door/blast/shutters/open{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced/wood,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "bE" = (
@@ -485,10 +486,10 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/cafeteria)
 "bH" = (
-/obj/item/stool/wood,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "bJ" = (
@@ -523,9 +524,9 @@
 /turf/simulated/floor/wood,
 /area/hallway/primary/starboard)
 "bR" = (
-/obj/structure/table/wood,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "bV" = (
@@ -537,12 +538,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "bX" = (
-/obj/structure/table/wood,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/door/blast/shutters{
+/obj/machinery/door/blast/shutters/open{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced/wood,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "bY" = (
@@ -742,10 +744,10 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cU" = (
+/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/hallway/primary/starboard)
 "cV" = (
@@ -770,10 +772,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "db" = (
+/obj/structure/lattice,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/lattice,
 /turf/simulated/open,
 /area/hallway/medical/upper)
 "dc" = (
@@ -953,10 +955,10 @@
 /turf/simulated/floor,
 /area/medical/equipment)
 "dC" = (
+/obj/structure/lattice,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/lattice,
 /turf/simulated/open,
 /area/hallway/medical/upper)
 "dD" = (
@@ -1138,15 +1140,15 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "dL" = (
-/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/hallway/primary/starboard)
 "dM" = (
-/obj/structure/railing/mapped,
 /obj/structure/lattice,
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/hallway/primary/starboard)
 "dN" = (
@@ -2281,6 +2283,12 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
+"lD" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/crew_quarters/theatre)
 "lF" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/wood,
@@ -2527,14 +2535,9 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "nl" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/crew_quarters/theatre)
+/obj/machinery/door/airlock/freezer_maint,
+/turf/simulated/floor,
+/area/crew_quarters/sleep/cryo)
 "nm" = (
 /obj/structure/bed/chair/office/bridge,
 /turf/simulated/floor/tiled/white,
@@ -3625,10 +3628,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "wI" = (
-/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/hallway/medical/upper)
 "wJ" = (
@@ -4160,6 +4163,11 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/low{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
@@ -4920,10 +4928,10 @@
 /turf/simulated/floor/wood,
 /area/medical/smoking)
 "IF" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "IP" = (
@@ -5117,7 +5125,7 @@
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/crew_quarters/fitness/pool)
 "KC" = (
-/obj/structure/table/standard,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/theatre)
 "KG" = (
@@ -5983,10 +5991,11 @@
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "Ts" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/simulated/open,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/theatre)
 "Ty" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -6010,6 +6019,7 @@
 	name = "north bump";
 	pixel_y = 24
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/theatre)
 "TI" = (
@@ -6304,7 +6314,7 @@
 /turf/simulated/floor,
 /area/crew_quarters/sleep/cryo)
 "Xh" = (
-/obj/structure/table/standard,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/theatre)
 "Xj" = (
@@ -6315,8 +6325,8 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "Xn" = (
-/obj/structure/railing/mapped,
 /obj/structure/lattice,
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/hallway/medical/upper)
 "Xz" = (
@@ -6378,8 +6388,8 @@
 /area/tcommsat/chamber)
 "Yu" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/table/wood,
 /obj/structure/window/reinforced,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "Yv" = (
@@ -6461,14 +6471,6 @@
 /obj/item/book/manual/wiki/security_space_law,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
-"YW" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/aibunker)
 "YX" = (
 /turf/simulated/wall,
 /area/crew_quarters/fitness)
@@ -20838,7 +20840,7 @@ Hz
 Hz
 Hz
 TF
-Ts
+js
 Hz
 KC
 KC
@@ -21039,8 +21041,8 @@ js
 tf
 js
 pZ
-oJ
-nl
+Ts
+js
 Hz
 Hz
 Hz
@@ -21242,7 +21244,7 @@ tf
 js
 pZ
 oJ
-EN
+lD
 EN
 EN
 EN
@@ -22459,7 +22461,7 @@ EN
 lz
 id
 Hz
-KC
+KJ
 KJ
 KJ
 QG
@@ -22661,7 +22663,7 @@ EN
 EN
 ay
 Hz
-KC
+KJ
 KJ
 KJ
 Xh
@@ -22863,7 +22865,7 @@ ay
 ay
 ay
 Hz
-KC
+KJ
 KJ
 KJ
 QG
@@ -24258,7 +24260,7 @@ Cf
 Cf
 Cf
 Cf
-Cf
+nl
 Yg
 Yg
 Yg
@@ -24457,10 +24459,10 @@ jW
 CQ
 Vy
 Cf
-Cf
 jW
 CQ
 Vy
+rJ
 Yg
 bY
 Yg
@@ -24659,10 +24661,10 @@ Au
 Au
 Au
 ir
-Mb
 Au
 Au
 Au
+rJ
 Yg
 cd
 jr
@@ -24864,7 +24866,7 @@ rJ
 rJ
 rJ
 rJ
-IF
+rJ
 Yg
 ch
 Yg
@@ -25066,7 +25068,7 @@ rJ
 rJ
 rJ
 rJ
-rJ
+IF
 Yg
 Yg
 Yg
@@ -25265,10 +25267,10 @@ RR
 RR
 RR
 Mb
-Mb
 RR
 RR
 RR
+rJ
 Yg
 ZZ
 cA
@@ -25467,10 +25469,10 @@ qf
 xq
 Xg
 Cf
-Cf
 qf
 xq
 Xg
+rJ
 Yg
 ZZ
 Np
@@ -25906,7 +25908,7 @@ pf
 Fn
 al
 Fn
-YW
+Fn
 Fn
 Fn
 US

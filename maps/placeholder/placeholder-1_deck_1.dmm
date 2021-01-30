@@ -1793,7 +1793,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "gW" = (
-/obj/machinery/power/smes/magical,
+/obj/machinery/power/smes/buildable{
+	RCon_tag = "Substation - Cargo"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "gX" = (
@@ -3397,7 +3403,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "oZ" = (
-/obj/machinery/power/breakerbox,
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "Cargo Substation"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "pa" = (
@@ -3445,8 +3453,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/terminal{
-	dir = 8;
-	layer = 5
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
@@ -3721,6 +3728,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "qR" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "qS" = (
@@ -6068,7 +6081,7 @@
 /area/engineering/atmos/air)
 "Dc" = (
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -6911,11 +6924,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/briefing)
 "HI" = (
-/obj/machinery/gravity_generator/main/station{
-	icon_state = "on_2"
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 4
 	},
-/turf/simulated/floor/reinforced,
-/area/engineering/gravity_gen)
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
 "HJ" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -6998,11 +7012,11 @@
 /turf/simulated/wall,
 /area/hangar/intrepid)
 "Ia" = (
-/obj/machinery/gravity_generator/main/station{
-	icon_state = "on_6"
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/reinforced,
-/area/engineering/gravity_gen)
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
 "In" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -7016,14 +7030,18 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "Io" = (
-/obj/machinery/gravity_generator/main/station{
-	icon_state = "on_5"
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
-/obj/machinery/gravity_generator/main/station{
-	icon_state = "activated"
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
-/turf/simulated/floor/reinforced,
-/area/engineering/gravity_gen)
+/obj/machinery/power/apc/low{
+	name = "south bump";
+	pixel_y = -24
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
 "Iq" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/placeholder_tanks.dmi';
@@ -7090,13 +7108,11 @@
 /turf/template_noop,
 /area/maintenance/fpmaint)
 "IH" = (
-/obj/machinery/door/airlock/freezer_maint{
-	req_access = list(28)
-	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/freezer_maint,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -7168,12 +7184,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
-"IR" = (
-/obj/machinery/gravity_generator/main/station{
-	icon_state = "on_4"
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/gravity_gen)
 "IT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -7482,12 +7492,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/hangar)
-"KA" = (
-/obj/machinery/gravity_generator/main/station{
-	icon_state = "on_9"
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/gravity_gen)
 "KB" = (
 /obj/machinery/gravity_generator/main/station,
 /turf/simulated/floor/reinforced,
@@ -7652,12 +7656,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/maintenance/vault)
-"Lf" = (
-/obj/machinery/gravity_generator/main/station{
-	icon_state = "on_7"
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/gravity_gen)
 "Lg" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 4
@@ -23554,8 +23552,8 @@ de
 de
 fV
 qR
-qR
-qR
+HI
+Ia
 pK
 Dc
 dz
@@ -23757,7 +23755,7 @@ IL
 fV
 oZ
 gW
-qR
+Io
 mJ
 yn
 dz
@@ -26364,8 +26362,8 @@ Ef
 em
 yf
 HK
-Ia
-KA
+HK
+HK
 qE
 em
 FU
@@ -26565,8 +26563,8 @@ uA
 Yf
 pz
 yf
-HI
-Io
+HK
+HK
 KB
 qE
 em
@@ -26768,8 +26766,8 @@ HQ
 pz
 yf
 HK
-IR
-Lf
+HK
+HK
 qE
 em
 FU
