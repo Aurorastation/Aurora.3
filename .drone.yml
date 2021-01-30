@@ -35,13 +35,12 @@ steps:
       - /opt/dreamchecker
   - name: "Restore NPM Cache"
     image: appleboy/drone-sftp-cache
-    server: droneftp.internal
-    username: drone
-    password: drone
-    path: /upload/nodecache
-    restore: true
-    mount:
-      - vueui/node_modules
+    settings:
+      server: droneftp.internal
+      username: drone
+      password: drone
+      path: /upload/nodecache
+      restore: true
   - name: "Vue - Lint and Compile"
     image: node:10-buster
     commands:
@@ -52,14 +51,12 @@ steps:
       - npm run build
   - name: "Rebuild NPM Cache"
     image: appleboy/drone-sftp-cache
-    server: droneftp.internal
-    username: drone
-    password: drone
-    path: /upload/nodecache
-    rebuild: true
-    mount:
-      - vueui/node_modules
-        
+    settings:
+      server: droneftp.internal
+      username: drone
+      password: drone
+      path: /upload/nodecache
+      rebuild: true
 ---
 kind: pipeline
 type: docker
@@ -159,6 +156,6 @@ steps:
       - echo "Unit Tests Completed"
 ---
 kind: signature
-hmac: 0d03970bbba378c6c6ad57ce9d5f4021c1d14d133829ea16ad18d25cb19afe27
+hmac: e465d77019b6e908f3d8dbb87ef6fd727270f982e1b3d4c9e5dd935042ad7cff
 
 ...
