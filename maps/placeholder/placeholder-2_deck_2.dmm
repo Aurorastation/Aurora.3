@@ -6310,8 +6310,8 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "wH" = (
-/obj/effect/decal/fake_object{
-	pixel_y = 25
+/obj/structure/ladder/up{
+	pixel_y = 13
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
