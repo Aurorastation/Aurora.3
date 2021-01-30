@@ -87,6 +87,29 @@
 	SSmachinery.queue_rcon_update()
 	return ..()
 
+/obj/machinery/power/smes/buildable/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
+	health_check(P.damage)
+
+/obj/machinery/power/smes/buildable/proc/health_check(var/health_reduction = 0)
+	health -= health_reduction
+	if(health < 0)
+		visible_message(SPAN_DANGER("\The [src] blows apart!"))
+		for(var/thing in component_parts)
+			var/obj/O = thing
+			if(prob(40))
+				O.forceMove(loc)
+				O.throw_at_random(FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
+			else
+				qdel(O)
+		explosion(loc, 1, 2, 4, 8) //copied from the catastrophic failure code
+		qdel(src)
+	else if(is_badly_damaged() && !busted)
+		busted = TRUE
+		open_hatch = TRUE
+		visible_message(SPAN_DANGER("\The [src]'s maintenance hatch [open_hatch ? "releases a torrent of sparks" : "blows open with a flurry of sparks"]!"))
+
 // Proc: process()
 // Parameters: None
 // Description: Uses parent process, but if grounding wire is cut causes sparks to fly around.
@@ -316,7 +339,23 @@
 	// - Hatch is open, so we can modify the SMES
 	// - No action was taken in parent function (terminal de/construction atm).
 	if (..())
-
+		if(W.iswelder())
+			if(health == initial(health))
+				to_chat(user, SPAN_WARNING("\The [src] is already repaired."))
+				return
+			var/obj/item/weldingtool/WT = W
+			if(!WT.welding)
+				to_chat(user, SPAN_WARNING("\The [src] isn't lit."))
+				return
+			if(WT.get_fuel() < 2)
+				to_chat(user, SPAN_WARNING("You don't have enough fuel to repair \the [src]."))
+				return
+			if(do_after(user, 5 SECONDS) && WT.remove_fuel(2, user))
+				health = min(health + 100, initial(health))
+				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / initial(health)) * 100)]% repaired."))
+				if(health == initial(health))
+					busted = FALSE
+				return
 		// Multitool - change RCON tag
 		if(W.ismultitool())
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
