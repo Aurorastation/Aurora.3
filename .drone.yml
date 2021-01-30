@@ -40,6 +40,12 @@ steps:
       - npm install # TODO: Cache that shit
       - (npm run lint | tee lint.log)
       - npm run build
+  - name: "Vue - Report"
+    image: alekzonder/puppeteer:latest
+    commands:
+      - cd tools/vueui-report
+      - npm install # TODO: Cache that shit
+      - CI=1 node .
 ---
 kind: pipeline
 type: docker

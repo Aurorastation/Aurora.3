@@ -33,7 +33,14 @@ module.exports = async function (signale) {
 
   // http://localhost:5221/tmpl?test=C:\Projektai\Aurora.3\vueui\tests\manifest.json&theme=vueui%20theme-nano%20dark-theme
 
-  const browser = await puppeteer.launch({headless: false});
+  const options = {
+    headless: process.env.CI ? true : false,
+    args: [
+      process.env.CI ? '--no-sandbox' : '',
+    ]
+  }
+
+  const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
 
   let results = {}
