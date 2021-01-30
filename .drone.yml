@@ -33,6 +33,15 @@ steps:
     image: aurorastation/dm-buildimage:latest
     commands:
       - /opt/dreamchecker
+  - name: "Restore NPM Cache"
+    image: appleboy/drone-sftp-cache
+    server: droneftp.internal
+    username: drone
+    password: drone
+    path: /upload/nodecache
+    restore: true
+    mount:
+      - vueui/node_modules
   - name: "Vue - Lint and Compile"
     image: node:10-buster
     commands:
@@ -41,6 +50,16 @@ steps:
       - (npm run lint | tee lint.log)
       - grep "No lint errors found!" lint.log
       - npm run build
+  - name: "Rebuild NPM Cache"
+    image: appleboy/drone-sftp-cache
+    server: droneftp.internal
+    username: drone
+    password: drone
+    path: /upload/nodecache
+    rebuild: true
+    mount:
+      - vueui/node_modules
+        
 ---
 kind: pipeline
 type: docker
@@ -140,6 +159,6 @@ steps:
       - echo "Unit Tests Completed"
 ---
 kind: signature
-hmac: 789040126b8c141504b44f8489c7d7c8dca93c7539270de6b2b67fd835061c9e
+hmac: 0d03970bbba378c6c6ad57ce9d5f4021c1d14d133829ea16ad18d25cb19afe27
 
 ...
