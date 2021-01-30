@@ -36,9 +36,14 @@ steps:
   - name: "Restore NPM Cache"
     image: appleboy/drone-sftp-cache
     settings:
-      server: droneftp.internal
-      username: drone
-      password: drone
+      server:
+        from_secret: sftp_server
+      port:
+        from_secret: sftp_port
+      username:
+        from_secret: sftp_user
+      password:
+        from_secret: sftp_pass
       path: /upload/nodecache
       restore: true
   - name: "Vue - Lint and Compile"
@@ -52,9 +57,14 @@ steps:
   - name: "Rebuild NPM Cache"
     image: appleboy/drone-sftp-cache
     settings:
-      server: droneftp.internal
-      username: drone
-      password: drone
+      server:
+        from_secret: sftp_server
+      port:
+        from_secret: sftp_port
+      username:
+        from_secret: sftp_user
+      password:
+        from_secret: sftp_pass
       path: /upload/nodecache
       rebuild: true
 ---
@@ -156,6 +166,6 @@ steps:
       - echo "Unit Tests Completed"
 ---
 kind: signature
-hmac: e465d77019b6e908f3d8dbb87ef6fd727270f982e1b3d4c9e5dd935042ad7cff
+hmac: f0ed4e933f785bfab5975dc656f93d47527ab1b80e117727b9bbbc193fa96f67
 
 ...
