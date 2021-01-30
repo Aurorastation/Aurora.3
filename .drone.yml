@@ -45,6 +45,8 @@ steps:
       password:
         from_secret: sftp_pass
       path: /upload/nodecache
+      mount:
+        - vueui/node_modules
       restore: true
   - name: "Vue - Lint and Compile"
     image: node:10-buster
@@ -66,6 +68,8 @@ steps:
       password:
         from_secret: sftp_pass
       path: /upload/nodecache
+      mount:
+        - vueui/node_modules
       rebuild: true
 ---
 kind: pipeline
@@ -166,6 +170,6 @@ steps:
       - echo "Unit Tests Completed"
 ---
 kind: signature
-hmac: f0ed4e933f785bfab5975dc656f93d47527ab1b80e117727b9bbbc193fa96f67
+hmac: 786139dfd954616bf68bb0f31c69be9b93b2440468056be8a4a7c36704733890
 
 ...
