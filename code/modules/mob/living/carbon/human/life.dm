@@ -70,6 +70,8 @@
 
 		handle_medical_side_effects()
 
+		handle_fever()
+
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
 		handle_stamina()
 
@@ -638,23 +640,6 @@
 			sprint_speed_factor += 0.2 * chem_effects[CE_SPEEDBOOST]
 			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
 			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
-
-		if(CE_FEVER in chem_effects)
-			var/normal_temp = species?.body_temperature || (T0C+37)
-			var/fever = chem_effects[CE_FEVER]
-			if(CE_NOFEVER in chem_effects)
-				fever -= chem_effects[CE_NOFEVER] // a dose of 16u Perconol should offset a stage 4 virus
-			bodytemperature = Clamp(bodytemperature+fever, normal_temp, normal_temp + 9) // temperature should range from 37C to 46C, 98.6F to 115F
-			if(fever > 1)
-				if(prob(20/3)) // every 30 seconds, roughly
-					to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
-				if(prob(20)) // once every 10 seconds, roughly
-					drowsyness += 4
-				if(prob(20))
-					adjustHalLoss(15) // muscle pain from fever
-			if(fever >= 5) // your organs are boiling, figuratively speaking
-				var/obj/item/organ/internal/IO = pick(internal_organs)
-				IO.take_internal_damage(1)
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
@@ -1406,3 +1391,51 @@
 		damageoverlay.cut_overlay(last_oxy_overlay)
 		last_oxy_overlay = null
 
+//Fevers
+//This handles infection fevers as well as fevers caused by chem effects
+/mob/living/carbon/human/proc/handle_fever()
+	var/normal_temp = species?.body_temperature || (T0C+37)
+	//If we have infections, they give us a fever. Get all of their germ levels and find what our bodytemp will raise by.
+	var/fever = get_infection_germ_level() / INFECTION_LEVEL_ONE
+	//See what chemicals in our body affect our fever for better or worse
+	if(CE_FEVER in chem_effects)
+		fever += chem_effects[CE_FEVER]
+	if(CE_NOFEVER in chem_effects)
+		fever -= chem_effects[CE_NOFEVER]
+
+	//Apply changes to body temp. I absolutely hate body temp code -Doxx
+	if(fever < 0) //If we have enough anti-fever meds to bring us back towards normal temperature, do so.
+		if(bodytemperature >= normal_temp)  //We don't have any effect if we're colder than normal.
+			bodytemperature = max(bodytemperature + fever, normal_temp)
+		return
+	if(fever > 0) //We're getting a fever, raise body temp. 10C above normal is our max for fevers.
+		if(bodytemperature < normal_temp) //If we're colder than usual, we'll slowly raise to normal temperature
+			bodytemperature = min(bodytemperature + fever, normal_temp)
+		else if(bodytemperature <= normal_temp + 10) //If we're hotter than max due to like, being on fire, don't keep increasing.
+			bodytemperature = normal_temp + min(fever, 10) //We use normal_temp here to maintain a steady temperature, otherwise even a small infection steadily increases bodytemp to max. This way it's easier to diagnose the intensity of an infection based on how bad the fever is.
+	//Apply side effects for having a fever. Separate from body temp changes. 
+	if(fever >= 2)
+		do_fever_effects(fever)
+
+		
+//Getting the total germ level for all infected organs, affects fever
+/mob/living/carbon/human/proc/get_infection_germ_level()
+	var/germs
+	for(var/obj/item/organ/I in internal_organs)
+		if(I.is_infected())
+			germs += I.germ_level
+	for(var/obj/item/organ/external/E in organs)
+		if(E.is_infected())
+			germs += E.germ_level
+	return germs
+
+/mob/living/carbon/human/proc/do_fever_effects(var/fever)
+	if(prob(20/3)) // every 30 seconds, roughly
+		to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
+	if(prob(20)) // once every 10 seconds, roughly
+		drowsyness += 4
+	if(prob(20))
+		adjustHalLoss(5 * min(fever, 5)) // muscle pain from fever
+	if(fever >= 7 && prob(10)) // your organs are boiling, figuratively speaking
+		var/obj/item/organ/internal/IO = pick(internal_organs)
+		IO.take_internal_damage(1)
