@@ -195,7 +195,6 @@ var/list/slot_equipment_priority = list( \
 		remove_from_mob(W)
 		if(!(W && W.loc))
 			return TRUE
-		W.do_putdown_animation(target, src)
 		W.forceMove(target)
 		update_icon()
 		return TRUE

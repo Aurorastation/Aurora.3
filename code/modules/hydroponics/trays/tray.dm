@@ -148,7 +148,7 @@
 		return//Nymphs cant open and close lids
 	if(mechanical && !usr.incapacitated() && Adjacent(usr))
 		close_lid(usr)
-		return 1
+		return TRUE
 	return ..()
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/abstract/observer/user)
@@ -220,12 +220,12 @@
 	..()
 
 /obj/machinery/portable_atmospherics/hydroponics/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0)) return TRUE
 
 	if(istype(mover) && mover.checkpass(PASSTABLE))
-		return 1
+		return TRUE
 	else
-		return 0
+		return FALSE
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_health()
 	if(seed && !dead && health <= 0)
@@ -465,7 +465,10 @@
 					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
 				else
 					to_chat(user, SPAN_WARNING("This tray is full of water already."))
-				return 1
+				return TRUE
+
+	if (O.is_open_container())
+		return FALSE
 
 	if(O.iswirecutter() || istype(O, /obj/item/surgery/scalpel))
 
@@ -504,14 +507,14 @@
 				return ..()
 			else
 				to_chat(user, "There's no plant to inject.")
-				return 1
+				return TRUE
 		else
 			if(seed)
 				//Leaving this in in case we want to extract from plants later.
 				to_chat(user, "You can't get any extract out of this plant.")
 			else
 				to_chat(user, "There's nothing to draw something from.")
-			return 1
+			return TRUE
 
 	else if (istype(O, /obj/item/seeds))
 

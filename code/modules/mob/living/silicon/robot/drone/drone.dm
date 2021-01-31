@@ -467,6 +467,9 @@
 
 	return dat
 
+/mob/living/silicon/robot/drone/set_respawn_time()
+	set_death_time(MINISYNTH, world.time)
+
 /mob/living/silicon/robot/drone/construction/Initialize()
 	. = ..()
 	var/turf/T = get_turf(src)

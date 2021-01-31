@@ -2242,6 +2242,9 @@
 "ael" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
 "aem" = (
@@ -19225,7 +19228,8 @@
 /turf/simulated/floor/tiled,
 /area/security/nuke_storage)
 "aGR" = (
-/obj/machinery/computer/teleporter,
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/command/teleporter,
 /turf/simulated/floor/plating,
 /area/teleporter)
 "aGS" = (
@@ -19233,7 +19237,7 @@
 /turf/simulated/floor/plating,
 /area/teleporter)
 "aGT" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/plating,
 /area/teleporter)
@@ -19378,7 +19382,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHh" = (
-/obj/structure/displaycase,
+/obj/structure/displaycase/captain_laser,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHi" = (
@@ -40817,6 +40821,9 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "btf" = (
@@ -44129,6 +44136,9 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/hologram/holopad,
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/misc_lab)
 "bzM" = (
@@ -44242,7 +44252,7 @@
 /area/medical/first_responder)
 "bzX" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "First Responder Garge Access";
+	name = "First Responder Garage Access";
 	req_access = list(67)
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -44677,7 +44687,7 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "firstrespondershutter";
-	name = "First Responder Garge Door"
+	name = "First Responder Garage Door"
 	},
 /turf/simulated/floor/plating,
 /area/medical/first_responder)
@@ -45040,7 +45050,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - First Responder Garge";
+	c_tag = "Medical - First Responder Garage";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -45340,7 +45350,6 @@
 	name = "Station Intercom (General)";
 	pixel_y = -30
 	},
-/obj/item/circuitboard/teleporter,
 /obj/item/circuitboard/aicore{
 	pixel_x = -2;
 	pixel_y = 4
@@ -62282,6 +62291,13 @@
 /obj/random/gloves,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"ipy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
 "ipL" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -62691,6 +62707,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"jAH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "jBK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -63896,6 +63919,12 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"mpR" = (
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/holodeck/alphadeck)
 "mqp" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -65078,6 +65107,12 @@
 "oNS" = (
 /turf/simulated/wall/r_wall,
 /area/lawoffice/consular)
+"oOd" = (
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "oQU" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -65733,6 +65768,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"pYc" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/wood,
+/area/maintenance/bar)
 "pYZ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -68563,6 +68608,12 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
+"vaT" = (
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "vdA" = (
 /obj/structure/door_assembly/multi_tile{
 	anchored = 1;
@@ -69397,6 +69448,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"wsn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/foyer)
 "wsP" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -89799,7 +89867,7 @@ bbs
 tow
 bPL
 bQi
-bPs
+jAH
 bRp
 bPs
 oUD
@@ -90001,7 +90069,7 @@ aFK
 oMh
 oKJ
 aLb
-aMS
+wsn
 aOI
 aQq
 aQq
@@ -95980,7 +96048,7 @@ bXc
 bXs
 bXs
 bXZ
-bXs
+ipy
 bXs
 bXs
 bZk
@@ -96261,7 +96329,7 @@ cez
 cgf
 cgx
 cgg
-cgg
+oOd
 cgg
 cgg
 chH
@@ -98511,7 +98579,7 @@ bve
 bve
 bve
 bve
-bve
+mpR
 bve
 bve
 bve
@@ -101374,7 +101442,7 @@ bWa
 bWo
 bWa
 bWa
-bWa
+vaT
 bWa
 bWa
 wVv
@@ -106505,7 +106573,7 @@ bEK
 tYo
 bRY
 sOQ
-dQv
+pYc
 eGj
 eGj
 bUk

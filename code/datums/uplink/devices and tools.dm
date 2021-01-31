@@ -97,11 +97,6 @@
 	item_cost = 10
 	path = /obj/item/device/powersink
 
-/datum/uplink_item/item/tools/teleporter
-	name = "Teleporter Circuit Board"
-	item_cost = 4
-	path = /obj/item/circuitboard/teleporter
-
 /datum/uplink_item/item/tools/teleporter/New()
 	..()
 	antag_roles = list(MODE_MERCENARY)
@@ -127,6 +122,11 @@
 	name = "Syndicate Cyborg Teleporter"
 	item_cost = 35
 	path = /obj/item/antag_spawner/borg_tele
+
+/datum/uplink_item/item/tools/thermal_drill
+	name = "Thermal Safe Drill"
+	item_cost = 8
+	path = /obj/item/thermal_drill
 
 /datum/uplink_item/item/tools/heatpatch
 	name = "HUDPatch, Thermal"

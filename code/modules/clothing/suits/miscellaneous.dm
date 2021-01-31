@@ -375,6 +375,15 @@
 	. = ..()
 	color = get_random_colour(lower = 150)
 
+/obj/item/clothing/suit/storage/toggle/highvis
+	name = "high visibility jacket"
+	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."
+	icon = 'icons/clothing/suits/highvis.dmi'
+	icon_state = "highvis"
+	item_state = "highvis"
+	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."

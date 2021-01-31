@@ -34,11 +34,23 @@
 	..()
 	var/coat = list()
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
-	coat["commoner cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak
-	coat["royal cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak/fancy
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/tajara_cloak
+	display_name = "tajara cloak selection"
+	description = "A selection of tajaran native cloaks."
+	path = /obj/item/clothing/accessory/poncho/tajarancloak
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/suit/tajara_cloak/New()
+	..()
+	var/tajarancloak = list()
+	tajarancloak["common cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak
+	tajarancloak["fancy cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/fancy
+	gear_tweaks += new/datum/gear_tweak/path(tajarancloak)
 
 /datum/gear/suit/tajara_priest
 	display_name = "tajaran religious suits selection"

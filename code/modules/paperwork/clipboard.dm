@@ -1,5 +1,7 @@
 /obj/item/clipboard
 	name = "clipboard"
+	desc = "When other writing surfaces are unavailable."
+	desc_info = "You can store a pen in this."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	item_state = "clipboard"
