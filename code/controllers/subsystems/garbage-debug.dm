@@ -720,7 +720,6 @@
 	SearchVar(event_last_fired)
 	SearchVar(dreams)
 	SearchVar(non_fakeattack_weapons)
-	SearchVar(ghost_traps)
 	SearchVar(current_map.holodeck_programs)
 	SearchVar(fruit_icon_cache)
 	SearchVar(plant_seed_sprites)

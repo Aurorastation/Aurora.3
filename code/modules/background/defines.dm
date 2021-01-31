@@ -69,7 +69,8 @@
 #define ACCENT_VYSOKA "Vysokan"
 #define ACCENT_VENUS "Venusian Cytherean"
 #define ACCENT_VENUSJIN "Venusian Jintarian"
-#define ACCENT_DOMINIA "Dominian"
+#define ACCENT_DOMINIA_HIGH "High Morozi"
+#define ACCENT_DOMINIA_VULGAR "Vulgar Morozi"
 #define ACCENT_JUPITER "Jovian"
 #define ACCENT_EUROPA "Europan"
 #define ACCENT_EARTH "Earther"
@@ -87,6 +88,7 @@
 #define ACCENT_RURALDELVAHHI "Rural Delvahhi"
 #define ACCENT_NOMADDELVAHHI "Nomadic Delvahhi"
 #define ACCENT_OLDYASSA "Old Ya'ssa"
+#define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
 
 #define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"

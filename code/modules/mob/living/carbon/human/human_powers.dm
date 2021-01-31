@@ -583,6 +583,15 @@ mob/living/carbon/human/proc/change_monitor()
 	A.throw_at(target, 10, 30, usr)
 	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
 
+/mob/living/carbon/human/proc/dissolve()
+	set name = "Dissolve Self"
+	set desc = "Dissolve yourself in order to escape permanent imprisonment."
+	set category = "Abilities"
+
+	if(alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", "Yes", "No") == "No")
+		return
+	visible_message(SPAN_DANGER("[src] dissolves!"), SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
+	death()
 
 /mob/living/carbon/human/proc/shatter_light()
 	set category = "Abilities"
@@ -596,7 +605,7 @@ mob/living/carbon/human/proc/change_monitor()
 	last_special = world.time + 50
 
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
-	playsound(src.loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
@@ -612,7 +621,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 100
 
-	playsound(src.loc, 'sound/species/shadow/grue_growl.ogg', 100, 1)
+	playsound(src.loc, 'sound/species/revenant/grue_growl.ogg', 100, 1)
 
 	src.set_light(4,-20)
 
@@ -689,7 +698,7 @@ mob/living/carbon/human/proc/change_monitor()
 	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
 			"<span class='notice'>You take a step backwards and then...</span>")
 	if(do_after(src,5))
-		playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+		playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 		src.visible_message("<span class='danger'>\The [src] charges!</span>")
 		trampling()
 
@@ -822,7 +831,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	last_special = world.time + 100
-	playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+	playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	visible_message("<span class='danger'>\The [src] unleashes a torrent of raging flame!</span>",
 			"<span class='danger'>You unleash a gust of fire!</span>",
 			"<span class='danger'>You hear the roar of an inferno!</span>")
@@ -846,7 +855,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent(/datum/reagent/fuel/napalm, 200)
+			D.reagents.add_reagent(/decl/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -891,7 +900,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent(/datum/reagent/blood,20*O.amount)
+				vessel.add_reagent(/decl/reagent/blood,20*O.amount, temperature = species.body_temperature)
 			qdel(O)
 			last_special = world.time + 50
 

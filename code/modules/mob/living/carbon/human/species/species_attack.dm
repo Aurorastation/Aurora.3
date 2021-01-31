@@ -57,6 +57,10 @@
 				if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!</span>")
 				if(5)		user.visible_message("<span class='danger'>[user] tears [user.get_pronoun("his")] [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!</span>")
 
+/datum/unarmed_attack/claws/shredding
+	shredding = TRUE
+	attack_name = "durable claws"
+
 /datum/unarmed_attack/claws/strong
 	attack_verb = list("slashed")
 	damage = 10
@@ -187,11 +191,8 @@
 	infection_chance -= target.run_armor_check(zone,"melee")
 	if(prob(infection_chance))
 		if(target.reagents)
-			var/inject_amount = 10
-			var/trioxin_amount = target.reagents.get_reagent_amount(/datum/reagent/toxin/trioxin)
-			if(inject_amount + trioxin_amount > ZOMBIE_MAX_TRIOXIN)
-				inject_amount = ZOMBIE_MAX_TRIOXIN - trioxin_amount
-			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, inject_amount)
+			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /decl/reagent/toxin/trioxin)
+			target.reagents.add_reagent(/decl/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")

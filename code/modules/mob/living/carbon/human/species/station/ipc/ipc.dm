@@ -75,6 +75,7 @@
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
+	blood_type = "oil"
 	blood_color = COLOR_IPC_BLOOD
 	flesh_color = "#575757"
 	reagent_tag = IS_MACHINE
