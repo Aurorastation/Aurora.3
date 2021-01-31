@@ -438,11 +438,11 @@
 		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
 		VUEUI_SET_CHECK(data["occupant"], !!occupant, ., data)
-		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount(/datum/reagent/inaprovaline), ., data)
-		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount(/datum/reagent/soporific), ., data)
-		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount(/datum/reagent/bicaridine), ., data)
-		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount(/datum/reagent/dexalin), ., data)
-		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount(/datum/reagent/dermaline), ., data)
+		VUEUI_SET_CHECK(data["norepiAmt"], REAGENT_VOLUME(R, /decl/reagent/inaprovaline), ., data)
+		VUEUI_SET_CHECK(data["soporAmt"], REAGENT_VOLUME(R, /decl/reagent/soporific), ., data)
+		VUEUI_SET_CHECK(data["bicardAmt"], REAGENT_VOLUME(R, /decl/reagent/bicaridine), ., data)
+		VUEUI_SET_CHECK(data["dexAmt"], REAGENT_VOLUME(R, /decl/reagent/dexalin), ., data)
+		VUEUI_SET_CHECK(data["dermAmt"], REAGENT_VOLUME(R, /decl/reagent/dermaline), ., data)
 		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
 		has_internal_injuries = FALSE
 		has_external_injuries = FALSE
@@ -645,12 +645,12 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"inaprovaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/inaprovaline),
-		"dexalin_amount" = H.reagents.get_reagent_amount(/datum/reagent/dexalin),
-		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/soporific),
-		"bicaridine_amount" = H.reagents.get_reagent_amount(/datum/reagent/bicaridine),
-		"dermaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/dermaline),
-		"blood_amount" = H.vessel.get_reagent_amount(/datum/reagent/blood),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
 		"external_organs" = H.organs.Copy(),

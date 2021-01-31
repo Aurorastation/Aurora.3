@@ -69,7 +69,7 @@
 
 	canbrush = TRUE
 	has_udder = TRUE
-	milk_type = /datum/reagent/drink/milk/adhomai
+	milk_type = /decl/reagent/drink/milk/adhomai
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	butchering_products = list(/obj/item/stack/material/animalhide = 5)
@@ -126,7 +126,7 @@
 	health = 50
 
 	has_udder = TRUE
-	milk_type = /datum/reagent/drink/milk
+	milk_type = /decl/reagent/drink/milk
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
 	organ_names = list("head", "chest", "fatty core", "blubberous torso", "thick centre", "left leg", "right leg")

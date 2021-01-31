@@ -1296,12 +1296,6 @@
 	},
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
-"aVt" = (
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/explored)
 "aVE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4204,6 +4198,10 @@
 	name = "survey shuttle"
 	},
 /area/shuttle/research)
+"dLW" = (
+/obj/machinery/biogenerator/small/west,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "dMM" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -5479,10 +5477,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/stairs)
-"eTl" = (
-/obj/machinery/biogenerator/small/west,
-/turf/simulated/floor/wood,
-/area/hydroponics/garden)
 "eTH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -9351,6 +9345,9 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/disposalpipe/segment,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "ioe" = (
@@ -14801,6 +14798,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
+"nmN" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "nnZ" = (
 /obj/structure/cable/yellow{
 	d2 = 2;
@@ -45189,7 +45192,7 @@ rYN
 rYN
 fdu
 kKF
-aVt
+nmN
 fdu
 rYN
 rYN
@@ -53952,7 +53955,7 @@ fdu
 fdu
 fdu
 kKF
-aVt
+nmN
 kKF
 kKF
 kKF
@@ -56474,7 +56477,7 @@ bNO
 cNy
 voV
 hGZ
-eTl
+dLW
 osW
 xpF
 rnJ

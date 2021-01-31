@@ -6750,12 +6750,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_virology)
-"ru" = (
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "rA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/floodlight{
@@ -8095,6 +8089,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
+"zN" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "zQ" = (
 /obj/structure/flora/pottedplant/random,
 /obj/structure/extinguisher_cabinet{
@@ -42791,7 +42791,7 @@ mo
 mo
 mo
 mo
-ru
+zN
 ab
 ab
 ab
@@ -50712,7 +50712,7 @@ if
 im
 wo
 Zt
-ru
+zN
 ab
 ab
 aa

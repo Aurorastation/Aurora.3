@@ -234,6 +234,27 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/command/teleporter
+	name = "command_teleporter"
+	display_name = "Command - Teleporter"
+	description = "Contains the most common command programs and has a special teleporter control program loaded."
+	available = FALSE
+
+/datum/modular_computer_app_presets/command/teleporter/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/records/employment(comp),
+		new /datum/computer_file/program/ntsl2_interpreter(comp),
+		new /datum/computer_file/program/teleporter(comp)
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/command/hop
 	name = "command_hop"
 	display_name = "Command - HoP"

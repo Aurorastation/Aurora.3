@@ -325,12 +325,6 @@ There are several things that need to be remembered:
 			else
 				base_icon.Blend(temp, ICON_OVERLAY)
 
-			part.cut_additional_images(src)
-			var/list/add_images = part.get_additional_images(src)
-			if(add_images)
-				add_overlay(add_images, TRUE)
-		compile_overlays()
-
 		if(!(species.flags & NO_SCAN))
 			if(husk)
 				base_icon.ColorTone(husk_color_mod)
@@ -344,6 +338,14 @@ There are several things that need to be remembered:
 			base_icon.Blend(husk_over, ICON_OVERLAY)
 
 		SSicon_cache.human_icon_cache[icon_key] = base_icon
+
+	for(var/thing in organs)
+		var/obj/item/organ/external/part = thing
+		part.cut_additional_images(src)
+		var/list/add_images = part.get_additional_images(src)
+		if(add_images)
+			add_overlay(add_images, TRUE)
+	compile_overlays()
 
 	//END CACHED ICON GENERATION.
 	stand_icon.Blend(base_icon,ICON_OVERLAY)

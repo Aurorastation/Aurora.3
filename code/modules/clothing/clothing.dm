@@ -265,6 +265,7 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
+	icon = 'icons/obj/clothing/ears.dmi'
 	w_class = ITEMSIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
@@ -734,6 +735,7 @@
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()

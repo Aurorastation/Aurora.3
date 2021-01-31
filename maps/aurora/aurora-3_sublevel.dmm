@@ -4303,6 +4303,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"ajQ" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/break_room)
 "ajR" = (
 /obj/structure/window/reinforced,
 /obj/machinery/chem_master,
@@ -26898,6 +26902,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"dkd" = (
+/turf/simulated/floor/tiled/dark,
+/area/engineering/break_room)
 "dlv" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -29464,6 +29471,17 @@
 	},
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
+"iwX" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "iAw" = (
 /obj/structure/table/rack,
 /obj/item/shovel{
@@ -30615,9 +30633,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
-"loD" = (
-/turf/simulated/floor/tiled/dark,
-/area/engineering/break_room)
 "lsl" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -30712,10 +30727,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
-"lPA" = (
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/break_room)
 "lQi" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
@@ -32362,6 +32373,12 @@
 /obj/machinery/power/crystal_agitator,
 /turf/simulated/floor,
 /area/security/penal_colony)
+"oJR" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "oKh" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 10
@@ -36076,17 +36093,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"wvX" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "wwk" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -36447,12 +36453,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
-"xpY" = (
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "xqo" = (
 /obj/structure/window/phoronreinforced{
 	dir = 8
@@ -48431,7 +48431,7 @@ aaa
 aaa
 aaa
 lYK
-loD
+dkd
 jhN
 swb
 akj
@@ -48945,7 +48945,7 @@ aaa
 aaa
 aaa
 lYK
-loD
+dkd
 ajP
 akk
 akk
@@ -49203,12 +49203,12 @@ aaa
 aaa
 lYK
 gYj
-lPA
-loD
+ajQ
+dkd
 qpJ
 dvo
 qqB
-lPA
+ajQ
 lYK
 aaa
 aaa
@@ -52084,7 +52084,7 @@ nDL
 nDL
 tkm
 iOl
-xpY
+oJR
 aba
 aba
 ale
@@ -71114,7 +71114,7 @@ aIZ
 aNT
 vnf
 awP
-wvX
+iwX
 ebn
 ayi
 akG
@@ -80879,7 +80879,7 @@ eEq
 baw
 cFw
 nzR
-xpY
+oJR
 aba
 aba
 aaa

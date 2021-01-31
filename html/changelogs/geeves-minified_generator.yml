@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a minified biogenerator to the surface garden. It is quite inefficient, but you can move into its tile."

@@ -50,19 +50,6 @@
 	fountainpens["silver fountain pen"] = /obj/item/pen/fountain/silver
 	fountainpens["white fountain pen"] = /obj/item/pen/fountain/white
 	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
-
-/datum/gear/utility/hearing_aid
-	display_name = "hearing aid selection"
-	path = /obj/item/device/hearing_aid
-	cost = 1
-
-/datum/gear/utility/hearing_aid/New()
-	..()
-	var/hearingaids = list()
-	hearingaids["hearing aid, skrell design"] = /obj/item/device/hearing_aid
-	hearingaids["hearing aid, human design"] = /obj/item/device/hearing_aid/human
-	gear_tweaks += new/datum/gear_tweak/path(hearingaids)
-
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard

@@ -148,7 +148,7 @@ Reagents adjustment
 		. = valid_reagents[pick(valid_reagents)]
 	else
 		. = valid_reagents[metadata]
-	I.reagents.add_reagent(., I.reagents.get_free_space())
+	I.reagents.add_reagent(., REAGENTS_FREE_SPACE(I.reagents))
 
 /*
 Custom Name

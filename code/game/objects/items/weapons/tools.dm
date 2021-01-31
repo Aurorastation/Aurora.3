@@ -267,7 +267,7 @@
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
-	R.add_reagent(/datum/reagent/fuel, max_fuel)
+	R.add_reagent(/decl/reagent/fuel, max_fuel)
 	update_icon()
 
 /obj/item/weldingtool/update_icon()
@@ -443,7 +443,7 @@
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
-	return reagents.get_reagent_amount(/datum/reagent/fuel)
+	return REAGENT_VOLUME(reagents, /decl/reagent/fuel)
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
 /obj/item/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
@@ -453,7 +453,7 @@
 		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent(/datum/reagent/fuel, amount)
+		reagents.remove_reagent(/decl/reagent/fuel, amount)
 		if(M)
 			eyecheck(M)
 		return 1
@@ -574,7 +574,7 @@
 		var/gen_amount = ((world.time-last_gen) / fuelgen_delay)
 		var/remainder = max_fuel - get_fuel()
 		gen_amount = min(gen_amount, remainder)
-		reagents.add_reagent(/datum/reagent/fuel, gen_amount)
+		reagents.add_reagent(/decl/reagent/fuel, gen_amount)
 		if(get_fuel() >= max_fuel)
 			set_processing(0)
 	else

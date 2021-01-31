@@ -7155,12 +7155,6 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
-"bco" = (
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
-/turf/unsimulated/floor,
-/area/antag/loner)
 "bcu" = (
 /obj/machinery/light/small{
 	brightness_power = 0.5;
@@ -8172,16 +8166,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
-"bEH" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
-/obj/structure/table/stone/marble,
-/obj/random/booze,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/antag/loner)
 "bGo" = (
 /obj/machinery/door/airlock/centcom{
 	locked = 1;
@@ -8760,7 +8744,7 @@
 	},
 /area/shuttle/skipjack)
 "cbf" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -9302,6 +9286,21 @@
 	icon_state = "lino_grey"
 	},
 /area/centcom/bar)
+"crk" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "loner_basement";
+	name = "hangar controller";
+	pixel_x = 26;
+	pixel_y = -1;
+	tag_door = "loner_basement_hatch"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "crr" = (
 /obj/machinery/washing_machine,
 /turf/unsimulated/floor{
@@ -9454,9 +9453,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"cAa" = (
-/turf/unsimulated/wall/steel,
-/area/antag/loner)
 "cAr" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
@@ -12218,15 +12214,6 @@
 /obj/structure/sign/directions/cryo,
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/ferry)
-"ejT" = (
-/obj/machinery/vending/zora{
-	density = 0;
-	name = "Jacked Zo'ra Soda";
-	pixel_y = -22;
-	prices = list()
-	},
-/turf/unsimulated/floor,
-/area/antag/loner)
 "ejY" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -12322,6 +12309,14 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"enP" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/stunshells,
+/obj/item/storage/box/practiceshells,
+/obj/item/storage/box/trackingslugs,
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor,
+/area/antag/loner)
 "enU" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "8,0"
@@ -12394,14 +12389,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"erO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/obj/structure/sign/pods{
-	desc = "A direction sign which reads 'DROPPODS'.";
-	name = "\improper DROPPODS"
-	},
-/turf/unsimulated/floor/plating,
-/area/antag/loner)
 "erT" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,1"
@@ -12670,6 +12657,16 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
+"ezR" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/obj/structure/table/stone/marble,
+/obj/random/booze,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/antag/loner)
 "eAg" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -14010,6 +14007,21 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
+"ftC" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "loner_basement_hatch";
+	locked = 1;
+	name = "Hangar Access"
+	},
+/obj/machinery/door/blast/odin{
+	dir = 2;
+	id = "loner_basement";
+	name = "Hangar Access"
+	},
+/turf/unsimulated/floor,
+/area/antag/mercenary)
 "ftN" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -14306,6 +14318,13 @@
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/wood,
 /area/merchant_station)
+"fDN" = (
+/obj/item/stool/bar/padded,
+/obj/effect/landmark{
+	name = "lonerspawn"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "fEm" = (
 /obj/structure/sink{
 	pixel_y = 18
@@ -15592,6 +15611,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
+"goi" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/double/map/right{
+	desc = "A framed picture of a station.";
+	pixel_x = -16;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "gol" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
 	dir = 8
@@ -15838,6 +15866,19 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
+"guL" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/machinery/door/blast/odin/open{
+	_wifi_id = "loner_droppod_1";
+	layer = 2.8;
+	name = "Pod L"
+	},
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/antag/loner)
 "guX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -16332,6 +16373,20 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
+"gLk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "loner_basement";
+	name = "external hangar access";
+	pixel_x = -23;
+	pixel_y = 4;
+	req_access = list(150)
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/mercenary)
 "gLr" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "11,6"
@@ -16940,6 +16995,9 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
+"gYT" = (
+/turf/unsimulated/wall/steel,
+/area/antag/loner)
 "gYU" = (
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -17964,15 +18022,6 @@
 	icon_state = "4,0"
 	},
 /area/shuttle/transport1)
-"hOv" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/obj/structure/sign/double/map/left{
-	desc = "A framed picture of a station.";
-	pixel_x = 16;
-	pixel_y = 32
-	},
-/turf/unsimulated/floor/plating,
-/area/antag/loner)
 "hOC" = (
 /obj/item/device/radio/intercom{
 	broadcasting = 1;
@@ -19421,6 +19470,9 @@
 	name = "autoshuttle"
 	},
 /area/shuttle/arrival)
+"iGO" = (
+/turf/unsimulated/floor,
+/area/antag/loner)
 "iGY" = (
 /obj/item/modular_computer/console/preset/merchant,
 /turf/simulated/floor/wood,
@@ -19535,21 +19587,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"iKt" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "loner_basement_hatch";
-	locked = 1;
-	name = "Hangar Access"
-	},
-/obj/machinery/door/blast/odin{
-	dir = 2;
-	id = "loner_basement";
-	name = "Hangar Access"
-	},
-/turf/unsimulated/floor,
-/area/antag/mercenary)
 "iKK" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -20015,6 +20052,10 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
+"iYn" = (
+/obj/machinery/recharge_station,
+/turf/unsimulated/floor,
+/area/antag/loner)
 "iYt" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -20104,12 +20145,6 @@
 	icon_state = "dark2"
 	},
 /area/antag/mercenary)
-"jbP" = (
-/obj/machinery/computer/teleporter,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/antag/ninja)
 "jcc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -20464,16 +20499,6 @@
 	icon_state = "ramptop"
 	},
 /area/antag/ninja)
-"jur" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
-/obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/antag/loner)
 "juP" = (
 /obj/structure/flora/pottedplant/random{
 	anchored = 1;
@@ -22990,6 +23015,14 @@
 	icon_state = "18,7"
 	},
 /area/shuttle/merchant)
+"lcO" = (
+/obj/vehicle/droppod/syndie{
+	connected_blastdoor = "loner_droppod_1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/antag/loner)
 "ldd" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
@@ -26325,6 +26358,16 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
+"nhx" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/antag/loner)
 "nhS" = (
 /obj/structure/flora/rock/pile{
 	icon_state = "lavarocks2"
@@ -26567,21 +26610,6 @@
 	icon_state = "carpet6-2"
 	},
 /area/centcom/specops)
-"nme" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
-	id_tag = "loner_basement";
-	name = "hangar controller";
-	pixel_x = 26;
-	pixel_y = -1;
-	tag_door = "loner_basement_hatch"
-	},
-/turf/unsimulated/floor,
-/area/antag/loner)
 "nmJ" = (
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -27507,19 +27535,6 @@
 	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
-"nNQ" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
-/obj/machinery/door/blast/odin/open{
-	_wifi_id = "loner_droppod_1";
-	layer = 2.8;
-	name = "Pod L"
-	},
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/antag/loner)
 "nOh" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/tdome/tdome1)
@@ -28395,14 +28410,6 @@
 	icon_state = "wood-broken6"
 	},
 /area/centcom/distress_prep)
-"oqg" = (
-/obj/vehicle/droppod/syndie{
-	connected_blastdoor = "loner_droppod_1"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/antag/loner)
 "oqo" = (
 /obj/structure/sign/poster{
 	pixel_y = 32
@@ -29600,6 +29607,12 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
+"plr" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "plz" = (
 /turf/simulated/floor/grass/alt,
 /area/centcom/shared_dream)
@@ -29658,14 +29671,6 @@
 	icon_state = "3,2"
 	},
 /area/shuttle/merchant)
-"pne" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/stunshells,
-/obj/item/storage/box/practiceshells,
-/obj/item/storage/box/trackingslugs,
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor,
-/area/antag/loner)
 "pnp" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "5,2"
@@ -30696,15 +30701,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
-"pRB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/obj/structure/sign/double/map/right{
-	desc = "A framed picture of a station.";
-	pixel_x = -16;
-	pixel_y = 32
-	},
-/turf/unsimulated/floor/plating,
-/area/antag/loner)
 "pRX" = (
 /obj/structure/window/shuttle/unique/merchant{
 	icon_state = "20,2"
@@ -31070,20 +31066,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
-"qfT" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "loner_basement";
-	name = "external hangar access";
-	pixel_x = -23;
-	pixel_y = 4;
-	req_access = list(150)
-	},
-/turf/unsimulated/floor/plating,
-/area/antag/mercenary)
 "qfW" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -33883,6 +33865,15 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
+"sjp" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/double/map/left{
+	desc = "A framed picture of a station.";
+	pixel_x = 16;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "sjG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -34106,6 +34097,16 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/mercenary)
+"sqZ" = (
+/obj/machinery/vending/snack{
+	density = 0;
+	name = "Jacked Getmore Chocolate Corp";
+	pixel_y = -22;
+	prices = list();
+	random_itemcount = 0
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "srF" = (
 /obj/structure/window/shuttle/unique/tcfl{
 	icon_state = "16,4"
@@ -34648,6 +34649,15 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
+"sLq" = (
+/obj/machinery/vending/zora{
+	density = 0;
+	name = "Jacked Zo'ra Soda";
+	pixel_y = -22;
+	prices = list()
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "sLO" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -35410,10 +35420,6 @@
 	icon_state = "4,18"
 	},
 /area/shuttle/mercenary)
-"tpC" = (
-/obj/machinery/recharge_station,
-/turf/unsimulated/floor,
-/area/antag/loner)
 "tqh" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
@@ -39383,9 +39389,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
-"vXo" = (
-/turf/unsimulated/floor,
-/area/antag/loner)
 "vXT" = (
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "2,0"
@@ -39828,13 +39831,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/spawning)
-"wlB" = (
-/obj/item/stool/bar/padded,
-/obj/effect/landmark{
-	name = "lonerspawn"
-	},
-/turf/unsimulated/floor,
-/area/antag/loner)
 "wlG" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -41759,16 +41755,6 @@
 	icon_state = "lino_grey"
 	},
 /area/centcom/bar)
-"xkS" = (
-/obj/machinery/vending/snack{
-	density = 0;
-	name = "Jacked Getmore Chocolate Corp";
-	pixel_y = -22;
-	prices = list();
-	random_itemcount = 0
-	},
-/turf/unsimulated/floor,
-/area/antag/loner)
 "xmf" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
 	dir = 6
@@ -42227,6 +42213,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/syndicate_elite)
+"xyH" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/pods{
+	desc = "A direction sign which reads 'DROPPODS'.";
+	name = "\improper DROPPODS"
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "xzb" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -53060,11 +53054,11 @@ yhJ
 aaM
 aaM
 ahV
-cAa
-cAa
-cAa
-cAa
-cAa
+gYT
+gYT
+gYT
+gYT
+gYT
 xVl
 xVl
 xVl
@@ -53317,10 +53311,10 @@ gCr
 aaM
 aaM
 ahV
-cAa
-bEH
-wlB
-tpC
+gYT
+ezR
+fDN
+iYn
 xVl
 xVl
 rWF
@@ -53574,10 +53568,10 @@ aaM
 aaM
 aaM
 ahV
-cAa
-jur
-vXo
-bco
+gYT
+nhx
+iGO
+plr
 xVl
 rMK
 rXN
@@ -53831,10 +53825,10 @@ aaM
 aaM
 aaM
 ahV
-cAa
-hOv
-erO
-xkS
+gYT
+sjp
+xyH
+sqZ
 xVl
 rNY
 rXN
@@ -54088,10 +54082,10 @@ aaM
 aaM
 aaM
 ahV
-cAa
-oqg
-nNQ
-ejT
+gYT
+lcO
+guL
+sLq
 xVl
 rPi
 rXN
@@ -54345,10 +54339,10 @@ aaM
 aaM
 aaM
 ahV
-cAa
-pRB
-erO
-vXo
+gYT
+goi
+xyH
+iGO
 xVl
 xVl
 rZy
@@ -54602,11 +54596,11 @@ aaM
 aaM
 aaM
 ahV
-cAa
-pne
-nme
-vXo
-cAa
+gYT
+enP
+crk
+iGO
+gYT
 xVl
 xVl
 xVl
@@ -54862,7 +54856,7 @@ aaM
 xVl
 xVl
 xVl
-iKt
+ftC
 xVl
 xVl
 xVl
@@ -55120,7 +55114,7 @@ tZx
 vYd
 yjy
 vYd
-qfT
+gLk
 vYd
 vYd
 vYd
@@ -56697,7 +56691,7 @@ ioz
 ioz
 ioz
 ioz
-jbP
+ioz
 sFP
 aaM
 aaM

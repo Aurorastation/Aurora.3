@@ -29,7 +29,7 @@
       <div v-for="(msg, index) in messages" :key="index">{{ msg }}</div>
     </div>
     <div class="message-container">
-      <input class="message-input" type="text" v-model="send_buffer" @keydown.enter="send_msg"/>
+      <input class="message-input" type="text" v-model="send_buffer" @keydown.enter="send_msg">
       <vui-button @click="send_msg" class="message-send">Send</vui-button>
     </div>
   </div>
