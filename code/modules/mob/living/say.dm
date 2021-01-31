@@ -184,7 +184,7 @@ proc/get_radio_key_from_channel(var/channel)
 	message = formalize_text(message)
 
 	//parse the language code and consume it
-	if(!speaking)
+	if(!speaking || speaking.always_parse_language)
 		speaking = parse_language(message)
 	if(speaking)
 		message = copytext(message,2+length(speaking.key))

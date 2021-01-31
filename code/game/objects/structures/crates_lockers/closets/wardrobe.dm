@@ -216,7 +216,8 @@
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/head/bandana/engineering(src)
-	return
+	new /obj/item/clothing/suit/storage/toggle/highvis(src)
+	new /obj/item/clothing/suit/storage/toggle/highvis(src)
 
 
 /obj/structure/closet/wardrobe/white
