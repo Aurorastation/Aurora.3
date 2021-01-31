@@ -53,7 +53,7 @@
 	flipped = !flipped
 	icon_state = "[initial(icon_state)][flipped ? "_flip" : ""]"
 	item_state = icon_state
-	to_chat(usr, "You change \the [src] to be [src.flipped ? "behind" : "in front of"] you.")
+	to_chat(usr, SPAN_NOTICE("You change \the [src] to be [src.flipped ? "behind" : "in front of"] you."))
 	update_clothing_icon()
 
 /obj/item/storage/belt/utility
