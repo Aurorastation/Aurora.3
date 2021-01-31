@@ -47,7 +47,7 @@
 		if(use_check_and_message(user))
 			return
 	else
-		if(use_check_and_message(user, self ? USE_ALLOW_NON_ADJACENT))
+		if(use_check_and_message(user, self ? USE_ALLOW_NON_ADJACENT : 0))
 			return
 
 	flipped = !flipped
