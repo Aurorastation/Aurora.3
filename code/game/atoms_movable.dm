@@ -92,7 +92,7 @@
 					continue
 				throw_impact(A, speed)
 			if(isobj(A))
-				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
+				if(A.density && !A.throwpass && !A.CanPass(src, target))
 					src.throw_impact(A,speed)
 
 // Prevents robots dropping their modules
@@ -332,7 +332,7 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-/obj/item/proc/do_pickup_animation(atom/target)
+/atom/movable/proc/do_pickup_animation(atom/target)
 	set waitfor = FALSE
 	if(!isturf(loc))
 		return
@@ -357,15 +357,39 @@
 	if(!direction)
 		to_y = 16
 	var/list/viewing = list()
-	for (var/mob/M in viewers(target))
-		if (M.client)
+	for(var/mob/M in viewers(target))
+		if(M.client)
 			viewing |= M.client
-	flick_overlay(I, viewing, 6)
+	flick_overlay(I, viewing, 7)
 	var/matrix/M = new
 	M.Turn(pick(-30, 30))
 	animate(I, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = M, easing = CUBIC_EASING)
 	sleep(1)
 	animate(I, alpha = 0, transform = matrix(), time = 1)
+
+/atom/movable/proc/simple_move_animation(atom/target)
+	set waitfor = FALSE
+
+	var/old_invisibility = invisibility // I don't know, it may be used.
+	invisibility = 100
+	var/turf/old_turf = get_turf(src)
+	var/image/I = image(icon = src, loc = src.loc, layer = layer + 0.1)
+	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+
+	var/list/viewing = list()
+	for(var/mob/M in viewers(target))
+		if(M.client)
+			viewing |= M.client
+	flick_overlay(I, viewing, 4)
+
+	var/to_x = (target.x - old_turf.x) * 32 + pixel_x
+	var/to_y = (target.y - old_turf.y) * 32 + pixel_y
+
+	animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, easing = CUBIC_EASING)
+	sleep(3)
+	if(QDELETED(src))
+		return
+	invisibility = old_invisibility
 
 /atom/movable/proc/get_floating_chat_x_offset()
 	return 0

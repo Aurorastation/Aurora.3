@@ -314,7 +314,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
-		out += "[M] <a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
+		out += "[M] [pref.body_markings.len > 1 ? "<a href='?src=\ref[src];marking_up=[M]'>&#708;</a> <a href='?src=\ref[src];marking_down=[M]'>&#709;</a> " : ""]<a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
 		out += HTML_RECT(pref.body_markings[M])
 		out += "<br>"
 
@@ -444,6 +444,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/list/valid_hairstyles = list()
 		for(var/hairstyle in hair_styles_list)
 			var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
+			if(pref.gender == MALE && S.gender == FEMALE)
+				continue
+			if(pref.gender == FEMALE && S.gender == MALE)
+				continue
 			if(!(mob_species.type in S.species_allowed))
 				continue
 
@@ -554,6 +558,25 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(new_marking && CanUseTopic(user))
 			pref.body_markings[new_marking] = "#000000" //New markings start black
 			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+
+	else if(href_list["marking_up"])
+		var/M = href_list["marking_up"]
+		var/start = pref.body_markings.Find(M)
+		if(start != 1) //If we're not the beginning of the list, swap with the previous element.
+			moveElement(pref.body_markings, start, start-1)
+		else //But if we ARE, become the final element -ahead- of everything else.
+			moveElement(pref.body_markings, start, pref.body_markings.len+1)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["marking_down"])
+		var/M = href_list["marking_down"]
+		var/start = pref.body_markings.Find(M)
+		if(start != pref.body_markings.len) //If we're not the end of the list, swap with the next element.
+			moveElement(pref.body_markings, start, start+2)
+		else //But if we ARE, become the first element -behind- everything else.
+			moveElement(pref.body_markings, start, 1)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["marking_remove"])
 		var/M = href_list["marking_remove"]

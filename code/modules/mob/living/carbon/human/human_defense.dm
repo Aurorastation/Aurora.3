@@ -211,6 +211,15 @@ emp_act
 		O.emp_act(severity)
 	..()
 
+/mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
+	if(a_intent != I_HELP)
+		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
+		for(var/obj/item/grab/G in holding)
+			if(G.affecting && prob(holding[G]))
+				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
+				return G.affecting
+	return src
+
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 	if(check_attack_throat(I, user))
 		return null
@@ -367,7 +376,7 @@ emp_act
 		var/miss_chance = 15
 		if (O.throw_source)
 			var/distance = get_dist(O.throw_source, loc)
-			miss_chance = max(15*(distance-2), 0)
+			miss_chance = 15 * (distance - 2)
 		zone = get_zone_with_miss_chance(zone, src, miss_chance, ranged_attack=1)
 
 		if(zone && O.thrower != src)

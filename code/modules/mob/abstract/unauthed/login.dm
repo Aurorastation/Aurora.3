@@ -28,7 +28,7 @@
 
 /mob/abstract/unauthed/proc/timeout()
 	if (client)
-		to_chat(client, "Your login time has expired. Please relog and try again.")
+		to_chat_immediate(client, "Your login time has expired. Please relog and try again.")
 	qdel(client)
 	qdel(src)
 
@@ -45,9 +45,9 @@
 	// Check for bans
 	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, TRUE)
 	if(ban_data)
-		to_chat(c, "You are banned for this server.")
-		to_chat(c, "Reason: [ban_data["reason"]]")
-		to_chat(c, "Description: [ban_data["desc"]]")
+		to_chat_immediate(c, "You are banned for this server.")
+		to_chat_immediate(c, "Reason: [ban_data["reason"]]")
+		to_chat_immediate(c, "Description: [ban_data["desc"]]")
 		del(c)
 		return
 

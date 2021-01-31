@@ -116,24 +116,15 @@
 		return
 
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
-		var/blood_volume = round(owner.vessel.get_reagent_amount(/datum/reagent/blood))
+		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /decl/reagent/blood))
 
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)
-			var/datum/reagent/blood/B = locate() in owner.vessel.reagent_list //Grab some blood
-			if(B) // Make sure there's some blood at all
-				if(weakref && B.data["donor"] != weakref) //If it's not theirs, then we look for theirs - donor is a weakref here, but it should be safe to just directly compare it.
-					for(var/datum/reagent/blood/D in owner.vessel.reagent_list)
-						if(weakref && D.data["donor"] == weakref)
-							B = D
-							break
-
-				B.volume += 0.1 // regenerate blood VERY slowly
-				if(blood_volume <= BLOOD_VOLUME_SAFE) //We loose nutrition and hydration very slowly if our blood is too low
+			if(REAGENT_DATA(owner.vessel, /decl/reagent/blood)) // Make sure there's blood at all
+				owner.vessel.add_reagent(/decl/reagent/blood, 0.1 + LAZYACCESS(owner.chem_effects, CE_BLOODRESTORE), temperature = species?.body_temperature)
+				if(blood_volume <= BLOOD_VOLUME_SAFE) //We lose nutrition and hydration very slowly if our blood is too low
 					owner.adjustNutritionLoss(2)
 					owner.adjustHydrationLoss(1)
-				if(CE_BLOODRESTORE in owner.chem_effects)
-					B.volume += owner.chem_effects[CE_BLOODRESTORE]
 
 		//Bleeding out
 		var/blood_max = 0
@@ -162,7 +153,7 @@
 						blood_max += bleed_amount
 						do_spray += "[temp.name]"
 					else
-						owner.vessel.remove_reagent(/datum/reagent/blood, bleed_amount)
+						owner.vessel.remove_reagent(/decl/reagent/blood, bleed_amount)
 
 		switch(pulse)
 			if(PULSE_SLOW)

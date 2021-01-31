@@ -265,6 +265,7 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
+	icon = 'icons/obj/clothing/ears.dmi'
 	w_class = ITEMSIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
@@ -295,7 +296,8 @@
 /obj/item/clothing/ears/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_ears()
+		M.update_inv_l_ear()
+		M.update_inv_r_ear()
 
 /obj/item/clothing/ears/offear
 	name = "Other ear"
@@ -667,6 +669,7 @@
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 	var/can_hold_knife
+	var/footstep = 1
 	var/obj/item/holding
 
 	var/shoes_under_pants = 0
@@ -676,6 +679,7 @@
 	var/overshoes = 0
 	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/silent = 0
+	var/last_trip = 0
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
@@ -731,6 +735,7 @@
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
@@ -750,6 +755,22 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_shoes()
+
+/obj/item/clothing/shoes/proc/trip_up(var/turf/walking, var/running)
+	if(!running)
+		if(footstep >= 2)
+			footstep = 0
+		else
+			footstep++
+	else
+		if(prob(5))
+			if(last_trip <= world.time - 20) //So you don't trip immediately after.
+				last_trip = world.time
+				if(ismob(loc))
+					var/mob/M = loc
+					M.Weaken(3)
+					to_chat(M, SPAN_WARNING("You trip from running in \the [src]!"))
+			return
 
 ///////////////////////////////////////////////////////////////////////
 //Suit
@@ -995,13 +1016,13 @@
 	rolled_down = !rolled_down
 	if(rolled_down)
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
-		if(contained_sprite)
+		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = "[initial(item_state)]_d"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 	else
 		body_parts_covered = initial(body_parts_covered)
-		if(contained_sprite)
+		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
@@ -1025,14 +1046,14 @@
 	rolled_sleeves = !rolled_sleeves
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
-		if(contained_sprite)
+		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = "[initial(item_state)]_r"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
 		to_chat(usr, SPAN_NOTICE("You roll up your [src]'s sleeves."))
 	else
 		body_parts_covered = initial(body_parts_covered)
-		if(contained_sprite)
+		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"

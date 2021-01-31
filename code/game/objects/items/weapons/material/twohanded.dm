@@ -348,7 +348,7 @@
 	applies_material_colour = FALSE
 	default_material = "steel"
 	parry_chance = 5
-	var/fuel_type = /datum/reagent/fuel
+	var/fuel_type = /decl/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -427,8 +427,8 @@
 /obj/item/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
 	if(reagents && istype(reagents))
 		amount *= fuel_cost
-		reagents.remove_reagent(fuel_type, Clamp(amount,0,reagents.get_reagent_amount(fuel_type)))
-		if(reagents.get_reagent_amount(fuel_type) <= 0)
+		reagents.remove_reagent(fuel_type, Clamp(amount,0,REAGENT_VOLUME(reagents, fuel_type)))
+		if(REAGENT_VOLUME(reagents, fuel_type) <= 0)
 			PowerDown()
 	else
 		PowerDown()
@@ -450,7 +450,7 @@
 
 /obj/item/material/twohanded/chainsaw/examine(mob/user)
 	if(..(user, 1))
-		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(reagents.get_reagent_amount(fuel_type))]</b> unit\s of fuel.")
+		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel.")
 		if(powered)
 			to_chat(user, SPAN_NOTICE("It is currently powered on."))
 
@@ -494,7 +494,7 @@
 		PowerDown(user)
 	else if(!wielded)
 		to_chat(user, SPAN_WARNING("You need to hold this with two hands to turn this on."))
-	else if(reagents.get_reagent_amount(/datum/reagent/fuel) <= 0)
+	else if(REAGENT_VOLUME(reagents, /decl/reagent/fuel) <= 0)
 		user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src], but nothing happens."), SPAN_WARNING("You pull the cord on \the [src], but nothing happens."), SPAN_NOTICE("You hear a cord being pulled."))
 	else
 		var/max = rand(3,6)

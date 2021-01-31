@@ -57,13 +57,6 @@
 	fire_resist = T0C+5200
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
-/obj/item/clothing/suit/johnny_coat
-	name = "johnny~~ coat"
-	desc = "Johnny~~"
-	icon_state = "johnny"
-	item_state = "johnny"
-
-
 /obj/item/clothing/suit/justice
 	name = "justice suit"
 	desc = "This pretty much looks ridiculous."
@@ -382,6 +375,15 @@
 	. = ..()
 	color = get_random_colour(lower = 150)
 
+/obj/item/clothing/suit/storage/toggle/highvis
+	name = "high visibility jacket"
+	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."
+	icon = 'icons/clothing/suits/highvis.dmi'
+	icon_state = "highvis"
+	item_state = "highvis"
+	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."
@@ -509,7 +511,7 @@
 	icon_state = "serv_dep_jacket"
 	item_state = "serv_dep_jacket"
 
-/obj/item/clothing/suit/storage/fib
+/obj/item/clothing/suit/storage/toggle/fib
 	name = "\improper FIB agent jacket"
 	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
 	icon_state = "fib_jacket"
