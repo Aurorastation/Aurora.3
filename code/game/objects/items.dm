@@ -104,6 +104,11 @@
 		src.loc = null
 	return ..()
 
+/obj/item/update_icon()
+	. = ..()
+	if(build_from_parts)
+		cut_overlays()
+		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
