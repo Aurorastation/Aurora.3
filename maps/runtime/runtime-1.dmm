@@ -1518,6 +1518,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"pM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "pX" = (
 /obj/structure/cable{
 	d1 = 16;
@@ -1643,15 +1652,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"Pl" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/landmark{
-	name = "RevenantRift"
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "PS" = (
 /obj/effect/landmark{
 	name = "Revenant"
@@ -3470,7 +3470,7 @@ da
 da
 dl
 dc
-Pl
+pM
 dt
 du
 dl
