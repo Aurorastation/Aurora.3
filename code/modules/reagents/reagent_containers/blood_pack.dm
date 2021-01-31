@@ -114,19 +114,15 @@
 	update_icon()
 
 /obj/item/reagent_containers/blood/process()
-	if(!ismob(loc))
-		remove_iv_mob()
-		return
-
-	var/mob/attached
+	var/mob/living/carbon/human/attached
 	if(attached_mob)
 		attached = attached_mob.resolve()
 		if(!attached)
 			attached_mob = null
 			return PROCESS_KILL
-		if(!loc.Adjacent(attached))
-			attached_mob = null
-			visible_message(SPAN_WARNING("\The [attached] detaches from \the [src]."))
+		var/is_adjacent = loc.Adjacent(attached)
+		if(!is_adjacent || !ismob(loc))
+			remove_iv_mob(is_adjacent)
 			update_icon()
 			return PROCESS_KILL
 	else
@@ -145,11 +141,16 @@
 	reagents.trans_to_mob(attached, amount_per_transfer_from_this, CHEM_BLOOD)
 	update_icon()
 
-/obj/item/reagent_containers/blood/proc/remove_iv_mob()
+/obj/item/reagent_containers/blood/proc/remove_iv_mob(var/safe = TRUE)
 	if(attached_mob)
-		var/mob/M = attached_mob.resolve()
-		if(M)
-			visible_message(SPAN_NOTICE("\The [M] is taken off \the [src]."))
+		var/mob/living/carbon/human/attached = attached_mob.resolve()
+		if(attached)
+			if(safe)
+				visible_message(SPAN_NOTICE("\The [attached] is taken off \the [src]."))
+			else
+				var/obj/item/organ/external/affecting = attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
+				attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), SPAN_DANGER("The needle <b>painfully</b> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
+				affecting.take_damage(brute = 5, damage_flags = DAM_SHARP)
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
 
