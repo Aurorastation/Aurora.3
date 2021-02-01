@@ -275,4 +275,4 @@
 		set_death_time(CREW, world.time)
 
 /mob/living/carbon/human/get_contained_external_atoms()
-	. = contents - (internal_organs|organs)
+	. = ..() - organs
