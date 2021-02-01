@@ -206,10 +206,10 @@
 	if(affecting.buckled)
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 		return
-	if(affecting.lying && state != GRAB_KILL)
+	if(affecting.lying || force_down)
+		affecting.update_canmove()
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 5, 1, LINEAR_EASING)
-		if(force_down)
-			affecting.set_dir(SOUTH) //face up
+		affecting.set_dir(SOUTH)
 		return
 	var/shift = 0
 	var/adir = get_dir(assailant, affecting)
@@ -225,11 +225,13 @@
 		if(GRAB_NECK, GRAB_UPGRADING)
 			shift = -10
 			adir = assailant.dir
+			affecting.update_canmove()
 			affecting.set_dir(assailant.dir)
 			affecting.forceMove(assailant.loc)
 		if(GRAB_KILL)
 			shift = 0
 			adir = 1
+			affecting.update_canmove()
 			affecting.set_dir(SOUTH) //face up
 			affecting.forceMove(assailant.loc)
 

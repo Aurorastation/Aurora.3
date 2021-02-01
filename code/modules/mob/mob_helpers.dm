@@ -1189,5 +1189,13 @@ proc/is_blind(A)
 
 /mob/proc/remove_deaf()
 	sdisabilities &= ~DEAF
+
 /mob/proc/get_antag_datum(var/antag_role)
 	return
+
+/mob/proc/in_neck_grab()
+	for(var/thing in grabbed_by)
+		var/obj/item/grab/G = thing
+		if(G.state >= GRAB_NECK)
+			return TRUE
+	return FALSE

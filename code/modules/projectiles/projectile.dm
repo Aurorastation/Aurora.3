@@ -259,17 +259,18 @@
 	var/passthrough = FALSE //if the projectile should continue flying
 	if(ismob(A))
 		var/mob/M = A
-		if(istype(A, /mob/living))
-			//if they have a neck grab on someone, that person gets hit instead
-			var/obj/item/grab/G = locate() in M
-			if(G && G.state >= GRAB_NECK)
-				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
-				if(Collide(G.affecting))
-					return //If Collide() returns 0 (keep going) then we continue on to attack M.
+		if(isliving(A)) //so ghosts don't stop bullets
+			if(M.dir & get_dir(M, starting)) // only check neckgrab if they're facing in the direction the bullets came from
+				//if they have a neck grab on someone, that person gets hit instead
+				for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+					if(!G.affecting.lying && G.state >= GRAB_NECK)
+						visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
+						if(Collide(G.affecting))
+							return //If Collide() returns 0 (keep going) then we continue on to attack M.
 
 			passthrough = !attack_mob(M, distance)
 		else
-			passthrough = TRUE	//so ghosts don't stop bullets
+			passthrough = TRUE
 	else
 		passthrough = (A.bullet_act(src, def_zone) == PROJECTILE_CONTINUE) //backwards compatibility
 		if(isturf(A))

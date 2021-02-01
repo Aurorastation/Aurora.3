@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "A neck grab and above will now always hoist the grabbee into a raised position."
+  - rscadd: "If the person you have in a neck grab is lying down for whatever reason, you cannot use them as a shield."
+  - rscadd: "You can only use a human shield if you're facing the direction you're being shot at. Bullets that come from behind you will bypass your human shield."

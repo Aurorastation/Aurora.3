@@ -791,6 +791,9 @@ default behaviour is:
 	if(last_special + 1 SECOND > world.time)
 		to_chat(src, SPAN_WARNING("You're too tired to do this now!"))
 		return
+	if(in_neck_grab())
+		to_chat(src, SPAN_WARNING("You are being restrained!"))
+		return
 	last_special = world.time
 	resting = !resting
 	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
