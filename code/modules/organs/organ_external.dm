@@ -766,7 +766,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if (updatehud)
 		owner.hud_updateflag = 1022
 
-	if (update_icon())
+	if(update_icon())
 		owner.UpdateDamageIcon(1)
 
 //Updates brute_damn and burn_damn from wound damages. Updates BLEEDING status.

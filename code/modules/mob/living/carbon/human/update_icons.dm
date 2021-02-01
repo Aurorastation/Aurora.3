@@ -182,7 +182,7 @@ There are several things that need to be remembered:
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
-/mob/living/carbon/human/UpdateDamageIcon(var/update_icons=1)
+/mob/living/carbon/human/UpdateDamageIcon(var/update_icons = 1)
 	// first check whether something actually changed about damage appearance
 	var/damage_appearance = ""
 

@@ -15,7 +15,6 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = FALSE
 	var/time_to_escape = 60
-	var/ignore_armor = FALSE
 
 /obj/item/trap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
@@ -98,18 +97,9 @@
 	else
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
-	if(!ignore_armor)
-		//armor
-		var/blocked = L.run_armor_check(target_zone, "melee")
-		if(blocked >= 100)
-			return
-		var/success = L.apply_damage(30, BRUTE, target_zone, blocked, src)
-		if(!success)
-			return FALSE
-	else
-		var/success = L.apply_damage(30, BRUTE, target_zone, 0, src)
-		if(!success)
-			return FALSE
+	var/success = L.apply_damage(30, BRUTE, target_zone, used_weapon = src)
+	if(!success)
+		return FALSE
 
 	var/did_trap = TRUE
 	if(ishuman(L))
@@ -152,11 +142,6 @@
 
 /obj/item/trap/update_icon()
 	icon_state = "[icon_base][deployed]"
-
-/obj/item/trap/sharpened
-	name = "sharpened mechanical trap"
-	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
-	ignore_armor = TRUE
 
 /obj/item/trap/animal
 	name = "small trap"

@@ -193,7 +193,7 @@
 		target_mob = null
 		audible_emote("[pick(sad_emote)].",0)
 		return
-	if(!. && retribution)
+	if(. && retribution)
 		stance = HOSTILE_STANCE_ATTACK
 		target_mob = user
 		allowed_targets += user //fuck this guy in particular.
