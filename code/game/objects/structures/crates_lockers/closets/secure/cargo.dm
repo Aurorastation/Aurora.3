@@ -47,6 +47,7 @@
 	new /obj/item/modular_computer/handheld/custom_loadout/advanced/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/orbital_dropper/drill(src)
+	new /obj/item/device/megaphone/cargo(src)
 
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant locker"

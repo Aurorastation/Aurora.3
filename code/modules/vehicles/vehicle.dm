@@ -76,7 +76,7 @@
 		return 0
 
 /obj/vehicle/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/hand_labeler))
+	if(istype(W, /obj/item/device/hand_labeler))
 		return
 	if(W.isscrewdriver())
 		if(!locked)

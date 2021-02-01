@@ -63,11 +63,11 @@
 		usr.unEquip(C)
 
 		switch(over_object.name)
-			if(BP_R_HAND)
+			if("right hand")
 				if(istype(src, /obj/item/clothing/ears))
 					C = check_two_ears(usr)
 				usr.put_in_r_hand(C)
-			if(BP_L_HAND)
+			if("left hand")
 				if(istype(src, /obj/item/clothing/ears))
 					C = check_two_ears(usr)
 				usr.put_in_l_hand(C)

@@ -108,8 +108,8 @@
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi',
 		)
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
@@ -372,7 +372,8 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_r_ear]" = SLOT_EARS|SLOT_TWOEARS,
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
-	"[slot_tie]" = SLOT_TIE
+	"[slot_tie]" = SLOT_TIE,
+	"[slot_wrists]" = SLOT_WRISTS
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -762,6 +763,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.update_inv_pockets()
 		if (slot_s_store)
 			M.update_inv_s_store()
+		if (slot_wrists)
+			M.update_inv_wrists()
 
 // Attacks mobs that are adjacent to the target and user.
 /obj/item/proc/cleave(var/mob/living/user, var/mob/living/target)
@@ -846,3 +849,13 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/extinguish_fire()
 	return
+
+/obj/item/proc/get_print_info(var/no_clear = TRUE)
+	if(no_clear)
+		. = ""
+	. += "Damage: [force]<br>"
+	. += "Damage Type: [damtype]<br>"
+	. += "Sharp: [sharp ? "yes" : "no"]<br>"
+	. += "Dismemberment: [edge ? "likely to dismember" : "unlikely to dismember"]<br>"
+	. += "Penetration: [armor_penetration]<br>"
+	. += "Throw Force: [throwforce]<br>"

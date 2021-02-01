@@ -647,6 +647,7 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
 	if(!internal_bodyscanner)
 		return
+	user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
 	if(do_after(user, 7 SECONDS, TRUE))
 		print_scan(M, user)
 		add_fingerprint(user)

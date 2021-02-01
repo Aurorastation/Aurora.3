@@ -1009,10 +1009,10 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "watch"
 	problist = list(
-		/obj/item/clothing/gloves/watch = 1,
-		/obj/item/clothing/gloves/watch/silver = 0.7,
-		/obj/item/clothing/gloves/watch/gold = 0.5,
-		/obj/item/clothing/gloves/watch/spy = 0.3,
+		/obj/item/clothing/wrists/watch = 1,
+		/obj/item/clothing/wrists/watch/silver = 0.7,
+		/obj/item/clothing/wrists/watch/gold = 0.5,
+		/obj/item/clothing/wrists/watch/spy = 0.3,
 	)
 
 /obj/random/hoodie
@@ -1095,6 +1095,21 @@
 	problist = list(
 		/obj/item/bluespace_crystal = 5,
 		/obj/item/stack/telecrystal{amount = 10} = 5,
+		/obj/item/clothing/suit/armor/reactive = 0.5,
+		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
+		/obj/random/sword = 0.5,
+		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/melee/energy/axe = 0.5,
+		/obj/item/gun/projectile/automatic/terminator = 0.5,
+		/obj/item/rig/military = 0.5,
+		/obj/item/rig/unathi/fancy = 0.5,
+		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/anomaly_core = 0.5
+	)
+
+/obj/random/highvalue/no_crystal
+	problist = list(
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
