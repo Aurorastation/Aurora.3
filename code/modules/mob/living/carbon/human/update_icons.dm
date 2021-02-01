@@ -252,7 +252,7 @@ There are several things that need to be remembered:
 	. = list()
 	var/mutable_appearance/M = null
 	if(build_from_parts)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
+		M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
 		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		if(worn_overlay_color)
 			M.color = worn_overlay_color
