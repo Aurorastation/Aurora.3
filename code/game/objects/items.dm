@@ -846,3 +846,13 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/extinguish_fire()
 	return
+
+/obj/item/proc/get_print_info(var/no_clear = TRUE)
+	if(no_clear)
+		. = ""
+	. += "Damage: [force]<br>"
+	. += "Damage Type: [damtype]<br>"
+	. += "Sharp: [sharp ? "yes" : "no"]<br>"
+	. += "Dismemberment: [edge ? "likely to dismember" : "unlikely to dismember"]<br>"
+	. += "Penetration: [armor_penetration]<br>"
+	. += "Throw Force: [throwforce]<br>"
