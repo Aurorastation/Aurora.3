@@ -18394,7 +18394,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "aJo" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "aJp" = (
@@ -19161,7 +19161,7 @@
 /area/chapel/office)
 "aKS" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	pixel_x = 25
 	},
 /obj/machinery/light/small{

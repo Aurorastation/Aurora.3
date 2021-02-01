@@ -51786,15 +51786,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bSC" = (
-/obj/structure/crematorium{
+/obj/structure/morgue/crematorium{
 	_wifi_id = "chapel_crema"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "bSD" = (
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	_wifi_id = "chapel_crema";
-	cremate_dir = 4;
+	cremate_dir = null;
 	pixel_x = -32;
 	pixel_y = 25
 	},

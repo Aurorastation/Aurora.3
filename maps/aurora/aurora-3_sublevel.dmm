@@ -531,7 +531,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "abq" = (
-/obj/structure/crematorium{
+/obj/structure/morgue/crematorium{
 	_wifi_id = "xenobio_crema"
 	},
 /turf/simulated/floor/tiled/white,
@@ -5325,7 +5325,7 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/cells/alpha)
 "ame" = (
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	_wifi_id = "xenobio_crema";
 	pixel_x = -32;
 	pixel_y = 25;
@@ -11859,7 +11859,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "avo" = (
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	_wifi_id = "sci_crema1";
 	pixel_x = 28;
 	pixel_y = 28
@@ -25992,7 +25992,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "bwz" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -29112,7 +29112,7 @@
 /turf/simulated/floor/beach/sand/alt,
 /area/medical/patient_wing_picnic)
 "hHI" = (
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	req_access = list(66)
 	},
 /obj/structure/table/steel,
@@ -29566,7 +29566,7 @@
 	},
 /area/mine/unexplored)
 "iKh" = (
-/obj/structure/crematorium{
+/obj/structure/morgue/crematorium{
 	_wifi_id = "sci_crema1"
 	},
 /turf/simulated/floor/tiled,
@@ -29896,7 +29896,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
 "jvK" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
