@@ -257,15 +257,17 @@
 
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			var/washgloves = 1
-			var/washshoes = 1
-			var/washmask = 1
-			var/washears = 1
-			var/washglasses = 1
+			var/washgloves = TRUE
+			var/washshoes = TRUE
+			var/washmask = TRUE
+			var/washears = TRUE
+			var/washglasses = TRUE
+			var/washwrists = TRUE
 
 			if(H.wear_suit)
 				washgloves = !(H.wear_suit.flags_inv & HIDEGLOVES)
 				washshoes = !(H.wear_suit.flags_inv & HIDESHOES)
+				washwrists = !(H.wear_suit.flags_inv & HIDEWRISTS)
 
 			if(H.head)
 				washmask = !(H.head.flags_inv & HIDEMASK)
@@ -317,6 +319,10 @@
 			if(H.belt)
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)
+					update_icons_required = TRUE
+			if(H.wrists && washwrists)
+				if(H.wrists.clean_blood())
+					H.update_inv_wrists(0)
 					update_icons_required = TRUE
 			H.clean_blood(washshoes)
 		else
