@@ -2,7 +2,10 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
+
+	var/observers_only = FALSE
 	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
+
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
@@ -25,7 +28,10 @@
 	var/enable_chance = null //If set to a value other than null, has the set chance to become enabled
 	var/enable_dmessage = TRUE //The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
 	var/respawn_flag = null //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
-	var/jobban_job = null //If this is set, then it will check if the user is jobbanned from a specific job. Otherwise it will check for the name of the spawner
+
+	//If jobban_job is set, then it will check if the user is jobbanned from a specific job. Otherwise it will check for the name of the spawner.
+	//it will also check if there is a whitelist required and if the player has the relevant whitelist for the specified job (or the name of the spawner)
+	var/jobban_job = null
 
 	//Vars regarding the mob to use
 	var/mob/spawn_mob = null //The mob that should be spawned
@@ -60,12 +66,16 @@
 	if(req_head_whitelist && !check_whitelist(user))
 		return "Missing Head of Staff Whitelist"
 
-	if(jobban_job && jobban_isbanned(user,jobban_job))
-		return "Job Banned"
+	var/ban_reason = jobban_isbanned(user,jobban_job)
+	if(jobban_job && ban_reason)
+		return "[ban_reason]"
 
 	if(req_species_whitelist)
 		if(!is_alien_whitelisted(user, req_species_whitelist))
 			return "Missing Species Whitelist"
+
+	if(observers_only && !isobserver(user))
+		return "Observers Only"
 
 	return FALSE
 
@@ -116,11 +126,13 @@
 			if(T) //If we have a spawnpoint, return it
 				return T
 	if(!isnull(landmark_name))
-		var/obj/effect/landmark/L
+		var/list/possible_landmarks = list()
 		for(var/obj/effect/landmark/landmark in landmarks_list)
 			if(landmark.name == landmark_name)
-				L = landmark
-				return get_turf(L)
+				possible_landmarks += landmark
+		if(length(possible_landmarks))
+			var/obj/effect/landmark/L = pick(possible_landmarks)
+			return get_turf(L)
 
 	log_debug("Ghostspawner: Spawner [short_name] has neither spawnpoints nor landmarks or a matching spawnpoint/landmark could not be found")
 
@@ -177,6 +189,9 @@
 
 //Proc to enable the ghostspawner
 /datum/ghostspawner/proc/enable()
+	if((max_count - count) <= 0)
+		to_chat(usr, "The ghostspawner can not be enabled - No slots available")
+		return
 	if(usr)
 		log_and_message_admins("has enabled the ghostspawner [src.name]")
 	enabled = TRUE

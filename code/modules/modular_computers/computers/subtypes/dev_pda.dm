@@ -1,5 +1,6 @@
 /obj/item/modular_computer/handheld/pda
 	name = "PDA"
+	lexical_name = "tablet"
 	desc = "The latest in portable microcomputer solutions from Thinktronic Systems, LTD."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"

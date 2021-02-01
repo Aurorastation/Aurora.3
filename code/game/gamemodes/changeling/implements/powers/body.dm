@@ -210,6 +210,9 @@
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
 	C.remove_changeling_powers()
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		H.handle_hud_list(TRUE)
 
 	C.emote("gasp")
 	C.tod = worldtime2text()
@@ -259,9 +262,9 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent(/datum/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.10)
-	C.reagents.add_reagent(/datum/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
+	C.reagents.add_reagent(/decl/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
+	C.reagents.add_reagent(/decl/reagent/oxycomorphine, 0.10)
+	C.reagents.add_reagent(/decl/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun

@@ -265,6 +265,7 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
+	icon = 'icons/obj/clothing/ears.dmi'
 	w_class = ITEMSIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
@@ -734,6 +735,7 @@
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
@@ -1014,13 +1016,13 @@
 	rolled_down = !rolled_down
 	if(rolled_down)
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
-		if(contained_sprite)
+		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = "[initial(item_state)]_d"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 	else
 		body_parts_covered = initial(body_parts_covered)
-		if(contained_sprite)
+		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
@@ -1044,14 +1046,14 @@
 	rolled_sleeves = !rolled_sleeves
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
-		if(contained_sprite)
+		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = "[initial(item_state)]_r"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
 		to_chat(usr, SPAN_NOTICE("You roll up your [src]'s sleeves."))
 	else
 		body_parts_covered = initial(body_parts_covered)
-		if(contained_sprite)
+		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"

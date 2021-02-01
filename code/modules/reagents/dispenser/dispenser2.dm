@@ -124,9 +124,9 @@
 	data["beakerMaxVolume"] = container?.reagents?.maximum_volume
 	data["beakerCurrentVolume"] = container?.reagents?.total_volume
 	var beakerD[0]
-	if(container && container.reagents && container.reagents.reagent_list.len)
-		for(var/datum/reagent/R in container.reagents.reagent_list)
-			beakerD[++beakerD.len] = list("name" = R.name, "volume" = R.volume)
+	for(var/_R in container?.reagents?.reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		beakerD[++beakerD.len] = list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, _R))
 	data["beakerContents"] = beakerD
 	var chemicals[0]
 	for(var/label in cartridges)
@@ -166,6 +166,7 @@
 				icon_state = initial(icon_state)
 			SSvueui.check_uis_for_change(src)
 
+	SSnanoui.update_uis(src)
 	add_fingerprint(usr)
 	return TOPIC_REFRESH // update UIs attached to this object
 

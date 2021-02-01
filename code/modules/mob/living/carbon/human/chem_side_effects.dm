@@ -13,7 +13,7 @@
 		if(H.reagents.has_reagent(R))
 			return 0
 	for(var/R in triggers)
-		if(H.reagents.get_reagent_amount(R) >= triggers[R])
+		if(REAGENT_VOLUME(H.reagents, R) >= triggers[R])
 			return 1
 	return 0
 
@@ -82,8 +82,8 @@
 // ========
 /datum/medical_effect/headache
 	name = "Headache"
-	triggers = list(/datum/reagent/cryoxadone = 10, /datum/reagent/bicaridine = 15, /datum/reagent/tricordrazine = 15)
-	cures = list(/datum/reagent/alkysine, /datum/reagent/mortaphenyl, /datum/reagent/perconol, /datum/reagent/oxycomorphine)
+	triggers = list(/decl/reagent/cryoxadone = 10, /decl/reagent/bicaridine = 15, /decl/reagent/tricordrazine = 15)
+	cures = list(/decl/reagent/alkysine, /decl/reagent/mortaphenyl, /decl/reagent/perconol, /decl/reagent/oxycomorphine)
 	cure_message = "Your head stops throbbing..."
 
 /datum/medical_effect/headache/on_life(mob/living/carbon/human/H, strength)
@@ -99,8 +99,8 @@
 // ===========
 /datum/medical_effect/bad_stomach
 	name = "Bad Stomach"
-	triggers = list(/datum/reagent/kelotane = 30, /datum/reagent/dermaline = 15)
-	cures = list(/datum/reagent/dylovene)
+	triggers = list(/decl/reagent/kelotane = 30, /decl/reagent/dermaline = 15)
+	cures = list(/decl/reagent/dylovene)
 	cure_message = "Your stomach feels a little better now..."
 
 /datum/medical_effect/bad_stomach/on_life(mob/living/carbon/human/H, strength)
@@ -116,8 +116,8 @@
 // ======
 /datum/medical_effect/cramps
 	name = "Cramps"
-	triggers = list(/datum/reagent/dylovene = 30, /datum/reagent/mortaphenyl = 15)
-	cures = list(/datum/reagent/inaprovaline)
+	triggers = list(/decl/reagent/dylovene = 30, /decl/reagent/mortaphenyl = 15)
+	cures = list(/decl/reagent/inaprovaline)
 	cure_message = "The cramps let up..."
 
 /datum/medical_effect/cramps/on_life(mob/living/carbon/human/H, strength)
@@ -134,8 +134,8 @@
 // ====
 /datum/medical_effect/itch
 	name = "Itch"
-	triggers = list(/datum/reagent/space_drugs = 10)
-	cures = list(/datum/reagent/inaprovaline)
+	triggers = list(/decl/reagent/space_drugs = 10)
+	cures = list(/decl/reagent/inaprovaline)
 	cure_message = "The itching stops..."
 
 /datum/medical_effect/itch/on_life(mob/living/carbon/human/H, strength)

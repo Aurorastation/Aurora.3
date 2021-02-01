@@ -59,6 +59,7 @@
 		var/originaldesc = desc
 		var/o_transform = transform
 		appearance = body
+		appearance_flags = KEEP_TOGETHER
 		desc = originaldesc
 		transform = o_transform
 
