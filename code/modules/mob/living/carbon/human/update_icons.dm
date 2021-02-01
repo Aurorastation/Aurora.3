@@ -1573,74 +1573,74 @@ There are several things that need to be remembered:
 //These functions check if an item should be drawn, or if its covered up by something else
 /mob/living/carbon/human/proc/check_draw_gloves()
 	if (!gloves)
-		return 0
+		return FALSE
 	else if (gloves.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if (wear_suit && (wear_suit.flags_inv & HIDEGLOVES))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_ears()
 	if (!l_ear && !r_ear)
-		return 0
+		return FALSE
 	else if ((l_ear && (l_ear.flags_inv & ALWAYSDRAW)) || (r_ear && (r_ear.flags_inv & ALWAYSDRAW)))
-		return 1
+		return TRUE
 	else if( (head && (head.flags_inv & (HIDEEARS))) || (wear_mask && (wear_mask.flags_inv & (HIDEEARS))))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_glasses()
 	if (!glasses)
-		return 0
+		return FALSE
 	else if (glasses.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if( (head && (head.flags_inv & (HIDEEYES))) || (wear_mask && (wear_mask.flags_inv & (HIDEEYES))))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 
 /mob/living/carbon/human/proc/check_draw_mask()
 	if (!wear_mask)
-		return 0
+		return FALSE
 	else if (wear_mask.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if( head && (head.flags_inv & HIDEEYES))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_shoes()
 	if (!shoes)
-		return 0
+		return FALSE
 	else if (shoes.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if(wear_suit && (wear_suit.flags_inv & HIDESHOES))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_underclothing()
 	if (!w_uniform)
-		return 0
+		return FALSE
 	else if (w_uniform.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if(wear_suit && (wear_suit.flags_inv & HIDEJUMPSUIT))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_wrists()
 	if (!wrists)
-		return 0
+		return FALSE
 	else if (wrists.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if (wrists && (wrists.flags_inv & HIDEWRISTS))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 //Human Overlays Indexes/////////
 #undef MUTATIONS_LAYER
