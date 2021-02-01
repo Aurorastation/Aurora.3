@@ -54607,7 +54607,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bZs" = (
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZu" = (
@@ -59246,7 +59246,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -59461,7 +59461,7 @@
 /obj/item/flame/candle{
 	pixel_y = -10
 	},
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "cxC" = (
@@ -59671,7 +59671,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -59763,7 +59763,7 @@
 /area/crew_quarters/kitchen)
 "dcF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dde" = (
@@ -59837,7 +59837,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "dmg" = (
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dnl" = (
@@ -59846,7 +59846,7 @@
 /area/maintenance/vault)
 "doy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dpr" = (
@@ -60113,17 +60113,17 @@
 	pixel_x = -16;
 	pixel_y = 4
 	},
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dMA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dMD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -60183,7 +60183,7 @@
 /turf/simulated/floor/tiled,
 /area/security/nuke_storage)
 "dWO" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -60193,7 +60193,7 @@
 	pixel_x = 1;
 	pixel_y = -10
 	},
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dXS" = (
@@ -60559,7 +60559,7 @@
 /obj/item/flame/candle{
 	pixel_y = -10
 	},
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "eTB" = (
@@ -60766,7 +60766,7 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "fnE" = (
@@ -60946,7 +60946,7 @@
 /area/maintenance/research_port)
 "fGD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -69680,7 +69680,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
 "wVv" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
