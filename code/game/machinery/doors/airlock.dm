@@ -1521,9 +1521,14 @@ About the new airlock wires panel:
 				if(AM.blocks_airlock())
 					close_door_in(6)
 					return
+	var/has_opened_hatch = FALSE
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
-			if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
+			if(hashatch && AM.checkpass(PASSDOORHATCH))
+				if(!has_opened_hatch)
+					open_hatch(AM)
+				has_opened_hatch = TRUE
+			else if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
 				take_damage(DOOR_CRUSH_DAMAGE)
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())

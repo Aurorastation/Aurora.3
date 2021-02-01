@@ -146,7 +146,7 @@
 			anchored = FALSE
 		deployed = FALSE
 		update_icon()
-		animate_shake()
+		shake_animation()
 	..()
 
 
@@ -236,7 +236,7 @@
 		buckle_mob(L)
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = FALSE
-		src.animate_shake()
+		src.shake_animation()
 		update_icon()
 
 /obj/item/trap/animal/proc/req_breakout()
@@ -252,7 +252,7 @@
 
 	if ((world.time - last_shake) > 5 SECONDS)
 		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
-		animate_shake()
+		shake_animation()
 		last_shake = world.time
 
 	return TRUE
@@ -372,7 +372,7 @@
 	unbuckle_mob()
 	captured = null
 	visible_message(msg)
-	animate_shake()
+	shake_animation()
 	update_icon()
 	release_time = world.time
 
@@ -567,7 +567,8 @@
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
 						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
-						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human/)
+						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human,
+						/mob/living/simple_animal/pig)
 
 /obj/item/trap/animal/large/attack_hand(mob/user)
 	if(user == buckled_mob)
@@ -660,4 +661,3 @@
 		return
 	else
 		..()
-

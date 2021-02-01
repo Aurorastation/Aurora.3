@@ -80,6 +80,8 @@
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
 
+	var/rebooting = FALSE
+
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return FALSE
@@ -239,6 +241,9 @@
 			if(!allowed(usr))
 				to_chat(user, SPAN_WARNING("Access denied."))
 				return
+			if(rebooting)
+				to_chat(user, SPAN_WARNING("\The [src] is already rebooting!"))
+				return
 			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
@@ -370,11 +375,17 @@
 
 //Reboot procs.
 
+/mob/living/silicon/robot/drone/Logout()
+	. = ..()
+	rebooting = FALSE
+
 /mob/living/silicon/robot/drone/proc/request_player()
 	if(too_many_active_drones())
 		return
-	var/datum/ghosttrap/G = get_ghost_trap("maintenance drone")
-	G.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
+	if(rebooting)
+		return
+	stat = CONSCIOUS
+	SSghostroles.add_spawn_atom("rebooted_maint_drone", src)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player)
@@ -455,6 +466,9 @@
 	dat += "<b>Self-Diagnosis System Report</b><br><table><tr><td>Brute Damage:</td><td>[bruteloss]</td></tr><tr><td>Electronics Damage:</td><td>[fireloss]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
 
 	return dat
+
+/mob/living/silicon/robot/drone/set_respawn_time()
+	set_death_time(MINISYNTH, world.time)
 
 /mob/living/silicon/robot/drone/construction/Initialize()
 	. = ..()

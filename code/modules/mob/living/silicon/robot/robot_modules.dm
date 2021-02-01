@@ -119,8 +119,8 @@ var/global/list/robot_modules = list(
 		else if(F.times_used)
 			F.times_used--
 
-	if(E && E.reagents.total_volume < E.reagents.maximum_volume)
-		E.reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
+	if(E.reagents && (REAGENTS_FREE_SPACE(E.reagents) > 0))
+		E.reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
 
 	if(!synths.len)
 		return
@@ -231,11 +231,11 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
+	src.emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
@@ -261,7 +261,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/hypospray/cmo/PS = src.emag
-		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
+		PS.reagents.add_reagent(/decl/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/medical/rescue
@@ -303,7 +303,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
+	src.emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
@@ -334,7 +334,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/PS = src.emag
-		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
+		PS.reagents.add_reagent(/decl/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/engineering
@@ -552,7 +552,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent(/datum/reagent/lube, 250)
+	src.emag.reagents.add_reagent(/decl/reagent/lube, 250)
 	src.emag.name = "Lube spray"
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -561,7 +561,7 @@ var/global/list/robot_modules = list(
 	LR.Charge(R, amount)
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/S = src.emag
-		S.reagents.add_reagent(/datum/reagent/lube, 2 * amount)
+		S.reagents.add_reagent(/decl/reagent/lube, 2 * amount)
 
 /obj/item/robot_module/clerical
 	name = "service robot module"
@@ -615,7 +615,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
@@ -643,7 +643,7 @@ var/global/list/robot_modules = list(
 	var/datum/reagents/RG = new /datum/reagents(50)
 	src.emag.reagents = RG
 	RG.my_atom = src.emag
-	RG.add_reagent(/datum/reagent/polysomnine/beer2, 50)
+	RG.add_reagent(/decl/reagent/polysomnine/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general
@@ -654,7 +654,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
@@ -698,7 +698,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
@@ -775,7 +775,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.

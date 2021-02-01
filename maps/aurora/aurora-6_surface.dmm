@@ -1153,7 +1153,7 @@
 	pixel_y = 7
 	},
 /obj/item/toy/figure/assistant,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "aOO" = (
@@ -4198,6 +4198,10 @@
 	name = "survey shuttle"
 	},
 /area/shuttle/research)
+"dLW" = (
+/obj/machinery/biogenerator/small/west,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "dMM" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -6874,7 +6878,7 @@
 /area/hallway/secondary/entry/emergency)
 "gnQ" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
@@ -6884,7 +6888,7 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -7825,7 +7829,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/engi,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -9341,6 +9345,9 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/disposalpipe/segment,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "ioe" = (
@@ -14791,6 +14798,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
+"nmN" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "nnZ" = (
 /obj/structure/cable/yellow{
 	d2 = 2;
@@ -26266,7 +26279,7 @@
 /area/storage/shields)
 "xdG" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/light,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Primary Tool Storage Aft";
@@ -27497,7 +27510,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "ykk" = (
@@ -45179,7 +45192,7 @@ rYN
 rYN
 fdu
 kKF
-kKF
+nmN
 fdu
 rYN
 rYN
@@ -53942,7 +53955,7 @@ fdu
 fdu
 fdu
 kKF
-kKF
+nmN
 kKF
 kKF
 kKF
@@ -56464,7 +56477,7 @@ bNO
 cNy
 voV
 hGZ
-osW
+dLW
 osW
 xpF
 rnJ

@@ -49,10 +49,10 @@
 	else
 		return null
 
-//Will return the contents of an atom recursivly to a depth of 'searchDepth'
-/atom/proc/GetAllContents(searchDepth = 5)
+//Will return the contents of an atom recursively to a depth of 'searchDepth'
+/atom/proc/GetAllContents(searchDepth = 5, checkClient = 1, checkSight = 1, includeMobs = 1, includeObjects = 1)
 	var/list/L = list()
-	recursive_content_check(src, L, recursion_limit = searchDepth)
+	recursive_content_check(src, L, searchDepth, checkClient, checkSight, includeMobs, includeObjects)
 
 	return L
 
@@ -487,14 +487,14 @@
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 		if(istype(inject_reagents) && inject_reagents.total_volume)
 			inject_reagents.trans_to_obj(this, min(15, inject_reagents.total_volume))
-			this.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
+			this.reagents.add_reagent(/decl/reagent/acid/stomach, 5)
 
 		// Make toxins vomit look different
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
 /mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
-	vomit.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
+	vomit.reagents.add_reagent(/decl/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
 	if(!simulated)

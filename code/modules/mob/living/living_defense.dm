@@ -149,6 +149,9 @@
 		O.emp_act(severity)
 	..()
 
+/mob/living/proc/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
+	return src
+
 /mob/living/proc/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 	return target_zone
 

@@ -232,13 +232,13 @@
 		/obj/item/clothing/suit/apron/overalls/random,
 		/obj/item/clothing/suit/captunic/capjacket,
 		/obj/item/clothing/suit/ianshirt,
-		/obj/item/clothing/suit/storage/fib,
+		/obj/item/clothing/suit/storage/toggle/fib,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 		/obj/item/clothing/suit/storage/hooded/wintercoat,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/red,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/miner,
 		/obj/item/clothing/suit/storage/leathercoat,
-		/obj/item/clothing/suit/storage/vest/csi,
+		/obj/item/clothing/suit/storage/vest/ft,
 		/obj/item/clothing/suit/storage/toggle/dominia/bomber,
 		/obj/item/clothing/suit/storage/toggle/dominia/gold,
 		/obj/item/clothing/suit/storage/toggle/flannel,
@@ -404,10 +404,10 @@
 	head = null
 
 	gloves = list(
-		/obj/item/clothing/gloves/watch,
-		/obj/item/clothing/gloves/watch/silver,
-		/obj/item/clothing/gloves/watch/gold,
-		/obj/item/clothing/gloves/watch/spy
+		/obj/item/clothing/wrists/watch,
+		/obj/item/clothing/wrists/watch/silver,
+		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/spy
 	)
 
 	l_ear = /obj/item/device/radio/headset/burglar
