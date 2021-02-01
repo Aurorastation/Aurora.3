@@ -914,15 +914,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
-"dl" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical/upper)
 "dm" = (
 /obj/structure/table/wood,
 /obj/item/folder/sec,
@@ -1797,6 +1788,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
+"he" = (
+/mob/living/carbon/human/dummy{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "hh" = (
 /obj/machinery/telecomms/processor,
 /turf/simulated/floor/reinforced,
@@ -2264,6 +2261,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "jP" = (
@@ -2393,16 +2391,18 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/theatre)
 "kO" = (
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
-	icon_state = "0-4"
+	icon_state = "2-8"
 	},
-/turf/simulated/floor/carpet,
-/area/crew_quarters/theatre)
+/obj/structure/bookcase{
+	icon_state = "book-5"
+	},
+/obj/structure/bookcase{
+	icon_state = "book-5"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/ward/isolation)
 "kQ" = (
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -3234,12 +3234,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
-"pI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical/upper)
 "pJ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3737,6 +3731,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"tk" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/chair,
+/turf/simulated/floor/tiled/white,
+/area/medical/ward/isolation)
 "tp" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3770,9 +3769,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/bookcase{
-	icon_state = "book-5"
-	},
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor,
 /area/maintenance/vault)
 "ty" = (
@@ -4779,6 +4776,9 @@
 /turf/simulated/floor,
 /area/maintenance/vault)
 "Ac" = (
+/obj/structure/toilet{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "Ae" = (
@@ -5025,6 +5025,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
+"BL" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/curtain/open,
+/turf/simulated/floor/tiled/white,
+/area/medical/ward/isolation)
 "BO" = (
 /obj/machinery/light{
 	dir = 8
@@ -5903,8 +5908,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/medical,
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/door/airlock/medical{
+	icon_state = "door_locked";
+	locked = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "Jc" = (
@@ -6621,6 +6629,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Pt" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/medical{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/medical/ward/isolation)
 "Pv" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -6775,6 +6794,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
+"Qx" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/medical/ward/isolation)
 "Qy" = (
 /obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
@@ -6803,10 +6827,7 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "QL" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/template_noop)
 "QM" = (
 /obj/structure/cable/cyan{
@@ -7093,9 +7114,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "Tb" = (
-/obj/structure/toilet{
-	dir = 4
-	},
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
@@ -7155,6 +7173,14 @@
 /obj/machinery/ntnet_relay,
 /turf/simulated/floor/reinforced,
 /area/tcommsat/chamber)
+"TD" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed,
+/obj/item/bedsheet/medical{
+	icon_state = "sheet-roll"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/ward/isolation)
 "TF" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7432,7 +7458,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/wood,
 /area/medical/smoking)
 "VM" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -7461,12 +7487,6 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/vault)
-"VX" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
-/area/crew_quarters/theatre)
 "VY" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -7687,7 +7707,9 @@
 /area/journalistoffice)
 "Ym" = (
 /obj/machinery/light,
-/obj/structure/flora/pottedplant/random,
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-27"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/theatre)
 "Yq" = (
@@ -20558,10 +20580,10 @@ at
 at
 at
 at
-Rh
-VX
-VX
-VX
+QL
+Nl
+tL
+Nl
 QL
 at
 at
@@ -20759,11 +20781,11 @@ iR
 iR
 DK
 iR
-iR
 DK
-Nl
-tL
-Nl
+DK
+Iu
+EN
+Iu
 eN
 eN
 Nl
@@ -21755,7 +21777,7 @@ aM
 wp
 cH
 ks
-dl
+dK
 ua
 dK
 do
@@ -22586,8 +22608,8 @@ EN
 ud
 EN
 Hz
-kO
-ZM
+CO
+KJ
 KJ
 kM
 os
@@ -22974,7 +22996,7 @@ My
 Ow
 dQ
 jp
-pI
+jk
 jk
 jk
 qc
@@ -22990,8 +23012,8 @@ EN
 oJ
 EN
 Hz
-ZM
-ZM
+KJ
+KJ
 KJ
 EW
 Nl
@@ -23160,7 +23182,7 @@ AW
 AW
 zK
 eX
-SZ
+kO
 Eh
 bd
 Jb
@@ -23178,7 +23200,7 @@ dS
 YR
 ji
 ji
-ji
+YR
 GX
 Fm
 js
@@ -23362,13 +23384,13 @@ tt
 Jm
 Bj
 eX
-qJ
+tk
 qJ
 il
 eX
 qJ
 SZ
-Jb
+Pt
 Vs
 WS
 Za
@@ -23564,7 +23586,7 @@ Ey
 Ny
 TI
 eX
-qJ
+Qx
 qJ
 xS
 eX
@@ -24170,11 +24192,11 @@ yz
 Ny
 Da
 eX
-qJ
-qJ
-qJ
-qJ
-qJ
+TD
+BL
+TD
+BL
+TD
 Zp
 eX
 XZ
@@ -28637,7 +28659,7 @@ uk
 Vm
 uk
 zW
-uk
+he
 VC
 NB
 NB
@@ -29445,7 +29467,7 @@ uk
 yh
 uk
 zW
-uk
+he
 nu
 nu
 nu
