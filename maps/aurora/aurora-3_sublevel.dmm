@@ -14864,7 +14864,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_y = 4
 	},
 /obj/item/storage/box/samplebags{
@@ -20110,7 +20110,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner_wide/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -33691,7 +33691,7 @@
 /area/outpost/engineering/power)
 "rCf" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},

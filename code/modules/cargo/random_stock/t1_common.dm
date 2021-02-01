@@ -335,7 +335,7 @@ STOCK_ITEM_COMMON(suitcooler, 1.2)
 
 STOCK_ITEM_COMMON(paperwork, 1.2)
 	if(prob(50))
-		new /obj/item/hand_labeler(L)
+		new /obj/item/device/hand_labeler(L)
 	else
 		new /obj/item/clipboard(L)
 	if(prob(15))

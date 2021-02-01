@@ -3030,7 +3030,7 @@
 /obj/structure/table/standard,
 /obj/machinery/firealarm/north,
 /obj/item/storage/box/bodybags,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/light_switch{
 	pixel_x = 26
 	},
@@ -3368,7 +3368,7 @@
 /area/security/main)
 "agn" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -7347,7 +7347,7 @@
 "anU" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/evidence,
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_x = 4;
 	pixel_y = 2
 	},
@@ -8012,7 +8012,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
 	},
@@ -8446,7 +8446,7 @@
 	dir = 5
 	},
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/structure/table/reinforced,
 /obj/item/stack/wrapping_paper,
 /turf/simulated/floor/tiled,
@@ -13338,7 +13338,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/head/hardhat,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "axI" = (
@@ -18910,7 +18910,7 @@
 /area/security/warden)
 "aGt" = (
 /obj/structure/closet/secure_closet/warden,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sec,
 /obj/item/crowbar,
 /obj/item/wrench,
 /obj/item/device/radio,
@@ -20988,7 +20988,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aJJ" = (
@@ -23080,7 +23080,7 @@
 /area/crew_quarters/heads/hos)
 "aNk" = (
 /obj/structure/table/wood,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sec,
 /obj/item/device/radio,
 /obj/item/device/taperecorder,
 /obj/machinery/light{
@@ -23651,7 +23651,7 @@
 /area/crew_quarters/captain)
 "aOo" = (
 /obj/structure/table/wood,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/command,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
@@ -25557,7 +25557,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/table/wood,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRF" = (
@@ -28869,7 +28869,7 @@
 	eftpos_name = "HoP EFTPOS scanner"
 	},
 /obj/item/toy/figure/corgi,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/command,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aXq" = (
@@ -32675,7 +32675,7 @@
 "bea" = (
 /obj/structure/table/wood,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
 	},
@@ -33942,7 +33942,7 @@
 	},
 /obj/item/stack/packageWrap,
 /obj/item/device/destTagger,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/stack/wrapping_paper,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/paper_bin{
@@ -33957,7 +33957,7 @@
 /area/medical/reception)
 "bgk" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_y = -20
 	},
 /obj/item/screwdriver,
@@ -36466,7 +36466,7 @@
 /area/crew_quarters/medbreak)
 "bkt" = (
 /obj/structure/table/glass,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/med,
 /obj/item/device/radio{
 	frequency = 1487;
 	name = "Medbay Emergency Radio Link";
@@ -36788,7 +36788,7 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/spline/plain,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/assembly/chargebay)
 "bkS" = (
@@ -42765,7 +42765,7 @@
 /area/rnd/misc_lab)
 "bxf" = (
 /obj/item/tape_roll,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/light_switch{
 	pixel_x = 20;
 	pixel_y = 24
@@ -43517,7 +43517,7 @@
 	pixel_y = -2
 	},
 /obj/item/paper/monitorkey,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sci,
 /obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
@@ -44181,7 +44181,7 @@
 /area/rnd/lab)
 "bzS" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/stack/packageWrap,
 /obj/item/stack/wrapping_paper,
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -51324,7 +51324,7 @@
 	},
 /obj/item/device/destTagger,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRg" = (
@@ -54697,7 +54697,7 @@
 /obj/item/stack/packageWrap,
 /obj/item/device/destTagger,
 /obj/item/pen,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/stack/wrapping_paper,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -55780,7 +55780,7 @@
 /area/quartermaster/mail_room)
 "cbB" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -59063,7 +59063,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cih" = (

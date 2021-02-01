@@ -108,8 +108,8 @@
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi',
 		)
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
