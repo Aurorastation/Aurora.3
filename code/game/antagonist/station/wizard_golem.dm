@@ -1,13 +1,13 @@
-var/datum/antagonist/bluespace_golem/bluespace_golems = null
+var/datum/antagonist/wizard_golem/wizard_golems = null
 
-/datum/antagonist/bluespace_golem
+/datum/antagonist/wizard_golem
 	id = MODE_GOLEM
 	role_text = "Golem"
 	role_text_plural = "Golems"
 	welcome_text = "You are a golem summoned by a powerful mage. Serve your master, and assist them in completing their goals at any cost."
 	antaghud_indicator = "hudmagineer"
 
-/datum/antagonist/bluespace_golem/New()
+/datum/antagonist/wizard_golem/New()
 	..()
 
-	bluespace_golems = src
+	wizard_golems = src

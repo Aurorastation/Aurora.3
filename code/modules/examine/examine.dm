@@ -82,3 +82,15 @@
 	var/is_cult = mind?.special_role == "Cultist" || isobserver(src)
 	if(client)
 		client.update_description_holders(A, is_antag, is_cult)
+
+/mob/proc/can_examine()
+	if(client?.eye == src)
+		return TRUE
+	return FALSE
+
+/mob/living/silicon/pai/can_examine()
+	. = ..()
+	if(!.)
+		var/atom/our_holder = recursive_loc_turf_check(src, 5)
+		if(isturf(our_holder.loc)) // are we folded in on the ground
+			return TRUE

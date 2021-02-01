@@ -355,6 +355,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_character.dna.ready_dna(new_character)
 	new_character.dna.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
+	new_character.fixblood() // now that dna is set
 	if(client.prefs.disabilities & NEARSIGHTED)
 		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
 		new_character.dna.SetSEState(GLASSESBLOCK,1,0)

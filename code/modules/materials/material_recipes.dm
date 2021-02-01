@@ -175,7 +175,8 @@
 			new /datum/stack_recipe("ore box", /obj/structure/ore_box, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wooden bucket", /obj/item/reagent_containers/glass/bucket/wood, 2, time = 4, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("shaft", /obj/item/material/shaft, 10, time = 25, one_per_turf = 0, on_floor = 0),
-			new /datum/stack_recipe("buckler donut", /obj/item/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0)
+			new /datum/stack_recipe("buckler donut", /obj/item/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0),
+			new /datum/stack_recipe("torch handle", /obj/item/torch, 3, time = 5, one_per_turf = 0, on_floor = 0)
 		))
 
 /material/stone/generate_recipes()

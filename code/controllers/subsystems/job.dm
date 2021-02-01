@@ -660,7 +660,14 @@
 
 	if(spawnpos && istype(spawnpos))
 		if(spawnpos.check_job_spawning(rank))
-			H.forceMove(pick(spawnpos.turfs))
+			if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
+				var/datum/spawnpoint/cryo/C = spawnpos
+				if(length(C.command_turfs))
+					H.forceMove(pick(C.command_turfs))
+				else
+					H.forceMove(pick(spawnpos.turfs))
+			else
+				H.forceMove(pick(spawnpos.turfs))
 			. = spawnpos.msg
 			spawnpos.after_join(H)
 		else

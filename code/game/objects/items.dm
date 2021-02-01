@@ -320,7 +320,7 @@
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
 // This shit exists so that dropped() could almost exclusively be called when an item is dropped.
 /obj/item/proc/on_slotmove(var/mob/user)
-	if (zoom)
+	if(zoom)
 		zoom(user)
 
 // called just as an item is picked up (loc is not yet changed)
@@ -742,9 +742,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		if (slot_wear_id)
 			M.update_inv_wear_id()
 		if (slot_l_ear)
-			M.update_inv_ears()
+			M.update_inv_l_ear()
 		if (slot_r_ear)
-			M.update_inv_ears()
+			M.update_inv_r_ear()
 		if (slot_glasses)
 			M.update_inv_glasses()
 		if (slot_gloves)

@@ -112,6 +112,7 @@
 	if(vampire && (vampire.status & VAMP_FRENZIED))
 		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy", EFFECTS_ABOVE_LIGHTING_LAYER)
 		return_image.appearance_flags = KEEP_APART
+		LAZYADD(additional_images, return_image)
 		return list(return_image)
 
 /obj/item/organ/external/proc/apply_markings(restrict_to_robotic = FALSE)
@@ -222,6 +223,11 @@
 
 /obj/item/organ/external/proc/get_additional_images(var/mob/living/carbon/human/H)
 	return
+
+/obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/human/H)
+	if(LAZYLEN(additional_images))
+		H.cut_overlay(additional_images, TRUE)
+		LAZYCLEARLIST(additional_images)
 
 // new damage icon system
 // adjusted to set damage_state to brute/burn code only (without r_name0 as before)

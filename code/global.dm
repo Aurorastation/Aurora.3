@@ -50,12 +50,13 @@ var/list/wizardstart     = list()
 var/turf/newplayer_start = null
 
 //Spawnpoints.
-var/list/latejoin          = list()
-var/list/latejoin_gateway  = list()
-var/list/latejoin_cryo     = list()
-var/list/latejoin_cyborg   = list()
-var/list/latejoin_merchant = list()
-var/list/kickoffsloc = list()
+var/list/latejoin              = list()
+var/list/latejoin_gateway      = list()
+var/list/latejoin_cryo         = list()
+var/list/latejoin_cryo_command = list()
+var/list/latejoin_cyborg       = list()
+var/list/latejoin_merchant     = list()
+var/list/kickoffsloc           = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
 var/list/holdingfacility    = list() // Captured people go here
@@ -146,7 +147,17 @@ var/max_explosion_range = 14
 // Announcer intercom, because too much stuff creates an intercom for one message then hard del()s it.
 var/global/obj/item/device/radio/intercom/global_announcer = new(null)
 
-var/list/station_departments = list("Command", "Medical", "Engineering", "Science", "Security", "Cargo", "Civilian")
+// the number next to it denotes how much money the department receives when its account is generated
+var/list/department_funds = list(
+	"Command" = 10000,
+	"Medical" = 10000,
+	"Engineering" = 10000,
+	"Science" = 10000,
+	"Security" = 10000,
+	"Cargo" = 5000,
+	"Civilian" = 10000,
+	"Vendor" = 0
+	)
 
 //List of exosuit tracking beacons, to save performance
 var/global/list/exo_beacons = list()

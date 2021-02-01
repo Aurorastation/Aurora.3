@@ -98,11 +98,29 @@ default behaviour is:
 				return
 
 			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/oldloc = loc
-				forceMove(tmob.loc)
-				tmob.forceMove(oldloc)
+				var/turf/tmob_oldloc = tmob.loc
+				var/turf/src_oldloc = loc
+				if(pulling?.density)
+					tmob.forceMove(pulling.loc)
+					forceMove(tmob_oldloc)
+					pulling.forceMove(src_oldloc)
+				else if(tmob.pulling?.density)
+					forceMove(tmob.pulling.loc)
+					tmob.forceMove(src_oldloc)
+					tmob.pulling.forceMove(tmob_oldloc)
+				else
+					forceMove(tmob_oldloc)
+					if(pulling)
+						pulling.forceMove(src_oldloc)
+					tmob.forceMove(src_oldloc)
+					if(tmob.pulling)
+						tmob.pulling.forceMove(tmob_oldloc)
+				for(var/obj/item/grab/G in list(l_hand, r_hand))
+					G.affecting.forceMove(loc)
+				for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
+					G.affecting.forceMove(tmob.loc)
 				now_pushing = FALSE
-				for(var/mob/living/carbon/slime/slime in view(1,tmob))
+				for(var/mob/living/carbon/slime/slime in view(2, tmob))
 					if(slime.victim == tmob)
 						slime.UpdateFeed()
 				return
@@ -190,6 +208,9 @@ default behaviour is:
 
 	if(swap_density_check(tmob, src))
 		return 0
+
+	if(pulling?.density && tmob.pulling?.density) // if both are pulling, don't shuffle
+		return FALSE
 
 	return can_move_mob(tmob, 1, 0)
 
@@ -629,9 +650,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(H.vessel.get_reagent_amount(/datum/reagent/blood))
+												var/total_blood = round(REAGENT_VOLUME(H.vessel, /decl/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent(/datum/reagent/blood, 1)
+													H.vessel.remove_reagent(/decl/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -907,9 +928,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = /datum/reagent/iron
+			src.composition_reagent = /decl/reagent/iron
 		else
-			src.composition_reagent = /datum/reagent/nutriment/protein
+			src.composition_reagent = /decl/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -991,3 +1012,6 @@ default behaviour is:
 /mob/living/proc/add_hallucinate(var/amount)
 	hallucination += amount
 	hallucination += amount
+
+/mob/living/set_respawn_time()
+	set_death_time(CREW, world.time)

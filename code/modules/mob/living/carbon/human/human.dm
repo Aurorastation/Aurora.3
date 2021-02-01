@@ -405,6 +405,7 @@
 		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
 	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
 	dat += "<BR><A href='?src=\ref[src];item=pockets'>Empty pockets</A>"
+	dat += species.get_strip_info("\ref[src]")
 	dat += "<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
@@ -590,6 +591,9 @@
 
 	if(href_list["item"])
 		handle_strip(href_list["item"],usr)
+
+	if(href_list["species"])
+		species.handle_strip(usr, src, href_list["species"])
 
 	if(href_list["criminal"])
 		if(hasHUD(usr,"security"))
@@ -1210,7 +1214,7 @@
 /mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
-		vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
+		vessel.add_reagent(/decl/reagent/blood,560-vessel.total_volume, temperature = species.body_temperature)
 		fixblood()
 
 	// Fix up all organs.
@@ -1280,17 +1284,19 @@
 		L.bruise()
 
 //returns 1 if made bloody, returns 0 otherwise
-/mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
+/mob/living/carbon/human/add_blood(mob/living/carbon/C as mob)
 	if (!..())
-		return 0
+		return FALSE
 	//if this blood isn't already in the list, add it
-	if(istype(M))
-		if(!blood_DNA[M.dna.unique_enzymes])
-			blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-	hand_blood_color = species.blood_color
+	hand_blood_color = COLOR_HUMAN_BLOOD
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		if(!blood_DNA[H.dna.unique_enzymes])
+			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
+		hand_blood_color = H.species?.blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle
-	return 1 //we applied blood to the item
+	return TRUE //we applied blood to the item
 
 /mob/living/carbon/human/proc/get_full_print()
 	if(!dna ||!dna.uni_identity)
@@ -1450,8 +1456,7 @@
 	spawn(0)
 		regenerate_icons()
 		if (vessel)
-			vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
-			fixblood()
+			restore_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
@@ -1968,7 +1973,7 @@
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		reagents.add_reagent(/datum/reagent/adrenaline, amount)
+		reagents.add_reagent(/decl/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)
@@ -2038,16 +2043,41 @@
 	return ..(speaking, hearer, used_accent)
 
 /mob/living/carbon/human/proc/generate_valid_accent()
-	var/list/valid_accents = new()
+	var/list/valid_accents = list()
 	for(var/current_accents in species.allowed_accents)
 		valid_accents += current_accents
-
 	return valid_accents
+
+/mob/living/carbon/human/proc/generate_valid_languages()
+	var/list/available_languages = species.secondary_langs.Copy()
+	for(var/L in all_languages)
+		var/datum/language/lang = all_languages[L]
+		if(!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))
+			available_languages |= L
+	return available_languages
 
 /mob/living/carbon/human/proc/set_accent(var/new_accent)
 	accent = new_accent
 	if(!(accent in species.allowed_accents))
 		accent = species.default_accent
+	return TRUE
+
+/mob/living/carbon/human/proc/add_or_remove_language(var/language)
+	var/datum/language/new_language = all_languages[language]
+	if(!new_language || !istype(new_language))
+		to_chat(src, SPAN_WARNING("Invalid language!"))
+		return TRUE
+	if(new_language in languages)
+		if(remove_language(language))
+			to_chat(src, SPAN_NOTICE("You no longer know <b>[new_language.name]</b>."))
+		return TRUE
+	var/total_alternate_languages = languages.Copy()
+	total_alternate_languages -= all_languages[LANGUAGE_TCB]
+	if(length(total_alternate_languages) >= species.num_alternate_languages)
+		to_chat(src, SPAN_WARNING("You can't add any more languages!"))
+		return TRUE
+	if(add_language(language))
+		to_chat(src, SPAN_NOTICE("You now know <b>[language]</b>."))
 	return TRUE
 
 /mob/living/carbon/human/verb/click_belt()

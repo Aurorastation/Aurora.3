@@ -80,7 +80,7 @@
 	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
 	absorbDNA(newDNA)
 
-	var/datum/changeling/changeling_check = T.mind.antag_datums[MODE_CHANGELING]
+	var/datum/changeling/changeling_check = T.get_antag_datum(MODE_CHANGELING)
 	if(changeling_check)
 		if(changeling_check.absorbed_dna)
 			for(var/datum/absorbed_dna/dna_data in changeling_check.absorbed_dna)	//steal all their loot

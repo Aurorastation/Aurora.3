@@ -82,6 +82,7 @@
 		)
 	sharp = 1
 	edge = 1
+	force_divisor = 0.25
 
 /obj/item/material/minihoe // -- Numbers
 	name = "mini hoe"

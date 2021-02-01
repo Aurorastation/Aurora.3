@@ -28,7 +28,7 @@
 	seed.name = "heirlooms"
 	seed.seed_name = "heirloom"
 	seed.display_name = "vines"
-	seed.chems = list(/datum/reagent/nutriment = list(1, 20))
+	seed.chems = list(/decl/reagent/nutriment = list(1, 20))
 
 /spell/targeted/entangle/cast(var/list/targets)
 	for(var/mob/M in targets)

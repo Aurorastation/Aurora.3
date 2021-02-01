@@ -64,6 +64,11 @@
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	enrolled = 1
 
+/obj/item/modular_computer/laptop/preset/command/teleporter
+	name = "teleporter control laptop"
+	desc = "A portable computer that has a special teleporter control program loaded."
+	_app_preset_type = /datum/modular_computer_app_presets/command/teleporter
+
 /obj/item/modular_computer/laptop/preset/command/hop
 	name = "head of personnel's laptop"
 	desc = "A portable computer beloning to the head of personnel. The fan is filled with dog hair."

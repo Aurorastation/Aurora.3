@@ -356,8 +356,4 @@
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "blectoplasm"
-
-/obj/item/ectoplasm/bs/Initialize()
-	. = ..()
-	create_reagents(8)
-	reagents.add_reagent(/datum/reagent/bluespace_dust, 8)
+	reagents_to_add = list(/decl/reagent/bluespace_dust = 8)

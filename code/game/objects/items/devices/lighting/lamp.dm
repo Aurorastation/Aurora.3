@@ -13,7 +13,6 @@
 	slot_flags = 0 //No wearing desklamps
 	light_wedge = LIGHT_OMNI
 
-
 // green-shaded desk lamp
 /obj/item/device/flashlight/lamp/green
 	desc = "A classic green-shaded desk lamp."
@@ -23,10 +22,44 @@
 	brightness_on = 5
 	light_color = "#FFC58F"
 
-/obj/item/device/flashlight/lamp/verb/toggle_light()
-	set name = "Toggle light"
-	set category = "Object"
-	set src in oview(1)
+//Lava Lamps: Because we're already stuck in the 70ies with those fax machines.
+/obj/item/device/flashlight/lamp/lava
+	name = "data encryption lamp"
+	desc = "Random oil globules within were parsed in photos for your protection. Enjoy this kitschy memorabilia by sticking it on your desk."
+	icon_state = "lavalamp"
+	brightness_on = 3
+	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 200)
 
-	if(!usr.stat)
-		attack_self(usr)
+/obj/item/device/flashlight/lamp/lava/update_icon()
+	if(on)
+		set_light(brightness_on)
+	else
+		set_light(0)
+	cut_overlays()
+	var/image/I = image(icon = icon, icon_state = "lavalamp-[on ? "on" : "off"]")
+	I.color = light_color
+	add_overlay(I)
+
+/obj/item/device/flashlight/lamp/lava/red
+	light_color = COLOR_RED
+
+/obj/item/device/flashlight/lamp/lava/blue
+	light_color = COLOR_BLUE
+
+/obj/item/device/flashlight/lamp/lava/cyan
+	light_color = COLOR_CYAN
+
+/obj/item/device/flashlight/lamp/lava/green
+	light_color = COLOR_GREEN
+
+/obj/item/device/flashlight/lamp/lava/orange
+	light_color = COLOR_ORANGE
+
+/obj/item/device/flashlight/lamp/lava/purple
+	light_color = COLOR_PURPLE
+
+/obj/item/device/flashlight/lamp/lava/pink
+	light_color = COLOR_PINK
+
+/obj/item/device/flashlight/lamp/lava/yellow
+	light_color = COLOR_YELLOW

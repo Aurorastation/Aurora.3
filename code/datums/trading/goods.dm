@@ -139,7 +139,6 @@
 		/obj/item/clothing/under/tactical                        = TRADER_BLACKLIST,
 		/obj/item/clothing/under/punpun                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/fluff                           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/dress/fluff                     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/rank/centcom_officer/bst        = TRADER_BLACKLIST,
 		/obj/item/clothing/suit/storage/hooded                   = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/fluff  = TRADER_BLACKLIST_ALL,

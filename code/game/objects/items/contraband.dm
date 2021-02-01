@@ -18,17 +18,17 @@
 
 /obj/item/reagent_containers/glass/beaker/vial/random
 	flags = 0
-	var/list/random_reagent_list = list(list(/datum/reagent/water = 15) = 1, list(/datum/reagent/spacecleaner = 15) = 1)
+	var/list/random_reagent_list = list(list(/decl/reagent/water = 15) = 1, list(/decl/reagent/spacecleaner = 15) = 1)
 
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin
 	random_reagent_list = list(
-		list(/datum/reagent/mindbreaker = 10, /datum/reagent/space_drugs = 20)	= 3,
-		list(/datum/reagent/mercury = 15)										= 3,
-		list(/datum/reagent/toxin/carpotoxin = 15)								= 2,
-		list(/datum/reagent/impedrezene = 15)									= 2,
-		list(/datum/reagent/toxin/dextrotoxin = 10)								= 1,
-		list(/datum/reagent/mental/neurapan = 15)								= 2,
-		list(/datum/reagent/toxin/spectrocybin = 15)							= 1)
+		list(/decl/reagent/mindbreaker = 10, /decl/reagent/space_drugs = 20)	= 3,
+		list(/decl/reagent/mercury = 15)										= 3,
+		list(/decl/reagent/toxin/carpotoxin = 15)								= 2,
+		list(/decl/reagent/impedrezene = 15)									= 2,
+		list(/decl/reagent/toxin/dextrotoxin = 10)								= 1,
+		list(/decl/reagent/mental/neurapan = 15)								= 2,
+		list(/decl/reagent/toxin/spectrocybin = 15)							= 1)
 
 /obj/item/reagent_containers/glass/beaker/vial/random/Initialize()
 	. = ..()
@@ -40,7 +40,8 @@
 		reagents.add_reagent(reagent, picked_reagents[reagent])
 
 	var/list/names = new
-	for(var/datum/reagent/R in reagents.reagent_list)
+	for(var/_R in reagents.reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
 		names += R.name
 
 	desc = "Contains [english_list(names)]."
@@ -54,6 +55,6 @@
 	. = ..()
 	if(is_open_container())
 		flags ^= OPENCONTAINER
-	reagents.add_reagent(/datum/reagent/venenum,volume)
+	reagents.add_reagent(/decl/reagent/venenum,volume)
 	desc = "Contains venenum."
 	update_icon()
