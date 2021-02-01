@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Weapon Analyzers can now print reports about their inserted items via a button at the bottom of the UI."
