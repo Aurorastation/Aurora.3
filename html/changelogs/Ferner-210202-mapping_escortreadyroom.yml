@@ -1,0 +1,5 @@
+author: Ferner
+delete-after: True
+changes:
+  - maptweak: "Surgeons/Pharmacists can now access the Odin surgery/chem dispensery sections respectively."
+  - maptweak: "Added a CCIA/FIB escort Ready Room, openable by the agents if needed, they can also now access the Odin detention wing."
