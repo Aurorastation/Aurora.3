@@ -60,7 +60,7 @@
 		/obj/item/implant/mindshield
 	)
 	id_icon = "ccia"
-	id_access = "CCIA Escort"
+	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
@@ -233,7 +233,7 @@
 		/obj/item/clothing/head/helmet = 1
 	)
 
-	id_access = "CCIA Escort"
+	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/odindoc
 	name = "NTCC Odin Medical Specialist"
