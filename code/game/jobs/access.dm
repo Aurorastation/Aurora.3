@@ -43,6 +43,8 @@
 /proc/get_centcom_access(job)
 	switch(job)
 		if("CCIA Agent")
+			return list(access_cent_general, access_cent_captain, access_cent_living, access_cent_specops)
+		if("CCIA Escort")
 			return list(access_cent_general, access_cent_captain, access_cent_living)
 		if("Emergency Response Team")
 			return list(access_cent_general, access_cent_specops, access_cent_living)
