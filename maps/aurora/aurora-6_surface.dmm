@@ -1153,7 +1153,7 @@
 	pixel_y = 7
 	},
 /obj/item/toy/figure/assistant,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "aOO" = (
@@ -6878,7 +6878,7 @@
 /area/hallway/secondary/entry/emergency)
 "gnQ" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
@@ -6888,7 +6888,7 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -7829,7 +7829,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/engi,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -26279,7 +26279,7 @@
 /area/storage/shields)
 "xdG" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/light,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Primary Tool Storage Aft";
@@ -27510,7 +27510,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "ykk" = (

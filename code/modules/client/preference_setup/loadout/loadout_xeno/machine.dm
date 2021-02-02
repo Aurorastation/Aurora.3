@@ -30,36 +30,34 @@
 	crest["crest, ruby"] = /obj/item/clothing/head/crest/ruby
 	gear_tweaks += new/datum/gear_tweak/path(crest)
 
-/datum/gear/gloves/armchains
+/datum/gear/wrists/armchains
 	display_name = "golden deep armchains"
-	path = /obj/item/clothing/gloves/armchain
-	cost = 1
+	path = /obj/item/clothing/wrists/armchain
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/gloves/armchains/New()
+/datum/gear/wrists/armchains/New()
 	..()
 	var/armchains = list()
-	armchains["arm chains, cobalt"] = /obj/item/clothing/gloves/armchain
-	armchains["arm chains, emerald"] = /obj/item/clothing/gloves/armchain/emerald
-	armchains["arm chains, ruby"] = /obj/item/clothing/gloves/armchain/ruby
+	armchains["arm chains, cobalt"] = /obj/item/clothing/wrists/armchain
+	armchains["arm chains, emerald"] = /obj/item/clothing/wrists/armchain/emerald
+	armchains["arm chains, ruby"] = /obj/item/clothing/wrists/armchain/ruby
 	gear_tweaks += new/datum/gear_tweak/path(armchains)
 
-/datum/gear/gloves/bracers
+/datum/gear/wrists/bracers
 	display_name = "golden deep bracers"
-	path = /obj/item/clothing/gloves/goldbracer
-	cost = 1
+	path = /obj/item/clothing/wrists/goldbracer
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/gloves/bracers/New()
+/datum/gear/wrists/bracers/New()
 	..()
 	var/bracers = list()
-	bracers["arm chains, cobalt"] = /obj/item/clothing/gloves/goldbracer
-	bracers["arm chains, emerald"] = /obj/item/clothing/gloves/goldbracer/emerald
-	bracers["arm chains, ruby"] = /obj/item/clothing/gloves/goldbracer/ruby
+	bracers["arm chains, cobalt"] = /obj/item/clothing/wrists/goldbracer
+	bracers["arm chains, emerald"] = /obj/item/clothing/wrists/goldbracer/emerald
+	bracers["arm chains, ruby"] = /obj/item/clothing/wrists/goldbracer/ruby
 	gear_tweaks += new/datum/gear_tweak/path(bracers)
 
 /datum/gear/ears/antennae

@@ -370,7 +370,7 @@
 
 /datum/autolathe/recipe/labeler
 	name = "hand labeler"
-	path = /obj/item/hand_labeler
+	path = /obj/item/device/hand_labeler
 	category = "General"
 
 /datum/autolathe/recipe/destTagger

@@ -20,6 +20,7 @@
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
+	new /obj/item/device/megaphone/command(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
@@ -76,6 +77,7 @@
 	//Tools
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
+	new /obj/item/device/megaphone/command(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
@@ -139,6 +141,7 @@
 	//Tools
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
+	new /obj/item/device/megaphone/sec(src)
 	new /obj/item/storage/box/tranquilizer(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
