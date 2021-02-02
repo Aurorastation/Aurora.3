@@ -19,22 +19,12 @@
 	turret_sprite_set = "ion"
 	firemodes = list()
 
+	fire_delay_wielded = 8
+
+	is_wieldable = TRUE
+
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
-
-/obj/item/gun/energy/rifle/ionrifle/update_icon()
-	if(charge_meter && power_supply && power_supply.maxcharge)
-		var/ratio = power_supply.charge / power_supply.maxcharge
-
-		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
-		if(power_supply.charge < charge_cost)
-			ratio = 0
-		else
-			ratio = max(round(ratio, 0.25) * 100, 25)
-
-		icon_state = "[modifystate][ratio]"
-		item_state = "[modifystate][ratio]"
-	update_held_icon()
 
 /obj/item/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"

@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes:
+  - rscadd: "You can  now wield the ion rifle."
+  - imageadd: "Added new sprites to blaster guns, gauss thumper, pump shotgun, ion rifle, disruptor guns, and laser rifle."
