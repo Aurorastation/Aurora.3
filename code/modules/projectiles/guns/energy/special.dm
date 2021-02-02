@@ -2,9 +2,9 @@
 	name = "ion rifle"
 	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by Nanotrasen."
 	icon = 'icons/obj/guns/ionrifle.dmi'
-	icon_state = "ionriflestun100"
-	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
-	modifystate = "ionriflestun"
+	icon_state = "ionriflestun"
+	item_state = "ionriflestun"
+
 	projectile_type = /obj/item/projectile/ion/stun
 	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
