@@ -613,3 +613,14 @@
 			qdel(i)
 		beam_segments = null
 		QDEL_NULL(beam_index)
+
+/obj/item/projectile/get_print_info()
+	. = "<br>"
+	. += "Damage: [initial(damage)]<br>"
+	. += "Damage Type: [initial(damage_type)]<br>"
+	. += "Blocked by Armor Type: [initial(check_armor)]<br>"
+	. += "Stuns: [initial(stun) ? "true" : "false"]<br>"
+	if(initial(shrapnel_type))
+		var/obj/shrapnel = new shrapnel_type
+		. += "Shrapnel Type: [shrapnel.name]<br>"
+	. += "Armor Penetration: [initial(armor_penetration)]%<br>"

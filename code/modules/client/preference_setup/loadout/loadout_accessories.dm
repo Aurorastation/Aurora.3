@@ -4,11 +4,6 @@
 	slot = slot_tie
 	sort_category = "Accessories"
 
-/datum/gear/accessory/bracelet
-	display_name = "bracelet (colourable)"
-	path = /obj/item/clothing/accessory/bracelet
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/accessory/suspenders

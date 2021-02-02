@@ -1009,10 +1009,10 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "watch"
 	problist = list(
-		/obj/item/clothing/gloves/watch = 1,
-		/obj/item/clothing/gloves/watch/silver = 0.7,
-		/obj/item/clothing/gloves/watch/gold = 0.5,
-		/obj/item/clothing/gloves/watch/spy = 0.3,
+		/obj/item/clothing/wrists/watch = 1,
+		/obj/item/clothing/wrists/watch/silver = 0.7,
+		/obj/item/clothing/wrists/watch/gold = 0.5,
+		/obj/item/clothing/wrists/watch/spy = 0.3,
 	)
 
 /obj/random/hoodie

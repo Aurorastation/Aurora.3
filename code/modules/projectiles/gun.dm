@@ -959,3 +959,9 @@
 		else
 			maptext_x = 22
 		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"
+
+/obj/item/gun/get_print_info(var/no_clear = TRUE)
+	if(no_clear)
+		. = ""
+	. += "Burst: [burst]<br>"
+	. += "Reliability: [reliability]<br>"

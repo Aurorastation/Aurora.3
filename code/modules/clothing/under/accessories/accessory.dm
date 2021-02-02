@@ -575,15 +575,6 @@
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_TINY
 
-/obj/item/clothing/accessory/bracelet
-	name = "bracelet"
-	desc = "A simple bracelet with a clasp."
-	icon_state = "bracelet"
-	w_class = ITEMSIZE_TINY
-	drop_sound = 'sound/items/drop/ring.ogg'
-	pickup_sound = 'sound/items/pickup/ring.ogg'
-	flippable = 1
-
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
