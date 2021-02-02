@@ -1,0 +1,5 @@
+author: Ferner
+delete-after: True
+changes:
+  - maptweak: "Repurposed the adult section of the library. It's now a reading room."
+  - bugfix: "The science firing range crematorium is now accessible by scientists."
