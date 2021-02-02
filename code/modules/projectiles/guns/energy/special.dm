@@ -1,38 +1,3 @@
-/obj/item/gun/energy/rifle/ionrifle
-	name = "ion rifle"
-	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by Nanotrasen."
-	icon = 'icons/obj/guns/ionrifle.dmi'
-	icon_state = "ionriflestun"
-	item_state = "ionriflestun"
-
-	projectile_type = /obj/item/projectile/ion/stun
-	fire_sound = 'sound/weapons/laser1.ogg'
-	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
-	w_class = ITEMSIZE_LARGE
-	accuracy = 1
-	force = 10
-	flags = CONDUCT
-	slot_flags = SLOT_BACK
-	charge_cost = 300
-	max_shots = 4
-	can_turret = 1
-	turret_sprite_set = "ion"
-	firemodes = list()
-
-	fire_delay_wielded = 8
-
-	is_wieldable = TRUE
-
-/obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
-	..(max(severity, 2)) //so it doesn't EMP itself, I guess
-
-/obj/item/gun/energy/rifle/ionrifle/mounted
-	name = "mounted ion rifle"
-	self_recharge = 1
-	use_external_power = 1
-	recharge_time = 10
-	can_turret = 0
-
 /obj/item/gun/energy/decloner
 	name = "biological demolecularisor"
 	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
