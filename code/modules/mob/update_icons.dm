@@ -64,5 +64,8 @@
 /mob/proc/update_inv_r_ear()
 	return
 
+/mob/proc/update_inv_wrists()
+	return
+
 /mob/proc/update_targeted()
 	return

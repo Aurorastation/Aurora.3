@@ -15,6 +15,10 @@
 		/mob/living/silicon/robot/drone
 		)
 
+/obj/structure/plasticflaps/Initialize()
+	. = ..()
+	material = SSmaterials.get_material_by_name(MATERIAL_PLASTIC)
+
 /obj/structure/plasticflaps/CanPass(atom/A, turf/T)
 	if(istype(A) && A.checkpass(PASSGLASS))
 		return prob(60)

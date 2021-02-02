@@ -39,15 +39,15 @@
 	law_manager 	= new(src)
 	rcon 			= new(src)
 
+	if(computer_path)
+		computer = new computer_path(src)
+
 	if(!register_alarms)
 		return
 
 	for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
 		AH.register_alarm(src, /mob/living/silicon/proc/receive_alarm)
 		queued_alarms[AH] = list()	// Makes sure alarms remain listed in consistent order
-
-	if(computer_path)
-		computer = new computer_path(src)
 
 /mob/living/silicon/ai/init_subsystems()
 	..()

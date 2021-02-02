@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "A bleeding bodypart covered by a piece of clothing that isn't thick will now give a rough indication that it's bleeding when its owner is examined."

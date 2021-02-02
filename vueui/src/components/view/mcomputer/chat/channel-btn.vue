@@ -31,7 +31,7 @@ export default {
   props: {
     ch: {
       type: Object,
-      default: {},
+      default: () => ({}),
     },
     re: {
       type: String,

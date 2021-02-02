@@ -59,6 +59,7 @@
 #define LANGUAGE_CULT "Cult"		// NOT CULTISTS!
 #define LANGUAGE_OCCULT "Occult"
 #define LANGUAGE_REVENANT "Revenant"
+#define LANGUAGE_REVENANT_RIFTSPEAK "Riftspeak"
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.
 
 // Lesser-form Languages
