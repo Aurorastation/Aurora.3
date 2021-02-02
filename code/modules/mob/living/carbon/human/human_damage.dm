@@ -384,48 +384,42 @@ This function restores all organs.
 	return organs_by_name[zone]
 
 /mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone, var/obj/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
-	//visible_message("Hit debug. [damage] | [damagetype] | [def_zone] | [blocked] | [sharp] | [used_weapon]")
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, "<span class='danger'>You are now visible.</span>")
 			src.invisibility = 0
 
+	var/obj/item/organ/external/organ = get_organ(def_zone)
+	if(!organ)
+		if(isorgan(def_zone))
+			organ = def_zone
+		else
+			if(!def_zone)
+				if(damage_flags & DAM_DISPERSED)
+					var/old_damage = damage
+					var/tally
+					silent = TRUE // Will damage a lot of organs, probably, so avoid spam.
+					for(var/zone in organ_rel_size)
+						tally += organ_rel_size[zone]
+					for(var/zone in organ_rel_size)
+						damage = old_damage * organ_rel_size[zone]/tally
+						def_zone = zone
+						. = .() || .
+					return
+				def_zone = ran_zone(def_zone)
+			organ = get_organ(check_zone(def_zone))
+
 	//Handle other types of damage
-	if(damagetype != BRUTE && damagetype != BURN)
+	if(!(damagetype in list(BRUTE, BURN, PAIN, CLONE)))
 		if(!stat && damagetype == PAIN)
 			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
-
-		..(damage, damagetype, def_zone, blocked)
-		return 1
-
-	//Handle BRUTE and BURN damage
-	handle_suit_punctures(damagetype, damage, def_zone)
-
-	if(blocked >= 100)
-		return 0
-
-	var/obj/item/organ/external/organ
-	if(isorgan(def_zone))
-		organ = def_zone
-	else
-		if(!def_zone)
-			if(damage_flags & DAM_DISPERSED)
-				var/old_damage = damage
-				var/tally
-				silent = TRUE // Will damage a lot of organs, probably, so avoid spam.
-				for(var/zone in organ_rel_size)
-					tally += organ_rel_size[zone]
-				for(var/zone in organ_rel_size)
-					damage = old_damage * organ_rel_size[zone]/tally
-					def_zone = zone
-					. = .() || .
-				return
-			def_zone = ran_zone(def_zone)
-		organ = get_organ(check_zone(def_zone))
+		return ..()
 
 	if(!organ)
 		return FALSE
+
+	handle_suit_punctures(damagetype, damage, def_zone)
 
 	var/list/after_armor = modify_damage_by_armor(def_zone, damage, damagetype, damage_flags, src, armor_pen, silent)
 	damage = after_armor[1]
@@ -443,11 +437,13 @@ This function restores all organs.
 			if(damage > 0)
 				damage *= species.brute_mod
 			organ.take_damage(damage, 0, damage_flags, used_weapon)
+			UpdateDamageIcon()
 		if(BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.burn_mod
 			organ.take_damage(0, damage, damage_flags, used_weapon)
+			UpdateDamageIcon()
 		if(PAIN)
 			organ.add_pain(damage)
 		if(CLONE)

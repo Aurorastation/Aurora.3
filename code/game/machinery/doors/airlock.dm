@@ -544,7 +544,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 
 /obj/machinery/door/airlock/uranium/proc/radiate()
 	for(var/mob/living/L in range (3,src))
-		L.apply_effect(15,IRRADIATE, blocked = L.getarmor(null, "rad"))
+		L.apply_damage(15, IRRADIATE, damage_flags = DAM_DISPERSED)
 	return
 
 //---Phoron door

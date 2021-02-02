@@ -17,8 +17,4 @@
 	M.apply_effect(5, STUTTER)
 	M.stun_effect_act(0, 70, check_zone(hit_zone), src)
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		H.forcesay(hit_appends)
-
 	return FALSE

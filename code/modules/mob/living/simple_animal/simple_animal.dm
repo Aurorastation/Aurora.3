@@ -606,8 +606,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	switch (severity)
 		if (1.0)
 			damage = 500
-			if(!prob(getarmor(null, "bomb")))
-				gib()
 
 		if (2.0)
 			damage = 120
@@ -615,7 +613,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		if(3.0)
 			damage = 30
 
-	adjustBruteLoss(damage * BLOCKED_MULT(getarmor(null, "bomb")))
+	apply_damage(damage, BRUTE, damage_flags = DAM_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))

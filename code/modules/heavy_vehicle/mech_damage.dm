@@ -28,10 +28,10 @@
 		return pilot.hitby(AM, speed)
 	. = ..()
 
-/mob/living/heavy_vehicle/getarmor(var/def_zone, var/type)
+/*/mob/living/heavy_vehicle/getarmor(var/def_zone, var/type) todomatt: FUCK
 	if(body && body.mech_armor)
 		return isnull(body.mech_armor.armor[type]) ? 0 : body.mech_armor.armor[type]
-	return 0
+	return 0*/
 
 /mob/living/heavy_vehicle/updatehealth()
 	maxHealth = body.mech_health

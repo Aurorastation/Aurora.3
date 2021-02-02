@@ -13,7 +13,7 @@
 	//  E.g. setting it to more than 1 will make mitigation drop off faster, effectively reducing the range of damage mitigation
 	var/over_armor_mult = 1
 
-/datum/component/armor/Initialize(atom/movable/holder, list/armor)
+/datum/component/armor/Initialize(list/armor)
 	..()
 	if(armor)
 		armor_values = armor.Copy()
@@ -92,8 +92,6 @@
 				key = "bio" // Otherwise just not blocked by default.
 		if(IRRADIATE)
 			key = "rad"
-		if(PSIONIC)
-			key = PSIONIC
 	return key
 
 /datum/component/armor/toggle

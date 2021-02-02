@@ -761,7 +761,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 /datum/species/golem/uranium/handle_environment_special(var/mob/living/carbon/human/H)
 	if(prob(25))
 		for(var/mob/living/L in view(7, H))
-			L.apply_effect(150, IRRADIATE, blocked = L.getarmor(null, "rad"))
+			L.apply_damage(150, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 /datum/species/golem/homunculus
 	name = SPECIES_GOLEM_MEAT

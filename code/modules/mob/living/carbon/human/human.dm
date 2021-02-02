@@ -262,7 +262,7 @@
 	apply_damage(0.3 * b_loss, BRUTE, null, DAM_EXPLODE | DAM_DISPERSED, used_weapon = "Explosive blast")
 	apply_damage(0.3 * f_loss, BURN, null, DAM_EXPLODE | DAM_DISPERSED, used_weapon = "Explosive blast")
 
-	//UpdateDamageIcon() TODOMATT: See if we need this
+	UpdateDamageIcon()
 
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
@@ -1973,9 +1973,9 @@
 				src.adjustToxLoss(-damage)
 			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
 
-		src.apply_effect((rand(15,30)),IRRADIATE,blocked = src.getarmor(null, "rad"))
+		apply_damage((rand(15,30)), IRRADIATE, damage_flags = DAM_DISPERSED)
 		if(prob(4))
-			src.apply_effect((rand(20,60)),IRRADIATE,blocked = src.getarmor(null, "rad"))
+			apply_damage((rand(20,60)), IRRADIATE, damage_flags = DAM_DISPERSED)
 			if (prob(75))
 				randmutb(src) // Applies bad mutation
 				domutcheck(src,null,MUTCHK_FORCED)

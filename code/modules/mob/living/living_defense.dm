@@ -56,7 +56,6 @@
 	if(damaged || P.nodamage) // Run the block computation if we did damage or if we only use armor for effects (nodamage)
 		. = get_blocked_ratio(def_zone, P.damage_type, flags, P.armor_penetration, P.damage)
 	P.on_hit(src, ., def_zone)
-	return absorb
 
 /mob/living/proc/aura_check(var/type)
 	if(!auras)
@@ -261,6 +260,9 @@
 		return TRUE
 
 	return FALSE
+
+#define MOB_FIRE_LIGHT_RANGE  3  //These control the intensity and range of light given off by a mob which is on fire
+#define MOB_FIRE_LIGHT_POWER  2
 
 /mob/living/proc/set_on_fire()
 	to_chat(src, SPAN_DANGER(FONT_LARGE("You're set on fire!")))

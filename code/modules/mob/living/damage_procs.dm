@@ -34,8 +34,6 @@
 			adjustCloneLoss(damage)
 		if(PAIN)
 			adjustHalLoss(damage)
-		if(ELECTROCUTE)
-			electrocute_act(damage, used_weapon, 1, def_zone)
 		if(IRRADIATE)
 			apply_radiation(damage)
 

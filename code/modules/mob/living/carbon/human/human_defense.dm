@@ -43,7 +43,7 @@ emp_act
 
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())
-		var/armor = getarmor_organ(organ, "bullet")
+		var/armor = get_blocked_ratio(def_zone, BRUTE, P.damage_flags(), armor_pen = P.armor_penetration, damage = P.damage)*100
 		if(prob(20 + max(P.damage + P.embed_chance - armor, -10)))
 			P.do_embed(organ)
 
@@ -101,7 +101,7 @@ emp_act
 		return
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
 	for(var/obj/item/clothing/gear in protective_gear)
-		if(gear.accessories.len)
+		if(gear.accessories && length(gear.accessories))
 			for(var/obj/item/clothing/accessory/bling in gear.accessories)
 				if(bling.body_parts_covered & def_zone.body_part)
 					var/armor = bling.GetComponent(/datum/component/armor)
@@ -387,12 +387,8 @@ emp_act
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
-		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>", "<span class='warning'><font size='2'>You're hit in the [hit_area] by [O]!</font></span>")
-		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened the hit to your [hit_area].") //I guess "melee" is the best fit here
-
-		if(armor < 100)
-			var/damage_flags = O.damage_flags()
-			apply_damage(throw_damage, dtype, zone, armor, O, damage_flags = damage_flags)
+		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>", "<span class='warning'><font size=2>You're hit in the [hit_area] by [O]!</font></span>")
+		apply_damage(throw_damage, dtype, zone, used_weapon = O, damage_flags = O.damage_flags(), armor_pen = O.armor_penetration)
 
 		if(ismob(O.thrower))
 			var/mob/M = O.thrower
@@ -409,8 +405,7 @@ emp_act
 			if (!is_robot_module(I))
 				var/sharp = is_sharp(I)
 				var/damage = throw_damage
-				if (armor)
-					damage *= (1 - get_blocked_ratio(zone, BRUTE, O.damage_flags(), O.armor_penetration))
+				damage *= (1 - get_blocked_ratio(zone, BRUTE, O.damage_flags(), O.armor_penetration, damage))
 
 				//blunt objects should really not be embedding in things unless a huge amount of force is involved
 				var/embed_chance = sharp ? damage/I.w_class : damage/(I.w_class*3)
