@@ -59,7 +59,7 @@
 		slot_r_hand_str = "det_hat"
 		)
 	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/pen)
-	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/det/grey

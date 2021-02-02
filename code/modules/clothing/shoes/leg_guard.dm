@@ -5,7 +5,7 @@
 	item_state = "jackboots"
 	body_parts_covered = LEGS|FEET
 	w_class = ITEMSIZE_NORMAL
-	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 	force = 3
 	drop_sound = 'sound/items/drop/boots.ogg'

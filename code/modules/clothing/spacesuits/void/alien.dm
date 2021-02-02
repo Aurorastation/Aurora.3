@@ -38,7 +38,7 @@
 	desc = "A tajaran helmet used by the crew of the Republican Orbital Fleet."
 	icon_state = "cosmo_suit"
 	item_state = "cosmo_suit"
-	armor = list(melee = 50, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 60)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 60)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 	desc_fluff = "The People's Republic of Adhomai enjoys having the only militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
@@ -51,7 +51,7 @@
 	desc = "A tajaran voidsuit used by the crew of the Republican Orbital Fleet."
 	icon_state = "cosmo_suit"
 	item_state = "cosmo_suit"
-	armor = list(melee = 50, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 60)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 60)
 	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE

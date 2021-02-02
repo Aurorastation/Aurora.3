@@ -52,7 +52,7 @@
 	desc = "A silvery chrome, single visor space helmet with built-in peripherals and very bright fore lighting. A favorite of bounty hunters."
 	icon_state = "eridani_suit"
 	item_state = "eridani_suit"
-	armor = list(melee = 50, bullet = 50, laser = 40, energy = 50, bomb = 50, bio = 100, rad = 30)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 50, laser = 40, energy = 50, bomb = 50, bio = 100, rad = 30)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	w_class = ITEMSIZE_NORMAL
@@ -64,7 +64,7 @@
 	desc = "A silvery chrome voidsuit with neon highlights. Utilized by Eridani private military and police."
 	icon_state = "eridani_suit"
 	item_state = "eridani_suit"
-	armor = list(melee = 50, bullet = 50, laser = 40, energy = 40, bomb = 50, bio = 100, rad = 30)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 50, laser = 40, energy = 40, bomb = 50, bio = 100, rad = 30)
 	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)

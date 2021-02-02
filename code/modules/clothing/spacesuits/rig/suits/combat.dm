@@ -131,7 +131,7 @@
 	desc = "A favorite of Coalition rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
-	armor = list(melee = 50, bullet = 60, laser = 40, energy = 30, bomb = 30, bio = 100, rad = 60)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 60, laser = 40, energy = 30, bomb = 30, bio = 100, rad = 60)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY

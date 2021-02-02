@@ -383,7 +383,7 @@
 	icon_state = "warping_claws"
 	item_state = "warping_claws"
 	attack_verb = list("ripped", "torn", "cut")
-	armor = list(melee = 50, bullet = 15, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 15, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
 	siemens_coefficient = 1
 	force = 5
 	punch_force = 10

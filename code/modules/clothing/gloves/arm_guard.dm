@@ -3,7 +3,7 @@
 	desc = "These arm guards will protect your hands and arms."
 	icon_state = "arm_guards_riot"
 	body_parts_covered = HANDS|ARMS
-	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	punch_force = 3
 	w_class = ITEMSIZE_NORMAL
 	siemens_coefficient = 0.35

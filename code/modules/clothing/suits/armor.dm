@@ -63,7 +63,7 @@
 	icon_state = "armor"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/vest/fib
 	name = "\improper FIB armored vest"
@@ -310,9 +310,15 @@
 	desc = "A simple kevlar plate carrier."
 	icon_state = "kvest"
 	item_state = "kvest"
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
 	siemens_coefficient = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+		)
 
 /obj/item/clothing/suit/storage/vest/Initialize()
 	. = ..()
@@ -341,8 +347,6 @@
 	item_state = "hosvest_nobadge"
 	icon_badge = "hosvest_badge"
 	icon_nobadge = "hosvest_nobadge"
-	armor = list(melee = 65, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
-
 /obj/item/clothing/suit/storage/vest/pcrc
 	name = "PCRC armor vest"
 	desc = "A simple kevlar plate carrier belonging to Proxima Centauri Risk Control. This one has a PCRC crest clipped to the chest."
@@ -373,15 +377,25 @@
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
-	armor = list(melee = 10, bullet = 0, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+		)
 
 /obj/item/clothing/suit/storage/vest/heavy
 	name = "heavy armor vest"
 	desc = "A heavy kevlar plate carrier with webbing attached."
 	icon_state = "webvest"
 	item_state = "webvest"
-	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
+	armor = list(
+			melee = ARMOR_MELEE_MAJOR,
+			bullet = ARMOR_BALLISTIC_RESISTANT,
+			laser = ARMOR_LASER_MAJOR,
+			energy = ARMOR_ENERGY_SMALL,
+			bomb = ARMOR_BOMB_PADDED,
+		)
 	slowdown = 1
 	siemens_coefficient = 0.35
 
@@ -512,7 +526,7 @@
 	icon_state = "legion_armor"
 	item_state = "legion_armor"
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
-	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 	allowed = list(
 		/obj/item/gun,

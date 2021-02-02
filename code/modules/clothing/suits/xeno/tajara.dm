@@ -162,7 +162,7 @@
 	icon_state = "cuirass"
 	item_state = "cuirass"
 	contained_sprite = TRUE
-	armor = list(melee = 50, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	name = "republican service jacket"

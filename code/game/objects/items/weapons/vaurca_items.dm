@@ -257,7 +257,7 @@
 	slowdown = -1
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 50, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
 
 /obj/item/clothing/head/helmet/space/void/scout
 	name = "scout helmet"

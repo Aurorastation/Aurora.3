@@ -34,7 +34,7 @@
 		slot_l_hand_str = "mining_helm",
 		slot_r_hand_str = "mining_helm"
 		)
-	armor = list(melee = 50, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
 	light_overlay = "merc_voidsuit_lights"
 	brightness_on = 6
 
@@ -47,7 +47,7 @@
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
 	item_state = "rig-mining"
 	icon_state = "rig-mining"
-	armor = list(melee = 50, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka, /obj/item/gun/energy/vaurca/thermaldrill,/obj/item/rfd/mining)
 
 //Medical Rig
@@ -84,7 +84,7 @@
 		slot_l_hand_str = "sec_helm",
 		slot_r_hand_str = "sec_helm"
 		)
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
 
@@ -97,7 +97,7 @@
 			slot_l_hand_str = "sec_hardsuit",
 			slot_r_hand_str = "sec_hardsuit"
 	)
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
 //Atmospherics Rig (BS12)
@@ -136,7 +136,7 @@
 		slot_l_hand_str = "sec_helm",
 		slot_r_hand_str = "sec_helm"
 		)
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
 	light_overlay = "helmet_light_dual"
 
 /obj/item/clothing/suit/space/void/hos
@@ -148,7 +148,7 @@
 			slot_l_hand_str = "sec_hardsuit",
 			slot_r_hand_str = "sec_hardsuit"
 	)
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
 	//Science
