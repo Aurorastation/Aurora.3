@@ -444,3 +444,28 @@
 
 /obj/item/projectile/beam/tesla/paramount
 	damage = 25
+
+/obj/item/projectile/beam/freezer
+	name = "freezing ray"
+	icon_state = "bluelaser"
+	pass_flags = PASSTABLE
+	damage = 5
+	no_attack_log = 1
+	damage_type = BURN
+	check_armor = "energy"
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
+	tracer_type = /obj/effect/projectile/tracer/laser/blue
+	impact_type = /obj/effect/projectile/impact/laser/blue
+
+/obj/item/projectile/beam/freezer/on_impact(atom/target)
+	. = ..()
+	if(isliving(target))
+		var/mob/living/L = target
+		L.bodytemperature -= 40
+
+		if(ishuman(L))
+			var/mob/living/carbon/human/H = L
+			if(H.bodytemperature <= H.species.cold_level_2)
+				new /obj/structure/closet/statue/ice(H.loc, H)
+				H.visible_message(SPAN_WARNING("\The [H] freezes!"))
