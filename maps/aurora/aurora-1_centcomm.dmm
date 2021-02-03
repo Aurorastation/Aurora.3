@@ -6857,6 +6857,7 @@
 /area/shuttle/escape)
 "aWZ" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "13,3";
 	name = "transport shuttle"
@@ -10621,6 +10622,7 @@
 	name = "transport shuttle"
 	},
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "0,3";
 	name = "transport shuttle";
@@ -11260,6 +11262,7 @@
 /area/shuttle/skipjack)
 "dGi" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "1,3";
 	name = "transport shuttle"
@@ -25247,6 +25250,7 @@
 	name = "transport shuttle"
 	},
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,3";
 	name = "transport shuttle";
@@ -35616,6 +35620,7 @@
 /area/antag/ninja)
 "thI" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,7";
 	name = "transport shuttle"
@@ -37479,14 +37484,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
-"uvS" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "0,3";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/evac)
 "uwJ" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "12,13"
@@ -76271,7 +76268,7 @@ aWV
 aWI
 bMd
 jON
-uvS
+wne
 wzE
 aJH
 vNl
