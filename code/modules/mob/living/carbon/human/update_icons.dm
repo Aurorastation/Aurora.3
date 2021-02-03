@@ -113,8 +113,9 @@ There are several things that need to be remembered:
 #define LEGCUFF_LAYER    26
 #define L_HAND_LAYER     27
 #define R_HAND_LAYER     28
-#define FIRE_LAYER       29		//If you're on fire
-#define TOTAL_LAYERS     29
+#define WRISTS_LAYER     29
+#define FIRE_LAYER       30		//If you're on fire
+#define TOTAL_LAYERS     30
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
@@ -517,6 +518,7 @@ There are several things that need to be remembered:
 	update_fire(FALSE)
 	update_surgery(FALSE)
 	update_underwear(FALSE)
+	update_inv_wrists(FALSE)
 	UpdateDamageIcon()
 	update_icon()
 	//Hud Stuff
@@ -1253,6 +1255,58 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
+/mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
+	if (QDELING(src))
+		return
+
+	overlays_raw[L_HAND_LAYER] = null
+	if(l_hand)
+		l_hand.screen_loc = ui_lhand	//TODO
+
+		//determine icon state to use
+		var/t_state = l_hand.item_state || l_hand.icon_state
+
+		var/image/result_layer
+		if(l_hand.contained_sprite)
+			l_hand.auto_adapt_species(src)
+			t_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
+
+			result_layer = image(l_hand.icon_override || l_hand.icon, t_state)
+
+			if(l_hand.color)
+				result_layer.color = l_hand.color
+
+			result_layer.appearance_flags = RESET_ALPHA
+			overlays_raw[L_HAND_LAYER] = result_layer
+		else
+			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
+				t_state = l_hand.item_state_slots[slot_l_hand_str]
+
+			//determine icon to use
+			var/icon/t_icon
+			if(l_hand.item_icons && (slot_l_hand_str in l_hand.item_icons))
+				t_icon = l_hand.item_icons[slot_l_hand_str]
+			else if(l_hand.icon_override)
+				t_state += WORN_LHAND
+				t_icon = l_hand.icon_override
+			else
+				t_icon = INV_L_HAND_DEF_ICON
+
+			result_layer = image(t_icon, t_state)
+
+			if(l_hand.color)
+				result_layer.color = l_hand.color
+
+			var/image/worn_overlays = l_hand.worn_overlays(t_icon)
+			if(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
+
+			result_layer.appearance_flags = RESET_ALPHA
+			overlays_raw[L_HAND_LAYER] = result_layer
+
+	if(update_icons)
+		update_icon()
+
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
@@ -1305,54 +1359,54 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
+/mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
 	if (QDELING(src))
 		return
 
-	overlays_raw[L_HAND_LAYER] = null
-	if(l_hand)
-		l_hand.screen_loc = ui_lhand	//TODO
+	overlays_raw[WRISTS_LAYER] = null
+	if(check_draw_wrists())
+		wrists.screen_loc = ui_lhand	//TODO
 
 		//determine icon state to use
-		var/t_state = l_hand.item_state || l_hand.icon_state
+		var/t_state = wrists.item_state || wrists.icon_state
 
 		var/image/result_layer
-		if(l_hand.contained_sprite)
-			l_hand.auto_adapt_species(src)
-			t_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
+		if(wrists.contained_sprite)
+			wrists.auto_adapt_species(src)
+			t_state = "[UNDERSCORE_OR_NULL(wrists.icon_species_tag)][wrists.item_state][WORN_WRISTS]"
 
-			result_layer = image(l_hand.icon_override || l_hand.icon, t_state)
+			result_layer = image(wrists.icon_override || wrists.icon, t_state)
 
-			if(l_hand.color)
-				result_layer.color = l_hand.color
+			if(wrists.color)
+				result_layer.color = wrists.color
 
 			result_layer.appearance_flags = RESET_ALPHA
-			overlays_raw[L_HAND_LAYER] = result_layer
+			overlays_raw[WRISTS_LAYER] = result_layer
 		else
-			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
-				t_state = l_hand.item_state_slots[slot_l_hand_str]
+			if(wrists.item_state_slots && wrists.item_state_slots[slot_wrists_str])
+				t_state = wrists.item_state_slots[slot_wrists_str]
 
 			//determine icon to use
 			var/icon/t_icon
-			if(l_hand.item_icons && (slot_l_hand_str in l_hand.item_icons))
-				t_icon = l_hand.item_icons[slot_l_hand_str]
-			else if(l_hand.icon_override)
-				t_state += WORN_LHAND
-				t_icon = l_hand.icon_override
+			if(wrists.item_icons && (slot_wrists_str in wrists.item_icons))
+				t_icon = wrists.item_icons[slot_wrists_str]
+			else if(wrists.icon_override)
+				t_state += WORN_WRISTS
+				t_icon = wrists.icon_override
 			else
-				t_icon = INV_L_HAND_DEF_ICON
+				t_icon = INV_WRISTS_DEF_ICON
 
 			result_layer = image(t_icon, t_state)
 
-			if(l_hand.color)
-				result_layer.color = l_hand.color
+			if(wrists.color)
+				result_layer.color = wrists.color
 
-			var/image/worn_overlays = l_hand.worn_overlays(t_icon)
+			var/image/worn_overlays = wrists.worn_overlays(t_icon)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
 			result_layer.appearance_flags = RESET_ALPHA
-			overlays_raw[L_HAND_LAYER] = result_layer
+			overlays_raw[WRISTS_LAYER] = result_layer
 
 	if(update_icons)
 		update_icon()
@@ -1519,65 +1573,74 @@ There are several things that need to be remembered:
 //These functions check if an item should be drawn, or if its covered up by something else
 /mob/living/carbon/human/proc/check_draw_gloves()
 	if (!gloves)
-		return 0
+		return FALSE
 	else if (gloves.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if (wear_suit && (wear_suit.flags_inv & HIDEGLOVES))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_ears()
 	if (!l_ear && !r_ear)
-		return 0
+		return FALSE
 	else if ((l_ear && (l_ear.flags_inv & ALWAYSDRAW)) || (r_ear && (r_ear.flags_inv & ALWAYSDRAW)))
-		return 1
+		return TRUE
 	else if( (head && (head.flags_inv & (HIDEEARS))) || (wear_mask && (wear_mask.flags_inv & (HIDEEARS))))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_glasses()
 	if (!glasses)
-		return 0
+		return FALSE
 	else if (glasses.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if( (head && (head.flags_inv & (HIDEEYES))) || (wear_mask && (wear_mask.flags_inv & (HIDEEYES))))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 
 /mob/living/carbon/human/proc/check_draw_mask()
 	if (!wear_mask)
-		return 0
+		return FALSE
 	else if (wear_mask.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if( head && (head.flags_inv & HIDEEYES))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_shoes()
 	if (!shoes)
-		return 0
+		return FALSE
 	else if (shoes.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if(wear_suit && (wear_suit.flags_inv & HIDESHOES))
-		return 0
+		return FALSE
 	else
-		return 1
-
+		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_underclothing()
 	if (!w_uniform)
-		return 0
+		return FALSE
 	else if (w_uniform.flags_inv & ALWAYSDRAW)
-		return 1
+		return TRUE
 	else if(wear_suit && (wear_suit.flags_inv & HIDEJUMPSUIT))
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
+
+/mob/living/carbon/human/proc/check_draw_wrists()
+	if (!wrists)
+		return FALSE
+	else if (wrists.flags_inv & ALWAYSDRAW)
+		return TRUE
+	else if (wrists && (wrists.flags_inv & HIDEWRISTS))
+		return FALSE
+	else
+		return TRUE
 
 //Human Overlays Indexes/////////
 #undef MUTATIONS_LAYER
@@ -1605,6 +1668,7 @@ There are several things that need to be remembered:
 #undef LEGCUFF_LAYER
 #undef L_HAND_LAYER
 #undef R_HAND_LAYER
+#undef WRISTS_LAYER
 #undef FIRE_LAYER
 #undef TOTAL_LAYERS
 

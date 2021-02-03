@@ -11,7 +11,7 @@
 	icon_state = "magusred"
 	item_state = "magusred"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT
 
 /obj/item/clothing/head/helmet/space/cult
 	name = "eldritch voidsuit helmet"
@@ -50,7 +50,7 @@
 		)
 	siemens_coefficient = 0
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL|HIDESHOES
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL|HIDESHOES
 
 /obj/item/clothing/suit/space/cult/cultify()
 	return
