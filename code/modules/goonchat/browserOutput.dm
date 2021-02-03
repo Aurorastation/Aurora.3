@@ -32,7 +32,6 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
   * Async because this is called from Client/New.
   */
 /datum/chatOutput/proc/start()
-	set waitfor = FALSE
 	//Check for existing chat
 	if(!owner)
 		return FALSE
