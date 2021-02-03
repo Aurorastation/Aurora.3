@@ -3589,7 +3589,7 @@
 "avU" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Security Disarmament Point";
-	req_access = list(2)
+	req_access = list(1)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -8383,7 +8383,7 @@
 "bKw" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
-	req_access = list(2)
+	req_access = list(1)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -10865,8 +10865,7 @@
 /area/antag/raider)
 "dnd" = (
 /obj/machinery/door/window/brigdoor/eastright{
-	name = "Shuttle Brig";
-	req_access = list(2)
+	name = "Shuttle Brig"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
@@ -16588,7 +16587,8 @@
 /area/centcom/specops)
 "gMq" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "6,22"
+	icon_state = "6,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -24009,7 +24009,8 @@
 /area/shuttle/merchant)
 "lCv" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "7,22"
+	icon_state = "7,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -33265,8 +33266,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southright{
-	name = "holding cell";
-	req_access = list(2)
+	name = "holding cell"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -39965,7 +39965,8 @@
 /area/antag/raider)
 "weL" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "5,22"
+	icon_state = "5,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -40434,8 +40435,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	name = "holding cell";
-	req_access = list(2)
+	name = "holding cell"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -41002,7 +41002,8 @@
 /area/shuttle/transport1)
 "wEM" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "8,22"
+	icon_state = "8,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -41492,7 +41493,8 @@
 /area/centcom/holding)
 "wUa" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "9,22"
+	icon_state = "9,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
