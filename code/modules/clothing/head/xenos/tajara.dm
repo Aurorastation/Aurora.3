@@ -93,7 +93,12 @@
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	species_restricted = list(BODYTYPE_TAJARA)
-	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR
+	)
 	allow_hair_covering = FALSE
 	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
 	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
@@ -108,4 +113,9 @@
 	icon_state = "kettle"
 	item_state = "kettle"
 	contained_sprite = TRUE
-	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR
+	)

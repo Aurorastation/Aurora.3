@@ -52,9 +52,9 @@
 	var/damaged
 	if(!P.nodamage)
 		damaged = apply_damage(damage, P.damage_type, def_zone, damage_flags = P.damage_flags(), used_weapon = P, armor_pen = P.armor_penetration)
-		bullet_impact_visuals(P, def_zone, damaged)
 	if(damaged || P.nodamage) // Run the block computation if we did damage or if we only use armor for effects (nodamage)
 		. = get_blocked_ratio(def_zone, P.damage_type, flags, P.armor_penetration, P.damage)
+	bullet_impact_visuals(P, def_zone, damage, .)
 	P.on_hit(src, ., def_zone)
 
 /mob/living/proc/aura_check(var/type)
@@ -80,7 +80,7 @@
 			break
 
 //For visuals, blood splatters and so on.
-/mob/living/proc/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
+/mob/living/proc/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
 	var/list/impact_sounds = LAZYACCESS(P.impact_sounds, get_bullet_impact_effect_type(def_zone))
 	if(length(impact_sounds))
 		playsound(src, pick(impact_sounds), 75)
