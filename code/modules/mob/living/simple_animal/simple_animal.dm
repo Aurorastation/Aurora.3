@@ -541,7 +541,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	user.do_attack_animation(src)
 	return TRUE
 
-/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
 	. = ..()
 	handle_blood_overlay()
 
