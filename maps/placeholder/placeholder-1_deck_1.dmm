@@ -6203,6 +6203,11 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
+"tR" = (
+/turf/simulated/floor/tiled/ramp/bottom{
+	dir = 8
+	},
+/area/maintenance/vault)
 "tT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -9729,7 +9734,6 @@
 /obj/machinery/door/blast/shutters/open{
 	dir = 2
 	},
-/obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "FL" = (
@@ -15815,7 +15819,6 @@
 /obj/machinery/door/blast/shutters/open{
 	dir = 2
 	},
-/obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Za" = (
@@ -28978,9 +28981,9 @@ aa
 aa
 aa
 hq
-rg
-rg
-rg
+LK
+LK
+LK
 lQ
 rB
 LK
@@ -29182,7 +29185,7 @@ aa
 hq
 yJ
 Ox
-Bb
+nD
 Fa
 hs
 jU
@@ -32016,7 +32019,7 @@ LK
 LK
 LK
 LK
-LK
+PM
 LK
 rg
 LK
@@ -32418,7 +32421,7 @@ rg
 LK
 LK
 LK
-LK
+tR
 LK
 LK
 LK
