@@ -26,7 +26,7 @@
 	. = ..()
 	if(build_from_parts)
 		cut_overlays()
-		add_overlay(overlay_image(icon, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		add_overlay(overlay_image(icon, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 
 /obj/item/clothing/accessory/proc/get_inv_overlay()
 	if(!mob_overlay)
@@ -44,7 +44,7 @@
 		inv_overlay.color = color
 	if(build_from_parts)
 		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.add_overlay(overlay_image(I, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_mob_overlay()
@@ -61,7 +61,7 @@
 		mob_overlay.color = color
 	if(build_from_parts)
 		mob_overlay.cut_overlays()
-		mob_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		mob_overlay.add_overlay(overlay_image(I, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	mob_overlay.appearance_flags = RESET_ALPHA
 	return mob_overlay
 
@@ -574,15 +574,6 @@
 	badge_string = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_TINY
-
-/obj/item/clothing/accessory/bracelet
-	name = "bracelet"
-	desc = "A simple bracelet with a clasp."
-	icon_state = "bracelet"
-	w_class = ITEMSIZE_TINY
-	drop_sound = 'sound/items/drop/ring.ogg'
-	pickup_sound = 'sound/items/pickup/ring.ogg'
-	flippable = 1
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"

@@ -317,9 +317,9 @@
 			power_change()
 		return
 
-	else if(istype(W,/obj/item/vending_refill))
+	else if(istype(W,/obj/item/device/vending_refill))
 		if(panel_open)
-			var/obj/item/vending_refill/VR = W
+			var/obj/item/device/vending_refill/VR = W
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)

@@ -382,3 +382,4 @@
 	name = "fisanduhian ushanka"
 	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way. This one has a large Fisanduhian flag on the front."
 	icon_state = "fishushanka"
+	item_state = "fishushanka"

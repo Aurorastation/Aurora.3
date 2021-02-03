@@ -111,6 +111,7 @@
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
 	new /obj/item/device/radio/headset/heads/cmo/alt(src)
+	new /obj/item/device/megaphone/med(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/reagent_containers/hypospray/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)

@@ -9,11 +9,6 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
-		)
-
 	//Species-specific stuff.
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	sprite_sheets_refit = list(
@@ -44,11 +39,6 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
-		)
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	sprite_sheets_refit = list(
@@ -218,7 +208,7 @@
 
 	if(!istype(user,/mob/living)) return
 
-	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/hand_labeler))
+	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/device/hand_labeler))
 		return ..()
 
 	if(user.get_inventory_slot(src) == slot_wear_suit)

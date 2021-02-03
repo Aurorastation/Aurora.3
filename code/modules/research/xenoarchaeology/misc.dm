@@ -103,7 +103,7 @@
 		new /obj/item/device/measuring_tape(src)
 		new /obj/item/pickaxe/hand(src)
 		new /obj/item/storage/bag/fossils(src)
-		new /obj/item/hand_labeler(src)
+		new /obj/item/device/hand_labeler(src)
 		return
 
 //---- Isolation room air alarms
