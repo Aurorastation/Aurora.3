@@ -172,6 +172,7 @@
 /obj/structure/closet/statue/ice
 	name = "ice cube"
 	desc = "A large ice cube."
+	anchored = FALSE
 
 /obj/structure/closet/statue/ice/create_icon(var/mob/living/L)
 	appearance = L
@@ -186,6 +187,7 @@
 		if(isliving(user))
 			var/mob/living/L = user
 			L.adjustBruteLoss(30)
+			L.bodytemperature -= 150
 
 	dump_contents()
 	visible_message("<span class='warning'>\The [src] shatters!</span>")

@@ -449,8 +449,7 @@
 	name = "freezing ray"
 	icon_state = "bluelaser"
 	pass_flags = PASSTABLE
-	damage = 5
-	no_attack_log = 1
+	damage = 15
 	damage_type = BURN
 	check_armor = "energy"
 
