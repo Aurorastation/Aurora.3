@@ -202,6 +202,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
 	if(stat)
 		return
+	for(var/grab in grabbed_by)
+		var/obj/item/grab/G = grab
+		if(G.state >= GRAB_AGGRESSIVE)
+			return
 	facing_dir = get_dir(src, target)
 	if(ishuman(target))
 		step_away(src, pick(RANGE_TURFS(2, target)))
