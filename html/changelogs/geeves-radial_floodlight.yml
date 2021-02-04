@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added radial floodlights, 360 degree floodlights. Needs to be placed on a knot to work. Mapped two into engineering hard storage."

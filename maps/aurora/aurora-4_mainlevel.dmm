@@ -7256,7 +7256,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anI" = (
@@ -8596,6 +8595,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/power/radial_floodlight,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "apZ" = (
@@ -65327,6 +65327,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"pam" = (
+/obj/machinery/power/port_gen/pacman,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "pch" = (
 /turf/simulated/floor/plating,
 /area/maintenance/workshop)
@@ -69320,6 +69324,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"wdB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/power/radial_floodlight,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "wee" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -86800,7 +86813,7 @@ akz
 akz
 amu
 anF
-anF
+wdB
 apY
 anE
 asA
@@ -87056,7 +87069,7 @@ ajL
 akz
 akz
 amv
-anE
+pam
 gaR
 apZ
 arm
