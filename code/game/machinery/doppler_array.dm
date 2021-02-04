@@ -6,9 +6,9 @@ var/list/doppler_arrays = list()
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "old_cons"
 
-	anchored = 1
-	density = 1
-
+	anchored = TRUE
+	density = TRUE
+	var/active = TRUE
 
 /obj/machinery/doppler_array/Initialize()
 	. = ..()
@@ -18,9 +18,17 @@ var/list/doppler_arrays = list()
 	doppler_arrays -= src
 	return ..()
 
+/obj/machinery/doppler_array/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"]."))
+
+/obj/machinery/doppler_array/attack_hand(mob/user)
+	active = !active
+	to_chat(user, SPAN_NOTICE("\The [src] is now [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"]."))
+
 /obj/machinery/doppler_array/proc/sense_explosion(var/x0,var/y0,var/z0,var/devastation_range,var/heavy_impact_range,var/light_impact_range)
-	if(stat & NOPOWER)	return
-	if(z != z0)			return
+	if(!active || (stat & NOPOWER) || z != z0)
+		return
 
 	var/dx = abs(x0-x)
 	var/dy = abs(y0-y)
@@ -43,7 +51,7 @@ var/list/doppler_arrays = list()
 		return
 
 	var/message = "Explosive disturbance detected - Epicenter at: grid ([x0],[y0],[z0]). Epicenter radius: [devastation_range]. Outer radius: [heavy_impact_range]. Shockwave radius: [light_impact_range]."
-	global_announcer.autosay(message, src.name)
+	global_announcer.autosay(message, "Tachyon-Doppler Array", "Science")
 
 /obj/machinery/doppler_array/power_change()
 	..()
