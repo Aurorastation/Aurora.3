@@ -61,7 +61,7 @@
 		sleeping = 0
 		willfully_sleeping = FALSE
 
-/mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
+/mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	var/t_him = "it"
 	if (src.gender == MALE)
 		t_him = "him"
