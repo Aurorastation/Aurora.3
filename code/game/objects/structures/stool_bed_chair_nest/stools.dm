@@ -161,6 +161,22 @@
 /obj/item/material/stool/AltClick(mob/user)
 	deploy(user)
 
+/obj/item/material/stool/MouseDrop(mob/user)
+	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
+		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
+			if( !user.get_active_hand() )		//if active hand is empty
+				var/mob/living/carbon/human/H = user
+				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+				if (H.hand)
+					temp = H.organs_by_name["l_hand"]
+				if(temp && !temp.is_usable())
+					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					return
+
+				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
+				user.put_in_hands(src)
+	return
+
 /obj/item/material/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(prob(300 / force)) // Weaker materials are more likely to shatter on people randomly.
 		var/blocked = target.run_armor_check(hit_zone, "melee")
