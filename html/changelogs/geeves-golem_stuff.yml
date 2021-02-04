@@ -1,0 +1,9 @@
+author: Geeves, Stryker
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added bluespace headsets, IDs, and accents."
+  - rscadd: "Wizards now spawn with bluespace headsets and IDs. The headset can intercept communications."
+  - rscadd: "Slimes and bluespace golems have the bluespace accent."
+  - tweak: "Forced open airlocks now play the unpowered opening sound."

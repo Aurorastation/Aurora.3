@@ -1247,6 +1247,7 @@
 #include "code\modules\background\accent\accent.dm"
 #include "code\modules\background\accent\diona.dm"
 #include "code\modules\background\accent\human.dm"
+#include "code\modules\background\accent\misc.dm"
 #include "code\modules\background\accent\silicon.dm"
 #include "code\modules\background\accent\skrell.dm"
 #include "code\modules\background\accent\tajara.dm"
