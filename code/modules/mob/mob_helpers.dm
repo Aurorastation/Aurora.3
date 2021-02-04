@@ -45,6 +45,13 @@
 		return 1
 	return 0
 
+/proc/isgolem(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(istype(H.species, /datum/species/golem))
+			return TRUE
+	return FALSE
+
 /proc/isunathi(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
@@ -754,6 +761,8 @@ proc/is_blind(A)
 		return slot_l_ear
 	else if (H.shoes == src)
 		return slot_shoes
+	else if (H.wrists == src)
+		return slot_wrists
 	else
 		return null//We failed to find the slot
 
@@ -1187,6 +1196,5 @@ proc/is_blind(A)
 
 /mob/proc/remove_deaf()
 	sdisabilities &= ~DEAF
-
 /mob/proc/get_antag_datum(var/antag_role)
 	return

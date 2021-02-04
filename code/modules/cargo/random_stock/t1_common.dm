@@ -217,7 +217,7 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 	)
 	exclusion += typesof(/obj/item/clothing/gloves/rig)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
-	exclusion += typesof(/obj/item/clothing/gloves/watch)
+	exclusion += typesof(/obj/item/clothing/wrists/watch)
 	exclusion += typesof(/obj/item/clothing/gloves/fluff)
 	exclusion += typesof(/obj/item/clothing/gloves/ballistic)
 	allgloves -= exclusion
@@ -335,7 +335,7 @@ STOCK_ITEM_COMMON(suitcooler, 1.2)
 
 STOCK_ITEM_COMMON(paperwork, 1.2)
 	if(prob(50))
-		new /obj/item/hand_labeler(L)
+		new /obj/item/device/hand_labeler(L)
 	else
 		new /obj/item/clipboard(L)
 	if(prob(15))

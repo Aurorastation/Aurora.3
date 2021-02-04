@@ -1711,7 +1711,7 @@
 /area/centcom/evac)
 "akg" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor"
@@ -11969,7 +11969,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/reinforced,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/carpet,
 /area/shuttle/merchant)
 "aQb" = (

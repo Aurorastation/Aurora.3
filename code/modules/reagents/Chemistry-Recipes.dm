@@ -3203,7 +3203,7 @@
 	name = "Transmutation: Gold"
 	id = "transmutation_gold"
 	result = null
-	required_reagents = list(/decl/reagent/aluminum = 5, MATERIAL_SILVER = 5)
+	required_reagents = list(/decl/reagent/aluminum = 5, /decl/reagent/silver = 5)
 	catalysts = list(/decl/reagent/philosopher_stone = 1)
 	result_amount = 1
 
@@ -3217,7 +3217,7 @@
 	name = "Transmutation: Diamond"
 	id = "transmutation_diamond"
 	result = null
-	required_reagents = list(/decl/reagent/carbon = 5, MATERIAL_GOLD = 5)
+	required_reagents = list(/decl/reagent/carbon = 5, /decl/reagent/gold = 5)
 	catalysts = list(/decl/reagent/philosopher_stone = 1)
 	result_amount = 1
 

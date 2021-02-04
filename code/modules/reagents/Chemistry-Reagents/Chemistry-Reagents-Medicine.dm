@@ -933,7 +933,7 @@
 	reagent_state = LIQUID
 	color = "#333333"
 	metabolism = 0.0016 * REM
-	overdose = 5
+	overdose = 15
 	od_minimum_dose = 3
 	taste_description = "bitterness"
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")

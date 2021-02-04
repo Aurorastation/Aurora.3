@@ -1854,7 +1854,7 @@
 	},
 /area/derelict)
 "eM" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
