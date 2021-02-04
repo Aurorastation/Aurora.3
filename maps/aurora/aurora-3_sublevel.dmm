@@ -1748,6 +1748,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/closet/crate{
+	name = "Maglock Storage"
+	},
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "aee" = (
