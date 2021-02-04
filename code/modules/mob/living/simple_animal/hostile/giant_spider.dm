@@ -8,6 +8,7 @@
 /mob/living/simple_animal/hostile/giant_spider
 	name = "giant spider"
 	desc = "Furry and brown, it makes you shudder to look at it. This one has deep red eyes."
+	icon = 'icons/mob/npc/spider.dmi'
 	icon_state = "guard"
 	icon_living = "guard"
 	icon_dead = "guard_dead"
@@ -70,6 +71,19 @@
 	poison_per_bite = 5
 	move_to_delay = 4
 
+/mob/living/simple_animal/hostile/giant_spider/emp
+	desc = "Furry and black, it makes you shudder to look at it. This one has dark violet eyes."
+	icon_state = "jackal"
+	icon_living = "jackal"
+	icon_dead = "jackal_dead"
+	maxHealth = 100
+	health = 100
+	melee_damage_lower = 5
+	melee_damage_upper = 10
+	poison_type = /decl/reagent/perconol // mildly beneficial for organics
+	poison_per_bite = 2
+	move_to_delay = 5
+
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
 	. = ..()
@@ -94,6 +108,24 @@
 				var/eggs = new /obj/effect/spider/eggcluster(O, src)
 				O.implants += eggs
 				to_chat(H, "<span class='warning'>The [src] injects something into your [O.name]!</span>")
+
+/mob/living/simple_animal/hostile/giant_spider/emp/AttackingTarget()
+	. = ..()
+	if(ishuman(.))
+		var/mob/living/carbon/human/H = .
+		if(prob(20))
+			if(H.isSynthetic())
+				var/obj/item/organ/internal/cell/cell_holder = locate() in H.internal_organs
+				if(cell_holder)
+					var/obj/item/cell/C = cell_holder.cell
+					if(C)
+						to_chat(H, SPAN_WARNING("\The [src] saps some of your energy!"))
+						C.use(C.maxcharge / 15)
+			if(length(H.organs))
+				var/obj/item/organ/external/O = pick(H.organs)
+				if(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT))
+					H.visible_message(SPAN_WARNING("\The [src] bites down onto \the [H]'s [O.name]!"), SPAN_WARNING("\The [src] bites down onto your [O.name]!"))
+					O.emp_act(2)
 
 /mob/living/simple_animal/hostile/giant_spider/think()
 	..()

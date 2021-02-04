@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new variant of spider, nicknamed 'Jackal', that counters IPCs by sapping their power and EMPing their limbs."
