@@ -575,8 +575,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 				if(istype(Program))
 					Program.process_message(signal, CALLBACK(src, .proc/program_receive_information, signal))
-				else
-					finish_receive_information(signal)
+
+			finish_receive_information(signal)
 
 /obj/machinery/telecomms/server/proc/program_receive_information(datum/signal/signal)
 	Program.retrieve_messages(CALLBACK(src, .proc/finish_receive_information, signal))
@@ -591,21 +591,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	. = ..()
 	if(istype(Program))
 		Program.retrieve_messages()
-
-/*
-/obj/machinery/telecomms/server/proc/setcode(var/t)
-	if(t)
-		if(istext(t))
-			rawcode = t
-*/
-/*
-/obj/machinery/telecomms/server/proc/compile()
-	if(Compiler)
-		var/er = Compiler.Compile(rawcode)
-		if(istype(Compiler.running_code))
-			Compiler.running_code.S = src
-		return er
-*/
 
 /obj/machinery/telecomms/server/proc/update_logs()
 	// start deleting the very first log entry
