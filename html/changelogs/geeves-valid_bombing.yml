@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The Tachyon-Doppler array will now output research slips with research data based on the size of the explosion it detects. You can feed these into a destructive analyzer for research points."
+  - tweak: "The doppler array is no longer directional, meaning if it happens on its Z-level, it will detect it."
