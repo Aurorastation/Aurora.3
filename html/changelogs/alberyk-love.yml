@@ -1,4 +1,0 @@
-author: Karolis2011
-delete-after: True
-changes:
-  - experiment: "Upgraded NTSL2+ to NTSL2++. New scripting environment, better error messages, space for future expansion."
