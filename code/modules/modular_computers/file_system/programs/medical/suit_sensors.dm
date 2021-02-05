@@ -36,15 +36,11 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-	
-	var/datum/signal/signal
-	signal = telecomms_process_active()
 
 	VUEUI_SET_CHECK(data["isAI"], isAI(user), ., data)
 	data["crewmembers"] = list()
-	if(signal.data["done"] == 1)
-		for(var/z_level in current_map.map_levels)
-			data["crewmembers"] += crew_repository.health_data(z_level)
+	for(var/z_level in current_map.map_levels)
+		data["crewmembers"] += crew_repository.health_data(z_level)
 	
 	return data // This UI needs to constantly update
 
