@@ -28,11 +28,11 @@
 		cut_overlays()
 		add_overlay(overlay_image(icon, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 
-/obj/item/clothing/accessory/proc/get_inv_overlay()
+/obj/item/clothing/accessory/proc/get_inv_overlay(var/force_update = FALSE)
 	if(!mob_overlay)
 		get_mob_overlay()
 	var/I = mob_overlay.icon
-	if(!inv_overlay)
+	if(!inv_overlay && !force_update)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if("[tmp_icon_state]_tie" in icon_states(icon_override))
