@@ -90,7 +90,9 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	siemens_coefficient = 0.75
 	hoodtype = /obj/item/clothing/head/winterhood
 

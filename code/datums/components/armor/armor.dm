@@ -3,6 +3,9 @@
 	var/full_block_message = "Your armor absorbs the blow!"
 	var/partial_block_message = "Your armor softens the blow!"
 
+	// This controls how some armor types such as mech armor work.
+	var/armor_flags = ARMOR_TYPE_STANDARD
+
 	// Armor 'works' for damages in range from 0 to [armor_range_mult * armor].
 	// The lower the damage, the harder it gets blocked, tapering to 0 mitigation at [armor_range_mult * armor]
 	var/armor_range_mult = 2
@@ -22,6 +25,10 @@
 // Applies state changes to self, holder, and whatever else caused by damage mitigation
 // Returns modified damage, a list to allow for flag modification or damage conversion, in the same format as the arguments.
 /datum/component/armor/proc/apply_damage_modifications(damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE)
+	if(armor_flags & ARMOR_TYPE_EXOSUIT)
+		if(prob(get_blocked(damage_type, damage_flags, armor_pen) * 100)) //extra removal of sharp and edge on account of us being big robots
+			damage_flags &= ~(DAM_SHARP | DAM_EDGE)
+
 	if(damage <= 0)
 		return args.Copy()
 

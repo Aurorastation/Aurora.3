@@ -27,7 +27,8 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/pistol
-	damage = 35
+	damage = 25
+	armor_penetration = 10
 
 /obj/item/projectile/beam/pistol/hegemony
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
@@ -40,8 +41,8 @@
 	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
-	damage = 35
-	armor_penetration = 10
+	damage = 50
+	armor_penetration = 20
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
@@ -56,8 +57,8 @@
 /obj/item/projectile/beam/xray
 	name = "xray beam"
 	icon_state = "xray"
-	damage = 25
-	armor_penetration = 50
+	damage = 30
+	armor_penetration = 30
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray

@@ -564,7 +564,13 @@
 	item_state = "unathi_armor"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_UNATHI)
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/suit/armor/unathi/hegemony
@@ -572,7 +578,13 @@
 	desc = "A highly armored chestplate designated to be worn by an Unathi, a newer variant commonly worn by the Hegemony Levies."
 	icon_state = "hegemony_armor"
 	item_state = "hegemony_armor"
-	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 
 // Vaurca version of Unathi armor
 /obj/item/clothing/suit/armor/unathi/klax
@@ -584,8 +596,15 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_VAURCA)
 	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
-	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
 	siemens_coefficient = 0.35
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 
 /obj/item/clothing/suit/storage/vest/legion
 	name = "foreign legion armored suit"
@@ -593,7 +612,6 @@
 	icon_state = "legion_armor"
 	item_state = "legion_armor"
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
-	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 	allowed = list(
 		/obj/item/gun,
@@ -604,7 +622,14 @@
 		/obj/item/handcuffs,
 		/obj/item/device/flashlight,
 		/obj/item/material/twohanded/pike/flag
-		)
+	)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT
+	)
 
 /obj/item/clothing/suit/storage/vest/legion/legate
 	name = "foreign legion legate coat"
@@ -625,7 +650,13 @@
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "solwebvest"
 	item_state = "solwebvest"
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	contained_sprite = 1
 
 //All of the armor below is mostly unused

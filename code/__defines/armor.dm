@@ -1,5 +1,7 @@
 // Armor will turn attacks into less dangerous (e.g. turning cut into bruise), so keep that in mind when decided what armor value to use.
 // Some levels are marked with what they intend to block in such way.
+#define  ARMOR_TYPE_STANDARD        1
+#define  ARMOR_TYPE_EXOSUIT         2
 
 #define  ARMOR_BALLISTIC_MINOR		10
 #define  ARMOR_BALLISTIC_SMALL		25
