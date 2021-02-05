@@ -51061,7 +51061,7 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/research_port)
 "bQm" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/comfy/brown{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -61312,7 +61312,7 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/bar)
 "ggP" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/comfy/brown,
 /turf/simulated/floor/carpet,
 /area/library)
 "gjz" = (
