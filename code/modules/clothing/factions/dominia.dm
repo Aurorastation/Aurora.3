@@ -331,6 +331,7 @@
 	if(ismob(loc))
 		var/mob/M = loc
 		M.update_inv_wear_suit()
+	get_mob_overlay(TRUE)
 	get_inv_overlay(TRUE)
 
 /obj/item/clothing/accessory/poncho/dominia/red/verb/roll_up_mantle()

@@ -28,11 +28,11 @@
 		cut_overlays()
 		add_overlay(overlay_image(icon, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 
-/obj/item/clothing/accessory/proc/get_inv_overlay(var/force_update = FALSE)
+/obj/item/clothing/accessory/proc/get_inv_overlay(var/force = FALSE)
 	if(!mob_overlay)
 		get_mob_overlay()
 	var/I = mob_overlay.icon
-	if(!inv_overlay && !force_update)
+	if(!inv_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if("[tmp_icon_state]_tie" in icon_states(icon_override))
@@ -47,9 +47,9 @@
 		inv_overlay.add_overlay(overlay_image(I, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_mob_overlay()
+/obj/item/clothing/accessory/proc/get_mob_overlay(var/force = FALSE)
 	var/I = icon_override ? icon_override : contained_sprite ? icon : INV_ACCESSORIES_DEF_ICON
-	if(!mob_overlay)
+	if(!mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if("[tmp_icon_state]_mob" in icon_states(I))
