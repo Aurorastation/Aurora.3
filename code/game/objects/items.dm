@@ -102,7 +102,7 @@
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
-				AddComponent(/datum/component/armor, armor, armor_degradation_speed) //TODOMATT: Armor type handling via defines
+				AddComponent(/datum/component/armor, armor, armor_degradation_speed)
 				break
 
 /obj/item/Destroy()

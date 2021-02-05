@@ -28,9 +28,9 @@
 		return pilot.hitby(AM, speed)
 	. = ..()
 
-/mob/living/exosuit/get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/heavy_vehicle/get_armors_by_zone(def_zone, damage_type, damage_flags)
 	. = ..()
-	if(body && body.m_armour)
+	if(body && body.mech_armor)
 		var/body_armor = GetComponent(/datum/component/armor)
 		if(body_armor)
 			. += body_armor
