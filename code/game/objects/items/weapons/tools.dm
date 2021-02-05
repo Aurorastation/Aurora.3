@@ -728,7 +728,8 @@
 	. = ..()
 	var/drillcolor = pick("red", "blue", "yellow", "green")
 	icon_state = "powerdrill[drillcolor]"
-	item_state = "powerdrill[drillcolor]"
+	item_state = icon_state
+	update_tool()
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -737,24 +738,30 @@
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
 
+/obj/item/powerdrill/MouseEntered(location, control, params)
+	. = ..()
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"] && get_dist(usr, src) <= 2)
+		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
+		openToolTip(usr, src, params, "Impact Drill:", "[capitalize(tools[current_tool])]")
+
+/obj/item/powerdrill/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
+
 /obj/item/powerdrill/iswrench()
-	usesound = 'sound/items/air_wrench.ogg'
 	return tools[current_tool] == "wrenchbit"
 
 /obj/item/powerdrill/isscrewdriver()
-	usesound = 'sound/items/drill_use.ogg'
 	return tools[current_tool] == "screwdriverbit"
 
-/obj/item/powerdrill/iscrowbar()
-	usesound = 'sound/items/drill_use.ogg'
-	return tools[current_tool] == "crowbarbit"
-
 /obj/item/powerdrill/proc/update_tool()
+	cut_overlays()
 	if(isscrewdriver())
-		cut_overlays()
+		usesound = 'sound/items/air_wrench.ogg'
 		add_overlay("screwdriverbit")
-	if(iswrench())
-		cut_overlays()
+	else if(iswrench())
+		usesound = 'sound/items/drill_use.ogg'
 		add_overlay("wrenchbit")
 
 /obj/item/powerdrill/attack_self(var/mob/user)
