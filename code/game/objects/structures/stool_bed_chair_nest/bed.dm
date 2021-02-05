@@ -224,6 +224,7 @@
 	var/obj/item/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	var/patient_shift = 9 //How much are mobs moved up when they are buckled.
 	slowdown = 0
 
 /obj/structure/bed/roller/update_icon()
@@ -337,8 +338,8 @@
 	. = ..()
 	if(M == buckled_mob)
 		density = TRUE
-		M.pixel_y = 6
-		M.old_y = 6
+		M.pixel_y = patient_shift
+		M.old_y = patient_shift
 		update_icon()
 	else
 		density = FALSE
@@ -354,6 +355,7 @@
 	base_state = "hover"
 	makes_rolling_sound = FALSE
 	item_bedpath = /obj/item/roller/hover
+	patient_shift = 6
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
