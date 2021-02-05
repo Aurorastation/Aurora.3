@@ -60,6 +60,18 @@
 	icon_state = "praberet"
 	item_state = "praberet"
 
+/obj/item/clothing/head/beret/tajaran/raakti_shariim
+	name = "\improper Raakti Shariim beret"
+	desc = "A blue beret with a pale-gold twin-suns insignia, signifying a Constable of the NKA's Raakti Shariim."
+	icon = 'icons/obj/clothing/species/tajaran/raakti_shariim.dmi'
+	icon_state = "raakti_shariim_beret"
+	item_state = "raakti_shariim_beret"
+	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
+		peacekeeping force, working closely with both the Royal Constabulary and the Royal Ministry of Intelligence to \
+		seek out internal threats to the Kingdom such as spies, terrorists, and other domestic enemies to the crown. \
+		The Raakti Shariim's uniforms incorporate a dark, navy blue paired with a lilac accent and pale-gold twin-sun \
+		insignia."
+
 /obj/item/clothing/head/tajaran/nka_cap
 	name = "service cap"
 	desc = "A simple service cap worn by soldiers of the Adhomai Imperial Army."
