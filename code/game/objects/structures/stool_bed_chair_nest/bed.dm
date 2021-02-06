@@ -219,12 +219,14 @@
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_down"
 	anchored = FALSE
+	can_buckle_bags = TRUE
 	var/base_state = "standard"
 	var/item_bedpath = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled.
+	var/bag_strap = "standard_straps"
 	slowdown = 0
 
 /obj/structure/bed/roller/update_icon()
@@ -244,6 +246,8 @@
 		if(density)
 			iv.pixel_y = 6
 		overlays += iv
+	if(bag_strap && buckled_bag)
+		buckled_bag.overlays += image(icon, bag_strap)
 
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
 	if(iswrench(I) || istype(I, /obj/item/stack) || iswirecutter(I))
@@ -333,6 +337,11 @@
 			buckled_mob.forceMove(src.loc)
 		else
 			buckled_mob = null
+	if(buckled_bag)
+		if(buckled_bag.buckled == src)
+			buckled_bag.forceMove(src.loc)
+		else
+			buckled_bag = null
 
 /obj/structure/bed/roller/post_buckle_mob(mob/living/M)
 	. = ..()
@@ -349,6 +358,19 @@
 			detach_iv(M, usr)
 		update_icon()
 
+/obj/structure/bed/roller/post_buckle_bag(obj/structure/closet/body_bag/B)
+	. = ..()
+	if(B == buckled_bag)
+		density = TRUE
+		B.pixel_y = patient_shift
+		update_icon()
+	else
+		density = FALSE
+		B.pixel_y = 0
+		B.overlays.Cut() //Remove straps
+		B.update_icon() //Add label back (if it had one)
+		update_icon()
+		
 /obj/structure/bed/roller/hover
 	name = "medical hoverbed"
 	icon_state = "hover_down"
@@ -356,6 +378,7 @@
 	makes_rolling_sound = FALSE
 	item_bedpath = /obj/item/roller/hover
 	patient_shift = 6
+	bag_strap = null
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()

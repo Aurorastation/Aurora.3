@@ -44,6 +44,8 @@
 	var/item_path = /obj/item/bodybag
 	var/contains_body = 0
 	var/shapely = TRUE
+	var/buckled
+	var/can_be_buckled = TRUE
 
 /obj/structure/closet/body_bag/content_info(mob/user, content_size)
 	if(!content_size && !contains_body)
@@ -95,6 +97,11 @@
 		density = 0
 		return TRUE
 	return FALSE
+
+/obj/structure/closet/body_bag/open()
+	if(buckled)
+		return 0
+	return ..()
 
 /obj/structure/closet/body_bag/dump_contents(var/stored_units)
 	..()
