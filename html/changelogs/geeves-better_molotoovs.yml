@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Molotovs now work off both alcohol and welding fuel."
-  - bugfix: "Molotovs now longer emit light if an unlit rag is inserted."
-  - bugfix: "Molotov rags now properly delete when they burn out."
