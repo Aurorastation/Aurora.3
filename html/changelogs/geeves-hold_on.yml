@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Smart mobs will no longer slip out of your aggressive grabs by moving away."
