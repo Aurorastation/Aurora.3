@@ -65,6 +65,9 @@
 		return
 
 	if (O.iswrench())
+		if(isrevenant(user))
+			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
+			return
 		if(can_tamper && user.a_intent == I_HURT)
 			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>","<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
 			is_leaking = !is_leaking
