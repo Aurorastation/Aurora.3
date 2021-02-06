@@ -24239,7 +24239,7 @@
 	pixel_y = 2
 	},
 /obj/item/paper_bin,
-/obj/item/book/manual/ntsl2,
+/obj/item/book/manual/wiki/ntsl2,
 /obj/machinery/light_switch{
 	pixel_y = 26
 	},
