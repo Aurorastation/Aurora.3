@@ -62,7 +62,7 @@
 "aj" = (
 /obj/structure/grille,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "ak" = (
 /obj/structure/shuttle/engine/heater{
@@ -231,7 +231,7 @@
 /area/medical/emergency_storage)
 "aF" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/black,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "aG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -555,7 +555,7 @@
 "bv" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/valve,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "bw" = (
 /obj/structure/cable/green{
@@ -674,7 +674,7 @@
 /turf/simulated/floor/reinforced,
 /area/maintenance/fpmaint)
 "bO" = (
-/obj/machinery/light/small{
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -802,12 +802,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "cq" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "cs" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -1073,7 +1073,7 @@
 "di" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "dj" = (
 /obj/structure/cable{
@@ -1364,7 +1364,7 @@
 "eb" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "ec" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
@@ -1472,7 +1472,7 @@
 	icon_state = "e-3";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint)
 "ew" = (
 /obj/structure/shuttle_part/placeholder{
@@ -1563,7 +1563,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "eG" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1906,6 +1906,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "fM" = (
@@ -2080,7 +2082,7 @@
 /area/maintenance/vault)
 "gi" = (
 /obj/machinery/atmospherics/valve,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "gj" = (
 /obj/structure/table/reinforced,
@@ -2541,7 +2543,7 @@
 	dir = 6
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "hz" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -2692,6 +2694,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"hU" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "hV" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
 	icon_state = "7,3"
@@ -3129,7 +3137,7 @@
 	icon_state = "e-2";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint2)
 "jr" = (
 /obj/machinery/door/window/northright,
@@ -3886,7 +3894,7 @@
 "lY" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "lZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4447,7 +4455,7 @@
 	dir = 5
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "nR" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -4538,7 +4546,7 @@
 /area/hallway/primary/aft)
 "oi" = (
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "oj" = (
 /obj/machinery/shieldwallgen,
@@ -4585,7 +4593,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "ot" = (
 /obj/machinery/door/airlock/research,
@@ -5628,6 +5636,12 @@
 /obj/structure/cable/green{
 	icon_state = "12-0"
 	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "rL" = (
@@ -5644,7 +5658,7 @@
 "rN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "rO" = (
 /obj/structure/shuttle_part/placeholder{
@@ -6543,7 +6557,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "uV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -6943,10 +6957,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "wp" = (
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
-/area/beach)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "wq" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -7054,7 +7075,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -7882,7 +7903,7 @@
 /area/rnd/isolation_a)
 "zq" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "zr" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -8089,7 +8110,7 @@
 	dir = 10
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "Af" = (
 /obj/structure/shuttle_part/placeholder{
@@ -8163,7 +8184,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "Aw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -8495,7 +8516,7 @@
 	icon_state = "e-5";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint)
 "BM" = (
 /obj/structure/cable/green{
@@ -8674,7 +8695,7 @@
 "Cw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "Cx" = (
 /obj/structure/shuttle_part/placeholder{
@@ -8985,7 +9006,7 @@
 	icon_state = "e-5";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint2)
 "DB" = (
 /obj/structure/shuttle_part/placeholder{
@@ -9266,7 +9287,7 @@
 	icon_state = "e-2";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint)
 "Eq" = (
 /obj/structure/cable{
@@ -10598,7 +10619,7 @@
 	icon_state = "e-1";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint)
 "IH" = (
 /obj/structure/plasticflaps/airtight,
@@ -10606,6 +10627,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/freezer_maint,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -10847,7 +10870,7 @@
 	pixel_y = 13
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "Jw" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -10963,7 +10986,7 @@
 	dir = 9
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "JQ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -13277,7 +13300,7 @@
 	icon_state = "e-1";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint2)
 "QO" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -13536,10 +13559,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
+"RC" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "RD" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -14090,7 +14121,7 @@
 	icon_state = "e-3";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint2)
 "Tl" = (
 /obj/machinery/power/smes/buildable{
@@ -14520,7 +14551,7 @@
 "UF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "UG" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small,
@@ -14832,6 +14863,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"VE" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "VG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14941,7 +14980,10 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "VX" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "VY" = (
@@ -15228,7 +15270,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "Xc" = (
 /turf/simulated/floor/plating,
@@ -15265,7 +15307,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "Xl" = (
 /obj/structure/cable/green{
@@ -15334,7 +15376,7 @@
 	icon_state = "e-4";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint2)
 "Xw" = (
 /obj/machinery/door/blast/shutters/open{
@@ -15428,9 +15470,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
-	},
-/obj/machinery/light/small{
-	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -15584,7 +15623,7 @@
 	icon_state = "e-4";
 	name = "engine"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/maintenance/fpmaint)
 "Yi" = (
 /obj/structure/cable/green{
@@ -16082,7 +16121,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -28799,7 +28838,7 @@ yn
 dz
 qA
 yr
-Bt
+yr
 ky
 gd
 FY
@@ -33052,7 +33091,7 @@ rg
 rS
 LK
 LK
-LK
+bO
 yV
 Op
 ov
@@ -33067,7 +33106,7 @@ hq
 LK
 LK
 LK
-LK
+hU
 hq
 hq
 aa
@@ -33264,7 +33303,7 @@ ez
 Ps
 LK
 yn
-bO
+LK
 hq
 LK
 LK
@@ -33877,7 +33916,7 @@ LK
 LK
 VX
 LK
-LK
+RC
 VX
 Jk
 aa
@@ -38917,10 +38956,10 @@ Yn
 aH
 DY
 LK
-wL
-ZC
+wp
+VE
 fK
-ZC
+VE
 IH
 RD
 Cb
@@ -44562,7 +44601,7 @@ FU
 Sx
 qI
 aO
-wp
+ki
 qI
 aO
 Sx
