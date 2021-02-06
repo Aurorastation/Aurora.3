@@ -65,7 +65,7 @@
 		return
 
 	if (O.iswrench())
-		if(isrevenant(user))
+		if(use_check(user, USE_DISALLOW_SPECIALS))
 			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
 			return
 		if(can_tamper && user.a_intent == I_HURT)
