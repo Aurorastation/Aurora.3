@@ -19,7 +19,7 @@ var/global/forumuser_api_key = null
 
 	discord_id = data["discord_id"]
 	ckey = data["ckey"]
-	if("psync_game_disalbed" in data && data["psync_game_disalbed"] == 1) //This here is needed because the data can be null, 1 or 0
+	if(data["psync_game_disalbed"] == 1) //This here is needed because the data can be null, 1 or 0
 		psync_game_disabled = TRUE
 
 /datum/http_request/forumuser_api
@@ -65,4 +65,3 @@ var/global/forumuser_api_key = null
 	R.body = users
 
 	return R
-
