@@ -422,7 +422,7 @@
 			return
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+			LB.user_unbuckle(user)
 
 		if (L.client)
 			L.client.perspective = EYE_PERSPECTIVE
@@ -464,7 +464,7 @@
 	if (do_mob(user, H, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = H.buckled
-			LB.user_unbuckle_mob(user)
+			LB.user_unbuckle(user)
 		if (H.client)
 			H.client.perspective = EYE_PERSPECTIVE
 			H.client.eye = src

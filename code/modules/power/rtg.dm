@@ -57,7 +57,7 @@
 	return ..()
 
 /obj/machinery/power/rtg/attack_hand(mob/user)
-	if(user.a_intent == I_GRAB && user_buckle_mob(user.pulling, user))
+	if(user.a_intent == I_GRAB && user_buckle(user.pulling, user))
 		return
 	..()
 

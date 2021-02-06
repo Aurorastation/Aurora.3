@@ -101,7 +101,7 @@
 						if (O != occupant)
 							Collide(O)
 				else
-					unbuckle_mob()
+					unbuckle()
 			if (pulling && (get_dist(src, pulling) > 1))
 				pulling.pulledby = null
 				to_chat(pulling, "<span class='warning'>You lost your grip!</span>")
@@ -114,7 +114,7 @@
 	if (pulling)
 		MouseDrop(usr)
 	else
-		user_unbuckle_mob(user)
+		user_unbuckle(user)
 	return
 
 /obj/structure/bed/chair/wheelchair/CtrlClick(var/mob/user)
@@ -142,7 +142,7 @@
 		return
 
 	if(propelled || (pulling && (pulling.a_intent == I_HURT)))
-		var/mob/living/occupant = unbuckle_mob()
+		var/mob/living/occupant = unbuckle()
 
 		if (pulling && (pulling.a_intent == I_HURT))
 			occupant.throw_at(A, 3, 3, pulling)
@@ -188,7 +188,7 @@
 		B.set_dir(newdir)
 	bloodiness--
 
-/obj/structure/bed/chair/wheelchair/buckle_mob(mob/M as mob, mob/user as mob)
+/obj/structure/bed/chair/wheelchair/buckle(mob/M as mob, mob/user as mob)
 	if(M == pulling)
 		pulling = null
 		usr.pulledby = null

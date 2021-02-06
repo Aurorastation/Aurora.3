@@ -32,7 +32,7 @@
 		rotate(user)
 	return TRUE
 
-/obj/structure/bed/chair/post_buckle_mob()
+/obj/structure/bed/chair/post_buckle()
 	update_icon()
 	return ..()
 
@@ -146,7 +146,7 @@
 					if (O != occupant)
 						Collide(O)
 			else
-				unbuckle_mob()
+				unbuckle()
 
 /obj/structure/bed/chair/office/Collide(atom/A)
 	. = ..()
@@ -154,7 +154,7 @@
 		return
 
 	if(propelled)
-		var/mob/living/occupant = unbuckle_mob()
+		var/mob/living/occupant = unbuckle()
 
 		var/def_zone = ran_zone()
 		var/blocked = occupant.run_armor_check(def_zone, "melee")
@@ -258,7 +258,7 @@
 	can_dismantle = FALSE
 	anchored = TRUE
 
-/obj/structure/bed/chair/shuttle/post_buckle_mob()
+/obj/structure/bed/chair/shuttle/post_buckle()
 	if(buckled_mob)
 		base_icon = "shuttlechair-b"
 	else
@@ -283,12 +283,12 @@
 /obj/structure/bed/chair/pool/update_icon()
 	return
 
-/obj/structure/bed/chair/pool/buckle_mob(mob/living/M)
+/obj/structure/bed/chair/pool/buckle(mob/living/M)
 	if(!iscarbon(M))
 		return FALSE
 	return ..()
 
-/obj/structure/bed/chair/pool/post_buckle_mob(mob/living/M)
+/obj/structure/bed/chair/pool/post_buckle(mob/living/M)
 	. = ..()
 	if(M == buckled_mob)
 		M.pixel_y = -6

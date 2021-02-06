@@ -8,7 +8,7 @@
 	if(prob(100 * weakness))
 		to_chat(user, SPAN_ALERT("You are suddenly zapped away elsewhere!"))
 		if (user.buckled)
-			user.buckled.unbuckle_mob()
+			user.buckled.unbuckle()
 
 		spark(get_turf(user), 3)
 
@@ -24,7 +24,7 @@
 			if(prob(100 * weakness))
 				to_chat(M, SPAN_ALERT("You are displaced by a strange force!"))
 				if(M.buckled)
-					M.buckled.unbuckle_mob()
+					M.buckled.unbuckle()
 
 				spark(get_turf(M), 3)
 
@@ -40,7 +40,7 @@
 			if(prob(100 * weakness))
 				to_chat(M, SPAN_ALERT("You are displaced by a strange force!"))
 				if(M.buckled)
-					M.buckled.unbuckle_mob()
+					M.buckled.unbuckle()
 
 				spark(get_turf(M), 3)
 

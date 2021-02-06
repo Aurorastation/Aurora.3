@@ -19,7 +19,7 @@
 	for(var/mob/living/target in targets)
 		target.transforming = 1 //protects the mob from being transformed (replaced) midjaunt and getting stuck in bluespace
 		if(target.buckled)
-			target.buckled.unbuckle_mob()
+			target.buckled.unbuckle()
 		spawn(0)
 			var/mobloc = get_turf(target.loc)
 			var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )

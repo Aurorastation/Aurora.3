@@ -299,11 +299,11 @@
 		C.layer = layer + 0.1		//so it sits above the vehicle
 
 	if(ismob(C))
-		buckle_mob(C)
+		buckle(C)
 
 	return 1
 
-/obj/vehicle/user_unbuckle_mob(var/mob/user)
+/obj/vehicle/user_unbuckle(var/mob/user)
 	unload(user)
 	return
 
@@ -345,7 +345,7 @@
 	load.layer = initial(load.layer)
 
 	if(ismob(load))
-		unbuckle_mob(load)
+		unbuckle(load)
 
 	load = null
 
@@ -354,7 +354,7 @@
 // This exists to stop a weird jumping motion when you disembark.
 // It essentially makes disembarkation count as a movement.
 // Yes, it's not the full calculation. But it's relatively close, and will make it seamless.
-/obj/vehicle/post_buckle_mob(var/mob/M)
+/obj/vehicle/post_buckle(var/mob/M)
 	if (M.client)
 		M.client.move_delay = M.movement_delay() + config.walk_speed
 

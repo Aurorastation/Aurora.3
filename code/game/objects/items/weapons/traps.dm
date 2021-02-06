@@ -46,7 +46,7 @@
 		return TRUE
 	return FALSE
 
-/obj/item/trap/user_unbuckle_mob(mob/user)
+/obj/item/trap/user_unbuckle(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
 			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
@@ -58,7 +58,7 @@
 				SPAN_NOTICE("\The [user] frees \the [buckled_mob] from \the [src]."),
 				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
 				)
-			unbuckle_mob()
+			unbuckle()
 			anchored = FALSE
 
 /obj/item/trap/attack_hand(mob/user)
@@ -72,7 +72,7 @@
 				SPAN_NOTICE("\The user frees \the [buckled_mob] from \the [src]."),
 				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
 				)
-			unbuckle_mob()
+			unbuckle()
 			anchored = FALSE
 	else if(deployed && can_use(user))
 		user.visible_message(
@@ -121,7 +121,7 @@
 	if(did_trap)
 		//trap the victim in place
 		can_buckle = TRUE
-		buckle_mob(L)
+		buckle(L)
 		can_buckle = initial(can_buckle)
 
 	deployed = FALSE
@@ -233,7 +233,7 @@
 		if(AM.loc != loc)
 			AM.forceMove(loc)
 		captured = WEAKREF(L)
-		buckle_mob(L)
+		buckle(L)
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = FALSE
 		src.shake_animation()
@@ -258,7 +258,7 @@
 	return TRUE
 
 // If we are stuck, and need to get out
-/obj/item/trap/animal/user_unbuckle_mob(var/mob/living/escapee)
+/obj/item/trap/animal/user_unbuckle(var/mob/living/escapee)
 	if (req_breakout() < 1)
 		return
 
@@ -369,7 +369,7 @@
 		var/mob/living/ll = L
 		msg = "<span class='warning'>[ll] runs out of \the [src].</span>"
 
-	unbuckle_mob()
+	unbuckle()
 	captured = null
 	visible_message(msg)
 	shake_animation()

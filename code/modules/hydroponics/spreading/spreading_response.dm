@@ -27,7 +27,7 @@
 	seed.do_thorns(victim,src)
 	seed.do_sting(victim,src,pick(BP_R_FOOT,BP_L_FOOT,BP_R_LEG,BP_L_LEG))
 
-/obj/effect/plant/proc/unbuckle()
+/obj/effect/plant/unbuckle()
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			buckled_mob.buckled = null
@@ -80,6 +80,6 @@
 
 	//entangling people
 	if(victim.loc == src.loc)
-		buckle_mob(victim)
+		buckle(victim)
 		victim.set_dir(pick(cardinal))
 		to_chat(victim, "<span class='danger'>Tendrils tighten around you!</span>")

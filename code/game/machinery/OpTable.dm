@@ -134,7 +134,7 @@
 		if(do_mob(user, L, 10, needhand = FALSE))
 			if(bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
+				LB.user_unbuckle(user)
 			take_victim(target,user)
 	else
 		return ..()
@@ -169,7 +169,7 @@
 		if(do_mob(user, L, 10, needhand = FALSE))
 			if(bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
+				LB.user_unbuckle(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
 			return

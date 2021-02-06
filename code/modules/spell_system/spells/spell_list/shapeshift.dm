@@ -31,7 +31,7 @@
 			continue
 
 		if(M.buckled)
-			M.buckled.unbuckle_mob()
+			M.buckled.unbuckle()
 
 		var/new_mob = pick(possible_transformations)
 

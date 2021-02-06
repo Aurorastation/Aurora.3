@@ -1045,7 +1045,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/structure/noose/post_buckle_mob(mob/living/M)
+/obj/structure/noose/post_buckle(mob/living/M)
 	if(M == buckled_mob)
 		layer = MOB_LAYER
 		add_overlay(over)
@@ -1060,7 +1060,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		M.pixel_x = initial(M.pixel_x)
 		M.pixel_y = initial(M.pixel_y)
 
-/obj/structure/noose/user_unbuckle_mob(mob/living/user)
+/obj/structure/noose/user_unbuckle(mob/living/user)
 
 	if(!user.IsAdvancedToolUser())
 		return
@@ -1089,10 +1089,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				SPAN_WARNING("[M] unties the noose over their neck!"),\
 				SPAN_NOTICE("You untie the noose over your neck!"))
 			M.Weaken(3)
-		unbuckle_mob()
+		unbuckle()
 		add_fingerprint(user)
 
-/obj/structure/noose/user_buckle_mob(mob/living/carbon/human/M, mob/user)
+/obj/structure/noose/user_buckle(mob/living/carbon/human/M, mob/user)
 	if(!in_range(user, src) || user.stat || user.restrained() || !istype(M))
 		return FALSE
 
@@ -1110,7 +1110,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	add_fingerprint(user)
 
-	if(M == user && buckle_mob(M))
+	if(M == user && buckle(M))
 		M.visible_message(\
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
@@ -1123,7 +1123,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			SPAN_DANGER("[user] ties \the [src] over your neck!"))
 		to_chat(user, SPAN_NOTICE("It will take 20 seconds and you have to stand still."))
 		if(do_after(user, 200))
-			if(buckle_mob(M))
+			if(buckle(M))
 				M.visible_message(\
 					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
 					SPAN_DANGER("[user] ties \the [src] over your neck!"))

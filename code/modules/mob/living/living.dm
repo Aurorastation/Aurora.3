@@ -458,7 +458,7 @@ default behaviour is:
 
 	rejuvenate()
 	if(buckled)
-		buckled.unbuckle_mob()
+		buckled.unbuckle()
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
 
@@ -734,7 +734,7 @@ default behaviour is:
 
 /mob/living/proc/escape_buckle()
 	if(buckled)
-		buckled.user_unbuckle_mob(src)
+		buckled.user_unbuckle(src)
 
 /mob/living/var/last_resist
 

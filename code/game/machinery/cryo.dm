@@ -204,7 +204,7 @@
 				return
 			if(bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
+				LB.user_unbuckle(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
@@ -237,7 +237,7 @@
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+			LB.user_unbuckle(user)
 		if(put_mob(L))
 			if(L == user)
 				user.visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)

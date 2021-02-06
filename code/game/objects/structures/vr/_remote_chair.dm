@@ -35,7 +35,7 @@
 		return
 	..()
 
-/obj/structure/bed/chair/remote/user_buckle_mob(mob/user)
+/obj/structure/bed/chair/remote/user_buckle(mob/user)
 	..()
 	var/area/A = get_area(src)
 	if(!A.powered(EQUIP))
@@ -55,10 +55,10 @@
 	if(buckled_mob)
 		var/area/A = get_area(src)
 		if(!A.powered(EQUIP))
-			user_unbuckle_mob(buckled_mob)
+			user_unbuckle(buckled_mob)
 
 // Return to our body in the unfortunate event that we get unbuckled while plugged in
-/obj/structure/bed/chair/remote/user_unbuckle_mob(mob/user)
+/obj/structure/bed/chair/remote/user_unbuckle(mob/user)
 	if(buckled_mob)
 		var/mob/M = buckled_mob
 		if(istype(M) && M.vr_mob)

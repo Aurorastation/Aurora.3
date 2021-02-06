@@ -58,7 +58,7 @@
 	if(user && user.buckled)
 		var/obj/structure/bed/B = user.buckled
 		if(B && B.buckled_mob)
-			B.user_unbuckle_mob(user)
+			B.user_unbuckle(user)
 		user.buckled = null
 
 	do_teleport(user,pick(L))

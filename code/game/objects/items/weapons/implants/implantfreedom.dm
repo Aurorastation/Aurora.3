@@ -24,7 +24,7 @@
 				var/obj/item/W = source.handcuffed
 				source.handcuffed = null
 				if(source.buckled && source.buckled.buckle_require_restraints)
-					source.buckled.unbuckle_mob()
+					source.buckled.unbuckle()
 				source.update_inv_handcuffed()
 				if (source.client)
 					source.client.screen -= W

@@ -44,8 +44,7 @@
 	var/item_path = /obj/item/bodybag
 	var/contains_body = 0
 	var/shapely = TRUE
-	var/buckled
-	var/can_be_buckled = TRUE
+	can_be_buckled = TRUE
 
 /obj/structure/closet/body_bag/content_info(mob/user, content_size)
 	if(!content_size && !contains_body)

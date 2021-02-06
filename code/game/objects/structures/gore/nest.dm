@@ -28,7 +28,7 @@
 /obj/structure/bed/nest/update_icon()
 	return
 
-/obj/structure/bed/nest/user_unbuckle_mob(mob/user)
+/obj/structure/bed/nest/user_unbuckle(mob/user)
 	if(buckled_mob?.buckled == src)
 		add_fingerprint(user)
 		if(buckled_mob != user)
@@ -46,7 +46,7 @@
 	if(buckled_mob == buck && buck.buckled == src)
 		buck.pixel_y = 0
 		buck.old_y = 0
-		unbuckle_mob()
+		unbuckle()
 
 /obj/structure/bed/nest/attackby(obj/item/W, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

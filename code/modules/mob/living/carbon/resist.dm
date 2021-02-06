@@ -116,7 +116,7 @@
 		if(buckled) //If the person is buckled, also unbuckle the person
 			buckle_message_user = " and unbuckle yourself"
 			buckle_message_other = " and to unbuckle themself"
-			buckled.user_unbuckle_mob(src)
+			buckled.user_unbuckle(src)
 
 		if(violent_removal)
 			var/obj/item/organ/external/E = H.get_organ(pick(BP_L_ARM,BP_R_ARM))
@@ -207,7 +207,7 @@
 		qdel(handcuffed)
 		handcuffed = null
 		if(buckled)
-			buckled.unbuckle_mob()
+			buckled.unbuckle()
 		update_inv_handcuffed()
 
 /mob/living/carbon/proc/break_legcuffs()

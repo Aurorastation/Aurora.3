@@ -43,7 +43,7 @@
 		padding_material = SSmaterials.get_material_by_name(new_padding_material)
 	update_icon()
 
-/obj/structure/bed/buckle_mob(mob/living/M)
+/obj/structure/bed/buckle(mob/living/M)
 	. = ..()
 	if(. && buckling_sound)
 		playsound(src, buckling_sound, 20)
@@ -153,7 +153,7 @@
 		if(do_after(user, 20))
 			affecting.forceMove(loc)
 			spawn(0)
-				if(buckle_mob(affecting))
+				if(buckle(affecting))
 					affecting.visible_message(\
 						"<span class='danger'>[affecting.name] is buckled to [src] by [user.name]!</span>",\
 						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
@@ -163,7 +163,7 @@
 	else if(istype(W, /obj/item/gripper) && buckled_mob)
 		var/obj/item/gripper/G = W
 		if(!G.wrapped)
-			user_unbuckle_mob(user)
+			user_unbuckle(user)
 
 	else if(istype(W, /obj/item/disk))
 		user.drop_from_inventory(W, get_turf(src))
@@ -318,7 +318,7 @@
 			attach_iv(buckled_mob, usr)
 		return
 	if(ishuman(over_object))
-		if(user_buckle_mob(over_object, usr))
+		if(user_buckle(over_object, usr))
 			attach_iv(buckled_mob, usr)
 			return
 	if(beaker)
@@ -343,34 +343,32 @@
 		else
 			buckled_bag = null
 
-/obj/structure/bed/roller/post_buckle_mob(mob/living/M)
+/obj/structure/bed/roller/post_buckle(atom/movable/MA)
 	. = ..()
-	if(M == buckled_mob)
+	if(MA == buckled_mob)
 		density = TRUE
-		M.pixel_y = patient_shift
-		M.old_y = patient_shift
+		buckled_mob.pixel_y = patient_shift
+		buckled_mob.old_y = patient_shift
 		update_icon()
-	else
+	else if(istype(MA, /mob/living))
+		var/mob/living/M = MA
 		density = FALSE
 		M.pixel_y = 0
 		M.old_y = 0
 		if(iv_attached)
 			detach_iv(M, usr)
 		update_icon()
-
-/obj/structure/bed/roller/post_buckle_bag(obj/structure/closet/body_bag/B)
-	. = ..()
-	if(B == buckled_bag)
+	else if(MA == buckled_bag)
 		density = TRUE
-		B.pixel_y = patient_shift
+		buckled_bag.pixel_y = patient_shift
 		update_icon()
 	else
 		density = FALSE
-		B.pixel_y = 0
-		B.overlays.Cut() //Remove straps
-		B.update_icon() //Add label back (if it had one)
+		MA.pixel_y = 0
+		MA.overlays.Cut() //Remove straps
+		MA.update_icon() //Add label back (if it had one)
 		update_icon()
-		
+			
 /obj/structure/bed/roller/hover
 	name = "medical hoverbed"
 	icon_state = "hover_down"
