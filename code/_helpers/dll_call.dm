@@ -9,5 +9,5 @@
 
 	. = call(dll, func)(arglist(calling_arguments))
 
-	if (world.timeofday - start > 10 SECONDS)
-		crash_with("DLL call took longer than 10 seconds: [func]")
+	if (world.timeofday - start > 2 SECONDS)
+		crash_with("DLL call took longer than 2 seconds: [func]")
