@@ -65,13 +65,19 @@
 						if (W.infection_check())
 							W.germ_level += 1
 
+/mob/living/carbon/human
+	var/next_stance_collapse = 0
+
 /mob/living/carbon/human/proc/handle_stance()
 	// Don't need to process any of this if they aren't standing anyways
 	// unless their stance is damaged, and we want to check if they should stay down
-	if (!stance_damage && (lying || resting) && (life_tick % 4) == 0)
+	if(!stance_damage && (lying || resting))
 		return
 
 	stance_damage = 0
+
+	if(next_stance_collapse > world.time)
+		return
 
 	// Buckled to a bed/chair. Stance damage is forced to 0 since they're sitting on something solid
 	if (istype(buckled, /obj/structure/bed))
@@ -85,7 +91,7 @@
 			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
 			stance_damage += 2
 			if(prob(10))
-				visible_message("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!")
+				visible_message(SPAN_WARNING("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!"))
 				spark(src, 5)
 		else if (E.is_broken() || !E.is_usable())
 			stance_damage += 1
@@ -103,9 +109,11 @@
 	// standing is poor
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
 		if(!(lying || resting))
-			if(can_feel_pain())
-				emote("scream")
-			emote("collapse")
+			emote("scream")
+			if(!weakened)
+				custom_emote(VISIBLE_MESSAGE, "collapses!")
+		Weaken(3)
+		next_stance_collapse = world.time + (rand(8, 16) SECONDS)
 
 /mob/living/carbon/human/proc/handle_grasp()
 	if(!l_hand && !r_hand)
@@ -181,7 +189,8 @@
 //Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()
 	//New are added for reagents to random organs.
-	for(var/datum/reagent/A in reagents.reagent_list)
+	for(var/_A in reagents.reagent_volumes)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
 		var/obj/item/organ/O = pick(organs)
 		O.trace_chemicals[A.name] = 100
 
@@ -191,13 +200,18 @@
 		O.set_dna(dna)
 
 /mob/living/carbon/human/proc/get_blood_alcohol()
-	return round(intoxication/max(vessel.get_reagent_amount(/datum/reagent/blood),1),0.01)
+	return round(intoxication/max(REAGENT_VOLUME(vessel, /decl/reagent/blood),1),0.01)
 
 /mob/living/proc/is_asystole()
 	return FALSE
 
 /mob/living/carbon/human/is_asystole()
-	if(species.has_organ[BP_HEART] && !isSynthetic())
+	if(isSynthetic())
+		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		if(istype(C))
+			if(!C.is_usable() || !C.percent())
+				return TRUE
+	else if(should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 		if(!istype(heart) || !heart.is_working())
 			return TRUE

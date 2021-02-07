@@ -12,26 +12,23 @@
 	var/finished = 0
 	var/turf/target_oldloc = null
 	var/turf/origin_oldloc = null
-	var/static_beam = 0
 	var/beam_type = /obj/effect/ebeam //must be subtype
 	var/timing_id = null
 	var/recalculating = FALSE
 
 /datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=50,maxdistance=10,btype = /obj/effect/ebeam,beam_sleep_time=3)
 	origin = beam_origin
-	origin_oldloc = get_turf(origin)
 	target = beam_target
-	target_oldloc = get_turf(target)
+	var/turf/origin_turf = get_turf(origin)
+	var/turf/target_turf = get_turf(target)
+	max_distance = maxdistance
+	curr_distance = get_dist(origin_turf, target_turf)
 
-	if(!origin || !target || !target_oldloc || !origin_oldloc || get_dist(origin_oldloc, target_oldloc) >= max_distance || origin_oldloc.z != target_oldloc.z)
+	if((curr_distance == -1 && origin_turf != target_turf) || curr_distance >= max_distance || origin_turf.z != target_turf.z)
 		qdel(src)
 		return
 
 	sleep_time = beam_sleep_time
-	if(origin_oldloc == origin && target_oldloc == target)
-		static_beam = TRUE
-	max_distance = maxdistance
-	curr_distance = get_dist(origin_oldloc, target_oldloc)
 	base_icon = new(beam_icon,beam_icon_state)
 	icon = beam_icon
 	icon_state = beam_icon_state
@@ -40,7 +37,7 @@
 		addtimer(CALLBACK(src,.proc/End), time)
 
 /datum/beam/proc/Start()
-	Draw()
+	recalculate()
 	recalculate_in(sleep_time)
 
 /datum/beam/proc/recalculate()
@@ -52,8 +49,8 @@
 	var/turf/origin_turf = get_turf(origin)
 	var/turf/target_turf = get_turf(target)
 	curr_distance = get_dist(origin_turf, target_turf)
-	if(origin_turf && target_turf && curr_distance < max_distance && origin_turf.z == target_turf.z)
-		if(!static_beam && (origin_turf != origin_oldloc || target_turf != target_oldloc))
+	if(!(curr_distance == -1 && origin_turf != target_turf) && curr_distance < max_distance && origin_turf.z == target_turf.z)
+		if((origin_turf != origin_oldloc || target_turf != target_oldloc))
 			origin_oldloc = origin_turf //so we don't keep checking against their initial positions, leading to endless Reset()+Draw() calls
 			target_oldloc = target_turf
 			Reset()
@@ -93,7 +90,7 @@
 	return ..()
 
 /datum/beam/proc/Draw()
-	var/Angle = round(Get_Angle(origin.x ? origin : get_turf(origin), target.x ? target : get_turf(target)))
+	var/Angle = round(Get_Angle(origin.z ? origin : get_turf(origin), target.z ? target : get_turf(target)))
 	var/matrix/rot_matrix = matrix()
 	rot_matrix.Turn(Angle)
 
@@ -171,7 +168,8 @@
 
 /datum/beam/power/End()
 	owner.beam = null
-	owner.untether(FALSE)
+	if(owner.source)
+		owner.untether(FALSE)
 	return ..()
 
 /datum/beam/power/get_x_translation_vector()
@@ -184,6 +182,13 @@
 	for(var/beam in elements)
 		var/obj/effect/ebeam/B = beam
 		B.color = COLOR_GRAY40
+
+// this simplified datum will work with timed beams that are held
+/datum/beam/held/get_x_translation_vector()
+	return (world.icon_size * target_oldloc.x) - (world.icon_size * origin_oldloc.x)
+
+/datum/beam/held/get_y_translation_vector()
+	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
 
 /obj/effect/ebeam
 	mouse_opacity = 0
@@ -199,10 +204,10 @@
 	owner = null
 	return ..()
 
-/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10,beam_type=/obj/effect/ebeam,beam_sleep_time = 3)
+/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10,beam_type=/obj/effect/ebeam,beam_sleep_time = 3, beam_datum_type=/datum/beam)
 	if(time >= INFINITY)
 		crash_with("Tried to create beam with infinite time!")
 		return null
-	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time)
+	var/datum/beam/newbeam = new beam_datum_type(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time)
 	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
 	return newbeam

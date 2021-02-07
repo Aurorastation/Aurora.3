@@ -1,5 +1,6 @@
 /obj/item/modular_computer/handheld/wristbound
 	name = "wristbound computer"
+	lexical_name = "wristbound"
 	desc = "A portable wristbound device for your needs on the go. Quite comfortable."
 	desc_fluff = "A NanoTrasen design, this wristbound computer allows the user to quickly and safely access critical info, without taking their hands out of the equation."
 	icon = 'icons/obj/modular_wristbound.dmi'
@@ -8,7 +9,7 @@
 	icon_state_menu = "menu"
 	icon_state_screensaver = "off"
 	hardware_flag = PROGRAM_WRISTBOUND
-	slot_flags = SLOT_GLOVES|SLOT_ID
+	slot_flags = SLOT_WRISTS|SLOT_ID
 	can_reset = TRUE
 	max_hardware_size = 1
 	menu_light_color = COLOR_GREEN
@@ -45,10 +46,10 @@
 			return
 
 		switch(over_object.name)
-			if(BP_R_HAND)
+			if("right hand")
 				usr.u_equip(src)
-				usr.put_in_r_hand(src,FALSE)
-			if(BP_L_HAND)
+				usr.put_in_r_hand(src)
+			if("left hand")
 				usr.u_equip(src)
-				usr.put_in_l_hand(src,FALSE)
+				usr.put_in_l_hand(src)
 		add_fingerprint(usr)

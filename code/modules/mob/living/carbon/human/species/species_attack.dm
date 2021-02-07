@@ -57,6 +57,10 @@
 				if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!</span>")
 				if(5)		user.visible_message("<span class='danger'>[user] tears [user.get_pronoun("his")] [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!</span>")
 
+/datum/unarmed_attack/claws/shredding
+	shredding = TRUE
+	attack_name = "durable claws"
+
 /datum/unarmed_attack/claws/strong
 	attack_verb = list("slashed")
 	damage = 10
@@ -174,21 +178,21 @@
 	attack_name = "mandibles"
 
 /datum/unarmed_attack/bite/infectious
-	shredding = 1
+	shredding = TRUE
 
 /datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
-	if(target && target.stat == DEAD)
+	if(!target || target.stat == DEAD)
 		return
-	if(target.internal_organs_by_name["zombie"])
-		to_chat(user, "<span class='danger'>You feel that \the [target] has been already infected!</span>")
+	if(target.internal_organs_by_name[BP_ZOMBIE_PARASITE])
+		to_chat(user, SPAN_WARNING("You feel that \the [target] has been already infected!"))
 
 	var/infection_chance = 80
 	infection_chance -= target.run_armor_check(zone,"melee")
 	if(prob(infection_chance))
 		if(target.reagents)
-			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, 10)
-
+			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /decl/reagent/toxin/trioxin)
+			target.reagents.add_reagent(/decl/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")

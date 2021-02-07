@@ -548,7 +548,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	var/datum/progressbar/progbar
 	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
-		progbar = new(user, delay, target)
+		var/atom/loc_check = target
+		for(var/i = 0; !isturf(loc_check.loc) && i < 5; i++)
+			loc_check = target.loc
+		progbar = new(user, delay, loc_check)
 
 	var/endtime = world.time + delay
 	var/starttime = world.time
@@ -575,14 +578,17 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if(!user || isnull(user))
 		return 0
 
-	if (!act_target)
-		act_target = user
-
 	var/Location
+	var/act_location
 	if(use_user_turf)	//When this is true, do_after() will check whether the user's turf has changed, rather than the user's loc.
 		Location = get_turf(user)
 	else
 		Location = user.loc
+
+	if (!act_target)
+		act_target = user
+	else
+		act_location = get_turf(act_target)
 
 	var/holding = user.get_active_hand()
 
@@ -606,7 +612,11 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		else
 			user_loc_to_check = user.loc
 
-		if (!user || user.stat || user.weakened || user.stunned || (use_user_turf >= 0 && user_loc_to_check != Location))
+		if (!user || user.stat || user.weakened || user.stunned)
+			. = 0
+			break
+
+		if ((use_user_turf >= 0 && user_loc_to_check != Location) || (act_location && (get_turf(act_target) != act_location)))
 			. = 0
 			break
 

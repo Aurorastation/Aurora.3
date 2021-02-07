@@ -21,11 +21,15 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
+	desc_info = "It can be repaired with a welding tool."
 	icon_state = "smes"
 	density = 1
 	anchored = 1
 	use_power = 0
 	clicksound = /decl/sound_category/switch_sound
+
+	var/health = 500
+	var/busted = FALSE // this it to prevent the damage text from playing repeatedly
 
 	var/capacity = 5e6 // maximum charge
 	var/charge = 1e6 // actual charge
@@ -116,6 +120,8 @@
 
 /obj/machinery/power/smes/examine(mob/user)
 	. = ..()
+	if(is_badly_damaged())
+		to_chat(user, SPAN_DANGER("\The [src] is damaged to the point of non-function!"))
 	if(open_hatch)
 		to_chat(user, SPAN_SUBTLE("The maintenance hatch is open."))
 		if (max_coils > 1 && Adjacent(user))
@@ -123,6 +129,18 @@
 			for(var/obj/item/smes_coil/C in component_parts)
 				coils += C
 			to_chat(user, "The [max_coils] coil slots contain: [counting_english_list(coils)]")
+
+/obj/machinery/power/smes/proc/can_function()
+	if(is_badly_damaged())
+		return FALSE
+	if(stat & BROKEN)
+		return FALSE
+	return TRUE
+
+/obj/machinery/power/smes/proc/is_badly_damaged()
+	if(health < initial(health) / 5)
+		return TRUE
+	return FALSE
 
 /obj/machinery/power/smes/add_avail(var/amount)
 	if(..(amount))
@@ -140,7 +158,7 @@
 
 /obj/machinery/power/smes/update_icon()
 	cut_overlays()
-	if(stat & BROKEN)
+	if(!can_function())
 		return
 
 	if(inputting == 2)
@@ -196,7 +214,8 @@
 	time = ((time_secs / 3600) > 1) ? ("[round(time_secs / 3600)] hours, [round((time_secs % 3600) / 60)] minutes") : ("[round(time_secs / 60)] minutes, [round(time_secs % 60)] seconds")
 
 /obj/machinery/power/smes/machinery_process()
-	if(stat & BROKEN)	return
+	if(!can_function())
+		return
 	if(failure_timer)	// Disabled by gridcheck.
 		failure_timer--
 		return
@@ -236,7 +255,7 @@
 // called after all power processes are finished
 // restores charge level to smes if there was excess this ptick
 /obj/machinery/power/smes/proc/restore(var/percent_load)
-	if(stat & BROKEN)
+	if(!can_function())
 		return
 
 	if(!outputting)
@@ -297,6 +316,8 @@
 
 
 /obj/machinery/power/smes/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	add_hiddenprint(user)
 	ui_interact(user)
 
@@ -308,6 +329,9 @@
 /obj/machinery/power/smes/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(W.isscrewdriver())
 		if(!open_hatch)
+			if(is_badly_damaged())
+				to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel is broken open!"))
+				return
 			open_hatch = 1
 			user.visible_message(\
 				"<span class='notice'>\The [user] opens the maintenance hatch of \the [src].</span>",\
@@ -370,8 +394,12 @@
 	return 1
 
 /obj/machinery/power/smes/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-
-	if(stat & BROKEN)
+	if(!can_function())
+		if(!terminal)
+			to_chat(user, SPAN_WARNING("\The [src] is lacking a terminal!"))
+			return
+		if(is_badly_damaged())
+			to_chat(user, SPAN_WARNING("\The [src] is too damaged to function!"))
 		return
 
 	// this is the data which will be sent to the ui

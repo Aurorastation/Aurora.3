@@ -72,9 +72,8 @@
 /obj/structure/simple_door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
 	if(isAI(user)) //so the AI can't open it
 		return
-	else if(isrobot(user)) //but cyborgs can
-		if(get_dist(user,src) <= 1) //not remotely though
-			return TryToSwitchState(user)
+	else if(isrobot(user) && Adjacent(user)) //but cyborgs can
+		return TryToSwitchState(user)
 
 /obj/structure/simple_door/attack_hand(mob/user as mob)
 	return TryToSwitchState(user)
@@ -174,9 +173,9 @@
 				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I] with no visible effect.</span>")
 			else
 				user.do_attack_animation(src)
-				animate_shake()
+				shake_animation()
 				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [I]!</span>")
-				playsound(src.loc, material.hitsound, 100, 1)
+				playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
 				src.health -= W.force * 1
 				CheckHealth()
 

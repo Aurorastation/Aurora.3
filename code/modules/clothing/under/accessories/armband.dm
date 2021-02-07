@@ -36,7 +36,7 @@
 	icon_state = "med"
 
 /obj/item/clothing/accessory/armband/medgreen
-	name = "EMT armband"
+	name = "first responder armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is white and green."
 	icon_state = "medgreen"
 
@@ -72,3 +72,10 @@
 	name = "armband"
 	desc = "An armband in 16,777,216 designer colors."
 	icon_state = "armband_colour"
+
+/obj/item/clothing/accessory/armband/tauceti
+	name = "tau ceti armband"
+	desc = "An armband tailored to look like the flag of the Republic of Biesel."
+	desc_fluff = "While initially adopted during the early days of the TCFL to account for a sudden increase in volunteers and a lack of uniforms, during the height of the Republic of Biesel's conflicts with the Sol Alliance,\
+	it has been worn as a symbol of independence and patriotism."
+	icon_state = "tauceti"

@@ -2,6 +2,7 @@
 	name = SPECIES_DIONA
 	short_name = "dio"
 	name_plural = "Dionaea"
+	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
 	total_health = 240
 	age_min = 1
@@ -11,6 +12,7 @@
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
+	bandages_icon = 'icons/mob/bandage.dmi'
 	language = LANGUAGE_ROOTSONG
 	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
 	unarmed_types = list(
@@ -104,6 +106,7 @@
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
+	blood_type = "sap"
 	blood_color = COLOR_DIONA_BLOOD
 	flesh_color = "#907E4A"
 
@@ -149,7 +152,7 @@
 		DS.stored_energy = 0
 		H.adjustHalLoss(remainder*5, 1)
 		H.updatehealth()
-		H.m_intent = "walk"
+		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0

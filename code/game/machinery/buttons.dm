@@ -25,6 +25,8 @@
 	return ..()
 
 /obj/machinery/button/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/button/attackby(obj/item/W, mob/user as mob)
@@ -62,6 +64,9 @@
 
 /obj/machinery/button/switch/update_icon()
 	icon_state = "light[active]"
+
+/obj/machinery/button/switch/attack_hand()
+	playsound(src, /decl/sound_category/switch_sound, 30)
 
 //alternate button with the same functionality, except has a door control sprite instead
 /obj/machinery/button/alternate

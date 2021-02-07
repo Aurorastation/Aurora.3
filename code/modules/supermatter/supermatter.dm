@@ -340,6 +340,8 @@
 	return
 
 /obj/machinery/power/supermatter/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/power/supermatter/attack_hand(mob/user as mob)

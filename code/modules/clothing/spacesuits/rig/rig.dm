@@ -539,6 +539,11 @@
 		wearer.update_inv_back()
 	return
 
+/obj/item/rig/get_cell()
+	if(cell)
+		return cell
+	return ..()
+
 /obj/item/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
 
 	if(!security_check_enabled)

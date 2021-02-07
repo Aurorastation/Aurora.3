@@ -163,6 +163,12 @@
 		update()
 		return
 
+	else if (istype (I, /obj/item/material/ashtray) && user.a_intent != I_HURT)
+		var/obj/item/material/ashtray/A = I
+		if(A.emptyout(get_turf(src)))
+			user.visible_message("<b>[user]</b> pours [I] out into [src].", SPAN_NOTICE("You pour [I] out into [src]."))
+		return
+
 	else if (istype (I, /obj/item/device/lightreplacer))
 		var/count = 0
 		var/obj/item/device/lightreplacer/R = I
@@ -261,6 +267,7 @@
 		target.client.perspective = EYE_PERSPECTIVE
 		target.client.eye = src
 
+	target.simple_move_animation(src)
 	target.forceMove(src)
 
 	for (var/mob/C in viewers(src))
@@ -294,6 +301,8 @@
 
 // ai as human but can't flush
 /obj/machinery/disposal/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	interact(user, 1)
 
 // human interact with machine

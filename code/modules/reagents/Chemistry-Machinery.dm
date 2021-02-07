@@ -26,6 +26,7 @@
 	var/pillsprite = "1"
 	var/max_pill_count = 20
 	flags = OPENCONTAINER
+	var/datum/asset/spritesheet/chem_master/chem_asset
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
@@ -77,7 +78,10 @@
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
-			loaded_pill_bottle.forceMove(src.loc)
+			if(Adjacent(usr))
+				usr.put_in_hands(loaded_pill_bottle)
+			else
+				loaded_pill_bottle.forceMove(get_turf(src))
 			loaded_pill_bottle = null
 	else if(href_list["close"])
 		usr << browse(null, "window=chemmaster")
@@ -90,14 +94,11 @@
 			var/dat = ""
 			if(!condi)
 				if(href_list["name"] == "Blood")
-					var/datum/reagent/blood/G
-					for(var/datum/reagent/F in R.reagent_list)
-						if(F.name == href_list["name"])
-							G = F
-							break
+					var/decl/reagent/blood/G = decls_repository.get_decl(/decl/reagent/blood)
+					var/Gdata = REAGENT_DATA(R, /decl/reagent/blood)
 					var/A = G.name
-					var/B = G.data["blood_type"]
-					var/C = G.data["blood_DNA"]
+					var/B = Gdata["blood_type"]
+					var/C = Gdata["blood_DNA"]
 					dat += "<TITLE>Chemmaster 3000</TITLE>Chemical infos:<BR><BR>Name:<BR>[A]<BR><BR>Description:<BR>Blood Type: [B]<br>DNA: [C]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
 				else
 					dat += "<TITLE>Chemmaster 3000</TITLE>Chemical infos:<BR><BR>Name:<BR>[href_list["name"]]<BR><BR>Description:<BR>[href_list["desc"]]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
@@ -146,7 +147,10 @@
 			return
 		else if (href_list["eject"])
 			if(beaker)
-				beaker:loc = src.loc
+				if(Adjacent(usr))
+					usr.put_in_hands(beaker)
+				else
+					beaker:loc = get_turf(src)
 				beaker = null
 				reagents.clear_reagents()
 				icon_state = "mixer0"
@@ -166,13 +170,13 @@
 			var/amount_per_pill = reagents.total_volume/count
 			if (amount_per_pill > 60) amount_per_pill = 60
 
-			var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_master_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
+			var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_primary_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
 
 			if(reagents.total_volume/count < 1) //Sanity checking.
 				return
 			while (count-- && count >= 0)
-				var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(src.loc)
-				if(!name) name = reagents.get_master_reagent_name()
+				var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(get_turf(src))
+				if(!name) name = reagents.get_primary_reagent_name()
 				P.name = "[name] pill"
 				P.pixel_x = rand(-7, 7) //random position
 				P.pixel_y = rand(-7, 7)
@@ -183,9 +187,9 @@
 
 		else if (href_list["createbottle"])
 			if(!condi)
-				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_master_reagent_name()), MAX_NAME_LEN)
-				var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(src.loc)
-				if(!name) name = reagents.get_master_reagent_name()
+				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_primary_reagent_name()), MAX_NAME_LEN)
+				var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(get_turf(src))
+				if(!name) name = reagents.get_primary_reagent_name()
 				P.name = "[name] bottle"
 				P.pixel_x = rand(-7, 7) //random position
 				P.pixel_y = rand(-7, 7)
@@ -193,19 +197,26 @@
 				reagents.trans_to_obj(P,60)
 				P.update_icon()
 			else
-				var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(src.loc)
+				var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(get_turf(src))
 				reagents.trans_to_obj(P,50)
 		else if(href_list["change_pill"])
-			var/dat = "<table>"
+			if(!chem_asset)
+				chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
+			var/dat = chem_asset.css_tag()
+			dat += "<table>"
 			for(var/i = 1 to MAX_PILL_SPRITE)
-				dat += "<tr><td><a href=\"?src=\ref[src]&pill_sprite=[i]\"><img src=\"pill[i].png\" /></a></td></tr>"
+				var/pillicon = "pill[i]"
+				dat += "<tr><td><a href=\"?src=\ref[src]&pill_sprite=[i]\">[chem_asset.icon_tag(pillicon)]</a></td></tr>"
 			dat += "</table>"
 			usr << browse(dat, "window=chem_master")
 			return
 		else if(href_list["change_bottle"])
-			var/dat = "<table>"
+			if(!chem_asset)
+				chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
+			var/dat = chem_asset.css_tag()
+			dat += "<table>"
 			for(var/sprite in BOTTLE_SPRITES)
-				dat += "<tr><td><a href=\"?src=\ref[src]&bottle_sprite=[sprite]\"><img src=\"[sprite].png\" /></a></td></tr>"
+				dat += "<tr><td><a href=\"?src=\ref[src]&bottle_sprite=[sprite]\">[chem_asset.icon_tag(sprite)]</a></td></tr>"
 			dat += "</table>"
 			usr << browse(dat, "window=chem_master")
 			return
@@ -218,6 +229,8 @@
 	return
 
 /obj/machinery/chem_master/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/chem_master/attack_hand(mob/user as mob)
@@ -225,10 +238,9 @@
 		return
 	user.set_machine(src)
 
-	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
-	pill_icons.send(user.client)
-
-	var/dat = ""
+	if(!chem_asset)
+		chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
+	var/dat = chem_asset.css_tag()
 	if(!beaker)
 		dat = "Please insert beaker.<BR>"
 		if(src.loaded_pill_bottle)
@@ -247,31 +259,33 @@
 			dat += "Beaker is empty."
 		else
 			dat += "Add to buffer:<BR>"
-			for(var/datum/reagent/G in R.reagent_list)
-				dat += "[G.name] , [G.volume] Units - "
+			for(var/_G in R.reagent_volumes)
+				var/decl/reagent/G = decls_repository.get_decl(_G)
+				dat += "[G.name] , [REAGENT_VOLUME(R, _G)] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[G.description];name=[G.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.type];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.type];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.type];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.type];amount=[G.volume]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];addcustom=[G.type]'>(Custom)</A><BR>"
+				dat += "<A href='?src=\ref[src];add=[_G];amount=1'>(1)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=5'>(5)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=[REAGENT_VOLUME(R, _G)]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];addcustom=[_G]'>(Custom)</A><BR>"
 
 		dat += "<HR>Transfer to <A href='?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
 		if(reagents.total_volume)
-			for(var/datum/reagent/N in reagents.reagent_list)
-				dat += "[N.name] , [N.volume] Units - "
+			for(var/_N in reagents.reagent_volumes)
+				var/decl/reagent/N = decls_repository.get_decl(_N)
+				dat += "[N.name] , [REAGENT_VOLUME(reagents, _N)] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[N.description];name=[N.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.type];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.type];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.type];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.type];amount=[N.volume]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];removecustom=[N.type]'>(Custom)</A><BR>"
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=1'>(1)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=5'>(5)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=[REAGENT_VOLUME(reagents, _N)]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];removecustom=[_N]'>(Custom)</A><BR>"
 		else
 			dat += "Empty<BR>"
 		if(!condi)
-			dat += "<HR><BR><A href='?src=\ref[src];createpill=1'>Create pill (60 units max)</A><a href=\"?src=\ref[src]&change_pill=1\"><img src=\"pill[pillsprite].png\" /></a><BR>"
+			dat += "<HR><BR><A href='?src=\ref[src];createpill=1'>Create pill (60 units max)</A><a href=\"?src=\ref[src]&change_pill=1\">[chem_asset.icon_tag("pill[pillsprite]")]</a><BR>"
 			dat += "<A href='?src=\ref[src];createpill_multiple=1'>Create multiple pills</A><BR>"
-			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (60 units max)<a href=\"?src=\ref[src]&change_bottle=1\"><img src=\"[bottlesprite].png\" /></A>"
+			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (60 units max)<a href=\"?src=\ref[src]&change_bottle=1\">[chem_asset.icon_tag(bottlesprite)]</A>"
 		else
 			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (50 units max)</A>"
 	if(!condi)
@@ -303,18 +317,18 @@
 	var/limit = 10
 	var/list/holdingitems = list()
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list(/datum/reagent/iron),
-		/obj/item/stack/material/uranium = list(/datum/reagent/uranium),
-		/obj/item/stack/material/phoron = list(/datum/reagent/toxin/phoron),
-		/obj/item/stack/material/gold = list(/datum/reagent/gold),
-		/obj/item/stack/material/silver = list(/datum/reagent/silver),
-		/obj/item/stack/material/platinum = list(/datum/reagent/platinum),
-		/obj/item/stack/material/mhydrogen = list(/datum/reagent/hydrazine), // i guess
-		/obj/item/stack/material/steel = list(/datum/reagent/iron, /datum/reagent/carbon),
-		/obj/item/stack/material/plasteel = list(/datum/reagent/iron, /datum/reagent/iron, /datum/reagent/carbon, /datum/reagent/carbon, /datum/reagent/platinum), //8 iron, 8 carbon, 4 platinum,
-		/obj/item/stack/material/sandstone = list(/datum/reagent/silicon, /datum/reagent/acetone),
-		/obj/item/stack/material/glass = list(/datum/reagent/silicate),
-		/obj/item/stack/material/glass/phoronglass = list(/datum/reagent/platinum, /datum/reagent/silicate, /datum/reagent/silicate, /datum/reagent/silicate), //5 platinum, 15 silicate,
+		/obj/item/stack/material/iron = list(/decl/reagent/iron),
+		/obj/item/stack/material/uranium = list(/decl/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/decl/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/decl/reagent/gold),
+		/obj/item/stack/material/silver = list(/decl/reagent/silver),
+		/obj/item/stack/material/platinum = list(/decl/reagent/platinum),
+		/obj/item/stack/material/mhydrogen = list(/decl/reagent/hydrazine), // i guess
+		/obj/item/stack/material/steel = list(/decl/reagent/iron, /decl/reagent/carbon),
+		/obj/item/stack/material/plasteel = list(/decl/reagent/iron, /decl/reagent/iron, /decl/reagent/carbon, /decl/reagent/carbon, /decl/reagent/platinum), //8 iron, 8 carbon, 4 platinum,
+		/obj/item/stack/material/sandstone = list(/decl/reagent/silicon, /decl/reagent/acetone),
+		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
+		/obj/item/stack/material/glass/phoronglass = list(/decl/reagent/platinum, /decl/reagent/silicate, /decl/reagent/silicate, /decl/reagent/silicate), //5 platinum, 15 silicate,
 		)
 
 /obj/machinery/reagentgrinder/Initialize()
@@ -381,6 +395,8 @@
 	return 0
 
 /obj/machinery/reagentgrinder/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	interact(user)
 
 /obj/machinery/reagentgrinder/attack_hand(mob/user as mob)
@@ -408,13 +424,12 @@
 		else
 			is_beaker_ready = 1
 			beaker_contents = "<B>The beaker contains:</B><br>"
-			var/anything = 0
-			for(var/datum/reagent/R in beaker.reagents.reagent_list)
-				anything = 1
-				beaker_contents += "[R.volume] - [R.name]<br>"
-			if(!anything)
+			if(!LAZYLEN(beaker.reagents.reagent_volumes))
 				beaker_contents += "Nothing<br>"
-
+			else
+				for(var/_R in beaker.reagents.reagent_volumes)
+					var/decl/reagent/R = decls_repository.get_decl(_R)
+					beaker_contents += "[beaker.reagents.reagent_volumes[_R]] - [R.name]<br>"
 
 		dat = {"
 	<b>Processing Chamber contains:</b><br>
@@ -454,7 +469,7 @@
 		return
 	if (!beaker)
 		return
-	beaker.forceMove(src.loc)
+	beaker.forceMove(get_turf(src))
 	beaker = null
 	update_icon()
 
@@ -466,7 +481,7 @@
 		return
 
 	for(var/obj/item/O in holdingitems)
-		O.forceMove(src.loc)
+		O.forceMove(get_turf(src))
 		holdingitems -= O
 	holdingitems.Cut()
 

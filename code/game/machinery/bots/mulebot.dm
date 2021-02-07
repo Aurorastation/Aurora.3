@@ -156,6 +156,8 @@
 
 
 /obj/machinery/bot/mulebot/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	user.set_machine(src)
 	interact(user, 1)
 

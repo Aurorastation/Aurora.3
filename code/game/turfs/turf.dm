@@ -8,6 +8,7 @@
 	var/carbon_dioxide = 0
 	var/nitrogen = 0
 	var/phoron = 0
+	var/hydrogen = 0
 
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05
@@ -253,7 +254,7 @@ var/const/enterloopsanity = 100
 		if(H.shoes)
 			var/obj/item/clothing/shoes/S = H.shoes
 			if(istype(S))
-				S.handle_movement(src, H.m_intent == "run" ? TRUE : FALSE)
+				S.handle_movement(src, H.m_intent == M_RUN ? TRUE : FALSE)
 				if(S.track_footprint)
 					if(S.blood_DNA)
 						footprint_DNA = S.blood_DNA
@@ -383,7 +384,7 @@ var/const/enterloopsanity = 100
 
 //expects an atom containing the reagents used to clean the turf
 /turf/proc/clean(atom/source, mob/user)
-	if(source.reagents.has_reagent(/datum/reagent/water, 1) || source.reagents.has_reagent(/datum/reagent/spacecleaner, 1))
+	if(source.reagents.has_reagent(/decl/reagent/water, 1) || source.reagents.has_reagent(/decl/reagent/spacecleaner, 1))
 		clean_blood()
 		if(istype(src, /turf/simulated))
 			var/turf/simulated/T = src

@@ -118,7 +118,6 @@
 	pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 
 	backpack_contents = list(
-		/obj/item/storage/bible/fluff/oscar_bible = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
@@ -263,10 +262,10 @@
 	)
 
 	gloves = list(
-		/obj/item/clothing/gloves/watch,
-		/obj/item/clothing/gloves/watch/silver,
-		/obj/item/clothing/gloves/watch/gold,
-		/obj/item/clothing/gloves/watch/spy
+		/obj/item/clothing/wrists/watch,
+		/obj/item/clothing/wrists/watch/silver,
+		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/spy
 	)
 
 	l_pocket = /obj/item/syndie/teleporter

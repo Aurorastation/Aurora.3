@@ -52,6 +52,8 @@
 	return
 
 /obj/machinery/computer/pod/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/pod/attack_hand(var/mob/user as mob)

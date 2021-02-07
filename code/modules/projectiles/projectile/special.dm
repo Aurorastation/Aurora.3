@@ -3,14 +3,12 @@
 	icon_state = "ion"
 	damage = 0
 	damage_type = BURN
-	nodamage = 1
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_ION_ANY, BULLET_IMPACT_METAL = SOUNDS_ION_ANY)
 	check_armor = "energy"
 	var/pulse_range = 1
 
 /obj/item/projectile/ion/on_impact(var/atom/A)
 	empulse(A, pulse_range, pulse_range)
-	return 1
-
 
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
 	if(isipc(A))
@@ -26,12 +24,10 @@
 					s.broken = 1
 					s.icon_state = "surge_ipc_broken"
 					to_chat(H, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
-				return 1
+				return
 			else
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
-		H.Weaken(5)
-		to_chat(H, "<span class='danger'>ERROR: detected low setting EMP, acutators experience temporary power loss. Attempting to restore power.</span>")
-	else if (isrobot(A))
+	if (isrobot(A))
 		var/mob/living/silicon/robot/R = A
 		var/datum/robot_component/surge/C = R.components["surge"]
 		if(C && C.installed)
@@ -50,8 +46,8 @@
 
 		R.emp_act(2) // Borgs emp_act is 1-2
 	else
-		A.emp_act(3) // Deals less EMP damage then lethal setting, and not areal pulse
-	return 1
+		A.emp_act(3)
+	return
 
 /obj/item/projectile/ion/small
 	name = "ion pulse"
@@ -304,3 +300,10 @@
 	else
 		..()
 	return
+
+/obj/item/projectile/ice
+	name ="ice bolt"
+	icon_state= "icer_bolt"
+	damage = 15
+	damage_type = BRUTE
+	check_armor = "energy"

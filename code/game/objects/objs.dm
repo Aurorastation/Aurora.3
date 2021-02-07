@@ -78,6 +78,12 @@
 /obj/proc/CouldNotUseTopic(var/mob/user)
 	// Nada
 
+/obj/proc/ai_can_interact(var/mob/user)
+	if(!Adjacent(user) && within_jamming_range(src, FALSE)) // if not adjacent to it, it uses wireless signal
+		to_chat(user, SPAN_WARNING("Something in the area of \the [src] is blocking the remote signal!"))
+		return FALSE
+	return TRUE
+
 /obj/item/proc/is_used_on(obj/O, mob/user)
 
 /obj/assume_air(datum/gas_mixture/giver)
@@ -211,12 +217,6 @@
 //This is useful for setting special behaviour for built items that shouldn't apply to those spawned at roundstart
 /obj/proc/Created()
 	return
-
-/obj/proc/animate_shake()
-	var/init_px = pixel_x
-	var/shake_dir = pick(-1, 1)
-	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
-	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)
 
 /obj/proc/rotate(var/mob/user, var/anchored_ignore = FALSE)
 	if(use_check_and_message(user))

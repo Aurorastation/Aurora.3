@@ -160,7 +160,7 @@
 
 /obj/item/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
-	desc = "A rather heavy data disk for a Vaurcae Arkship navigation drive."
+	desc = "A rather heavy data disk for a Vaurcan hiveship navigation drive."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	force = 10
@@ -170,7 +170,7 @@
 
 /obj/item/melee/vaurca/rock
 	name = "Sedantis rock"
-	desc = "A large chunk of alien earth from the distant Vaurcae world of Sedantis I. Just looking at it makes you feel funny."
+	desc = "A large chunk of alien earth from the distant Vaurcan world of Sedantis I. Just looking at it makes you feel funny."
 	icon_state = "glowing"
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 15
@@ -211,7 +211,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "void"
 	item_state = "void"
-	desc = "A lightweight Zo'rane designed Vaurcae softsuit, for extremely extended EVA operations."
+	desc = "A lightweight Zo'rane designed Vaurcan softsuit, for extremely extended EVA operations."
 	slowdown = 0
 
 	species_restricted = list(BODYTYPE_VAURCA)
@@ -390,13 +390,6 @@
 	recoil_wielded = 2
 	accuracy_wielded = -1
 	fire_delay_wielded = 1
-
-/obj/item/gun/launcher/crossbow/vaurca/update_icon()
-	if(wielded)
-		item_state = "gaussrifle-wielded"
-	else
-		item_state = "gaussrifle"
-	update_held_icon()
 
 /obj/item/gun/launcher/crossbow/vaurca/consume_next_projectile(mob/user=null)
 	return bolt

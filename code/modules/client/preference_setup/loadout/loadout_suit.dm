@@ -44,6 +44,7 @@
 	jackets["flannel jacket, grey"] = /obj/item/clothing/suit/storage/toggle/flannel/gray
 	jackets["flannel jacket, purple"] = /obj/item/clothing/suit/storage/toggle/flannel/purple
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
+	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
@@ -79,6 +80,11 @@
 	l_hoodie["sleeveless hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	gear_tweaks += new/datum/gear_tweak/path(l_hoodie)
 
+/datum/gear/suit/mars
+	display_name = "martian hoodie"
+	description = "An orange hoodie, typically worn in solidarity with Mars' recent misfortunes."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/mars
+
 /datum/gear/suit/labcoat
 	display_name = "labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
@@ -94,13 +100,13 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/poncho
@@ -196,25 +202,73 @@
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	gear_tweaks += new/datum/gear_tweak/path(wintercoat)
 
-/datum/gear/suit/secjacket
-	display_name = "navy security jacket (Security Officer)"
-	path = /obj/item/clothing/suit/security/navyofficer
+/datum/gear/suit/secjacketofficer
+	display_name = "security jacket selection (Security Officer)"
+	path = /obj/item/clothing/suit/security/officer
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 
+/datum/gear/suit/secjacketofficer/New()
+	..()
+	var/secjacket = list()
+	secjacket["security jacket"] = /obj/item/clothing/suit/security/officer
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/officer/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/officer/dnavy
+	gear_tweaks += new/datum/gear_tweak/path(secjacket)
+
 /datum/gear/suit/secjacketwarden
-	display_name = "navy security jacket (Warden)"
-	path = /obj/item/clothing/suit/security/navywarden
+	display_name = "security jacket selection (Warden)"
+	path = /obj/item/clothing/suit/security/warden
 	allowed_roles = list("Head of Security", "Warden")
 
+/datum/gear/suit/secjacketwarden/New()
+	..()
+	var/secjacket = list()
+	secjacket["security jacket"] = /obj/item/clothing/suit/security/warden
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/warden/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/warden/dnavy
+	gear_tweaks += new/datum/gear_tweak/path(secjacket)
+
 /datum/gear/suit/secjackethos
-	display_name = "navy security jacket (Head of Security)"
-	path = /obj/item/clothing/suit/security/navyhos
+	display_name = "security jacket selection (Head of Security)"
+	path = /obj/item/clothing/suit/security/hos
 	allowed_roles = list("Head of Security")
 
+/datum/gear/suit/secjackethos/New()
+	..()
+	var/secjacket = list()
+	secjacket["security jacket"] = /obj/item/clothing/suit/security/hos
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/hos/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/hos/dnavy
+	gear_tweaks += new/datum/gear_tweak/path(secjacket)
+
+/datum/gear/suit/secjacketforensictech
+	display_name = "security jacket selection (Forensic Technician)"
+	path = /obj/item/clothing/suit/storage/toggle/forensics
+	allowed_roles = list("Forensic Technician")
+
+/datum/gear/suit/secjacketforensictech/New()
+	..()
+	var/secjacket = list()
+	secjacket["security jacket"] = /obj/item/clothing/suit/storage/toggle/forensics
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/toggle/forensics/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/toggle/forensics/dnavy
+	gear_tweaks += new/datum/gear_tweak/path(secjacket)
+
 /datum/gear/suit/dominia_cape
-	display_name = "dominia cape"
+	display_name = "dominian cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/dominia_cape/New()
+	..()
+	var/dominiacape = list()
+	dominiacape["dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape
+	dominiacape["dominian cape, strelitz"] = /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
+	dominiacape["dominian cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
+	dominiacape["dominian cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
+	dominiacape["dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius
+	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
+	gear_tweaks += new/datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia
 	display_name = "dominia coat and jacket selection"

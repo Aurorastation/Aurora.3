@@ -6,7 +6,7 @@
 var/list/global_webhooks = list()
 
 /proc/global_initialize_webhooks()
-	if (!establish_db_connection(dbcon))
+	if(!establish_db_connection(dbcon))
 		var/file = return_file_text("config/webhooks.json")
 		if (file)
 			var/jsonData = json_decode(file)

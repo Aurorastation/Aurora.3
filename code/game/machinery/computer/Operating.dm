@@ -21,6 +21,8 @@
 			break
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
 		return

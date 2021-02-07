@@ -120,6 +120,9 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
 
+/obj/item/modular_computer/handheld/pda/research/robotics
+	_app_preset_type = /datum/modular_computer_app_presets/research/robotics
+
 /obj/item/modular_computer/handheld/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
 	icon_add = "rd"

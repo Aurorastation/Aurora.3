@@ -75,7 +75,7 @@
 				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
 				spill()
 			else
-				animate_shake()
+				shake_animation()
 				var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
 				playsound(loc, toplay, 30, 1)
 			damage(damage)
@@ -511,6 +511,11 @@
 /obj/item/storage/box/snappops/syndi
 	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
+
+/obj/item/storage/box/partypopper
+	name = "party popper box"
+	desc = "Six cones of confetti conflagarating fun!"
+	starts_with = list(/obj/item/toy/partypopper = 6)
 
 /obj/item/storage/box/autoinjectors
 	name = "box of empty injectors"

@@ -40,18 +40,21 @@
 		if(temp && !temp.is_usable())
 			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return
-	var/response = ""
 	if(amount > 0)
-		response = alert(user, "Do you take a pair of gloves?", "Take gloves?", "Yes", "No")
-		if (response != "Yes")
+		var/list/glove_types = list(
+			"Standard Gloves" = /obj/item/clothing/gloves/latex/nitrile,
+			"Unathi Gloves" = /obj/item/clothing/gloves/latex/nitrile/unathi,
+			"Tajara Gloves" = /obj/item/clothing/gloves/latex/nitrile/tajara
+		)
+		var/chosen_type = input(user, "Which pair of gloves would you like?", capitalize_first_letters(name)) as null|anything in glove_types
+		if(!chosen_type)
 			add_fingerprint(user)
 			return
 		amount--
-		var/obj/item/clothing/gloves/latex/nitrile/P
-		P = new()
-		P.forceMove(user.loc)
+		var/chosen_path = glove_types[chosen_type]
+		var/obj/item/clothing/gloves/latex/nitrile/P = new chosen_path(get_turf(src))
 		user.put_in_hands(P)
-		to_chat(user, SPAN_NOTICE("You take [P] out of [src]."))
+		to_chat(user, SPAN_NOTICE("You take \the [P] out of \the [src]."))
 	else
 		to_chat(user, SPAN_NOTICE("[src] is empty!"))
 

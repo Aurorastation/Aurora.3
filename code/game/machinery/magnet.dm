@@ -235,6 +235,8 @@
 
 
 /obj/machinery/magnetic_controller/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/magnetic_controller/attack_hand(mob/user as mob)

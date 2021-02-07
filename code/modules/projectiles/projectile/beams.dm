@@ -280,6 +280,16 @@
 			to_chat(M, 'sound/effects/basscannon.ogg')
 	return TRUE
 
+/obj/item/projectile/beam/mousegun/xenofauna
+	nodamage = FALSE
+	damage = 10
+
+/obj/item/projectile/beam/mousegun/xenofauna/mousepulse(atom/target, range, log)
+	if(is_type_in_list(target, list(/mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/giant_spider)))
+		var/mob/living/simple_animal/SA = target
+		SA.take_organ_damage(0, 20)
+	return TRUE
+
 /obj/item/projectile/beam/shotgun
 	name = "diffuse laser"
 	icon_state = "laser"
@@ -434,3 +444,27 @@
 
 /obj/item/projectile/beam/tesla/paramount
 	damage = 25
+
+/obj/item/projectile/beam/freezer
+	name = "freezing ray"
+	icon_state = "bluelaser"
+	pass_flags = PASSTABLE
+	damage = 15
+	damage_type = BURN
+	check_armor = "energy"
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
+	tracer_type = /obj/effect/projectile/tracer/laser/blue
+	impact_type = /obj/effect/projectile/impact/laser/blue
+
+/obj/item/projectile/beam/freezer/on_impact(atom/target)
+	. = ..()
+	if(isliving(target))
+		var/mob/living/L = target
+		L.bodytemperature -= 40
+
+		if(ishuman(L))
+			var/mob/living/carbon/human/H = L
+			if(H.bodytemperature <= H.species.cold_level_2)
+				new /obj/structure/closet/statue/ice(H.loc, H)
+				H.visible_message(SPAN_WARNING("\The [H] freezes!"))

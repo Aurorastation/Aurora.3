@@ -108,6 +108,8 @@
 	return ..()
 
 /obj/item/device/radio/intercom/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	src.add_fingerprint(user)
 	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 

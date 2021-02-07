@@ -53,9 +53,9 @@
 	return 1
 
 /datum/martial_art/wrestling/proc/wrestling_help()
-	set name = "Recall Teachings"
+	set name = "Recall Wrestling"
 	set desc = "Remember how to wrestle."
-	set category = "Wrestling"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You flex your muscles and have a revelation...</i></b>")
 	to_chat(usr, "<span class='notice'>Clinch</span>: Grab. Passively gives you a chance to immediately aggressively grab someone. Not always successful.")

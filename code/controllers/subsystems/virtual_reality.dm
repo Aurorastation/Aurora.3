@@ -72,6 +72,23 @@
 		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
 		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
 
+/mob/living/simple_animal/spiderbot/body_return()
+	set name = "Return to Body"
+	set category = "IC"
+
+	if(old_mob)
+		ckey_transfer(old_mob)
+		languages = list(all_languages[LANGUAGE_TCB])
+		internal_id.access = list()
+		if(ismech(loc))
+			var/mob/living/heavy_vehicle/HV = loc
+			HV.access_card.access = list()
+		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
+		old_mob = null
+	else
+		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
+		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
+
 /mob/living/proc/vr_mob_exit_languages()
 	languages = list(all_languages[LANGUAGE_TCB])
 
@@ -93,6 +110,12 @@
 
 	if(target.client)
 		target.client.screen |= global_hud.vr_control
+
+	if(istype(target, /mob/living/simple_animal/spiderbot))
+		var/obj/item/card/id/original_id = M.GetIdCard()
+		if(original_id)
+			var/mob/living/simple_animal/spiderbot/SB = target
+			SB.internal_id.access = original_id.access
 
 	to_chat(target, SPAN_NOTICE("Connection established, system suite active and calibrated."))
 	to_chat(target, SPAN_WARNING("To exit this mode, use the \"Return to Body\" verb in the IC tab."))
@@ -154,6 +177,7 @@
 	var/mob/living/heavy_vehicle/chosen_mech = mech[choice]
 	var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
 	mind_transfer(user, remote_pilot)
+	chosen_mech.sync_access()
 
 /datum/controller/subsystem/virtualreality/proc/robot_selection(var/user, var/network)
 	var/list/robot = list()

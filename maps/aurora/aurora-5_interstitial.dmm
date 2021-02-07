@@ -2220,7 +2220,7 @@
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "Detective";
 	pixel_x = -28;
 	pixel_y = 12
@@ -2550,7 +2550,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5425,7 +5425,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 1
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "Psy";
 	pixel_x = -16;
 	pixel_y = 26;
@@ -8089,6 +8089,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
+"zN" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "zQ" = (
 /obj/structure/flora/pottedplant/random,
 /obj/structure/extinguisher_cabinet{
@@ -8329,7 +8335,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
 "BB" = (
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "FT Op";
 	pixel_x = 28;
 	pixel_y = 7
@@ -11306,7 +11312,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/pink/full,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
@@ -11905,9 +11911,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_construction_site/office)
-"SW" = (
-/turf/simulated/open,
-/area/hallway/secondary/entry/stairs)
 "SX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
@@ -12053,7 +12056,7 @@
 "TH" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
@@ -12158,6 +12161,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
+"Ul" = (
+/turf/simulated/open,
+/area/hallway/secondary/entry/stairs)
 "Un" = (
 /obj/item/modular_computer/console/preset/security/investigations,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -38692,7 +38698,7 @@ ab
 ab
 ab
 ab
-QW
+ab
 ab
 ab
 ab
@@ -40246,8 +40252,8 @@ Tl
 Kj
 Me
 yZ
-SW
-SW
+Ul
+Ul
 qi
 PZ
 rr
@@ -40503,7 +40509,7 @@ UI
 Br
 pB
 Me
-SW
+Ul
 MH
 qi
 Nx
@@ -42785,7 +42791,7 @@ mo
 mo
 mo
 mo
-ab
+zN
 ab
 ab
 ab
@@ -50706,7 +50712,7 @@ if
 im
 wo
 Zt
-ab
+zN
 ab
 ab
 aa

@@ -29,7 +29,7 @@
 
 /obj/item/soap/proc/wet()
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-	reagents.add_reagent(/datum/reagent/spacecleaner, capacity)
+	reagents.add_reagent(/decl/reagent/spacecleaner, capacity)
 
 /obj/item/soap/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/key))
@@ -47,7 +47,11 @@
 		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
 
 /obj/item/soap/Crossed(AM as mob|obj)
-	if (istype(AM, /mob/living))
+	if(isliving(AM))
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			if(H.shoes?.item_flags & LIGHTSTEP)
+				return
 		var/mob/living/M =	AM
 		M.slip("the [src.name]",3)
 

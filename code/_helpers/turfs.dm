@@ -10,7 +10,11 @@
 	return (istype(T, /turf/simulated/wall) || istype(T, /turf/unsimulated/wall))
 
 /proc/isfloor(turf/T)
-	return (istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
+	if(locate(/obj/structure/lattice) in T)
+		return TRUE
+	else if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
+		return TRUE
+	return FALSE
 
 
 //Edit by Nanako

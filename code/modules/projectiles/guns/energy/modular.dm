@@ -52,17 +52,11 @@
 
 /obj/item/gun/energy/laser/prototype/update_icon()
 	..()
-	if(origin_chassis == CHASSIS_LARGE)
-		if(wielded)
-			item_state = "large_3_wielded"
-		else
-			item_state = "large_3"
 	underlays.Cut()
 	if(length(gun_mods))
 		for(var/obj/item/laser_components/mod in gun_mods)
 			if(mod.gun_overlay)
 				underlays += mod.gun_overlay
-	update_held_icon()
 	underlays.Cut()
 	for(var/v in gun_mods)
 		var/obj/item/laser_components/modifier/mod = v
@@ -331,3 +325,19 @@
 		to_chat(M, "You describe the gun as [input]. Say hello to your new friend.")
 		described = 1
 		return 1
+
+/obj/item/gun/energy/laser/prototype/get_print_info()
+	. = ..(FALSE)
+
+	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
+		var/obj/item/laser_components/l_component = i
+
+		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
+		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
+		. += "Reliability: [initial(l_component.reliability)]<br>"
+		. += "Damage Modifier: [initial(l_component.damage)]<br>"
+		. += "Fire Delay Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Shots Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Burst Modifier: [initial(l_component.burst)]<br>"
+		. += "Accuracy Modifier: [initial(l_component.accuracy)]<br>"
+		. += "Repair Tool: [l_repair_name]<br>"

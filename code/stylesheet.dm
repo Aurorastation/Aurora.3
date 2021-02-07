@@ -47,6 +47,7 @@ em						{font-style: normal;font-weight: bold;}
 /* Radio Channels */
 .comradio				{color: #193A7A;}
 .syndradio				{color: #6D3F40;}
+.bluespaceradio			{color: #1883A3;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
 .entradio				{color: #bd893c;}
@@ -98,7 +99,6 @@ h1.alert, h2.alert		{color: #000000;}
 .solcom					{color: #22228B;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
-.vox					{color: #AA00AA;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
 .yassa					{color: #400987;}

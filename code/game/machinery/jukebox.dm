@@ -95,7 +95,7 @@ datum/track/New(var/title_name, var/audio)
 			for(var/mob/living/carbon/M in ohearers(6, src))
 				if(istype(M, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = M
-					if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
+					if(H.protected_from_sound())
 						continue
 				M.sleeping = 0
 				M.stuttering += 20
@@ -148,6 +148,8 @@ datum/track/New(var/title_name, var/audio)
 		ui.open()
 
 /obj/machinery/media/jukebox/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/media/jukebox/attack_hand(var/mob/user as mob)

@@ -21,6 +21,12 @@
 	encased = "ribcage"
 	augment_limit = 3
 
+/obj/item/organ/external/chest/body_part_class()
+	return UPPER_TORSO
+
+/obj/item/organ/external/chest/covered_bleed_report(var/blood_type)
+	return "[owner.get_pronoun("has")] [blood_type] running down their thighs!"
+
 /obj/item/organ/external/groin
 	name = "lower body"
 	limb_name = "groin"
@@ -38,6 +44,12 @@
 	gendered_icon = 1
 	augment_limit = 3
 
+/obj/item/organ/external/groin/body_part_class()
+	return UPPER_TORSO
+
+/obj/item/organ/external/groin/covered_bleed_report(var/blood_type)
+	return "[owner.get_pronoun("has")] [blood_type] running down their thighs!"
+
 /obj/item/organ/external/arm
 	limb_name = "l_arm"
 	name = "left arm"
@@ -53,6 +65,12 @@
 	artery_name = "basilic vein"
 	amputation_point = "left shoulder"
 	augment_limit = 2
+
+/obj/item/organ/external/arm/body_part_class()
+	return ARMS
+
+/obj/item/organ/external/arm/covered_bleed_report(var/blood_type)
+	return "[owner.get_pronoun("has")] [blood_type] running down their sleeves!"
 
 /obj/item/organ/external/arm/right
 	limb_name = "r_arm"
@@ -81,6 +99,12 @@
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 	augment_limit = 2
 
+/obj/item/organ/external/leg/body_part_class()
+	return LEGS
+
+/obj/item/organ/external/leg/covered_bleed_report(var/blood_type)
+	return "[owner.get_pronoun("has")] [blood_type] pooling at their feet!"
+
 /obj/item/organ/external/leg/right
 	limb_name = "r_leg"
 	name = "right leg"
@@ -105,6 +129,12 @@
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
 	maim_bonus = 1
 	augment_limit = 1
+
+/obj/item/organ/external/foot/body_part_class()
+	return LEGS
+
+/obj/item/organ/external/foot/covered_bleed_report(var/blood_type)
+	return "[owner.get_pronoun("has")] [blood_type] pooling at their feet!"
 
 /obj/item/organ/external/foot/removed()
 	if(owner)
@@ -136,6 +166,12 @@
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP | ORGAN_HAS_TENDON
 	maim_bonus = 1
 	augment_limit = 1
+
+/obj/item/organ/external/hand/body_part_class()
+	return ARMS
+
+/obj/item/organ/external/hand/covered_bleed_report(var/blood_type)
+	return "[owner.get_pronoun("has")] [blood_type] running down their sleeves!"
 
 /obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
 	. = ..()
@@ -181,6 +217,12 @@
 	augment_limit = 3
 	var/can_intake_reagents = 1
 
+/obj/item/organ/external/head/body_part_class()
+	return HEAD
+
+/obj/item/organ/external/head/covered_bleed_report(var/blood_type)
+	return "[owner.get_pronoun("has")] [blood_type] running down their neck!"
+
 /obj/item/organ/external/head/removed()
 	if(owner)
 		name = "[owner.real_name]'s head"
@@ -211,3 +253,8 @@
 	. = ..()
 	if(owner)
 		owner.brokejaw = 0
+
+/obj/item/organ/external/head/droplimb(var/clean, var/disintegrate = DROPLIMB_EDGE, var/ignore_children = null)
+	if(iszombie(owner))
+		return ..(disintegrate = DROPLIMB_BLUNT)
+	return ..()

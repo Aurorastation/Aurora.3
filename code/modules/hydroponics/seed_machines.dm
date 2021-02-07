@@ -59,6 +59,8 @@
 		finished_task()
 
 /obj/machinery/botany/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/botany/attack_hand(mob/user as mob)

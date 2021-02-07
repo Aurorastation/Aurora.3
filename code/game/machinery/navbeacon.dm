@@ -126,6 +126,8 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 	return
 
 /obj/machinery/navbeacon/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	interact(user, 1)
 
 /obj/machinery/navbeacon/attack_hand(var/mob/user)

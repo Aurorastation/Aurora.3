@@ -89,9 +89,9 @@
 	return 1
 
 /datum/martial_art/baghrar/proc/baghrar_help()
-	set name = "Recall Teachings"
+	set name = "Recall Baghrar"
 	set desc = "Remember the martial techniques of the Baghrar."
-	set category = "Baghrar"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You twitch your ears and remember the techniques...</i></b>")
 	to_chat(usr, "<span class='notice'>Eye Rake</span>: Harm Disarm Harm. Strikes your target's face, damaging their eyes.")
@@ -108,3 +108,6 @@
 	support their claws to avoid serious bodily damage. Modern Baghrar matches are decided upon with a point scoring system over three 10 minute rounds of fighting, but historical \
 	victories were secured by knocking opponents onto the ground."
 
+#undef EYE_RAKE
+#undef CLAW_PUNCH
+#undef RRAKNARR_STAB

@@ -13,6 +13,8 @@
 	var/obj/machinery/drone_fabricator/dronefab
 
 /obj/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/drone_control/attack_hand(var/mob/user as mob)

@@ -25,6 +25,13 @@
 		//doesn't have an object argument because this is "Stacking" with the animate call above
 		//3 billion% intentional
 
+/atom/proc/shake_animation(var/intensity = 8)
+	var/init_px = pixel_x
+	var/shake_dir = pick(-1, 1)
+	animate(src, transform=turn(matrix(), intensity*shake_dir), pixel_x=init_px + 2*shake_dir, time=1)
+	animate(transform=null, pixel_x=init_px, time=6, easing=ELASTIC_EASING)
+	return intensity
+
 // Color matrices:
 
 //Luma coefficients suggested for HDTVs. If you change these, make sure they add up to 1.

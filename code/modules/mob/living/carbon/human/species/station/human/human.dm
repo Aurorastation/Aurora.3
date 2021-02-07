@@ -3,9 +3,11 @@
 	hide_name = TRUE
 	short_name = "hum"
 	name_plural = "Humans"
+	category_name = "Human"
 	bodytype = BODYTYPE_HUMAN
 	age_max = 125
 	economic_modifier = 12
+	bandages_icon = 'icons/mob/bandage.dmi'
 
 	primitive_form = SPECIES_MONKEY
 	unarmed_types = list(

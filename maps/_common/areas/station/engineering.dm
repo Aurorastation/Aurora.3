@@ -114,6 +114,7 @@
 /area/engineering/cooling
 	name = "Engineering - Engine Cooling Radiator"
 	icon_state = "engine_monitoring"
+	sound_env = SMALL_ENCLOSED
 
 /area/engineering/gravity_gen
 	name = "Engineering - Gravity Generator"

@@ -112,7 +112,8 @@
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
 			resource_field -= harvesting
-			harvesting = pick(resource_field)
+			if(length(resource_field))
+				harvesting = pick(resource_field)
 
 		if(!harvesting)
 			return
@@ -188,6 +189,8 @@
 			set_light(4, 1, LIGHT_COLOR_LAVA)
 
 /obj/machinery/mining/drill/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/mining/drill/attackby(obj/item/O, mob/user)

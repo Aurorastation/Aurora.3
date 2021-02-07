@@ -4,7 +4,7 @@
 //////////////////////////
 
 //Orion Trail Events
-#define ORION_TRAIL_RAIDERS				"Vox Raiders"
+#define ORION_TRAIL_RAIDERS				"Raiders"
 #define ORION_TRAIL_FLUX				"Interstellar Flux"
 #define ORION_TRAIL_ILLNESS				"Illness"
 #define ORION_TRAIL_BREAKDOWN			"Breakdown"
@@ -123,7 +123,7 @@
 					event_title  += ": [stops[port]]"
 					event_actions = "<a href='?src=\ref[src];continue=1'>Shove off</a>"
 				if(ORION_TRAIL_RAIDERS)
-					event_desc   = "You arm yourselves as you prepare to fight off the vox menace!"
+					event_desc   = "You arm yourselves as you prepare to fight off the raiders!"
 				if(ORION_TRAIL_DERELICT)
 					event_desc = "You come across an unpowered ship drifting slowly in the vastness of space. Sensors indicate there are no lifeforms aboard."
 				if(ORION_TRAIL_ILLNESS)
@@ -328,7 +328,7 @@
 			else
 				event_info = "You couldn't fight them off!<br>"
 				if(prob(10*settlers.len))
-					remove_settler(null, "was kidnapped by the Vox!")
+					remove_settler(null, "was kidnapped by the raiders!")
 				change_resource(null,-1)
 				change_resource(null,-0.5)
 		if(ORION_TRAIL_DERELICT)

@@ -56,6 +56,7 @@
 		VUEUI_SET_CHECK(data["sel_category"], sel_type, ., data)
 
 	var/status = ""
+	var/list/supplies = list()
 
 	for(var/atom/A in global.janitorial_supplies)
 		if(istype(A, /obj/item/mop) && sel_type == "Mops")
@@ -78,20 +79,22 @@
 		if(AT && AreConnectedZLevels(AT.z, p.z))
 			dir = dir2text(get_dir(p, AT))
 		if(!dir)
-			dir = "ERR"
+			continue
 
 		dir = uppertext(dir)
 
-		var/list/L = ++data["supplies"]
-		var/idx = length(L)
-		data["supplies"][idx] = list(
+		var/list/L = list(
 			"name" = A.name,
-			"key" = idx,
+			"key" = length(supplies),
 			"x" = AT.x,
 			"y" = AT.y,
 			"dir" = dir,
 			"status" = status
 		)
+
+		supplies[++supplies.len] = L
+
+	data["supplies"] = supplies
 
 	return data
 

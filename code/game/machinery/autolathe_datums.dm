@@ -370,18 +370,13 @@
 
 /datum/autolathe/recipe/labeler
 	name = "hand labeler"
-	path = /obj/item/hand_labeler
+	path = /obj/item/device/hand_labeler
 	category = "General"
 
 /datum/autolathe/recipe/destTagger
 	name = "destination tagger"
 	path = /obj/item/device/destTagger
 	category = "General"
-
-/datum/autolathe/recipe/steelwool
-	name = "steel wool"
-	path = /obj/item/steelwool
-	category = "Tools"
 
 /datum/autolathe/recipe/debugger
 	name = "debugger"

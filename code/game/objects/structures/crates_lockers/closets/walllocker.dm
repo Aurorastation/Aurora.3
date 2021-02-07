@@ -6,39 +6,25 @@
 	name = "Wall Locker"
 	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "wall-locker"
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
+	store_mobs = FALSE
 	icon_closed = "wall-locker"
 	icon_opened = "wall-lockeropen"
-
-//spawns endless (3 sets) amounts of breathmask, emergency oxy tank and crowbar
 
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"
 	desc = "A wall mounted locker with emergency supplies."
-	var/list/spawnitems = list(/obj/item/tank/emergency_oxygen,/obj/item/clothing/mask/breath)
-	var/amount = 2 // spawns each items X times.
 	icon_state = "emerg"
+	icon_closed = "emerg"
+	icon_opened = "emerg-open"
 
-/obj/structure/closet/walllocker/emerglocker/toggle(mob/user as mob)
-	attack_hand(user)
-	return
-
-/obj/structure/closet/walllocker/emerglocker/attackby(obj/item/W as obj, mob/user as mob)
-	return
-
-/obj/structure/closet/walllocker/emerglocker/attack_hand(mob/user as mob)
-	if (istype(user, /mob/living/silicon/ai))	//Added by Strumpetplaya - AI shouldn't be able to
-		return									//activate emergency lockers.  This fixes that.  (Does this make sense, the AI can't call attack_hand, can it? --Mloc)
-	if(!amount)
-		to_chat(usr, "<spawn class='notice'>It's empty..")
-		return
-	if(amount)
-		to_chat(usr, "<spawn class='notice'>You take out some items from \the [src].")
-		for(var/path in spawnitems)
-			new path(loc)
-		amount--
-	return
+/obj/structure/closet/walllocker/emerglocker/fill()
+	for(var/i = 1 to 3)
+		new /obj/item/tank/emergency_oxygen(src)
+		new /obj/item/clothing/mask/breath(src)
+		if(prob(20))
+			new /obj/item/reagent_containers/hypospray/autoinjector/emergency(src)
 
 /obj/structure/closet/walllocker/emerglocker/north
 	pixel_y = 32

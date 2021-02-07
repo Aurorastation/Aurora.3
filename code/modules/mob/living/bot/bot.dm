@@ -153,6 +153,9 @@
 		..()
 
 /mob/living/bot/attack_ai(mob/user)
+	if(within_jamming_range(src, FALSE))
+		to_chat(user, SPAN_WARNING("Something in the area of \the [src] is blocking the remote signal!"))
+		return FALSE
 	if(pAI)
 		to_chat(user, SPAN_WARNING("\The [src] contains a pAI and cannot be remotely controlled."))
 		return

@@ -15,14 +15,14 @@
 /obj/item/organ/internal/kidneys/vaurca/robo
 	icon_state = "kidney_vaurca"
 	organ_tag = BP_VAURCA_KIDNEYS
-	robotic = 2
+	robotic = ROBOTIC_MECHANICAL
 	robotic_name = null
 	robotic_sprite = null
 
 /obj/item/organ/internal/liver/vaurca/robo
 	icon_state = "liver_vaurca"
 	organ_tag = BP_VAURCA_LIVER
-	robotic = 2
+	robotic = ROBOTIC_MECHANICAL
 	robotic_name = null
 	robotic_sprite = null
 
@@ -37,21 +37,21 @@
 	organ_tag = BP_PHORON_RESERVOIR
 	parent_organ = BP_CHEST
 	icon_state = "phoron_reservoir"
-	robotic = 1
+	robotic = ROBOTIC_ASSISTED
 
 /obj/item/organ/vaurca/filtrationbit
 	name = BP_FILTRATION_BIT
 	organ_tag = BP_FILTRATION_BIT
 	parent_organ = BP_HEAD
 	icon_state = "filter"
-	robotic = 2
+	robotic = ROBOTIC_MECHANICAL
 
 /obj/item/organ/vaurca/neuralsocket
 	name = BP_NEURAL_SOCKET
 	organ_tag = BP_NEURAL_SOCKET
 	icon_state = "neural_socket"
 	parent_organ = BP_HEAD
-	robotic = 2
+	robotic = ROBOTIC_MECHANICAL
 
 obj/item/organ/vaurca/neuralsocket/process()
 	if (is_broken())
@@ -81,7 +81,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	organ_tag = BP_PHORON_RESERVE
 	parent_organ = BP_CHEST
 	icon_state = "breathing_app"
-	robotic = 1
+	robotic = ROBOTIC_ASSISTED
 	var/datum/gas_mixture/air_contents = null
 	var/distribute_pressure = ((2*ONE_ATMOSPHERE)*O2STANDARD)
 	var/volume = 50
@@ -150,9 +150,9 @@ obj/item/organ/vaurca/neuralsocket/process()
 		else
 			to_chat(user, "<span class='notice'>Tank is empty!</span>")
 		src.add_fingerprint(user)
-	else if (istype(W,/obj/item/latexballon))
-		var/obj/item/latexballon/LB = W
-		LB.blow(src)
+	else if (istype(W,/obj/item/toy/balloon))
+		var/obj/item/toy/balloon/B = W
+		B.blow(src)
 		src.add_fingerprint(user)
 
 /obj/item/organ/vaurca/preserve/attack_self(mob/user as mob)

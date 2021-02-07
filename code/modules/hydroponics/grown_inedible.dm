@@ -29,10 +29,10 @@
 		potency = S.get_trait(TRAIT_POTENCY)
 
 		for(var/rid in S.chems)
-			var/list/reagent_data = S.chems[rid]
-			var/rtotal = reagent_data[1]
-			if(reagent_data.len > 1 && potency > 0)
-				rtotal += round(potency/reagent_data[2])
+			var/list/chem_data = S.chems[rid]
+			var/rtotal = chem_data[1]
+			if(chem_data.len > 1 && potency > 0)
+				rtotal += round(potency/chem_data[2])
 			reagents.add_reagent(rid,max(1,rtotal))
 
 /obj/item/corncob
@@ -70,6 +70,10 @@
 	throw_range = 20
 
 /obj/item/bananapeel/Crossed(AM as mob|obj)
-	if (istype(AM, /mob/living))
+	if(isliving(AM))
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			if(H.shoes?.item_flags & LIGHTSTEP)
+				return
 		var/mob/living/M = AM
 		M.slip("the [src.name]",4)

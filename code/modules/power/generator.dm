@@ -143,6 +143,8 @@
 	add_avail(effective_gen)
 
 /obj/machinery/power/generator/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	attack_hand(user)
 
 /obj/machinery/power/generator/attackby(obj/item/W as obj, mob/user as mob)

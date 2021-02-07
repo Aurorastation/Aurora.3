@@ -118,7 +118,13 @@
 			log_debug("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
-	if(!pref.species || !(pref.species in playable_species))
+	if(!pref.species)
+		pref.species = SPECIES_HUMAN
+	var/is_in_playable_species = FALSE
+	for(var/thing in playable_species)
+		if(pref.species in playable_species[thing])
+			is_in_playable_species = TRUE
+	if(!is_in_playable_species)
 		pref.species = SPECIES_HUMAN
 
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
@@ -175,10 +181,22 @@
 		if (!isnull(raw_name) && CanUseTopic(user))
 			var/new_name = sanitize_name(raw_name, pref.species)
 			if(new_name)
+				if(new_name == pref.real_name)
+					return TOPIC_NOACTION //If the name is the same do nothing
+				if(config.sql_saves)
+					//Check if the player already has a character with the same name. (We dont have to account for the current char in that query, as that is already handled by the condition above)
+					var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey: and name = :char_name:")
+					query.Execute(list("ckey" = user.client.ckey, "char_name" = new_name))
+					query.NextRow()
+					var/count = text2num(query.item[1])
+					if(count > 0)
+						to_chat(user, SPAN_WARNING("Invalid name. You have already used this name for another character. If you have deleted the character contact an admin to restore it."))
+						return TOPIC_NOACTION
+
 				pref.real_name = new_name
 				return TOPIC_REFRESH
 			else
-				to_chat(user, "<span class='warning'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
+				to_chat(user, SPAN_WARNING("Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
 				return TOPIC_NOACTION
 
 	else if(href_list["namehelp"])

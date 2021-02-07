@@ -1239,6 +1239,20 @@
 	. = ..()
 	icon_state = GAS_PHORON
 
+/obj/machinery/atmospherics/pipe/tank/hydrogen
+	name = "Pressure Tank (Hydrogen)"
+	icon_state = "hydrogen_map"
+
+/obj/machinery/atmospherics/pipe/tank/hydrogen/Initialize()
+	air_temporary = new
+	air_temporary.volume = ATMOS_DEFAULT_VOLUME_FILTER
+	air_temporary.temperature = T0C
+
+	air_temporary.adjust_gas(GAS_HYDROGEN, (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
+
+	. = ..()
+	icon_state = "hydrogen"
+
 /obj/machinery/atmospherics/pipe/tank/nitrous_oxide
 	name = "Pressure Tank (Nitrous Oxide)"
 	icon_state = "n2o_map"

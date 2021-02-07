@@ -12,35 +12,35 @@
 	adding = list()
 	var/obj/screen/using
 
-	using = new /obj/screen/new_player/title(FALSE, src)
+	using = new /obj/screen/new_player/title(src)
 	using.name = "Title"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/join_game(FALSE, src)
+	using = new /obj/screen/new_player/selection/join_game(src)
 	using.name = "Join Game"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/settings(FALSE, src)
+	using = new /obj/screen/new_player/selection/settings(src)
 	using.name = "Setup Character"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/manifest(FALSE, src)
+	using = new /obj/screen/new_player/selection/manifest(src)
 	using.name = "Crew Manifest"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/observe(FALSE, src)
+	using = new /obj/screen/new_player/selection/observe(src)
 	using.name = "Observe"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/changelog(FALSE, src)
+	using = new /obj/screen/new_player/selection/changelog(src)
 	using.name = "Changelog"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/polls(FALSE, src)
+	using = new /obj/screen/new_player/selection/polls(src)
 	using.name = "Polls"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/lore_summary(FALSE, src)
+	using = new /obj/screen/new_player/selection/lore_summary(src)
 	using.name = "Current Lore Summary"
 	adding += using
 
@@ -94,6 +94,11 @@
 	else
 		addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 
+/obj/screen/new_player/selection/New(var/datum/hud/H)
+	color = null
+	hud = H
+	..()
+
 /obj/screen/new_player/selection/join_game
 	name = "Join Game"
 	icon_state = "unready"
@@ -128,13 +133,6 @@
 	name = "Current Lore Summary"
 	icon_state = "lore_summary"
 	screen_loc = "LEFT+1,CENTER-6"
-
-//SELECTION
-
-/obj/screen/new_player/selection/New(mapload, var/datum/hud/H)
-	. = ..()
-	color = null
-	hud = H
 
 /obj/screen/new_player/selection/MouseEntered(location,control,params) //Yellow color for the font
 	color = "#ffb200"
@@ -201,7 +199,7 @@
 
 /obj/screen/new_player/selection/polls/Initialize()
 	. = ..()
-	if(dbcon.IsConnected())
+	if(establish_db_connection(dbcon))
 		var/mob/M = hud.mymob
 		var/isadmin = M && M.client && M.client.holder
 		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
@@ -262,7 +260,7 @@
 
 		observer.started_as_observer = 1
 		close_spawn_windows()
-		var/obj/O = locate("landmark*Observer-Start")
+		var/obj/O = locate("landmark*Observer-Start") in landmarks_list
 		if(istype(O))
 			to_chat(src, "<span class='notice'>Now teleporting.</span>")
 			observer.forceMove(O.loc)
@@ -274,6 +272,7 @@
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = new
 		client.prefs.dress_preview_mob(mannequin)
 		observer.appearance = mannequin
+		observer.appearance_flags = KEEP_TOGETHER
 		observer.alpha = 127
 		observer.layer = initial(observer.layer)
 		observer.invisibility = initial(observer.invisibility)

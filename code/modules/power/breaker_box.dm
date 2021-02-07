@@ -45,6 +45,8 @@
 		to_chat(user, "<span class='bad'>It seems to be offline.</span>")
 
 /obj/machinery/power/breakerbox/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if(update_locked)
 		to_chat(user, "<span class='bad'>System locked. Please try again later.</span>")
 		return

@@ -4,7 +4,7 @@
 	extended_round_description = "Traitors and changelings both spawn during this mode."
 	config_tag = "traitorling"
 	required_players = 10
-	required_enemies = 5
+	required_enemies = 2
 	end_on_antag_death = 1
 	require_all_templates = 1
 	antag_tags = list(MODE_CHANGELING, MODE_TRAITOR)

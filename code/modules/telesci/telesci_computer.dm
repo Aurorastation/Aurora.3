@@ -73,6 +73,8 @@
 		..()
 
 /obj/machinery/computer/telescience/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	src.attack_hand(user)
 
 /obj/machinery/computer/telescience/attack_hand(mob/user)

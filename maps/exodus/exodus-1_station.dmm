@@ -2987,7 +2987,7 @@
 /area/security/main)
 "afG" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled,
 /area/security/main)
@@ -4211,7 +4211,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "ahZ" = (
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/door/window/brigdoor{
 	dir = 4;
 	name = "Warden's Desk";
@@ -4569,7 +4569,7 @@
 	pixel_x = -36;
 	pixel_y = 29
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "HoS";
 	pixel_x = -8;
 	pixel_y = 30
@@ -4744,7 +4744,7 @@
 	pixel_y = 4
 	},
 /obj/item/pen,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -4763,7 +4763,7 @@
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -6176,7 +6176,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "FT Op";
 	pixel_x = 28;
 	pixel_y = 12
@@ -8549,7 +8549,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "FT Op";
 	pixel_x = 28;
 	pixel_y = 24
@@ -14256,7 +14256,7 @@
 /area/crew_quarters/fitness)
 "aBg" = (
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the 'Space' from Space Cleaner and written in Chemistry. Scrawled on the back is, 'Okay, whoever filled this with polytrinic acid, it was only funny the first time. It was hard enough replacing the CMO's first cat!'";
 	name = "Pharmacy Cleaner"
@@ -18394,7 +18394,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "aJo" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "aJp" = (
@@ -19161,7 +19161,7 @@
 /area/chapel/office)
 "aKS" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	pixel_x = 25
 	},
 /obj/machinery/light/small{
@@ -25951,7 +25951,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -31114,7 +31114,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/meeting_room)
 "bil" = (
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/device/assembly/timer,
 /obj/item/device/eftpos{
 	eftpos_name = "Bridge EFTPOS scanner"
@@ -35272,7 +35272,7 @@
 /area/quartermaster/loading)
 "bqf" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
@@ -35282,7 +35282,7 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "bqg" = (
@@ -36983,7 +36983,7 @@
 /area/rnd/lab)
 "bte" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/pen,
 /obj/item/stack/packageWrap,
 /obj/item/stack/packageWrap,
@@ -37411,10 +37411,10 @@
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
 "btV" = (
-/obj/structure/displaycase,
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/displaycase/captain_laser,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "btW" = (
@@ -38360,7 +38360,7 @@
 	},
 /obj/machinery/recharger,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -39394,7 +39394,7 @@
 "bxA" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/beige{
 	dir = 1
@@ -42645,7 +42645,7 @@
 /obj/machinery/keycard_auth{
 	pixel_x = -24
 	},
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
@@ -42665,7 +42665,7 @@
 	pixel_x = 26;
 	pixel_y = 17
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "HoP";
 	pixel_x = 36;
 	pixel_y = 18
@@ -43710,7 +43710,8 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_cyborg_station)
 "bFk" = (
-/obj/machinery/computer/teleporter,
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/command/teleporter,
 /turf/simulated/floor/plating,
 /area/teleporter)
 "bFl" = (
@@ -43718,7 +43719,7 @@
 /turf/simulated/floor/plating,
 /area/teleporter)
 "bFm" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/simulated/floor/plating,
 /area/teleporter)
 "bFn" = (
@@ -44819,7 +44820,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "Psy";
 	pixel_x = -25
 	},
@@ -44928,7 +44929,7 @@
 	pixel_y = 13;
 	req_access = list(47)
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "RD";
 	pixel_x = -26;
 	pixel_y = 21
@@ -45140,7 +45141,7 @@
 /obj/effect/landmark/start{
 	name = "Quartermaster"
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "QM";
 	pixel_x = 24;
 	pixel_y = -24
@@ -45387,7 +45388,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "acute1";
-	name = "EMT Storage Privacy Shutters";
+	name = "First Responder Storage Privacy Shutters";
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
@@ -45399,7 +45400,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "acute1";
-	name = "EMT Storage Privacy Shutters";
+	name = "First Responder Storage Privacy Shutters";
 	opacity = 0
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -45417,7 +45418,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "acute1";
-	name = "EMT Storage Privacy Shutters";
+	name = "First Responder Storage Privacy Shutters";
 	opacity = 0
 	},
 /obj/machinery/light_switch{
@@ -45874,7 +45875,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = 29
 	},
-/obj/item/circuitboard/teleporter,
+/obj/machinery/mining/drill,
 /obj/item/circuitboard/aicore{
 	pixel_x = -2;
 	pixel_y = 4
@@ -46368,7 +46369,7 @@
 "bJS" = (
 /obj/machinery/button/remote/blast_door{
 	id = "acute1";
-	name = "EMT Storage Privacy Shutters";
+	name = "First Responder Storage Privacy Shutters";
 	pixel_x = 26;
 	pixel_y = 25;
 	req_access = list(5)
@@ -47163,7 +47164,7 @@
 "bLx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
-	name = "EMT Storage";
+	name = "First Responder Storage";
 	req_access = list(5)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -47932,7 +47933,7 @@
 /area/medical/sleeper)
 "bMO" = (
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
@@ -47945,10 +47946,10 @@
 	req_access = list(5)
 	},
 /obj/effect/landmark/start{
-	name = "Emergency Medical Technician"
+	name = "First Responder"
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medbay EMT Storage";
+	c_tag = "Medbay First Responder Storage";
 	dir = 1
 	},
 /obj/item/stool/padded,
@@ -50202,7 +50203,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "isoA_window_tint";
 	pixel_y = 26
 	},
@@ -50254,7 +50255,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "isoB_window_tint";
 	pixel_y = 26
 	},
@@ -55054,7 +55055,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "CE";
 	pixel_x = 36;
 	pixel_y = 18
@@ -57718,7 +57719,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
@@ -59511,7 +59512,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_eva)
 "ciT" = (
-/obj/machinery/button/holosign{
+/obj/machinery/button/switch/holosign{
 	_wifi_id = "OR1";
 	pixel_x = 24;
 	pixel_y = 2
@@ -59586,7 +59587,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/locker_room)
 "cjc" = (
-/obj/machinery/button/holosign{
+/obj/machinery/button/switch/holosign{
 	_wifi_id = "OR2";
 	pixel_x = -24;
 	pixel_y = 2
@@ -59893,7 +59894,7 @@
 "cjP" = (
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/latex,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "cjQ" = (
@@ -60072,7 +60073,7 @@
 "ckl" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "ckm" = (
@@ -65337,7 +65338,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cue" = (
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/structure/reagent_dispensers/virusfood{
 	pixel_x = -30
 	},
@@ -66177,7 +66178,7 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/device/slime_scanner,
 /obj/item/device/slime_scanner,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "cvw" = (
@@ -75109,7 +75110,7 @@
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "Detective";
 	pixel_x = -28;
 	pixel_y = 12
@@ -76329,7 +76330,7 @@
 "tRf" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
@@ -76494,7 +76495,7 @@
 	req_access = list(38);
 	specialfunctions = 4
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "rep_inner";
 	pixel_x = -28;
 	pixel_y = -14
@@ -76757,7 +76758,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "journalist";
 	pixel_x = -24;
 	pixel_y = -12

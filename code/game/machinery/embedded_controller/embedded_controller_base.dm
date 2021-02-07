@@ -33,6 +33,8 @@ obj/machinery/embedded_controller/radio/Destroy()
 	update_icon()
 
 /obj/machinery/embedded_controller/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	if(checks_for_access)
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("Access Denied."))

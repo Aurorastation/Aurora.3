@@ -78,6 +78,7 @@
 #define ui_fire "EAST-1:28,NORTH-3:25"
 #define ui_oxygen "EAST-1:28,NORTH-4:23"
 #define ui_pressure "EAST-1:28,NORTH-5:21"
+#define ui_paralysis "EAST-1:28,NORTH-10:23"
 
 #define ui_alien_toxin "EAST-1:28,NORTH-2:25"
 #define ui_alien_fire "EAST-1:28,NORTH-3:25"
@@ -105,10 +106,12 @@
 
 #define ui_glasses "WEST:6,SOUTH+2:9"
 #define ui_mask "WEST+1:8,SOUTH+2:9"
-#define ui_l_ear "WEST+2:10,SOUTH+2:9"
-#define ui_r_ear "WEST+2:10,SOUTH+3:11"
+#define ui_l_ear "WEST+2:10,SOUTH+3:11"
+#define ui_r_ear "WEST:6,SOUTH+3:11"
 
 #define ui_head "WEST+1:8,SOUTH+3:11"
+
+#define ui_wrists "WEST+2:10,SOUTH+2:9"
 
 //Intent small buttons
 #define ui_help_small "EAST-3:8,SOUTH:1"

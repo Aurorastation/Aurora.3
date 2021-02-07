@@ -2,6 +2,7 @@
 	name = SPECIES_VAURCA_WORKER
 	short_name = "vau"
 	name_plural = "Type A"
+	category_name = "Vaurca"
 	bodytype = BODYTYPE_VAURCA
 	age_min = 1
 	age_max = 20
@@ -13,6 +14,7 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	preview_icon = 'icons/mob/human_races/vaurca/vaurca_preview.dmi'
+	bandages_icon = 'icons/mob/bandage.dmi'
 	name_language = LANGUAGE_VAURCA
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,

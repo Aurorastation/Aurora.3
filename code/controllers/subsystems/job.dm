@@ -660,7 +660,14 @@
 
 	if(spawnpos && istype(spawnpos))
 		if(spawnpos.check_job_spawning(rank))
-			H.forceMove(pick(spawnpos.turfs))
+			if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
+				var/datum/spawnpoint/cryo/C = spawnpos
+				if(length(C.command_turfs))
+					H.forceMove(pick(C.command_turfs))
+				else
+					H.forceMove(pick(spawnpos.turfs))
+			else
+				H.forceMove(pick(spawnpos.turfs))
 			. = spawnpos.msg
 			spawnpos.after_join(H)
 		else
@@ -695,7 +702,9 @@
 
 	// Delete them from datacore.
 
-	SSrecords.remove_record_by_field("name", H.real_name)
+	if(!SSrecords.remove_record_by_field("fingerprint", H.get_full_print()))
+		// didn't find a record by fingerprint, fallback to deleting by name
+		SSrecords.remove_record_by_field("name", H.real_name)
 	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)

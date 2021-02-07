@@ -98,9 +98,9 @@
 	return 1
 
 /datum/martial_art/plasma_fist/proc/plasma_fist_help()
-	set name = "Recall Teachings"
+	set name = "Recall Plasma Fist"
 	set desc = "Remember the martial techniques of the Plasma Fist."
-	set category = "Plasma Fist"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You clench your fists and have a flashback of knowledge...</i></b>")
 	to_chat(usr, "<span class='notice'>Tornado Sweep</span>: Harm Harm Disarm. Repulses target and everyone back.")
@@ -113,3 +113,7 @@
 	icon_state = "scroll"
 	item_state = "scroll"
 	martial_art = /datum/martial_art/plasma_fist
+
+#undef TORNADO_COMBO
+#undef THROWBACK_COMBO
+#undef PLASMA_COMBO

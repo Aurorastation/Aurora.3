@@ -56,15 +56,29 @@ Possible to do for anyone motivated enough:
 	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
 	desc += " Its ID is '[holopad_id]'"
 
-/obj/machinery/hologram/holopad/update_icon()
-	if(LAZYLEN(active_holograms) || connected_pad)
-		icon_state = "holopad1"
+	listening_objects += src
+
+/obj/machinery/hologram/holopad/examine(mob/user)
+	. = ..()
+	if(connected_pad)
+		if(established_connection)
+			to_chat(user, SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]"))
+		else
+			to_chat(user, SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]"))
+
+/obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
+	if(LAZYLEN(active_holograms) || has_established_connection())
+		icon_state = "holopad2"
 		set_light(2)
+	else if(incoming_connection || connected_pad?.incoming_connection)
+		icon_state = "holopad1"
+		set_light(1)
 	else
 		icon_state = "holopad0"
 		set_light(0)
 
 /obj/machinery/hologram/holopad/attack_hand(var/mob/user) //Carn: Hologram requests.
+	user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
 	if(incoming_connection)
 		audible_message("The pad hums quietly as it establishes a connection.")
 		take_call()
@@ -73,8 +87,8 @@ Possible to do for anyone motivated enough:
 		if(forced)
 			audible_message("Access denied. Terminating a command-level transmission locally is not permitted.")
 			return
-		audible_message("Severing connection to distant holopad.")
 		end_call()
+		audible_message("Severing connection to distant holopad.")
 		return
 
 	if(last_request + 20 SECONDS > world.time)
@@ -110,7 +124,12 @@ Possible to do for anyone motivated enough:
 			if(!chosen_pad)
 				last_request = world.time - 15 SECONDS
 				return
-			connected_pad = holopadlist[chosen_pad]
+			var/obj/machinery/hologram/holopad/HP = holopadlist[chosen_pad]
+			if(HP.has_established_connection() || HP.incoming_connection)
+				audible_message("The selected holopad is already in, or is waiting to accept, a call.")
+				last_request = world.time - 15 SECONDS
+				return
+			connected_pad = HP
 			make_call(connected_pad, user, forced_call)
 
 /obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/connected_pad, var/mob/user, forced_call)
@@ -119,6 +138,7 @@ Possible to do for anyone motivated enough:
 	connected_pad.incoming_connection = TRUE
 	playsound(connected_pad.loc, 'sound/machines/chime.ogg', 25, 5)
 	connected_pad.update_icon()
+	update_icon()
 
 	if(forced_call)
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"")
@@ -135,15 +155,25 @@ Possible to do for anyone motivated enough:
 	established_connection = TRUE
 	connected_pad.established_connection = TRUE
 	create_holos()
+	connected_pad.create_holos()
+	connected_pad.update_icon()
+	update_icon()
 
 /obj/machinery/hologram/holopad/proc/end_call()
+	connected_pad.incoming_connection = FALSE
 	connected_pad.clear_holos(FALSE)
 	connected_pad.connected_pad = null
 	clear_holos(FALSE)
 	established_connection = FALSE
 	connected_pad.established_connection = FALSE
+	connected_pad.update_icon()
 	connected_pad = null
 	update_icon()
+
+/obj/machinery/hologram/holopad/proc/has_established_connection()
+	if(connected_pad?.established_connection && established_connection)
+		return TRUE
+	return FALSE
 
 /obj/machinery/hologram/holopad/check_eye(mob/user)
 	if(LAZYISIN(active_holograms, user))
@@ -152,6 +182,9 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
 	if(!istype(user))
+		return
+	
+	if(!ai_can_interact(user))
 		return
 
 	if(isrobot(user))
@@ -173,6 +206,10 @@ Possible to do for anyone motivated enough:
 For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/hear_talk(mob/living/M, text, verb, datum/language/speaking)
 	var/name_used = M.GetVoice()
+	if(isanimal(M))
+		var/mob/living/simple_animal/SA = M
+		if(!SA.universal_speak && !length(SA.languages))
+			text = pick(SA.speak)
 	for(var/mob/living/silicon/ai/master in active_holograms)
 		if(!master.say_understands(M, speaking))//The AI will be able to understand most mobs talking through the holopad.
 			if(speaking)
@@ -187,7 +224,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		else
 			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
 		master.show_message(rendered, 2)
-	if(connected_pad)
+	if(has_established_connection())
 		var/message
 		if(speaking)
 			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
@@ -199,14 +236,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/see_emote(mob/living/M, text)
 	for(var/mob/living/silicon/ai/master in active_holograms)
 		var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
-		//The lack of name_used is needed, because message already contains a name.  This is needed for simple mobs to emote properly.
 		master.show_message(rendered, 2)
-	for(var/mob/living/carbon/master in active_holograms)
-		var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
-		//The lack of name_used is needed, because message already contains a name.  This is needed for simple mobs to emote properly.
-		master.show_message(rendered, 2)
-	if(connected_pad)
-		connected_pad.visible_message("<i><span class='message'>[text]</span></i>")
+	if(has_established_connection())
+		connected_pad.visible_message("<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>")
 
 /obj/machinery/hologram/holopad/show_message(msg, type, alt, alt_type)
 	for(var/mob/living/silicon/ai/master in active_holograms)
@@ -275,11 +307,11 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			clear_holo(M)
 			continue
 
-	if(connected_pad)
+	if(has_established_connection())
 		if(connected_pad.stat & NOPOWER)
 			end_call()
 			return TRUE
-		if(established_connection && !hacked)
+		if(!hacked)
 			create_holos()
 			update_holos()
 
@@ -288,10 +320,13 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
 		clear_holos(FALSE)
+		audible_message("<i><span class='game say'>The holopad connection timed out.</span></i>")
 		if(connected_pad)
 			connected_pad.audible_message("<i><span class='game say'>The holopad connection timed out.</span></i>")
 			connected_pad.connected_pad = null
+			connected_pad.update_icon()
 			connected_pad = null
+			update_icon()
 	return TRUE
 
 /obj/machinery/hologram/holopad/proc/move_hologram(mob/living/silicon/ai/user)
@@ -315,6 +350,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
  */
 
 /obj/machinery/hologram
+	icon = 'icons/obj/holopad.dmi'
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 5
@@ -333,7 +369,10 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 				qdel(src)
 
 /obj/machinery/hologram/holopad/Destroy()
-	clear_holos()
+	if(connected_pad)
+		end_call()
+	clear_holos(TRUE)
+	listening_objects -= src
 	return ..()
 
 /obj/effect/overlay/hologram
@@ -345,7 +384,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/effect/overlay/hologram/proc/assume_form(var/atom/A)
 	if(isAI(A))
 		var/mob/living/silicon/ai/AI = A
-		icon = AI.holo_icon
+		appearance = AI.holo_icon.appearance
 	else
 		appearance = A.appearance
 	mouse_opacity = 0 //So you can't click on it.

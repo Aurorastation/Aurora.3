@@ -196,6 +196,8 @@
 	return FALSE
 
 /obj/machinery/porta_turret/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/porta_turret/attack_hand(mob/user)

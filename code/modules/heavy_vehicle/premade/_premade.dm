@@ -69,16 +69,18 @@
 /mob/living/heavy_vehicle/premade/proc/spawn_mech_equipment()
 	if(h_head)
 		install_system(new h_head(src), HARDPOINT_HEAD)
-	if(h_back)
-		install_system(new h_back(src), HARDPOINT_BACK)
-	if(h_l_shoulder)
-		install_system(new h_l_shoulder(src), HARDPOINT_LEFT_SHOULDER)
-	if(h_r_shoulder)
-		install_system(new h_r_shoulder(src), HARDPOINT_RIGHT_SHOULDER)
-	if(h_l_hand)
-		install_system(new h_l_hand(src), HARDPOINT_LEFT_HAND)
-	if(h_r_hand)
-		install_system(new h_r_hand(src), HARDPOINT_RIGHT_HAND)
+	if(body)
+		if(h_back && (HARDPOINT_BACK in body.has_hardpoints))
+			install_system(new h_back(src), HARDPOINT_BACK)
+		if(h_l_shoulder && (HARDPOINT_LEFT_SHOULDER in body.has_hardpoints))
+			install_system(new h_l_shoulder(src), HARDPOINT_LEFT_SHOULDER)
+		if(h_r_shoulder && (HARDPOINT_RIGHT_SHOULDER in body.has_hardpoints))
+			install_system(new h_r_shoulder(src), HARDPOINT_RIGHT_SHOULDER)
+	if(arms)
+		if(h_l_hand && (HARDPOINT_LEFT_HAND in arms.has_hardpoints))
+			install_system(new h_l_hand(src), HARDPOINT_LEFT_HAND)
+		if(h_r_hand && (HARDPOINT_LEFT_HAND in arms.has_hardpoints))
+			install_system(new h_r_hand(src), HARDPOINT_RIGHT_HAND)
 
 /mob/living/heavy_vehicle/premade/random
 	name = "mismatched exosuit"
@@ -209,7 +211,10 @@
 			if(prob(20))
 				h_back = /obj/item/mecha_equipment/autolathe
 		if(MECH_SOFTWARE_MEDICAL in head.software.installed_software)
-			h_l_shoulder = /obj/item/mecha_equipment/crisis_drone
+			if(HARDPOINT_LEFT_SHOULDER in body.has_hardpoints)
+				h_l_shoulder = /obj/item/mecha_equipment/crisis_drone
+			else
+				h_back = /obj/item/mecha_equipment/sleeper
 		if(MECH_SOFTWARE_ENGINEERING in head.software.installed_software)
 			h_r_hand = /obj/item/mecha_equipment/mounted_system/rfd
 		if(MECH_SOFTWARE_WEAPONS in head.software.installed_software)

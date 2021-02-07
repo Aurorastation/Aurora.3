@@ -109,7 +109,7 @@
 /mob/living/simple_animal/hostile/syndicate/ranged
 	ranged = 1
 	rapid = 1
-	smart = TRUE
+	smart_ranged = TRUE
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	casingtype = /obj/item/ammo_casing/c10mm
@@ -136,52 +136,3 @@
 
 /mob/living/simple_animal/hostile/syndicate/ranged/space/Allow_Spacemove(var/check_drift = 0)
 	return
-
-
-
-/mob/living/simple_animal/hostile/viscerator
-	name = "viscerator"
-	desc = "A small, twin-bladed machine capable of inflicting very deadly lacerations."
-	icon = 'icons/mob/npc/aibots.dmi'
-	icon_state = "viscerator_attack"
-	icon_living = "viscerator_attack"
-	pass_flags = PASSTABLE
-	health = 15
-	maxHealth = 15
-	melee_damage_lower = 10
-	melee_damage_upper = 15
-	density = 0
-	attacktext = "cut"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
-	faction = "syndicate"
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
-	minbodytemp = 0
-
-	tameable = FALSE
-
-	flying = TRUE
-	attack_emote = "buzzes at"
-
-/mob/living/simple_animal/hostile/viscerator/death()
-	..(null,"is smashed into pieces!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
-	qdel(src)
-
-/mob/living/simple_animal/hostile/viscerator/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
-
-/mob/living/simple_animal/hostile/viscerator/emp_act(severity)
-	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
-	addtimer(CALLBACK(src, .proc/wakeup), 150)
-	if(severity == 1.0)
-		apply_damage(5)

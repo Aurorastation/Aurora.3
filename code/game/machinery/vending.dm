@@ -143,17 +143,13 @@
 		src.ads_list += text2list(src.product_ads, ";")
 
 	add_screen_overlay()
-
-	src.build_inventory()
+	build_inventory()
 	power_change()
 
-	if(mapload)
-		return INITIALIZE_HINT_LATELOAD
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/vending/LateInitialize()
-	var/path = "/datum/asset/spritesheet/vending/"
-	path = path + ckey(replacetext("[type]", "/obj/machinery/vending/", ""))
-	v_asset = get_asset_datum(text2path(path))
+	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
@@ -318,11 +314,12 @@
 			if(!src) return
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored
+			power_change()
 		return
 
-	else if(istype(W,/obj/item/vending_refill))
+	else if(istype(W,/obj/item/device/vending_refill))
 		if(panel_open)
-			var/obj/item/vending_refill/VR = W
+			var/obj/item/device/vending_refill/VR = W
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
@@ -504,6 +501,8 @@
 	SSeconomy.add_transaction_log(vendor_account,T)
 
 /obj/machinery/vending/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/vending/attack_hand(mob/user as mob)
@@ -777,6 +776,8 @@
 
 /obj/machinery/vending/power_change()
 	..()
+	if(!anchored)
+		stat |= NOPOWER
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 		cut_overlays()

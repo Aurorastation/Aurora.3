@@ -367,6 +367,8 @@
 	return TRUE
 
 /obj/machinery/smartfridge/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	attack_hand(user)
 
 /obj/machinery/smartfridge/attack_hand(mob/user as mob)
@@ -433,7 +435,10 @@
 			var/i = amount
 			for(var/obj/O in contents)
 				if(O.name == K)
-					O.forceMove(loc)
+					if(Adjacent(usr))
+						usr.put_in_hands(O)
+					else
+						O.forceMove(loc)
 					i--
 					if(i <= 0)
 						break

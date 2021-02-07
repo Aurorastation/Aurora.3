@@ -319,6 +319,8 @@
 	ui_interact(user)
 
 /obj/machinery/power/port_gen/pacman/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/power/port_gen/pacman/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)

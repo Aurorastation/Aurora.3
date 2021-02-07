@@ -14,12 +14,16 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["facial_red"]        >> pref.r_facial
 	S["facial_green"]      >> pref.g_facial
 	S["facial_blue"]       >> pref.b_facial
+	S["grad_red"]          >> pref.r_grad
+	S["grad_green"]        >> pref.g_grad
+	S["grad_blue"]         >> pref.b_grad
 	S["skin_tone"]         >> pref.s_tone
 	S["skin_red"]          >> pref.r_skin
 	S["skin_green"]        >> pref.g_skin
 	S["skin_blue"]         >> pref.b_skin
 	S["hair_style_name"]   >> pref.h_style
 	S["facial_style_name"] >> pref.f_style
+	S["grad_style_name"]   >> pref.g_style
 	S["eyes_red"]          >> pref.r_eyes
 	S["eyes_green"]        >> pref.g_eyes
 	S["eyes_blue"]         >> pref.b_eyes
@@ -36,12 +40,16 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["facial_red"]        << pref.r_facial
 	S["facial_green"]      << pref.g_facial
 	S["facial_blue"]       << pref.b_facial
+	S["grad_red"]          << pref.r_grad
+	S["grad_green"]        << pref.g_grad
+	S["grad_blue"]         << pref.b_grad
 	S["skin_tone"]         << pref.s_tone
 	S["skin_red"]          << pref.r_skin
 	S["skin_green"]        << pref.g_skin
 	S["skin_blue"]         << pref.b_skin
 	S["hair_style_name"]   << pref.h_style
 	S["facial_style_name"] << pref.f_style
+	S["grad_style_name"]   << pref.g_style
 	S["eyes_red"]          << pref.r_eyes
 	S["eyes_green"]        << pref.g_eyes
 	S["eyes_blue"]         << pref.b_eyes
@@ -50,7 +58,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["organ_data"]        << pref.organ_data
 	S["rlimb_data"]        << pref.rlimb_data
 	S["body_markings"]     << pref.body_markings
-	S["bgstate"]          << pref.bgstate
+	S["bgstate"]           << pref.bgstate
 
 /datum/category_item/player_setup_item/general/body/gather_load_query()
 	return list(
@@ -58,10 +66,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			"vars" = list(
 				"hair_colour",
 				"facial_colour",
+				"grad_colour",
 				"skin_tone" = "s_tone",
 				"skin_colour",
 				"hair_style" = "h_style",
 				"facial_style" = "f_style",
+				"gradient_style" = "g_style",
 				"eyes_colour",
 				"b_type",
 				"disabilities",
@@ -82,10 +92,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		"ss13_characters" = list(
 			"hair_colour",
 			"facial_colour",
+			"grad_colour",
 			"skin_tone",
 			"skin_colour",
 			"hair_style",
 			"facial_style",
+			"gradient_style",
 			"eyes_colour",
 			"b_type",
 			"disabilities",
@@ -102,10 +114,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	return list(
 		"hair_colour"   = rgb(pref.r_hair, pref.g_hair, pref.b_hair),
 		"facial_colour" = rgb(pref.r_facial, pref.g_facial, pref.b_facial),
+		"grad_colour"   = rgb(pref.r_grad, pref.g_grad, pref.b_grad),
 		"skin_tone"     = pref.s_tone,
 		"skin_colour"   = rgb(pref.r_skin, pref.g_skin, pref.b_skin) ,
 		"hair_style"    = pref.h_style,
 		"facial_style"  = pref.f_style,
+		"gradient_style"= pref.g_style,
 		"eyes_colour"   = rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes),
 		"b_type"        = pref.b_type,
 		"disabilities"  = json_encode(pref.disabilities),
@@ -128,6 +142,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.r_facial      = GetRedPart(pref.facial_colour)
 		pref.g_facial      = GetGreenPart(pref.facial_colour)
 		pref.b_facial      = GetBluePart(pref.facial_colour)
+
+		pref.grad_colour = sanitize_hexcolor(pref.grad_colour)
+		pref.r_grad      = GetRedPart(pref.grad_colour)
+		pref.g_grad      = GetGreenPart(pref.grad_colour)
+		pref.b_grad      = GetBluePart(pref.grad_colour)
 
 		pref.s_tone = text2num(pref.s_tone)
 
@@ -172,6 +191,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.b_skin   = sanitize_integer(pref.b_skin, 0, 255, initial(pref.b_skin))
 	pref.h_style  = sanitize_inlist(pref.h_style, hair_styles_list, initial(pref.h_style))
 	pref.f_style  = sanitize_inlist(pref.f_style, facial_hair_styles_list, initial(pref.f_style))
+	pref.g_style = sanitize_inlist(pref.g_style, hair_gradient_styles_list, initial(pref.g_style))
 	pref.r_eyes   = sanitize_integer(pref.r_eyes, 0, 255, initial(pref.r_eyes))
 	pref.g_eyes   = sanitize_integer(pref.g_eyes, 0, 255, initial(pref.g_eyes))
 	pref.b_eyes   = sanitize_integer(pref.b_eyes, 0, 255, initial(pref.b_eyes))
@@ -273,6 +293,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<a href='?src=\ref[src];facial_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_facial, pref.g_facial, pref.b_facial))] "
 	out += " Style: <a href='?src=\ref[src];facial_style=1'>[pref.f_style]</a><br>"
 
+	out += "<b>Gradient</b><br>"
+	if(has_flag(mob_species, HAS_HAIR_COLOR))
+		out += "<a href='?src=\ref[src];gradient_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_grad, pref.g_grad, pref.b_grad))] "
+	out += " Style: <a href='?src=\ref[src];gradient_style=1'>[pref.g_style]</a><br>"
+
 	if(has_flag(mob_species, HAS_EYE_COLOR))
 		out += "<br><b>Eyes</b><br>"
 		out += "<a href='?src=\ref[src];eye_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes))] <br>"
@@ -289,7 +314,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
-		out += "[M] <a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
+		out += "[M] [pref.body_markings.len > 1 ? "<a href='?src=\ref[src];marking_up=[M]'>&#708;</a> <a href='?src=\ref[src];marking_down=[M]'>&#709;</a> " : ""]<a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
 		out += HTML_RECT(pref.body_markings[M])
 		out += "<br>"
 
@@ -313,8 +338,16 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["show_species"])
 		// Actual whitelist checks are handled elsewhere, this is just for accessing the preview window.
-		var/choice = input("Which species would you like to look at?") as null|anything in playable_species
-		if(!choice) return
+		var/species_choice = input(usr, "Which species would you like to look at?", "Species Selection") as null|anything in playable_species
+		if(!species_choice)
+			return
+		var/choice
+		if(length(playable_species[species_choice]) == 1)
+			choice = playable_species[species_choice][1]
+		else
+			choice = input(usr, "Which subspecies would you like to look at?", "Sub-species Selection") as null|anything in playable_species[species_choice]
+			if(!choice)
+				return
 		choice = html_decode(choice)
 		pref.species_preview = choice
 		SetSpecies(preference_mob())
@@ -394,6 +427,16 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.b_hair = GetBluePart(new_hair)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
+	else if(href_list["gradient_color"])
+		if(!has_flag(mob_species, HAS_HAIR_COLOR))
+			return TOPIC_NOACTION
+		var/new_grad = input(user, "Choose your character's secondary hair color:", "Character Preference", rgb(pref.r_grad, pref.g_grad, pref.b_grad)) as color|null
+		if(new_grad && has_flag(mob_species, HAS_HAIR_COLOR) && CanUseTopic(user))
+			pref.r_grad = GetRedPart(new_grad)
+			pref.g_grad = GetGreenPart(new_grad)
+			pref.b_grad = GetBluePart(new_grad)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	else if(href_list["hair_style"])
 		if(mob_species.bald)
 			return
@@ -401,6 +444,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/list/valid_hairstyles = list()
 		for(var/hairstyle in hair_styles_list)
 			var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
+			if(pref.gender == MALE && S.gender == FEMALE)
+				continue
+			if(pref.gender == FEMALE && S.gender == MALE)
+				continue
 			if(!(mob_species.type in S.species_allowed))
 				continue
 
@@ -409,6 +456,20 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/new_h_style = input(user, "Choose your character's hair style:", "Character Preference", pref.h_style)  as null|anything in valid_hairstyles
 		if(new_h_style && CanUseTopic(user))
 			pref.h_style = new_h_style
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["gradient_style"])
+		var/list/valid_gradients = list()
+		for(var/gradstyle in hair_gradient_styles_list)
+			var/datum/sprite_accessory/S = hair_gradient_styles_list[gradstyle]
+			if(!(mob_species.type in S.species_allowed))
+				continue
+
+			valid_gradients[gradstyle] = hair_gradient_styles_list[gradstyle]
+
+		var/new_g_style = input(user, "Choose a color pattern for your hair:", "Character Preference", pref.g_style)  as null|anything in valid_gradients
+		if(new_g_style && CanUseTopic(user))
+			pref.g_style = new_g_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["facial_color"])
@@ -498,6 +559,25 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.body_markings[new_marking] = "#000000" //New markings start black
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
+
+	else if(href_list["marking_up"])
+		var/M = href_list["marking_up"]
+		var/start = pref.body_markings.Find(M)
+		if(start != 1) //If we're not the beginning of the list, swap with the previous element.
+			moveElement(pref.body_markings, start, start-1)
+		else //But if we ARE, become the final element -ahead- of everything else.
+			moveElement(pref.body_markings, start, pref.body_markings.len+1)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["marking_down"])
+		var/M = href_list["marking_down"]
+		var/start = pref.body_markings.Find(M)
+		if(start != pref.body_markings.len) //If we're not the end of the list, swap with the next element.
+			moveElement(pref.body_markings, start, start+2)
+		else //But if we ARE, become the first element -behind- everything else.
+			moveElement(pref.body_markings, start, 1)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	else if(href_list["marking_remove"])
 		var/M = href_list["marking_remove"]
 		pref.body_markings -= M
@@ -566,11 +646,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		switch(new_state)
 			if("Normal")
-				pref.organ_data[limb] = null
-				pref.rlimb_data[limb] = null
+				pref.organ_data -= limb
+				pref.rlimb_data -= limb
 				if(third_limb)
-					pref.organ_data[third_limb] = null
-					pref.rlimb_data[third_limb] = null
+					pref.organ_data -= third_limb
+					pref.rlimb_data -= third_limb
 			if("Amputated")
 				pref.organ_data[limb] = "amputated"
 				pref.rlimb_data[limb] = null
@@ -736,4 +816,3 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.rlimb_data[organ] = null
 	while(null in pref.rlimb_data)
 		pref.rlimb_data -= null*/
-

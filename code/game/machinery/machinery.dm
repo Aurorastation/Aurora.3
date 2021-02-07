@@ -164,6 +164,11 @@ Class Procs:
 
 	return ..()
 
+/obj/machinery/examine(mob/user)
+	. = ..()
+	if(signaler && Adjacent(user))
+		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
+
 /obj/machinery/proc/machinery_process()	//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
 		return PROCESS_KILL
@@ -243,6 +248,8 @@ Class Procs:
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /obj/machinery/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	if(isrobot(user))
 		// For some reason attack_robot doesn't work
 		// This is to stop robots from using cameras to remotely control machines.
@@ -277,6 +284,44 @@ Class Procs:
 	src.add_fingerprint(user)
 
 	return ..()
+
+/obj/machinery/attackby(obj/item/W, mob/user)
+	if(obj_flags & OBJ_FLAG_SIGNALER)
+		if(issignaler(W))
+			if(signaler)
+				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
+				return
+			var/obj/item/device/assembly/signaler/S = W
+			user.drop_from_inventory(W, src)
+			signaler = S
+			S.machine = src
+			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
+			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
+			return
+		else if(W.iswirecutter() && signaler)
+			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
+			user.put_in_hands(detach_signaler())
+			return
+
+	return ..()
+
+/obj/machinery/proc/detach_signaler(var/turf/detach_turf)
+	if(!signaler)
+		return
+
+	if(!detach_turf)
+		detach_turf = get_turf(src)
+	if(!detach_turf)
+		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
+		return
+	
+	var/obj/item/device/assembly/signaler/S = signaler
+
+	signaler.forceMove(detach_turf)
+	signaler.machine = null
+	signaler = null
+
+	return S
 
 /obj/machinery/proc/RefreshParts()
 

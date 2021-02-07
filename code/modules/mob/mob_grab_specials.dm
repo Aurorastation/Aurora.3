@@ -35,6 +35,10 @@
 		if(H.getOxyLoss() >= 20)
 			to_chat(user, "<span class='warning'>[H]'s skin is unusually pale.</span>")
 			bad = 1
+		if(E.is_infected())
+			var/severity = E.germ_level < INFECTION_LEVEL_TWO ? "slightly" : E.germ_level < INFECTION_LEVEL_THREE ? "moderately" : "extremely"
+			to_chat(user, SPAN_WARNING("[H]'s skin is [severity] warm and reddened."))
+			bad = 1
 		if(E.status & ORGAN_DEAD)
 			to_chat(user, "<span class='warning'>[E] is decaying!</span>")
 			bad = 1

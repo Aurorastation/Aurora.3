@@ -542,6 +542,8 @@
 	. = ..()
 
 /obj/machinery/chakraconsole/attack_ai(user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/chakraconsole/attack_hand(user as mob)

@@ -34,6 +34,7 @@ var/global/list/default_medbay_channels = list(
 	var/frequency = PUB_FREQ //common chat
 	var/traitor_frequency = 0 //tune to frequency to unlock traitor supplies
 	var/canhear_range = 3 // the range which mobs can hear this radio from
+	var/mob/living/announcer/announcer = null // used in autosay, held by the radio for re-use
 	var/datum/wires/radio/wires = null
 	var/b_stat = 0
 	var/broadcasting = FALSE
@@ -52,7 +53,6 @@ var/global/list/default_medbay_channels = list(
 	var/clicksound = /decl/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
-
 	var/obj/item/cell/cell = /obj/item/cell/device
 	var/last_radio_sound = -INFINITY
 
@@ -66,9 +66,9 @@ var/global/list/default_medbay_channels = list(
 		radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
 /obj/item/device/radio/Destroy()
-	qdel(wires)
 	listening_objects -= src
-	wires = null
+	QDEL_NULL(announcer)
+	QDEL_NULL(wires)
 	if(SSradio)
 		SSradio.remove_object(src, frequency)
 		for (var/ch_name in channels)
@@ -268,19 +268,21 @@ var/global/list/default_medbay_channels = list(
 	else
 		connection = radio_connection
 		channel = null
+
 	if (!istype(connection))
 		return
+
 	if (!connection)
 		return
 
-	var/mob/living/silicon/ai/A = new /mob/living/silicon/ai(src, null, null, 1)
-	A.SetName(from)
-	Broadcast_Message(connection, A,
-						0, "*garbled automated announcement*", src,
-						message, from, "Automated Announcement", from, "synthesized voice",
-						4, 0, list(0), connection.frequency, "states")
-	qdel(A)
-	return
+	if(!istype(announcer))
+		announcer = new()
+	announcer.PrepareBroadcast(from)
+	Broadcast_Message(connection, announcer,
+						FALSE, "*garbled automated announcement*", src,
+						message, from, "Automated Announcement", from, announcer.voice_name,
+						4, 0, list(0), connection.frequency, "states", announcer.default_language)
+	announcer.ResetAfterBroadcast()
 
 // Interprets the message mode when talking into a radio, possibly returning a connection datum
 /obj/item/device/radio/proc/handle_message_mode(mob/living/M as mob, message, message_mode)
@@ -314,10 +316,16 @@ var/global/list/default_medbay_channels = list(
 	if (iscarbon(M))
 		var/mob/living/carbon/C = M
 		if ((CE_UNDEXTROUS in C.chem_effects) || C.stunned >= 10)
-			to_chat(M, SPAN_WARNING("Your can't move your arms enough to activate the radio..."))
+			to_chat(M, SPAN_WARNING("You can't move your arms enough to activate the radio..."))
 			return
+		if(iszombie(M))
+			to_chat(M, SPAN_WARNING("Try as you might, you cannot will your decaying body into operating \the [src]."))
+			return FALSE
 
 	if(istype(M))
+		if(M.restrained())
+			to_chat(M, SPAN_WARNING("You can't speak into \the [src.name] while restrained."))
+			return FALSE
 		M.trigger_aiming(TARGET_CAN_RADIO)
 
 	//  Uncommenting this. To the above comment:
@@ -452,7 +460,14 @@ var/global/list/default_medbay_channels = list(
 			R.receive_signal(signal)
 
 		// Receiving code can be located in Telecommunications.dm
-		return signal.data["done"] && (position.z in signal.data["level"])
+		var/position_z_in_level = FALSE // this particular band-aid is required to make antag radios say "talks into" and not "tries to talk into" when using a radio, due to how their signals are made
+		if(islist(signal.data["level"]))
+			if(position.z in signal.data["level"])
+				position_z_in_level = TRUE
+		else
+			if(position.z == signal.data["level"])
+				position_z_in_level = TRUE
+		return signal.data["done"] && position_z_in_level
 
 
   /* ###### Intercoms and station-bounced radios ###### */

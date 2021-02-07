@@ -583,6 +583,15 @@ mob/living/carbon/human/proc/change_monitor()
 	A.throw_at(target, 10, 30, usr)
 	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
 
+/mob/living/carbon/human/proc/dissolve()
+	set name = "Dissolve Self"
+	set desc = "Dissolve yourself in order to escape permanent imprisonment."
+	set category = "Abilities"
+
+	if(alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", "Yes", "No") == "No")
+		return
+	visible_message(SPAN_DANGER("[src] dissolves!"), SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
+	death()
 
 /mob/living/carbon/human/proc/shatter_light()
 	set category = "Abilities"
@@ -596,7 +605,7 @@ mob/living/carbon/human/proc/change_monitor()
 	last_special = world.time + 50
 
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
-	playsound(src.loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
@@ -612,7 +621,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 100
 
-	playsound(src.loc, 'sound/species/shadow/grue_growl.ogg', 100, 1)
+	playsound(src.loc, 'sound/species/revenant/grue_growl.ogg', 100, 1)
 
 	src.set_light(4,-20)
 
@@ -689,7 +698,7 @@ mob/living/carbon/human/proc/change_monitor()
 	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
 			"<span class='notice'>You take a step backwards and then...</span>")
 	if(do_after(src,5))
-		playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+		playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 		src.visible_message("<span class='danger'>\The [src] charges!</span>")
 		trampling()
 
@@ -787,11 +796,8 @@ mob/living/carbon/human/proc/change_monitor()
 
 	var/list/victims = list()
 
-	for (var/mob/living/carbon/human/T in hearers(2, src))
-		if (T == src)
-			continue
-
-		if (istype(T) && (T:l_ear || T:r_ear) && istype((T:l_ear || T:r_ear), /obj/item/clothing/ears/earmuffs))
+	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
+		if(T.protected_from_sound())
 			continue
 
 		to_chat(T, "<span class='danger'>You hear an ear piercing shriek and feel your senses go dull!</span>")
@@ -825,7 +831,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	last_special = world.time + 100
-	playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+	playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	visible_message("<span class='danger'>\The [src] unleashes a torrent of raging flame!</span>",
 			"<span class='danger'>You unleash a gust of fire!</span>",
 			"<span class='danger'>You hear the roar of an inferno!</span>")
@@ -849,7 +855,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent(/datum/reagent/fuel/napalm, 200)
+			D.reagents.add_reagent(/decl/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -894,7 +900,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent(/datum/reagent/blood,20*O.amount)
+				vessel.add_reagent(/decl/reagent/blood,20*O.amount, temperature = species.body_temperature)
 			qdel(O)
 			last_special = world.time + 50
 
@@ -1038,7 +1044,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
 
-		output += "Current Charge Level: [nutrition]\n"
+		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		if(!C || !C.cell)
+			output += SPAN_DANGER("ERROR: NO BATTERY DETECTED")
+		else
+			output += "Current Charge Level: [C.percent()]\n"
 
 		var/toxDam = getToxLoss()
 		if(toxDam)
@@ -1183,3 +1193,19 @@ mob/living/carbon/human/proc/change_monitor()
 		for(var/line in airInfo)
 			to_chat(src, SPAN_NOTICE("[line]"))
 		return
+
+/mob/living/carbon/human/proc/select_primary_martial_art()
+	set name = "Select Martial Art"
+	set desc = "Set the martial art you want to use when fighting barehanded."
+	set category = "Abilities"
+
+	if(!length(known_martial_arts))
+		to_chat(src, SPAN_WARNING("You don't know any martial arts!"))
+		return
+
+	var/datum/martial_art/selected_martial_art = input(src, "Select a primary martial art to use when fighting barehanded.", "Martial Art Selection") as null|anything in known_martial_arts
+	if(!selected_martial_art)
+		return
+
+	primary_martial_art = selected_martial_art
+	to_chat(src, SPAN_NOTICE("You will now use [primary_martial_art.name] when fighting barehanded."))

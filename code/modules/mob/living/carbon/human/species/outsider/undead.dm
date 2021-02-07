@@ -177,10 +177,15 @@
 	break_cuffs = TRUE
 
 	has_organ = list(
-		"zombie" =    /obj/item/organ/internal/parasite/zombie,
-		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_STOMACH =  /obj/item/organ/internal/stomach
+		BP_ZOMBIE_PARASITE = /obj/item/organ/internal/parasite/zombie,
+		BP_BRAIN =           /obj/item/organ/internal/brain,
+		BP_STOMACH =         /obj/item/organ/internal/stomach
 		)
+
+	brute_mod = 0.5
+	burn_mod = 0.5
+
+	slowdown = 3
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
@@ -195,13 +200,13 @@
 
 	flesh_color = "#76a05e"
 
-	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE
+	flags = NO_BLOOD | NO_SCAN | NO_POISON | NO_PAIN | NO_BREATHE
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
 	spawn_flags = IS_RESTRICTED
 
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
-	sprint_speed_factor = 0.3
+	sprint_speed_factor = 0.1
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
@@ -212,6 +217,8 @@
 
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(CLUMSY)
+	var/datum/martial_art/zombie/Z = new /datum/martial_art/zombie()
+	Z.teach(H)
 	return ..()
 
 /datum/species/zombie/tajara

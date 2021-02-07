@@ -113,7 +113,6 @@
 	bst.add_language(LANGUAGE_DRONE)
 	bst.add_language(LANGUAGE_EAL)
 	// Antagonist languages
-	bst.add_language(LANGUAGE_VOX)
 	bst.add_language(LANGUAGE_CHANGELING)
 	bst.add_language(LANGUAGE_BORER)
 
@@ -498,15 +497,31 @@
 /obj/item/card/id/bst
 	icon_state = "centcom"
 	desc = "An ID straight from Central Command. This one looks highly classified."
-//	canremove = 0
-	New()
-		access = get_all_accesses()+get_all_centcom_access()+get_all_syndicate_access()
 
-/obj/item/card/id/bst/attack_hand()
-	if(!usr)
+/obj/item/card/id/bst/Initialize(mapload)
+	. = ..()
+	access = get_all_accesses() + get_all_centcom_access() + get_all_syndicate_access()
+
+/obj/item/card/id/bst/verb/swap_access()
+	set name = "Change ID Access"
+	set desc = "Change your ID access to one of various jobs."
+	set category = "BST"
+	set src in usr
+
+	var/list/possible_access = list()
+	possible_access["== Default BSTech =="] = get_all_accesses() + get_all_centcom_access() + get_all_syndicate_access()
+	for(var/job in subtypesof(/datum/job))
+		var/datum/job/J = new job
+		possible_access[J.title] = J.access
+	var/chosen_access = input(usr, "Which access do you want your ID to have?", "ID Access") as null|anything in possible_access
+	if(!chosen_access)
 		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+	to_chat(usr, SPAN_WARNING("Your ID now has the access of \a [chosen_access]."))
+	access = possible_access[chosen_access]
+
+/obj/item/card/id/bst/attack_hand(mob/user)
+	if(!istype(user, /mob/living/carbon/human/bst))
+		to_chat(user, SPAN_ALERT("Your hand seems to go right through \the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()

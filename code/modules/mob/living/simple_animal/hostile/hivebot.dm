@@ -37,7 +37,8 @@
 	minbodytemp = 0
 	speed = 4
 	tameable = FALSE
-	flying = 1
+	flying = TRUE
+	smart_melee = FALSE
 	see_in_dark = 8
 	pass_flags = PASSTABLE
 	attack_emote = "focuses on"
@@ -207,16 +208,6 @@
 	taser_effect = TRUE
 	agony = 0
 
-/obj/item/projectile/beam/hivebot/toxic
-	name = "concentrated gamma burst"
-	damage = 15
-	damage_type = TOX
-	irradiate = 15
-	taser_effect = 0
-	muzzle_type = /obj/effect/projectile/muzzle/bfg
-	tracer_type = /obj/effect/projectile/tracer/bfg
-	impact_type = /obj/effect/projectile/impact/bfg
-
 /obj/item/projectile/beam/hivebot/incendiary
 	name = "archaic energy welder"
 	damage_type = BURN
@@ -277,12 +268,6 @@
 	var/list/close_destinations = list()
 	var/area/latest_area
 	attack_emote = "focuses on"
-
-/mob/living/simple_animal/hostile/hivebotbeacon/toxic
-	projectiletype = /obj/item/projectile/beam/hivebot/toxic
-	projectilesound = 'sound/weapons/laser3.ogg'
-	rapid = 0
-
 /mob/living/simple_animal/hostile/hivebotbeacon/incendiary
 	projectiletype = /obj/item/projectile/beam/hivebot/incendiary
 	projectilesound = 'sound/weapons/plasma_cutter.ogg'

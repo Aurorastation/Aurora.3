@@ -11,7 +11,7 @@
 	desc = "Emergency air-tight shutter, capable of sealing off breached areas."
 	icon = 'icons/obj/doors/DoorHazard.dmi'
 	icon_state = "door_open"
-	req_one_access = list(access_atmospherics, access_engine_equip, access_emt)
+	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
 	opacity = 0
 	density = 0
 	layer = DOOR_OPEN_LAYER - 0.01
@@ -226,7 +226,7 @@
 	if(alarmed && density && lockdown && !allowed(user))
 		to_chat(user, "<span class='warning'>Access denied.  Please wait for authorities to arrive, or for the alert to clear.</span>")
 		return
-	else
+	else if(Adjacent(user))
 		user.visible_message("[user] [density ? "open" : "close"]s \an [src].",\
 		"You [density ? "open" : "close"] \the [src].",\
 		"You hear a beep, and a door opening.")
@@ -465,7 +465,7 @@
 				do_set_light = TRUE
 
 		if (hashatch)
-			if (hatchstate)
+			if (hatchstate && hatch_image)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle

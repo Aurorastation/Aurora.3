@@ -37,7 +37,7 @@
 
 /obj/item/device/t_scanner/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	var/obj/structure/disposalpipe/D = target
-	if(D && istype(D))
+	if(istype(D))
 		to_chat(user, SPAN_INFO("Pipe segment integrity: [(D.health / 10) * 100]%"))
 
 /obj/item/device/t_scanner/proc/set_active(var/active)
@@ -51,17 +51,19 @@
 
 //If reset is set, then assume the client has none of our overlays, otherwise we only send new overlays.
 /obj/item/device/t_scanner/process()
-	if(!on) return
+	if(!on)
+		return
 
 	//handle clients changing
 	var/client/loc_client = null
-	if(ismob(src.loc))
-		var/mob/M = src.loc
+	if(ismob(loc))
+		var/mob/M = loc
 		loc_client = M.client
 	set_user_client(loc_client)
 
 	//no sense processing if no-one is going to see it.
-	if(!user_client) return
+	if(!user_client)
+		return
 
 	//get all objects in scan range
 	var/list/scanned = get_scanned_objects(scan_range)
@@ -69,13 +71,15 @@
 	var/list/update_remove = active_scanned - scanned
 
 	//Add new overlays
-	for(var/obj/O in update_add)
+	for(var/thing in update_add)
+		var/obj/O = thing
 		var/image/overlay = get_overlay(O)
 		active_scanned[O] = overlay
 		user_client.images += overlay
 
 	//Remove stale overlays
-	for(var/obj/O in update_remove)
+	for(var/thing in update_remove)
+		var/obj/O = thing
 		user_client.images -= active_scanned[O]
 		active_scanned -= O
 
@@ -86,7 +90,7 @@
 	if(scanned in overlay_cache)
 		. = overlay_cache[scanned]
 	else
-		var/image/I = image(loc = scanned, icon = scanned.icon, icon_state = scanned.icon_state, layer = HUD_LAYER)
+		var/image/I = image(scanned.icon, scanned.loc, scanned.icon_state, HUD_LAYER, scanned.dir)
 
 		//Pipes are special
 		if(istype(scanned, /obj/machinery/atmospherics/pipe))
@@ -95,19 +99,11 @@
 			I.overlays += P.overlays
 			I.underlays += P.underlays
 
-		if(ismob(scanned))
-			if(ishuman(scanned))
-				var/mob/living/carbon/human/H = scanned
-				if(H.species.appearance_flags & HAS_SKIN_COLOR)
-					I.color = rgb(H.r_skin, H.g_skin, H.b_skin)
-					I.icon = 'icons/mob/mob.dmi'
-					I.icon_state = "phaseout"
-			var/mob/M = scanned
-			I.color = M.color
-			I.overlays += M.overlays
-			I.underlays += M.underlays
+		else if(istype(scanned, /obj/structure/cable))
+			var/obj/structure/cable/C = scanned
+			I.color = C.color
 
-		I.alpha = 128
+		I.alpha = 100
 		I.mouse_opacity = 0
 		. = I
 
@@ -120,15 +116,11 @@
 	. = list()
 
 	var/turf/center = get_turf(src.loc)
-	if(!center) return
+	if(!center)
+		return
 
-	for(var/turf/T in range(scan_range, center))
-		for(var/mob/M in T.contents)
-			if(M.alpha < 255)
-				. += M
-			else if(round_is_spooky() && isobserver(M))
-				. += M
-
+	for(var/thing in RANGE_TURFS(scan_range, center))
+		var/turf/T = thing
 		if(!!T.is_plating())
 			continue
 
@@ -138,7 +130,6 @@
 			if(!O.invisibility)
 				continue //if it's already visible don't need an overlay for it
 			. += O
-
 
 
 /obj/item/device/t_scanner/proc/set_user_client(var/client/new_client)

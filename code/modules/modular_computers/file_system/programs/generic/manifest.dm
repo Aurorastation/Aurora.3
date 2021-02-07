@@ -13,11 +13,11 @@
 /datum/computer_file/program/manifest/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "manifest", 450, 600, "Crew Manifest")
+		ui = new /datum/vueui/modularcomputer(user, src, "manifest", 580, 700, "Crew Manifest")
 	ui.open()
 
 /datum/computer_file/program/manifest/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "manifest", 450, 600, "Crew Manifest")
+	SSvueui.transfer_uis(oldobj, src, "manifest", 580, 700, "Crew Manifest")
 	return TRUE
 
 // Gaters data for ui

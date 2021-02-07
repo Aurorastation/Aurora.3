@@ -88,7 +88,7 @@
 	if(D.weakened || D.resting || D.stat)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='danger'>[A] elbow drops [D]!</span>")
-		if(D.stat)
+		if(D.shock_stage >= 60)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, BRUTE, BP_CHEST)
 		playsound(get_turf(D), "punch", 75, 1, -1)
@@ -111,9 +111,9 @@
 	return ..()
 
 /datum/martial_art/the_sleeping_carp/proc/sleeping_carp_help()
-	set name = "Recall Teachings"
+	set name = "Recall Sleeping Carp"
 	set desc = "Remember the martial techniques of the Sleeping Carp clan."
-	set category = "Sleeping Carp"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You retreat inward and recall the teachings of the Sleeping Carp...</i></b>")
 
@@ -129,3 +129,9 @@
 	icon_state = "scroll"
 	item_state = "scroll"
 	martial_art = /datum/martial_art/the_sleeping_carp
+
+#undef WRIST_WRENCH_COMBO
+#undef BACK_KICK_COMBO
+#undef STOMACH_KNEE_COMBO
+#undef HEAD_KICK_COMBO
+#undef ELBOW_DROP_COMBO

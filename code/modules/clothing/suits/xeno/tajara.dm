@@ -24,20 +24,6 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/suit/storage/tajaran/cloak
-	name = "commoner cloak"
-	desc = "A tajaran cloak made with the middle class in mind, fancy but nothing special."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "taj_commoncloak"
-	item_state = "taj_commoncloak"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-
-/obj/item/clothing/suit/storage/tajaran/cloak/fancy
-	name = "royal cloak"
-	desc = "A cloak fashioned from the best materials, meant for tajara of high standing."
-	icon_state = "taj_fancycloak"
-	item_state = "taj_fancycloak"
-
 /obj/item/clothing/suit/storage/toggle/tajaran
 	name = "tajaran naval coat"
 	desc = "A thick wool coat from Adhomai."
@@ -93,7 +79,7 @@
 	icon_state = "raskarasuit"
 	item_state = "raskarasuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_TAJARA)
 	desc_fluff =  "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
@@ -127,6 +113,29 @@
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
 	in temporary cease-fires from all sides."
+
+/obj/item/clothing/suit/storage/hooded/tajaran/surgery
+	name = "adhomian surgeon garb"
+	desc = "An utilitarian Adhomian surgeon's garb, with its design hardly changed from the First Revolution."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "tajscrubs"
+	item_state = "tajscrubs"
+	contained_sprite = TRUE
+	flags_inv = 0
+	hoodtype = /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
+	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+	species_restricted = list(BODYTYPE_TAJARA)
+	desc_fluff = null
+
+/obj/item/clothing/head/winterhood/hoodie/taj_scrubs
+	name = "adhomian surgeon mask"
+	desc = "A surgical mask attached to a surgeon garb."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "tajscrubs_hood"
+	item_state = "tajscrubs_hood"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/suit/armor/tajara
 	name = "amohdan swordsmen armor"

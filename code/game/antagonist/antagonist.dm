@@ -72,6 +72,7 @@
 	// ID card stuff.
 	var/default_access = list()
 	var/id_type = /obj/item/card/id
+	var/id_card // a reference to the id_card we spawned with
 
 
 /datum/antagonist/New()
@@ -172,9 +173,9 @@
 	if(!candidates.len)
 		return 0
 
-	//Grab candidates randomly until we have enough.
+	//Grab candidates until we have enough.
 	while(candidates.len && pending_antagonists.len < spawn_target)
-		var/datum/mind/player = pick(candidates)
+		var/datum/mind/player = candidates[1]
 		candidates -= player
 		draft_antagonist(player)
 

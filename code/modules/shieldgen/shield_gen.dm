@@ -86,6 +86,8 @@
 		..()
 
 /obj/machinery/shield_gen/attack_ai(user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/shield_gen/attack_hand(mob/user)

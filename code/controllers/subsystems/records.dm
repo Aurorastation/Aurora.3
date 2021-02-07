@@ -197,7 +197,7 @@
 /datum/controller/subsystem/records/proc/open_manifest_vueui(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "manifest", 450, 600, "Crew Manifest")
+		ui = new(user, src, "manifest", 580, 700, "Crew Manifest")
 		ui.header = "minimal"
 	ui.open()
 
@@ -229,7 +229,7 @@
 		var/isactive = t.physical_status
 
 		var/list/departments
-		if(job.departments.len > 0 && all_in_list(job.departments, manifest))
+		if(istype(job) && job.departments.len > 0 && all_in_list(job.departments, manifest))
 			departments = job.departments
 		else // no department set or there's something weird
 			departments = list(DEPARTMENT_MISCELLANEOUS = JOBROLE_DEFAULT)

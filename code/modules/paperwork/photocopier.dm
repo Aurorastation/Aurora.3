@@ -14,6 +14,8 @@
 	var/maxcopies = 10	//how many copies can be copied at once- idea shamelessly stolen from bs12's copier!
 
 /obj/machinery/photocopier/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)

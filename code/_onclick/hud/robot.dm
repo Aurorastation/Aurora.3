@@ -120,9 +120,9 @@ var/obj/screen/robot_inventory
 	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 	// Computer device hud
-
-	r.computer.screen_loc = ui_oxygen
-	r.computer.layer = SCREEN_LAYER
+	if(r.computer)
+		r.computer.screen_loc = ui_oxygen
+		r.computer.layer = SCREEN_LAYER
 
 
 	//Handle the gun settings buttons
@@ -165,6 +165,9 @@ var/obj/screen/robot_inventory
 
 	var/mob/living/silicon/robot/r = mymob
 
+	if(!r.client || !r)
+		return
+
 	if(r.shown_robot_modules)
 		//Modules display is shown
 		//r.client.screen += robot_inventory	//"store" icon
@@ -198,7 +201,7 @@ var/obj/screen/robot_inventory
 				r.module.modules -= r.module.emag
 
 		if(r.malf_AI_module)
-			if(!((r.module.malf_AI_module in r.module.modules) && r.module.malf_AI_module == null))
+			if(!((r.module.malf_AI_module in r.module.modules) || r.module.malf_AI_module == null))
 				r.module.modules += r.module.malf_AI_module
 		else
 			if(r.module.malf_AI_module in r.module.modules)

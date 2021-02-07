@@ -65,40 +65,11 @@
 	blood_overlay_type = "armor"
 	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/armor/vest/security
-	name = "security armor"
-	desc = "An armored vest that protects against some damage. This one has a corporate badge."
-	icon_state = "armorsec"
-	item_state = "armor"
-
-/obj/item/clothing/suit/armor/vest/warden
-	name = "warden's jacket"
-	desc = "An armored jacket with silver rank pips and livery."
-	icon_state = "warden_jacket"
-	item_state = "warden_jacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	pocket_slots = 4//Jackets have more slots
-
-/obj/item/clothing/suit/armor/vest/warden/commissar
-	name = "commissar's jacket"
-	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
-	icon_state = "commissar_warden"
-	item_state = "commissar_warden"
-
 /obj/item/clothing/suit/armor/vest/fib
 	name = "\improper FIB armored vest"
 	desc = "An armored vest used by Federal Investigations Bureau agents during operations."
 	icon_state = "fib_armor"
 	item_state = "fib_armor"
-
-/obj/item/clothing/suit/armor/hos
-	name = "head of security's jacket"
-	desc = "An armored jacket with golden rank pips and livery."
-	icon_state = "hos"
-	item_state = "hos"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(melee = 65, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
-	pocket_slots = 4//More slots because coat
 
 /obj/item/clothing/suit/storage/toggle/armor/hos
 	name = "armored trenchcoat"
@@ -178,7 +149,7 @@
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	slowdown = 1
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 100, rad = 100)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.35
@@ -193,15 +164,6 @@
 	flags_inv = 0
 	body_parts_covered = UPPER_TORSO|ARMS
 	pocket_slots = 4//coat, so more slots
-
-/obj/item/clothing/suit/armor/det_suit
-	name = "armor"
-	desc = "An armored vest with a detective's badge on it."
-	icon_state = "detective-armor"
-	item_state = "armor"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 //Reactive armor
 //When the wearer gets hit, this armor will teleport the user a short distance away (to safety or to more danger, no one knows. That's the fun of it!)
@@ -391,19 +353,19 @@
 
 /obj/item/clothing/suit/storage/vest/detective
 	name = "detective armor vest"
-	desc = "A simple kevlar plate carrier in a vintage brown, it has a detective's badge clipped to the chest."
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a detective's badge clipped to the chest."
 	icon_state = "detectivevest_nobadge"
 	item_state = "detectivevest_nobadge"
 	icon_badge = "detectivevest_badge"
 	icon_nobadge = "detectivevest_nobadge"
 
-/obj/item/clothing/suit/storage/vest/csi
+/obj/item/clothing/suit/storage/vest/ft
 	name = "forensic technician armor vest"
 	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a forensic technician's badge clipped to the chest."
-	icon_state = "csivest_nobadge"
-	item_state = "csivest_nobadge"
-	icon_badge = "csivest_badge"
-	icon_nobadge = "csivest_nobadge"
+	icon_state = "forensictech_nobadge"
+	item_state = "forensictech_nobadge"
+	icon_badge = "forensictech_badge"
+	icon_nobadge = "forensictech_nobadge"
 
 /obj/item/clothing/suit/storage/hazardvest/cadet
 	name = "cadet hazard vest"
@@ -576,46 +538,6 @@
 	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
-/obj/item/clothing/suit/armor/vest/idris
-	name = "black Idris Unit coat"
-	desc = "A coat worn by the Idris units, notorious across space."
-	icon_state = "iru_coat"
-	item_state = "iru_coat"
-	cold_protection = 0
-	min_cold_protection_temperature = 0
-	heat_protection = 0
-	max_heat_protection_temperature = 0
-
-/obj/item/clothing/suit/armor/vest/idris/brown
-	name = "brown Idris Unit coat"
-	desc = "A coat worn by the Idris units, notorious across space. This one is brown."
-	icon_state = "iru_coat_brown"
-	item_state = "iru_coat_brown"
-
-/obj/item/clothing/suit/armor/vest/idris/trenchcoat/black
-	name = "black Idris Unit trench coat"
-	desc = "A trench coat worn by the Idris units, notorious across space. This one is black."
-	icon_state = "iru_trench_black"
-	item_state = "iru_trench_black"
-
-/obj/item/clothing/suit/armor/vest/idris/trenchcoat/brown
-	name = "brown Idris Unit trench coat"
-	desc = "A trench coat worn by the Idris units, notorious across space. This one is brown."
-	icon_state = "iru_trench_brown"
-	item_state = "iru_trench_brown"
-
-/obj/item/clothing/suit/armor/vest/idris/duster/black
-	name = "black Idris Unit duster coat"
-	desc = "A duster coat worn by the Idris units, notorious across space. This one is black."
-	icon_state = "iru_duster_black"
-	item_state = "iru_duster_black"
-
-/obj/item/clothing/suit/armor/vest/idris/duster/brown
-	name = "brown Idris Unit duster coat"
-	desc = "A duster coat worn by the Idris units, notorious across space. This one is brown."
-	icon_state = "iru_duster_brown"
-	item_state = "iru_duster_brown"
-
 /obj/item/clothing/suit/storage/vest/sol
 	name = "sol heavy armor vest"
 	desc = "A high-quality armor vest in a deep green. It is surprisingly flexible and light, even with the added webbing and armor plating."
@@ -635,7 +557,7 @@
 	w_class = ITEMSIZE_LARGE//bulky item
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/gun/energy,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
@@ -649,13 +571,13 @@
 	gas_transfer_coefficient = 0.90
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	slowdown = 3
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 0.1
 	pocket_slots = 3
 
 /obj/item/clothing/suit/armor/tdome
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/armor/tdome/red
 	name = "thunderdome suit (red)"
