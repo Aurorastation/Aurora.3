@@ -78,7 +78,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 
 /proc/iconstate2appearance(icon, iconstate)
 	var/static/image/stringbro = new()
-	var/list/icon_states_cache = SSoverlays.overlay_icon_state_caches 
+	var/list/icon_states_cache = SSoverlays.overlay_icon_state_caches
 	var/list/cached_icon = icon_states_cache[icon]
 	if (cached_icon)
 		var/cached_appearance = cached_icon["[iconstate]"]
@@ -135,7 +135,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 /atom/proc/cut_overlays(priority = FALSE)
 	var/list/cached_overlays = our_overlays
 	var/list/cached_priority = priority_overlays
-	
+
 	var/need_compile = FALSE
 
 	if(LAZYLEN(cached_overlays)) //don't queue empty lists, don't cut priority overlays
@@ -152,6 +152,16 @@ var/datum/controller/subsystem/overlays/SSoverlays
 /atom/proc/cut_overlay(list/overlays, priority)
 	if(!overlays)
 		return
+
+	var/static/last_run = 0
+	var/static/n = 0
+	if (last_run != world.time)
+		last_run = world.time
+		n = 0
+	else
+		n++
+		if (n == 20)
+			crash_with("We reached 20 calls per 1 tick.")
 
 	overlays = build_appearance_list(overlays)
 
