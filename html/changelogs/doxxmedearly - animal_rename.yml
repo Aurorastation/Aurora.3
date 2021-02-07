@@ -1,8 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - rscadd: "Most non-hostile simple animals without a name can be renamed, including monkeys and the alien equivalents. This is done via right-click menu. You have only one chance. Some cannot be named (Such as nymphs). Please bug report any simple mobs that can be renamed but should not be. It is intentional that simple mobs cannot rename themselves."
-  - rscadd: "Cult constructs and wizard familiars can be renamed by those with the proper antagonist type. Wizard apprentices cannot rename familiars."
-  - tweak: "Guard dogs can only be renamed if they have no master, or, if they have one, only by their master."
