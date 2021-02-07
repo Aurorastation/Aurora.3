@@ -29,6 +29,7 @@
 	canbrush = TRUE
 	emote_sounds = list('sound/effects/creatures/goat.ogg')
 	has_udder = TRUE
+	hostile_nameable = TRUE
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 

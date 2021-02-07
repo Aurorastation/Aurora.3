@@ -35,6 +35,8 @@
 	target_mob = null
 	return ..()
 
+/mob/living/simple_animal/bee/can_name(var/mob/living/M)
+	return FALSE
 
 //Special death behaviour. When bees accumulate enough damage to 'die', they don't outright die.  Thus no call to parent
 //Instead the swarm strength (ie, size, or quantity of bees) drops and their health is refilled
