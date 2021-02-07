@@ -202,7 +202,7 @@ var/list/tape_roll_applications = list()
 	if(user.a_intent == I_HELP)
 		lifted = !lifted
 		user.visible_message("<b>[user]</b> [lifted ? "lifts" : "drops"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage.", SPAN_NOTICE("You [lifted ? "lift" : "drop"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage."))
-		var/shake_time = animate_shake()
+		var/shake_time = shake_animation()
 		sleep(shake_time)
 		if(!allowed(user))
 			crumple(user)

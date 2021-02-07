@@ -49,10 +49,10 @@
 	else
 		return null
 
-//Will return the contents of an atom recursivly to a depth of 'searchDepth'
-/atom/proc/GetAllContents(searchDepth = 5)
+//Will return the contents of an atom recursively to a depth of 'searchDepth'
+/atom/proc/GetAllContents(searchDepth = 5, checkClient = 1, checkSight = 1, includeMobs = 1, includeObjects = 1)
 	var/list/L = list()
-	recursive_content_check(src, L, recursion_limit = searchDepth)
+	recursive_content_check(src, L, searchDepth, checkClient, checkSight, includeMobs, includeObjects)
 
 	return L
 
