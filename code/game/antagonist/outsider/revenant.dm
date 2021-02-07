@@ -12,7 +12,22 @@ var/datum/antagonist/revenant/revenants = null
 	hard_cap = 12
 	hard_cap_round = 12
 
+	var/rifts_left = 3
+	var/kill_count = 0
+	var/obj/effect/portal/revenant/revenant_rift
+
 /datum/antagonist/revenant/New()
 	..()
 
 	revenants = src
+
+/datum/antagonist/revenant/proc/destroyed_rift()
+	revenants.revenant_rift = null
+	revenants.rifts_left--
+	if(revenants.rifts_left <= 0)
+		command_announcement.Announce("Aurora, we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
+
+/proc/message_all_revenants(var/message)
+	for(var/thing in human_mob_list)
+		if(isrevenant(thing))
+			to_chat(thing, message)

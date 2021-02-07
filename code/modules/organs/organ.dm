@@ -235,9 +235,6 @@
 		if(antibiotics < 5 && prob(round(germ_level/6)))
 			germ_level++
 
-	if(germ_level >= INFECTION_LEVEL_ONE)
-		owner.add_chemical_effect(CE_FEVER, germ_level/INFECTION_LEVEL_ONE) //10u of Perconol minimum for a level 3 infection
-
 	if (germ_level >= INFECTION_LEVEL_TWO)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 		//spread germs
@@ -283,6 +280,9 @@
 
 /obj/item/organ/proc/is_usable()
 	return !(status & (ORGAN_CUT_AWAY|ORGAN_MUTATED|ORGAN_DEAD))
+
+/obj/item/organ/proc/is_infected()
+	return (germ_level >= INFECTION_LEVEL_ONE)
 
 //Germs
 /obj/item/organ/proc/handle_antibiotics()

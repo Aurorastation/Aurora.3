@@ -15,6 +15,7 @@ var/list/department_radio_keys = list(
 	  ":t" = "Mercenary",	".t" = "Mercenary",
 	  ":x" = "Raider",		".x" = "Raider",
 	  ":b" = "Burglar",		".b" = "Burglar",
+	  ":j" = "Bluespace",	".j" = "Bluespace",
 	  ":q" = "Ninja",		".q" = "Ninja",
 	  ":u" = "Supply",		".u" = "Supply",
 	  ":v" = "Service",		".v" = "Service",
@@ -36,6 +37,7 @@ var/list/department_radio_keys = list(
 	  ":T" = "Mercenary",	".T" = "Mercenary",
 	  ":X" = "Raider",		".X" = "Raider",
 	  ":B" = "Burglar",		".B" = "Burglar",
+	  ":J" = "Bluespace",	".J" = "Bluespace",
 	  ":Q" = "Ninja",		".Q" = "Ninja",
 	  ":U" = "Supply",		".U" = "Supply",
 	  ":V" = "Service",		".V" = "Service",
@@ -184,7 +186,7 @@ proc/get_radio_key_from_channel(var/channel)
 	message = formalize_text(message)
 
 	//parse the language code and consume it
-	if(!speaking)
+	if(!speaking || speaking.always_parse_language)
 		speaking = parse_language(message)
 	if(speaking)
 		message = copytext(message,2+length(speaking.key))

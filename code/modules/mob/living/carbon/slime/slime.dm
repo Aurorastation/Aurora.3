@@ -11,6 +11,7 @@
 	maxHealth = 150
 	health = 150
 	gender = NEUTER
+	accent = ACCENT_BLUESPACE
 
 	update_icon = 0
 	nutrition = 700
@@ -75,6 +76,9 @@
 	. = ..()
 
 	verbs += /mob/living/proc/ventcrawl
+
+	add_language(LANGUAGE_TCB)
+	set_default_language(LANGUAGE_TCB)
 
 	src.colour = colour
 	number = rand(1, 1000)
