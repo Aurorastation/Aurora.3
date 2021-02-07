@@ -92,3 +92,19 @@
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_STATIONBOUND
 	size = 19
 	color = LIGHT_COLOR_GREEN
+
+// Night-Mode Toggle for CE
+/datum/computer_file/program/lighting_control
+	filename = "lightctrl"
+	filedesc = "Lighting Controller"
+	nanomodule_path = /datum/nano_module/lighting_ctrl
+	program_icon_state = "comm_monitor"
+	extended_desc = "This program allows mass-control of the station's lighting systems. This program cannot be run on tablet computers."
+	required_access_run = access_heads
+	required_access_download = access_ce
+	requires_ntnet = TRUE
+	network_destination = "APC Coordinator"
+	requires_ntnet_feature = NTNET_SYSTEMCONTROL
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_STATIONBOUND
+	size = 9
+	color = LIGHT_COLOR_GREEN
