@@ -706,8 +706,8 @@ var/list/gamemode_cache = list()
 				if("ghost_interaction")
 					config.ghost_interaction = 1
 
-				/* if("time_offset")
-					config.time_offset = text2num(value) */
+				if("time_offset")
+					config.time_offset = text2num(value)
 
 				if("disable_player_rats")
 					config.disable_player_rats = 1
