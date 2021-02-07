@@ -736,7 +736,10 @@
 		return
 
 	if (AM.anchored)
-		to_chat(src, "<span class='warning'>It won't budge!</span>")
+		if(!AM.buckled)
+			to_chat(src, "<span class='warning'>It won't budge!</span>")
+		else
+			start_pulling(AM.buckled) //Pull the thing they're buckled to instead.
 		return
 
 	var/mob/M = null

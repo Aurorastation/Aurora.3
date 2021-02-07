@@ -391,7 +391,7 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
 	var/bedpath = /obj/structure/bed/roller
-	w_class = ITEMSIZE_LARGE // Can't be put in backpacks. Oh well.
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/roller/hover
 	name = "medical hoverbed"
