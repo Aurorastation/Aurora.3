@@ -327,8 +327,14 @@ GATEWAY_DELAY 18000
 ## Uncomment to restrict non-admins from using humanoid alien races
 USEALIENWHITELIST
 
-## Adjust this time to modify the time offset (in hours) of the station time from GMT
-TIME_OFFSET 6
+## Comment this to disable automated station night lighting
+NIGHT_LIGHTING
+
+## Hour when the station night lighting is disabled (if above is enabled)
+NL_FINISH_HOUR 8
+
+## Hour when the station night lighting is enabled (if above is enabled)
+NL_START_HOUR 19
 
 ## Comment this to unrestrict the number of alien players allowed in the round. The number represents the number of alien players for every human player.
 #ALIEN_PLAYER_RATIO 0.2
