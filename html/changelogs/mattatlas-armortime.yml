@@ -42,3 +42,4 @@ changes:
   - balance: "Notably, armor now removes damage flags if the damage is blocked significantly. This means no more bleeding from a 2 damage projectile."
   - balance: "Due to this, a lot of guns were buffed, including Security and antagonist guns alike. Some things may be a bit too strong or a bit too weak."
   - balance: "Likewise, a lot of armor has received buffs. Mech armor should now be considerably more durable."
+  - balance: "Re-added laser organ damage."

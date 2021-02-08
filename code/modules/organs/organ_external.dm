@@ -339,8 +339,9 @@
 	var/damage_amt = brute
 	var/cur_damage = brute_dam
 	var/sharp = (damage_flags & DAM_SHARP)
+	var/laser = (damage_flags & DAM_LASER)
 
-	if(BP_IS_ROBOTIC(src))
+	if(BP_IS_ROBOTIC(src) || laser)
 		damage_amt += burn
 		cur_damage += burn_dam
 
@@ -350,6 +351,8 @@
 	var/organ_damage_threshold = 10
 	if(sharp)
 		organ_damage_threshold *= 0.5
+	if(laser)
+		organ_damage_threshold *= 2
 
 	if(!(cur_damage + damage_amt >= max_damage) && !(damage_amt >= organ_damage_threshold))
 		return FALSE

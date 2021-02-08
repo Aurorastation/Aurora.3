@@ -107,9 +107,12 @@ emp_act
 					var/armor = bling.GetComponent(/datum/component/armor)
 					if(armor)
 						. += armor
+		to_world("Gear body parts covered: [gear.body_parts_covered], def_zone: [def_zone], body_part: [def_zone.body_part]")
 		if(gear.body_parts_covered & def_zone.body_part)
+			to_world("Check passed")
 			var/armor = gear.GetComponent(/datum/component/armor)
 			if(armor)
+				to_world("Adding armor")
 				. += armor
 
 //this proc returns the Siemens coefficient of electrical resistivity for a particular external organ.

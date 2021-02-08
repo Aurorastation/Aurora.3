@@ -121,18 +121,18 @@
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol
-	damage = 30
+	damage = 20
 
 /obj/item/projectile/bullet/pistol/medium
-	damage = 45
+	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong
 	damage = 30
 	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/revolver
-	damage = 50
-	armor_penetration = 15
+	damage = 35
+	armor_penetration = 10
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -198,21 +198,21 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	damage = 45
-	armor_penetration = 25
+	damage = 30
+	armor_penetration = 15
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 45
+	damage = 35
 	armor_penetration = 20
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 40
+	damage = 30
 	armor_penetration = 25
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 40
-	armor_penetration = 35
+	damage = 25
+	armor_penetration = 40
 
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
