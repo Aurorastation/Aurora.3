@@ -389,6 +389,9 @@
 	. = ..()
 	permutated = list()
 
+/obj/item/projectile/damage_flags()
+	return damage_flags
+
 /obj/item/projectile/proc/pixel_move(moves, trajectory_multiplier = 1, hitscanning = FALSE)
 	if(!loc || !trajectory)
 		if(!QDELETED(src))
