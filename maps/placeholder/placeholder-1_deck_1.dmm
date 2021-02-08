@@ -60,9 +60,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "ar" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/engineering/atmos)
 "as" = (
 /turf/simulated/floor/tiled/ramp{
@@ -589,13 +590,10 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/atmos/air)
 "bR" = (
-/obj/machinery/door/airlock/lift,
-/obj/item/tape/engineering{
-	icon_state = "engineering_door";
-	layer = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/maintenance/disposal)
 "bS" = (
 /obj/machinery/sparker{
 	pixel_x = -16
@@ -841,9 +839,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "cP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/engineering/atmos)
 "cR" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -994,8 +993,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "dq" = (
-/turf/simulated/wall/elevator,
-/area/template_noop)
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turbolift)
 "dr" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1052,7 +1054,7 @@
 	},
 /area/shuttle/escape_pod)
 "dz" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/quartermaster/loading)
 "dA" = (
 /turf/simulated/wall/shuttle/unique/burglar{
@@ -1060,8 +1062,9 @@
 	},
 /area/shuttle/escape_pod)
 "dB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/obj/machinery/atmospherics/pipe/simple/visible/purple,
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "dD" = (
@@ -1189,7 +1192,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "dU" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/medical/morgue/lower)
 "dV" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -1294,7 +1297,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "em" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/engineering/gravity_gen)
 "en" = (
 /obj/structure/shuttle_part/placeholder{
@@ -1460,7 +1463,7 @@
 /obj/machinery/computer/general_air_control/large_tank_control/wall{
 	pixel_y = -3
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/engineering/atmos)
 "eK" = (
 /obj/structure/shuttle_part/placeholder{
@@ -1854,7 +1857,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "fV" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/medical/emergency_storage)
 "fW" = (
 /obj/machinery/light/spot/weak{
@@ -1899,9 +1902,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ga" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/engineering/atmos)
 "gb" = (
 /obj/machinery/light{
@@ -2770,7 +2774,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "iD" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/quartermaster/storage)
 "iE" = (
 /obj/machinery/pipedispenser/disposal,
@@ -2861,7 +2865,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/morgue/lower)
 "iR" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/outpost/mining_main/eva)
 "iS" = (
 /obj/machinery/door/window/northleft,
@@ -3275,13 +3279,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "kp" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_open"
-	},
+/obj/structure/stairs/south,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/turbolift)
 "kq" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
@@ -3374,7 +3374,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "kA" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/rnd/eva)
 "kB" = (
 /obj/machinery/door/airlock/freezer_maint,
@@ -3521,8 +3521,13 @@
 	},
 /area/shuttle/escape_pod)
 "kZ" = (
+/obj/machinery/door/airlock/lift,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door";
+	layer = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/turbolift)
 "la" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 1
@@ -3982,7 +3987,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "mA" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hangar/briefing)
 "mD" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4018,7 +4023,7 @@
 	},
 /area/shuttle/escape_pod)
 "mJ" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/substation/supply)
 "mL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
@@ -4500,7 +4505,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "ox" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/engineering/atmos)
 "oz" = (
 /obj/structure/cable{
@@ -5100,7 +5105,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turbolift)
 "qC" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/outpost/mining_main/refinery)
 "qD" = (
 /obj/machinery/air_sensor,
@@ -5131,12 +5136,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
-"qJ" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "qK" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -5254,12 +5253,6 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
-"qY" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "qZ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5313,7 +5306,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "rg" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/vault)
 "rh" = (
 /obj/machinery/power/terminal,
@@ -6306,7 +6299,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "uz" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/engineering/drone_fabrication)
 "uA" = (
 /obj/structure/cable/green{
@@ -6509,7 +6502,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
 "ve" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hangar/cargo)
 "vf" = (
 /obj/structure/shuttle_part/placeholder{
@@ -6546,7 +6539,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "vm" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hallway/primary/aft)
 "vn" = (
 /obj/effect/floor_decal/corner_wide/purple{
@@ -6628,10 +6621,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "vB" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/engineering/atmos/air)
 "vE" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/substation/research_sublevel)
 "vG" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6805,7 +6798,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "wi" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/engineering/storage/lower)
 "wj" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6928,10 +6921,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"wK" = (
-/obj/machinery/door/airlock/lift,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "wL" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -7173,10 +7162,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"xz" = (
-/obj/structure/stairs/south,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "xA" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
@@ -7999,7 +7984,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
 "Ab" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/rnd/xenoarch_atrium)
 "Ac" = (
 /obj/machinery/light/small{
@@ -8631,7 +8616,8 @@
 	},
 /area/shuttle/escape_pod)
 "CC" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "CE" = (
@@ -8711,7 +8697,7 @@
 /obj/machinery/computer/general_air_control/large_tank_control/wall{
 	pixel_y = -3
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/engineering/atmos/air)
 "CS" = (
 /obj/structure/shuttle_part/placeholder{
@@ -9020,7 +9006,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "DO" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/substation/civilian_west)
 "DP" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -9042,7 +9028,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "DS" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/ai_monitored/storage/eva)
 "DU" = (
 /obj/structure/cable/green{
@@ -9468,7 +9454,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "EZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/crew_quarters/kitchen/freezer)
 "Fa" = (
@@ -9750,7 +9737,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/vault)
 "FY" = (
 /obj/machinery/conveyor{
@@ -9898,7 +9885,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "GA" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/substation/security)
 "GB" = (
 /obj/structure/shuttle_part/placeholder{
@@ -10084,7 +10071,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "Hi" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/substation/hangar)
 "Hj" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -10164,7 +10151,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
 "Hy" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hangar/control)
 "Hz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -10374,7 +10361,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "HZ" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hangar/intrepid)
 "Ia" = (
 /obj/structure/cable/green{
@@ -11119,12 +11106,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod)
-"Kw" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "Kx" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -11931,9 +11912,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"ML" = (
-/turf/simulated/wall/r_wall,
-/area/template_noop)
 "MM" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
@@ -12041,8 +12019,9 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "Nc" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/engineering/atmos)
 "Ne" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -13801,7 +13780,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "Sx" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hangar/auxiliary)
 "SB" = (
 /obj/machinery/power/apc{
@@ -14378,7 +14357,7 @@
 /obj/structure/sign/securearea{
 	icon_state = "radiation"
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/engineering/gravity_gen)
 "Uq" = (
 /obj/structure/cable{
@@ -15219,7 +15198,7 @@
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "Xe" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/substation/engineering/lower)
 "Xf" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -15634,7 +15613,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
 "Yu" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/janitor)
 "Yv" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -34172,7 +34151,7 @@ aa
 aa
 aa
 aa
-xv
+bR
 Kg
 dQ
 UW
@@ -34374,7 +34353,7 @@ aa
 aa
 aa
 aa
-xv
+bR
 bJ
 ub
 NG
@@ -34780,9 +34759,9 @@ aa
 aj
 kg
 kg
-xv
-xv
-xv
+bR
+bR
+bR
 kg
 kg
 kg
@@ -37022,9 +37001,9 @@ Wg
 MG
 yr
 mq
-yr
+kp
 NV
-NV
+kZ
 px
 Xy
 Ky
@@ -37223,10 +37202,10 @@ NI
 Wg
 MG
 yr
-yr
-yr
+dq
+dq
 NV
-NV
+kZ
 px
 Xy
 cj
@@ -37427,8 +37406,8 @@ MG
 yr
 Ac
 yr
-NV
-NV
+ph
+ph
 px
 Xy
 px
@@ -43477,12 +43456,12 @@ aa
 aa
 aa
 aa
-dq
-dq
-dq
-dq
-dq
-ML
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43679,12 +43658,12 @@ aa
 aa
 aa
 aa
-dq
-kZ
-qJ
-xz
-wK
-bR
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43881,12 +43860,12 @@ aa
 aa
 aa
 aa
-dq
-kZ
-qY
-qY
-wK
-bR
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44083,12 +44062,12 @@ aa
 aa
 aa
 aa
-dq
-kZ
-Kw
-kZ
-kp
-kp
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44285,12 +44264,12 @@ aa
 aa
 aa
 aa
-dq
-dq
-dq
-dq
-dq
-ML
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

@@ -53,10 +53,6 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/vault)
-"aj" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/reinforced,
-/area/crew_quarters/captain)
 "al" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -209,7 +205,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "aE" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/janitor)
 "aF" = (
 /obj/effect/floor_decal/corner_wide/red/full{
@@ -1563,10 +1559,12 @@
 	},
 /area/crew_quarters/fitness)
 "eR" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/obj/structure/grille,
+/obj/structure/window/shuttle/placeholder/cardinal,
+/turf/simulated/floor/plating,
 /area/medical/smoking)
 "eX" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/medical/ward/isolation)
 "fc" = (
 /turf/simulated/wall/r_wall,
@@ -1615,7 +1613,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "fq" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/cafeteria)
 "fr" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -1759,7 +1757,7 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "ga" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/toilet)
 "gc" = (
 /obj/structure/cable/green{
@@ -2014,8 +2012,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "hR" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/reinforced,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/bridge/minibar)
 "hS" = (
 /obj/structure/cable/green{
@@ -2258,10 +2257,6 @@
 /obj/item/stock_parts/subspace/amplifier,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
-"iR" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/plating,
-/area/medical/washroom)
 "iS" = (
 /obj/machinery/light{
 	dir = 1
@@ -2389,7 +2384,7 @@
 /area/crew_quarters/theatre)
 "jF" = (
 /obj/structure/sign/nosmoking_1,
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/vault)
 "jG" = (
 /obj/machinery/door/airlock/medical,
@@ -2767,9 +2762,12 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "lC" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/bridge/minibar)
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/crew_quarters/heads/cmo)
 "lD" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2790,7 +2788,7 @@
 /turf/simulated/floor/wood,
 /area/hallway/primary/starboard)
 "lK" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hallway/primary/aft)
 "lL" = (
 /obj/structure/lattice,
@@ -3115,7 +3113,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/aft)
 "nf" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/security/vacantoffice2)
 "ng" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3235,7 +3233,7 @@
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
 "nH" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/captain)
 "nL" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
@@ -3255,7 +3253,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "nP" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/vault)
 "nU" = (
 /obj/structure/cable/green{
@@ -3458,7 +3456,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "pf" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/bridge/aibunker)
 "pg" = (
 /obj/machinery/optable{
@@ -3838,7 +3836,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "rs" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/journalistoffice)
 "ru" = (
 /obj/structure/cable/green{
@@ -3989,15 +3987,17 @@
 /turf/simulated/floor,
 /area/maintenance/vault)
 "su" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/security/forensics_office)
 "sw" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/medical/washroom)
 "sA" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/medical/equipment)
 "sB" = (
 /obj/structure/table/wood,
@@ -4040,6 +4040,11 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/hop)
+"sR" = (
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/crew_quarters/theatre)
 "sV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4204,15 +4209,15 @@
 	pixel_x = 1;
 	pixel_y = -4
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/medical/ward/isolation)
 "tH" = (
-/obj/machinery/light{
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille/diagonal{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced,
-/area/bridge)
+/turf/simulated/floor/wood,
+/area/crew_quarters/captain)
 "tJ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4351,8 +4356,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "uu" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/reinforced,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/bridge)
 "uw" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -4386,6 +4392,10 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/vault)
+"uD" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/crew_quarters/captain)
 "uG" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
@@ -4408,7 +4418,8 @@
 /turf/simulated/floor,
 /area/maintenance/vault)
 "uP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/medical/equipment)
 "uR" = (
@@ -4499,7 +4510,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "vx" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/heads/hop)
 "vz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -4536,8 +4547,9 @@
 	},
 /area/crew_quarters/fitness)
 "vI" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/security/forensics_morgue)
 "vK" = (
 /turf/simulated/wall/shuttle/placeholder/cardinal,
@@ -4613,7 +4625,7 @@
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/cmo)
 "wq" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/security/detectives_office)
 "ws" = (
 /obj/structure/disposalpipe/segment{
@@ -4658,7 +4670,7 @@
 	pixel_x = 32;
 	pixel_y = -2
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/cafeteria)
 "wB" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized,
@@ -4766,9 +4778,12 @@
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
 "xc" = (
-/obj/machinery/light,
-/turf/simulated/floor/wood,
-/area/crew_quarters/captain)
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/minibar)
 "xd" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable/green{
@@ -4830,7 +4845,7 @@
 /turf/simulated/floor,
 /area/crew_quarters/sleep/cryo)
 "xs" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hallway/primary/starboard)
 "xv" = (
 /obj/machinery/door/airlock/highsecurity,
@@ -5047,10 +5062,6 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
-"yy" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/turf/simulated/floor,
-/area/medical/smoking)
 "yz" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/beach/water/pool,
@@ -5135,7 +5146,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "yX" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/medical/washroom)
 "yZ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -5360,7 +5371,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "AC" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/hallway/medical/upper)
 "AG" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
@@ -5593,7 +5604,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "Cf" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/sleep/cryo)
 "Ch" = (
 /obj/machinery/power/apc/low{
@@ -5696,7 +5707,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/maintenance/vault)
 "CQ" = (
 /obj/structure/cryofeed{
@@ -5715,9 +5726,12 @@
 /turf/simulated/floor/carpet,
 /area/janitor)
 "CS" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille/diagonal{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
-/area/bridge)
+/area/crew_quarters/captain)
 "CW" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/storage/hazardvest/white{
@@ -5745,7 +5759,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "Dg" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/bridge/meeting_room)
 "Dh" = (
 /obj/effect/floor_decal/corner_wide/blue{
@@ -5853,6 +5867,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
+"DN" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/bridge/minibar)
 "DQ" = (
 /turf/simulated/open,
 /area/maintenance/vault)
@@ -5868,7 +5886,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "Ed" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/security/forensics_morgue)
 "Ef" = (
 /obj/structure/sink{
@@ -6055,7 +6073,7 @@
 /turf/simulated/floor/reinforced,
 /area/tcommsat/chamber)
 "Fj" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/security/investigations_storage)
 "Fm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
@@ -6065,7 +6083,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "Fo" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/security/investigations)
 "Fs" = (
 /obj/structure/bed/chair/office/bridge{
@@ -6189,11 +6207,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/toilet)
-"Gg" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/turf/simulated/floor,
-/area/crew_quarters/heads/cmo)
 "Go" = (
 /obj/machinery/door/window/northleft,
 /obj/effect/floor_decal/spline/plain{
@@ -6229,7 +6242,8 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "Gy" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/cmo)
 "GF" = (
@@ -6366,7 +6380,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "Hz" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/theatre)
 "HA" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -6392,7 +6406,7 @@
 /area/hallway/medical/upper)
 "HI" = (
 /obj/structure/sign/biohazard,
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/medical/ward/isolation)
 "HS" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
@@ -6514,8 +6528,9 @@
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/maintenance/vault)
 "Jc" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/crew_quarters/fitness)
 "Jf" = (
 /obj/structure/closet/secure_closet/personal,
@@ -6578,7 +6593,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/toilet)
 "JH" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/security/forensics_office)
 "JI" = (
 /obj/structure/cable/green{
@@ -6623,7 +6638,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
 "JQ" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/bridge)
 "JS" = (
 /obj/structure/closet/wardrobe/grey,
@@ -6694,6 +6709,11 @@
 "Ky" = (
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/crew_quarters/fitness/pool)
+"Kz" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/placeholder,
+/turf/simulated/floor/plating,
+/area/medical/washroom)
 "KC" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
@@ -6893,8 +6913,9 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "LZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
 "Ma" = (
 /obj/structure/cable/green{
@@ -7361,6 +7382,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Ps" = (
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/reinforced,
+/area/bridge/minibar)
 "Pt" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7668,10 +7694,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
 "Rr" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/locker)
 "Rs" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/bridge/minibar)
 "Rv" = (
 /obj/structure/cable/green{
@@ -7902,7 +7928,8 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "SX" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/security/vacantoffice2)
 "SY" = (
@@ -8249,6 +8276,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"Vi" = (
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/crew_quarters/heads/hop)
 "Vm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/tiled,
@@ -8317,7 +8349,7 @@
 /turf/simulated/open,
 /area/turret_protected/ai)
 "VC" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/lawoffice/representative)
 "VD" = (
 /obj/structure/cable{
@@ -8445,8 +8477,9 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "WH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/tiled,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor,
 /area/crew_quarters/captain)
 "WJ" = (
 /turf/simulated/floor/tiled,
@@ -8609,7 +8642,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/hop)
 "Yg" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/lawoffice/consular)
 "Yh" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
@@ -8759,10 +8792,11 @@
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "YX" = (
-/turf/simulated/wall,
+/turf/simulated/wall/placeholder_standard,
 /area/crew_quarters/fitness)
 "YY" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/medical/smoking)
 "Za" = (
@@ -8775,6 +8809,11 @@
 /obj/machinery/door/airlock/highsecurity,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"Zc" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/placeholder/cardinal,
+/turf/simulated/floor/plating,
+/area/bridge)
 "Zd" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -8799,6 +8838,11 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
+"Zj" = (
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/bridge/meeting_room)
 "Zl" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8816,6 +8860,11 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
+"Zq" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/placeholder,
+/turf/simulated/floor/plating,
+/area/medical/equipment)
 "Zs" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -21537,9 +21586,9 @@ at
 at
 at
 QL
-os
+sR
 tL
-os
+sR
 QL
 at
 at
@@ -21726,28 +21775,28 @@ nX
 uP
 uP
 uP
-uP
-uP
+Zq
+Zq
 DK
 sw
 sw
 sw
+Kz
 sw
-sw
-sw
+Kz
 DK
-iR
-iR
+sw
+sw
 DK
 Iu
 EN
 Iu
 eN
 eN
-Nl
-Nl
-Nl
-Nl
+sR
+sR
+sR
+sR
 eN
 eN
 at
@@ -21920,7 +21969,7 @@ at
 at
 at
 at
-yy
+YY
 Sl
 BF
 BC
@@ -22122,7 +22171,7 @@ at
 at
 at
 at
-yy
+YY
 ei
 mn
 wn
@@ -22153,7 +22202,7 @@ EW
 EW
 ZM
 KJ
-Nl
+sR
 at
 at
 fh
@@ -22324,7 +22373,7 @@ at
 at
 at
 at
-yy
+YY
 ID
 bn
 Rq
@@ -22355,7 +22404,7 @@ Xh
 Xh
 rS
 KJ
-Nl
+sR
 at
 at
 fh
@@ -22523,7 +22572,7 @@ at
 at
 at
 at
-Gg
+lC
 Gy
 uA
 uA
@@ -22557,7 +22606,7 @@ kM
 kM
 ZM
 KJ
-Nl
+sR
 at
 at
 fh
@@ -22725,7 +22774,7 @@ at
 at
 at
 at
-vh
+Gy
 Gt
 xB
 aq
@@ -22927,7 +22976,7 @@ at
 at
 at
 at
-vh
+Gy
 YS
 Mf
 ax
@@ -23129,7 +23178,7 @@ at
 at
 at
 at
-vh
+Gy
 AL
 Wp
 az
@@ -23164,7 +23213,7 @@ yp
 EW
 KJ
 EW
-Nl
+sR
 at
 fh
 aa
@@ -23366,7 +23415,7 @@ QG
 ZM
 KJ
 Xh
-Nl
+sR
 at
 VM
 KN
@@ -23568,7 +23617,7 @@ CO
 KJ
 KJ
 kM
-os
+sR
 at
 at
 at
@@ -23972,7 +24021,7 @@ KJ
 KJ
 KJ
 EW
-Nl
+sR
 at
 fh
 aa
@@ -24174,7 +24223,7 @@ QG
 ZM
 KJ
 Xh
-Nl
+sR
 at
 fh
 aa
@@ -24376,7 +24425,7 @@ yp
 kM
 KJ
 kM
-Nl
+sR
 at
 fh
 aa
@@ -24780,7 +24829,7 @@ KJ
 KJ
 KJ
 QG
-Nl
+sR
 at
 fh
 aa
@@ -24982,7 +25031,7 @@ hp
 KJ
 KJ
 Xh
-Nl
+sR
 at
 fh
 aa
@@ -25184,7 +25233,7 @@ KJ
 KJ
 KJ
 QG
-Nl
+sR
 at
 fh
 aa
@@ -25606,7 +25655,7 @@ aa
 aa
 aa
 aa
-Wm
+aa
 Wm
 Wm
 Wm
@@ -25774,7 +25823,7 @@ nP
 HU
 HU
 HU
-nP
+HU
 HU
 HU
 zE
@@ -25809,7 +25858,7 @@ KN
 KN
 KN
 Mo
-Wm
+aa
 Wm
 Wm
 Wm
@@ -26012,7 +26061,7 @@ at
 at
 VM
 Mo
-Wm
+aa
 Wm
 Wm
 Wm
@@ -26206,12 +26255,12 @@ md
 WH
 WH
 md
-aj
-aj
-aj
-aj
-aj
-at
+WH
+WH
+WH
+WH
+WH
+CS
 at
 VM
 Mo
@@ -26412,9 +26461,9 @@ mC
 mC
 mC
 mC
-aj
-aj
-at
+tH
+WH
+CS
 at
 fh
 Wm
@@ -26615,9 +26664,9 @@ gk
 Ka
 mC
 mC
-aj
-aj
-at
+tH
+WH
+CS
 fh
 Wm
 Wm
@@ -26818,10 +26867,10 @@ kB
 mC
 mC
 mC
-aj
-aj
-fh
-Wm
+tH
+WH
+VM
+Mo
 Wm
 Wm
 Wm
@@ -27020,10 +27069,10 @@ kB
 mC
 mC
 mC
-xc
-aj
-VM
-Mo
+mC
+WH
+at
+fh
 Wm
 Wm
 Wm
@@ -27222,8 +27271,8 @@ kB
 mC
 mC
 mC
-mC
-aj
+uD
+WH
 at
 fh
 Wm
@@ -27425,7 +27474,7 @@ ob
 mC
 mC
 mC
-aj
+WH
 at
 fh
 Wm
@@ -27628,8 +27677,8 @@ JQ
 Sa
 CK
 CK
-uu
-CS
+Zc
+fh
 Wm
 Wm
 Wm
@@ -27831,7 +27880,7 @@ iA
 iA
 iA
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -28033,7 +28082,7 @@ iA
 iA
 iA
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -28235,7 +28284,7 @@ iA
 iA
 iA
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -28437,7 +28486,7 @@ iA
 OG
 hu
 CK
-tH
+fh
 Wm
 Wm
 Wm
@@ -28639,7 +28688,7 @@ di
 OG
 PQ
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -28841,7 +28890,7 @@ iA
 OG
 PQ
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -29043,7 +29092,7 @@ di
 OG
 PQ
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -29245,7 +29294,7 @@ iA
 OG
 PQ
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -29447,7 +29496,7 @@ di
 OG
 PQ
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -29649,7 +29698,7 @@ iA
 OG
 jf
 CK
-tH
+fh
 Wm
 Wm
 Wm
@@ -29851,7 +29900,7 @@ Pq
 iA
 iA
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -30053,7 +30102,7 @@ wJ
 iA
 iA
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -30255,7 +30304,7 @@ wJ
 iA
 iA
 uu
-CS
+fh
 Wm
 Wm
 Wm
@@ -30456,8 +30505,8 @@ JQ
 PZ
 CK
 CK
-uu
-CS
+Zc
+fh
 Wm
 Wm
 Wm
@@ -30858,7 +30907,7 @@ hP
 SR
 SR
 Rx
-RC
+DN
 hR
 at
 fh
@@ -31060,7 +31109,7 @@ NO
 RC
 RC
 RC
-lC
+RC
 hR
 at
 fh
@@ -31264,8 +31313,8 @@ RC
 RC
 RC
 hR
-Rh
-PF
+at
+fh
 Wm
 Wm
 Wm
@@ -31464,10 +31513,10 @@ Rx
 RC
 RC
 RC
+xc
 hR
-hR
-fh
-Wm
+Rh
+PF
 Wm
 Wm
 Wm
@@ -31665,9 +31714,9 @@ RC
 RC
 RC
 RC
+xc
 hR
-hR
-at
+Ps
 fh
 Wm
 Wm
@@ -31866,9 +31915,9 @@ RC
 RC
 fo
 RC
+xc
 hR
-hR
-at
+Ps
 at
 fh
 Wm
@@ -32069,7 +32118,7 @@ hR
 hR
 hR
 hR
-at
+Ps
 at
 Rh
 PF
@@ -32251,20 +32300,20 @@ RD
 Rk
 xx
 xx
-HS
-HS
-HS
+Zj
+Zj
+Zj
 xx
-HS
-HS
-HS
+Zj
+Zj
+Zj
 xx
 CK
-ZP
+uu
 CK
-ZP
+uu
 CK
-ZP
+uu
 CK
 Tr
 Tr
@@ -32274,7 +32323,7 @@ Tr
 Tr
 Tr
 PF
-Wm
+aa
 Wm
 Wm
 Wm
@@ -32475,7 +32524,7 @@ aa
 aa
 aa
 aa
-Wm
+aa
 Wm
 Wm
 Wm
@@ -32653,7 +32702,7 @@ Dd
 Dd
 lm
 bg
-nu
+Vi
 at
 at
 at
@@ -32676,7 +32725,7 @@ aa
 aa
 aa
 aa
-Wm
+aa
 Wm
 Wm
 Wm
@@ -32855,7 +32904,7 @@ Dd
 Dd
 Dd
 Dd
-nu
+Vi
 at
 at
 at
@@ -33057,7 +33106,7 @@ vx
 Dd
 Dd
 Cc
-nu
+Vi
 at
 at
 at
@@ -33259,7 +33308,7 @@ vx
 RD
 RD
 RD
-nu
+Vi
 at
 at
 at
@@ -34043,7 +34092,7 @@ HU
 HU
 HU
 HU
-nP
+HU
 HU
 HU
 HU

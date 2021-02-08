@@ -121,6 +121,14 @@
 	icon = 'icons/turf/smooth/placeholder.dmi'
 	canSmoothWith = null
 
+/turf/simulated/wall/placeholder_standard
+	name = "placeholder wall"
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/placeholder_standard,
+		/turf/simulated/wall/shuttle/placeholder
+	)
+
 /turf/simulated/wall/shuttle/placeholder/cardinal
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(

@@ -486,6 +486,22 @@
 		/obj/structure/window/shuttle/skrell
 	)
 
+/obj/structure/window/shuttle/placeholder
+	name = "placeholder window"
+	desc = "It looks extremely strong. Might take many good hits to crack it."
+	icon = 'icons/obj/smooth/placeholder_window.dmi'
+	icon_state = "placeholder_window"
+	health = 500
+	maxhealth = 500
+	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
+	canSmoothWith = list(
+		/obj/structure/window/shuttle/placeholder,
+		/turf/simulated/wall/shuttle/placeholder
+	)
+
+/obj/structure/window/shuttle/placeholder/cardinal
+	smooth = SMOOTH_MORE
+
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
 
