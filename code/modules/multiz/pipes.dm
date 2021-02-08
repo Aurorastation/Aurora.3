@@ -287,3 +287,8 @@
 	color = PIPE_COLOR_BLUE
 /obj/machinery/atmospherics/pipe/zpipe/down/blue
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/zpipe/up/purple
+	color = PIPE_COLOR_PURPLE
+/obj/machinery/atmospherics/pipe/zpipe/down/purple
+	color = PIPE_COLOR_PURPLE

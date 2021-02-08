@@ -2,8 +2,8 @@
 	name = "Placeholder"
 	full_name = "NSS Placeholder"
 	path = "placeholder"
-
-	lobby_screens = list("aurora_asteroid", "aurora_postcard")
+	lobby_icons = list('icons/misc/titlescreens/placeholder/placeholder.dmi')
+	lobby_transitions = FALSE
 
 	station_levels = list(1, 2, 3)
 	admin_levels = list(4)

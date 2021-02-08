@@ -156,6 +156,11 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/max_pressure_setting = 50 * ONE_ATMOSPHERE
 	circuit = /obj/item/circuitboard/air_management/tank_control
 
+/obj/machinery/computer/general_air_control/large_tank_control/wall
+	icon = 'icons/obj/modular_telescreen.dmi'
+	icon_state = "telescreen"
+	icon_screen = "alarm_monitor"
+
 /obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data
