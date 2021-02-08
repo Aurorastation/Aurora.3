@@ -2156,6 +2156,12 @@
 	icon_state = "tiles"
 	},
 /area/antag/raider)
+"aiy" = (
+/obj/machinery/vending/security,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "aiz" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/tdome/tdomeobserve)
@@ -3583,7 +3589,7 @@
 "avU" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Security Disarmament Point";
-	req_access = list(2)
+	req_access = list(1)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -3803,6 +3809,18 @@
 /obj/machinery/megavendor,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"aBO" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "CCIA Bodyguard Sidearm";
+	req_access = list(109)
+	},
+/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/energy/disruptorpistol/magnum,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "aBS" = (
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
@@ -6839,6 +6857,7 @@
 /area/shuttle/escape)
 "aWZ" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "13,3";
 	name = "transport shuttle"
@@ -8166,6 +8185,39 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
+"bFS" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "bGo" = (
 /obj/machinery/door/airlock/centcom{
 	locked = 1;
@@ -8332,7 +8384,7 @@
 "bKw" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
-	req_access = list(2)
+	req_access = list(1)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -8916,6 +8968,20 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/mercenary)
+"cfh" = (
+/obj/effect/floor_decal/corner/blue/full,
+/obj/structure/table/rack,
+/obj/item/storage/box/cdeathalarm_kit{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/device/camera,
+/obj/item/device/megaphone/sec,
+/obj/item/device/megaphone/sec,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "cfo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -9327,6 +9393,14 @@
 	icon_state = "wood-broken4"
 	},
 /area/centcom/legion/hangar5)
+"csc" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "cti" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -10548,6 +10622,7 @@
 	name = "transport shuttle"
 	},
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "0,3";
 	name = "transport shuttle";
@@ -10792,8 +10867,7 @@
 /area/antag/raider)
 "dnd" = (
 /obj/machinery/door/window/brigdoor/eastright{
-	name = "Shuttle Brig";
-	req_access = list(2)
+	name = "Shuttle Brig"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
@@ -10841,6 +10915,26 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/ferry)
+"doU" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = -9
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "dpi" = (
 /obj/machinery/iv_drip,
 /obj/machinery/vending/wallmed1{
@@ -11168,6 +11262,7 @@
 /area/shuttle/skipjack)
 "dGi" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "1,3";
 	name = "transport shuttle"
@@ -11824,6 +11919,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
+"dWZ" = (
+/obj/effect/landmark{
+	name = "CCIAEscort"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "dXe" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "8,1"
@@ -13987,6 +14090,15 @@
 	icon_state = "wood"
 	},
 /area/centcom/evac)
+"fsy" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ion Rifle"
+	},
+/obj/item/gun/energy/rifle/ionrifle,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "fsT" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
@@ -16478,7 +16590,8 @@
 /area/centcom/specops)
 "gMq" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "6,22"
+	icon_state = "6,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -17474,6 +17587,26 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
+"hpB" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = 1
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = -9
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "hpC" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -19834,6 +19967,54 @@
 	icon_state = "bar"
 	},
 /area/antag/mercenary)
+"iRr" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "iRA" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -20270,6 +20451,36 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
+"jhw" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "FIB Sidearm";
+	req_access = list(109)
+	},
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "jhx" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/black,
@@ -21478,6 +21689,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/syndicate_elite)
+"kbh" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "kbi" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "2,7"
@@ -21842,7 +22065,7 @@
 "kml" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Cell 2";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -23604,6 +23827,7 @@
 /area/shuttle/merchant)
 "lvN" = (
 /obj/structure/table/reinforced,
+/obj/machinery/recharger,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -23788,7 +24012,8 @@
 /area/shuttle/merchant)
 "lCv" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "7,22"
+	icon_state = "7,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -23940,7 +24165,8 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastright{
 	name = "dispensary";
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/dropper,
 /turf/unsimulated/floor{
@@ -24519,7 +24745,7 @@
 "lYZ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Detention Wing";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
@@ -24531,7 +24757,7 @@
 	id = "detention";
 	name = "detention wing blast doors";
 	pixel_x = -23;
-	req_access = list(108)
+	req_access = list(109)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -25024,6 +25250,7 @@
 	name = "transport shuttle"
 	},
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,3";
 	name = "transport shuttle";
@@ -25403,7 +25630,7 @@
 "mxw" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Cell 1";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -25494,10 +25721,10 @@
 "mBP" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Advanced Interrogation";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/specops)
 "mBU" = (
@@ -25878,6 +26105,29 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/mercenary)
+"mPL" = (
+/obj/structure/table/rack,
+/obj/item/storage/briefcase/aluminium{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/storage/briefcase/aluminium{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/storage/lockbox/cciaa/fib{
+	pixel_y = -1
+	},
+/obj/item/storage/lockbox/cciaa/fib{
+	pixel_y = -1
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "mPM" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "3,1"
@@ -26315,6 +26565,59 @@
 /obj/item/rig/ert/engineer,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
+"nfl" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/obj/structure/closet{
+	icon_closed = "blue";
+	icon_state = "blue";
+	name = "\improper FIB tactical gear"
+	},
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "nfY" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/spawning)
@@ -27568,6 +27871,17 @@
 	},
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
+"nQb" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/zipties,
+/obj/item/storage/box/zipties{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "nQe" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3"
@@ -29939,6 +30253,21 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"pwd" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "FIB Primary";
+	req_access = list(109)
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "pxm" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -32941,8 +33270,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southright{
-	name = "holding cell";
-	req_access = list(2)
+	name = "holding cell"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -35292,6 +35620,7 @@
 /area/antag/ninja)
 "thI" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,7";
 	name = "transport shuttle"
@@ -35449,6 +35778,21 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
+"tqt" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "CCIA Bodyguard Primary";
+	req_access = list(109)
+	},
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "tqK" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
@@ -35851,7 +36195,7 @@
 "tDo" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Emergency Surgery";
-	req_one_access = list(104)
+	req_one_access = list(45,104)
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -36078,6 +36422,27 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
+"tKK" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/storage/firstaid/o2{
+	layer = 2.99;
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/o2{
+	layer = 2.99;
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "tKY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -37119,14 +37484,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
-"uvS" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "0,3";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/evac)
 "uwJ" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "12,13"
@@ -37512,7 +37869,8 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
@@ -38559,6 +38917,14 @@
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
+"vxK" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "vxP" = (
 /obj/effect/landmark{
 	name = "skrell_entry"
@@ -38771,7 +39137,8 @@
 "vFX" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = list(104)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/ghostspawpoint{
@@ -39034,6 +39401,19 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"vNg" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Ready Room";
+	req_access = list(109)
+	},
+/obj/machinery/door/blast/odin{
+	id = "CCIAReadyRoom";
+	name = "Ready Room"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "vNj" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "5,0"
@@ -39582,7 +39962,8 @@
 /area/antag/raider)
 "weL" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "5,22"
+	icon_state = "5,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -40051,8 +40432,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	name = "holding cell";
-	req_access = list(2)
+	name = "holding cell"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -40619,7 +40999,8 @@
 /area/shuttle/transport1)
 "wEM" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "8,22"
+	icon_state = "8,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -41109,7 +41490,8 @@
 /area/centcom/holding)
 "wUa" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "9,22"
+	icon_state = "9,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -42657,8 +43039,17 @@
 	},
 /area/antag/ninja)
 "xOs" = (
-/obj/structure/table/reinforced,
-/obj/machinery/recharger,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "CCIAReadyRoom";
+	name = "Ready Room";
+	pixel_x = -23;
+	pixel_y = 7;
+	req_access = list(103)
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -68121,8 +68512,8 @@ sNE
 bYs
 bYs
 lSm
-uSv
 uxa
+uSv
 uSv
 uSv
 uSv
@@ -68378,7 +68769,7 @@ vVC
 eGb
 bYs
 leH
-uSv
+uxa
 uSv
 roS
 voh
@@ -68635,7 +69026,7 @@ vVC
 vVC
 bYs
 kjq
-uSv
+uxa
 uSv
 vNR
 ayw
@@ -68892,14 +69283,14 @@ vVC
 vVC
 fdH
 jLm
-uSv
 uxa
+uSv
 vNR
 ayw
 ymd
 lny
 vVC
-vVC
+dWZ
 bzK
 bYs
 bYs
@@ -69669,7 +70060,7 @@ ssN
 ayw
 sBa
 kjl
-xOs
+vVC
 lvN
 uxs
 bYs
@@ -69926,7 +70317,7 @@ bYs
 bYs
 bYs
 bYs
-bYs
+vNg
 bYs
 bYs
 bYs
@@ -70179,14 +70570,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+mPL
+kbh
+xOs
+vxK
+vxK
+kbh
+cfh
 eBz
 tAC
 wCA
@@ -70436,14 +70827,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+iRr
+vVC
+vVC
+vVC
+vVC
+vVC
+bFS
 eBz
 kOH
 xzI
@@ -70693,14 +71084,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+pwd
+vVC
+vVC
+vVC
+vVC
+vVC
+tqt
 eBz
 tAC
 ahe
@@ -70950,14 +71341,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+jhw
+vVC
+vVC
+vVC
+vVC
+vVC
+aBO
 eBz
 eBz
 ayK
@@ -71207,14 +71598,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+nfl
+doU
+csc
+csc
+csc
+hpB
+tKK
 eBz
 eAg
 ahe
@@ -71464,14 +71855,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+bYs
+bYs
+nQb
+aiy
+fsy
+bYs
+bYs
 eBz
 vUv
 ahe
@@ -71723,11 +72114,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+bYs
+bYs
+bYs
+bYs
 aaM
 eBz
 tAC
@@ -75877,7 +76268,7 @@ aWV
 aWI
 bMd
 jON
-uvS
+wne
 wzE
 aJH
 vNl

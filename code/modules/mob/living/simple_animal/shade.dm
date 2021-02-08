@@ -41,6 +41,9 @@
 	new residue(loc)
 	qdel(src)
 
+/mob/living/simple_animal/shade/can_name(var/mob/living/M)
+	return FALSE
+
 /mob/living/simple_animal/shade/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 

@@ -963,35 +963,42 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[BELT_LAYER] = null
-	overlays_raw[BELT_LAYER_ALT] = null
-
 	if(belt)
-		belt.screen_loc = ui_belt	//TODO
-		var/t_state = belt.item_state
-		var/t_icon = belt.icon || belt.icon_state
-		var/image/standing
+		belt.screen_loc = ui_belt
 
+		var/image/result_layer = null
+
+		//Determine the icon to use
+		var/t_icon = INV_BELT_DEF_ICON
 		if(belt.contained_sprite)
 			belt.auto_adapt_species(src)
-			t_state = "[UNDERSCORE_OR_NULL(belt.icon_species_tag)][belt.item_state][WORN_BELT]"
+			var/t_state = "[UNDERSCORE_OR_NULL(belt.icon_species_tag)][belt.item_state][WORN_BELT]"
 
-			if(belt.icon_override)
-				t_icon = belt.icon_override
-
+			result_layer = image(belt.icon_override || belt.icon, t_state)
 		else if(belt.icon_override)
 			t_icon = belt.icon_override
 		else if(belt.sprite_sheets && belt.sprite_sheets[GET_BODY_TYPE])
 			t_icon = belt.sprite_sheets[GET_BODY_TYPE]
+		else if(belt.item_icons && (slot_belt_str in belt.item_icons))
+			t_icon = belt.item_icons[slot_belt_str]
 		else
-			t_icon = 'icons/mob/belt.dmi'
+			t_icon = INV_BELT_DEF_ICON
 
-		standing = image(t_icon, t_state)
-		standing.appearance_flags = RESET_ALPHA
+		if(!result_layer) //Create the image
+			result_layer = image(t_icon, belt.icon_state)
+
+		if(belt.color)
+			result_layer.color = belt.color
+
+		result_layer.appearance_flags = RESET_ALPHA
+		var/image/worn_overlays = belt.worn_overlays(t_icon)
+		if(worn_overlays)
+			result_layer.overlays.Add(worn_overlays)
+
 		var/list/ovr
 
 		if(belt.contents.len && istype(belt, /obj/item/storage/belt))
-			ovr = list(standing)
+			ovr = list(result_layer)
 			for(var/obj/item/i in belt.contents)
 				var/c_state
 				var/c_icon
@@ -999,22 +1006,30 @@ There are several things that need to be remembered:
 					c_state = "[UNDERSCORE_OR_NULL(i.icon_species_tag)][i.item_state][WORN_BELT]"
 					c_icon = belt.icon_override || belt.icon
 				else
-					c_icon = 'icons/mob/belt.dmi'
+					c_icon = INV_BELT_DEF_ICON
 					c_state = i.item_state || i.icon_state
 				var/image/belt_item_image = image(c_icon, c_state)
+				if(i.color)
+					belt_item_image.color = i.color
 				belt_item_image.appearance_flags = RESET_ALPHA
 				ovr += image(c_icon, c_state)
 
-		var/beltlayer = BELT_LAYER
+		var/belt_layer = BELT_LAYER
 		if(istype(belt, /obj/item/storage/belt))
-			var/obj/item/storage/belt/ubelt = belt
-			if(ubelt.show_above_suit)
-				beltlayer = BELT_LAYER_ALT
+			var/obj/item/storage/belt/B = belt
+			if(B.show_above_suit)
+				belt_layer = BELT_LAYER_ALT
 
-		overlays_raw[beltlayer] = ovr || standing
+		overlays_raw[belt_layer] = ovr || result_layer
+	else
+		overlays_raw[BELT_LAYER] = null
+		overlays_raw[BELT_LAYER_ALT] = null
 
 	if(update_icons)
 		update_icon()
+
+	if (QDELING(src))
+		return
 
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
 	if (QDELING(src))
