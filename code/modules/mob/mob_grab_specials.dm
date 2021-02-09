@@ -202,3 +202,61 @@
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
 				target.apply_damage(15, PAIN)
 				src.state = GRAB_AGGRESSIVE
+
+
+/obj/item/grab/proc/mandible_pull(mob/living/carbon/human/target, mob/living/carbon/human/attacker, var/target_zone)
+	var/obj/item/organ/vaurca/mandibles/O = target.internal_organs_by_name[BP_VAURCA_MANDIBLE]
+	if(isunathi(attacker) || (istype(attacker.gloves,/obj/item/clothing/gloves/force)))
+		switch(O.mandible_size)
+			if(1)	
+				if(prob(45))
+					visible_message("<span class='danger'>[assailant] violently tugs on [target]'s mandible, ripping them out!</span>")
+					target.apply_damage(75, PAIN)
+					target.apply_damage(35, BRUTE, BP_HEAD)
+					O.forceMove(target.loc)
+					O.removed(target, attacker)
+					qdel(src)
+					attacker.put_in_hands(O)
+					target.verbs -= /mob/living/carbon/human/proc/bugbite
+					to_chat(target, "<span class='warning'>Your mandible is torn out!</span>")
+					new /obj/effect/gibspawner/xeno(target.loc)
+				else
+					visible_message("<span class='danger'>[assailant] violently tugs on [target]'s mandible, but slices their hand in the process and lets go!</span>")
+					target.apply_damage(15, PAIN)
+					attacker.apply_damage(5, BRUTE)
+					src.state = GRAB_PASSIVE
+			if(2)	
+				if(prob(25))
+					visible_message("<span class='danger'>[assailant] violently tugs on [target]'s mandible, ripping them out!</span>")
+					target.apply_damage(75, PAIN)
+					target.apply_damage(35, BRUTE, BP_HEAD)
+					O.forceMove(target.loc)
+					O.removed(target, attacker)
+					qdel(src)
+					attacker.put_in_hands(O)
+					target.verbs -= /mob/living/carbon/human/proc/bugbite
+					to_chat(target, "<span class='warning'>Your mandible is torn out!</span>")
+					new /obj/effect/gibspawner/xeno(target.loc)
+				else
+					visible_message("<span class='danger'>[assailant] violently tugs on [target]'s mandible, but slices their hand in the process and lets go!</span>")
+					target.apply_damage(5, PAIN)
+					attacker.apply_damage(15, BRUTE)
+					src.state = GRAB_PASSIVE
+			if(3)	
+				if(prob(15))
+					visible_message("<span class='danger'>[assailant] violently tugs on [target]'s mandible, ripping them out!</span>")
+					target.apply_damage(85, PAIN)
+					target.apply_damage(45, BRUTE, BP_HEAD)
+					O.forceMove(target.loc)
+					O.removed(target, attacker)
+					qdel(src)
+					attacker.put_in_hands(O)
+					target.verbs -= /mob/living/carbon/human/proc/bugbite
+					to_chat(target, "<span class='warning'>Your mandible is torn out!</span>")
+					new /obj/effect/gibspawner/xeno(target.loc)
+				else
+					visible_message("<span class='danger'>[assailant] violently tugs on [target]'s mandible, but slices their hand in the process and lets go!</span>")
+					target.apply_damage(5, PAIN)
+					attacker.apply_damage(15, BURN)
+					src.state = GRAB_PASSIVE
+

@@ -116,6 +116,7 @@
 		H.update_inv_r_hand()
 	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
 
+
 /obj/item/vaurca/box
 	name = "puzzle box"
 	desc = "A classic Zo'rane puzzle box, a common sight in Vaurcae colonies."

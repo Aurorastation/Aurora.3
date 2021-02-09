@@ -34,6 +34,20 @@
 	sprint_cost_factor = 0.40
 	stamina_recovery = 3
 
+	has_organ = list(
+		BP_NEURAL_SOCKET        = /obj/item/organ/vaurca/neuralsocket,
+		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
+		BP_FILTRATION_BIT       = /obj/item/organ/vaurca/filtrationbit,
+		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
+		BP_PHORON_RESERVE  = /obj/item/organ/vaurca/preserve,
+		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
+		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
+		BP_STOMACH             = /obj/item/organ/internal/stomach,
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
+		BP_VAURCA_MANDIBLE     = /obj/item/organ/vaurca/mandibles
+	)
+
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
@@ -156,7 +170,8 @@
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
-		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit
+		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit,
+		BP_VAURCA_MANDIBLE     = /obj/item/organ/vaurca/mandibles/warform
 	)
 
 	default_h_style = "Bald"

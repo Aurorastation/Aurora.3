@@ -363,8 +363,12 @@
 					inspect_organ(affecting, assailant, hit_zone)
 
 				if(I_GRAB)
-					jointlock(affecting, assailant, hit_zone)
-
+					var/mob/living/carbon/H = affecting
+					if(hit_zone == BP_HEAD)
+						if(isvaurca(H) && (H.internal_organs_by_name[BP_VAURCA_MANDIBLE]))
+							mandible_pull(affecting, assailant)
+						else
+							jointlock(affecting, assailant, hit_zone)
 				if(I_HURT)
 					if(hit_zone == BP_EYES)
 						attack_eye(affecting, assailant)
