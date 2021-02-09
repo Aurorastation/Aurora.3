@@ -969,7 +969,6 @@ There are several things that need to be remembered:
 		if(belt.contained_sprite)
 			belt.auto_adapt_species(src)
 			var/t_state = "[UNDERSCORE_OR_NULL(belt.icon_species_tag)][belt.item_state][WORN_BELT]"
-
 			result_layer = image(belt.icon_override || belt.icon, t_state)
 		else if(belt.icon_override)
 			t_icon = belt.icon_override
@@ -977,11 +976,9 @@ There are several things that need to be remembered:
 			t_icon = belt.sprite_sheets[GET_BODY_TYPE]
 		else if(belt.item_icons && (slot_belt_str in belt.item_icons))
 			t_icon = belt.item_icons[slot_belt_str]
-		else
-			t_icon = INV_BELT_DEF_ICON
 
 		if(!result_layer) //Create the image
-			result_layer = image(t_icon, belt.icon_state)
+			result_layer = image(t_icon, belt.item_state)
 
 		if(belt.color)
 			result_layer.color = belt.color
@@ -989,11 +986,11 @@ There are several things that need to be remembered:
 		result_layer.appearance_flags = RESET_ALPHA
 		var/image/worn_overlays = belt.worn_overlays(t_icon)
 		if(worn_overlays)
-			result_layer.overlays.Add(worn_overlays)
+			result_layer.add_overlay(worn_overlays)
 
 		var/list/ovr
 
-		if(belt.contents.len && istype(belt, /obj/item/storage/belt))
+		if(length(belt.contents) && istype(belt, /obj/item/storage/belt))
 			ovr = list(result_layer)
 			for(var/obj/item/i in belt.contents)
 				var/c_state
@@ -1005,10 +1002,9 @@ There are several things that need to be remembered:
 					c_icon = INV_BELT_DEF_ICON
 					c_state = i.item_state || i.icon_state
 				var/image/belt_item_image = image(c_icon, c_state)
-				if(i.color)
-					belt_item_image.color = i.color
+				belt_item_image.color = i.color
 				belt_item_image.appearance_flags = RESET_ALPHA
-				ovr += image(c_icon, c_state)
+				ovr += belt_item_image
 
 		var/belt_layer = BELT_LAYER
 		if(istype(belt, /obj/item/storage/belt))
@@ -1023,9 +1019,6 @@ There are several things that need to be remembered:
 
 	if(update_icons)
 		update_icon()
-
-	if (QDELING(src))
-		return
 
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
 	if (QDELING(src))
