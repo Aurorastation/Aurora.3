@@ -31,7 +31,7 @@
 	update_clothing_icon()
 
 /obj/item/storage/belt/Initialize()
-	..()
+	. = ..()
 	update_flip_verb()
 
 /obj/item/storage/belt/proc/update_flip_verb()
@@ -52,7 +52,7 @@
 
 	flipped = !flipped
 	icon_state = "[initial(icon_state)][flipped ? "_flip" : ""]"
-	item_state = icon_state
+	item_state = "[initial(item_state)][flipped ? "_flip" : ""]"
 	to_chat(usr, SPAN_NOTICE("You change \the [src] to be [src.flipped ? "behind" : "in front of"] you."))
 	update_clothing_icon()
 
