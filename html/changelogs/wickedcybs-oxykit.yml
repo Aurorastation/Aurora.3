@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Corrected a misalignment noticeable on the oxygen deprivation in-hand sprite."
