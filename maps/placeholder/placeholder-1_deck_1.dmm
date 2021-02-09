@@ -16061,6 +16061,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"ZP" = (
+/obj/item/crowbar/red,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "ZQ" = (
 /obj/machinery/suspension_gen{
 	dir = 8
@@ -28923,8 +28927,8 @@ aa
 aa
 hq
 LK
-LK
-LK
+rg
+rg
 lQ
 rB
 LK
@@ -29126,7 +29130,7 @@ aa
 hq
 yJ
 Ox
-nD
+jn
 Fa
 hs
 jU
@@ -39467,7 +39471,7 @@ VK
 LK
 LK
 yn
-LK
+ZP
 qT
 RZ
 LU

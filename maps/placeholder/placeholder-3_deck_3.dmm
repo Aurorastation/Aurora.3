@@ -1559,9 +1559,7 @@
 	},
 /area/crew_quarters/fitness)
 "eR" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle/placeholder/cardinal,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/medical/smoking)
 "eX" = (
 /turf/simulated/wall/placeholder_standard,
@@ -8484,6 +8482,11 @@
 "WJ" = (
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"WL" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/placeholder,
+/turf/simulated/floor/plating,
+/area/crew_quarters/theatre)
 "WP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -21586,9 +21589,9 @@ at
 at
 at
 QL
-sR
+WL
 tL
-sR
+WL
 QL
 at
 at
