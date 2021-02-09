@@ -99,3 +99,9 @@
 	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in Hephaestus colours."
 	icon_state = "labcoat_heph"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+
+/obj/item/clothing/suit/storage/toggle/labcoat/iac
+	name = "iac labcoat"
+	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in IAC colors."
+	icon_state = "labcoat_iac"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
