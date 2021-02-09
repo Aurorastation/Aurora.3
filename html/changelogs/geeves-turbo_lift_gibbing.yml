@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Turbolifts now gib when moving up, but only if you get crushed by the wall against the roof. Standing on the flat part will keep you safe."
