@@ -926,6 +926,10 @@ There are several things that need to be remembered:
 
 		standing.color = head.color
 		standing.appearance_flags = RESET_ALPHA
+		var/image/worn_overlays = head.worn_overlays(t_icon)
+		if(worn_overlays)
+			standing.overlays.Add(worn_overlays)
+
 		var/list/ovr
 
 		if(head.blood_DNA)
