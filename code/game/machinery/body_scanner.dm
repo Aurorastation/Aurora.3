@@ -374,6 +374,7 @@
 			"bicardAmt" = null,
 			"dexAmt" = null,
 			"dermAmt" = null,
+			"thetaAmt" = null,
 			"otherAmt" = null,
 			"bodyparts" = list(),
 			"organs" = list(),
@@ -443,7 +444,8 @@
 		VUEUI_SET_CHECK(data["bicardAmt"], REAGENT_VOLUME(R, /decl/reagent/bicaridine), ., data)
 		VUEUI_SET_CHECK(data["dexAmt"], REAGENT_VOLUME(R, /decl/reagent/dexalin), ., data)
 		VUEUI_SET_CHECK(data["dermAmt"], REAGENT_VOLUME(R, /decl/reagent/dermaline), ., data)
-		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
+		VUEUI_SET_CHECK(data["thetaAmt"], REAGENT_VOLUME(R, /decl/reagent/thetamycin), ., data)
+		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"] + data["thetaAmt"]), ., data)
 		has_internal_injuries = FALSE
 		has_external_injuries = FALSE
 		VUEUI_SET_CHECK_LIST(data["bodyparts"], get_external_wound_data(occupant), ., data)
@@ -650,6 +652,7 @@
 		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
 		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
 		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
 		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
@@ -681,9 +684,10 @@
 
 	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
 	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
-	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
-	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
-	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>"), occ["dermaline_amount"])
+	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>"), occ["bicaridine_amount"])
+	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += text("[]\tThetamycin: [] units</font><BR>", ("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>"), occ["thetamycin_amount"])
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"
@@ -727,9 +731,9 @@
 		if(e.open)
 			open = "Open."
 
-		var/infection = "[get_infection_level(e.germ_level)] infection"
-		if (infection == "")
-			infection = "None"
+		var/infection = get_infection_level(e.germ_level)
+		if (infection != "")
+			infected = "[infection] infection"
 		if(e.rejecting)
 			infected += " (being rejected)"
 
@@ -760,8 +764,8 @@
 			mech = "Mechanical:"
 
 		var/infection = get_infection_level(i.germ_level)
-		if (infection == "")
-			infection = "None"
+		if (infection != "")
+			infection = "No Infection"
 		else
 			infection = "[infection] infection"
 		if(i.rejecting)
