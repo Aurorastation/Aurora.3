@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Store from '../../store.js'
-import Utils from '../../utils.js'
+import Store from "@/store"
+import Utils from "@/utils"
 export default {
   props: {
     icon: {

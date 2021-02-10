@@ -1015,3 +1015,6 @@ default behaviour is:
 
 /mob/living/set_respawn_time()
 	set_death_time(CREW, world.time)
+//Used by simple animals and monkey species for renaming. M is the one doing the renaming
+/mob/living/proc/can_name(var/mob/living/M)
+	return FALSE

@@ -44,6 +44,7 @@
 	real_name = "Ian"	//Intended to hold the name without altering it.
 	gender = MALE
 	desc = "It's a corgi."
+	named = TRUE
 	//var/obj/movement_target
 	response_help  = "pets"
 	response_disarm = "bops"
@@ -127,6 +128,7 @@
 	real_name = "Lisa"
 	gender = FEMALE
 	desc = "It's a corgi with a cute pink bow."
+	named = TRUE
 	icon_state = "lisa"
 	icon_living = "lisa"
 	icon_dead = "lisa_dead"
