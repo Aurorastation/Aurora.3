@@ -45,6 +45,13 @@
 		return 1
 	return 0
 
+/proc/isgolem(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(istype(H.species, /datum/species/golem))
+			return TRUE
+	return FALSE
+
 /proc/isunathi(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
