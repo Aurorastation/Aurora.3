@@ -41,14 +41,14 @@
 	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
-	damage = 35
-	armor_penetration = 20
+	damage = 40
+	armor_penetration = 15
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
-	damage = 40
-	armor_penetration = 30
+	damage = 45
+	armor_penetration = 25
 
 	muzzle_type = /obj/effect/projectile/muzzle/heavy_laser
 	tracer_type = /obj/effect/projectile/tracer/heavy_laser

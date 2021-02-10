@@ -31,7 +31,7 @@
 /mob/living/heavy_vehicle/get_armors_by_zone(def_zone, damage_type, damage_flags)
 	. = ..()
 	if(body && body.mech_armor)
-		var/body_armor = GetComponent(/datum/component/armor)
+		var/body_armor = body.mech_armor.GetComponent(/datum/component/armor)
 		if(body_armor)
 			. += body_armor
 

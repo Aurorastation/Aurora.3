@@ -121,17 +121,17 @@
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol
-	damage = 20
-
-/obj/item/projectile/bullet/pistol/medium
 	damage = 25
 
+/obj/item/projectile/bullet/pistol/medium
+	damage = 35
+
 /obj/item/projectile/bullet/pistol/strong
-	damage = 30
-	armor_penetration = 15
+	damage = 45
+	armor_penetration = 20
 
 /obj/item/projectile/bullet/pistol/revolver
-	damage = 35
+	damage = 40
 	armor_penetration = 10
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
@@ -146,7 +146,6 @@
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	damage = 65
-	armor_penetration = 10
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -198,20 +197,20 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	damage = 30
+	damage = 40
 	armor_penetration = 15
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 35
+	damage = 45
 	armor_penetration = 20
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 30
-	armor_penetration = 25
+	damage = 45
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 25
+	damage = 35
 	armor_penetration = 40
 
 /obj/item/projectile/bullet/rifle/a145
@@ -232,10 +231,10 @@
 
 /obj/item/projectile/bullet/rifle/slugger
 	name = "slugger round"
-	damage = 80
+	damage = 60
 	weaken = 3
 	penetrating = 5
-	armor_penetration = 15
+	armor_penetration = 10
 	maiming = TRUE
 	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
