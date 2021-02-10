@@ -135,3 +135,6 @@
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
 	return TRUE
+
+/mob/living/heavy_vehicle/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL

@@ -18,8 +18,6 @@
 	var/natural_armor = GetComponent(/datum/component/armor)
 	if(natural_armor)
 		. += natural_armor
-	if(psi)
-		. += psi.GetComponent(/datum/component/armor)
 
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
 
