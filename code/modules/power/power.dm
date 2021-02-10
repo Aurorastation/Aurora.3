@@ -355,7 +355,7 @@
 	if(H)
 		if(H.species.siemens_coefficient == 0)
 			return
-		if(h.is_naturally_insulated())
+		if(H.species.is_naturally_insulated())
 			return
 		if(H.gloves && contact_zone == "hand")
 			var/obj/item/clothing/gloves/G = H.gloves
