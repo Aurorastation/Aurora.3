@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Ported Bay blob to replace our own. Notably, this changes how it spreads and also its description."
+  - tweak: "Blobs can no longer penetrate walls reinforced with tough materials."
+  - rscadd: "Attacking blobs with wirecutters will now produce samples, which can be used for offense or for research."
+  - rscdel: "Attacking blobs no longer suck the weapons out of your hand. Happy killing."
