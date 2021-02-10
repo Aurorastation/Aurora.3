@@ -764,7 +764,7 @@
 			mech = "Mechanical:"
 
 		var/infection = get_infection_level(i.germ_level)
-		if (infection != "")
+		if(infection == "")
 			infection = "No Infection"
 		else
 			infection = "[infection] infection"
