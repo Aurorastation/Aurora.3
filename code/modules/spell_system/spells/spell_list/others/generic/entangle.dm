@@ -34,7 +34,7 @@
 	for(var/mob/M in targets)
 		var/turf/T = get_turf(M)
 		var/obj/effect/plant/single/P = new(T, seed)
-		P.can_buckle = TRUE
+		P.can_buckle = list(/mob/living)
 		P.health = P.max_health
 		P.mature_time = 0
 		P.process()

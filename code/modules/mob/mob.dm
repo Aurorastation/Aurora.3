@@ -224,7 +224,7 @@
 	. = 0
 	if(istype(pulling, /obj/structure))
 		var/obj/structure/P = pulling
-		if(P.buckled_mob || locate(/mob) in P.contents)
+		if(P.buckled || locate(/mob) in P.contents)
 			. += P.slowdown
 
 /mob/proc/Life()
@@ -233,10 +233,10 @@
 #define UNBUCKLED 0
 #define PARTIALLY_BUCKLED 1
 #define FULLY_BUCKLED 2
-/mob/proc/buckled()
+/mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
 	// where one might be fully restrained (like an elecrical chair), or merely secured (shuttle chair, keeping you safe but not otherwise restrained from acting)
-	if(!buckled)
+	if(!buckled_to)
 		return UNBUCKLED
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
 
@@ -261,7 +261,7 @@
 		return 1
 
 	if((incapacitation_flags & (INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY)))
-		var/buckling = buckled()
+		var/buckling = buckled_to()
 		if(buckling >= PARTIALLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_PARTIALLY))
 			return 1
 		if(buckling == FULLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_FULLY))
@@ -736,10 +736,10 @@
 		return
 
 	if (AM.anchored)
-		if(!AM.buckled)
+		if(!AM.buckled_to)
 			to_chat(src, "<span class='warning'>It won't budge!</span>")
 		else
-			start_pulling(AM.buckled) //Pull the thing they're buckled to instead.
+			start_pulling(AM.buckled_to) //Pull the thing they're buckled to instead.
 		return
 
 	var/mob/M = null
@@ -914,25 +914,24 @@
 		lying = 0
 		canmove = 1
 	else
-		if(istype(buckled, /obj/vehicle))
-			var/obj/vehicle/V = buckled
+		if(istype(buckled_to, /obj/vehicle))
+			var/obj/vehicle/V = buckled_to
 			if(is_physically_disabled())
 				lying = 1
 				canmove = 0
 				pixel_y = V.mob_offset_y - 5
-			else
-				if(buckled.buckle_lying != -1) lying = buckled.buckle_lying
+			else 
+				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
 				canmove = 1
 				pixel_y = V.mob_offset_y
-		else if(buckled)
+		else if(buckled_to)
 			anchored = 1
 			canmove = 0
-			if(istype(buckled))
-				if(buckled.buckle_lying != -1)
-					lying = buckled.buckle_lying
-				if(buckled.buckle_movable)
-					anchored = 0
-					canmove = 1
+			if(buckled_to.buckle_lying != -1)
+				lying = buckled_to.buckle_lying
+			if(buckled_to.buckle_movable)
+				anchored = 0
+				canmove = 1
 		else if(captured)
 			anchored = 1
 			canmove = 0
@@ -969,8 +968,8 @@
 	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
 		return 0
 	set_dir(ndir)
-	if(buckled && buckled.buckle_movable)
-		buckled.set_dir(ndir)
+	if(buckled_to && buckled_to.buckle_movable)
+		buckled_to.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		client.move_delay += movement_delay()
 	return 1
@@ -1288,7 +1287,7 @@
 
 /mob/set_dir(ndir)
 	if(facing_dir)
-		if(!canface() || lying || buckled || restrained())
+		if(!canface() || lying || buckled_to || restrained())
 			facing_dir = null
 		else if(dir != facing_dir)
 			return ..(facing_dir)

@@ -138,8 +138,8 @@
 	var/obj/structure/bed/chair/C = null
 	if(isliving(teleatom))
 		var/mob/living/L = teleatom
-		if(L.buckled)
-			C = L.buckled
+		if(L.buckled_to)
+			C = L.buckled_to
 
 	if(force_teleport)
 		teleatom.forceMove(destturf)

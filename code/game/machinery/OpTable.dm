@@ -133,7 +133,7 @@
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
+				var/obj/structure/LB = L.buckled_to
 				LB.user_unbuckle(user)
 			take_victim(target,user)
 	else
@@ -168,7 +168,7 @@
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
+				var/obj/structure/LB = L.buckled_to
 				LB.user_unbuckle(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
@@ -185,7 +185,7 @@
 	if(victim?.lying && get_turf(victim) == get_turf(src))
 		to_chat(usr, SPAN_WARNING("\The [src] is already occupied!"))
 		return FALSE
-	if(patient.buckled)
+	if(patient.buckled_to)
 		to_chat(usr, SPAN_NOTICE("Unbuckle \the [patient] first!"))
 		return FALSE
 	return TRUE

@@ -172,8 +172,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		update_inv_back()
 	else if (W == handcuffed)
 		handcuffed = null
-		if(buckled && buckled.buckle_require_restraints)
-			buckled.unbuckle()
+		if(buckled_to && buckled_to.buckle_require_restraints)
+			buckled_to.unbuckle()
 		update_inv_handcuffed()
 	else if (W == legcuffed)
 		legcuffed = null

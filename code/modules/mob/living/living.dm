@@ -195,7 +195,7 @@ default behaviour is:
 			return 1
 
 /mob/living/proc/can_swap_with(var/mob/living/tmob)
-	if(tmob.buckled || buckled)
+	if(tmob.buckled_to || buckled_to)
 		return 0
 	//BubbleWrap: people in handcuffs are always switched around as if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 	if(!(tmob.mob_always_swap || (tmob.a_intent == I_HELP || tmob.restrained()) && (a_intent == I_HELP || src.restrained())))
@@ -457,8 +457,8 @@ default behaviour is:
 //		suiciding = 0
 
 	rejuvenate()
-	if(buckled)
-		buckled.unbuckle()
+	if(buckled_to)
+		buckled_to.unbuckle()
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
 
@@ -578,7 +578,7 @@ default behaviour is:
 	return
 
 /mob/living/Move(a, b, flag)
-	if (buckled)
+	if (buckled_to)
 		return
 
 	if (restrained())
@@ -694,7 +694,7 @@ default behaviour is:
 		return
 
 	//unbuckling yourself
-	if(buckled)
+	if(buckled_to)
 		spawn() escape_buckle()
 
 	//Breaking out of a locker?
@@ -733,8 +733,8 @@ default behaviour is:
 		H.forceMove(get_turf(H))
 
 /mob/living/proc/escape_buckle()
-	if(buckled)
-		buckled.user_unbuckle(src)
+	if(buckled_to)
+		buckled_to.user_unbuckle(src)
 
 /mob/living/var/last_resist
 

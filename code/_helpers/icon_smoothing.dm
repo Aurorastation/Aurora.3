@@ -60,7 +60,7 @@
 
 /atom/movable
 	var/can_be_unanchored = 0
-	var/obj/buckled
+	var/obj/buckled_to
 	var/can_be_buckled = FALSE
 
 /turf

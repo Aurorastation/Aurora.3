@@ -7,7 +7,7 @@
 	if(!istype(M))
 		return
 
-	if(!buckled_mob && !M.buckled && !M.anchored && (issmall(M) || prob(round(seed.get_trait(TRAIT_POTENCY)/6))))
+	if(!buckled && !M.buckled_to && !M.anchored && (issmall(M) || prob(round(seed.get_trait(TRAIT_POTENCY)/6))))
 		//wait a tick for the Entered() proc that called HasProximity() to finish (and thus the moving animation),
 		//so we don't appear to teleport from two tiles away when moving into a turf adjacent to vines.
 		addtimer(CALLBACK(src, .proc/entangle, M), 1)
@@ -28,26 +28,27 @@
 	seed.do_sting(victim,src,pick(BP_R_FOOT,BP_L_FOOT,BP_R_LEG,BP_L_LEG))
 
 /obj/effect/plant/unbuckle()
-	if(buckled_mob)
-		if(buckled_mob.buckled == src)
-			buckled_mob.buckled = null
-			buckled_mob.anchored = initial(buckled_mob.anchored)
-			buckled_mob.update_canmove()
-		buckled_mob = null
+	if(istype(buckled, /mob/living))
+		var/mob/living/M = buckled
+		if(M.buckled_to == src)
+			M.buckled_to = null
+			M.anchored = initial(buckled.anchored)
+			M.update_canmove()
+		buckled = null
 	return
 
 /obj/effect/plant/proc/manual_unbuckle(mob/user as mob)
-	if(buckled_mob)
+	if(buckled)
 		if(prob(seed ? min(max(0,100 - seed.get_trait(TRAIT_POTENCY)/2),100) : 50))
-			if(buckled_mob.buckled == src)
-				if(buckled_mob != user)
-					buckled_mob.visible_message(\
-						"<span class='notice'>[user.name] frees [buckled_mob.name] from \the [src].</span>",\
+			if(buckled.buckled_to == src)
+				if(buckled != user)
+					buckled.visible_message(\
+						"<span class='notice'>[user.name] frees [buckled.name] from \the [src].</span>",\
 						"<span class='notice'>[user.name] frees you from \the [src].</span>",\
 						"<span class='warning'>You hear shredding and ripping.</span>")
 				else
-					buckled_mob.visible_message(\
-						"<span class='notice'>[buckled_mob.name] struggles free of \the [src].</span>",\
+					buckled.visible_message(\
+						"<span class='notice'>[buckled.name] struggles free of \the [src].</span>",\
 						"<span class='notice'>You untangle \the [src] from around yourself.</span>",\
 						"<span class='warning'>You hear shredding and ripping.</span>")
 			unbuckle()
@@ -61,10 +62,10 @@
 
 /obj/effect/plant/proc/entangle(var/mob/living/victim)
 
-	if(buckled_mob)
+	if(buckled)
 		return
 
-	if(victim.buckled)
+	if(victim.buckled_to)
 		return
 
 	//grabbing people

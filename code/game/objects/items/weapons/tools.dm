@@ -168,8 +168,8 @@
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
-		if(C.buckled?.buckle_require_restraints)
-			C.buckled.unbuckle()
+		if(C.buckled_to?.buckle_require_restraints)
+			C.buckled_to.unbuckle()
 		C.update_inv_handcuffed()
 		return
 	else

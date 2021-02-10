@@ -29,21 +29,22 @@
 	return
 
 /obj/structure/bed/nest/user_unbuckle(mob/user)
-	if(buckled_mob?.buckled == src)
+	if(buckled?.buckled_to == src)
 		add_fingerprint(user)
-		if(buckled_mob != user)
-			buckled_mob.visible_message("<b>[user]</b> pulls [buckled_mob] free from the sticky flesh!", SPAN_NOTICE("[user] pulls you free from the gelatinous flesh."), SPAN_WARNING("You hear squelching..."))
-			unbuckle_buckled_mob(buckled_mob)
-		else
-			if(world.time <= buckled_mob.last_special + NEST_RESIST_TIME)
+		if(buckled != user)
+			buckled.visible_message("<b>[user]</b> pulls [buckled] free from the sticky flesh!", SPAN_NOTICE("[user] pulls you free from the gelatinous flesh."), SPAN_WARNING("You hear squelching..."))
+			unbuckle_buckled_mob(buckled)
+		else if(istype(buckled, /mob/living))
+			var/mob/living/M = buckled
+			if(world.time <= M.last_special + NEST_RESIST_TIME)
 				return
-			buckled_mob.last_special = world.time
-			buckled_mob.visible_message(SPAN_WARNING("[buckled_mob] starts struggling to break free of the sticky flesh..."), SPAN_WARNING("You struggle to break free from the gelatinous flesh..."), SPAN_WARNING("You hear squelching..."))
-			if(do_after(buckled_mob, NEST_RESIST_TIME, TRUE))
-				unbuckle_buckled_mob(buckled_mob)
+			M.last_special = world.time
+			M.visible_message(SPAN_WARNING("[M] starts struggling to break free of the sticky flesh..."), SPAN_WARNING("You struggle to break free from the gelatinous flesh..."), SPAN_WARNING("You hear squelching..."))
+			if(do_after(M, NEST_RESIST_TIME, TRUE))
+				unbuckle_buckled_mob(M)
 
 /obj/structure/bed/nest/proc/unbuckle_buckled_mob(var/mob/buck)
-	if(buckled_mob == buck && buck.buckled == src)
+	if(buckled == buck && buck.buckled_to == src)
 		buck.pixel_y = 0
 		buck.old_y = 0
 		unbuckle()

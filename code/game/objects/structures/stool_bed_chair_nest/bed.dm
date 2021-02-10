@@ -16,7 +16,7 @@
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bed"
 	anchored = TRUE
-	can_buckle = TRUE
+	can_buckle = list(/mob/living)
 	buckle_dir = SOUTH
 	buckle_lying = 1
 
@@ -84,8 +84,8 @@
 
 /obj/structure/bed/forceMove(atom/dest)
 	. = ..()
-	if(buckled_mob)
-		buckled_mob.forceMove(dest)
+	if(buckled)
+		buckled.forceMove(dest)
 
 /obj/structure/bed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASSTABLE))
@@ -155,12 +155,12 @@
 			spawn(0)
 				if(buckle(affecting))
 					affecting.visible_message(\
-						"<span class='danger'>[affecting.name] is buckled to [src] by [user.name]!</span>",\
-						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
+						"<span class='danger'>[affecting.name] is buckled_to to [src] by [user.name]!</span>",\
+						"<span class='danger'>You are buckled_to to [src] by [user.name]!</span>",\
 						"<span class='notice'>You hear metal clanking.</span>")
 			qdel(W)
 
-	else if(istype(W, /obj/item/gripper) && buckled_mob)
+	else if(istype(W, /obj/item/gripper) && buckled)
 		var/obj/item/gripper/G = W
 		if(!G.wrapped)
 			user_unbuckle(user)
@@ -219,13 +219,13 @@
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_down"
 	anchored = FALSE
-	can_buckle_bags = TRUE
+	can_buckle = list(/mob/living, /obj/structure/closet/body_bag)
 	var/base_state = "standard"
 	var/item_bedpath = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
-	var/patient_shift = 9 //How much are mobs moved up when they are buckled.
+	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
 	var/bag_strap = "standard_straps"
 	slowdown = 0
 
@@ -246,8 +246,8 @@
 		if(density)
 			iv.pixel_y = 6
 		overlays += iv
-	if(bag_strap && buckled_bag)
-		buckled_bag.overlays += image(icon, bag_strap)
+	if(bag_strap && istype(buckled, /obj/structure/closet/body_bag))
+		buckled.overlays += image(icon, bag_strap)
 
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
 	if(iswrench(I) || istype(I, /obj/item/stack) || iswirecutter(I))
@@ -262,7 +262,7 @@
 	..()
 
 /obj/structure/bed/roller/attack_hand(mob/living/user)
-	if(beaker && !buckled_mob)
+	if(beaker && !buckled)
 		remove_beaker(user)
 	else
 		..()
@@ -273,14 +273,14 @@
 	qdel(src)
 
 /obj/structure/bed/roller/process()
-	if(!iv_attached || !buckled_mob || !beaker)
+	if(!iv_attached || !buckled || !beaker)
 		return PROCESS_KILL
 
 	if(SSprocessing.times_fired % 2)
 		return
 
 	if(beaker.volume > 0)
-		beaker.reagents.trans_to_mob(buckled_mob, beaker.amount_per_transfer_from_this, CHEM_BLOOD)
+		beaker.reagents.trans_to_mob(buckled, beaker.amount_per_transfer_from_this, CHEM_BLOOD)
 		update_icon()
 
 /obj/structure/bed/roller/proc/remove_beaker(mob/user)
@@ -311,20 +311,20 @@
 		return
 	if(!(ishuman(usr) || isrobot(usr)))
 		return
-	if(over_object == buckled_mob && beaker)
+	if(over_object == buckled && beaker)
 		if(iv_attached)
-			detach_iv(buckled_mob, usr)
+			detach_iv(buckled, usr)
 		else
-			attach_iv(buckled_mob, usr)
+			attach_iv(buckled, usr)
 		return
 	if(ishuman(over_object))
 		if(user_buckle(over_object, usr))
-			attach_iv(buckled_mob, usr)
+			attach_iv(buckled, usr)
 			return
 	if(beaker)
 		remove_beaker(usr)
 		return
-	if(buckled_mob)
+	if(buckled)
 		return
 	collapse()
 
@@ -332,43 +332,36 @@
 	..()
 	if(makes_rolling_sound)
 		playsound(src, 'sound/effects/roll.ogg', 100, 1)
-	if(buckled_mob)
-		if(buckled_mob.buckled == src)
-			buckled_mob.forceMove(src.loc)
+	if(buckled)
+		if(buckled.buckled_to == src)
+			buckled.forceMove(src.loc)
+			buckled.layer = src.layer + 1
 		else
-			buckled_mob = null
-	if(buckled_bag)
-		if(buckled_bag.buckled == src)
-			buckled_bag.forceMove(src.loc)
-		else
-			buckled_bag = null
+			buckled = null
 
 /obj/structure/bed/roller/post_buckle(atom/movable/MA)
 	. = ..()
-	if(MA == buckled_mob)
+	if(MA == buckled)
+		if(istype(MA, /mob/living))
+			var/mob/living/M = MA
+			M.old_y = patient_shift
 		density = TRUE
-		buckled_mob.pixel_y = patient_shift
-		buckled_mob.old_y = patient_shift
-		update_icon()
-	else if(istype(MA, /mob/living))
-		var/mob/living/M = MA
-		density = FALSE
-		M.pixel_y = 0
-		M.old_y = 0
-		if(iv_attached)
-			detach_iv(M, usr)
-		update_icon()
-	else if(MA == buckled_bag)
-		density = TRUE
-		buckled_bag.pixel_y = patient_shift
+		buckled.pixel_y = patient_shift
 		update_icon()
 	else
+		if(istype(MA, /mob/living))
+			var/mob/living/M = MA
+			M.old_y = 0
+			if(iv_attached)
+				detach_iv(M, usr)
+		else
+			MA.overlays.Cut() //Remove straps
+			MA.update_icon() //Add label back (if it had one)
 		density = FALSE
 		MA.pixel_y = 0
-		MA.overlays.Cut() //Remove straps
-		MA.update_icon() //Add label back (if it had one)
 		update_icon()
-			
+
+
 /obj/structure/bed/roller/hover
 	name = "medical hoverbed"
 	icon_state = "hover_down"

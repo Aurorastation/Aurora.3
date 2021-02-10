@@ -11,7 +11,7 @@
 	use_power = 0
 
 	// You can buckle someone to RTG, then open its panel. Fun stuff.
-	can_buckle = TRUE
+	can_buckle = list(/mob/living)
 	buckle_lying = FALSE
 	buckle_require_restraints = TRUE
 

@@ -47,30 +47,30 @@
 	return FALSE
 
 /obj/item/trap/user_unbuckle(mob/user)
-	if(buckled_mob && can_use(user))
+	if(buckled && can_use(user))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
-			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]..."),
+			SPAN_NOTICE("\The [user] begins freeing \the [buckled] from \the [src]..."),
+			SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]..."),
 			SPAN_NOTICE("You hear metal creaking.")
 			)
 		if(do_after(user, time_to_escape))
 			user.visible_message(
-				SPAN_NOTICE("\The [user] frees \the [buckled_mob] from \the [src]."),
-				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
+				SPAN_NOTICE("\The [user] frees \the [buckled] from \the [src]."),
+				SPAN_NOTICE("You free \the [buckled] from \the [src].")
 				)
 			unbuckle()
 			anchored = FALSE
 
 /obj/item/trap/attack_hand(mob/user)
-	if(buckled_mob && can_use(user))
+	if(buckled && can_use(user))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
-			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]...")
+			SPAN_NOTICE("\The [user] begins freeing \the [buckled] from \the [src]..."),
+			SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]...")
 			)
 		if(do_after(user, time_to_escape))
 			user.visible_message(
-				SPAN_NOTICE("\The user frees \the [buckled_mob] from \the [src]."),
-				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
+				SPAN_NOTICE("\The user frees \the [buckled] from \the [src]."),
+				SPAN_NOTICE("You free \the [buckled] from \the [src].")
 				)
 			unbuckle()
 			anchored = FALSE
@@ -120,7 +120,7 @@
 
 	if(did_trap)
 		//trap the victim in place
-		can_buckle = TRUE
+		can_buckle = list(/mob/living)
 		buckle(L)
 		can_buckle = initial(can_buckle)
 
@@ -142,7 +142,7 @@
 			SPAN_WARNING("<b>You hear a loud metallic snap!</b>")
 			)
 		attack_mob(L)
-		if(!buckled_mob)
+		if(!buckled)
 			anchored = FALSE
 		deployed = FALSE
 		update_icon()
@@ -174,7 +174,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = FALSE
 	time_to_escape = 3 // Minutes
-	can_buckle = TRUE
+	can_buckle = list(/mob/living)
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
@@ -438,7 +438,7 @@
 		var/datum/M = captured.resolve()
 		if(isliving(M))
 			var/mob/living/L = M
-			if(L && buckled_mob.buckled == src)
+			if(L && buckled.buckled_to == src)
 				L.forceMove(loc)
 			else if(L)
 				captured = null
@@ -571,7 +571,7 @@
 						/mob/living/simple_animal/pig)
 
 /obj/item/trap/animal/large/attack_hand(mob/user)
-	if(user == buckled_mob)
+	if(user == buckled)
 		return
 	else if(!anchored)
 		to_chat(user, SPAN_WARNING("You need to anchor \the [src] first!"))

@@ -20,7 +20,7 @@
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		var/damage_coef = 1
-		if(H.buckled)
+		if(H.buckled_to)
 			return
 		if(H.resting)
 			return

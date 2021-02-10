@@ -52,15 +52,15 @@
 
 /obj/structure/bed/chair/remote/process()
 	..()
-	if(buckled_mob)
+	if(buckled)
 		var/area/A = get_area(src)
 		if(!A.powered(EQUIP))
-			user_unbuckle(buckled_mob)
+			user_unbuckle(buckled)
 
 // Return to our body in the unfortunate event that we get unbuckled while plugged in
 /obj/structure/bed/chair/remote/user_unbuckle(mob/user)
-	if(buckled_mob)
-		var/mob/M = buckled_mob
+	if(buckled)
+		var/mob/M = buckled
 		if(istype(M) && M.vr_mob)
 			M.vr_mob.body_return()
 		cut_overlays()

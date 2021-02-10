@@ -11,7 +11,7 @@ mob/proc/airflow_stun()
 	if(!(status_flags & CANSTUN) && !(status_flags & CANWEAKEN))
 		to_chat(src, "<span class='notice'>You stay upright as the air rushes past you.</span>")
 		return 0
-	if(buckled)
+	if(buckled_to)
 		to_chat(src, "<span class='notice'>Air suddenly rushes past you!</span>")
 		return 0
 	if(!lying)
@@ -71,7 +71,7 @@ obj/item/check_airflow_movable(n)
 /mob/AirflowCanMove(n)
 	if(status_flags & GODMODE)
 		return 0
-	if(buckled)
+	if(buckled_to)
 		return 0
 	var/obj/item/shoes = get_equipped_item(slot_shoes)
 	if(istype(shoes) && (shoes.item_flags & NOSLIP))

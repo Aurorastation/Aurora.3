@@ -98,7 +98,7 @@
 	return FALSE
 
 /obj/structure/closet/body_bag/open()
-	if(buckled)
+	if(buckled_to)
 		return 0
 	return ..()
 

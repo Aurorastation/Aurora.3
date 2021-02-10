@@ -93,8 +93,8 @@
 		to_chat(user, "The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry.")
 		return
 
-	if(user && user.buckled)
-		user.buckled.unbuckle()
+	if(user && user.buckled_to)
+		user.buckled_to.unbuckle()
 
 	var/list/tempL = L
 	var/attempt = null
