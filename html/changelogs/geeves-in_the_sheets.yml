@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Cutting up bedsheets now gives cloth instead of going directly to rags."
