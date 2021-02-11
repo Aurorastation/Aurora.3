@@ -1,5 +1,5 @@
 /obj
-	var/list/can_buckle = list()
+	LAZYINITLIST(var/list/can_buckle)
 	var/buckle_movable = 0
 	var/buckle_dir = 0
 	var/buckle_lying = -1 //bed-like behavior, forces mob.lying = buckle_lying if != -1
