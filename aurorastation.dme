@@ -1835,6 +1835,7 @@
 #include "code\modules\martial_arts\gunkata.dm"
 #include "code\modules\martial_arts\martial.dm"
 #include "code\modules\martial_arts\plasma_fist.dm"
+#include "code\modules\martial_arts\revenant.dm"
 #include "code\modules\martial_arts\skrell.dm"
 #include "code\modules\martial_arts\sleeping_carp.dm"
 #include "code\modules\martial_arts\sol_combat.dm"

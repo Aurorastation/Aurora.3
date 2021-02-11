@@ -116,6 +116,13 @@
 /mob/living/carbon/alien/diona/is_diona()
 	return DIONA_NYMPH
 
+/proc/is_mob_special(A) // determines special mobs. has restrictions on certain things, like welderbombing
+	if(isrevenant(A))
+		return TRUE
+	if(iszombie(A))
+		return TRUE
+	return FALSE
+
 /proc/isskeleton(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
 		return 1

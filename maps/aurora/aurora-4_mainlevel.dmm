@@ -2242,9 +2242,6 @@
 "ael" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/obj/effect/landmark{
-	name = "RevenantRift"
-	},
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
 "aem" = (
@@ -4735,6 +4732,9 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
@@ -60156,6 +60156,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"dKN" = (
+/obj/random/junk,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "dKW" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/airless,
@@ -62319,11 +62326,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "icb" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /obj/effect/landmark{
 	name = "Revenant"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "idi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -64020,6 +64038,9 @@
 	dir = 4
 	},
 /obj/random/loot,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "mnI" = (
@@ -86076,7 +86097,7 @@ aab
 aab
 aab
 aab
-icb
+aab
 aab
 aab
 aab
@@ -87879,7 +87900,7 @@ beG
 bbs
 bcY
 bbs
-beC
+dKN
 bbs
 bcY
 bbs
@@ -88589,7 +88610,7 @@ aaa
 aaa
 aab
 aab
-icb
+aab
 aox
 qba
 aij
@@ -99111,7 +99132,7 @@ aab
 aab
 aad
 aaA
-aaI
+icb
 aaT
 aaT
 aaT
@@ -99365,7 +99386,7 @@ aab
 aab
 aab
 aab
-icb
+aab
 aad
 aaB
 aaJ
@@ -113849,7 +113870,7 @@ vAC
 vAC
 mmQ
 blN
-icb
+aab
 aab
 aab
 aab

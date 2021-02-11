@@ -399,6 +399,9 @@
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
+		if(use_check(user, USE_DISALLOW_SPECIALS))
+			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
+			return
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
 			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
