@@ -77,6 +77,7 @@
 #define ACCENT_NCF "Non-Coalition Frontier"
 #define ACCENT_FISANDUH "Fisanduhian"
 #define ACCENT_GADPATHUR "Gadpathurian"
+#define ACCENT_PLUTIAN "Plutian"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"

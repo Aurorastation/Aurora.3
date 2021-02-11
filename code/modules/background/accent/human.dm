@@ -163,3 +163,8 @@
 	isolation of the planet during its period of reunification. Due to the government's tight control over Gadpathur, and push for unity in the face of the Sol Alliance, Gadpathurians have \
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
+
+/datum/accent/plutian
+	name = ACCENT_PLUTIAN
+	description = "Plutian is a relatively uncommon form of speaking, with it's breathy way of speaking unusual in other reaches of Sol. Due to Pluto's distance from other widely populated planets, it has developed over time into the standard \"Kuiper Belt Accent\" for those who live within it's reach, with minor variations. It can occasionally be mistaken as an unusual form of the typical Solarian accent."
+	tag_icon = "pluto"
