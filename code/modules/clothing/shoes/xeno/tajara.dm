@@ -16,7 +16,7 @@
 /obj/item/clothing/shoes/flats/tajara
 	desc = "A pair of black women's flats. Refitted for Tajara."
 	name = "black dress flats"
-	icon = 'icons/obj/tajara_items.dmi'
+	icon = 'icons/mob/species/tajaran/shoes.dmi'
 	icon_state = "tblackdf"
 	item_state = "tblackdf"
 	body_parts_covered = FEET
@@ -26,7 +26,7 @@
 /obj/item/clothing/shoes/flats/tajara/red
 	desc = "A pair of red women's flats. Refitted for Tajara"
 	name = "red dress flats"
-	icon = 'icons/obj/tajara_items.dmi'
+	icon = 'icons/mob/species/tajaran/shoes.dmi'
 	icon_state = "treddf"
 	item_state = "treddf"
 
