@@ -11,14 +11,6 @@
 "ac" = (
 /turf/simulated/wall/r_wall,
 /area/janitor)
-"ad" = (
-/obj/machinery/door/airlock/lift,
-/obj/item/tape/engineering{
-	icon_state = "engineering_door";
-	layer = 4
-	},
-/turf/simulated/floor/tiled,
-/area/turbolift)
 "ae" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -786,6 +778,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/maintenance/vault)
 "cC" = (
@@ -1701,7 +1694,7 @@
 /area/maintenance/vault)
 "fJ" = (
 /turf/simulated/open,
-/area/turbolift)
+/area/turbolift/primary/deck_3)
 "fM" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -2560,12 +2553,6 @@
 	icon_state = "wood_light"
 	},
 /area/crew_quarters/fitness)
-"kA" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/turbolift)
 "kB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2584,10 +2571,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
-"kI" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/open,
-/area/turbolift)
 "kM" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
@@ -2866,7 +2849,7 @@
 "lV" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor,
-/area/turbolift)
+/area/maintenance/vault)
 "lX" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4893,9 +4876,6 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
-"xF" = (
-/turf/simulated/wall/r_wall,
-/area/turbolift)
 "xG" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -29436,12 +29416,12 @@ ah
 ah
 FH
 af
-xF
+FH
 lV
-xF
+FH
 lV
-xF
-xF
+FH
+Uc
 hL
 xs
 xs
@@ -29643,7 +29623,7 @@ fJ
 fJ
 fJ
 fJ
-xF
+Uc
 uk
 cE
 Vm
@@ -29845,7 +29825,7 @@ fJ
 fJ
 fJ
 fJ
-ad
+Uc
 uk
 uk
 yh
@@ -30047,7 +30027,7 @@ fJ
 fJ
 fJ
 fJ
-ad
+Uc
 uk
 uk
 yh
@@ -30244,12 +30224,12 @@ ah
 ah
 FH
 El
-kA
-kA
-kA
-kA
 fJ
-ad
+fJ
+fJ
+fJ
+fJ
+Uc
 uk
 uk
 yh
@@ -30446,12 +30426,12 @@ ah
 ah
 FH
 cB
-kI
-kI
-kI
-kI
-kI
-xF
+fJ
+fJ
+fJ
+fJ
+fJ
+Uc
 uk
 Ei
 Vm
@@ -30648,12 +30628,12 @@ aE
 bB
 FH
 af
-xF
-xF
-xF
-xF
-xF
-xF
+FH
+FH
+FH
+FH
+FH
+Uc
 Uc
 Uc
 Uc
