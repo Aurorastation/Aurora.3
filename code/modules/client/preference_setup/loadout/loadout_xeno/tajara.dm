@@ -131,7 +131,7 @@
 
 /datum/gear/shoes/tajara/flats/New()
 	..()
-	var/flats = list()
+	var/list/flats = list()
 	flats["dress flats, black"] = /obj/item/clothing/shoes/flats/tajara
 	flats["dress flats, white"] = /obj/item/clothing/shoes/flats/tajara/white
 	flats["dress flats, red"] = /obj/item/clothing/shoes/flats/tajara/red
