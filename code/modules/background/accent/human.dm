@@ -166,5 +166,5 @@
 
 /datum/accent/plutian
 	name = ACCENT_PLUTIAN
-	description = "Plutian is a relatively uncommon form of speaking, with it's breathy way of speaking unusual in other reaches of Sol. Due to Pluto's distance from other widely populated planets, it has developed over time into the standard \"Kuiper Belt Accent\" for those who live within it's reach, with minor variations. It can occasionally be mistaken as an unusual form of the typical Solarian accent."
+	description = "Plutian is a breathy way of speaking Sol Common, typically only picked up by off-worlders who reside near or on Pluto. Due to Pluto's distance from other population centers, it has developed over time into a sort of standard \"Kuiper Belt Accent\" for those who live within it's reach. It can occasionally be mistaken as an unusual form of the typical Solarian accent."
 	tag_icon = "pluto"
