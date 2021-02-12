@@ -286,7 +286,7 @@
 
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
-	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects))
+	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects) || (germ_level <= 0))
 		return
 
 	var/antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
