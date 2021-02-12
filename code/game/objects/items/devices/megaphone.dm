@@ -3,12 +3,10 @@
 	desc = "Pretend to be a director for a brief moment before someone tackles you to make you shut up."
 	desc_fluff = "Annoy your colleagues! Scare interns! Impress no one!"
 	desc_info = "A device used to project your voice. Loudly."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/device/lefthand_megaphone.dmi',
-		slot_r_hand_str = 'icons/mob/items/device/righthand_megaphone.dmi',
-		)
+	icon = 'icons/obj/contained_items/tools/megaphone.dmi'
 	icon_state = "megaphone"
 	item_state = "megaphone"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 
