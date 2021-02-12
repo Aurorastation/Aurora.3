@@ -18,7 +18,6 @@
 	anchored = TRUE
 	buckle_dir = SOUTH
 	buckle_lying = 1
-	can_buckle = list(/mob/living, /obj/structure/closet/body_bag)
 	build_amt = 2
 	var/material/padding_material
 
@@ -30,6 +29,10 @@
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/makes_rolling_sound = TRUE
 	slowdown = 5
+
+/obj/structure/bed/Initialize()
+	..()
+	LAZYADD(can_buckle, /mob/living)
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)
 	..(newloc)
@@ -218,7 +221,6 @@
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_down"
 	anchored = FALSE
-	can_buckle = list(/mob/living, /obj/structure/closet/body_bag)
 	var/base_state = "standard"
 	var/item_bedpath = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
@@ -227,6 +229,10 @@
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
 	var/bag_strap = "standard_straps"
 	slowdown = 0
+
+/obj/structure/bed/roller/Initialize()
+	..()
+	LAZYADD(can_buckle, list(/obj/structure/closet/body_bag))
 
 /obj/structure/bed/roller/update_icon()
 	overlays.Cut()
