@@ -232,7 +232,7 @@
 
 /obj/structure/bed/roller/Initialize()
 	..()
-	LAZYADD(can_buckle, list(/obj/structure/closet/body_bag))
+	LAZYADD(can_buckle, /obj/structure/closet/body_bag)
 
 /obj/structure/bed/roller/update_icon()
 	overlays.Cut()
