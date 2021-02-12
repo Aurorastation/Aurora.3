@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed TTV devices not being able to open their UIs."
+  - rscadd: "Removing a device from a TTV now puts it in your hand."
