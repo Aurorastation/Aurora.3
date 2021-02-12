@@ -12,7 +12,7 @@ var/datum/antagonist/revenant/revenants = null
 	hard_cap = 12
 	hard_cap_round = 12
 
-	var/rifts_left = 3
+	var/rifts_left = 1
 	var/kill_count = 0
 	var/obj/effect/portal/revenant/revenant_rift
 

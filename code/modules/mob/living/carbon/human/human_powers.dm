@@ -1209,3 +1209,34 @@ mob/living/carbon/human/proc/change_monitor()
 
 	primary_martial_art = selected_martial_art
 	to_chat(src, SPAN_NOTICE("You will now use [primary_martial_art.name] when fighting barehanded."))
+
+//Used to rename monkey mobs since they are humans with a monkey species applied
+/mob/living/carbon/human/proc/change_animal_name()
+	set name = "Name Animal"
+	set desc = "Name a monkeylike animal."
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/living/M = usr
+	if(!M || usr == src)
+		return
+
+	if(can_name(M))
+		var/input = sanitizeSafe(input("What do you want to name \the [src]?","Choose a name") as text|null, MAX_NAME_LEN)
+		if(!input)
+			return
+		if(stat != DEAD && in_range(M,src))
+			to_chat(M, SPAN_NOTICE("You rename \the [src] to [input]."))
+			name = "\proper [input]"
+			real_name = input
+			named = TRUE
+
+//Used only to check for renaming of monkey mobs
+/mob/living/carbon/human/can_name(var/mob/living/M)
+	if(named)
+		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
+		return FALSE
+	if(stat == DEAD)
+		to_chat(M, SPAN_WARNING("You can't name a corpse."))
+		return FALSE
+	return TRUE

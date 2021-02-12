@@ -936,7 +936,6 @@
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
 
-
 /obj/item/clothing/under/examine(mob/user)
 	..(user)
 	switch(src.sensor_mode)

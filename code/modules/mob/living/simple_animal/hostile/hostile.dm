@@ -29,6 +29,7 @@
 
 	var/smart_melee = TRUE   // This makes melee mobs try to stay two tiles away from their target in combat, lunging in to attack only
 	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
+	var/hostile_nameable = FALSE //If we can rename this hostile mob. Mostly to prevent repeat checks with guard dogs and hostile/retaliate farm animals
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -41,6 +42,14 @@
 	target_mob = null
 	targets = null
 	return ..()
+
+/mob/living/simple_animal/hostile/can_name(var/mob/living/M)
+	if(hostile_nameable)
+		return ..()
+	if(faction && faction == M.faction) //In case the mob had a dociler used on it
+		return ..()
+	return FALSE
+
 
 /mob/living/simple_animal/hostile/proc/FindTarget()
 	if(!faction) //No faction, no reason to attack anybody.
@@ -202,6 +211,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
 	if(stat)
 		return
+	for(var/grab in grabbed_by)
+		var/obj/item/grab/G = grab
+		if(G.state >= GRAB_AGGRESSIVE)
+			return
 	facing_dir = get_dir(src, target)
 	if(ishuman(target))
 		step_away(src, pick(RANGE_TURFS(2, target)))

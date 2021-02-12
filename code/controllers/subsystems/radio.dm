@@ -187,6 +187,8 @@ var/datum/controller/subsystem/radio/SSradio
 			. = "srvradio"
 		if (ENT_FREQ) //entertainment
 			. = "entradio"
+		if (BLSP_FREQ)
+			. = "bluespaceradio"
 		else
 			if(DEPT_FREQS_ASSOC[fstr])
 				. = "deptradio"
