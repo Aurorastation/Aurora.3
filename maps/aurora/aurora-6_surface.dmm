@@ -12223,6 +12223,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "kZt" = (
@@ -53955,7 +53958,7 @@ fdu
 fdu
 fdu
 kKF
-nmN
+kKF
 kKF
 kKF
 kKF

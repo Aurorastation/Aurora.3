@@ -234,7 +234,7 @@
 /datum/gear/uniform/dominia_dress/New()
 	..()
 	var/list/suit = list()
-	for(var/dress in subtypesof(/obj/item/clothing/under/dominia/dress/fancy))
+	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/fancy))
 		var/obj/item/clothing/under/dominia/dress/D = new dress //I'm not typing all this shit manually. Jesus christ.
 		suit["[D.name]"] = D.type
 	gear_tweaks += new/datum/gear_tweak/path(suit)

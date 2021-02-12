@@ -123,6 +123,8 @@
 	H.gender = NEUTER
 	H.universal_understand = TRUE
 	H.add_language(LANGUAGE_REVENANT_RIFTSPEAK)
+	var/datum/martial_art/revenant/R = new /datum/martial_art/revenant()
+	R.teach(H)
 
 /datum/species/revenant/get_random_name()
 	return "Revenant"
@@ -133,7 +135,7 @@
 	return FALSE
 
 /datum/species/revenant/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if((istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam)) && prob(30))
+	if((istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam)) && prob(20))
 		H.visible_message(SPAN_CULT("The [P.name] gets absorbed by [H]!"), SPAN_CULT("You absorb the [P.name]!"))
 		return -1
 	return ..()
