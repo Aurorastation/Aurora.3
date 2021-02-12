@@ -248,8 +248,8 @@ var/obj/item/card/id/all_access/ghost_all_access
 		var/id = wear_id.GetID()
 		if(id)
 			return id
-	if(gloves)
-		var/id = gloves.GetID()
+	if(wrists)
+		var/id = wrists.GetID()
 		if(id)
 			return id
 

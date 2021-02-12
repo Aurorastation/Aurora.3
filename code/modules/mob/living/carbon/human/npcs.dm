@@ -12,6 +12,7 @@
 /mob/living/carbon/human/monkey/punpun/LateInitialize()
 	name = "Pun Pun"
 	real_name = name
+	named = TRUE
 	w_uniform = new /obj/item/clothing/under/punpun(src)
 
 /obj/item/clothing/under/nupnup

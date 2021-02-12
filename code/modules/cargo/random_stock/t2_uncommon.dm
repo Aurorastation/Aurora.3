@@ -354,8 +354,14 @@ STOCK_ITEM_UNCOMMON(apiary, 1)
 		new /obj/item/honey_frame(L)
 
 STOCK_ITEM_UNCOMMON(wristbound, 0.5)
-	var/obj/item/modular_computer/handheld/wristbound/preset/P = pick(subtypesof(/obj/item/modular_computer/handheld/wristbound/preset))
-	new P(L)
+	var/list/possible_wristbounds = list()
+	for(var/thing in subtypesof(/obj/item/modular_computer/handheld/wristbound/preset))
+		var/obj/item/modular_computer/handheld/wristbound/preset/P = thing
+		if(initial(P.hidden))
+			continue
+		possible_wristbounds += P
+	var/wristbound_type = pick(possible_wristbounds)
+	new wristbound_type(L)
 
 STOCK_ITEM_UNCOMMON(pops, 0.5)
 	if(prob(85))

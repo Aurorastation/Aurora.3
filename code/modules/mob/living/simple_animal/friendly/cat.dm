@@ -283,6 +283,7 @@
 /mob/living/simple_animal/cat/fluff/Runtime
 	name = "Runtime"
 	desc = "Her fur has the look and feel of velvet, and her tail quivers occasionally."
+	named = TRUE
 	gender = FEMALE
 	icon_state = "cat"
 	item_state = "cat"
@@ -317,6 +318,7 @@
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
 	desc = "He's a laid back, black cat. Meow."
+	named = TRUE
 	gender = MALE
 	icon_state = "cat3"
 	item_state = "cat3"
@@ -334,6 +336,7 @@
 /mob/living/simple_animal/cat/penny
 	name = "Penny"
 	desc = "An important cat, straight from Central Command."
+	named = TRUE
 	icon_state = "penny"
 	item_state = "penny"
 	icon_living = "penny"

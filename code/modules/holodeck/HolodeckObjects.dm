@@ -471,6 +471,9 @@
 	light_range = 2
 	hunger_enabled = FALSE
 
+/mob/living/simple_animal/penguin/holodeck/can_name(var/mob/living/M)
+	return FALSE
+
 /mob/living/simple_animal/penguin/holodeck/baby
 	icon_state = "penguin_baby"
 	icon_living = "penguin_baby"
