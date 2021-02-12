@@ -222,7 +222,7 @@
 	if(pda && !visualsOnly)
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
-				I.desc_fluff = "For its many years of service, this model has held a virtual monopoly on the PDA market. The secret? A lapel pin affixed to the back."
+			I.desc_fluff = "For its many years of service, this model has held a virtual monopoly on the PDA market. The secret? A lapel pin affixed to the back."
 			if(OUTFIT_PDA_OLD)
 				I.icon = 'icons/obj/pda_old.dmi'
 				I.desc_fluff = "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite retrofitted to new modular computing standards."
@@ -252,7 +252,6 @@
 			equip_item(H, l_pocket, slot_l_store)
 		if(r_pocket)
 			equip_item(H, r_pocket, slot_r_store)
-
 		for(var/path in backpack_contents)
 			var/number = backpack_contents[path]
 			for(var/i in 1 to number)
