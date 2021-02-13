@@ -1,9 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - tweak: "Thetamycin starts fighting infections right away (Instead of requiring 5u to metabolize first), which means minor infections treated early will be cured quickly, and major ones have a slightly reduced treatment time."
-  - rscadd: "Added thetamycin to the reagents shown in the body scanner, instead of filing them under 'other.'"
-  - bugfix: "Golems and other bloodless species should no longer get infections."
-  - bugfix: "Infections now show up on printed scans from the body scanner."
