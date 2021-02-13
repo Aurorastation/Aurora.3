@@ -217,6 +217,8 @@ obj/item/clothing/shoes/sandal/clogs
 	name = "toe-less winter boots"
 	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
 	icon_state = "winterboots_toeless"
+	item_state = "winterboots_toeless"
+	species_restricted = null
 
 /obj/item/clothing/shoes/caligae
 	name = "caligae"
