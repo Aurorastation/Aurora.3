@@ -22,12 +22,6 @@
 	. = ..()
 	update_icon()
 
-/obj/item/clothing/accessory/update_icon()
-	. = ..()
-	if(build_from_parts)
-		cut_overlays()
-		add_overlay(overlay_image(icon, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-
 /obj/item/clothing/accessory/proc/get_inv_overlay(var/force = FALSE)
 	if(!mob_overlay)
 		get_mob_overlay()
@@ -44,7 +38,7 @@
 		inv_overlay.color = color
 	if(build_from_parts)
 		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(I, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_mob_overlay(var/force = FALSE)
@@ -61,7 +55,7 @@
 		mob_overlay.color = color
 	if(build_from_parts)
 		mob_overlay.cut_overlays()
-		mob_overlay.add_overlay(overlay_image(I, worn_overlay, flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		mob_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	mob_overlay.appearance_flags = RESET_ALPHA
 	return mob_overlay
 
