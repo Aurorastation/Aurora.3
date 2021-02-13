@@ -11727,10 +11727,6 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 8
 	},
-/obj/machinery/station_map{
-	dir = 8;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "kDq" = (
@@ -12431,15 +12427,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
-"lkM" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/station_map{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "lkU" = (
 /obj/machinery/door/airlock{
 	id_tag = "Dormitory 2";
@@ -53612,7 +53599,7 @@ twe
 pMI
 qmj
 twe
-lkM
+vHg
 oet
 elY
 nxU

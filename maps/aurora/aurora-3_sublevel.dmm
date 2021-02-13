@@ -3540,21 +3540,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"aip" = (
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/engineering/hallway)
 "aiq" = (
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -15025,9 +15010,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
-	},
-/obj/machinery/station_map{
-	pixel_y = 32
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -35064,16 +35046,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"uGE" = (
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
-/obj/effect/floor_decal/corner_wide/mauve{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/outpost/research/hallway)
 "uGF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -52287,7 +52259,7 @@ fvN
 jjk
 ahi
 ahK
-aip
+ain
 aiQ
 ajA
 ajA
@@ -58264,7 +58236,7 @@ xFr
 aLI
 aMG
 aCf
-uGE
+azn
 aPg
 aGC
 aQt

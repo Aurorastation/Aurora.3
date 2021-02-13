@@ -23313,13 +23313,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aNJ" = (
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "aNK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -28576,12 +28569,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"aWM" = (
-/obj/machinery/station_map{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "aWN" = (
 /obj/structure/sign/directions/engineering{
 	dir = 8;
@@ -30063,13 +30050,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
-"aZe" = (
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/port)
 "aZf" = (
 /obj/machinery/power/apc{
 	name = "south bump";
@@ -30421,24 +30401,6 @@
 "aZJ" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"aZK" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/obj/machinery/door/firedoor{
-	enable_smart_generation = 0
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -35436,10 +35398,6 @@
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 6";
 	dir = 8
-	},
-/obj/machinery/station_map{
-	dir = 8;
-	pixel_x = 32
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -42929,10 +42887,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bxq" = (
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -90185,7 +90139,7 @@ aQq
 aVh
 ePx
 aXX
-aZe
+aWs
 aVq
 bbq
 bcV
@@ -99692,7 +99646,7 @@ nLT
 aSr
 aTT
 aIi
-aWM
+aZs
 aYn
 aZr
 baI
@@ -106890,7 +106844,7 @@ ahC
 ahC
 aXa
 aYq
-aZK
+aZC
 avd
 avd
 bfh
@@ -108424,7 +108378,7 @@ aGL
 qSC
 cCf
 aLQ
-aNJ
+awK
 aPu
 aRb
 aRb
