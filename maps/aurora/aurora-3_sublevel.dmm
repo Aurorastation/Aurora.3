@@ -1748,6 +1748,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/closet/crate{
+	name = "Maglock Storage"
+	},
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "aee" = (
@@ -2011,6 +2018,9 @@
 	pixel_x = 22;
 	pixel_y = 8;
 	specialfunctions = 4
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
@@ -12058,6 +12068,9 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
@@ -22391,6 +22404,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "aVJ" = (
@@ -29472,17 +29488,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
-"iwX" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "iAw" = (
 /obj/structure/table/rack,
 /obj/item/shovel{
@@ -32374,12 +32379,6 @@
 /obj/machinery/power/crystal_agitator,
 /turf/simulated/floor,
 /area/security/penal_colony)
-"oJR" = (
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "oKh" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 10
@@ -35431,6 +35430,9 @@
 	pixel_x = -28
 	},
 /obj/machinery/light/small/emergency,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medsublevel_port)
 "vnr" = (
@@ -52085,7 +52087,7 @@ nDL
 nDL
 tkm
 iOl
-oJR
+aba
 aba
 aba
 ale
@@ -71115,7 +71117,7 @@ aIZ
 aNT
 vnf
 awP
-iwX
+aqA
 ebn
 ayi
 akG
@@ -80880,7 +80882,7 @@ eEq
 baw
 cFw
 nzR
-oJR
+aba
 aba
 aba
 aaa

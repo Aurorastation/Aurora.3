@@ -1,7 +1,7 @@
 #define INFESTATION_RATS "rats"
 #define INFESTATION_LIZARDS "lizards"
 #define INFESTATION_SPACE_BATS "space bats"
-#define INFESTATION_SPIDERLINGS "spiderlings"
+#define INFESTATION_SPIDERLINGS "greimorian larva"
 #define INFESTATION_HIVEBOTS "hivebots"
 #define INFESTATION_SLIMES "slimes"
 

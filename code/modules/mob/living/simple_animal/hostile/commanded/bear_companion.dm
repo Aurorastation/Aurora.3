@@ -33,6 +33,8 @@
 
 	tameable = FALSE
 
+	hostile_nameable = TRUE
+
 	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
 	meat_amount = 5

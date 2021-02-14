@@ -294,3 +294,10 @@
 	else
 		..()
 	return
+
+/obj/item/projectile/ice
+	name ="ice bolt"
+	icon_state= "icer_bolt"
+	damage = 15
+	damage_type = BRUTE
+	check_armor = "energy"
