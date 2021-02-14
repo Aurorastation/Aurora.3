@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Barricades can now be damaged by bullets. If you aim directly at them, you will hit them. If you stand next to them when you fire through them, you will always shoot through, otherwise there is only a 35% chance for the bullet to pass unimpeded."
