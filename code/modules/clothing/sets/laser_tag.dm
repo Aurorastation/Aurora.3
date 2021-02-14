@@ -4,6 +4,7 @@
 /obj/item/clothing/suit/armor/riot/laser_tag
 	name = "laser tag armor"
 	desc = "A set of laser tag armor. Very swanky."
+	desc_info = "You can alt-click this while holding or wearing it to set how many laser tag shots you want to be able to take before going down."
 	icon = 'icons/clothing/kit/laser_tag.dmi'
 	icon_state = "vest"
 	item_state = "vest"
