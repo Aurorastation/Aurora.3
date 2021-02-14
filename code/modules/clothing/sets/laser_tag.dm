@@ -129,6 +129,7 @@
 		new helmet_path(src)
 		new armor_path(src)
 		new gun_path(src)
+		new /obj/item/clothing/ears/earmuffs(src)
 
 /obj/structure/closet/lasertag/blue
 	name = "blue laser tag equipment"
