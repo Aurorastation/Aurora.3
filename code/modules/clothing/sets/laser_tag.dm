@@ -18,9 +18,29 @@
 	siemens_coefficient = 1.0
 	var/laser_tag_color = "red"
 
+	var/set_health = 3
+	var/current_health
+
 /obj/item/clothing/suit/armor/riot/laser_tag/Initialize(mapload, material_key)
 	. = ..()
 	get_tag_color(laser_tag_color)
+	current_health = set_health
+
+/obj/item/clothing/suit/armor/riot/laser_tag/AltClick(mob/user)
+	if(loc == user)
+		set_health = input(user, "Set the amount of shots you want your armour to take.", "Laser Armor", 3) as null|anything in list(1, 2, 3, 4, 5)
+		if(!set_health)
+			return
+		current_health = set_health
+		var/user_name = "Unknown User"
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			var/obj/item/card/id/ID = H.GetIdCard()
+			user_name = ID.registered_name
+		var/list/num_to_word = list("one", "two", "three", "four", "five")
+		visible_message("[capitalize_first_letters(name)] says, \"[SPAN_NOTICE("[user_name] armor health set to [num_to_word[set_health]]")]\".")
+		return
+	return ..()
 
 /obj/item/clothing/suit/armor/riot/laser_tag/attackby(obj/item/I, mob/user)
 	if(I.ismultitool())
@@ -32,6 +52,13 @@
 		to_chat(user, SPAN_NOTICE("\The [src] is now a [chosen_color] laser tag vest."))
 		return
 	return ..()
+
+/obj/item/clothing/suit/armor/riot/laser_tag/proc/laser_hit()
+	current_health--
+	if(current_health <= 0 && ismob(loc))
+		var/mob/M = loc
+		M.Weaken(5)
+		current_health = set_health
 
 /obj/item/clothing/suit/armor/riot/laser_tag/blue
 	laser_tag_color = "blue"

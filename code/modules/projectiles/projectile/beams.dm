@@ -118,7 +118,7 @@
 		var/mob/living/carbon/human/H = target
 		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
 		if(istype(LT) && laser_tag_color != LT.laser_tag_color)
-			H.Weaken(5)
+			LT.laser_hit()
 	return TRUE
 
 /obj/item/projectile/beam/laser_tag/blue
