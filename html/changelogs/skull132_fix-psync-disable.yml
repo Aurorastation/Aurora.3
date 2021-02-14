@@ -1,5 +1,0 @@
-author: Skull132
-delete-after: True
-
-changes:
-  - backend: "Permissions sync disable functionality should now work."
