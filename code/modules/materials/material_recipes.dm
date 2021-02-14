@@ -66,8 +66,7 @@
 			new /datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1),
 			new /datum/stack_recipe("custodial cart", /obj/structure/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("steel wool", /obj/item/steelwool, 1, time = 15, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("airlock assemblies",

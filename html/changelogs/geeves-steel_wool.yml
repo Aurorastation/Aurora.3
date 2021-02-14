@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "You can now carve steel wool out of steel sheets by using something sharp."
+  - rscdel: "Removed the cheap buildable steel wool recipe from steel sheets."
