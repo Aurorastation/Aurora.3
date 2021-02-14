@@ -1018,11 +1018,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 		last_special = world.time + 20
 
-		src.drop_from_inventory(O)
+		drop_from_inventory(O)
 		O.replaced(src)
-		src.update_body()
-		src.updatehealth()
-		src.UpdateDamageIcon()
+		update_body()
+		updatehealth()
+		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()
