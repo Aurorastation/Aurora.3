@@ -216,6 +216,7 @@ obj/item/gun/energy/retro
 	has_item_ratio = FALSE
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	self_recharge = TRUE
+	recharge_time = 2
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	projectile_type = /obj/item/projectile/beam/laser_tag
