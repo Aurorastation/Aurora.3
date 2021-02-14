@@ -11,6 +11,7 @@
 	layer = OBJ_LAYER + 0.9
 	mouse_opacity = 0
 	animate_movement = 0
+	var/solid_time = 120
 	var/amount = 3
 	var/expand = 1
 	var/metal = 0
@@ -21,7 +22,7 @@
 	metal = ismetal
 	playsound(src, 'sound/effects/bubbles2.ogg', 80, 1, -3)
 	addtimer(CALLBACK(src, .proc/tick), 3 + metal * 3)
-	addtimer(CALLBACK(src, .proc/post), 120)
+	addtimer(CALLBACK(src, .proc/post), solid_time)
 
 /obj/effect/effect/foam/proc/tick()
 	process()
@@ -65,8 +66,8 @@
 		if(!metal)
 			F.create_reagents(10)
 			if(reagents)
-				for(var/datum/reagent/R in reagents.reagent_list)
-					F.reagents.add_reagent(R.type, 1, safety = 1) //added safety check since reagents in the foam have already had a chance to react
+				for(var/_R in reagents.reagent_volumes)
+					F.reagents.add_reagent(_R, 1, safety = 1) //added safety check since reagents in the foam have already had a chance to react
 
 /obj/effect/effect/foam/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume) // foam disolves when heated, except metal foams
 	if(!metal && prob(max(0, exposed_temperature - 475)))
@@ -80,6 +81,13 @@
 	if(istype(AM, /mob/living))
 		var/mob/living/M = AM
 		M.slip("the foam", 6)
+
+/obj/effect/effect/foam/spray
+	amount = 1 // only spread a little bit
+	solid_time = 3 SECONDS
+
+/obj/effect/effect/foam/spray/initial
+	amount = 0 // don't spread
 
 /datum/effect/effect/system/foam_spread
 	var/amount = 5				// the size of the foam spread.
@@ -99,8 +107,8 @@
 	// bit of a hack here. Foam carries along any reagent also present in the glass it is mixed with (defaults to water if none is present). Rather than actually transfer the reagents, this makes a list of the reagent ids and spawns 1 unit of that reagent when the foam disolves.
 
 	if(carry && !metal)
-		for(var/datum/reagent/R in carry.reagent_list)
-			carried_reagents += R.type
+		for(var/_R in carry.reagent_volumes)
+			carried_reagents += _R
 
 /datum/effect/effect/system/foam_spread/start()
 	set waitfor = FALSE
@@ -119,7 +127,7 @@
 			for(var/id in carried_reagents)
 				F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
 		else
-			F.reagents.add_reagent(/datum/reagent/water, 1, safety = 1)
+			F.reagents.add_reagent(/decl/reagent/water, 1, safety = 1)
 
 // wall formed by metal foams, dense and opaque, but easy to break
 
@@ -157,27 +165,72 @@
 		qdel(src)
 
 /obj/structure/foamedmetal/attack_hand(var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	if ((HULK in user.mutations) || (prob(75 - metal * 25)))
-		user.visible_message("<span class='warning'>[user] smashes through the foamed metal.</span>", "<span class='notice'>You smash through the metal foam wall.</span>")
+		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the metal foam wall."))
 		qdel(src)
 	else
-		to_chat(user, "<span class='notice'>You hit the metal foam but bounce off it.</span>")
-	return
+		to_chat(user, SPAN_NOTICE("You hit the metal foam but bounce off it."))
+		shake_animation()
 
 /obj/structure/foamedmetal/attackby(var/obj/item/I, var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(I, /obj/item/grab))
 		var/obj/item/grab/G = I
+		if(G.state < GRAB_AGGRESSIVE)
+			to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
+			return
 		G.affecting.forceMove(src.loc)
-		visible_message("<span class='warning'>[G.assailant] smashes [G.affecting] through the foamed metal wall.</span>")
+		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."))
+		G.affecting.take_overall_damage(15)
 		qdel(I)
 		qdel(src)
 		return
 
+	else if(istype(I, /obj/item/stack/material))
+		var/obj/item/stack/material/S = I
+		if(S.get_amount() < 4)
+			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
+			return
+
+		var/material/M = SSmaterials.get_material_by_name(S.default_type)
+		if(!istype(M))
+			return
+		if(M.integrity < 50)
+			to_chat(user, SPAN_NOTICE("This material is too soft for use in wall construction."))
+			return
+		user.visible_message("<b>[user]</b> starts slotting material into \the [src]...", SPAN_NOTICE("You start slotting material into \the [src], forming it into a wall..."))
+		if(!do_after(user, 10 SECONDS) || !S.use(4))
+			return
+		var/turf/Tsrc = get_turf(src)
+		var/original_type = Tsrc.type
+		Tsrc.ChangeTurf(/turf/simulated/wall)
+		var/turf/simulated/wall/T = Tsrc
+		T.under_turf = original_type
+		T.set_material(M)
+		T.add_hiddenprint(usr)
+		qdel(src)
+		return
+
+	else if(istype(I, /obj/item/stack/tile/floor))
+		var/turf/T = get_turf(src)
+		if(T.type != /turf/space && !isopenturf(T)) // need to do a hard check here because transit turfs are also space turfs
+			to_chat(user, SPAN_WARNING("The tile below \the [src] isn't an open space, or space itself!"))
+			return
+		var/obj/item/stack/tile/floor/S = I
+		S.use(1)
+		T.ChangeTurf(/turf/simulated/floor/airless)
+		qdel(src)
+		return
+
+	user.do_attack_animation(src, I)
 	if(prob(I.force * 20 - metal * 25))
-		user.visible_message("<span class='warning'>[user] smashes through the foamed metal.</span>", "<span class='notice'>You smash through the foamed metal with \the [I].</span>")
+		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the foamed metal with \the [I]."))
 		qdel(src)
 	else
-		to_chat(user, "<span class='notice'>You hit the metal foam to no effect.</span>")
+		to_chat(user, SPAN_NOTICE("You hit the metal foam to no effect."))
+		shake_animation()
 
 /obj/structure/foamedmetal/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	if(air_group)

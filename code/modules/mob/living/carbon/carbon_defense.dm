@@ -61,7 +61,7 @@
 		sleeping = 0
 		willfully_sleeping = FALSE
 
-/mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
+/mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	var/t_him = "it"
 	if (src.gender == MALE)
 		t_him = "him"
@@ -85,12 +85,12 @@
 					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
 		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-				    "<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
+							"<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
 		sleeping = 0
 		willfully_sleeping = FALSE
 
 
-	if(!effective_force || blocked >= 100)
+	if(!effective_force)
 		return 0
 
 	//Hulk modifier
@@ -99,19 +99,14 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	if(prob(blocked)) //armor provides a chance to turn sharp/edge weapon attacks into blunt ones
-		damage_flags &= ~DAM_SHARP
-		damage_flags &= ~DAM_EDGE
-
-	apply_damage(effective_force, I.damtype, hit_zone, blocked, used_weapon=I, damage_flags = damage_flags)
+	apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags)
 
 	//Melee weapon embedded object code.
 	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I))
 		var/damage = effective_force //just the effective damage used for sorting out embedding, no further damage is applied here
-		if (blocked)
-			damage *= BLOCKED_MULT(blocked)
+		damage *= 1 - get_blocked_ratio(hit_zone, I.damtype, I.damage_flags(), I.armor_penetration, I.force)
 
-		if (I.can_embed)//If this weapon is allowed to embed in people
+		if(I.can_embed)//If this weapon is allowed to embed in people
 			//blunt objects should really not be embedding in things unless a huge amount of force is involved
 			var/sharp = damage_flags & DAM_SHARP
 			var/edge = damage_flags & DAM_EDGE
@@ -173,7 +168,7 @@
 			user.visible_message("<span class='danger'>\The [user] cuts [src]'s neck open with \the [W]!</span>")
 
 		if(W.hitsound)
-			playsound(loc, W.hitsound, 50, 1, -1)
+			playsound(loc, W.hitsound, W.get_clamped_volume(), 1, -1)
 
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src

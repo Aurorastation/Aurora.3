@@ -5,7 +5,15 @@
 	action_button_name = "Toggle Headlamp"
 	brightness_on = 4 //luminosity when on
 	light_overlay = "hardhat_light"
-	armor = list(melee = 30, bullet = 5, laser = 20,energy = 10, bomb = 20, bio = 10, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_MINOR,
+		rad = ARMOR_RAD_MINOR
+	)
 	flags_inv = 0
 	w_class = ITEMSIZE_NORMAL
 	siemens_coefficient = 0.9
@@ -39,10 +47,9 @@
 	icon_state = "atmos_fire"
 	item_state = "atmos_fire"
 
-/obj/item/clothing/head/hardhat/emt
+/obj/item/clothing/head/hardhat/first_responder
 	name = "medical helmet"
-	desc = "A polymer helmet worn by EMTs and Paramedics throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
+	desc = "A polymer helmet worn by first responders throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
 	icon_state = "helmet_paramed"
 	item_state = "helmet_paramed"
 	light_overlay = "EMS_light"
-	armor = list(melee = 30, bullet = 15, laser = 20,energy = 10, bomb = 20, bio = 10, rad = 20)

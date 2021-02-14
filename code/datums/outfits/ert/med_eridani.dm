@@ -85,7 +85,7 @@
 /datum/outfit/admin/ert/med_eridani/paramedic
 	name = "Eridani Contractor Paramedic"
 
-	head = /obj/item/clothing/head/hardhat/emt
+	head = /obj/item/clothing/head/hardhat/first_responder
 	mask = /obj/item/clothing/mask/balaclava
 	back = /obj/item/storage/backpack/messenger/med
 	glasses = /obj/item/clothing/glasses/hud/health

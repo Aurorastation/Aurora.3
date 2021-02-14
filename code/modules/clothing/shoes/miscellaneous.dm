@@ -4,7 +4,7 @@
 	icon_state = "brown"
 	item_state = "brown"
 	permeability_coefficient = 0.05
-	item_flags = NOSLIP
+	item_flags = NOSLIP|LIGHTSTEP
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/list/clothing_choices = list()
 	siemens_coefficient = 0.75
@@ -23,10 +23,18 @@
 	icon_state = "swat"
 	item_state = "swat"
 	force = 5
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_MINOR
+	)
 	item_flags = NOSLIP
 	siemens_coefficient = 0.5
-	can_hold_knife = 1
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
 
 /obj/item/clothing/shoes/swat/ert
 	species_restricted = null
@@ -37,10 +45,18 @@
 	icon_state = "jungle"
 	item_state = "jungle"
 	force = 5
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_MINOR
+	)
 	item_flags = NOSLIP
 	siemens_coefficient = 0.35
-	can_hold_knife = 1
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -79,7 +95,6 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "clown"
 	item_state = "clown_shoes"
 	slowdown = 1
-	var/footstep = 1	//used for squeeks whilst walking
 	species_restricted = null
 
 /obj/item/clothing/shoes/clown_shoes/handle_movement(var/turf/walking, var/running)
@@ -195,6 +210,9 @@ obj/item/clothing/shoes/sandal/clogs
 		M = user
 	return eyestab(M,user)
 
+/obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
+	trip_up(walking, running)
+
 /obj/item/clothing/shoes/winter
 	name = "winter boots"
 	desc = "A pair of heavy winter boots made out of animal furs, reaching up to the knee."
@@ -204,14 +222,20 @@ obj/item/clothing/shoes/sandal/clogs
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET|LEGS
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+			melee = ARMOR_MELEE_MINOR,
+			bio = ARMOR_BIO_MINOR
+			)
 	siemens_coefficient = 0.75
-	can_hold_knife = 1
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
 
 /obj/item/clothing/shoes/winter/toeless
 	name = "toe-less winter boots"
 	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
 	icon_state = "winterboots_toeless"
+	item_state = "winterboots_toeless"
+	species_restricted = null
 
 /obj/item/clothing/shoes/caligae
 	name = "caligae"
@@ -220,7 +244,9 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "caligae"
 	item_state = "caligae"
 	force = 5
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+			melee = ARMOR_MELEE_MINOR
+			)
 	body_parts_covered = FEET|LEGS
 	species_restricted = null
 	sprite_sheets = list(
@@ -247,7 +273,9 @@ obj/item/clothing/shoes/sandal/clogs
 	desc = "The standard Unathi marching footwear. These are made for heavier conditions, featuring tough and waterproof eel-leather covering, offering far greater protection."
 	desc_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. This pair is reinforced with leather of the Zazehal, a Moghesian species of eel that can grow up to twenty five feet long. Typically, Zazehal Festivals are thrown every month of the warm season in which Unathi strew freshly killed birds across the shoreline and collect these creatures with baskets. The fungi that grow on their skin is harvested and used as an exotic seasoning, and their skin is used for its' incredibly durable, shark-like leather."
 	icon_state = "eelcaligae"
-	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES
+	)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/shoes/carp
@@ -267,4 +295,6 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "surgeon"
 	item_state = "blue"
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)

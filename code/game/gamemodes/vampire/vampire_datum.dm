@@ -18,6 +18,9 @@
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.
 	var/mob/living/carbon/human/master = null	// The vampire/thrall's master.
 
+	var/image/master_image
+	var/image/thrall_image
+
 /datum/vampire/thrall
 	status = VAMP_ISTHRALL
 
@@ -45,3 +48,19 @@
 		return
 
 	blood_usable = max(0, blood_usable - blood_to_use)
+
+/datum/vampire/proc/assign_master(var/mob/M, var/mob/set_master, var/datum/vampire/V)
+	master = set_master
+	V.thralls += M
+	thrall_image = image('icons/mob/hud.dmi', M, "hudthrall")
+	set_master.client.images += thrall_image
+	master_image = image('icons/mob/hud.dmi', set_master, "hudvampire")
+	M.client.images += master_image
+
+/datum/vampire/proc/lose_master(var/mob/M)
+	QDEL_NULL(thrall_image)
+	QDEL_NULL(master_image)
+	if(master)
+		var/datum/vampire/master_vampire = master.mind.antag_datums[MODE_VAMPIRE]
+		master_vampire.thralls -= M
+	master = null

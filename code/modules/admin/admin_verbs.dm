@@ -30,6 +30,7 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/access_news_network,	/*allows access of newscasters*/
 	/client/proc/giveruntimelog,		/*allows us to give access to runtime logs to somebody*/
 	/client/proc/getserverlog,			/*allows us to fetch server logs (diary) for other days*/
+	/client/proc/view_signal_log,		/*allows admins to check the log of signaler uses*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/Getmob,				/*teleports a mob to our location*/
 	/client/proc/Getkey,				/*teleports a mob with a certain ckey to our location*/
@@ -71,7 +72,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
-	/client/proc/check_customitem_activity,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/response_team, // Response Teams admin verb,
@@ -144,7 +144,6 @@ var/list/admin_verbs_spawn = list(
 	/client/proc/game_panel,
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
-	/datum/admins/proc/check_custom_items,
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
 	/client/proc/respawn_character,
@@ -170,7 +169,6 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/toggle_round_spookyness,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/check_customitem_activity,
 	/client/proc/nanomapgen_DumpImage,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_controller,
@@ -349,7 +347,6 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/call_drop_pod,
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
-	/datum/admins/proc/check_custom_items,
 	/datum/admins/proc/spawn_plant,
 	/client/proc/show_plant_genes,
 	/datum/admins/proc/spawn_atom,
@@ -399,7 +396,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/callproc,
 	/client/proc/callproc_target,
 	/client/proc/debug_controller,
-	/client/proc/check_customitem_activity,
 	/client/proc/print_logout_report,
 	/client/proc/edit_admin_permissions,
 	/proc/possess,
@@ -967,7 +963,7 @@ var/list/admin_verbs_cciaa = list(
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
 		return
-	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi, Vox and Tajaran can result in unintended consequences.",,"Yes","No"))
+	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
 		if("No")
 			return
 	var/new_facial = input("Please select facial hair color.", "Character Generation") as color

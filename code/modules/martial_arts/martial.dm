@@ -8,7 +8,7 @@
 	var/no_guns = FALSE	//set to TRUE to prevent users of this style from using guns
 	var/no_guns_message = ""	//message to tell the style user if they try and use a gun while no_guns = TRUE (DISHONORABRU!)
 	var/temporary = 0
-	var/weapon_affinity	//if this martial art has any interaction with a weapon, also spawns said weapon when the manual is used
+	var/list/weapon_affinity	//if this martial art has any interaction with a weapon
 	var/parry_multiplier = 1	//if this martial art increases the chance of parrying with the weapon
 	var/list/possible_weapons //if any weapon is spawned when you use the martial art manual
 
@@ -127,11 +127,9 @@
 				var/obj/item/clothing/gloves/force/X = A.gloves
 				real_damage *= X.amplification
 
-	var/armor = D.run_armor_check(hit_zone, "melee")
+	attack.apply_effects(A, D, rand_damage, hit_zone)
 
-	attack.apply_effects(A, D, armor, rand_damage, hit_zone)
-
-	D.apply_damage(real_damage, hit_dam_type, hit_zone, armor, damage_flags = damage_flags)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags)
 
 	return 1
 

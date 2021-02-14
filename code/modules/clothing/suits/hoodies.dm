@@ -90,7 +90,9 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	siemens_coefficient = 0.75
 	hoodtype = /obj/item/clothing/head/winterhood
 
@@ -228,3 +230,13 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	icon_state = "hoodie_sleeveless"
 	item_state = "hoodie_sleeveless"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/mars
+	name = "martian hoodie"
+	desc = "An orange hoodie jacket featuring the face of Warrant Officer August 'Gus' Maldarth, typically worn as a symbol of both solidarity with Mars, and a sign of protest against the Sol Alliance government. \
+	Strangely, Maldarth seems to be mispelled as 'Maldrath' on this garment. Additionally, #GusticeForGus can be seen written on the back. It seems to have typeface issues."
+	desc_fluff = "In November 2462, the planet of Mars was devastated by a phoron explosion widely believed to be\
+	caused by experiments the Solarian government was conducting on the planet. As a result, an earlier whistleblower,\
+	Gus Maldarth was regarded as a martyr after being silenced by operatives allegedly working on the behalf of Sol."
+	icon_state = "hoodie_mars"
+	item_state = "hoodie_mars"

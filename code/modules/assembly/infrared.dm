@@ -115,7 +115,7 @@
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "devices-assembly-infrared", 320, 220, capitalize_first_letters(name))
+		ui = new(user, src, "devices-assembly-infrared", 320, 220, capitalize_first_letters(name), state = deep_inventory_state)
 	ui.open()
 
 /obj/item/device/assembly/infra/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)

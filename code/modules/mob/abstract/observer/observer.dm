@@ -59,6 +59,7 @@
 		var/originaldesc = desc
 		var/o_transform = transform
 		appearance = body
+		appearance_flags = KEEP_TOGETHER
 		desc = originaldesc
 		transform = o_transform
 
@@ -521,32 +522,35 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 		//We test the environment of the tile, to see if its habitable for a mouse
 		//-----------------------------------
-		var/atmos_suitable = 1
+		var/atmos_suitable = TRUE
 
 		var/maxtemp = 390
 		var/mintemp = 210
 		var/min_oxy = 5
 		var/max_phoron = 1
 		var/max_co2 = 5
+		var/max_h2 = 5
 		var/min_pressure = 80
 
 		var/datum/gas_mixture/Environment = T.return_air()
 		if(Environment)
 
 			if(Environment.temperature > maxtemp)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if (Environment.temperature < mintemp)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(Environment.gas[GAS_OXYGEN] < min_oxy)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(Environment.gas[GAS_PHORON] > max_phoron)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(Environment.gas[GAS_CO2] > max_co2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
+			else if(Environment.gas[GAS_HYDROGEN] > max_h2)
+				atmos_suitable = FALSE
 			else if(Environment.return_pressure() < min_pressure)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 		else
-			atmos_suitable = 0
+			atmos_suitable = FALSE
 
 		if (!atmos_suitable)
 			continue
@@ -744,6 +748,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, "<span class='info'>You are now visible!</span>")
 
 	invisibility = invisibility == INVISIBILITY_OBSERVER ? 0 : INVISIBILITY_OBSERVER
+	mouse_opacity = invisibility == INVISIBILITY_OBSERVER ? 0 : initial(mouse_opacity)
 	// Give the ghost a cult icon which should be visible only to itself
 	toggle_icon("cult")
 

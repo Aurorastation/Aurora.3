@@ -41,7 +41,7 @@
 /obj/item/device/assembly/signaler/interact(mob/user, flag1)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "devices-assembly-signaler", 320, 220, capitalize_first_letters(name))
+		ui = new(user, src, "devices-assembly-signaler", 320, 220, capitalize_first_letters(name), state = deep_inventory_state)
 	ui.open()
 
 /obj/item/device/assembly/signaler/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -67,12 +67,12 @@
 
 	if(href_list["send"])
 		spawn( 0 )
-			signal()
+			signal(usr)
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
 	ui.check_for_change()
 
-/obj/item/device/assembly/signaler/proc/signal()
+/obj/item/device/assembly/signaler/proc/signal(var/mob/user)
 	if(!radio_connection)
 		return
 	if(within_jamming_range(src))
@@ -81,6 +81,8 @@
 	signal.source = src
 	signal.encryption = code
 	signal.data["message"] = "ACTIVATE"
+	if(user)
+		signal.data["user"] = WEAKREF(user)
 	radio_connection.post_signal(src, signal)
 	return
 
@@ -111,6 +113,15 @@
 	pulse(TRUE)
 
 	if(machine)
+		var/found_user = FALSE
+		if(signal.data["user"])
+			var/datum/weakref/user_ref = signal.data["user"]
+			var/mob/user = user_ref.resolve()
+			if(user)
+				found_user = TRUE
+				log_signal("[key_name(user)] has sent a signal to [machine.name] ([machine.x]-[machine.y]-[machine.z])")
+		if(!found_user)
+			log_signal("A userless signaler has sent a signal to [machine.name] ([machine.x]-[machine.y]-[machine.z])")
 		machine.audible_message("[icon2html(machine, viewers(get_turf(machine)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
 	else if(!holder)
 		audible_message("[icon2html(src, viewers(get_turf(src)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
@@ -154,7 +165,7 @@
 	if(use_check_and_message(user))
 		return
 	to_chat(user, SPAN_NOTICE("You click \the [src]'s signal button."))
-	signal()
+	signal(user)
 
 /obj/item/device/assembly/signaler/proc/deadman_trigger(var/mob/user)
 	if(deadman) //If its not activated, there is no point in triggering it

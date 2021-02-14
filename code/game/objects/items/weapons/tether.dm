@@ -35,10 +35,8 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/process()
 	var/turf/our_turf = get_turf(src)
-	for(var/tether in all_tethers)
+	for(var/tether in all_tethers - src)
 		var/obj/item/tethering_device/TD = tether
-		if(TD == src)
-			continue
 		if(!TD.active)
 			continue
 		var/turf/target_turf = get_turf(TD)
@@ -71,8 +69,8 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/proc/tether(var/obj/item/tethering_device/TD)
 	linked_tethers |= TD
-	var/datum/beam/exploration/B = new /datum/beam/exploration(src, TD, beam_icon_state = "explore_beam", time = -1, maxdistance = tether_range)
-	if(istype(B))
+	var/datum/beam/exploration/B = new(src, TD, beam_icon_state = "explore_beam", time = -1, maxdistance = tether_range)
+	if(istype(B) && !QDELING(B))
 		B.owner = src
 		B.Start()
 		active_beams[TD] = B

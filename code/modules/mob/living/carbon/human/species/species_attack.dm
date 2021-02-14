@@ -2,8 +2,8 @@
 	attack_verb = list("bit", "chomped on")
 	attack_sound = 'sound/weapons/bite.ogg'
 	shredding = 0
-	sharp = 1
-	edge = 1
+	sharp = TRUE
+	edge = TRUE
 	damage = 5
 	attack_name = "sharp bite"
 
@@ -21,8 +21,8 @@
 	eye_attack_text_victim = "sharp claws"
 	attack_sound = 'sound/weapons/slice.ogg'
 	miss_sound = 'sound/weapons/slashmiss.ogg'
-	sharp = 1
-	edge = 1
+	sharp = TRUE
+	edge = TRUE
 	damage = 5
 	attack_name = "claws"
 
@@ -57,16 +57,20 @@
 				if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!</span>")
 				if(5)		user.visible_message("<span class='danger'>[user] tears [user.get_pronoun("his")] [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!</span>")
 
+/datum/unarmed_attack/claws/shredding
+	shredding = TRUE
+	attack_name = "durable claws"
+
 /datum/unarmed_attack/claws/strong
 	attack_verb = list("slashed")
 	damage = 10
-	shredding = 1
+	shredding = TRUE
 	attack_name = "strong claws"
 
 /datum/unarmed_attack/bite/strong
 	attack_verb = list("mauled")
 	damage = 10
-	shredding = 1
+	shredding = TRUE
 	attack_name = "strong bite"
 
 /datum/unarmed_attack/slime_glomp
@@ -106,7 +110,7 @@
 	damage = 7
 	attack_sound = 'sound/weapons/smash.ogg'
 	attack_name = "heavy fist"
-	shredding = 1
+	shredding = TRUE
 
 /datum/unarmed_attack/industrial/heavy
 	damage = 9
@@ -121,7 +125,7 @@
 	damage = 12
 	attack_sound = 'sound/weapons/beartrap_shut.ogg'
 	attack_name = "power fist"
-	shredding = 1
+	shredding = TRUE
 
 /datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
@@ -144,10 +148,10 @@
 	attack_verb = list("cleaved", "plowed", "swiped")
 	attack_noun = list("massive claws")
 	damage = 25
-	sharp = 1
-	edge = 1
+	sharp = TRUE
+	edge = TRUE
 	attack_name = "massive claws"
-	shredding = 1
+	shredding = TRUE
 
 /datum/unarmed_attack/claws/cleave/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
@@ -168,9 +172,9 @@
 	attack_verb = list("mauled","gored","perforated")
 	attack_noun = list("mandibles")
 	damage = 35
-	shredding = 1
-	sharp = 1
-	edge = 1
+	shredding = TRUE
+	sharp = TRUE
+	edge = TRUE
 	attack_name = "mandibles"
 
 /datum/unarmed_attack/bite/infectious
@@ -184,14 +188,11 @@
 		to_chat(user, SPAN_WARNING("You feel that \the [target] has been already infected!"))
 
 	var/infection_chance = 80
-	infection_chance -= target.run_armor_check(zone,"melee")
+	infection_chance -= target.get_blocked_ratio(zone, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE, damage = damage)*100
 	if(prob(infection_chance))
 		if(target.reagents)
-			var/inject_amount = 10
-			var/trioxin_amount = target.reagents.get_reagent_amount(/datum/reagent/toxin/trioxin)
-			if(inject_amount + trioxin_amount > ZOMBIE_MAX_TRIOXIN)
-				inject_amount = ZOMBIE_MAX_TRIOXIN - trioxin_amount
-			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, inject_amount)
+			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /decl/reagent/toxin/trioxin)
+			target.reagents.add_reagent(/decl/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")
@@ -199,7 +200,7 @@
 	damage = 15
 	attack_sound = 'sound/weapons/heavysmash.ogg'
 	attack_name = "crushing fist"
-	shredding = 1
+	shredding = TRUE
 
 /datum/unarmed_attack/shocking
 	attack_verb = list("prodded", "touched")

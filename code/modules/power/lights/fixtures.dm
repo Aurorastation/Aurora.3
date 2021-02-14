@@ -31,6 +31,7 @@
 	var/light_type = /obj/item/light/tube		// the type of light item
 	var/obj/item/light/inserted_light = /obj/item/light/tube
 	var/fitting = "tube"
+	var/must_start_working = FALSE // Whether the bulb can break during Initialize or not
 	var/switchcount = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
 
@@ -122,7 +123,7 @@
 	if (start_with_cell && !no_emergency)
 		cell = new /obj/item/cell/device/emergency_light(src)
 
-	if (mapload && loc && isNotAdminLevel(z))
+	if (!must_start_working && mapload && loc && isNotAdminLevel(z))
 		switch(fitting)
 			if("tube")
 				if(prob(2))

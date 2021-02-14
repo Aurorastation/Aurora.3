@@ -342,6 +342,56 @@
 		/obj/item/toy/plushie/bearfire
 	)
 
+/obj/random/balloon
+	name = "random balloon"
+	desc = "This is a random balloon."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "balloon"
+	spawnlist = list(
+		/obj/item/toy/balloon/color = 7,
+		/obj/item/toy/balloon/latex = 1,
+		/obj/item/toy/balloon/latex/nitrile = 1,
+		/obj/item/toy/balloon/syndicate = 2,
+		/obj/item/toy/balloon/nanotrasen = 2,
+		/obj/item/toy/balloon/fellowship = 1,
+		/obj/item/toy/balloon/fellowshiphead = 1,
+		/obj/item/toy/balloon/contender = 1,
+		/obj/item/toy/balloon/contenderhead = 1,
+		/obj/item/toy/balloon/bat = 1,
+		/obj/item/toy/balloon/ghost = 1,
+		/obj/item/toy/balloon/xmastree = 1,
+		/obj/item/toy/balloon/candycane = 1
+	)
+
+/obj/random/desktoy
+	name = "random desk toy"
+	desc = "This is a random desk toy."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "dippybird"
+	spawnlist = list(
+		/obj/item/toy/desk/newtoncradle,
+		/obj/item/toy/desk/fan,
+		/obj/item/toy/desk/officetoy,
+		/obj/item/toy/desk/dippingbird
+	)
+
+/obj/random/lavalamp
+	name = "random lava lamp"
+	desc = "This is a random lava lamp."
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "lavalamp"
+	spawnlist = list(
+		/obj/item/device/flashlight/lamp/lava,
+		/obj/item/device/flashlight/lamp/lava/red,
+		/obj/item/device/flashlight/lamp/lava/orange,
+		/obj/item/device/flashlight/lamp/lava/yellow,
+		/obj/item/device/flashlight/lamp/lava/green,
+		/obj/item/device/flashlight/lamp/lava/cyan,
+		/obj/item/device/flashlight/lamp/lava/blue,
+		/obj/item/device/flashlight/lamp/lava/purple,
+		/obj/item/device/flashlight/lamp/lava/pink
+	)
+
 /obj/random/smalltank
 	name = "random small tank"
 
@@ -358,7 +408,7 @@
 	problist = list(
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
-		/obj/item/storage/belt/medical/emt = 0.4,
+		/obj/item/storage/belt/medical/first_responder = 0.4,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
 		/obj/item/storage/belt/janitor = 0.4
@@ -431,7 +481,6 @@
 /obj/random/voidsuit
 	name = "random voidsuit"
 	var/damaged = 0
-	var/for_vox = FALSE
 	var/list/suitmap = list(
 		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
@@ -694,7 +743,8 @@
 		/obj/item/gun/energy/rifle/laser/xray,
 		/obj/item/gun/energy/net,
 		/obj/item/gun/energy/laser/shotgun,
-		/obj/item/gun/energy/decloner
+		/obj/item/gun/energy/decloner,
+		/obj/item/gun/energy/freeze
 	)
 
 /obj/random/colored_jumpsuit
@@ -910,7 +960,7 @@
 		/obj/item/clothing/gloves/chameleon = 1,
 		/obj/item/clothing/gloves/black = 10,
 
-		/obj/item/clothing/head/chameleon = 0.5,
+		/obj/item/clothing/head/softcap/chameleon = 0.5,
 		/obj/item/clothing/head/softcap = 5,
 
 		/obj/item/clothing/mask/chameleon = 1,
@@ -960,10 +1010,10 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "watch"
 	problist = list(
-		/obj/item/clothing/gloves/watch = 1,
-		/obj/item/clothing/gloves/watch/silver = 0.7,
-		/obj/item/clothing/gloves/watch/gold = 0.5,
-		/obj/item/clothing/gloves/watch/spy = 0.3,
+		/obj/item/clothing/wrists/watch = 1,
+		/obj/item/clothing/wrists/watch/silver = 0.7,
+		/obj/item/clothing/wrists/watch/gold = 0.5,
+		/obj/item/clothing/wrists/watch/spy = 0.3,
 	)
 
 /obj/random/hoodie
@@ -1046,6 +1096,21 @@
 	problist = list(
 		/obj/item/bluespace_crystal = 5,
 		/obj/item/stack/telecrystal{amount = 10} = 5,
+		/obj/item/clothing/suit/armor/reactive = 0.5,
+		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
+		/obj/random/sword = 0.5,
+		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/melee/energy/axe = 0.5,
+		/obj/item/gun/projectile/automatic/terminator = 0.5,
+		/obj/item/rig/military = 0.5,
+		/obj/item/rig/unathi/fancy = 0.5,
+		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/anomaly_core = 0.5
+	)
+
+/obj/random/highvalue/no_crystal
+	problist = list(
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
@@ -1181,8 +1246,7 @@
 		/obj/random/action_figure						= 11,
 		/obj/random/plushie								= 44,
 		/obj/item/toy/cultsword							= 5,
-		/obj/item/toy/syndicateballoon					= 5,
-		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/random/balloon								= 22,
 		/obj/item/toy/katana							= 11,
 		/obj/item/toy/bosunwhistle						= 5,
 		/obj/item/storage/belt/champion			= 11,
@@ -1201,9 +1265,8 @@
 		/obj/item/eightball/broken						= 1,
 		/obj/item/spirit_board					= 5,
 		/obj/item/device/laser_pointer					= 1,
-		/obj/item/clothing/accessory/badge/press/plastic = 2
-
-
+		/obj/item/clothing/accessory/badge/press/plastic = 2,
+		/obj/item/storage/box/partypopper						= 11
 	)
 
 /obj/random/arcade/orion
@@ -1219,8 +1282,7 @@
 		/obj/item/toy/crossbow							= 11,
 		/obj/random/action_figure						= 11,
 		/obj/item/toy/cultsword							= 7,
-		/obj/item/toy/syndicateballoon					= 10,
-		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/random/balloon								= 22,
 		/obj/item/toy/katana							= 11,
 		/obj/random/plushie								= 55,
 		/obj/item/storage/belt/champion			= 11,
@@ -1477,7 +1539,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	spawnlist = list(
-		/obj/item/xmasgift/small = 0.5,
+		/obj/item/xmasgift = 0.5,
 		/obj/item/xmasgift/medium =  0.3,
 		/obj/item/xmasgift/large = 0.2
 	)
@@ -1551,7 +1613,8 @@
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
 		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
 		/obj/item/gun/projectile/musket = 0.5,
-		/obj/item/gun/launcher/grenade = 1
+		/obj/item/gun/launcher/grenade = 1,
+		/obj/item/gun/energy/freeze = 0.5
 		)
 
 	var/list/Epic = list(
@@ -1671,4 +1734,49 @@
 		/obj/structure/reagent_dispensers/keg/beerkeg = 2,
 		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
 		/obj/structure/reagent_dispensers/keg/mead = 0.5
+	)
+
+/obj/random/pizzabox
+	name = "random pizzabox"
+	desc = "Contains a random pizzabox."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "pizzabox1"
+	spawnlist = list(
+		/obj/item/pizzabox/margherita,
+		/obj/item/pizzabox/vegetable,
+		/obj/item/pizzabox/mushroom,
+		/obj/item/pizzabox/meat,
+		/obj/item/pizzabox/pineapple
+	)
+
+/obj/random/seed
+	name = "random seed"
+	desc = "This is a random normal seed."
+	icon = 'icons/obj/seeds.dmi'
+	icon_state = "random"
+	spawnlist = list(
+		/obj/item/seeds/limeseed,
+		/obj/item/seeds/lemonseed,
+		/obj/item/seeds/orangeseed,
+		/obj/item/seeds/grapeseed,
+		/obj/item/seeds/berryseed,
+		/obj/item/seeds/appleseed,
+		/obj/item/seeds/bananaseed,
+		/obj/item/seeds/watermelonseed,
+		/obj/item/seeds/pumpkinseed,
+		/obj/item/seeds/wheatseed,
+		/obj/item/seeds/cornseed,
+		/obj/item/seeds/riceseed,
+		/obj/item/seeds/sugarcaneseed,
+		/obj/item/seeds/carrotseed,
+		/obj/item/seeds/garlicseed,
+		/obj/item/seeds/onionseed,
+		/obj/item/seeds/potatoseed,
+		/obj/item/seeds/whitebeetseed,
+		/obj/item/seeds/tomatoseed,
+		/obj/item/seeds/chiliseed,
+		/obj/item/seeds/eggplantseed,
+		/obj/item/seeds/peanutseed,
+		/obj/item/seeds/soyaseed,
+		/obj/item/seeds/cabbageseed
 	)

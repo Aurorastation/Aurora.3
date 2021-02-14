@@ -12,6 +12,8 @@
 	load_offset_x = 0
 	mob_offset_y = 7
 
+	var/vueui_template = "trainengine"
+
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
 	active_engines = 1
 	var/obj/item/key/cargo_train/key
@@ -47,6 +49,59 @@
 	add_overlay(I)
 	turn_off()	//so engine verbs are correctly set
 
+/obj/vehicle/train/cargo/engine/attack_hand(mob/user)
+	if(use_check_and_message(user))
+		return
+	if(!load || user == load) // no driver, or the user is the driver
+		ui_interact(user)
+		return
+	..()
+
+/obj/vehicle/train/cargo/engine/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+
+	if(!ui)
+		ui = new(user, src, "vehicles-[vueui_template]", 600, 400, capitalize_first_letters(initial(name)))
+		ui.auto_update_content = TRUE
+
+	ui.open()
+
+/obj/vehicle/train/cargo/engine/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	if(!length(data))
+		data = list()
+
+	data["is_on"] = on
+	data["has_key"] = !!key
+	data["has_cell"] = !!cell
+	if(cell)
+		data["cell_charge"] = cell.charge
+		data["cell_max_charge"] = cell.maxcharge
+	data["is_towing"] = !!tow
+	if(tow)
+		data["tow"] = tow.name
+
+	return data
+
+/obj/vehicle/train/cargo/engine/Topic(href, href_list, state)
+	. = ..()
+	if(.)
+		return TRUE
+
+	if(load && usr != load)
+		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] unless you're the driver, or you're adjacent to it while it has no driver."))
+		return TRUE
+
+	if(href_list["toggle_engine"])
+		if(!on)
+			start_engine()
+		else
+			stop_engine()
+	if(href_list["key"])
+		do_remove_key(usr)
+	if(href_list["unlatch"])
+		tow.unattach(usr)
+	SSvueui.check_uis_for_change(src)
+
 /obj/vehicle/train/cargo/engine/Move(var/turf/destination)
 	if(on && cell.charge < charge_use)
 		turn_off()
@@ -73,9 +128,12 @@
 /obj/vehicle/train/cargo/engine/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/key/cargo_train))
 		if(!key)
-			user.drop_from_inventory(W,src)
+			user.drop_from_inventory(W, src)
 			key = W
+			to_chat(user, SPAN_NOTICE("You slide the key into the ignition."))
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
+		else
+			to_chat(user, SPAN_WARNING("\The [src] already has a key inserted."))
 		return
 	..()
 
@@ -122,6 +180,7 @@
 //-------------------------------------------
 /obj/vehicle/train/cargo/engine/turn_on()
 	if(!key)
+		audible_message("\The [src] whirrs, but the lack of a key causes it to shut down.")
 		return
 	else
 		..()
@@ -152,7 +211,7 @@
 	H.apply_effects(5, 5)
 	for(var/i = 0, i < rand(1,5), i++)
 		var/def_zone = pick(parts)
-		H.apply_damage(rand(5,10), BRUTE, def_zone, H.run_armor_check(def_zone, "melee"))
+		H.apply_damage(rand(5,10), BRUTE, def_zone)
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
 	..()
@@ -220,7 +279,7 @@
 	set category = "Vehicle"
 	set src in view(0)
 
-	if(!istype(usr, /mob/living/carbon/human))
+	if(!ishuman(usr))
 		return
 
 	if(on)
@@ -228,13 +287,10 @@
 		return
 
 	turn_on()
-	if (on)
+	if(on)
 		to_chat(usr, "You start [src]'s engine.")
-	else
-		if(cell.charge < charge_use)
-			to_chat(usr, "[src] is out of power.")
-		else
-			to_chat(usr, "[src]'s engine won't start.")
+	else if(cell.charge < charge_use)
+		to_chat(usr, "[src] is out of power.")
 
 /obj/vehicle/train/cargo/engine/verb/stop_engine()
 	set name = "Stop engine"
@@ -260,18 +316,27 @@
 	if(!istype(usr, /mob/living/carbon/human))
 		return
 
-	if(!key || (load && load != usr))
+	if(!key)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a key inserted!"))
+		return
+	if(load && load != usr)
 		return
 
+	do_remove_key(usr)
+
+/obj/vehicle/train/cargo/engine/proc/do_remove_key(var/mob/user)
 	if(on)
 		turn_off()
 
-	key.loc = usr.loc
-	if(!usr.get_active_hand())
-		usr.put_in_hands(key)
+	user.put_in_hands(key)
 	key = null
 
 	verbs -= /obj/vehicle/train/cargo/engine/verb/remove_key
+
+/obj/vehicle/train/cargo/engine/emag_act(var/remaining_charges, mob/user)
+	. = ..()
+	if(.)
+		update_car(train_length, active_engines)
 
 //-------------------------------------------
 // Loading/unloading procs
@@ -376,6 +441,8 @@
 		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
 		move_delay += config.walk_speed 													//base reference speed
 		move_delay *= config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
+		if(emagged)
+			move_delay -= 2
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length

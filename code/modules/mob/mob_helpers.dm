@@ -19,6 +19,9 @@
 /mob/living/carbon/human/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
+/mob/living/carbon/human/proc/isShell()
+	return species && (species.name in list(SPECIES_IPC_SHELL, SPECIES_IPC_SHELL_ROGUE))
+
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A
@@ -41,6 +44,13 @@
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_HUMAN))
 		return 1
 	return 0
+
+/proc/isgolem(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(istype(H.species, /datum/species/golem))
+			return TRUE
+	return FALSE
 
 /proc/isunathi(A)
 	if(ishuman(A))
@@ -106,6 +116,13 @@
 /mob/living/carbon/alien/diona/is_diona()
 	return DIONA_NYMPH
 
+/proc/is_mob_special(A) // determines special mobs. has restrictions on certain things, like welderbombing
+	if(isrevenant(A))
+		return TRUE
+	if(iszombie(A))
+		return TRUE
+	return FALSE
+
 /proc/isskeleton(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
 		return 1
@@ -135,6 +152,14 @@
 				return TRUE
 	if(iszombie(A))
 		return TRUE
+	return FALSE
+
+/proc/isrevenant(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_REVENANT)
+				return TRUE
 	return FALSE
 
 /proc/islesserform(A)
@@ -743,6 +768,8 @@ proc/is_blind(A)
 		return slot_l_ear
 	else if (H.shoes == src)
 		return slot_shoes
+	else if (H.wrists == src)
+		return slot_wrists
 	else
 		return null//We failed to find the slot
 
@@ -898,9 +925,9 @@ proc/is_blind(A)
 			preposition = "inside"
 
 	if (justmoved)
-		reportto.contained_visible_message(H,  "<span class='notice'>[H] [action3] [reportto] [preposition] their [newlocation]</span>", "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>", "", 1)
+		reportto.contained_visible_message(H, SPAN_NOTICE("[H] [action3] [reportto] [preposition] their [newlocation]."), SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]."), "", 1)
 	else
-		to_chat(reportto, "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>")
+		to_chat(reportto, SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]."))
 
 /atom/proc/get_holding_mob()
 	//This function will return the mob which is holding this holder, or null if it's not held
@@ -1026,38 +1053,6 @@ proc/is_blind(A)
 
 	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
 		. |= TYPE_HUMANOID
-
-
-/mob/living/proc/get_vessel(create = FALSE)
-	if (!create)
-		return
-
-	//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
-	//We create an MD5 hash of the mob's reference to use as its DNA string.
-	//This creates unique DNA for each creature in a consistently repeatable process
-	var/datum/reagents/vessel = new/datum/reagents(600)
-	vessel.add_reagent(/datum/reagent/blood,560)
-	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.type == /datum/reagent/blood)
-			B.data = list(
-				"donor" = WEAKREF(src),
-				"species" = name,
-				"blood_DNA" = md5("\ref[src]"),
-				"blood_colour" = "#a10808",
-				"blood_type" = null,
-				"resistances" = null,
-				"trace_chem" = null
-			)
-
-			B.color = B.data["blood_colour"]
-
-	return vessel
-
-/mob/living/carbon/human/get_vessel(create = FALSE)
-	. = vessel
-
-/mob/living/carbon/alien/diona/get_vessel(create = FALSE)
-	. = vessel
 
 #undef SAFE_PERP
 
@@ -1194,5 +1189,27 @@ proc/is_blind(A)
 		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
 
 /mob/assign_player(var/mob/user)
-  ckey = user.ckey
-  return src
+	ckey = user.ckey
+	return src
+
+/mob/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/mob/proc/get_standard_pixel_y()
+	return initial(pixel_y)
+
+/mob/proc/remove_nearsighted()
+	disabilities &= ~NEARSIGHTED
+
+/mob/proc/remove_deaf()
+	sdisabilities &= ~DEAF
+
+/mob/proc/get_antag_datum(var/antag_role)
+	return
+
+/mob/proc/in_neck_grab()
+	for(var/thing in grabbed_by)
+		var/obj/item/grab/G = thing
+		if(G.state >= GRAB_NECK)
+			return TRUE
+	return FALSE

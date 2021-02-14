@@ -7,6 +7,7 @@
 	bodytype = BODYTYPE_HUMAN
 	age_max = 125
 	economic_modifier = 12
+	bandages_icon = 'icons/mob/bandage.dmi'
 
 	primitive_form = SPECIES_MONKEY
 	unarmed_types = list(

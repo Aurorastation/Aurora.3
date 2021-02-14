@@ -61,7 +61,7 @@
 		to_chat(src, "<span class='warning'>Unknown emote '[act]'. Type <b>say *help</b> for a list of usable emotes.</span>")
 		return
 
-	if(m_type != use_emote.message_type)
+	if(m_type && m_type != use_emote.message_type)
 		return
 
 	if(!use_emote.can_do_emote(src))

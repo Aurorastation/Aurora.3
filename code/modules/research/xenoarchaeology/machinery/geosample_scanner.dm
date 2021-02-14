@@ -48,18 +48,18 @@
 /obj/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()
 	create_reagents(500)
-	coolant_reagents_purity[/datum/reagent/water] = 0.5
-	coolant_reagents_purity[/datum/reagent/drink/coffee/icecoffee] = 0.6
-	coolant_reagents_purity[/datum/reagent/drink/icetea] = 0.6
-	coolant_reagents_purity[/datum/reagent/drink/milkshake] = 0.6
-	coolant_reagents_purity[/datum/reagent/leporazine] = 0.7
-	coolant_reagents_purity[/datum/reagent/kelotane] = 0.7
-	coolant_reagents_purity[/datum/reagent/sterilizine] = 0.7
-	coolant_reagents_purity[/datum/reagent/dermaline] = 0.7
-	coolant_reagents_purity[/datum/reagent/hyperzine] = 0.8
-	coolant_reagents_purity[/datum/reagent/cryoxadone] = 0.9
-	coolant_reagents_purity[/datum/reagent/coolant] = 1
-	coolant_reagents_purity[/datum/reagent/adminordrazine] = 2
+	coolant_reagents_purity[/decl/reagent/water] = 0.5
+	coolant_reagents_purity[/decl/reagent/drink/coffee/icecoffee] = 0.6
+	coolant_reagents_purity[/decl/reagent/drink/icetea] = 0.6
+	coolant_reagents_purity[/decl/reagent/drink/milkshake] = 0.6
+	coolant_reagents_purity[/decl/reagent/leporazine] = 0.7
+	coolant_reagents_purity[/decl/reagent/kelotane] = 0.7
+	coolant_reagents_purity[/decl/reagent/sterilizine] = 0.7
+	coolant_reagents_purity[/decl/reagent/dermaline] = 0.7
+	coolant_reagents_purity[/decl/reagent/hyperzine] = 0.8
+	coolant_reagents_purity[/decl/reagent/cryoxadone] = 0.9
+	coolant_reagents_purity[/decl/reagent/coolant] = 1
+	coolant_reagents_purity[/decl/reagent/adminordrazine] = 2
 
 /obj/machinery/radiocarbon_spectrometer/attack_hand(var/mob/user as mob)
 	ui_interact(user)
@@ -104,16 +104,17 @@
 	fresh_coolant = 0
 	coolant_purity = 0
 	var/num_reagent_types = 0
-	for (var/datum/reagent/current_reagent in src.reagents.reagent_list)
+	for (var/_current_reagent in reagents.reagent_volumes)
+		var/decl/reagent/current_reagent = decls_repository.get_decl(_current_reagent)
 		if (!current_reagent)
 			continue
-		var/cur_purity = coolant_reagents_purity[current_reagent.type]
+		var/cur_purity = coolant_reagents_purity[_current_reagent]
 		if(!cur_purity)
 			cur_purity = 0.1
 		else if(cur_purity > 1)
 			cur_purity = 1
-		total_purity += cur_purity * current_reagent.volume
-		fresh_coolant += current_reagent.volume
+		total_purity += cur_purity * REAGENT_VOLUME(reagents, _current_reagent)
+		fresh_coolant += REAGENT_VOLUME(reagents, _current_reagent)
 		num_reagent_types += 1
 	if(total_purity && fresh_coolant)
 		coolant_purity = total_purity / fresh_coolant
@@ -199,7 +200,7 @@
 					if(!rad_shield)
 						//irradiate nearby mobs
 						for(var/mob/living/M in view(7,src))
-							M.apply_effect(radiation / 25, IRRADIATE, blocked = M.getarmor(null, "rad"))
+							M.apply_damage(radiation / 25, IRRADIATE, damage_flags = DAM_DISPERSED)
 				else
 					t_left_radspike = pick(10,15,25)
 

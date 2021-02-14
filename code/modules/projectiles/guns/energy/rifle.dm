@@ -3,8 +3,8 @@
 	desc = "A Nanotrasen designed energy-based rifle with two settings: Stun and Kill."
 	desc_fluff = "The NT ER-2 is an energy rifle developed and produced by Nanotrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
 	icon = 'icons/obj/guns/erifle.dmi'
-	icon_state = "eriflestun100"
-	icon_state = "eriflestun100"
+	icon_state = "eriflestun"
+	item_state = "eriflestun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
@@ -35,7 +35,6 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/laser1.ogg')
 		)
 
-
 /obj/item/gun/energy/rifle/laser
 	name = "laser rifle"
 	desc = "A Nanotrasen designed laser weapon, designed to kill with concentrated energy blasts."
@@ -49,7 +48,7 @@
 	fire_delay = 5
 	burst_delay = 5
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/item/projectile/beam/midlaser
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0
@@ -58,14 +57,6 @@
 
 	firemodes = list()
 	modifystate = null
-
-/obj/item/gun/energy/rifle/laser/update_icon()
-	..()
-	if(wielded)
-		item_state = "[initial(icon_state)]-wielded"
-	else
-		item_state = initial(item_state)
-	update_held_icon()
 
 /obj/item/gun/energy/rifle/laser/heavy
 	name = "laser cannon"

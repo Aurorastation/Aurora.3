@@ -1,7 +1,7 @@
 #define INFESTATION_RATS "rats"
 #define INFESTATION_LIZARDS "lizards"
 #define INFESTATION_SPACE_BATS "space bats"
-#define INFESTATION_SPIDERLINGS "spiderlings"
+#define INFESTATION_SPIDERLINGS "greimorian larva"
 #define INFESTATION_HIVEBOTS "hivebots"
 #define INFESTATION_SLIMES "slimes"
 
@@ -64,7 +64,6 @@
 			chosen_scan_type = "Bluespace readings"
 			var/list/beacon_types = list(
 				/mob/living/simple_animal/hostile/hivebotbeacon = 1,
-				/mob/living/simple_animal/hostile/hivebotbeacon/toxic = 1,
 				/mob/living/simple_animal/hostile/hivebotbeacon/incendiary = 1
 			)
 			chosen_mob_types += pickweight(beacon_types)

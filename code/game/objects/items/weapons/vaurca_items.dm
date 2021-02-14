@@ -160,7 +160,7 @@
 
 /obj/item/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
-	desc = "A rather heavy data disk for a Vaurcae Arkship navigation drive."
+	desc = "A rather heavy data disk for a Vaurcan hiveship navigation drive."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	force = 10
@@ -170,7 +170,7 @@
 
 /obj/item/melee/vaurca/rock
 	name = "Sedantis rock"
-	desc = "A large chunk of alien earth from the distant Vaurcae world of Sedantis I. Just looking at it makes you feel funny."
+	desc = "A large chunk of alien earth from the distant Vaurcan world of Sedantis I. Just looking at it makes you feel funny."
 	icon_state = "glowing"
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 15
@@ -211,7 +211,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "void"
 	item_state = "void"
-	desc = "A lightweight Zo'rane designed Vaurcae softsuit, for extremely extended EVA operations."
+	desc = "A lightweight Zo'rane designed Vaurcan softsuit, for extremely extended EVA operations."
 	slowdown = 0
 
 	species_restricted = list(BODYTYPE_VAURCA)
@@ -243,7 +243,7 @@
 	species_restricted = list(BODYTYPE_VAURCA,BODYTYPE_VAURCA_WARFORM)
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi'
-		)
+	)
 
 	action_button_name = "Toggle the magclaws"
 
@@ -257,8 +257,13 @@
 	slowdown = -1
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 50, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
-
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED
+	)
 /obj/item/clothing/head/helmet/space/void/scout
 	name = "scout helmet"
 	desc = "A helmet designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
@@ -268,8 +273,13 @@
 	item_state = "helm_scout"
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 40, bullet = 20, laser = 40, energy = 30, bomb = 45, bio = 100, rad = 10)
-
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED
+	)
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
@@ -282,8 +292,14 @@
 	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 40, bullet = 40, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
-
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_MAJOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
 	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
@@ -293,7 +309,14 @@
 	item_state = "helm_commando"
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 30, bullet = 30, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_MAJOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
@@ -307,7 +330,13 @@
 	gas_filter_strength = 3
 	w_class = ITEMSIZE_SMALL
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
-	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		bio = ARMOR_BIO_STRONG,
+		rad = ARMOR_RAD_MINOR
+	)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"
 	item_state = "m_metalg"
@@ -390,13 +419,6 @@
 	recoil_wielded = 2
 	accuracy_wielded = -1
 	fire_delay_wielded = 1
-
-/obj/item/gun/launcher/crossbow/vaurca/update_icon()
-	if(wielded)
-		item_state = "gaussrifle-wielded"
-	else
-		item_state = "gaussrifle"
-	update_held_icon()
 
 /obj/item/gun/launcher/crossbow/vaurca/consume_next_projectile(mob/user=null)
 	return bolt

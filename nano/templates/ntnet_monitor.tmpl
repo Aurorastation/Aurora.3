@@ -1,29 +1,22 @@
 <h1>WIRELESS CONNECTIVITY</h1>
 	<div class="item">
 		<div class="itemLabelWide">
-                	Active NTNet Relays: 
+      Active NTNet Relays:
 		</div>
 		<div class="itemContentNarrow">
-                	<b>{{:data.ntnetrelays}}</b>
+      <b>{{:data.ntnetrelays}}</b>
 		</div>
 		{{if data.ntnetrelays}}
 			<div class="itemLabelWide">
-                		System status: 
+        System status:
 			</div>
 			<div class="itemContentNarrow">
-                		<b>{{:data.ntnetstatus ? "ENABLED" : "DISABLED"}}</b>
-			</div>		
-			<div class="itemLabelWide">
-                		Control: 
+        <b>{{:data.ntnetstatus ? "ENABLED" : "DISABLED"}}</b>
 			</div>
-			<div class="itemContentNarrow">
-                		{{:helper.link('TOGGLE', null, {'toggleWireless' : 1})}}
-			</div><br><br>
-			<i>Caution - Disabling wireless transmitters when using wireless device may prevent you from re-enabling them again!</i>
 		{{else}}
 			<br><p>Wireless coverage unavailable, no relays are connected.</p>
 		{{/if}}
-        </div>	
+  </div>
 
 <h1>FIREWALL CONFIGURATION</h1>
 <table>
@@ -51,34 +44,34 @@
 
 <h1>SECURITY SYSTEMS</h1>
 	{{if data.idsalarm}}
-        <div class="statusDisplay" style="overflow: auto;">
+    <div class="statusDisplay" style="overflow: auto;">
 		<div class="item">
 			<div class="itemContent" style="width: 100%;">
 				<h1>NETWORK INCURSION DETECTED</h1>
 				<i>An abnormal activity has been detected in the network. Please verify system logs for more information</i>
 			</div>
 		</div>
-        </div>		
+    </div>
 	{{/if}}
 	<div class="item">
 		<div class="itemLabelWide">
-                	Intrusion Detection System: 
+      Intrusion Detection System:
 		</div>
 		<div class="itemContentNarrow">
-                	<b>{{:data.idsstatus ? 'ENABLED' : 'DISABLED'}}</b>
+    	<b>{{:data.idsstatus ? 'ENABLED' : 'DISABLED'}}</b>
 		</div>
         </div>
 	<div class="item">
 		<div class="itemLabelWide">
-                	Maximal Log Count: 
+      Maximal Log Count:
 		</div>
 		<div class="itemContentNarrow">
-                	<b>{{:data.ntnetmaxlogs}}</b>
+      <b>{{:data.ntnetmaxlogs}}</b>
 		</div>
-        </div>
+  </div>
 	<div class="item">
 		<div class="itemLabelWide">
-                	Controls: 
+                	Controls:
 		</div>
 		<div class="itemContentNarrow">
 			<table>
@@ -88,9 +81,9 @@
 			<tr><td>{{:helper.link('PURGE LOGS', null, {'purgelogs' : 1})}}
 			</table>
 		</div>
-        </div>
+  </div>
 	<b>System Logs</b>
-        <div class="statusDisplay" style="overflow: auto;">
+  <div class="statusDisplay" style="overflow: auto;">
 		<div class="item">
 			<div class="itemContent" style="width: 100%;">
 				{{for data.ntnetlogs}}
@@ -98,9 +91,9 @@
 				{{/for}}
 			</div>
 		</div>
-        </div>
+  </div>
 	<b>Message Logs</b>
-        <div class="statusDisplay" style="overflow: auto;">
+  <div class="statusDisplay" style="overflow: auto;">
 		<div class="item">
 			<div class="itemContent" style="width: 100%;">
 				{{for data.ntnetmessages}}
@@ -108,4 +101,4 @@
 				{{/for}}
 			</div>
 		</div>
-        </div>
+  </div>

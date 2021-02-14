@@ -24,20 +24,6 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/suit/storage/tajaran/cloak
-	name = "commoner cloak"
-	desc = "A tajaran cloak made with the middle class in mind, fancy but nothing special."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "taj_commoncloak"
-	item_state = "taj_commoncloak"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-
-/obj/item/clothing/suit/storage/tajaran/cloak/fancy
-	name = "royal cloak"
-	desc = "A cloak fashioned from the best materials, meant for tajara of high standing."
-	icon_state = "taj_fancycloak"
-	item_state = "taj_fancycloak"
-
 /obj/item/clothing/suit/storage/toggle/tajaran
 	name = "tajaran naval coat"
 	desc = "A thick wool coat from Adhomai."
@@ -93,7 +79,7 @@
 	icon_state = "raskarasuit"
 	item_state = "raskarasuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_TAJARA)
 	desc_fluff =  "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
@@ -128,6 +114,29 @@
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
 	in temporary cease-fires from all sides."
 
+/obj/item/clothing/suit/storage/hooded/tajaran/surgery
+	name = "adhomian surgeon garb"
+	desc = "An utilitarian Adhomian surgeon's garb, with its design hardly changed from the First Revolution."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "tajscrubs"
+	item_state = "tajscrubs"
+	contained_sprite = TRUE
+	flags_inv = 0
+	hoodtype = /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
+	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+	species_restricted = list(BODYTYPE_TAJARA)
+	desc_fluff = null
+
+/obj/item/clothing/head/winterhood/hoodie/taj_scrubs
+	name = "adhomian surgeon mask"
+	desc = "A surgical mask attached to a surgeon garb."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "tajscrubs_hood"
+	item_state = "tajscrubs_hood"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+
 /obj/item/clothing/suit/armor/tajara
 	name = "amohdan swordsmen armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."
@@ -139,7 +148,12 @@
 	allowed = list(/obj/item/gun,/obj/item/material/sword)
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_TAJARA)
-	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR
+	)
 	siemens_coefficient = 0.35
 	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
 	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
@@ -153,7 +167,12 @@
 	icon_state = "cuirass"
 	item_state = "cuirass"
 	contained_sprite = TRUE
-	armor = list(melee = 50, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR
+	)
 
 /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	name = "republican service jacket"
@@ -161,5 +180,10 @@
 	icon_state = "greenservice"
 	item_state = "greenservice"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 30, bullet = 20, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR
+	)
 	siemens_coefficient = 0.50

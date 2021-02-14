@@ -41,6 +41,9 @@
 	new residue(loc)
 	qdel(src)
 
+/mob/living/simple_animal/shade/can_name(var/mob/living/M)
+	return FALSE
+
 /mob/living/simple_animal/shade/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
@@ -96,7 +99,7 @@
 	var/datum/weakref/original_body
 	var/datum/weakref/possessed_body
 
-/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage, var/damagetype, var/def_zone, var/blocked, var/used_weapon, var/damage_flags)
+/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage, var/damagetype, var/def_zone, var/blocked, var/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/adjustBruteLoss()
@@ -356,8 +359,4 @@
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "blectoplasm"
-
-/obj/item/ectoplasm/bs/Initialize()
-	. = ..()
-	create_reagents(8)
-	reagents.add_reagent(/datum/reagent/bluespace_dust, 8)
+	reagents_to_add = list(/decl/reagent/bluespace_dust = 8)

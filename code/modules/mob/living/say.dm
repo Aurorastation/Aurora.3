@@ -15,6 +15,7 @@ var/list/department_radio_keys = list(
 	  ":t" = "Mercenary",	".t" = "Mercenary",
 	  ":x" = "Raider",		".x" = "Raider",
 	  ":b" = "Burglar",		".b" = "Burglar",
+	  ":j" = "Bluespace",	".j" = "Bluespace",
 	  ":q" = "Ninja",		".q" = "Ninja",
 	  ":u" = "Supply",		".u" = "Supply",
 	  ":v" = "Service",		".v" = "Service",
@@ -36,6 +37,7 @@ var/list/department_radio_keys = list(
 	  ":T" = "Mercenary",	".T" = "Mercenary",
 	  ":X" = "Raider",		".X" = "Raider",
 	  ":B" = "Burglar",		".B" = "Burglar",
+	  ":J" = "Bluespace",	".J" = "Bluespace",
 	  ":Q" = "Ninja",		".Q" = "Ninja",
 	  ":U" = "Supply",		".U" = "Supply",
 	  ":V" = "Service",		".V" = "Service",
@@ -137,11 +139,12 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[4] = world.view
 	return returns
 
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
 	if(message_mode == "intercom")
 		for(var/obj/item/device/radio/intercom/I in view(1, null))
+			used_radios += I
 			if(I.talk_into(src, message, verb, speaking))
-				used_radios += I
+				successful_radio += I
 	return 0
 
 /mob/living/proc/handle_speech_sound()
@@ -183,7 +186,7 @@ proc/get_radio_key_from_channel(var/channel)
 	message = formalize_text(message)
 
 	//parse the language code and consume it
-	if(!speaking)
+	if(!speaking || speaking.always_parse_language)
 		speaking = parse_language(message)
 	if(speaking)
 		message = copytext(message,2+length(speaking.key))
@@ -230,7 +233,8 @@ proc/get_radio_key_from_channel(var/channel)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking)
 
 	var/list/obj/item/used_radios = new
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name))
+	var/list/successful_radio = new // passes a list because standard vars don't work when passed
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio))
 		return 1
 
 	var/list/handle_v = handle_speech_sound()
@@ -241,19 +245,19 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 	//speaking into radios
-	if(used_radios.len)
+	if(length(used_radios))
 		italics = 1
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
 		var/msg
 		if(!speaking || !(speaking.flags & NO_TALK_MSG))
-			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]]</span>."
-		for(var/mob/living/M in hearers(5, src))
-			if((M != src) && msg)
+			msg = "<span class='notice'>\The [src] [length(successful_radio) ? "talks into" : "tries talking into"] \the [used_radios[1]]</span>."
+		for(var/mob/living/M in hearers(5, src) - src)
+			if(msg)
 				M.show_message(msg)
-			if (speech_sound)
-				sound_vol *= 0.5
+		if(speech_sound)
+			sound_vol *= 0.5
 
 	var/list/listening = list()
 	var/list/listening_obj = list()
@@ -282,6 +286,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
+	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
 	do_animate_chat(message, speaking, italics, hear_clients, 30)
 

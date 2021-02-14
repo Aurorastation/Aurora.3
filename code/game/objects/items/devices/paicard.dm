@@ -6,6 +6,7 @@
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2)
+	var/list/installed_encryptionkeys = list()
 	var/obj/item/device/radio/radio
 	var/looking_for_personality = 0
 	var/mob/living/silicon/pai/pai
@@ -44,10 +45,61 @@
 		pai.death(0)
 	return ..()
 
-/obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
+/obj/item/device/paicard/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
+		return
+	else if(istype(C, /obj/item/device/encryptionkey))
+		if(length(installed_encryptionkeys) > 2)
+			to_chat(user, SPAN_WARNING("\The [src] already has the full number of possible encryption keys installed!"))
+			return
+		var/obj/item/device/encryptionkey/EK = C
+		var/added_channels = FALSE
+		for(var/thing in (EK.channels | EK.additional_channels))
+			if(!radio.channels[thing])
+				added_channels = TRUE
+				break
+		if(added_channels)
+			installed_encryptionkeys += EK
+			user.drop_from_inventory(EK, src)
+			user.visible_message("<b>[user]</b> slides \the [EK] into \the [src]'s encryption key slot.", SPAN_NOTICE("You slide \the [EK] into \the [src]'s encryption key slot, granting it access to the radio channels."))
+			recalculateChannels()
+			if(pai)
+				to_chat(pai, SPAN_NOTICE("You now have access to these radio channels: [english_list(radio.channels)]."))
+		else
+			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
+		return
+	else if(C.isscrewdriver())
+		if(!length(installed_encryptionkeys))
+			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
+			return
+		user.visible_message("<b>[user]</b> uses \the [C] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src].", SPAN_NOTICE("You use \the [C] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src]."))
+		for(var/key in installed_encryptionkeys)
+			var/obj/item/device/encryptionkey/EK = key
+			EK.forceMove(get_turf(src))
+			installed_encryptionkeys -= EK
+		recalculateChannels()
+		return
+	else if(istype(C, /obj/item/stack/nanopaste))
+		if(!pai)
+			to_chat(user, SPAN_WARNING("You cannot repair a pAI device if there's no active pAI personality installed."))
+			return
+	pai.attackby(C, user)
 
+/obj/item/device/paicard/proc/recalculateChannels()
+	radio.channels = list("Common" = radio.FREQ_LISTENING, "Entertainment" = radio.FREQ_LISTENING)
+	for(var/keyslot in installed_encryptionkeys)
+		var/obj/item/device/encryptionkey/EK = keyslot
+		for(var/ch_name in (EK.channels | EK.additional_channels))
+			radio.channels[ch_name] = radio.FREQ_LISTENING
+
+	for(var/ch_name in radio.channels)
+		if(!SSradio)
+			sleep(30) // Waiting for the SSradio to be created.
+		if(!SSradio)
+			radio.name = "broken radio headset"
+			return
+		radio.secure_radio_connections[ch_name] = SSradio.add_object(radio, radiochannels[ch_name], RADIO_CHAT)
 
 //This proc is called when the user scans their ID on the pAI card.
 //It registers their ID and copies their access to the pai, allowing it to use airlocks the owner can

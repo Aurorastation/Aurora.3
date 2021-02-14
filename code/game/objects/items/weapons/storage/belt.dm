@@ -12,24 +12,49 @@
 	attack_verb = list("whipped", "lashed", "disciplined")
 	drop_sound = 'sound/items/drop/toolbelt.ogg'
 	pickup_sound = 'sound/items/pickup/toolbelt.ogg'
+	var/flipped = FALSE
+	var/show_above_suit = FALSE
 
-	var/show_above_suit = 0
+/obj/item/storage/belt/proc/update_clothing_icon()
+	if(ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_belt()
 
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
 
 	if(show_above_suit == -1)
-		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
 		return
 	show_above_suit = !show_above_suit
-	update_icon()
+	update_clothing_icon()
 
-/obj/item/storage/update_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
-		M.update_inv_belt()
+/obj/item/storage/belt/Initialize()
+	. = ..()
+	update_flip_verb()
 
+/obj/item/storage/belt/proc/update_flip_verb()
+	if(("[initial(icon_state)]_flip") in icon_states(icon)) // Check for whether it has a flipped icon. Prevents invisible sprites.
+		verbs += /obj/item/storage/belt/proc/flipbelt
+
+/obj/item/storage/belt/proc/flipbelt(mob/user, var/self = TRUE)
+	set category = "Object"
+	set name = "Flip Belt"
+	set src in usr
+
+	if(self)
+		if(use_check_and_message(user))
+			return
+	else
+		if(use_check_and_message(user, self ? USE_ALLOW_NON_ADJACENT : 0))
+			return
+
+	flipped = !flipped
+	icon_state = "[initial(icon_state)][flipped ? "_flip" : ""]"
+	item_state = "[initial(item_state)][flipped ? "_flip" : ""]"
+	to_chat(usr, SPAN_NOTICE("You change \the [src] to be [src.flipped ? "behind" : "in front of"] you."))
+	update_clothing_icon()
 
 /obj/item/storage/belt/utility
 	name = "tool-belt" //Carn: utility belt is nicer, but it bamboozles the text parsing.
@@ -133,8 +158,8 @@
 		/obj/item/device/radio
 		)
 
-/obj/item/storage/belt/medical/emt
-	name = "EMT utility belt"
+/obj/item/storage/belt/medical/first_responder
+	name = "first responder utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
@@ -194,7 +219,7 @@
 	item_state = "champion"
 	storage_slots = 1
 	can_hold = list(
-		"/obj/item/clothing/mask/luchador"
+		/obj/item/clothing/mask/luchador
 		)
 
 /obj/item/storage/belt/security/tactical
@@ -413,64 +438,29 @@
 	)
 
 /obj/item/storage/belt/fannypack
-	name = "leather fannypack"
+	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
-	icon_state = "fannypack_leather"
-	item_state = "fannypack_leather"
+	icon = 'icons/clothing/belts/fannypacks.dmi'
+	icon_state = "fannypack"
+	item_state = "fannypack"
 	max_w_class = ITEMSIZE_SMALL
+	contained_sprite = TRUE
 	storage_slots = null
 	max_storage_space = 8
+
+/obj/item/storage/belt/fannypack/recolorable
+	icon_state = "fannypack_colorable"
+	item_state = "fannypack_colorable"
+
+/obj/item/storage/belt/fannypack/recolorable/random/Initialize()
+	. = ..()
+	color = get_random_colour(TRUE)
 
 /obj/item/storage/belt/fannypack/component
 	name = "component pouch"
 	desc = "A dorky fannypack for keeping small items in. Also stores magickal components!"
 	starts_with = list(/obj/item/toy/snappop/syndi = 3, /obj/item/reagent_containers/glass/beaker/vial/random/toxin = 2, /obj/item/storage/pill_bottle/dice = 1)
 	max_storage_space = 14
-
-/obj/item/storage/belt/fannypack/black
- 	name = "black fannypack"
- 	icon_state = "fannypack_black"
- 	item_state = "fannypack_black"
-
-/obj/item/storage/belt/fannypack/blue
- 	name = "blue fannypack"
- 	icon_state = "fannypack_blue"
- 	item_state = "fannypack_blue"
-
-/obj/item/storage/belt/fannypack/cyan
- 	name = "cyan fannypack"
- 	icon_state = "fannypack_cyan"
- 	item_state = "fannypack_cyan"
-
-/obj/item/storage/belt/fannypack/green
- 	name = "green fannypack"
- 	icon_state = "fannypack_green"
- 	item_state = "fannypack_green"
-
-/obj/item/storage/belt/fannypack/orange
- 	name = "orange fannypack"
- 	icon_state = "fannypack_orange"
- 	item_state = "fannypack_orange"
-
-/obj/item/storage/belt/fannypack/purple
- 	name = "purple fannypack"
- 	icon_state = "fannypack_purple"
- 	item_state = "fannypack_purple"
-
-/obj/item/storage/belt/fannypack/red
- 	name = "red fannypack"
- 	icon_state = "fannypack_red"
- 	item_state = "fannypack_red"
-
-/obj/item/storage/belt/fannypack/white
- 	name = "white fannypack"
- 	icon_state = "fannypack_white"
- 	item_state = "fannypack_white"
-
-/obj/item/storage/belt/fannypack/yellow
- 	name = "yellow fannypack"
- 	icon_state = "fannypack_yellow"
- 	item_state = "fannypack_yellow"
 
 /obj/item/storage/belt/shumaila_buckle
 	name = "hammer buckle belt"
@@ -485,3 +475,10 @@
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
 	much combat prowess despite her position as head of the town watch but is a capable commander for defensive tactics."
+
+/obj/item/storage/belt/generic
+	name = "belt"
+	desc = "Only useful for holding up your pants." // Useless belt is useless.
+	icon_state = "belt"
+	item_state = "belt"
+	storage_slots = 0

@@ -63,21 +63,6 @@
 	ringtype["ring, plastic"] = /obj/item/clothing/ring/material/plastic
 	gear_tweaks += new/datum/gear_tweak/path(ringtype)
 
-/datum/gear/gloves/watch
-	display_name = "watch selection"
-	description = "A selection of watches."
-	path = /obj/item/clothing/gloves/watch
-
-/datum/gear/gloves/watch/New()
-	..()
-	var/watchtype = list()
-	watchtype["watch"] = /obj/item/clothing/gloves/watch
-	watchtype["silver watch"] = /obj/item/clothing/gloves/watch/silver
-	watchtype["gold watch"] = /obj/item/clothing/gloves/watch/gold
-	watchtype["spy watch"] = /obj/item/clothing/gloves/watch/spy
-	watchtype["pocketwatch"] = /obj/item/pocketwatch
-	gear_tweaks += new/datum/gear_tweak/path(watchtype)
-
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"
 	path = /obj/item/clothing/gloves/circuitry

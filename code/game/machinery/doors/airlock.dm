@@ -544,7 +544,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 
 /obj/machinery/door/airlock/uranium/proc/radiate()
 	for(var/mob/living/L in range (3,src))
-		L.apply_effect(15,IRRADIATE, blocked = L.getarmor(null, "rad"))
+		L.apply_damage(15, IRRADIATE, damage_flags = DAM_DISPERSED)
 	return
 
 //---Phoron door
@@ -959,7 +959,7 @@ About the new airlock wires panel:
 			if(!src.density)
 				return
 
-			H.visible_message("\The [H] begins to pry open \the [src]!", "You begin to pry open \the [src]!", "You hear the sound of an airlock being forced open.")
+			H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
 
 			if(!do_after(H, 120, 1, act_target = src))
 				return
@@ -967,7 +967,7 @@ About the new airlock wires panel:
 			src.do_animate("spark")
 			src.stat |= BROKEN
 			var/check = src.open(1)
-			H.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
 			return
 	if(src.p_open)
 		user.set_machine(src)
@@ -983,7 +983,7 @@ About the new airlock wires panel:
 	var/cut_sound
 	var/cutting = FALSE
 
-	if(istype(tool,/obj/item/weldingtool))
+	if(tool.iswelder())
 		var/obj/item/weldingtool/WT = tool
 		if(!WT.isOn())
 			return
@@ -1029,37 +1029,38 @@ About the new airlock wires panel:
 		return FALSE
 
 /obj/machinery/door/airlock/proc/cut_procedure(var/mob/user, var/cut_delay, var/cut_verb, var/cut_sound)
-	if(src.bolt_cut_state == BOLTS_FINE)
+	var/initial_state = bolt_cut_state
+	if(initial_state == BOLTS_FINE)
 		to_chat(user, "You begin [cut_verb] through the bolt panel.")
-	else if(src.bolt_cut_state == BOLTS_EXPOSED)
+	else if(initial_state == BOLTS_EXPOSED)
 		to_chat(user, "You begin [cut_verb] through the door bolts.")
 
 	cut_delay *= 0.25
 
-	var/i
-	for(i = 0; i < 4; i += 1)
-		if(i == 0)
-			if(do_after(user, cut_delay, src))
-				to_chat(user, SPAN_NOTICE("You're a quarter way through."))
-				playsound(src, cut_sound, 100, 1)
-		else if(i == 1)
-			if(do_after(user, cut_delay, src))
-				to_chat(user, SPAN_NOTICE("You're halfway through."))
-				playsound(src, cut_sound, 100, 1)
-		else if(i == 2)
+	if(do_after(user, cut_delay, src))
+		to_chat(user, SPAN_NOTICE("You're a quarter way through."))
+		playsound(src, cut_sound, 100, 1)
+
+		if(do_after(user, cut_delay, src))
+			to_chat(user, SPAN_NOTICE("You're halfway through."))
+			playsound(src, cut_sound, 100, 1)
+
 			if(do_after(user, cut_delay, src))
 				to_chat(user, SPAN_NOTICE("You're three quarters through."))
 				playsound(src, cut_sound, 100, 1)
-		else if(i == 3)
-			if(do_after(user, cut_delay, src))
-				playsound(src, cut_sound, 100, 1)
-				if(src.bolt_cut_state == BOLTS_FINE)
-					to_chat(user, SPAN_NOTICE("You remove the cover and expose the door bolts."))
-					src.bolt_cut_state = BOLTS_EXPOSED
-				else if(src.bolt_cut_state == BOLTS_EXPOSED)
-					to_chat(user, SPAN_NOTICE("You sever the door bolts, unlocking the door."))
-					src.bolt_cut_state = BOLTS_CUT
-					src.unlock(TRUE) //force it
+
+				if(do_after(user, cut_delay, src))
+					playsound(src, cut_sound, 100, 1)
+
+					if(initial_state != bolt_cut_state)
+						return
+					if(initial_state == BOLTS_FINE)
+						to_chat(user, SPAN_NOTICE("You remove the cover and expose the door bolts."))
+						src.bolt_cut_state = BOLTS_EXPOSED
+					else if(initial_state == BOLTS_EXPOSED)
+						to_chat(user, SPAN_NOTICE("You sever the door bolts, unlocking the door."))
+						src.bolt_cut_state = BOLTS_CUT
+						src.unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
 	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
@@ -1415,7 +1416,7 @@ About the new airlock wires panel:
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
-	if(arePowerSystemsOn())
+	if(!forced && arePowerSystemsOn())
 		playsound(src.loc, open_sound_powered, 60, 1)
 	else
 		playsound(src.loc, open_sound_unpowered, 60, 1)
@@ -1484,26 +1485,26 @@ About the new airlock wires panel:
 /mob/living/airlock_crush(var/crush_damage)
 	. = ..()
 	for(var/i = 1, i <= AIRLOCK_CRUSH_DIVISOR, i++)
-		adjustBruteLoss(round(crush_damage / AIRLOCK_CRUSH_DIVISOR))
+		apply_damage((crush_damage / AIRLOCK_CRUSH_DIVISOR), BRUTE)
+
 	SetStunned(5)
 	SetWeakened(5)
 	visible_message(SPAN_DANGER("[src] is crushed in the airlock!"), SPAN_DANGER("You are crushed in the airlock!"), SPAN_NOTICE("You hear airlock actuators momentarily struggle."))
 
-	var/turf/T = get_turf(src)
+	var/turf/T = loc
+	if(istype(T))
+		var/list/valid_turfs = list()
+		for(var/dir_to_test in cardinal)
+			var/turf/new_turf = get_step(T, dir_to_test)
+			if(!new_turf.contains_dense_objects())
+				valid_turfs |= new_turf
 
-	var/list/valid_turfs = list()
-	for(var/dir_to_test in cardinal)
-		var/turf/new_turf = get_step(T, dir_to_test)
-		if(!new_turf.contains_dense_objects())
-			valid_turfs |= new_turf
+		while(valid_turfs.len)
+			T = pick(valid_turfs)
+			valid_turfs -= T
 
-	while(valid_turfs.len)
-		T = pick(valid_turfs)
-		valid_turfs -= T
-
-		if(src.forceMove(T))
-			return
-
+			if(src.forceMove(T))
+				return
 
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
@@ -1521,9 +1522,14 @@ About the new airlock wires panel:
 				if(AM.blocks_airlock())
 					close_door_in(6)
 					return
+	var/has_opened_hatch = FALSE
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
-			if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
+			if(hashatch && AM.checkpass(PASSDOORHATCH))
+				if(!has_opened_hatch)
+					open_hatch(AM)
+				has_opened_hatch = TRUE
+			else if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
 				take_damage(DOOR_CRUSH_DAMAGE)
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())

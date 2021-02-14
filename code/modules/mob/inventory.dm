@@ -84,7 +84,8 @@ var/list/slot_equipment_priority = list( \
 		slot_s_store,\
 		slot_tie,\
 		slot_l_store,\
-		slot_r_store\
+		slot_r_store,\
+		slot_wrists\
 	)
 
 //Checks if a given slot can be accessed at this time, either to equip or unequip I
@@ -168,12 +169,19 @@ var/list/slot_equipment_priority = list( \
 //Puts the item our active hand if possible. Failing that it tries our inactive hand. Returns 1 on success.
 //If both fail it drops it on the floor and returns 0.
 //This is probably the main one you need to know :)
-/mob/proc/put_in_hands(var/obj/item/W)
+/mob/proc/put_in_hands(var/obj/item/W, var/check_adjacency = FALSE)
 	if(!W || !istype(W))
 		return 0
-	if(isturf(W.loc))
-		W.do_pickup_animation(src)
-	W.forceMove(get_turf(src))
+	var/move_to_src = TRUE
+	if(check_adjacency)
+		move_to_src = FALSE
+		var/turf/origin = get_turf(W)
+		if(Adjacent(origin))
+			move_to_src = TRUE
+	if(move_to_src)
+		W.forceMove(get_turf(src))
+	else
+		W.forceMove(get_turf(W))
 	W.layer = initial(W.layer)
 	W.dropped()
 	return 0
@@ -186,11 +194,11 @@ var/list/slot_equipment_priority = list( \
 			target = loc
 		remove_from_mob(W)
 		if(!(W && W.loc))
-			return 1
+			return TRUE
 		W.forceMove(target)
 		update_icon()
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //Drops the item in our left hand
 /mob/proc/drop_l_hand(var/atom/target)
@@ -265,7 +273,7 @@ var/list/slot_equipment_priority = list( \
 
 /mob/proc/get_inventory_slot(obj/item/I)
 	var/slot = 0
-	for(var/s in slot_back to slot_tie) //kind of worries me
+	for(var/s in slot_first to slot_last) //kind of worries me
 		if(get_equipped_item(s) == I)
 			slot = s
 			break
@@ -390,11 +398,6 @@ var/list/slot_equipment_priority = list( \
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
-/*
-		if(istype(src.loc, /turf/space) || (src.flags & NOGRAV)) //they're in space, move em one space in the opposite direction
-			src.inertia_dir = get_dir(target, src)
-			step(src, inertia_dir)
-*/
 		if(istype(item,/obj/item))
 			var/obj/item/W = item
 			W.randpixel_xy()

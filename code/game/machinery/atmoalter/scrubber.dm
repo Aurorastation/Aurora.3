@@ -21,7 +21,7 @@
 	var/minrate = 0
 	var/maxrate = 10 * ONE_ATMOSPHERE
 
-	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O)
+	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/Initialize()
 	. = ..()

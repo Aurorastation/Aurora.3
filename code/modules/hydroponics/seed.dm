@@ -403,58 +403,58 @@
 
 	if(prob(5))
 		consume_gasses = list()
-		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2)
+		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2,GAS_HYDROGEN)
 		consume_gasses[gas] = rand(3,9)
 
 	if(prob(5))
 		exude_gasses = list()
-		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2)
+		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2,GAS_HYDROGEN)
 		exude_gasses[gas] = rand(3,9)
 
 	chems = list()
 	if(prob(80))
-		chems[/datum/reagent/nutriment] = list(rand(1,10),rand(10,20))
+		chems[/decl/reagent/nutriment] = list(rand(1,10),rand(10,20))
 
 	var/additional_chems = rand(0,5)
 
 	if(additional_chems)
 		var/list/possible_chems = list(
-			/datum/reagent/acetone,
-			/datum/reagent/alkysine,
-			/datum/reagent/aslimetoxin,
-			/datum/reagent/bicaridine,
-			/datum/reagent/butazoline,
-			/datum/reagent/blood,
-			/datum/reagent/cryoxadone,
-			/datum/reagent/cryptobiolin,
-			/datum/reagent/toxin/cyanide,
-			/datum/reagent/dermaline,
-			/datum/reagent/dexalin,
-			/datum/reagent/ethylredoxrazine,
-			/datum/reagent/hydrazine,
-			/datum/reagent/hyperzine,
-			/datum/reagent/hyronalin,
-			/datum/reagent/impedrezene,
-			/datum/reagent/mercury,
-			/datum/reagent/mindbreaker,
-			/datum/reagent/inaprovaline,
-			/datum/reagent/peridaxon,
-			/datum/reagent/toxin/phoron,
-			/datum/reagent/toxin/plasticide,
-			/datum/reagent/potassium,
-			/datum/reagent/radium,
-			/datum/reagent/rezadone,
-			/datum/reagent/ryetalyn,
-			/datum/reagent/slimejelly,
-			/datum/reagent/space_drugs,
-			/datum/reagent/soporific,
-			/datum/reagent/sugar,
-			/datum/reagent/synaptizine,
-			/datum/reagent/thermite,
-			/datum/reagent/toxin,
-			/datum/reagent/mortaphenyl,
-			/datum/reagent/water,
-			/datum/reagent/woodpulp,
+			/decl/reagent/acetone,
+			/decl/reagent/alkysine,
+			/decl/reagent/aslimetoxin,
+			/decl/reagent/bicaridine,
+			/decl/reagent/butazoline,
+			/decl/reagent/blood,
+			/decl/reagent/cryoxadone,
+			/decl/reagent/cryptobiolin,
+			/decl/reagent/toxin/cyanide,
+			/decl/reagent/dermaline,
+			/decl/reagent/dexalin,
+			/decl/reagent/ethylredoxrazine,
+			/decl/reagent/hydrazine,
+			/decl/reagent/hyperzine,
+			/decl/reagent/hyronalin,
+			/decl/reagent/impedrezene,
+			/decl/reagent/mercury,
+			/decl/reagent/mindbreaker,
+			/decl/reagent/inaprovaline,
+			/decl/reagent/peridaxon,
+			/decl/reagent/toxin/phoron,
+			/decl/reagent/toxin/plasticide,
+			/decl/reagent/potassium,
+			/decl/reagent/radium,
+			/decl/reagent/rezadone,
+			/decl/reagent/ryetalyn,
+			/decl/reagent/slimejelly,
+			/decl/reagent/space_drugs,
+			/decl/reagent/soporific,
+			/decl/reagent/sugar,
+			/decl/reagent/synaptizine,
+			/decl/reagent/thermite,
+			/decl/reagent/toxin,
+			/decl/reagent/mortaphenyl,
+			/decl/reagent/water,
+			/decl/reagent/woodpulp,
 			)
 
 		for(var/x=1;x<=additional_chems;x++)

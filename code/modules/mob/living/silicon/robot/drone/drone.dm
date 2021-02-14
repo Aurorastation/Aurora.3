@@ -76,8 +76,11 @@
 
 	// Hats!
 	var/obj/item/hat
+	var/image/hat_overlay
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
+
+	var/rebooting = FALSE
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -111,6 +114,7 @@
 	if(hat)
 		hat.forceMove(get_turf(src))
 		hat = null
+		QDEL_NULL(hat_overlay)
 	return ..()
 
 /mob/living/silicon/robot/drone/construction
@@ -157,7 +161,6 @@
 		C.max_damage = 10
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
-	update_icon()
 	density = FALSE
 
 /mob/living/silicon/robot/drone/init()
@@ -181,15 +184,24 @@
 	real_name = "maintenance drone ([rand(100,999)])"
 	name = real_name
 
-/mob/living/silicon/robot/drone/update_icon()
-	cut_overlays()
-	if(stat == CONSCIOUS && isturf(loc))
-		if(!emagged)
-			add_overlay("eyes-[icon_state]")
-		else
-			add_overlay("eyes-[icon_state]-emag")
-	if(hat) // Let the drones wear hats.
-		add_overlay(get_hat_icon(hat, hat_x_offset, hat_y_offset))
+/mob/living/silicon/robot/drone/setup_icon_cache()
+	cached_eye_overlays = list(
+		I_HELP = image(icon, "eyes-[icon_state]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
+		I_HURT = image(icon, "eyes-[icon_state]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
+		"emag" = image(icon, "eyes-[icon_state]-emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+	)
+	if(eye_overlay)
+		cut_overlay(eye_overlay)
+	eye_overlay = cached_eye_overlays[a_intent]
+	if(!stat)
+		add_overlay(eye_overlay)
+
+/mob/living/silicon/robot/drone/set_intent(var/set_intent)
+	a_intent = set_intent
+	cut_overlay(eye_overlay)
+	if(!stat)
+		eye_overlay = cached_eye_overlays[emagged ? "emag" : set_intent]
+		add_overlay(eye_overlay)
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -202,7 +214,8 @@
 		return
 	hat = new_hat
 	new_hat.forceMove(src)
-	update_icon()
+	hat_overlay = get_hat_icon(hat, hat_x_offset, hat_y_offset)
+	add_overlay(hat_overlay)
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
@@ -227,6 +240,9 @@
 				return
 			if(!allowed(usr))
 				to_chat(user, SPAN_WARNING("Access denied."))
+				return
+			if(rebooting)
+				to_chat(user, SPAN_WARNING("\The [src] is already rebooting!"))
 				return
 			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
@@ -271,7 +287,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and their commands."))
-	update_icon()
+	set_intent(I_HURT) // force them to hurt to update the eyes, they can swap to and fro if they wish, though - geeves
 	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
@@ -359,11 +375,17 @@
 
 //Reboot procs.
 
+/mob/living/silicon/robot/drone/Logout()
+	. = ..()
+	rebooting = FALSE
+
 /mob/living/silicon/robot/drone/proc/request_player()
 	if(too_many_active_drones())
 		return
-	var/datum/ghosttrap/G = get_ghost_trap("maintenance drone")
-	G.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
+	if(rebooting)
+		return
+	stat = CONSCIOUS
+	SSghostroles.add_spawn_atom("rebooted_maint_drone", src)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player)
@@ -444,6 +466,9 @@
 	dat += "<b>Self-Diagnosis System Report</b><br><table><tr><td>Brute Damage:</td><td>[bruteloss]</td></tr><tr><td>Electronics Damage:</td><td>[fireloss]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
 
 	return dat
+
+/mob/living/silicon/robot/drone/set_respawn_time()
+	set_death_time(MINISYNTH, world.time)
 
 /mob/living/silicon/robot/drone/construction/Initialize()
 	. = ..()

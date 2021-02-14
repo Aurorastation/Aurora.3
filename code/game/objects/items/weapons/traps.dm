@@ -15,7 +15,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = FALSE
 	var/time_to_escape = 60
-	var/ignore_armor = FALSE
+	var/activated_armor_penetration = 0
 
 /obj/item/trap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
@@ -98,18 +98,9 @@
 	else
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
-	if(!ignore_armor)
-		//armor
-		var/blocked = L.run_armor_check(target_zone, "melee")
-		if(blocked >= 100)
-			return
-		var/success = L.apply_damage(30, BRUTE, target_zone, blocked, src)
-		if(!success)
-			return FALSE
-	else
-		var/success = L.apply_damage(30, BRUTE, target_zone, 0, src)
-		if(!success)
-			return FALSE
+	var/success = L.apply_damage(30, BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	if(!success)
+		return FALSE
 
 	var/did_trap = TRUE
 	if(ishuman(L))
@@ -146,7 +137,7 @@
 			anchored = FALSE
 		deployed = FALSE
 		update_icon()
-		animate_shake()
+		shake_animation()
 	..()
 
 
@@ -156,7 +147,7 @@
 /obj/item/trap/sharpened
 	name = "sharpened mechanical trap"
 	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
-	ignore_armor = TRUE
+	activated_armor_penetration = 100
 
 /obj/item/trap/animal
 	name = "small trap"
@@ -236,7 +227,7 @@
 		buckle_mob(L)
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = FALSE
-		src.animate_shake()
+		src.shake_animation()
 		update_icon()
 
 /obj/item/trap/animal/proc/req_breakout()
@@ -252,7 +243,7 @@
 
 	if ((world.time - last_shake) > 5 SECONDS)
 		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
-		animate_shake()
+		shake_animation()
 		last_shake = world.time
 
 	return TRUE
@@ -372,7 +363,7 @@
 	unbuckle_mob()
 	captured = null
 	visible_message(msg)
-	animate_shake()
+	shake_animation()
 	update_icon()
 	release_time = world.time
 
@@ -567,7 +558,8 @@
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
 						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
-						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human/)
+						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human,
+						/mob/living/simple_animal/pig)
 
 /obj/item/trap/animal/large/attack_hand(mob/user)
 	if(user == buckled_mob)
@@ -660,4 +652,3 @@
 		return
 	else
 		..()
-

@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hostile/commanded/baby_harvester
 	name = "Ives"
 	desc = "A mysterious docile hivebot, this type seems to be of a kind rarely seen in the Orion Spur. Look at its little tail!"
+	named = TRUE
 
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "ives"

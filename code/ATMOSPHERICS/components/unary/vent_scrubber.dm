@@ -21,7 +21,7 @@
 
 	var/hibernate = 0 //Do we even process?
 	var/scrubbing = 1 //0 = siphoning, 1 = scrubbing
-	var/list/scrubbing_gas = list(GAS_CO2)
+	var/list/scrubbing_gas
 
 	var/panic = 0 //is this scrubber panicked?
 
@@ -51,6 +51,24 @@
 	radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
 	if (frequency)
 		set_frequency(frequency)
+
+	if (!scrubbing_gas)
+		reset_scrubbing()
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
+	if (initial(scrubbing_gas))
+		scrubbing_gas = initial(scrubbing_gas)
+	else
+		scrubbing_gas = list()
+		for (var/g in gas_data.gases)
+			if (g != GAS_OXYGEN && g != GAS_NITROGEN)
+				add_to_scrubbing(g)
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/add_to_scrubbing(new_gas)
+	scrubbing_gas |= new_gas
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/remove_from_scrubbing(old_gas)
+	scrubbing_gas -= old_gas
 
 /obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
@@ -119,6 +137,7 @@
 		"filter_co2" = (GAS_CO2 in scrubbing_gas),
 		"filter_phoron" = (GAS_PHORON in scrubbing_gas),
 		"filter_n2o" = (GAS_N2O in scrubbing_gas),
+		"filter_h2" = (GAS_HYDROGEN in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -242,6 +261,11 @@
 		toggle += GAS_N2O
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += GAS_N2O
+
+	if(!isnull(signal.data["h2_scrub"]) && text2num(signal.data["h2_scrub"]) != (GAS_HYDROGEN in scrubbing_gas))
+		toggle += GAS_HYDROGEN
+	else if(signal.data["toggle_h2_scrub"])
+		toggle += GAS_HYDROGEN
 
 	scrubbing_gas ^= toggle
 

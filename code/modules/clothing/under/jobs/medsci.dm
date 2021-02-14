@@ -7,7 +7,9 @@
 	icon_state = "rd"
 	item_state = "lb_suit"
 	worn_state = "rd"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/research_director/rdalt
 	desc = "A dress suit and slacks stained with hard work and dedication to science. Perhaps other things as well, but mostly hard work and dedication."
@@ -15,7 +17,9 @@
 	icon_state = "rdalt"
 	item_state = "lb_suit"
 	worn_state = "rdalt"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/research_director/dress_rd
 	name = "research director dress uniform"
@@ -23,7 +27,9 @@
 	icon_state = "dress_rd"
 	item_state = "lb_suit"
 	worn_state = "dress_rd"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/rank/scientist
@@ -33,8 +39,9 @@
 	item_state = "w_suit"
 	worn_state = "science"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
-
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 /obj/item/clothing/under/rank/scientist/xenoarcheologist
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
 	name = "xenoarcheologist's jumpsuit"
@@ -42,7 +49,9 @@
 	item_state = "w_suit"
 	worn_state = "xenoarcheology"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/scientist/science_alt
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
@@ -51,13 +60,17 @@
 	item_state = "w_suit"
 	worn_state = "science_alt"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/scientist/botany
 	desc = "It's made of a special fiber that provides minor protection against biohazards. Its colour denotes the wearer as a xenobotanist."
 	icon_state = "botany"
 	worn_state = "botany"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 5, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/scientist/intern
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a laboratory assistant."
@@ -72,7 +85,9 @@
 	item_state = "w_suit"
 	worn_state = "chemistry"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/xenoarcheologist
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a xenoarcheologist."
@@ -81,7 +96,9 @@
 	item_state = "w_suit"
 	worn_state = "xenoarcheology"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+	armor = list(
+		bomb = ARMOR_BOMB_MINOR
+	)
 
 /*
  * Medical
@@ -93,7 +110,9 @@
 	item_state = "w_suit"
 	worn_state = "cmo"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/geneticist
 	desc = "It's made of a special fiber that gives special protection against biohazards. It has a genetics rank stripe on it."
@@ -102,7 +121,9 @@
 	item_state = "w_suit"
 	worn_state = "geneticswhite"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/virologist
 	desc = "It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it."
@@ -111,7 +132,9 @@
 	item_state = "w_suit"
 	worn_state = "virology"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/iacjumpsuit
 	desc = "It's a blue and white jumpsuit, the IAC logo plastered across the back."
@@ -119,7 +142,9 @@
 	icon_state = "iacuniform"
 	item_state = "iacuniform"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 5)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/medical
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is trained medical personnel."
@@ -128,7 +153,9 @@
 	item_state = "w_suit"
 	worn_state = "medical"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/medical/intern
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is still a medical intern."
@@ -164,13 +191,13 @@
 	item_state = "bl_suit"
 	worn_state = "scrubsblack"
 
-/obj/item/clothing/under/rank/medical/emt
+/obj/item/clothing/under/rank/medical/first_responder
 	name = "first responder jumpsuit"
 	desc = "A jumpsuit that denotes the wearer as a Nanotrasen First Responder."
-	icon = 'icons/clothing/kit/emt.dmi'
+	icon = 'icons/clothing/kit/first_responder.dmi'
 	contained_sprite = TRUE
-	icon_state = "emtjumpsuit"
-	item_state = "emtjumpsuit"
+	icon_state = "firstresponderjumpsuit"
+	item_state = "firstresponderjumpsuit"
 
 /obj/item/clothing/under/rank/psych
 	desc = "A basic white jumpsuit. It has turqouise markings that denote the wearer as a psychiatrist."
@@ -186,4 +213,6 @@
 	item_state = "w_suit"
 	worn_state = "virology"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)

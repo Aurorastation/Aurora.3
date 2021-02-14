@@ -86,6 +86,9 @@
 	nitrogen = 0
 	phoron = ATMOSTANK_PHORON
 
+/turf/simulated/floor/reinforced/phoron/scarce
+	phoron = ATMOSTANK_PHORON_SCARCE
+
 /turf/simulated/floor/reinforced/carbon_dioxide
 	oxygen = 0
 	nitrogen = 0
@@ -100,6 +103,11 @@
 	if(!air)
 		make_air()
 	air.adjust_gas(GAS_N2O, ATMOSTANK_NITROUSOXIDE)
+
+/turf/simulated/floor/reinforced/hydrogen
+	oxygen = 0
+	nitrogen = 0
+	hydrogen = ATMOSTANK_HYDROGEN
 
 /turf/simulated/floor/cult
 	name = "engraved floor"

@@ -54,6 +54,14 @@
 	if(is_broken())
 		owner.eye_blind = 20
 
+/obj/item/organ/internal/eyes/do_surge_effects()
+	if(owner)
+		owner.overlay_fullscreen("noise", /obj/screen/fullscreen/flash/noise)
+
+/obj/item/organ/internal/eyes/clear_surge_effects()
+	if(owner)
+		owner.clear_fullscreen("noise")
+
 /obj/item/organ/internal/eyes/robotize()
 	..()
 	verbs |= /obj/item/organ/internal/eyes/proc/change_eye_color

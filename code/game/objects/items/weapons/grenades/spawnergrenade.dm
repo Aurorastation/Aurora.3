@@ -47,6 +47,9 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4, TECH_ILLEGAL = 4)
 	flash = FALSE
 
+/obj/item/grenade/spawnergrenade/manhacks/lubed
+	spawner_type = /mob/living/simple_animal/hostile/viscerator/lube
+
 /obj/item/grenade/spawnergrenade/spesscarp
 	name = "carp delivery grenade"
 	spawner_type = /mob/living/simple_animal/hostile/carp

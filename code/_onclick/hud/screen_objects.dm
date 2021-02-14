@@ -379,11 +379,11 @@
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
 		return TRUE
 	switch(name)
-		if(BP_R_HAND)
+		if("right hand")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
-		if(BP_L_HAND)
+		if("left hand")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
@@ -417,7 +417,7 @@
 
 		user.stamina_bar.update(user.stamina)
 
-	if (user.m_intent == "run")
+	if (user.m_intent == M_RUN)
 		icon_state = "running"
 	else
 		icon_state = "walking"
@@ -435,21 +435,21 @@
 
 		if(C.legcuffed)
 			to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
-			C.m_intent = "walk"	//Just incase
+			C.m_intent = M_WALK	//Just incase
 			C.hud_used.move_intent.icon_state = "walking"
 			return 1
 		switch(usr.m_intent)
-			if("run")
-				usr.m_intent = "walk"
-			if("walk")
-				usr.m_intent = "run"
+			if(M_RUN)
+				usr.m_intent = M_WALK
+			if(M_WALK)
+				usr.m_intent = M_RUN
 	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
 		var/mob/living/simple_animal/hostile/morph/M = usr
 		switch(usr.m_intent)
-			if("run")
-				usr.m_intent = "walk"
-			if("walk")
-				usr.m_intent = "run"
+			if(M_RUN)
+				usr.m_intent = M_WALK
+			if(M_WALK)
+				usr.m_intent = M_RUN
 		M.update_speed()
 	update_move_icon(usr)
 

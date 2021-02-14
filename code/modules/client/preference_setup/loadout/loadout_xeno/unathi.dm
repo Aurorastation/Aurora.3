@@ -40,8 +40,12 @@
 	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi
 	un_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/unathi
 	un_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/unathi
+	un_gloves["light brown gloves"] = /obj/item/clothing/gloves/light_brown/unathi
 	un_gloves["green gloves"] = /obj/item/clothing/gloves/green/unathi
+	un_gloves["grey gloves"] = /obj/item/clothing/gloves/grey/unathi
 	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
+	un_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/unathi
+	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
 	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
 
 /datum/gear/uniform/unathi
@@ -98,7 +102,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Intern", "Psychiatrist", "Chemist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_security

@@ -331,12 +331,7 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
-"aby" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/desert,
 /area/holodeck/source_picnicarea)
 "abz" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -353,7 +348,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -361,8 +355,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "abC" = (
@@ -419,7 +411,6 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "abO" = (
@@ -430,15 +421,6 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
-"abP" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "abQ" = (
@@ -501,8 +483,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "acd" = (
@@ -519,14 +499,12 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/palebush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "acf" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -643,9 +621,8 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acu" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/holostool,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_picnicarea)
 "acv" = (
 /obj/effect/floor_decal/spline/plain{
@@ -811,7 +788,7 @@
 /area/holodeck/source_chapel)
 "acW" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_picnicarea)
 "acY" = (
 /turf/simulated/floor/holofloor/tiled,
@@ -1103,7 +1080,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -1143,7 +1119,6 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "adQ" = (
@@ -1309,8 +1284,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "aeD" = (
@@ -2183,6 +2156,12 @@
 	icon_state = "tiles"
 	},
 /area/antag/raider)
+"aiy" = (
+/obj/machinery/vending/security,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "aiz" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/tdome/tdomeobserve)
@@ -2307,12 +2286,8 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ajY" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = 5;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8, /obj/item/reagent_containers/food/snacks/donut/normal = 6);
-	random_itemcount = 0
+/obj/machinery/vending/coffee/free{
+	pixel_x = 5
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -2379,9 +2354,7 @@
 "akD" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,17";
-	name = "Skipjack"
+	icon_state = "17,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2396,36 +2369,28 @@
 "akH" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,17";
-	name = "Skipjack"
+	icon_state = "19,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "akJ" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,17";
-	name = "Skipjack"
+	icon_state = "9,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "akK" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "10,17";
-	name = "Skipjack"
+	icon_state = "10,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "akP" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,17";
-	name = "Skipjack"
+	icon_state = "12,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2473,7 +2438,7 @@
 /obj/item/shield/energy/legion,
 /obj/item/melee/energy/sword/knife,
 /obj/item/melee/telebaton,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sec,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
@@ -2497,9 +2462,7 @@
 /area/template_noop)
 "alk" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,16";
-	name = "Skipjack"
+	icon_state = "16,16"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2526,18 +2489,14 @@
 /area/shuttle/skipjack)
 "alp" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,16";
-	name = "Skipjack"
+	icon_state = "20,16"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "alq" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,16";
-	name = "Skipjack"
+	icon_state = "8,16"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2574,23 +2533,17 @@
 "alz" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,16";
-	name = "Skipjack"
+	icon_state = "13,16"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "alH" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,16";
-	name = "Skipjack"
+	icon_state = "16,16"
 	},
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "17,17";
-	name = "Skipjack";
 	outside_part = 0;
 	pixel_x = 32;
 	pixel_y = 32
@@ -2608,14 +2561,14 @@
 /obj/machinery/door/airlock/hatch{
 	frequency = 1332;
 	icon_state = "door_locked";
-	id_tag = "vox_northeast_lock";
+	id_tag = "raider_northeast_lock";
 	locked = 1;
 	req_access = list(150)
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1332;
-	master_tag = "vox_east_control";
+	master_tag = "raider_east_control";
 	pixel_x = -26;
 	pixel_y = 12;
 	req_access = list(150)
@@ -2643,15 +2596,11 @@
 /area/shuttle/skipjack)
 "alM" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,16";
-	name = "Skipjack"
+	icon_state = "20,16"
 	},
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "19,17";
-	name = "Skipjack";
 	outside_part = 0;
 	pixel_x = -32;
 	pixel_y = 32
@@ -2742,9 +2691,7 @@
 /area/centcom/evac)
 "ams" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,15";
-	name = "Skipjack"
+	icon_state = "0,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2781,18 +2728,14 @@
 /area/shuttle/skipjack)
 "amI" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,15";
-	name = "Skipjack"
+	icon_state = "6,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "amN" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,15";
-	name = "Skipjack"
+	icon_state = "8,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2823,17 +2766,13 @@
 "amX" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,15";
-	name = "Skipjack"
+	icon_state = "13,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "ana" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,15";
-	name = "Skipjack"
+	icon_state = "15,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2848,7 +2787,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 0;
 	frequency = 1332;
-	id_tag = "vox_east_vent"
+	id_tag = "raider_east_vent"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -2866,9 +2805,7 @@
 /area/shuttle/skipjack)
 "anj" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,15";
-	name = "Skipjack"
+	icon_state = "21,15"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2882,9 +2819,7 @@
 /area/template_noop)
 "anl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,14";
-	name = "Skipjack"
+	icon_state = "0,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2945,17 +2880,13 @@
 /area/shuttle/skipjack)
 "anH" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,14";
-	name = "Skipjack"
+	icon_state = "6,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "anI" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,14";
-	name = "Skipjack"
+	icon_state = "8,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -2996,17 +2927,13 @@
 /area/shuttle/skipjack)
 "anR" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,14";
-	name = "Skipjack"
+	icon_state = "13,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "anT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,14";
-	name = "Skipjack"
+	icon_state = "15,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3027,7 +2954,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1332;
-	id_tag = "vox_east_vent"
+	id_tag = "raider_east_vent"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -3040,9 +2967,7 @@
 /area/shuttle/skipjack)
 "aoe" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,14";
-	name = "Skipjack"
+	icon_state = "21,14"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3059,9 +2984,7 @@
 /area/template_noop)
 "aog" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,13";
-	name = "Skipjack"
+	icon_state = "0,13"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3104,9 +3027,7 @@
 /area/shuttle/skipjack)
 "aoq" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,13";
-	name = "Skipjack"
+	icon_state = "6,13"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3157,9 +3078,7 @@
 /area/shuttle/skipjack)
 "aoC" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,13";
-	name = "Skipjack"
+	icon_state = "15,13"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3181,7 +3100,7 @@
 /obj/machinery/door/airlock/hatch{
 	frequency = 1332;
 	icon_state = "door_locked";
-	id_tag = "vox_southeast_lock";
+	id_tag = "raider_southeast_lock";
 	locked = 1;
 	req_access = list(150)
 	},
@@ -3204,9 +3123,7 @@
 /area/shuttle/skipjack)
 "aoJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,13";
-	name = "Skipjack"
+	icon_state = "21,13"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3231,9 +3148,7 @@
 /area/template_noop)
 "aoU" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,12";
-	name = "Skipjack"
+	icon_state = "0,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3275,17 +3190,13 @@
 /area/shuttle/skipjack)
 "apv" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,12";
-	name = "Skipjack"
+	icon_state = "6,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "apw" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,12";
-	name = "Skipjack"
+	icon_state = "7,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3390,17 +3301,13 @@
 /area/shuttle/skipjack)
 "apJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,12";
-	name = "Skipjack"
+	icon_state = "14,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "apK" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,12";
-	name = "Skipjack"
+	icon_state = "15,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3455,17 +3362,13 @@
 /area/centcom/bar)
 "apX" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,12";
-	name = "Skipjack"
+	icon_state = "21,12"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aqb" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,11";
-	name = "Skipjack"
+	icon_state = "0,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3518,9 +3421,7 @@
 /area/shuttle/skipjack)
 "are" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,11";
-	name = "Skipjack"
+	icon_state = "6,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3531,9 +3432,7 @@
 /area/shuttle/mercenary)
 "arg" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,11";
-	name = "Skipjack"
+	icon_state = "7,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -3544,13 +3443,6 @@
 	name = "Skipjack"
 	},
 /area/shuttle/skipjack)
-"arz" = (
-/obj/machinery/cryopod,
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/merchant_station)
 "arM" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/standard,
@@ -3697,7 +3589,7 @@
 "avU" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Security Disarmament Point";
-	req_access = list(2)
+	req_access = list(1)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -3845,6 +3737,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
+"aAF" = (
+/obj/machinery/newscaster{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/unsimulated/wall/darkshuttlewall,
+/area/centcom/control)
 "aBh" = (
 /turf/unsimulated/beach/sand{
 	density = 1;
@@ -3910,6 +3809,18 @@
 /obj/machinery/megavendor,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"aBO" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "CCIA Bodyguard Sidearm";
+	req_access = list(109)
+	},
+/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/energy/disruptorpistol/magnum,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "aBS" = (
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
@@ -4335,9 +4246,7 @@
 /area/shuttle/skipjack)
 "aEu" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,11";
-	name = "Skipjack"
+	icon_state = "14,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4397,9 +4306,7 @@
 /area/beach)
 "aEG" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,11";
-	name = "Skipjack"
+	icon_state = "15,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4595,10 +4502,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
-"aFP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
 "aFQ" = (
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
@@ -4621,9 +4524,7 @@
 /area/shuttle/skipjack)
 "aFT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,11";
-	name = "Skipjack"
+	icon_state = "21,11"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4670,9 +4571,7 @@
 /area/template_noop)
 "aGf" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,10";
-	name = "Skipjack"
+	icon_state = "0,10"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4828,17 +4727,13 @@
 /area/shuttle/skipjack)
 "aGS" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,10";
-	name = "Skipjack"
+	icon_state = "21,10"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aGT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,9";
-	name = "Skipjack"
+	icon_state = "0,9"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -4883,9 +4778,7 @@
 /area/shuttle/skipjack)
 "aGZ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "7,9";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
@@ -5011,9 +4904,7 @@
 /area/shuttle/escape)
 "aIh" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "14,9";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
@@ -5073,24 +4964,20 @@
 /area/shuttle/skipjack)
 "aIo" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,9";
-	name = "Skipjack"
+	icon_state = "21,9"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aIE" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,8";
-	name = "Skipjack"
+	icon_state = "0,8"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aIF" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1332;
-	id_tag = "vox_east_sensor";
+	id_tag = "raider_east_sensor";
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5188,8 +5075,6 @@
 	},
 /area/antag/wizard)
 "aIX" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/tank/nitrogen,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -5202,17 +5087,13 @@
 /area/shuttle/skipjack)
 "aIZ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,8";
-	name = "Skipjack"
+	icon_state = "21,8"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aJa" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,7";
-	name = "Skipjack"
+	icon_state = "0,7"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -5279,9 +5160,7 @@
 /area/centcom/spawning)
 "aJJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "7,7";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
@@ -5388,18 +5267,6 @@
 /obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"aKw" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "An automated gun turret.";
-	icon = 'icons/obj/turrets.dmi';
-	icon_state = "cover_0";
-	layer = 3.02;
-	name = "turret"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "aKx" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -5432,19 +5299,6 @@
 /obj/structure/closet/crate/trashcart{
 	anchored = 1;
 	pixel_y = 3
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aKH" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
-/obj/structure/closet/emcloset{
-	anchored = 1;
-	pixel_y = 2
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/arrival)
@@ -5533,17 +5387,13 @@
 /area/shuttle/arrival)
 "aLl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,7";
-	name = "Skipjack"
+	icon_state = "21,7"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aLm" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,6";
-	name = "Skipjack"
+	icon_state = "0,6"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -5783,8 +5633,7 @@
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 3;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/ripped,
 /obj/item/reagent_containers/blood/OMinus{
@@ -5868,11 +5717,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
+/obj/machinery/vending/coffee/free{
+	pixel_x = -1
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -5954,17 +5800,13 @@
 /area/centcom/spawning)
 "aNN" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,6";
-	name = "Skipjack"
+	icon_state = "21,6"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aNO" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,5";
-	name = "Skipjack"
+	icon_state = "0,5"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -6501,7 +6343,7 @@
 	},
 /area/shuttle/administration)
 "aRx" = (
-/obj/item/device/megaphone{
+/obj/item/device/megaphone/red{
 	pixel_x = 1;
 	pixel_y = 4
 	},
@@ -6595,6 +6437,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor,
 /area/tdome)
+"aUh" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "aUm" = (
 /turf/simulated/floor/bluegrid,
 /area/tdome)
@@ -6705,17 +6555,13 @@
 /area/centcom/control)
 "aVr" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,5";
-	name = "Skipjack"
+	icon_state = "21,5"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "aVs" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,4";
-	name = "Skipjack"
+	icon_state = "0,4"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -7011,6 +6857,7 @@
 /area/shuttle/escape)
 "aWZ" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "13,3";
 	name = "transport shuttle"
@@ -7181,6 +7028,12 @@
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_battlemonsters)
+"aXz" = (
+/obj/structure/bed/chair/comfy/beige,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "aXF" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -8061,9 +7914,7 @@
 /area/centcom/specops)
 "bvA" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,4";
-	name = "Skipjack"
+	icon_state = "21,4"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -8146,9 +7997,7 @@
 /area/antag/burglar)
 "bzb" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,3";
-	name = "Skipjack"
+	icon_state = "0,3"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -8283,9 +8132,7 @@
 /area/antag/mercenary)
 "bDi" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "2,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8338,6 +8185,39 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
+"bFS" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "bGo" = (
 /obj/machinery/door/airlock/centcom{
 	locked = 1;
@@ -8404,13 +8284,6 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
-"bHl" = (
-/obj/machinery/cryopod,
-/obj/effect/floor_decal/corner/lime{
-	dir = 4
-	},
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "bHu" = (
 /obj/item/storage/briefcase/inflatable,
 /obj/item/storage/briefcase/inflatable,
@@ -8511,7 +8384,7 @@
 "bKw" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
-	req_access = list(2)
+	req_access = list(1)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -8660,10 +8533,8 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "bQP" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -8789,9 +8660,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "bUC" = (
 /obj/item/device/radio/intercom{
@@ -8834,9 +8703,7 @@
 /area/centcom/legion)
 "bWB" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "6,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8899,6 +8766,15 @@
 /obj/effect/floor_decal/ss13/odin2,
 /turf/unsimulated/floor,
 /area/centcom/evac)
+"bZQ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/atm{
+	pixel_y = 28
+	},
+/turf/unsimulated/floor,
+/area/centcom/bar)
 "cal" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -8908,9 +8784,7 @@
 /area/shuttle/skipjack)
 "caA" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,3";
-	name = "Skipjack"
+	icon_state = "8,3"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -8922,7 +8796,7 @@
 	},
 /area/shuttle/skipjack)
 "cbf" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -9094,6 +8968,20 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/mercenary)
+"cfh" = (
+/obj/effect/floor_decal/corner/blue/full,
+/obj/structure/table/rack,
+/obj/item/storage/box/cdeathalarm_kit{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/device/camera,
+/obj/item/device/megaphone/sec,
+/obj/item/device/megaphone/sec,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "cfo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -9339,12 +9227,12 @@
 	},
 /area/centcom/legion)
 "cov" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -9379,9 +9267,7 @@
 /area/centcom/legion)
 "cpq" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,3";
-	name = "Skipjack"
+	icon_state = "13,3"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -9454,7 +9340,7 @@
 	pixel_x = 4;
 	pixel_y = 9
 	},
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_x = -6;
 	pixel_y = -4
 	},
@@ -9466,6 +9352,21 @@
 	icon_state = "lino_grey"
 	},
 /area/centcom/bar)
+"crk" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "loner_basement";
+	name = "hangar controller";
+	pixel_x = 26;
+	pixel_y = -1;
+	tag_door = "loner_basement_hatch"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "crr" = (
 /obj/machinery/washing_machine,
 /turf/unsimulated/floor{
@@ -9492,6 +9393,14 @@
 	icon_state = "wood-broken4"
 	},
 /area/centcom/legion/hangar5)
+"csc" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "cti" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -9538,9 +9447,7 @@
 /area/centcom/legion/hangar5)
 "cvk" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "15,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/plating,
@@ -9620,14 +9527,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"czD" = (
-/obj/structure/bed/chair/comfy/beige{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/centcom/bar)
 "cAr" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
@@ -9683,9 +9582,7 @@
 /area/antag/raider)
 "cCD" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "19,3";
-	name = "Skipjack";
 	outside_part = 0
 	},
 /turf/simulated/floor/plating,
@@ -9778,9 +9675,7 @@
 /area/shuttle/mercenary)
 "cEy" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,3";
-	name = "Skipjack"
+	icon_state = "21,3"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -9835,9 +9730,7 @@
 /area/centcom/spawning)
 "cHN" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,2";
-	name = "Skipjack"
+	icon_state = "0,2"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -10188,7 +10081,7 @@
 /area/shuttle/skipjack)
 "cRd" = (
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -10283,9 +10176,7 @@
 /area/centcom/checkpoint/fore)
 "cTS" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,2";
-	name = "Skipjack"
+	icon_state = "8,2"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -10731,6 +10622,7 @@
 	name = "transport shuttle"
 	},
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "0,3";
 	name = "transport shuttle";
@@ -10749,7 +10641,7 @@
 	dir = 4
 	},
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -10924,9 +10816,7 @@
 /area/tdome/tdomeobserve)
 "dlj" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,2";
-	name = "Skipjack"
+	icon_state = "13,2"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -10977,8 +10867,7 @@
 /area/antag/raider)
 "dnd" = (
 /obj/machinery/door/window/brigdoor/eastright{
-	name = "Shuttle Brig";
-	req_access = list(2)
+	name = "Shuttle Brig"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
@@ -11026,6 +10915,26 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/ferry)
+"doU" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = -9
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "dpi" = (
 /obj/machinery/iv_drip,
 /obj/machinery/vending/wallmed1{
@@ -11086,9 +10995,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "drc" = (
 /obj/structure/shuttle_part/cargo{
@@ -11203,12 +11110,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "dyI" = (
-/obj/machinery/vending/assist{
-	contraband = null;
-	name = "Part vendor";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4);
-	random_itemcount = 0
-	},
+/obj/machinery/vending/assist/synd,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -11360,6 +11262,7 @@
 /area/shuttle/skipjack)
 "dGi" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "1,3";
 	name = "transport shuttle"
@@ -11550,9 +11453,7 @@
 /area/tdome/tdomeobserve)
 "dJl" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,2";
-	name = "Skipjack"
+	icon_state = "21,2"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11563,6 +11464,16 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
+"dKe" = (
+/obj/machinery/camera/network/crescent{
+	c_tag = "Crescent Bar East";
+	dir = 8
+	},
+/obj/structure/bed/chair/comfy/beige,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "dKm" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Heavy Asset Protection";
@@ -11699,9 +11610,7 @@
 /area/centcom/holding)
 "dNJ" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "0,1";
-	name = "Skipjack"
+	icon_state = "0,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11715,7 +11624,15 @@
 	},
 /area/centcom/legion)
 "dOH" = (
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/table/reinforced/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 13;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 19;
+	pixel_y = 5
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -11730,9 +11647,7 @@
 /area/antag/mercenary)
 "dPL" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,1";
-	name = "Skipjack"
+	icon_state = "1,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11776,9 +11691,7 @@
 /area/centcom/holding)
 "dQg" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,1";
-	name = "Skipjack"
+	icon_state = "2,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11811,9 +11724,7 @@
 /area/tdome)
 "dSG" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,1";
-	name = "Skipjack"
+	icon_state = "3,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11826,10 +11737,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "dTj" = (
-/obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	name = "Skipjack"
-	},
+/obj/structure/shuttle_part/raider,
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "dTp" = (
@@ -11843,9 +11751,7 @@
 /area/centcom/distress_prep)
 "dUb" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,1";
-	name = "Skipjack"
+	icon_state = "5,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -11875,7 +11781,7 @@
 "dUK" = (
 /obj/structure/bed/chair/comfy/brown,
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -11935,17 +11841,13 @@
 /area/centcom/legion)
 "dVC" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,1";
-	name = "Skipjack"
+	icon_state = "6,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "dVV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,1";
-	name = "Skipjack"
+	icon_state = "7,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12017,11 +11919,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
+"dWZ" = (
+/obj/effect/landmark{
+	name = "CCIAEscort"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "dXe" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,1";
-	name = "Skipjack"
+	icon_state = "8,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12041,9 +11949,7 @@
 /area/centcom/specops)
 "dXk" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,1";
-	name = "Skipjack"
+	icon_state = "9,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12118,9 +12024,7 @@
 /area/centcom/legion/hangar5)
 "dYV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,1";
-	name = "Skipjack"
+	icon_state = "12,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12169,9 +12073,7 @@
 /area/shuttle/arrival)
 "eay" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,1";
-	name = "Skipjack"
+	icon_state = "13,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12489,9 +12391,7 @@
 /area/antag/raider)
 "ens" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,1";
-	name = "Skipjack"
+	icon_state = "14,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12512,6 +12412,14 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"enP" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/stunshells,
+/obj/item/storage/box/practiceshells,
+/obj/item/storage/box/trackingslugs,
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor,
+/area/antag/loner)
 "enU" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "8,0"
@@ -12568,9 +12476,7 @@
 /area/shuttle/escape)
 "eqw" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,1";
-	name = "Skipjack"
+	icon_state = "15,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12588,9 +12494,7 @@
 /area/shuttle/administration)
 "erT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,1";
-	name = "Skipjack"
+	icon_state = "16,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12621,9 +12525,7 @@
 /area/shuttle/transport1)
 "esM" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,1";
-	name = "Skipjack"
+	icon_state = "17,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12700,9 +12602,7 @@
 /area/centcom/legion)
 "etN" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "18,1";
-	name = "Skipjack"
+	icon_state = "18,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12717,9 +12617,7 @@
 /area/centcom/legion)
 "euo" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,1";
-	name = "Skipjack"
+	icon_state = "19,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12808,7 +12706,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -12863,6 +12760,22 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
+"ezR" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/obj/structure/table/stone/marble,
+/obj/random/booze,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/antag/loner)
+"eAg" = (
+/obj/structure/railing/mapped,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
+/area/centcom/bar)
 "eAt" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -12872,9 +12785,7 @@
 /area/antag/mercenary)
 "eAT" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,1";
-	name = "Skipjack"
+	icon_state = "20,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12896,14 +12807,6 @@
 /area/centcom/spawning)
 "eCE" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -4;
-	pixel_y = -9
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 3;
-	pixel_y = -9
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -12951,9 +12854,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "eDB" = (
 /turf/simulated/wall/shuttle/unique/cargo{
@@ -12966,9 +12867,7 @@
 "eEC" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "21,1";
-	name = "Skipjack"
+	icon_state = "21,1"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -12980,8 +12879,7 @@
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -1;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -13291,9 +13189,7 @@
 /area/centcom/control)
 "eNz" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,0";
-	name = "Skipjack"
+	icon_state = "1,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13317,9 +13213,7 @@
 /area/antag/burglar)
 "eOF" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,0";
-	name = "Skipjack"
+	icon_state = "2,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13330,14 +13224,20 @@
 /area/shuttle/mercenary)
 "eOP" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,0";
-	name = "Skipjack"
+	icon_state = "3,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "eOT" = (
 /obj/structure/table/reinforced/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -4;
+	pixel_y = 19
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 2;
+	pixel_y = 19
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -13380,8 +13280,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -13471,9 +13369,7 @@
 /area/centcom/ferry)
 "eTx" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "4,0";
-	name = "Skipjack"
+	icon_state = "4,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13556,11 +13452,8 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "eVL" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
+/obj/machinery/vending/coffee/free{
+	pixel_x = -1
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -13568,12 +13461,20 @@
 /area/centcom/evac)
 "eVV" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,0";
-	name = "Skipjack"
+	icon_state = "5,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
+"eWB" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/atm{
+	pixel_x = 28;
+	pixel_y = -2
+	},
+/turf/unsimulated/floor,
+/area/centcom/bar)
 "eWF" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -13609,9 +13510,7 @@
 /area/centcom/distress_prep)
 "eYM" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,0";
-	name = "Skipjack"
+	icon_state = "6,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13647,9 +13546,7 @@
 "eZI" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,0";
-	name = "Skipjack"
+	icon_state = "7,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13699,9 +13596,7 @@
 "fcf" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "10,0";
-	name = "Skipjack"
+	icon_state = "10,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13807,9 +13702,7 @@
 "feQ" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,0";
-	name = "Skipjack"
+	icon_state = "11,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13840,9 +13733,7 @@
 "ffx" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,0";
-	name = "Skipjack"
+	icon_state = "14,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13914,9 +13805,7 @@
 /area/centcom/spawning)
 "fiE" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,0";
-	name = "Skipjack"
+	icon_state = "15,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -13989,17 +13878,13 @@
 /area/antag/raider)
 "flO" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,0";
-	name = "Skipjack"
+	icon_state = "16,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "fmz" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,0";
-	name = "Skipjack"
+	icon_state = "17,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -14136,9 +14021,7 @@
 /area/shuttle/syndicate_elite)
 "fqx" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "18,0";
-	name = "Skipjack"
+	icon_state = "18,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -14207,6 +14090,15 @@
 	icon_state = "wood"
 	},
 /area/centcom/evac)
+"fsy" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ion Rifle"
+	},
+/obj/item/gun/energy/rifle/ionrifle,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "fsT" = (
 /obj/structure/bed/chair/office/bridge{
 	dir = 8
@@ -14217,20 +14109,31 @@
 /area/centcom/control)
 "ftc" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,0";
-	name = "Skipjack"
+	icon_state = "19,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "ftu" = (
 /obj/structure/shuttle_part/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,0";
-	name = "Skipjack"
+	icon_state = "20,0"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
+"ftC" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "loner_basement_hatch";
+	locked = 1;
+	name = "Hangar Access"
+	},
+/obj/machinery/door/blast/odin{
+	dir = 2;
+	id = "loner_basement";
+	name = "Hangar Access"
+	},
+/turf/unsimulated/floor,
+/area/antag/mercenary)
 "ftN" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -14459,7 +14362,7 @@
 	dir = 8
 	},
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -14527,6 +14430,13 @@
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/wood,
 /area/merchant_station)
+"fDN" = (
+/obj/item/stool/bar/padded,
+/obj/effect/landmark{
+	name = "lonerspawn"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "fEm" = (
 /obj/structure/sink{
 	pixel_y = 18
@@ -14656,12 +14566,7 @@
 /area/centcom/specops)
 "fGh" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/vending/boozeomat{
-	products = list(/obj/item/reagent_containers/food/drinks/drinkingglass = 12, /obj/item/reagent_containers/food/drinks/ice = 12, /obj/item/reagent_containers/food/drinks/bottle/whiskey = 6, /obj/item/reagent_containers/food/drinks/bottle/tequila = 6, /obj/item/reagent_containers/food/drinks/bottle/champagne = 2, /obj/item/reagent_containers/food/drinks/bottle/vodka = 6, /obj/item/reagent_containers/food/drinks/bottle/rum = 6, /obj/item/reagent_containers/food/drinks/bottle/wine = 6, /obj/item/reagent_containers/food/drinks/bottle/cognac = 6, /obj/item/reagent_containers/food/drinks/bottle/victorygin = 6, /obj/item/reagent_containers/food/drinks/bottle/boukha = 6, /obj/item/reagent_containers/food/drinks/bottle/small/beer = 12, /obj/item/reagent_containers/food/drinks/bottle/absinthe = 6, /obj/item/reagent_containers/food/drinks/bottle/brandy = 6, /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 6);
-	random_itemcount = 1;
-	req_access = list();
-	restock_items = 1
-	},
+/obj/machinery/vending/boozeomat/merchant,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "fGK" = (
@@ -14840,7 +14745,7 @@
 	dir = 4
 	},
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -15209,8 +15114,8 @@
 /area/centcom/holding)
 "fUN" = (
 /obj/structure/table/wood,
-/obj/item/device/megaphone,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sec,
+/obj/item/device/megaphone/sec,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -15308,18 +15213,15 @@
 "fYr" = (
 /obj/item/stool/bar/padded,
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
 /area/antag/raider)
 "fYz" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
+/obj/machinery/vending/coffee/free{
+	pixel_x = -1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -15381,7 +15283,7 @@
 /obj/item/storage/briefcase/aluminium,
 /obj/item/device/camera,
 /obj/item/device/taperecorder,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -15440,7 +15342,7 @@
 	dir = 8
 	},
 /obj/effect/landmark{
-	name = "voxstart"
+	name = "raiderstart"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -15821,6 +15723,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
+"goi" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/double/map/right{
+	desc = "A framed picture of a station.";
+	pixel_x = -16;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "gol" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
 	dir = 8
@@ -16067,6 +15978,19 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
+"guL" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/machinery/door/blast/odin/open{
+	_wifi_id = "loner_droppod_1";
+	layer = 2.8;
+	name = "Pod L"
+	},
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/antag/loner)
 "guX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -16520,7 +16444,7 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1332;
-	master_tag = "vox_east_control";
+	master_tag = "raider_east_control";
 	pixel_x = 22;
 	pixel_y = 24;
 	req_access = list(150)
@@ -16561,6 +16485,20 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
+"gLk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "loner_basement";
+	name = "external hangar access";
+	pixel_x = -23;
+	pixel_y = 4;
+	req_access = list(150)
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/mercenary)
 "gLr" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "11,6"
@@ -16652,7 +16590,8 @@
 /area/centcom/specops)
 "gMq" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "6,22"
+	icon_state = "6,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -17169,6 +17108,9 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
+"gYT" = (
+/turf/unsimulated/wall/steel,
+/area/antag/loner)
 "gYU" = (
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -17242,7 +17184,7 @@
 	pixel_x = 7;
 	pixel_y = 9
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -17558,15 +17500,14 @@
 /area/merchant_station/warehouse)
 "hmF" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/sandwich{
-	layer = 3.6;
+/obj/item/reagent_containers/food/snacks/blt{
+	layer = 2.99;
 	pixel_x = 4;
-	pixel_y = 17
+	pixel_y = 14
 	},
-/obj/item/reagent_containers/food/snacks/sandwich{
-	layer = 3.7;
-	pixel_x = 4;
-	pixel_y = 8
+/obj/item/reagent_containers/food/snacks/blt{
+	pixel_x = 3;
+	pixel_y = 7
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -17646,6 +17587,26 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
+"hpB" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = 1
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = -9
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "hpC" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -17765,7 +17726,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
 /obj/item/device/taperecorder,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "brown"
@@ -17911,12 +17872,8 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "hBo" = (
-/obj/machinery/vending/cigarette{
-	name = "Cigarette Machine";
-	pixel_x = 2;
-	premium = list();
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/box/fancy/cigarettes/cigar = 5, /obj/item/storage/box/fancy/cigarettes/acmeco = 5)
+/obj/machinery/vending/cigarette/merchant{
+	pixel_x = 2
 	},
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
@@ -17990,13 +17947,6 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"hEl" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
 "hEu" = (
 /obj/structure/shuttle_part/transfer{
 	density = 0;
@@ -18183,11 +18133,9 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
 /area/centcom/evac)
 "hOa" = (
 /obj/structure/table/wood,
@@ -18947,20 +18895,6 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/burglar)
-"imi" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/bed/chair/comfy/blue{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_light"
-	},
-/area/centcom/evac)
 "imz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -19151,6 +19085,13 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
+"irn" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "irV" = (
 /obj/structure/window/shuttle/unique/mercenary{
 	icon_state = "9,25";
@@ -19523,9 +19464,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "iCJ" = (
 /obj/structure/shuttle_part/distress{
@@ -19537,6 +19476,9 @@
 "iCW" = (
 /obj/machinery/vending/cola{
 	pixel_x = 5
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -19552,9 +19494,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "iEv" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -19663,6 +19603,9 @@
 	name = "autoshuttle"
 	},
 /area/shuttle/arrival)
+"iGO" = (
+/turf/unsimulated/floor,
+/area/antag/loner)
 "iGY" = (
 /obj/item/modular_computer/console/preset/merchant,
 /turf/simulated/floor/wood,
@@ -19723,7 +19666,7 @@
 /obj/item/folder{
 	pixel_y = 2
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "iJy" = (
@@ -20024,6 +19967,54 @@
 	icon_state = "bar"
 	},
 /area/antag/mercenary)
+"iRr" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "iRA" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -20242,6 +20233,10 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
+"iYn" = (
+/obj/machinery/recharge_station,
+/turf/unsimulated/floor,
+/area/antag/loner)
 "iYt" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -20331,12 +20326,6 @@
 	icon_state = "dark2"
 	},
 /area/antag/mercenary)
-"jbP" = (
-/obj/machinery/computer/teleporter,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/antag/ninja)
 "jcc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -20419,15 +20408,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
-"jeX" = (
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
 "jfU" = (
 /obj/structure/table/reinforced,
 /obj/item/device/flashlight/flare,
@@ -20471,6 +20451,36 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
+"jhw" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "FIB Sidearm";
+	req_access = list(109)
+	},
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "jhx" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/black,
@@ -20486,18 +20496,6 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
-"jie" = (
-/obj/machinery/porta_turret/crescent,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/railing/mapped{
-	layer = 4.1;
-	name = "adjusted railing"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/centcom/checkpoint/fore)
 "jja" = (
 /obj/machinery/light{
 	dir = 1;
@@ -20635,14 +20633,6 @@
 	name = "Service Airlock"
 	},
 /area/centcom/ferry)
-"jqi" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/holding)
 "jre" = (
 /obj/machinery/computer/pod{
 	id = "thunderdomehea";
@@ -20694,7 +20684,7 @@
 /area/centcom/legion/hangar5)
 "jsh" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "burglar_hideout_hatch";
 	locked = 1;
@@ -20746,11 +20736,8 @@
 	},
 /area/centcom/bar)
 "jvz" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = 2;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
+/obj/machinery/vending/coffee/free{
+	pixel_x = 2
 	},
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -20858,7 +20845,7 @@
 	pixel_x = -2;
 	pixel_y = 6
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "CCIABS";
 	pixel_x = 5
 	},
@@ -20942,6 +20929,14 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
+"jCJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "jCO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/glass/bucket{
@@ -20978,8 +20973,7 @@
 "jDe" = (
 /obj/structure/closet/walllocker/emerglocker/north{
 	pixel_x = -26;
-	pixel_y = -3;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -3
 	},
 /obj/structure/closet/crate/secure/gear{
 	name = "secure crate";
@@ -21541,15 +21535,6 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"jXl" = (
-/obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/grassybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
-/area/centcom/holding)
 "jXF" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "0,7"
@@ -21663,17 +21648,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1332;
-	id_tag = "vox_east_vent"
+	id_tag = "raider_east_vent"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1332;
-	id_tag = "vox_east_control";
+	id_tag = "raider_east_control";
 	pixel_x = -24;
-	tag_airpump = "vox_east_vent";
-	tag_chamber_sensor = "vox_east_sensor";
-	tag_exterior_door = "vox_northeast_lock";
-	tag_interior_door = "vox_southeast_lock"
+	tag_airpump = "raider_east_vent";
+	tag_chamber_sensor = "raider_east_sensor";
+	tag_exterior_door = "raider_northeast_lock";
+	tag_interior_door = "raider_southeast_lock"
 	},
 /obj/vehicle/bike{
 	dir = 4
@@ -21704,6 +21689,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/syndicate_elite)
+"kbh" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "kbi" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "2,7"
@@ -21744,8 +21741,7 @@
 	tag_door = "legion_shuttle_hatch"
 	},
 /obj/structure/closet/walllocker/emerglocker/south{
-	pixel_y = -28;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
@@ -21785,9 +21781,7 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "kdz" = (
 /obj/structure/shuttle_part/transfer{
@@ -22022,7 +22016,7 @@
 /obj/item/pen{
 	pixel_y = 16
 	},
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_y = 2
 	},
 /obj/structure/table/wood{
@@ -22071,7 +22065,7 @@
 "kml" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Cell 2";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -22508,6 +22502,18 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
+"kDN" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "An automated gun turret.";
+	icon = 'icons/obj/turrets.dmi';
+	icon_state = "cover_0";
+	layer = 3.02;
+	name = "turret"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/unsimulated/floor,
+/area/centcom/spawning)
 "kEp" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
@@ -22689,12 +22695,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
-"kJx" = (
-/obj/structure/bed/chair,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/centcom/holding)
 "kJE" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -22726,14 +22726,6 @@
 /obj/item/broken_bottle,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
-"kLK" = (
-/obj/structure/railing/mapped,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
-/area/centcom/bar)
 "kLP" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "6,0"
@@ -22838,11 +22830,8 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "kOI" = (
 /obj/structure/railing/mapped{
@@ -22976,7 +22965,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/fernybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
@@ -23250,6 +23238,14 @@
 	icon_state = "18,7"
 	},
 /area/shuttle/merchant)
+"lcO" = (
+/obj/vehicle/droppod/syndie{
+	connected_blastdoor = "loner_droppod_1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/antag/loner)
 "ldd" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
@@ -23650,8 +23646,7 @@
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 34;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -23804,8 +23799,7 @@
 /area/antag/burglar)
 "lvr" = (
 /obj/structure/closet/walllocker/emerglocker/south{
-	pixel_y = -27;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -27
 	},
 /obj/structure/bed/chair/shuttle{
 	dir = 4
@@ -23833,6 +23827,7 @@
 /area/shuttle/merchant)
 "lvN" = (
 /obj/structure/table/reinforced,
+/obj/machinery/recharger,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -24006,7 +24001,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/merchant,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/stack/packageWrap,
 /obj/item/device/price_scanner,
 /turf/simulated/floor/wood,
@@ -24017,7 +24012,8 @@
 /area/shuttle/merchant)
 "lCv" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "7,22"
+	icon_state = "7,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -24169,7 +24165,8 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastright{
 	name = "dispensary";
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/dropper,
 /turf/unsimulated/floor{
@@ -24530,13 +24527,6 @@
 /obj/item/rig/ert/security,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
-"lRg" = (
-/obj/machinery/cryopod/robot,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/centcom/spawning)
 "lRx" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "2,0"
@@ -24703,6 +24693,13 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/aft)
+"lWU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "lXE" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 4
@@ -24717,6 +24714,19 @@
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/shuttle/arrival)
+"lXR" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/structure/closet/emcloset{
+	anchored = 1;
+	pixel_y = 2
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/arrival)
@@ -24735,7 +24745,7 @@
 "lYZ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Detention Wing";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
@@ -24747,7 +24757,7 @@
 	id = "detention";
 	name = "detention wing blast doors";
 	pixel_x = -23;
-	req_access = list(108)
+	req_access = list(109)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -25060,16 +25070,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
-"mho" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
-/area/centcom/evac)
 "mhJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/backpack/duffel{
@@ -25250,6 +25250,7 @@
 	name = "transport shuttle"
 	},
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,3";
 	name = "transport shuttle";
@@ -25629,7 +25630,7 @@
 "mxw" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Cell 1";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -25720,10 +25721,10 @@
 "mBP" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Advanced Interrogation";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/specops)
 "mBU" = (
@@ -25905,7 +25906,7 @@
 /obj/item/stack/packageWrap{
 	pixel_y = 5
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25931,7 +25932,7 @@
 /turf/simulated/floor/tiled/ramp,
 /area/merchant_station)
 "mKw" = (
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_picnicarea)
 "mLc" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -26104,6 +26105,29 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/mercenary)
+"mPL" = (
+/obj/structure/table/rack,
+/obj/item/storage/briefcase/aluminium{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/storage/briefcase/aluminium{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/storage/lockbox/cciaa/fib{
+	pixel_y = -1
+	},
+/obj/item/storage/lockbox/cciaa/fib{
+	pixel_y = -1
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "mPM" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "3,1"
@@ -26143,7 +26167,7 @@
 "mRW" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "mSo" = (
@@ -26266,6 +26290,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"mUH" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "mVd" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -26533,14 +26565,59 @@
 /obj/item/rig/ert/engineer,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
-"nfS" = (
-/obj/machinery/porta_turret/crescent,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/lattice/catwalk/indoor,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+"nfl" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
 	},
-/area/centcom/checkpoint/aft)
+/obj/structure/closet{
+	icon_closed = "blue";
+	icon_state = "blue";
+	name = "\improper FIB tactical gear"
+	},
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "nfY" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/spawning)
@@ -26584,6 +26661,16 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
+"nhx" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/antag/loner)
 "nhS" = (
 /obj/structure/flora/rock/pile{
 	icon_state = "lavarocks2"
@@ -26947,8 +27034,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "nrX" = (
@@ -27110,6 +27195,13 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
+"nxK" = (
+/obj/machinery/cryopod,
+/obj/effect/floor_decal/corner/lime{
+	dir = 4
+	},
+/turf/unsimulated/floor,
+/area/centcom/spawning)
 "nyh" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -27445,14 +27537,12 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/leafybush,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "nFu" = (
 /turf/simulated/wall/shuttle/unique/distress{
@@ -27569,11 +27659,9 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
 /area/centcom/evac)
 "nLo" = (
 /obj/item/material/ashtray/bronze{
@@ -27590,7 +27678,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/item/folder/blue,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -27783,6 +27871,17 @@
 	},
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
+"nQb" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/zipties,
+/obj/item/storage/box/zipties{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "nQe" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree3"
@@ -28671,10 +28770,6 @@
 	icon_state = "floor3"
 	},
 /area/centcom/legion)
-"oti" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/shuttle/merchant)
 "otu" = (
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
@@ -28782,7 +28877,6 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
 "oyk" = (
@@ -28868,10 +28962,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "oBu" = (
 /obj/effect/floor_decal/corner/blue{
@@ -29369,12 +29461,10 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/grassybush,
-/obj/structure/flora/ausbushes/reedbush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_y = 3
 	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "oUr" = (
 /obj/structure/table/rack,
@@ -29528,8 +29618,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "oZj" = (
@@ -29729,11 +29817,10 @@
 /area/centcom/shared_dream)
 "phW" = (
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_y = 3
 	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "pit" = (
 /obj/structure/table/wood{
@@ -29834,6 +29921,12 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
+"plr" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "plz" = (
 /turf/simulated/floor/grass/alt,
 /area/centcom/shared_dream)
@@ -30004,6 +30097,31 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
+"psh" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/snacks/sushi_serve{
+	layer = 3.5;
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/snacks/sushi_serve{
+	layer = 3.6;
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/breakfast_wrap{
+	layer = 2.99;
+	pixel_x = 29;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/snacks/breakfast_wrap{
+	pixel_x = 29;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "psm" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "1,0"
@@ -30100,20 +30218,6 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
-"pug" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/structure/bed/chair/comfy/blue{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_light"
-	},
-/area/centcom/evac)
 "puj" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -30149,6 +30253,21 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"pwd" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "FIB Primary";
+	req_access = list(109)
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "pxm" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -30199,12 +30318,7 @@
 	name = "adjusted light fixture";
 	pixel_y = 16
 	},
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8, /obj/item/reagent_containers/food/snacks/donut/normal = 6);
-	random_itemcount = 0
-	},
+/obj/machinery/vending/coffee/free,
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -30379,8 +30493,7 @@
 	name = "blood closet";
 	pixel_x = -29;
 	pixel_y = 30;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -31135,11 +31248,8 @@
 	},
 /area/shuttle/specops)
 "pZr" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
+/obj/machinery/vending/coffee/free{
+	pixel_x = -1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -31235,6 +31345,15 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
+"qcr" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "qdi" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/decal/fake_object{
@@ -31374,7 +31493,7 @@
 	},
 /area/centcom/holding)
 "qjS" = (
-/obj/machinery/account_database{
+/obj/item/modular_computer/console/preset/command/account{
 	name = "CentComm Accounts database"
 	},
 /turf/unsimulated/floor{
@@ -31391,8 +31510,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/pointybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -31621,6 +31738,14 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/bar)
+"qsA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "qsG" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
@@ -31636,9 +31761,7 @@
 "qtg" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,17";
-	name = "Skipjack"
+	icon_state = "11,17"
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
@@ -31821,6 +31944,13 @@
 	icon_state = "6,1"
 	},
 /area/shuttle/merchant)
+"qzr" = (
+/obj/machinery/cryopod/robot,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/centcom/spawning)
 "qzy" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon_state = "7,1"
@@ -32516,9 +32646,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "rch" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
@@ -32575,8 +32703,7 @@
 /obj/structure/closet/walllocker/emerglocker/north{
 	layer = 3;
 	pixel_x = -1;
-	pixel_y = 29;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = 29
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -32723,20 +32850,6 @@
 	icon_state = "3,5"
 	},
 /area/shuttle/legion)
-"rjf" = (
-/obj/structure/bed/chair/comfy/blue{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_light"
-	},
-/area/centcom/holding)
 "rjX" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -32797,16 +32910,6 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
-"rkV" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar East";
-	dir = 8
-	},
-/obj/structure/table/reinforced/wood,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/centcom/bar)
 "rkX" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -32843,9 +32946,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "rmo" = (
 /obj/structure/shuttle_part/ert{
@@ -32951,6 +33052,10 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
+"rrb" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/shuttle/merchant)
 "rrE" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "7,0"
@@ -32998,8 +33103,7 @@
 "rtG" = (
 /obj/structure/bed/chair/shuttle,
 /obj/structure/closet/walllocker/emerglocker{
-	pixel_y = 31;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = 31
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -33041,6 +33145,20 @@
 /obj/structure/lattice,
 /turf/space/dynamic,
 /area/antag/raider)
+"rvz" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/bed/chair/comfy/blue{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_light"
+	},
+/area/centcom/evac)
 "rvE" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -33061,6 +33179,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
+"rwc" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/holding)
 "rwj" = (
 /obj/structure/shuttle_part/tcfl{
 	icon_state = "13,5";
@@ -33144,8 +33270,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southright{
-	name = "holding cell";
-	req_access = list(2)
+	name = "holding cell"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -33386,9 +33511,7 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "rKw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -33593,25 +33716,24 @@
 /area/centcom/legion)
 "rRr" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/berrymuffin{
+/obj/item/reagent_containers/food/snacks/taco{
 	layer = 2.98;
-	name = "stale muffin";
-	pixel_x = -8;
-	pixel_y = 10
+	pixel_x = -4;
+	pixel_y = 7
 	},
-/obj/item/reagent_containers/food/snacks/berrymuffin{
-	layer = 2.98;
-	name = "stale muffin";
-	pixel_x = 5;
-	pixel_y = 10
+/obj/item/reagent_containers/food/snacks/taco{
+	layer = 2.99;
+	pixel_x = -4;
+	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/snacks/berrymuffin{
-	name = "stale muffin";
-	pixel_x = -8
+/obj/item/reagent_containers/food/snacks/nt_muffin{
+	layer = 2.99;
+	pixel_x = 13;
+	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/berrymuffin{
-	name = "stale muffin";
-	pixel_x = 5
+/obj/item/reagent_containers/food/snacks/nt_muffin{
+	pixel_x = 11;
+	pixel_y = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -33834,7 +33956,6 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "rZt" = (
@@ -34072,6 +34193,15 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
+"sjp" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/double/map/left{
+	desc = "A framed picture of a station.";
+	pixel_x = 16;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "sjG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -34295,6 +34425,16 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/mercenary)
+"sqZ" = (
+/obj/machinery/vending/snack{
+	density = 0;
+	name = "Jacked Getmore Chocolate Corp";
+	pixel_y = -22;
+	prices = list();
+	random_itemcount = 0
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "srF" = (
 /obj/structure/window/shuttle/unique/tcfl{
 	icon_state = "16,4"
@@ -34319,11 +34459,8 @@
 	},
 /area/centcom/control)
 "ssN" = (
-/obj/machinery/vending/coffee{
-	name = "Free Hot Drinks machine";
-	pixel_x = -1;
-	prices = list();
-	products = list(/obj/item/reagent_containers/food/drinks/coffee = 12, /obj/item/reagent_containers/food/drinks/tea = 8, /obj/item/reagent_containers/food/drinks/h_chocolate = 8)
+/obj/machinery/vending/coffee/free{
+	pixel_x = -1
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -34440,9 +34577,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "sxB" = (
 /turf/unsimulated/wall/fakepdoor{
@@ -34655,11 +34790,9 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/reedbush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
 /area/centcom/evac)
 "sEk" = (
 /obj/structure/table/standard,
@@ -34844,6 +34977,15 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
+"sLq" = (
+/obj/machinery/vending/zora{
+	density = 0;
+	name = "Jacked Zo'ra Soda";
+	pixel_y = -22;
+	prices = list()
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "sLO" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -34979,6 +35121,13 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
+"sQB" = (
+/obj/machinery/cryopod,
+/obj/effect/floor_decal/corner/paleblue/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/merchant_station)
 "sQX" = (
 /obj/effect/shuttle_landmark/legion/start,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -35039,6 +35188,20 @@
 	icon_state = "dark2"
 	},
 /area/centcom/ferry)
+"sUx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/bed/chair/comfy/blue{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_light"
+	},
+/area/centcom/evac)
 "sUP" = (
 /obj/structure/window/shuttle/unique/ccia{
 	icon_state = "1,3"
@@ -35078,6 +35241,14 @@
 	icon_state = "dark2"
 	},
 /area/centcom/specops)
+"sXo" = (
+/obj/machinery/porta_turret/crescent,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/lattice/catwalk/indoor,
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/centcom/checkpoint/aft)
 "sXD" = (
 /obj/structure/bed/chair/comfy/brown{
 	can_buckle = 0;
@@ -35179,9 +35350,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "tbN" = (
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -35223,10 +35392,6 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/mercenary)
-"tbV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
-/turf/space,
-/area/centcom/spawning)
 "tbX" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
@@ -35455,6 +35620,7 @@
 /area/antag/ninja)
 "thI" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,7";
 	name = "transport shuttle"
@@ -35474,6 +35640,12 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/fore)
+"tjd" = (
+/obj/structure/bed/chair,
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/centcom/holding)
 "tjM" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -35530,9 +35702,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "tnJ" = (
 /obj/structure/bed/chair/shuttle{
@@ -35608,6 +35778,21 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
+"tqt" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "CCIA Bodyguard Primary";
+	req_access = list(109)
+	},
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "tqK" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -35915,6 +36100,11 @@
 	icon_state = "dark2"
 	},
 /area/centcom/checkpoint/aft)
+"tAC" = (
+/obj/structure/railing/mapped,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
+/area/centcom/bar)
 "tAD" = (
 /obj/structure/table/rack,
 /obj/item/clothing/accessory/offworlder/bracer,
@@ -36005,7 +36195,7 @@
 "tDo" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Emergency Surgery";
-	req_one_access = list(104)
+	req_one_access = list(45,104)
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -36203,8 +36393,6 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/structure/flora/ausbushes/genericbush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "tJm" = (
@@ -36234,6 +36422,27 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
+"tKK" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/storage/firstaid/o2{
+	layer = 2.99;
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/o2{
+	layer = 2.99;
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "tKY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -36373,12 +36582,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "tPw" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -36762,7 +36967,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
@@ -37238,8 +37442,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/closet/walllocker/emerglocker{
 	pixel_x = 27;
-	pixel_y = -1;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
@@ -37265,7 +37468,6 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "uvI" = (
@@ -37282,14 +37484,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
-"uvS" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "0,3";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/evac)
 "uwJ" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "12,13"
@@ -37675,7 +37869,8 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
@@ -37712,8 +37907,7 @@
 /obj/structure/closet/secure_closet/medical_wall{
 	name = "medical supplies";
 	pixel_x = 28;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/storage/backpack/messenger/med,
 /turf/simulated/floor/tiled/dark,
@@ -37745,7 +37939,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "uOL" = (
-/obj/machinery/computer/shuttle_control/multi/vox,
+/obj/machinery/computer/shuttle_control/multi/raider,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -38704,6 +38898,13 @@
 	dir = 10
 	},
 /area/centcom/legion/hangar5)
+"vxd" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_picnicarea)
 "vxh" = (
 /obj/structure/bed/chair/comfy/blue{
 	dir = 8
@@ -38716,6 +38917,14 @@
 /obj/structure/bed/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
+"vxK" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "vxP" = (
 /obj/effect/landmark{
 	name = "skrell_entry"
@@ -38928,7 +39137,8 @@
 "vFX" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = list(104)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/ghostspawpoint{
@@ -39191,6 +39401,19 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"vNg" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Ready Room";
+	req_access = list(109)
+	},
+/obj/machinery/door/blast/odin{
+	id = "CCIAReadyRoom";
+	name = "Ready Room"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "vNj" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "5,0"
@@ -39414,6 +39637,15 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/syndicate_elite)
+"vUv" = (
+/obj/structure/railing/mapped,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
+/area/centcom/bar)
 "vVC" = (
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -39730,7 +39962,8 @@
 /area/antag/raider)
 "weL" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "5,22"
+	icon_state = "5,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -39761,11 +39994,10 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_y = -3
 	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "wgf" = (
 /obj/structure/bed/chair/shuttle{
@@ -39788,7 +40020,7 @@
 	syndie = 1
 	},
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -39933,7 +40165,7 @@
 /obj/item/deck/cards,
 /obj/item/deck/cards,
 /obj/item/deck/tarot,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /obj/item/device/flashlight/lantern,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/clothing/mask/smokable/pipe,
@@ -40073,6 +40305,9 @@
 /obj/machinery/vending/zora{
 	pixel_x = 5
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -40197,8 +40432,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	name = "holding cell";
-	req_access = list(2)
+	name = "holding cell"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -40580,16 +40814,6 @@
 "wzE" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/evac)
-"wzL" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/genericbush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
-/area/centcom/holding)
 "wAo" = (
 /obj/machinery/door/airlock/silver{
 	name = "Washroom"
@@ -40638,6 +40862,20 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
+"wBW" = (
+/obj/structure/bed/chair/comfy/blue{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_light"
+	},
+/area/centcom/holding)
 "wCa" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/food/drinks/waterbottle{
@@ -40719,11 +40957,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "wCK" = (
@@ -40765,7 +40999,8 @@
 /area/shuttle/transport1)
 "wEM" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "8,22"
+	icon_state = "8,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -41133,7 +41368,7 @@
 	pixel_x = -3;
 	pixel_y = 12
 	},
-/obj/item/device/megaphone{
+/obj/item/device/megaphone/red{
 	pixel_y = -4
 	},
 /obj/structure/table/standard,
@@ -41214,8 +41449,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
 "wTs" = (
@@ -41252,16 +41485,13 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "wUa" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "9,22"
+	icon_state = "9,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -41524,6 +41754,18 @@
 	icon_state = "rub_carpet"
 	},
 /area/centcom/control)
+"wZg" = (
+/obj/machinery/porta_turret/crescent,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/railing/mapped{
+	layer = 4.1;
+	name = "adjusted railing"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/centcom/checkpoint/fore)
 "wZy" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -41637,12 +41879,10 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/fernybush,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_y = -3
 	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "xeH" = (
 /obj/structure/table/reinforced/wood,
@@ -41868,22 +42108,30 @@
 /area/centcom/holding)
 "xkI" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/breakfast_wrap{
-	pixel_x = 15
-	},
-/obj/item/reagent_containers/food/snacks/burrito_vegan{
-	pixel_x = 15;
+/obj/item/reagent_containers/food/snacks/salad/tossedsalad{
+	layer = 2.99;
+	pixel_x = 18;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.5;
-	pixel_x = -2;
-	pixel_y = 5
+/obj/item/reagent_containers/food/snacks/salad/tossedsalad{
+	pixel_x = 16;
+	pixel_y = 3
 	},
-/obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.5;
-	pixel_x = -13;
-	pixel_y = 5
+/obj/item/material/kitchen/utensil/fork/plastic{
+	pixel_x = -16;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/utensil/fork/plastic{
+	pixel_x = -16;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/utensil/fork/plastic{
+	pixel_x = -16;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/utensil/fork/plastic{
+	pixel_x = -16;
+	pixel_y = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -42059,7 +42307,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/westright,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "brown"
@@ -42197,7 +42445,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
 "xws" = (
@@ -42348,6 +42595,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/syndicate_elite)
+"xyH" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/pods{
+	desc = "A direction sign which reads 'DROPPODS'.";
+	name = "\improper DROPPODS"
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "xzb" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -42784,8 +43039,17 @@
 	},
 /area/antag/ninja)
 "xOs" = (
-/obj/structure/table/reinforced,
-/obj/machinery/recharger,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "CCIAReadyRoom";
+	name = "Ready Room";
+	pixel_x = -23;
+	pixel_y = 7;
+	req_access = list(103)
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -43341,7 +43605,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
@@ -48993,8 +49256,8 @@ ahV
 ahV
 ahV
 xwI
-arz
-arz
+sQB
+sQB
 fNM
 xwI
 aaV
@@ -49265,7 +49528,7 @@ kdV
 lsr
 mqU
 njF
-oti
+rrb
 pmR
 qsr
 rob
@@ -49522,7 +49785,7 @@ keA
 lvJ
 mrm
 njF
-oti
+rrb
 puD
 qxI
 roD
@@ -53181,12 +53444,12 @@ lnj
 yhJ
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
-ahV
+gYT
+gYT
+gYT
+gYT
+gYT
 xVl
 xVl
 xVl
@@ -53438,11 +53701,11 @@ gCr
 gCr
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+gYT
+ezR
+fDN
+iYn
 xVl
 xVl
 rWF
@@ -53695,11 +53958,11 @@ gCr
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+gYT
+nhx
+iGO
+plr
 xVl
 rMK
 rXN
@@ -53952,11 +54215,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+gYT
+sjp
+xyH
+sqZ
 xVl
 rNY
 rXN
@@ -54209,11 +54472,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+gYT
+lcO
+guL
+sLq
 xVl
 rPi
 rXN
@@ -54466,11 +54729,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+gYT
+goi
+xyH
+iGO
 xVl
 xVl
 rZy
@@ -54723,12 +54986,12 @@ aaM
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
-ahV
+gYT
+enP
+crk
+iGO
+gYT
 xVl
 xVl
 xVl
@@ -54984,7 +55247,7 @@ aaM
 xVl
 xVl
 xVl
-xVl
+ftC
 xVl
 xVl
 xVl
@@ -55242,7 +55505,7 @@ tZx
 vYd
 yjy
 vYd
-vYd
+gLk
 vYd
 vYd
 vYd
@@ -56819,7 +57082,7 @@ ioz
 ioz
 ioz
 ioz
-jbP
+ioz
 sFP
 aaM
 aaM
@@ -62726,7 +62989,7 @@ apw
 arg
 aGk
 aGZ
-aFP
+aIX
 aJJ
 aNe
 aOe
@@ -62983,9 +63246,9 @@ apx
 arw
 aGl
 aHi
-aFP
+aIX
 aJK
-aFP
+aIX
 aOo
 aXW
 caA
@@ -63723,11 +63986,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahV
+ahV
+ahV
+ahV
+ahV
 ahV
 ahV
 ahV
@@ -63980,11 +64243,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahV
+ahV
+ahV
+ahV
+ahV
 ahV
 ahV
 ahV
@@ -65293,10 +65556,10 @@ aIF
 kak
 aoE
 apN
-aFP
+aIX
 aFR
 aIk
-aFP
+aIX
 aKs
 aNz
 aPl
@@ -66212,7 +66475,7 @@ nHd
 vVC
 jSH
 rhK
-bYs
+aAF
 bYs
 owT
 uSv
@@ -67265,7 +67528,7 @@ fOM
 tmv
 wjH
 bQP
-kJx
+tjd
 rAP
 kYq
 nUK
@@ -67525,7 +67788,7 @@ aDb
 kVk
 ebr
 kYq
-jqi
+rwc
 aDb
 mAD
 bLK
@@ -68039,7 +68302,7 @@ aDb
 qnC
 qhn
 kYq
-jqi
+rwc
 aDb
 mAD
 bLK
@@ -68249,8 +68512,8 @@ sNE
 bYs
 bYs
 lSm
-uSv
 uxa
+uSv
 uSv
 uSv
 uSv
@@ -68293,10 +68556,10 @@ eDp
 bMp
 tDA
 bQP
-kJx
+tjd
 wqv
 kYq
-jqi
+rwc
 bQP
 mAD
 bLK
@@ -68506,7 +68769,7 @@ vVC
 eGb
 bYs
 leH
-uSv
+uxa
 uSv
 roS
 voh
@@ -68763,7 +69026,7 @@ vVC
 vVC
 bYs
 kjq
-uSv
+uxa
 uSv
 vNR
 ayw
@@ -69020,14 +69283,14 @@ vVC
 vVC
 fdH
 jLm
-uSv
 uxa
+uSv
 vNR
 ayw
 ymd
 lny
 vVC
-vVC
+dWZ
 bzK
 bYs
 bYs
@@ -69797,7 +70060,7 @@ ssN
 ayw
 sBa
 kjl
-xOs
+vVC
 lvN
 uxs
 bYs
@@ -70054,7 +70317,7 @@ bYs
 bYs
 bYs
 bYs
-bYs
+vNg
 bYs
 bYs
 bYs
@@ -70307,16 +70570,16 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+mPL
+kbh
+xOs
+vxK
+vxK
+kbh
+cfh
 eBz
-kLK
+tAC
 wCA
 xzI
 ahp
@@ -70564,14 +70827,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+iRr
+vVC
+vVC
+vVC
+vVC
+vVC
+bFS
 eBz
 kOH
 xzI
@@ -70821,16 +71084,16 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+pwd
+vVC
+vVC
+vVC
+vVC
+vVC
+tqt
 eBz
-kLK
+tAC
 ahe
 aqu
 fOK
@@ -70841,7 +71104,7 @@ xps
 rvN
 iCW
 wnl
-vpg
+aUh
 mVZ
 mVZ
 vpg
@@ -71078,14 +71341,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+jhw
+vVC
+vVC
+vVC
+vVC
+vVC
+aBO
 eBz
 eBz
 ayK
@@ -71335,20 +71598,20 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+nfl
+doU
+csc
+csc
+csc
+hpB
+tKK
 eBz
-kLK
+eAg
 ahe
 aqu
 tFj
-jeX
+qcr
 jcv
 aDB
 eHe
@@ -71592,26 +71855,26 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+bYs
+bYs
+nQb
+aiy
+fsy
+bYs
+bYs
 eBz
-kOH
+vUv
 ahe
 aqu
 tFj
-jeX
+qcr
 jcv
 lMz
 lMz
 lMz
 jcv
-kgi
+psh
 fOf
 vpg
 vpg
@@ -71623,13 +71886,13 @@ igD
 eBz
 dHY
 nMu
-rjf
+wBW
 dNv
-rjf
+wBW
 aEP
-rjf
+wBW
 dNv
-rjf
+wBW
 wHR
 xVe
 bQP
@@ -71851,18 +72114,18 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+bYs
+bYs
+bYs
+bYs
 aaM
 eBz
-kLK
+tAC
 ahe
 aqu
 tFj
-jeX
+qcr
 jcv
 lMz
 lMz
@@ -71871,9 +72134,9 @@ jcv
 xkI
 gwf
 vpg
+aXz
 dOH
-eOT
-czD
+mUH
 vpg
 vpg
 wNE
@@ -72116,10 +72379,10 @@ aaM
 aaM
 eBz
 eBz
-ahe
+bZQ
 aqu
 tFj
-jeX
+qcr
 jcv
 lMz
 lMz
@@ -72128,9 +72391,9 @@ jcv
 hmF
 xhC
 vpg
-dOH
-rkV
-czD
+dKe
+eCE
+mUH
 kOI
 hjw
 ijf
@@ -72372,7 +72635,7 @@ aaM
 aaM
 aaM
 eBz
-kLK
+tAC
 ahe
 aqu
 lQy
@@ -72391,7 +72654,7 @@ wzE
 wzE
 jAK
 wzE
-jie
+wZg
 nli
 kop
 tix
@@ -72403,7 +72666,7 @@ vCY
 lWl
 hEz
 avo
-nfS
+sXo
 bQP
 qmq
 kvZ
@@ -72417,13 +72680,13 @@ ciV
 ciV
 ciV
 nfY
-aKw
+kDN
 aMV
 uMb
 aNJ
 uMb
 aMT
-aKw
+kDN
 dtU
 qfW
 otY
@@ -72629,7 +72892,7 @@ aaM
 aaM
 aaM
 eBz
-kOH
+vUv
 ahe
 aqu
 apU
@@ -72886,7 +73149,7 @@ aaM
 aaM
 aaM
 eBz
-kLK
+eAg
 ahe
 aqu
 apU
@@ -72905,7 +73168,7 @@ ppa
 fso
 hAS
 wzE
-jie
+wZg
 nli
 kop
 tix
@@ -72917,7 +73180,7 @@ kTE
 lWl
 hEz
 avo
-nfS
+sXo
 bQP
 qAq
 kvZ
@@ -73400,7 +73663,7 @@ aaM
 aaM
 aaM
 eBz
-kLK
+tAC
 ahe
 aqu
 apU
@@ -73657,7 +73920,7 @@ aaM
 aaM
 aaM
 eBz
-kOH
+vUv
 ahe
 aqu
 apU
@@ -73914,7 +74177,7 @@ aaM
 aaM
 aaM
 eBz
-kLK
+tAC
 iXX
 ifi
 xps
@@ -74203,11 +74466,11 @@ iUA
 vyn
 iXx
 aCm
-jXl
+phW
 gZQ
 xIt
 jVH
-wzL
+xdo
 bQP
 aze
 nfY
@@ -74448,8 +74711,8 @@ gcj
 hAS
 ivL
 mbM
-pug
-pug
+rvz
+rvz
 wNL
 aCG
 iUA
@@ -74457,8 +74720,8 @@ bUd
 iGi
 aCG
 yjf
-imi
-imi
+sUx
+sUx
 aCm
 phW
 awK
@@ -74715,7 +74978,7 @@ aDo
 oSo
 xoL
 sDF
-mho
+nKX
 wzE
 wzE
 wzE
@@ -74999,8 +75262,8 @@ ndV
 ndV
 nfY
 qTY
-lRg
-lRg
+qzr
+qzr
 nfY
 aaM
 aaM
@@ -75760,7 +76023,7 @@ aMg
 aMz
 siZ
 aJH
-tbV
+aKZ
 kXP
 aOa
 uPQ
@@ -75770,8 +76033,8 @@ tjM
 bUn
 nfY
 vmB
-bHl
-bHl
+nxK
+nxK
 nfY
 aaM
 aaM
@@ -76005,7 +76268,7 @@ aWV
 aWI
 bMd
 jON
-uvS
+wne
 wzE
 aJH
 vNl
@@ -76523,7 +76786,7 @@ wne
 wzE
 aJH
 isr
-aKH
+lXR
 wbd
 wbd
 syV
@@ -77294,7 +77557,7 @@ wne
 wzE
 aJH
 aKo
-aKH
+lXR
 wbd
 wbd
 syV
@@ -78065,7 +78328,7 @@ ukL
 wzE
 aJH
 isr
-aKH
+lXR
 wbd
 wbd
 syV
@@ -79058,7 +79321,7 @@ bQM
 nFm
 oBd
 sNi
-llN
+eWB
 avR
 gqa
 loL
@@ -90253,11 +90516,11 @@ aed
 aeO
 kTO
 wSA
+lWU
+gLc
 wSA
+qsA
 wSA
-hEl
-wSA
-hEl
 yhw
 gXh
 gLc
@@ -91796,13 +92059,13 @@ aeO
 oyh
 fid
 fri
-fri
+xwr
 ufi
 oNX
 xwr
-oyh
-fri
+jCJ
 xwr
+irn
 aeO
 aaM
 aaM
@@ -96412,9 +96675,9 @@ abw
 abN
 acc
 tVT
-tVT
+abN
 qlC
-tVT
+abN
 adL
 nrk
 rYS
@@ -96666,14 +96929,14 @@ aaM
 (208,1,1) = {"
 aaO
 abx
-aby
-aby
-aby
-aby
-aby
-aby
-aby
-aby
+mKw
+mKw
+mKw
+mKw
+mKw
+mKw
+mKw
+mKw
 aeB
 aeP
 aeV
@@ -96922,7 +97185,7 @@ aaM
 "}
 (209,1,1) = {"
 aaO
-aby
+mKw
 mKw
 acd
 acu
@@ -96930,8 +97193,8 @@ acW
 acW
 acu
 adM
-aby
-aby
+mKw
+mKw
 aeP
 aeV
 aeV
@@ -97436,16 +97699,16 @@ aaM
 "}
 (211,1,1) = {"
 aaO
-aby
-aby
+mKw
+mKw
 acf
 acu
 acW
 acW
 acu
 adO
-aby
-aby
+mKw
+mKw
 aeP
 aeV
 aeV
@@ -97694,14 +97957,14 @@ aaM
 (212,1,1) = {"
 aaO
 abA
-aby
-aby
-aby
-aby
-aby
-aby
-aby
-aby
+mKw
+mKw
+mKw
+mKw
+mKw
+mKw
+mKw
+mKw
 aeC
 aeP
 aeV
@@ -97951,11 +98214,11 @@ aaM
 (213,1,1) = {"
 aaO
 abB
-abP
+tIZ
 acg
 tIZ
 oYx
-oYx
+vxd
 ePR
 adP
 eyb

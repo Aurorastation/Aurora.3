@@ -306,7 +306,8 @@
 	for(var/obj/machinery/bodyscanner/C in orange(1,src))
 		connected = C
 		break
-	connected.connected = src
+	if(connected)
+		connected.connected = src
 	update_icon()
 
 /obj/machinery/body_scanconsole/attack_ai(var/mob/user)
@@ -373,6 +374,7 @@
 			"bicardAmt" = null,
 			"dexAmt" = null,
 			"dermAmt" = null,
+			"thetaAmt" = null,
 			"otherAmt" = null,
 			"bodyparts" = list(),
 			"organs" = list(),
@@ -412,7 +414,12 @@
 		if(pulse_result == ">250")
 			pulse_result = -3
 
-		VUEUI_SET_CHECK(data["stat"], occupant.stat, ., data)
+		var/displayed_stat = occupant.stat
+		var/blood_oxygenation = occupant.get_blood_oxygenation()
+		if(occupant.status_flags & FAKEDEATH)
+			displayed_stat = DEAD
+			blood_oxygenation = min(blood_oxygenation, BLOOD_VOLUME_SURVIVE)
+		VUEUI_SET_CHECK(data["stat"], displayed_stat, ., data)
 		VUEUI_SET_CHECK(data["name"], occupant.name, ., data)
 		VUEUI_SET_CHECK(data["species"], occupant.get_species(), ., data)
 		VUEUI_SET_CHECK(data["brain_activity"], brain_result, ., data)
@@ -420,7 +427,7 @@
 		VUEUI_SET_CHECK(data["blood_pressure"], occupant.get_blood_pressure(), ., data)
 		VUEUI_SET_CHECK(data["blood_pressure_level"], occupant.get_blood_pressure_alert(), ., data)
 		VUEUI_SET_CHECK(data["blood_volume"], occupant.get_blood_volume(), ., data)
-		VUEUI_SET_CHECK(data["blood_o2"], occupant.get_blood_oxygenation(), ., data)
+		VUEUI_SET_CHECK(data["blood_o2"], blood_oxygenation, ., data)
 		VUEUI_SET_CHECK(data["rads"], occupant.total_radiation, ., data)
 
 		VUEUI_SET_CHECK(data["cloneLoss"], get_severity(occupant.getCloneLoss(), TRUE), ., data)
@@ -432,12 +439,13 @@
 		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
 		VUEUI_SET_CHECK(data["occupant"], !!occupant, ., data)
-		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount(/datum/reagent/inaprovaline), ., data)
-		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount(/datum/reagent/soporific), ., data)
-		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount(/datum/reagent/bicaridine), ., data)
-		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount(/datum/reagent/dexalin), ., data)
-		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount(/datum/reagent/dermaline), ., data)
-		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
+		VUEUI_SET_CHECK(data["norepiAmt"], REAGENT_VOLUME(R, /decl/reagent/inaprovaline), ., data)
+		VUEUI_SET_CHECK(data["soporAmt"], REAGENT_VOLUME(R, /decl/reagent/soporific), ., data)
+		VUEUI_SET_CHECK(data["bicardAmt"], REAGENT_VOLUME(R, /decl/reagent/bicaridine), ., data)
+		VUEUI_SET_CHECK(data["dexAmt"], REAGENT_VOLUME(R, /decl/reagent/dexalin), ., data)
+		VUEUI_SET_CHECK(data["dermAmt"], REAGENT_VOLUME(R, /decl/reagent/dermaline), ., data)
+		VUEUI_SET_CHECK(data["thetaAmt"], REAGENT_VOLUME(R, /decl/reagent/thetamycin), ., data)
+		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"] + data["thetaAmt"]), ., data)
 		has_internal_injuries = FALSE
 		has_external_injuries = FALSE
 		VUEUI_SET_CHECK_LIST(data["bodyparts"], get_external_wound_data(occupant), ., data)
@@ -542,6 +550,13 @@
 		data["location"] = capitalize_first_letters(parse_zone(O.parent_organ))
 		var/list/wounds = list()
 		var/internal_damage = get_internal_damage(O)
+		if(istype(O, /obj/item/organ/internal/brain))
+			if(H.status_flags & FAKEDEATH)
+				internal_damage = "Severe" // fake some brain damage
+				if(!(O.status & ORGAN_DEAD)) // to prevent this wound from appearing twice
+					wounds += "Necrotic and decaying."
+			if(H.has_brain_worms())
+				wounds += "Has an abnormal growth."
 		data["damage"] = internal_damage
 		if(istype(O, /obj/item/organ/internal/lungs))
 			var/obj/item/organ/internal/lungs/L = O
@@ -554,9 +569,6 @@
 
 		if(O.status & ORGAN_DEAD)
 			wounds += "Necrotic and decaying."
-
-		if(istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
-			wounds += "Has an abnormal growth."
 
 		if(istype(O, H.species.vision_organ))
 			if(H.sdisabilities & BLIND)
@@ -635,12 +647,13 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"inaprovaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/inaprovaline),
-		"dexalin_amount" = H.reagents.get_reagent_amount(/datum/reagent/dexalin),
-		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/soporific),
-		"bicaridine_amount" = H.reagents.get_reagent_amount(/datum/reagent/bicaridine),
-		"dermaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/dermaline),
-		"blood_amount" = H.vessel.get_reagent_amount(/datum/reagent/blood),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
 		"external_organs" = H.organs.Copy(),
@@ -671,9 +684,10 @@
 
 	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
 	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
-	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
-	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
-	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>"), occ["dermaline_amount"])
+	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>"), occ["bicaridine_amount"])
+	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += text("[]\tThetamycin: [] units</font><BR>", ("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>"), occ["thetamycin_amount"])
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"
@@ -717,9 +731,9 @@
 		if(e.open)
 			open = "Open."
 
-		var/infection = "[get_infection_level(e.germ_level)] infection"
-		if (infection == "")
-			infection = "None"
+		var/infection = get_infection_level(e.germ_level)
+		if (infection != "")
+			infected = "[infection] infection"
 		if(e.rejecting)
 			infected += " (being rejected)"
 
@@ -744,14 +758,14 @@
 	for(var/obj/item/organ/internal/i in occ["internal_organs"])
 
 		var/mech = ""
-		if(i.robotic == 1)
+		if(i.robotic == ROBOTIC_ASSISTED)
 			mech = "Assisted:"
-		if(i.robotic == 2)
+		if(i.robotic == ROBOTIC_MECHANICAL)
 			mech = "Mechanical:"
 
 		var/infection = get_infection_level(i.germ_level)
-		if (infection == "")
-			infection = "None"
+		if(infection == "")
+			infection = "No Infection"
 		else
 			infection = "[infection] infection"
 		if(i.rejecting)

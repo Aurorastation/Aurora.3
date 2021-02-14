@@ -138,3 +138,15 @@ datum/design/item/tool/advanced_light_replacer
 	req_tech = list(TECH_ENGINEERING = 5, TECH_MATERIAL = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 2500, MATERIAL_SILVER = 2500)
 	build_path = /obj/item/rfd/piping
+
+/datum/design/item/tool/idris_backpack
+	desc = "The infamously Idris Service Standard refers to this monstrous, self-stabilizing back-mounted utensil and service item holder, not anything professional."
+	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 1500)
+	build_path = /obj/item/storage/backpack/service
+
+/datum/design/item/tool/bluespace_neutralizer
+	desc = "A state of the art bluespace neutralizer, capable of shutting down any bluespace portal it gets used on. A special mode exists for severe interdimensional breaches, but this is highly unlikely to be necessary."
+	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2, TECH_BLUESPACE = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 20000, MATERIAL_SILVER = 20000, MATERIAL_GOLD = 20000, MATERIAL_PHORON = 10000)
+	build_path = /obj/item/bluespace_neutralizer

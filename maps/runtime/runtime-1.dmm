@@ -249,7 +249,9 @@
 	dir = 1
 	},
 /obj/machinery/light{
-	dir = 8
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -385,7 +387,9 @@
 /area/engineering/gravity_gen)
 "aU" = (
 /obj/machinery/light{
-	dir = 4
+	brightness_range = 16;
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
@@ -464,7 +468,10 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/item/device/analyzer,
 /obj/item/wrench,
 /obj/structure/table/standard,
@@ -490,7 +497,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "bk" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
@@ -508,7 +518,10 @@
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/item/storage/box/lights/mixed,
 /obj/item/device/lightreplacer,
 /obj/structure/table/standard,
@@ -565,7 +578,9 @@
 /area/hallway/secondary/entry)
 "bw" = (
 /obj/machinery/light{
-	dir = 8
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -718,7 +733,9 @@
 /area/hallway/secondary/entry)
 "bR" = (
 /obj/machinery/light{
-	dir = 1
+	brightness_range = 16;
+	dir = 1;
+	must_start_working = 1
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/blue{
@@ -901,12 +918,17 @@
 /area/hallway/secondary/entry)
 "ck" = (
 /obj/machinery/light{
-	dir = 4
+	brightness_range = 16;
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "cl" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/blue/full,
 /obj/item/modular_computer/console/preset/ai,
@@ -919,11 +941,14 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cn" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "co" = (
@@ -937,19 +962,12 @@
 "cp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
-	dir = 8
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cq" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/white{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
 "cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
@@ -988,7 +1006,9 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	dir = 1
+	brightness_range = 16;
+	dir = 1;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
@@ -1024,7 +1044,9 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	dir = 1
+	brightness_range = 16;
+	dir = 1;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -1086,7 +1108,10 @@
 /obj/item/stack/rods{
 	amount = 50
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/white{
 	dir = 8
@@ -1228,7 +1253,9 @@
 /area/storage/primary)
 "dd" = (
 /obj/machinery/light{
-	dir = 8
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1240,7 +1267,9 @@
 /area/construction)
 "df" = (
 /obj/machinery/light{
-	dir = 4
+	brightness_range = 16;
+	dir = 4;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1249,13 +1278,17 @@
 /area/construction)
 "dg" = (
 /obj/machinery/light{
-	dir = 8
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "dh" = (
 /obj/machinery/light{
-	dir = 4
+	brightness_range = 16;
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
@@ -1361,7 +1394,10 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dA" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/item/material/twohanded/fireaxe,
 /obj/item/extinguisher,
 /obj/structure/table/standard,
@@ -1375,7 +1411,10 @@
 "dC" = (
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/tubes,
-/obj/machinery/light,
+/obj/machinery/light{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
@@ -1398,6 +1437,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"gF" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "ie" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
@@ -1440,7 +1485,10 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Airlock"
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	brightness_range = 16;
+	must_start_working = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering)
 "mn" = (
@@ -1459,7 +1507,9 @@
 /area/bridge)
 "ob" = (
 /obj/machinery/light{
-	dir = 8
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1468,6 +1518,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"pM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "pX" = (
 /obj/structure/cable{
 	d1 = 16;
@@ -1487,6 +1546,15 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"uI" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry)
 "wk" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1519,6 +1587,10 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/construction)
+"Ct" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -1548,7 +1620,9 @@
 /area/maintenance/maintcentral)
 "HK" = (
 /obj/machinery/light{
-	dir = 8
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1578,6 +1652,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"PS" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "RL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1603,6 +1683,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"Uf" = (
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
 "UF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1615,6 +1698,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"WS" = (
+/obj/turbolift_map_holder/runtime,
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
 "YP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -3383,7 +3470,7 @@ da
 da
 dl
 dc
-do
+pM
 dt
 du
 dl
@@ -3535,8 +3622,8 @@ at
 bv
 bQ
 ch
-cq
-cq
+uI
+uI
 cE
 cF
 cG
@@ -3761,9 +3848,9 @@ cP
 cP
 cP
 cP
-cP
-cP
-cP
+Ct
+Ct
+Ct
 cP
 cP
 cP
@@ -3808,18 +3895,18 @@ ae
 bv
 cw
 bv
+PS
+ae
+ae
+ae
+ae
+gF
 ae
 ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+gF
 ae
 ae
 ae
@@ -3921,13 +4008,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+WS
+ac
 aa
 aa
 aa
@@ -3975,13 +4062,13 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 ab
 ab
 ab
@@ -4029,13 +4116,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -4083,13 +4170,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -4137,13 +4224,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+Uf
+Uf
+Uf
+Uf
+Uf
+ac
 aa
 aa
 aa
@@ -4191,13 +4278,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 aa
 aa
 aa

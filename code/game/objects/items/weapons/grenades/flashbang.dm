@@ -41,7 +41,7 @@
 		eye_safety = M.eyecheck(TRUE)
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
+			if(H.protected_from_sound())
 				ear_safety += 2
 			if(HULK in H.mutations)
 				ear_safety += 1
@@ -108,7 +108,7 @@
 /obj/item/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
 	var/again = 0
-	var/atom/A = loc
+	var/atom/A = get_turf(src)
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			again++
@@ -148,7 +148,7 @@
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			numspawned --
-	var/atom/A = src.loc
+	var/atom/A = get_turf(src)
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
 			new /obj/item/grenade/flashbang/cluster(A)

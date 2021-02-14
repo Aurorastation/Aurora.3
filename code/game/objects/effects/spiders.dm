@@ -22,13 +22,15 @@
 
 /obj/effect/spider/attackby(var/obj/item/W, var/mob/user)
 	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]"))
-
 	var/damage = W.force / 4.0
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			damage = 15
 			playsound(loc, 'sound/items/welder.ogg', 100, 1)
+	else
+		user.do_attack_animation(src)
+		playsound(loc, W.hitsound, 50, 1, -1)
 
 	health -= damage
 	healthcheck()
@@ -77,6 +79,7 @@
 	name = "egg cluster"
 	desc = "They seem to pulse slightly with an inner life."
 	icon_state = "eggs"
+	health = 10
 	var/amount_grown = 0
 	var/last_itch = 0
 
@@ -117,9 +120,20 @@
 			last_itch = world.time
 			to_chat(O.owner, "<span class='notice'>Your [O.name] itches.</span>")
 
+/obj/effect/spider/eggcluster/proc/take_damage(var/damage)
+	health -= damage
+	if(health <= 0)
+		var/obj/item/organ/external/O = loc
+		if(istype(O) && O.owner)
+			to_chat(O.owner, SPAN_WARNING("You feel something dissolve in your [O.name]..."))
+		qdel(src)
+
 /obj/effect/spider/spiderling
-	name = "spiderling"
-	desc = "It never stays still for long."
+	name = "greimorian larva"
+	desc = "A small, agile alien creature. It oozes some disgusting slime."
+	desc_fluff = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon_state = "spiderling"
 	anchored = 0
 	layer = 2.7
@@ -261,6 +275,13 @@
 			return
 	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
 	die()
+
+/obj/effect/spider/spiderling/attackby(var/obj/item/W, var/mob/user)
+	..()
+	if(istype(W, /obj/item/newspaper))
+		var/obj/item/newspaper/N = W
+		if(N.rolled)
+			die()
 
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point

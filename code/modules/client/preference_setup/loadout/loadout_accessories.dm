@@ -4,11 +4,6 @@
 	slot = slot_tie
 	sort_category = "Accessories"
 
-/datum/gear/accessory/bracelet
-	display_name = "bracelet (colourable)"
-	path = /obj/item/clothing/accessory/bracelet
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/accessory/suspenders
@@ -40,12 +35,13 @@
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
-	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
+	armbands["first responder armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
+	armbands["tau ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/armband_coloured
@@ -72,26 +68,21 @@
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
 /datum/gear/accessory/tie
-	display_name = "tie selection"
-	path = /obj/item/clothing/accessory/blue
+	display_name = "tie selection (colourable)"
+	path = /obj/item/clothing/accessory/tie/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/tie/New()
 	..()
 	var/ties = list()
-	ties["red tie"] = /obj/item/clothing/accessory/red
-	ties["red tie with a clip"] = /obj/item/clothing/accessory/tie/red_clip
-	ties["orange tie"] = /obj/item/clothing/accessory/tie/orange
-	ties["yellow tie"] = /obj/item/clothing/accessory/tie/yellow
-	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
-	ties["green tie"] = /obj/item/clothing/accessory/tie/green
-	ties["dark green tie"] = /obj/item/clothing/accessory/tie/darkgreen
-	ties["blue tie"] = /obj/item/clothing/accessory/blue
-	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
-	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
-	ties["purple tie"] = /obj/item/clothing/accessory/tie/purple
-	ties["black tie"] = /obj/item/clothing/accessory/tie/black
-	ties["white tie"] = /obj/item/clothing/accessory/tie/white
+	ties["tie"] = /obj/item/clothing/accessory/tie/colourable
+	ties["tie, gold clip"] = /obj/item/clothing/accessory/tie/colourable/clip
+	ties["tie, silver clip"] = /obj/item/clothing/accessory/tie/colourable/clip/silver
 	gear_tweaks += new/datum/gear_tweak/path(ties)
+
+/datum/gear/accessory/horrible_tie
+	display_name = "horrible tie"
+	path = /obj/item/clothing/accessory/horrible
 
 /datum/gear/accessory/bowtie
 	display_name = "bowtie"
@@ -111,12 +102,13 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
-	path = /obj/item/clothing/accessory/storage/webbing
+	path = /obj/item/clothing/accessory/storage/webbing/grayscale
 	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
@@ -131,7 +123,7 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -184,8 +176,8 @@
 	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt_crop
 	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_crop_r
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
-	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_s
-	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_sb
+	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
+	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
 	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
 	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/tshirt_crop
 	shirt["blouse"] = /obj/item/clothing/accessory/blouse
@@ -221,7 +213,7 @@
 	path = /obj/item/clothing/accessory/dogtags
 
 /datum/gear/accessory/holobadge
-	display_name = "badge, holo"
+	display_name = "badge, holographic"
 	path = /obj/item/clothing/accessory/badge/holo
 	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
 
@@ -231,6 +223,11 @@
 	holobadges["holobadge"] = /obj/item/clothing/accessory/badge/holo
 	holobadges["holobadge cord"] = /obj/item/clothing/accessory/badge/holo/cord
 	gear_tweaks += new/datum/gear_tweak/path(holobadges)
+
+/datum/gear/accessory/officerbadge
+	display_name = "badge, officer"
+	path = /obj/item/clothing/accessory/badge/officer
+	allowed_roles = list("Security Officer")
 
 /datum/gear/accessory/wardenbadge
 	display_name = "badge, warden"
@@ -245,7 +242,7 @@
 /datum/gear/accessory/detbadge
 	display_name = "badge, detective"
 	path = /obj/item/clothing/accessory/badge/dia
-	allowed_roles = list("Detective")
+	allowed_roles = list("Detective", "Forensic Technician")
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"

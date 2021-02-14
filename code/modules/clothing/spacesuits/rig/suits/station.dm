@@ -65,7 +65,15 @@
 	suit_type = "industrial hardsuit"
 	desc = "A heavy, powerful hardsuit used by construction crews and mining corporations."
 	icon_state = "industrial_rig"
-	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	siemens_coefficient = 0.35
 	slowdown = 2
 	offline_slowdown = 7
@@ -104,7 +112,15 @@
 	suit_type = "EVA hardsuit"
 	desc = "A light hardsuit for repairs and maintenance to the outside of habitats and vessels."
 	icon_state = "eva_rig"
-	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_MINOR,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	slowdown = 0
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
@@ -140,12 +156,19 @@
 	camera = /obj/machinery/camera/network/mercenary
 
 /obj/item/rig/ce
-
 	name = "advanced voidsuit control module"
 	suit_type = "advanced voidsuit"
 	desc = "An advanced voidsuit that protects against hazardous, low pressure environments. Shines with a high polish."
 	icon_state = "ce_rig"
-	armor = list(melee = 40, bullet = 10, laser = 30,energy = 25, bomb = 40, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	slowdown = 0
 	offline_slowdown = 3
 	offline_vision_restriction = 0
@@ -177,12 +200,19 @@
 	siemens_coefficient = 0
 
 /obj/item/rig/hazmat
-
 	name = "AMI control module"
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	icon_state = "hazmat_rig"
-	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_STRONG,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.50
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
@@ -211,7 +241,15 @@
 	suit_type = "rescue hardsuit"
 	desc = "A durable suit designed for medical rescue in high risk areas."
 	icon_state = "medical_rig"
-	armor = list(melee = 30, bullet = 15, laser = 20, energy = 60, bomb = 30, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.50
 	slowdown = 0
 	offline_slowdown = 2
@@ -228,7 +266,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(access_emt)
+	req_access = list(access_first_responder)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,
@@ -243,7 +281,15 @@
 	suit_type = "hazard hardsuit"
 	desc = "A security hardsuit designed for prolonged EVA in dangerous environments."
 	icon_state = "hazard_rig"
-	armor = list(melee = 60, bullet = 45, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 45)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
@@ -279,7 +325,15 @@
 	suit_type = "diving suit"
 	desc = "A heavy hardsuit designated for operations under the water, you are not sure what it is doing here however."
 	icon_state = "diving_rig"
-	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	slowdown = 3
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY

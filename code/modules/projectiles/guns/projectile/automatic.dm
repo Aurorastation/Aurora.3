@@ -20,7 +20,7 @@
 		list(mode_name="semiauto",       can_autofire=0, burst=1),
 		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15)),
 		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 //Submachine guns and personal defence weapons, go.
@@ -121,7 +121,7 @@
 		list(mode_name="semiauto",       burst=1, fire_delay=10),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
 		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
 		)
 
 	//slower to regain aim, more inaccurate if not wielding
@@ -143,11 +143,6 @@
 /obj/item/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
-	if(wielded)
-		item_state = (ammo_magazine)? "arifle-wielded" : "arifle-wielded-empty"
-	else
-		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
-	update_held_icon()
 
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "battle rifle"
@@ -167,12 +162,6 @@
 		icon_state = "battlerifle"
 	else
 		icon_state = "battlerifle-empty"
-	if(wielded)
-		item_state = "battlerifle-wielded"
-	else
-		item_state = "battlerifle"
-	update_held_icon()
-	return
 
 /datum/firemode/z8
 	var/use_launcher = 0
@@ -240,12 +229,6 @@
 		icon_state = "carbine"
 	else
 		icon_state = "carbine-empty"
-	if(wielded)
-		item_state = "carbine-wielded"
-	else
-		item_state = "carbine"
-	update_held_icon()
-	return
 
 /obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
 	..()
@@ -276,7 +259,7 @@
 	firemodes = list(
 		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
 		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
-		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 	var/cover_open = 0
@@ -310,10 +293,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/update_icon()
 	icon_state = "l6[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len*2, 25) : "-empty"]"
-	if(wielded)
-		item_state = "l6closedmag-wielded"
-	else
-		item_state = initial(item_state)
+	..()
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
@@ -354,14 +334,6 @@
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 14
-
-/obj/item/gun/projectile/automatic/rifle/adhomian/update_icon()
-	..()
-	if(wielded)
-		item_state = "tsarrayut-wielded"
-	else
-		item_state = "tsarrayut"
-	update_held_icon()
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"

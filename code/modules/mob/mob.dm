@@ -341,14 +341,10 @@
 
 	pointing_effect = new /obj/effect/decal/point(tile)
 	pointing_effect.invisibility = invisibility
-	addtimer(CALLBACK(src, .proc/clear_point), 20)
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
 
 	face_atom(A)
 	return 1
-
-/mob/proc/clear_point()
-	QDEL_NULL(pointing_effect)
-
 /datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
 	var/list/container = list()
 	var/master
@@ -758,6 +754,10 @@
 			to_chat(src, "<span class='warning'>It won't budge!</span>")
 			return
 
+		if(length(M.grabbed_by))
+			to_chat(src, SPAN_WARNING("You can't pull someone being held in a grab!"))
+			return
+
 		// If your size is larger than theirs and you have some
 		// kind of mob pull value AT ALL, you will be able to pull
 		// them, so don't bother checking that explicitly.
@@ -906,8 +906,13 @@
 
 //Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
-
-	if(!resting && cannot_stand() && can_stand_overridden())
+	if(in_neck_grab())
+		lying = FALSE
+		for(var/obj/item/grab/G in grabbed_by)
+			if(G.force_down)
+				lying = TRUE
+				break
+	else if(!resting && cannot_stand() && can_stand_overridden())
 		lying = 0
 		canmove = 1
 	else
@@ -962,12 +967,12 @@
 	return canmove
 
 
-/mob/proc/facedir(var/ndir, var/ignore_facing_dir = FALSE)
+/mob/proc/facedir(var/ndir)
 	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
 		return 0
-	set_dir(ndir, ignore_facing_dir)
+	set_dir(ndir)
 	if(buckled && buckled.buckle_movable)
-		buckled.set_dir(ndir, ignore_facing_dir)
+		buckled.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		client.move_delay += movement_delay()
 	return 1
@@ -1283,16 +1288,12 @@
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir(ndir, ignore_facing_dir = FALSE)
+/mob/set_dir(ndir)
 	if(facing_dir)
-		if(ignore_facing_dir && facing_dir != ndir)
-			set_face_dir(ndir)
-			return ..(ndir)
-		else
-			if(!canface() || lying || buckled || restrained())
-				facing_dir = null
-			else if(dir != facing_dir)
-				return ..(facing_dir)
+		if(!canface() || lying || buckled || restrained())
+			facing_dir = null
+		else if(dir != facing_dir)
+			return ..(facing_dir)
 	else
 		return ..(ndir)
 

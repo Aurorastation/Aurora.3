@@ -41,7 +41,6 @@
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
 	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
-	var/list/armor //= list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)	If null, object has 0 armor.
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink // All items can have an uplink hidden inside, just remember to add the triggers.
 	var/zoomdevicename //name used for message when binoculars/scope is used
@@ -56,6 +55,9 @@
 	var/pickup_sound = /decl/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
+
+	var/list/armor
+	var/armor_degradation_speed //How fast armor will degrade, multiplier to blocked damage to get armor damage value.
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -95,6 +97,14 @@
 	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
 	// Its vital that if you make new power tools or new recipies that you include this
 
+/obj/item/Initialize()
+	. = ..()
+	if(islist(armor))
+		for(var/type in armor)
+			if(armor[type])
+				AddComponent(/datum/component/armor, armor, armor_degradation_speed)
+				break
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -104,12 +114,17 @@
 		src.loc = null
 	return ..()
 
+/obj/item/update_icon()
+	. = ..()
+	if(build_from_parts)
+		cut_overlays()
+		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi',
 		)
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
@@ -319,14 +334,14 @@
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
 // This shit exists so that dropped() could almost exclusively be called when an item is dropped.
 /obj/item/proc/on_slotmove(var/mob/user)
-	if (zoom)
+	if(zoom)
 		zoom(user)
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
 	pixel_x = 0
 	pixel_y = 0
-	return
+	do_pickup_animation(user)
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
 /obj/item/proc/on_exit_storage(obj/item/storage/S as obj)
@@ -372,7 +387,8 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_r_ear]" = SLOT_EARS|SLOT_TWOEARS,
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
-	"[slot_tie]" = SLOT_TIE
+	"[slot_tie]" = SLOT_TIE,
+	"[slot_wrists]" = SLOT_WRISTS
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -444,7 +460,7 @@ var/list/global/slot_flags_enumeration = list(
 			if(!istype(src, /obj/item/handcuffs))
 				return 0
 		if(slot_legcuffed)
-			if(!istype(src, /obj/item/legcuffs))
+			if(!istype(src, /obj/item/handcuffs))
 				return 0
 		if(slot_in_backpack) //used entirely for equipping spawned mobs or at round start
 			var/allow = 0
@@ -741,9 +757,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		if (slot_wear_id)
 			M.update_inv_wear_id()
 		if (slot_l_ear)
-			M.update_inv_ears()
+			M.update_inv_l_ear()
 		if (slot_r_ear)
-			M.update_inv_ears()
+			M.update_inv_r_ear()
 		if (slot_glasses)
 			M.update_inv_glasses()
 		if (slot_gloves)
@@ -762,6 +778,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.update_inv_pockets()
 		if (slot_s_store)
 			M.update_inv_s_store()
+		if (slot_wrists)
+			M.update_inv_wrists()
 
 // Attacks mobs that are adjacent to the target and user.
 /obj/item/proc/cleave(var/mob/living/user, var/mob/living/target)
@@ -816,3 +834,43 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/glasses_examine_atom(var/atom/A, var/user)
 	return
+
+/obj/item/verb/verb_pickup()
+	set name = "Pick Up"
+	set category = "Object"
+	set src in view(1)
+
+	if(use_check_and_message(usr))
+		return
+	if(!iscarbon(usr) || istype(usr, /mob/living/carbon/brain))
+		to_chat(usr, SPAN_WARNING("You can't pick things up!"))
+		return
+	if(anchored)
+		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
+		return
+	if(!usr.hand && usr.r_hand)
+		to_chat(usr, SPAN_WARNING("Your right hand is full."))
+		return
+	if(usr.hand && usr.l_hand)
+		to_chat(usr, SPAN_WARNING("Your left hand is full."))
+		return
+	if(!isturf(loc))
+		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
+		return
+	usr.UnarmedAttack(src)
+
+/obj/item/proc/catch_fire()
+	return
+
+/obj/item/proc/extinguish_fire()
+	return
+
+/obj/item/proc/get_print_info(var/no_clear = TRUE)
+	if(no_clear)
+		. = ""
+	. += "Damage: [force]<br>"
+	. += "Damage Type: [damtype]<br>"
+	. += "Sharp: [sharp ? "yes" : "no"]<br>"
+	. += "Dismemberment: [edge ? "likely to dismember" : "unlikely to dismember"]<br>"
+	. += "Penetration: [armor_penetration]<br>"
+	. += "Throw Force: [throwforce]<br>"

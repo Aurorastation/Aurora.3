@@ -68,6 +68,8 @@
 	var/max_co2 = 5
 	var/min_n2 = 0
 	var/max_n2 = 0
+	var/min_h2 = 0
+	var/max_h2 = 5
 	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
 	var/speed = 0 //LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster
 
@@ -124,7 +126,7 @@
 
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
-	var/milk_type = /datum/reagent/drink/milk
+	var/milk_type = /decl/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -179,6 +181,14 @@
 	else if (health < maxHealth)
 		to_chat(user, "<span class='warning'>It looks wounded.</span>")
 
+/mob/living/simple_animal/can_name(var/mob/living/M)
+	if(named)
+		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
+		return FALSE
+	if(stat == DEAD)
+		to_chat(M, SPAN_WARNING("You can't name a corpse."))
+		return FALSE
+	return TRUE
 
 /mob/living/simple_animal/Life()
 	..()
@@ -203,7 +213,7 @@
 	turns_since_move++
 
 	//Atmos
-	var/atmos_suitable = 1
+	var/atmos_suitable = TRUE
 
 	if(isturf(loc))
 		var/turf/T = loc
@@ -215,21 +225,25 @@
 				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
 
 			if(min_oxy && Environment.gas[GAS_OXYGEN] < min_oxy)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_oxy && Environment.gas[GAS_OXYGEN] > max_oxy)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_tox && Environment.gas[GAS_PHORON] < min_tox)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_tox && Environment.gas[GAS_PHORON] > max_tox)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_n2 && Environment.gas[GAS_NITROGEN] < min_n2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_n2 && Environment.gas[GAS_NITROGEN] > max_n2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(min_co2 && Environment.gas[GAS_CO2] < min_co2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
 			else if(max_co2 && Environment.gas[GAS_CO2] > max_co2)
-				atmos_suitable = 0
+				atmos_suitable = FALSE
+			else if(min_h2 && Environment.gas[GAS_HYDROGEN] < min_h2)
+				atmos_suitable = FALSE
+			else if(max_h2 && Environment.gas[GAS_HYDROGEN] > max_h2)
+				atmos_suitable = FALSE
 
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
@@ -330,9 +344,11 @@
 	else
 		blood_state = BLOOD_HEAVY
 
-	if(force_reset || (blood_state != BLOOD_NONE && current_blood_state != blood_state))
+	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
 			cut_overlay(blood_overlay)
+		if(blood_state == BLOOD_NONE)
+			return
 		var/blood_overlay_name = get_blood_overlay_name()
 		var/image/I = image(blood_overlay_icon, src, "[blood_overlay_name]-[blood_state]")
 		I.color = blood_type
@@ -367,10 +383,11 @@
 		if (!reagents || !reagents.total_volume)
 			return
 
-		for(var/datum/reagent/current in reagents.reagent_list)
-			var/removed = min(current.metabolism*digest_factor, current.volume)
-			if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
-				var/datum/reagent/nutriment/N = current
+		for(var/_current in reagents.reagent_volumes)
+			var/decl/reagent/current = decls_repository.get_decl(_current)
+			var/removed = min(current.metabolism*digest_factor, REAGENT_VOLUME(reagents, _current))
+			if (_current == /decl/reagent/nutriment)//If its food, it feeds us
+				var/decl/reagent/nutriment/N = current
 				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
 				if (getBruteLoss() > 0)
@@ -382,7 +399,7 @@
 					adjustFireLoss(-n)
 					heal_amount -= n
 				updatehealth()
-			current.remove_self(removed)//If its not food, it just does nothing. no fancy effects
+			current.remove_self(removed, reagents)//If its not food, it just does nothing. no fancy effects
 
 /mob/living/simple_animal/can_eat()
 	if (!hunger_enabled || nutrition > max_nutrition * 0.9)
@@ -489,6 +506,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		..()
 		poke()
 
+	else if(istype(O, brush) && canbrush) //Brushing animals
+		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [O].")
+		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
+			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
+		return
+
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
 		if(istype(O, /obj/item/material/knife) || istype(O, /obj/item/material/kitchen/utensil/knife)|| istype(O, /obj/item/material/hatchet))
 			harvest(user)
@@ -499,13 +522,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
 	if(istype(O, /obj/item/trap/animal) || istype(O, /obj/item/gun))
 		O.attack(src, user)
-		return
+		return TRUE
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [O].")
-		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
-			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
-		return
 	if(istype(O, /obj/item/glass_jar))
 		return FALSE
 	if(!O.force)
@@ -529,8 +547,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
 	user.do_attack_animation(src)
+	return TRUE
 
-/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
+	. = ..()
+	handle_blood_overlay()
+
+/mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
 	. = ..()
 	handle_blood_overlay()
 
@@ -591,8 +614,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	switch (severity)
 		if (1.0)
 			damage = 500
-			if(!prob(getarmor(null, "bomb")))
-				gib()
 
 		if (2.0)
 			damage = 120
@@ -600,7 +621,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		if(3.0)
 			damage = 30
 
-	adjustBruteLoss(damage * BLOCKED_MULT(getarmor(null, "bomb")))
+	apply_damage(damage, BRUTE, damage_flags = DAM_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
@@ -623,7 +644,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	set name = "Make Sound"
 	set category = "Abilities"
 
-	if((usr && usr.stat == DEAD) || !make_sound)
+	if(stat || !make_sound) //Can't make noise if there's no noise or if you're unconscious/dead
 		return
 
 	if(usr && !sound_time)
@@ -634,6 +655,33 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(client)
 		sound_time = FALSE
 		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+
+/mob/living/simple_animal/verb/change_name()
+	set name = "Name Animal"
+	set desc = "Rename an animal."
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/living/M = usr
+	if(!M)	
+		return
+
+	if(can_name(M))
+		var/input = sanitizeSafe(input("What do you want to name \the [src]?","Choose a name") as null|text, MAX_NAME_LEN)
+		if(!input)
+			return
+
+		//check for adjacent and dead in case something happened while naming.
+		if(in_range(M,src) && (stat != DEAD))
+			to_chat(M, SPAN_NOTICE("You rename \the [src] to [input]."))
+			name = "\proper [input]"
+			real_name = input
+			named = TRUE
+			do_nickname(M) //This is for commanded mobs who can have a short name, like guard dogs
+
+//This is for commanded mobs who can have a short name, like guard dogs. Does nothing for other mobs for now
+/mob/living/simple_animal/proc/do_nickname(var/mob/living/M)
+
 
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
@@ -786,7 +834,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return /datum/reagent/nutriment
+	return /decl/reagent/nutriment
 
 /mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
 	..()
@@ -811,6 +859,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return /obj/effect/gibspawner/robot
 	else
 		return /obj/effect/gibspawner/generic
+
+/mob/living/simple_animal/set_respawn_time()
+	set_death_time(ANIMAL, world.time)
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

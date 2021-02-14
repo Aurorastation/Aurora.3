@@ -4,7 +4,7 @@
 	extended_round_description = "A malf AI and a Ninja spawn during this round."
 	config_tag = "infiltration"
 	required_players = 20
-	required_enemies = 2
+	required_enemies = 3
 	end_on_antag_death = 0
 	require_all_templates = 1
 	votable = 1

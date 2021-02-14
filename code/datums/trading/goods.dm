@@ -108,7 +108,6 @@
 	possible_origins = list("Space Eagle", "Banana Democracy", "Forever 22", "Textiles Factory Warehouse Outlet", "Blocks Brothers")
 	speech = list(
 		"hail_generic"      = "Hello, sir! Welcome to ORIGIN!",
-		"hail_Vox"          = "Well hello sir! I don't believe we have any clothes that fit you... but you can still look!",
 		"hail_deny"         = "We do not trade with rude customers. Consider yourself blacklisted.",
 		"trade_complete"    = "Thank you for shopping at ORIGIN. Remember: We cannot accept returns without the original tags!",
 		"trade_blacklist"   = "Hm, how about no?",
@@ -140,7 +139,6 @@
 		/obj/item/clothing/under/tactical                        = TRADER_BLACKLIST,
 		/obj/item/clothing/under/punpun                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/fluff                           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/dress/fluff                     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/rank/centcom_officer/bst        = TRADER_BLACKLIST,
 		/obj/item/clothing/suit/storage/hooded                   = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/fluff  = TRADER_BLACKLIST_ALL,
@@ -184,7 +182,7 @@
 		/obj/item/clothing/gloves/chameleon             = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
-		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/wrists/watch/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
@@ -192,7 +190,7 @@
 		/obj/item/clothing/head/bomb_hood               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/caphat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/centhat                 = TRADER_BLACKLIST,
-		/obj/item/clothing/head/chameleon               = TRADER_BLACKLIST,
+		/obj/item/clothing/head/softcap/chameleon               = TRADER_BLACKLIST,
 		/obj/item/clothing/head/collectable             = TRADER_BLACKLIST,
 		/obj/item/clothing/head/culthood                = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/helmet                  = TRADER_BLACKLIST_ALL,

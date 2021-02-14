@@ -199,7 +199,7 @@
 
 /obj/screen/new_player/selection/polls/Initialize()
 	. = ..()
-	if(dbcon.IsConnected())
+	if(establish_db_connection(dbcon))
 		var/mob/M = hud.mymob
 		var/isadmin = M && M.client && M.client.holder
 		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
@@ -260,7 +260,7 @@
 
 		observer.started_as_observer = 1
 		close_spawn_windows()
-		var/obj/O = locate("landmark*Observer-Start")
+		var/obj/O = locate("landmark*Observer-Start") in landmarks_list
 		if(istype(O))
 			to_chat(src, "<span class='notice'>Now teleporting.</span>")
 			observer.forceMove(O.loc)
@@ -272,6 +272,7 @@
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = new
 		client.prefs.dress_preview_mob(mannequin)
 		observer.appearance = mannequin
+		observer.appearance_flags = KEEP_TOGETHER
 		observer.alpha = 127
 		observer.layer = initial(observer.layer)
 		observer.invisibility = initial(observer.invisibility)

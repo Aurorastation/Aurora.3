@@ -316,13 +316,16 @@ var/global/list/default_medbay_channels = list(
 	if (iscarbon(M))
 		var/mob/living/carbon/C = M
 		if ((CE_UNDEXTROUS in C.chem_effects) || C.stunned >= 10)
-			to_chat(M, SPAN_WARNING("Your can't move your arms enough to activate the radio..."))
+			to_chat(M, SPAN_WARNING("You can't move your arms enough to activate the radio..."))
 			return
 		if(iszombie(M))
 			to_chat(M, SPAN_WARNING("Try as you might, you cannot will your decaying body into operating \the [src]."))
 			return FALSE
 
 	if(istype(M))
+		if(M.restrained())
+			to_chat(M, SPAN_WARNING("You can't speak into \the [src.name] while restrained."))
+			return FALSE
 		M.trigger_aiming(TARGET_CAN_RADIO)
 
 	//  Uncommenting this. To the above comment:
@@ -457,7 +460,14 @@ var/global/list/default_medbay_channels = list(
 			R.receive_signal(signal)
 
 		// Receiving code can be located in Telecommunications.dm
-		return signal.data["done"] && (position.z in signal.data["level"])
+		var/position_z_in_level = FALSE // this particular band-aid is required to make antag radios say "talks into" and not "tries to talk into" when using a radio, due to how their signals are made
+		if(islist(signal.data["level"]))
+			if(position.z in signal.data["level"])
+				position_z_in_level = TRUE
+		else
+			if(position.z == signal.data["level"])
+				position_z_in_level = TRUE
+		return signal.data["done"] && position_z_in_level
 
 
   /* ###### Intercoms and station-bounced radios ###### */

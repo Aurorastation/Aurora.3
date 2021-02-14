@@ -6,6 +6,8 @@
 	pickup_sound = 'sound/items/pickup/food.ogg'
 	body_parts_covered = 0
 
+	var/damage_per_crunch // if set to a number, chewing something will cause this amount of damage in brute and half of it in pain.
+	var/crunching = FALSE
 	var/type_butt = null
 	var/chem_volume = 0
 	var/chewtime = 0
@@ -59,13 +61,24 @@ obj/item/clothing/mask/chewable/Destroy()
 			var/mob/living/carbon/human/C = loc
 			if (src == C.wear_mask && C.check_has_mouth())
 				reagents.trans_to_mob(C, REM, CHEM_INGEST, 0.2)
+				if(isnum(damage_per_crunch && !crunching))
+					addtimer(CALLBACK(src, .proc/damagecrunch, C), 50, TIMER_UNIQUE)
+					crunching = TRUE
 		else
 			STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/clothing/mask/chewable/proc/damagecrunch(mob/living/carbon/human/user)
+	if(src == user.wear_mask) // are we still chewing the gum?
+		user.apply_damage(damage_per_crunch, BRUTE, BP_HEAD)
+		user.apply_damage(damage_per_crunch/2, PAIN, BP_HEAD)
+		to_chat(user, SPAN_DANGER("You bite down hard on \the [name]!"))
+	crunching = FALSE
 
 /obj/item/clothing/mask/chewable/process()
 	chew()
 	if(chewtime < 1)
 		spitout()
+
 
 /obj/item/clothing/mask/chewable/tobacco
 	name = "wad"
@@ -113,22 +126,22 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/tobacco/bad
 	name = "chewing tobacco"
 	desc = "A chewy wad of cheap tobacco. Cut in long strands and treated with syrup so it tastes less like an ash-tray when you stuff it into your face."
-	reagents_to_add = list(/datum/reagent/toxin/tobacco/fake = 2)
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/fake = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/generic
 	name = "chewing tobacco"
 	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
-	reagents_to_add = list(/datum/reagent/toxin/tobacco = 2)
+	reagents_to_add = list(/decl/reagent/toxin/tobacco = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/fine
 	name = "chewing tobacco"
 	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
-	reagents_to_add = list(/datum/reagent/toxin/tobacco/rich = 2)
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/rich = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/nico
 	name = "nicotine gum"
 	desc = "A chewy wad of synthetic rubber, laced with nicotine. Possibly the least disgusting method of nicotine delivery."
-	reagents_to_add = list(/datum/reagent/mental/nicotine = 2)
+	reagents_to_add = list(/decl/reagent/mental/nicotine = 2)
 	icon_state = "nic_gum"
 	type_butt = /obj/item/trash/spitgum
 	wrapped = TRUE
@@ -143,7 +156,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
-	reagents_to_add = list(/datum/reagent/sugar = 2)
+	reagents_to_add = list(/decl/reagent/sugar = 2)
 
 /obj/item/trash/spitgum
 	name = "old gum"
@@ -163,9 +176,20 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/gum/Initialize()
 	. = ..()
-	reagents.add_reagent(pick(/datum/reagent/drink/banana,/datum/reagent/drink/berryjuice,/datum/reagent/drink/grapejuice,/datum/reagent/drink/lemonjuice,/datum/reagent/drink/limejuice,/datum/reagent/drink/orangejuice,/datum/reagent/drink/watermelonjuice),10)
+	reagents.add_reagent(pick(/decl/reagent/drink/banana,/decl/reagent/drink/berryjuice,/decl/reagent/drink/grapejuice,/decl/reagent/drink/lemonjuice,/decl/reagent/drink/limejuice,/decl/reagent/drink/orangejuice,/decl/reagent/drink/watermelonjuice),10)
 	color = reagents.get_color()
 	update_icon()
+
+/obj/item/clothing/mask/chewable/candy/gum/gumball
+	name = "\improper gumball"
+	desc = "A gumball, created and patented by Chip Getmore. Known to contain a hard shell and a reagent interior!"
+	icon_state = "gumball"
+	item_state = null
+	wrapped = FALSE
+
+/obj/item/clothing/mask/chewable/candy/gum/gumball/medical
+	reagents_to_add = list(/decl/reagent/tricordrazine = 5)
+
 
 /obj/item/storage/box/fancy/gum
 	name = "\improper Chewy Fruit flavored gum"
@@ -219,7 +243,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/lolli/Initialize()
 	. = ..()
-	reagents.add_reagent(pick(/datum/reagent/drink/banana,/datum/reagent/drink/berryjuice,/datum/reagent/drink/grapejuice,/datum/reagent/drink/lemonjuice,/datum/reagent/drink/limejuice,/datum/reagent/drink/orangejuice,/datum/reagent/drink/watermelonjuice),20)
+	reagents.add_reagent(pick(/decl/reagent/drink/banana,/decl/reagent/drink/berryjuice,/decl/reagent/drink/grapejuice,/decl/reagent/drink/lemonjuice,/decl/reagent/drink/limejuice,/decl/reagent/drink/orangejuice,/decl/reagent/drink/watermelonjuice),20)
 	color = reagents.get_color()
 	update_icon()
 
@@ -231,10 +255,10 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/lolli/meds/Initialize()
 	. = ..()
-	var/datum/reagent/payload = pick(list(
-				/datum/reagent/perconol,
-				/datum/reagent/mortaphenyl,
-				/datum/reagent/dylovene))
+	var/decl/reagent/payload = pick(list(
+				/decl/reagent/perconol,
+				/decl/reagent/mortaphenyl,
+				/decl/reagent/dylovene))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."
@@ -242,13 +266,13 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/candy/lolli/weak_meds
 	name = "medicine lollipop"
 	desc = "A sucrose sphere on a small handle, it has been infused with medication."
-	reagents_to_add = list(/datum/reagent/sugar = 6)
+	reagents_to_add = list(/decl/reagent/sugar = 6)
 
 /obj/item/clothing/mask/chewable/candy/lolli/weak_meds/Initialize()
 	. = ..()
-	var/datum/reagent/payload = pick(list(
-				/datum/reagent/dylovene,
-				/datum/reagent/inaprovaline))
+	var/decl/reagent/payload = pick(list(
+				/decl/reagent/dylovene,
+				/decl/reagent/inaprovaline))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."

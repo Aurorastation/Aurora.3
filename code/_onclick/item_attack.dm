@@ -64,21 +64,40 @@ avoid code duplication. This includes items that may sometimes act as a standard
 			return TRUE
 	return ..()
 
+/mob/living/simple_animal/attackby(obj/item/I, mob/living/user)
+	if(I.damtype == PAIN)
+		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), 1, -1)
+	else
+		return ..()
+
 // Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
 // Click parameters is the params string from byond Click() code, see that documentation.
 /obj/item/proc/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	return
 
+/obj/item/proc/get_clamped_volume()
+	if(w_class)
+		if(force)
+			return Clamp((force + w_class) * 4, 30, 100)// Add the item's force to its weight class and multiply by 4, then clamp the value between 30 and 100
+		else
+			return Clamp(w_class * 6, 10, 100) // Multiply the item's weight class by 6, then clamp the value between 10 and 100
+
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
 /obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone = BP_CHEST)
 
-	if(!force || (flags & NOBLUDGEON))
+	if(flags & NOBLUDGEON)
 		return 0
 	if(M == user && user.a_intent != I_HURT)
 		return 0
 
-	if(user.is_pacified())
+	if(force && user.is_pacified())
+		to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
 		return 0
+
+	if(!force)
+		playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), 1, -1)
+	else if(hitsound)
+		playsound(loc, hitsound, get_clamped_volume(), 1, -1)
 
 	/////////////////////////
 	user.lastattacked = M
@@ -95,17 +114,16 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 
-	var/hit_zone = M.resolve_item_attack(src, user, target_zone)
-	if(hit_zone)
-		apply_hit_effect(M, user, hit_zone)
+	var/mob/living/victim = M.get_attack_victim(src, user, target_zone)
+	if(victim)
+		var/hit_zone = victim.resolve_item_attack(src, user, target_zone)
+		if(hit_zone)
+			apply_hit_effect(victim, user, hit_zone)
 
 	return 1
 
-//Called when a weapon is used to make a successful melee attack on a mob. Returns the blocked result
+//Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
-	if(hitsound)
-		playsound(loc, hitsound, 50, 1, -1)
-
 	var/power = force
 	if(HULK in user.mutations)
 		power *= 2

@@ -8,6 +8,8 @@
 			return !density
 		else
 			return 1
+	if(istype(mover, /obj/structure/closet/crate))
+		return TRUE
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))
@@ -61,7 +63,7 @@
 	..()
 	if(ishuman(am))
 		var/mob/living/carbon/human/H = am
-		if(H.a_intent != I_HELP || H.m_intent == "run")
+		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
 			throw_things(H)
 		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 			throw_things(H)
@@ -117,7 +119,7 @@
 		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if(H.a_intent != I_HELP || H.m_intent == "run")
+			if(H.a_intent != I_HELP || H.m_intent == M_RUN)
 				throw_things(H)
 			else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 				throw_things(H)
@@ -136,8 +138,9 @@
 		step(O, get_dir(O, src))
 	return
 
-/obj/structure/table/attackby(obj/item/W as obj, mob/user as mob, var/click_parameters)
-	if (!W) return
+/obj/structure/table/attackby(obj/item/W, mob/user, var/click_parameters)
+	if (!W)
+		return
 
 	// Handle harm intent grabbing/tabling.
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
@@ -152,10 +155,10 @@
 				return
 			if(G.state > GRAB_AGGRESSIVE && world.time >= G.last_action + UPGRADE_COOLDOWN)
 				if(user.a_intent == I_HURT)
-					var/blocked = M.run_armor_check(BP_HEAD, "melee")
-					if (prob(30 * BLOCKED_MULT(blocked)))
+					var/blocked = M.get_blocked_ratio(BP_HEAD, BRUTE, damage = 8)
+					if (prob(30 * (1 - blocked)))
 						M.Weaken(5)
-					M.apply_damage(8, BRUTE, BP_HEAD, blocked)
+					M.apply_damage(8, BRUTE, BP_HEAD)
 					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
@@ -167,7 +170,7 @@
 						if(prob(50))
 							M.visible_message("<span class='danger'>\The [S] slices [M]'s face messily!</span>",
 												"<span class='danger'>\The [S] slices your face messily!</span>")
-							M.apply_damage(10, BRUTE, BP_HEAD, blocked)
+							M.apply_damage(10, BRUTE, BP_HEAD)
 							sanity_counter++
 						if(sanity_counter >= 3)
 							break
@@ -199,10 +202,10 @@
 		return
 
 	// Placing stuff on tables
-	if(user.unEquip(W, 0, src.loc))
+	if(user.unEquip(W, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion
 		user.make_item_drop_sound(W)
 		auto_align(W, click_parameters)
-		return 1
+		return
 
 #define CELLS 8								//Amount of cells per row/column in grid
 #define CELLSIZE (world.icon_size/CELLS)	//Size of a cell in pixels

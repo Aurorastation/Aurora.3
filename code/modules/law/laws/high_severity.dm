@@ -61,15 +61,15 @@
 	min_brig_time = 90
 	max_brig_time = 90
 
-/datum/law/high_severity/terrorist_collab
-	name = "i308 - Terrorist Collaboration"
+/datum/law/high_severity/corporate_espionage
+	name = "i308 - Corporate Espionage"
 	desc = "To act as an agent of a terrorist or anti-Corporation group."
 	id = "i308"
 
 	min_brig_time = 90
 	max_brig_time = 90
 
-/datum/law/high_severity/sexy_assault
+/datum/law/high_severity/sexual_assault
 	name = "i309 - Sexual Assault"
 	desc = "To assault, or attempt to assault, someone else sexually, including rape."
 	id = "i309"
@@ -81,6 +81,14 @@
 	name = "i310 - Automacide"
 	desc = "To willfully, unlawfully and permanently terminate a free positronic intelligence."
 	id = "i310"
+
+	min_brig_time = 20
+	max_brig_time = 90
+
+/datum/law/high_severity/fytocide
+	name = "i311 - Fytocide"
+	desc = "To willfully, unlawfully and permanently terminate 2/3 or more nymphs contained within a gestalt."
+	id = "i311"
 
 	min_brig_time = 20
 	max_brig_time = 90

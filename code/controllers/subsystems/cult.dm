@@ -25,7 +25,8 @@
 		runes_by_name[R.name] = rune
 		tome_data += "<div class='rune-block'>"
 		tome_data += "<b>[capitalize_first_letters(R.name)]</b>: <i>[R.desc]</i><br>"
-		tome_data += "This rune <b><i>[R.can_be_talisman() ? "can" : "cannot"]</i></b> be turned into a talisman.<br><hr>"
+		tome_data += "This rune <b><i>[R.can_be_talisman() ? "can" : "cannot"]</i></b> be turned into a talisman.<br>"
+		tome_data += "This rune <b><i>[R.can_memorize() ? "can" : "cannot"]</i></b> be memorized to be scribed without a tome.<br><hr>"
 		tome_data += "</div>"
 
 /datum/controller/subsystem/cult/proc/add_rune(var/datum/rune/R)

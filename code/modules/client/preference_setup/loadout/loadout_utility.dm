@@ -50,19 +50,6 @@
 	fountainpens["silver fountain pen"] = /obj/item/pen/fountain/silver
 	fountainpens["white fountain pen"] = /obj/item/pen/fountain/white
 	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
-
-/datum/gear/utility/hearing_aid
-	display_name = "hearing aid selection"
-	path = /obj/item/device/hearing_aid
-	cost = 1
-
-/datum/gear/utility/hearing_aid/New()
-	..()
-	var/hearingaids = list()
-	hearingaids["hearing aid, skrell design"] = /obj/item/device/hearing_aid
-	hearingaids["hearing aid, human design"] = /obj/item/device/hearing_aid/human
-	gear_tweaks += new/datum/gear_tweak/path(hearingaids)
-
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
@@ -91,25 +78,6 @@
 /datum/gear/utility/camera
 	display_name = "camera"
 	path = 	/obj/item/device/camera
-
-/datum/gear/utility/fannypack
-	display_name = "fannypack selection"
-	cost = 2
-	path = /obj/item/storage/belt/fannypack
-
-/datum/gear/utility/fannypack/New()
-	..()
-	var/list/fannys = list()
-	for(var/fanny in typesof(/obj/item/storage/belt/fannypack))
-		var/obj/item/storage/belt/fannypack/fanny_type = fanny
-		fannys[initial(fanny_type.name)] = fanny_type
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(fannys))
-
-/datum/gear/utility/toolbelt_alt
-	display_name = "tool-belt, alt"
-	cost = 0
-	path = /obj/item/storage/belt/utility/alt
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
 
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"

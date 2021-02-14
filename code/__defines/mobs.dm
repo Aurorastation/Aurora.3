@@ -85,6 +85,10 @@
 #define I_GRAB		"grab"
 #define I_HURT		"harm"
 
+//movement intents
+#define M_WALK "walk"
+#define M_RUN  "run"
+
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
 #define BP_R_FOOT "r_foot"
@@ -99,6 +103,10 @@
 #define BP_GROIN  "groin"
 #define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
 #define BP_IS_ROBOTIC(org)  (org.status & ORGAN_ROBOT)
+
+#define ROBOTIC_NONE       0
+#define ROBOTIC_ASSISTED   1
+#define ROBOTIC_MECHANICAL 2
 
 //Generic organs
 #define BP_MOUTH    "mouth"
@@ -175,18 +183,20 @@
 #define ROBOT_NOTIFICATION_MODULE_RESET 4
 
 // Appearance change flags
-#define APPEARANCE_UPDATE_DNA  0x1
-#define APPEARANCE_RACE       (0x2|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_GENDER     (0x4|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_SKIN        0x8
-#define APPEARANCE_HAIR        0x10
-#define APPEARANCE_HAIR_COLOR  0x20
-#define APPEARANCE_FACIAL_HAIR 0x40
-#define APPEARANCE_FACIAL_HAIR_COLOR 0x80
-#define APPEARANCE_EYE_COLOR 0x100
-#define APPEARANCE_ALL_HAIR (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
-#define APPEARANCE_ALL       0xFFFF
-#define APPEARANCE_PLASTICSURGERY (APPEARANCE_ALL & ~APPEARANCE_RACE)
+#define APPEARANCE_UPDATE_DNA				1
+#define APPEARANCE_RACE						(2|APPEARANCE_UPDATE_DNA)
+#define APPEARANCE_GENDER					(4|APPEARANCE_UPDATE_DNA)
+#define APPEARANCE_SKIN						8
+#define APPEARANCE_HAIR						16
+#define APPEARANCE_HAIR_COLOR				32
+#define APPEARANCE_FACIAL_HAIR 				64
+#define APPEARANCE_FACIAL_HAIR_COLOR 		128
+#define APPEARANCE_EYE_COLOR 				256
+#define APPEARANCE_ACCENT					512
+#define APPEARANCE_LANGUAGE					1024
+#define APPEARANCE_ALL						65535
+#define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
+#define APPEARANCE_PLASTICSURGERY 			(APPEARANCE_ALL & ~APPEARANCE_RACE)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -197,16 +207,21 @@
 #define MAX_SUPPLIED_LAW_NUMBER 50
 
 //default item on-mob icons
-#define INV_HEAD_DEF_ICON 'icons/mob/head.dmi'
-#define INV_BACK_DEF_ICON 'icons/mob/back.dmi'
-#define INV_L_HAND_DEF_ICON 'icons/mob/items/lefthand.dmi'
-#define INV_R_HAND_DEF_ICON 'icons/mob/items/righthand.dmi'
-#define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
-#define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
-#define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
+#define INV_HEAD_DEF_ICON			'icons/mob/head.dmi'
+#define INV_BACK_DEF_ICON			'icons/mob/back.dmi'
+#define INV_L_HAND_DEF_ICON			'icons/mob/items/lefthand.dmi'
+#define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
+#define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
+#define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
+#define INV_BELT_DEF_ICON 'icons/mob/belt.dmi'
+#define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
+#define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
+#define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
+#define INV_SHOES_DEF_ICON			'icons/mob/feet.dmi'
+#define INV_WRISTS_DEF_ICON			'icons/mob/wrist.dmi'
 
 // IPC tags
-#define IPC_OWNERSHIP_SELF "Self Owned"
+#define IPC_OWNERSHIP_SELF	  "Self Owned"
 #define IPC_OWNERSHIP_COMPANY "Company Owned"
 #define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 
@@ -319,7 +334,7 @@
 // Note that any given mob can be more than one type
 #define TYPE_ORGANIC      1	// Almost any creature under /mob/living/carbon and most simple animals
 #define TYPE_SYNTHETIC    2	// Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
+#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC
 #define TYPE_WEIRD        8	// Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 #define TYPE_INCORPOREAL 16 // Mobs that don't really have any physical form to them.
 
