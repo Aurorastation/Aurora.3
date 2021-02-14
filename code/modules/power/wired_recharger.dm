@@ -1,16 +1,14 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-
-/obj/machinery/recharger
-	name = "recharger"
-	desc = "Useful for recharging electronic devices."
+/obj/machinery/power/wired_recharger
+	name = "wired recharger"
+	desc = "Useful for recharging electronic devices innawoods."
 	icon = 'icons/obj/recharger.dmi'
-	icon_state = "recharger_off"
-	anchored = 1
-	use_power = 1
+	icon_state = "wired_recharger_off"
+	anchored = TRUE
+	use_power = TRUE
 	idle_power_usage = 6
 	active_power_usage = 45 KILOWATTS
-	var/charging_efficiency = 1.3
-	//Entropy. The charge put into the cell is multiplied by this
+	pass_flags = PASSTABLE
+	var/charging_efficiency = 1.3 // Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
@@ -20,13 +18,12 @@
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module
 	)
-	var/icon_state_charged = "recharger100"
-	var/icon_state_charging = "recharger"
-	var/icon_state_idle = "recharger_off" //also when unpowered
-	var/portable = 1
+	var/icon_state_charged = "wired_recharger100"
+	var/icon_state_charging = "wired_recharger"
+	var/icon_state_idle = "wired_recharger_off" //also when unpowered
 	var/list/chargebars
 
-/obj/machinery/recharger/examine(mob/user)
+/obj/machinery/power/wired_recharger/examine(mob/user)
 	. = ..(user, 3)
 	to_chat(user, "There is [charging ? "[charging]" : "nothing"] in [src].")
 	if (charging && .)
@@ -37,18 +34,22 @@
 			LAZYADD(chargebars, progbar)
 			chargebars[progbar] = addtimer(CALLBACK(src, .proc/remove_bar, progbar, null), 3 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 
-/obj/machinery/recharger/proc/remove_bar(datum/progressbar/bar, timerid)
+/obj/machinery/power/wired_recharger/proc/remove_bar(datum/progressbar/bar, timerid)
 	if (!timerid || deltimer(timerid))
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
-/obj/machinery/recharger/attackby(obj/item/G as obj, mob/user as mob)
-	if(portable && G.iswrench())
+/obj/machinery/power/wired_recharger/attackby(obj/item/G, mob/user)
+	if(G.iswrench())
 		if(charging)
-			to_chat(user, "<span class='alert'>Remove [charging] first!</span>")
+			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 			return
 		anchored = !anchored
-		to_chat(user, "You have [anchored ? "attached" : "detached"] the recharger.")
+		if(anchored)
+			connect_to_network()
+		else
+			disconnect_from_network()
+		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
 		playsound(loc, G.usesound, 75, 1)
 		return
 
@@ -81,8 +82,8 @@
 		charging = G
 		update_icon()
 
-/obj/machinery/recharger/attack_hand(mob/user as mob)
-	if(istype(user,/mob/living/silicon))
+/obj/machinery/power/wired_recharger/attack_hand(mob/user)
+	if(issilicon(user))
 		return
 
 	add_fingerprint(user)
@@ -96,14 +97,12 @@
 				remove_bar(thing, chargebars[thing])
 		update_icon()
 
-/obj/machinery/recharger/machinery_process()
-	if(stat & (NOPOWER|BROKEN) || !anchored)
-		update_use_power(0)
+/obj/machinery/power/wired_recharger/machinery_process()
+	if((stat & BROKEN) || !anchored || !powernet)
 		icon_state = icon_state_idle
 		return
 
 	if(!charging)
-		update_use_power(1)
 		icon_state = icon_state_idle
 	else
 		var/obj/item/cell/cell = charging.get_cell()
@@ -120,12 +119,9 @@
 					icon_state = icon_state_charging + "60"
 				else
 					icon_state = icon_state_charging + "80"
-				C.give(active_power_usage*CELLRATE*charging_efficiency)
-
-				update_use_power(2)
+				C.give(draw_power(active_power_usage) * CELLRATE * charging_efficiency)
 			else
 				icon_state = icon_state_charged
-				update_use_power(1)
 
 			if (chargebars)
 				for (var/thing in chargebars)
@@ -141,7 +137,7 @@
 			charging.visible_message("\The [charging] falls out of [src].")
 			charging = null
 
-/obj/machinery/recharger/emp_act(severity)
+/obj/machinery/power/wired_recharger/emp_act(severity)
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		..(severity)
 		return
@@ -157,24 +153,8 @@
 			B.bcell.charge = 0
 	..(severity)
 
-/obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+/obj/machinery/power/wired_recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
 	if(charging)
 		icon_state = icon_state_charging + "0"
 	else
 		icon_state = icon_state_idle
-
-/obj/machinery/recharger/wallcharger
-	name = "wall recharger"
-	desc = "A heavy duty wall recharger specialized for energy weaponry."
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "wrecharger_off"
-	active_power_usage = 75 KILOWATTS
-	allowed_devices = list(
-		/obj/item/gun/energy,
-		/obj/item/melee/baton
-	)
-	icon_state_charged = "wrecharger100"
-	icon_state_charging = "wrecharger"
-	icon_state_idle = "wrecharger_off"
-	appearance_flags = TILE_BOUND // prevents people from viewing us through a wall
-	portable = FALSE

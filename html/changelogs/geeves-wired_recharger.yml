@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Mapped in three wired rechargers to the engineering sub-level storage. They work off cables instead of APCs."

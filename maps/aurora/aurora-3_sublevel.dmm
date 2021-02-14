@@ -35020,6 +35020,11 @@
 /obj/machinery/particle_accelerator/control_box,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"uDF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/power/wired_recharger,
+/turf/simulated/floor/tiled,
+/area/engineering/storage_sublevel)
 "uFh" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
@@ -51506,7 +51511,7 @@ ace
 ace
 abJ
 vhq
-acL
+uDF
 adk
 aeb
 hIF
@@ -51763,7 +51768,7 @@ ace
 xxg
 abJ
 lLU
-acL
+uDF
 adk
 aec
 aeI
@@ -52020,7 +52025,7 @@ iTG
 ace
 abJ
 mKu
-acL
+uDF
 adm
 acL
 sTu
