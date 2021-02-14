@@ -8,7 +8,7 @@
 	idle_power_usage = 6
 	active_power_usage = 45 KILOWATTS
 	pass_flags = PASSTABLE
-	var/charging_efficiency = 1.3 // Entropy. The charge put into the cell is multiplied by this
+	var/charging_efficiency = 0.7 // Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
