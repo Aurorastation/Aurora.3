@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added pipeguns, chambered in 5.56mm."
-  - tweak: "The improvised shotgun recipe now creates a pipegun instead."
