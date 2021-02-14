@@ -11,7 +11,10 @@
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
 	slowdown = 0
-	armor = list(melee = 20, bullet = 0, laser = 5, energy = 10, bomb = 0, bio = 0, rad = 0) // still somewhat sturdy, but ultimately not very
+	armor = list(melee = ARMOR_MELEE_KNIVES,
+				laser = ARMOR_LASER_MINOR,
+				energy = ARMOR_ENERGY_MINOR
+			) // still somewhat sturdy, but ultimately not very
 	siemens_coefficient = 1.0
 	var/laser_tag_color = "red"
 
@@ -40,7 +43,10 @@
 	icon_state = "helmet"
 	item_state = "helmet"
 	contained_sprite = TRUE
-	armor = list(melee = 20, bullet = 0, laser = 5, energy = 10, bomb = 0, bio = 0, rad = 0) // still somewhat sturdy, but ultimately not very
+	armor = list(melee = ARMOR_MELEE_KNIVES,
+				laser = ARMOR_LASER_MINOR,
+				energy = ARMOR_ENERGY_MINOR
+			) // still somewhat sturdy, but ultimately not very
 	siemens_coefficient = 1.0
 	var/laser_tag_color = "red"
 
