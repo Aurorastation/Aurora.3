@@ -10,7 +10,7 @@ Glass shards can be welded to make glass, and metal rods can be welded to make m
 If you need to drag multiple people either to safety or to space, bring a locker over and stuff them all in before hauling them off.
 You can grab someone by clicking on them with the grab intent, then upgrade the grab by clicking on the grab button in your active hand. An aggressive grab will allow you to place someone on a table by clicking on it, or throw them by toggling on throwing.
 Holding alt and left clicking a tile will allow you to see its contents in the top right window pane, which is much faster than right clicking.
-The resist button will allow you to resist out of handcuffs, being buckled_to to a chair or bed, out of locked lockers and more. Whenever you're stuck, try resisting!
+The resist button will allow you to resist out of handcuffs, being buckled to a chair or bed, out of locked lockers and more. Whenever you're stuck, try resisting!
 You can move an item out of the way by dragging it and then clicking on an adjacent tile with an empty hand.
 Maintenance is full of equipment that is randomized every round. Look around and see if anything is worth using. There are many places around the station to hide contraband. A few for starters: linen boxes, toilet cisterns, body bags. Experiment to find more!
 As the Captain, you are one of the highest priority targets on the station. Everything from revolutions, to mercenaries, to traitors that need to rob you of your antique laser gun or your life are things to worry about.
