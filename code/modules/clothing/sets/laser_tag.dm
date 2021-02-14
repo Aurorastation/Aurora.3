@@ -39,7 +39,7 @@
 			var/obj/item/card/id/ID = H.GetIdCard()
 			user_name = ID.registered_name
 		var/list/num_to_word = list("one", "two", "three", "four", "five")
-		visible_message("[capitalize_first_letters(name)] says, \"[SPAN_NOTICE("[user_name] armor health set to [num_to_word[set_health]]")]\".")
+		visible_message("<b>[capitalize_first_letters(name)]</b> says, \"[SPAN_NOTICE("[user_name] armor health set to [num_to_word[set_health]].")]\".")
 		return
 	return ..()
 

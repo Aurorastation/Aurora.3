@@ -224,6 +224,32 @@ obj/item/gun/energy/retro
 	turret_is_lethal = FALSE
 	turret_sprite_set = "red"
 
+/obj/item/gun/energy/lasertag/attackby(obj/item/I, mob/user)
+	if(I.ismultitool())
+		var/chosen_color = input(user, "Which color do you wish your gun to be?", "Color Selection") as null|anything in list("blue", "red")
+		if(!chosen_color)
+			return
+		get_tag_color(chosen_color)
+		to_chat(user, SPAN_NOTICE("\The [src] is now a [chosen_color] laser tag gun."))
+		return
+	return ..()
+
+/obj/item/gun/energy/lasertag/proc/get_tag_color(var/set_color)
+	projectile_type = text2path("/obj/item/projectile/beam/laser_tag/[set_color]")
+	if(pin)
+		QDEL_NULL(pin)
+		var/pin_path = text2path("/obj/item/device/firing_pin/tag/[set_color]")
+		pin = new pin_path(src)
+	switch(set_color)
+		if("red")
+			icon = 'icons/obj/guns/redtag.dmi'
+		if("blue")
+			icon = 'icons/obj/guns/bluetag.dmi'
+	icon_state = "[set_color]tag"
+	item_state = icon_state
+	modifystate = item_state
+	update_held_icon()
+
 /obj/item/gun/energy/lasertag/blue
 	icon = 'icons/obj/guns/bluetag.dmi'
 	icon_state = "bluetag"
