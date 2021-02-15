@@ -48,7 +48,7 @@
 	fire_delay = 5
 	burst_delay = 5
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/item/projectile/beam/midlaser
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0

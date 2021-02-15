@@ -84,7 +84,7 @@
 
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
-		armorpercent = targethuman.run_armor_check(target_zone,"melee")
+		armorpercent = targethuman.get_blocked_ratio(target_zone, BRUTE, damage = force)*100
 		wasblocked = targethuman.check_shields(force, src, user, target_zone, null) //returns 1 if it's a block
 
 	var/damageamount = force

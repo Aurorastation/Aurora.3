@@ -45,6 +45,13 @@
 		return 1
 	return 0
 
+/proc/isgolem(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(istype(H.species, /datum/species/golem))
+			return TRUE
+	return FALSE
+
 /proc/isunathi(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
@@ -108,6 +115,13 @@
 
 /mob/living/carbon/alien/diona/is_diona()
 	return DIONA_NYMPH
+
+/proc/is_mob_special(A) // determines special mobs. has restrictions on certain things, like welderbombing
+	if(isrevenant(A))
+		return TRUE
+	if(iszombie(A))
+		return TRUE
+	return FALSE
 
 /proc/isskeleton(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
@@ -1189,5 +1203,23 @@ proc/is_blind(A)
 
 /mob/proc/remove_deaf()
 	sdisabilities &= ~DEAF
+
 /mob/proc/get_antag_datum(var/antag_role)
 	return
+
+/mob/dump_contents()
+	for(var/thing in get_contained_external_atoms())
+		var/atom/movable/AM = thing
+		drop_from_inventory(AM, loc)
+		if(ismob(AM))
+			var/mob/M = AM
+			if(M.client)
+				M.client.eye = M.client.mob
+				M.client.perspective = MOB_PERSPECTIVE
+
+/mob/proc/in_neck_grab()
+	for(var/thing in grabbed_by)
+		var/obj/item/grab/G = thing
+		if(G.state >= GRAB_NECK)
+			return TRUE
+	return FALSE

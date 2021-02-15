@@ -101,9 +101,17 @@
 		update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/remove_rag(mob/user)
-	if(!rag) return
+	if(!rag)
+		return
 	user.put_in_hands(rag)
 	rag = null
+	flags |= (initial(flags) & OPENCONTAINER)
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/bottle/proc/delete_rag()
+	if(!rag)
+		return
+	QDEL_NULL(rag)
 	flags |= (initial(flags) & OPENCONTAINER)
 	update_icon()
 
@@ -114,13 +122,14 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/update_icon()
 	underlays.Cut()
+	set_light(0)
 	if(rag)
 		var/underlay_image = image(icon='icons/obj/drinks.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
 		underlays += underlay_image
-		set_light(2)
-	else
-		set_light(0)
-		..()
+		if(rag.on_fire)
+			set_light(2, l_color = LIGHT_COLOR_FIRE)
+		return
+	..()
 
 /obj/item/reagent_containers/food/drinks/bottle/attack(mob/living/target, mob/living/user, var/hit_zone)
 	var/blocked = ..()
@@ -139,7 +148,7 @@
 	// You are going to knock someone out for longer if they are not wearing a helmet.
 	var/weaken_duration = 0
 	if(blocked < 100)
-		weaken_duration = smash_duration + min(0, force - target.getarmor(hit_zone, "melee") + 10)
+		weaken_duration = smash_duration + min(0, force - target.get_blocked_ratio(hit_zone, BRUTE) * 100 + 10)
 
 	var/mob/living/carbon/human/H = target
 	if(istype(H) && H.headcheck(hit_zone))

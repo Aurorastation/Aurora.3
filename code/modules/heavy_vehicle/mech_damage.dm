@@ -28,10 +28,12 @@
 		return pilot.hitby(AM, speed)
 	. = ..()
 
-/mob/living/heavy_vehicle/getarmor(var/def_zone, var/type)
+/mob/living/heavy_vehicle/get_armors_by_zone(def_zone, damage_type, damage_flags)
+	. = ..()
 	if(body && body.mech_armor)
-		return isnull(body.mech_armor.armor[type]) ? 0 : body.mech_armor.armor[type]
-	return 0
+		var/body_armor = body.mech_armor.GetComponent(/datum/component/armor)
+		if(body_armor)
+			. += body_armor
 
 /mob/living/heavy_vehicle/updatehealth()
 	maxHealth = body.mech_health
@@ -72,9 +74,13 @@
 		else
 			return body
 
-/mob/living/heavy_vehicle/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/damage_flags)
+/mob/living/heavy_vehicle/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/damage_flags, var/armor_pen, var/silent = FALSE)
 	if(!damage)
 		return 0
+
+	var/list/after_armor = modify_damage_by_armor(def_zone, damage, damagetype, damage_flags, src, armor_pen, TRUE)
+	damage = after_armor[1]
+	damagetype = after_armor[2]
 
 	var/target = zoneToComponent(def_zone)
 	//Only 2 types of damage concern mechs and vehicles
@@ -129,3 +135,6 @@
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
 	return TRUE
+
+/mob/living/heavy_vehicle/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL

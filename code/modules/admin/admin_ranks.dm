@@ -213,6 +213,9 @@ var/list/forum_groupids_to_ranks = list()
 	if(isnull(user.ckey))
 		log_debug("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
 		return
+	if(user.psync_game_disabled)
+		log_debug("AdminRanks: [user.forum_name] has permsync-game disabled - Ignoring")
+		return
 	var/rights = 0
 
 	for (var/group_id in (user.forum_secondary_groups + user.forum_primary_group))

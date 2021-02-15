@@ -273,3 +273,6 @@
 		set_death_time(species.respawn_type, world.time)
 	else
 		set_death_time(CREW, world.time)
+
+/mob/living/carbon/human/get_contained_external_atoms()
+	. = ..() - organs

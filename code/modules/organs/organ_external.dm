@@ -339,8 +339,9 @@
 	var/damage_amt = brute
 	var/cur_damage = brute_dam
 	var/sharp = (damage_flags & DAM_SHARP)
+	var/laser = (damage_flags & DAM_LASER)
 
-	if(BP_IS_ROBOTIC(src))
+	if(BP_IS_ROBOTIC(src) || laser)
 		damage_amt += burn
 		cur_damage += burn_dam
 
@@ -350,6 +351,8 @@
 	var/organ_damage_threshold = 10
 	if(sharp)
 		organ_damage_threshold *= 0.5
+	if(laser)
+		organ_damage_threshold *= 2
 
 	if(!(cur_damage + damage_amt >= max_damage) && !(damage_amt >= organ_damage_threshold))
 		return FALSE
@@ -618,9 +621,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 */
 /obj/item/organ/external/proc/update_germs()
 
-	if(status & (ORGAN_ROBOT) || (owner.species && owner.species.flags & IS_PLANT)) //Robotic limbs shouldn't be infected, nor should nonexistant limbs.
+	if(status & (ORGAN_ROBOT) || (owner.species && owner.species.flags & NO_BLOOD)) //Robotic limbs shouldn't be infected, nor should nonexistant limbs, or bloodless species.
 		germ_level = 0
 		return
+
+	if(germ_level <= 0) //Catch any weirdness that might happen with negative values
+		germ_level = 0 
 
 	if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
 		//** Syncing germ levels with external wounds
@@ -766,7 +772,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if (updatehud)
 		owner.hud_updateflag = 1022
 
-	if (update_icon())
+	if(update_icon())
 		owner.UpdateDamageIcon(1)
 
 //Updates brute_damn and burn_damn from wound damages. Updates BLEEDING status.
@@ -895,7 +901,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		victim.shock_stage += min_broken_damage
 		victim.flash_strong_pain()
 
+	var/mob/living/carbon/human/last_owner = owner
 	removed(null, ignore_children)
+	if(istype(last_owner) && !QDELETED(last_owner) && length(last_owner.organs) <= 1)
+		last_owner.drop_all_limbs(disintegrate) // drops the last remaining part, usually the torso, as an item
 
 	if(parent_organ)
 		var/datum/wound/lost_limb/W = new(src, disintegrate, clean)
