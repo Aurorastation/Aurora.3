@@ -865,10 +865,13 @@ There are several things that need to be remembered:
 		overlays_raw[shoe_layer] = ovr || result_layer
 	else
 		if(footprint_color)		// Handles bloody feet.
-			var/image/bloodsies = image(species.blood_mask, "shoeblood")
-			bloodsies.color = footprint_color
-			bloodsies.appearance_flags = RESET_ALPHA
-			overlays_raw[SHOES_LAYER] = bloodsies
+			for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
+				var/obj/item/organ/external/E = get_organ(limb_tag)
+				if(E && !E.is_stump())
+					var/image/bloodsies = image(species.blood_mask, "shoeblood_[E.limb_name]")
+					bloodsies.color = footprint_color
+					bloodsies.appearance_flags = RESET_ALPHA
+					overlays_raw[SHOES_LAYER] = bloodsies
 		else
 			overlays_raw[SHOES_LAYER] = null
 			overlays_raw[SHOES_LAYER_ALT] = null

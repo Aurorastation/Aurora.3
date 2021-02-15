@@ -4,7 +4,7 @@
 
 /obj/item/organ/external/chest
 	name = "upper body"
-	limb_name = "chest"
+	limb_name = BP_CHEST
 	icon_name = "torso"
 	max_damage = 100
 	min_broken_damage = 35
@@ -29,7 +29,7 @@
 
 /obj/item/organ/external/groin
 	name = "lower body"
-	limb_name = "groin"
+	limb_name = BP_GROIN
 	icon_name = "groin"
 	max_damage = 100
 	min_broken_damage = 35
@@ -50,7 +50,7 @@
 	return "[owner.get_pronoun("has")] [blood_type] running down their thighs!"
 
 /obj/item/organ/external/arm
-	limb_name = "l_arm"
+	limb_name = BP_L_ARM
 	name = "left arm"
 	icon_name = "l_arm"
 	max_damage = 50
@@ -72,7 +72,7 @@
 	return "[owner.get_pronoun("has")] [blood_type] running down their sleeves!"
 
 /obj/item/organ/external/arm/right
-	limb_name = "r_arm"
+	limb_name = BP_R_ARM
 	name = "right arm"
 	icon_name = "r_arm"
 	body_part = ARM_RIGHT
@@ -82,7 +82,7 @@
 	amputation_point = "right shoulder"
 
 /obj/item/organ/external/leg
-	limb_name = "l_leg"
+	limb_name = BP_L_LEG
 	name = "left leg"
 	icon_name = "l_leg"
 	max_damage = 50
@@ -105,7 +105,7 @@
 	return "[owner.get_pronoun("has")] [blood_type] pooling at their feet!"
 
 /obj/item/organ/external/leg/right
-	limb_name = "r_leg"
+	limb_name = BP_R_LEG
 	name = "right leg"
 	icon_name = "r_leg"
 	body_part = LEG_RIGHT
@@ -114,7 +114,7 @@
 	amputation_point = "right hip"
 
 /obj/item/organ/external/foot
-	limb_name = "l_foot"
+	limb_name = BP_L_FOOT
 	name = "left foot"
 	icon_name = "l_foot"
 	max_damage = 35
@@ -141,7 +141,7 @@
 	..()
 
 /obj/item/organ/external/foot/right
-	limb_name = "r_foot"
+	limb_name = BP_R_FOOT
 	name = "right foot"
 	icon_name = "r_foot"
 	body_part = FOOT_RIGHT
@@ -151,7 +151,7 @@
 	amputation_point = "right ankle"
 
 /obj/item/organ/external/hand
-	limb_name = "l_hand"
+	limb_name = BP_L_HAND
 	name = "left hand"
 	icon_name = "l_hand"
 	max_damage = 35
@@ -190,7 +190,7 @@
 	..()
 
 /obj/item/organ/external/hand/right
-	limb_name = "r_hand"
+	limb_name = BP_R_HAND
 	name = "right hand"
 	icon_name = "r_hand"
 	body_part = HAND_RIGHT
@@ -199,7 +199,7 @@
 	amputation_point = "right wrist"
 
 /obj/item/organ/external/head
-	limb_name = "head"
+	limb_name = BP_HEAD
 	icon_name = "head"
 	name = BP_HEAD
 	max_damage = 75

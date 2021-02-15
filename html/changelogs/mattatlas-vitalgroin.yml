@@ -41,3 +41,4 @@ changes:
   - tweak: "The groin is no longer vital."
   - tweak: "Reworks how stance damage works slightly. Having no feet or no legs means you can no longer walk at all. Behaviour with only one foot unchanged."
   - tweak: "Canes no longer help you when you have no legs or feet."
+  - bugfix: "Non-existant feet are no longer bloody."
