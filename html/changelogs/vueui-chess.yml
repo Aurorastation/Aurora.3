@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes:
+  - rscadd: "Reworked board games (checkers and chess) in to one holo board, that allows to play any game. Also it been ported to VueUI."
