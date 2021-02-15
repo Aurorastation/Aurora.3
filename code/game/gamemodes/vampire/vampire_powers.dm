@@ -130,7 +130,7 @@
 			vampire.frenzy--
 
 		if(blood_total != vampire.blood_total)
-			var/update_msg = "You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood"
+			var/update_msg = "You have accumulated [vampire.blood_total] unit\s of blood"
 			if(blood_usable != vampire.blood_usable)
 				update_msg += " and have [vampire.blood_usable] left to use"
 			update_msg += "."
@@ -803,7 +803,7 @@
 		for(var/mob/living/carbon/human/T in view(5))
 			if(T == src)
 				continue
-			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power. 
+			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power.
 				continue
 			if(!T.client)
 				continue
