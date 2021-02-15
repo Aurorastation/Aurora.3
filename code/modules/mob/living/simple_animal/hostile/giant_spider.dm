@@ -11,6 +11,7 @@
 	desc_fluff = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
 	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
+	icon = 'icons/mob/npc/greimorian.dmi'
 	icon_state = "greimorian"
 	icon_living = "greimorian"
 	icon_dead = "greimorian_dead"
@@ -76,10 +77,11 @@
 	move_to_delay = 4
 
 /mob/living/simple_animal/hostile/giant_spider/emp
-	desc = "Furry and black, it makes you shudder to look at it. This one has dark violet eyes."
-	icon_state = "jackal"
-	icon_living = "jackal"
-	icon_dead = "jackal_dead"
+	name = "greimorian jackal"
+	desc = "A slithering bright blue Greimorian. This one gently buzzes with electrical potential."
+	icon_state = "greimorian_jackal"
+	icon_living = "greimorian_jackal"
+	icon_dead = "greimorian_jackal_dead"
 	maxHealth = 100
 	health = 100
 	melee_damage_lower = 5
