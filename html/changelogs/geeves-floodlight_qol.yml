@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Emergency floodlights are now called industrial floodlights."
-  - bugfix: "Floodlights now spawn with a device class cell. It used to spawn with a high cap, with the max charge manually lowered. No change in total charge duration."
-  - rscadd: "Examining a floodlight now gives you an idea about the status of the cell."
-  - tweak: "Tweaked floodlight flickering to make it less bad."
