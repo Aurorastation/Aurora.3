@@ -10,7 +10,7 @@
 	min_broken_damage = 35
 	w_class = ITEMSIZE_HUGE
 	body_part = UPPER_TORSO
-	vital = 1
+	vital = TRUE
 	amputation_point = "spine"
 	joint = "neck"
 	artery_name = "internal thoracic artery"
@@ -35,7 +35,6 @@
 	min_broken_damage = 35
 	w_class = ITEMSIZE_LARGE
 	body_part = LOWER_TORSO
-	vital = 1
 	parent_organ = BP_CHEST
 	amputation_point = "lumbar"
 	joint = "hip"
@@ -207,7 +206,7 @@
 	min_broken_damage = 35
 	w_class = ITEMSIZE_NORMAL
 	body_part = HEAD | FACE
-	vital = 1
+	vital = TRUE
 	parent_organ = BP_CHEST
 	joint = "jaw"
 	artery_name = "cartoid artery"
