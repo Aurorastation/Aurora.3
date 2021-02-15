@@ -8451,6 +8451,20 @@
 	pixel_x = 16
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "power generation supplies"
+	},
+/obj/item/circuitboard/rtg,
+/obj/item/stack/cable_coil{
+	amount = 5
+	},
+/obj/item/stock_parts/capacitor,
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
+/obj/item/stack/material/phoron{
+	amount = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "hCb" = (
