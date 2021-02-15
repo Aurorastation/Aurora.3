@@ -111,7 +111,7 @@
 
 /datum/gear/suit/iaclabcoat
 	display_name = "IAC labcoat"
-	description = "It's a standard medical labcoat designed to be worn by the Instellar Aid Corps."
+	description = "It's a standard medical labcoat designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
