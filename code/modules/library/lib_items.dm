@@ -142,9 +142,6 @@
 /obj/structure/bookcase/libraryspawn/nonfiction
 	spawn_category = "Non-Fiction"
 
-/obj/structure/bookcase/libraryspawn/adult
-	spawn_category = "Adult"
-
 /obj/structure/bookcase/libraryspawn/reference
 	spawn_category = "Reference"
 

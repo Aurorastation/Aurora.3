@@ -653,6 +653,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/flame_light_power = 2
 	var/flame_light_color = LIGHT_COLOR_LAVA
 
+/obj/item/flame/lighter/colourable
+	icon_state = "lighter-col"
+	item_state = "lighter-col"
+	base_state = "lighter-col"
+	build_from_parts = TRUE
+	worn_overlay = "top"
+
+/obj/item/flame/lighter/colourable/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/item/flame/lighter/zippo
 	name = "\improper Zippo lighter"
 	desc = "The zippo. If you've spent that amount of money on a lighter, you're either a badass or a chain smoker."
@@ -765,6 +776,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		icon_state = "[base_state]"
 		item_state = "[base_state]"
 	update_held_icon()
+	return ..()
 
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)

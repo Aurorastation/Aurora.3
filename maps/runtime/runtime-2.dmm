@@ -371,7 +371,7 @@
 /area/tcommsat/chamber)
 "pY" = (
 /obj/structure/table/standard,
-/obj/item/book/manual/ntsl2,
+/obj/item/book/manual/wiki/ntsl2,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278

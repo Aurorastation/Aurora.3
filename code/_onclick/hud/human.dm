@@ -441,7 +441,7 @@
 			if("thirst3")
 				to_chat(usr, SPAN_WARNING("You are quite thirsty."))
 			if("thirst4")
-				to_chat(usr, SPAN_DANGER("Your are entirely dehydrated!"))
+				to_chat(usr, SPAN_DANGER("You are entirely dehydrated!"))
 
 /obj/screen/bodytemp/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.bodytemp == src)
