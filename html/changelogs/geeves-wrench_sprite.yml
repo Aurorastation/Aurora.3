@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Tweaked the Impact Wrench's bit's colour and sprite to make it easier to see what you have."
-  - rscadd: "Mousing over the impact wrench while holding shift will now make a pop-up tooltip showing which bit is selected."
