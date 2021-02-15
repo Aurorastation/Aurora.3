@@ -34,6 +34,9 @@
 /proc/Modulus(x, y)
 	return ( (x) - (y) * round((x) / (y)) )
 
+/proc/Percent(current_value, max_value, rounding = 1)
+	return round((current_value / max_value) * 100, rounding)
+
 // Greatest Common Divisor: Euclid's algorithm.
 /proc/Gcd(a, b)
 	while (1)
