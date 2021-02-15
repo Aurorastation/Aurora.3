@@ -906,8 +906,13 @@
 
 //Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
-
-	if(!resting && cannot_stand() && can_stand_overridden())
+	if(in_neck_grab())
+		lying = FALSE
+		for(var/obj/item/grab/G in grabbed_by)
+			if(G.force_down)
+				lying = TRUE
+				break
+	else if(!resting && cannot_stand() && can_stand_overridden())
 		lying = 0
 		canmove = 1
 	else

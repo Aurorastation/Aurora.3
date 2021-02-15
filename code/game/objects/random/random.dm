@@ -743,7 +743,8 @@
 		/obj/item/gun/energy/rifle/laser/xray,
 		/obj/item/gun/energy/net,
 		/obj/item/gun/energy/laser/shotgun,
-		/obj/item/gun/energy/decloner
+		/obj/item/gun/energy/decloner,
+		/obj/item/gun/energy/freeze
 	)
 
 /obj/random/colored_jumpsuit
@@ -1612,7 +1613,8 @@
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
 		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
 		/obj/item/gun/projectile/musket = 0.5,
-		/obj/item/gun/launcher/grenade = 1
+		/obj/item/gun/launcher/grenade = 1,
+		/obj/item/gun/energy/freeze = 0.5
 		)
 
 	var/list/Epic = list(

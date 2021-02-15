@@ -40,6 +40,7 @@
 	name = "Coffee"
 	real_name = "Coffee"
 	desc = "It's Coffee, the other pet!"
+	named = TRUE
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"

@@ -74,6 +74,7 @@
 		/obj/item/gun/energy/pistol                = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/gun/nuclear           = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/laser/shotgun         = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/freeze                = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster              = TRADER_ALL,
 		/obj/item/clothing/accessory/holster/thigh/fluff  = TRADER_BLACKLIST_ALL
 	)

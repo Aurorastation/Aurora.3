@@ -65,6 +65,10 @@
 	return null
 
 /obj/item/gun/projectile/shotgun/pump/attack_self(mob/living/user)
+	if(jam_num)
+		return ..()
+	else if(unjam_cooldown + 2 SECONDS > world.time)
+		return
 	if(world.time >= recentpump + 10)
 		pump(user)
 		recentpump = world.time

@@ -106,7 +106,7 @@
 	parent_organ = BP_GROIN
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
-	owner.apply_damage(1, BRUTE, BP_GROIN)
+	owner.apply_damage(1, BRUTE, BP_GROIN, armor_pen = 100)
 
 /obj/item/organ/internal/augment/protein_valve
 	name = "protein breakdown valve"
