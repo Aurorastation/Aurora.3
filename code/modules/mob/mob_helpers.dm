@@ -1207,6 +1207,16 @@ proc/is_blind(A)
 /mob/proc/get_antag_datum(var/antag_role)
 	return
 
+/mob/dump_contents()
+	for(var/thing in get_contained_external_atoms())
+		var/atom/movable/AM = thing
+		drop_from_inventory(AM, loc)
+		if(ismob(AM))
+			var/mob/M = AM
+			if(M.client)
+				M.client.eye = M.client.mob
+				M.client.perspective = MOB_PERSPECTIVE
+
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)
 		var/obj/item/grab/G = thing

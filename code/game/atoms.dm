@@ -606,3 +606,16 @@
 // It receives the curent mob of the player s argument and MUST return the mob the player has been assigned.
 /atom/proc/assign_player(var/mob/user)
 	return
+
+/atom/proc/get_contained_external_atoms()
+	. = contents
+
+/atom/proc/dump_contents()
+	for(var/thing in get_contained_external_atoms())
+		var/atom/movable/AM = thing
+		AM.dropInto(loc)
+		if(ismob(AM))
+			var/mob/M = AM
+			if(M.client)
+				M.client.eye = M.client.mob
+				M.client.perspective = MOB_PERSPECTIVE
