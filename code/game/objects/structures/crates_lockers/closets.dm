@@ -106,17 +106,15 @@
 			return 0
 	return 1
 
-/obj/structure/closet/proc/dump_contents()
+/obj/structure/closet/dump_contents()
 	//Cham Projector Exception
-	for(var/obj/effect/dummy/chameleon/AD in src)
+	for(var/obj/effect/dummy/chameleon/AD in contents)
 		AD.forceMove(loc)
 
-	for(var/obj/I in src)
-		if(linked_teleporter && I == linked_teleporter)
-			continue
+	for(var/obj/I in contents - linked_teleporter)
 		I.forceMove(loc)
 
-	for(var/mob/M in src)
+	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
 			M.client.eye = M.client.mob
@@ -341,8 +339,8 @@
 			)
 		else
 			attack_hand(user)
-	else if(istype(W, /obj/item/hand_labeler))
-		var/obj/item/hand_labeler/HL = W
+	else if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
 		if (HL.mode == 1)
 			return
 		else
@@ -376,7 +374,7 @@
 		return
 	step_towards(O, loc)
 	if(user != O)
-		user.show_viewers("<span class='danger'>[user] stuffs [O] into [src]!</span>")
+		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
 	add_fingerprint(user)
 	return
 
@@ -469,7 +467,7 @@
 	breakout = 1
 	for(var/i in 1 to time) //minutes * 6 * 5seconds * 2
 		playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
-		animate_shake()
+		shake_animation()
 
 		if (bar)
 			bar.update(i)
@@ -496,7 +494,7 @@
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]!</span>")
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 	break_open()
-	animate_shake()
+	shake_animation()
 	qdel(bar)
 
 /obj/structure/closet/proc/break_open()

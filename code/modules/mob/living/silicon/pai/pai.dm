@@ -539,5 +539,8 @@
 	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
 	card.setEmotion(pai_emotions[selection])
 
+/mob/living/silicon/pai/set_respawn_time()
+	set_death_time(MINISYNTH, world.time)
+
 /obj/item/device/radio/pai
 	canhear_range = 0 // only people on their tile

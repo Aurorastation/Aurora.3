@@ -150,13 +150,13 @@ Frequency:
 		return
 
 	var/list/teleport_options = list()
-	for(var/obj/machinery/teleport/hub/R in SSmachinery.all_machines)
-		var/obj/machinery/computer/teleporter/com = R.com
-		if(com?.locked && !com.one_time_use)
-			if(R.icon_state == "tele1")
-				teleport_options["[com.id] (Active)"] = com.locked
+	for(var/obj/machinery/teleport/station/S in SSmachinery.all_machines)
+		if(S.locked_obj)
+			var/obj/O = S.locked_obj.resolve()
+			if(S.engaged)
+				teleport_options["[S.id] (Active)"] = O
 			else
-				teleport_options["[com.id] (Inactive)"] = com.locked
+				teleport_options["[S.id] (Inactive)"] = O
 
 	var/list/potential_turfs = list()
 	for(var/turf/T in orange(10))
@@ -248,7 +248,7 @@ Frequency:
 	else
 		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
-		target_closet.animate_shake()
+		target_closet.shake_animation()
 		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 100, TRUE)
 
 /obj/item/closet_teleporter/Destroy()

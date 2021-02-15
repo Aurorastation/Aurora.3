@@ -104,3 +104,11 @@
 	key = "c"
 	syllables = list("grhhg", "ghrohg", "grgugh", "grrhh", "hghh", "rghghh", "gghhh", "ggrh", "aghrh")
 	flags = RESTRICTED
+	partial_understanding = list(LANGUAGE_TCB = 80)
+	always_parse_language = TRUE
+
+/datum/language/revenant/hivemind
+	name = LANGUAGE_REVENANT_RIFTSPEAK
+	desc = "A manner of speaking that allows revenants to talk to eachother no matter the distance."
+	key = "rs"
+	flags = RESTRICTED | HIVEMIND

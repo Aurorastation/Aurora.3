@@ -66,6 +66,11 @@
 	ghostize()
 	qdel(src)
 
+/mob/living/simple_animal/construct/can_name(var/mob/living/M)
+	if(iscultist(M))
+		return ..()
+	return FALSE
+
 /mob/living/simple_animal/construct/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 

@@ -4,11 +4,6 @@
 	slot = slot_tie
 	sort_category = "Accessories"
 
-/datum/gear/accessory/bracelet
-	display_name = "bracelet (colourable)"
-	path = /obj/item/clothing/accessory/bracelet
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/accessory/suspenders
@@ -73,26 +68,21 @@
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
 /datum/gear/accessory/tie
-	display_name = "tie selection"
-	path = /obj/item/clothing/accessory/blue
+	display_name = "tie selection (colourable)"
+	path = /obj/item/clothing/accessory/tie/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/tie/New()
 	..()
 	var/ties = list()
-	ties["red tie"] = /obj/item/clothing/accessory/red
-	ties["red tie with a clip"] = /obj/item/clothing/accessory/tie/red_clip
-	ties["orange tie"] = /obj/item/clothing/accessory/tie/orange
-	ties["yellow tie"] = /obj/item/clothing/accessory/tie/yellow
-	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
-	ties["green tie"] = /obj/item/clothing/accessory/tie/green
-	ties["dark green tie"] = /obj/item/clothing/accessory/tie/darkgreen
-	ties["blue tie"] = /obj/item/clothing/accessory/blue
-	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
-	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
-	ties["purple tie"] = /obj/item/clothing/accessory/tie/purple
-	ties["black tie"] = /obj/item/clothing/accessory/tie/black
-	ties["white tie"] = /obj/item/clothing/accessory/tie/white
+	ties["tie"] = /obj/item/clothing/accessory/tie/colourable
+	ties["tie, gold clip"] = /obj/item/clothing/accessory/tie/colourable/clip
+	ties["tie, silver clip"] = /obj/item/clothing/accessory/tie/colourable/clip/silver
 	gear_tweaks += new/datum/gear_tweak/path(ties)
+
+/datum/gear/accessory/horrible_tie
+	display_name = "horrible tie"
+	path = /obj/item/clothing/accessory/horrible
 
 /datum/gear/accessory/bowtie
 	display_name = "bowtie"

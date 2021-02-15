@@ -37,7 +37,8 @@
 	minbodytemp = 0
 	speed = 4
 	tameable = FALSE
-	flying = 1
+	flying = TRUE
+	smart_melee = FALSE
 	see_in_dark = 8
 	pass_flags = PASSTABLE
 	attack_emote = "focuses on"

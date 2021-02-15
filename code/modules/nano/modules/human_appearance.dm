@@ -209,7 +209,7 @@
 	if(!length(valid_species))
 		valid_species = owner.generate_valid_species(check_whitelist, whitelist, blacklist)
 	if(!length(valid_hairstyles) || !length(valid_facial_hairstyles))
-		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 0)
+		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 1)
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
 	if(!length(valid_accents))
 		valid_accents = owner.generate_valid_accent()

@@ -4,9 +4,7 @@
 
 **[Code](https://github.com/Aurorastation/Aurora.3)**
 
-[![Krihelimeter](http://www.krihelinator.xyz/badge/Aurorastation/Aurora.3)](http://www.krihelinator.xyz/repositories/Aurorastation/Aurora.3)
-
-[![Build Status](https://api.travis-ci.org/Aurorastation/Aurora.3.svg?branch=master)](https://travis-ci.org/Aurorastation/Aurora.3)
+[![Build Status](https://drone.wetskrell.org/api/badges/Aurorastation/Aurora.3/status.svg?branch=master)](https://drone.wetskrell.org/Aurorastation/Aurora.3)
 
 ---
 
@@ -48,7 +46,7 @@ If you see any errors or warnings, something has gone wrong - possibly a corrupt
 
 Once that's done, open up the config folder.  You'll want to edit config.txt to set the probabilities for different gamemodes in Secret and to set your server location so that all your players don't get disconnected at the end of each round.  It's recommended you don't turn on the gamemodes with probability 0, as they have various issues and aren't currently being tested, so they may have unknown and bizarre bugs.
 
-You'll also want to edit admins.txt to remove the default admins and add your own.  "Game Master" is the highest level of access, and the other recommended admin levels for now are "Game Admin" and "Moderator".  The format is:
+You'll also want to edit admins.txt to remove the default admins and add your own.  "Head Admin/Dev" is the highest level of access, and the other recommended admin levels for now are "Primary Administrator", "Secondary Administrator" and "Moderator".  The format is:
 
     byondkey - Rank
 
