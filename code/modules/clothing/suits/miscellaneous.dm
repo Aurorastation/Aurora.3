@@ -55,14 +55,14 @@
 	item_state = "death"
 	flags = CONDUCT
 	fire_resist = T0C+5200
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/justice
 	name = "justice suit"
 	desc = "This pretty much looks ridiculous."
 	icon_state = "justice"
 	item_state = "justice"
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
 /obj/item/clothing/suit/judgerobe
@@ -89,7 +89,7 @@
 	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
 	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
 /obj/item/clothing/suit/imperium_monk
@@ -117,7 +117,7 @@
 	icon_state = "monkeysuit"
 	item_state = "monkeysuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 1.5
 
 
@@ -154,7 +154,7 @@
 	icon_state = "straight_jacket"
 	item_state = "straight_jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
@@ -189,7 +189,7 @@
 	icon_state = "xenos"
 	item_state = "xenos_helm"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 1.5
 
 /obj/item/clothing/suit/storage/toggle/bomber
@@ -259,12 +259,20 @@
 	desc = "A Tau Ceti Foreign Legion pilot's jacket. This is the more common, less durable variety, which typically finds itself percolating amongst all ranks of the TCFL."
 	icon_state = "lflight"
 	item_state = "lflight"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
-	armor = list(melee = 40, bullet = 10, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military

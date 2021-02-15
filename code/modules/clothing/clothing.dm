@@ -335,7 +335,7 @@
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
 		)
 	siemens_coefficient = 0.75
-	var/wired = 0
+	var/wired = FALSE
 	var/obj/item/cell/cell = 0
 	var/clipped = 0
 	var/fingerprint_chance = 0
@@ -372,7 +372,7 @@
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
 	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
-		if (clipped)
+		if(clipped)
 			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
 			update_icon()
 			return
@@ -936,7 +936,6 @@
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
 
-
 /obj/item/clothing/under/examine(mob/user)
 	..(user)
 	switch(src.sensor_mode)
@@ -1075,4 +1074,4 @@
 	gender = NEUTER
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
-	var/undergloves = 1
+	var/undergloves = TRUE

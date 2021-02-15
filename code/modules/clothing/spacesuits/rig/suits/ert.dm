@@ -10,7 +10,15 @@
 	emp_protection = 35
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 	req_access = list(access_cent_specops)
-	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.1
 	allowed = list(
 	/obj/item/device/flashlight, /obj/item/tank, /obj/item/device/t_scanner, /obj/item/rfd/construction, /obj/item/crowbar, \
@@ -33,7 +41,15 @@
 	suit_type = "ERT engineer"
 	icon_state = "ert_engineer_rig"
 	emp_protection = 30
-	armor = list(melee = 55, bullet = 45, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	glove_type = /obj/item/clothing/gloves/rig/eva
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -51,7 +67,15 @@
 	suit_type = "ERT medic"
 	icon_state = "ert_medical_rig"
 	emp_protection = 30
-	armor = list(melee = 55, bullet = 45, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/medhud,
@@ -69,7 +93,15 @@
 	suit_type = "ERT security"
 	icon_state = "ert_security_rig"
 	emp_protection = 30
-	armor = list(melee = 65, bullet = 55, laser = 40, energy = 15, bomb = 30, bio = 100, rad = 80)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/sechud,
@@ -93,7 +125,15 @@
 		/obj/item/rig_module/device/decompiler,
 		/obj/item/rig_module/actuators
 		)
-	armor = list(melee = 55, bullet = 45, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/ert/assetprotection
@@ -101,7 +141,15 @@
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armored and space ready."
 	suit_type = "heavy asset protection"
 	icon_state = "asset_protection_rig"
-	armor = list(melee = 80, bullet = 75, laser = 60, energy = 40, bomb = 80, bio = 100, rad =100)
+	armor = list(
+		melee = ARMOR_MELEE_SHIELDED,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLES,
+		energy = ARMOR_ENERGY_STRONG,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	slowdown = 0
 	emp_protection = 50
 

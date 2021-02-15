@@ -248,7 +248,7 @@
 
 	if ((world.time - last_shake) > 5 SECONDS)
 		playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
-		animate_shake()
+		shake_animation()
 		last_shake = world.time
 
 	if (!req_breakout())
@@ -274,11 +274,11 @@
 		return
 
 	breakout = FALSE
-	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>")
+	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>") // holy shit this is hilarious
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
 	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
 	break_open()
-	animate_shake()
+	shake_animation()
 	desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
 
 // We are out finally, the bubble is ripped. So dump everything out from it. Especially air and user.

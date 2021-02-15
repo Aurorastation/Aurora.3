@@ -41,7 +41,6 @@
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
 	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
-	var/list/armor //= list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)	If null, object has 0 armor.
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink // All items can have an uplink hidden inside, just remember to add the triggers.
 	var/zoomdevicename //name used for message when binoculars/scope is used
@@ -56,6 +55,9 @@
 	var/pickup_sound = /decl/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
+
+	var/list/armor
+	var/armor_degradation_speed //How fast armor will degrade, multiplier to blocked damage to get armor damage value.
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -95,6 +97,14 @@
 	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
 	// Its vital that if you make new power tools or new recipies that you include this
 
+/obj/item/Initialize()
+	. = ..()
+	if(islist(armor))
+		for(var/type in armor)
+			if(armor[type])
+				AddComponent(/datum/component/armor, armor, armor_degradation_speed)
+				break
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -104,12 +114,17 @@
 		src.loc = null
 	return ..()
 
+/obj/item/update_icon()
+	. = ..()
+	if(build_from_parts)
+		cut_overlays()
+		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi',
 		)
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
@@ -372,7 +387,8 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_r_ear]" = SLOT_EARS|SLOT_TWOEARS,
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
-	"[slot_tie]" = SLOT_TIE
+	"[slot_tie]" = SLOT_TIE,
+	"[slot_wrists]" = SLOT_WRISTS
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -762,6 +778,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.update_inv_pockets()
 		if (slot_s_store)
 			M.update_inv_s_store()
+		if (slot_wrists)
+			M.update_inv_wrists()
 
 // Attacks mobs that are adjacent to the target and user.
 /obj/item/proc/cleave(var/mob/living/user, var/mob/living/target)
@@ -846,3 +864,13 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/extinguish_fire()
 	return
+
+/obj/item/proc/get_print_info(var/no_clear = TRUE)
+	if(no_clear)
+		. = ""
+	. += "Damage: [force]<br>"
+	. += "Damage Type: [damtype]<br>"
+	. += "Sharp: [sharp ? "yes" : "no"]<br>"
+	. += "Dismemberment: [edge ? "likely to dismember" : "unlikely to dismember"]<br>"
+	. += "Penetration: [armor_penetration]<br>"
+	. += "Throw Force: [throwforce]<br>"

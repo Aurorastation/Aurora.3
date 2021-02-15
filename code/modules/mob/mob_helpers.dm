@@ -45,6 +45,13 @@
 		return 1
 	return 0
 
+/proc/isgolem(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(istype(H.species, /datum/species/golem))
+			return TRUE
+	return FALSE
+
 /proc/isunathi(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
@@ -109,6 +116,13 @@
 /mob/living/carbon/alien/diona/is_diona()
 	return DIONA_NYMPH
 
+/proc/is_mob_special(A) // determines special mobs. has restrictions on certain things, like welderbombing
+	if(isrevenant(A))
+		return TRUE
+	if(iszombie(A))
+		return TRUE
+	return FALSE
+
 /proc/isskeleton(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
 		return 1
@@ -138,6 +152,14 @@
 				return TRUE
 	if(iszombie(A))
 		return TRUE
+	return FALSE
+
+/proc/isrevenant(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_REVENANT)
+				return TRUE
 	return FALSE
 
 /proc/islesserform(A)
@@ -746,6 +768,8 @@ proc/is_blind(A)
 		return slot_l_ear
 	else if (H.shoes == src)
 		return slot_shoes
+	else if (H.wrists == src)
+		return slot_wrists
 	else
 		return null//We failed to find the slot
 
@@ -1182,3 +1206,10 @@ proc/is_blind(A)
 
 /mob/proc/get_antag_datum(var/antag_role)
 	return
+
+/mob/proc/in_neck_grab()
+	for(var/thing in grabbed_by)
+		var/obj/item/grab/G = thing
+		if(G.state >= GRAB_NECK)
+			return TRUE
+	return FALSE

@@ -791,6 +791,9 @@ default behaviour is:
 	if(last_special + 1 SECOND > world.time)
 		to_chat(src, SPAN_WARNING("You're too tired to do this now!"))
 		return
+	if(in_neck_grab())
+		to_chat(src, SPAN_WARNING("You are being restrained!"))
+		return
 	last_special = world.time
 	resting = !resting
 	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
@@ -1015,3 +1018,6 @@ default behaviour is:
 
 /mob/living/set_respawn_time()
 	set_death_time(CREW, world.time)
+//Used by simple animals and monkey species for renaming. M is the one doing the renaming
+/mob/living/proc/can_name(var/mob/living/M)
+	return FALSE

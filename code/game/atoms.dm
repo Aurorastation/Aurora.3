@@ -49,10 +49,10 @@
 	else
 		return null
 
-//Will return the contents of an atom recursivly to a depth of 'searchDepth'
-/atom/proc/GetAllContents(searchDepth = 5)
+//Will return the contents of an atom recursively to a depth of 'searchDepth'
+/atom/proc/GetAllContents(searchDepth = 5, checkClient = 1, checkSight = 1, includeMobs = 1, includeObjects = 1)
 	var/list/L = list()
-	recursive_content_check(src, L, recursion_limit = searchDepth)
+	recursive_content_check(src, L, searchDepth, checkClient, checkSight, includeMobs, includeObjects)
 
 	return L
 
@@ -159,6 +159,11 @@
 		if (show_messages)
 			to_chat(user, "<span class='notice'>How do you propose doing that without hands?</span>")
 		return USE_FAIL_IS_SILICON
+
+	if (HAS_FLAG(USE_DISALLOW_SPECIALS) && is_mob_special(user))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>Your current mob type prevents you from doing this.</span>")
+		return USE_FAIL_IS_MOB_SPECIAL
 
 	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
 		if (show_messages)

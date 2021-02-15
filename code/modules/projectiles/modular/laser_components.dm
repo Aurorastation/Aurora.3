@@ -445,3 +445,11 @@
 	icon_state = "xray"
 	firing_sound = 'sound/weapons/plasma_cutter.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_PHORON = 4, TECH_ILLEGAL = 4)
+
+/obj/item/laser_components/modulator/freeze
+	name = "freeze ray modulator"
+	desc = "Modulates the beam into freezing rays."
+	projectile = /obj/item/projectile/beam/freezer
+	icon_state = "blue"
+	firing_sound = 'sound/weapons/pulse3.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 5, TECH_MATERIAL = 4)

@@ -27,6 +27,7 @@
 	var/skipmask = skipitems & HIDEMASK
 	var/skipeyes = skipitems & HIDEEYES
 	var/skipears = skipitems & HIDEEARS
+	var/skipwrists = skipitems & HIDEWRISTS
 
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
@@ -53,7 +54,7 @@
 				for(var/accessory in U.accessories)
 					if(istype(accessory, /obj/item/clothing/accessory/holster)) //so you can't see what kind of gun a holster is holding from afar
 						accessory_descs += "\a [accessory]"
-					else	
+					else
 						accessory_descs += "<a href='?src=\ref[src];lookitem_desc_only=\ref[accessory]'>\a [accessory]</a>"
 
 				tie_msg += " [lowertext(english_list(accessory_descs))]"
@@ -194,10 +195,14 @@
 		var/id_name = wear_id
 		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_id, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_id]'>\a [id_name]</a>.\n"
 
-	//Open storage
+	//wrists
+	if(wrists && !skipwrists)
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wrists]'>\a [wrists]</a> on [get_pronoun("his")] [wrists.gender==PLURAL?"wrists":"wrist"].\n"
+
+  //Open storage
 	if(s_active && !(s_active == (l_store || r_store)))
 		msg += SPAN_NOTICE("[get_pronoun("He")] is looking at \the [s_active].") + "\n"
-	
+
 	//Jitters
 	if(is_jittery)
 		if(jitteriness >= 300)

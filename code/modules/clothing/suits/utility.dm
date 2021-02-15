@@ -21,7 +21,7 @@
 	siemens_coefficient = 0.5
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/extinguisher)
 	slowdown = 1.0
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
@@ -59,7 +59,13 @@
 	icon_state = "bombsuit"
 	w_class = ITEMSIZE_HUGE//Too large to fit in a backpack
 	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL|BLOCK_GAS_SMOKE_EFFECT
-	armor = list(melee = 30, bullet = 20, laser = 25,energy = 30, bomb = 100, bio = 60, rad = 60)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH, 
+		bullet = ARMOR_BALLISTIC_MINOR, 
+		laser = ARMOR_LASER_SMALL, 
+		energy = ARMOR_ENERGY_RESISTANT, 
+		bomb = ARMOR_BOMB_SHIELDED
+	)
 	siemens_coefficient = 0.1
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|FACE|EYES
@@ -81,7 +87,13 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	slowdown = 8
-	armor = list(melee = 55, bullet = 55, laser = 55,energy = 60, bomb = 100, bio = 60, rad = 60)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH, 
+		bullet = ARMOR_BALLISTIC_MINOR, 
+		laser = ARMOR_LASER_SMALL, 
+		energy = ARMOR_ENERGY_RESISTANT, 
+		bomb = ARMOR_BOMB_SHIELDED
+	)
 	siemens_coefficient = 0.1
 	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
@@ -177,7 +189,10 @@
 	desc = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT, 
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.35
 
 
@@ -192,7 +207,10 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
 	slowdown = 1.5
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT, 
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.35
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 

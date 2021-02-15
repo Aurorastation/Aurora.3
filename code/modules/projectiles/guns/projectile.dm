@@ -268,3 +268,26 @@
 	if(chambered)
 		bullets += 1
 	return bullets
+
+/obj/item/gun/projectile/get_print_info()
+	. = ""
+	if(load_method & (SINGLE_CASING|SPEEDLOADER))
+		. += "Load Type: Single Casing or Speedloader<br>"
+		. += "Max Shots: [max_shells]<br>"
+		if(length(loaded))
+			var/obj/item/ammo_casing/casing = loaded[1]
+			var/obj/item/projectile/P = new casing.projectile_type
+			. += "<br><b>Projectile</b><br>"
+			. += P.get_print_info()
+		else
+			. += "No ammunition loaded.<br>"
+	else
+		. += "Load Type: Magazine<br>"
+		if(ammo_magazine)
+			var/obj/item/ammo_casing/casing = new ammo_magazine.ammo_type
+			var/obj/item/projectile/P = new casing.projectile_type
+			. += "<br><b>Projectile</b><br>"
+			. += P.get_print_info()
+		else
+			. += "No magazine inserted.<br>"
+	. += ..(FALSE)
