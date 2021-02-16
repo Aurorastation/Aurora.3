@@ -1333,6 +1333,12 @@
 	set hidden = 1
 	set_face_dir(client.client_dir(WEST))
 
+/mob/verb/unique_action()
+	set hidden = 1
+	var/obj/item/gun/dakka = get_active_hand()
+	if(istype(dakka))
+		dakka.unique_action(src)
+
 /mob/proc/adjustEarDamage()
 	return
 

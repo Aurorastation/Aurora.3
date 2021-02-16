@@ -64,7 +64,7 @@
 		return chambered.BB
 	return null
 
-/obj/item/gun/projectile/shotgun/pump/attack_self(mob/living/user)
+/obj/item/gun/projectile/shotgun/pump/unique_action(mob/living/user)
 	if(jam_num)
 		return ..()
 	else if(unjam_cooldown + 2 SECONDS > world.time)
@@ -146,7 +146,7 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel"
 
-/obj/item/gun/projectile/shotgun/doublebarrel/attack_self(mob/user)
+/obj/item/gun/projectile/shotgun/doublebarrel/unique_action(mob/user)
 	unload_ammo(user, TRUE)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/AltClick(mob/user)
@@ -229,7 +229,7 @@
 	to_chat(user, "You [folded ? "fold" : "unfold"] \the [src].")
 	update_icon()
 
-/obj/item/gun/projectile/shotgun/foldable/attack_self(mob/living/user)
+/obj/item/gun/projectile/shotgun/foldable/unique_action(mob/living/user)
 	toggle_folded(user)
 
 /obj/item/gun/projectile/shotgun/foldable/special_check(mob/user)
