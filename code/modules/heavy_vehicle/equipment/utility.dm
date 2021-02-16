@@ -89,7 +89,7 @@
 			return
 		if(istype(target, /obj))
 			var/obj/O = target
-			if(O.buckled_mob)
+			if(O.buckled)
 				return
 			if(locate(/mob/living) in O)
 				to_chat(user, SPAN_WARNING("You can't load living things into the cargo compartment."))

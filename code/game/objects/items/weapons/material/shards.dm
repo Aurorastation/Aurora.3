@@ -62,7 +62,7 @@
 	if(isliving(AM))
 		var/mob/M = AM
 
-		if(M.buckled) //wheelchairs, office chairs, rollerbeds
+		if(M.buckled_to) //wheelchairs, office chairs, rollerbeds
 			return
 
 		to_chat(M, SPAN_DANGER("You step on \the [src]!"))

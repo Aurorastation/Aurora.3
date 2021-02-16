@@ -187,7 +187,7 @@
 /obj/structure/closet/proc/store_mobs(var/stored_units)
 	var/added_units = 0
 	for(var/mob/living/M in loc)
-		if(M.buckled || M.pinned.len)
+		if(M.buckled_to || M.pinned.len)
 			continue
 		if(M.mob_size >= maximum_mob_size)
 			continue

@@ -52,7 +52,7 @@
 			E.process()
 			number_wounds += E.number_wounds
 
-			if (!lying && !buckled && world.time - l_move_time < 15)
+			if (!lying && !buckled_to && world.time - l_move_time < 15)
 			//Moving around with fractured ribs won't do you any good
 				if (prob(10) && !stat && can_feel_pain() && E.is_broken() && E.internal_organs.len)
 					var/obj/item/organ/I = pick(E.internal_organs)
@@ -79,8 +79,8 @@
 	if(next_stance_collapse > world.time)
 		return
 
-	// Buckled to a bed/chair. Stance damage is forced to 0 since they're sitting on something solid
-	if (istype(buckled, /obj/structure/bed))
+	// buckled_to to a bed/chair. Stance damage is forced to 0 since they're sitting on something solid
+	if (istype(buckled_to, /obj/structure/bed))
 		return
 
 	for(var/limb_tag in list(BP_L_LEG,BP_R_LEG,BP_L_FOOT,BP_R_FOOT))

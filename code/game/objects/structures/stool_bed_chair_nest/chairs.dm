@@ -8,7 +8,7 @@
 	build_amt = 1
 
 	buckle_dir = 0
-	buckle_lying = 0 //force people to sit up in chairs when buckled
+	buckle_lying = 0 //force people to sit up in chairs when buckled_to
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
@@ -28,11 +28,11 @@
 		qdel(src)
 
 /obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
-	if(!buckled_mob && user)
+	if(!buckled && user)
 		rotate(user)
 	return TRUE
 
-/obj/structure/bed/chair/post_buckle_mob()
+/obj/structure/bed/chair/post_buckle()
 	update_icon()
 	return ..()
 
@@ -60,7 +60,7 @@
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
 
-	if(buckled_mob)
+	if(buckled)
 		cache_key = "[base_icon]-[material.name]-armrest"
 		if(!stool_cache[cache_key])
 			var/image/I = image(icon, "[base_icon]_armrest")
@@ -81,8 +81,8 @@
 
 /obj/structure/bed/chair/set_dir()
 	. = ..()
-	if(buckled_mob)
-		buckled_mob.set_dir(dir)
+	if(buckled)
+		buckled.set_dir(dir)
 
 // Leaving this in for the sake of compilation.
 /obj/structure/bed/chair/comfy
@@ -135,26 +135,26 @@
 	. = ..()
 	if(makes_rolling_sound)
 		playsound(src, 'sound/effects/roll.ogg', 100, 1)
-	if(buckled_mob)
-		var/mob/living/occupant = buckled_mob
-		occupant.buckled = null
+	if(buckled)
+		var/mob/living/occupant = buckled
+		occupant.buckled_to = null
 		occupant.Move(src.loc)
-		occupant.buckled = src
+		occupant.buckled_to = src
 		if (occupant && (src.loc != occupant.loc))
 			if (propelled)
 				for (var/mob/O in src.loc)
 					if (O != occupant)
 						Collide(O)
 			else
-				unbuckle_mob()
+				unbuckle()
 
 /obj/structure/bed/chair/office/Collide(atom/A)
 	. = ..()
-	if(!buckled_mob)
+	if(!buckled)
 		return
 
 	if(propelled)
-		var/mob/living/occupant = unbuckle_mob()
+		var/mob/living/occupant = unbuckle()
 
 		var/def_zone = ran_zone()
 		occupant.throw_at(A, 3, propelled)
@@ -256,8 +256,8 @@
 	can_dismantle = FALSE
 	anchored = TRUE
 
-/obj/structure/bed/chair/shuttle/post_buckle_mob()
-	if(buckled_mob)
+/obj/structure/bed/chair/shuttle/post_buckle()
+	if(buckled)
 		base_icon = "shuttlechair-b"
 	else
 		base_icon = "shuttlechair"
@@ -265,7 +265,7 @@
 
 /obj/structure/bed/chair/shuttle/update_icon()
 	..()
-	if(!buckled_mob)
+	if(!buckled)
 		var/image/I = image(icon, "[base_icon]_special")
 		I.layer = ABOVE_MOB_LAYER
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
@@ -281,14 +281,14 @@
 /obj/structure/bed/chair/pool/update_icon()
 	return
 
-/obj/structure/bed/chair/pool/buckle_mob(mob/living/M)
+/obj/structure/bed/chair/pool/buckle(mob/living/M)
 	if(!iscarbon(M))
 		return FALSE
 	return ..()
 
-/obj/structure/bed/chair/pool/post_buckle_mob(mob/living/M)
+/obj/structure/bed/chair/pool/post_buckle(mob/living/M)
 	. = ..()
-	if(M == buckled_mob)
+	if(M == buckled)
 		M.pixel_y = -6
 	else
 		M.pixel_y = initial(M.pixel_y)

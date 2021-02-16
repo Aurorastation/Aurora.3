@@ -274,9 +274,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
-	if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
-		character.buckled.forceMove(character.loc)
-		character.buckled.set_dir(character.dir)
+	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/chair/wheelchair))
+		character.buckled_to.forceMove(character.loc)
+		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))
