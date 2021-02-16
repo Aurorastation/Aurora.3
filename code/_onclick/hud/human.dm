@@ -370,15 +370,15 @@
 	mymob.radio_use_icon.alpha = ui_alpha
 
 	mymob.toggle_burst_fire_icon = new /obj/screen/gun/burstfire(null)
-	mymob.radio_use_icon.icon = ui_style
-	mymob.radio_use_icon.color = ui_color
-	mymob.radio_use_icon.alpha = ui_alpha
+	mymob.toggle_burst_fire_icon.icon = ui_style
+	mymob.toggle_burst_fire_icon.color = ui_color
+	mymob.toggle_burst_fire_icon.alpha = ui_alpha
 	hud_elements |= mymob.toggle_burst_fire_icon
 
 	mymob.unique_action_icon = new /obj/screen/gun/uniqueaction(null)
-	mymob.radio_use_icon.icon = ui_style
-	mymob.radio_use_icon.color = ui_color
-	mymob.radio_use_icon.alpha = ui_alpha
+	mymob.unique_action_icon.icon = ui_style
+	mymob.unique_action_icon.color = ui_color
+	mymob.unique_action_icon.alpha = ui_alpha
 	hud_elements |= mymob.unique_action_icon
 
 	mymob.client.screen = null

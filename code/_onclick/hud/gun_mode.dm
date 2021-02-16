@@ -67,7 +67,7 @@
 
 /obj/screen/gun/burstfire
 	name = "Toggle Burst Fire"
-	desc = "This can be put into a macro by using toggle-burst-sfire."
+	desc = "This can be used in a macro as toggle-burst-fire."
 	icon_state = "toggle_burst_fire"
 	screen_loc = ui_burstfire
 
@@ -81,7 +81,7 @@
 
 /obj/screen/gun/uniqueaction
 	name = "Unique Action"
-	desc = "This can be put into a macro by using unique-action."
+	desc = "This can be used in a macro as unique-action."
 	icon_state = "unique_action"
 	screen_loc = ui_uniqueaction
 
