@@ -158,6 +158,8 @@ for reference:
 		if(P.firer && Adjacent(P.firer))
 			return TRUE
 		return prob(35)
+	if(isliving(mover))
+		return FALSE
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return TRUE
 	return FALSE
