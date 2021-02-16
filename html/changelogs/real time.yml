@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "Station time is now based of Galactic Standard Time (CST IRL)."
+  - rscdel: "Removed automated nightlighting. Nightlighting can still be enabled via the lighting control program, and via individual APCs."
