@@ -4,4 +4,4 @@
 --
 
 ALTER TABLE `ss13_characters`
-	ADD COLUMN `pronouns` varchar(7) DEFAULT NULL AFTER `gender`
+	ADD COLUMN `pronouns` varchar(12) DEFAULT NULL AFTER `gender`
