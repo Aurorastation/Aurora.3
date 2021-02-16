@@ -26,6 +26,8 @@
 		if(do_after(user, 30, act_target = src))	//SHIT IS STEALTHY EYYYYY
 			sawing_in_progress = FALSE
 			saw_off(user, A)
+		else
+			sawing_in_progress = FALSE
 	else
 		..()
 
@@ -38,7 +40,7 @@
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
 	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  After firing, you will need to pump the gun, by clicking on the gun in your hand.  To reload, load more shotgun \
+	then click where you want to fire.  After firing, you will need to pump the gun, by using the unique-action verb.  To reload, load more shotgun \
 	shells into the gun."
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
@@ -66,7 +68,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/unique_action(mob/living/user)
 	if(jam_num)
-		return ..()
+		return
 	else if(unjam_cooldown + 2 SECONDS > world.time)
 		return
 	if(world.time >= recentpump + 10)

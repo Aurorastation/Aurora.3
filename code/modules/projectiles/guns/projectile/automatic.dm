@@ -280,8 +280,7 @@
 	update_icon()
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/unique_action(mob/user)
-	if(cover_open)
-		toggle_cover(user) //close the cover
+	toggle_cover(user)
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/toggle_firing_mode(mob/user)
 	if(cover_open)

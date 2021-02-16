@@ -183,6 +183,7 @@
 /obj/item/gun/proc/toggle_firing_mode(var/mob/user, var/list/message_mobs)
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
+		playsound(user, safetyoff_sound, 25)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
 	for(var/M in message_mobs)
 		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
