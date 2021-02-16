@@ -15,7 +15,8 @@
 	var/age_min = 17
 	var/age_max = 85
 	var/economic_modifier = 0
-	var/list/default_genders = list(MALE, FEMALE, PLURAL)
+	var/list/default_genders = list(MALE, FEMALE)
+	var/list/selectable_pronouns = list(MATCH_GENDER, MALE, FEMALE, PLURAL)
 
 	// Icon/appearance vars.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
@@ -423,6 +424,8 @@
 			H.dna.SetSEState(MONKEYBLOCK,0)
 	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
 		H.gender = pick(default_genders)
+	if(!H.client || H.client.prefs.pronouns == MATCH_GENDER)
+		H.pronouns = H.gender
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
