@@ -124,7 +124,7 @@
 			user.visible_message("<b>[user]</b> aims \the [src] between [P] ribs!", SPAN_NOTICE("You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return
-			var/blocked = H.getarmor_organ(H.organs_by_name[BP_CHEST], "melee")
+			var/blocked = H.get_blocked_ratio(BP_CHEST, BRUTE, DAM_SHARP, damage = 5)
 			if(blocked > 20)
 				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
 				return
@@ -306,7 +306,8 @@
 		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
 			return
 
-		if (target != user && H.getarmor(target_zone, "melee") > 5 && prob(50))
+		var/armor = H.get_blocked_ratio(target_zone, BRUTE, damage_flags = DAM_SHARP, damage = 5)*100
+		if (target != user && armor > 50 && prob(50))
 			for(var/mob/O in viewers(world.view, user))
 				O.show_message(text(SPAN_DANGER("[user] tries to stab [target] in \the [hit_area] with [src.name], but the attack is deflected by armor!")), 1)
 			user.remove_from_mob(src)

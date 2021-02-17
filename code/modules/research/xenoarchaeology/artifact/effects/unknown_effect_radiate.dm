@@ -26,6 +26,6 @@
 	if(holder)
 		var/turf/T = get_turf(holder)
 		for (var/mob/living/M in range(src.effectrange,T))
-			M.apply_effect(radiation_amount * 25,IRRADIATE,blocked = M.getarmor(null, "rad"))
+			M.apply_damage(radiation_amount * 25, IRRADIATE, damage_flags = DAM_DISPERSED)
 			M.updatehealth()
 		return 1

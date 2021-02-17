@@ -396,9 +396,9 @@
 
 /obj/machinery/power/port_gen/pacman/super/UseFuel()
 	//produces a tiny amount of radiation when in use
-	if (prob(2*power_output))
+	if (prob(2 * power_output))
 		for (var/mob/living/L in range(src, 5))
-			L.apply_effect(1, IRRADIATE, blocked = L.getarmor(null, "rad")) //should amount to ~5 rads per minute at max safe power
+			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
 	..()
 
 /obj/machinery/power/port_gen/pacman/super/explode()
@@ -407,7 +407,7 @@
 	for (var/mob/living/L in range(src, 10))
 		//should really fall with the square of the distance, but that makes the rads value drop too fast
 		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
-		L.apply_effect(max(20, round(rads/get_dist(L,src))), IRRADIATE, blocked = L.getarmor(null, "rad"))
+		L.apply_damage(max(20, round(rads/get_dist(L,src))), IRRADIATE, damage_flags = DAM_DISPERSED)
 
 	explosion(loc, 3, 3, 5, 3)
 	qdel(src)

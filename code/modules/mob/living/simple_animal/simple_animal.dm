@@ -272,7 +272,7 @@
 		return
 
 	if(!stop_automated_movement && wander && !anchored)
-		if(isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
 				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
 				moving_to = pick(cardinal)
@@ -549,7 +549,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	user.do_attack_animation(src)
 	return TRUE
 
-/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
 	. = ..()
 	handle_blood_overlay()
 
@@ -614,8 +614,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	switch (severity)
 		if (1.0)
 			damage = 500
-			if(!prob(getarmor(null, "bomb")))
-				gib()
 
 		if (2.0)
 			damage = 120
@@ -623,7 +621,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		if(3.0)
 			damage = 30
 
-	adjustBruteLoss(damage * BLOCKED_MULT(getarmor(null, "bomb")))
+	apply_damage(damage, BRUTE, damage_flags = DAM_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))

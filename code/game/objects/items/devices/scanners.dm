@@ -687,6 +687,7 @@ BREATH ANALYZER
 		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
 		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
 		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
 		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),

@@ -21,7 +21,7 @@
 /obj/item/modular_computer/handheld/wristbound/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.gloves == src || H.wear_id == src)
+		if(H.wrists == src || H.wear_id == src)
 			return attack_self(user)
 	..()
 

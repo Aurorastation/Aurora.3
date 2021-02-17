@@ -20,7 +20,7 @@
 		if("custom")
 			return custom_emote(m_type, message)
 		if("salute")
-			if(!buckled)
+			if(!buckled_to)
 				var/M
 				if(param)
 					for(var/mob/A in view(null, null))
@@ -35,7 +35,7 @@
 					message = "salutes."
 			m_type = 1
 		if("bow")
-			if(!buckled)
+			if(!buckled_to)
 				var/M
 				if(param)
 					for(var/mob/A in view(null, null))

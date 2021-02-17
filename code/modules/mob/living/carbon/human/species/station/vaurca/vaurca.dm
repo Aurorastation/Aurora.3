@@ -155,3 +155,6 @@
 
 /datum/species/bug/has_psi_potential()
 	return FALSE
+	
+/datum/species/bug/is_naturally_insulated()
+	return TRUE

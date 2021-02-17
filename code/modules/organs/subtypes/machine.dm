@@ -109,7 +109,7 @@
 	if(world.time - owner.l_move_time < 15)
 		cost *= 2
 	if(!checked_use(cost) && owner.isSynthetic())
-		if(!owner.lying && !owner.buckled)
+		if(!owner.lying && !owner.buckled_to)
 			to_chat(owner, "<span class='warning'>You don't have enough energy to function!</span>")
 		owner.Paralyse(3)
 

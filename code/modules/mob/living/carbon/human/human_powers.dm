@@ -59,7 +59,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(last_special > world.time)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot tackle someone in your current state.")
 		return
 
@@ -78,7 +78,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(last_special > world.time)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot tackle in your current state.")
 		return
 
@@ -115,7 +115,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='warning'>You're already leaping!</span>")
 		return FALSE
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "<span class='warning'>You cannot leap in your current state.</span>")
 		return FALSE
 
@@ -569,7 +569,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='danger'>Your spine still aches!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot launch a quill in your current state.")
 		return
 
@@ -689,7 +689,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='danger'>You are too tired to charge!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
 		return
 
@@ -739,7 +739,7 @@ mob/living/carbon/human/proc/change_monitor()
 		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 	if (!done && target.Enter(src, null))
-		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 			return 0
 
 		step(src, dir)
@@ -755,7 +755,7 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/crash_into(var/atom/A)
 	var/aname = A.name
 	var/oldtype = A.type
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		return 0
 
 	if (istype(A, /mob/living))
@@ -826,7 +826,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src,"<span class='notice'>You are too tired to spray napalm!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
 		return
 
@@ -1018,11 +1018,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 		last_special = world.time + 20
 
-		src.drop_from_inventory(O)
+		drop_from_inventory(O)
 		O.replaced(src)
-		src.update_body()
-		src.updatehealth()
-		src.UpdateDamageIcon()
+		update_body()
+		updatehealth()
+		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()

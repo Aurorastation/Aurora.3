@@ -82,7 +82,7 @@
 			)
 		L.gib()
 		originator.sated += L.mob_size*2
-	unbuckle_mob()
+	unbuckle()
 	captive = null
 	deployed = 1
 	originator.eating = 0

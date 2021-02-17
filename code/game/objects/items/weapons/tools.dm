@@ -168,8 +168,8 @@
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
-		if(C.buckled?.buckle_require_restraints)
-			C.buckled.unbuckle_mob()
+		if(C.buckled_to?.buckle_require_restraints)
+			C.buckled_to.unbuckle()
 		C.update_inv_handcuffed()
 		return
 	else
@@ -399,6 +399,9 @@
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
+		if(use_check(user, USE_DISALLOW_SPECIALS))
+			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
+			return
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
 			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
@@ -728,7 +731,8 @@
 	. = ..()
 	var/drillcolor = pick("red", "blue", "yellow", "green")
 	icon_state = "powerdrill[drillcolor]"
-	item_state = "powerdrill[drillcolor]"
+	item_state = icon_state
+	update_tool()
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -737,24 +741,30 @@
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
 
+/obj/item/powerdrill/MouseEntered(location, control, params)
+	. = ..()
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"] && get_dist(usr, src) <= 2)
+		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
+		openToolTip(usr, src, params, "Impact Drill:", "[capitalize(tools[current_tool])]")
+
+/obj/item/powerdrill/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
+
 /obj/item/powerdrill/iswrench()
-	usesound = 'sound/items/air_wrench.ogg'
 	return tools[current_tool] == "wrenchbit"
 
 /obj/item/powerdrill/isscrewdriver()
-	usesound = 'sound/items/drill_use.ogg'
 	return tools[current_tool] == "screwdriverbit"
 
-/obj/item/powerdrill/iscrowbar()
-	usesound = 'sound/items/drill_use.ogg'
-	return tools[current_tool] == "crowbarbit"
-
 /obj/item/powerdrill/proc/update_tool()
+	cut_overlays()
 	if(isscrewdriver())
-		cut_overlays()
+		usesound = 'sound/items/air_wrench.ogg'
 		add_overlay("screwdriverbit")
-	if(iswrench())
-		cut_overlays()
+	else if(iswrench())
+		usesound = 'sound/items/drill_use.ogg'
 		add_overlay("wrenchbit")
 
 /obj/item/powerdrill/attack_self(var/mob/user)

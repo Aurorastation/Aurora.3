@@ -197,7 +197,7 @@
 	if(istype(AM, /obj/vehicle))
 		var/obj/vehicle/V = AM
 		if(density)
-			if(V.buckled_mob && (src.allowed(V.buckled_mob)))
+			if(V.buckled && (src.allowed(V.buckled)))
 				open()
 			else
 				do_animate("deny")
@@ -399,11 +399,11 @@
 	if(src.health <= 0 && initialhealth > 0)
 		src.set_broken()
 	else if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
-		visible_message("\The [src] looks like it's about to break!" )
+		visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"))
 	else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
-		visible_message("\The [src] looks seriously damaged!" )
+		visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"))
 	else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
-		visible_message("\The [src] shows signs of damage!" )
+		visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
 	update_icon()
 	return
 
@@ -411,11 +411,11 @@
 /obj/machinery/door/examine(mob/user)
 	. = ..()
 	if(src.health < src.maxhealth / 4)
-		to_chat(user, "\The [src] looks like it's about to break!")
+		to_chat(user, SPAN_WARNING("\The [src] looks like it's about to break!"))
 	else if(src.health < src.maxhealth / 2)
-		to_chat(user, "\The [src] looks seriously damaged!")
+		to_chat(user, SPAN_WARNING("\The [src] looks seriously damaged!"))
 	else if(src.health < src.maxhealth * 3/4)
-		to_chat(user, "\The [src] shows signs of damage!")
+		to_chat(user, SPAN_WARNING("\The [src] shows signs of damage!"))
 
 
 /obj/machinery/door/proc/set_broken()

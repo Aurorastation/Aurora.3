@@ -259,12 +259,20 @@
 	desc = "A Tau Ceti Foreign Legion pilot's jacket. This is the more common, less durable variety, which typically finds itself percolating amongst all ranks of the TCFL."
 	icon_state = "lflight"
 	item_state = "lflight"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
-	armor = list(melee = 40, bullet = 10, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military

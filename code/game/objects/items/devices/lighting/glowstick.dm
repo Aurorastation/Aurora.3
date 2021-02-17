@@ -43,7 +43,7 @@
 		to_chat(user, SPAN_WARNING("You break \the [src] apart, spilling its contents everywhere!"))
 		fuel = 0
 		new /obj/effect/decal/cleanable/greenglow(get_turf(user))
-		user.apply_effect((rand(15,30)),IRRADIATE,blocked = user.getarmor(null, "rad"))
+		user.apply_damage(rand(15,30), IRRADIATE, damage_flags = DAM_DISPERSED)
 		qdel(src)
 		return
 
