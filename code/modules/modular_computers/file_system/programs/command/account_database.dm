@@ -12,13 +12,16 @@
 	color = LIGHT_COLOR_BLUE
 
 	var/machine_id = ""
+	var/centcomm_db = FALSE
 
-/datum/computer_file/program/account_db/New()
+/datum/computer_file/program/account_db/New(obj/item/modular_computer/comp, var/is_centcomm_db = FALSE)
 	..()
 	if(current_map)
 		machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
 	else
 		machine_id = "NT-Net Relay Back-up Software DB" // created during map generation inside the ntnet relay, not used by players
+
+	centcomm_db = is_centcomm_db
 
 /datum/computer_file/program/account_db/proc/get_held_card()
 	var/obj/item/card/id/held_card
@@ -84,7 +87,8 @@
 
 	data["accounts"] = list()
 	if(get_access_level())
-		for(var/M in SSeconomy.get_public_accounts())
+		var/list/SSeconomy_accounts = centcomm_db ? SSeconomy.all_money_accounts : SSeconomy.get_public_accounts()
+		for(var/M in SSeconomy_accounts)
 			var/datum/money_account/D = SSeconomy.get_account(M)
 			var/account_number = "[M]"
 			data["accounts"][account_number] = list()
@@ -234,7 +238,8 @@
 					<tbody>
 			"}
 
-			for(var/M in SSeconomy.get_public_accounts())
+			var/list/SSeconomy_accounts = centcomm_db ? SSeconomy.all_money_accounts : SSeconomy.get_public_accounts()
+			for(var/M in SSeconomy_accounts)
 				var/datum/money_account/D = SSeconomy.get_account(M)
 				text += {"
 						<tr>
