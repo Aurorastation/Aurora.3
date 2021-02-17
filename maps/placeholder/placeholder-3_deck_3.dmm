@@ -1771,12 +1771,7 @@
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/tcommsat/chamber)
 "gj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/theatre)
 "gk" = (
@@ -2122,6 +2117,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "io" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
 "ir" = (
@@ -3097,8 +3097,9 @@
 /turf/simulated/wall/placeholder_standard,
 /area/security/vacantoffice2)
 "ng" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/small,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/theatre)
 "nh" = (
@@ -3633,6 +3634,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
+"qs" = (
+/obj/effect/map_effect/airlock/e_to_w/long/square/wide,
+/turf/simulated/wall/shuttle/placeholder/cardinal,
+/area/template_noop)
 "qu" = (
 /obj/structure/table/rack,
 /obj/item/towel,
@@ -3668,8 +3673,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "qC" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/theatre)
@@ -3877,6 +3882,11 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
+"rN" = (
+/obj/structure/window/reinforced,
+/obj/machinery/computer/ship/engines,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "rO" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -4119,6 +4129,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
 "tv" = (
@@ -4212,9 +4223,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "tL" = (
-/obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
-	locked = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/theatre)
@@ -4755,6 +4768,9 @@
 "xb" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
@@ -5619,6 +5635,11 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/security/detectives_office)
+"Cs" = (
+/obj/structure/window/reinforced,
+/obj/machinery/computer/ship/helm,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "Cv" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -5811,6 +5832,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"DE" = (
+/obj/structure/window/reinforced,
+/obj/machinery/computer/ship/sensors,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "DG" = (
 /obj/structure/bed/chair/office/bridge,
 /obj/effect/floor_decal/corner/blue{
@@ -6386,6 +6412,12 @@
 /obj/structure/sign/biohazard,
 /turf/simulated/wall/placeholder_standard,
 /area/medical/ward/isolation)
+"HN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "HS" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/plating,
@@ -6451,6 +6483,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/theatre)
@@ -6664,6 +6699,10 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
+"Kf" = (
+/obj/effect/overmap/visitable/ship/placeholder,
+/turf/simulated/floor/tiled/dark,
+/area/bridge)
 "Kh" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -7061,6 +7100,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
+"MS" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/crew_quarters/theatre)
 "MU" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -7784,6 +7830,12 @@
 /obj/machinery/door/airlock/command,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Sb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "Sc" = (
 /obj/machinery/light{
 	dir = 4
@@ -7817,6 +7869,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
+"Sn" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/shipsensors{
+	pixel_y = 7
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge)
 "Ss" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -7999,6 +8058,12 @@
 /obj/machinery/ntnet_relay,
 /turf/simulated/floor/reinforced,
 /area/tcommsat/chamber)
+"TC" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "TD" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/bedsheet/medical{
@@ -8574,6 +8639,17 @@
 /obj/machinery/recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
+"XD" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/template_noop)
+"XH" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/crew_quarters/theatre)
 "XI" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/light{
@@ -20761,9 +20837,9 @@ at
 at
 at
 at
-at
-at
-at
+fh
+XD
+HN
 at
 at
 at
@@ -20963,9 +21039,9 @@ at
 at
 at
 at
-at
-at
-at
+fh
+XD
+HN
 at
 at
 at
@@ -21165,9 +21241,9 @@ at
 at
 at
 at
-at
-at
-at
+fh
+XD
+HN
 at
 at
 at
@@ -21366,11 +21442,11 @@ at
 at
 at
 at
-at
-at
-at
-at
-at
+Rh
+PF
+XD
+Sb
+TC
 at
 at
 at
@@ -21570,9 +21646,9 @@ at
 at
 QL
 WL
-tL
+EN
 WL
-QL
+qs
 at
 at
 at
@@ -21773,7 +21849,7 @@ sw
 DK
 Iu
 EN
-Iu
+XH
 eN
 eN
 sR
@@ -21975,7 +22051,7 @@ Ac
 yX
 Iu
 EN
-ng
+Iu
 Hz
 tO
 KJ
@@ -22175,9 +22251,9 @@ jG
 TS
 Ur
 yX
-Iu
+gj
 EN
-Iu
+gj
 Hz
 CO
 ZM
@@ -22377,9 +22453,9 @@ yX
 yX
 yX
 yX
-os
+ng
 tL
-os
+ng
 Hz
 jU
 QG
@@ -22579,9 +22655,9 @@ ec
 nD
 io
 Hz
-gj
+Op
 qC
-qC
+EN
 Hz
 jU
 ZM
@@ -22781,7 +22857,7 @@ eE
 ae
 xb
 tu
-Pa
+MS
 Ix
 Pa
 Nq
@@ -28469,7 +28545,7 @@ iA
 OG
 hu
 CK
-fh
+Sn
 Wm
 Wm
 Wm
@@ -28870,7 +28946,7 @@ qg
 gA
 wJ
 iA
-OG
+rN
 PQ
 uu
 fh
@@ -29067,12 +29143,12 @@ Fn
 Fn
 Fn
 ag
-qg
+Kf
 HC
 fW
 wJ
 di
-OG
+Cs
 PQ
 uu
 fh
@@ -29274,7 +29350,7 @@ qg
 gA
 wJ
 iA
-OG
+DE
 PQ
 uu
 fh

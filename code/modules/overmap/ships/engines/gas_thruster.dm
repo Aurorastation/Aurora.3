@@ -73,6 +73,13 @@
 	var/next_on
 	var/blockage
 
+/obj/machinery/atmospherics/unary/engine/placeholder
+	name = "placeholder thruster"
+	icon = 'icons/atmos/placeholder_engine.dmi'
+	icon_state = "engine_0"
+	opacity = FALSE
+	pixel_x = -64
+
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return 0
 

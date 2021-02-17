@@ -33,6 +33,8 @@
 	command_spawn_enabled = TRUE
 	command_spawn_message = "Welcome to the Shipyard!"
 
+	use_overmap = TRUE
+
 //These too are placeholders
 	station_networks = list(
 		NETWORK_DECK_ONE_AFT,

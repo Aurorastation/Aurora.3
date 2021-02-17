@@ -783,7 +783,7 @@
 	icon_state = "d3-2-f"
 	},
 /turf/space/dynamic,
-/area/maintenance/vault)
+/area/template_noop)
 "aOs" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/cable/green{
@@ -1500,12 +1500,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
-"bFG" = (
-/obj/structure/shuttle_part/placeholder{
-	icon_state = "d3-3"
-	},
-/turf/space/dynamic,
-/area/maintenance/vault)
 "bFN" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -1896,12 +1890,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_room)
-"ccb" = (
-/obj/structure/shuttle_part/placeholder{
-	icon_state = "d2-4"
-	},
-/turf/space/dynamic,
-/area/storage/primary)
 "ccl" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -2873,7 +2861,7 @@
 	icon_state = "d3-3"
 	},
 /turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
+/area/template_noop)
 "dnn" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3089,7 +3077,7 @@
 	icon_state = "d3-1-f"
 	},
 /turf/space/dynamic,
-/area/maintenance/vault)
+/area/template_noop)
 "dAw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4380,12 +4368,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"fgB" = (
-/obj/structure/shuttle_part/placeholder{
-	icon_state = "d3-2"
-	},
-/turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
 "fhD" = (
 /obj/machinery/door/airlock/glass_centcom,
 /turf/simulated/floor/tiled,
@@ -5384,12 +5366,6 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet,
 /area/library)
-"gjp" = (
-/obj/structure/shuttle_part/placeholder{
-	icon_state = "d3-1"
-	},
-/turf/space/dynamic,
-/area/maintenance/vault)
 "gjC" = (
 /obj/structure/shuttle_part/placeholder{
 	icon_state = "d3-5"
@@ -5781,12 +5757,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
-"gGz" = (
-/obj/structure/shuttle_part/placeholder{
-	icon_state = "d2-4-f"
-	},
-/turf/space/dynamic,
-/area/maintenance/vault)
 "gGJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -7174,7 +7144,7 @@
 	icon_state = "d3-2"
 	},
 /turf/space/dynamic,
-/area/maintenance/vault)
+/area/template_noop)
 "ioR" = (
 /obj/machinery/light{
 	dir = 4
@@ -8187,12 +8157,6 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/reinforced,
 /area/holodeck/alphadeck)
-"jEm" = (
-/obj/structure/shuttle_part/placeholder{
-	icon_state = "d2-3-f"
-	},
-/turf/space/dynamic,
-/area/security/main)
 "jEq" = (
 /obj/machinery/door/airlock/medical,
 /obj/structure/cable/green{
@@ -8753,7 +8717,7 @@
 	icon_state = "d2-3-f"
 	},
 /turf/space/dynamic,
-/area/maintenance/vault)
+/area/template_noop)
 "koA" = (
 /obj/item/modular_computer/console/preset/medical,
 /obj/effect/floor_decal/corner_wide/green{
@@ -10267,7 +10231,7 @@
 	icon_state = "d2-4-f"
 	},
 /turf/space/dynamic,
-/area/security/main)
+/area/template_noop)
 "mfV" = (
 /obj/structure/window/shuttle/placeholder,
 /obj/structure/grille,
@@ -12085,7 +12049,7 @@
 	icon_state = "d3-3-f"
 	},
 /turf/space/dynamic,
-/area/maintenance/vault)
+/area/template_noop)
 "ojV" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -15415,12 +15379,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
-"rTf" = (
-/obj/structure/shuttle_part/placeholder{
-	icon_state = "d2-3"
-	},
-/turf/space/dynamic,
-/area/storage/primary)
 "rTC" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -15604,7 +15562,7 @@
 	icon_state = "d2-3"
 	},
 /turf/space/dynamic,
-/area/maintenance/vault)
+/area/template_noop)
 "scG" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18164,7 +18122,7 @@
 	icon_state = "d3-1"
 	},
 /turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
+/area/template_noop)
 "vnC" = (
 /obj/structure/closet/secure_closet/security,
 /obj/machinery/light{
@@ -18738,7 +18696,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
+/area/template_noop)
 "vXy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -18931,7 +18889,7 @@
 	icon_state = "d2-4"
 	},
 /turf/space/dynamic,
-/area/maintenance/vault)
+/area/template_noop)
 "whs" = (
 /obj/machinery/light{
 	dir = 8
@@ -19227,7 +19185,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/template_noop)
+/area/maintenance/vault)
 "wzD" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
@@ -30812,7 +30770,7 @@ fzh
 fzh
 fzh
 dGz
-ccb
+whe
 qgN
 qgN
 qgN
@@ -31015,7 +30973,7 @@ fzh
 qWh
 nnu
 vfi
-rTf
+scx
 qgN
 qgN
 qgN
@@ -31217,7 +31175,7 @@ fzh
 mnt
 sAT
 lwl
-ccb
+whe
 qgN
 qgN
 qgN
@@ -31420,7 +31378,7 @@ pwt
 pwt
 tab
 vfi
-rTf
+scx
 qgN
 qgN
 qgN
@@ -31622,7 +31580,7 @@ tCG
 sAT
 woY
 rSP
-ccb
+whe
 qgN
 qgN
 qgN
@@ -31825,7 +31783,7 @@ cpl
 fzh
 fzh
 aCe
-rTf
+scx
 qgN
 qgN
 qgN
@@ -32027,7 +31985,7 @@ jUU
 myG
 myG
 gfX
-ccb
+whe
 qgN
 qgN
 qgN
@@ -32230,7 +32188,7 @@ jUU
 ydi
 jUU
 rpj
-rTf
+scx
 qgN
 qgN
 qgN
@@ -32432,7 +32390,7 @@ kzO
 jSP
 jUU
 hfx
-ccb
+whe
 qgN
 qgN
 qgN
@@ -32635,7 +32593,7 @@ hEP
 pKy
 myG
 rpj
-rTf
+scx
 qgN
 qgN
 qgN
@@ -32837,7 +32795,7 @@ yfL
 fzh
 fzh
 dGz
-ccb
+whe
 qgN
 qgN
 qgN
@@ -48546,7 +48504,7 @@ qgN
 qgN
 qgN
 qgN
-gjp
+vnz
 kEh
 hyS
 hyS
@@ -48950,7 +48908,7 @@ qgN
 qgN
 qgN
 qgN
-bFG
+dmK
 qvb
 hyS
 hyS
@@ -49153,7 +49111,7 @@ qgN
 qgN
 qgN
 qgN
-gjp
+vnz
 kEh
 hyS
 hyS
@@ -49401,7 +49359,7 @@ kbn
 smr
 kbn
 itt
-jEm
+kmx
 qgN
 qgN
 qgN
@@ -49557,7 +49515,7 @@ qgN
 qgN
 qgN
 qgN
-bFG
+dmK
 qvb
 hyS
 hyS
@@ -49804,7 +49762,7 @@ ifU
 kbn
 vPj
 itt
-jEm
+kmx
 qgN
 qgN
 qgN
@@ -49962,7 +49920,7 @@ qgN
 qgN
 qgN
 qgN
-fgB
+iox
 rFi
 oaQ
 yiV
@@ -50408,7 +50366,7 @@ hyS
 hyS
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -50569,7 +50527,7 @@ qgN
 qgN
 qgN
 qgN
-fgB
+iox
 rFi
 atQ
 ekM
@@ -50811,7 +50769,7 @@ ifU
 hyS
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -51214,7 +51172,7 @@ hyS
 hyS
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -51617,7 +51575,7 @@ hyS
 hyS
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -52020,7 +51978,7 @@ hyS
 hyS
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -52423,7 +52381,7 @@ hyS
 hyS
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -52826,7 +52784,7 @@ hyS
 hyS
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -52997,7 +52955,7 @@ qgN
 qgN
 qgN
 qgN
-fgB
+iox
 olJ
 kPA
 kPA
@@ -53199,7 +53157,7 @@ qgN
 qgN
 qgN
 qgN
-bFG
+dmK
 qvb
 hyS
 hyS
@@ -53229,7 +53187,7 @@ vlY
 pzB
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -53402,7 +53360,7 @@ qgN
 qgN
 qgN
 qgN
-gjp
+vnz
 kEh
 hyS
 hyS
@@ -53632,7 +53590,7 @@ dkR
 hyS
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -53806,7 +53764,7 @@ qgN
 qgN
 qgN
 qgN
-bFG
+dmK
 qvb
 hyS
 hyS
@@ -54009,7 +53967,7 @@ qgN
 qgN
 qgN
 qgN
-gjp
+vnz
 kEh
 hyS
 hyS
@@ -54035,7 +53993,7 @@ hyS
 dkR
 hyS
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -54413,7 +54371,7 @@ qgN
 qgN
 qgN
 qgN
-bFG
+dmK
 qvb
 hyS
 hyS
@@ -54438,7 +54396,7 @@ bgS
 hyS
 dkR
 wqG
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -54616,7 +54574,7 @@ qgN
 qgN
 qgN
 qgN
-gjp
+vnz
 ask
 dkR
 dkR
@@ -54841,7 +54799,7 @@ hyS
 bgS
 hyS
 svf
-gGz
+mfN
 qgN
 qgN
 qgN
@@ -55020,7 +54978,7 @@ qgN
 qgN
 qgN
 qgN
-bFG
+dmK
 qvb
 hyS
 hyS
