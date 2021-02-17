@@ -1,7 +1,7 @@
 //generic procs copied from obj/effect/alien
 /obj/effect/spider
 	name = "web"
-	desc = "It's stringy and sticky, eugh. Probably came from one of those giant spiders..."
+	desc = "It's stringy and sticky, eugh. Probably came from one of those greimorians..."
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	density = FALSE
@@ -328,7 +328,7 @@
 
 /obj/effect/spider/cocoon
 	name = "cocoon"
-	desc = "Something wrapped in silky spider web"
+	desc = "Something wrapped in silky greimorian web"
 	icon_state = "cocoon1"
 	health = 60
 
