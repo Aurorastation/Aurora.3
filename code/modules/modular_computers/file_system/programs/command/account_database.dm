@@ -84,7 +84,7 @@
 
 	data["accounts"] = list()
 	if(get_access_level())
-		for(var/M in SSeconomy.all_money_accounts)
+		for(var/M in SSeconomy.get_public_accounts())
 			var/datum/money_account/D = SSeconomy.get_account(M)
 			var/account_number = "[M]"
 			data["accounts"][account_number] = list()
@@ -234,7 +234,7 @@
 					<tbody>
 			"}
 
-			for(var/M in SSeconomy.all_money_accounts)
+			for(var/M in SSeconomy.get_public_accounts())
 				var/datum/money_account/D = SSeconomy.get_account(M)
 				text += {"
 						<tr>

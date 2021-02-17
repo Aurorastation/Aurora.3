@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Merchants now get an Idris account that they can operate from memory and ATMs. The station account terminal will not be able to interact with this account."
