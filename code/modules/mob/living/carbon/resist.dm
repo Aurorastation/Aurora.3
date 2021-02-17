@@ -113,7 +113,7 @@
 
 		var/buckle_message_user = ""
 		var/buckle_message_other = ""
-		if(buckled_to) //If the person is buckled_to, also unbuckle the person
+		if(buckled_to) //If the person is buckled, also unbuckle the person
 			buckle_message_user = " and unbuckle yourself"
 			buckle_message_other = " and to unbuckle themself"
 			buckled_to.user_unbuckle(src)
