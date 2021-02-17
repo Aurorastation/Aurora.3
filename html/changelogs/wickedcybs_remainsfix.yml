@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "References to spiderlings and spiders seen on examining webs and other giant spider related items now reference greimorians. 'spiderling remains' are now 'greimorian larva remains' for example."
+  - bugfix: "References to spiderlings and spiders should now reference greimorians. Overt references like 'spiderling remains' are now 'greimorian larva remains' too."
