@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the ability for ore detectors to find minor xenoarch finds, as well as major artifacts."
+  - rscadd: "Added ore detectors to xenoarch excavation lockers."
