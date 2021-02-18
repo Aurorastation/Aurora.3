@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes how projectile angles are calculated, this should fix emitter shots going diagonally."
