@@ -1,4 +1,4 @@
-/obj/item/clothing/shoes/leg_guard
+/obj/item/clothing/accessory/leg_guard
 	name = "leg guards"
 	desc = "These will protect your legs and feet."
 	icon_state = "leg_guards_riot"
@@ -17,7 +17,7 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
-/obj/item/clothing/shoes/leg_guard/mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
+/obj/item/clothing/accessory/leg_guard/mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
 	if(..()) //This will only run if no other problems occured when equiping.
 		if(H.wear_suit)
 			if(H.wear_suit.body_parts_covered & LEGS)
@@ -25,7 +25,7 @@
 				return 0
 		return 1
 
-/obj/item/clothing/shoes/leg_guard/laserproof
+/obj/item/clothing/accessory/leg_guard/ablative
 	name = "ablative leg guards"
 	desc = "These will protect your legs and feet from energy weapons."
 	icon_state = "leg_guards_laser"
@@ -38,7 +38,7 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
-/obj/item/clothing/shoes/leg_guard/bulletproof
+/obj/item/clothing/accessory/leg_guard/ballistic
 	name = "ballistic leg guards"
 	desc = "These will protect your legs and feet from ballistic weapons."
 	icon_state = "leg_guards_bullet"
@@ -50,7 +50,7 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
-/obj/item/clothing/shoes/leg_guard/riot
+/obj/item/clothing/accessory/leg_guard/riot
 	name = "riot leg guards"
 	desc = "These will protect your legs and feet from close combat weapons."
 	armor = list(
@@ -61,7 +61,7 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
-/obj/item/clothing/shoes/leg_guard/merc
+/obj/item/clothing/accessory/leg_guard/heavy
 	name = "heavy leg guards"
 	desc = "These leg guards will protect your legs and feet from harm."
 	icon = 'icons/clothing/kit/heavy_armor.dmi'
