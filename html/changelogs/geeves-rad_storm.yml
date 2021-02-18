@@ -4,4 +4,3 @@ delete-after: True
 
 changes:
   - rscadd: "Non-shielded areas now get a pulsating green overlay when a radiation storm is active."
-  - tweak: "Radiation damage is now calculated with the amount of damage placed correctly, which should make radiation more hazardous now."
