@@ -147,7 +147,7 @@
 /obj/item/clothing/accessory/arm_guard/military
 	name = "military arm guards"
 	desc = "These arm guards will protect your hands and arms from most things."
-	item_state = "armguards_military"
+	icon_state = "armguards_military"
 	item_state = "armguards_military"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
@@ -160,7 +160,7 @@
 /obj/item/clothing/accessory/arm_guard/heavy
 	name = "heavy arm guards"
 	desc = "These arm guards will protect your hands and arms from most things."
-	item_state = "armguards_heavy"
+	icon_state = "armguards_heavy"
 	item_state = "armguards_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
