@@ -12,6 +12,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	species_restricted = null
 	siemens_coefficient = 0.35
 	force = 3
 	drop_sound = 'sound/items/drop/boots.ogg'
@@ -37,6 +38,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	species_restricted = null
 
 /obj/item/clothing/shoes/leg_guard/bulletproof
 	name = "ballistic leg guards"
@@ -49,6 +51,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	species_restricted = null
 
 /obj/item/clothing/shoes/leg_guard/riot
 	name = "riot leg guards"
@@ -60,6 +63,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	species_restricted = null
 
 /obj/item/clothing/shoes/leg_guard/merc
 	name = "heavy leg guards"

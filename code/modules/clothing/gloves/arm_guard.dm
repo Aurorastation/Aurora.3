@@ -10,6 +10,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	species_restricted = null
 	punch_force = 3
 	w_class = ITEMSIZE_NORMAL
 	siemens_coefficient = 0.35
@@ -35,6 +36,7 @@
 		laser = ARMOR_LASER_RIFLES,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
+	species_restricted = null
 
 /obj/item/clothing/gloves/arm_guard/bulletproof
 	name = "ballistic arm guards"
@@ -46,6 +48,7 @@
 		laser = ARMOR_LASER_SMALL,
 		energy = ARMOR_ENERGY_MINOR
 	)
+	species_restricted = null
 
 /obj/item/clothing/gloves/arm_guard/riot
 	name = "riot arm guards"
@@ -56,6 +59,7 @@
 		laser = ARMOR_LASER_SMALL,
 		energy = ARMOR_ENERGY_MINOR
 	)
+	species_restricted = null
 
 /obj/item/clothing/gloves/arm_guard/mercs
 	name = "heavy arm guards"
