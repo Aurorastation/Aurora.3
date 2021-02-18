@@ -302,7 +302,9 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/suit/storage/vest/officer(src)
+	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/accessory/arm_guard(src)
+	new /obj/item/clothing/accessory/leg_guard(src)
 	if(prob(50))
 		if(prob(50))
 			new /obj/item/clothing/under/rank/security(src)

@@ -220,8 +220,8 @@
 	starts_with = list(/obj/item/rig_module/electrowarfare_suite = 1, /obj/item/rig_module/voice = 1)
 
 /obj/item/storage/box/syndie_kit/armor
-	name = "boxed armor kit"
-	starts_with = list(/obj/item/clothing/suit/plate_carrier/heavy = 1)
+	name = "boxed heavy armor kit"
+	starts_with = list(/obj/item/clothing/suit/armor/carrier/heavy = 1, /obj/item/clothing/head/helmet/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
 	starts_with = list(/obj/item/spacecash/c1000 = 10)

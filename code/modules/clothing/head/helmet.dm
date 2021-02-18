@@ -89,7 +89,9 @@
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
 	desc = "It's a helmet specifically designed to protect against close range attacks."
-	icon_state = "riot"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "helm_riot"
+	item_state = "helm_riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -116,7 +118,9 @@
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
 	desc = "A helmet made from advanced materials which protects against concentrated energy weapons."
-	icon_state = "helmet_reflect"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "helm_ablative"
+	item_state = "helm_ablative"
 	armor = list(
 		melee = ARMOR_MELEE_SMALL,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -128,7 +132,9 @@
 /obj/item/clothing/head/helmet/ballistic
 	name = "ballistic helmet"
 	desc = "A helmet with reinforced plating to protect against ballistic projectiles."
-	icon_state = "helmet_bulletproof"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "helm_ballistic"
+	item_state = "helm_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_AP,
@@ -140,9 +146,9 @@
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
-	icon = 'icons/clothing/kit/heavy_armor.dmi'
-	item_state = "helmet"
-	icon_state = "helmet"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "helm_heavy"
+	item_state = "helm_heavy"
 	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,

@@ -2813,9 +2813,9 @@
 /area/antag/mercenary)
 "anu" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/vest/merc,
-/obj/item/clothing/suit/storage/vest/merc,
-/obj/item/clothing/suit/storage/vest/merc,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
