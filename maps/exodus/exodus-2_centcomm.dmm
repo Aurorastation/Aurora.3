@@ -17040,7 +17040,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -19719,7 +19719,7 @@
 	req_access = list(103)
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,

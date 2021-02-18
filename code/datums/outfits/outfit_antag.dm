@@ -389,7 +389,7 @@
 		)
 
 	belt = null
-	suit = /obj/item/clothing/suit/armor/bulletproof
+	suit = /obj/item/clothing/suit/armor/carrier/ballistic
 
 	shoes = list(
 		/obj/item/clothing/shoes/laceup/all_species,

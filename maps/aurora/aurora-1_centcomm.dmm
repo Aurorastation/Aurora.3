@@ -6198,7 +6198,7 @@
 	req_access = list(103)
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -13573,7 +13573,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -21449,7 +21449,7 @@
 	},
 /area/antag/wizard)
 "jUu" = (
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -39715,14 +39715,14 @@
 	pixel_x = 16;
 	pixel_y = 5
 	},
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
+/obj/item/clothing/accessory/arm_guard/mercs,
+/obj/item/clothing/accessory/arm_guard/mercs,
+/obj/item/clothing/accessory/arm_guard/mercs,
+/obj/item/clothing/gloaccessoryves/arm_guard/mercs,
+/obj/item/clothing/accessory/leg_guard/merc,
+/obj/item/clothing/accessory/leg_guard/merc,
+/obj/item/clothing/accessory/leg_guard/merc,
+/obj/item/clothing/accessory/leg_guard/merc,
 /obj/item/clothing/suit/storage/vest/merc{
 	pixel_x = -6;
 	pixel_y = 1

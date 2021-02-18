@@ -221,7 +221,7 @@
 
 /obj/item/storage/box/syndie_kit/armor
 	name = "boxed armor kit"
-	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
+	starts_with = list(/obj/item/clothing/suit/plate_carrier/heavy = 1)
 
 /obj/item/storage/secure/briefcase/money
 	starts_with = list(/obj/item/spacecash/c1000 = 10)
