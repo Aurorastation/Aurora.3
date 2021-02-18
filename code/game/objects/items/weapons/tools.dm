@@ -465,6 +465,10 @@
 			to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 		return 0
 
+/obj/item/weldingtool/use_resource(mob/user, var/use_amount)
+	if(get_fuel() >= use_amount)
+		reagents.remove_reagent(/decl/reagent/fuel, use_amount)
+
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()
 	return src.welding
