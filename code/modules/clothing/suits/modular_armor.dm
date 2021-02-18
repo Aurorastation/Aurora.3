@@ -5,6 +5,7 @@
 	contained_sprite = TRUE
 	icon_state = "plate_carrier"
 	item_state = "plate_carrier"
+	blood_overlay_type = "armor"
 	w_class = ITEMSIZE_NORMAL
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_ARMOR_PIN, ACCESSORY_SLOT_CAPE)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_ARMOR_PIN, ACCESSORY_SLOT_CAPE)
@@ -59,7 +60,7 @@
 	desc = "A particularly light-weight armor plate in corporate colors that hooks. Unfortunately, not very good if you hold it with your hands."
 	desc_info = "These items must be hooked onto plate carriers for them to work!"
 	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "plate_sec" //todo: figure out how to add blood overlay for armor
+	icon_state = "plate_sec"
 	item_state = "plate_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_PLATE
@@ -91,6 +92,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.5
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -104,6 +106,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.5
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -116,6 +119,7 @@
 		laser = ARMOR_LASER_RIFLES,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
+	slowdown = 0.5
 
 /obj/item/clothing/accessory/armor_plate/military
 	name = "military armor plate"
@@ -129,6 +133,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.5
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -142,11 +147,13 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.5
 
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"
 	desc = "A shiny helmet in corporate blue! Goes well with the respective plate carrier."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
 
@@ -154,6 +161,7 @@
 	name = "military helmet"
 	desc = "A helmet in drab olive. Used by Solarian fanatics since the 2100s."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
 	icon_state = "helm_military"
 	item_state = "helm_military"
 	armor = list(
