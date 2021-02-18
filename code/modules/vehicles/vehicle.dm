@@ -13,7 +13,6 @@
 	animate_movement=1
 	light_range = 3
 
-	can_buckle = 1
 	buckle_movable = 1
 	buckle_lying = 0
 
@@ -47,6 +46,10 @@
 	..()
 	//spawn the cell you want in each vehicle
 
+/obj/vehicle/Initialize()
+	. = ..()
+	LAZYADD(can_buckle, /mob/living)
+
 /obj/vehicle/Move()
 	if(world.time > l_move_time + move_delay)
 		var/old_loc = get_turf(src)
@@ -74,6 +77,9 @@
 		return 1
 	else
 		return 0
+
+/obj/vehicle/proc/create_vehicle_overlay()
+	return
 
 /obj/vehicle/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/device/hand_labeler))
@@ -296,7 +302,6 @@
 			C.pixel_y += mob_offset_y
 		else
 			C.pixel_y += load_offset_y
-		C.layer = layer + 0.1		//so it sits above the vehicle
 
 	if(ismob(C))
 		buckle(C)

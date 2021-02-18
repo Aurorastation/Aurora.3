@@ -41,11 +41,11 @@
 			M.facing_dir = null
 			M.update_canmove()
 		else
-			MA.anchored = TRUE	
+			MA.anchored = TRUE
 	else
 		return 0
 	post_buckle(MA)
-	MA.layer = src.layer + 1
+	MA.layer = src.layer + 0.1
 	return 1
 
 /obj/proc/unbuckle()
