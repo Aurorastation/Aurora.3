@@ -7,8 +7,15 @@
 	item_state_slots = list(
 		slot_l_hand_str = "eng_helm",
 		slot_r_hand_str = "eng_helm"
-		)
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 80)
+	)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
 
@@ -22,7 +29,14 @@
 		slot_l_hand_str = "eng_hardsuit",
 		slot_r_hand_str = "eng_hardsuit"
 	)
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 80)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction)
 
 //Mining rig
@@ -33,8 +47,15 @@
 	item_state_slots = list(
 		slot_l_hand_str = "mining_helm",
 		slot_r_hand_str = "mining_helm"
-		)
-	armor = list(melee = 50, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
+	)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	light_overlay = "merc_voidsuit_lights"
 	brightness_on = 6
 
@@ -47,7 +68,14 @@
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
 	item_state = "rig-mining"
 	icon_state = "rig-mining"
-	armor = list(melee = 50, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka, /obj/item/gun/energy/vaurca/thermaldrill,/obj/item/rfd/mining)
 
 //Medical Rig
@@ -58,8 +86,14 @@
 	item_state_slots = list(
 		slot_l_hand_str = "medical_helm",
 		slot_r_hand_str = "medical_helm"
-		)
-	armor = list(melee = 30, bullet = 5, laser = 20,energy = 5, bomb = 25, bio = 100, rad = 50)
+	)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
 
@@ -72,8 +106,14 @@
 		slot_l_hand_str = "medical_hardsuit",
 		slot_r_hand_str = "medical_hardsuit"
 	)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/device/breath_analyzer,/obj/item/material/twohanded/fireaxe)
-	armor = list(melee = 30, bullet = 5, laser = 20,energy = 5, bomb = 25, bio = 100, rad = 50)
 
 	//Security
 /obj/item/clothing/head/helmet/space/void/security
@@ -83,8 +123,15 @@
 	item_state_slots = list(
 		slot_l_hand_str = "sec_helm",
 		slot_r_hand_str = "sec_helm"
-		)
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
 
@@ -97,10 +144,17 @@
 			slot_l_hand_str = "sec_hardsuit",
 			slot_r_hand_str = "sec_hardsuit"
 	)
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
-//Atmospherics Rig (BS12)
+//Atmospherics Rig
 /obj/item/clothing/head/helmet/space/void/atmos
 	desc = "A special helmet designed for work in a hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
 	name = "atmospherics voidsuit helmet"
@@ -108,8 +162,15 @@
 	item_state_slots = list(
 		slot_l_hand_str = "atmos_helm",
 		slot_r_hand_str = "atmos_helm"
-		)
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 50)
+	)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000 // It is a suit designed for fire, enclosed
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
@@ -123,7 +184,14 @@
 		slot_l_hand_str = "atmos_hardsuit",
 		slot_r_hand_str = "atmos_hardsuit"
 	)
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 50)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction)
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 10000 // It is a suit designed for fire, enclosed
 
@@ -136,7 +204,14 @@
 		slot_l_hand_str = "sec_helm",
 		slot_r_hand_str = "sec_helm"
 		)
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_SHIELDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	light_overlay = "helmet_light_dual"
 
 /obj/item/clothing/suit/space/void/hos
@@ -148,7 +223,14 @@
 			slot_l_hand_str = "sec_hardsuit",
 			slot_r_hand_str = "sec_hardsuit"
 	)
-	armor = list(melee = 50, bullet = 15, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_SHIELDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
 	//Science
@@ -157,7 +239,13 @@
 	desc = "A special helmet designed for usage by NanoTrasen research personnel in hazardous, low pressure environments."
 	icon_state = "rig0-sci"
 	item_state = "research_voidsuit_helmet"
-	armor = list(melee = 20, bullet = 5, laser = 30, energy = 45, bomb = 25, bio = 100, rad = 75)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 
 /obj/item/clothing/suit/space/void/sci
 	name = "research voidsuit"
@@ -165,4 +253,10 @@
 	item_state = "rig-sci"
 	icon_state = "rig-sci"
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
-	armor = list(melee = 20, bullet = 5, laser = 30, energy = 45, bomb = 25, bio = 100, rad = 75)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)

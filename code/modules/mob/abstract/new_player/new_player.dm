@@ -274,9 +274,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
-	if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
-		character.buckled.forceMove(character.loc)
-		character.buckled.set_dir(character.dir)
+	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/chair/wheelchair))
+		character.buckled_to.forceMove(character.loc)
+		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))
@@ -355,6 +355,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_character.dna.ready_dna(new_character)
 	new_character.dna.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
+	new_character.fixblood() // now that dna is set
 	if(client.prefs.disabilities & NEARSIGHTED)
 		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
 		new_character.dna.SetSEState(GLASSESBLOCK,1,0)

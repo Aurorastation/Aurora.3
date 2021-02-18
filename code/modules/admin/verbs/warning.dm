@@ -79,7 +79,7 @@
 		ban_unban_log_save("[ckey] warned [warned_ckey], resulting in a [AUTOBANTIME] minute autoban.")
 		if(C)
 			message_admins("[key_name_admin(src)] has warned [key_name_admin(C)] resulting in a [AUTOBANTIME] minute ban.")
-			to_chat(C, "<span class='warning'><BIG><B>You have been autobanned due to a warning by [ckey].</B></BIG><br>This is a temporary ban, it will be removed in [AUTOBANTIME] minutes.</span>")
+			to_chat_immediate(C, "<span class='warning'><BIG><B>You have been autobanned due to a warning by [ckey].</B></BIG><br>This is a temporary ban, it will be removed in [AUTOBANTIME] minutes.</span>")
 			qdel(C)
 		else
 			message_admins("[key_name_admin(src)] has warned [warned_ckey] resulting in a [AUTOBANTIME] minute ban.")
@@ -270,7 +270,7 @@
 
 	var/list/data = list("unread" = "", "expired" = "")
 	if (count)
-		data["unread"] = "You have <b>[count] unread [count > 1 ? "warnings" : "warning"]!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
+		data["unread"] = "You have <b>[count] unread warning\s!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
 	if (count_expire)
 		data["expired"] = "[count_expire] of your warnings have expired."
 

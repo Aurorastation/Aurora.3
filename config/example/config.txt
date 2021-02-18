@@ -128,6 +128,7 @@ PROBABILITY S EXTENDED 1
 PROBABILITY S MALFUNCTION 1
 PROBABILITY S MERCENARY 1
 PROBABILITY S WIZARD 1
+PROBABILITY S LONER 1
 PROBABILITY S CHANGELING 1
 PROBABILITY S CULT 1
 PROBABILITY S BURGLARS 1
@@ -136,6 +137,7 @@ PROBABILITY S MAGISTAKE 1
 PROBABILITY S NINJA 1
 PROBABILITY S HEIST 1
 PROBABILITY S VAMPIRE 1
+PROBABILITY S REVENANTS 1
 PROBABILITY S EXTEND-A-TRAITORMONGOUS 6
 PROBABILITY S CONFLUX 1
 PROBABILITY S CROSSFIRE 1
@@ -325,14 +327,8 @@ GATEWAY_DELAY 18000
 ## Uncomment to restrict non-admins from using humanoid alien races
 USEALIENWHITELIST
 
-## Comment this to disable automated station night lighting
-NIGHT_LIGHTING
-
-## Hour when the station night lighting is disabled (if above is enabled)
-NL_FINISH_HOUR 8
-
-## Hour when the station night lighting is enabled (if above is enabled)
-NL_START_HOUR 19
+## Adjust this time to modify the time offset (in hours) of the station time from GMT
+TIME_OFFSET 6
 
 ## Comment this to unrestrict the number of alien players allowed in the round. The number represents the number of alien players for every human player.
 #ALIEN_PLAYER_RATIO 0.2

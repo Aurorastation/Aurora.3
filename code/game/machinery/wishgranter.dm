@@ -58,13 +58,13 @@
 					user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
 					user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
 					to_chat(user, "<span class='notice'>The walls suddenly disappear.</span>")
-					user.set_species(SPECIES_SHADOW)
+					user.set_species(SPECIES_REVENANT)
 					user.mind.special_role = "Avatar of the Wish Granter"
 			if("I want to be rich")
 				to_chat(user, "<B>Your wish is granted, but at a terrible cost...</B>")
 				to_chat(user, "The Wish Granter punishes you for your greediness, claiming your soul and warping your body to match the darkness in your heart.")
 				new /obj/structure/closet/syndicate/resources/everything(loc)
-				user.set_species(SPECIES_SHADOW)
+				user.set_species(SPECIES_REVENANT)
 				user.mind.special_role = "Avatar of the Wish Granter"
 			if("I want immortality")
 				to_chat(user, "<B>Your wish is granted, but at a terrible cost...</B>")

@@ -14,8 +14,12 @@
 	taj_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/tajara
 	taj_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/tajara
 	taj_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/tajara
+	taj_gloves["light brown gloves"] = /obj/item/clothing/gloves/light_brown/tajara
 	taj_gloves["green gloves"] = /obj/item/clothing/gloves/green/tajara
+	taj_gloves["grey gloves"] = /obj/item/clothing/gloves/grey/tajara
 	taj_gloves["white gloves"] = /obj/item/clothing/gloves/white/tajara
+	taj_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/tajara
+	taj_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/tajara
 	taj_gloves["machinist gloves"] =  /obj/item/clothing/gloves/black/tajara/smithgloves
 	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)
 
@@ -30,11 +34,23 @@
 	..()
 	var/coat = list()
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
-	coat["commoner cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak
-	coat["royal cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak/fancy
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/tajara_cloak
+	display_name = "tajara cloak selection"
+	description = "A selection of tajaran native cloaks."
+	path = /obj/item/clothing/accessory/poncho/tajarancloak
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/suit/tajara_cloak/New()
+	..()
+	var/tajarancloak = list()
+	tajarancloak["common cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak
+	tajarancloak["fancy cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/fancy
+	gear_tweaks += new/datum/gear_tweak/path(tajarancloak)
 
 /datum/gear/suit/tajara_priest
 	display_name = "tajaran religious suits selection"
@@ -105,6 +121,24 @@
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	dress["adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
 	gear_tweaks += new/datum/gear_tweak/path(dress)
+
+/datum/gear/shoes/tajara/flats
+	display_name = "tajaran flats selection"
+	description = "Dress flats, in a selection of colors. Refitted for Tajara"
+	path = /obj/item/clothing/shoes/tajara
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/shoes/tajara/flats/New()
+	..()
+	var/list/flats = list()
+	flats["dress flats, black"] = /obj/item/clothing/shoes/flats/tajara
+	flats["dress flats, white"] = /obj/item/clothing/shoes/flats/tajara/white
+	flats["dress flats, red"] = /obj/item/clothing/shoes/flats/tajara/red
+	flats["dress flats, blue"] = /obj/item/clothing/shoes/flats/tajara/blue
+	flats["dress flats, green"] = /obj/item/clothing/shoes/flats/tajara/green
+	flats["dress flats, purple"] = /obj/item/clothing/shoes/flats/tajara/purple
+	gear_tweaks += new/datum/gear_tweak/path(flats)
 
 /datum/gear/accessory/tajara
 	display_name = "fur scarf"

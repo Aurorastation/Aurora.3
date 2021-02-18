@@ -40,7 +40,7 @@
 	item_cost = 5
 	path = /obj/item/clothing/ring/reagent/sleepy
 
-/datum/uplink_item/item/stealthy_weapons/sharpened_trap
+/datum/uplink_item/item/stealthy_weapons/bear_trap
 	name = "Sharpened Bear Trap"
-	item_cost = 4
+	item_cost = 5
 	path = /obj/item/trap/sharpened

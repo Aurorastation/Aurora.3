@@ -50,19 +50,6 @@
 	fountainpens["silver fountain pen"] = /obj/item/pen/fountain/silver
 	fountainpens["white fountain pen"] = /obj/item/pen/fountain/white
 	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
-
-/datum/gear/utility/hearing_aid
-	display_name = "hearing aid selection"
-	path = /obj/item/device/hearing_aid
-	cost = 1
-
-/datum/gear/utility/hearing_aid/New()
-	..()
-	var/hearingaids = list()
-	hearingaids["hearing aid, skrell design"] = /obj/item/device/hearing_aid
-	hearingaids["hearing aid, human design"] = /obj/item/device/hearing_aid/human
-	gear_tweaks += new/datum/gear_tweak/path(hearingaids)
-
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
@@ -91,32 +78,6 @@
 /datum/gear/utility/camera
 	display_name = "camera"
 	path = 	/obj/item/device/camera
-
-/datum/gear/utility/fannypack
-	display_name = "fannypack selection"
-	cost = 2
-	path = /obj/item/storage/belt/fannypack
-
-/datum/gear/utility/fannypack/New()
-	..()
-	var/list/fannys = list()
-	fannys["leather fannypack"] = /obj/item/storage/belt/fannypack
-	fannys["black fannypack"] = /obj/item/storage/belt/fannypack/black
-	fannys["blue fannypack"] = /obj/item/storage/belt/fannypack/blue
-	fannys["cyan fannypack"] = /obj/item/storage/belt/fannypack/cyan
-	fannys["green fannypack"] = /obj/item/storage/belt/fannypack/green
-	fannys["orange fannypack"] = /obj/item/storage/belt/fannypack/orange
-	fannys["purple fannypack"] = /obj/item/storage/belt/fannypack/purple
-	fannys["red fannypack"] = /obj/item/storage/belt/fannypack/red
-	fannys["white fannypack"] = /obj/item/storage/belt/fannypack/white
-	fannys["yellow fannypack"] = /obj/item/storage/belt/fannypack/yellow
-	gear_tweaks += new/datum/gear_tweak/path(fannys)
-
-/datum/gear/utility/toolbelt_alt
-	display_name = "tool-belt, alt"
-	cost = 0
-	path = /obj/item/storage/belt/utility/alt
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
 
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"

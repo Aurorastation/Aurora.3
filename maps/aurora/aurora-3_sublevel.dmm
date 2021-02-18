@@ -531,7 +531,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "abq" = (
-/obj/structure/crematorium{
+/obj/structure/morgue/crematorium{
 	_wifi_id = "xenobio_crema"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1748,6 +1748,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/closet/crate{
+	name = "Maglock Storage"
+	},
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "aee" = (
@@ -2011,6 +2018,9 @@
 	pixel_x = 22;
 	pixel_y = 8;
 	specialfunctions = 4
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
@@ -4303,6 +4313,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"ajQ" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/break_room)
 "ajR" = (
 /obj/structure/window/reinforced,
 /obj/machinery/chem_master,
@@ -5321,7 +5335,7 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/cells/alpha)
 "ame" = (
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	_wifi_id = "xenobio_crema";
 	pixel_x = -32;
 	pixel_y = 25;
@@ -7275,7 +7289,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/status_display{
 	layer = 4;
@@ -8245,7 +8259,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8954,7 +8968,7 @@
 	c_tag = "Medical - Patient Wing Library";
 	dir = 1
 	},
-/obj/item/storage/box/chess_kit,
+/obj/item/board,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
 "aqG" = (
@@ -11855,10 +11869,11 @@
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "avo" = (
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	_wifi_id = "sci_crema1";
 	pixel_x = 28;
-	pixel_y = 28
+	pixel_y = 28;
+	req_access = list(47)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -12031,7 +12046,7 @@
 "avD" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
@@ -12053,6 +12068,9 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
@@ -14860,7 +14878,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_y = 4
 	},
 /obj/item/storage/box/samplebags{
@@ -20106,7 +20124,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner_wide/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -22385,6 +22403,9 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -25988,7 +26009,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "bwz" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -26898,6 +26919,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"dkd" = (
+/turf/simulated/floor/tiled/dark,
+/area/engineering/break_room)
 "dlv" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -29105,7 +29129,7 @@
 /turf/simulated/floor/beach/sand/alt,
 /area/medical/patient_wing_picnic)
 "hHI" = (
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	req_access = list(66)
 	},
 /obj/structure/table/steel,
@@ -29548,7 +29572,7 @@
 	},
 /area/mine/unexplored)
 "iKh" = (
-/obj/structure/crematorium{
+/obj/structure/morgue/crematorium{
 	_wifi_id = "sci_crema1"
 	},
 /turf/simulated/floor/tiled,
@@ -29878,7 +29902,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
 "jvK" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -30615,9 +30639,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
-"loD" = (
-/turf/simulated/floor/tiled/dark,
-/area/engineering/break_room)
 "lsl" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -30712,10 +30733,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
-"lPA" = (
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/break_room)
 "lQi" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
@@ -33674,7 +33691,7 @@
 /area/outpost/engineering/power)
 "rCf" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
@@ -35413,6 +35430,9 @@
 	pixel_x = -28
 	},
 /obj/machinery/light/small/emergency,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medsublevel_port)
 "vnr" = (
@@ -48414,7 +48434,7 @@ aaa
 aaa
 aaa
 lYK
-loD
+dkd
 jhN
 swb
 akj
@@ -48928,7 +48948,7 @@ aaa
 aaa
 aaa
 lYK
-loD
+dkd
 ajP
 akk
 akk
@@ -49186,12 +49206,12 @@ aaa
 aaa
 lYK
 gYj
-lPA
-loD
+ajQ
+dkd
 qpJ
 dvo
 qqB
-lPA
+ajQ
 lYK
 aaa
 aaa

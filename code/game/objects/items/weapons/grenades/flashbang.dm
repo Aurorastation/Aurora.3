@@ -108,7 +108,7 @@
 /obj/item/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
 	var/again = 0
-	var/atom/A = loc
+	var/atom/A = get_turf(src)
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			again++
@@ -148,7 +148,7 @@
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			numspawned --
-	var/atom/A = src.loc
+	var/atom/A = get_turf(src)
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
 			new /obj/item/grenade/flashbang/cluster(A)

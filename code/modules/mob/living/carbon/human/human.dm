@@ -233,15 +233,8 @@
 		if (1.0)
 			b_loss += 500
 			f_loss = 100
-			if (!prob(getarmor(null, "bomb")))
-				gib()
-				return
-			else
-				var/atom/target = get_edge_target_turf(src, get_dir(src, get_step_away(src, src)))
-				throw_at(target, 200, 4)
-			//return
-//				var/atom/target = get_edge_target_turf(user, get_dir(src, get_step_away(user, src)))
-				//user.throw_at(target, 200, 4)
+			var/atom/target = get_edge_target_turf(src, get_dir(src, get_step_away(src, src)))
+			throw_at(target, 200, 4)
 
 		if (2.0)
 			b_loss = 60
@@ -261,46 +254,15 @@
 			if (prob(50))
 				Paralyse(10)
 
-	// factor in armor
-	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
-	b_loss *= protection
-	f_loss *= protection
-
-	var/update = 0
-
 	// focus most of the blast on one organ
-	var/obj/item/organ/external/take_blast = pick(organs)
-	update |= take_blast.take_damage(b_loss * 0.7, f_loss * 0.7, used_weapon = "Explosive blast")
+	apply_damage(0.7 * b_loss, BRUTE, null, DAM_EXPLODE, used_weapon = "Explosive blast")
+	apply_damage(0.7 * f_loss, BURN, null, DAM_EXPLODE, used_weapon = "Explosive blast")
 
 	// distribute the remaining 30% on all limbs equally (including the one already dealt damage)
-	b_loss *= 0.3
-	f_loss *= 0.3
+	apply_damage(0.3 * b_loss, BRUTE, null, DAM_EXPLODE | DAM_DISPERSED, used_weapon = "Explosive blast")
+	apply_damage(0.3 * f_loss, BURN, null, DAM_EXPLODE | DAM_DISPERSED, used_weapon = "Explosive blast")
 
-	var/weapon_message = "Explosive Blast"
-
-	for(var/obj/item/organ/external/temp in organs)
-		switch(temp.name)
-			if(BP_HEAD)
-				update |= temp.take_damage(b_loss * 0.2, f_loss * 0.2, used_weapon = weapon_message)
-			if(BP_CHEST)
-				update |= temp.take_damage(b_loss * 0.4, f_loss * 0.4, used_weapon = weapon_message)
-			if(BP_L_ARM)
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(BP_R_ARM)
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(BP_L_LEG)
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(BP_R_LEG)
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(BP_R_FOOT)
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(BP_L_FOOT)
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(BP_R_ARM)
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-			if(BP_L_ARM)
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-	if(update)	UpdateDamageIcon()
+	UpdateDamageIcon()
 
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
@@ -1214,7 +1176,7 @@
 /mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
-		vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
+		vessel.add_reagent(/decl/reagent/blood,560-vessel.total_volume, temperature = species.body_temperature)
 		fixblood()
 
 	// Fix up all organs.
@@ -1284,17 +1246,19 @@
 		L.bruise()
 
 //returns 1 if made bloody, returns 0 otherwise
-/mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
+/mob/living/carbon/human/add_blood(mob/living/carbon/C as mob)
 	if (!..())
-		return 0
+		return FALSE
 	//if this blood isn't already in the list, add it
-	if(istype(M))
-		if(!blood_DNA[M.dna.unique_enzymes])
-			blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-	hand_blood_color = species.blood_color
+	hand_blood_color = COLOR_HUMAN_BLOOD
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		if(!blood_DNA[H.dna.unique_enzymes])
+			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
+		hand_blood_color = H.species?.blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle
-	return 1 //we applied blood to the item
+	return TRUE //we applied blood to the item
 
 /mob/living/carbon/human/proc/get_full_print()
 	if(!dna ||!dna.uni_identity)
@@ -1454,8 +1418,7 @@
 	spawn(0)
 		regenerate_icons()
 		if (vessel)
-			vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
-			fixblood()
+			restore_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
@@ -1972,7 +1935,7 @@
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		reagents.add_reagent(/datum/reagent/adrenaline, amount)
+		reagents.add_reagent(/decl/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)
@@ -1987,15 +1950,17 @@
 		return BULLET_IMPACT_METAL
 	return BULLET_IMPACT_MEAT
 
-/mob/living/carbon/human/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
+/mob/living/carbon/human/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
 	..()
+	if(blocked_ratio > 0.7)
+		return
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
 			if(P.damage_type == BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
-				var/scale = min(1, round(P.damage / 50, 0.2))
+				var/scale = min(1, round(damage / 50, 0.2))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 
@@ -2010,9 +1975,9 @@
 				src.adjustToxLoss(-damage)
 			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
 
-		src.apply_effect(rand(15, 30), IRRADIATE, blocked = src.getarmor(null, "rad"))
+		apply_damage((rand(15,30)), IRRADIATE, damage_flags = DAM_DISPERSED)
 		if(prob(4))
-			src.apply_effect(rand(20, 60), IRRADIATE, blocked = src.getarmor(null, "rad"))
+			apply_damage((rand(20,60)), IRRADIATE, damage_flags = DAM_DISPERSED)
 			if (prob(75))
 				randmutb(src) // Applies bad mutation
 				domutcheck(src,null,MUTCHK_FORCED)

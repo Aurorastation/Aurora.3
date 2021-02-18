@@ -19,7 +19,7 @@
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
 
-	var/knockdown = TRUE //whether shuttle downs non-buckled people when it moves
+	var/knockdown = TRUE //whether shuttle downs non-buckled_to people when it moves
 
 	var/defer_initialisation = FALSE //this shuttle will/won't be initialised automatically. If set to true, you are responsible for initialzing the shuttle manually.
 	                                 //Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
@@ -195,7 +195,7 @@
 			for(var/mob/M in A)
 				spawn(0)
 					if(istype(M, /mob/living/carbon))
-						if(M.buckled)
+						if(M.buckled_to)
 							to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
 							shake_camera(M, 3, 1)
 						else

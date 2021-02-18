@@ -31,7 +31,7 @@
 		inv_box.hud = src
 
 		var/list/slot_data =  hud_data.gear[gear_slot]
-		inv_box.name =        gear_slot
+		inv_box.name =        slot_data["name"]
 		inv_box.screen_loc =  slot_data["loc"]
 		inv_box.slot_id =     slot_data["slot"]
 		inv_box.icon_state =  slot_data["state"]
@@ -158,7 +158,7 @@
 
 		inv_box = new /obj/screen/inventory/hand()
 		inv_box.hud = src
-		inv_box.name = BP_R_HAND
+		inv_box.name = "right hand"
 		inv_box.icon = ui_style
 		inv_box.icon_state = "r_hand_inactive"
 		if(mymob && !mymob.hand)	//This being 0 or null means the right hand is in use
@@ -174,7 +174,7 @@
 
 		inv_box = new /obj/screen/inventory/hand()
 		inv_box.hud = src
-		inv_box.name = BP_L_HAND
+		inv_box.name = "left hand"
 		inv_box.icon = ui_style
 		inv_box.icon_state = "l_hand_inactive"
 		if(mymob && mymob.hand)	//This being 1 means the left hand is in use
@@ -398,7 +398,7 @@
 	all_underwear.Cut()
 	regenerate_icons()
 
-// Yes, these use icon state. Yes, these are terrible. The alternative is duplicating 
+// Yes, these use icon state. Yes, these are terrible. The alternative is duplicating
 // a bunch of fairly blobby logic for every click override on these objects.
 
 /obj/screen/food/Click(var/location, var/control, var/params)
@@ -441,7 +441,7 @@
 			if("thirst3")
 				to_chat(usr, SPAN_WARNING("You are quite thirsty."))
 			if("thirst4")
-				to_chat(usr, SPAN_DANGER("Your are entirely dehydrated!"))
+				to_chat(usr, SPAN_DANGER("You are entirely dehydrated!"))
 
 /obj/screen/bodytemp/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.bodytemp == src)

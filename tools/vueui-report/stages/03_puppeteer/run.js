@@ -1,7 +1,7 @@
 const config = require('../../config')
 const path = require('path')
 const fs = require('fs-extra')
-const vueuiTestsPath = path.resolve(config.vueui, './tests')
+const vueuiTestsPath = path.resolve(config.vueui, './uitests')
 const vueuiDistPath = path.resolve(config.vueui, './dist')
 const klaw = require('klaw')
 const express = require('express')
@@ -54,7 +54,7 @@ module.exports = async function (signale) {
       const PageErrorHandler = ({ message }) => {
         results[testFile][theme].errors.push(`${message}`)
       }
-      
+
       page.on('console', ConsoleHandler)
       page.on('pageerror', PageErrorHandler)
 

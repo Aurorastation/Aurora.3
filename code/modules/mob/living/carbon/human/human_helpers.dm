@@ -260,3 +260,19 @@
 
 /mob/living/carbon/human/proc/protected_from_sound()
 	return (l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION)
+
+/mob/living/carbon/human/get_antag_datum(var/antag_role)
+	if(!mind)
+		return
+	var/datum/D = mind.antag_datums[antag_role]
+	if(D)
+		return D
+
+/mob/living/carbon/human/set_respawn_time()
+	if(species?.respawn_type)
+		set_death_time(species.respawn_type, world.time)
+	else
+		set_death_time(CREW, world.time)
+
+/mob/living/carbon/human/get_contained_external_atoms()
+	. = ..() - organs

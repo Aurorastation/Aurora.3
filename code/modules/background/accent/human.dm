@@ -110,13 +110,19 @@
 	character as villainous or untrustworthy. As a result, it is often looked down upon throughout human space."
 	tag_icon = "venus_surfacer"
 
-/datum/accent/dominia
-	name = ACCENT_DOMINIA
-	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Dominion-spoken Sol Common and Tau Ceti Basic are both heavily \
-	influenced by Tradeband, the common language of both human and unathi nobility in the Empire. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in \
-	the rebellious Morozian region of Fisanduh. The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents \
-	to better blend in with the greater Imperial population."
-	tag_icon = "dominia"
+/datum/accent/dominia_high
+	name = ACCENT_DOMINIA_HIGH
+	description = "The less common Dominian accent is High Morozi, a variation of Tradeband found upon Moroz itself. While Vulgar Morozi is typically associated with the common citizenry of the Empire, \
+	High Morozi is associated with the Imperial nobility. While most typically associated with nobles it is often taught to wealthy commoners in order to more easily brush shoulders with nobility. \
+	This accent is one of the most readily-recognised markers of Dominian nobility abroad."
+	tag_icon = "dominia_high"
+
+/datum/accent/dominia_vulgar
+	name = ACCENT_DOMINIA_VULGAR
+	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Though heavily influenced by Tradeband Vulgar Morozi is considered to be a \
+	dialect of Sol Common rather than a distinct Tradeband dialect. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in the rebellious Morozian region of Fisanduh. \
+	The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents to better blend in with the greater Imperial population."
+	tag_icon = "dominia_vulgar"
 
 /datum/accent/jupiter
 	name = ACCENT_JUPITER

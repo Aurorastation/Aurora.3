@@ -95,6 +95,10 @@
 /mob/living/silicon/proc/SetName(pickedName as text)
 	real_name = pickedName
 	name = real_name
+	if(istype(id_card))
+		if(!istype(id_card.chat_user))
+			id_card.InitializeChatUser()
+		id_card.chat_user.username = real_name
 
 /mob/living/silicon/proc/show_laws()
 	return
@@ -278,22 +282,14 @@
 		if(1.0)
 			brute = 400
 			burn = 100
-			if(!anchored && !prob(getarmor(null, "bomb")))
-				gib()
 		if(2.0)
 			brute = 60
 			burn = 60
 		if(3.0)
 			brute = 30
 
-	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
-	brute *= protection
-	burn *= protection
-
-	adjustBruteLoss(brute)
-	adjustFireLoss(burn)
-
-	updatehealth()
+	apply_damage(brute, BRUTE, damage_flags = DAM_EXPLODE)
+	apply_damage(burn, BURN, damage_flags = DAM_EXPLODE)
 
 /mob/living/silicon/proc/receive_alarm(var/datum/alarm_handler/alarm_handler, var/datum/alarm/alarm, was_raised)
 	if(!next_alarm_notice)

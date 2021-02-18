@@ -141,9 +141,8 @@
 	data["beakerVolume"] = 0
 	if(beaker)
 		data["beakerLabel"] = beaker.label_text ? beaker.label_text : null
-		if (beaker.reagents && beaker.reagents.reagent_list.len)
-			for(var/datum/reagent/R in beaker.reagents.reagent_list)
-				data["beakerVolume"] += R.volume
+		for(var/_R in beaker.reagents.reagent_volumes)
+			data["beakerVolume"] += REAGENT_VOLUME(beaker.reagents, _R)
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -201,11 +200,11 @@
 
 		if(do_mob(user, L, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
-			if(!bucklestatus)//incase the patient got buckled during the delay
+			if(!bucklestatus)//incase the patient got buckled_to during the delay
 				return
 			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
+				var/obj/structure/LB = L.buckled_to
+				LB.user_unbuckle(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
@@ -237,8 +236,8 @@
 		user.visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
-			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = L.buckled_to
+			LB.user_unbuckle(user)
 		if(put_mob(L))
 			if(L == user)
 				user.visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
@@ -294,8 +293,8 @@
 					occupant.heal_organ_damage(heal_brute,heal_fire)
 				else
 					occupant.adjustFireLoss(3)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
-		var/has_cryo = occupant.reagents.get_reagent_amount(/datum/reagent/cryoxadone) >= 1
-		var/has_clonexa = occupant.reagents.get_reagent_amount(/datum/reagent/clonexadone) >= 1
+		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /decl/reagent/cryoxadone) >= 1
+		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /decl/reagent/clonexadone) >= 1
 		var/has_cryo_medicine = has_cryo || has_clonexa
 		if(beaker && !has_cryo_medicine)
 			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD)
