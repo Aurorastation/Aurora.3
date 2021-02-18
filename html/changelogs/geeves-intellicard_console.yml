@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the Eject AI option not appearing on consoles that spawn with an AI slot."
