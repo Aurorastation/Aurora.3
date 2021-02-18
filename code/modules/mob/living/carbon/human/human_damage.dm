@@ -378,7 +378,8 @@ This function restores all organs.
 
 
 /mob/living/carbon/human/proc/get_organ(var/zone)
-	if(!zone)	zone = BP_CHEST
+	if(!zone)
+		zone = BP_CHEST
 	if (zone in list(BP_EYES, BP_MOUTH))
 		zone = BP_HEAD
 	return organs_by_name[zone]
