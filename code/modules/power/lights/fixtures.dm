@@ -225,7 +225,7 @@
 	active_power_usage = ((light_range * light_power) * 10)
 
 /obj/machinery/light/proc/broken_sparks()
-	if(has_power() && world.time > next_spark)
+	if(world.time > next_spark && has_power())
 		spark(src, 3, alldirs)
 		next_spark = 1 MINUTE + (rand(-15, 15) SECONDS)
 		message_admins(next_spark)
