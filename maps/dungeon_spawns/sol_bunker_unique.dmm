@@ -82,7 +82,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
@@ -115,7 +115,7 @@
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -638,7 +638,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
@@ -960,7 +960,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/light{
 	brightness_color = "#FA8282"

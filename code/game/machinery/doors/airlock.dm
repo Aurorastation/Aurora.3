@@ -544,7 +544,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 
 /obj/machinery/door/airlock/uranium/proc/radiate()
 	for(var/mob/living/L in range (3,src))
-		L.apply_effect(15,IRRADIATE, blocked = L.getarmor(null, "rad"))
+		L.apply_damage(15, IRRADIATE, damage_flags = DAM_DISPERSED)
 	return
 
 //---Phoron door
@@ -959,7 +959,7 @@ About the new airlock wires panel:
 			if(!src.density)
 				return
 
-			H.visible_message("\The [H] begins to pry open \the [src]!", "You begin to pry open \the [src]!", "You hear the sound of an airlock being forced open.")
+			H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
 
 			if(!do_after(H, 120, 1, act_target = src))
 				return
@@ -967,7 +967,7 @@ About the new airlock wires panel:
 			src.do_animate("spark")
 			src.stat |= BROKEN
 			var/check = src.open(1)
-			H.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
 			return
 	if(src.p_open)
 		user.set_machine(src)
@@ -1416,7 +1416,7 @@ About the new airlock wires panel:
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
-	if(arePowerSystemsOn())
+	if(!forced && arePowerSystemsOn())
 		playsound(src.loc, open_sound_powered, 60, 1)
 	else
 		playsound(src.loc, open_sound_unpowered, 60, 1)
@@ -1485,7 +1485,8 @@ About the new airlock wires panel:
 /mob/living/airlock_crush(var/crush_damage)
 	. = ..()
 	for(var/i = 1, i <= AIRLOCK_CRUSH_DIVISOR, i++)
-		adjustBruteLoss(round(crush_damage / AIRLOCK_CRUSH_DIVISOR))
+		apply_damage((crush_damage / AIRLOCK_CRUSH_DIVISOR), BRUTE)
+
 	SetStunned(5)
 	SetWeakened(5)
 	visible_message(SPAN_DANGER("[src] is crushed in the airlock!"), SPAN_DANGER("You are crushed in the airlock!"), SPAN_NOTICE("You hear airlock actuators momentarily struggle."))
@@ -1521,9 +1522,14 @@ About the new airlock wires panel:
 				if(AM.blocks_airlock())
 					close_door_in(6)
 					return
+	var/has_opened_hatch = FALSE
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
-			if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
+			if(hashatch && AM.checkpass(PASSDOORHATCH))
+				if(!has_opened_hatch)
+					open_hatch(AM)
+				has_opened_hatch = TRUE
+			else if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
 				take_damage(DOOR_CRUSH_DAMAGE)
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())

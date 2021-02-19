@@ -9,7 +9,7 @@
 
 /obj/item/device/kit/examine()
 	..()
-	to_chat(usr, "It has [uses] [uses>1?"uses":"use"] left.")
+	to_chat(usr, "It has [uses] use\s left.")
 
 /obj/item/device/kit/proc/use(var/amt, var/mob/user)
 	uses -= amt

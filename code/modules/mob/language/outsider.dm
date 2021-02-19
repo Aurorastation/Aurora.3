@@ -93,3 +93,22 @@
 
 /datum/language/terminator/get_random_name()
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
+
+/datum/language/revenant
+	name = LANGUAGE_REVENANT
+	desc = "The language of the forsaken bluespace inhabitants."
+	speech_verb = list("gargles")
+	ask_verb = list("gags")
+	exclaim_verb = list("retches")
+	colour = "revenant"
+	key = "c"
+	syllables = list("grhhg", "ghrohg", "grgugh", "grrhh", "hghh", "rghghh", "gghhh", "ggrh", "aghrh")
+	flags = RESTRICTED
+	partial_understanding = list(LANGUAGE_TCB = 80)
+	always_parse_language = TRUE
+
+/datum/language/revenant/hivemind
+	name = LANGUAGE_REVENANT_RIFTSPEAK
+	desc = "A manner of speaking that allows revenants to talk to eachother no matter the distance."
+	key = "rs"
+	flags = RESTRICTED | HIVEMIND

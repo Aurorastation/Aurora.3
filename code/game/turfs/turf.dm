@@ -225,7 +225,7 @@ var/const/enterloopsanity = 100
 		var/has_feet = TRUE
 		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 			has_feet = FALSE
-		if(!H.buckled && !H.lying && has_feet)
+		if(!H.buckled_to && !H.lying && has_feet)
 			if(H.shoes) //Adding ash to shoes
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))
@@ -384,7 +384,7 @@ var/const/enterloopsanity = 100
 
 //expects an atom containing the reagents used to clean the turf
 /turf/proc/clean(atom/source, mob/user)
-	if(source.reagents.has_reagent(/datum/reagent/water, 1) || source.reagents.has_reagent(/datum/reagent/spacecleaner, 1))
+	if(source.reagents.has_reagent(/decl/reagent/water, 1) || source.reagents.has_reagent(/decl/reagent/spacecleaner, 1))
 		clean_blood()
 		if(istype(src, /turf/simulated))
 			var/turf/simulated/T = src

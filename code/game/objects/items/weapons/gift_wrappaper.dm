@@ -173,7 +173,7 @@
 		/obj/item/storage/box/fancy/crayons,
 		/obj/item/soap/deluxe,
 		/obj/item/pen/invisible,
-		/obj/item/clothing/gloves/watch,
+		/obj/item/clothing/wrists/watch,
 		/obj/item/lipstick/random,
 		/obj/item/clothing/shoes/carp,
 		/obj/item/bikehorn,

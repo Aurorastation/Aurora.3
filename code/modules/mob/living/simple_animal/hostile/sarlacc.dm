@@ -82,7 +82,7 @@
 			)
 		L.gib()
 		originator.sated += L.mob_size*2
-	unbuckle_mob()
+	unbuckle()
 	captive = null
 	deployed = 1
 	originator.eating = 0
@@ -397,7 +397,7 @@
 	if(istype(A, /mob/living))
 		var/mob/living/L = A
 		if(L.reagents)
-			var/madhouse = pick(/datum/reagent/psilocybin,/datum/reagent/mindbreaker,/datum/reagent/impedrezene,/datum/reagent/cryptobiolin,/datum/reagent/soporific,/datum/reagent/mutagen)
+			var/madhouse = pick(/decl/reagent/psilocybin,/decl/reagent/mindbreaker,/decl/reagent/impedrezene,/decl/reagent/cryptobiolin,/decl/reagent/soporific,/decl/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)
 			L.reagents.add_reagent("[madhouse]", 3)
 			to_chat(L, "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>")

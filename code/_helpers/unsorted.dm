@@ -55,6 +55,22 @@
 	else if(dx<0)
 		.+=360
 
+/proc/get_projectile_angle(atom/source, atom/target)
+	var/sx = source.x * world.icon_size
+	var/sy = source.y * world.icon_size
+	var/tx = target.x * world.icon_size
+	var/ty = target.y * world.icon_size
+	var/atom/movable/AM
+	if(ismovable(source))
+		AM = source
+		sx += AM.step_x
+		sy += AM.step_y
+	if(ismovable(target))
+		AM = target
+		tx += AM.step_x
+		ty += AM.step_y
+	return SIMPLIFY_DEGREES(arctan(ty - sy, tx - sx))
+
 //Returns location. Returns null if no location was found.
 /proc/get_teleport_loc(turf/location,mob/target,distance = 1, density = 0, errorx = 0, errory = 0, eoffsetx = 0, eoffsety = 0)
 /*
@@ -548,7 +564,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	var/datum/progressbar/progbar
 	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
-		progbar = new(user, delay, target)
+		var/atom/loc_check = target
+		for(var/i = 0; !isturf(loc_check.loc) && i < 5; i++)
+			loc_check = target.loc
+		progbar = new(user, delay, loc_check)
 
 	var/endtime = world.time + delay
 	var/starttime = world.time

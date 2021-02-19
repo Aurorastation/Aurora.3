@@ -168,8 +168,8 @@
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
-		if(C.buckled?.buckle_require_restraints)
-			C.buckled.unbuckle_mob()
+		if(C.buckled_to?.buckle_require_restraints)
+			C.buckled_to.unbuckle()
 		C.update_inv_handcuffed()
 		return
 	else
@@ -267,7 +267,7 @@
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
-	R.add_reagent(/datum/reagent/fuel, max_fuel)
+	R.add_reagent(/decl/reagent/fuel, max_fuel)
 	update_icon()
 
 /obj/item/weldingtool/update_icon()
@@ -399,6 +399,9 @@
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
+		if(use_check(user, USE_DISALLOW_SPECIALS))
+			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
+			return
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
 			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
@@ -443,7 +446,7 @@
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
-	return reagents.get_reagent_amount(/datum/reagent/fuel)
+	return REAGENT_VOLUME(reagents, /decl/reagent/fuel)
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
 /obj/item/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
@@ -453,7 +456,7 @@
 		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent(/datum/reagent/fuel, amount)
+		reagents.remove_reagent(/decl/reagent/fuel, amount)
 		if(M)
 			eyecheck(M)
 		return 1
@@ -574,7 +577,7 @@
 		var/gen_amount = ((world.time-last_gen) / fuelgen_delay)
 		var/remainder = max_fuel - get_fuel()
 		gen_amount = min(gen_amount, remainder)
-		reagents.add_reagent(/datum/reagent/fuel, gen_amount)
+		reagents.add_reagent(/decl/reagent/fuel, gen_amount)
 		if(get_fuel() >= max_fuel)
 			set_processing(0)
 	else
@@ -728,7 +731,8 @@
 	. = ..()
 	var/drillcolor = pick("red", "blue", "yellow", "green")
 	icon_state = "powerdrill[drillcolor]"
-	item_state = "powerdrill[drillcolor]"
+	item_state = icon_state
+	update_tool()
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -737,24 +741,30 @@
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
 
+/obj/item/powerdrill/MouseEntered(location, control, params)
+	. = ..()
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"] && get_dist(usr, src) <= 2)
+		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
+		openToolTip(usr, src, params, "Impact Drill:", "[capitalize(tools[current_tool])]")
+
+/obj/item/powerdrill/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
+
 /obj/item/powerdrill/iswrench()
-	usesound = 'sound/items/air_wrench.ogg'
 	return tools[current_tool] == "wrenchbit"
 
 /obj/item/powerdrill/isscrewdriver()
-	usesound = 'sound/items/drill_use.ogg'
 	return tools[current_tool] == "screwdriverbit"
 
-/obj/item/powerdrill/iscrowbar()
-	usesound = 'sound/items/drill_use.ogg'
-	return tools[current_tool] == "crowbarbit"
-
 /obj/item/powerdrill/proc/update_tool()
+	cut_overlays()
 	if(isscrewdriver())
-		cut_overlays()
+		usesound = 'sound/items/air_wrench.ogg'
 		add_overlay("screwdriverbit")
-	if(iswrench())
-		cut_overlays()
+	else if(iswrench())
+		usesound = 'sound/items/drill_use.ogg'
 		add_overlay("wrenchbit")
 
 /obj/item/powerdrill/attack_self(var/mob/user)
@@ -821,6 +831,6 @@
 			else if(UserLoc == slot_r_hand)
 				user.apply_damage(5, BURN, BP_R_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
-	
+
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)

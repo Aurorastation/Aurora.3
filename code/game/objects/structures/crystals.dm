@@ -6,7 +6,7 @@
 	anchored = TRUE
 	density = FALSE
 	layer = ABOVE_CABLE_LAYER
-	var/datum/reagent/reagent_id
+	var/decl/reagent/reagent_id
 	var/state = 0
 	var/health = 100
 	var/mine_rate = 1 // how fast you can mine it
@@ -16,7 +16,7 @@
 /obj/structure/reagent_crystal/Initialize(mapload, var/reagent_i = null, var/our_creator = null)
 	. = ..()
 	if(!reagent_i)
-		var/list/chems = list(/datum/reagent/acetone, /datum/reagent/aluminum, /datum/reagent/ammonia, /datum/reagent/carbon, /datum/reagent/copper, /datum/reagent/iron, /datum/reagent/lithium, /datum/reagent/mercury, /datum/reagent/potassium, /datum/reagent/radium, /datum/reagent/sodium)
+		var/list/chems = list(/decl/reagent/acetone, /decl/reagent/aluminum, /decl/reagent/ammonia, /decl/reagent/carbon, /decl/reagent/copper, /decl/reagent/iron, /decl/reagent/lithium, /decl/reagent/mercury, /decl/reagent/potassium, /decl/reagent/radium, /decl/reagent/sodium)
 		reagent_i = pick(chems)
 	reagent_id = reagent_i
 	name = replacetext(name, "chemical", lowertext(initial(reagent_id.name)))
@@ -158,12 +158,12 @@
 
 /obj/item/reagent_crystal/Initialize(mapload, reagent_i, amount)
 	. = ..()
-	create_reagents(5)
+	create_reagents(max(5, amount))
 	reagents.add_reagent(reagent_i, amount)
-	var/datum/reagent/R = new reagent_i
+	var/decl/reagent/R = decls_repository.get_decl(reagent_i)
 	name = "[lowertext(R.name)] crystal"
 	desc = "A [lowertext(R.name)] crystal. It looks rough, unprocessed."
-	desc_info = "This crystal can be grinded to obtain the chemical material locked within."
+	desc_info = "This crystal can be ground to obtain the chemical material locked within."
 	color = reagents.get_color()
 
 /obj/item/storage/bag/crystal

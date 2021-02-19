@@ -2,7 +2,10 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
+
+	var/observers_only = FALSE
 	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
+
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
@@ -71,6 +74,9 @@
 		if(!is_alien_whitelisted(user, req_species_whitelist))
 			return "Missing Species Whitelist"
 
+	if(observers_only && !isobserver(user))
+		return "Observers Only"
+
 	return FALSE
 
 //Return a error message if the user CANT spawn. Otherwise FALSE
@@ -120,11 +126,13 @@
 			if(T) //If we have a spawnpoint, return it
 				return T
 	if(!isnull(landmark_name))
-		var/obj/effect/landmark/L
+		var/list/possible_landmarks = list()
 		for(var/obj/effect/landmark/landmark in landmarks_list)
 			if(landmark.name == landmark_name)
-				L = landmark
-				return get_turf(L)
+				possible_landmarks += landmark
+		if(length(possible_landmarks))
+			var/obj/effect/landmark/L = pick(possible_landmarks)
+			return get_turf(L)
 
 	log_debug("Ghostspawner: Spawner [short_name] has neither spawnpoints nor landmarks or a matching spawnpoint/landmark could not be found")
 

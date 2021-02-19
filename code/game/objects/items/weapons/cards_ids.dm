@@ -48,16 +48,6 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/item/card/data/clown
-	name = "\proper the coordinates to clown planet"
-	icon_state = "data"
-	item_state = "card-id"
-	layer = 3
-	level = 2
-	desc = "This card contains coordinates to the fabled Clown Planet. Handle with care."
-	function = "teleporter"
-	data = "Clown Land"
-
 /*
  * ID CARDS
  */
@@ -118,6 +108,9 @@ var/const/NO_EMAG_ACT = -50
 	var/icon/front
 	var/icon/side
 	var/mining_points //miners gotta eat
+
+	var/can_copy_access = FALSE
+	var/access_copy_msg
 
 	var/flipped = 0
 	var/wear_over_suit = 0
@@ -277,9 +270,20 @@ var/const/NO_EMAG_ACT = -50
 				religion = H.religion
 				age = H.age
 				src.add_fingerprint(H)
-				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!.</span>")
+				to_chat(user, SPAN_NOTICE("Biometric Imprinting Successful!"))
 				return 1
 	return ..()
+
+/obj/item/card/id/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/card/id))
+		var/obj/item/card/id/ID = W
+		if(ID.can_copy_access)
+			ID.access |= src.access
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			if(player_is_antag(user.mind) || isgolem(user))
+				to_chat(user, SPAN_NOTICE(ID.access_copy_msg))
+			return
+	. = ..()
 
 /obj/item/card/id/GetAccess()
 	return access
@@ -582,3 +586,24 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A stylized plastic card, belonging to one of the many specialists at Einstein Engines."
 	icon_state = "einstein_card"
 	overlay_state = "einstein_card"
+
+/obj/item/card/id/bluespace
+	name = "bluespace identification card"
+	desc = "A bizarre imitation of Nanotrasen identification cards. It seems to function normally as well."
+	desc_antag = "Access can be copied from other ID cards by clicking on them."
+	icon_state = "crystalid"
+
+/obj/item/card/id/bluespace/update_name()
+	return
+
+/obj/item/card/id/bluespace/attack_self(mob/user)
+	if(registered_name == user.real_name)
+		switch(alert("Would you like edit the ID label, or show it?", "Show or Edit?", "Edit", "Show"))
+			if("Edit")
+				var/new_label = sanitize(input(user, "Enter the new label.", "Set Label") as text|null, 12)
+				if(new_label)
+					name = "[initial(name)] ([new_label])"
+			if("Show")
+				..()
+	else
+		..()

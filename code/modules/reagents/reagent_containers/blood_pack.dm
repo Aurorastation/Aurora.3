@@ -30,7 +30,7 @@
 	. = ..()
 	if(blood_type != null)
 		name = "blood pack [blood_type]"
-		reagents.add_reagent(/datum/reagent/blood, 200, list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
+		reagents.add_reagent(/decl/reagent/blood, volume, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
 		update_icon()
 
 /obj/item/reagent_containers/blood/on_reagent_change()
@@ -44,34 +44,33 @@
 		if(51 to INFINITY)	icon_state = "full"
 
 /obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
-	if(user == M && user.mind)
+	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
-		if(vampire)
-			if (being_feed)
-				to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
-				return
-			if (reagents.get_reagent_amount(/datum/reagent/blood))
-				user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
-				being_feed = TRUE
-				vampire_marks = TRUE
-				if (!LAZYLEN(src.other_DNA))
-					LAZYADD(src.other_DNA, M.dna.unique_enzymes)
-					src.other_DNA_type = "saliva"
+		if (being_feed)
+			to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
+			return
+		if (REAGENT_VOLUME(reagents, /decl/reagent/blood))
+			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
+			being_feed = TRUE
+			vampire_marks = TRUE
+			if (!LAZYLEN(src.other_DNA))
+				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
+				src.other_DNA_type = "saliva"
 
-				while (do_after(user, 25, 5, 1))
-					var/blood_taken = 0
-					blood_taken = min(5, reagents.get_reagent_amount(/datum/reagent/blood)/4)
+			while (do_after(user, 25, 5, 1))
+				var/blood_taken = 0
+				blood_taken = min(5, REAGENT_VOLUME(reagents, /decl/reagent/blood)/4)
 
-					reagents.remove_reagent(/datum/reagent/blood, blood_taken*4)
-					vampire.blood_usable += blood_taken
+				reagents.remove_reagent(/decl/reagent/blood, blood_taken*4)
+				vampire.blood_usable += blood_taken
 
-					if (blood_taken)
-						to_chat(user, "<span class='notice'>You have accumulated [vampire.blood_usable] [vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+				if (blood_taken)
+					to_chat(user, "<span class='notice'>You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale.</span>")
 
-					if (reagents.get_reagent_amount(/datum/reagent/blood) < 1)
-						break
-				user.visible_message("<span class='warning'>[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
-				being_feed = FALSE
+				if (REAGENT_VOLUME(reagents, /decl/reagent/blood) < 1)
+					break
+			user.visible_message("<span class='warning'>[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
+			being_feed = FALSE
 	else
 		..()
 
@@ -83,7 +82,7 @@
 /obj/item/reagent_containers/blood/attackby(obj/item/P as obj, mob/user as mob)
 	..()
 	if (P.ispen())
-		if (reagents.get_reagent_amount(/datum/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
+		if (REAGENT_VOLUME(reagents, /decl/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
 			to_chat(usr, "<span class='notice'>You can't relabel [name] until it is empty!</span>")
 			return
 		var/blood_name = input(usr, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Cancel")
@@ -100,11 +99,11 @@
 		if(LAZYLEN(P.attack_verb))
 			user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")
 		var/atkmsg_filled = null
-		if (reagents.get_reagent_amount(/datum/reagent/blood))
+		if (REAGENT_VOLUME(reagents, /decl/reagent/blood))
 			atkmsg_filled = " and the contents spray everywhere"
 			if (src.loc != usr)
 				var/strength
-				var/percent = round((reagents.get_reagent_amount(/datum/reagent/blood) / volume) * 100) //the amount of blood changes the strength of spray
+				var/percent = round((REAGENT_VOLUME(reagents, /decl/reagent/blood) / volume) * 100) //the amount of blood changes the strength of spray
 				switch(percent)
 					if(1 to 9)	strength = 2
 					if(10 to 50)	strength = 3
@@ -151,7 +150,7 @@
 					H.bloody_body()
 		// Line below will do a check where the target bloodbag is located and create a new one accordingly
 		var/obj/item/reagent_containers/I = src.loc != usr ? new/obj/item/reagent_containers/blood/ripped(src.loc) : new/obj/item/reagent_containers/blood/ripped(usr.loc)
-		if (reagents.get_reagent_amount(/datum/reagent/blood))
+		if (REAGENT_VOLUME(reagents, /decl/reagent/blood))
 			I.add_blood()
 		var/atkmsg = "<span class='warning'>\The [src] rips apart[atkmsg_filled]!</span>"
 		user.visible_message(atkmsg)

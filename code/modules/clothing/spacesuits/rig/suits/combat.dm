@@ -3,7 +3,15 @@
 	desc = "A sleek and dangerous hardsuit for active combat."
 	icon_state = "combat_rig"
 	suit_type = "combat hardsuit"
-	armor = list(melee = 70, bullet = 55, laser = 45, energy = 15, bomb = 75, bio = 100, rad = 60)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
@@ -35,7 +43,15 @@
 	desc = "A powerful hardsuit designed for military operations."
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
-	armor = list(melee = 80, bullet = 75, laser = 60, energy = 15, bomb = 80, bio = 100, rad = 30)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_SHIELDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
@@ -87,7 +103,15 @@
 	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
 	icon_state = "legion_rig"
 	suit_type = "retrofitted military hardsuit"
-	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 30)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	siemens_coefficient = 0.35
 	slowdown = 2
 	offline_slowdown = 4
@@ -131,7 +155,15 @@
 	desc = "A favorite of Coalition rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
-	armor = list(melee = 50, bullet = 60, laser = 40, energy = 30, bomb = 30, bio = 100, rad = 60)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
@@ -171,7 +203,15 @@
 	desc = "An expensive hardsuit utilized by Eridani security contractors to field heavy weapons and coordinate non-lethal takedowns directly. Usually seen spearheading police raids."
 	icon_state = "strikesuit"
 	suit_type = "strike hardsuit"
-	armor = list(melee = 80, bullet = 45, laser = 45, energy = 25, bomb = 25, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
@@ -213,7 +253,15 @@
 	desc = "An advanced Elyran hardsuit specialized in scorched earth tactics."
 	icon_state = "elyran_rig"
 	suit_type = "elyran battlesuit"
-	armor = list(melee = 60, bullet = 40, laser = 60, energy = 60, bomb = 25, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
@@ -255,7 +303,15 @@
 	desc = "A powerful niche-function hardsuit utilized by Ceres' Lance to apprehend synthetics. Unstoppable in the right circumstances, and nothing more than a burden anywhere else."
 	icon_state = "bunker"
 	suit_type = "bunker suit"
-	armor = list(melee = 80, bullet = 80, laser = 80, energy = 80, bomb = 25, bio = 25, rad = 25)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLES,
+		energy = ARMOR_ENERGY_SHIELDED,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -30
 	slowdown = 8
@@ -284,7 +340,15 @@
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
 	icon_state = "jinxiang"
 	suit_type = "jinxiang combat suit"
-	armor = list(melee = 80, bullet = 40, laser = 30, energy = 20, bomb = 15, bio = 100, rad = 25)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_MINOR,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
 	offline_vision_restriction = TINT_HEAVY
 	offline_slowdown = 10
 

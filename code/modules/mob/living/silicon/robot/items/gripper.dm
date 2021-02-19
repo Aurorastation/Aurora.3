@@ -112,7 +112,6 @@
 		if(wrapped.loc == src)
 			if(force_holder)
 				wrapped.force = force_holder
-			wrapped.do_putdown_animation(target, loc)
 			wrapped.forceMove(target)
 			force_holder = null
 		to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
@@ -254,7 +253,7 @@
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/spray,
 		/obj/item/storage/pill_bottle,
-		/obj/item/hand_labeler,
+		/obj/item/device/hand_labeler,
 		/obj/item/paper,
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,

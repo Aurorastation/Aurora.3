@@ -63,8 +63,8 @@
 		A.attack_robot(src)
 		return
 
-	// buckled cannot prevent machine interlinking but stops arm movement
-	if(buckled)
+	// buckled_to cannot prevent machine interlinking but stops arm movement
+	if(buckled_to)
 		return
 
 	if(W == A)
@@ -223,6 +223,6 @@
 /mob/living/silicon/robot/RangedAttack(atom/A)
 	A.attack_robot(src)
 
-/atom/proc/attack_robot(mob/user as mob)
+/atom/proc/attack_robot(mob/user)
 	attack_ai(user)
 	return

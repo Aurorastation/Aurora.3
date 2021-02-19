@@ -107,7 +107,7 @@
 			contains = JAR_MONEY
 		if(contains != JAR_MONEY)
 			return
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S.worth] credit\s into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
 	if(istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
@@ -219,7 +219,7 @@
 	for(var/i = 1 to GUMBALL_MAX)
 		var/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/G = new(src)
 		contained += G
-		
+
 	return INITIALIZE_HINT_LATELOAD
 
 #undef JAR_NOTHING

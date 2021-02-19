@@ -20,9 +20,6 @@ var/global/datum/universal_state/universe = new
 
 var/global/list/global_map = null
 
-// Noises made when hit while typing.
-var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
-
 var/diary               = null
 var/diary_runtime  = null
 var/diary_date_string = null
@@ -50,12 +47,13 @@ var/list/wizardstart     = list()
 var/turf/newplayer_start = null
 
 //Spawnpoints.
-var/list/latejoin          = list()
-var/list/latejoin_gateway  = list()
-var/list/latejoin_cryo     = list()
-var/list/latejoin_cyborg   = list()
-var/list/latejoin_merchant = list()
-var/list/kickoffsloc = list()
+var/list/latejoin              = list()
+var/list/latejoin_gateway      = list()
+var/list/latejoin_cryo         = list()
+var/list/latejoin_cryo_command = list()
+var/list/latejoin_cyborg       = list()
+var/list/latejoin_merchant     = list()
+var/list/kickoffsloc           = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
 var/list/holdingfacility    = list() // Captured people go here

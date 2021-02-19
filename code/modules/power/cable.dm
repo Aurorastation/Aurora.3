@@ -1022,10 +1022,11 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		user.visible_message("[user] cuts the noose.",
 							 SPAN_NOTICE("You cut the noose."))
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
-		if(buckled_mob)
-			buckled_mob.visible_message(SPAN_DANGER("[buckled_mob] falls over and hits the ground!"),\
+		if(istype(buckled, /mob/living))
+			var/mob/living/M = buckled
+			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),\
 										SPAN_DANGER("You fall over and hit the ground!"))
-			buckled_mob.adjustBruteLoss(10)
+			M.adjustBruteLoss(10)
 		new/obj/item/stack/cable_coil(get_turf(src), 25, color)
 		qdel(src)
 		return
@@ -1045,8 +1046,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/structure/noose/post_buckle_mob(mob/living/M)
-	if(M == buckled_mob)
+/obj/structure/noose/post_buckle(mob/living/M)
+	if(M == buckled)
 		layer = MOB_LAYER
 		add_overlay(over)
 		START_PROCESSING(SSprocessing, src)
@@ -1060,13 +1061,13 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		M.pixel_x = initial(M.pixel_x)
 		M.pixel_y = initial(M.pixel_y)
 
-/obj/structure/noose/user_unbuckle_mob(mob/living/user)
+/obj/structure/noose/user_unbuckle(mob/living/user)
 
 	if(!user.IsAdvancedToolUser())
 		return
 
-	if(buckled_mob && buckled_mob.buckled == src)
-		var/mob/living/M = buckled_mob
+	if(buckled && buckled.buckled_to == src)
+		var/mob/living/M = buckled
 		if(M != user)
 			user.visible_message(SPAN_NOTICE("[user] begins to untie the noose over [M]'s neck..."),\
 								 SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
@@ -1080,19 +1081,19 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				SPAN_WARNING("[M] struggles to untie the noose over their neck!"),\
 				SPAN_NOTICE("You struggle to untie the noose over your neck."))
 			if(!do_after(M, 150))
-				if(M && M.buckled)
+				if(M && M.buckled_to)
 					to_chat(M, SPAN_WARNING("You fail to untie yourself!"))
 				return
-			if(!M.buckled)
+			if(!M.buckled_to)
 				return
 			M.visible_message(\
 				SPAN_WARNING("[M] unties the noose over their neck!"),\
 				SPAN_NOTICE("You untie the noose over your neck!"))
 			M.Weaken(3)
-		unbuckle_mob()
+		unbuckle()
 		add_fingerprint(user)
 
-/obj/structure/noose/user_buckle_mob(mob/living/carbon/human/M, mob/user)
+/obj/structure/noose/user_buckle(mob/living/carbon/human/M, mob/user)
 	if(!in_range(user, src) || user.stat || user.restrained() || !istype(M))
 		return FALSE
 
@@ -1110,7 +1111,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	add_fingerprint(user)
 
-	if(M == user && buckle_mob(M))
+	if(M == user && buckle(M))
 		M.visible_message(\
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
@@ -1123,7 +1124,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			SPAN_DANGER("[user] ties \the [src] over your neck!"))
 		to_chat(user, SPAN_NOTICE("It will take 20 seconds and you have to stand still."))
 		if(do_after(user, 200))
-			if(buckle_mob(M))
+			if(buckle(M))
 				M.visible_message(\
 					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
 					SPAN_DANGER("[user] ties \the [src] over your neck!"))
@@ -1142,9 +1143,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			return FALSE
 
 /obj/structure/noose/process(mob/living/carbon/human/M, mob/user)
-	if(!buckled_mob)
+	if(!buckled)
 		STOP_PROCESSING(SSprocessing, src)
-		buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
+		buckled.pixel_x = initial(buckled.pixel_x)
 		pixel_x = initial(pixel_x)
 		return
 
@@ -1152,39 +1153,41 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	switch(ticks)
 		if(1)
 			pixel_x -= 1
-			buckled_mob.pixel_x -= 1
+			buckled.pixel_x -= 1
 		if(2)
 			pixel_x = initial(pixel_x)
-			buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
+			buckled.pixel_x = initial(buckled.pixel_x)
 		if(3) //Every third tick it plays a sound and RNG's a flavor text
 			pixel_x += 1
-			buckled_mob.pixel_x += 1
-			if(buckled_mob)
-				if (ishuman(buckled_mob))
-					var/mob/living/carbon/human/H = buckled_mob
+			buckled.pixel_x += 1
+			if(istype(buckled, /mob/living))
+				var/mob/living/B = buckled
+				if (ishuman(B))
+					var/mob/living/carbon/human/H = B
 					if (H.species && (H.species.flags & NO_BREATHE))
 						return
 				if(prob(15))
-					var/flavor_text = list(SPAN_WARNING("[buckled_mob]'s legs flail for anything to stand on."),\
-											SPAN_WARNING("[buckled_mob]'s hands are desperately clutching the noose."),\
-											SPAN_WARNING("[buckled_mob]'s limbs sway back and forth with diminishing strength."))
-					if(buckled_mob.stat == DEAD)
-						flavor_text = list(SPAN_WARNING("[buckled_mob]'s limbs lifelessly sway back and forth."),\
-											SPAN_WARNING("[buckled_mob]'s eyes stare straight ahead."))
-					buckled_mob.visible_message(pick(flavor_text))
-				playsound(buckled_mob.loc, 'sound/effects/noose_idle.ogg', 50, 1, -3)
+					var/flavor_text = list(SPAN_WARNING("[B]'s legs flail for anything to stand on."),\
+											SPAN_WARNING("[B]'s hands are desperately clutching the noose."),\
+											SPAN_WARNING("[B]'s limbs sway back and forth with diminishing strength."))
+					if(B.stat == DEAD)
+						flavor_text = list(SPAN_WARNING("[B]'s limbs lifelessly sway back and forth."),\
+											SPAN_WARNING("[B]'s eyes stare straight ahead."))
+					B.visible_message(pick(flavor_text))
+				playsound(B.loc, 'sound/effects/noose_idle.ogg', 50, 1, -3)
 		if(4)
 			pixel_x = initial(pixel_x)
-			buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
+			buckled.pixel_x = initial(buckled.pixel_x)
 			ticks = 0
 
-	if(buckled_mob)
-		if (ishuman(buckled_mob))
-			var/mob/living/carbon/human/H = buckled_mob
+	if(istype(buckled, /mob/living))
+		var/mob/living/B = buckled
+		if (ishuman(B))
+			var/mob/living/carbon/human/H = B
 			if (H.species && (H.species.flags & NO_BREATHE))
 				return
-		buckled_mob.adjustOxyLoss(5)
-		buckled_mob.adjustBrainLoss(1)
-		buckled_mob.silent = max(buckled_mob.silent, 10)
+		B.adjustOxyLoss(5)
+		B.adjustBrainLoss(1)
+		B.silent = max(B.silent, 10)
 		if(prob(25)) //to reduce gasp spam
-			buckled_mob.emote("gasp")
+			B.emote("gasp")

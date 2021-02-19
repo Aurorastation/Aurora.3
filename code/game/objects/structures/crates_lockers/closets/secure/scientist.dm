@@ -68,3 +68,4 @@
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/radio/headset/heads/rd(src)
 	new /obj/item/device/radio/headset/heads/rd/alt(src)
+	new /obj/item/device/megaphone/sci(src)

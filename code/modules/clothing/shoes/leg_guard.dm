@@ -5,7 +5,13 @@
 	item_state = "jackboots"
 	body_parts_covered = LEGS|FEET
 	w_class = ITEMSIZE_NORMAL
-	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 	force = 3
 	drop_sound = 'sound/items/drop/boots.ogg'
@@ -24,18 +30,36 @@
 	desc = "These will protect your legs and feet from energy weapons."
 	icon_state = "leg_guards_laser"
 	siemens_coefficient = 0
-	armor = list(melee = 25, bullet = 25, laser = 80, energy = 40, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_RIFLES,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
 
 /obj/item/clothing/shoes/leg_guard/bulletproof
 	name = "ballistic leg guards"
 	desc = "These will protect your legs and feet from ballistic weapons."
 	icon_state = "leg_guards_bullet"
-	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 
 /obj/item/clothing/shoes/leg_guard/riot
 	name = "riot leg guards"
 	desc = "These will protect your legs and feet from close combat weapons."
-	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 
 /obj/item/clothing/shoes/leg_guard/merc
 	name = "heavy leg guards"
@@ -44,5 +68,11 @@
 	item_state = "legguards"
 	icon_state = "legguards"
 	contained_sprite = TRUE
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	species_restricted = null
