@@ -42,3 +42,5 @@ changes:
   - tweak: "Mercenary body armor works much the same way now as well."
   - rscdel: "Temporarily removed the ablative armor's laser reflection mechanic until a replacement can be coded."
   - tweak: "Added slight slowdown to the ablative and bulletproof vests."
+  - rscadd: "Added a heavy helmet to the heavy security vest kit."
+  - rscdel: "Removed two heavy security vests from the armory in exchange for them being fit out with arm guards, leg guards and a helmet."

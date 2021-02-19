@@ -7329,10 +7329,10 @@
 /area/maintenance/engineering)
 "anS" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
+/obj/item/clothing/suit/armor/carrier/heavy/sec,
+/obj/item/clothing/suit/armor/carrier/heavy/sec,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "anT" = (

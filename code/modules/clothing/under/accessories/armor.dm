@@ -86,6 +86,18 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
+/obj/item/clothing/accessory/leg_guard/heavy/sec
+	name = "heavy corporate leg guards"
+	icon_state = "legguards_sec_heavy"
+	item_state = "legguards_sec_heavy"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
+
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
@@ -167,5 +179,17 @@
 		bullet = ARMOR_BALLISTIC_PISTOL,
 		laser = ARMOR_LASER_HANDGUNS,
 		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
+
+/obj/item/clothing/accessory/arm_guard/heavy/sec
+	name = "heavy corporate arm guards"
+	icon_state = "armguards_sec_heavy"
+	item_state = "armguards_sec_heavy"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)

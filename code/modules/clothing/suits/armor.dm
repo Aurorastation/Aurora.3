@@ -328,6 +328,7 @@
 	item_state = "hosvest_nobadge"
 	icon_badge = "hosvest_badge"
 	icon_nobadge = "hosvest_nobadge"
+
 /obj/item/clothing/suit/storage/vest/pcrc
 	name = "PCRC armor vest"
 	desc = "A simple kevlar plate carrier belonging to Proxima Centauri Risk Control. This one has a PCRC crest clipped to the chest."
