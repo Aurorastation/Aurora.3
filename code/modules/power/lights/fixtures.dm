@@ -227,9 +227,7 @@
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && has_power())
 		spark(src, 3, alldirs)
-		next_spark = 1 MINUTE + (rand(-15, 15) SECONDS)
-		message_admins(next_spark)
-		next_spark = world.time + next_spark
+		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
 /obj/machinery/light/machinery_process()
