@@ -50,7 +50,7 @@
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-	butchering_products = list(/obj/item/grenade/tesla/bio = 0.6) // 60% chance of recovering an unused bio grenade
+	butchering_products = list(/obj/item/grenade/tesla/bio = 0.3) // 30% chance of recovering an unused bio grenade
 
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
