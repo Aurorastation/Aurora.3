@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "You can no longer build padded comfy chairs out of steel, comfy chairs are now built plain and require you to pad it with other materials, such as carpet or leather."
+  - tweak: "Office chairs and comfy chairs have been collapsed into the miscellaneous construction tab in the steel sheet menu."
