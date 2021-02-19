@@ -34,12 +34,12 @@
 	for(var/mob/M in targets)
 		var/turf/T = get_turf(M)
 		var/obj/effect/plant/single/P = new(T, seed)
-		P.can_buckle = TRUE
+		P.can_buckle = list(/mob/living)
 		P.health = P.max_health
 		P.mature_time = 0
 		P.process()
 
-		P.buckle_mob(M)
+		P.buckle(M)
 		M.set_dir(pick(cardinal))
 
 		var/obj/item/handcuffs/cable/green/vines/V = new /obj/item/handcuffs/cable/green/vines(get_turf(M))

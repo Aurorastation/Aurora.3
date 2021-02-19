@@ -36,8 +36,7 @@
 	A.visible_message("<span class='warning'>[A] strikes [D] with their open palm!</span>")
 	playsound(get_turf(A), /decl/sound_category/punch_sound, 50, 1, -1)
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
-	var/armor_block = D.run_armor_check(affecting, "melee")
-	D.apply_damage(25, PAIN, affecting, armor_block)
+	D.apply_damage(25, PAIN, affecting)
 	return 1
 
 /datum/martial_art/karak_virul/proc/dislocating_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

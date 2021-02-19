@@ -154,13 +154,9 @@
 	path = /obj/item/towel
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/checkers
-	display_name = "checkers game kit"
-	path = /obj/item/storage/box/checkers_kit
-
-/datum/gear/chess
-	display_name = "chess game kit"
-	path = /obj/item/storage/box/chess_kit
+/datum/gear/gameboard
+	display_name = "holo board game"
+	path = /obj/item/board
 
 /datum/gear/battlemonsters
 	display_name = "battlemonsters starter deck"

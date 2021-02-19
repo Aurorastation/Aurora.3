@@ -155,10 +155,10 @@
 				return
 			if(G.state > GRAB_AGGRESSIVE && world.time >= G.last_action + UPGRADE_COOLDOWN)
 				if(user.a_intent == I_HURT)
-					var/blocked = M.run_armor_check(BP_HEAD, "melee")
-					if (prob(30 * BLOCKED_MULT(blocked)))
+					var/blocked = M.get_blocked_ratio(BP_HEAD, BRUTE, damage = 8)
+					if (prob(30 * (1 - blocked)))
 						M.Weaken(5)
-					M.apply_damage(8, BRUTE, BP_HEAD, blocked)
+					M.apply_damage(8, BRUTE, BP_HEAD)
 					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
@@ -170,7 +170,7 @@
 						if(prob(50))
 							M.visible_message("<span class='danger'>\The [S] slices [M]'s face messily!</span>",
 												"<span class='danger'>\The [S] slices your face messily!</span>")
-							M.apply_damage(10, BRUTE, BP_HEAD, blocked)
+							M.apply_damage(10, BRUTE, BP_HEAD)
 							sanity_counter++
 						if(sanity_counter >= 3)
 							break

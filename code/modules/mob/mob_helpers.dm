@@ -303,7 +303,7 @@ var/list/global/organ_rel_size = list(
 
 	if(!ranged_attack)
 		// you cannot miss if your target is prone or restrained
-		if(target.buckled || target.lying)
+		if(target.buckled_to || target.lying)
 			return zone
 		// if your target is being grabbed aggressively by someone you cannot miss either
 		for(var/obj/item/grab/G in target.grabbed_by)
@@ -702,7 +702,7 @@ proc/is_blind(A)
 
 
 /mob/living/proc/bucklecheck(var/mob/living/user)
-	if (buckled && istype(buckled, /obj/structure))
+	if (buckled_to && istype(buckled_to, /obj/structure))
 		if (istype(user,/mob/living/silicon/robot))
 			return 2
 		else
@@ -1164,10 +1164,10 @@ proc/is_blind(A)
 /mob/living/carbon/human/proc/equip_wheelchair()
 	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
 	if(isturf(loc))
-		buckled = W
+		buckled_to = W
 		update_canmove()
 		W.set_dir(dir)
-		W.buckled_mob = src
+		W.buckled = src
 		W.add_fingerprint(src)
 
 /mob/proc/set_intent(var/set_intent)
@@ -1206,6 +1206,16 @@ proc/is_blind(A)
 
 /mob/proc/get_antag_datum(var/antag_role)
 	return
+
+/mob/dump_contents()
+	for(var/thing in get_contained_external_atoms())
+		var/atom/movable/AM = thing
+		drop_from_inventory(AM, loc)
+		if(ismob(AM))
+			var/mob/M = AM
+			if(M.client)
+				M.client.eye = M.client.mob
+				M.client.perspective = MOB_PERSPECTIVE
 
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)

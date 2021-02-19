@@ -222,8 +222,8 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		return 0
 
 	if(!(spell_flags & GHOSTCAST) && holder == user)
-		if(user.stat && !(spell_flags & STATALLOWED))
-			to_chat(usr, "Not when you're incapacitated.")
+		if(user.incapacitated(INCAPACITATION_KNOCKOUT) && !(spell_flags & STATALLOWED))
+			to_chat(usr, SPAN_WARNING("Not when you're incapacitated."))
 			return 0
 
 		if(ishuman(user) && !(invocation_type in list(SpI_EMOTE, SpI_NONE)))

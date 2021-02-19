@@ -139,7 +139,7 @@ var/list/global_webhooks = list()
 		if (WEBHOOK_ROUNDSTART)
 			var/emb = list(
 				"title" = "Round has started",
-				"description" = "Round started with [data["playercount"]] [data["playercount"]>1 ? "players" : "player"]",
+				"description" = "Round started with [data["playercount"]] player\s.",
 				"color" = HEX_COLOR_GREEN
 			)
 			OutData["embeds"] = list(emb)
