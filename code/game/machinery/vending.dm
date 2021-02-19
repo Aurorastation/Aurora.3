@@ -100,6 +100,7 @@
 	emagged = 0 //Ignores if somebody doesn't have card access to that machine.
 	var/seconds_electrified = 0 //Shock customers like an airlock.
 	var/shoot_inventory = 0 //Fire items at customers! We're broken!
+	var/shoot_inventory_chance = 2
 
 	var/scan_id = 1
 	var/obj/item/coin/coin
@@ -758,7 +759,7 @@
 		src.speak(slogan)
 		src.last_slogan = world.time
 
-	if(src.shoot_inventory && prob(2))
+	if(src.shoot_inventory && prob(shoot_inventory_chance))
 		src.throw_item()
 
 	return
@@ -816,7 +817,7 @@
 	if(!target)
 		return 0
 
-	for(var/datum/data/vending_product/R in src.product_records)
+	for(var/datum/data/vending_product/R in shuffle(product_records))
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
 		var/dump_path = R.product_path
@@ -827,9 +828,20 @@
 		SSvueui.check_uis_for_change(src)
 		throw_item = new dump_path(src.loc)
 		break
-	if (!throw_item)
-		return 0
-	spawn(0)
-		throw_item.throw_at(target, 16, 3, src)
+	if(!throw_item)
+		return FALSE
+	pre_throw(throw_item)
+	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, 16, 3, src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1
+
+/obj/machinery/vending/proc/pre_throw(var/obj/item/I)
+	if(istype(I, /obj/item/grenade))
+		var/obj/item/grenade/G = I
+		G.activate(src)
+	else if(istype(I, /obj/item/flame/lighter))
+		var/obj/item/flame/lighter/L = I
+		L.handle_lighting()
+	else if(istype(I, /obj/item/device/flashlight))
+		var/obj/item/device/flashlight/FL = I
+		FL.toggle()
