@@ -28,6 +28,9 @@
 	bars += src
 	listindex = bars.len
 	bar.pixel_y = 0
+	if(istype(target, /atom/movable))
+		var/atom/movable/AM = target
+		bar.pixel_x = AM.get_floating_chat_x_offset()
 	bar.alpha = 0
 	animate(bar, pixel_y = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1)), alpha = 255, time = PROGRESSBAR_ANIMATION_TIME, easing = SINE_EASING)
 
