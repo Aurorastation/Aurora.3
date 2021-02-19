@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Removing items from skrell headtail pocket storage now works properly. It used to check if they had a hat, not a head."
