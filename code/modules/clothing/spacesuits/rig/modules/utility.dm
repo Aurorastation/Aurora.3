@@ -347,7 +347,7 @@
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 	charges = list(
 		list("tricordrazine",	"tricordrazine",	/decl/reagent/tricordrazine,	40),
-		list("mortaphenyl",		"mortaphenyl",		/decl/reagent/mortaphenyl,		40),
+		list("perconol",		"perconol",			/decl/reagent/perconol,		40),
 		list("dexalin",			"dexalin",			/decl/reagent/dexalin,			40),
 		list("inaprovaline",	"inaprovaline",		/decl/reagent/inaprovaline,	40)
 		)
