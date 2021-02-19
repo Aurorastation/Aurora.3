@@ -42,6 +42,8 @@
 	var/emergency_mode = FALSE	// if true, the light is in emergency mode.
 	var/no_emergency = FALSE	// if true, this light cannot enter emergency mode.
 
+	var/next_spark = 0
+
 	var/bulb_is_noisy = TRUE
 
 	var/previous_stat
@@ -222,12 +224,21 @@
 
 	active_power_usage = ((light_range * light_power) * 10)
 
+/obj/machinery/light/proc/broken_sparks()
+	if(has_power() && world.time > next_spark)
+		spark(src, 3, alldirs)
+		next_spark = 1 MINUTE + (rand(-15, 15) SECONDS)
+		message_admins(next_spark)
+		next_spark = world.time + next_spark
+
 // ehh
 /obj/machinery/light/machinery_process()
 	if (cell && cell.charge != cell.maxcharge && has_power())
 		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE)
+	if(status == LIGHT_BROKEN)
+		broken_sparks()
 
 /obj/machinery/light/proc/has_emergency_power(pwr = LIGHT_EMERGENCY_POWER_USE)
 	if (no_emergency | !cell)
