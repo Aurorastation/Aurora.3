@@ -22,6 +22,7 @@
 	var/list/partial_understanding				  // List of languages that can /somehwat/ understand it, format is: name = chance of understanding a word
 	var/machine_understands = TRUE	// Whether machines can parse and understand this language
 	var/allow_accents = FALSE
+	var/always_parse_language = FALSE // forces the language to parse for language keys even when a default is set
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)

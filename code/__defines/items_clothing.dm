@@ -3,22 +3,23 @@
 #define CANDLE_LUM 3 // For how bright candles are.
 
 // Item inventory slot bitmasks.
-#define SLOT_OCLOTHING  0x1
-#define SLOT_ICLOTHING  0x2
-#define SLOT_GLOVES     0x4
-#define SLOT_EYES       0x8
-#define SLOT_EARS       0x10
-#define SLOT_MASK       0x20
-#define SLOT_HEAD       0x40
-#define SLOT_FEET       0x80
-#define SLOT_ID         0x100
-#define SLOT_BELT       0x200
-#define SLOT_BACK       0x400
-#define SLOT_POCKET     0x800  // This is to allow items with a w_class of 3 or 4 to fit in pockets.
-#define SLOT_DENYPOCKET 0x1000  // This is to  deny items with a w_class of 2 or 1 from fitting in pockets.
-#define SLOT_TWOEARS    0x2000
-#define SLOT_TIE        0x4000
-#define SLOT_HOLSTER	0x8000 //16th bit - higher than this will overflow
+#define SLOT_OCLOTHING  (1<<0)
+#define SLOT_ICLOTHING  (1<<1)
+#define SLOT_GLOVES     (1<<2)
+#define SLOT_EYES       (1<<3)
+#define SLOT_EARS       (1<<4)
+#define SLOT_MASK       (1<<5)
+#define SLOT_HEAD       (1<<6)
+#define SLOT_FEET       (1<<7)
+#define SLOT_ID         (1<<8)
+#define SLOT_BELT       (1<<9)
+#define SLOT_BACK       (1<<10)
+#define SLOT_POCKET     (1<<11) // This is to allow items with a w_class of 3 or 4 to fit in pockets.
+#define SLOT_DENYPOCKET (1<<12)  // This is to  deny items with a w_class of 2 or 1 from fitting in pockets.
+#define SLOT_TWOEARS    (1<<13)
+#define SLOT_TIE        (1<<14)
+#define SLOT_HOLSTER	(1<<15)
+#define SLOT_WRISTS		(1<<16)
 
 // Flags bitmasks.
 #define NOBLUDGEON         0x1   // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
@@ -58,35 +59,39 @@
 #define HIDEEARS		0x40 // Headsets and such.
 #define HIDEEYES		0x80 // Glasses.
 #define HIDEFACE		0x100// Dictates whether we appear as "Unknown".
-#define BLOCKHEADHAIR   0x200// Hides the user's hair overlay. Leaves facial hair.
-#define BLOCKHAIR       0x400// Hides the user's hair, facial and otherwise.
-#define ALWAYSDRAW		0x800//If set, this item is always rendered even if its slot is hidden by other clothing
+#define HIDEWRISTS		0x200
+#define BLOCKHEADHAIR   0x400// Hides the user's hair overlay. Leaves facial hair.
+#define BLOCKHAIR       0x800/// Hides the user's hair, facial and otherwise.
+#define ALWAYSDRAW		0x1000//If set, this item is always rendered even if its slot is hidden by other clothing
 //Note that the item may still not be visible if its sprite is actually covered up.
 
 // Slots.
-#define slot_back        1
-#define slot_wear_mask   2
-#define slot_handcuffed  3
-#define slot_l_hand      4
-#define slot_r_hand      5
-#define slot_belt        6
-#define slot_wear_id     7
-#define slot_l_ear       8
-#define slot_glasses     9
-#define slot_gloves      10
-#define slot_head        11
-#define slot_shoes       12
-#define slot_wear_suit   13
-#define slot_w_uniform   14
-#define slot_l_store     15
-#define slot_r_store     16
-#define slot_s_store     17
-#define slot_in_backpack 18
-#define slot_legcuffed   19
-#define slot_r_ear       20
-#define slot_legs        21
-#define slot_tie         22
-#define slot_in_belt     23
+#define slot_first		 1
+#define slot_back        2
+#define slot_wear_mask   3
+#define slot_handcuffed  4
+#define slot_l_hand      5
+#define slot_r_hand      6
+#define slot_belt        7
+#define slot_wear_id     8
+#define slot_l_ear       9
+#define slot_glasses     10
+#define slot_gloves      11
+#define slot_head        12
+#define slot_shoes       13
+#define slot_wear_suit   14
+#define slot_w_uniform   15
+#define slot_l_store     16
+#define slot_r_store     17
+#define slot_s_store     18
+#define slot_in_backpack 19
+#define slot_legcuffed   20
+#define slot_r_ear       21
+#define slot_legs        22
+#define slot_tie         23
+#define slot_in_belt     24
+#define slot_wrists      25
+#define slot_last		 26 //for the love of god, keep this updated or you won't be able to unequip things
 
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.
@@ -96,10 +101,12 @@
 #define slot_r_hand_str		"slot_r_hand"
 #define slot_w_uniform_str	"slot_w_uniform"
 #define slot_head_str		"slot_head"
+#define slot_belt_str		"slot_belt"
 #define slot_wear_suit_str	"slot_suit"
 #define slot_l_ear_str		"slot_l_ear"
 #define slot_r_ear_str		"slot_r_ear"
-#define slot_shoes_str "slot_shoes"
+#define slot_shoes_str 		"slot_shoes"
+#define slot_wrists_str 	"slot_wrists"
 
 //itemstate suffixes. Used for containedsprite worn items
 #define WORN_LHAND	"_lh"
@@ -119,6 +126,7 @@
 #define WORN_BACK	"_ba"
 #define WORN_ID		"_id"
 #define WORN_MASK	"_ma"
+#define WORN_WRISTS	"_wr"
 
 // Bitflags for clothing parts.
 #define HEAD        0x1

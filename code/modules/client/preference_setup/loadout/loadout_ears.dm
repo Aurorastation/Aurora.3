@@ -23,7 +23,7 @@
 /datum/gear/ears/circuitry
 	display_name = "earwear, circuitry (empty)"
 	path = /obj/item/clothing/ears/circuitry
-	
+
 /datum/gear/ears/earrings
 	display_name = "earring selection"
 	description = "A selection of eye-catching earrings."
@@ -36,3 +36,18 @@
 	earrings["stud earrings"] = /obj/item/clothing/ears/earring/stud
 	earrings["dangle earrings"] = /obj/item/clothing/ears/earring/dangle
 	gear_tweaks += new/datum/gear_tweak/path(earrings)
+
+/datum/gear/ears/hearing_aid
+	display_name = "hearing aid selection"
+	path = /obj/item/device/hearing_aid
+	cost = 1
+
+/datum/gear/ears/hearing_aid/New()
+	..()
+	var/hearingaids = list()
+	hearingaids["hearing aid, black"] = /obj/item/device/hearing_aid/black
+	hearingaids["hearing aid, grey"] = /obj/item/device/hearing_aid
+	hearingaids["hearing aid, silver"] = /obj/item/device/hearing_aid/silver
+	hearingaids["hearing aid, white"] = /obj/item/device/hearing_aid/white
+	hearingaids["hearing aid, skrellian"] = /obj/item/device/hearing_aid/skrell
+	gear_tweaks += new/datum/gear_tweak/path(hearingaids)

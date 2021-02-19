@@ -327,6 +327,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},

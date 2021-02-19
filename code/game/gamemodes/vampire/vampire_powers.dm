@@ -92,7 +92,7 @@
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
-		if(!T.vessel.get_reagent_amount(/datum/reagent/blood))
+		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
 			to_chat(src, SPAN_DANGER("[T] has no more blood left to give."))
 			break
 
@@ -102,8 +102,8 @@
 		var/frenzy_lower_chance = 0
 
 		// Alive and not of empty mind.
-		if(check_drain_target_state(T))
-			blood = min(15, T.vessel.get_reagent_amount(/datum/reagent/blood))
+		if (check_drain_target_state(T))
+			blood = min(15, REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
@@ -121,7 +121,7 @@
 				frenzy_lower_chance = 0
 		// SSD/protohuman or dead.
 		else
-			blood = min(5, T.vessel.get_reagent_amount(/datum/reagent/blood))
+			blood = min(5, REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
 			vampire.blood_usable += blood
 
 			frenzy_lower_chance = 40
@@ -130,14 +130,14 @@
 			vampire.frenzy--
 
 		if(blood_total != vampire.blood_total)
-			var/update_msg = "You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood"
+			var/update_msg = "You have accumulated [vampire.blood_total] unit\s of blood"
 			if(blood_usable != vampire.blood_usable)
 				update_msg += " and have [vampire.blood_usable] left to use"
 			update_msg += "."
 
 			to_chat(src, SPAN_NOTICE(update_msg))
 		check_vampire_upgrade()
-		T.vessel.remove_reagent(/datum/reagent/blood, 5)
+		T.vessel.remove_reagent(/decl/reagent/blood, 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
@@ -803,7 +803,7 @@
 		for(var/mob/living/carbon/human/T in view(5))
 			if(T == src)
 				continue
-			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power. 
+			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power.
 				continue
 			if(!T.client)
 				continue
@@ -846,8 +846,8 @@
 	to_chat(T, SPAN_NOTICE("You feel pure bliss as [src] touches you."))
 	vampire.use_blood(50)
 
-	T.reagents.add_reagent(/datum/reagent/rezadone, 3)
-	T.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
+	T.reagents.add_reagent(/decl/reagent/rezadone, 3)
+	T.reagents.add_reagent(/decl/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
@@ -919,12 +919,12 @@
 		if(!vampire)
 			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
-		if(!T.vessel.get_reagent_amount(/datum/reagent/blood))
+		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
 			to_chat(src, SPAN_NOTICE("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
 			drained_all_blood = TRUE
 			break
 
-		T.vessel.remove_reagent(/datum/reagent/blood, 50)
+		T.vessel.remove_reagent(/decl/reagent/blood, 50)
 
 	if(!drained_all_blood)
 		vampire.status &= ~VAMP_DRAINING
@@ -964,7 +964,7 @@
 
 	if(status_flags & LEAPING)
 		return
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, SPAN_WARNING("You cannot lean in your current state."))
 		return
 

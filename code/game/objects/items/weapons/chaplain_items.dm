@@ -4,6 +4,10 @@
 	name = "null rod"
 	desc = "A rod of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_nullrod.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_nullrod.dmi',
+		)
 	icon_state = "nullrod"
 	item_state = "nullrod"
 	slot_flags = SLOT_BELT

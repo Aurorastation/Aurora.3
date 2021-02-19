@@ -49,10 +49,10 @@
 	else
 		return null
 
-//Will return the contents of an atom recursivly to a depth of 'searchDepth'
-/atom/proc/GetAllContents(searchDepth = 5)
+//Will return the contents of an atom recursively to a depth of 'searchDepth'
+/atom/proc/GetAllContents(searchDepth = 5, checkClient = 1, checkSight = 1, includeMobs = 1, includeObjects = 1)
 	var/list/L = list()
-	recursive_content_check(src, L, recursion_limit = searchDepth)
+	recursive_content_check(src, L, searchDepth, checkClient, checkSight, includeMobs, includeObjects)
 
 	return L
 
@@ -160,6 +160,11 @@
 			to_chat(user, "<span class='notice'>How do you propose doing that without hands?</span>")
 		return USE_FAIL_IS_SILICON
 
+	if (HAS_FLAG(USE_DISALLOW_SPECIALS) && is_mob_special(user))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>Your current mob type prevents you from doing this.</span>")
+		return USE_FAIL_IS_MOB_SPECIAL
+
 	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
 		if (show_messages)
 			to_chat(user, "<span class='notice'>You need to be holding [src] to do that.</span>")
@@ -262,7 +267,7 @@
 		if("fluff")
 			usr.client.statpanel = "Examine"
 
-// called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled var set.
+// called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
 // see code/modules/mob/mob_movement.dm for more.
 /atom/proc/relaymove()
 	return
@@ -487,14 +492,14 @@
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 		if(istype(inject_reagents) && inject_reagents.total_volume)
 			inject_reagents.trans_to_obj(this, min(15, inject_reagents.total_volume))
-			this.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
+			this.reagents.add_reagent(/decl/reagent/acid/stomach, 5)
 
 		// Make toxins vomit look different
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
 /mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
-	vomit.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
+	vomit.reagents.add_reagent(/decl/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
 	if(!simulated)
@@ -601,3 +606,16 @@
 // It receives the curent mob of the player s argument and MUST return the mob the player has been assigned.
 /atom/proc/assign_player(var/mob/user)
 	return
+
+/atom/proc/get_contained_external_atoms()
+	. = contents
+
+/atom/proc/dump_contents()
+	for(var/thing in get_contained_external_atoms())
+		var/atom/movable/AM = thing
+		AM.dropInto(loc)
+		if(ismob(AM))
+			var/mob/M = AM
+			if(M.client)
+				M.client.eye = M.client.mob
+				M.client.perspective = MOB_PERSPECTIVE

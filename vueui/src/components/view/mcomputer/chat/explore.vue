@@ -7,7 +7,7 @@
     <vui-button v-else @click="channelTitle = ''">New channel</vui-button><br>
     <view-mcomputer-chat-channel-btn v-for="ref in displayed" :key="ref" :re="ref" :ch="s.channels[ref]"/>
     <h2>Users:</h2>
-    <vui-input-search :input="users" v-model="users_result" :keys="['user']"/><br/>
+    <vui-input-search :input="users" v-model="users_result" :keys="['user']"/><br>
     <div v-for="u in users_result" :key="u.ref"><vui-button :params="{direct: u.ref}">{{ u.user }}</vui-button></div>
   </div>
 </template>

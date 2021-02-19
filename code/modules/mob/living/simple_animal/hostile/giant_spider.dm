@@ -6,11 +6,14 @@
 
 //basic spider mob, these generally guard nests
 /mob/living/simple_animal/hostile/giant_spider
-	name = "giant spider"
-	desc = "Furry and brown, it makes you shudder to look at it. This one has deep red eyes."
-	icon_state = "guard"
-	icon_living = "guard"
-	icon_dead = "guard_dead"
+	name = "greimorian warrior"
+	desc = "A deep purple carapace covers this vicious Greimorian warrior."
+	desc_fluff = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
+	icon_state = "greimorian"
+	icon_living = "greimorian"
+	icon_dead = "greimorian_dead"
 	speak_emote = list("chitters")
 	emote_hear = list("chitters")
 	speak_chance = 5
@@ -21,7 +24,6 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
-	blood_overlay_icon = null
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 200
 	health = 200
@@ -31,7 +33,7 @@
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	var/poison_per_bite = 5
-	var/poison_type = /datum/reagent/toxin
+	var/poison_type = /decl/reagent/toxin
 	faction = "spiders"
 	var/busy = 0
 	pass_flags = PASSTABLE
@@ -45,25 +47,27 @@
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
-	desc = "Furry and beige, it makes you shudder to look at it. This one has brilliant green eyes."
-	icon_state = "nurse"
-	icon_living = "nurse"
-	icon_dead = "nurse_dead"
+	name = "greimorian worker"
+	desc = "A hideous Greimorian with vestigial wings and an awful stench about it. This one is brown with shimmering, bulbous red eyes."
+	icon_state = "greimorian_worker"
+	icon_living = "greimorian_worker"
+	icon_dead = "greimorian_worker_dead"
 	maxHealth = 40
 	health = 40
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	poison_per_bite = 10
 	var/atom/cocoon_target
-	poison_type = /datum/reagent/soporific
+	poison_type = /decl/reagent/soporific
 	var/fed = 0
 
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
-	desc = "Furry and black, it makes you shudder to look at it. This one has sparkling purple eyes."
-	icon_state = "hunter"
-	icon_living = "hunter"
-	icon_dead = "hunter_dead"
+	name = "greimorian hunter"
+	desc = "A vicious, hostile red Greimorian. This one holds a mighty stinger to impale its prey."
+	icon_state = "greimorian_hunter"
+	icon_living = "greimorian_hunter"
+	icon_dead = "greimorian_hunter_dead"
 	maxHealth = 120
 	health = 120
 	melee_damage_lower = 10
@@ -80,7 +84,7 @@
 	if(isliving(.))
 		var/mob/living/L = .
 		if(L.reagents)
-			L.reagents.add_reagent(/datum/reagent/toxin, poison_per_bite)
+			L.reagents.add_reagent(/decl/reagent/toxin, poison_per_bite)
 			if(prob(poison_per_bite) && (!issilicon(L) && !isipc(L)))
 				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)

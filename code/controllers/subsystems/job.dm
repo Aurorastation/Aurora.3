@@ -342,9 +342,9 @@
 			LateSpawn(H, rank)
 
 		// Moving wheelchair if they have one
-		if(H.buckled && istype(H.buckled, /obj/structure/bed/chair/wheelchair))
-			H.buckled.forceMove(H.loc)
-			H.buckled.set_dir(H.dir)
+		if(H.buckled_to && istype(H.buckled_to, /obj/structure/bed/chair/wheelchair))
+			H.buckled_to.forceMove(H.loc)
+			H.buckled_to.set_dir(H.dir)
 
 	if(H.mind)
 		// If they're a department supervisor/head give them the account info for that department
@@ -660,7 +660,14 @@
 
 	if(spawnpos && istype(spawnpos))
 		if(spawnpos.check_job_spawning(rank))
-			H.forceMove(pick(spawnpos.turfs))
+			if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
+				var/datum/spawnpoint/cryo/C = spawnpos
+				if(length(C.command_turfs))
+					H.forceMove(pick(C.command_turfs))
+				else
+					H.forceMove(pick(spawnpos.turfs))
+			else
+				H.forceMove(pick(spawnpos.turfs))
 			. = spawnpos.msg
 			spawnpos.after_join(H)
 		else

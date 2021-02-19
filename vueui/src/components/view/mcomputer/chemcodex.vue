@@ -15,11 +15,11 @@
         <h3 class="highlight">Inhibitors</h3>
         <span v-for="r in reac.item.inhibitors" :key="'in'+r.name+reac.item.result.name">{{ r.name }}: {{ u(r.amount) }}<br></span>
       </template>
-      <template v-if="reac.item.temp_min.length">
+      <template v-if="reac.item.temp_min && reac.item.temp_min.length">
         <h3 class="highlight">Minimum Required Temperatures</h3>
         <span v-for="t in reac.item.temp_min" :key="'tm'+t.name+reac.item.result.name">{{ t.name }}: {{ t.temp }}&deg;K<br></span>
       </template>
-      <template v-if="reac.item.temp_max.length">
+      <template v-if="reac.item.temp_max && reac.item.temp_max.length">
         <h3 class="highlight">Maximum Required Temperatures</h3>
         <span v-for="t in reac.item.temp_max" :key="'tx'+t.name+reac.item.result.name">{{ t.name }}: {{ t.temp }}&deg;K<br></span>
       </template>

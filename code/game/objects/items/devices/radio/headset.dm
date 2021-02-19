@@ -425,7 +425,7 @@
 /obj/item/device/radio/headset/raider
 	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 2)
-	syndie = 1
+	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/raider
 
 /obj/item/device/radio/headset/burglar
@@ -437,8 +437,16 @@
 /obj/item/device/radio/headset/ninja
 	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 3)
-	syndie = 1
+	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/ninja
+
+/obj/item/device/radio/headset/bluespace
+	name = "bluespace headset"
+	desc = "A bluespace mockery of a standard Nanotrasen headset. It seems to function. Takes encryption keys."
+	icon_state = "bs_headset"
+	item_state = "com_headset" // laziness or genius, you decide
+	syndie = TRUE
+	ks1type = /obj/item/device/encryptionkey/bluespace
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)

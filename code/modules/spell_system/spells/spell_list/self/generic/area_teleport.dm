@@ -55,11 +55,11 @@
 		to_chat(user, "The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry.")
 		return
 
-	if(user && user.buckled)
-		var/obj/structure/bed/B = user.buckled
-		if(B && B.buckled_mob)
-			B.user_unbuckle_mob(user)
-		user.buckled = null
+	if(user && user.buckled_to)
+		var/obj/structure/bed/B = user.buckled_to
+		if(B && B.buckled)
+			B.user_unbuckle(user)
+		user.buckled_to = null
 
 	do_teleport(user,pick(L))
 

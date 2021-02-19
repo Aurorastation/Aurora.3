@@ -268,22 +268,22 @@
 
 		move_delay = world.time - leftover//set move delay
 
-		if (mob.buckled)
-			if(istype(mob.buckled, /obj/vehicle))
+		if (mob.buckled_to)
+			if(istype(mob.buckled_to, /obj/vehicle))
 				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
 				move_delay = world.time
 				//drunk driving
 				if(mob.confused && prob(25))
 					direct = pick(cardinal)
-				return mob.buckled.relaymove(mob,direct)
+				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
 			//Toss away all this snowflake code here, and rewrite wheelchairs as a vehicle.
-			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
+			else if(istype(mob.buckled_to, /obj/structure/bed/chair/wheelchair))
 				var/min_move_delay = 0
-				if(ishuman(mob.buckled))
-					var/mob/living/carbon/human/driver = mob.buckled
+				if(ishuman(mob.buckled_to))
+					var/mob/living/carbon/human/driver = mob.buckled_to
 					var/obj/item/organ/external/l_hand = driver.get_organ(BP_L_HAND)
 					var/obj/item/organ/external/r_hand = driver.get_organ(BP_R_HAND)
 					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
@@ -293,7 +293,7 @@
 				if(mob.confused && prob(25))
 					direct = pick(cardinal)
 				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
-				return mob.buckled.relaymove(mob,direct)
+				return mob.buckled_to.relaymove(mob,direct)
 
 		var/tally = mob.movement_delay() + config.walk_speed
 
@@ -524,7 +524,7 @@
 
 //return 1 if slipped, 0 otherwise
 /mob/proc/handle_spaceslipping()
-	if(prob(slip_chance(5)) && !buckled)
+	if(prob(slip_chance(5)) && !buckled_to)
 		to_chat(src, SPAN_WARNING("You slipped!"))
 		src.inertia_dir = src.last_move
 		step(src, src.inertia_dir)

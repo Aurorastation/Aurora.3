@@ -12,7 +12,9 @@
 	siemens_coefficient = 0.9
 	var/gas_filter_strength = 1			//For gas mask filters
 	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_STRONG
+	)
 
 /obj/item/clothing/mask/gas/filter_air(datum/gas_mixture/air)
 	var/datum/gas_mixture/filtered = new
@@ -45,7 +47,9 @@
 	desc = "A modernised version of the classic design, this mask will not only filter out phoron but it can also be connected to an air supply."
 	icon_state = "plaguedoctor"
 	item_state = "plaguedoctor"
-	armor = list(melee = 0, bullet = 0, laser = 2,energy = 2, bomb = 0, bio = 90, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_SHIELDED
+	)
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/mask/gas/swat
@@ -112,4 +116,9 @@
 	icon_state = "fullgas"
 	item_state = "fullgas"
 	w_class = ITEMSIZE_SMALL
-	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MINOR,
+		bio = ARMOR_BIO_STRONG
+	)

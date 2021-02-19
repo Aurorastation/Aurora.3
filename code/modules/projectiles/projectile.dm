@@ -122,7 +122,7 @@
 		new hit_effect(target.loc)
 
 	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
-	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armor types.
+	L.apply_damage(irradiate, IRRADIATE, damage_flags = DAM_DISPERSED) //radiation protection is handled separately from other armor types.
 	return 1
 
 //called when the projectile stops flying because it collided with something
@@ -259,17 +259,18 @@
 	var/passthrough = FALSE //if the projectile should continue flying
 	if(ismob(A))
 		var/mob/M = A
-		if(istype(A, /mob/living))
-			//if they have a neck grab on someone, that person gets hit instead
-			var/obj/item/grab/G = locate() in M
-			if(G && G.state >= GRAB_NECK)
-				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
-				if(Collide(G.affecting))
-					return //If Collide() returns 0 (keep going) then we continue on to attack M.
+		if(isliving(A)) //so ghosts don't stop bullets
+			if(M.dir & get_dir(M, starting)) // only check neckgrab if they're facing in the direction the bullets came from
+				//if they have a neck grab on someone, that person gets hit instead
+				for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+					if(!G.affecting.lying && G.state >= GRAB_NECK)
+						visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
+						if(Collide(G.affecting))
+							return //If Collide() returns 0 (keep going) then we continue on to attack M.
 
 			passthrough = !attack_mob(M, distance)
 		else
-			passthrough = TRUE	//so ghosts don't stop bullets
+			passthrough = TRUE
 	else
 		passthrough = (A.bullet_act(src, def_zone) == PROJECTILE_CONTINUE) //backwards compatibility
 		if(isturf(A))
@@ -310,7 +311,7 @@
 /obj/item/projectile/proc/old_style_target(atom/target, atom/source)
 	if(!source)
 		source = get_turf(src)
-	setAngle(Get_Angle(source, target))
+	setAngle(get_projectile_angle(source, target))
 
 /obj/item/projectile/proc/fire(angle, atom/direct_target)
 	//If no angle needs to resolve it from xo/yo!
@@ -331,7 +332,7 @@
 			qdel(src)
 			return
 		var/turf/target = locate(Clamp(starting + xo, 1, world.maxx), Clamp(starting + yo, 1, world.maxy), starting.z)
-		setAngle(Get_Angle(src, target))
+		setAngle(get_projectile_angle(src, target))
 	if(dispersion)
 		setAngle(Angle + rand(-dispersion, dispersion))
 	original_angle = Angle
@@ -367,7 +368,7 @@
 	else if(targloc && curloc)
 		yo = targloc.y - curloc.y
 		xo = targloc.x - curloc.x
-		setAngle(Get_Angle(src, targloc))
+		setAngle(get_projectile_angle(src, targloc))
 	else
 		crash_with("WARNING: Projectile [type] fired without either mouse parameters, or a target atom to aim at!")
 		qdel(src)
@@ -388,6 +389,9 @@
 /obj/item/projectile/Initialize()
 	. = ..()
 	permutated = list()
+
+/obj/item/projectile/damage_flags()
+	return damage_flags
 
 /obj/item/projectile/proc/pixel_move(moves, trajectory_multiplier = 1, hitscanning = FALSE)
 	if(!loc || !trajectory)
@@ -613,3 +617,14 @@
 			qdel(i)
 		beam_segments = null
 		QDEL_NULL(beam_index)
+
+/obj/item/projectile/get_print_info()
+	. = "<br>"
+	. += "Damage: [initial(damage)]<br>"
+	. += "Damage Type: [initial(damage_type)]<br>"
+	. += "Blocked by Armor Type: [initial(check_armor)]<br>"
+	. += "Stuns: [initial(stun) ? "true" : "false"]<br>"
+	if(initial(shrapnel_type))
+		var/obj/shrapnel = new shrapnel_type
+		. += "Shrapnel Type: [shrapnel.name]<br>"
+	. += "Armor Penetration: [initial(armor_penetration)]%<br>"

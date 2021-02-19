@@ -79,7 +79,7 @@
 	if(istype(A,/mob/living))
 		var/mob/living/M = A
 		if(src.wet_type && src.wet_amount)
-			if(M.buckled || (src.wet_type == 1 && M.m_intent == M_WALK))
+			if(M.buckled_to || (src.wet_type == 1 && M.m_intent == M_WALK))
 				return
 
 			//Water
@@ -115,10 +115,10 @@
 
 	..()
 
-//returns 1 if made bloody, returns 0 otherwise
+//returns TRUE if made bloody, returns FALSE otherwise
 /turf/simulated/add_blood(mob/living/carbon/human/M as mob)
 	if (!..())
-		return 0
+		return FALSE
 
 	if(istype(M))
 		for(var/obj/effect/decal/cleanable/blood/B in contents)
@@ -126,10 +126,10 @@
 				B.blood_DNA = list()
 			if(!B.blood_DNA[M.dna.unique_enzymes])
 				B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-			return 1 //we bloodied the floor
-		blood_splatter(src,M.get_blood(M.vessel),1)
-		return 1 //we bloodied the floor
-	return 0
+			return TRUE //we bloodied the floor
+		blood_splatter(src,M,TRUE)
+		return TRUE //we bloodied the floor
+	return FALSE
 
 // Only adds blood on the floor -- Skie
 /turf/simulated/proc/add_blood_floor(mob/living/carbon/M as mob)

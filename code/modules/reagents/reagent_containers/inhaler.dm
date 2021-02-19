@@ -95,7 +95,7 @@
 
 /obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags &= ~OPENCONTAINER
 			update_icon()
@@ -121,7 +121,7 @@
 
 /obj/item/reagent_containers/inhaler/examine(mob/user)
 	..(user)
-	if(reagents && reagents.reagent_list.len)
+	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else
 		to_chat(user, "<span class='notice'>It is spent.</span>")
@@ -132,7 +132,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/dexalin, volume)
+		reagents.add_reagent(/decl/reagent/dexalin, volume)
 		update_icon()
 		return
 
@@ -142,7 +142,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/peridaxon, volume)
+		reagents.add_reagent(/decl/reagent/peridaxon, volume)
 		update_icon()
 		return
 
@@ -152,7 +152,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/hyperzine, volume)
+		reagents.add_reagent(/decl/reagent/hyperzine, volume)
 		update_icon()
 		return
 
@@ -162,7 +162,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
+		reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
 		update_icon()
 		return
 
@@ -174,7 +174,7 @@
 	volume = 10
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
+		reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
 		update_icon()
 		return
 
@@ -187,7 +187,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/soporific, volume)
+		reagents.add_reagent(/decl/reagent/soporific, volume)
 		update_icon()
 		return
 
@@ -197,7 +197,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/space_drugs, volume)
+		reagents.add_reagent(/decl/reagent/space_drugs, volume)
 		update_icon()
 		return
 
@@ -207,7 +207,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/ammonia, volume)
+		reagents.add_reagent(/decl/reagent/ammonia, volume)
 		update_icon()
 		return
 
@@ -217,7 +217,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/pulmodeiectionem, volume)
+		reagents.add_reagent(/decl/reagent/pulmodeiectionem, volume)
 		update_icon()
 		return
 
@@ -230,6 +230,6 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/pneumalin, volume)
+		reagents.add_reagent(/decl/reagent/pneumalin, volume)
 		update_icon()
 		return

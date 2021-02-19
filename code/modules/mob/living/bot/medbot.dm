@@ -22,11 +22,11 @@
 	var/injection_amount = 10 //How much reagent do we inject at a time?
 	var/heal_threshold = 10 //Start healing when they have this much damage in a category
 	var/use_beaker = 0 //Use reagents in beaker instead of default treatment agents.
-	var/treatment_brute = /datum/reagent/tricordrazine
-	var/treatment_oxy = /datum/reagent/tricordrazine
-	var/treatment_fire = /datum/reagent/tricordrazine
-	var/treatment_tox = /datum/reagent/tricordrazine
-	var/treatment_emag = /datum/reagent/toxin
+	var/treatment_brute = /decl/reagent/tricordrazine
+	var/treatment_oxy = /decl/reagent/tricordrazine
+	var/treatment_fire = /decl/reagent/tricordrazine
+	var/treatment_tox = /decl/reagent/tricordrazine
+	var/treatment_emag = /decl/reagent/toxin
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
 
 
@@ -294,9 +294,10 @@
 
 	// If they're injured, we're using a beaker, and they don't have on of the chems in the beaker
 	if(reagent_glass && use_beaker && ((H.getBruteLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getOxyLoss() >= (heal_threshold + 15))))
-		for(var/datum/reagent/R in reagent_glass.reagents.reagent_list)
+		for(var/_R in reagent_glass.reagents.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(!H.reagents.has_reagent(R))
-				return 1
+				return TRUE
 			continue
 
 	if((H.getBruteLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_brute)))

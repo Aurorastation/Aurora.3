@@ -6,11 +6,12 @@
 	var/is_adult = 0
 	speak_emote = list("chirps")
 	mob_size = 4
-	composition_reagent = /datum/reagent/slimejelly
+	composition_reagent = /decl/reagent/slimejelly
 	layer = 5
 	maxHealth = 150
 	health = 150
 	gender = NEUTER
+	accent = ACCENT_BLUESPACE
 
 	update_icon = 0
 	nutrition = 700
@@ -75,6 +76,9 @@
 	. = ..()
 
 	verbs += /mob/living/proc/ventcrawl
+
+	add_language(LANGUAGE_TCB)
+	set_default_language(LANGUAGE_TCB)
 
 	src.colour = colour
 	number = rand(1, 1000)
@@ -157,9 +161,9 @@
 		tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	if(reagents)
-		if(reagents.has_reagent(/datum/reagent/hyperzine)) // Hyperzine slows slimes down
+		if(reagents.has_reagent(/decl/reagent/hyperzine)) // Hyperzine slows slimes down
 			tally *= 2
-		if(reagents.has_reagent(/datum/reagent/frostoil)) // Frostoil also makes them move VEEERRYYYYY slow
+		if(reagents.has_reagent(/decl/reagent/frostoil)) // Frostoil also makes them move VEEERRYYYYY slow
 			tally *= 5
 
 	if(health <= 0) // if damaged, the slime moves twice as slow

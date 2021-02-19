@@ -5,26 +5,6 @@ Add custom items to this file, their sprites into their own dmi. in the icons/ob
 All custom items with worn sprites must follow the contained sprite system: http://forums.aurorastation.org/viewtopic.php?f=23&t=6798
 */
 
-/obj/item/clothing/accessory/fluff/antique_pocket_watch //Antique Pocket Watch - Eric Derringer - xelnagahunter
-	name = "antique pocket watch"
-	icon = 'icons/obj/custom_items/pocket_watch.dmi'
-	icon_state = "pocket_watch_close"
-	item_state = "gold"
-	desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
-	w_class = ITEMSIZE_SMALL
-
-/obj/item/clothing/accessory/fluff/antique_pocket_watch/attack_self(mob/user as mob)
-	switch(icon_state)
-		if("pocket_watch_open")
-			icon_state = "pocket_watch_close"
-			to_chat(user, "<span class='notice'>You close \the [src].</span>")
-			desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
-		if("pocket_watch_close")
-			icon_state = "pocket_watch_open"
-			to_chat(user, "<span class='notice'>You open \the [src].</span>")
-			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
-
-
 /obj/item/clothing/head/fluff/ziva_bandana //Ziva's Bandana - Ziva Ta'Kim - sierrakomodo
 	name = "old bandana"
 	desc = "An old orange-ish-yellow bandana. It has a few stains from engine grease, and the color has been dulled."
@@ -41,39 +21,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "zubari_jacket"
 	item_state = "zubari_jacket"
 	contained_sprite = TRUE
-
-
-/obj/item/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
-	name = "pocket altar"
-	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
-	icon = 'icons/obj/custom_items/kiara_altar.dmi'
-	icon_state = "kiara_altar1"
-	w_class = ITEMSIZE_SMALL
-
-/obj/item/fluff/kiara_altar/attack_self(mob/user as mob)
-	if(src.icon_state == "kiara_altar1")
-		src.icon_state = "kiara_altar2"
-		to_chat(user, "<span class='notice'>You open \the [src], revealing its contents.</span>")
-		desc = "A black tin box, you can see inside; a vial of herbs, a little bag of salt, some epoxy clay runes, a candle with match, a permanent marker and a tiny besom."
-	else
-		src.icon_state = "kiara_altar1"
-		to_chat(user, "<span class='notice'>You close \the [src].</span>")
-		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
-
-
-/obj/item/cane/fluff/usiki_cane //Inscribed Silver-handled Cane - Usiki Guwan - fireandglory
-	name = "inscribed silver-handled cane"
-	desc = "This silver-handled cane has letters carved into the sides."
-	icon = 'icons/obj/custom_items/usiki_cane.dmi'
-	icon_state = "usiki_cane"
-	item_state = "usiki_cane"
-	contained_sprite = TRUE
-
-/obj/item/cane/fluff/usiki_cane/attack_self(mob/user as mob)
-	if(all_languages[LANGUAGE_UNATHI] in user.languages)
-		to_chat(user, "<span class='notice'>This cane has the words \"A new and better life\" carved into one side in basic, and on the other side in Sinta'Unathi.</span>")
-	else
-		to_chat(user, "<span class='notice'>This cane has the words \"A new and better life\" carved into the side, the other side has some unreadable carvings.</span>")
 
 
 /obj/item/implanter/fluff //snowflake implanters for snowflakes
@@ -93,15 +40,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	..()
-
-
-/obj/item/clothing/head/fluff/vittorio_fez //Black Fez - Vittorio Giurifiglio - tytostyris
-	name = "black fez"
-	desc = "It is a black fez, it bears an Emblem of the Astronomical symbol of Earth, It also has some nice tassels."
-	icon = 'icons/obj/custom_items/vittorio_fez.dmi'
-	icon_state = "vittorio_fez"
-	item_state = "vittorio_fez"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/fluff/centurion_cloak //Paludamentum - Centurion - cakeisossim
@@ -133,13 +71,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	badge_string = "Pacific Union Special Forces"
 	contained_sprite = TRUE
 	slot_flags = SLOT_MASK | SLOT_TIE
-
-/obj/item/fluff/akela_photo //Akela's Family Photo - Akela Ha'kim - moltenkore
-	name = "family photo"
-	desc = "You see on the photo a tajaran couple holding a small kit in their arms, while looking very happy. On the back it is written; \"Nasir, Akela and Ishka\", with a little gold mark that reads: \"Two months\"."
-	icon = 'icons/obj/custom_items/akela_photo.dmi'
-	icon_state = "akela_photo"
-	w_class = ITEMSIZE_SMALL
 
 
 /obj/item/implant/fluff/ziva_implant //Heart Condition - Ziva Ta'Kim - sierrakomodo
@@ -184,57 +115,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/fluff/cac_picture //Photo of a spider and a robot - CAC - fireandglory
-	name = "photo of a spider and a robot"
-	desc = "It is a photo of a cyan IPC holding a thick fuzzy spider of the size of a football."
-	icon = 'icons/obj/custom_items/cac_picture.dmi'
-	icon_state = "cac_picture"
-	w_class = ITEMSIZE_SMALL
-	slot_flags = SLOT_EARS
-
-
-/obj/item/coin/fluff/raymond_coin //Engraved Coin - Raymond Hawkins - aboshehab
-	name = "engraved coin"
-	desc = "A coin of light and bright with one side having an engraving of a greek Lamba sign, and on the back the initials of R.H. are engraved."
-	icon = 'icons/obj/custom_items/raymond_items.dmi'
-	icon_state = "coin_raymond_heads"
-	cmineral = "raymond"
-
-
 /obj/item/sign/fluff/iskanz_atimono //Framed Zatimono - Iskanz Sal'Dans - zundy
 	name = "framed zatimono"
 	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one seems well maintained and carries Sk'akh Warrior Priest markings and litanies."
 	icon_state = "iskanz_atimono"
 	sign_state = "iskanz_atimono"
 	w_class = ITEMSIZE_SMALL
-
-
-/obj/item/clothing/accessory/fluff/zahra_pin //Indigo Remembrance Pin -  Zahra Karimi - synnono
-	name = "indigo remembrance pin"
-	desc = "A small metal pin, worked into the likeness of an indigo iris blossom."
-	icon = 'icons/obj/custom_items/zahra_pin.dmi'
-	icon_state = "zahra_pin"
-	item_state = "zahra_pin"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/accessory/armband/fluff/karl_armband //Medizinercorps Armband - Karl Pollard - arrow768
-	name = "medizinercorps armband"
-	desc = "A plain black armband with the golden Medizinercorps logo on it."
-	icon = 'icons/obj/custom_items/karl_armband.dmi'
-	icon_state = "karl_armband"
-	item_state = "karl_armband"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/accessory/fluff/jeyne_pendant //Jeyne's Pendant - Jeyne Kahale - themuncorn
-	name = "black choker with pendant"
-	desc = "A simple black choker, with a small pendant on the front. The pendant is carefully inscribed with some simple Sinta'Unathi script in white."
-	icon = 'icons/obj/custom_items/jeyne_pendant.dmi'
-	icon_state = "jeyne_pendant"
-	item_state = "jeyne_pendant"
-	slot_flags = SLOT_MASK | SLOT_TIE
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/under/fluff/ana_uniform //Retired Uniform - Ana Roh'hi'tin - suethecake
@@ -327,15 +213,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/fluff/guskov_uniform //Tajaran Service Uniform - Guskov Andrei - fireandglory
-	name = "tajaran service uniform"
-	desc = "This is obviously a military service uniform, there are signs that it is of Tajaran make, modified to be a bit less warm, although it doesn't look like any uniform used by the People's Republic of Adhomai."
-	icon = 'icons/obj/custom_items/guskov_uniform.dmi'
-	icon_state = "guskov_uniform"
-	item_state = "guskov_uniform"
-	contained_sprite = TRUE
-
-
 /obj/item/fluff/zhilin_book //Siik'maas-Tau Ceti Basic Dictionary - Zhilin Vadim - fireandglory
 	name = "siik'maas-tau ceti basic dictionary"
 	desc = "A hefty dictionary with a simple design on the cover, it seems to be for translations. There's a label on the back denoting that it belongs to a \"Zhilin Vadim\"."
@@ -398,28 +275,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/clothing/accessory/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
-	name = "stitched heart white poncho"
-	desc = "A white poncho stitched together shoddily, with a pink heart made of flame patterned on the front. The fabric is rough, like chainmail."
-	icon = 'icons/obj/custom_items/flaming_poncho.dmi'
-	icon_state = "flaming_poncho"
-	item_state = "flaming_poncho"
-	contained_sprite = TRUE
-	icon_override = FALSE
-
-
-/obj/item/clothing/accessory/badge/fluff/jane_badge //Tarnished Badge - Jane Pyre - somethingvile
-	name = "tarnished badge"
-	desc = "A worn, tarnished brass badge with ash and soot set deep in the grooves of its surface. The word, though faded and barely discernible, \"Pyre\" can be traced out lining its bottom edge."
-	icon = 'icons/obj/custom_items/jane_badge.dmi'
-	icon_state = "jane_badge"
-	item_state = "jane_badge"
-	slot_flags = SLOT_BELT | SLOT_TIE
-	contained_sprite = TRUE
-	stored_name = "Francis Pyre"
-	badge_string = "CPD"
-
-
 /obj/item/toy/plushie/fluff/oz_plushie //Mr. Monkey - Oz Auman - theiguanaman2
 	name = "\improper Mr.Monkey"
 	desc = "A calming toy monkey."
@@ -427,7 +282,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "oz_plushie"
 
 
-/obj/item/reagent_containers/food/drinks/teapot/fluff/brianne_teapot	//Ceramic Teapot - Sean Brianne - zelmana
+/obj/item/reagent_containers/food/drinks/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
 	icon = 'icons/obj/custom_items/brianne_teapot.dmi'
@@ -479,15 +334,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, "It is [active ? "on" : "off"].")
 
 
-/obj/item/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
-	name = "old earth luxury cognac"
-	desc = "An unusually shaped crystal bottle, covered in elaborate etchings displaying the symbol of the house that produced it. Inside is a smooth, amber liquor, \
-	which smells of the barrel it was aged in. The region and producer are on the label."
-	icon = 'icons/obj/custom_items/leonce_cognac.dmi'
-	icon_state = "leonce_cognac"
-	empty_icon_state = "leonce_cognac_empty"
-	drink_flags = UNIQUE_EMPTY_ICON_FILE | IS_GLASS
-
 
 /obj/item/clothing/suit/storage/fluff/sonorous_mantle //Maraziite Throw Over - Sonorous Zouzoror - sleepywolf
 	name = "maraziite throw over"
@@ -528,17 +374,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_EARS | SLOT_TIE
 
 
-/obj/item/book/fluff/huntington_book //Spark Theorem - Monica Huntington - moondancerpony
-	name = "\improper Spark Theorem"
-	desc = "A bound copy of the 2458 research paper \"Spark Theorem: Research Into the Development of Synthetic Consciousness and Sapience\". This one is signed by the author."
-	title = "Spark Theorem"
-	icon_state = "book6"
-	author = "Kyyir'ry'avii 'Karima' Ile'nagrii Al'Ghul-Mo'Taki"
-	dat = "<!doctype html><html style=\"width:100%;height:100%;\"><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></head><body><iframe style=\"width:100%;height:100%\" src=\"https://assets.lohikar.io/mdp/sparktheorem.html\"></iframe></body></html>"
-	due_date = 0
-	unique = 1
-
-
 /obj/item/clothing/suit/storage/fluff/vira_coat //Designer Military Coat - Vira Bolivar - scheveningen
 	name = "designer military coat"
 	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
@@ -547,44 +382,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "vira_coat"
 	item_state = "vira_coat"
 	contained_sprite = TRUE
-
-
-/obj/item/storage/backpack/satchel/fluff/kresimir_bag //Worn Leather Bag - Kresimir Kostadinov - alberyk
-	name = "worn leather bag"
-	desc = "A sturdy and worn leather bag. The clasp has a faded blue and golden insigna."
-	icon = 'icons/obj/custom_items/kresimir_bag.dmi'
-	icon_state = "kresimir_bag"
-	item_state = "kresimir_bag"
-	contained_sprite = TRUE
-
-
-/obj/item/stamp/fluff/leland_stamp //Sol Alliance Government Foreign Relations Department Stamp - Leland Field - saudus
-	name = "\improper Sol Alliance foreign relations department stamp"
-	desc = "A stamp with the emblem of the Sol Alliance Foreign Relations Department. The text \"Diplomatic Observer, L. Field\" is inscribed on the handle."
-	icon = 'icons/obj/custom_items/leland_items.dmi'
-	icon_state = "leland_stamp"
-	item_state = "leland_stamp"
-
-/obj/item/clothing/accessory/badge/fluff/leland_badge //Sol Alliance Government Foreign Relations Department Badge - Leland Field - saudus
-	name = "\improper Sol Alliance foreign relations department badge"
-	desc = "A badge bearing the emblem of the Sol Alliance Foreign Relations Department. It has an inscription reading \"Leland Field, Diplomatic Observer\"."
-	icon = 'icons/obj/custom_items/leland_items.dmi'
-	icon_state = "leland_badge"
-	stored_name = "Leland Field"
-	badge_string = "Diplomatic Observer"
-
-/obj/item/clothing/accessory/badge/fluff/leland_badge/verb/flip()
-	set name = "Flip the Badge"
-	set desc = "Open or close the badge."
-	set category = "Object"
-	set src in usr
-
-	if(src.icon_state == "leland_badge")
-		src.icon_state = "leland_badge-info"
-		to_chat(usr, "You open \the [src].")
-	else
-		src.icon_state = "leland_badge"
-		to_chat(usr, "You close \the [src].")
 
 
 /obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Huz'kai - tomiixstarslasher
@@ -654,7 +451,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/gloves/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
+/obj/item/clothing/wrists/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
 	name = "engraved wristwatch"
 	desc = "A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
 	icon = 'icons/obj/custom_items/rex_watch.dmi'
@@ -687,116 +484,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sukhoi_folder"
 
 
-/obj/item/fluff/jennifer_wardrobe_kit //Portable Wardrobe Kit - Jennifer Beal - synnono
-	name = "portable wardrobe kit"
-	desc = "A kit containing a change of casual clothes, packaged for easy transport. This one advertises some sort of cartoon featuring slimes. It is labeled \"J. Beal.\""
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_wardrobe_box"
-	item_state = "box"
-
-/obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
-	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
-		return
-
-	var/list/outfits = list(
-		"Pale turtleneck outfit" = list(
-			/obj/item/clothing/under/fluff/jennifer_turtleneck,
-			/obj/item/clothing/shoes/fluff/jennifer_aboots
-		),
-		"Black net mesh outfit" = list(
-			/obj/item/clothing/under/fluff/jennifer_nets,
-			/obj/item/clothing/shoes/fluff/jennifer_pboots
-		),
-		"Cartoon T-shirt outfit" = list(
-			/obj/item/clothing/under/fluff/jennifer_tee,
-			/obj/item/clothing/shoes/fluff/jennifer_shoes
-		)
-	)
-
-	var/selection = input("What do you find inside?", "Inside the kit...") as null|anything in outfits
-	if (!selection)
-		return
-	for (var/item in outfits[selection])
-		new item(get_turf(src))
-	to_chat(user, "<span class='notice'>You unpack the outfit from the kit.</span>")
-
-	qdel(src)
-
-/obj/item/clothing/under/fluff/jennifer_nets //Black Net Mesh Outfit - Jennifer Beal - synnono
-	name = "black net mesh outfit"
-	desc = "A clingy black top and matching skirt, belted with heavy leather around the waist. A soft fabric netting stretches over the exposed collar, midriff, arms and legs."
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_nets"
-	item_state = "jennifer_nets"
-	has_sensor = 0
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/fluff/jennifer_turtleneck //Pale Turtleneck Outfit - Jennifer Beal - synnono
-	name = "pale turtleneck outfit"
-	desc = "A graphite-blue turtleneck sweater, paired with dark blue jeans."
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_turtleneck"
-	item_state = "jennifer_turtleneck"
-	has_sensor = 0
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/fluff/jennifer_tee //Cartoon T-shirt Outfit - Jennifer Beal - synnono
-	name = "cartoon T-shirt outfit"
-	desc = "A promotional white T-shirt and cargo shorts. The shirt is printed with Slime Purple, the protagonist of the cartoon 'Great Slime Hero: Zettai Justice.'\nFor great slime justice!"
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_tee"
-	item_state = "jennifer_tee"
-	has_sensor = 0
-	contained_sprite = TRUE
-
-/obj/item/clothing/shoes/fluff/jennifer_pboots //Black Punk Boots - Jennifer Beal - synnono
-	name = "black punk boots"
-	desc = "A tall pair of thick-heeled black leather boots. They are fastened with several burnished steel buckles."
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_pboots"
-	item_state = "jennifer_pboots"
-	contained_sprite = TRUE
-
-/obj/item/clothing/shoes/fluff/jennifer_aboots //Brown Ankle Boots - Jennifer Beal - synnono
-	name = "brown ankle boots"
-	desc = "A comfortable pair of short ankle boots."
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_aboots"
-	item_state = "jennifer_aboots"
-	contained_sprite = TRUE
-
-/obj/item/clothing/shoes/fluff/jennifer_shoes //White Walking Sneakers - Jennifer Beal - synnono
-	name = "white walking sneakers"
-	desc = "A bright pair of white sneakers. They have purple rubber soles."
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_shoes"
-	item_state = "jennifer_shoes"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/storage/toggle/det_trench/fluff/nelson_jacket //Armored Detective Jacket - Nelson Okafor - seniorscore
 	name = "armored detective jacket"
 	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
 	icon = 'icons/obj/custom_items/nelson_jacket.dmi'
 	icon_state = "nelson_jacket"
 	item_state = "nelson_jacket"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/under/dress/fluff/katya_dress //Tailored Tajara Dress - Katya Al-Tahara - coalf
-	name = "tailored tajaran dress"
-	desc = "A simple long, blue and flowing dress, it has a knitted overthrow that fits over the shoulder and arms."
-	icon = 'icons/obj/custom_items/katya_clothing.dmi'
-	icon_state = "katya_dress"
-	item_state = "katya_dress"
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/fluff/katya_uniform //Messy Work Clothes - Katya Al-Tahara - coalf
-	name = "messy work clothes"
-	desc = "A simple pants and shirt combo. The white shirt has long since faded...and are those crumbs?"
-	icon = 'icons/obj/custom_items/katya_clothing.dmi'
-	icon_state = "katya_uniform"
-	item_state = "katya_uniform"
 	contained_sprite = TRUE
 
 
@@ -810,100 +503,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/storage/wallet/fluff/raymond_wallet //Black Leather Wallet - Raymond Hawkins - aboshehab
-	name = "black leather wallet"
-	desc = "A sleek black leather wallet, with the initials of \"J.H.\" visible at the front side. It's got an old yet maintained look to it."
-	icon = 'icons/obj/custom_items/raymond_items.dmi'
-	icon_state = "raymond_wallet"
-
-/obj/item/storage/wallet/fluff/raymond_wallet/update_icon()
-	return
-
-/obj/item/fluff/raymond_tablet //Holo Tablet - Raymond Hawkins - aboshehab
-	name = "holo tablet"
-	desc = "A thin electronic device that projects holographic images stored on it."
-	icon = 'icons/obj/custom_items/raymond_items.dmi'
-	icon_state = "raymond_tablet"
-	w_class = ITEMSIZE_SMALL
-	var/picture = null
-
-/obj/item/fluff/raymond_tablet/attack_self(mob/user as mob)
-	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
-		return
-
-	var/list/pictures = list("22-01-2460", "07-11-2459", "03-08-2459", "08-03-2452", "18-06-2437", "01-01-2434")
-
-	var/selection = input("Which picture do you want to see?", "Holo tablet picture selection.") as null|anything in pictures
-
-	if (!selection)
-		return
-
-	picture = selection
-
-/obj/item/fluff/raymond_tablet/examine(mob/user)
-	..()
-	if(!picture)
-		to_chat(user, "\The [src]'s screen is empty.")
-		return
-	if(in_range(user, src) || isobserver(user))
-		show_picture(user)
-	else
-		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
-
-/obj/item/fluff/raymond_tablet/proc/show_picture(mob/user)
-	var/desc
-
-	switch(picture)
-		if("22-01-2460")
-			desc = "This image shows a group of four outside with a scene looks to be a camp out in a forest. You see Raymond Hawkins sitting around a campfire with the three others, which you may know as Annabelle Hawkins, \
-			Lily Hawkins and Robert Hawkins, his children."
-
-		if("07-11-2459")
-			desc = "This image shows two people, Raymond Hawkins and Robert Hawkins, with the latter being a boy in his early teens. The setting is that of a gun range, with Robert operating a sidearm. \
-			Raymond is standing nearby guiding and instructing him on his posture."
-
-		if("03-08-2459")
-			desc = "This image shows two people, Raymond Hawkins and Lily Hawkins, with the latter being a girl in her early twenties. The setting is that of an arena, Raymond dressed casually and Lily in a Jiu Jitsu uniform, \
-			the belt being an alternation between black and red. She's got a winners medal around her neck, making a peace sign with her right hand while having a grin on her face, posing for a picture with Raymond."
-
-		if("08-03-2452")
-			desc = "This image shows two people, Raymond Hawkins and Annabelle Hawkins, the former visibly a decade younger yet thinner, and not in the healthy way. The later looks to be in their late teens. The setting is that of a restaurant, \
-			a more high end one, with the two of them seated opposite of each other, posing for a picture. Annabelle especially looks incredibly happy."
-
-		if("18-06-2437")
-			desc = "This image shows a group of five posing together for a picture, the surrounding indicates this as a place of military decorum, people dressed in Sol Navy dress uniforms and people in civilian clothing spread around in groups, indicating some form of graduation ceremony. \
-			Raymond is in his mid twenties, dressed in full dress uniform standing with four others. One you might know as Stephanie Hawkins, dressed in the same way, looking to be in her mid twenties as well. A boy in his early teens is also standing, \
-			which you may know as Robert Hawkins, his brother. The last two are Jack Hawkins and Martha Hawkins, both looking to be in their early fifties, his parents."
-
-		if("01-01-2434")
-			desc = "This image shows a large gathering, the scenery and attire indicative of a wedding. Two people stick out, Raymond Hawkins, looking to be in his early twenties dressed in a suit dancing with his bride, \
-			which you may know as Stephanie Hawkins. They look content and happy, the atmosphere ecstatic."
-
-	show_browser(user, "<center><b>You can see on the screen of the tablet:</b><br>[desc]</center>", "window=Holo Tablet")
-
-
 /obj/item/material/knife/fluff/yumi_knife //Cutting Metal - Yumi Yotin - trickingtrapster
 	name = "cutting metal"
 	desc = "Looks like a piece of sheet metal, sharpened on one end."
 	icon = 'icons/obj/custom_items/yotin_knife.dmi'
 	icon_state = "yotin_knife"
-
-
-/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/volvalaad_jacket //Paramedic's Jacket - Richard Volvalaad - t1gws
-	name = "paramedic's jacket"
-	desc = "A jacket worn by trained emergency medical personnel, this one has a gold trim and emblem."
-	icon = 'icons/obj/custom_items/volvalaad_items.dmi'
-	icon_state = "volvalaad_jacket"
-	item_state = "volvalaad_jacket"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/fluff/volvalaad_coat //Dominian Noble Coat - Richard Volvalaad - t1gws
-	name = "dominian noble coat"
-	desc = "This is a coat often worn by the Dominian Nobility, this one is black and blue."
-	icon = 'icons/obj/custom_items/volvalaad_items.dmi'
-	icon_state = "volvalaad_coat"
-	item_state = "volvalaad_coat"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/holster/thigh/fluff/rifler_holster //Rifler's Holster - Sophie Rifler - shodan43893
@@ -913,22 +517,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rifler_holster"
 
 
-/obj/item/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - nursiekitty
+/obj/item/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - witchebells
 	name = "tote bag"
 	desc = "A sackcloth bag with an image of Moghes printed onto it. Floating above the planet are the words \"Save Moghes!\"."
 	icon = 'icons/obj/custom_items/xerius_bag.dmi'
 	icon_state = "xerius_bag"
 	item_state = "xerius_bag"
 	contained_sprite = TRUE
-
-
-/obj/item/flame/lighter/zippo/fluff/moretti_zippo //Moretti's Zippo - Billy Moretti - lordbalkara
-	desc = "A dark zippo with a cool blue flame. Nice."
-	icon = 'icons/obj/custom_items/moretti_zippo.dmi'
-	icon_state = "moretti_zippo"
-	item_state = "moretti_zippo"
-	contained_sprite = TRUE
-	light_color = LIGHT_COLOR_BLUE
 
 
 /obj/item/clothing/accessory/poncho/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
@@ -1281,17 +876,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/material/kitchen/utensil/fork/fluff/vedai_fork //Stainless Steel Fork - Vedai'Kwia Xizal - conspiir
-	desc = "A stainless steel fork. The word \"Kwia\" is engraved on the back of the handle."
-	icon = 'icons/obj/custom_items/vedai_fork.dmi'
-	icon_state = "vedai_fork"
-	applies_material_colour = FALSE
-
-/obj/item/material/kitchen/utensil/fork/fluff/vedai_fork/set_material(var/new_material)
-	..()
-	name = "stainless [material.display_name] [initial(name)]"
-
-
 /obj/item/sign/fluff/tokash_sign //Shark Jaw Trophy - Suvek Tokash - evandorf
 	name = "shark jaw trophy"
 	desc = "A pair of jaws from what must have been a large and impressive shark."
@@ -1504,15 +1088,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = FALSE
 
 
-/obj/item/storage/toolbox/fluff/bretscher_toolbox //Gang-colored Toolbox - Robert Bretscher - vtcobaltblood
-	name = "gang-colored toolbox"
-	desc = "A toolbox painted in the traditional colors of a martian youth gang, the Shuttleyard Boys. It looks fairly old, the paint needs some renewal."
-	icon = 'icons/obj/custom_items/bretscher_toolbox.dmi'
-	icon_state = "bretscher_toolbox"
-	item_state = "bretscher_toolbox"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/chaplain_hoodie/fluff/hidemichi_robes //Zen Monk Robes - Yoshihama Hidemichi - dobhranthedruid
 	name = "zen monk robes"
 	desc = "A traditional Soto Zen buddhist robes for meditation and services"
@@ -1575,13 +1150,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = FALSE
 
 
-/obj/item/storage/bible/fluff/oscar_bible //The Holy Book Of The Trinary Perfection - Oscar O'Neil - ironchaos
-	name = "holy book of the trinary perfection"
-	desc = "A holy book for followers of The Trinary Perfection."
-	icon = 'icons/obj/custom_items/oscar_bible.dmi'
-	icon_state = "oscar_bible"
-
-
 /obj/item/fluff/tokash_spear //Ancestral Spear - Suvek Tokash - evandorf
 	name = "display stand"
 	desc = "A small plasteel display stand which uses magnetic fields to levitate an object."
@@ -1626,30 +1194,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_SMALL
 
 
-/obj/item/clothing/suit/storage/dominia/fluff/naxxir_cape //Caladius Cape - Nazret Naxxir - conspiir
-	name = "caladius cape"
-	desc = "A fine Dominian cape tailored for a very short person. It is decorated in the purple colors of the Caladius House."
-	icon = 'icons/obj/custom_items/naxxir_cape.dmi'
-	icon_state = "naxxir_cape"
-	item_state = "naxxir_cape"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/naomi_coat //Reishi Queen Winter Coat - Naomi Marlowe - smifboy78
 	name = "reishi queen winter coat"
 	desc = "A worn purple winter-coat. On the back, \"Reishi Queen\" is stitched on top of a skull patch. It reeks of reishi."
 	icon = 'icons/obj/custom_items/naomi_coat.dmi'
 	icon_state = "naomi_coat"
 	item_state = "naomi_coat"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/storage/fluff/imari_hoodie //Adinkra Hoodie - Imari Idris - P - ornias
-	name = "adinkra hoodie"
-	desc = "A large, immaculate white hoodie adorned with seven Adinkra symbols on the back. Below the large central symbol is the text \"MMERE DANE\". There is a small 'Idris Incorporated' logo below the left drawstring."
-	icon = 'icons/obj/custom_items/imari_hoodie.dmi'
-	icon_state = "imari_hoodie"
-	item_state = "imari_hoodie"
 	contained_sprite = TRUE
 
 
@@ -1772,24 +1322,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
 	icon_state = "ramit_jacket"
 	item_state = "ramit_jacket"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/accessory/dressshirt/fluff/takahashi_uniform //High Collar Dress Shirt - Shiki Takahashi - nantei
-	name = "high collar dress shirt"
-	desc = "A casual dress shirt. This one has an abnormally high collar."
-	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
-	icon_state = "takahashi_uniform"
-	item_state = "takahashi_uniform"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/det_trench/fluff/takahashi_coat //High Collar Dress Shirt - Shiki Takahashi - nantei
-	name = "long trenchcoat"
-	desc = "A very long, black, canvas trench coat. It goes down just below the knees. It looks to be custom-fitted, with a layer of graphene for added armor. There is an infinity \
-	symbol on the back, similar to the Coalition of Colonies flag."
-	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
-	icon_state = "takahashi_coat"
-	item_state = "takahashi_coat"
 	contained_sprite = TRUE
 
 
@@ -2383,3 +1915,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 	to_chat(usr, "The systems that the credentials show the user is licensed to investigate in are [licensed_systems].")
 	to_chat(usr, "Additional endorsements registered on the card show: [supplementary_endorsements].")
 	return
+
+/obj/item/clothing/accessory/poncho/fluff/amos_vest //Ouerean Vest - Amos Zhujian - dronzthewolf
+	name = "ourean vest"
+	desc = "A  thin vest made of separate colors, this one is brown and turquoise, with something written in Sinta'Unathi on the right breast. While this is a traditional cut vest, it's made of modern machine-woven fabrics as is commonly done on Ouerea, and sized to fit a human."
+	icon = 'icons/obj/custom_items/amos_vest.dmi'
+	icon_state = "amos_vest"
+	item_state = "amos_vest"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+
+/obj/item/clothing/head/fluff/rhasdrimara_veil //Noble Adhomai Veil - Rhasdrimara Rhanmrero'Arhanja - chanterelle
+	name = "noble adhomai veil"
+	desc = "An antique veil of black lace worn by noble Tajaran women during times of mourning."
+	icon = 'icons/obj/custom_items/rhasdrimara_veil.dmi'
+	icon_state = "rhasdrimara_veil"
+	item_state = "rhasdrimara_veil"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)

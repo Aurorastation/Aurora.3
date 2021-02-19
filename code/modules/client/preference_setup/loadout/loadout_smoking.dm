@@ -27,7 +27,8 @@
 
 /datum/gear/smoking/lighter
 	display_name = "cheap lighter"
-	path = /obj/item/flame/lighter
+	path = /obj/item/flame/lighter/colourable
+	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/smoking/cigarcase
 	display_name = "cigar case"
