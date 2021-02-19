@@ -150,7 +150,7 @@
 
 	//buckled_to
 	if(buckled_to)
-		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(buckled_to, user)] buckled_to to [buckled_to]!</span>\n"
+		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(buckled_to, user)] buckled to [buckled_to]!</span>\n"
 
 	//belt
 	if(belt)
