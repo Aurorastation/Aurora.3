@@ -66,7 +66,11 @@
 			new /datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1),
 			new /datum/stack_recipe("custodial cart", /obj/structure/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (middle)", /obj/structure/bed/chair/comfy/sofa, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (left)", /obj/structure/bed/chair/comfy/sofa/left, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (right)", /obj/structure/bed/chair/comfy/sofa/right, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (corner)", /obj/structure/bed/chair/comfy/sofa/corner, BUILD_AMT, one_per_turf = 1, on_floor = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("airlock assemblies",
