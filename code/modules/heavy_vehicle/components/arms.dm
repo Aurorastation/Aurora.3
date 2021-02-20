@@ -18,7 +18,15 @@
 
 /obj/item/mech_component/manipulators/show_missing_parts(var/mob/user)
 	if(!motivator)
-		to_chat(user, SPAN_WARNING("It is missing an actuator."))
+		to_chat(user, SPAN_WARNING("It is missing an <a href='?src=\ref[src];info=actuator'>actuator</a>."))
+
+/obj/item/mech_component/manipulators/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return
+	switch(href_list["info"])
+		if("actuator")
+			to_chat(usr, SPAN_NOTICE("An actuator can be created at a mechatronic fabricator."))
 
 /obj/item/mech_component/manipulators/return_diagnostics(mob/user)
 	..()
