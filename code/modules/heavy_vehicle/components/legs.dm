@@ -17,7 +17,7 @@
 
 /obj/item/mech_component/propulsion/show_missing_parts(var/mob/user)
 	if(!motivator)
-		to_chat(user, "<span class='warning'>It is missing a motivator.</span>")
+		to_chat(user, "<span class='warning'>It is missing an actuator.</span>")
 
 /obj/item/mech_component/propulsion/return_diagnostics(mob/user)
 	..()

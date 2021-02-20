@@ -26,7 +26,7 @@
 	if(!camera)
 		to_chat(user, "<span class='warning'>It is missing a camera.</span>")
 	if(!software)
-		to_chat(user, "<span class='warning'>It is missing a software control module.</span>")
+		to_chat(user, "<span class='warning'>It is missing an exosuit control module.</span>")
 
 /obj/item/mech_component/sensors/return_diagnostics(mob/user)
 	..()
