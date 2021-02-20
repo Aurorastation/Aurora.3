@@ -36,7 +36,7 @@
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
 	var/obj/screen/gun/unique_action_icon = null
-	var/obj/screen/gun/toggle_burst_fire_icon = null
+	var/obj/screen/gun/toggle_firing_mode = null
 	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell

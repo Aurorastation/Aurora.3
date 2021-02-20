@@ -66,8 +66,8 @@
 	return 0
 
 /obj/screen/gun/burstfire
-	name = "Toggle Burst Fire"
-	desc = "This can be used in a macro as toggle-burst-fire."
+	name = "Toggle Firing Mode"
+	desc = "This can be used in a macro as toggle-firing-mode."
 	icon_state = "toggle_burst_fire"
 	screen_loc = ui_burstfire
 
