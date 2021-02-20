@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed bodybags losing their labels after being unbuckled to roller beds."
