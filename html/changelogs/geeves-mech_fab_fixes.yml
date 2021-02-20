@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Made the mech fab name lowercase."
+  - refactor: "Tweaked how the mechfab accepts materials, no user-facing changes should be noticeable."
