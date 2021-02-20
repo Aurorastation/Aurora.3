@@ -2062,3 +2062,9 @@
 	set name = "click_back"
 	if(back)
 		back.Click()
+
+/mob/living/carbon/human/verb/click_suit_storage()
+	set hidden = 1
+	set name = "click_suit_storage"
+	if(s_store)
+		s_store.Click()
