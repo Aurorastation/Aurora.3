@@ -150,7 +150,7 @@
 
 /obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
 	if(busy)
-		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
 		return 1
 	if(default_deconstruction_screwdriver(user, I))
 		return
@@ -206,7 +206,7 @@
 		if(hair_style.length < 4)
 			return
 
-		user.visible_message("<span class='warning'>[user] starts feeding [target]'s hair into \the [src]!</span>", "<span class='warning'>You start feeding [target]'s hair into \the [src]!</span>")
+		user.visible_message(SPAN_WARNING("[user] starts feeding [target]'s hair into \the [src]!"), SPAN_WARNING("You start feeding [target]'s hair into \the [src]!"))
 		if(!do_after(usr, 50))
 			return
 		if(target_loc != target.loc)
