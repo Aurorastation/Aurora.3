@@ -600,7 +600,7 @@
 "abq" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/airless,
 /area/mine/unexplored)

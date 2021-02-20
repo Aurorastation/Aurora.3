@@ -5,7 +5,7 @@
 	parent_organ = BP_HEAD
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "chitin"
-	vital = 1
+	vital = TRUE
 
 /obj/item/organ/internal/brain/xeno
 	name = "thinkpan"

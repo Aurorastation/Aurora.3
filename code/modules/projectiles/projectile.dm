@@ -311,7 +311,7 @@
 /obj/item/projectile/proc/old_style_target(atom/target, atom/source)
 	if(!source)
 		source = get_turf(src)
-	setAngle(Get_Angle(source, target))
+	setAngle(get_projectile_angle(source, target))
 
 /obj/item/projectile/proc/fire(angle, atom/direct_target)
 	//If no angle needs to resolve it from xo/yo!
@@ -332,7 +332,7 @@
 			qdel(src)
 			return
 		var/turf/target = locate(Clamp(starting + xo, 1, world.maxx), Clamp(starting + yo, 1, world.maxy), starting.z)
-		setAngle(Get_Angle(src, target))
+		setAngle(get_projectile_angle(src, target))
 	if(dispersion)
 		setAngle(Angle + rand(-dispersion, dispersion))
 	original_angle = Angle
@@ -368,7 +368,7 @@
 	else if(targloc && curloc)
 		yo = targloc.y - curloc.y
 		xo = targloc.x - curloc.x
-		setAngle(Get_Angle(src, targloc))
+		setAngle(get_projectile_angle(src, targloc))
 	else
 		crash_with("WARNING: Projectile [type] fired without either mouse parameters, or a target atom to aim at!")
 		qdel(src)

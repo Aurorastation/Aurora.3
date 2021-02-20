@@ -156,7 +156,7 @@
 	icon_state = "surge_ipc"
 	organ_tag = "surge"
 	parent_organ = BP_CHEST
-	vital = 0
+	vital = FALSE
 	var/surge_left = 0
 	var/broken = 0
 
@@ -342,7 +342,7 @@
 	name = BP_BRAIN
 	organ_tag = BP_BRAIN
 	parent_organ = BP_CHEST
-	vital = 1
+	vital = TRUE
 	emp_coeff = 0.1
 
 /obj/item/organ/internal/data
@@ -351,7 +351,7 @@
 	parent_organ = BP_GROIN
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "harddisk"
-	vital = 0
+	vital = FALSE
 	emp_coeff = 0.1
 
 /obj/item/organ/internal/data/Initialize()

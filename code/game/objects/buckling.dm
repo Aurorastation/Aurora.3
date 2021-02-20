@@ -41,11 +41,11 @@
 			M.facing_dir = null
 			M.update_canmove()
 		else
-			MA.anchored = TRUE	
+			MA.anchored = TRUE
 	else
 		return 0
 	post_buckle(MA)
-	MA.layer = src.layer + 1
+	MA.layer = src.layer + 0.1
 	return 1
 
 /obj/proc/unbuckle()
@@ -91,8 +91,8 @@
 				"<span class='notice'>You hear metal clanking.</span>")
 		else
 			MA.visible_message(\
-				"<span class='danger'>[MA.name] is buckled_to to [src] by [user.name]!</span>",\
-				"<span class='danger'>You are buckled_to to [src] by [user.name]!</span>",\
+				"<span class='danger'>[MA.name] is buckled to [src] by [user.name]!</span>",\
+				"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
 				"<span class='notice'>You hear metal clanking.</span>")
 
 /obj/proc/user_unbuckle(mob/user)

@@ -4,7 +4,7 @@
 	desc = "A piece of juicy meat found in a person's head."
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
-	vital = 1
+	vital = TRUE
 	icon_state = "brain"
 	force = 1.0
 	w_class = ITEMSIZE_SMALL
