@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the circuit imprinter machine having the protolathe category selection instead of its own."
