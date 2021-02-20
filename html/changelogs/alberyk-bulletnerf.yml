@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - tweak: "Reduced the medium bullet damage to 30 from 35."
