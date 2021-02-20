@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import { sendToTopic } from '@/utils'
 export default {
   data() {
     return {
@@ -41,7 +40,7 @@ export default {
   },
   methods: {
     set_ringtone() {
-      sendToTopic({ringtone: this.ringtone})
+      this.$toTopic({ringtone: this.ringtone})
       this.ringtone = null
     }
   }
