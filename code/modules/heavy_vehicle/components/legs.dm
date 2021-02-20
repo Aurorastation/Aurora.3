@@ -17,7 +17,7 @@
 
 /obj/item/mech_component/propulsion/show_missing_parts(var/mob/user)
 	if(!motivator)
-		to_chat(user, "<span class='warning'>It is missing an actuator.</span>")
+		to_chat(user, SPAN_WARNING("It is missing an actuator."))
 
 /obj/item/mech_component/propulsion/return_diagnostics(mob/user)
 	..()
@@ -35,7 +35,7 @@
 /obj/item/mech_component/propulsion/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing,/obj/item/robot_parts/robot_component/actuator))
 		if(motivator)
-			to_chat(user, "<span class='warning'>\The [src] already has an actuator installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has an actuator installed."))
 			return
 		motivator = thing
 		install_component(thing, user)

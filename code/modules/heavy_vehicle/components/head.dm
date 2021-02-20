@@ -22,11 +22,11 @@
 
 /obj/item/mech_component/sensors/show_missing_parts(var/mob/user)
 	if(!radio)
-		to_chat(user, "<span class='warning'>It is missing a radio.</span>")
+		to_chat(user, SPAN_WARNING("It is missing a radio."))
 	if(!camera)
-		to_chat(user, "<span class='warning'>It is missing a camera.</span>")
+		to_chat(user, SPAN_WARNING("It is missing a camera."))
 	if(!software)
-		to_chat(user, "<span class='warning'>It is missing an exosuit control module.</span>")
+		to_chat(user, SPAN_WARNING("It is missing an exosuit control module."))
 
 /obj/item/mech_component/sensors/return_diagnostics(mob/user)
 	..()
@@ -71,17 +71,17 @@
 /obj/item/mech_component/sensors/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing, /obj/item/mech_component/control_module))
 		if(software)
-			to_chat(user, "<span class='warning'>\The [src] already has a control modules installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a control modules installed."))
 			return
 		if(install_component(thing, user)) software = thing
 	else if(istype(thing,/obj/item/robot_parts/robot_component/radio))
 		if(radio)
-			to_chat(user, "<span class='warning'>\The [src] already has a radio installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a radio installed."))
 			return
 		if(install_component(thing, user)) radio = thing
 	else if(istype(thing,/obj/item/robot_parts/robot_component/camera))
 		if(camera)
-			to_chat(user, "<span class='warning'>\The [src] already has a camera installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a camera installed."))
 			return
 		if(install_component(thing, user)) camera = thing
 	else
@@ -98,7 +98,7 @@
 
 /obj/item/mech_component/control_module/examine(mob/user)
 	. = ..()
-	to_chat(user, "<span class='notice'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</span>")
+	to_chat(user, "<span class='notice'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software]."))
 
 /obj/item/mech_component/control_module/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing, /obj/item/circuitboard/exosystem))
@@ -114,10 +114,10 @@
 /obj/item/mech_component/control_module/proc/install_software(var/obj/item/circuitboard/exosystem/software, var/mob/user)
 	if(installed_software.len >= max_installed_software)
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] can only hold [max_installed_software] software modules.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] can only hold [max_installed_software] software modules."))
 		return
 	if(user)
-		to_chat(user, "<span class='notice'>You load \the [software] into \the [src]'s memory.</span>")
+		to_chat(user, "<span class='notice'>You load \the [software] into \the [src]'s memory."))
 		user.unEquip(software)
 	software.forceMove(src)
 	update_software()
