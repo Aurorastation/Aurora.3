@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed mining drone upgrades not properly setting the correct module for the mining drone."
-  - rscadd: "You can now examine mining drones to gauge how upgraded they are."
