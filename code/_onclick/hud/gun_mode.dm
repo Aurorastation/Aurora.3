@@ -78,6 +78,13 @@
 			var/obj/item/gun/dakka = user.get_active_hand()
 			if(istype(dakka))
 				dakka.toggle_firing_mode(user)
+			else
+				if(istype(user.loc, /mob/living/heavy_vehicle)) //may God forgive me for this
+					var/mob/living/heavy_vehicle/snowflake = user.loc
+					var/obj/item/mecha_equipment/mounted_system/MS = snowflake.selected_system
+					dakka = MS.holding
+					if(istype(dakka))
+						dakka.toggle_firing_mode(user)
 
 /obj/screen/gun/uniqueaction
 	name = "Unique Action"
@@ -92,3 +99,10 @@
 			var/obj/item/gun/dakka = user.get_active_hand()
 			if(istype(dakka))
 				dakka.unique_action(user)
+			else
+				if(istype(user.loc, /mob/living/heavy_vehicle)) //may God forgive me for this
+					var/mob/living/heavy_vehicle/snowflake = user.loc
+					var/obj/item/mecha_equipment/mounted_system/MS = snowflake.selected_system
+					dakka = MS.holding
+					if(istype(dakka))
+						dakka.unique_action(user)
