@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Examining in-construction exosuit parts will now add hyperlinks to certain words, which can be clicked to provide some info on the steps to take to complete it."
