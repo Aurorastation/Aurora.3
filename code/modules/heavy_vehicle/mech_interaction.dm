@@ -165,12 +165,14 @@
 	return
 
 /mob/living/heavy_vehicle/setClickCooldown(var/timeout)
+	var/old_next_move = next_move
 	next_move = max(world.time + timeout, next_move)
 	for(var/hardpoint in hardpoint_hud_elements)
 		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H)
 			H.color = "#FF0000"
-	addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
+	if(next_move > old_next_move) // TIMER_OVERRIDE would not work here, because the smaller delays tend to be called after the longer ones
+		addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
 
 /mob/living/heavy_vehicle/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)
