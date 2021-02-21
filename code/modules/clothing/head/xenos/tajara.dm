@@ -105,7 +105,7 @@
 	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the Adhomai Liberation Army, further solidified after the defeat \
 	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
 	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchist sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
-	and the People's Republic of Adhomai presence over the southern end of the island..."
+	and the People's Republic of Adhomai looms over the southern end of the island..."
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/kettle
