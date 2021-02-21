@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - spellcheck: "Fixed a spelling error when removing an air tank from a hardsuit."
