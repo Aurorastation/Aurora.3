@@ -190,7 +190,7 @@ var/list/holder_mob_icon_cache = list()
 
 
 /mob/living/proc/get_scooped(var/mob/living/carbon/grabber, var/mob/user = null)
-	if(!holder_type || buckled || pinned.len || !Adjacent(grabber))
+	if(!holder_type || buckled_to || pinned.len || !Adjacent(grabber))
 		return
 
 	if (user == src)

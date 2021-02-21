@@ -272,7 +272,7 @@
 		return
 
 	if(!stop_automated_movement && wander && !anchored)
-		if(isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
 				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
 				moving_to = pick(cardinal)

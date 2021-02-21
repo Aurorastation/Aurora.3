@@ -964,7 +964,7 @@
 
 	if(status_flags & LEAPING)
 		return
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, SPAN_WARNING("You cannot lean in your current state."))
 		return
 

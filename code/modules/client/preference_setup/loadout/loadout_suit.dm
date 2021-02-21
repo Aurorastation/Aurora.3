@@ -109,6 +109,13 @@
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
+/datum/gear/suit/iaclabcoat
+	display_name = "IAC labcoat"
+	description = "It's a standard medical labcoat designed to be worn by the Interstellar Aid Corps."
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/iac
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	flags = GEAR_HAS_DESC_SELECTION
+
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
 	path = /obj/item/clothing/accessory/poncho

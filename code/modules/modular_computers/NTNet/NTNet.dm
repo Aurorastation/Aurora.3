@@ -37,7 +37,6 @@ var/global/datum/ntnet/ntnet_global = new()
 		R.NTNet = src
 	build_software_lists()
 	build_news_list()
-	add_log("NTNet logging system activated.")
 
 	//add some default channels
 	new /datum/ntnet_conversation("NTNet Relay", TRUE)

@@ -941,29 +941,29 @@
 		tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
 		wearer_move_delay += tickcomp
 
-	if(istype(wearer.buckled, /obj/vehicle))
+	if(istype(wearer.buckled_to, /obj/vehicle))
 		//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 		//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
 		wearer_move_delay = world.time + tickcomp
-		return wearer.buckled.relaymove(wearer, direction)
+		return wearer.buckled_to.relaymove(wearer, direction)
 
 	if(istype(wearer.machine, /obj/machinery))
 		if(wearer.machine.relaymove(wearer, direction))
 			return
 
-	if(wearer.pulledby || wearer.buckled) // Wheelchair driving!
+	if(wearer.pulledby || wearer.buckled_to) // Wheelchair driving!
 		if(istype(wearer.loc, /turf/space))
 			return // No wheelchair driving in space
 		if(istype(wearer.pulledby, /obj/structure/bed/chair/wheelchair))
 			return wearer.pulledby.relaymove(wearer, direction)
-		else if(istype(wearer.buckled, /obj/structure/bed/chair/wheelchair))
-			if(ishuman(wearer.buckled))
+		else if(istype(wearer.buckled_to, /obj/structure/bed/chair/wheelchair))
+			if(ishuman(wearer.buckled_to))
 				var/obj/item/organ/external/l_hand = wearer.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/r_hand = wearer.get_organ(BP_R_HAND)
 				if((!l_hand || (l_hand.status & ORGAN_DESTROYED)) && (!r_hand || (r_hand.status & ORGAN_DESTROYED)))
 					return // No hands to drive your chair? Tough luck!
 			wearer_move_delay += 2
-			return wearer.buckled.relaymove(wearer,direction)
+			return wearer.buckled_to.relaymove(wearer,direction)
 
 	cell.use(10)
 	wearer.Move(get_step(get_turf(wearer),direction),direction)

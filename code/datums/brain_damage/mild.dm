@@ -155,7 +155,7 @@
 	var/fall_chance = 5
 	if(owner.m_intent == M_RUN)
 		fall_chance += 15
-	if(prob(fall_chance) && !owner.lying && !owner.buckled)
+	if(prob(fall_chance) && !owner.lying && !owner.buckled_to)
 		to_chat(owner, "<span class='warning'>Your leg gives out!</span>")
 		owner.Weaken(5)
 

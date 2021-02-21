@@ -23724,6 +23724,12 @@
 	icon_state = "3,6"
 	},
 /area/shuttle/merchant)
+"lsJ" = (
+/obj/item/modular_computer/console/preset/command/account/centcomm,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "lsU" = (
 /obj/structure/shuttle_part/cargo{
 	icon_state = "4,10";
@@ -29564,7 +29570,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -24
 	},
-/obj/item/weldpack{
+/obj/item/reagent_containers/weldpack{
 	pixel_y = -10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -31492,14 +31498,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"qjS" = (
-/obj/item/modular_computer/console/preset/command/account{
-	name = "CentComm Accounts database"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/control)
 "qlg" = (
 /obj/structure/shuttle_part/burglar{
 	icon_state = "11,3"
@@ -39943,6 +39941,13 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
+"wdY" = (
+/obj/machinery/acting/changer{
+	density = 0;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "weB" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -54733,7 +54738,7 @@ ahV
 gYT
 goi
 xyH
-iGO
+wdY
 xVl
 xVl
 rZy
@@ -67768,7 +67773,7 @@ qXj
 bYs
 luY
 vVC
-qjS
+lsJ
 rtl
 vVC
 ghF

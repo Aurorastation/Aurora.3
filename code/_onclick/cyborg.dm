@@ -63,8 +63,8 @@
 		A.attack_robot(src)
 		return
 
-	// buckled cannot prevent machine interlinking but stops arm movement
-	if(buckled)
+	// buckled_to cannot prevent machine interlinking but stops arm movement
+	if(buckled_to)
 		return
 
 	if(W == A)

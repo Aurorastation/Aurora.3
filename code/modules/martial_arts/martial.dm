@@ -55,7 +55,7 @@
 	if (D.grabbed_by.len)
 		rand_damage = max(1, rand_damage - 2)
 
-	if(D.grabbed_by.len || D.buckled || !D.canmove || D==A)
+	if(D.grabbed_by.len || D.buckled_to || !D.canmove || D==A)
 		accurate = 1
 		rand_damage = 5
 

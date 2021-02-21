@@ -29,7 +29,7 @@
 	concentrated energy are used by high ranking soldiers or special operatives of the Republican army, but their durability is dubious in comparison to the mass-produced, \
 	single shot or bolt action rifles that the majority of Tajaran soldiers use."
 
-/obj/item/gun/energy/rifle/icelance/attack_self(mob/living/user as mob)
+/obj/item/gun/energy/rifle/icelance/unique_action(mob/living/user)
 	if(is_charging)
 		to_chat(user, "<span class='warning'>You are already charging \the [src].</span>")
 		return
