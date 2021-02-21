@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed being in an exosuit not letting you override its assigned leader."
