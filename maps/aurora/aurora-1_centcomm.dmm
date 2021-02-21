@@ -23724,6 +23724,12 @@
 	icon_state = "3,6"
 	},
 /area/shuttle/merchant)
+"lsJ" = (
+/obj/item/modular_computer/console/preset/command/account/centcomm,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "lsU" = (
 /obj/structure/shuttle_part/cargo{
 	icon_state = "4,10";
@@ -31492,14 +31498,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"qjS" = (
-/obj/item/modular_computer/console/preset/command/account{
-	name = "CentComm Accounts database"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/control)
 "qlg" = (
 /obj/structure/shuttle_part/burglar{
 	icon_state = "11,3"
@@ -67775,7 +67773,7 @@ qXj
 bYs
 luY
 vVC
-qjS
+lsJ
 rtl
 vVC
 ghF
