@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - tweak: "Boot selection in xenoware now gives Tajara their own specific sprites for each boot type. Remains the same for all other species."
