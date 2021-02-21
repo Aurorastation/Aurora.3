@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Using clamps to lift up canisters no longer smash them."
