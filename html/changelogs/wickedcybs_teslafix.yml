@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Tesla leg prosthetics had a superfluous pixel that has been removed."
