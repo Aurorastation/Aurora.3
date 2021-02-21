@@ -1,4 +1,16 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/window/southleft{
+	name = "CCIAP Penny"
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 8
+	},
+/mob/living/simple_animal/cat/penny,
+/turf/unsimulated/floor{
+	icon_state = "carpet"
+	},
+/area/centcom/control)
 "aab" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -6198,7 +6210,7 @@
 	req_access = list(103)
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -9083,18 +9095,6 @@
 	icon_state = "steel_dirty"
 	},
 /area/centcom/legion/hangar5)
-"cjw" = (
-/mob/living/simple_animal/cat/penny,
-/obj/machinery/door/window/southleft{
-	name = "CCIAP Penny"
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "carpet"
-	},
-/area/centcom/control)
 "cjF" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -13573,7 +13573,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -21449,7 +21449,7 @@
 	},
 /area/antag/wizard)
 "jUu" = (
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -39713,27 +39713,19 @@
 	pixel_x = 16;
 	pixel_y = 5
 	},
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/suit/storage/vest/merc{
+/obj/item/clothing/suit/armor/carrier/heavy{
 	pixel_x = -6;
 	pixel_y = 1
 	},
-/obj/item/clothing/suit/storage/vest/merc{
+/obj/item/clothing/suit/armor/carrier/heavy{
 	pixel_x = -6;
 	pixel_y = 1
 	},
-/obj/item/clothing/suit/storage/vest/merc{
+/obj/item/clothing/suit/armor/carrier/heavy{
 	pixel_x = -6;
 	pixel_y = 1
 	},
-/obj/item/clothing/suit/storage/vest/merc{
+/obj/item/clothing/suit/armor/carrier/heavy{
 	pixel_x = -6;
 	pixel_y = 1
 	},
@@ -67491,7 +67483,7 @@ bYs
 lSm
 vNR
 hIw
-cjw
+aaa
 vVC
 vVC
 oOB

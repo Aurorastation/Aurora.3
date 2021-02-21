@@ -6241,9 +6241,7 @@
 	name = "Riot Gear Storage";
 	req_access = list(3)
 	},
-/obj/item/clothing/shoes/leg_guard/riot,
-/obj/item/clothing/gloves/arm_guard/riot,
-/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/shield/riot,
 /turf/simulated/floor/tiled/dark,
@@ -7331,10 +7329,10 @@
 /area/maintenance/engineering)
 "anS" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
+/obj/item/clothing/suit/armor/carrier/heavy/sec,
+/obj/item/clothing/suit/armor/carrier/heavy/sec,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "anT" = (
@@ -7371,9 +7369,7 @@
 	name = "Riot Gear Storage";
 	req_access = list(3)
 	},
-/obj/item/clothing/shoes/leg_guard/riot,
-/obj/item/clothing/gloves/arm_guard/riot,
-/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -13444,12 +13440,8 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/clothing/shoes/leg_guard/laserproof,
-/obj/item/clothing/shoes/leg_guard/laserproof,
-/obj/item/clothing/gloves/arm_guard/laserproof,
-/obj/item/clothing/gloves/arm_guard/laserproof,
-/obj/item/clothing/suit/armor/laserproof,
-/obj/item/clothing/suit/armor/laserproof,
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/suit/armor/carrier/ablative,
 /obj/item/clothing/head/helmet/ablative,
 /obj/item/clothing/head/helmet/ablative,
 /turf/simulated/floor/tiled/dark,
@@ -14410,12 +14402,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/clothing/shoes/leg_guard/bulletproof,
-/obj/item/clothing/shoes/leg_guard/bulletproof,
-/obj/item/clothing/gloves/arm_guard/bulletproof,
-/obj/item/clothing/gloves/arm_guard/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
 /turf/simulated/floor/tiled/dark,
