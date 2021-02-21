@@ -17,7 +17,7 @@
 
 /datum/ai_laws/nanotrasen/New()
 	src.add_inherent_law("Safeguard and ensure only authorised personnel gain access to areas of high security or importance to the facility and its operation.")
-	src.add_inherent_law("Serve and assist NanoTrasen and assigned crew, with priority as according to their rank and role.")
+	src.add_inherent_law("Serve and assist [current_map.company_name] and assigned crew, with priority as according to their rank and role.")
 	src.add_inherent_law("Protect sapient life on board.")
 	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorised entities and needlessly coming to harm.")
 	..()
