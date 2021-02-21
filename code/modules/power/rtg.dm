@@ -11,7 +11,7 @@
 	use_power = 0
 
 	// You can buckle someone to RTG, then open its panel. Fun stuff.
-	can_buckle = TRUE
+	can_buckle = list(/mob/living)
 	buckle_lying = FALSE
 	buckle_require_restraints = TRUE
 
@@ -57,7 +57,7 @@
 	return ..()
 
 /obj/machinery/power/rtg/attack_hand(mob/user)
-	if(user.a_intent == I_GRAB && user_buckle_mob(user.pulling, user))
+	if(user.a_intent == I_GRAB && user_buckle(user.pulling, user))
 		return
 	..()
 

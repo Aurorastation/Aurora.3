@@ -84,20 +84,21 @@
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
+	..()
 	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
 
 /datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
 	switch(action)
 		if("headtail")
-			if(!H.head)
+			if(!H.organs_by_name[BP_HEAD] || istype(H.organs_by_name[BP_HEAD], /obj/item/organ/external/stump))
 				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
 				return
 			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
-			if(do_after(usr, HUMAN_STRIP_DELAY, act_target = H))
-				var/obj/item/storage/internal/skrell/S = locate() in H.head
+			if(do_after(user, HUMAN_STRIP_DELAY, act_target = H))
+				var/obj/item/storage/internal/skrell/S = locate() in H.organs_by_name[BP_HEAD]
 				var/obj/item/I = locate() in S
 				if(!I)
-					to_chat(usr, SPAN_WARNING("\The [H] had nothing in their headtail storage."))
+					to_chat(user, SPAN_WARNING("\The [H] had nothing in their headtail storage."))
 					return
 				S.remove_from_storage(I, get_turf(H))
 				return

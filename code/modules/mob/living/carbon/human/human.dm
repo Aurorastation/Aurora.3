@@ -1416,6 +1416,7 @@
 	species.handle_post_spawn(src,kpg) // should be zero by default
 
 	maxHealth = species.total_health
+	health = maxHealth
 
 	spawn(0)
 		regenerate_icons()

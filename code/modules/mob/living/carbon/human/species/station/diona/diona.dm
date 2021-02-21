@@ -202,3 +202,6 @@
 
 /datum/species/diona/has_psi_potential()
 	return FALSE
+	
+/datum/species/diona/is_naturally_insulated()
+	return TRUE

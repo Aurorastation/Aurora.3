@@ -659,3 +659,6 @@
 
 /datum/species/proc/get_injection_modifier()
 	return injection_mod
+	
+/datum/species/proc/is_naturally_insulated()
+	return FALSE

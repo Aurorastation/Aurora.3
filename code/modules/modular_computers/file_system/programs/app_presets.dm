@@ -325,6 +325,19 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/command/account/centcomm/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/civilian/cargocontrol(comp),
+		new /datum/computer_file/program/records/employment(comp),
+		new /datum/computer_file/program/account_db(comp, TRUE)
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/security
 	name = "security"
 	display_name = "Security"

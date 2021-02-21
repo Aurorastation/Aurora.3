@@ -36,7 +36,7 @@
 		if (hydration < (max_hydration * 0.1))
 			tally++
 
-	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
+	if(istype(buckled_to, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
@@ -183,6 +183,7 @@
 /mob/living/carbon/human/proc/ClothesSlowdown()
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
 		. += I.slowdown
+		. += I.slowdown_accessory
 
 /mob/living/carbon/human/get_pulling_movement_delay()
 	. = ..()

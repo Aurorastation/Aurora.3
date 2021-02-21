@@ -114,7 +114,7 @@
 /mob/living/carbon/human/update_canmove()
 	var/old_lying = lying
 	. = ..()
-	if(lying && !old_lying && !resting && !buckled && isturf(loc)) // fell down
+	if(lying && !old_lying && !resting && !buckled_to && isturf(loc)) // fell down
 		playsound(loc, species.bodyfall_sound, 50, 1, -1)
 
 /mob/living/carbon/human/getCloneLoss()
@@ -378,7 +378,8 @@ This function restores all organs.
 
 
 /mob/living/carbon/human/proc/get_organ(var/zone)
-	if(!zone)	zone = BP_CHEST
+	if(!zone)
+		zone = BP_CHEST
 	if (zone in list(BP_EYES, BP_MOUTH))
 		zone = BP_HEAD
 	return organs_by_name[zone]

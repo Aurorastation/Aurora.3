@@ -129,11 +129,11 @@
 
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
-		if (!bucklestatus)//incase the patient got buckled during the delay
+		if (!bucklestatus)//incase the patient got buckled_to during the delay
 			return
 		if (bucklestatus == 2)
-			var/obj/structure/LB = M.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = M.buckled_to
+			LB.user_unbuckle(user)
 		if (M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
@@ -174,8 +174,8 @@
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
-			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = L.buckled_to
+			LB.user_unbuckle(user)
 		if (M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
