@@ -369,6 +369,18 @@
 	mymob.radio_use_icon.color = ui_color
 	mymob.radio_use_icon.alpha = ui_alpha
 
+	mymob.toggle_firing_mode = new /obj/screen/gun/burstfire(null)
+	mymob.toggle_firing_mode.icon = ui_style
+	mymob.toggle_firing_mode.color = ui_color
+	mymob.toggle_firing_mode.alpha = ui_alpha
+	hud_elements |= mymob.toggle_firing_mode
+
+	mymob.unique_action_icon = new /obj/screen/gun/uniqueaction(null)
+	mymob.unique_action_icon.icon = ui_style
+	mymob.unique_action_icon.color = ui_color
+	mymob.unique_action_icon.alpha = ui_alpha
+	hud_elements |= mymob.unique_action_icon
+
 	mymob.client.screen = null
 
 	mymob.client.screen += hud_elements

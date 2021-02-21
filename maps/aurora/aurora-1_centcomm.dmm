@@ -39935,6 +39935,13 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
+"wdY" = (
+/obj/machinery/acting/changer{
+	density = 0;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "weB" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -54725,7 +54732,7 @@ ahV
 gYT
 goi
 xyH
-iGO
+wdY
 xVl
 xVl
 rZy

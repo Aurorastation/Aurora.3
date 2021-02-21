@@ -83,10 +83,21 @@
 	if (istype(buckled_to, /obj/structure/bed))
 		return
 
-	for(var/limb_tag in list(BP_L_LEG,BP_R_LEG,BP_L_FOOT,BP_R_FOOT))
+	var/static/support_limbs = list(
+		BP_L_LEG = BP_R_LEG,
+		BP_L_FOOT = BP_R_FOOT
+	)
+	var/has_opposite_limb = FALSE
+
+	for(var/limb_tag in list(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT))
 		var/obj/item/organ/external/E = organs_by_name[limb_tag]
 		if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
-			stance_damage += 2 // let it fail even if just foot&leg
+			has_opposite_limb = get_organ(support_limbs[limb_tag])
+			if(!has_opposite_limb)
+				stance_damage += 10 //No walking for you with no supporting limb, buddy.
+				break
+			else
+				stance_damage += 2
 		else if (E.is_malfunctioning())
 			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
 			stance_damage += 2
@@ -100,20 +111,25 @@
 
 	// Canes and crutches help you stand (if the latter is ever added)
 	// One cane mitigates a broken leg+foot, or a missing foot.
-	// Two canes are needed for a lost leg. If you are missing both legs, canes aren't gonna help you.
-	if (l_hand && istype(l_hand, /obj/item/cane))
-		stance_damage -= 2
-	if (r_hand && istype(r_hand, /obj/item/cane))
-		stance_damage -= 2
+	// No double caning allowed, sorry. Canes also don't work if you're missing a functioning pair of feet or legs.
+	if(has_opposite_limb)
+		if(l_hand && istype(l_hand, /obj/item/cane))
+			stance_damage -= 2
+		else if(r_hand && istype(r_hand, /obj/item/cane))
+			stance_damage -= 2
 
-	// standing is poor
+	//Standing is poor.
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
 		if(!(lying || resting))
 			emote("scream")
 			if(!weakened)
 				custom_emote(VISIBLE_MESSAGE, "collapses!")
-		Weaken(3)
-		next_stance_collapse = world.time + (rand(8, 16) SECONDS)
+
+		if(stance_damage <= 5)
+			Weaken(3)
+			next_stance_collapse = world.time + (rand(8, 16) SECONDS)
+		else
+			Weaken(6) //No legs or feet means you should be really fucked.
 
 /mob/living/carbon/human/proc/handle_grasp()
 	if(!l_hand && !r_hand)

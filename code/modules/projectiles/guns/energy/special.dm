@@ -370,8 +370,6 @@
 
 	is_wieldable = TRUE
 
-	action_button_name = "Wield thermal lance"
-
 /obj/item/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
 	..()
@@ -461,8 +459,6 @@
 		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60),
 		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
-
-	action_button_name = "Wield thermal drill"
 
 	needspin = FALSE
 
