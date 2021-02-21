@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed examining a buckled humanoid saying that they're buckled_to to something."
