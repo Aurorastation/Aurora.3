@@ -138,6 +138,7 @@
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	slowdown = 0.5
+	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
 	name = "military armor plate"
