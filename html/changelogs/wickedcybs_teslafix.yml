@@ -3,4 +3,4 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - bugfix: "Tesla leg prosthetics had a superfluous pixel that has been removed."
+  - bugfix: "Tesla leg prosthetics had a extra pixel that has been removed."
