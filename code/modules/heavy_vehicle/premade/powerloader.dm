@@ -127,10 +127,10 @@
 	e_legs = /obj/item/mech_component/propulsion/ripley
 	e_color = COLOR_TCFL
 
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/grenadesmoke
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
-	h_l_hand = /obj/item/mecha_equipment/mounted_system/blaster
-	h_r_hand = /obj/item/mecha_equipment/mounted_system/gauss
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/blaster
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/gauss
 
 /mob/living/heavy_vehicle/premade/combatripley/Initialize()
 	. = ..()
