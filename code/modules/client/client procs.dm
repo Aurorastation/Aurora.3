@@ -397,7 +397,7 @@ var/list/localhost_addresses = list(
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
-	var/local_connection = (config.auto_local_admin && (isnull(address) || localhost_addresses[address]))
+	var/local_connection = (config.auto_local_admin && !config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
 	// Concept stolen from /tg/ with deepest gratitude.
 	// And ported from Nebula with love.
