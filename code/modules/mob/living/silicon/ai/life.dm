@@ -21,22 +21,15 @@
 
 
 		// Handle power damage (oxy)
-		if(ai_restore_power_routine != 0 && !APU_power)
+		if(ai_restore_power_routine)
 			// Lose power
 			adjustOxyLoss(1)
 		else
 			// Gain Power
-			ai_restore_power_routine = 0 // Necessary if AI activated it's APU AFTER losing primary power.
 			adjustOxyLoss(-1)
 
 		handle_stunned()	// Handle EMP-stun
 		lying = 0			// Handle lying down
-
-		malf_process()
-
-		if(APU_power && (hardware_integrity() < 50))
-			to_chat(src, "<span class='notice'><b>APU GENERATOR FAILURE! (System Damaged)</b></span>")
-			stop_apu(1)
 
 		if (!is_blinded())
 			if (ai_restore_power_routine==2)
@@ -47,11 +40,6 @@
 				return
 			else if (ai_restore_power_routine==3)
 				to_chat(src, "Alert cancelled. Power has been restored.")
-				ai_restore_power_routine = 0
-				clear_fullscreen("blind")
-				update_icon()
-				return
-			else if (APU_power)
 				ai_restore_power_routine = 0
 				clear_fullscreen("blind")
 				update_icon()
@@ -133,8 +121,6 @@
 			process_med_hud(src,0,src.eyeobj)
 
 /mob/living/silicon/ai/proc/lacks_power()
-	if(APU_power)
-		return 0
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(src)
 	return ((!A.power_equip) && A.requires_power == 1 || istype(T, /turf/space)) && !istype(src.loc,/obj/item)
@@ -159,6 +145,6 @@
 
 /mob/living/silicon/ai/proc/is_blinded()
 	var/area/A = get_area(src)
-	if (A && !A.power_equip && !istype(src.loc,/obj/item) && !APU_power)
+	if (A && !A.power_equip && !istype(src.loc,/obj/item))
 		return 1
 	return 0

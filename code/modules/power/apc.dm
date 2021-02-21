@@ -249,10 +249,6 @@
 		cell.forceMove(loc)
 		cell = null
 
-	// Malf AI, removes the APC from AI's hacked APCs list.
-	if(hacker?.hacked_apcs && (src in hacker.hacked_apcs))
-		hacker.hacked_apcs -= src
-
 	return ..()
 
 /obj/machinery/power/apc/proc/energy_fail(var/duration)
@@ -426,7 +422,7 @@
 			update_state |= UPDATE_OPENED1
 		if(opened == COVER_REMOVED)
 			update_state |= UPDATE_OPENED2
-	else if (emagged || failure_timer || (hacker && (hacker.system_override || prob(20))))
+	else if (emagged || failure_timer)
 		update_state |= UPDATE_BLUESCREEN
 	else if(wiresexposed)
 		update_state |= UPDATE_WIREEXP
@@ -701,10 +697,6 @@
 				"You replace the damaged APC frame with new one.")
 			qdel(W)
 			stat &= ~BROKEN
-			// Malf AI, removes the APC from AI's hacked APCs list.
-			if(hacker?.hacked_apcs && (src in hacker.hacked_apcs))
-				hacker.hacked_apcs -= src
-				hacker = null
 			if (opened == COVER_REMOVED)
 				opened = COVER_OPENED
 			update_icon()
@@ -722,10 +714,6 @@
 					to_chat(user, SPAN_NOTICE("Applied default software. Restarting APC..."))
 					if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
 						to_chat(user, SPAN_NOTICE("APC Reset. Fixes applied."))
-						if(hacker)
-							hacker.hacked_apcs -= src
-							hacker = null
-							update_icon()
 						if(emagged)
 							emagged = FALSE
 						if(infected)
@@ -1410,16 +1398,6 @@
 		return CHANNEL_OFF_AUTO
 	else
 		return CHANNEL_OFF
-
-// Malfunction: Transfers APC under AI's control
-/obj/machinery/power/apc/proc/ai_hack(var/mob/living/silicon/ai/A = null)
-	if(!A || !A.hacked_apcs || hacker || aidisabled || A.stat == DEAD)
-		return FALSE
-	hacker = A
-	A.hacked_apcs += src
-	locked = TRUE
-	update_icon()
-	return TRUE
 
 /obj/machinery/power/apc/proc/update_time()
 

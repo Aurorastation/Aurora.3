@@ -83,25 +83,6 @@ var/list/ai_verbs_default = list(
 	var/control_disabled = FALSE
 	var/multitool_mode = FALSE
 
-	// Malf variables
-	var/malfunctioning = FALSE					// Master var that determines if AI is malfunctioning.
-	var/datum/malf_hardware/hardware			// Installed piece of hardware.
-	var/datum/malf_research/research			// Malfunction research datum.
-	var/obj/machinery/power/apc/hack			// APC that is currently being hacked.
-	var/list/hacked_apcs = list()				// List of all hacked APCs
-	var/APU_power = FALSE						// If set to 1 AI runs on APU power
-	var/hacking = FALSE							// Set to 1 if AI is hacking APC, cyborg, other AI, or running system override.
-	var/system_override = FALSE					// Set to 1 if system override is initiated, 2 if succeeded.
-	var/synthetic_takeover = FALSE				// 1 is started, 2 is complete.
-	var/hack_can_fail = TRUE					// If 0, all abilities have zero chance of failing.
-	var/hack_fails = 0							// This increments with each failed hack, and determines the warning message text.
-	var/errored = FALSE							// Set to 1 if runtime error occurs. Only way of this happening i can think of is admin fucking up with varedit.
-	var/bombing_core = FALSE					// Set to 1 if core auto-destruct is activated
-	var/bombing_station = FALSE					// Set to 1 if station nuke auto-destruct is activated
-	var/bombing_time = 1200						// How much time is remaining for the nuke
-	var/override_CPUStorage = 0					// Bonus/Penalty CPU Storage. For use by admins/testers.
-	var/override_CPURate = 0					// Bonus/Penalty CPU generation rate. For use by admins/testers.
-
 	// Sprites
 	var/datum/ai_icon/selected_sprite			// The selected icon set
 	var/custom_sprite 	= FALSE 				// Whether the selected icon is custom
@@ -212,9 +193,8 @@ var/list/ai_verbs_default = list(
 	to_chat(src, "<h3>You are playing the station's AI.</h3>")
 	to_chat(src, "<strong><a href='?src=\ref[src];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
-	if(malf && !(mind in malf.current_antagonists))
-		show_laws()
-		to_chat(src, "<b>These laws may be changed by other players, or by you if you are malfunctioning.</b>")
+	show_laws()
+	to_chat(src, "<b>These laws may be changed by other players.</b>")
 
 	job = "AI"
 	if(client)
@@ -328,9 +308,6 @@ var/list/ai_verbs_default = list(
 		return
 	if(powered_ai.psupply != src) // For some reason, the AI has different powersupply object. Delete this one, it's no longer needed.
 		qdel(src)
-		return
-	if(powered_ai.APU_power)
-		use_power = 0
 		return
 	if(!powered_ai.anchored)
 		loc = powered_ai.loc
@@ -865,6 +842,20 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/proc/has_power()
 	return (ai_restore_power_routine == 0)
+
+// Returns percentage of AI's remaining backup capacitor charge (maxhealth - oxyloss).
+/mob/living/silicon/ai/proc/backup_capacitor()
+	return ((getOxyLoss() - maxHealth) / maxHealth) * -100
+
+// Returns percentage of AI's remaining hardware integrity (maxhealth - (bruteloss + fireloss))
+/mob/living/silicon/ai/proc/hardware_integrity()
+	return (health / maxHealth) * 100
+
+// Cleaner proc for creating powersupply for an AI.
+/mob/living/silicon/ai/proc/create_powersupply()
+	if(psupply)
+		qdel(psupply)
+	psupply = new /obj/machinery/ai_powersupply(src)
 
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO

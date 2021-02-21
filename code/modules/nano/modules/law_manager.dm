@@ -203,7 +203,7 @@
 	return law_sets
 
 /datum/nano_module/law_manager/proc/is_malf(var/mob/user)
-	return (is_admin(user) && !owner.is_slaved()) || owner.is_malf_or_traitor()
+	return (is_admin(user) && !owner.is_slaved()) || owner.is_traitor()
 
 /mob/living/silicon/proc/is_slaved()
 	return 0
