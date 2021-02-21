@@ -791,7 +791,7 @@
 	w_class = ITEMSIZE_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
-	valid_accessory_slots = list("armband","decor", "over")
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 
 /obj/item/clothing/suit/return_own_image()
 	var/image/our_image
@@ -843,8 +843,8 @@
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
 	var/worn_state = null
-	valid_accessory_slots = list("utility","armband","decor", "over")
-	restricted_accessory_slots = list("utility")
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)

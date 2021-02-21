@@ -139,7 +139,6 @@
 			slot_flags = SLOT_BACK
 			item_state = "large_3"
 			is_wieldable = TRUE
-	update_wield_verb()
 
 /obj/item/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
