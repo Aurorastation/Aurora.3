@@ -33,6 +33,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/leg_guard/ballistic
 	name = "ballistic leg guards"
@@ -131,12 +132,13 @@
 		laser = ARMOR_LASER_RIFLES,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
+	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/arm_guard/ballistic
 	name = "ballistic arm guards"
 	desc = "These arm guards will protect your hands and arms from ballistic weapons."
 	icon_state = "armguards_ballistic"
-	item_state = "armguards_ballstic"
+	item_state = "armguards_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_RIFLE,
