@@ -157,9 +157,9 @@
 	)
 	siemens_coefficient = 0.35
 	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
-	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the Adhomai Liberation Army, further solidified after the defeat \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
 	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
-	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchist sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
+	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
 	and the People's Republic of Adhomai looms over the southern end of the island..."
 
 /obj/item/clothing/suit/armor/cuirass
