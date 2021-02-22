@@ -65,3 +65,14 @@
 	name = "Frontier Cowboy (Single)"
 	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single
 	item_cost = 10
+
+/datum/uplink_item/item/gear_loadout/kosmostrelki
+	name = "Kosmostrelki Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits and the hardsuit are only usable by Tajara."
+	path = /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki
+
+/datum/uplink_item/item/gear_loadout/kosmostrelki_single
+	name = "Kosmostrelki Assets (Single)"
+	desc = "A crate containing gear for a single individual.The voidsuit is only usable by Tajara."
+	path = /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/single
+	item_cost = 15

@@ -21,7 +21,7 @@
 	confined_use = TRUE
 
 	use_power_cost = 75
-	active_power_cost = 5
+	active_power_cost = 15
 	passive_power_cost = 0
 	module_cooldown = 30
 
@@ -214,6 +214,25 @@
 		holder.wearer.drop_from_inventory(src)
 		qdel(holder)
 	qdel(src)
+
+/obj/item/rig_module/anti_theft
+	name = "anti-theft system"
+	desc = "An advanced anti-theft system that tracks the user's lifesigns."
+	icon_state = "deadman"
+	usable = FALSE
+	active = FALSE
+	permanent = FALSE
+
+/obj/item/rig_module/anti_theft/process()
+	// Not being worn, leave it alone.
+	if(!holder || !holder.wearer || !holder.wearer.wear_suit == holder)
+		return FALSE
+
+	if(holder && holder.wearer.stat == DEAD)
+		holder.wearer.gib()
+		holder.wearer.drop_from_inventory(src)
+		qdel(holder)
+		qdel(src)
 
 /obj/item/rig_module/emp_shielding
 	name = "EMP dissipation module"
