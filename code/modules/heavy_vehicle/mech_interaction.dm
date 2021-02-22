@@ -609,7 +609,7 @@
 				say("Error, leader not found. Unassigning...")
 				unassign_leader()
 				return
-			if(speaker != resolved_leader || (speaker in pilots))
+			if(speaker != resolved_leader && !(speaker in pilots))
 				return
 
 			found_text = findtext(text, "set nickname to")
