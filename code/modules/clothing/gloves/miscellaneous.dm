@@ -248,7 +248,6 @@
 	item_state = "ballisticfist"
 	siemens_coefficient = 1
 	fingerprint_chance = 50
-	siemens_coefficient = 1
 	clipped = 1
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
@@ -315,3 +314,48 @@
 	. = ..()
 	if(mounted)
 		mounted.switch_firemodes()
+
+/obj/item/clothing/gloves/tesla
+	name = "tesla gauntlet"
+	desc = "A weaponized gauntlet capable of firing lightning bolts."
+	icon_state = "tesla_glove_on"
+	item_state = "tesla_glove_on"
+	siemens_coefficient = 1
+	fingerprint_chance = 50
+	clipped = TRUE
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
+	gender = NEUTER
+	var/charged = TRUE
+
+/obj/item/clothing/gloves/tesla/Touch(atom/A, mob/living/user, proximity)
+	if(!charged)
+		to_chat(user, SPAN_WARNING("\The [src] is still recharging."))
+		return
+
+	if(user.a_intent == I_HURT)
+		var/turf/T = get_turf(user)
+		user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
+		var/obj/item/projectile/beam/tesla/LE = new (T)
+		LE.muzzle_type = /obj/effect/projectile/muzzle/tesla
+		LE.tracer_type = /obj/effect/projectile/tracer/tesla
+		LE.impact_type = /obj/effect/projectile/impact/tesla
+		playsound(usr.loc, 'sound/magic/LightningShock.ogg', 75, 1)
+		LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
+		charged = FALSE
+		update_icon()
+		user.update_inv_gloves()
+		addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+
+/obj/item/clothing/gloves/tesla/proc/rearm()
+	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))
+	charged = TRUE
+
+/obj/item/clothing/gloves/tesla/update_icon()
+	if(charged)
+		icon_state = "tesla_glove_on"
+		item_state = "tesla_glove_on"
+	else
+		icon_state = "tesla_glove"
+		item_state = "tesla_glove"
