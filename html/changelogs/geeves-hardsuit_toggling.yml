@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "You can no longer toggle your hardsuit pieces while incapacitated."
