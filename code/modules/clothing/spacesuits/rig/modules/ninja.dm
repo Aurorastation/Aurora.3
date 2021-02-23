@@ -229,7 +229,7 @@
 		return FALSE
 
 	if(holder && holder.wearer.stat == DEAD)
-		holder.wearer.gib()
+		holder.wearer.dust()
 		holder.wearer.drop_from_inventory(src)
 		qdel(holder)
 		qdel(src)
