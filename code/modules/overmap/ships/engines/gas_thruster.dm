@@ -80,6 +80,9 @@
 	opacity = FALSE
 	pixel_x = -64
 
+/obj/machinery/atmospherics/unary/engine/placeholder/check_blockage()
+	return 0
+
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return 0
 

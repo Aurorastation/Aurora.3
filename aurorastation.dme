@@ -2963,6 +2963,7 @@
 #include "maps\placeholder\code\placeholder_outfits.dm"
 #include "maps\placeholder\code\placeholder_overmap.dm"
 #include "maps\placeholder\code\placeholder_shuttles.dm"
+#include "maps\placeholder\code\placeholder_structures.dm"
 #include "maps\placeholder\code\placeholder_unittest.dm"
 #include "maps\runtime\code\runtime.dm"
 #include "maps\runtime\code\runtime_lifts.dm"

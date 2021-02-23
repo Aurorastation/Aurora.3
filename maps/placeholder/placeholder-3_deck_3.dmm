@@ -3637,7 +3637,7 @@
 "qs" = (
 /obj/effect/map_effect/airlock/e_to_w/long/square/wide,
 /turf/simulated/wall/shuttle/placeholder/cardinal,
-/area/template_noop)
+/area/crew_quarters/theatre)
 "qu" = (
 /obj/structure/table/rack,
 /obj/item/towel,
@@ -37193,7 +37193,7 @@ my
 my
 my
 zS
-QL
+IY
 at
 at
 at
@@ -37395,7 +37395,7 @@ IY
 IY
 IY
 IY
-QL
+IY
 at
 at
 at

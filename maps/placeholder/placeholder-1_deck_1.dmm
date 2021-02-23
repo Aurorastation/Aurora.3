@@ -7,6 +7,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"ac" = (
+/obj/structure/bed/chair/office/bridge/pilot,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "ae" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -178,6 +182,12 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/black,
 /turf/space/dynamic,
 /area/template_noop)
+"aG" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "2,8"
+	},
+/area/template_noop)
 "aH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -220,11 +230,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "aN" = (
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 8
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 8;
+	icon_state = "on";
+	target_pressure = 15000;
+	unlocked = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
@@ -430,11 +443,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "bl" = (
-/obj/machinery/atmospherics/binary/pump,
+/obj/machinery/atmospherics/binary/pump{
+	name = "Mix to Connectors"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "bm" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "bo" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -484,7 +499,7 @@
 /area/quartermaster/storage)
 "bv" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/valve,
+/obj/machinery/atmospherics/valve/open,
 /turf/space/dynamic,
 /area/template_noop)
 "bw" = (
@@ -501,13 +516,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "by" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-15";
-	name = "tank"
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-15"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "bA" = (
@@ -524,11 +537,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 4
 	},
-/obj/machinery/power/apc/super/critical{
-	pixel_y = -24
-	},
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -599,14 +609,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
-"bN" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/door/blast/regular,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/atmos/air)
 "bO" = (
 /obj/machinery/light{
 	dir = 8
@@ -624,7 +626,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/air)
 "bR" = (
 /obj/structure/window/shuttle/placeholder,
@@ -643,6 +645,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"bU" = (
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	input_tag = "air_in";
+	name = "Air Supply Monitor";
+	output_tag = "air_out";
+	pixel_y = -3;
+	sensors = list("air_sensor" = "Tank")
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmos/air)
 "bW" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4
@@ -675,7 +687,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "cb" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "cc" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -687,13 +699,29 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "cf" = (
-/obj/machinery/atmospherics/omni/mixer,
+/obj/machinery/atmospherics/omni/mixer{
+	active_power_usage = 7500;
+	tag_east = 1;
+	tag_east_con = 0.2;
+	tag_north = 1;
+	tag_north_con = 0.8;
+	tag_west = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "cg" = (
 /obj/machinery/door/airlock/glass_research,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
+"ch" = (
+/obj/machinery/computer/general_air_control/large_tank_control{
+	input_tag = "ph_in";
+	name = "Phoron Supply Monitor";
+	output_tag = "ph_out";
+	sensors = list("ph_sensor" = "Tank")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "ci" = (
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
@@ -708,12 +736,13 @@
 /turf/simulated/floor/reinforced,
 /area/hangar/control)
 "cn" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "co" = (
@@ -727,6 +756,13 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/template_noop)
+"cr" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1441;
+	id_tag = "co2_out"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/engineering/atmos)
 "cs" = (
 /obj/structure/shuttle_part/mercenary/small{
 	icon_state = "7,1"
@@ -794,13 +830,17 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_c)
 "cA" = (
-/obj/machinery/air_sensor,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "n2o_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
 "cB" = (
 /obj/structure/table/stone/marble,
@@ -831,6 +871,7 @@
 /area/quartermaster/loading)
 "cF" = (
 /obj/machinery/atmospherics/omni/filter{
+	name = "phoron filter";
 	tag_east = 2;
 	tag_north = 6;
 	tag_west = 1
@@ -847,6 +888,13 @@
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
 /area/rnd/xenoarch_atrium)
+"cJ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "cK" = (
 /obj/machinery/door/airlock/mining,
 /obj/structure/cable/green{
@@ -870,7 +918,10 @@
 /area/medical/morgue/lower)
 "cO" = (
 /obj/machinery/atmospherics/binary/passive_gate{
-	dir = 4
+	dir = 4;
+	icon_state = "on";
+	target_pressure = 15000;
+	unlocked = 1
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -884,10 +935,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "cR" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "cS" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -899,7 +951,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/air)
 "cU" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -916,7 +968,7 @@
 /obj/machinery/sparker{
 	pixel_x = 22
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/air)
 "cX" = (
 /obj/machinery/door/airlock/mining,
@@ -980,6 +1032,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
+"dg" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "13,3"
+	},
+/area/template_noop)
 "dh" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/hatch,
@@ -1081,7 +1139,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump,
+/obj/machinery/atmospherics/binary/pump{
+	name = "Hydrogen to Mix"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "dx" = (
@@ -1116,6 +1176,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"dE" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "15,7"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"dF" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1441;
+	id_tag = "o2_out"
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/engineering/atmos/air)
 "dG" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
 	icon_state = "1,8"
@@ -1174,6 +1248,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/briefing)
+"dM" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/tank/oxygen{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/air)
 "dN" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -1204,30 +1287,42 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "dR" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "mixed_out";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	name = "mixed gas vent";
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "dS" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-6";
-	name = "tank"
+/obj/structure/tank_wall{
+	density = 0;
+	icon_state = "m-6";
+	layer = 10.1;
+	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "dT" = (
+/obj/structure/tank_wall{
+	icon_state = "m-7"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
-	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-7";
-	name = "tank"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -1263,9 +1358,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "dZ" = (
@@ -1276,15 +1369,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "ea" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph4";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph4"
+	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "eb" = (
 /obj/structure/lattice,
@@ -1294,16 +1385,23 @@
 "ec" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "ed" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 1
+	dir = 1;
+	name = "Connectors to Mix"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"ee" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "13,6"
+	},
+/area/template_noop)
 "ef" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -1329,12 +1427,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "ek" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/hydrogen{
+	density = 0;
 	icon_state = "h6";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "el" = (
 /turf/simulated/floor/tiled/dark,
@@ -1350,15 +1449,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "eo" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph13";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph13"
+	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "ep" = (
 /obj/machinery/door/airlock/glass_atmos,
@@ -1393,14 +1490,19 @@
 	icon_state = "1,7"
 	},
 /area/shuttle/escape_pod)
-"ew" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n3";
-	name = "tank"
+"eu" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1441;
+	id_tag = "ph_out"
 	},
+/turf/simulated/floor/reinforced/phoron,
+/area/engineering/atmos)
+"ew" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n3"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -1427,13 +1529,11 @@
 	},
 /area/shuttle/escape_pod)
 "eB" = (
+/obj/structure/tank_wall{
+	icon_state = "m-13"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
-	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-13";
-	name = "tank"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -1498,15 +1598,21 @@
 /area/shuttle/escape_pod)
 "eI" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 4
+	dir = 4;
+	name = "Waste to Filtering";
+	use_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "eJ" = (
 /obj/machinery/computer/general_air_control/large_tank_control/wall{
-	pixel_y = -3
+	input_tag = "mixed_in";
+	name = "Mixed Gas Tank Monitor";
+	output_tag = "mixed_out";
+	pixel_y = -3;
+	sensors = list("mixed_sensor" = "Tank")
 	},
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall/r_wall,
 /area/engineering/atmos)
 "eL" = (
 /obj/effect/floor_decal/corner_wide/purple{
@@ -1603,15 +1709,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "fb" = (
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h4"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h4";
-	name = "tank"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "fc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
@@ -1722,13 +1826,14 @@
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
 "fx" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/obj/structure/tank_wall/nitrous_oxide{
+	density = 0;
 	icon_state = "h11";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
 "fy" = (
 /obj/structure/shuttle_part/placeholder{
@@ -1768,6 +1873,13 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"fE" = (
+/obj/effect/decal/cleanable/draftingchalk/blue,
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "11,9"
+	},
+/area/template_noop)
 "fF" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -1863,21 +1975,20 @@
 	},
 /area/shuttle/escape_pod)
 "fQ" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/hydrogen{
+	density = 0;
 	icon_state = "h5";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "fS" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n7";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n7"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -1926,15 +2037,13 @@
 	},
 /area/shuttle/escape_pod)
 "fY" = (
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h8"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h8";
-	name = "tank"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "fZ" = (
 /obj/machinery/light/small/emergency,
@@ -1943,6 +2052,15 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -1986,11 +2104,14 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
@@ -2010,14 +2131,19 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "gk" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h15";
-	name = "tank"
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h15"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
+"gl" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "8,1";
+	opacity = 0
+	},
+/area/template_noop)
 "gn" = (
 /obj/structure/ladder/up{
 	pixel_y = 13
@@ -2047,17 +2173,25 @@
 	},
 /area/shuttle/escape_pod)
 "gr" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h1";
-	name = "tank"
-	},
+/obj/structure/tank_wall/hydrogen,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
+"gs" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/shuttle/engine/heater{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped,
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h11"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "gt" = (
 /obj/effect/decal/cleanable/draftingchalk/blue,
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -2066,8 +2200,11 @@
 	},
 /area/shuttle/escape_pod)
 "gu" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos,
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1441;
+	id_tag = "h_out"
+	},
+/turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "gv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2104,16 +2241,12 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape_pod)
 "gA" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-1";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/tank_wall/carbon_dioxide,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "gB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -2122,13 +2255,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "gC" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-2";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-2"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -2158,13 +2289,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-3";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-3"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "gI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2181,8 +2310,9 @@
 /area/shuttle/escape_pod)
 "gL" = (
 /obj/machinery/atmospherics/omni/filter{
+	name = "nitrogen filter";
 	tag_east = 2;
-	tag_north = 6;
+	tag_north = 4;
 	tag_west = 1
 	},
 /turf/simulated/floor/plating,
@@ -2323,6 +2453,13 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
+"hf" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "6,1";
+	opacity = 0
+	},
+/area/template_noop)
 "hg" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -2382,8 +2519,8 @@
 /turf/simulated/floor/tiled/ramp,
 /area/hangar/control)
 "hn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
 "ho" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -2402,13 +2539,11 @@
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/maintenance/vault)
 "hr" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h10";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "h10"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -2446,12 +2581,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "hv" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
 	icon_state = "co2-5";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
 "hy" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -2467,6 +2603,13 @@
 	opacity = 0
 	},
 /area/shuttle/escape_pod)
+"hB" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Connectors to Filtering"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "hC" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2513,6 +2656,15 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "hJ" = (
@@ -2522,13 +2674,11 @@
 	},
 /area/shuttle/escape_pod)
 "hK" = (
+/obj/structure/tank_wall{
+	icon_state = "m-3"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
-	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-3";
-	name = "tank"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -2620,6 +2770,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
+"hY" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/air)
 "hZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 5
@@ -2638,6 +2794,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"ib" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "ic" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -2651,22 +2811,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "id" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air8";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air8"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "ie" = (
-/obj/machinery/air_sensor,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "co2_sensor"
+	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
 "ig" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2675,9 +2836,12 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ih" = (
-/obj/machinery/pipedispenser,
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/air)
 "ii" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -2692,15 +2856,13 @@
 	},
 /area/hallway/engineering)
 "in" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph10";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph10"
+	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "io" = (
 /obj/machinery/conveyor,
@@ -2955,6 +3117,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/cargo)
+"je" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "13,7"
+	},
+/area/template_noop)
 "jf" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
@@ -3014,6 +3182,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/briefing)
+"jm" = (
+/obj/structure/window/shuttle/unique/raider{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "8,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "jn" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3052,6 +3227,13 @@
 /obj/machinery/door/window/northright,
 /turf/simulated/floor/tiled/dark,
 /area/medical/morgue/lower)
+"jy" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "jA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -3062,14 +3244,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"jD" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos,
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/air)
 "jE" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-3";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-3"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -3095,7 +3279,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "jI" = (
@@ -3181,13 +3364,14 @@
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "jX" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/phoron{
+	density = 0;
 	icon_state = "ph12";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "jZ" = (
 /obj/machinery/door/airlock/glass_centcom,
@@ -3290,6 +3474,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"km" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "co2_in";
+	name = "carbon dioxide injector";
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/engineering/atmos)
 "kn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -3479,7 +3672,8 @@
 /area/hangar/auxiliary)
 "kP" = (
 /obj/machinery/atmospherics/omni/filter{
-	tag_east = 6;
+	name = "oxygen filter";
+	tag_east = 3;
 	tag_north = 1;
 	tag_south = 2
 	},
@@ -3521,13 +3715,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "kU" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h3";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "h3"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -3611,6 +3803,13 @@
 	icon_state = "1,14"
 	},
 /area/shuttle/escape_pod)
+"lk" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "5,2";
+	opacity = 0
+	},
+/area/template_noop)
 "ll" = (
 /obj/machinery/atmospherics/pipe/tank/oxygen,
 /turf/simulated/floor/plating,
@@ -3654,6 +3853,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
+"ls" = (
+/obj/effect/decal/cleanable/draftingchalk/blue,
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "3,9"
+	},
+/area/template_noop)
 "lt" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/structure/cable{
@@ -3664,10 +3870,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
+"lu" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "1,3"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "lv" = (
 /obj/machinery/atmospherics/omni/filter{
+	name = "hydrogen filter";
 	tag_east = 2;
-	tag_north = 6;
+	tag_north = 8;
 	tag_south = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3698,22 +3912,18 @@
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "lC" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air14";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air14"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "lD" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air13";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air13"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -3734,6 +3944,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"lK" = (
+/obj/structure/window/shuttle/unique/raider{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi'
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "lL" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3795,12 +4011,13 @@
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "lW" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/oxygen{
+	density = 0;
 	icon_state = "o2-5";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "lY" = (
 /obj/structure/lattice,
@@ -3855,6 +4072,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"me" = (
+/obj/machinery/pipedispenser/disposal,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "mf" = (
 /obj/machinery/artifact_harvester{
 	pixel_y = 1
@@ -3911,12 +4132,13 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
 "ml" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/nitrous_oxide{
+	density = 0;
 	icon_state = "h6";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
 "mn" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
@@ -3967,10 +4189,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/morgue/lower)
 "mx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
 "my" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4040,6 +4262,7 @@
 /area/maintenance/substation/supply)
 "mL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "mM" = (
@@ -4143,12 +4366,30 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"nd" = (
+/obj/structure/tank_wall{
+	icon_state = "m-10"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "ne" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"ng" = (
+/obj/machinery/atmospherics/omni/filter{
+	name = "carbon dioxide filter";
+	tag_east = 2;
+	tag_north = 5;
+	tag_west = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "nh" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/HTS_Canary.dmi';
@@ -4167,6 +4408,13 @@
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi'
 	},
 /area/shuttle/escape_pod)
+"nk" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "4,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "nl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4359,13 +4607,14 @@
 	},
 /area/shuttle/escape_pod)
 "nT" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h12";
-	name = "tank"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor/reinforced,
+/obj/structure/tank_wall/hydrogen{
+	density = 0;
+	icon_state = "h12";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "nU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
@@ -4373,6 +4622,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"nX" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "11,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "nY" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -4417,9 +4673,12 @@
 /area/quartermaster/storage)
 "od" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "o2_in";
+	name = "oxygen injector";
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "oe" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4458,6 +4717,13 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"ol" = (
+/obj/structure/window/shuttle/unique/raider{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "7,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "om" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -4484,6 +4750,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"oq" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Nitrogen to Connector"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "or" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
@@ -4571,6 +4844,13 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"oE" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "5,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oF" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4589,6 +4869,13 @@
 "oG" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/test_range)
+"oJ" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "1,7"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oK" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -4702,15 +4989,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "pa" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n12";
-	name = "tank"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
+/obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/obj/structure/tank_wall/nitrogen{
+	density = 0;
+	icon_state = "n12";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "pb" = (
 /obj/structure/window/shuttle/unique/raider{
@@ -4723,11 +5011,29 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"pd" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "12,1"
+	},
+/obj/structure/window/shuttle/unique/raider{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "9,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "pf" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
 	},
 /area/hangar/auxiliary)
+"pi" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "2,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "pj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -4735,15 +5041,13 @@
 /turf/space/dynamic,
 /area/template_noop)
 "pk" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph8";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph8"
+	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "pl" = (
 /obj/structure/cable{
@@ -5013,6 +5317,12 @@
 /obj/machinery/suspension_gen,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"qh" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "13,9"
+	},
+/area/template_noop)
 "qi" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -5028,8 +5338,8 @@
 	},
 /area/shuttle/escape_pod)
 "qm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible/blue,
+/turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
 "qp" = (
 /turf/unsimulated/wall/fakepdoor{
@@ -5081,6 +5391,12 @@
 	icon_state = "13,13"
 	},
 /area/shuttle/escape_pod)
+"qx" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "13,8"
+	},
+/area/template_noop)
 "qz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5099,14 +5415,25 @@
 "qA" = (
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
+"qB" = (
+/obj/effect/decal/cleanable/draftingchalk/blue,
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "4,9"
+	},
+/area/template_noop)
 "qC" = (
 /turf/simulated/wall/placeholder_standard,
 /area/outpost/mining_main/refinery)
 "qD" = (
-/obj/machinery/air_sensor,
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/reinforced,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "mixed_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "qE" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -5189,13 +5516,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod)
 "qQ" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h9";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "n2o9"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -5259,13 +5584,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "ra" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-13";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-13"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -5340,14 +5663,16 @@
 /obj/item/storage/firstaid/regular,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape_pod)
+"rl" = (
+/obj/machinery/door/airlock/research,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "rm" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h8";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "n2o8"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -5385,6 +5710,14 @@
 "rr" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/engineering)
+"rs" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "4,3";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "rt" = (
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
@@ -5406,6 +5739,20 @@
 /obj/machinery/power/terminal,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
+"rv" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 8;
+	frequency = 1441;
+	id_tag = "n2o_out"
+	},
+/turf/simulated/floor/reinforced/n20,
+/area/engineering/atmos/air)
+"rw" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "6,6"
+	},
+/area/template_noop)
 "rx" = (
 /obj/effect/floor_decal/corner_wide/purple,
 /obj/effect/floor_decal/corner_wide/purple{
@@ -5438,12 +5785,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-4";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "rB" = (
 /obj/structure/cable/green{
@@ -5457,6 +5802,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"rC" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "9,1";
+	opacity = 0
+	},
+/area/template_noop)
 "rD" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/plating,
@@ -5485,15 +5837,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "rH" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph2";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph2"
+	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "rI" = (
 /obj/structure/cable/green{
@@ -5534,12 +5884,13 @@
 /turf/space/dynamic,
 /area/template_noop)
 "rO" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/nitrous_oxide{
+	density = 0;
 	icon_state = "h5";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
 "rP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5557,13 +5908,17 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "rR" = (
-/obj/machinery/air_sensor,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+/obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "air_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
 "rS" = (
 /obj/machinery/atmospherics/binary/passive_gate{
@@ -5673,6 +6028,15 @@
 	icon_state = "2,17"
 	},
 /area/shuttle/escape_pod)
+"so" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Carbon dioxide to Mix"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "sp" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -5729,16 +6093,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "sA" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph3";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph3"
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "sC" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -5762,6 +6124,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"sE" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "8,6"
+	},
+/area/template_noop)
 "sF" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
@@ -5773,6 +6141,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"sJ" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "ph_in";
+	name = "phoron injector";
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/phoron,
+/area/engineering/atmos)
 "sL" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2
@@ -5812,6 +6189,7 @@
 /area/shuttle/escape_pod)
 "sQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "sR" = (
@@ -5832,15 +6210,16 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "sT" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-11";
-	name = "tank"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced,
+/obj/structure/tank_wall/oxygen{
+	density = 0;
+	icon_state = "o2-11";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "sU" = (
 /obj/structure/window/shuttle/unique/burglar{
@@ -5861,12 +6240,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"sX" = (
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos)
 "sY" = (
 /obj/structure/shuttle_part/mercenary/small{
 	icon_state = "8,4"
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
+"sZ" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "2,5"
+	},
+/area/template_noop)
 "ta" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -5883,6 +6271,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
+"tb" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "10,6"
+	},
+/area/template_noop)
 "tc" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -5897,6 +6291,9 @@
 	icon_state = "13,8"
 	},
 /area/shuttle/escape_pod)
+"te" = (
+/turf/simulated/floor/reinforced/phoron,
+/area/engineering/atmos)
 "tf" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -5954,18 +6351,32 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
+"tn" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "5,12"
+	},
+/area/template_noop)
 "tp" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod)
 "tq" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/nitrous_oxide{
+	density = 0;
 	icon_state = "h12";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
+"tr" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "3,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "ts" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle)
@@ -5996,6 +6407,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
+"tx" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "0,7"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "ty" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 4
@@ -6098,16 +6516,20 @@
 	dir = 8
 	},
 /area/maintenance/vault)
+"tS" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "10,5"
+	},
+/area/template_noop)
 "tT" = (
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h10"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h10";
-	name = "tank"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "tU" = (
 /obj/structure/window/shuttle/unique/raider{
@@ -6222,12 +6644,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "um" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
 	icon_state = "co2-6";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
 "un" = (
 /obj/structure/window/shuttle/unique/raider{
@@ -6255,6 +6678,12 @@
 /obj/machinery/door/airlock/research,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod)
+"us" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "5,5"
+	},
+/area/template_noop)
 "ut" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -6271,6 +6700,15 @@
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"uv" = (
+/obj/structure/tank_wall{
+	icon_state = "m-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "uw" = (
 /obj/effect/decal/cleanable/draftingchalk/blue,
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -6279,13 +6717,11 @@
 	},
 /area/shuttle/escape_pod)
 "ux" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n10";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n10"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -6329,6 +6765,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"uF" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "14,7"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "uG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6461,6 +6904,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"uW" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "5,6"
+	},
+/area/template_noop)
 "uX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6517,14 +6966,19 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "vh" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n8";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
+"vi" = (
+/obj/machinery/atmospherics/pipe/simple/visible/blue{
+	dir = 1
+	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "vj" = (
@@ -6598,24 +7052,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "vv" = (
-/obj/machinery/door/airlock/hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "vx" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-12";
-	name = "tank"
+/obj/structure/tank_wall{
+	density = 0;
+	icon_state = "m-12";
+	layer = 10.1;
+	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "vz" = (
 /obj/structure/table/standard,
@@ -6625,8 +7082,21 @@
 /obj/item/ladder_mobile,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"vA" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "14,9"
+	},
+/area/template_noop)
 "vB" = (
 /turf/simulated/wall/placeholder_standard,
+/area/engineering/atmos/air)
+"vD" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Air to Connector"
+	},
+/turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "vE" = (
 /turf/simulated/wall/placeholder_standard,
@@ -6683,23 +7153,19 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-7";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-7"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "vP" = (
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h13"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h13";
-	name = "tank"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "vQ" = (
 /obj/structure/window/shuttle/unique/mercenary/small{
@@ -6709,12 +7175,13 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
 "vR" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/phoron{
+	density = 0;
 	icon_state = "ph5";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "vT" = (
 /obj/structure/table/standard,
@@ -6908,6 +7375,22 @@
 	opacity = 0
 	},
 /area/shuttle/escape_pod)
+"wE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Phoron to Mix"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
+"wF" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "15,9"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "wG" = (
 /obj/effect/shuttle_landmark/lift/cargo_bottom,
 /turf/simulated/floor/plating,
@@ -6982,16 +7465,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "wT" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-10";
-	name = "tank"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-10"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -7007,6 +7488,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
+"wV" = (
+/turf/simulated/floor/reinforced/n20,
+/area/engineering/atmos/air)
+"wW" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "wX" = (
 /obj/structure/shuttle_part/burglar{
 	icon_state = "5,4";
@@ -7093,16 +7583,21 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/vault)
 "xk" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-8";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-8"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"xl" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "14,8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "xm" = (
 /obj/structure/shuttle_part/burglar{
 	icon_state = "11,1"
@@ -7147,6 +7642,13 @@
 /obj/machinery/door/airlock/research,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"xu" = (
+/obj/effect/decal/cleanable/draftingchalk/blue,
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "12,9"
+	},
+/area/template_noop)
 "xv" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -7164,22 +7666,22 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-13";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-13"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "xA" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
+	name = "air mixer";
 	tag_east = 2;
 	tag_south = 1;
 	tag_south_con = 0.79;
 	tag_west = 1;
 	tag_west_con = 0.21
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "xB" = (
@@ -7216,6 +7718,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"xI" = (
+/obj/machinery/atmospherics/unary/engine/placeholder,
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h11"
+	},
+/turf/simulated/floor/reinforced{
+	blocks_air = 1;
+	density = 1;
+	name = "thruster mount"
+	},
+/area/engineering/atmos/air)
 "xJ" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -7243,6 +7756,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"xL" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "14,6"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "xM" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -7262,12 +7782,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xO" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h16";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "h16"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "xP" = (
@@ -7348,12 +7866,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "ya" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/nitrogen{
+	density = 0;
 	icon_state = "n5";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "yb" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -7405,13 +7924,18 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "yg" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n9";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n9"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
+"yh" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "Excess Waste to Mix"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -7522,6 +8046,15 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "yC" = (
@@ -7535,8 +8068,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
+"yE" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "12,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"yF" = (
+/obj/structure/tank_wall{
+	icon_state = "m-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/engineering/atmos)
 "yH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -7638,13 +8189,17 @@
 	},
 /area/shuttle/escape_pod)
 "yY" = (
-/obj/machinery/air_sensor,
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/manifold/hidden/green{
+/obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "n_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "yZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7658,6 +8213,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"za" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "1,8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "zb" = (
 /obj/structure/window/shuttle/unique/raider{
 	icon = 'icons/turf/shuttles_unique/HTS_Canary.dmi';
@@ -7681,25 +8243,21 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "zd" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph7";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph7"
+	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "ze" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h16";
-	name = "tank"
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h16"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "zf" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -7871,13 +8429,16 @@
 	dir = 8
 	},
 /area/hangar/cargo)
+"zC" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "zD" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-16";
-	name = "tank"
+/obj/structure/tank_wall{
+	icon_state = "m-16"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "zE" = (
@@ -7942,8 +8503,19 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"zT" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "3,3"
+	},
+/area/template_noop)
 "zU" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/machinery/light{
@@ -7951,6 +8523,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
+"zV" = (
+/obj/structure/tank_wall{
+	icon_state = "m-9"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"zW" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "1,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "zX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7973,6 +8561,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"zY" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "zZ" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
@@ -8014,11 +8609,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
+"Ag" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "3,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Ah" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
+/obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "Ai" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -8049,6 +8651,13 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
+"Am" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "1,4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Ao" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -8058,15 +8667,30 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod)
 "Ap" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph16";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph16"
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
+"Aq" = (
+/obj/machinery/power/apc/super/critical{
+	pixel_y = -24
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/air)
+"Ar" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "14,4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "As" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -8163,12 +8787,10 @@
 	},
 /area/shuttle/escape_pod)
 "AP" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-14";
-	name = "tank"
+/obj/structure/tank_wall{
+	icon_state = "m-14"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "AR" = (
@@ -8183,18 +8805,27 @@
 	icon_state = "4,18"
 	},
 /area/shuttle/escape_pod)
+"AT" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 2;
+	tag_north = 7;
+	tag_west = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "AU" = (
 /obj/structure/window/shuttle/unique/mercenary/small{
 	icon_state = "2,11"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
-"AX" = (
-/obj/machinery/light/small{
-	dir = 1
+"AY" = (
+/obj/structure/window/shuttle/unique/raider{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "9,3"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos/air)
+/area/template_noop)
 "Ba" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -8273,6 +8904,14 @@
 /obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
+"Bn" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "11,3";
+	opacity = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Bo" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -8284,13 +8923,11 @@
 /area/maintenance/vault)
 "Bp" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-14";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-14"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "Br" = (
 /obj/structure/cable/green{
@@ -8353,32 +8990,29 @@
 /area/engineering/atmos/air)
 "BB" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "h_in";
+	name = "hydrogen injector";
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "BD" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air1";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/tank_wall/air,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "BE" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air4";
-	name = "tank"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air4"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -8401,13 +9035,15 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"BI" = (
+/obj/machinery/door/airlock/command,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "BJ" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n15";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n15"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "BM" = (
@@ -8465,6 +9101,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"BX" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "BY" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
@@ -8530,6 +9171,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"Cm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/ramp/bottom{
+	dir = 4
+	},
+/area/maintenance/vault)
 "Cn" = (
 /obj/structure/window/shuttle/unique/raider{
 	icon = 'icons/turf/shuttles_unique/HTS_Canary.dmi';
@@ -8554,6 +9205,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"Cq" = (
+/obj/structure/tank_wall{
+	density = 0;
+	icon_state = "m-5";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos)
 "Cr" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -8621,12 +9281,10 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "CF" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h15";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "n2o15"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "CG" = (
@@ -8690,19 +9348,19 @@
 /area/hangar/intrepid)
 "CR" = (
 /obj/machinery/computer/general_air_control/large_tank_control/wall{
-	pixel_y = -3
+	input_tag = "o2_in";
+	name = "Oxygen Supply Monitor";
+	output_tag = "o2_out";
+	pixel_y = -3;
+	sensors = list("o2_sensor" = "Tank")
 	},
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall/r_wall,
 /area/engineering/atmos/air)
 "CS" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h1";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/tank_wall/nitrous_oxide,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "CT" = (
@@ -8717,13 +9375,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/briefing)
 "CW" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
 	icon_state = "co2-11";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
 "CX" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
@@ -8744,6 +9403,13 @@
 /obj/machinery/door/window/northleft,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
+"CZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/tank/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/air)
 "Da" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -8754,12 +9420,10 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "Db" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-14";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-14"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "Dc" = (
@@ -8780,6 +9444,12 @@
 	icon_state = "13,6"
 	},
 /area/shuttle/escape_pod)
+"Dg" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "9,6"
+	},
+/area/template_noop)
 "Dh" = (
 /obj/machinery/vending/vendors,
 /turf/simulated/floor/tiled,
@@ -8834,11 +9504,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Dq" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-1";
-	name = "tank"
-	},
+/obj/structure/tank_wall,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -8858,6 +9524,13 @@
 	opacity = 0
 	},
 /area/shuttle/escape_pod)
+"Du" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Mix to Connector"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "Dv" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
@@ -9217,6 +9890,13 @@
 	icon_state = "6,10"
 	},
 /area/shuttle/escape_pod)
+"Eu" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Phoron to Connector"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "Ew" = (
 /obj/effect/floor_decal/corner_wide/purple/full{
 	dir = 4
@@ -9327,11 +10007,14 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "EK" = (
-/obj/machinery/air_sensor,
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "ph_sensor"
+	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "EL" = (
 /obj/structure/cable/green{
@@ -9357,6 +10040,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
+"EN" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Mix to Waste"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "EO" = (
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
@@ -9366,16 +10056,14 @@
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
 "EQ" = (
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h3"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h3";
-	name = "tank"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "ER" = (
 /obj/structure/cable/green{
@@ -9405,25 +10093,19 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "EV" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph1";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/tank_wall/phoron,
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "EW" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n4";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -9434,6 +10116,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
+"EY" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Carbon dioxide to Connector"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "EZ" = (
 /obj/structure/window/shuttle/placeholder,
 /obj/structure/grille,
@@ -9455,17 +10144,29 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-9";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-9"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "Fd" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod)
+"Fe" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "7,1";
+	opacity = 0
+	},
+/area/template_noop)
+"Fg" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "12,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Fh" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -9475,11 +10176,14 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Fi" = (
-/obj/machinery/air_sensor,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "h_sensor"
+	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "Fj" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -9516,21 +10220,23 @@
 /turf/simulated/floor/reinforced,
 /area/hangar/control)
 "Fp" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph9";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph9"
+	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "Fq" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 4
+	dir = 4;
+	frequency = 1441;
+	id = "mixed_in";
+	name = "mixed gas injector";
+	use_power = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "Fr" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
@@ -9555,7 +10261,8 @@
 /area/shuttle/escape_pod)
 "Fv" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 8
+	dir = 8;
+	name = "Hydrogen to Connector"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -9583,6 +10290,11 @@
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
+"FB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "FC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -9699,12 +10411,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-10";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-10"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "FS" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -9730,6 +10440,13 @@
 	},
 /turf/simulated/wall/placeholder_standard,
 /area/maintenance/vault)
+"FX" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "4,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "FY" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -9737,6 +10454,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"Ga" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 8;
+	frequency = 1441;
+	id_tag = "n_out"
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/engineering/atmos/air)
 "Gc" = (
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
@@ -9748,13 +10473,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
 "Ge" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air9";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air9"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -9779,6 +10502,13 @@
 /obj/item/storage/bag/trash,
 /turf/simulated/floor/tiled,
 /area/janitor)
+"Gl" = (
+/obj/structure/window/shuttle/unique/raider{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "6,3"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Gm" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -9835,8 +10565,24 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"Gv" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "0,8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Gw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -9956,6 +10702,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"GQ" = (
+/obj/structure/tank_wall{
+	icon_state = "m-15"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "GR" = (
 /obj/machinery/light{
 	dir = 1
@@ -9983,6 +10736,11 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"GU" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black,
+/obj/machinery/air_sensor,
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/air)
 "GV" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
 	icon_state = "3,9"
@@ -10010,6 +10768,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
+"Ha" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "14,5"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Hb" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/HTS_Canary.dmi';
@@ -10096,6 +10861,12 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/hangar/control)
+"Ho" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "13,4"
+	},
+/area/template_noop)
 "Hp" = (
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/hangar/auxiliary)
@@ -10154,6 +10925,9 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -10303,15 +11077,13 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod)
 "HT" = (
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h2"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h2";
-	name = "tank"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "HU" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -10370,6 +11142,23 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"Id" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "Ig" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -10431,13 +11220,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "Iq" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air7";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air7"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -10478,13 +11265,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "Iz" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-9";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-9"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -10584,14 +11369,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
+"IM" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "IN" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-15";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-15"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "IO" = (
 /obj/structure/computerframe,
@@ -10631,6 +11424,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
+"IS" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "11,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "IT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -10638,7 +11438,12 @@
 /turf/simulated/floor/reinforced,
 /area/hangar/control)
 "IV" = (
-/obj/machinery/computer/general_air_control/large_tank_control,
+/obj/machinery/computer/general_air_control/large_tank_control{
+	input_tag = "h_in";
+	name = "Hydrogen Supply Monitor";
+	output_tag = "h_out";
+	sensors = list("h_sensor" = "Tank")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "IW" = (
@@ -10713,16 +11518,14 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_b)
 "Jm" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n13";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
+	},
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n13"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -10771,12 +11574,13 @@
 	},
 /area/crew_quarters/kitchen/freezer)
 "Ju" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/phoron{
+	density = 0;
 	icon_state = "ph6";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "Jv" = (
 /obj/structure/ladder/up{
@@ -10869,6 +11673,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"JL" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "12,3"
+	},
+/area/template_noop)
 "JM" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
@@ -10912,7 +11722,8 @@
 /area/shuttle/escape_pod)
 "JS" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 8
+	dir = 8;
+	name = "Oxygen to Mix"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -10923,6 +11734,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
+"JU" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "1,6"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "JV" = (
 /obj/machinery/power/apc/super/critical{
 	dir = 8;
@@ -10943,15 +11761,13 @@
 	},
 /area/shuttle/escape_pod)
 "JY" = (
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h7"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h7";
-	name = "tank"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "JZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11045,6 +11861,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"Kl" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "Km" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11061,15 +11883,16 @@
 /turf/simulated/floor/plating,
 /area/medical/emergency_storage)
 "Ko" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air11";
-	name = "tank"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced,
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air11";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
 "Kp" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -11160,16 +11983,14 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "KC" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air10";
-	name = "tank"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air10"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -11191,12 +12012,13 @@
 /turf/simulated/wall/r_wall,
 /area/hangar/auxiliary)
 "KG" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/oxygen{
+	density = 0;
 	icon_state = "o2-6";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "KH" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -11243,10 +12065,19 @@
 	icon_state = "1,6"
 	},
 /area/shuttle/escape_pod)
+"KN" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "1,9"
+	},
+/area/template_noop)
 "KO" = (
 /obj/machinery/door/airlock/mining,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"KP" = (
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/engineering/atmos)
 "KQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -11335,12 +12166,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
 "KY" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/air{
+	density = 0;
 	icon_state = "air6";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
 "KZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -11363,6 +12195,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"Lb" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "13,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Lc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -11393,14 +12232,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "Lh" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n2";
-	name = "tank"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n2"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -11618,6 +12455,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"LN" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/air)
 "LO" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2
@@ -11631,6 +12472,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"LP" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "14,2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "LQ" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/black,
@@ -11703,14 +12551,10 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "Me" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n1";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/tank_wall/nitrogen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "Mf" = (
@@ -11721,19 +12565,23 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "Mi" = (
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/aft)
 "Mk" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h11";
-	name = "tank"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor/reinforced,
+/obj/structure/tank_wall/hydrogen{
+	density = 0;
+	icon_state = "h11";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "Ml" = (
 /obj/structure/closet/jcloset,
@@ -11773,13 +12621,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "Mq" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h4";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "h4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -11788,13 +12634,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "Ms" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air3";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air3"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -11816,13 +12660,20 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
-"Mx" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-11";
-	name = "tank"
+"Mw" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
+"Mx" = (
+/obj/structure/tank_wall{
+	density = 0;
+	icon_state = "m-11";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "My" = (
 /obj/structure/bed/chair/office/dark,
@@ -11851,13 +12702,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "MB" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph15";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph15"
+	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "MC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -12019,6 +12868,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"MZ" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "10,2";
+	opacity = 0
+	},
+/area/template_noop)
 "Na" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -12150,14 +13006,24 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "Nu" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n16";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n16"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"Nv" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/air)
+"Nw" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "2,6"
+	},
+/area/template_noop)
 "Nx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -12206,6 +13072,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/hangar)
+"ND" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "NE" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
@@ -12252,14 +13122,10 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_c)
 "NP" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-1";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/tank_wall/oxygen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "NQ" = (
@@ -12301,6 +13167,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"NU" = (
+/obj/machinery/computer/shuttle_control,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "NV" = (
 /turf/simulated/floor/plating,
 /area/turbolift/research/deck_1)
@@ -12328,6 +13198,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai)
+"NZ" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Air to Mix"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "Oa" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -12354,13 +13231,11 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "Oe" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h13";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "h13"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -12420,6 +13295,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
+"Oq" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "Or" = (
 /obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled,
@@ -12498,12 +13379,13 @@
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
 "OE" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/nitrogen{
+	density = 0;
 	icon_state = "n6";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "OF" = (
 /obj/structure/closet/jcloset,
@@ -12531,6 +13413,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
+"OK" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "10,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"ON" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "2,4"
+	},
+/area/template_noop)
 "OO" = (
 /obj/machinery/light{
 	dir = 4
@@ -12545,13 +13440,14 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "OQ" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
 	icon_state = "co2-12";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
 "OR" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -12594,6 +13490,13 @@
 	icon_state = "1,9"
 	},
 /area/shuttle/escape_pod)
+"OW" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Nitrogen to Mix"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "OY" = (
 /obj/structure/shuttle_part/mercenary/small{
 	icon_state = "8,2"
@@ -12712,14 +13615,12 @@
 /turf/simulated/floor/tiled/ramp,
 /area/maintenance/vault)
 "Pt" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h14";
-	name = "tank"
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h14"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "Pu" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -12742,26 +13643,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "Px" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-7";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-7"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "Py" = (
+/obj/structure/tank_wall/hydrogen{
+	icon_state = "h9"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h9";
-	name = "tank"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "Pz" = (
 /obj/structure/cable{
@@ -12851,14 +13748,12 @@
 	},
 /area/maintenance/vault)
 "PO" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "ph14";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/phoron{
+	icon_state = "ph14"
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "PP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -12926,13 +13821,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "PV" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "n14";
-	name = "tank"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n14"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "PW" = (
@@ -12984,15 +13877,13 @@
 	},
 /area/shuttle/escape_pod)
 "Qd" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h2";
-	name = "tank"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "n2o2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "Qe" = (
@@ -13131,13 +14022,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "Qx" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air2";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air2"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -13176,6 +14065,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
+"QE" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "13,5"
+	},
+/area/template_noop)
 "QF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -13229,6 +14124,13 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
+"QM" = (
+/obj/machinery/door/airlock/research,
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "5,12"
+	},
+/area/template_noop)
 "QO" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2
@@ -13270,6 +14172,15 @@
 "QU" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenoarch_atrium)
+"QV" = (
+/obj/structure/tank_wall{
+	icon_state = "m-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "QW" = (
 /obj/structure/largecrate/animal/cow,
 /obj/machinery/light{
@@ -13307,12 +14218,10 @@
 	},
 /area/shuttle/escape_pod)
 "Rd" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-16";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-16"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "Re" = (
@@ -13412,7 +14321,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "Rp" = (
-/obj/machinery/pipedispenser/disposal,
+/obj/machinery/pipedispenser,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "Rr" = (
@@ -13426,11 +14335,22 @@
 /area/hangar/auxiliary)
 "Rt" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	dir = 8
+	dir = 8;
+	frequency = 1441;
+	id_tag = "air_out"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
 "Ru" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
 	},
@@ -13456,12 +14376,10 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_c)
 "Rz" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air16";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air16"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "RA" = (
@@ -13533,13 +14451,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "RK" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h14";
-	name = "tank"
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "h14"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "RL" = (
@@ -13574,6 +14490,12 @@
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
+"RR" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "2,3"
+	},
+/area/template_noop)
 "RS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -13629,10 +14551,14 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "RY" = (
-/obj/machinery/air_sensor,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/reinforced,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "o2_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "RZ" = (
 /obj/machinery/gibber,
@@ -13645,6 +14571,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
+"Sb" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "10,4"
+	},
+/area/template_noop)
 "Sc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -13716,7 +14648,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "Sm" = (
 /obj/machinery/door/airlock/external,
@@ -13748,13 +14680,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
 "Sq" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/structure/tank_wall/nitrogen{
+	density = 0;
 	icon_state = "n11";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "Ss" = (
 /obj/structure/shuttle_part/placeholder{
@@ -13773,12 +14706,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-8";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "Sv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -13794,6 +14725,16 @@
 "Sx" = (
 /turf/simulated/wall/placeholder_standard,
 /area/hangar/auxiliary)
+"SA" = (
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	input_tag = "n_in";
+	name = "Nitrogen Supply Monitor";
+	output_tag = "n_out";
+	pixel_y = -3;
+	sensors = list("n_sensor" = "Tank")
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmos/air)
 "SB" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -13858,6 +14799,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"SI" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "n2o_in";
+	name = "nitrous oxide injector";
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/n20,
+/area/engineering/atmos/air)
 "SJ" = (
 /obj/structure/shuttle/engine/heater{
 	dir = 1
@@ -13875,6 +14825,15 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -13907,8 +14866,24 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"SP" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "15,8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "SR" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -13917,15 +14892,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "SS" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/air{
+	density = 0;
 	icon_state = "air5";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
 "SU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14058,13 +15034,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
 "Tn" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "h7";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/tank_wall/nitrous_oxide{
+	icon_state = "h7"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -14085,14 +15059,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"Tq" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi'
+	},
+/area/template_noop)
 "Tr" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
 	tag_east = 2;
 	tag_north = 1;
-	tag_north_con = 0.79;
+	tag_north_con = 0.8;
 	tag_west = 1;
-	tag_west_con = 0.21
+	tag_west_con = 0.2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
@@ -14165,6 +15144,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "TC" = (
@@ -14184,12 +15164,13 @@
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "TF" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
 "TG" = (
@@ -14207,17 +15188,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"TH" = (
+/turf/simulated/floor/plating,
+/area/template_noop)
 "TJ" = (
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/escape_pod)
 "TL" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/phoron{
+	density = 0;
 	icon_state = "ph11";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "TO" = (
 /obj/structure/shuttle_part/placeholder{
@@ -14250,6 +15235,15 @@
 "TS" = (
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_a)
+"TT" = (
+/obj/machinery/computer/general_air_control/large_tank_control{
+	input_tag = "co2_in";
+	name = "Carbon Dioxide Supply Monitor";
+	output_tag = "co2_out";
+	sensors = list("co2_sensor" = "Tank")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "TU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -14275,13 +15269,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "TX" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-4";
-	name = "tank"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -14446,16 +15438,22 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "UC" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "o2-12";
-	name = "tank"
-	},
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
-/turf/simulated/floor/reinforced,
+/obj/structure/tank_wall/oxygen{
+	density = 0;
+	icon_state = "o2-12";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "UD" = (
 /obj/structure/cable{
@@ -14542,8 +15540,8 @@
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
 "UQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "UR" = (
 /obj/structure/table/rack,
@@ -14782,6 +15780,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"Vy" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "n_in";
+	name = "nitrogen injector";
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/engineering/atmos/air)
 "VB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -14821,13 +15828,11 @@
 /area/hangar/control)
 "VI" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-16";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-16"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "VJ" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
@@ -14884,6 +15889,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"VR" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "0,9"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "VS" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -14963,11 +15975,14 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
@@ -14996,6 +16011,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"Wm" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Nitrous Oxide to Mix"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "Wn" = (
 /obj/structure/table/steel,
 /obj/machinery/light,
@@ -15073,6 +16095,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"WB" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black,
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/air)
 "WC" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /obj/machinery/meter,
@@ -15121,6 +16147,12 @@
 /obj/machinery/computer/shuttle_control,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod)
+"WL" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "2,9"
+	},
+/area/template_noop)
 "WM" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/freezer{
@@ -15135,6 +16167,16 @@
 	icon_state = "1,13"
 	},
 /area/shuttle/escape_pod)
+"WO" = (
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	input_tag = "n2o_in";
+	name = "Nitrous Oxide Supply Monitor";
+	output_tag = "n2o_out";
+	pixel_y = -3;
+	sensors = list("n2o_sensor" = "Tank")
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmos/air)
 "WP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15197,6 +16239,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
+"WY" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "air_in";
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/engineering/atmos/air)
 "Xa" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled,
@@ -15256,6 +16306,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"Xm" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "14,3"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Xn" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -15272,12 +16329,13 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "Xp" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
+/obj/structure/tank_wall/air{
+	density = 0;
 	icon_state = "air12";
-	name = "tank"
+	layer = 10.1;
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
 "Xq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -15336,7 +16394,8 @@
 /area/maintenance/substation/engineering/lower)
 "XA" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 4
+	dir = 4;
+	name = "Oxygen to Connector"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -15409,13 +16468,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "XL" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "air15";
-	name = "tank"
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air15"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/blue,
-/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "XM" = (
@@ -15434,6 +16491,13 @@
 /obj/machinery/suit_cycler/science,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
+"XP" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "5,3";
+	opacity = 0
+	},
+/area/template_noop)
 "XQ" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -15478,6 +16542,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
+"XW" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "2,7"
+	},
+/area/template_noop)
 "XX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -15516,6 +16586,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"Yb" = (
+/turf/simulated/wall/shuttle/unique/merchant{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "10,3";
+	opacity = 0
+	},
+/area/template_noop)
 "Yc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -15540,7 +16617,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump,
+/obj/machinery/atmospherics/binary/pump{
+	name = "Air to Distro";
+	target_pressure = 200;
+	use_power = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "Yh" = (
@@ -15577,7 +16658,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "Ym" = (
 /obj/structure/bed/chair/shuttle{
@@ -15607,6 +16688,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
+"Yr" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "Ys" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
 	icon_state = "5,2"
@@ -15660,6 +16745,13 @@
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"YI" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Nitrous Oxide to Connector"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "YJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -15688,6 +16780,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"YM" = (
+/obj/structure/shuttle_part/placeholder{
+	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
+	icon_state = "1,5"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "YO" = (
 /obj/turbolift_map_holder/placeholder/primary,
 /turf/simulated/floor/plating,
@@ -15886,16 +16985,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"Zs" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "Zv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/placeholder_tanks.dmi';
-	icon_state = "co2-2";
-	name = "tank"
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "Zw" = (
 /obj/structure/cable{
@@ -16027,6 +17131,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"ZK" = (
+/turf/simulated/floor/shuttle/dark_blue,
+/area/template_noop)
 "ZL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -32757,7 +33864,7 @@ lr
 Na
 Kq
 aT
-KK
+CZ
 cn
 vB
 JQ
@@ -32953,8 +34060,8 @@ aa
 aa
 Yh
 UN
-BP
-JH
+xI
+gs
 RJ
 FF
 Kq
@@ -34177,11 +35284,11 @@ we
 RL
 rr
 dP
-ox
-rz
-Su
-FR
-ox
+Wg
+uv
+QV
+nd
+Wg
 fh
 Yu
 Ey
@@ -34380,8 +35487,8 @@ RL
 ik
 Rn
 Dq
-hv
-bm
+Cq
+sX
 Mx
 AP
 MU
@@ -34581,11 +35688,11 @@ XH
 RL
 NE
 Rn
-Zv
+yF
 dR
 qD
 Fq
-IN
+GQ
 MU
 Yu
 Yu
@@ -34785,7 +35892,7 @@ dD
 Rn
 hK
 dS
-bm
+sX
 vx
 zD
 Rm
@@ -34842,15 +35949,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+VR
+Gv
+tx
+TH
+TH
+TH
+TH
+TH
+TH
 aa
 aa
 aa
@@ -34985,9 +36092,9 @@ di
 dB
 sg
 IA
-ox
+Wg
 dT
-Fc
+zV
 eB
 eJ
 eI
@@ -35044,15 +36151,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+KN
+za
+oJ
+JU
+YM
+Am
+lu
+zW
+TH
 aa
 aa
 aa
@@ -35176,11 +36283,11 @@ aa
 aa
 eb
 oi
-ox
+Wg
 fb
 fY
 tT
-ox
+Wg
 aa
 uU
 aa
@@ -35246,15 +36353,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+WL
+aG
+XW
+Nw
+sZ
+ON
+RR
+pi
+TH
 aa
 aa
 aa
@@ -35390,8 +36497,8 @@ lf
 ox
 ox
 ox
-NI
-NI
+Du
+EN
 YJ
 Ws
 pB
@@ -35448,15 +36555,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ls
+QM
+ZK
+ZK
+ZK
+Kl
+zT
+tr
+Ag
 aa
 aa
 aa
@@ -35650,15 +36757,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+qB
+tn
+ZK
+ZK
+ZK
+ZK
+rs
+nk
+FX
 aa
 aa
 aa
@@ -35852,15 +36959,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tn
+tn
+uW
+rl
+us
+Tq
+XP
+lk
+oE
 aa
 aa
 aa
@@ -35984,18 +37091,18 @@ aa
 aa
 eb
 oi
-ox
+Wg
 JY
 Py
 vP
-ox
+Wg
 or
 uU
 aa
 Nc
 IV
 Fv
-pB
+jy
 dY
 yD
 eE
@@ -36054,15 +37161,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Mw
+Mw
+rw
+ZK
+cJ
+ND
+Gl
+lK
+hf
 aa
 aa
 aa
@@ -36201,7 +37308,7 @@ dw
 ec
 Mh
 Go
-Fv
+hB
 Ws
 ep
 LF
@@ -36256,15 +37363,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ZK
+ZK
+BI
+ZK
+ZK
+ac
+NU
+ol
+Fe
 aa
 aa
 aa
@@ -36388,11 +37495,11 @@ aa
 aa
 eb
 oi
-ox
+Wg
 ea
 pk
 in
-ox
+Wg
 aa
 uU
 aa
@@ -36458,15 +37565,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ZK
+ZK
+sE
+ZK
+ZK
+ac
+NU
+jm
+gl
 aa
 aa
 aa
@@ -36592,7 +37699,7 @@ oU
 gi
 EV
 vR
-BB
+sJ
 TL
 PO
 UF
@@ -36660,15 +37767,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wW
+wW
+Dg
+ZK
+ND
+ND
+AY
+pd
+rC
 aa
 aa
 aa
@@ -36793,17 +37900,17 @@ aa
 eb
 aa
 rH
-bm
+te
 EK
-bm
+te
 MB
 aa
 uU
 aa
 Nc
-IV
-Fv
-pB
+ch
+Eu
+jy
 dV
 bl
 Wt
@@ -36862,15 +37969,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tn
+tn
+tb
+rl
+tS
+Sb
+Yb
+MZ
+OK
 aa
 aa
 aa
@@ -36996,7 +38103,7 @@ oU
 gi
 sA
 Ju
-gu
+eu
 jX
 Ap
 bv
@@ -37005,7 +38112,7 @@ UF
 cP
 sQ
 Bu
-dw
+wE
 SG
 ed
 eG
@@ -37064,15 +38171,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+fE
+tn
+ZK
+ZK
+ZK
+ZK
+Bn
+nX
+IS
 aa
 aa
 aa
@@ -37196,11 +38303,11 @@ aa
 aa
 eb
 oi
-ox
+Wg
 zd
 Fp
 eo
-ox
+Wg
 Jv
 uU
 aa
@@ -37266,15 +38373,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+xu
+QM
+ZK
+ZK
+ZK
+Oq
+JL
+yE
+Fg
 aa
 aa
 aa
@@ -37407,9 +38514,9 @@ hy
 kk
 lY
 ga
-pM
+BX
 Qw
-cF
+ng
 dv
 LG
 ro
@@ -37468,15 +38575,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+qh
+qx
+je
+ee
+QE
+Ho
+dg
+Lb
+TH
 aa
 aa
 aa
@@ -37600,18 +38707,18 @@ aa
 aa
 eb
 oi
-ox
+Wg
 rz
 Su
 FR
-ox
+Wg
 pj
 uU
 aa
 Nc
-IV
-Fv
-pB
+TT
+EY
+jy
 dv
 LG
 ro
@@ -37670,15 +38777,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+vA
+xl
+uF
+xL
+Ha
+Ar
+Xm
+LP
+TH
 aa
 aa
 aa
@@ -37804,16 +38911,16 @@ jP
 gi
 gA
 hv
-BB
+km
 CW
 Bp
 JP
 uU
 hy
 ga
-pM
+BX
 qV
-dw
+so
 Pv
 PL
 PL
@@ -37872,15 +38979,15 @@ qp
 Xc
 qp
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wF
+SP
+dE
+TH
+TH
+TH
+TH
+TH
+TH
 aa
 aa
 aa
@@ -38005,9 +39112,9 @@ aa
 eb
 aa
 Zv
-bm
+KP
 ie
-bm
+KP
 IN
 aa
 uU
@@ -38208,26 +39315,26 @@ jP
 gi
 gH
 um
-gu
+cr
 OQ
 VI
 Cw
 Au
 JP
 Kq
-vB
+Xw
 TX
 xk
 wT
-vB
+Xw
 ZG
 pp
 fz
-vB
+Xw
 EW
 vh
 ux
-vB
+Xw
 Yc
 vB
 uX
@@ -38408,11 +39515,11 @@ aa
 aa
 eb
 oi
-ox
+Wg
 vO
 Fc
 xy
-ox
+Wg
 aa
 uU
 aa
@@ -38424,10 +39531,10 @@ sT
 Db
 JS
 oO
-JS
+OW
 Me
 ya
-od
+Vy
 Sq
 PV
 gL
@@ -38823,15 +39930,15 @@ Kq
 Kq
 jE
 KG
-XE
+dF
 UC
 Rd
 XA
 oO
-XA
+oq
 ew
 OE
-Rt
+Ga
 pa
 Nu
 Yc
@@ -39021,9 +40128,9 @@ Kq
 Ej
 iU
 bB
-vB
-Uv
-vB
+Aq
+Kq
+Xw
 Px
 Iz
 ra
@@ -39031,12 +40138,12 @@ CR
 zt
 oO
 zt
-CR
+SA
 fS
 yg
 Jm
-vB
-Yc
+Xw
+Zs
 vB
 uX
 RI
@@ -39223,14 +40330,14 @@ Kq
 Cu
 yb
 PJ
-vB
-AX
+BN
+Kq
 Uv
 fc
 Bg
 BA
 zx
-Bg
+vi
 uV
 Bg
 zx
@@ -39426,7 +40533,7 @@ nt
 vG
 kn
 vv
-TV
+IM
 TV
 NT
 TV
@@ -39627,14 +40734,14 @@ Kq
 wo
 du
 cv
-vB
-Uv
+BN
+Kq
 Uv
 nU
 Uv
 xA
 Ck
-Mm
+zC
 bo
 Mm
 Ck
@@ -39829,21 +40936,21 @@ Kq
 zj
 lr
 TF
-vB
-Uv
-vB
+dM
+Kq
+Xw
 BE
 id
 KC
-CR
+bU
 Xu
 oO
 Xu
-CR
+WO
 Mq
 rm
 hr
-vB
+Xw
 Yc
 vB
 uX
@@ -40031,22 +41138,22 @@ Kq
 Yl
 BN
 Dv
-vB
-Uv
+el
+Kq
 BD
 SS
-od
+WY
 Ko
 lC
-JS
+vD
 oO
-JS
+YI
 CS
 rO
-od
+SI
 fx
 RK
-gL
+AT
 vB
 uX
 RI
@@ -40233,8 +41340,8 @@ Kq
 hX
 bI
 Tr
-vB
-Uv
+el
+Kq
 Qx
 mx
 rR
@@ -40246,7 +41353,7 @@ HE
 Qd
 hn
 cA
-cb
+wV
 CF
 jN
 vB
@@ -40435,19 +41542,19 @@ Kq
 cO
 el
 sv
-vB
-Uv
+el
+Kq
 Ms
 KY
 Rt
 Xp
 Rz
-XA
+NZ
 oO
-XA
+Wm
 kU
 ml
-Rt
+rv
 tq
 xO
 Yc
@@ -40636,22 +41743,22 @@ uK
 IK
 aY
 Qv
-FC
-vB
-Uv
-vB
+ih
+LN
+Kq
+Xw
 Iq
 Ge
 lD
-vB
+Xw
 Ny
 NK
 Ud
-vB
+Xw
 Tn
 qQ
 Oe
-vB
+Xw
 Yc
 vB
 uX
@@ -40839,8 +41946,8 @@ Kq
 sz
 Ke
 sv
-vB
-Uv
+el
+Kq
 Uv
 Uv
 Do
@@ -40848,12 +41955,12 @@ Uv
 Uv
 Uv
 Hz
-Uv
-Uv
-Uv
-Do
-Uv
-Uv
+ib
+yh
+FB
+zY
+fD
+fD
 Rw
 vB
 uX
@@ -40861,8 +41968,8 @@ RI
 yB
 UB
 zR
-PM
-yB
+Cm
+Id
 fZ
 Ab
 sW
@@ -41040,9 +42147,9 @@ kY
 Kq
 gB
 bK
-sv
-vB
-vB
+hY
+el
+Kq
 vB
 vB
 vB
@@ -41240,11 +42347,11 @@ Kq
 Kq
 Gf
 Kq
-Kq
-bN
+Yr
+cR
 cR
 Kq
-ih
+hq
 ll
 nM
 nM
@@ -41442,9 +42549,9 @@ SJ
 lr
 Na
 Kq
-XE
-Iw
-wt
+jD
+WB
+Nv
 Kq
 Rp
 lG
@@ -41644,11 +42751,11 @@ JH
 RJ
 TC
 Kq
-XE
-OH
+jD
+GU
 cT
 Kq
-fm
+me
 fm
 pn
 pn
@@ -41846,11 +42953,11 @@ SJ
 KK
 ak
 Kq
-XE
+jD
 bQ
 cW
 Kq
-LK
+fm
 LK
 LK
 FO

@@ -8413,7 +8413,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/bedsheet/medical,
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -17905,7 +17904,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/door/airlock/glass_medical,
+/obj/machinery/door/airlock/medical,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "uXq" = (
@@ -19175,7 +19174,6 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/cafeteria)
 "wyV" = (
-/obj/item/bedsheet/medical,
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
