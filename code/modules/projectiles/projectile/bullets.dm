@@ -124,7 +124,7 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/medium
-	damage = 35
+	damage = 30
 
 /obj/item/projectile/bullet/pistol/strong
 	damage = 45
