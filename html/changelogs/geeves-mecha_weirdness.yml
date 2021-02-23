@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Climbing out of an exosuit with a closed hatch now properly updates the HUD."
