@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Diona now transmits heard messages between its detached nymph and its gestalt."
