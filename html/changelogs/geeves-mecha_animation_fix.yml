@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed exosuits that do attack animations being off centre."
+  - bugfix: "Fixed exosuit hardpoints losing their cooldown colour before the cooldown actually completed."
