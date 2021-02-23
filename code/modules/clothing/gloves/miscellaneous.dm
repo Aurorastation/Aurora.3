@@ -340,9 +340,6 @@
 		var/turf/T = get_turf(user)
 		user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
 		var/obj/item/projectile/beam/tesla/LE = new (T)
-		LE.muzzle_type = /obj/effect/projectile/muzzle/tesla
-		LE.tracer_type = /obj/effect/projectile/tracer/tesla
-		LE.impact_type = /obj/effect/projectile/impact/tesla
 		playsound(usr.loc, 'sound/magic/LightningShock.ogg', 75, 1)
 		LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
 		charged = FALSE
