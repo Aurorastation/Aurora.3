@@ -21,6 +21,6 @@
 /decl/recipe/diona_roast
 	appliance = OVEN
 	fruit = list("apple" = 1)
-	reagents = list(/decl/reagent/spacespice = 2) //It dissolves the carapace. Still poisonous, though.
+	reagents = list(/decl/reagent/spacespice = 2)
 	items = list(/obj/item/reagent_containers/food/snacks/meat/dionanymph)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/dionaroast
