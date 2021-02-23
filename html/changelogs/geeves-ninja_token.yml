@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ninjas now spawn with a token that allows them to select which hardsuit they want."
+  - rscdel: "Ninjas no longer spawn with the stealth suit."
+  - rscdel: "Removed the Equipped Hardsuits ninja uplink category."

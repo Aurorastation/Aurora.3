@@ -367,7 +367,6 @@
 #include "code\datums\uplink\martial_arts.dm"
 #include "code\datums\uplink\medical.dm"
 #include "code\datums\uplink\ninja_modules.dm"
-#include "code\datums\uplink\ninja_rigs.dm"
 #include "code\datums\uplink\revolution.dm"
 #include "code\datums\uplink\specialty.dm"
 #include "code\datums\uplink\stealth and camouflage items.dm"
