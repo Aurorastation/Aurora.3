@@ -213,6 +213,7 @@
 	description = "A selection of Dominian clothing."
 	path = /obj/item/clothing/under/dominia
 	flags = GEAR_HAS_DESC_SELECTION
+	blacklisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 /datum/gear/uniform/dominia/New()
 	..()
@@ -230,6 +231,7 @@
 	display_name = "dominian dress selection"
 	description = "A selection of fancy Dominian dresses."
 	path = /obj/item/clothing/under/dominia/dress
+	blacklisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 /datum/gear/uniform/dominia_dress/New()
 	..()

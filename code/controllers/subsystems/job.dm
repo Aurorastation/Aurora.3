@@ -751,6 +751,9 @@
 			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
 				permitted = FALSE
 
+			if(length(G.blacklisted) && (H.species.name in G.blacklisted))
+				permitted = FALSE
+
 			if(G.faction && G.faction != H.employer_faction)
 				permitted = FALSE
 
@@ -903,6 +906,9 @@
 				permitted = TRUE
 
 			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+				permitted = FALSE
+
+			if(length(G.blacklisted) && (H.species.name in G.blacklisted))
 				permitted = FALSE
 
 			if(G.faction && G.faction != H.employer_faction)

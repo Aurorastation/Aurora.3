@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "IPCs can no longer take various Dominia gear in the loadout."

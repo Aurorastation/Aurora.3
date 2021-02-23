@@ -65,10 +65,14 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
 	var/mob/preference_mob = preference_mob()
+	var/pref_mob_species = preference_mob.get_species()
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
 		if(max_cost && G.cost > max_cost)
 			continue
+		if(length(G.blacklisted) && preference_mob)
+			if(pref_mob_species in G.blacklisted)
+				continue
 		if(G.whitelisted && preference_mob)
 			for(var/species in G.whitelisted)
 				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
@@ -112,15 +116,19 @@ var/list/gear_datums = list()
 		if(!(gear_name in gear_datums))
 			pref.gear -= gear_name
 	var/total_cost = 0
+	var/pref_mob_species = preference_mob.get_species()
 	for(var/gear_name in pref.gear)
-		if(!gear_datums[gear_name])
+		var/datum/gear/G = gear_datums[gear_name]
+		if(length(G.blacklisted) && (pref_mob_species in G.blacklisted))
+			to_chat(preference_mob, SPAN_WARNING("You cannot take \the [gear_name] as this species is on its blacklist."))
+			pref.gear -= gear_name
+		else if(!gear_datums[gear_name])
 			to_chat(preference_mob, "<span class='warning'>You cannot have more than one of the \the [gear_name]</span>")
 			pref.gear -= gear_name
 		else if(!(gear_name in valid_gear_choices()))
 			to_chat(preference_mob, "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species.</span>")
 			pref.gear -= gear_name
 		else
-			var/datum/gear/G = gear_datums[gear_name]
 			if(total_cost + G.cost > MAX_GEAR_COST)
 				pref.gear -= gear_name
 				to_chat(preference_mob, "<span class='warning'>You cannot afford to take \the [gear_name]</span>")
@@ -280,7 +288,8 @@ var/list/gear_datums = list()
 	var/cost = 1           //Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
 	var/slot               //Slot to equip to.
 	var/list/allowed_roles //Roles that can spawn with this item.
-	var/whitelisted        //Term to check the whitelist for..
+	var/list/whitelisted   //Term to check the whitelist for..
+	var/list/blacklisted   //species which cannot take this
 	var/faction            //Is this item whitelisted for a faction?
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.

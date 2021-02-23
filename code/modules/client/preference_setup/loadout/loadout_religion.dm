@@ -28,6 +28,7 @@
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
+	blacklisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 /datum/gear/religion/dominia/robe/New()
 	..()
@@ -40,6 +41,7 @@
 	display_name = "dominian beret selection"
 	description = "A selection of modified berets belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
+	blacklisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 /datum/gear/religion/dominia/beret/New()
 	..()
@@ -52,6 +54,7 @@
 	display_name = "dominian outerwear selection"
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
+	blacklisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 /datum/gear/religion/dominia/cape/New()
 	..()
@@ -64,6 +67,7 @@
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
 	path = "/obj/item/clothing/accessory/dominia"
+	blacklisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"
