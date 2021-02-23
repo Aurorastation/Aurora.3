@@ -11,3 +11,6 @@
 	var/lift_floor_name = null
 	var/lift_announce_str = "Ding!"
 	var/arrival_sound = 'sound/machines/ding.ogg'
+
+	var/turbolift_req_access = null
+	var/turbolift_req_one_access = null

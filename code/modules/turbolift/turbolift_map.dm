@@ -143,7 +143,7 @@
 
 				// Update path appropriately if needed.
 				var/swap_to = /turf/simulated/open
-				if(cz == uz)                                                                       // Elevator.
+				if(cz == uz) // Elevator.
 					if((tx == ux || ty == uy || tx == ex || ty == ey) && !(tx >= door_x1 && tx <= door_x2 && ty >= door_y1 && ty <= door_y2))
 						swap_to = wall_type
 					else

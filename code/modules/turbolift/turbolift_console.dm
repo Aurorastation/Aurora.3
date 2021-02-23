@@ -21,7 +21,7 @@
 		pixel_x = 32
 
 /obj/structure/lift/proc/pressed(var/mob/user)
-	if(!istype(user, /mob/living/silicon))
+	if(iscarbon(user))
 		if(user.a_intent == I_HURT)
 			user.visible_message("<span class='danger'>\The [user] hammers on the lift button!</span>")
 		else
@@ -47,6 +47,10 @@
 	if(!lift.is_functional())
 		return 0
 	return 1
+
+/obj/structure/lift/proc/buzz(var/message)
+	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+	visible_message("\The [src] buzzess, \"[message]\"",)
 // End base.
 
 // Button. No HTML interface, just calls the associated lift to its floor.
@@ -70,12 +74,16 @@
 /obj/structure/lift/button/interact(var/mob/user)
 	if(!..())
 		return
+	if(lift.hacking_intcontrol)
+		buzz("System Error!")
+		return
 	light_up()
 	pressed(user)
 	if(floor == lift.current_floor)
 		lift.open_doors()
 		addtimer(CALLBACK(src, .proc/reset), 3)
 		return
+	//We dont pass usr here, because calling a lift via a external button means the user is already at the access restricted level
 	lift.queue_move_to(floor)
 
 /obj/structure/lift/button/proc/light_up()
@@ -95,6 +103,7 @@
 	name = "elevator control panel"
 	icon_state = "panel"
 
+	var/wiresexposed = FALSE
 
 /obj/structure/lift/panel/attack_ghost(var/mob/user)
 	return interact(user)
@@ -136,9 +145,14 @@
 	if(.)
 		return
 
+	if(lift.hacking_intcontrol)
+		buzz("System Error!")
+		return
+
 	var/panel_interact
 	if(href_list["move_to_floor"])
-		lift.queue_move_to(locate(href_list["move_to_floor"]))
+		if(!lift.queue_move_to(locate(href_list["move_to_floor"]), usr))
+			buzz("Insufficient Access")
 		panel_interact = 1
 	if(href_list["open_doors"])
 		panel_interact = 1

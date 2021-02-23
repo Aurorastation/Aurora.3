@@ -15,6 +15,12 @@
 
 	var/move_timer
 
+	//Hacking-Vars
+	var/hacking_idscan = FALSE
+	var/hacking_safety = FALSE //TODO: turn that into a bitflag?
+	var/hacking_intcontrol = FALSE
+	var/hacking_extcontrol = FALSE
+
 /datum/turbolift/proc/emergency_stop()
 	deltimer(move_timer)
 	move_timer = null
@@ -23,6 +29,8 @@
 	open_doors()
 
 /datum/turbolift/proc/doors_are_open(datum/turbolift_floor/use_floor = current_floor)
+	if(hacking_safety == 1)
+		return 0
 	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		if(!door.density)
 			return 1
@@ -33,6 +41,8 @@
 		door.command("open")
 
 /datum/turbolift/proc/close_doors(datum/turbolift_floor/use_floor = current_floor)
+	if(hacking_safety == 2)
+		return
 	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("close")
 
@@ -116,12 +126,23 @@
 	queue_movement()
 	return 1
 
-/datum/turbolift/proc/queue_move_to(datum/turbolift_floor/floor)
+//Queues a movement of the lift.
+//Returns 1 if successful, 0 if unsucessful.
+//Expects calling object to inform user of failure by buzzing/message.
+/datum/turbolift/proc/queue_move_to(datum/turbolift_floor/floor, var/mob/user = null)
 	if(!floor || !(floor in floors) || (floor in queued_floors))
 		return // STOP PRESSING THE BUTTON.
+	//If we have a user, validate the access
+	if(user && istype(user) && !hacking_idscan)
+		var/obj/item/card/id = user.GetIdCard()
+		if(!istype(id))
+			return FALSE
+		if(!has_access(floor.req_access, floor.req_one_access, id.GetAccess()))
+			return FALSE
 	floor.pending_move(src)
 	queued_floors |= floor
 	queue_movement()
+	return TRUE
 
 // TODO: dummy machine ('lift mechanism') in powered area for functionality/blackout checks.
 /datum/turbolift/proc/is_functional()
