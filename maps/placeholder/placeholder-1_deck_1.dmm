@@ -8,8 +8,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "ac" = (
-/obj/structure/bed/chair/office/bridge/pilot,
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/space/dynamic,
 /area/template_noop)
 "ae" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -183,10 +184,8 @@
 /turf/space/dynamic,
 /area/template_noop)
 "aG" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "2,8"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/template_noop,
 /area/template_noop)
 "aH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -888,13 +887,6 @@
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
 /area/rnd/xenoarch_atrium)
-"cJ" = (
-/obj/structure/table/reinforced,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "cK" = (
 /obj/machinery/door/airlock/mining,
 /obj/structure/cable/green{
@@ -935,11 +927,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "cR" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/engineering/atmos/air)
 "cS" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -1032,12 +1023,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
-"dg" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "13,3"
-	},
-/area/template_noop)
 "dh" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/hatch,
@@ -1052,6 +1037,7 @@
 "di" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/space/dynamic,
 /area/template_noop)
 "dj" = (
@@ -1168,6 +1154,7 @@
 /obj/structure/window/shuttle/placeholder,
 /obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "dD" = (
@@ -1176,13 +1163,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
-"dE" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "15,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "dF" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
@@ -1396,12 +1376,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"ee" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "13,6"
-	},
-/area/template_noop)
 "ef" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -1582,6 +1556,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/space/dynamic,
 /area/template_noop)
 "eG" = (
@@ -1873,13 +1848,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"fE" = (
-/obj/effect/decal/cleanable/draftingchalk/blue,
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "11,9"
-	},
-/area/template_noop)
 "fF" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -2137,13 +2105,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
-"gl" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "8,1";
-	opacity = 0
-	},
-/area/template_noop)
 "gn" = (
 /obj/structure/ladder/up{
 	pixel_y = 13
@@ -2453,13 +2414,6 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
-"hf" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "6,1";
-	opacity = 0
-	},
-/area/template_noop)
 "hg" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -2767,12 +2721,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/air)
-"hY" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
@@ -3117,12 +3065,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/cargo)
-"je" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "13,7"
-	},
-/area/template_noop)
 "jf" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
@@ -3182,13 +3124,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/briefing)
-"jm" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "8,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "jn" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3803,13 +3738,6 @@
 	icon_state = "1,14"
 	},
 /area/shuttle/escape_pod)
-"lk" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "5,2";
-	opacity = 0
-	},
-/area/template_noop)
 "ll" = (
 /obj/machinery/atmospherics/pipe/tank/oxygen,
 /turf/simulated/floor/plating,
@@ -3853,13 +3781,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
-"ls" = (
-/obj/effect/decal/cleanable/draftingchalk/blue,
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "3,9"
-	},
-/area/template_noop)
 "lt" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/structure/cable{
@@ -3870,13 +3791,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
-"lu" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "1,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "lv" = (
 /obj/machinery/atmospherics/omni/filter{
 	name = "hydrogen filter";
@@ -3944,12 +3858,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"lK" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi'
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "lL" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4408,13 +4316,6 @@
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi'
 	},
 /area/shuttle/escape_pod)
-"nk" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "4,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "nl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4622,13 +4523,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"nX" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "11,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "nY" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -4717,13 +4611,6 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
-"ol" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "7,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "om" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -4844,13 +4731,6 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"oE" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "5,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "oF" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4869,13 +4749,6 @@
 "oG" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/test_range)
-"oJ" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "1,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "oK" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -5011,29 +4884,11 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"pd" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "12,1"
-	},
-/obj/structure/window/shuttle/unique/raider{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "9,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "pf" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
 	},
 /area/hangar/auxiliary)
-"pi" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "2,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "pj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -5317,12 +5172,6 @@
 /obj/machinery/suspension_gen,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"qh" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "13,9"
-	},
-/area/template_noop)
 "qi" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -5391,12 +5240,6 @@
 	icon_state = "13,13"
 	},
 /area/shuttle/escape_pod)
-"qx" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "13,8"
-	},
-/area/template_noop)
 "qz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5415,13 +5258,6 @@
 "qA" = (
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
-"qB" = (
-/obj/effect/decal/cleanable/draftingchalk/blue,
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "4,9"
-	},
-/area/template_noop)
 "qC" = (
 /turf/simulated/wall/placeholder_standard,
 /area/outpost/mining_main/refinery)
@@ -5663,10 +5499,6 @@
 /obj/item/storage/firstaid/regular,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape_pod)
-"rl" = (
-/obj/machinery/door/airlock/research,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "rm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5710,14 +5542,6 @@
 "rr" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/engineering)
-"rs" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "4,3";
-	opacity = 1
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "rt" = (
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
@@ -5747,12 +5571,6 @@
 	},
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
-"rw" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "6,6"
-	},
-/area/template_noop)
 "rx" = (
 /obj/effect/floor_decal/corner_wide/purple,
 /obj/effect/floor_decal/corner_wide/purple{
@@ -5802,13 +5620,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"rC" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "9,1";
-	opacity = 0
-	},
-/area/template_noop)
 "rD" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/plating,
@@ -5994,6 +5805,7 @@
 "sg" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "sh" = (
@@ -6124,12 +5936,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"sE" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "8,6"
-	},
-/area/template_noop)
 "sF" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
@@ -6249,12 +6055,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
-"sZ" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "2,5"
-	},
-/area/template_noop)
 "ta" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -6271,12 +6071,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
-"tb" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "10,6"
-	},
-/area/template_noop)
 "tc" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -6351,12 +6145,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
-"tn" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "5,12"
-	},
-/area/template_noop)
 "tp" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark,
@@ -6370,13 +6158,6 @@
 	},
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
-"tr" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "3,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "ts" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle)
@@ -6407,13 +6188,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
-"tx" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "0,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "ty" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 4
@@ -6516,12 +6290,6 @@
 	dir = 8
 	},
 /area/maintenance/vault)
-"tS" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "10,5"
-	},
-/area/template_noop)
 "tT" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h10"
@@ -6678,12 +6446,6 @@
 /obj/machinery/door/airlock/research,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod)
-"us" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "5,5"
-	},
-/area/template_noop)
 "ut" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -6765,13 +6527,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
-"uF" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "14,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "uG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6904,12 +6659,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"uW" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "5,6"
-	},
-/area/template_noop)
 "uX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7082,12 +6831,6 @@
 /obj/item/ladder_mobile,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
-"vA" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "14,9"
-	},
-/area/template_noop)
 "vB" = (
 /turf/simulated/wall/placeholder_standard,
 /area/engineering/atmos/air)
@@ -7384,13 +7127,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"wF" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "15,9"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "wG" = (
 /obj/effect/shuttle_landmark/lift/cargo_bottom,
 /turf/simulated/floor/plating,
@@ -7491,12 +7227,6 @@
 "wV" = (
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
-"wW" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "wX" = (
 /obj/structure/shuttle_part/burglar{
 	icon_state = "5,4";
@@ -7591,13 +7321,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"xl" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "14,8"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "xm" = (
 /obj/structure/shuttle_part/burglar{
 	icon_state = "11,1"
@@ -7642,13 +7365,6 @@
 /obj/machinery/door/airlock/research,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"xu" = (
-/obj/effect/decal/cleanable/draftingchalk/blue,
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "12,9"
-	},
-/area/template_noop)
 "xv" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -7756,13 +7472,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"xL" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "14,6"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "xM" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -8073,13 +7782,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"yE" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "12,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "yF" = (
 /obj/structure/tank_wall{
 	icon_state = "m-2"
@@ -8213,13 +7915,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"za" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "1,8"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "zb" = (
 /obj/structure/window/shuttle/unique/raider{
 	icon = 'icons/turf/shuttles_unique/HTS_Canary.dmi';
@@ -8510,12 +8205,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"zT" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "3,3"
-	},
-/area/template_noop)
 "zU" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/machinery/light{
@@ -8532,13 +8221,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"zW" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "1,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "zX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8609,13 +8291,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
-"Ag" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "3,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Ah" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 5
@@ -8651,13 +8326,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
-"Am" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "1,4"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Ao" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -8684,13 +8352,6 @@
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
-"Ar" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "14,4"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "As" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -8819,13 +8480,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
-"AY" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "9,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Ba" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -8904,14 +8558,6 @@
 /obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"Bn" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "11,3";
-	opacity = 1
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Bo" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -9035,10 +8681,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"BI" = (
-/obj/machinery/door/airlock/command,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "BJ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall/nitrogen{
@@ -9444,12 +9086,6 @@
 	icon_state = "13,6"
 	},
 /area/shuttle/escape_pod)
-"Dg" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "9,6"
-	},
-/area/template_noop)
 "Dh" = (
 /obj/machinery/vending/vendors,
 /turf/simulated/floor/tiled,
@@ -10153,20 +9789,6 @@
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod)
-"Fe" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "7,1";
-	opacity = 0
-	},
-/area/template_noop)
-"Fg" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "12,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Fh" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -10434,19 +10056,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"FW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/wall/placeholder_standard,
-/area/maintenance/vault)
-"FX" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "4,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "FY" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -10502,13 +10111,6 @@
 /obj/item/storage/bag/trash,
 /turf/simulated/floor/tiled,
 /area/janitor)
-"Gl" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "6,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Gm" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -10576,13 +10178,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"Gv" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "0,8"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Gw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -10768,13 +10363,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
-"Ha" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "14,5"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Hb" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/HTS_Canary.dmi';
@@ -10861,12 +10449,6 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/hangar/control)
-"Ho" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "13,4"
-	},
-/area/template_noop)
 "Hp" = (
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/hangar/auxiliary)
@@ -11424,13 +11006,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
-"IS" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "11,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "IT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -11673,12 +11248,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"JL" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "12,3"
-	},
-/area/template_noop)
 "JM" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
@@ -11734,13 +11303,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
-"JU" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "1,6"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "JV" = (
 /obj/machinery/power/apc/super/critical{
 	dir = 8;
@@ -11861,12 +11423,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"Kl" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "Km" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12065,12 +11621,6 @@
 	icon_state = "1,6"
 	},
 /area/shuttle/escape_pod)
-"KN" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "1,9"
-	},
-/area/template_noop)
 "KO" = (
 /obj/machinery/door/airlock/mining,
 /turf/simulated/floor/tiled,
@@ -12195,13 +11745,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
-"Lb" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "13,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Lc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -12472,13 +12015,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"LP" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "14,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "LQ" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/black,
@@ -12660,12 +12196,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
-"Mw" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "Mx" = (
 /obj/structure/tank_wall{
 	density = 0;
@@ -12868,13 +12398,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"MZ" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "10,2";
-	opacity = 0
-	},
-/area/template_noop)
 "Na" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -13018,12 +12541,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/air)
-"Nw" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "2,6"
-	},
-/area/template_noop)
 "Nx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -13072,10 +12589,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/hangar)
-"ND" = (
-/obj/structure/table/reinforced,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "NE" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
@@ -13167,10 +12680,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"NU" = (
-/obj/machinery/computer/shuttle_control,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "NV" = (
 /turf/simulated/floor/plating,
 /area/turbolift/research/deck_1)
@@ -13295,12 +12804,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
-"Oq" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "Or" = (
 /obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled,
@@ -13413,19 +12916,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
-"OK" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "10,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"ON" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "2,4"
-	},
-/area/template_noop)
 "OO" = (
 /obj/machinery/light{
 	dir = 4
@@ -14065,12 +13555,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
-"QE" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "13,5"
-	},
-/area/template_noop)
 "QF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -14124,13 +13608,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
-"QM" = (
-/obj/machinery/door/airlock/research,
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "5,12"
-	},
-/area/template_noop)
 "QO" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2
@@ -14490,12 +13967,6 @@
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
-"RR" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "2,3"
-	},
-/area/template_noop)
 "RS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -14571,12 +14042,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
-"Sb" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "10,4"
-	},
-/area/template_noop)
 "Sc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -14877,13 +14342,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"SP" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "15,8"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "SR" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -15059,11 +14517,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
-"Tq" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi'
-	},
-/area/template_noop)
 "Tr" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
@@ -15188,9 +14641,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"TH" = (
-/turf/simulated/floor/plating,
-/area/template_noop)
 "TJ" = (
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/escape_pod)
@@ -15889,13 +15339,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
-"VR" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "0,9"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "VS" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -16147,12 +15590,6 @@
 /obj/machinery/computer/shuttle_control,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod)
-"WL" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "2,9"
-	},
-/area/template_noop)
 "WM" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/freezer{
@@ -16306,13 +15743,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
-"Xm" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "14,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Xn" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -16491,13 +15921,6 @@
 /obj/machinery/suit_cycler/science,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
-"XP" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "5,3";
-	opacity = 0
-	},
-/area/template_noop)
 "XQ" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -16542,12 +15965,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
-"XW" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "2,7"
-	},
-/area/template_noop)
 "XX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16586,13 +16003,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"Yb" = (
-/turf/simulated/wall/shuttle/unique/merchant{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "10,3";
-	opacity = 0
-	},
-/area/template_noop)
 "Yc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -16688,10 +16098,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
-"Yr" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
 "Ys" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
 	icon_state = "5,2"
@@ -16780,13 +16186,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"YM" = (
-/obj/structure/shuttle_part/placeholder{
-	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
-	icon_state = "1,5"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "YO" = (
 /obj/turbolift_map_holder/placeholder/primary,
 /turf/simulated/floor/plating,
@@ -17131,9 +16530,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"ZK" = (
-/turf/simulated/floor/shuttle/dark_blue,
-/area/template_noop)
 "ZL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -32654,7 +32050,7 @@ Kq
 aI
 bi
 ca
-vB
+Kq
 iB
 rB
 em
@@ -32856,7 +32252,7 @@ Kq
 aK
 Dv
 sv
-vB
+Kq
 iB
 rB
 Up
@@ -33058,7 +32454,7 @@ IK
 aL
 aD
 FC
-vB
+Kq
 MV
 WP
 uQ
@@ -33260,7 +32656,7 @@ Kq
 aN
 el
 sv
-vB
+Kq
 mX
 rB
 Up
@@ -33462,7 +32858,7 @@ Kq
 aP
 kx
 cf
-vB
+Kq
 jJ
 rB
 em
@@ -33664,7 +33060,7 @@ Kq
 aQ
 BN
 Ke
-vB
+Kq
 kT
 ny
 em
@@ -33866,7 +33262,7 @@ Kq
 aT
 CZ
 cn
-vB
+Kq
 JQ
 qz
 KQ
@@ -34270,7 +33666,7 @@ Kq
 xP
 aB
 xP
-vB
+Kq
 ul
 Aw
 PZ
@@ -34680,7 +34076,7 @@ WA
 PZ
 VK
 rg
-FW
+DE
 rg
 rg
 rg
@@ -35949,15 +35345,15 @@ qp
 Xc
 qp
 aa
-VR
-Gv
-tx
-TH
-TH
-TH
-TH
-TH
-TH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36085,8 +35481,8 @@ oi
 aa
 aa
 aa
-oi
-aa
+ac
+aG
 eF
 di
 dB
@@ -36151,15 +35547,15 @@ qp
 Xc
 qp
 aa
-KN
-za
-oJ
-JU
-YM
-Am
-lu
-zW
-TH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36353,15 +35749,15 @@ qp
 Xc
 qp
 aa
-WL
-aG
-XW
-Nw
-sZ
-ON
-RR
-pi
-TH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36555,15 +35951,15 @@ qp
 Xc
 qp
 aa
-ls
-QM
-ZK
-ZK
-ZK
-Kl
-zT
-tr
-Ag
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36757,15 +36153,15 @@ qp
 Xc
 qp
 aa
-qB
-tn
-ZK
-ZK
-ZK
-ZK
-rs
-nk
-FX
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36959,15 +36355,15 @@ qp
 Xc
 qp
 aa
-tn
-tn
-uW
-rl
-us
-Tq
-XP
-lk
-oE
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -37161,15 +36557,15 @@ qp
 Xc
 qp
 aa
-Mw
-Mw
-rw
-ZK
-cJ
-ND
-Gl
-lK
-hf
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -37363,15 +36759,15 @@ qp
 Xc
 qp
 aa
-ZK
-ZK
-BI
-ZK
-ZK
-ac
-NU
-ol
-Fe
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -37565,15 +36961,15 @@ qp
 Xc
 qp
 aa
-ZK
-ZK
-sE
-ZK
-ZK
-ac
-NU
-jm
-gl
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -37767,15 +37163,15 @@ qp
 Xc
 qp
 aa
-wW
-wW
-Dg
-ZK
-ND
-ND
-AY
-pd
-rC
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -37969,15 +37365,15 @@ qp
 Xc
 qp
 aa
-tn
-tn
-tb
-rl
-tS
-Sb
-Yb
-MZ
-OK
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -38171,15 +37567,15 @@ qp
 Xc
 qp
 aa
-fE
-tn
-ZK
-ZK
-ZK
-ZK
-Bn
-nX
-IS
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -38373,15 +37769,15 @@ qp
 Xc
 qp
 aa
-xu
-QM
-ZK
-ZK
-ZK
-Oq
-JL
-yE
-Fg
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -38575,15 +37971,15 @@ qp
 Xc
 qp
 aa
-qh
-qx
-je
-ee
-QE
-Ho
-dg
-Lb
-TH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -38777,15 +38173,15 @@ qp
 Xc
 qp
 aa
-vA
-xl
-uF
-xL
-Ha
-Ar
-Xm
-LP
-TH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -38979,15 +38375,15 @@ qp
 Xc
 qp
 aa
-wF
-SP
-dE
-TH
-TH
-TH
-TH
-TH
-TH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42147,7 +41543,7 @@ kY
 Kq
 gB
 bK
-hY
+sv
 el
 Kq
 vB
@@ -42347,8 +41743,8 @@ Kq
 Kq
 Gf
 Kq
-Yr
-cR
+Kq
+bh
 cR
 Kq
 hq

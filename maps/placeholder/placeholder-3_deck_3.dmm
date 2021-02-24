@@ -5584,6 +5584,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
+"BP" = (
+/obj/machinery/power/apc/critical{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/crew_quarters/sleep/cryo)
 "BZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -6505,6 +6515,9 @@
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "IP" = (
@@ -6583,6 +6596,13 @@
 	},
 /turf/simulated/floor,
 /area/tcommsat/entrance)
+"Jy" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/cryo)
 "Jz" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -27087,7 +27107,7 @@ ir
 Au
 Au
 Au
-rJ
+Jy
 Yg
 cd
 jr
@@ -27289,7 +27309,7 @@ rJ
 rJ
 rJ
 rJ
-rJ
+Jy
 Yg
 ch
 Yg
@@ -27693,7 +27713,7 @@ Mb
 RR
 RR
 RR
-rJ
+Jy
 Yg
 ZZ
 cA
@@ -27895,7 +27915,7 @@ Cf
 qf
 xq
 Xg
-ww
+BP
 Yg
 ZZ
 Np
@@ -32768,7 +32788,7 @@ at
 at
 at
 at
-at
+fh
 oy
 oy
 oy
@@ -32970,7 +32990,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -33172,7 +33192,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -33374,7 +33394,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -33576,7 +33596,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -33778,7 +33798,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -33980,7 +34000,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -34182,7 +34202,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -34384,7 +34404,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -34586,8 +34606,8 @@ at
 at
 at
 at
-at
-at
+VM
+Mo
 Wm
 Wm
 Wm
@@ -34789,7 +34809,7 @@ at
 at
 at
 at
-at
+fh
 Wm
 Wm
 Wm
@@ -34990,8 +35010,8 @@ at
 at
 at
 at
-at
-at
+Rh
+PF
 Wm
 Wm
 Wm
@@ -35192,7 +35212,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -35394,8 +35414,8 @@ at
 at
 at
 at
-at
-at
+VM
+Mo
 Wm
 Wm
 Wm
@@ -35597,7 +35617,7 @@ at
 at
 at
 at
-at
+fh
 Wm
 Wm
 Wm
@@ -35798,8 +35818,8 @@ at
 at
 at
 at
-at
-at
+Rh
+PF
 Wm
 Wm
 Wm
@@ -36000,7 +36020,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -36202,7 +36222,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -36404,7 +36424,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -36606,7 +36626,7 @@ at
 at
 at
 at
-at
+fh
 aa
 Wm
 Wm
@@ -36808,9 +36828,9 @@ at
 at
 at
 at
-at
-at
-at
+VM
+KN
+Mo
 Wm
 Wm
 Wm
@@ -37012,7 +37032,7 @@ at
 at
 at
 at
-at
+fh
 Wm
 Wm
 Wm
@@ -37213,8 +37233,8 @@ at
 at
 at
 at
-at
-at
+Tr
+PF
 Wm
 Wm
 Wm
@@ -37414,7 +37434,7 @@ at
 at
 at
 at
-at
+fh
 Wm
 Wm
 Wm
@@ -37616,7 +37636,7 @@ at
 at
 at
 at
-at
+fh
 Wm
 Wm
 Wm

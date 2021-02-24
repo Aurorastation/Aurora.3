@@ -996,9 +996,8 @@
 "aWm" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/stack/material/plastic{
-	amount = 50
-	},
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "aWy" = (
@@ -4213,12 +4212,11 @@
 "eZh" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/stack/material/plastic{
-	amount = 50
-	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "eZm" = (
@@ -4390,7 +4388,7 @@
 	})
 "fhU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
+/obj/machinery/door/blast/shutters/open{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -17547,11 +17545,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
-"uwD" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/engine_room)
 "uwF" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -20050,6 +20043,9 @@
 	},
 /obj/item/storage/firstaid/o2,
 /obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "xBX" = (
@@ -20300,6 +20296,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "xQn" = (
@@ -34749,7 +34746,7 @@ qgN
 wcr
 wcr
 wcr
-uwD
+tZz
 vUO
 usW
 auc
