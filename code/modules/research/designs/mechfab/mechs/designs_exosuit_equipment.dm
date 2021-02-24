@@ -78,6 +78,12 @@
 	build_path = /obj/item/mecha_equipment/mounted_system/grenadeflash
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000)
 
+/datum/design/item/mechfab/exosuit_equipment/cleaner
+	name = "Mounted Cleaner Grenade Launcher"
+	req_tech = list(TECH_MATERIAL = 2)
+	build_path = /obj/item/mecha_equipment/mounted_system/grenadecleaner
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
+
 /datum/design/item/mechfab/exosuit_equipment/crisisdrone
 	name = "Mounted Crisis Drone"
 	build_path = /obj/item/mecha_equipment/crisis_drone

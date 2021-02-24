@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added cleaning grenade launchers to the exosuit equipment list in the mechfab."
