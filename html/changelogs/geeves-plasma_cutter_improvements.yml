@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Using a plasma cutter to cut down walls, grilles, and girders, now properly plays the sound and uses its charge."
+  - rscadd: "Using welding tools on walls will now drain their fuel."
+  - rscadd: "Plasma cutters beams can now hit three asteroid walls per shot, making them more useful for mining."
