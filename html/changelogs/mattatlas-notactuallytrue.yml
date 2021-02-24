@@ -41,3 +41,4 @@ changes:
   - bugfix: "Badges can now be attached to plate carriers."
   - bugfix: "Crossbows are no longer duplicated when attached to an RFD."
   - bugfix: "Fixed hardsuit weapon configuration."
+  - bugfix: "Fixed riot armguards worn sprite."
