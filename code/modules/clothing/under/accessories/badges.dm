@@ -11,6 +11,7 @@
 	item_state = "marshalbadge"
 	overlay_state = "marshalbadge"
 	slot_flags = SLOT_BELT | SLOT_TIE
+	slot = ACCESSORY_SLOT_BADGE
 
 	var/stored_name
 	var/badge_string = "Corporate Security"
