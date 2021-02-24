@@ -5,7 +5,7 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 
-	var/pronouns = MATCH_GENDER
+	var/pronouns = NEUTER
 
 	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
 

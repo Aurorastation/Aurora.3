@@ -5,7 +5,7 @@
 	name_plural = "Shells"
 	bodytype = BODYTYPE_HUMAN
 	default_genders = list(MALE, FEMALE)
-	selectable_pronouns = list(MATCH_GENDER, MALE, FEMALE, PLURAL, NEUTER)
+	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
 	burn_mod = 1.2
 	grab_mod = 1

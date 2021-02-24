@@ -417,6 +417,3 @@
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
-
-// Pronoun Stuff
-#define MATCH_GENDER "match gender"

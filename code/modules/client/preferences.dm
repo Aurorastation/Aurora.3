@@ -37,7 +37,7 @@ datum/preferences
 	var/can_edit_name = TRUE				//Whether or not a character's name can be edited. Used with SQL saving.
 	var/can_edit_ipc_tag = TRUE
 	var/gender = MALE					//gender of character (well duh)
-	var/pronouns = MATCH_GENDER			//what the character will appear as to others when examined
+	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
@@ -425,10 +425,7 @@ datum/preferences
 	character.exploit_record = exploit_record
 
 	character.gender = gender
-	if(pronouns == MATCH_GENDER)
-		character.pronouns = gender
-	else
-		character.pronouns = pronouns
+	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
 

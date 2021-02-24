@@ -134,7 +134,7 @@
 
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
-	pref.pronouns           = sanitize_pronouns(pref.pronouns, pref.species)
+	pref.pronouns           = sanitize_pronouns(pref.pronouns, pref.species, pref.gender)
 	pref.real_name          = sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
 		pref.real_name      = random_name(pref.gender, pref.species)
@@ -223,6 +223,7 @@
 	else if(href_list["gender"])
 		var/datum/species/S = all_species[pref.species]
 		pref.gender = next_in_list(pref.gender, valid_player_genders & S.default_genders)
+		pref.pronouns = pref.gender
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment
