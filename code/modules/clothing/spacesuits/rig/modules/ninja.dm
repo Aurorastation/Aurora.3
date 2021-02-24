@@ -203,7 +203,7 @@
 
 	//OH SHIT.
 	if(holder.wearer.stat == DEAD)
-		engage(1)
+		do_engage(1)
 
 /obj/item/rig_module/self_destruct/engage(var/skip_check)
 	if(!skip_check && usr && alert(usr, "Are you sure you want to push that button?", "Self-destruct", "No", "Yes") == "No")
@@ -269,12 +269,12 @@
 	if(cooldown)
 		to_chat(user, SPAN_DANGER("There isn't enough power stored up yet!"))
 		return FALSE
-	else
-		message_user(user, SPAN_NOTICE("You inject a burst of power into \the [holder]."), SPAN_NOTICE("Your suit emits a loud sound as power is rapidly injected into your suit's battery!"))
-		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
-		holder.cell.give(generation_amount)
-		cooldown = 1
-		addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 2 MINUTES)
+	message_user(user, SPAN_NOTICE("You inject a burst of power into \the [holder]."), SPAN_NOTICE("Your suit emits a loud sound as power is rapidly injected into your suit's battery!"))
+	playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
+	holder.cell.give(generation_amount)
+	cooldown = 1
+	addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 2 MINUTES)
+	return TRUE
 
 /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()
 	cooldown = 0
