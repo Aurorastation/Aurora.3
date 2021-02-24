@@ -53,3 +53,112 @@
 	name = "white dress flats"
 	icon_state = "twhitedf"
 	item_state = "twhitedf"
+
+/obj/item/clothing/shoes/tajara/jackboots // Because yes, Tajara don't leave their toes out all the time.
+	name = "black boots"
+	desc = "Tall synthleather boots with an artificial shine. Fitted for Tajara"
+	icon = 'icons/mob/species/tajaran/shoes.dmi'
+	icon_state = "taj_jackboots"
+	item_state = "taj_jackboots"
+	force = 3
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES
+	)
+	siemens_coefficient = 0.75
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/tajara/jackboots/knee
+	name = "knee-length black boots"
+	desc = "Taller synthleather boots with an artificial shine. Fitted for Tajara"
+	icon_state = "taj_kneeboots"
+	item_state = "taj_kneeboots"
+
+/obj/item/clothing/shoes/tajara/jackboots/thigh
+	name = "thigh-length black boots"
+	desc = "Even taller synthleather boots with an artificial shine. Fitted for Tajara"
+	icon_state = "taj_thighboots"
+	item_state = "taj_thighboots"
+
+/obj/item/clothing/shoes/tajara/workboots
+	name = "workboots"
+	desc = "A pair of steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara"
+	icon = 'icons/mob/species/tajaran/shoes.dmi'
+	icon_state = "taj_workboots"
+	item_state = "taj_workboots"
+	force = 3
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR,
+		rad = ARMOR_RAD_MINOR
+	)
+	siemens_coefficient = 0.75
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/tajara/workboots/grey
+	name = "grey workboots"
+	desc = "A pair of grey steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara"
+	icon_state = "taj_workboots_grey"
+	item_state = "taj_workboots_grey"
+
+/obj/item/clothing/shoes/tajara/workboots/dark
+	name = "dark workboots"
+	desc = "A pair of dark steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara"
+	icon_state = "taj_workboots_dark"
+	item_state = "taj_workboots_dark"
+
+/obj/item/clothing/shoes/tajara/combat //SWAT shoes combined with galoshes.
+	name = "tajaran combat boots"
+	desc = "When you REALLY want to turn up the heat."
+	icon = 'icons/mob/species/tajaran/shoes.dmi'
+	icon_state = "taj_jungle"
+	item_state = "taj_jungle"
+	force = 5
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_MINOR
+	)
+	item_flags = NOSLIP
+	siemens_coefficient = 0.35
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+	cold_protection = FEET
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/tajara/winter
+	name = "tajaran winter boots"
+	desc = "A pair of heavy winter boots made out of animal furs, reaching up to the knee. Fitted for Tajara"
+	icon = 'icons/mob/species/tajaran/shoes.dmi'
+	icon_state = "taj_winterboots"
+	item_state = "taj_winterboots"
+	cold_protection = FEET|LEGS
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET|LEGS
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor = list(
+			melee = ARMOR_MELEE_MINOR,
+			bio = ARMOR_BIO_MINOR
+			)
+	siemens_coefficient = 0.75
+	can_hold_knife = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+	build_from_parts = TRUE
+	contained_sprite = TRUE
