@@ -3,6 +3,7 @@
 	var/update_icon_on_init	// Default to 'no'.
 
 /atom/New(loc, ...)
+	SHOULD_CALL_PARENT(TRUE)
 	// For the DMM Suite.
 	if(use_preloader && (type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		_preloader.load(src)
