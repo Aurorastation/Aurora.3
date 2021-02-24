@@ -265,6 +265,7 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
+	icon = 'icons/obj/clothing/ears.dmi'
 	w_class = ITEMSIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
@@ -334,7 +335,7 @@
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
 		)
 	siemens_coefficient = 0.75
-	var/wired = 0
+	var/wired = FALSE
 	var/obj/item/cell/cell = 0
 	var/clipped = 0
 	var/fingerprint_chance = 0
@@ -371,7 +372,7 @@
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
 	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
-		if (clipped)
+		if(clipped)
 			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
 			update_icon()
 			return
@@ -734,6 +735,7 @@
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
@@ -789,7 +791,7 @@
 	w_class = ITEMSIZE_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
-	valid_accessory_slots = list("armband","decor", "over")
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 
 /obj/item/clothing/suit/return_own_image()
 	var/image/our_image
@@ -841,8 +843,8 @@
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
 	var/worn_state = null
-	valid_accessory_slots = list("utility","armband","decor", "over")
-	restricted_accessory_slots = list("utility")
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)
@@ -933,7 +935,6 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
-
 
 /obj/item/clothing/under/examine(mob/user)
 	..(user)
@@ -1073,4 +1074,4 @@
 	gender = NEUTER
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
-	var/undergloves = 1
+	var/undergloves = TRUE

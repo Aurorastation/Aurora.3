@@ -65,7 +65,7 @@
 				vampire.blood_usable += blood_taken
 
 				if (blood_taken)
-					to_chat(user, "<span class='notice'>You have accumulated [vampire.blood_usable] [vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+					to_chat(user, "<span class='notice'>You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale.</span>")
 
 				if (REAGENT_VOLUME(reagents, /decl/reagent/blood) < 1)
 					break

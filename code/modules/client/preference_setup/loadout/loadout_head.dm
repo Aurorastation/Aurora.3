@@ -317,3 +317,8 @@
 	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/gadpathur
 	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
+
+/datum/gear/head/dominia
+	display_name = "fisanduhian ushanka"
+	path = /obj/item/clothing/head/ushanka/dominia
+	flags = GEAR_HAS_DESC_SELECTION

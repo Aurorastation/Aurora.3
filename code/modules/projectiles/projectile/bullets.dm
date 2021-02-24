@@ -121,17 +121,18 @@
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol
-	damage = 20
-
-/obj/item/projectile/bullet/pistol/medium
 	damage = 25
 
-/obj/item/projectile/bullet/pistol/strong
+/obj/item/projectile/bullet/pistol/medium
 	damage = 30
-	armor_penetration = 15
+
+/obj/item/projectile/bullet/pistol/strong
+	damage = 45
+	armor_penetration = 20
 
 /obj/item/projectile/bullet/pistol/revolver
-	damage = 30
+	damage = 40
+	armor_penetration = 10
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -144,7 +145,7 @@
 
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
-	damage = 60
+	damage = 65
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -183,7 +184,7 @@
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
 /obj/item/projectile/bullet/pellet/shotgun
 	name = "shrapnel"
-	damage = 13
+	damage = 30
 	pellets = 6
 	range_step = 1
 	spread_step = 10
@@ -196,25 +197,28 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	penetrating = 1
-	armor_penetration = 20
+	damage = 40
+	armor_penetration = 15
+	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 35
+	damage = 45
+	armor_penetration = 20
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 30
+	damage = 45
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 30
-	armor_penetration = 25
+	damage = 35
+	armor_penetration = 40
 
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
 	stun = 3
 	weaken = 3
 	penetrating = 5
-	armor_penetration = 80
+	armor_penetration = 70
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 	maiming = 1
 	maim_rate = 3
@@ -227,10 +231,10 @@
 
 /obj/item/projectile/bullet/rifle/slugger
 	name = "slugger round"
-	damage = 80
+	damage = 60
 	weaken = 3
 	penetrating = 5
-	armor_penetration = 15
+	armor_penetration = 10
 	maiming = TRUE
 	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
@@ -279,27 +283,6 @@
 	..()
 
 /* Miscellaneous */
-
-/obj/item/projectile/bullet/suffocationbullet//How does this even work?
-	name = "co bullet"
-	damage = 20
-	damage_type = OXY
-
-/obj/item/projectile/bullet/cyanideround
-	name = "poison bullet"
-	damage = 40
-	damage_type = TOX
-
-/obj/item/projectile/bullet/burstbullet
-	name = "exploding bullet"
-	damage = 20
-	embed = 0
-	edge = 1
-
-/obj/item/projectile/bullet/burstbullet/on_impact(var/atom/A)
-	explosion(A, -1, 0, 2)
-	..()
-
 /obj/item/projectile/bullet/blank
 	invisibility = 101
 	damage = 1
@@ -354,12 +337,13 @@
 /obj/item/projectile/bullet/gauss
 	name = "slug"
 	icon_state = "heavygauss"
-	damage = 45
+	damage = 50
+	armor_penetration = 20
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
 
 /obj/item/projectile/bullet/gauss/highex
-	name ="high-ex shell"
+	name = "high-ex shell"
 	damage = 10
 
 /obj/item/projectile/bullet/gauss/highex/on_impact(var/atom/A)
@@ -383,7 +367,7 @@
 	armor_penetration = 25
 
 /obj/item/projectile/bullet/cannonball/explosive
-	damage = 30
+	damage = 50
 	penetrating = 0
 	armor_penetration = 5
 

@@ -424,9 +424,9 @@
 
 /mob/living/simple_animal/hostile/carp/holodeck
 	icon = 'icons/mob/AI.dmi'
-	icon_state = "holo4"
-	icon_living = "holo4"
-	icon_dead = "holo4"
+	icon_state = "carp"
+	icon_living = "carp"
+	icon_dead = "carp"
 	alpha = 127
 	icon_gib = null
 	meat_amount = 0
@@ -470,6 +470,9 @@
 	meat_type = null
 	light_range = 2
 	hunger_enabled = FALSE
+
+/mob/living/simple_animal/penguin/holodeck/can_name(var/mob/living/M)
+	return FALSE
 
 /mob/living/simple_animal/penguin/holodeck/baby
 	icon_state = "penguin_baby"

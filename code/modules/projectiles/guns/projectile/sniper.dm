@@ -38,7 +38,7 @@
 	else
 		icon_state = "heavysniper"
 
-/obj/item/gun/projectile/heavysniper/attack_self(mob/user as mob)
+/obj/item/gun/projectile/heavysniper/unique_action(mob/user as mob)
 	bolt_open = !bolt_open
 	if(bolt_open)
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)

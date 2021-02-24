@@ -188,16 +188,12 @@
 				L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
 
 	//stun effects
-	L.stun_effect_act(stun, agony, target_zone, src)
+	L.stun_effect_act(stun, agony, used_weapon = src, damage_flags = DAM_DISPERSED)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 	if(status)
 		deductcharge(hitcost)
-
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.forcesay(hit_appends)
 
 	return 1
 

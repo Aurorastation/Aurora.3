@@ -389,6 +389,8 @@
 	else
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
+/obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
+	shatter()
 
 // returns whether this light has power
 // true if area has power

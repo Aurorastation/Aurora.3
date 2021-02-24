@@ -48,7 +48,7 @@
 	fire_delay = 5
 	burst_delay = 5
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/item/projectile/beam/midlaser
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0
@@ -136,7 +136,7 @@
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 
-/obj/item/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
+/obj/item/gun/energy/rifle/pulse/destroyer/toggle_firing_mode(mob/living/user)
 	to_chat(user, "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>")
 
 /obj/item/gun/energy/rifle/laser/tachyon
@@ -165,3 +165,35 @@
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+
+/obj/item/gun/energy/rifle/ionrifle
+	name = "ion rifle"
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by Nanotrasen."
+	icon = 'icons/obj/guns/ionrifle.dmi'
+	icon_state = "ionrifle"
+	item_state = "ionrifle"
+	has_item_ratio = FALSE
+	modifystate = null
+	projectile_type = /obj/item/projectile/ion/stun
+	fire_sound = 'sound/weapons/laser1.ogg'
+	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
+	w_class = ITEMSIZE_LARGE
+	accuracy = 1
+	force = 10
+	flags = CONDUCT
+	slot_flags = SLOT_BACK
+	charge_cost = 300
+	max_shots = 4
+	can_turret = 1
+	turret_sprite_set = "ion"
+	firemodes = list()
+
+/obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
+	..(max(severity, 2)) //so it doesn't EMP itself, I guess
+
+/obj/item/gun/energy/rifle/ionrifle/mounted
+	name = "mounted ion rifle"
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
+	can_turret = 0

@@ -55,6 +55,7 @@
 	blood_color = "#0084b8"
 	flesh_color = "#0071db"
 
+	respawn_type = ANIMAL
 	remains_type = /obj/effect/decal/cleanable/ash
 	death_message = "dissolves into ash..."
 	death_message_range = 7
@@ -100,6 +101,7 @@
 	if(player_is_antag(H.mind))
 		var/datum/ghostspawner/revenant/R = SSghostroles.get_spawner(MODE_REVENANT)
 		R.count = max(R.count - 1, 0)
+	revenants.kill_count++
 	INVOKE_ASYNC(src, .proc/spawn_gore, get_turf(H))
 	H.set_death_time(ANIMAL, world.time)
 	for(var/obj/item/I in H)
@@ -107,6 +109,8 @@
 	qdel(H)
 
 /datum/species/revenant/proc/spawn_gore(var/turf/T)
+	var/portal_type = pick(/obj/effect/portal/spawner/silver, /obj/effect/portal/spawner/gold, /obj/effect/portal/spawner/phoron)
+	new portal_type(T)
 	var/obj/effect/decal/cleanable/blood/gibs/G = new /obj/effect/decal/cleanable/blood/gibs(T)
 	G.basecolor = blood_color
 	G.fleshcolor = flesh_color
@@ -118,6 +122,9 @@
 	..()
 	H.gender = NEUTER
 	H.universal_understand = TRUE
+	H.add_language(LANGUAGE_REVENANT_RIFTSPEAK)
+	var/datum/martial_art/revenant/R = new /datum/martial_art/revenant()
+	R.teach(H)
 
 /datum/species/revenant/get_random_name()
 	return "Revenant"
@@ -128,7 +135,7 @@
 	return FALSE
 
 /datum/species/revenant/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if((istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam)) && prob(30))
+	if((istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam)) && prob(20))
 		H.visible_message(SPAN_CULT("The [P.name] gets absorbed by [H]!"), SPAN_CULT("You absorb the [P.name]!"))
 		return -1
 	return ..()

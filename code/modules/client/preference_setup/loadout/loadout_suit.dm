@@ -44,6 +44,7 @@
 	jackets["flannel jacket, grey"] = /obj/item/clothing/suit/storage/toggle/flannel/gray
 	jackets["flannel jacket, purple"] = /obj/item/clothing/suit/storage/toggle/flannel/purple
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
+	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
@@ -105,6 +106,13 @@
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/iaclabcoat
+	display_name = "IAC labcoat"
+	description = "It's a standard medical labcoat designed to be worn by the Interstellar Aid Corps."
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -200,6 +208,12 @@
 	wintercoat["winter coat, cargo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	gear_tweaks += new/datum/gear_tweak/path(wintercoat)
+
+/datum/gear/suit/winter_colorable
+	display_name = "colorable winter coat"
+	description = "A colorable winter coat for the thermally challenged."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/secjacketofficer
 	display_name = "security jacket selection (Security Officer)"

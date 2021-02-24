@@ -743,7 +743,8 @@
 		/obj/item/gun/energy/rifle/laser/xray,
 		/obj/item/gun/energy/net,
 		/obj/item/gun/energy/laser/shotgun,
-		/obj/item/gun/energy/decloner
+		/obj/item/gun/energy/decloner,
+		/obj/item/gun/energy/freeze
 	)
 
 /obj/random/colored_jumpsuit
@@ -1009,10 +1010,10 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "watch"
 	problist = list(
-		/obj/item/clothing/gloves/watch = 1,
-		/obj/item/clothing/gloves/watch/silver = 0.7,
-		/obj/item/clothing/gloves/watch/gold = 0.5,
-		/obj/item/clothing/gloves/watch/spy = 0.3,
+		/obj/item/clothing/wrists/watch = 1,
+		/obj/item/clothing/wrists/watch/silver = 0.7,
+		/obj/item/clothing/wrists/watch/gold = 0.5,
+		/obj/item/clothing/wrists/watch/spy = 0.3,
 	)
 
 /obj/random/hoodie
@@ -1095,6 +1096,21 @@
 	problist = list(
 		/obj/item/bluespace_crystal = 5,
 		/obj/item/stack/telecrystal{amount = 10} = 5,
+		/obj/item/clothing/suit/armor/reactive = 0.5,
+		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
+		/obj/random/sword = 0.5,
+		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/melee/energy/axe = 0.5,
+		/obj/item/gun/projectile/automatic/terminator = 0.5,
+		/obj/item/rig/military = 0.5,
+		/obj/item/rig/unathi/fancy = 0.5,
+		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/anomaly_core = 0.5
+	)
+
+/obj/random/highvalue/no_crystal
+	problist = list(
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
@@ -1597,7 +1613,8 @@
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
 		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
 		/obj/item/gun/projectile/musket = 0.5,
-		/obj/item/gun/launcher/grenade = 1
+		/obj/item/gun/launcher/grenade = 1,
+		/obj/item/gun/energy/freeze = 0.5
 		)
 
 	var/list/Epic = list(
@@ -1730,4 +1747,36 @@
 		/obj/item/pizzabox/mushroom,
 		/obj/item/pizzabox/meat,
 		/obj/item/pizzabox/pineapple
+	)
+
+/obj/random/seed
+	name = "random seed"
+	desc = "This is a random normal seed."
+	icon = 'icons/obj/seeds.dmi'
+	icon_state = "random"
+	spawnlist = list(
+		/obj/item/seeds/limeseed,
+		/obj/item/seeds/lemonseed,
+		/obj/item/seeds/orangeseed,
+		/obj/item/seeds/grapeseed,
+		/obj/item/seeds/berryseed,
+		/obj/item/seeds/appleseed,
+		/obj/item/seeds/bananaseed,
+		/obj/item/seeds/watermelonseed,
+		/obj/item/seeds/pumpkinseed,
+		/obj/item/seeds/wheatseed,
+		/obj/item/seeds/cornseed,
+		/obj/item/seeds/riceseed,
+		/obj/item/seeds/sugarcaneseed,
+		/obj/item/seeds/carrotseed,
+		/obj/item/seeds/garlicseed,
+		/obj/item/seeds/onionseed,
+		/obj/item/seeds/potatoseed,
+		/obj/item/seeds/whitebeetseed,
+		/obj/item/seeds/tomatoseed,
+		/obj/item/seeds/chiliseed,
+		/obj/item/seeds/eggplantseed,
+		/obj/item/seeds/peanutseed,
+		/obj/item/seeds/soyaseed,
+		/obj/item/seeds/cabbageseed
 	)

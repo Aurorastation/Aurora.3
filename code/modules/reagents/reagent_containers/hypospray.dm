@@ -54,7 +54,7 @@
 		if(!inj_time)
 			return
 		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
-		if(armorcheck && L.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
+		if(armorcheck && L.get_blocked_ratio(target_zone, BRUTE, damage = 10))
 			inj_time += 6 SECONDS
 		if(!do_mob(user, L, inj_time))
 			return 1

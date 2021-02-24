@@ -231,7 +231,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
@@ -615,7 +615,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
@@ -654,7 +654,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
@@ -698,7 +698,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
@@ -775,7 +775,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
@@ -967,9 +967,14 @@ var/global/list/robot_modules = list(
 	no_slip = TRUE
 	networks = list(NETWORK_MINE)
 
-/obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R)
+/obj/item/robot_module/mining_drone/Initialize(mapload, mob/living/silicon/robot/R)
+	. = ..()
+	set_up_default(R)
+
+/obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/has_drill = TRUE)
 	modules += new /obj/item/device/flash(src)
-	modules += new /obj/item/pickaxe/drill(src)
+	if(has_drill)
+		modules += new /obj/item/pickaxe/drill(src)
 	modules += new /obj/item/storage/bag/ore/drone(src)
 	modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	modules += new /obj/item/gripper/miner(src)
@@ -996,23 +1001,16 @@ var/global/list/robot_modules = list(
 	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	emag.name = "Mounted Plasma Cutter"
 
-/obj/item/robot_module/mining_drone/basic/Initialize(mapload, mob/living/silicon/robot/robot)
-	. = ..()
-	set_up_default(src)
-
-/obj/item/robot_module/mining_drone/drill/Initialize(mapload, mob/living/silicon/robot/robot)
-	. = ..()
-	set_up_default(src, FALSE)
+/obj/item/robot_module/mining_drone/drill/set_up_default(mob/living/silicon/robot/R)
+	..(R, FALSE)
 	modules += new /obj/item/pickaxe/jackhammer(src)
 
-/obj/item/robot_module/mining_drone/ka/Initialize(mapload, mob/living/silicon/robot/robot)
-	. = ..()
-	set_up_default(src)
+/obj/item/robot_module/mining_drone/ka/set_up_default(mob/living/silicon/robot/R)
+	..(R)
 	modules += new /obj/item/gun/custom_ka/cyborg(src)
 
-/obj/item/robot_module/mining_drone/drillandka/Initialize(mapload, mob/living/silicon/robot/robot)
-	. = ..()
-	set_up_default(src, FALSE)
+/obj/item/robot_module/mining_drone/drillandka/set_up_default(mob/living/silicon/robot/R)
+	..(R, FALSE)
 	modules += new /obj/item/pickaxe/jackhammer(src)
 	modules += new /obj/item/gun/custom_ka/cyborg(src)
 

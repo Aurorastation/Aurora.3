@@ -1518,6 +1518,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"pM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "pX" = (
 /obj/structure/cable{
 	d1 = 16;
@@ -3461,7 +3470,7 @@ da
 da
 dl
 dc
-do
+pM
 dt
 du
 dl

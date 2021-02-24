@@ -272,6 +272,7 @@
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = new
 		client.prefs.dress_preview_mob(mannequin)
 		observer.appearance = mannequin
+		observer.appearance_flags = KEEP_TOGETHER
 		observer.alpha = 127
 		observer.layer = initial(observer.layer)
 		observer.invisibility = initial(observer.invisibility)

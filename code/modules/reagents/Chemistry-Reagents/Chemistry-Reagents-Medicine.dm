@@ -264,7 +264,7 @@
 
 /decl/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
-	M.add_chemical_effect(CE_NOFEVER, ((M.chem_doses[type]/2)^2-(REAGENT_VOLUME(holder, type)-M.chem_doses[type]/2))/(M.chem_doses[type]/4)) // creates a smooth curve peaking at half the dose metabolised
+	M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
 
 /decl/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -824,6 +824,7 @@
 	taste_description = "bitterness"
 
 /decl/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Also handles the effects of fevers
 	if(!(REAGENT_VOLUME(holder, type) > 20))
 		if(M.bodytemperature > 310)
 			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -932,7 +933,7 @@
 	reagent_state = LIQUID
 	color = "#333333"
 	metabolism = 0.0016 * REM
-	overdose = 5
+	overdose = 15
 	od_minimum_dose = 3
 	taste_description = "bitterness"
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")

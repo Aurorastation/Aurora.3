@@ -33,6 +33,7 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/last_clean
 	var/clean_msg = FALSE
+	fragile = 0
 
 /obj/item/reagent_containers/glass/rag/Initialize()
 	. = ..()
@@ -207,10 +208,13 @@
 		new /obj/effect/decal/cleanable/ash(get_turf(src))
 		qdel(src)
 
-//rag must have a minimum of 2 units welder fuel and at least 80% of the reagents must be welder fuel.
+//rag must have a minimum of 2 units fuel and at least 80% of the reagents must be fuel.
 //maybe generalize flammable reagents someday
 /obj/item/reagent_containers/glass/rag/proc/can_ignite()
-	var/fuel = REAGENT_VOLUME(reagents, /decl/reagent/fuel)
+	var/fuel = 0
+	for(var/fuel_type in reagents.reagent_volumes)
+		if(ispath(fuel_type, /decl/reagent/fuel) || ispath(fuel_type, /decl/reagent/alcohol))
+			fuel += reagents.reagent_volumes[fuel_type]
 	return (fuel >= 2 && fuel >= reagents.total_volume*0.8)
 
 /obj/item/reagent_containers/glass/rag/proc/ignite()
@@ -243,8 +247,13 @@
 	//ensures players always have a few seconds of burn time left when they light their rag
 	if(burn_time <= 5)
 		visible_message(SPAN_WARNING("\The [src] falls apart!"))
-		new /obj/effect/decal/cleanable/ash(get_turf(src))
-		qdel(src)
+		if(istype(loc, /obj/item/reagent_containers/food/drinks/bottle))
+			var/obj/item/reagent_containers/food/drinks/bottle/B = loc
+			B.delete_rag()
+		else
+			new /obj/effect/decal/cleanable/ash(get_turf(src))
+			qdel(src)
+		return
 	update_name()
 	update_icon()
 
@@ -263,11 +272,18 @@
 
 	if(burn_time <= 0)
 		STOP_PROCESSING(SSprocessing, src)
-		new /obj/effect/decal/cleanable/ash(location)
-		qdel(src)
+		if(istype(loc, /obj/item/reagent_containers/food/drinks/bottle))
+			var/obj/item/reagent_containers/food/drinks/bottle/B = loc
+			B.delete_rag()
+		else
+			new /obj/effect/decal/cleanable/ash(location)
+			qdel(src)
 		return
 
-	reagents.remove_reagent(/decl/reagent/fuel, reagents.maximum_volume/25)
+	for(var/fuel_type in reagents.reagent_volumes)
+		if(ispath(fuel_type, /decl/reagent/fuel) || ispath(fuel_type, /decl/reagent/alcohol))
+			reagents.remove_reagent(reagents.reagent_volumes[fuel_type], reagents.maximum_volume/25)
+			break
 	update_name()
 	update_icon()
 	burn_time--

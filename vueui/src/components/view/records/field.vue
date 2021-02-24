@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Utils from '../../../utils.js'
+import Utils from "@/utils"
 export default {
   data() {
     return {
