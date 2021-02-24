@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Examining the equipment you can attach to exosuits will now show you to which hardpoints it can be attached, and which software it requires to function."
