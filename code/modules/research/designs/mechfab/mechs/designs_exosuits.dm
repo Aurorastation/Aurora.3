@@ -39,7 +39,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 5000)
 
 /datum/design/item/mechfab/exosuit/diagnosis_unit
-	name = "Diagnosis unit"
+	name = "Diagnostics Unit"
 	build_path = /obj/item/robot_parts/robot_component/diagnosis_unit
 	time = 10
 	materials = list(DEFAULT_WALL_MATERIAL = 5000)

@@ -204,10 +204,9 @@
 			cut_delay *= 0.7
 		else if(istype(W, /obj/item/gun/energy/plasmacutter))
 			var/obj/item/gun/energy/plasmacutter/PC = W
-			if(!PC.power_supply)
-				to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+			if(PC.check_power_and_message(user))
 				return
-			dismantle_sound = "zapping and melting"
+			dismantle_sound = PC.fire_sound
 			dismantle_verb = "slicing"
 			cut_delay *= 0.8
 		else if(istype(W,/obj/item/melee/energy))
@@ -243,10 +242,7 @@
 			cut_delay *= 1.5
 
 		if(dismantle_verb)
-
 			to_chat(user, SPAN_NOTICE("You begin [dismantle_verb] through the outer plating."))
-			if(dismantle_sound)
-				playsound(src, dismantle_sound, 100, 1)
 
 			if(cut_delay<0)
 				cut_delay = 1
@@ -254,14 +250,15 @@
 			if(!do_after(user,cut_delay/W.toolspeed))
 				return
 
-
 			//This prevents runtime errors if someone clicks the same wall more than once
 			if (!istype(src, /turf/simulated/wall))
 				return
 
-			to_chat(user, SPAN_NOTICE("You remove the outer plating."))
+			if(dismantle_sound)
+				playsound(src, dismantle_sound, 100, 1)
+			W.use_resource(user, 1)
 			dismantle_wall()
-			user.visible_message(SPAN_WARNING("The wall was torn open by [user]!"))
+			user.visible_message(SPAN_WARNING("The wall was torn open by \the [user]!"), SPAN_NOTICE("You remove the outer plating."))
 			return
 
 	//Reinforced dismantling.

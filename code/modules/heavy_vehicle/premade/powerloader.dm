@@ -18,6 +18,16 @@
 /mob/living/heavy_vehicle/premade/ripley/cargo
 	h_back = /obj/item/mecha_equipment/autolathe
 
+/mob/living/heavy_vehicle/premade/ripley/janitorial
+	name = "janitorial power loader"
+	desc = "A standard cargo-handling power loader converted into a cleaning machine."
+
+	e_color = COLOR_PURPLE
+	h_l_hand = /obj/item/mecha_equipment/clamp
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/grenadecleaner
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/grenadecleaner
+	h_back = /obj/item/mecha_equipment/quick_enter
+
 /obj/item/mech_component/manipulators/ripley
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"

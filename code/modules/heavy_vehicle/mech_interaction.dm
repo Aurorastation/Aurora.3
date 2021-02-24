@@ -554,7 +554,7 @@
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves
 /mob/living/heavy_vehicle/proc/handle_hear_say(var/mob/speaker, var/text)
 	var/found_text = findtext(text, name)
-	if(!found_text)
+	if(!found_text && nickname)
 		found_text = findtext(text, nickname)
 	if(found_text)
 		text = copytext(text, found_text) // I'm trimming the text each time so only information stated after eachother is valid
