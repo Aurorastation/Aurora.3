@@ -578,11 +578,10 @@
 			H.flash_pain(H.get_shock())
 
 	if((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
-		if(!calculation)
-			H.m_intent = M_WALK
-			H.hud_used.move_intent.update_move_icon(H)
-			to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
-			H.flash_pain(H.get_shock())
+		H.m_intent = M_WALK
+		H.hud_used.move_intent.update_move_icon(H)
+		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
+		H.flash_pain(H.get_shock())
 		return 0
 
 	if(!calculation)
