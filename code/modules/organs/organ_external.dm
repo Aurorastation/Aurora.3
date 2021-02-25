@@ -1434,7 +1434,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	pain = max(0, min(max_damage, pain + amount))
+	var/threshold = max_damage * 3
+	to_world("Max of 0 of min of [threshold] and [pain] + [amount]. Last pain here is [last_pain]")
+	pain = max(0, min(threshold, pain + amount))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
+	to_world("Pain - last_pain: [pain] - [last_pain]")
 	return pain-last_pain

@@ -229,6 +229,7 @@ Pins Below.
 	return !isStationLevel(T.z)
 
 var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+#define MINIMUM_AGONY_FOR_STUN_MODE 15
 
 /obj/item/device/firing_pin/wireless
 	name = "wireless-control firing pin"
@@ -260,7 +261,8 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 
 /*
 	The return of this pin_auth is dependent on the wireless pin's lockstatus. For the purposes of this, only energy projectiles
-	that have a taser_effect are considered "stun" projectiles. All ballistic firearms are considered as being lethal, regardless
+	that have damage_type of PAIN or that do considerably more agony damage with a normal damage of <= 1
+	are considered nonlethal. All ballistic firearms are considered as being lethal, regardless
 	of ammunition loaded. Behaviours should be as follows:
 	Automatic: The weapon will only fire on stun while the security level is Green or Blue. On Yellow, Red & Delta alert the weapon is unrestricted
 	Disabled: The weapon will not fire under any circumstance.
@@ -289,12 +291,12 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			if(!P)
 				fail_message = "Unable to fire - Internal Error"
 				return FALSE
-			if(!P.taser_effect)
+			if(P.damage_type != PAIN || (P.damage <= 1 && P.agony >= MINIMUM_AGONY_FOR_STUN_MODE))
 				fail_message = "Unable to fire - Weapon not in stun-mode"
 				return FALSE
 			return TRUE
 		else
-			fail_message = "Unable to fire - Weapon has not stun-mode"
+			fail_message = "Unable to fire - Weapon doesn't have a stun-mode"
 			return FALSE
 
 	else //Automatic Mode
@@ -304,7 +306,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			if(!P)
 				fail_message = "Unable to fire - Internal Error"
 				return FALSE
-			if(P.taser_effect) //The gun can always be used on stun
+			if(P.damage_type == PAIN || (P.damage <= 1 && P.agony >= MINIMUM_AGONY_FOR_STUN_MODE)) //The gun can always be used on stun if the damage type is pain or if it's reasonably a stun weapon.
 				return TRUE
 			else if (security_level == SEC_LEVEL_YELLOW || security_level == SEC_LEVEL_RED)
 				return TRUE

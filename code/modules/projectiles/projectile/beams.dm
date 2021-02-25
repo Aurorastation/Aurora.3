@@ -171,7 +171,6 @@
 	name = "stun beam"
 	icon_state = "stun"
 	nodamage = 1
-	taser_effect = 1
 	sharp = 0
 	eyeblur = 1
 	agony = 40

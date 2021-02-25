@@ -188,7 +188,7 @@
 				L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
 
 	//stun effects
-	L.stun_effect_act(stun, agony, used_weapon = src, damage_flags = DAM_DISPERSED)
+	L.stun_effect_act(stun, agony, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 

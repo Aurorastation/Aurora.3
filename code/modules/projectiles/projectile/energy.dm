@@ -50,7 +50,6 @@
 	icon_state = "spark"
 	damage = 2 //Flavor.
 	damage_type = BURN
-	taser_effect = 1
 	agony = 40
 	eyeblur = 1
 	//Damage will be handled on the MOB side, to prevent window shattering.
@@ -58,7 +57,6 @@
 /obj/item/projectile/energy/electrode/stunshot
 	name = "stunshot"
 	damage = 5
-	taser_effect = 1
 	agony = 80
 
 /obj/item/projectile/energy/declone
@@ -208,10 +206,9 @@
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
-	agony = 30
+	agony = 35
 	speed = 0.4
 	damage_type = PAIN // Can't blow your own head off with a stunbolt.
-	taser_effect = TRUE
 	eyeblur = TRUE
 	pass_flags = PASSTABLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
