@@ -193,7 +193,7 @@
 /obj/item/projectile/beam/hivebot
 	name = "electrical discharge"
 	damage = 10
-	damage_type = PAIN
+	damage_type = BURN
 	agony = 30
 	armor_penetration = 40
 	muzzle_type = /obj/effect/projectile/muzzle/stun

@@ -76,13 +76,15 @@
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
-	damage_type = PAIN
+	damage = 1
+	damage_type = BURN
 	agony = 45
 	stutter = 10
 
 /obj/item/projectile/energy/bolt/large
 	name = "largebolt"
-	damage_type = PAIN
+	damage = 2
+	damage_type = BURN
 	agony = 60
 
 /obj/item/projectile/energy/neurotoxin
@@ -206,9 +208,10 @@
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
-	agony = 45
+	damage = 1
+	agony = 35
 	speed = 0.4
-	damage_type = PAIN // Can't blow your own head off with a stunbolt.
+	damage_type = BURN
 	eyeblur = TRUE
 	pass_flags = PASSTABLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
