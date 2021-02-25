@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Sprinting will now only drain your resources and deal damage if you managed to successfully move. The only exception is the calculation for when you're out of breath, as it will still make you hurt."

@@ -128,7 +128,7 @@
 
 	alterable_internal_organs = list()
 
-/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
+/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost, var/calculation, var/post_calculation)
 	var/datum/dionastats/DS = H.get_dionastats()
 
 	if (!DS)
@@ -136,25 +136,28 @@
 
 	var/remainder = cost * H.sprint_cost_factor
 
-	if (H.total_radiation && !DS.regening_organ)
+	if(H.total_radiation && !DS.regening_organ)
 		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
-			H.apply_radiation(cost*(-0.5))
+			if(!calculation)
+				H.apply_radiation(cost*(-0.5))
 			return 1
 		else
 			remainder = cost - (H.total_radiation*2)
 			H.total_radiation = 0
 
 	if (DS.stored_energy > remainder)
-		DS.stored_energy -= remainder
+		if(!calculation)
+			DS.stored_energy -= remainder
 		return 1
 	else
-		remainder -= DS.stored_energy
-		DS.stored_energy = 0
-		H.adjustHalLoss(remainder*5, 1)
-		H.updatehealth()
-		H.m_intent = M_WALK
-		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
+		if(!calculation)
+			remainder -= DS.stored_energy
+			DS.stored_energy = 0
+			H.adjustHalLoss(remainder*5, 1)
+			H.updatehealth()
+			H.m_intent = M_WALK
+			H.hud_used.move_intent.update_move_icon(H)
+			to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0
 
 /datum/species/diona/can_understand(var/mob/other)

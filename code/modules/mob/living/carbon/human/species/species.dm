@@ -529,7 +529,8 @@
 		prescriptions -= H.equipment_prescription
 	return Clamp(prescriptions, 0, 7)
 
-/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+// if calculation is true, it won't sap resources
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/calculation, var/post_calculation)
 	if (!H.exhaust_threshold)
 		return 1 // Handled.
 
@@ -541,44 +542,51 @@
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
 	if(C && !C.is_broken())
 		cost = 0
-		C.do_run_act()
+		if(!calculation)
+			C.do_run_act()
 
 	var/remainder = 0
 	if (H.stamina > cost)
-		H.stamina -= cost
-		H.hud_used.move_intent.update_move_icon(H)
+		if(!calculation)
+			H.stamina -= cost
+			H.hud_used.move_intent.update_move_icon(H)
 		return 1
 	else if (H.stamina > 0)
 		remainder = cost - H.stamina
-		H.stamina = 0
+		if(!calculation)
+			H.stamina = 0
 	else
 		remainder = cost
 
-	if(H.disabilities & ASTHMA)
+	if(!calculation && (H.disabilities & ASTHMA))
 		H.adjustOxyLoss(remainder*0.15)
 
-	if(H.disabilities & COUGHING)
+	if(!calculation && (H.disabilities & COUGHING))
 		H.adjustHalLoss(remainder*0.1)
 
-	if (breathing_organ && has_organ[breathing_organ])
+	if(!calculation && breathing_organ && has_organ[breathing_organ])
 		var/obj/item/organ/O = H.internal_organs_by_name[breathing_organ]
 		if(O.is_bruised())
 			H.adjustOxyLoss(remainder*0.15)
 			H.adjustHalLoss(remainder*0.25)
 
-	H.adjustHalLoss(remainder*0.25)
-	H.updatehealth()
-	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
-		H.flash_pain(H.get_shock())
+	// so trying to run when you can't run will still give negative effects
+	if(calculation && !post_calculation)
+		H.adjustHalLoss(remainder*0.25)
+		H.updatehealth()
+		if((H.get_shock() >= 10) && prob(H.get_shock() *2))
+			H.flash_pain(H.get_shock())
 
-	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
-		H.m_intent = M_WALK
-		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
-		H.flash_pain(H.get_shock())
+	if((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
+		if(!calculation)
+			H.m_intent = M_WALK
+			H.hud_used.move_intent.update_move_icon(H)
+			to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
+			H.flash_pain(H.get_shock())
 		return 0
 
-	H.hud_used.move_intent.update_move_icon(H)
+	if(!calculation)
+		H.hud_used.move_intent.update_move_icon(H)
 	return 1
 
 /datum/species/proc/get_light_color(mob/living/carbon/human/H)
