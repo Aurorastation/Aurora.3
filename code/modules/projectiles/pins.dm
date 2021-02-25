@@ -19,6 +19,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	var/fail_message = "<span class='warning'>INVALID USER.</span>"
 	var/selfdestruct = 0 // Explode when user check is failed.
 	var/force_replace = 0 // Can forcefully replace other pins.
+	var/dusts_on_remove = FALSE // will dust the gun when it gets removed
 	var/pin_replaceable = 0 // Can be replaced by any pin.
 	var/durable = FALSE //is destroyed when it's pried out with a screwdriver, see gun.dm
 	var/obj/item/gun/gun
@@ -61,10 +62,14 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	return
 
 /obj/item/device/firing_pin/proc/gun_remove(mob/living/user)
-	gun.pin = null
-	gun = null
-	qdel(src)
-	return
+	if(dusts_on_remove)
+		gun.visible_message(SPAN_WARNING("\The [gun] crumbles into dust!"))
+		new /obj/effect/decal/cleanable/ash(get_turf(gun))
+		qdel(gun)
+	else
+		gun.pin = null
+		gun = null
+		user.put_in_hands(src)
 
 /obj/item/device/firing_pin/proc/pin_auth(mob/living/user)
 	return 1
@@ -356,5 +361,16 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it chimes as it registers your identity."))
 		registered_user = idcard.registered_name
+		return TRUE
+	return FALSE
+
+// these pins only allow you to kill injured personnel
+/obj/item/device/firing_pin/medical
+	name = "damage control firing pin"
+	fail_message = "<span class='warning'>You can do a better job than that!</span>"
+	dusts_on_remove = TRUE
+
+/obj/item/device/firing_pin/medical/pin_auth(mob/living/user, mob/living/target)
+	if(istype(target) && target.is_asystole())
 		return TRUE
 	return FALSE

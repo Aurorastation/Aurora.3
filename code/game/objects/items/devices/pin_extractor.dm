@@ -41,6 +41,11 @@
 					return
 
 				to_chat(user, "<span class ='notice'>You remove [G.name]'s [G.pin.name].</span>")
+				if(G.pin.dusts_on_remove)
+					visible_message(SPAN_WARNING("\The [G] crumbles into dust!"))
+					new /obj/effect/decal/cleanable/ash(get_turf(G))
+					qdel(G)
+					return
 				G.pin.forceMove(get_turf(G))
 				G.pin.gun = null
 				G.pin = null

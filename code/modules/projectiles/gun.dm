@@ -191,7 +191,7 @@
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
 //Otherwise, if you want handle_click_empty() to be called, check in consume_next_projectile() and return null there.
-/obj/item/gun/proc/special_check(var/mob/user)
+/obj/item/gun/proc/special_check(var/mob/user, var/mob/target)
 	if(!isliving(user))
 		return FALSE
 	if(!user.IsAdvancedToolUser())
@@ -229,7 +229,7 @@
 		return FALSE
 
 	if(pin && needspin)
-		if(pin.pin_auth(user) || pin.emagged)
+		if(pin.pin_auth(user, target) || pin.emagged)
 			return TRUE
 		else
 			pin.auth_fail(user)
@@ -282,7 +282,7 @@
 			handle_click_empty(user)
 			return FALSE
 
-	if(!special_check(user))
+	if(!special_check(user, target))
 		return FALSE
 
 	var/failure_chance = 100 - reliability
@@ -408,7 +408,7 @@
 
 //used by aiming code
 /obj/item/gun/proc/can_hit(atom/target, var/mob/living/user)
-	if(!special_check(user))
+	if(!special_check(user, target))
 		return 2
 	//just assume we can shoot through glass and stuff. No big deal, the player can just choose to not target someone
 	//on the other side of a window if it makes a difference. Or if they run behind a window, too bad.
@@ -911,6 +911,11 @@
 		if(do_after(user,45 SECONDS,act_target = src))
 			if(pin.durable || prob(50))
 				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
+				if(pin.dusts_on_remove)
+					visible_message(SPAN_WARNING("\The [src] crumbles into dust!"))
+					new /obj/effect/decal/cleanable/ash(get_turf(src))
+					qdel(src)
+					return
 				pin.forceMove(get_turf(src))
 				user.put_in_hands(pin)
 				pin = null//clear it out.

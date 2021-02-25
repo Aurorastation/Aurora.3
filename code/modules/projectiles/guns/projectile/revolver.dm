@@ -51,6 +51,9 @@
 	ammo_type = /obj/item/ammo_casing/a454
 	magazine_type = /obj/item/ammo_magazine/a454
 
+/obj/item/gun/projectile/revolver/mateba/cmo
+	pin = /obj/item/device/firing_pin/medical
+
 /obj/item/gun/projectile/revolver/detective
 	name = "revolver"
 	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."

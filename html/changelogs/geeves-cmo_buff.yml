@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The CMO locker now spawns with a mateba that can only terminate asystole patients. Triage has never been easier."
