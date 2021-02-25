@@ -236,23 +236,26 @@
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
 	edge = 1
+	var/possible_blade_colors = "{'red':1,'blue':1,'green':1,'purple':1}"
 	var/blade_color
 	shield_power = 75
 
-/obj/item/melee/energy/sword/New()
-	blade_color = pick("red","blue","green","purple")
+/obj/item/melee/energy/sword/Initialize()
+	. = ..()
+	blade_color = pick(json_decode(possible_blade_colors))
 
-/obj/item/melee/energy/sword/green/New()
+/obj/item/melee/energy/sword/green
+	possible_blade_colors = "{'green':1}"
 	blade_color = "green"
 
-/obj/item/melee/energy/sword/red/New()
-	blade_color = "red"
+/obj/item/melee/energy/sword/red
+	possible_blade_colors = "{'red':1}"
 
-/obj/item/melee/energy/sword/blue/New()
-	blade_color = "blue"
+/obj/item/melee/energy/sword/blue
+	possible_blade_colors = "{'blue':1}"
 
-/obj/item/melee/energy/sword/purple/New()
-	blade_color = "purple"
+/obj/item/melee/energy/sword/purple
+	possible_blade_colors = "{'blue':1}"
 
 /obj/item/melee/energy/sword/activate(mob/living/user)
 	if(!active)

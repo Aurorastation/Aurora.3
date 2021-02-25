@@ -64,8 +64,8 @@
 	var/wight_check_index = 1
 	var/list/shadow_wights = list()
 
-/obj/item/vampiric/New()
-	..()
+/obj/item/vampiric/Initialize()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	listening_objects += src
 
@@ -157,8 +157,8 @@
 	var/turf/target_turf
 	var/loc_last_process
 
-/obj/effect/decal/cleanable/blood/splatter/animated/New()
-	..()
+/obj/effect/decal/cleanable/blood/splatter/animated/Initialize(mapload)
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	loc_last_process = src.loc
 
@@ -192,7 +192,8 @@
 	icon_state = "shade"
 	density = 1
 
-/obj/effect/shadow_wight/New()
+/obj/effect/shadow_wight/Initialize(mapload, ...)
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/shadow_wight/Destroy()

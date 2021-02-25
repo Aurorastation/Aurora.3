@@ -20,7 +20,8 @@
 	var/force_piano = FALSE
 	var/broken = 0 //Whether or not the piano can actually be played.
 
-/obj/structure/device/piano/New()
+/obj/structure/device/piano/Initialize(mapload)
+	. = ..()
 	if(prob(50) && !force_piano)
 		name = "space minimoog"
 		desc = "This is a minimoog, like a space piano, but more spacey!"

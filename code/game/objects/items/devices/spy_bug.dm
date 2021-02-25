@@ -19,8 +19,8 @@
 	var/obj/item/device/radio/spy/radio
 	var/obj/machinery/camera/spy/camera
 
-/obj/item/device/spy_bug/New()
-	..()
+/obj/item/device/spy_bug/Initialize()
+	. = ..()
 	radio = new(src)
 	camera = new(src)
 	listening_objects += src
@@ -67,7 +67,8 @@
 	var/obj/machinery/camera/spy/selected_camera
 	var/list/obj/machinery/camera/spy/cameras = new()
 
-/obj/item/device/spy_monitor/New()
+/obj/item/device/spy_monitor/Initialize()
+	. = ..()
 	radio = new(src)
 	listening_objects += src
 

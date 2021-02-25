@@ -1,8 +1,11 @@
 // If you add a more comprehensive system, just untick this file.
 // WARNING: Only works for up to 17 z-levels!
 
+/obj/effect/landmark/map_data
+	add_to_landmark_list = FALSE
+
 // If the height is more than 1, we mark all contained levels as connected.
-/obj/effect/landmark/map_data/New()
+/obj/effect/landmark/map_data/do_landmark_action()
 	SSatlas.height_markers += src
 
 /obj/effect/landmark/map_data/proc/setup()

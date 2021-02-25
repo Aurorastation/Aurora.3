@@ -799,7 +799,6 @@
 	SearchVar(sent_faxes)
 	SearchVar(alldepartments)
 	SearchVar(admin_departments)
-	SearchVar(photo_count)
 	SearchVar(possible_cable_coil_colours)
 	SearchVar(rad_collectors)
 	SearchVar(blacklisted_tesla_types)
