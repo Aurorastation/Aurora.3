@@ -15,7 +15,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/energy/disruptorstun
 	secondary_projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 8
+	max_shots = 10
 	charge_cost = 150
 	accuracy = 1
 	has_item_ratio = FALSE
@@ -34,7 +34,7 @@
 	name = "miniature disruptor pistol"
 	desc = "A Nanotrasen designed blaster pistol with two settings: stun and lethal. This is the miniature version."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolc.dmi'
-	max_shots = 6
+	max_shots = 8
 	force = 3
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_POCKET
 	w_class = ITEMSIZE_SMALL
@@ -46,7 +46,7 @@
 	name = "magnum disruptor pistol"
 	desc = "A Nanotrasen designed blaster pistol with two settings: stun and lethal. This is the magnum version."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolm.dmi'
-	max_shots = 12
+	max_shots = 15
 	force = 6
 
 /obj/item/gun/energy/disruptorpistol/magnum/security
