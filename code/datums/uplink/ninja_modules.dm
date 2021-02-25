@@ -63,3 +63,9 @@
 	desc = "A chemical injector that allows the user to inject themsleves with combat chemicals."
 	item_cost = 4
 	path = /obj/item/rig_module/chem_dispenser/combat
+
+/datum/uplink_item/item/ninja_modules/self_destruct
+	name = "Self-destruct Module"
+	desc = "A Self-destruct Module that causes an explosion when the user dies or presses the switch."
+	item_cost = 8
+	path = 	/obj/item/rig_module/self_destruct
