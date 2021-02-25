@@ -626,6 +626,7 @@
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
 
 		sprint_speed_factor = species.sprint_speed_factor
+		max_stamina = species.stamina
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 		move_delay_mod = 0
