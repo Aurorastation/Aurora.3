@@ -31,15 +31,12 @@
 	movement_range = 20
 	energy = 50
 
-/obj/effect/accelerated_particle/New(loc, dir = 2)
-	src.forceMove(loc)
-	src.set_dir(dir)
+/obj/effect/accelerated_particle/Initialize(mapload, dir = SOUTH)
+	. = ..()
+	set_dir(dir)
 	if(movement_range > 20)
 		movement_range = 20
-	spawn(0)
-		move(1)
-	return
-
+	INVOKE_ASYNC(src, .proc/move, 1)
 
 /obj/effect/accelerated_particle/Collide(atom/A)
 	. = ..()
