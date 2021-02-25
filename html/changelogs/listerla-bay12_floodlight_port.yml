@@ -1,0 +1,9 @@
+
+
+author: listerla
+
+Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes:
+  - imageadd: "Ported directional floodlights from Baystation 12."
