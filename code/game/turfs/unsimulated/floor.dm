@@ -37,7 +37,6 @@
 // It's a placeholder turf, don't do anything special.
 // These shouldn't exist by the time SSatoms runs.
 /turf/unsimulated/mask/New()
-	SHOULD_NOT_OVERRIDE(FALSE)
 	return
 
 /turf/unsimulated/mask/Initialize()
@@ -45,7 +44,6 @@
 	return
 
 /turf/unsimulated/chasm_mask/New()
-	SHOULD_NOT_OVERRIDE(FALSE)
 	return
 
 /turf/unsimulated/floor/shuttle_ceiling

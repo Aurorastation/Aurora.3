@@ -6,7 +6,6 @@
 	var/timeout_timer
 
 /mob/abstract/unauthed/New()
-	SHOULD_NOT_OVERRIDE(FALSE)
 	verbs -= typesof(/mob/verb)
 
 /mob/abstract/unauthed/LateLogin()
