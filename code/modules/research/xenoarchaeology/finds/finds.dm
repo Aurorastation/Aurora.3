@@ -37,7 +37,7 @@
 
 	//method = rand(0,2)
 	if(inside_item_type)
-		inside = new/obj/item/archaeological_find(src, new_item_type = inside_item_type)
+		inside = new /obj/item/archaeological_find(src, inside_item_type)
 		if(!inside)
 			inside = locate() in contents
 
