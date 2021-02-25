@@ -106,7 +106,7 @@
 	name = "flashbang launcher"
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
 	icon_state = "mech_gl"
-	holding_type = /obj/item/gun/launcher/mech/mountedfl
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/fl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
@@ -114,7 +114,7 @@
 	name = "teargas launcher"
 	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
 	icon_state = "mech_gl"
-	holding_type = /obj/item/gun/launcher/mech/mountedtgl
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/tg
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
@@ -122,7 +122,7 @@
 	name = "smoke grenade launcher"
 	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
 	icon_state = "mech_gl"
-	holding_type = /obj/item/gun/launcher/mech/mountedsgl
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/sm
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
@@ -189,6 +189,8 @@
 	item_state = "smg"
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
 
+	var/grenade_type = /obj/item/grenade/frag
+
 	release_force = 5
 	throw_distance = 7
 	proj = 5
@@ -197,83 +199,37 @@
 
 
 /obj/item/gun/launcher/mech/mountedgl/consume_next_projectile()
-	if(proj < 1) return null
-	var/obj/item/grenade/frag/g = new (src)
+	if(proj < 1)
+		return null
+	var/obj/item/grenade/g = new grenade_type(src)
 	g.det_time = 10
 	g.activate(null)
 	proj--
 	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
 	return g
 
-/obj/item/gun/launcher/mech/mountedfl
-	name = "mounted grenade launcher"
+/obj/item/gun/launcher/mech/mountedgl/fl
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
-	icon = 'icons/obj/robot_items.dmi'
-	icon_state = "smg"
-	item_state = "smg"
-	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-
-	release_force = 5
-	throw_distance = 7
-	proj = 5
-	max_proj = 5
+	grenade_type = /obj/item/grenade/flashbang
 	proj_gen_time = 200
 
-
-/obj/item/gun/launcher/mech/mountedfl/consume_next_projectile()
-	if(proj < 1) return null
-	var/obj/item/grenade/flashbang/g = new (src)
-	g.det_time = 10
-	g.activate(null)
-	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
-	return g
-
-/obj/item/gun/launcher/mech/mountedtgl
+/obj/item/gun/launcher/mech/mountedgl/tg
 	name = "mounted teargas launcher"
 	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
-	icon = 'icons/obj/robot_items.dmi'
-	icon_state = "smg"
-	item_state = "smg"
-	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-
-	release_force = 5
-	throw_distance = 7
-	proj = 3
-	max_proj = 3
+	grenade_type = /obj/item/grenade/chem_grenade/teargas
 	proj_gen_time = 200
 
-/obj/item/gun/launcher/mech/mountedtgl/consume_next_projectile()
-	if(proj < 1) return null
-	var/obj/item/grenade/chem_grenade/teargas/tg = new (src)
-	tg.det_time = 10
-	tg.activate(null)
-	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
-	return tg
-
-/obj/item/gun/launcher/mech/mountedsgl
+/obj/item/gun/launcher/mech/mountedgl/sm
 	name = "mounted smoke launcher"
 	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
-	icon = 'icons/obj/robot_items.dmi'
-	icon_state = "smg"
-	item_state = "smg"
-	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-
-	release_force = 5
-	throw_distance = 7
-	proj = 3
-	max_proj = 3
+	grenade_type = /obj/item/grenade/smokebomb
 	proj_gen_time = 200
 
-/obj/item/gun/launcher/mech/mountedsgl/consume_next_projectile()
-	if(proj < 1) return null
-	var/obj/item/grenade/smokebomb/sg = new (src)
-	sg.det_time = 10
-	sg.activate(null)
-	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
-	return sg
+/obj/item/gun/launcher/mech/mountedgl/cl
+	name = "mounted cleaner launcher"
+	desc = "The SGL-6CL grenade launcher is designed to launch primed cleaner grenades."
+	grenade_type = /obj/item/grenade/chem_grenade/cleaner
+	proj_gen_time = 200
 
 /obj/item/gun/launcher/mech/get_hardpoint_maptext()
 	return "[proj]/[max_proj]"
