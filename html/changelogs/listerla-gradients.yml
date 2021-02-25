@@ -1,0 +1,5 @@
+author: listerla
+
+delete-after: True
+
+  - imageadd: "Ported 'Reflected', 'Reflected (Inverse), and 'Wavy' hair gradients from World Server."

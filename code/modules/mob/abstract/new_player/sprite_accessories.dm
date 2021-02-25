@@ -1639,6 +1639,18 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Horizontal Split"
 		icon_state = "hsplit"
 
+	reflected
+		name = "Reflected"
+		icon_state = "reflected"
+
+	reflected_inverse
+		name = "Reflected (Inverse)"
+		icon_state = "reflected_inverse"
+
+	wavy
+		name = "Wavy"
+		icon_state = "wavy"
+
 	taj_inner_ear_fur
 		name = "Inner Ear Fur"
 		icon_state = "taj_innerearfur"
