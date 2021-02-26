@@ -22366,10 +22366,6 @@
 /area/medical/medbay4)
 "aVg" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/clothing/shoes/white{
-	pixel_x = 4;
-	pixel_y = -8
-	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aVi" = (
