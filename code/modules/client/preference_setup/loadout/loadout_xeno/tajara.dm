@@ -44,6 +44,7 @@
 	path = /obj/item/clothing/accessory/poncho/tajarancloak
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
+	cost = 1
 
 /datum/gear/suit/tajara_cloak/New()
 	..()
