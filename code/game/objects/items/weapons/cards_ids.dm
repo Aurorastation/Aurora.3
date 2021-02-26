@@ -576,6 +576,15 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "necro_card"
 	overlay_state = "necro_card"
 
+/obj/item/card/id/jargon
+	name = "\improper Jardon Federation identification card"
+	desc = "A sleek holobadge, identifying the owner as a Jargon Federation citizen authorized to work abroad."
+	icon_state = "jargon_card"
+	overlay_state = "jargon_card"
+
+/obj/item/card/id/jargon/human // ........... just in case ;)
+	icon_state = "jargon_card_human"
+
 /obj/item/card/id/zavodskoi/sec
 	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
 	icon_state = "necrosec_card"

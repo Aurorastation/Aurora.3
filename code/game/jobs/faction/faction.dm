@@ -44,7 +44,7 @@
 		return "No valid species selected."
 
 	if (!is_type_in_typecache(S, allowed_species_types))
-		return "Invalid species selected."
+		return "The selected species can't be a member of this faction."
 
 	return null
 

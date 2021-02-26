@@ -54,20 +54,28 @@
 		averagetypes[initial(average.name)] = average
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(averagetypes))
 
-/datum/gear/accessory/capes
-	display_name = "shoulder capes"
-	path = /obj/item/clothing/accessory/poncho/shouldercape
+/datum/gear/accessory/starcapes
+	display_name = "star capes"
+	path = /obj/item/clothing/accessory/poncho/starcape
 	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/accessory/capes/New()
 	..()
 	var/capes = list()
-	capes["star cape"] = /obj/item/clothing/accessory/poncho/shouldercape/star
-	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nebula
-	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
-	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
+	capes["star cape"] = /obj/item/clothing/accessory/poncho/starcape
+	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/starcape/nebula
+	capes["nova cape"] = /obj/item/clothing/accessory/poncho/starcape/nova
+	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/starcape/galaxy
 	gear_tweaks += new/datum/gear_tweak/path(capes)
+
+/datum/gear/accessory/shouldercape
+	display_name = "shoulder cape"
+	path = /obj/item/clothing/accessory/poncho/shoulder_cape
+	slot = slot_wear_suit
+	whitelisted = list(SPECIES_SKRELL)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/skrell
 	display_name = "qeblak ceremonial garment"

@@ -178,7 +178,7 @@
 	name = "tie with a gold clip"
 	build_from_parts = TRUE
 	worn_overlay = "clip"
-	
+
 /obj/item/clothing/accessory/tie/colourable/clip/silver
 	name = "tie with a silver clip"
 	worn_overlay = "sclip"
@@ -450,42 +450,6 @@
 	desc = "A simple dark blue cloak awarded by NanoTrasen for failing the introductory literacy test."
 	icon_state = "seccloak"
 	item_state = "seccloak"
-
-/obj/item/clothing/accessory/poncho/shouldercape
-	name = "shoulder cape"
-	desc = "A simple shoulder cape."
-	desc_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
-	icon_state = "starcape"
-	item_state = "starcape"
-	flippable = 1
-
-/obj/item/clothing/accessory/poncho/shouldercape/star
-	name = "star cape"
-	desc = "A simple looking cape with a couple of runes woven into the fabric."
-	icon_state = "starcape"
-	item_state = "starcape"
-	overlay_state = "starcape"
-
-/obj/item/clothing/accessory/poncho/shouldercape/nebula
-	name = "nebula cape"
-	desc = "A decorated cape. Starry patterns have been woven into the fabric."
-	icon_state = "nebulacape"
-	item_state = "nebulacape"
-	overlay_state = "nebulacape"
-
-/obj/item/clothing/accessory/poncho/shouldercape/nova
-	name = "nova cape"
-	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it"
-	icon_state = "novacape"
-	item_state = "novacape"
-	overlay_state = "novacape"
-
-/obj/item/clothing/accessory/poncho/shouldercape/galaxy
-	name = "galaxy cape"
-	desc = "An extremely decorated cape with an intricately made design has been woven into the fabric of this cape with great care."
-	icon_state = "galaxycape"
-	item_state = "galaxycape"
-	overlay_state = "galaxycape"
 
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"

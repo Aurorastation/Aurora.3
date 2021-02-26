@@ -169,10 +169,10 @@
 		S.attach_accessory(H, A)
 
 /datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	//to be overriden for changing items post equip (such as toggeling internals, ...)
+	//to be overriden for changing items post equip (such as toggling internals, ...)
 
 /datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	//Start with uniform,suit,backpack for additional slots
+	//Start with uniform, suit, backpack for additional slots
 	if(back)
 		equip_item(H, back, slot_back)
 	if(uniform)
