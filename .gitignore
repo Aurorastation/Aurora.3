@@ -18,3 +18,8 @@ __pycache__/
 /.atom-build.json
 .vscode/
 .vs/
+config/example/admins.txt
+config/example/config.txt
+config/example/custom_items.txt
+config/example/dbconfig.txt
+config/example/tips.txt

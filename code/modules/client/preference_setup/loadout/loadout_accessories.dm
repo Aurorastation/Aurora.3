@@ -284,3 +284,19 @@
 	gadpathur["industrial cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/ind
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
+
+/datum/gear/accessory/dominia/sash
+	display_name = "dominian house sash selection"
+	description = "A selection of sashes representing the Great Houses of Dominia."
+	path = "/obj/item/clothing/accessory/dominia/sash"
+
+/datum/gear/accessory/dominia/sash/New()
+	..()
+	var/dominia = list()
+	dominia["dominian sash"] = /obj/item/clothing/accessory/dominia/sash
+	dominia["strelitz sash"] = /obj/item/clothing/accessory/dominia/sash/strelitz
+	dominia["volvalaad sash"] = /obj/item/clothing/accessory/dominia/sash/volvalaad
+	dominia["kazhkz sash"] = /obj/item/clothing/accessory/dominia/sash/kazhkz
+	dominia["caladius sash"] = /obj/item/clothing/accessory/dominia/sash/caladius
+	dominia["zhao sash"] =/obj/item/clothing/accessory/dominia/sash/zhao
+	gear_tweaks += new/datum/gear_tweak/path(dominia)

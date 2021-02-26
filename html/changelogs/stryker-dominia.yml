@@ -1,0 +1,8 @@
+author: NewOriginalSchwann, DasFox
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a consular-restricted Tribunalist priest outfit, beret, and cape in the loadout religion tab."
+  - rscadd: "Adds Dominian House sashes to the loadout accessories tab."
+  - rscadd: "Adds a Dominian consular greatcoat, hat, and uniform to the loadout suits, hats, and uniforms tab respectively.

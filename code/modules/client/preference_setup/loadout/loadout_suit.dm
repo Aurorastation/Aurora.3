@@ -298,6 +298,12 @@
 	coat["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
+/datum/gear/suit/dominia/consular
+	display_name = "dominian consular officer greatcoat"
+	description = "A Dominian great coat belonging to the Diplomatic Service."
+	path = /obj/item/clothing/suit/storage/dominia/consular
+	allowed_roles = list("Consular Officer")
+
 /datum/gear/suit/tcfl
 	display_name = "Tau Ceti Foreign Legion jacket selection"
 	description = "A selection of fine, surplus jackets of the Foreign Legion."

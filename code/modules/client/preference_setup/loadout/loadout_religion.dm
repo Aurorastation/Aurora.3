@@ -68,3 +68,21 @@
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"
 	path = /obj/item/cane/shaman
+
+/datum/gear/religion/dominia/robe_consular
+	display_name = "tribunalist consular uniform"
+	description = "The traditional red-black-gold uniform of a priestly member of His Majesty's Diplomatic Service."
+	path = /obj/item/clothing/under/dominia/priest/consular
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/religion/dominia/beret_consular
+	display_name = "tribunalist consular beret"
+	description = "A n elegant and well-tailored gold-and-red beret worn by priestly members of His Majesty's Diplomatic Service."
+	path = /obj/item/clothing/head/beret/dominia/consular
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/religion/dominia/cape_consular
+	display_name = "tribunalist cousular cape"
+	description = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
+	path = /obj/item/clothing/accessory/poncho/dominia/consular
+	allowed_roles = list("Consular Officer")
