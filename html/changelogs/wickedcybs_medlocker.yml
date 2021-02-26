@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Physician lockers now contain one medical helmet."
+  - tweak: "The sublevel 'physician lockers' are renamed to 'medical equipment locker' and have had one medical helmet added to their storages."
