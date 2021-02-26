@@ -31616,9 +31616,6 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/effect/floor_decal/corner/grey{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bcb" = (
@@ -32455,9 +32452,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/grey{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
