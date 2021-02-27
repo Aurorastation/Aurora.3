@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscdel: "Removed the advanced weapons software for exosuits, all combat gear now work with the standard weapon software."
