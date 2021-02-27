@@ -124,7 +124,7 @@
 	icon_up = "newgibson_up"
 
 
-//////////////////////////////i'm adding a bunch of these slashes to look cool////////////////////////////__detect_rust_g()
+//////////////////////////////i'm adding a bunch of these slashes to look cool////////////////////////////
 /obj/structure/banner/scc
 	name = "Stellar Corporate Conglomerate banner"
 	desc = "A deep blue banner adorned with the logo of the Stellar Corporate Conglomerate."
