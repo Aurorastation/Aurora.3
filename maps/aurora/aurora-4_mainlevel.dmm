@@ -31582,20 +31582,10 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
-/obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone,
-/obj/machinery/firealarm/north,
+/obj/machinery/atmospherics/unary/cryo_cell,
 /turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "bca" = (
@@ -31631,9 +31621,7 @@
 /obj/machinery/body_scanconsole{
 	dir = 4
 	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "bcc" = (
@@ -32435,10 +32423,10 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
 	},
-/obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -32453,6 +32441,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bdF" = (
@@ -34008,9 +33997,16 @@
 	c_tag = "Medical - Intensive Care Unit";
 	dir = 4
 	},
-/obj/structure/bed/chair/plastic{
-	dir = 4
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = -5;
+	pixel_y = 5
 	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bgq" = (
@@ -34041,6 +34037,9 @@
 /obj/machinery/iv_drip,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
@@ -39682,13 +39681,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "bqI" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "west bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "bqJ" = (
@@ -39717,6 +39725,10 @@
 	},
 /obj/machinery/sleeper{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
@@ -40119,10 +40131,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "brN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
@@ -40132,6 +40148,14 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
@@ -40159,10 +40183,6 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - General Treatment 1";
 	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
 	},
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer,
@@ -41844,30 +41864,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
-"bvr" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
-	},
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay)
-"bvs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/gen_treatment)
 "bvt" = (
 /obj/machinery/body_scanconsole{
 	dir = 4
@@ -103811,7 +103807,7 @@ bqG
 brK
 bqG
 bqG
-bvr
+bqG
 bwg
 bqG
 brK
@@ -104068,7 +104064,7 @@ bpD
 brL
 btc
 btc
-bpA
+btc
 bwh
 btc
 brL
@@ -104323,9 +104319,9 @@ boh
 bpA
 bqH
 brM
-bqJ
-bqJ
-bvs
+bzc
+bzc
+bzc
 bwi
 bzc
 bzc
