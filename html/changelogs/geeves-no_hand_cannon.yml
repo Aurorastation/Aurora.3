@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Superheated or supercooled chemical damage caps are now also calculated by total volume, so spritzing someone doesn't do 40 damage a pop."
