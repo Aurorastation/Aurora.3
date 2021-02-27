@@ -295,7 +295,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 	else //Automatic Mode
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/EG = gun
-			if(EG.required_firemode_auth[EG.sel_mode] == WIRELESS_PIN_STUN) //The gun can always be used on stun if the damage type is pain or if it's reasonably a stun weapon.
+			if(EG.required_firemode_auth[EG.sel_mode] == WIRELESS_PIN_STUN)
 				return TRUE
 			else if (security_level == SEC_LEVEL_YELLOW || security_level == SEC_LEVEL_RED)
 				return TRUE

@@ -209,7 +209,7 @@
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
 	damage = 1
-	agony = 35
+	agony = 40
 	speed = 0.4
 	damage_type = BURN
 	eyeblur = TRUE
