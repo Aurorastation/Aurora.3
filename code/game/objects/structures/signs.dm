@@ -719,6 +719,28 @@
 	name = "Large Republic of Biesel flag"
 	flag_size = 1
 
+/obj/structure/sign/flag/scc
+	name = "Stellar Corporate Conglomerate flag"
+	desc = "The colours and logo of the Stellar Corporate Conglomerate."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "scc"
+
+/obj/structure/sign/flag/scc/left
+	icon_state = "scc_l"
+
+/obj/structure/sign/flag/scc/right
+	icon_state = "scc_r"
+
+/obj/item/flag/scc
+	name = "Stellar Corporate Conglomerate flag"
+	desc = "The flag representing the Stellar Corporate Conglomerate."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	flag_path = "scc"
+
+/obj/item/flag/scc/l
+	name = "Large Stellar Corporate Conglomerate flag"
+	flag_size = 1
+
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
@@ -765,10 +787,14 @@
 				P2.pixel_y = 32
 		P2.name = name
 		P2.desc = desc
+		P2.desc_info = desc_info
+		P2.desc_fluff = desc_fluff
 	else
 		P.icon_state = "[flag_path]"
 	P.name = name
 	P.desc = desc
+	P.desc_info = desc_info
+	P.desc_fluff = desc_fluff
 	qdel(src)
 
 

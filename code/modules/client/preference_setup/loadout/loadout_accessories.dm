@@ -266,6 +266,11 @@
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/scc_patch
+	display_name = "Stellar Corporate Conglomerate sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/scc
+	flags = 0
+
 /datum/gear/accessory/whalebone
 	display_name = "europan bone charm"
 	path = /obj/item/clothing/accessory/whalebone

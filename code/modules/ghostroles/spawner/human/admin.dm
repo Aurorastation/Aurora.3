@@ -92,6 +92,15 @@
 	mob_name_prefix = "Ofc. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
+/datum/ghostspawner/human/admin/cciaagent/scc
+	short_name = "sccagent"
+	name = "SCC Agent"
+	desc = "Board the Aurora, annoy crew with your interviews and get squashed by your own shuttle. But this time you're blue."
+
+	outfit = /datum/outfit/admin/scc
+
+	assigned_role = "SCC Agent"
+	special_role = "SCC Agent"
 
 /datum/ghostspawner/human/admin/checkpointsec
 	short_name = "checkpointsec"

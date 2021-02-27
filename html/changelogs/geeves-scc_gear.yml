@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Gave the CCIA a new SCC agent to spawn as."
+  - rscadd: "Added an energy repeater, given to SCC agents."
+  - rscadd: "Added SCC undershirts and shorts."
+  - rscadd: "Added SCC jackets, flags, banners, floor decals, sleeve patches, armbands."

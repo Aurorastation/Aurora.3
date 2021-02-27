@@ -30,6 +30,14 @@
 	damage = 25
 	armor_penetration = 10
 
+/obj/item/projectile/beam/pistol/scc
+	damage = 30
+	armor_penetration = 15
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
+	tracer_type = /obj/effect/projectile/tracer/laser/scc
+	impact_type = /obj/effect/projectile/impact/laser/scc
+
 /obj/item/projectile/beam/pistol/hegemony
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"

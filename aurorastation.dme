@@ -331,6 +331,7 @@
 #include "code\datums\outfits\event\outfit_killers.dm"
 #include "code\datums\outfits\event\outfit_megacorps.dm"
 #include "code\datums\outfits\event\outfit_nanotrasen.dm"
+#include "code\datums\outfits\event\outfit_scc.dm"
 #include "code\datums\outfits\event\outfit_tfcl.dm"
 #include "code\datums\radio\frequency.dm"
 #include "code\datums\radio\signal.dm"
