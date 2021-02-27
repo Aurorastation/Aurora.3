@@ -31437,12 +31437,9 @@
 	opacity = 0
 	},
 /obj/machinery/door/blast/shutters{
-	density = 0;
 	dir = 8;
-	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Pharmacy Window Shutters";
-	opacity = 0
+	name = "Pharmacy Window Shutters"
 	},
 /obj/structure/window/phoronreinforced{
 	dir = 8
@@ -32248,12 +32245,9 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
-	density = 0;
 	dir = 8;
-	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Pharmacy Window Shutters";
-	opacity = 0
+	name = "Pharmacy Window Shutters"
 	},
 /obj/structure/window/phoronreinforced{
 	dir = 8
@@ -33183,12 +33177,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters{
-	density = 0;
 	dir = 4;
-	icon_state = "shutter0";
 	id = "CHE3shutters";
-	name = "Pharmacy Desk Shutter";
-	opacity = 0
+	name = "Pharmacy Desk Shutter"
 	},
 /obj/machinery/door/window/brigdoor/northright{
 	dir = 8;
@@ -34678,12 +34669,9 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
-	density = 0;
 	dir = 8;
-	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Pharmacy Window Shutters";
-	opacity = 0
+	name = "Pharmacy Window Shutters"
 	},
 /obj/structure/window/phoronreinforced{
 	dir = 8
@@ -34754,12 +34742,9 @@
 /area/medical/medbay)
 "bhB" = (
 /obj/machinery/door/blast/shutters{
-	density = 0;
 	dir = 2;
-	icon_state = "shutter0";
 	id = "CHE3shutters";
-	name = "Pharmacy Desk Shutter";
-	opacity = 0
+	name = "Pharmacy Desk Shutter"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/northright{
@@ -36206,12 +36191,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
-	density = 0;
 	dir = 2;
-	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Pharmacy Window Shutters";
-	opacity = 0
+	name = "Pharmacy Window Shutters"
 	},
 /obj/structure/window/phoronreinforced{
 	dir = 4
@@ -60705,12 +60687,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
-	density = 0;
 	dir = 2;
-	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Pharmacy Window Shutters";
-	opacity = 0
+	name = "Pharmacy Window Shutters"
 	},
 /obj/structure/window/phoronreinforced{
 	dir = 4
