@@ -295,8 +295,9 @@
 			to_chat(user, SPAN_WARNING("The blades aren't spinning, you can't cut anything!"))
 			return FALSE
 
-	return (affected.limb_flags & ORGAN_CAN_AMPUTATE)
-
+	if(affected.limb_flags & ORGAN_CAN_AMPUTATE)
+		var/confirmation = alert("You are going to amputate a limb! Are you sure you want to do that?", "Amputation confirmation", "Yes", "No")
+		return confirmation == "Yes"
 /decl/surgery_step/amputate/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_DANGER("[user] is beginning to amputate [target]'s [affected.name] with \the [tool].") , \

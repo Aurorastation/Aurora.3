@@ -45,7 +45,10 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		if(do_surgery(src, user, I))
 			return TRUE
 		else
-			return I.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
+			if(I.type in subtypesof(/obj/item/surgery)) // It's kinda stupid to whack people with surgery tools on help intent! I assume this is NEVER actually intended.
+				return FALSE
+			else
+				return I.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
 	if(operating == SURGERY_FAIL)
 		if(do_surgery(src, user, I, TRUE))
 			return TRUE
