@@ -114,7 +114,11 @@
 	uniform = /obj/item/clothing/under/rank/medical/blue
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
 	shoes = /obj/item/clothing/shoes/surgeon
-	head = /obj/item/clothing/head/surgery/blue
+
+/datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if (isskrell(H) == FALSE)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/blue(H), slot_head)
 
 /datum/outfit/job/doctor/nurse
 	name = "Nurse"
