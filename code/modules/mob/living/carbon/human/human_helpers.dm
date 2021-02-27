@@ -99,6 +99,10 @@
 								organs -= child
 					if ("cyborg")
 						if (rlimb_data[name])
+							O.force_skintone = FALSE
+							for(var/thing in O.children)
+								var/obj/item/organ/external/child = thing
+								child.force_skintone = FALSE
 							O.robotize(rlimb_data[name])
 						else
 							O.robotize()
