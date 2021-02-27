@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Mechfabs now give proper indication that you lack access if you lack access."
