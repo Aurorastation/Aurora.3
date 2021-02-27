@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "The byond icon on your taskbar now flashes when the gamemode vote starts, if you're tabbed out."

@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added examine text to floors that allows you to see what you can deconstruct them with."
-  - tweak: "Diona floors can now be removed with shovels and welding tools."
