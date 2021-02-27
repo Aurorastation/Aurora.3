@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed emergency oxygen tanks having the wrong handedness."
+  - bugfix: "Fixed phoron tank in-hands being missing due to being named wrong."
+  - rscadd: "Added missing hydrogen tank in-hands."
+  - bugfix: "Fixed tanks changing their air contents after checking their air contents for the gauge value."
