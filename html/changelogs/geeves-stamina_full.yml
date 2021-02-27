@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Synaptizine no longer exponentially increases your stamina into infinity."
+  - bugfix: "The stamina bar above your move intent now properly updates your max stamina value."
