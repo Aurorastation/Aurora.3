@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
- - rscdel: "Removed the wall that was left smack dab in the middle of the General Treatment Room to house the GTR's APC and intercom unit. The intercom is gone as well."
+ - maptweak: "Removed the wall that was left smack dab in the middle of the General Treatment Room to house the GTR's APC and intercom unit. The intercom is gone as well."
  - tweak: "Relocated one of the General Treatment Room's cryo pods into the Intensive Care Unit to make room for the GTR's APC, along with an extra table."
