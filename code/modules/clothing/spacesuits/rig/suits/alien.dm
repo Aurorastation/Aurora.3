@@ -155,7 +155,3 @@
 		/obj/item/rig_module/tesla_coil,
 		/obj/item/rig_module/mounted/tesla,
 		/obj/item/rig_module/device/door_hack)
-
-/obj/item/rig/tesla/ninja/Initialize()
-	. = ..()
-	new /obj/item/device/augment_implanter/advanced_tesla(get_turf(src))
