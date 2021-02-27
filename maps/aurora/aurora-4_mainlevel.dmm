@@ -1068,17 +1068,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
-"acr" = (
-/obj/structure/table/standard,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
 "acs" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -1171,6 +1160,11 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -12712,7 +12706,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/banner,
+/obj/structure/banner/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awP" = (
@@ -12749,7 +12743,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/banner,
+/obj/structure/banner/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awT" = (
@@ -20888,10 +20882,10 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJD" = (
-/obj/structure/banner,
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
+/obj/structure/banner/scc,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJE" = (
@@ -25411,10 +25405,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/banner,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/banner/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRu" = (
@@ -25557,7 +25551,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/banner,
+/obj/structure/banner/scc,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRG" = (
@@ -28889,10 +28883,10 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/banner,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/banner/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aXu" = (
@@ -30090,17 +30084,15 @@
 /area/hallway/primary/port)
 "aZi" = (
 /obj/structure/table/standard,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
+	},
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -40023,6 +40015,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "brE" = (
@@ -40390,6 +40385,9 @@
 	name = "borerstart"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/sign/flag/scc{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bsl" = (
@@ -53685,6 +53683,9 @@
 "bWQ" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light,
+/obj/structure/sign/flag/scc{
+	pixel_y = -32
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bWR" = (
@@ -66041,6 +66042,18 @@
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
+"qro" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/vacantoffice2)
 "qrt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -67881,6 +67894,12 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"tFZ" = (
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "tGq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -68904,6 +68923,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
+"vpl" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/vacantoffice2)
 "vpt" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -98682,7 +98710,7 @@ bve
 bve
 bve
 baI
-aZs
+tFZ
 bHm
 bIg
 bIZ
@@ -100407,7 +100435,7 @@ aaa
 aad
 aaK
 aaU
-abb
+vpl
 abz
 abR
 ach
@@ -100921,7 +100949,7 @@ aaa
 aad
 aaJ
 aaU
-abd
+qro
 abz
 abR
 ach
@@ -108182,7 +108210,7 @@ btm
 buq
 bvz
 acq
-acr
+aZi
 aWu
 bAo
 bvz
