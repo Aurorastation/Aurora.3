@@ -1,63 +1,62 @@
 /*Energy Guns*/
 
-/obj/item/mecha_equipment/mounted_system/taser
+/obj/item/mecha_equipment/mounted_system/combat
+	name = "combat thing"
+	desc = "You shouldn't be seeing this."
+	icon_state = "mecha_taser"
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+
+/obj/item/mecha_equipment/mounted_system/combat/taser
 	name = "mounted electrolaser carbine"
 	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."
 	icon_state = "mecha_taser"
 	holding_type = /obj/item/gun/energy/taser/mounted/mech
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/taser/ion
+/obj/item/mecha_equipment/mounted_system/combat/ion
 	name = "mounted ion rifle"
 	desc = "An exosuit-mounted ion rifle. Handle with care."
 	icon_state = "mecha_ion"
 	holding_type = /obj/item/gun/energy/rifle/ionrifle/mounted/mech
 
-/obj/item/mecha_equipment/mounted_system/taser/laser
+/obj/item/mecha_equipment/mounted_system/combat/laser
 	name = "\improper CH-PS \"Immolator\" laser"
 	desc = "An exosuit-mounted laser rifle. Handle with care."
 	icon_state = "mecha_laser"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	holding_type = /obj/item/gun/energy/laser/mounted/mech
 
-/obj/item/mecha_equipment/mounted_system/taser/smg
+/obj/item/mecha_equipment/mounted_system/combat/smg
 	name = "mounted machinegun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
 	holding_type = /obj/item/gun/energy/mountedsmg
 
-/obj/item/mecha_equipment/mounted_system/pulse
+/obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
 	desc = "A weapon for combat exosuits. The eZ-13 mk2 heavy pulse rifle shoots powerful pulse-based beams, capable of destroying structures."
 	icon_state = "pulse"
 	holding_type = /obj/item/gun/energy/pulse/mounted/mech
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/xray
+/obj/item/mecha_equipment/mounted_system/combat/xray
 	name = "xray gun"
 	desc = "A weapon for combat exosuits. Shoots armor penetrating xray beams."
 	icon_state = "mecha_xray"
 	holding_type = /obj/item/gun/energy/xray/mounted/mech
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/blaster
+/obj/item/mecha_equipment/mounted_system/combat/blaster
 	name = "rapidfire blaster"
 	desc = "A weapon for combat exosuits. Shoots armor penetrating blaster beams."
 	icon_state = "mecha_blaster"
 	holding_type = /obj/item/gun/energy/blaster/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/gauss
+/obj/item/mecha_equipment/mounted_system/combat/gauss
 	name = "heavy gauss cannon"
 	desc = "A weapon for combat exosuits. Shoots high explosive gauss propelled projectiles."
 	icon_state = "mecha_gauss"
 	holding_type = /obj/item/gun/energy/gauss/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
 /obj/item/gun/energy/taser/mounted/mech
 	use_external_power = TRUE
@@ -86,45 +85,40 @@
 
 /*Launchers*/
 
-/obj/item/mecha_equipment/mounted_system/missile
+/obj/item/mecha_equipment/mounted_system/combat/missile
 	name = "missile rack"
 	desc = "The SRM-8 missile rack is loaded with explosive missiles."
 	icon_state = "mech_missile_pod"
 	holding_type = /obj/item/gun/launcher/mech/mountedrl
 	restricted_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/grenadefrag
+/obj/item/mecha_equipment/mounted_system/combat/grenadefrag
 	name = "frag grenade launcher"
 	desc = "The SGL-6FR grenade launcher is designed to launch primed fragmentation grenades."
 	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/grenadeflash
+/obj/item/mecha_equipment/mounted_system/combat/grenadeflash
 	name = "flashbang launcher"
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
 	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl/fl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/grenadetear
+/obj/item/mecha_equipment/mounted_system/combat/grenadetear
 	name = "teargas launcher"
 	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
 	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl/tg
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/grenadesmoke
+/obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
 	name = "smoke grenade launcher"
 	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
 	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl/sm
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
 /obj/item/gun/launcher/mech
 	name = "mounted mech launcher"

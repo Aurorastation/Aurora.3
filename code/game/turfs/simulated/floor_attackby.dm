@@ -35,6 +35,16 @@
 			make_plating(1)
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 			return
+		else if(C.iswelder() && (flooring.flags & TURF_REMOVE_WELDER))
+			var/obj/item/weldingtool/WT = C
+			if(!WT.isOn())
+				to_chat(user, SPAN_WARNING("\The [WT] isn't turned on."))
+				return
+			if(WT.remove_fuel(0, user))
+				to_chat(user, SPAN_NOTICE("You use \the [WT] to remove \the [src]."))
+				make_plating(1)
+				playsound(src, C.usesound, 80, 1)
+				return
 		else if(C.iscoil())
 			to_chat(user, "<span class='warning'>You must remove the [flooring.descriptor] first.</span>")
 			return
