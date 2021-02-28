@@ -20,9 +20,7 @@
 		var/datum/robolimb/R = all_robolimbs[robotize_type]
 		if(R.paintable)
 			limb_exception = TRUE
-		if(R.company == PROSTHETIC_SYNTHSKIN)
-			limb_exception = TRUE
-	if(status & ORGAN_ROBOT && !(isipc(human)) && !limb_exception)
+	if((status & ORGAN_ROBOT) && !limb_exception)
 		return
 	if(species && human.species && species.name != human.species.name)
 		return

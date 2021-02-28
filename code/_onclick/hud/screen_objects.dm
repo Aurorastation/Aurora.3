@@ -414,7 +414,7 @@
 	else
 		if (!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
-
+		user.stamina_bar.goal = user.max_stamina
 		user.stamina_bar.update(user.stamina)
 
 	if (user.m_intent == M_RUN)
