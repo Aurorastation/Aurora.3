@@ -6,10 +6,9 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/ert/ccia
 	glasses = /obj/item/clothing/glasses/sunglasses
-	id = /obj/item/card/id
+	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 
-	accessory = /obj/item/clothing/accessory/holster/armpit
-	accessory_contents = list(/obj/item/gun/energy/repeater)
+	id = /obj/item/card/id
 
 	backpack_contents = list(
 		/obj/item/storage/box/engineer = 1
@@ -27,3 +26,29 @@
 	uniform = /obj/item/clothing/under/rank/scc/executive
 
 	id_access = "SCC Executive"
+
+/datum/outfit/admin/scc/bodyguard
+	name = "SCC Bodyguard"
+
+	head = /obj/item/clothing/head/helmet/merc/scc
+	uniform = /obj/item/clothing/under/tactical
+	suit = /obj/item/clothing/suit/armor/carrier/heavy/scc
+	shoes = /obj/item/clothing/shoes/jackboots
+	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
+
+	l_pocket = /obj/item/shield/energy
+	r_pocket = /obj/item/device/radio
+
+	accessory = /obj/item/clothing/accessory/holster/armpit
+	accessory_contents = list(/obj/item/gun/energy/repeater)
+
+	backpack_contents = list(
+		/obj/item/storage/box/engineer = 1,
+		/obj/item/reagent_containers/spray/pepper = 1,
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/grenade/chem_grenade/gas = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/handcuffs/ziptie = 2
+	)
+
+	id_access = "SCC Bodyguard"

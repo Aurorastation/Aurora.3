@@ -102,6 +102,29 @@
 	assigned_role = "SCC Agent"
 	special_role = "SCC Agent"
 
+/datum/ghostspawner/human/admin/cciaagent/scc/bodyguard
+	short_name = "sccbodyguard"
+	name = "SCC Bodyguard"
+	desc = "Protect the SCC agent you're assigned to with your life. In fact, protect them if you die as well, if possible."
+
+	landmark_name = "CCIAEscort"
+
+	outfit = /datum/outfit/admin/scc/bodyguard
+
+	req_perms = null
+	req_perms_edit = R_CCIAA
+	max_count = 1
+
+	assigned_role = "SCC Bodyguard"
+	special_role = "SCC Bodyguard"
+	respawn_flag = null
+
+	enabled = FALSE
+
+	mob_name = null
+	mob_name_prefix = "Spc. "
+	mob_name_pick_message = "Pick a name."
+
 /datum/ghostspawner/human/admin/checkpointsec
 	short_name = "checkpointsec"
 	name = "Odin Checkpoint Security"

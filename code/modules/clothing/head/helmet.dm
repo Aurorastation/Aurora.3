@@ -168,6 +168,12 @@
 	)
 	siemens_coefficient = 0.35
 
+/obj/item/clothing/head/helmet/merc/scc
+	name = "heavy SCC helmet"
+	desc = "A blue helmet made from advanced ceramic. If corporate drones had brains, this would be protecting it."
+	icon_state = "helm_blue"
+	item_state = "helm_blue"
+
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
 	desc = "They're often used by highly trained Swat Members."
