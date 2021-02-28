@@ -120,7 +120,7 @@
 
 /datum/uplink_item/item/tools/syndieborg
 	name = "Syndicate Cyborg Teleporter"
-	item_cost = 10
+	item_cost = 20
 	path = /obj/item/antag_spawner/borg_tele
 
 /datum/uplink_item/item/tools/thermal_drill
