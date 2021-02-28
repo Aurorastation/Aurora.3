@@ -79,14 +79,14 @@
 	if(!account_allowed || (H.mind && H.mind.initial_account))
 		return
 
-	var/loyalty = 1
+	var/econ_status = 1
 	if(H.client)
-		switch(H.client.prefs.nanotrasen_relation)
-			if(COMPANY_LOYAL)        loyalty = 1.30
-			if(COMPANY_SUPPORTATIVE) loyalty = 1.15
-			if(COMPANY_NEUTRAL)      loyalty = 1
-			if(COMPANY_SKEPTICAL)    loyalty = 0.85
-			if(COMPANY_OPPOSED)      loyalty = 0.70
+		switch(H.client.prefs.economic_status)
+			if(ECONOMICALLY_WEALTHY)        econ_status = 1.50
+			if(ECONOMICALLY_WELLOFF) 		econ_status = 1.25
+			if(ECONOMICALLY_AVERAGE)  	    econ_status = 1
+			if(ECONOMICALLY_UNDERPAID) 		econ_status = 0.75
+			if(ECONOMICALLY_POOR)   	    econ_status = 0.30
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
@@ -94,7 +94,7 @@
 		var/datum/species/human_species = global.all_species[SPECIES_HUMAN]
 		species_modifier = human_species.economic_modifier
 
-	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier
+	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
 	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null, public_account)
 	if(H.mind)
 		var/remembered_info = ""
@@ -150,19 +150,19 @@
 
 	H.species.before_equip(H, FALSE, src)
 
-	var/loyalty = 1
+	var/econ_status = 1
 	if(H.client)
-		switch(H.client.prefs.nanotrasen_relation)
-			if(COMPANY_LOYAL)        loyalty = 3
-			if(COMPANY_SUPPORTATIVE) loyalty = 2
-			if(COMPANY_NEUTRAL)      loyalty = 1
-			if(COMPANY_SKEPTICAL)    loyalty = -2
-			if(COMPANY_OPPOSED)      loyalty = -3
+		switch(H.client.prefs.economic_status)
+			if(ECONOMICALLY_WEALTHY)        econ_status = 3
+			if(ECONOMICALLY_WELLOFF) econ_status = 2
+			if(ECONOMICALLY_AVERAGE)      econ_status = 1
+			if(ECONOMICALLY_UNDERPAID)    econ_status = -2
+			if(ECONOMICALLY_POOR)      econ_status = -3
 
 	//give them an account in the station database
 	var/species_modifier = min((H.species ? H.species.economic_modifier : 0) - 9, 0)
 
-	var/wealth = (loyalty + economic_modifier + species_modifier)
+	var/wealth = (econ_status + economic_modifier + species_modifier)
 
 	switch(wealth)
 		if(-INFINITY to 6)

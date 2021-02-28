@@ -226,13 +226,13 @@
 #define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 
 // NT's alignment towards the character
-#define COMPANY_LOYAL 			"Loyal"
-#define COMPANY_SUPPORTATIVE	"Supportive"
-#define COMPANY_NEUTRAL 		"Neutral"
-#define COMPANY_SKEPTICAL		"Skeptical"
-#define COMPANY_OPPOSED			"Opposed"
+#define ECONOMICALLY_WEALTHY    "Wealthy"
+#define ECONOMICALLY_WELLOFF	"Well-off"
+#define ECONOMICALLY_AVERAGE    "Average"
+#define ECONOMICALLY_UNDERPAID	"Underpaid"
+#define ECONOMICALLY_POOR		"Poor"
 
-#define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
 // Defines the argument used for get_mobs_and_objs_in_view_fast
 #define GHOSTS_ALL_HEAR 1

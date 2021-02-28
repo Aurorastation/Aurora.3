@@ -9,7 +9,7 @@
 	S["citizenship"]         >> pref.citizenship
 	S["religion"]            >> pref.religion
 	S["accent"]            >> pref.accent
-	S["nanotrasen_relation"] >> pref.nanotrasen_relation
+	S["economic_status"] >> pref.economic_status
 
 /datum/category_item/player_setup_item/general/background/save_character(var/savefile/S)
 	S["med_record"]          << pref.med_record
@@ -18,7 +18,7 @@
 	S["citizenship"]         << pref.citizenship
 	S["religion"]            << pref.religion
 	S["accent"]            << pref.accent
-	S["nanotrasen_relation"] << pref.nanotrasen_relation
+	S["economic_status"] << pref.economic_status
 
 /datum/category_item/player_setup_item/general/background/gather_load_query()
 	return list(
@@ -33,7 +33,7 @@
 		),
 		"ss13_characters" = list(
 			"vars" = list(
-				"nt_relation" = "nanotrasen_relation",
+				"economic_status",
 				"citizenship",
 				"religion",
 				"accent"
@@ -57,7 +57,7 @@
 			"char_id" = 1
 		),
 		"ss13_characters" = list(
-			"nt_relation",
+			"economic_status",
 			"citizenship",
 			"religion",
 			"accent",
@@ -72,7 +72,7 @@
 		"records_medical" = pref.med_record,
 		"records_security" = pref.sec_record,
 		"char_id" = pref.current_character,
-		"nt_relation" = pref.nanotrasen_relation,
+		"economic_status" = pref.economic_status,
 		"citizenship" = pref.citizenship,
 		"religion" = pref.religion,
 		"accent" = pref.accent,
@@ -96,12 +96,12 @@
 	if(!(pref.accent in S.allowed_accents))
 		pref.accent	=  S.default_accent
 
-	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, COMPANY_ALIGNMENTS, initial(pref.nanotrasen_relation))
+	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
 
 /datum/category_item/player_setup_item/general/background/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Background Information</b><br>",
-		"[current_map.company_name] Relation: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
+		"[current_map.company_name] Economic Status: <a href='?src=\ref[src];economic_status=1'>[pref.economic_status]</a><br/>",
 		"Citizenship: <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>",
 		"Religion: <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>",
 		"Accent: <a href='?src=\ref[src];accent=1'>[pref.accent]</a><br/>",
@@ -122,10 +122,10 @@
 
 /datum/category_item/player_setup_item/general/background/OnTopic(var/href,var/list/href_list, var/mob/user)
 	var/datum/species/S = all_species[pref.species]
-	if(href_list["nt_relation"])
-		var/new_relation = input(user, "Choose your relation to NT. Note that this represents what others can find out about your character by researching your background, not what your character actually thinks.", "Character Preference", pref.nanotrasen_relation)  as null|anything in COMPANY_ALIGNMENTS
-		if(new_relation && CanUseTopic(user))
-			pref.nanotrasen_relation = new_relation
+	if(href_list["economic_status"])
+		var/new_status = input(user, "Choose how wealthy your character is. Note that this applies a multiplier to a value that is also affected by your species and job.", "Character Preference", pref.economic_status)  as null|anything in ECONOMIC_POSITIONS
+		if(new_status && CanUseTopic(user))
+			pref.economic_status = new_status
 			return TOPIC_REFRESH
 
 	else if(href_list["citizenship"])
