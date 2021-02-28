@@ -101,7 +101,7 @@
 /datum/category_item/player_setup_item/general/background/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Background Information</b><br>",
-		"[current_map.company_name] Economic Status: <a href='?src=\ref[src];economic_status=1'>[pref.economic_status]</a><br/>",
+		"Economic Status: <a href='?src=\ref[src];economic_status=1'>[pref.economic_status]</a><br/>",
 		"Citizenship: <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>",
 		"Religion: <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>",
 		"Accent: <a href='?src=\ref[src];accent=1'>[pref.accent]</a><br/>",

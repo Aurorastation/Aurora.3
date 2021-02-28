@@ -140,7 +140,7 @@ datum/preferences
 	var/list/ccia_actions = list()
 	var/list/disabilities = list()
 
-	var/nanotrasen_relation = "Neutral"
+	var/economic_status = "Average"
 
 	var/uplinklocation = "PDA"
 
@@ -656,7 +656,7 @@ datum/preferences
 		ccia_actions = list()
 		disabilities = list()
 
-		nanotrasen_relation = "Neutral"
+		economic_status = "Average"
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)
