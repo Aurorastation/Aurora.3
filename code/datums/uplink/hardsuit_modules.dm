@@ -26,7 +26,7 @@
 
 /datum/uplink_item/item/hardsuit_modules/egun
 	name = "Mounted Energy Gun"
-	item_cost = 4
+	item_cost = 6
 	path = /obj/item/rig_module/mounted/egun
 
 /datum/uplink_item/item/hardsuit_modules/power_sink
@@ -36,7 +36,7 @@
 
 /datum/uplink_item/item/hardsuit_modules/laser_canon
 	name = "Mounted Laser Cannon"
-	item_cost = 6
+	item_cost = 8
 	path = /obj/item/rig_module/mounted
 
 /datum/uplink_item/item/tools/rig_cooling_unit
