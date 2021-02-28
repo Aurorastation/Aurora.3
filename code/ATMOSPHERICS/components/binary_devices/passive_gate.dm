@@ -26,13 +26,33 @@
 
 	var/broadcast_status_next_process = FALSE
 
+/obj/machinery/atmospherics/binary/passive_gate/scrubbers
+	name = "scrubbers pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for scrubber pipes."
+	icon_state = "map-scrubbers"
+	connect_types = CONNECT_TYPE_SCRUBBER
+	icon_connect_type = "-scrubbers"
+
+	unlocked = TRUE
+	target_pressure = 200
+
+/obj/machinery/atmospherics/binary/passive_gate/supply
+	name = "supply pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for supply pipes."
+	icon_state = "map-supply"
+	connect_types = CONNECT_TYPE_SUPPLY
+	icon_connect_type = "-supply"
+
+	unlocked = TRUE
+	target_pressure = 200
+
 /obj/machinery/atmospherics/binary/passive_gate/Initialize()
 	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 
 /obj/machinery/atmospherics/binary/passive_gate/update_icon()
-	icon_state = (unlocked && flowing)? "on" : "off"
+	icon_state = (unlocked && flowing)? "on" + icon_connect_type : "off" + icon_connect_type
 
 /obj/machinery/atmospherics/binary/passive_gate/update_underlays()
 	if(..())
@@ -40,8 +60,8 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		add_underlay(T, node1, turn(dir, 180))
-		add_underlay(T, node2, dir)
+		add_underlay(T, node1, turn(dir, 180), node1.icon_connect_type)
+		add_underlay(T, node2, dir, node2.icon_connect_type)
 
 /obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
 	update_underlays()
