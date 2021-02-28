@@ -20393,7 +20393,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/sign/flag/nanotrasen/left,
+/obj/structure/sign/flag/scc/left,
 /turf/simulated/floor/plating,
 /area/bridge)
 "aIL" = (
@@ -20410,7 +20410,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/sign/flag/nanotrasen/right,
+/obj/structure/sign/flag/scc/right,
 /turf/simulated/floor/plating,
 /area/bridge)
 "aIM" = (
@@ -23803,6 +23803,11 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/structure/sign/flag/scc/right{
+	dir = 8;
+	pixel_x = -30;
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aOE" = (
@@ -24785,6 +24790,11 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/structure/sign/flag/scc/left{
+	dir = 8;
+	pixel_x = -30;
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -31319,12 +31329,12 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
+/obj/structure/sign/flag/scc/right{
+	pixel_x = 16;
 	pixel_y = 30
 	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
+/obj/structure/sign/flag/scc/left{
+	pixel_x = -16;
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
@@ -54074,6 +54084,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bXS" = (
@@ -54151,6 +54164,9 @@
 "bYe" = (
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
