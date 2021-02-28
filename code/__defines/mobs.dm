@@ -225,7 +225,7 @@
 #define IPC_OWNERSHIP_COMPANY "Company Owned"
 #define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 
-// NT's alignment towards the character
+// How wealthy/poor a character is
 #define ECONOMICALLY_WEALTHY    "Wealthy"
 #define ECONOMICALLY_WELLOFF	"Well-off"
 #define ECONOMICALLY_AVERAGE    "Average"
