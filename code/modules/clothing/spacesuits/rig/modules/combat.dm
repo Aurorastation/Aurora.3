@@ -85,6 +85,7 @@
 	holder.wearer.visible_message(SPAN_DANGER("[user] launches \a [new_grenade]!"))
 	new_grenade.activate(user)
 	new_grenade.throw_at(target, fire_force, fire_distance)
+	return TRUE
 
 /obj/item/rig_module/grenade_launcher/frag
 	name = "mounted frag grenade launcher"
