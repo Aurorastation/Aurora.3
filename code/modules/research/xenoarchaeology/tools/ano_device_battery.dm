@@ -8,9 +8,8 @@
 	var/stored_charge = 0
 	var/effect_id = ""
 
-/obj/item/anobattery/Initialize()
-	. = ..()
-	battery_effect = new /datum/artifact_effect()
+/obj/item/anobattery/New()
+	battery_effect = new()
 
 /obj/item/anobattery/proc/UpdateSprite()
 	var/p = (stored_charge/capacity)*100

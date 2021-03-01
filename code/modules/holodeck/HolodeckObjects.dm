@@ -275,8 +275,7 @@
 		return 1
 	return 0
 
-/obj/item/holo/esword/Initialize()
-	. = ..()
+/obj/item/holo/esword/New()
 	if(!item_color)
 		item_color = pick("red","blue","green","purple")
 

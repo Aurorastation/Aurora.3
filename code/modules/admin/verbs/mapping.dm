@@ -26,10 +26,9 @@ var/intercom_range_display_status = 0
 	icon = 'icons/480x480.dmi'
 	icon_state = "25percent"
 
-/obj/effect/debugging/camera_range/Initialize(mapload, ...)
-	. = ..()
-	pixel_x = -224
-	pixel_y = -224
+	New()
+		src.pixel_x = -224
+		src.pixel_y = -224
 
 /obj/effect/debugging/marker
 	icon = 'icons/turf/areas.dmi'

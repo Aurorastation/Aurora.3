@@ -36,8 +36,7 @@
 /obj/effect/gateway/active/cult/cultify()
 	return
 
-/obj/effect/gateway/active/Initialize(mapload, ...)
-	. = ..()
+/obj/effect/gateway/active/New()
 	addtimer(CALLBACK(src, .proc/do_spawn), rand(30, 60) SECONDS)
 
 /obj/effect/gateway/active/proc/do_spawn()
