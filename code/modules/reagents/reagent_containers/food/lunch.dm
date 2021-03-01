@@ -49,7 +49,7 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/reagent_containers/food/snacks/meatsnack,
 	/obj/item/reagent_containers/food/snacks/maps,
 	/obj/item/reagent_containers/food/snacks/nathisnack,
-	/obj/item/reagent_containers/food/snacks/adhomian_can,
+	/obj/item/reagent_containers/food/snacks/adhomian_can
 )
 
 var/list/lunchables_drinks_ = list(
