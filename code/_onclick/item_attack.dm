@@ -45,7 +45,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		if(do_surgery(src, user, I))
 			return TRUE
 		else
-			if((I.type in subtypesof(/obj/item/surgery)) || (I.type in list(/obj/item/stack/cable_coil, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/screwdriver, /obj/item/device/multitool))) // It's kinda stupid to whack people with surgery tools on help intent! I assume this is NEVER actually intended.
+			if((istype(I, /obj/item/surgery)) || (I.type in list(/obj/item/stack/cable_coil, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/screwdriver, /obj/item/device/multitool))) // It's kinda stupid to whack people with surgery tools on help intent! I assume this is NEVER actually intended.
 				return FALSE
 			else
 				return I.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
