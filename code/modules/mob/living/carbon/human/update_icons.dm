@@ -677,7 +677,11 @@ There are several things that need to be remembered:
 			result_layer = list(result_layer, bloodsies)
 
 		gloves.screen_loc = ui_gloves
-		result_layer.appearance_flags = RESET_ALPHA
+		if(islist(result_layer))
+			for(var/image/I in result_layer)
+				I.appearance_flags = RESET_ALPHA
+		else
+			result_layer.appearance_flags = RESET_ALPHA
 		overlays_raw[GLOVES_LAYER] = result_layer
 	else if(blood_DNA)
 		var/image/bloodsies = image(species.blood_mask, "bloodyhands")
