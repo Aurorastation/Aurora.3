@@ -9,7 +9,6 @@ var/list/cached_space = list()
 	known = 0
 
 /obj/effect/overmap/visitable/sector/temporary/New(var/nx, var/ny, var/nz)
-	// since this is a recent bay port, i assume not calling parent is intentional - geeves | 25/02/2021
 	loc = locate(nx, ny, current_map.overmap_z)
 	x = nx
 	y = ny

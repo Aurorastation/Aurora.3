@@ -18,7 +18,6 @@
 	#endif
 
 /atom/movable/lighting_overlay/New()
-	// im too scared to touch this - geeves
 	SSlighting.total_lighting_overlays++
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.

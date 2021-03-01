@@ -134,7 +134,6 @@
 	var/destruction_timer
 
 /atom/movable/openspace/overlay/New()
-	// im too scared to touch this - geeves
 	initialized = TRUE
 	SSzcopy.openspace_overlays += src
 

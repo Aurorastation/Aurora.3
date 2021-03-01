@@ -24,8 +24,7 @@
 	var/datatype=0
 	var/value=0
 
-/obj/item/dnainjector/Initialize()
-	. = ..()
+/obj/item/dnainjector/New()
 	if(datatype && block)
 		buf=new
 		buf.dna=new

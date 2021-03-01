@@ -9,16 +9,15 @@
 	desc = "It's a fossil."
 	var/animal = 1
 
-/obj/item/fossil/base/Initialize()
-	..()
-	var/list/possible_fossils = list(/obj/item/fossil/bone = 9, /obj/item/fossil/skull = 3, /obj/item/fossil/skull/horned = 2)
-	var/fossil_path = pickweight(possible_fossils)
-	var/obj/item/fossil = new fossil_path(src.loc)
+/obj/item/fossil/base/New()
+	var/list/l = list("/obj/item/fossil/bone"=9,"/obj/item/fossil/skull"=3,
+	"/obj/item/fossil/skull/horned"=2)
+	var/t = pickweight(l)
+	var/obj/item/W = new t(src.loc)
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/simulated/mineral))
-		var/turf/simulated/mineral/M = T
-		M.last_find = fossil
-	return INITIALIZE_HINT_QDEL
+		T:last_find = W
+	qdel(src)
 
 /obj/item/fossil/bone
 	name = "Fossilised bone"
@@ -54,8 +53,7 @@
 	var/bstate = 0
 	var/plaque_contents = "Unnamed alien creature"
 
-/obj/skeleton/Initialize(mapload, ...)
-	. = ..()
+/obj/skeleton/New()
 	src.breq = rand(6)+3
 	src.desc = "An incomplete skeleton, looks like it could use [src.breq-src.bnum] more bones."
 
@@ -102,6 +100,5 @@
 	desc = "It's fossilised plant remains."
 	animal = 0
 
-/obj/item/fossil/plant/Initialize()
-	. = ..()
+/obj/item/fossil/plant/New()
 	icon_state = "plant[rand(1,4)]"

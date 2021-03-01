@@ -32,12 +32,12 @@
 	var/method = 0// 0 = fire, 1 = brush, 2 = pick
 	origin_tech = list(TECH_MATERIAL = 5)
 
-/obj/item/ore/strangerock/Initialize(mapload, var/inside_item_type = 0)
-	. = ..()
+/obj/item/ore/strangerock/New(loc, var/inside_item_type = 0)
+	..(loc)
 
 	//method = rand(0,2)
 	if(inside_item_type)
-		inside = new /obj/item/archaeological_find(src, inside_item_type)
+		inside = new/obj/item/archaeological_find(src, new_item_type = inside_item_type)
 		if(!inside)
 			inside = locate() in contents
 
@@ -84,8 +84,7 @@
 	icon_state = "ano01"
 	var/find_type = 0
 
-/obj/item/archaeological_find/Initialize(mapload, var/new_item_type)
-	. = ..()
+/obj/item/archaeological_find/New(loc, var/new_item_type)
 	if(new_item_type)
 		find_type = new_item_type
 	else
@@ -554,7 +553,7 @@
 		if(talkative)
 			new_item.talking_atom = new(new_item)
 
-		return INITIALIZE_HINT_QDEL
+		qdel(src)
 
 	else if(talkative)
 		src.talking_atom = new(src)
