@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - refactor: "Refactors how a lot of items handles being initialized. A full list of affected items can be found in the New Check PR."

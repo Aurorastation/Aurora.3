@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Gave lings the ability to upgrade space adaption for 5 genome points, removing their need to breathe, and nullifying the damage taken from low pressure."

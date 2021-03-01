@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "AMRs, tranq rifles, and Hegemony Sluggers will now report their ammo counts correctly."
