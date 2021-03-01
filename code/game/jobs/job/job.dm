@@ -82,11 +82,11 @@
 	var/econ_status = 1
 	if(H.client)
 		switch(H.client.prefs.economic_status)
-			if(ECONOMICALLY_WEALTHY)        econ_status = 1.50
-			if(ECONOMICALLY_WELLOFF) 		econ_status = 1.25
+			if(ECONOMICALLY_WEALTHY)        econ_status = 1.30
+			if(ECONOMICALLY_WELLOFF) 		econ_status = 1.15
 			if(ECONOMICALLY_AVERAGE)  	    econ_status = 1
 			if(ECONOMICALLY_UNDERPAID) 		econ_status = 0.75
-			if(ECONOMICALLY_POOR)   	    econ_status = 0.30
+			if(ECONOMICALLY_POOR)   	    econ_status = 0.50
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
