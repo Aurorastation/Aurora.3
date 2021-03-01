@@ -1,8 +1,0 @@
-
-author: listerla
-
-delete-after: True
-
-changes:
-  - spellcheck: "Fixed 'enble' to enable in the chat client."
-  - spellcheck: "Changed 'Extranneous' to 'Extraneous' in teleportation."
