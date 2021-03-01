@@ -1,6 +1,6 @@
 /datum/gear/suit/unathi_mantle
 	display_name = "hide mantle"
-	path = /obj/item/clothing/suit/unathi/mantle
+	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
