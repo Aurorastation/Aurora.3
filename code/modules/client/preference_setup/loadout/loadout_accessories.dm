@@ -288,7 +288,7 @@
 /datum/gear/accessory/dominia/sash
 	display_name = "dominian house sash selection"
 	description = "A selection of sashes representing the Great Houses of Dominia."
-	path = "/obj/item/clothing/accessory/dominia/sash"
+	path = /obj/item/clothing/accessory/dominia/sash
 
 /datum/gear/accessory/dominia/sash/New()
 	..()
