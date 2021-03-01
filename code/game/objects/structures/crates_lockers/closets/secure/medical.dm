@@ -42,7 +42,7 @@
 	new /obj/item/clothing/mask/breath/medical(src)
 
 /obj/structure/closet/secure_closet/medical3
-	name = "physician's locker"
+	name = "medical equipment locker"
 	req_access = list(access_medical_equip)
 	icon_state = "securemed1"
 	icon_closed = "securemed"
@@ -87,6 +87,7 @@
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig/first_responder(src)
+	new /obj/item/clothing/head/hardhat/first_responder(src)
 
 
 /obj/structure/closet/secure_closet/CMO

@@ -59956,6 +59956,7 @@
 /obj/item/circuitboard/mech_recharger,
 /obj/item/circuitboard/optable,
 /obj/item/circuitboard/security/engineering,
+/obj/item/circuitboard/grill,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
 "dtt" = (
