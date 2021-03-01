@@ -411,9 +411,9 @@ var/list/mineral_can_smooth_with = list(
 	//otherwise, they come out inside a chunk of rock
 	var/obj/item/X
 	if(prob_clean)
-		X = new /obj/item/archaeological_find(src, new_item_type = F.find_type)
+		X = new /obj/item/archaeological_find(src, F.find_type)
 	else
-		X = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
+		X = new /obj/item/ore/strangerock(src, F.find_type)
 		geologic_data.UpdateNearbyArtifactInfo(src) //AAAAAAAAAAAAAAAAAAAAAAAAAA
 		X:geologic_data = geologic_data //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 

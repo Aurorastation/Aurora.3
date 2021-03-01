@@ -23,7 +23,8 @@
 	power = 2
 	size = "large"
 
-/obj/item/syndie/c4explosive/New()
+/obj/item/syndie/c4explosive/Initialize()
+	. = ..()
 	var/K = rand(1,2000)
 	K = md5(num2text(K)+name)
 	K = copytext(K,1,7)

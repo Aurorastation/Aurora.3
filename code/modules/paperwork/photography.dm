@@ -21,8 +21,6 @@
 /********
 * photo *
 ********/
-var/global/photo_count = 0
-
 /obj/item/photo
 	name = "photo"
 	desc = "An archaic means of visual preservation, kept alive as kitschy memorabilia by paparazzi, conspiracy theorists and teenage girls."
@@ -39,9 +37,6 @@ var/global/photo_count = 0
 
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
-
-/obj/item/photo/New()
-	id = photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
 	user.examinate(src)

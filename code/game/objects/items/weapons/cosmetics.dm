@@ -6,40 +6,40 @@
 	icon_state = "lipstick"
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
-	var/colour = "red"
+	var/lipstick_color = "red"
 	var/open = 0
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 
 /obj/item/lipstick/purple
 	name = "purple lipstick"
-	colour = "purple"
+	lipstick_color = "purple"
 
 /obj/item/lipstick/jade
 	name = "jade lipstick"
-	colour = "jade"
+	lipstick_color = "jade"
 
 /obj/item/lipstick/black
 	name = "black lipstick"
-	colour = "black"
+	lipstick_color = "black"
 
 /obj/item/lipstick/pink
 	name = "pink lipstick"
-	colour = "pink"
+	lipstick_color = "pink"
 
 /obj/item/lipstick/random
 	name = "lipstick"
 
-/obj/item/lipstick/random/New()
-	colour = pick("red","purple","jade","pink","black")
-	name = "[colour] lipstick"
-
+/obj/item/lipstick/random/Initialize()
+	. = ..()
+	name = "[lipstick_color] lipstick"
+	lipstick_color = pick("red","purple","jade","pink","black")
 
 /obj/item/lipstick/attack_self(mob/user as mob)
 	to_chat(user, "<span class='notice'>You twist \the [src] [open ? "closed" : "open"].</span>")
 	open = !open
 	if(open)
-		icon_state = "[initial(icon_state)]_[colour]"
+		icon_state = "[initial(icon_state)]_[lipstick_color]"
 	else
 		icon_state = initial(icon_state)
 
@@ -56,7 +56,7 @@
 		if(H == user)
 			user.visible_message("<span class='notice'>[user] does their lips with \the [src].</span>", \
 								 "<span class='notice'>You take a moment to apply \the [src]. Perfect!</span>")
-			H.lip_style = colour
+			H.lip_style = lipstick_color
 			H.update_body()
 		else
 			user.visible_message("<span class='warning'>[user] begins to do [H]'s lips with \the [src].</span>", \
@@ -64,7 +64,7 @@
 			if(do_after(user, 20) && do_after(H, 20, 0))	//user needs to keep their active hand, H does not.
 				user.visible_message("<span class='notice'>[user] does [H]'s lips with \the [src].</span>", \
 									 "<span class='notice'>You apply \the [src].</span>")
-				H.lip_style = colour
+				H.lip_style = lipstick_color
 				H.update_body()
 	else
 		to_chat(user, "<span class='notice'>Where are the lips on that?</span>")

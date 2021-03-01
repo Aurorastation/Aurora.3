@@ -43,10 +43,10 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
-/obj/item/toy/waterballoon/New()
-	var/datum/reagents/R = new/datum/reagents(10)
+/obj/item/toy/waterballoon/Initialize()
+	. = ..()
+	var/datum/reagents/R = new /datum/reagents(10, src)
 	reagents = R
-	R.my_atom = src
 
 /obj/item/toy/waterballoon/attack(mob/living/carbon/human/M as mob, mob/user as mob)
 	return

@@ -22,16 +22,19 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/uplink/ui_host()
 	return loc
 
-/obj/item/device/uplink/New(var/location, var/datum/mind/owner, var/telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
-	..()
-	src.uplink_owner = owner
-	purchase_log = list()
-	world_uplinks += src
-	uses = telecrystals
+/obj/item/device/uplink/Initialize(mapload, var/datum/mind/owner, var/telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
+	. = ..()
+	do_uplink_action(owner, telecrystals)
 
 /obj/item/device/uplink/Destroy()
 	world_uplinks -= src
 	return ..()
+
+/obj/item/device/uplink/proc/do_uplink_action(var/datum/mind/owner, var/telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
+	src.uplink_owner = owner
+	purchase_log = list()
+	world_uplinks += src
+	uses = telecrystals
 
 // HIDDEN UPLINK - Can be stored in anything but the host item has to have a trigger for it.
 /* How to create an uplink in 3 easy steps!
@@ -53,15 +56,16 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/exploit_id								// Id of the current exploit record we are viewing
 	var/pda_code = ""
 
-
 // The hidden uplink MUST be inside an obj/item's contents.
-/obj/item/device/uplink/hidden/New()
-	spawn(2)
-		if(!istype(src.loc, /obj/item))
-			qdel(src)
+/obj/item/device/uplink/hidden/do_uplink_action(var/datum/mind/owner, var/telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
 	..()
 	nanoui_data = list()
 	update_nano_data()
+	addtimer(CALLBACK(src, .proc/check_loc), 2)
+
+/obj/item/device/uplink/hidden/proc/check_loc()
+	if(!isitem(loc))
+		qdel(src)
 
 // Toggles the uplink on and off. Normally this will bypass the item's normal functions and go to the uplink menu, if activated.
 /obj/item/device/uplink/hidden/proc/toggle()
@@ -314,26 +318,28 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // Includes normal radio uplink, multitool uplink,
 // implant uplink (not the implant tool) and a preset headset uplink.
 
-/obj/item/device/radio/uplink/New(var/loc, var/mind)
+/obj/item/device/radio/uplink/Initialize(mapload, var/datum/mind/mind)
+	. = ..()
 	hidden_uplink = new(src, mind)
 	icon_state = "radio"
 
-/obj/item/device/radio/uplink/attack_self(mob/user as mob)
+/obj/item/device/radio/uplink/attack_self(mob/user)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 
-/obj/item/device/multitool/uplink/New(var/loc, var/mind)
+/obj/item/device/multitool/uplink/Initialize(mapload, var/datum/mind/mind)
+	. = ..()
 	hidden_uplink = new(src, mind)
 
-/obj/item/device/multitool/uplink/attack_self(mob/user as mob)
+/obj/item/device/multitool/uplink/attack_self(mob/user)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 
 /obj/item/device/radio/headset/uplink
 	traitor_frequency = 1445
 
-/obj/item/device/radio/headset/uplink/New(var/loc, var/mind)
-	..()
+/obj/item/device/radio/headset/uplink/Initialize(mapload, var/datum/mind/mind)
+	. = ..()
 	hidden_uplink = new(src, mind)
 	hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
 
@@ -349,13 +355,13 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	flags = CONDUCT
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/device/contract_uplink/New(var/loc, var/mind)
-	..()
+/obj/item/device/contract_uplink/Initialize(mapload, var/datum/mind/mind)
+	. = ..()
 	hidden_uplink = new(src, mind)
 	hidden_uplink.uses = 0
 	hidden_uplink.nanoui_menu = 3
 
-/obj/item/device/contract_uplink/attack_self(mob/user as mob)
+/obj/item/device/contract_uplink/attack_self(mob/user)
 	if (hidden_uplink)
 		hidden_uplink.trigger(user)
 
@@ -368,7 +374,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	desc_antag = "This device allows you to create a single central command report. It has only one use."
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/device/announcer/attack_self(mob/user as mob)
+/obj/item/device/announcer/attack_self(mob/user)
 	if(!player_is_antag(user.mind))
 		return
 
@@ -394,8 +400,8 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	w_class = ITEMSIZE_SMALL
 	var/starting_telecrystals // how much telecrystals the uplink should spawn with, defaults to default amount if not set
 
-/obj/item/device/special_uplink/New(var/loc, var/mind)
-	..()
+/obj/item/device/special_uplink/Initialize(mapload, var/datum/mind/mind)
+	. = ..()
 	hidden_uplink = new(src, mind)
 	if(!starting_telecrystals)
 		hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
@@ -403,7 +409,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		hidden_uplink.uses = starting_telecrystals
 	hidden_uplink.nanoui_menu = 1
 
-/obj/item/device/special_uplink/attack_self(mob/user as mob)
+/obj/item/device/special_uplink/attack_self(mob/user)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 
