@@ -156,7 +156,7 @@
 					if(prob(damprob))
 						take_internal_damage(1)
 					if(prob(damprob))
-						take_internal_damage(2)
+						take_internal_damage(1)
 	..()
 
 /obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)

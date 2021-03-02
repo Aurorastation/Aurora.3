@@ -47,5 +47,6 @@ changes:
   - balance: "Headshots no longer make you lose breath."
   - balance: "Organs now need necrotic surgery if they've been dead for over five minutes."
   - balance: "The necrotic organ surgery is now longer, at about ten seconds. It also heals ten damage so that organs don't instantly die anymore."
+  - balance: "Slowed brain decay while in cardiac arrest."
   - tweak: "Non-glass (beakers, bottles) or non-bloodbag reagent containers may no longer be put onto roller beds."
   - tweak: "Coffee no longer applies CE_PULSE, which means you won't get spammed by heartbeat for having the audacity to drink it."
