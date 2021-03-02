@@ -33,5 +33,5 @@
 
 /datum/uplink_item/item/implants/imp_uplink/New()
 	..()
-	item_cost = 5
-	desc = "Contains [5] Telecrystal\s"
+	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
+	desc = "Contains [round((DEFAULT_TELECRYSTAL_AMOUNT / 2) * 0.8)] Telecrystal\s"
