@@ -162,25 +162,31 @@
 	display_name = "battlemonsters starter deck"
 	path = /obj/item/battle_monsters/wrapped
 
+/datum/gear/plushie
+	display_name = "plushie selection"
+	path = /obj/item/toy/plushie
+
+/datum/gear/plushie/New()
+	..()
+	var/plushies = list()
+	plushies["plushie, nymph"] = /obj/item/toy/plushie/nymph
+	plushies["plushie, mouse"] = /obj/item/toy/plushie/mouse
+	plushies["plushie, kitten"] = /obj/item/toy/plushie/kitten
+	plushies["plushie, lizard"] = /obj/item/toy/plushie/lizard
+	plushies["plushie, spider"] = /obj/item/toy/plushie/spider
+	plushies["plushie, farwa"] = /obj/item/toy/plushie/farwa
+	plushies["plushie, bear"] = /obj/item/toy/plushie/bear
+	plushies["plushie, firefighter bear"] = /obj/item/toy/plushie/bearfire
+	plushies["plushie, random squid"] = /obj/item/toy/plushie/squid //if someone can figure out how to make color work with these, good luck lmao
+	plushies["plushie, bee"] = /obj/item/toy/plushie/bee
+	plushies["plushie, schlorrgo"] = /obj/item/toy/plushie/schlorrgo
+	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
+	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
+	gear_tweaks += new/datum/gear_tweak/path(plushies)
+
 /datum/gear/toothpaste
 	display_name = "toothpaste and toothbrush"
 	path = /obj/item/storage/box/toothpaste
-	
-/datum/gear/plushie/New()
-	..()
-	plushie["plushie, nymph"] = /obj/item/toy/plushie/nymph
-	plushie["plushie, mouse"] = /obj/item/toy/plushie/mouse
-	plushie["plushie, kitten"] = /obj/item/toy/plushie/kitten
-	plushie["plushie, lizard"] = /obj/item/toy/plushie/lizard
-	plushie["plushie, spider"] = /obj/item/toy/plushie/spider
-	plushie["plushie, farwa"] = /obj/item/toy/plushie/farwa
-	plushie["plushie, bear"] = /obj/item/toy/plushie/bear
-	plushie["plushie, firefighter bear"] = /obj/item/toy/plushie/bearfire
-	plushie["plushie, pink squid"] = /obj/item/toy/plushie/squid //if someone can figure out how to make color work with these, good luck lmao
-	plushie["plushie, bee"] = /obj/item/toy/plushie/bee
-	plushie["plushie, schlorrgo"] = /obj/item/toy/plushie/schlorrgo
-	plushie["plushie, slime"] = /obj/item/toy/plushie/slime
-	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste/New()
 	..()
