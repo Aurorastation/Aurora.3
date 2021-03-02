@@ -12,7 +12,7 @@
 /datum/uplink_item/item/exosuit_equipment/mounted_gun/ion
 	name = "Mounted Ion Rifle"
 	desc = "An exosuit-mounted ion rifle. Handle with care."
-	item_cost = 3
+	item_cost = 7
 	path = /obj/item/mecha_equipment/mounted_system/combat/ion
 
 /datum/uplink_item/item/exosuit_equipment/mounted_gun/laser
