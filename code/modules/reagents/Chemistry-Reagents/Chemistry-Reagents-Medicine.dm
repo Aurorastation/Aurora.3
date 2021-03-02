@@ -1615,13 +1615,13 @@
 /decl/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		return
-	if(M.chem_doses[type] < 1)	//not that effective after initial rush
+	if(M.chem_doses[type] < 0.2)	//not that effective after initial rush
 		M.add_chemical_effect(CE_PAINKILLER, min(15*REAGENT_VOLUME(holder, type), 35))
 		M.add_chemical_effect(CE_PULSE, 1)
-	else
+	else if(M.chem_doses[type] < 1)
 		M.add_chemical_effect(CE_PAINKILLER, min(10*REAGENT_VOLUME(holder, type), 15))
 		M.add_chemical_effect(CE_PULSE, 2)
-	if(M.chem_doses[type] > 5)
+	if(M.chem_doses[type] > 10)
 		M.make_jittery(5)
 	if(REAGENT_VOLUME(holder, type) >= 5 && M.is_asystole())
 		remove_self(5, holder)
