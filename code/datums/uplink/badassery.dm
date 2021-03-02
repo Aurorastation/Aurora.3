@@ -6,7 +6,7 @@
 
 /datum/uplink_item/item/badassery/balloon
 	name = "For showing that You Are The BOSS (Useless Balloon)"
-	item_cost = 15
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/toy/balloon/syndicate
 
 /datum/uplink_item/item/badassery/balloon/NT
