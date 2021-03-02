@@ -94,7 +94,7 @@
 
 /datum/uplink_item/item/tools/powersink
 	name = "Powersink (DANGER!)"
-	item_cost = 3
+	item_cost = 6
 	path = /obj/item/device/powersink
 
 /datum/uplink_item/item/tools/teleporter/New()
