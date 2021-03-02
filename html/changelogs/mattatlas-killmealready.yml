@@ -1,0 +1,51 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: MattAtlas
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - bugfix: "Suffocating will no longer continuously apply losebreath. This is capped now, thus making recovery periods for suffocation much shorter."
+  - bugfix: "The necrotic (dead) organ surgery has been fixed. For internal organs, use a scalpel! Cancel out of the organ removal prompt and the surgery will begin."
+  - bugfix: "Wheelchairs no longer interact with the paranormal entities."
+  - tweak: "CPR now removes losebreath, thus making it a convenient option if people aren't breathing."
+  - tweak: "It is now obvious if the organ is dead following an organ repair surgery."
+  - balance: "Getting headshots no longer multiplies damage exponentially if the damage is extremely high."
+  - balance: "Headshots no longer make you lose breath."
+  - balance: "Organs now need necrotic surgery if they've been dead for over five minutes."
+  - balance: "The necrotic organ surgery is now longer, at about ten seconds. It also heals ten damage so that organs don't instantly die anymore."
+  - tweak: "Non-beaker or non-bloodbag reagent containers may no longer be put onto roller beds."
+  - tweak: "Coffee no longer applies CE_PULSE, which means you won't get spammed by heartbeat for having the audacity to drink it."
