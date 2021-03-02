@@ -89,7 +89,7 @@
 
 		// In case we return 0 data from the database.
 		if (!jobs || !jobs.len)
-			pref.alternate_option	= 0
+			pref.alternate_option	= 1
 			pref.job_civilian_high	= 0
 			pref.job_civilian_med	= 0
 			pref.job_civilian_low	= 0
