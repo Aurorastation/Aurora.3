@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Readying up now shows your character name and the job they have set to high in the Lobby stat panel. No ckeys are exposed."
