@@ -726,7 +726,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(issmall(src))
 			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
-			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			var/obj/effect/decal/cleanable/blood/splatter/S = new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			S.basecolor = blood_type
+			S.update_icon()
 			qdel(src)
 		else
 			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")

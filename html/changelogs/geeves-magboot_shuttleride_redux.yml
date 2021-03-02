@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Magboots now prevent you from being thrown about during shuttle rides."

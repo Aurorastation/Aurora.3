@@ -71,7 +71,7 @@
 	if(istype(rig) && !rig.offline && rig.selected_module)
 		if(src != rig.wearer && !rig.ai_can_move_suit(src, TRUE))
 			return FALSE
-		rig.selected_module.engage(A, src, alert_ai)
+		rig.selected_module.do_engage(A, src, alert_ai)
 		if(ismob(A)) // No instant mob attacking - though modules have their own cooldowns
 			setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE
