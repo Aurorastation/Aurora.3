@@ -130,3 +130,12 @@
 	item_state = "thakh_mask"
 	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/unathimantle
+	name = "hide mantle"
+	desc = "A rather grisly selection of cured hides and skin, sewn together to form a ragged mantle."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "mantle-unathi"
+	item_state = "mantle-unathi"
+	icon_override = null
+	contained_sprite = TRUE

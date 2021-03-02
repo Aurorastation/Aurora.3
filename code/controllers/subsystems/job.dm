@@ -17,6 +17,7 @@
 	var/list/datum/job/type_occupations = list()	//Dict of all jobs, keys are types
 	var/list/mob/abstract/new_player/unassigned = list()
 	var/list/job_debug = list()
+	var/list/bitflag_to_job = list()
 
 	var/list/factions = list()
 	var/list/name_factions = list()
@@ -59,6 +60,9 @@
 		occupations += job
 		name_occupations[job.title] = job
 		type_occupations[J] = job
+		if(!length(bitflag_to_job["[job.department_flag]"]))
+			bitflag_to_job["[job.department_flag]"] = list()
+		bitflag_to_job["[job.department_flag]"]["[job.flag]"] = job
 		if (config && config.use_age_restriction_for_jobs)
 			job.fetch_age_restriction()
 
