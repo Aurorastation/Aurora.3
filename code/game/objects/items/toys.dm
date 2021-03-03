@@ -925,6 +925,13 @@
 	icon_state = "kittenplushie"
 	slot_flags = SLOT_HEAD
 
+/obj/item/toy/plushie/pennyplush
+    name = "Penny plush"
+    desc = "It's a plush of the beloved company mascot cat, Penny! For the price Nanotrasen sells these things at, you probably could have bought an actual cat."
+    icon_state = "pennyplushie"
+    slot_flags = SLOT_HEAD
+
+
 /obj/item/toy/plushie/lizard
 	name = "lizard plush"
 	desc = "A plushie of a scaly lizard! Very controversial, after being accused as \"racist\" by some Unathi."
