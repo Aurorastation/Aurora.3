@@ -37,6 +37,7 @@
 
 	enabled = FALSE
 	landmark_name = "CCIAEscort"
+	req_perms = null
 	req_perms_edit = R_CCIAA
 	max_count = 1
 
@@ -73,6 +74,7 @@
 	outfit = /datum/outfit/admin/scc/bodyguard
 
 	enabled = FALSE
+	req_perms = null
 	req_perms_edit = R_ADMIN // change this to R_CCIAA when CCIA moves to SCC
 	max_count = 1
 
