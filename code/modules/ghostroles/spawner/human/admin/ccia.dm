@@ -56,6 +56,10 @@
 
 	outfit = /datum/outfit/admin/scc
 
+	//take this block of code out once CCIA moves over to SCC proper
+	enabled = FALSE
+	req_perms_edit = R_ADMIN
+
 	assigned_role = "SCC Agent"
 	special_role = "SCC Agent"
 
@@ -69,7 +73,7 @@
 	outfit = /datum/outfit/admin/scc/bodyguard
 
 	enabled = FALSE
-	req_perms_edit = R_CCIAA
+	req_perms_edit = R_ADMIN // change this to R_CCIAA when CCIA moves to SCC
 	max_count = 1
 
 	assigned_role = "SCC Bodyguard"
