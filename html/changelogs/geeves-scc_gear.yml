@@ -7,3 +7,4 @@ changes:
   - rscadd: "Added an energy repeater, given to SCC agents."
   - rscadd: "Added SCC undershirts and shorts."
   - rscadd: "Added SCC jackets, flags, banners, floor decals, sleeve patches, armbands."
+  - tweak: "CCIA ghostspawners have been put into a CCIA tab to declutter the admin tab."

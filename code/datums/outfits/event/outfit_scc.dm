@@ -8,6 +8,9 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 
+	l_pocket = /obj/item/reagent_containers/spray/pepper
+	r_pocket = /obj/item/device/taperecorder/cciaa
+
 	id = /obj/item/card/id
 
 	backpack_contents = list(
