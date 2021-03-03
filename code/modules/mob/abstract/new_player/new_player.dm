@@ -49,9 +49,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			totalPlayers = 0
 			totalPlayersReady = 0
 			for(var/mob/abstract/new_player/player in player_list)
-				stat("[player.key]", (player.ready)?("(Playing)"):(null))
 				totalPlayers++
 				if(player.ready)
+					stat("[copytext_char(player.client.prefs.real_name, 1, 18)]", ("[player.client.prefs.return_chosen_high_job(TRUE)]"))
 					totalPlayersReady++
 
 /mob/abstract/new_player/Topic(href, href_list[])
