@@ -9,6 +9,7 @@
 	use_power = 1
 	idle_power_usage = 6
 	active_power_usage = 45 KILOWATTS
+	pass_flags = PASSTABLE
 	var/charging_efficiency = 1.3
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
@@ -42,13 +43,13 @@
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
-/obj/machinery/recharger/attackby(obj/item/G as obj, mob/user as mob)
+/obj/machinery/recharger/attackby(obj/item/G, mob/user)
 	if(portable && G.iswrench())
 		if(charging)
-			to_chat(user, "<span class='alert'>Remove [charging] first!</span>")
+			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 			return
 		anchored = !anchored
-		to_chat(user, "You have [anchored ? "attached" : "detached"] the recharger.")
+		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
 		playsound(loc, G.usesound, 75, 1)
 		return
 

@@ -2,8 +2,8 @@
 	name = "red armband"
 	desc = "A fancy red armband!"
 	icon_state = "red"
-	slot = "armband"
-	flippable = 1
+	slot = ACCESSORY_SLOT_ARMBAND
+	flippable = TRUE
 
 /obj/item/clothing/accessory/armband/sec
 	name = "security armband"
@@ -49,7 +49,7 @@
 	name = "science exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is purple."
 	icon_state = "ribbon_sci"
-	slot = "over"
+	slot = ACCESSORY_SLOT_CAPE
 	flippable = 0
 
 /obj/item/clothing/accessory/armband/offworlder/engineering

@@ -17,7 +17,7 @@
 	var/obj/item/organ/external/E = tool
 	if(E?.parent_organ)
 		var/obj/item/organ/external/P = target.organs_by_name[E.parent_organ]
-		if(!P || P.is_stump() || (BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
+		if(!P || P.is_stump() || !P.supports_children || (BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
 			return FALSE // Parent organ non-existant or unsuitable
 	return !isnull(organ_data)
 

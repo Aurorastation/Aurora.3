@@ -260,7 +260,8 @@ var/list/global/organ_rel_size = list(
 )
 
 /proc/check_zone(zone)
-	if(!zone)	return BP_CHEST
+	if(!zone)
+		return BP_CHEST
 	switch(zone)
 		if(BP_EYES)
 			zone = BP_HEAD
@@ -1205,7 +1206,11 @@ proc/is_blind(A)
 	sdisabilities &= ~DEAF
 
 /mob/proc/get_antag_datum(var/antag_role)
-	return
+	if(!mind)
+		return
+	var/datum/D = mind.antag_datums[antag_role]
+	if(D)
+		return D
 
 /mob/dump_contents()
 	for(var/thing in get_contained_external_atoms())
