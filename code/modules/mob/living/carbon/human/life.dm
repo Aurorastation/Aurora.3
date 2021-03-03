@@ -427,7 +427,7 @@
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
 	else
-		if(!(COLD_RESISTANCE in mutations))
+		if(!pressure_resistant())
 			var/list/obj/item/organ/external/organs = get_damageable_organs()
 			for(var/obj/item/organ/external/O in organs)
 				if(QDELETED(O))
@@ -730,7 +730,7 @@
 		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
 			handle_hallucinations()
 
-		if(get_shock() >= (species.total_health * 0.75))
+		if(get_shock() >= (species.total_health * 0.6))
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
@@ -741,7 +741,7 @@
 			if(sleeping)
 				stat = UNCONSCIOUS
 
-			adjustHalLoss(-7)
+			adjustHalLoss(-5)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -777,11 +777,11 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
-			adjustHalLoss(-5)
+			adjustHalLoss(-3)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-3)
+			adjustHalLoss(-1)
 
 		//Other
 		handle_statuses()

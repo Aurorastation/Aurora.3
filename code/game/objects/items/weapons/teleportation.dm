@@ -78,7 +78,7 @@ Frequency:
 										direct = "very weak"
 							src.temp += "[W.code]-[dir2text(get_dir(sr, tr))]-[direct]<BR>"
 
-				src.temp += "<B>Extranneous Signals:</B><BR>"
+				src.temp += "<B>Extraneous Signals:</B><BR>"
 				for (var/obj/item/implant/tracking/W in implants)
 					if (!W.implanted || !(istype(W.loc,/obj/item/organ/external) || ismob(W.loc)))
 						continue
