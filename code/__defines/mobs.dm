@@ -160,7 +160,7 @@
 #define BP_AUG_MEMORY         "memory inhibitor"
 #define BP_AUG_EMOTION         "emotional manipulator"
 #define BP_AUG_ENCHANED_VISION   "vision enhanced retinas"
-#defineBP_AUG_SIGHTLIGHTS   "ocular installed sightlights"
+#define BP_AUG_SIGHTLIGHTS   "ocular installed sightlights"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
