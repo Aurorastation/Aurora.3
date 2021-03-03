@@ -290,12 +290,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/hangar)
-"aS" = (
-/obj/machinery/conveyor{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "aT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -350,10 +344,6 @@
 /area/maintenance/vault)
 "aX" = (
 /obj/machinery/door/airlock/hatch,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
 /turf/simulated/floor/reinforced,
 /area/maintenance/disposal)
 "aY" = (
@@ -546,9 +536,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/morgue/lower)
 "bD" = (
-/obj/machinery/conveyor{
-	dir = 4
-	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
@@ -580,12 +567,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
-"bJ" = (
-/obj/machinery/conveyor{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/disposal)
 "bK" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/machinery/meter,
@@ -877,12 +858,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"cH" = (
-/obj/machinery/conveyor{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/disposal)
 "cI" = (
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
@@ -1400,6 +1375,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
+"ej" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "canary_2"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "ek" = (
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
@@ -1442,22 +1423,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
-"er" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
 "es" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/HTS_Canary.dmi';
@@ -1854,13 +1819,6 @@
 	icon_state = "13,10"
 	},
 /area/shuttle/escape_pod)
-"fG" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/disposal)
 "fH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2308,14 +2266,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"gP" = (
-/obj/structure/plasticflaps/airtight,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "gQ" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -2813,8 +2763,13 @@
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
 "io" = (
-/obj/machinery/conveyor,
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "mining_1";
+	layer = 2.9
+	},
+/obj/machinery/mineral/output,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "ip" = (
@@ -2884,6 +2839,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
+"iy" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "cargo_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/loading)
 "iz" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -3698,8 +3661,10 @@
 /area/engineering/atmos/air)
 "lb" = (
 /obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
+	dir = 9;
+	id = "mining_1";
+	layer = 2.9;
+	reversed = 1
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -3819,6 +3784,16 @@
 	},
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/maintenance/vault)
+"lz" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/conveyor{
+	id = "mining_2";
+	layer = 2.9;
+	reversed = 1
+	},
+/obj/machinery/mineral/output,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "lB" = (
 /obj/structure/ladder/up{
 	pixel_y = 13
@@ -3849,6 +3824,16 @@
 /obj/structure/closet/l3closet/janitor,
 /turf/simulated/floor/tiled,
 /area/janitor)
+"lI" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "mining_2";
+	layer = 2.9
+	},
+/obj/machinery/mineral/output,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "lJ" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2
@@ -4091,6 +4076,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"mu" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	id = "canary_1";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "mv" = (
 /obj/item/device/mass_spectrometer,
 /obj/structure/table/steel,
@@ -4273,7 +4274,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
-/area/quartermaster/loading)
+/area/outpost/mining_main/refinery)
 "nd" = (
 /obj/structure/tank_wall{
 	icon_state = "m-10"
@@ -4287,8 +4288,12 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_x = 28;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled,
-/area/quartermaster/loading)
+/area/outpost/mining_main/refinery)
 "ng" = (
 /obj/machinery/atmospherics/omni/filter{
 	name = "carbon dioxide filter";
@@ -4408,6 +4413,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mineral/input,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "nB" = (
@@ -4946,6 +4952,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"pr" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "mining_2"
+	},
+/obj/machinery/mineral/processing_unit_console{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "ps" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5021,6 +5036,22 @@
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"pE" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	id = "cargo_1";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "pF" = (
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/green,
@@ -5203,11 +5234,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "qr" = (
-/obj/machinery/conveyor{
-	dir = 9
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/conveyor{
+	dir = 9;
+	id = "cargo_2";
+	layer = 2.9;
+	reversed = 1
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -5258,6 +5292,14 @@
 "qA" = (
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
+"qB" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "canary_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "qC" = (
 /turf/simulated/wall/placeholder_standard,
 /area/outpost/mining_main/refinery)
@@ -5678,6 +5720,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"rK" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "rL" = (
 /obj/machinery/computer/drone_control,
 /turf/simulated/floor/plating,
@@ -5712,12 +5766,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
-"rQ" = (
-/obj/machinery/conveyor{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
 "rR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -5791,6 +5839,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"sb" = (
+/obj/machinery/conveyor{
+	dir = 9;
+	id = "cargo_1";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/loading)
 "sc" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -5914,6 +5970,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"sB" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "canary_1"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "sC" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -6055,28 +6117,20 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
-"ta" = (
+"tb" = (
 /obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	id = "cargo_1";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
-/area/hangar/cargo)
+/area/quartermaster/loading)
 "tc" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
-	},
 /obj/machinery/light,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargo_1";
+	layer = 2.9
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "td" = (
@@ -6515,6 +6569,23 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
+"uD" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "cargo_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "uE" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -6527,6 +6598,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"uF" = (
+/obj/machinery/conveyor{
+	id = "mining_2";
+	layer = 2.9;
+	reversed = 1
+	},
+/obj/machinery/mineral/input,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "uG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6704,6 +6784,15 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
+"vd" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining_2";
+	layer = 2.9
+	},
+/obj/machinery/mineral/input,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "ve" = (
 /turf/simulated/wall/placeholder_standard,
 /area/hangar/cargo)
@@ -6850,6 +6939,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
+"vH" = (
+/obj/machinery/conveyor{
+	id = "canary_1";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "vI" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7236,8 +7332,9 @@
 /area/shuttle/escape_pod)
 "wY" = (
 /obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
+	dir = 4;
+	id = "cargo_1";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
@@ -7407,13 +7504,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
-"xC" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "xD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -7878,6 +7968,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"yU" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining_1";
+	layer = 2.9
+	},
+/obj/machinery/mineral/output,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "yV" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -8153,10 +8252,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
-"zI" = (
-/obj/machinery/conveyor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
+"zH" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "cargo_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "zK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -8326,6 +8429,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape_pod)
+"An" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "mining_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "Ao" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -8643,6 +8754,15 @@
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
+"BC" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining_2";
+	layer = 2.9
+	},
+/obj/machinery/mineral/output,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "BD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -9790,11 +9910,12 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod)
 "Fh" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
-	},
 /obj/machinery/light,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargo_1";
+	layer = 2.9
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Fi" = (
@@ -9990,14 +10111,12 @@
 /area/maintenance/substation/hangar)
 "FK" = (
 /obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 2
+	dir = 4;
+	id = "cargo_1";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
-/area/outpost/mining_main/refinery)
+/area/quartermaster/loading)
 "FL" = (
 /obj/structure/shuttle_part/mercenary/small{
 	icon_state = "6,0"
@@ -10059,7 +10178,8 @@
 "FY" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "mining_internal"
+	id = "cargo_2";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -10103,6 +10223,14 @@
 "Gh" = (
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
+"Gi" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "canary_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "Gk" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/storage/bag/trash,
@@ -10377,7 +10505,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "Hd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "Hf" = (
@@ -10643,6 +10771,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
+"HP" = (
+/obj/machinery/conveyor{
+	dir = 9;
+	id = "mining_2";
+	layer = 2.9;
+	reversed = 1
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "HQ" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/dark,
@@ -10747,6 +10884,16 @@
 	icon_state = "3,15"
 	},
 /area/shuttle/escape_pod)
+"Ii" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "mining_1"
+	},
+/obj/machinery/mineral/processing_unit_console{
+	layer = 3.3;
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "Ij" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -11390,9 +11537,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "Kg" = (
-/obj/machinery/conveyor{
-	dir = 4
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -11800,13 +11944,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"Lk" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
 "Ll" = (
 /obj/structure/shuttle_part/placeholder{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -11883,17 +12020,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "Lx" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining_2";
+	layer = 2.9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/cargo)
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "Ly" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 4
@@ -12015,6 +12148,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"LP" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "canary_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "LQ" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/black,
@@ -12096,6 +12246,16 @@
 "Mf" = (
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
+"Mg" = (
+/obj/machinery/conveyor{
+	dir = 10;
+	id = "mining_1";
+	layer = 2.9;
+	reversed = 1
+	},
+/obj/machinery/mineral/input,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "Mh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12253,6 +12413,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"ME" = (
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = -3
+	},
+/turf/simulated/wall/placeholder_standard,
+/area/outpost/mining_main/refinery)
 "MF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -12342,6 +12508,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
+"MS" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "cargo_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/loading)
 "MT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -12463,6 +12646,12 @@
 	dir = 1
 	},
 /area/maintenance/vault)
+"Nl" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "cargo_1"
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "Nm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -12895,10 +13084,6 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "OG" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -13495,6 +13680,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/air)
+"Qt" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining_1";
+	layer = 2.9
+	},
+/obj/machinery/mineral/input,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "Qu" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/isolation_c)
@@ -14089,8 +14283,9 @@
 /area/shuttle/escape_pod)
 "Si" = (
 /obj/machinery/conveyor{
-	dir = 9;
-	id = "mining_internal";
+	dir = 10;
+	id = "mining_2";
+	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
@@ -14361,6 +14556,12 @@
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
+"ST" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "cargo_2"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "SU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/bed/chair{
@@ -14568,12 +14769,13 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "Tx" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
-	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 4
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargo_1";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
@@ -14589,7 +14791,10 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "Tz" = (
-/obj/machinery/conveyor,
+/obj/machinery/conveyor{
+	id = "canary_1";
+	layer = 2.9
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "TA" = (
@@ -15866,10 +16071,7 @@
 /turf/simulated/floor/wood,
 /area/hangar/briefing)
 "XH" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
+/obj/machinery/conveyor,
 /turf/simulated/floor/reinforced,
 /area/maintenance/disposal)
 "XJ" = (
@@ -16121,6 +16323,16 @@
 "Yw" = (
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"Yx" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/conveyor{
+	id = "mining_1";
+	layer = 2.9;
+	reversed = 1
+	},
+/obj/machinery/mineral/output,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "Yy" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small{
 	icon_state = "6,2"
@@ -16186,6 +16398,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"YN" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "cargo_1"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/cargo)
 "YO" = (
 /obj/turbolift_map_holder/placeholder/primary,
 /turf/simulated/floor/plating,
@@ -16271,16 +16489,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"YZ" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 2
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
 "Za" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/structure/window/reinforced,
@@ -16357,8 +16565,8 @@
 /area/hangar/auxiliary)
 "Zk" = (
 /obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
+	id = "cargo_1";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/cargo)
@@ -16605,6 +16813,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"ZW" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining_1";
+	layer = 2.9
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "ZX" = (
 /obj/structure/window/shuttle/unique/raider{
 	icon = 'icons/turf/shuttles_unique/NCV_Intrepid.dmi';
@@ -28653,7 +28869,7 @@ rf
 xM
 kt
 tu
-Ja
+Nl
 wY
 iD
 Pp
@@ -29260,7 +29476,7 @@ qA
 qA
 ky
 gd
-FY
+FK
 dz
 fw
 Gd
@@ -29462,7 +29678,7 @@ wG
 qA
 KT
 Bs
-FY
+FK
 dz
 UP
 ge
@@ -29664,7 +29880,7 @@ qA
 qA
 KT
 Bs
-FY
+FK
 dz
 UP
 ge
@@ -29866,10 +30082,10 @@ MF
 MF
 Lv
 LB
-FY
+FK
 dz
 UP
-ge
+YN
 Uo
 Xx
 xe
@@ -30068,9 +30284,9 @@ DN
 ha
 Qr
 cE
-rQ
-YZ
-ta
+sb
+tb
+pE
 Zk
 Zk
 Ao
@@ -30468,15 +30684,15 @@ LK
 LK
 dz
 qr
-Lk
-Lk
-er
-Lk
-Lk
-YZ
-ta
-Zk
-Zk
+iy
+iy
+MS
+iy
+iy
+iy
+uD
+zH
+zH
 Ao
 xe
 Bx
@@ -30669,15 +30885,15 @@ iq
 qC
 qC
 qC
-qC
-cE
+ME
+lw
 cE
 KT
 cE
 cE
 KL
 UP
-ge
+ST
 Uo
 Xx
 xe
@@ -30868,10 +31084,10 @@ dU
 RI
 RI
 jK
-aS
-zI
+Si
+uF
 fN
-io
+lz
 nb
 cE
 vs
@@ -31070,10 +31286,10 @@ dU
 RI
 RI
 jK
-xC
-aS
+Lx
+Mg
 fN
-io
+Yx
 ne
 cE
 KT
@@ -31272,8 +31488,8 @@ dU
 mW
 RI
 jK
-xC
-xC
+Lx
+ZW
 Hd
 Hd
 qC
@@ -31474,8 +31690,8 @@ dU
 RI
 RI
 jK
-xC
-xC
+BC
+yU
 Hd
 Jy
 lw
@@ -31878,8 +32094,8 @@ LK
 LK
 rg
 jK
-xC
-xC
+vd
+Qt
 Hd
 Jy
 lw
@@ -31888,8 +32104,8 @@ Xh
 lw
 sF
 qC
-UP
-ge
+rK
+Gd
 zy
 Ss
 Il
@@ -32080,18 +32296,18 @@ LK
 LK
 rg
 cw
-xC
-xC
+Lx
+ZW
 Hd
 Hd
-lw
+Ii
 lw
 TG
 xf
 Va
 qC
-Lx
-Gd
+UP
+sB
 Uo
 sV
 PX
@@ -32282,19 +32498,19 @@ rg
 rg
 rg
 Oy
-xC
-Si
-gP
+Lx
+lb
+io
 iZ
 nA
 lw
 Xh
 lw
 Tz
-FK
-ta
-Zk
-Zk
+Tz
+mu
+vH
+vH
 DM
 re
 qP
@@ -32484,9 +32700,9 @@ LK
 LK
 Vp
 mS
-Si
-lb
-gP
+HP
+An
+lI
 iZ
 nA
 lw
@@ -32690,15 +32906,15 @@ qC
 qC
 qC
 qC
-lw
+pr
 tK
 MY
 lw
-Tz
-FK
-ta
-Zk
-Zk
+qB
+qB
+LP
+Gi
+Gi
 FS
 ZM
 xV
@@ -32899,7 +33115,7 @@ UL
 UL
 yq
 UP
-ge
+ej
 Uo
 OJ
 oQ
@@ -34871,7 +35087,7 @@ aa
 aa
 aa
 bR
-bJ
+UW
 ub
 NG
 NG
@@ -35073,13 +35289,13 @@ aa
 aa
 aa
 kg
-cH
-fG
-fG
+UW
+UW
+UW
 OG
 aX
-XH
-XH
+we
+we
 XH
 RL
 NE
