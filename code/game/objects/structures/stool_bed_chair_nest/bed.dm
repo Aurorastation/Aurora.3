@@ -252,7 +252,7 @@
 			iv.pixel_y = 6
 		overlays += iv
 	if(bag_strap && istype(buckled, /obj/structure/closet/body_bag))
-		buckled.overlays += image(icon, bag_strap)
+		LAZYADD(buckled.overlays, image(icon, bag_strap))
 
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
 	if(iswrench(I) || istype(I, /obj/item/stack) || iswirecutter(I))
@@ -360,8 +360,7 @@
 			if(iv_attached)
 				detach_iv(M, usr)
 		else
-			MA.overlays.Cut() //Remove straps
-			MA.update_icon() //Add label back (if it had one)
+			LAZYREMOVE(MA.overlays, image(icon, bag_strap)) //Remove straps
 		density = FALSE
 		MA.pixel_y = 0
 		update_icon()

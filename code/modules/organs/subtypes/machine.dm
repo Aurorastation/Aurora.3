@@ -591,6 +591,22 @@
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
+/obj/item/organ/external/groin/ipc/unbranded/cap // extreme nugget action
+	force_prosthetic_name = "prosthetic groin cap"
+	supports_children = FALSE
+
+/obj/item/organ/external/groin/ipc/unbranded/cap/Initialize(mapload)
+	. = ..()
+	var/obj/item/organ/internal/kidneys/K = new(src)
+	K.robotize()
+	internal_organs += K
+	var/obj/item/organ/internal/liver/L = new(src)
+	L.robotize()
+	internal_organs += L
+	var/obj/item/organ/internal/stomach/S = new(src)
+	S.robotize()
+	internal_organs += S
+
 /obj/item/organ/external/arm/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"

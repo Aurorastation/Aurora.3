@@ -31,6 +31,14 @@
 	recoil_wielded = 2
 	accuracy_wielded = -1
 
+/obj/item/gun/projectile/heavysniper/get_ammo()
+	var/ammo_count = 0
+	for(var/thing in loaded)
+		var/obj/item/ammo_casing/AC = thing
+		if(AC.BB) // my favourite band - geeves
+			ammo_count++
+	return ammo_count
+
 /obj/item/gun/projectile/heavysniper/update_icon()
 	..()
 	if(bolt_open)
@@ -38,7 +46,7 @@
 	else
 		icon_state = "heavysniper"
 
-/obj/item/gun/projectile/heavysniper/attack_self(mob/user as mob)
+/obj/item/gun/projectile/heavysniper/unique_action(mob/user as mob)
 	bolt_open = !bolt_open
 	if(bolt_open)
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
@@ -130,11 +138,6 @@
 				LH.take_damage(30)
 			else
 				RH.take_damage(30)
-
-/obj/item/gun/projectile/heavysniper/unathi/get_ammo()
-	if(chambered)
-		return TRUE
-	return FALSE
 
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"

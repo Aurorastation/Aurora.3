@@ -39,6 +39,7 @@
 	var/permeability_coefficient = 1 // for chemicals/diseases
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
+	var/slowdown_accessory = 0 // Updated on accessory add/remove. This is how much the current accessories slow you down.
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
 	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
 	var/list/allowed = null //suit storage stuff.
@@ -874,6 +875,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. += "Dismemberment: [edge ? "likely to dismember" : "unlikely to dismember"]<br>"
 	. += "Penetration: [armor_penetration]<br>"
 	. += "Throw Force: [throwforce]<br>"
+
+/obj/item/proc/use_resource(var/mob/user, var/use_amount)
+	return
 
 // this gets called when the item gets chucked by the vending machine
 /obj/item/proc/vendor_action(var/obj/machinery/vending/V)

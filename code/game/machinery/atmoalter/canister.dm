@@ -301,7 +301,9 @@ update_flag
 			valve_open = !valve_open
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer) && !issignaler(W) && !(W.iswirecutter() && signaler))
+	if(istype(W, /obj/item/mecha_equipment/clamp))
+		return
+	if(!W.iswrench() && !is_type_in_list(W, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(W) && !(W.iswirecutter() && signaler))
 		if(W.flags & NOBLUDGEON)
 			return
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
