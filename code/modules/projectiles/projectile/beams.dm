@@ -170,12 +170,11 @@
 /obj/item/projectile/beam/stun
 	name = "stun beam"
 	icon_state = "stun"
-	nodamage = 1
-	taser_effect = 1
-	sharp = 0
+	damage = 1
+	sharp = FALSE
 	eyeblur = 1
-	agony = 40
-	damage_type = PAIN
+	agony = 45
+	damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -194,8 +193,8 @@
 /obj/item/projectile/beam/mousegun
 	name = "electrical arc"
 	icon_state = "stun"
-	nodamage = 1
-	damage_type = PAIN
+	damage = 1
+	damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
