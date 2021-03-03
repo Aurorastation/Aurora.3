@@ -830,18 +830,7 @@
 		break
 	if(!throw_item)
 		return FALSE
-	pre_throw(throw_item)
+	throw_item.vendor_action(src)
 	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, 16, 3, src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1
-
-/obj/machinery/vending/proc/pre_throw(var/obj/item/I)
-	if(istype(I, /obj/item/grenade))
-		var/obj/item/grenade/G = I
-		G.activate(src)
-	else if(istype(I, /obj/item/flame/lighter))
-		var/obj/item/flame/lighter/L = I
-		L.handle_lighting()
-	else if(istype(I, /obj/item/device/flashlight))
-		var/obj/item/device/flashlight/FL = I
-		FL.toggle()

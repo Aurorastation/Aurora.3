@@ -828,6 +828,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
 	START_PROCESSING(SSprocessing, src)
 
+/obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
+	handle_lighting()
+
 /obj/item/flame/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	if(!istype(M, /mob))
 		return

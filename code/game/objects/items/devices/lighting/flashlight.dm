@@ -61,6 +61,9 @@
 		playsound(src.loc, activation_sound, 75, 1)
 	update_icon()
 
+/obj/item/device/flashlight/vendor_action(var/obj/machinery/vending/V)
+	toggle()
+
 /obj/item/device/flashlight/examine(mob/user, distance)
 	. = ..()
 	if(light_wedge && isturf(loc))
