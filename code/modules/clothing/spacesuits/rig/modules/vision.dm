@@ -70,8 +70,7 @@
 	var/datum/rig_vision/vision
 	var/list/vision_modes = list(
 		/datum/rig_vision/nvg,
-		/datum/rig_vision/thermal,
-		/datum/rig_vision/meson
+		/datum/rig_vision/thermal
 		)
 
 	var/vision_index
@@ -93,7 +92,7 @@
 		/datum/rig_vision/sechud,
 		/datum/rig_vision/medhud
 		)
-	
+
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/vision/meson
@@ -113,7 +112,7 @@
 		/datum/rig_vision/meson,
 		/datum/rig_vision/material
 		)
-	
+
 /obj/item/rig_module/vision/thermal
 	name = "hardsuit thermal scanner"
 	desc = "A layered, translucent visor system for a hardsuit."

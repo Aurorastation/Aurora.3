@@ -22,15 +22,17 @@
 	// Draw the various inventory equipment slots.
 	var/has_hidden_gear
 	for(var/gear_slot in hud_data.gear)
-
-		inv_box = new /obj/screen/inventory()
+		var/list/slot_data = hud_data.gear[gear_slot]
+		var/hud_type = /obj/screen/inventory
+		if(slot_data["slot_type"])
+			hud_type = slot_data["slot_type"]
+		inv_box = new hud_type()
 		inv_box.icon = ui_style
 		inv_box.layer = SCREEN_LAYER
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
 		inv_box.hud = src
 
-		var/list/slot_data =  hud_data.gear[gear_slot]
 		inv_box.name =        slot_data["name"]
 		inv_box.screen_loc =  slot_data["loc"]
 		inv_box.slot_id =     slot_data["slot"]
@@ -368,6 +370,18 @@
 	mymob.radio_use_icon.icon = ui_style
 	mymob.radio_use_icon.color = ui_color
 	mymob.radio_use_icon.alpha = ui_alpha
+
+	mymob.toggle_firing_mode = new /obj/screen/gun/burstfire(null)
+	mymob.toggle_firing_mode.icon = ui_style
+	mymob.toggle_firing_mode.color = ui_color
+	mymob.toggle_firing_mode.alpha = ui_alpha
+	hud_elements |= mymob.toggle_firing_mode
+
+	mymob.unique_action_icon = new /obj/screen/gun/uniqueaction(null)
+	mymob.unique_action_icon.icon = ui_style
+	mymob.unique_action_icon.color = ui_color
+	mymob.unique_action_icon.alpha = ui_alpha
+	hud_elements |= mymob.unique_action_icon
 
 	mymob.client.screen = null
 

@@ -54,6 +54,7 @@
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran
+	coat["Raakti Shariim coat"] = /obj/item/clothing/suit/storage/tajaran/raakti_shariim
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_cloak
@@ -62,6 +63,7 @@
 	path = /obj/item/clothing/accessory/poncho/tajarancloak
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
+	cost = 1
 
 /datum/gear/suit/tajara_cloak/New()
 	..()
@@ -118,6 +120,7 @@
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
 	uniform["adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
 	uniform["machinist uniform"] = /obj/item/clothing/under/tajaran/mechanic
+	uniform["Raakti Shariim uniform"] = /obj/item/clothing/under/tajaran/raakti_shariim
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/tajara_dress
@@ -193,6 +196,7 @@
 	circlet["silver dress circlet"] = /obj/item/clothing/head/tajaran/circlet/silver
 	circlet["fur hat"] = /obj/item/clothing/head/tajaran/fur
 	circlet["matake priest hat"] = /obj/item/clothing/head/tajaran/matake
+	circlet["Raakti Shariim beret"] = /obj/item/clothing/head/beret/tajaran/raakti_shariim
 	gear_tweaks += new/datum/gear_tweak/path(circlet)
 
 /datum/gear/accessory/tajara_wrap

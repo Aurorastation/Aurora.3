@@ -13,7 +13,7 @@
 			new /datum/stack_recipe("[display_name] sword hilt", /obj/item/material/sword_hilt, 10, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]"),
 			new /datum/stack_recipe("[display_name] sword blade", /obj/item/material/sword_blade, 15, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]"),
 			new /datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] armor plate", /obj/item/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = "[name]")
+			new /datum/stack_recipe("[display_name] armor plating", /obj/item/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = "[name]")
 		))
 
 	if(integrity >= 50)
@@ -66,7 +66,11 @@
 			new /datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1),
 			new /datum/stack_recipe("custodial cart", /obj/structure/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (middle)", /obj/structure/bed/chair/comfy/sofa, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (left)", /obj/structure/bed/chair/comfy/sofa/left, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (right)", /obj/structure/bed/chair/comfy/sofa/right, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (corner)", /obj/structure/bed/chair/comfy/sofa/corner, BUILD_AMT, one_per_turf = 1, on_floor = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("airlock assemblies",

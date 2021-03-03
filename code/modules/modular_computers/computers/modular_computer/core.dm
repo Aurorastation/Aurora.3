@@ -79,7 +79,7 @@
 		verbs += /obj/item/modular_computer/proc/eject_usb
 	if(battery_module && battery_module.hotswappable)
 		verbs += /obj/item/modular_computer/proc/eject_battery
-	if(ai_slot && ai_slot.stored_card)
+	if(ai_slot)
 		verbs += /obj/item/modular_computer/proc/eject_ai
 	if(personal_ai)
 		verbs += /obj/item/modular_computer/proc/eject_personal_ai

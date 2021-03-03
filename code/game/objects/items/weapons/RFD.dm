@@ -81,7 +81,7 @@
 	if(W.isscrewdriver())  // Turning it into a crossbow
 		crafting = !crafting
 		if(!crafting)
-			to_chat(user, SPAN_NOTICE("You reassemble the RFD"))
+			to_chat(user, SPAN_NOTICE("You reassemble the RFD."))
 		else
 			to_chat(user, SPAN_NOTICE("The RFD can now be modified."))
 		src.add_fingerprint(user)
@@ -110,9 +110,9 @@
 			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // can be found in crossbow.dm
 			forceMove(CB)
 			CB.stored_matter = src.stored_matter
+			user.drop_from_inventory(src)
 			qdel(src)
 			user.put_in_hands(CB)
-			add_fingerprint(user)
 			return
 	..()
 
@@ -490,6 +490,8 @@ RFD Mining-Class
 		stored_matter--
 		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/30</b> fabrication-units."))
 
+	return TRUE
+
 
 // Malf AI RFD Transformer.
 
@@ -545,6 +547,8 @@ RFD Mining-Class
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
 			R.cell.use(used_energy)
+
+	return TRUE
 
 
 /*

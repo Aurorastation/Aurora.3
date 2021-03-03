@@ -100,6 +100,16 @@
 	update_icon()
 	return
 
+/obj/item/glass_jar/MouseDrop(atom/over)
+	if(usr != over || use_check_and_message(usr))
+		return
+	if(length(contained))
+		switch(contains)
+			if(JAR_GUMBALL)
+				release(contained[1], usr)
+				usr.put_in_hands(contained[1])
+				contained -= contained[1]
+
 /obj/item/glass_jar/attackby(var/atom/A, var/mob/user, var/proximity)
 	if(istype(A, /obj/item/spacecash))
 		var/obj/item/spacecash/S = A

@@ -52,8 +52,8 @@
 
 	voice = GetVoice()
 
-	//No need to update all of these procs if the guy is dead.
-	if(stat != DEAD)
+	//No need to update all of these procs if the guy is dead or in stasis
+	if(stat != DEAD && !InStasis())
 		//Updates the number of stored chemicals for powers
 		handle_changeling()
 
@@ -427,7 +427,7 @@
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
 	else
-		if(!(COLD_RESISTANCE in mutations))
+		if(!pressure_resistant())
 			var/list/obj/item/organ/external/organs = get_damageable_organs()
 			for(var/obj/item/organ/external/O in organs)
 				if(QDELETED(O))
@@ -626,6 +626,7 @@
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
 
 		sprint_speed_factor = species.sprint_speed_factor
+		max_stamina = species.stamina
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 		move_delay_mod = 0
@@ -729,7 +730,7 @@
 		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
 			handle_hallucinations()
 
-		if(get_shock() >= (species.total_health * 0.75))
+		if(get_shock() >= (species.total_health * 0.6))
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
@@ -740,7 +741,7 @@
 			if(sleeping)
 				stat = UNCONSCIOUS
 
-			adjustHalLoss(-7)
+			adjustHalLoss(-5)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -776,11 +777,11 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
-			adjustHalLoss(-5)
+			adjustHalLoss(-3)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-3)
+			adjustHalLoss(-1)
 
 		//Other
 		handle_statuses()
