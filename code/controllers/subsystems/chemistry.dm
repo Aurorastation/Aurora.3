@@ -141,7 +141,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		cc.required_reagents = chemconfig[chemical]["required_reagents"]
-		if(!istype(cc.result, /decl/reagent))
+		if(!ispath(cc.result, /decl/reagent))
 			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 			break
