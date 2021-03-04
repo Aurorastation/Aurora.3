@@ -231,7 +231,7 @@
 
 /datum/gear/shoes/tajara/footwraps
 	display_name = "native tajaran foot-wear"
-	path = /obj/item/clothing/shoes/tajara
+	path = /obj/item/clothing/shoes/tajara/footwraps
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 
