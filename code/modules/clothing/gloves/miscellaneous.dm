@@ -337,19 +337,32 @@
 		return
 
 	if(user.a_intent == I_HURT)
-		var/turf/T = get_turf(user)
-		user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
-		var/obj/item/projectile/beam/tesla/LE = new (T)
-		playsound(usr.loc, 'sound/magic/LightningShock.ogg', 75, 1)
-		LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
-		charged = FALSE
-		update_icon()
-		user.update_inv_gloves()
-		addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+		if(proximity)
+			if(iscarbon(A))
+				var/mob/living/carbon/L = A
+				L.electrocute_act(20,src, 1, user.zone_sel.selecting)
+				spark(src, 3, alldirs)
+				charged = FALSE
+				update_icon()
+				user.update_inv_gloves()
+				addtimer(CALLBACK(src, .proc/rearm), 10 SECONDS)
+
+		else
+			var/turf/T = get_turf(user)
+			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
+			var/obj/item/projectile/beam/tesla/LE = new (T)
+			LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
+			spark(src, 3, alldirs)
+			playsound(user.loc, 'sound/magic/LightningShock.ogg', 75, 1)
+			charged = FALSE
+			update_icon()
+			user.update_inv_gloves()
+			addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
 
 /obj/item/clothing/gloves/tesla/proc/rearm()
 	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))
 	charged = TRUE
+	update_icon()
 
 /obj/item/clothing/gloves/tesla/update_icon()
 	if(charged)
@@ -358,3 +371,6 @@
 	else
 		icon_state = "tesla_glove"
 		item_state = "tesla_glove"
+	if(ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_gloves()
