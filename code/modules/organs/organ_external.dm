@@ -16,6 +16,8 @@
 	dir = SOUTH
 	organ_tag = "limb"
 
+	var/force_prosthetic_name
+
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
@@ -58,6 +60,7 @@
 
 	var/obj/item/organ/external/parent
 	var/list/obj/item/organ/external/children
+	var/supports_children = TRUE
 	var/list/internal_organs = list() 	// Internal organs of this body part
 
 	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
@@ -901,7 +904,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		victim.shock_stage += min_broken_damage
 		victim.flash_strong_pain()
 
+	var/mob/living/carbon/human/last_owner = owner
 	removed(null, ignore_children)
+	if(istype(last_owner) && !QDELETED(last_owner) && length(last_owner.organs) <= 1)
+		last_owner.drop_all_limbs(disintegrate) // drops the last remaining part, usually the torso, as an item
 
 	if(parent_organ)
 		var/datum/wound/lost_limb/W = new(src, disintegrate, clean)
@@ -1086,9 +1092,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 				force_icon = R.icon
 			if(R.lifelike)
 				status |= ORGAN_LIFELIKE
-				name = "[initial(name)]"
+				if(force_prosthetic_name)
+					name = force_prosthetic_name
+				else
+					name = "[initial(name)]"
 			else
-				name = "[R.company] [initial(name)]"
+				if(force_prosthetic_name)
+					name = force_prosthetic_name
+				else
+					name = "[R.company] [initial(name)]"
 				desc = "[R.desc]"
 			if(R.paintable)
 				painted = 1
@@ -1431,7 +1443,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	pain = max(0, min(max_damage, pain + amount))
+	var/threshold = max_damage * 2
+	pain = max(0, min(threshold, pain + amount))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	return pain-last_pain

@@ -144,7 +144,7 @@
 				if("cell")
 
 					if(cell)
-						to_chat(user, "You detatch \the [cell] from \the [src]'s battery mount.")
+						to_chat(user, "You detach \the [cell] from \the [src]'s battery mount.")
 						for(var/obj/item/rig_module/module in installed_modules)
 							module.deactivate()
 						if(user.r_hand && user.l_hand)
@@ -172,7 +172,7 @@
 						return
 
 					var/obj/item/rig_module/removed = possible_removals[removal_choice]
-					to_chat(user, "You detatch \the [removed] from \the [src].")
+					to_chat(user, "You detach \the [removed] from \the [src].")
 					removed.forceMove(get_turf(src))
 					removed.removed()
 					installed_modules -= removed

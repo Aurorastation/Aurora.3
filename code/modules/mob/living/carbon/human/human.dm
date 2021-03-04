@@ -1414,6 +1414,7 @@
 	species.handle_post_spawn(src,kpg) // should be zero by default
 
 	maxHealth = species.total_health
+	health = maxHealth
 
 	spawn(0)
 		regenerate_icons()
@@ -1850,9 +1851,8 @@
 
 /mob/living/carbon/human/need_breathe()
 	if(!(mNobreath in mutations) && species.breathing_organ && species.has_organ[species.breathing_organ])
-		return 1
-	else
-		return 0
+		return TRUE
+	return FALSE
 
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
@@ -2061,3 +2061,9 @@
 	set name = "click_back"
 	if(back)
 		back.Click()
+
+/mob/living/carbon/human/verb/click_suit_storage()
+	set hidden = 1
+	set name = "click_suit_storage"
+	if(s_store)
+		s_store.Click()

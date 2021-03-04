@@ -1550,7 +1550,7 @@
 	req_access = list(3)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/melee/baton/loaded,
 /obj/item/shield/riot,
 /obj/item/clothing/head/helmet/riot,
@@ -1709,7 +1709,7 @@
 	req_access = list(3)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/melee/baton/loaded,
 /obj/item/shield/riot,
 /obj/item/clothing/head/helmet/riot,
@@ -1899,7 +1899,7 @@
 	req_access = list(3)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/melee/baton/loaded,
 /obj/item/shield/riot,
 /obj/item/clothing/head/helmet/riot,
@@ -2044,11 +2044,11 @@
 	name = "Weapons locker";
 	req_access = list(3)
 	},
-/obj/item/clothing/suit/armor/bulletproof{
+/obj/item/clothing/suit/armor/carrier/ballistic{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/armor/bulletproof{
+/obj/item/clothing/suit/armor/carrier/ballistic{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -2068,11 +2068,11 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/clothing/suit/armor/laserproof{
+/obj/item/clothing/suit/armor/carrier/ablative{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/armor/laserproof{
+/obj/item/clothing/suit/armor/carrier/ablative{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -3282,8 +3282,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
+/obj/item/clothing/suit/armor/carrier/heavy/sec,
+/obj/item/clothing/head/helmet/security/heavy,
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "agl" = (

@@ -8,7 +8,7 @@
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
 	mob_push_flags = ALLMOBS
-	can_buckle = FALSE
+	can_be_buckled = FALSE
 	accent = ACCENT_TTS
 	var/decal
 

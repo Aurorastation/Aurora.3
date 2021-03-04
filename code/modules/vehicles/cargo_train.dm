@@ -140,8 +140,8 @@
 // Cargo trains are open topped, so you can shoot at the driver.
 // Or you can shoot at the tug itself, if you're good.
 /obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)
-	if (buckled_mob && Proj.original == buckled_mob)
-		buckled_mob.bullet_act(Proj)
+	if (buckled && Proj.original == buckled)
+		buckled.bullet_act(Proj)
 	else
 		..()
 

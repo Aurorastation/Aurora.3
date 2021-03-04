@@ -247,7 +247,7 @@
 				return
 			var/bucklestatus = L.bucklecheck(user)
 
-			if (!bucklestatus)//incase the patient got buckled during the delay
+			if (!bucklestatus)//incase the patient got buckled_to during the delay
 				return
 			if(L != G.affecting)//incase it isn't the same mob we started with
 				return

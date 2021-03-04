@@ -148,9 +148,9 @@
 	if(legcuffed)
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(legcuffed, user)] legcuffed!</span>\n"
 
-	//buckled
-	if(buckled)
-		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(buckled, user)] buckled to [buckled]!</span>\n"
+	//buckled_to
+	if(buckled_to)
+		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(buckled_to, user)] buckled to [buckled_to]!</span>\n"
 
 	//belt
 	if(belt)

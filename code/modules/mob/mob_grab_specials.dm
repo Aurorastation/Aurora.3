@@ -55,10 +55,10 @@
 		return
 
 	attacker.visible_message("<span class='danger'>[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!</span>")
-	var/armor = 100 * target.get_blocked_ratio(target, BRUTE, damage = 30)
+	var/armor = 100 * affecting.get_blocked_ratio(target, BRUTE, damage = 30)
 	if(armor < 70)
 		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
-		affecting.adjustHalLoss(Clamp(0, 60-affecting.getHalLoss(), 30)) //up to 60 halloss
+		affecting.adjustHalLoss(Clamp(0, 60 - affecting.getHalLoss(), 30)) //up to 60 halloss
 
 /obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))

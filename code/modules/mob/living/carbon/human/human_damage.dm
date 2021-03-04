@@ -114,7 +114,7 @@
 /mob/living/carbon/human/update_canmove()
 	var/old_lying = lying
 	. = ..()
-	if(lying && !old_lying && !resting && !buckled && isturf(loc)) // fell down
+	if(lying && !old_lying && !resting && !buckled_to && isturf(loc)) // fell down
 		playsound(loc, species.bodyfall_sound, 50, 1, -1)
 
 /mob/living/carbon/human/getCloneLoss()
@@ -377,8 +377,12 @@ This function restores all organs.
 	return
 
 
-/mob/living/carbon/human/proc/get_organ(var/zone)
-	if(!zone)	zone = BP_CHEST
+/mob/living/carbon/human/proc/get_organ(var/zone, var/allow_no_result = FALSE)
+	if(!zone)
+		if(allow_no_result)
+			return
+		else
+			zone = BP_CHEST
 	if (zone in list(BP_EYES, BP_MOUTH))
 		zone = BP_HEAD
 	return organs_by_name[zone]
@@ -389,7 +393,7 @@ This function restores all organs.
 			to_chat(src, "<span class='danger'>You are now visible.</span>")
 			src.invisibility = 0
 
-	var/obj/item/organ/external/organ = get_organ(def_zone)
+	var/obj/item/organ/external/organ = get_organ(def_zone, TRUE)
 	if(!organ)
 		if(isorgan(def_zone))
 			organ = def_zone
@@ -429,7 +433,8 @@ This function restores all organs.
 		return FALSE
 
 	if(damage > 15 && prob(damage*4) && organ.can_feel_pain())
-		make_adrenaline(round(damage/10))
+		if(REAGENT_VOLUME(reagents, /decl/reagent/adrenaline) < 15)
+			make_adrenaline(round(damage/10))
 
 	switch(damagetype)
 		if(BRUTE)

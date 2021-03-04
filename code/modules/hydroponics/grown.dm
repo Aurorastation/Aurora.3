@@ -150,7 +150,7 @@
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
 		if(istype(M))
 
-			if(M.buckled)
+			if(M.buckled_to)
 				return
 
 			if(istype(M,/mob/living/carbon/human))

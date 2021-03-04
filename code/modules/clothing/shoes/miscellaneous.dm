@@ -236,6 +236,8 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "winterboots_toeless"
 	item_state = "winterboots_toeless"
 	species_restricted = null
+	sprite_sheets = list(
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/caligae
 	name = "caligae"

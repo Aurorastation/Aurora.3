@@ -51,7 +51,7 @@ emp_act
 
 	return blocked
 
-/mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone)
+/mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
 	var/siemens_coeff = get_siemens_coefficient_organ(affected)
 	stun_amount *= siemens_coeff
@@ -78,7 +78,7 @@ emp_act
 					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
 					visible_message("<b>[src]</b> [(!can_feel_pain()) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
 
-	..(stun_amount, agony_amount, def_zone)
+	..(stun_amount, agony_amount, def_zone, used_weapon, damage_flags)
 
 /mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
 	if(!def_zone && (damage_flags & DAM_DISPERSED))
@@ -117,7 +117,7 @@ emp_act
 	if (!def_zone)
 		return 1.0
 
-	var/siemens_coefficient = species.siemens_coefficient
+	var/siemens_coefficient = max(species.siemens_coefficient, 0)
 
 	var/list/clothing_items = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes) // What all are we checking?
 	for(var/obj/item/clothing/C in clothing_items)
@@ -545,7 +545,7 @@ emp_act
 		src.w_uniform.add_fingerprint(src)
 
 	var/obj/item/grab/G = new /obj/item/grab(user, src)
-	if(buckled)
+	if(buckled_to)
 		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return

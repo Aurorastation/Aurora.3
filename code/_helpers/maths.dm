@@ -34,6 +34,9 @@
 /proc/Modulus(x, y)
 	return ( (x) - (y) * round((x) / (y)) )
 
+/proc/Percent(current_value, max_value, rounding = 1)
+	return round((current_value / max_value) * 100, rounding)
+
 // Greatest Common Divisor: Euclid's algorithm.
 /proc/Gcd(a, b)
 	while (1)
@@ -162,3 +165,9 @@
 /proc/n_inrange(var/num, var/min=-1, var/max=1)
 	if(isnum(num)&&isnum(min)&&isnum(max))
 		return ((min <= num) && (num <= max))
+
+#define MODULUS_FLOAT(X, Y) ( (X) - (Y) * round((X) / (Y)) )
+
+// Will filter out extra rotations and negative rotations
+// E.g: 540 becomes 180. -180 becomes 180.
+#define SIMPLIFY_DEGREES(degrees) (MODULUS_FLOAT((degrees), 360))

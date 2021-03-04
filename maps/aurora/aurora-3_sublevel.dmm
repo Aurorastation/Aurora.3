@@ -7289,7 +7289,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/status_display{
 	layer = 4;
@@ -8259,7 +8259,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8968,7 +8968,7 @@
 	c_tag = "Medical - Patient Wing Library";
 	dir = 1
 	},
-/obj/item/storage/box/chess_kit,
+/obj/item/board,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
 "aqG" = (
@@ -12046,7 +12046,7 @@
 "avD" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
@@ -22366,10 +22366,10 @@
 /area/medical/medbay4)
 "aVg" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/clothing/shoes/white{
+/obj/item/clothing/shoes/medical{
 	pixel_x = 4;
 	pixel_y = -8
-	},
+},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aVi" = (
