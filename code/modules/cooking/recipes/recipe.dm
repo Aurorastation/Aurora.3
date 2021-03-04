@@ -70,6 +70,8 @@
 
 /decl/recipe/proc/get_appliance_names()
 	var/list/appliance_names
+	if(appliance & GRILL) // this comes first in the proc because it's the most important - geeves
+		LAZYADD(appliance_names, "a grill")
 	if(appliance & MIX)
 		LAZYADD(appliance_names, "a mixing bowl or plate")
 	if(appliance & FRYER)

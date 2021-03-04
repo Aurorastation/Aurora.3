@@ -103,7 +103,7 @@
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
-				AddComponent(/datum/component/armor, armor, armor_degradation_speed)
+				AddComponent(/datum/component/armor, armor)
 				break
 
 /obj/item/Destroy()
@@ -875,3 +875,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. += "Dismemberment: [edge ? "likely to dismember" : "unlikely to dismember"]<br>"
 	. += "Penetration: [armor_penetration]<br>"
 	. += "Throw Force: [throwforce]<br>"
+
+/obj/item/proc/use_resource(var/mob/user, var/use_amount)
+	return

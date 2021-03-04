@@ -886,6 +886,32 @@
 
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 6, /decl/reagent/acid/polyacid = 6)
 
+/obj/item/reagent_containers/food/snacks/xenomeat/grilled
+	name = "grilled xeno steak"
+	desc = "A piece of grilled xeno meat. The process converts the dangerous acids within into tasty fats, even though the final look might be... upsetting."
+	icon_state = "xenosteak"
+
+	trash = /obj/item/trash/plate/steak
+	center_of_mass = list("x"=16, "y"=13)
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 6, /decl/reagent/nutriment/triglyceride = 2, /decl/reagent/capsaicin = 2)
+
+/obj/item/reagent_containers/food/snacks/xenomeat/grilled/update_icon()
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 10)
+			icon_state = "xenosteak_10"
+		if(11 to 25)
+			icon_state = "xenosteak_25"
+		if(26 to 40)
+			icon_state = "xenosteak_40"
+		if(41 to 60)
+			icon_state = "xenosteak_60"
+		if(61 to 75)
+			icon_state = "xenosteak_75"
+		if(76 to INFINITY)
+			icon_state = "xenosteak"
+
 /obj/item/reagent_containers/food/snacks/meatball
 	name = "meatball"
 	desc = "A great meal all round."
@@ -1512,7 +1538,11 @@
 /obj/item/reagent_containers/food/snacks/meatsteak/grilled
 	name = "grilled steak"
 	desc = "A piece of meat grilled to absolute perfection. Sssssssip. This is the life."
-	reagents_to_add = list(/decl/reagent/nutriment/protein = 6, /decl/reagent/nutriment/triglyceride = 2, /decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1, /decl/reagent/spacespice = 1)
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 6, /decl/reagent/nutriment/triglyceride = 2, /decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1)
+
+/obj/item/reagent_containers/food/snacks/meatsteak/grilled/spicy
+	desc = "A piece of meat grilled to absolute perfection, spiced to tastebud specification. Sssssssip. This is the life."
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 6, /decl/reagent/nutriment/triglyceride = 2, /decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1, /decl/reagent/spacespice = 2)
 
 /obj/item/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"

@@ -239,7 +239,8 @@
 	icon_state = "grill_grate"
 	appliancetype = GRILL
 	insertable = list(
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/xenomeat
 	)
 
 /obj/item/reagent_containers/cooking_container/grill_grate/can_fit()
