@@ -32,7 +32,7 @@
 		var/obj/item/seeds/S = A
 		product_icon = S.update_appearance(TRUE)
 	else
-		product_icon = new /icon(A.icon, A.icon_state)
+		product_icon = icon(A.icon, A.icon_state, SOUTH)
 	icon_state = product_icon
 	QDEL_NULL(A)
 
