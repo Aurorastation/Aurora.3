@@ -19,7 +19,7 @@
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
 
-	var/knockdown = TRUE //whether shuttle downs non-buckled people when it moves
+	var/knockdown = TRUE //whether shuttle downs non-buckled_to people when it moves
 
 	var/defer_initialisation = FALSE //this shuttle will/won't be initialised automatically. If set to true, you are responsible for initialzing the shuttle manually.
 	                                 //Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
@@ -192,18 +192,22 @@
 				if(istype(TA, ceiling_type))
 					TA.ChangeTurf(get_base_turf_by_area(TA), 1, 1)
 		if(knockdown)
-			for(var/mob/M in A)
+			for(var/mob/living/carbon/M in A)
 				spawn(0)
-					if(istype(M, /mob/living/carbon))
-						if(M.buckled)
-							to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
-							shake_camera(M, 3, 1)
-						else
-							to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
-							shake_camera(M, 10, 1)
-							M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
-							M.throw_at_random(FALSE, 4, 1)
-							M.Weaken(3)
+					if(M.buckled_to)
+						to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
+						shake_camera(M, 3, 1)
+					else if(M.Check_Shoegrip(FALSE))
+						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
+						M.apply_damage(10, PAIN, BP_L_FOOT)
+						M.apply_damage(10, PAIN, BP_R_FOOT)
+						shake_camera(M, 5, 1)
+					else
+						to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
+						shake_camera(M, 10, 1)
+						M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
+						M.throw_at_random(FALSE, 4, 1)
+						M.Weaken(3)
 
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet

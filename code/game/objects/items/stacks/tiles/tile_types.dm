@@ -193,13 +193,13 @@
 /obj/item/stack/tile/floor
 	name = "floor tile"
 	singular_name = "floor tile"
-	desc = "Those could work as a pretty decent throwing weapon" //why?
+	desc = "Used to cover up your horrible art."
 	icon_state = "tile"
-	force = 6.0
+	force = 6
 	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT)
-	throwforce = 15.0
+	throwforce = 6
 	throw_speed = 5
-	throw_range = 20
+	throw_range = 10
 	flags = CONDUCT
 
 /obj/item/stack/tile/floor_red

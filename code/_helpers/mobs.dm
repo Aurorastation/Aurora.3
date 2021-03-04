@@ -6,7 +6,7 @@
 		return load
 
 /obj/vehicle/train/get_mob()
-	return buckled_mob
+	return buckled
 
 /mob/get_mob()
 	return src

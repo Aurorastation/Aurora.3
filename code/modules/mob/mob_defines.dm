@@ -7,7 +7,7 @@
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
-	var/can_buckle = TRUE
+	can_be_buckled = TRUE
 
 	var/obj/screen/cells = null
 	var/obj/screen/flash = null
@@ -35,6 +35,8 @@
 	var/obj/screen/gun/move/gun_move_icon = null
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
+	var/obj/screen/gun/unique_action_icon = null
+	var/obj/screen/gun/toggle_firing_mode = null
 	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
@@ -136,7 +138,6 @@
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
-	var/obj/buckled = null//Living
 	var/obj/item/l_hand = null//Living
 	var/obj/item/r_hand = null//Living
 	var/obj/item/back = null//Human/Monkey
@@ -176,7 +177,7 @@
 	var/accent
 
 	var/faction = "neutral" //Used for checking whether hostile simple animals will attack you, possibly more stuff later
-	var/captured = 0 //Functionally, should give the same effect as being buckled into a chair when true.
+	var/captured = 0 //Functionally, should give the same effect as being buckled_to into a chair when true.
 
 //Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
 	//var/proc_holder_list[] = list()//Right now unused.

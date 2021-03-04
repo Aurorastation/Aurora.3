@@ -14,7 +14,7 @@
 			C.adjustBruteLoss(rand(5,25) * weakness)
 			C.adjustFireLoss(rand(5,25) * weakness)
 			C.adjustBrainLoss(rand(5,25) * weakness)
-			C.apply_effect(25 * weakness, IRRADIATE, blocked = C.getarmor(null, "rad"))
+			C.apply_damage(25 * weakness, IRRADIATE, damage_flags = DAM_DISPERSED)
 			C.adjustNutritionLoss(50 * weakness)
 			C.adjustHydrationLoss(50 * weakness)
 			C.make_dizzy(6 * weakness)

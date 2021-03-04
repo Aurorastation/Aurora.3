@@ -35,8 +35,8 @@ calculate text size per text.
 			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(!R.taste_mult)
 				continue
-			if(R.type == /decl/reagent/nutriment)
-				var/list/taste_data = REAGENT_DATA(src, R.type)
+			if(_R == /decl/reagent/nutriment)
+				var/list/taste_data = REAGENT_DATA(src, _R)
 				for(var/taste in taste_data)
 					if(taste in tastes)
 						tastes[taste] += taste_data[taste]
@@ -44,7 +44,7 @@ calculate text size per text.
 						tastes[taste] = taste_data[taste]
 			else
 				var/taste_desc = R.taste_description
-				var/taste_amount = REAGENT_VOLUME(src, R.type) * R.taste_mult
+				var/taste_amount = REAGENT_VOLUME(src, _R) * R.taste_mult
 				if(R.taste_description in tastes)
 					tastes[taste_desc] += taste_amount
 				else

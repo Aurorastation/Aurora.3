@@ -4,7 +4,7 @@ var/list/doppler_arrays = list()
 	name = "tachyon-doppler array"
 	desc = "A highly precise directional sensor array which measures the release of quants from decaying tachyons. The doppler shifting of the mirror-image formed by these quants can reveal the size, location and temporal affects of energetic disturbances within a large radius ahead of the array."
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "old_cons"
+	icon_state = "computer"
 
 	anchored = TRUE
 	density = TRUE
@@ -13,6 +13,7 @@ var/list/doppler_arrays = list()
 /obj/machinery/doppler_array/Initialize()
 	. = ..()
 	doppler_arrays += src
+	update_icon()
 
 /obj/machinery/doppler_array/Destroy()
 	doppler_arrays -= src
@@ -25,6 +26,17 @@ var/list/doppler_arrays = list()
 /obj/machinery/doppler_array/attack_hand(mob/user)
 	active = !active
 	to_chat(user, SPAN_NOTICE("\The [src] is now [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"]."))
+
+/obj/machinery/doppler_array/update_icon()
+	icon_state = initial(icon_state)
+	set_light(0)
+	if(stat & BROKEN)
+		icon_state = "broken"
+	else
+		cut_overlays()
+		if(!(stat & NOPOWER))
+			set_light(2, 1, COLOR_CYAN)
+			add_overlay(image(icon, src, "teleport"))
 
 /obj/machinery/doppler_array/proc/sense_explosion(var/x0,var/y0,var/z0,var/devastation_range,var/heavy_impact_range,var/light_impact_range)
 	if(!active || (stat & NOPOWER) || z != z0)
@@ -55,10 +67,4 @@ var/list/doppler_arrays = list()
 
 /obj/machinery/doppler_array/power_change()
 	..()
-	if(stat & BROKEN)
-		icon_state = "[initial(icon_state)]-broken"
-	else
-		if( !(stat & NOPOWER) )
-			icon_state = initial(icon_state)
-		else
-			icon_state = "[initial(icon_state)]-off"
+	update_icon()

@@ -43,13 +43,15 @@ emp_act
 
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())
-		var/armor = getarmor_organ(organ, "bullet")
+		var/armor = get_blocked_ratio(def_zone, BRUTE, P.damage_flags(), armor_pen = P.armor_penetration, damage = P.damage)*100
 		if(prob(20 + max(P.damage + P.embed_chance - armor, -10)))
 			P.do_embed(organ)
 
-	return (..(P , def_zone))
+	var/blocked = ..(P, def_zone)
 
-/mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone)
+	return blocked
+
+/mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
 	var/siemens_coeff = get_siemens_coefficient_organ(affected)
 	stun_amount *= siemens_coeff
@@ -76,36 +78,46 @@ emp_act
 					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
 					visible_message("<b>[src]</b> [(!can_feel_pain()) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
 
-	..(stun_amount, agony_amount, def_zone)
+	..(stun_amount, agony_amount, def_zone, used_weapon, damage_flags)
 
-/mob/living/carbon/human/getarmor(var/def_zone, var/type)
-	var/armorval = 0
-	var/total = 0
+/mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
+	if(!def_zone && (damage_flags & DAM_DISPERSED))
+		var/tally
+		for(var/zone in organ_rel_size)
+			tally += organ_rel_size[zone]
+		for(var/zone in organ_rel_size)
+			def_zone = zone
+			. += .() * organ_rel_size/tally
+		return
+	return ..()
 
-	if(def_zone)
-		if(isorgan(def_zone))
-			return getarmor_organ(def_zone, type)
-		var/obj/item/organ/external/affecting = get_organ(def_zone)
-		if(affecting)
-			return getarmor_organ(affecting, type)
-		//If a specific bodypart is targetted, check how that bodypart is protected and return the value.
-
-	//If you don't specify a bodypart, it checks ALL your bodyparts for protection, and averages out the values
-	for(var/organ_name in organs_by_name)
-		if (organ_name in organ_rel_size)
-			var/obj/item/organ/external/organ = organs_by_name[organ_name]
-			if(organ)
-				var/weight = organ_rel_size[organ_name]
-				armorval += getarmor_organ(organ, type) * weight
-				total += weight
-	return (armorval/max(total, 1))
+/mob/living/carbon/human/get_armors_by_zone(obj/item/organ/external/def_zone, damage_type, damage_flags)
+	. = ..()
+	if(!def_zone)
+		def_zone = ran_zone()
+	if(!istype(def_zone))
+		def_zone = get_organ(check_zone(def_zone))
+	if(!def_zone)
+		return
+	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
+	for(var/obj/item/clothing/gear in protective_gear)
+		if(gear.accessories && length(gear.accessories))
+			for(var/obj/item/clothing/accessory/bling in gear.accessories)
+				if(bling.body_parts_covered & def_zone.body_part)
+					var/armor = bling.GetComponent(/datum/component/armor)
+					if(armor)
+						. += armor
+		if(gear.body_parts_covered & def_zone.body_part)
+			var/armor = gear.GetComponent(/datum/component/armor)
+			if(armor)
+				. += armor
 
 //this proc returns the Siemens coefficient of electrical resistivity for a particular external organ.
 /mob/living/carbon/human/proc/get_siemens_coefficient_organ(var/obj/item/organ/external/def_zone)
 	if (!def_zone)
 		return 1.0
 
-	var/siemens_coefficient = species.siemens_coefficient
+	var/siemens_coefficient = max(species.siemens_coefficient, 0)
 
 	var/list/clothing_items = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes) // What all are we checking?
 	for(var/obj/item/clothing/C in clothing_items)
@@ -123,30 +135,16 @@ emp_act
 			results.Add(C)
 	return results
 
-//this proc returns the armor value for a particular external organ.
-/mob/living/carbon/human/proc/getarmor_organ(var/obj/item/organ/external/def_zone, var/type)
-	if(!type || !def_zone) return 0
-	var/protection = 0
-	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
-	for(var/obj/item/clothing/gear in protective_gear)
-		if(!isnull(gear.armor) && gear.body_parts_covered & def_zone.body_part)
-			protection = add_armor(protection, gear.armor[type])
-		for(var/obj/item/clothing/accessory/A in gear.accessories)
-			if(!isnull(A.armor) && A.body_parts_covered & def_zone.body_part)
-				protection = add_armor(protection, A.armor[type])
-
-	return protection
-
 /mob/living/carbon/human/proc/check_head_coverage()
-
 	var/list/body_parts = list(head, wear_mask, wear_suit, w_uniform)
 	for(var/bp in body_parts)
-		if(!bp)	continue
+		if(!bp)
+			continue
 		if(bp && istype(bp ,/obj/item/clothing))
 			var/obj/item/clothing/C = bp
 			if(C.body_parts_covered & HEAD)
-				return 1
-	return 0
+				return TRUE
+	return FALSE
 
 /mob/living/carbon/human/proc/check_head_airtight_coverage()
 	var/list/clothing = list(head, wear_mask, wear_suit)
@@ -231,19 +229,18 @@ emp_act
 
 	if(user == src) // Attacking yourself can't miss
 		target_zone = user.zone_sel.selecting
-	if(!target_zone)
-		visible_message("<span class='danger'>[user] misses [src] with \the [I]!</span>")
-		return 0
 
-	//var/obj/item/organ/external/affecting = get_organ(target_zone)
+	if(!hit_zone)
+		visible_message("<span class='danger'>[user] misses [src] with \the [I]!</span>")
+		return
 
 	if(check_shields(I.force, I, user, target_zone, "the [I.name]"))
-		return null
+		return
 
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
 		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
-		return null
+		return
 
 	return hit_zone
 
@@ -253,13 +250,9 @@ emp_act
 		return //should be prevented by attacked_with_item() but for sanity.
 
 	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!</span>")
+	return standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
-	var/blocked = run_armor_check(hit_zone, "melee", I.armor_penetration, "Your armor has protected your [affecting.name].", "Your armor has softened the blow to your [affecting.name].")
-	standard_weapon_hit_effects(I, user, effective_force, blocked, hit_zone)
-
-	return blocked
-
-/mob/living/carbon/human/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
+/mob/living/carbon/human/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if(!affecting)
 		return 0
@@ -273,22 +266,20 @@ emp_act
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
 		effective_force /= 2 //half the effective force
-		if(!..(I, user, effective_force, blocked, hit_zone))
-			return 0
+		if(!..(I, user, effective_force, hit_zone))
+			return FALSE
 
 		attack_joint(affecting, I, blocked) //but can dislocate joints
+
 	else if(!..())
-		return 0
+		return FALSE
 
 	// forceglove amplification
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/X = user
 		if(X.gloves && istype(X.gloves,/obj/item/clothing/gloves/force))
 			var/obj/item/clothing/gloves/force/G = X.gloves
 			effective_force *= G.amplification
-
-	if(effective_force > 10 || effective_force >= 5 && prob(33))
-		forcesay(hit_appends)	//forcesay checks stat already
 
 	if((I.damtype == BRUTE || I.damtype == PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
@@ -326,7 +317,7 @@ emp_act
 				if(BP_CHEST)
 					bloody_body(src)
 
-	return 1
+	return TRUE
 
 /mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/blocked)
 	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1) || blocked >= 100)
@@ -396,12 +387,8 @@ emp_act
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
-		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>", "<span class='warning'><font size='2'>You're hit in the [hit_area] by [O]!</font></span>")
-		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened the hit to your [hit_area].") //I guess "melee" is the best fit here
-
-		if(armor < 100)
-			var/damage_flags = O.damage_flags()
-			apply_damage(throw_damage, dtype, zone, armor, O, damage_flags = damage_flags)
+		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>", "<span class='warning'><font size=2>You're hit in the [hit_area] by [O]!</font></span>")
+		apply_damage(throw_damage, dtype, zone, used_weapon = O, damage_flags = O.damage_flags(), armor_pen = O.armor_penetration)
 
 		if(ismob(O.thrower))
 			var/mob/M = O.thrower
@@ -418,12 +405,11 @@ emp_act
 			if (!is_robot_module(I))
 				var/sharp = is_sharp(I)
 				var/damage = throw_damage
-				if (armor)
-					damage *= BLOCKED_MULT(armor)
+				damage *= (1 - get_blocked_ratio(zone, BRUTE, O.damage_flags(), O.armor_penetration, damage))
 
 				//blunt objects should really not be embedding in things unless a huge amount of force is involved
-				var/embed_chance = sharp? damage/I.w_class : damage/(I.w_class*3)
-				var/embed_threshold = sharp? 5*I.w_class : 15*I.w_class
+				var/embed_chance = sharp ? damage/I.w_class : damage/(I.w_class*3)
+				var/embed_threshold = sharp ? 5*I.w_class : 15*I.w_class
 
 				//Sharp objects will always embed if they do enough damage.
 				//Thrown sharp objects have some momentum already and have a small chance to embed even if the damage is below the threshold
@@ -432,7 +418,7 @@ emp_act
 
 		// Begin BS12 momentum-transfer code.
 		var/mass = 1.5
-		if(istype(O, /obj/item))
+		if(isitem(O))
 			var/obj/item/I = O
 			mass = I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR
 		var/momentum = speed*mass
@@ -559,7 +545,7 @@ emp_act
 		src.w_uniform.add_fingerprint(src)
 
 	var/obj/item/grab/G = new /obj/item/grab(user, src)
-	if(buckled)
+	if(buckled_to)
 		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return

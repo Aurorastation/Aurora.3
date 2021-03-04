@@ -5,7 +5,15 @@
 	icon_state = "void"
 
 	heat_protection = HEAD
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 
@@ -17,14 +25,14 @@
 		BODYTYPE_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/helmet.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi'
-		)
+	)
 	sprite_sheets_obj = list(
 		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
 		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
 		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/hats.dmi',
 		BODYTYPE_IPC = 'icons/obj/clothing/species/machine/hats.dmi'
-		)
+	)
 
 	light_overlay = "helmet_light"
 
@@ -34,7 +42,15 @@
 	item_state = "void"
 	desc = "A high-tech dark red space suit. Used for AI satellite maintenance."
 	slowdown = 1
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -47,14 +63,14 @@
 		BODYTYPE_SKRELL = 'icons/mob/species/skrell/suit.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi'
-		)
+	)
 	sprite_sheets_obj = list(
 		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/suits.dmi',
 		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/suits.dmi',
 		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
 		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/suits.dmi',
 		BODYTYPE_IPC= 'icons/obj/clothing/species/machine/suits.dmi'
-		)
+	)
 
 	action_button_name = "Toggle Helmet"
 	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'

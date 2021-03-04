@@ -183,7 +183,7 @@ There are several things that need to be remembered:
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
-/mob/living/carbon/human/UpdateDamageIcon(var/update_icons=1)
+/mob/living/carbon/human/UpdateDamageIcon(var/update_icons = 1)
 	// first check whether something actually changed about damage appearance
 	var/damage_appearance = ""
 
@@ -404,7 +404,9 @@ There are several things that need to be remembered:
 						grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_MULTIPLY)
 					hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.icon_blend_mode)
 					if(!isnull(grad_s))
-						hair_s.Blend(grad_s, ICON_OVERLAY)
+						var/icon/grad_s_final = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
+						grad_s_final.Blend(grad_s, hair_style.icon_blend_mode)
+						hair_s.Blend(grad_s_final, ICON_OVERLAY)
 
 				face_standing.Blend(hair_s, ICON_OVERLAY)
 
@@ -677,7 +679,6 @@ There are several things that need to be remembered:
 			result_layer = list(result_layer, bloodsies)
 
 		gloves.screen_loc = ui_gloves
-		result_layer.appearance_flags = RESET_ALPHA
 		overlays_raw[GLOVES_LAYER] = result_layer
 	else if(blood_DNA)
 		var/image/bloodsies = image(species.blood_mask, "bloodyhands")
@@ -865,10 +866,13 @@ There are several things that need to be remembered:
 		overlays_raw[shoe_layer] = ovr || result_layer
 	else
 		if(footprint_color)		// Handles bloody feet.
-			var/image/bloodsies = image(species.blood_mask, "shoeblood")
-			bloodsies.color = footprint_color
-			bloodsies.appearance_flags = RESET_ALPHA
-			overlays_raw[SHOES_LAYER] = bloodsies
+			for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
+				var/obj/item/organ/external/E = get_organ(limb_tag)
+				if(E && !E.is_stump())
+					var/image/bloodsies = image(species.blood_mask, "shoeblood_[E.limb_name]")
+					bloodsies.color = footprint_color
+					bloodsies.appearance_flags = RESET_ALPHA
+					overlays_raw[SHOES_LAYER] = bloodsies
 		else
 			overlays_raw[SHOES_LAYER] = null
 			overlays_raw[SHOES_LAYER_ALT] = null
@@ -912,8 +916,8 @@ There are several things that need to be remembered:
 		if(head.contained_sprite)
 			head.auto_adapt_species(src)
 			var/state = "[UNDERSCORE_OR_NULL(head.icon_species_tag)][head.item_state][WORN_HEAD]"
-
 			standing = image(head.icon_override || head.icon, state)
+			t_icon = head.icon
 		else if(head.icon_override)
 			t_icon = head.icon_override
 		else if(head.sprite_sheets && head.sprite_sheets[GET_BODY_TYPE])
@@ -930,6 +934,10 @@ There are several things that need to be remembered:
 
 		standing.color = head.color
 		standing.appearance_flags = RESET_ALPHA
+		var/image/worn_overlays = head.worn_overlays(t_icon)
+		if(worn_overlays)
+			standing.overlays.Add(worn_overlays)
+
 		var/list/ovr
 
 		if(head.blood_DNA)
@@ -959,35 +967,39 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[BELT_LAYER] = null
-	overlays_raw[BELT_LAYER_ALT] = null
-
 	if(belt)
-		belt.screen_loc = ui_belt	//TODO
-		var/t_state = belt.item_state
-		var/t_icon = belt.icon || belt.icon_state
-		var/image/standing
+		belt.screen_loc = ui_belt
 
+		var/image/result_layer = null
+
+		//Determine the icon to use
+		var/t_icon = INV_BELT_DEF_ICON
 		if(belt.contained_sprite)
 			belt.auto_adapt_species(src)
-			t_state = "[UNDERSCORE_OR_NULL(belt.icon_species_tag)][belt.item_state][WORN_BELT]"
-
-			if(belt.icon_override)
-				t_icon = belt.icon_override
-
+			var/t_state = "[UNDERSCORE_OR_NULL(belt.icon_species_tag)][belt.item_state][WORN_BELT]"
+			result_layer = image(belt.icon_override || belt.icon, t_state)
 		else if(belt.icon_override)
 			t_icon = belt.icon_override
 		else if(belt.sprite_sheets && belt.sprite_sheets[GET_BODY_TYPE])
 			t_icon = belt.sprite_sheets[GET_BODY_TYPE]
-		else
-			t_icon = 'icons/mob/belt.dmi'
+		else if(belt.item_icons && (slot_belt_str in belt.item_icons))
+			t_icon = belt.item_icons[slot_belt_str]
 
-		standing = image(t_icon, t_state)
-		standing.appearance_flags = RESET_ALPHA
+		if(!result_layer) //Create the image
+			result_layer = image(t_icon, belt.item_state)
+
+		if(belt.color)
+			result_layer.color = belt.color
+
+		result_layer.appearance_flags = RESET_ALPHA
+		var/image/worn_overlays = belt.worn_overlays(t_icon)
+		if(worn_overlays)
+			result_layer.add_overlay(worn_overlays)
+
 		var/list/ovr
 
-		if(belt.contents.len && istype(belt, /obj/item/storage/belt))
-			ovr = list(standing)
+		if(length(belt.contents) && istype(belt, /obj/item/storage/belt))
+			ovr = list(result_layer)
 			for(var/obj/item/i in belt.contents)
 				var/c_state
 				var/c_icon
@@ -995,19 +1007,23 @@ There are several things that need to be remembered:
 					c_state = "[UNDERSCORE_OR_NULL(i.icon_species_tag)][i.item_state][WORN_BELT]"
 					c_icon = belt.icon_override || belt.icon
 				else
-					c_icon = 'icons/mob/belt.dmi'
+					c_icon = INV_BELT_DEF_ICON
 					c_state = i.item_state || i.icon_state
 				var/image/belt_item_image = image(c_icon, c_state)
+				belt_item_image.color = i.color
 				belt_item_image.appearance_flags = RESET_ALPHA
-				ovr += image(c_icon, c_state)
+				ovr += belt_item_image
 
-		var/beltlayer = BELT_LAYER
+		var/belt_layer = BELT_LAYER
 		if(istype(belt, /obj/item/storage/belt))
-			var/obj/item/storage/belt/ubelt = belt
-			if(ubelt.show_above_suit)
-				beltlayer = BELT_LAYER_ALT
+			var/obj/item/storage/belt/B = belt
+			if(B.show_above_suit)
+				belt_layer = BELT_LAYER_ALT
 
-		overlays_raw[beltlayer] = ovr || standing
+		overlays_raw[belt_layer] = ovr || result_layer
+	else
+		overlays_raw[BELT_LAYER] = null
+		overlays_raw[BELT_LAYER_ALT] = null
 
 	if(update_icons)
 		update_icon()
@@ -1026,8 +1042,8 @@ There are several things that need to be remembered:
 		if(wear_suit.contained_sprite)
 			wear_suit.auto_adapt_species(src)
 			var/t_state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
-
 			result_layer = image(wear_suit.icon_override || wear_suit.icon, t_state)
+			t_icon = wear_suit.icon
 		else if(wear_suit.icon_override)
 			t_icon = wear_suit.icon_override
 		else if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[GET_BODY_TYPE])

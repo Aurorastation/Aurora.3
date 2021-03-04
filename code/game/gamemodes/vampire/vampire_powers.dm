@@ -130,7 +130,7 @@
 			vampire.frenzy--
 
 		if(blood_total != vampire.blood_total)
-			var/update_msg = "You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood"
+			var/update_msg = "You have accumulated [vampire.blood_total] unit\s of blood"
 			if(blood_usable != vampire.blood_usable)
 				update_msg += " and have [vampire.blood_usable] left to use"
 			update_msg += "."
@@ -651,60 +651,6 @@
 
 	return
 
-// Dominate a victim, imbed a thought into their mind.
-/mob/living/carbon/human/proc/vampire_dominate()
-	set category = "Vampire"
-	set name = "Dominate (50)"
-	set desc = "Dominate the mind of a victim, make them obey your will."
-
-	var/datum/vampire/vampire = vampire_power(25, 0)
-	if(!vampire)
-		return
-
-	var/list/victims = list()
-	for(var/mob/living/carbon/human/H in view(7))
-		if(H == src)
-			continue
-		victims += H
-
-	if(!length(victims))
-		to_chat(src, SPAN_WARNING("No suitable targets."))
-		return
-
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
-	if(!T || !vampire_can_affect_target(T, 1, 1))
-		return
-
-	if(!(vampire.status & VAMP_FULLPOWER))
-		to_chat(src, SPAN_NOTICE("You begin peering into [T]'s mind, looking for a way to gain control."))
-
-		if(!do_mob(src, T, 50))
-			to_chat(src, SPAN_WARNING("Your concentration is broken!"))
-			return
-
-		to_chat(src, SPAN_NOTICE("You succeed in dominating [T]'s mind. They are yours to command."))
-	else
-		to_chat(src, SPAN_NOTICE("You instantly dominate [T]'s mind, forcing them to obey your command."))
-
-	var/command = input(src, "Command your victim.", "Your command.") as text|null
-	if(!command)
-		to_chat(src, SPAN_NOTICE("You decide against commanding your victim."))
-		return
-
-	command = sanitizeSafe(command, extra = 0)
-
-	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
-
-	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
-	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
-	to_chat(T, SPAN_GOOD("<i><em>[command]</em></i>"))
-	to_chat(src, SPAN_NOTICE("You command [T], and they will obey."))
-	visible_message("<b>[src]</b> whispers something.")
-
-	vampire.use_blood(50)
-	verbs -= /mob/living/carbon/human/proc/vampire_dominate
-	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_dominate, CALLBACK(src, .proc/finish_vamp_timeout))
-
 // Enthralls a person, giving the vampire a mortal slave.
 /mob/living/carbon/human/proc/vampire_enthrall()
 	set category = "Vampire"
@@ -803,7 +749,7 @@
 		for(var/mob/living/carbon/human/T in view(5))
 			if(T == src)
 				continue
-			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power. 
+			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power.
 				continue
 			if(!T.client)
 				continue
@@ -964,7 +910,7 @@
 
 	if(status_flags & LEAPING)
 		return
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, SPAN_WARNING("You cannot lean in your current state."))
 		return
 

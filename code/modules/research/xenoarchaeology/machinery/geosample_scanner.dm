@@ -200,7 +200,7 @@
 					if(!rad_shield)
 						//irradiate nearby mobs
 						for(var/mob/living/M in view(7,src))
-							M.apply_effect(radiation / 25, IRRADIATE, blocked = M.getarmor(null, "rad"))
+							M.apply_damage(radiation / 25, IRRADIATE, damage_flags = DAM_DISPERSED)
 				else
 					t_left_radspike = pick(10,15,25)
 

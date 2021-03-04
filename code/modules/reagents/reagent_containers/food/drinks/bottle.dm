@@ -101,9 +101,17 @@
 		update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/remove_rag(mob/user)
-	if(!rag) return
+	if(!rag)
+		return
 	user.put_in_hands(rag)
 	rag = null
+	flags |= (initial(flags) & OPENCONTAINER)
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/bottle/proc/delete_rag()
+	if(!rag)
+		return
+	QDEL_NULL(rag)
 	flags |= (initial(flags) & OPENCONTAINER)
 	update_icon()
 
@@ -114,13 +122,14 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/update_icon()
 	underlays.Cut()
+	set_light(0)
 	if(rag)
 		var/underlay_image = image(icon='icons/obj/drinks.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
 		underlays += underlay_image
-		set_light(2)
-	else
-		set_light(0)
-		..()
+		if(rag.on_fire)
+			set_light(2, l_color = LIGHT_COLOR_FIRE)
+		return
+	..()
 
 /obj/item/reagent_containers/food/drinks/bottle/attack(mob/living/target, mob/living/user, var/hit_zone)
 	var/blocked = ..()
@@ -139,7 +148,7 @@
 	// You are going to knock someone out for longer if they are not wearing a helmet.
 	var/weaken_duration = 0
 	if(blocked < 100)
-		weaken_duration = smash_duration + min(0, force - target.getarmor(hit_zone, "melee") + 10)
+		weaken_duration = smash_duration + min(0, force - target.get_blocked_ratio(hit_zone, BRUTE) * 100 + 10)
 
 	var/mob/living/carbon/human/H = target
 	if(istype(H) && H.headcheck(hit_zone))
@@ -423,6 +432,17 @@
 	reagents_to_add = list(/decl/reagent/drink/spacemountainwind = 100)
 	shatter_material = MATERIAL_PLASTIC
 	fragile = 0
+
+/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda
+	name = "Hro'zamal Soda"
+	desc = "A bottle of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and bottled in the People's Republic of Adhomai."
+	desc_fluff = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
+	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
+	students because of its stimulant effect."
+	icon_state = "hrozamal_soda_bottle"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 100)
+	fragile = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/pwine
 	name = "Chip Getmore's Velvet"

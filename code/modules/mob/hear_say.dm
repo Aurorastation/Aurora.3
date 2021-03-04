@@ -1,7 +1,7 @@
 // At minimum every mob has a hear_say proc.
 
 /mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if(!istype(src, /mob/living/test) && (!client && !vr_mob))
+	if(!istype(src, /mob/living/test) && cant_hear())
 		return
 
 	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
@@ -76,10 +76,40 @@
 			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
 		return TRUE
 
+/mob/proc/cant_hear()
+	if(!client && !vr_mob)
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/cant_hear()
+	. = ..()
+	if(.)
+		var/datum/dionastats/DS = get_dionastats()
+		if(DS?.nym)
+			return FALSE
+
+/mob/living/carbon/alien/diona/cant_hear()
+	. = ..()
+	if(. && detached && gestalt)
+		return FALSE
+
 /mob/proc/on_hear_say(var/message)
 	to_chat(src, message)
 	if(vr_mob)
 		to_chat(vr_mob, message)
+
+/mob/living/carbon/on_hear_say(var/message)
+	..()
+	var/datum/dionastats/DS = get_dionastats()
+	if(DS?.nym)
+		var/mob/living/carbon/alien/diona/D = DS.nym.resolve()
+		if(D)
+			to_chat(D, message)
+
+/mob/living/carbon/alien/diona/on_hear_say(var/message)
+	to_chat(src, message)
+	if(detached && gestalt)
+		to_chat(gestalt, message)
 
 /mob/living/silicon/on_hear_say(var/message)
 	var/time = say_timestamp()

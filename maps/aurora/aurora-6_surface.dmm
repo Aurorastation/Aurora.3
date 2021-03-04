@@ -141,7 +141,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/plating,
 /area/store)
@@ -387,7 +387,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/lino/grey,
 /area/store)
@@ -8451,6 +8451,20 @@
 	pixel_x = 16
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "power generation supplies"
+	},
+/obj/item/circuitboard/rtg,
+/obj/item/stack/cable_coil{
+	amount = 5
+	},
+/obj/item/stock_parts/capacitor,
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
+/obj/item/stack/material/phoron{
+	amount = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "hCb" = (
@@ -12222,6 +12236,9 @@
 "kYN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
@@ -24239,7 +24256,7 @@
 	pixel_y = 2
 	},
 /obj/item/paper_bin,
-/obj/item/book/manual/ntsl2,
+/obj/item/book/manual/wiki/ntsl2,
 /obj/machinery/light_switch{
 	pixel_y = 26
 	},
@@ -53955,7 +53972,7 @@ fdu
 fdu
 fdu
 kKF
-nmN
+kKF
 kKF
 kKF
 kKF

@@ -49,9 +49,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			totalPlayers = 0
 			totalPlayersReady = 0
 			for(var/mob/abstract/new_player/player in player_list)
-				stat("[player.key]", (player.ready)?("(Playing)"):(null))
 				totalPlayers++
 				if(player.ready)
+					stat("[copytext_char(player.client.prefs.real_name, 1, 18)]", ("[player.client.prefs.return_chosen_high_job(TRUE)]"))
 					totalPlayersReady++
 
 /mob/abstract/new_player/Topic(href, href_list[])
@@ -274,9 +274,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
-	if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
-		character.buckled.forceMove(character.loc)
-		character.buckled.set_dir(character.dir)
+	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/chair/wheelchair))
+		character.buckled_to.forceMove(character.loc)
+		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))

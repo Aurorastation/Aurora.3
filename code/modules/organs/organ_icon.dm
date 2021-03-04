@@ -20,9 +20,7 @@
 		var/datum/robolimb/R = all_robolimbs[robotize_type]
 		if(R.paintable)
 			limb_exception = TRUE
-		if(R.company == PROSTHETIC_SYNTHSKIN)
-			limb_exception = TRUE
-	if(status & ORGAN_ROBOT && !(isipc(human)) && !limb_exception)
+	if((status & ORGAN_ROBOT) && !limb_exception)
 		return
 	if(species && human.species && species.name != human.species.name)
 		return
@@ -235,8 +233,8 @@
 	var/n_is = damage_state_text()
 	if (n_is != damage_state)
 		damage_state = n_is
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 // This is NOT safe for caching the organ's own icon, it's only meant to be used for the mob icon cache.
 /obj/item/organ/external/proc/get_mob_cache_key()

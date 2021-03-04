@@ -114,7 +114,7 @@
 		dat += "<br>This sample contains: "
 		for(var/_R in grown_reagents.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(_R)
-			dat += "<br>- [R.name], [REAGENT_VOLUME(grown_reagents, R.type)] unit(s)"
+			dat += "<br>- [R.name], [REAGENT_VOLUME(grown_reagents, _R)] unit(s)"
 
 	dat += "<h2>Other Data</h2>"
 
@@ -157,7 +157,7 @@
 	else if(grown_seed.get_trait(TRAIT_HEAT_TOLERANCE) < 10)
 		dat += "<br>It is very sensitive to temperature shifts."
 
-	dat += "<br>It thrives in a light level of [grown_seed.get_trait(TRAIT_IDEAL_LIGHT)] lumen[grown_seed.get_trait(TRAIT_IDEAL_LIGHT) == 1 ? "" : "s"]."
+	dat += "<br>It thrives in a light level of [grown_seed.get_trait(TRAIT_IDEAL_LIGHT)] lumen\s."
 
 	if(grown_seed.get_trait(TRAIT_LIGHT_TOLERANCE) > 10)
 		dat += "<br>It is well adapted to a range of light levels."

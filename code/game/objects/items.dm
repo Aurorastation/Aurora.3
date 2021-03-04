@@ -39,9 +39,9 @@
 	var/permeability_coefficient = 1 // for chemicals/diseases
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
+	var/slowdown_accessory = 0 // Updated on accessory add/remove. This is how much the current accessories slow you down.
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
 	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
-	var/list/armor //= list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)	If null, object has 0 armor.
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink // All items can have an uplink hidden inside, just remember to add the triggers.
 	var/zoomdevicename //name used for message when binoculars/scope is used
@@ -56,6 +56,9 @@
 	var/pickup_sound = /decl/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
+
+	var/list/armor
+	var/armor_degradation_speed //How fast armor will degrade, multiplier to blocked damage to get armor damage value.
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -95,6 +98,14 @@
 	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
 	// Its vital that if you make new power tools or new recipies that you include this
 
+/obj/item/Initialize()
+	. = ..()
+	if(islist(armor))
+		for(var/type in armor)
+			if(armor[type])
+				AddComponent(/datum/component/armor, armor)
+				break
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -104,6 +115,11 @@
 		src.loc = null
 	return ..()
 
+/obj/item/update_icon()
+	. = ..()
+	if(build_from_parts)
+		cut_overlays()
+		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
@@ -859,3 +875,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. += "Dismemberment: [edge ? "likely to dismember" : "unlikely to dismember"]<br>"
 	. += "Penetration: [armor_penetration]<br>"
 	. += "Throw Force: [throwforce]<br>"
+
+/obj/item/proc/use_resource(var/mob/user, var/use_amount)
+	return

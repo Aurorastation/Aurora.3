@@ -119,8 +119,7 @@
 					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the urinal."))
 					return
 				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
-				var/blocked = GM.run_armor_check("melee")
-				GM.apply_damage(8, def_zone = BP_HEAD, blocked = blocked, used_weapon = "blunt force")
+				GM.apply_damage(8, def_zone = BP_HEAD, used_weapon = "blunt force")
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 1.5)
 			else
 				to_chat(user, SPAN_NOTICE("You need a tighter grip."))

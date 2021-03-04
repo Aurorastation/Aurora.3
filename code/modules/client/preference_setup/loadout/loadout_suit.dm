@@ -102,10 +102,29 @@
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
+/datum/gear/suit/medical_chest_rig
+	display_name = "medic chest-rig"
+	description = "A white chest-rig with pouches worn by medical first responders, meant to carry their equipment."
+	path = /obj/item/clothing/suit/storage/medical_chest_rig
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+
+/datum/gear/suit/first_responder_vest
+	display_name = "first responder vest"
+	description = "A dark green vest adorned with high-visibility stripes. Has pouches to carry equipment with."
+	path = /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/iaclabcoat
+	display_name = "IAC labcoat"
+	description = "It's a standard medical labcoat designed to be worn by the Interstellar Aid Corps."
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -201,6 +220,12 @@
 	wintercoat["winter coat, cargo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	gear_tweaks += new/datum/gear_tweak/path(wintercoat)
+
+/datum/gear/suit/winter_colorable
+	display_name = "colorable winter coat"
+	description = "A colorable winter coat for the thermally challenged."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/secjacketofficer
 	display_name = "security jacket selection (Security Officer)"
