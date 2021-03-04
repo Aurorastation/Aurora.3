@@ -166,7 +166,11 @@
 		piece.permeability_coefficient = permeability_coefficient
 		piece.unacidable = unacidable
 		piece.species_restricted = species_restricted
-		if(islist(armor)) piece.armor = armor.Copy()
+		if(islist(armor))
+			var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
+			if(istype(armor_component))
+				armor_component.RemoveComponent()
+			piece.AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_RIG)
 
 	set_vision(!offline)
 	update_icon(1)
@@ -288,12 +292,9 @@
 								helmet.update_light(wearer)
 
 					//sealed pieces become airtight, protecting against diseases
-					if (!seal_target)
-						LAZYINITLIST(piece.armor)
-						piece.armor["bio"] = 100
-					else
-						LAZYINITLIST(piece.armor)
-						piece.armor["bio"] = LAZYACCESS(src.armor, "bio") || 0
+					var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
+					if(istype(armor_component))
+						armor_component.sealed = !seal_target
 					playsound(src, "[!seal_target ? 'sound/machines/rig/rig_deploy.ogg' : 'sound/machines/rig/rig_retract.ogg']", 20, FALSE)
 
 				else
@@ -670,7 +671,7 @@
 			equip_to = slot_shoes
 			use_obj = boots
 			check_slot = wearer.shoes
-		if(BP_CHEST)
+		if("chest")
 			equip_to = slot_wear_suit
 			use_obj = chest
 			check_slot = wearer.wear_suit
