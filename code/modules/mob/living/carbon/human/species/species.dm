@@ -659,3 +659,9 @@
 	
 /datum/species/proc/is_naturally_insulated()
 	return FALSE
+
+// the records var is so that untagged shells can appear human
+/datum/species/proc/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
+	if(reference)
+		return src
+	return name
