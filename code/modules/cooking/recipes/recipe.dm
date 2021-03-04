@@ -37,7 +37,7 @@
 	var/list/reagents // example: = list(/decl/reagent/drink/berryjuice = 5) // do not list same reagent twice
 	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
 	var/list/fruit    // example: = list("fruit" = 3)
-	var/decl/reagent/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
+	var/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
 	//A value of -1 is permissive and cares not for any coatings
 	//Any typepath indicates a specific coating that should be present
 	//Coatings are used for batter, breadcrumbs, beer-batter, colonel's secret coating, etc
@@ -172,7 +172,7 @@
 	if (coating == -1)
 		return TRUE //-1 value doesnt care
 
-	return !coating || (S.coating.type == coating)
+	return !coating || (S.coating == coating)
 
 //general version
 /decl/recipe/proc/make(var/obj/container as obj)
