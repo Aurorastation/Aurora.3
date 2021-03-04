@@ -99,14 +99,6 @@
 	items = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
 	result = /obj/item/reagent_containers/food/snacks/loadedbakedpotato
 
-/decl/recipe/dionaroast
-	appliance = OVEN
-	fruit = list("apple" = 1)
-	reagents = list(/decl/reagent/acid/polyacid = 5) //It dissolves the carapace. Still poisonous, though.
-	items = list(/obj/item/reagent_containers/food/snacks/meat/dionanymph)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/dionaroast
-	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
-
 /decl/recipe/ribplate //Putting this here for not seeing a roast section.
 	appliance = OVEN
 	reagents = list(/decl/reagent/nutriment/honey = 5, /decl/reagent/spacespice = 2, /decl/reagent/blackpepper = 1)
