@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Using hardsuit modules now generally only applies the module's cooldown if the action was successful. Standard click-cooldown still applies, however."
+  - rscadd: "Using a hardsuit module will now colour your back HUD icon red until the cooldown ends."

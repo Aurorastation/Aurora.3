@@ -125,6 +125,10 @@
 		bear.instant_aggro()
 
 /obj/item/trap/Crossed(atom/movable/AM)
+	if(ishuman(AM))
+		var/mob/living/carbon/human/H = AM
+		if(H.shoes?.item_flags & LIGHTSTEP)
+			return
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
 		L.visible_message(
@@ -138,8 +142,6 @@
 		deployed = FALSE
 		update_icon()
 		shake_animation()
-	..()
-
 
 /obj/item/trap/update_icon()
 	icon_state = "[icon_base][deployed]"

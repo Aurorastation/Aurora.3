@@ -600,7 +600,7 @@
 				if("deactivate")
 					module.deactivate(user)
 				if("engage")
-					module.engage(null, user)
+					module.do_engage(null, user)
 				if("select")
 					selected_module = module
 				if("select_charge_type")

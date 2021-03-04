@@ -16,6 +16,8 @@
 	dir = SOUTH
 	organ_tag = "limb"
 
+	var/force_prosthetic_name
+
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
@@ -58,6 +60,7 @@
 
 	var/obj/item/organ/external/parent
 	var/list/obj/item/organ/external/children
+	var/supports_children = TRUE
 	var/list/internal_organs = list() 	// Internal organs of this body part
 
 	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
@@ -1089,9 +1092,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 				force_icon = R.icon
 			if(R.lifelike)
 				status |= ORGAN_LIFELIKE
-				name = "[initial(name)]"
+				if(force_prosthetic_name)
+					name = force_prosthetic_name
+				else
+					name = "[initial(name)]"
 			else
-				name = "[R.company] [initial(name)]"
+				if(force_prosthetic_name)
+					name = force_prosthetic_name
+				else
+					name = "[R.company] [initial(name)]"
 				desc = "[R.desc]"
 			if(R.paintable)
 				painted = 1
