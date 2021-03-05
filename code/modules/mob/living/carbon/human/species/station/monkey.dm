@@ -16,6 +16,8 @@
 	has_fine_manipulation = 0
 	show_ssd = null
 
+	bodytype = BODYTYPE_MONKEY
+
 	eyes = "blank_eyes"
 
 	gibbed_anim = "gibbed-m"
