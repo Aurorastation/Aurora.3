@@ -19,6 +19,7 @@
 
 	icobase = 'icons/mob/human_races/human/r_human.dmi'
 	deform = 'icons/mob/human_races/ipc/robotic.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/shell_preview.dmi'
 
 	light_range = 0
 	light_power = 0
