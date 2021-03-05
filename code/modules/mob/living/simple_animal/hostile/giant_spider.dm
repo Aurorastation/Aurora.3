@@ -20,6 +20,7 @@
 	speak_chance = 5
 	turns_per_move = 5
 	see_in_dark = 10
+	meat_amount = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	organ_names = list("thorax", "legs", "head")
 	response_help  = "pets"

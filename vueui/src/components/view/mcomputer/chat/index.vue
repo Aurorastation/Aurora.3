@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 v-if="!s.service" class="red">Chat service is not enabled, please enble it from main menu.</h2>
+    <h2 v-if="!s.service" class="red">Chat service is not enabled, please enable it from main menu.</h2>
     <h2 v-else-if="!s.registered" class="red">No registered user detected.</h2>
     <h2 v-else-if="!s.signal" class="red">No network signal.</h2>
     <template v-else>

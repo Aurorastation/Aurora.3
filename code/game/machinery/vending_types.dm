@@ -88,6 +88,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 2,
 		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
@@ -272,7 +273,6 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
-		/obj/item/reagent_containers/food/snacks/diona_bites = 3,
 		/obj/item/reagent_containers/food/snacks/ricetub = 2,
 		/obj/item/reagent_containers/food/snacks/riceball = 4,
 		/obj/item/reagent_containers/food/snacks/seaweed = 5
@@ -304,7 +304,6 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
 		/obj/item/reagent_containers/food/snacks/tuna = 23,
-		/obj/item/reagent_containers/food/snacks/diona_bites = 40,
 		/obj/item/reagent_containers/food/snacks/ricetub = 40,
 		/obj/item/reagent_containers/food/snacks/riceball = 15,
 		/obj/item/reagent_containers/food/snacks/seaweed = 20
@@ -331,7 +330,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -354,7 +354,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 16,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'

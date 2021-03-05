@@ -85,6 +85,7 @@
 	if(..())
 		return
 	if(!allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	do_hair_pull(user)
 	ui_interact(user)

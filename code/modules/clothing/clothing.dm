@@ -251,11 +251,17 @@
 		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor))
 			number = between(0, number, 100)
 
-		armor["melee"] = melee_armor
-		armor["bullet"] = bullet_armor
-		armor["laser"] = laser_armor
-		armor["energy"] = energy_armor
-		armor["bomb"] = bomb_armor
+		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
+		if(istype(armor_component))
+			armor_component.RemoveComponent()
+		var/list/armor_list = list(
+			melee = melee_armor,
+			bullet = bullet_armor,
+			laser = laser_armor,
+			energy = energy_armor,
+			bomb = bomb_armor
+		)
+		AddComponent(/datum/component/armor, armor_list)
 
 		if(!isnull(material.conductivity))
 			siemens_coefficient = between(0, material.conductivity / 10, 10)
