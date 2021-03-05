@@ -273,7 +273,6 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
-		/obj/item/reagent_containers/food/snacks/diona_bites = 3,
 		/obj/item/reagent_containers/food/snacks/ricetub = 2,
 		/obj/item/reagent_containers/food/snacks/riceball = 4,
 		/obj/item/reagent_containers/food/snacks/seaweed = 5
@@ -305,7 +304,6 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
 		/obj/item/reagent_containers/food/snacks/tuna = 23,
-		/obj/item/reagent_containers/food/snacks/diona_bites = 40,
 		/obj/item/reagent_containers/food/snacks/ricetub = 40,
 		/obj/item/reagent_containers/food/snacks/riceball = 15,
 		/obj/item/reagent_containers/food/snacks/seaweed = 20

@@ -5013,13 +5013,3 @@
 	reagent_data = list(/decl/reagent/nutriment = list("diona delicacy" = 5))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/drink/carrotjuice = 2, /decl/reagent/drink/potatojuice = 2, /decl/reagent/radium = 2)
 	filling_color = "#BD8939"
-
-/obj/item/reagent_containers/food/snacks/diona_bites
-	name = "dionae bites"
-	desc = "Freeze dried Dionae bites artfully crafted by Getmore chefs for that home cooked taste on the go!"
-	icon_state = "dionaebites"
-	reagent_data = list(/decl/reagent/nutriment = list("diona delicacy" = 5))
-	reagents_to_add = list(/decl/reagent/nutriment = 6)
-	trash = /obj/item/trash/diona_bites
-	bitesize = 3
-	filling_color = "#BD8939"
