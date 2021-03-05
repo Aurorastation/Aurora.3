@@ -239,6 +239,36 @@
 		return chosenJob.title
 	return chosenJob
 
+/datum/preferences/proc/return_all_chosen_jobs_as_list(var/title = FALSE)
+	var/chosen_jobs[0]
+	if(job_civilian_high || job_medsci_high || job_engsec_high)
+		chosen_jobs += return_chosen_high_job(title = title)
+	if(job_civilian_med || job_civilian_low)
+		for(var/role in SSjobs.bitflag_to_job["[CIVILIAN]"])
+			role = text2num(role)
+			if(job_civilian_med & role || job_civilian_low & role)
+				if(title)
+					chosen_jobs += SSjobs.bitflag_to_job["[CIVILIAN]"]["[role]"].title
+				else
+					chosen_jobs += SSjobs.bitflag_to_job["[CIVILIAN]"]["[role]"]
+	if(job_medsci_med || job_medsci_low)
+		for(var/role in SSjobs.bitflag_to_job["[MEDSCI]"])
+			role = text2num(role)
+			if(job_medsci_med & role || job_medsci_low & role)
+				if(title)
+					chosen_jobs += SSjobs.bitflag_to_job["[MEDSCI]"]["[role]"].title
+				else
+					chosen_jobs += SSjobs.bitflag_to_job["[MEDSCI]"]["[role]"]
+	if(job_engsec_med || job_engsec_low)
+		for(var/role in SSjobs.bitflag_to_job["[ENGSEC]"])
+			role = text2num(role)
+			if(job_engsec_med & role || job_engsec_low & role)
+				if(title)
+					chosen_jobs += SSjobs.bitflag_to_job["[ENGSEC]"]["[role]"].title
+				else
+					chosen_jobs += SSjobs.bitflag_to_job["[ENGSEC]"]["[role]"]
+	return chosen_jobs
+
 /datum/preferences/proc/update_mannequin()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)

@@ -721,7 +721,7 @@
 		H.species.handle_despawn(H)
 	qdel(H)
 
-// Equips a human-type with their custom loadout crap.
+// Equips a human-type with their very stylish loadout stuff that they have carefully picked.
 // Returns TRUE on success, FALSE otherwise.
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.

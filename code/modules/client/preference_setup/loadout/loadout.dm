@@ -65,6 +65,7 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
 	var/mob/preference_mob = preference_mob()
+	var/list/preferred_jobs = preference_mob.client.prefs.return_all_chosen_jobs_as_list(title = TRUE)
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
 		if(max_cost && G.cost > max_cost)
@@ -72,6 +73,11 @@ var/list/gear_datums = list()
 		if(G.whitelisted && preference_mob)
 			for(var/species in G.whitelisted)
 				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
+					. += gear_name
+					break
+		if(G.allowed_roles && preference_mob)
+			for(var/job in preferred_jobs)
+				if(job in G.allowed_roles)
 					. += gear_name
 					break
 		else
@@ -117,7 +123,7 @@ var/list/gear_datums = list()
 			to_chat(preference_mob, "<span class='warning'>You cannot have more than one of the \the [gear_name]</span>")
 			pref.gear -= gear_name
 		else if(!(gear_name in valid_gear_choices()))
-			to_chat(preference_mob, "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species.</span>")
+			to_chat(preference_mob, "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species or do not have any of the required roles in your preferences.</span>")
 			pref.gear -= gear_name
 		else
 			var/datum/gear/G = gear_datums[gear_name]
