@@ -7,7 +7,7 @@
           <th>Name</th>
           <th>Tools</th>
         </tr>
-        <tr v-for="limbexists, limbname in limbs" class="item border" :key="limbname">
+        <tr v-for="(limbexists, limbname) in limbs" class="item border" :key="limbname">
           <td style="width:20%">{{ limbname }}</td>
           <td>
             <vui-button :params="{ target: 'limb', name: limbname, action: 'brute' }">Brute</vui-button>
@@ -26,7 +26,7 @@
           <th>Name</th>
           <th>Tools</th>
         </tr>
-        <tr v-for="organexists, organname in organs" class="item border" :key="organname">
+        <tr v-for="(organexists, organname) in organs" class="item border" :key="organname">
           <td style="width:20%">{{ organname }}</td>
           <td>
             <vui-button :params="{ target: 'organ', name: organname, action: 'damage' }">Damage</vui-button>
