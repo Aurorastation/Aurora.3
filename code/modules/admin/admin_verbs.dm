@@ -72,6 +72,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
+	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/response_team, // Response Teams admin verb,
@@ -263,6 +264,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
 	/client/proc/restart_sql,
+	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/connect_ntsl,
@@ -1094,6 +1096,13 @@ var/list/admin_verbs_cciaa = list(
 	else
 		to_chat(usr, "You now won't get debug log messages")
 
+/client/proc/damage_menu(mob/living/carbon/human/H as null|mob in human_mob_list)
+	set name = "Damage Menu"
+	set desc = "Access a human mob's damage menu, allowing you to make their life hell."
+	set category = "Fun"
+
+	if(H)
+		new /datum/vueui_module/damage_menu(WEAKREF(H), usr)
 
 /client/proc/man_up(mob/T as mob in mob_list)
 	set category = "Fun"

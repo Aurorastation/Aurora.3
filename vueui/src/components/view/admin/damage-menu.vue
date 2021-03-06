@@ -14,7 +14,8 @@
             <vui-button :params="{ target: 'limb', name: limbname, action: 'burn' }">Burn</vui-button>
             <vui-button :params="{ target: 'limb', name: limbname, action: 'infection' }">Infection</vui-button>
             <vui-button :params="{ target: 'limb', name: limbname, action: 'shatter' }">Shatter</vui-button>
-            <vui-button :params="{ target: 'limb', name: limbname, action: 'gib' }">Gib</vui-button>
+            <vui-button :params="{ target: 'limb', name: limbname, action: 'arterial' }">Arterial</vui-button>
+            <vui-button :params="{ target: 'limb', name: limbname, action: 'sever' }">Sever</vui-button>
           </td>
         </tr>
       </table>
@@ -33,6 +34,7 @@
             <vui-button :params="{ target: 'organ', name: organname, action: 'infection' }">Infection</vui-button>
             <vui-button :params="{ target: 'organ', name: organname, action: 'bruise' }">Bruise</vui-button>
             <vui-button :params="{ target: 'organ', name: organname, action: 'break' }">Break</vui-button>
+            <vui-button :params="{ target: 'organ', name: organname, action: 'remove' }">Remove</vui-button>
           </td>
         </tr>
       </table>
