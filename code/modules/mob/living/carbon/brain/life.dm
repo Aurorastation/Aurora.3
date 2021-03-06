@@ -101,7 +101,7 @@
 		blinded = 1
 		silent = 0
 	else				//ALIVE. LIGHTS ARE ON
-		if( !container && (health < config.health_threshold_dead || ((world.time - timeofhostdeath) > config.revival_brain_life)) )
+		if(!container && (health < config.health_threshold_dead || (config.revival_brain_life != -1 && world.time - timeofhostdeath > config.revival_brain_life)))
 			death()
 			blinded = 1
 			silent = 0
