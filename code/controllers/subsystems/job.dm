@@ -17,7 +17,7 @@
 	var/list/datum/job/type_occupations = list()	//Dict of all jobs, keys are types
 	var/list/mob/abstract/new_player/unassigned = list()
 	var/list/job_debug = list()
-	var/list/bitflag_to_job = list()
+	var/list/datum/job/bitflag_to_job = list()
 
 	var/list/factions = list()
 	var/list/name_factions = list()
