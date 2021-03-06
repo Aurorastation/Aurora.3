@@ -31,7 +31,6 @@
 	armor_penetration = 10
 
 /obj/item/projectile/beam/pistol/scc
-	damage = 30
 	armor_penetration = 15
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
