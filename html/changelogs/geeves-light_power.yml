@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Broken lights that have been turned off with a lightswitch no longer spark."
