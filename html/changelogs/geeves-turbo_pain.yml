@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - admin: "Admins have received a Damage Menu, to access this, go to the dropdown list when VVing a humanoid mob, it will be at the bottom."

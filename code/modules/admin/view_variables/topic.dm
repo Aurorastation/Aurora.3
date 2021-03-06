@@ -318,6 +318,17 @@
 		else
 			to_chat(usr, "Failed! Something went wrong.")
 
+	else if(href_list["turbopain"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/mob/living/carbon/human/H = locate(href_list["turbopain"])
+		if(!istype(H))
+			to_chat(usr, SPAN_WARNING("This can only be done to instances of type /mob/living/carbon/human."))
+			return
+
+		new /datum/vueui_module/damage_menu(WEAKREF(H), usr)
+
 	else if(href_list["addlanguage"])
 		if(!check_rights(R_SPAWN))	return
 
