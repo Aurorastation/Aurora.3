@@ -108,17 +108,20 @@
 	if (use_check_and_message(user))
 		return
 
+	do_flip(user)
+	update_clothing_icon()
+
+/obj/item/clothing/head/helmet/riot/proc/do_flip(var/mob/user)
 	if(icon_state == initial(icon_state))
-		icon_state = "helm_riot_down"
-		item_state = "helm_riot_down"
-		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
-		body_parts_covered = HEAD|FACE|EYES
-	else
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
+		icon_state = "[icon_state]-up"
+		item_state = icon_state
 		to_chat(user, SPAN_NOTICE("You raise the visor on \the [src]."))
 		body_parts_covered = HEAD
-	update_clothing_icon()
+	else
+		icon_state = initial(icon_state)
+		item_state = icon_state
+		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
+		body_parts_covered = HEAD|FACE|EYES
 
 
 /obj/item/clothing/head/helmet/ablative
