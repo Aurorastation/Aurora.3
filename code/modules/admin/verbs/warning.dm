@@ -297,7 +297,8 @@
 	if(notification_count_query.NextRow())
 		count += text2num(notification_count_query.item[1])
 
-	return count
+	unacked_warning_count = count
+	return unacked_warning_count
 
 /*
  * A proc for an admin/moderator to look up a member's warnings.
