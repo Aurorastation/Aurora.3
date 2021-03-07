@@ -10,3 +10,5 @@
 		/area/turbolift/main_station,
 		/area/turbolift/main_mid
 	)
+
+	controller_link_id = "lift_runtime"

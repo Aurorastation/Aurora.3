@@ -3,6 +3,7 @@
 	name = "turbolift map placeholder"
 	icon = 'icons/obj/turbolift_preview_3x3.dmi'
 	dir = SOUTH         // Direction of the holder determines the placement of the lift control panel and doors.
+	var/controller_link_id //Map in a /obj/machinery/turbolift_controller with the same controller_link_id
 	var/clear_objects = 1
 	var/depth = 1       // Number of floors to generate, including the initial floor.
 	var/lift_size_x = 2 // Number of turfs on each axis to generate in addition to the first
@@ -19,8 +20,14 @@
 /obj/turbolift_map_holder/Initialize()
 	..()
 
+	if(!controller_link_id)
+		log_debug("ERROR: controller_link_id of turbolift not set!")
+		return INITIALIZE_HINT_QDEL
+
 	// Create our system controller.
 	var/datum/turbolift/lift = new()
+	lift.controller_link_id = controller_link_id
+	elevators.Add(lift)
 
 	// Holder values since we're moving this object to null ASAP.
 	var/ux = x
@@ -126,10 +133,24 @@
 
 	for(var/cz = uz to ez)
 
-		var/datum/turbolift_floor/cfloor = new()
-		lift.floors += cfloor
+		// Update area.
+		if(az > areas_to_use.len)
+			log_debug("Insufficient defined areas in turbolift datum, aborting.")
+			qdel(src)
+			return
 
+		var/area_path = areas_to_use[az]
 		var/list/floor_turfs = list()
+		for(var/thing in floor_turfs)
+			new area_path(thing)
+		var/area/turbolift/cfloor = locate(area_path)
+		if(!istype(cfloor))
+			log_debug("Received invalid area for turbolift floor")
+			qdel(src)
+			return
+		lift.floors += cfloor
+		cfloor.lift = lift
+
 		// Update the appropriate turfs.
 		for(var/tx = ux to ex)
 			for(var/ty = uy to ey)
@@ -181,7 +202,7 @@
 					var/obj/machinery/door/airlock/lift/newdoor = new door_type(checking)
 					if(internal)
 						lift.doors += newdoor
-						newdoor.lift = cfloor
+						newdoor.lift = lift
 					else
 						cfloor.doors += newdoor
 						newdoor.floor = cfloor
@@ -209,17 +230,6 @@
 			light1.no_z_overlay = 1
 			light2.no_z_overlay = 1
 
-		// Update area.
-		if(az > areas_to_use.len)
-			log_debug("Insufficient defined areas in turbolift datum, aborting.")
-			qdel(src)
-			return
-
-		var/area_path = areas_to_use[az]
-		for(var/thing in floor_turfs)
-			new area_path(thing)
-		var/area/A = locate(area_path)
-		cfloor.set_area_ref("\ref[A]")
 		az++
 
 	// Place lift panel.

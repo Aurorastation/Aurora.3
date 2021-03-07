@@ -158,3 +158,6 @@ var/list/department_funds = list(
 
 //List of exosuit tracking beacons, to save performance
 var/global/list/exo_beacons = list()
+
+//List of all elevators mapped in
+var/global/list/elevators = list()

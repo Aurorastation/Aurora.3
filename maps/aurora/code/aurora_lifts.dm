@@ -19,6 +19,8 @@
 		/area/turbolift/main_arrivals
 		)
 
+	controller_link_id = "lift_main"
+
 /obj/turbolift_map_holder/aurora/civilian_aux
 	name = "Aurora lift placeholder - Aux"
 	dir = WEST
@@ -32,6 +34,8 @@
 		/area/turbolift/main_mid_aux,
 		/area/turbolift/main_arrivals_aux
 		)
+
+	controller_link_id = "lift_aux"
 
 /area/turbolift/main_arrivals
 	name = "Civilian Lift - Arrivals"
@@ -91,6 +95,8 @@
 		/area/turbolift/security_station
 		)
 
+	controller_link_id = "lift_security"
+
 /area/turbolift/security_station
 	name = "Station - By Security"
 	lift_announce_str = "Arriving at the station level, by the Security department."
@@ -121,6 +127,8 @@
 		/area/turbolift/research_maintenance,
 		/area/turbolift/research_station
 		)
+
+	controller_link_id = "lift_research"
 
 /area/turbolift/research_station
 	name = "Station - By Research"
@@ -153,6 +161,8 @@
 		/area/turbolift/engineering_station
 		)
 
+	controller_link_id = "lift_engineering"
+
 /area/turbolift/engineering_station
 	name = "Station - By Engineering"
 	lift_announce_str = "Arriving at the Engineering Main Level. Facilities in this floor include: Engine Bay, Main Storage, Hard Storage, Atmospherics, Monitoring Room, Lobby."
@@ -183,6 +193,8 @@
 		/area/turbolift/cargo_mid,
 		/area/turbolift/cargo_deliverys
 		)
+
+	controller_link_id = "lift_cargo"
 
 /area/turbolift/cargo_station
 	name = "Station - By Cargo"
@@ -223,6 +235,8 @@
 		/area/turbolift/medical_interstitial
 		)
 
+	controller_link_id = "lift_medical"
+
 /area/turbolift/medical_station
 	name = "Medical Lift - Main"
 	lift_announce_str = "Arriving at the Medical Main Level. Facilities in this floor include: Lobby, Chemistry, Intensive Care Unit, General Treatment Unit, Surgery Wing, Consultation Wing."
@@ -260,6 +274,8 @@
 		/area/turbolift/ai_station
 		)
 
+	controller_link_id = "lift_aiaccess"
+
 /area/turbolift/ai_station
 	name = "AI Access Lift - Main"
 	lift_announce_str = "Arriving at the Command Main Level. Facilities in this floor include: Bridge, Command Dormitories, Command Recreational Area."
@@ -291,6 +307,8 @@
 		/area/turbolift/vault_sub,
 		/area/turbolift/vault_station
 		)
+
+	controller_link_id = "lift_vault"
 
 /area/turbolift/vault_station
 	name = "Vault Access Lift - Main"
@@ -326,12 +344,15 @@
 		/area/turbolift/command_station
 		)
 
+	controller_link_id = "lift_command"
+
 /area/turbolift/command_station
 	name = "Command Lift - Main"
 	lift_announce_str = "Arriving at the Command Surface Level. Facilities in this floor include: Escape Pods, Meeting Room, Secure Docks."
-
 	lift_floor_label = "Surface Level (Command)"
 	lift_floor_name = "Surface Level (Command)"
+
+	turbolift_req_access = list(access_heads)
 
 /area/turbolift/command_sub
 	name = "Command Lift - Sub"
@@ -342,8 +363,12 @@
 
 	base_turf = /turf/simulated/floor/plating
 
+	turbolift_req_access = list(access_heads)
+
 /area/turbolift/command_mid
 	name = "Command Lift - Mid"
 	lift_announce_str = "Arriving at the (Command Unknown). Facilities in this floor include: (Unknown)"
 	lift_floor_label = "Under Construction"
 	lift_floor_name = "Under Construction"
+
+	turbolift_req_access = list(access_captain)

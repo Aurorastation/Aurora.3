@@ -7,6 +7,7 @@
 
 	var/datum/turbolift/lift
 
+
 /obj/structure/lift/set_dir(var/newdir)
 	. = ..()
 	pixel_x = 0
@@ -59,7 +60,7 @@
 	desc = "A call button for an elevator. Be sure to hit it three hundred times."
 	icon_state = "button"
 	var/light_up = FALSE
-	var/datum/turbolift_floor/floor
+	var/area/turbolift/floor
 
 /obj/structure/lift/button/Destroy()
 	if(floor && floor.ext_panel == src)
@@ -74,17 +75,8 @@
 /obj/structure/lift/button/interact(var/mob/user)
 	if(!..())
 		return
-	if(lift.hacking_intcontrol)
-		buzz("System Error!")
-		return
-	light_up()
 	pressed(user)
-	if(floor == lift.current_floor)
-		lift.open_doors()
-		addtimer(CALLBACK(src, .proc/reset), 3)
-		return
-	//We dont pass usr here, because calling a lift via a external button means the user is already at the access restricted level
-	lift.queue_move_to(floor)
+	lift.register_hallcall(user,src)
 
 /obj/structure/lift/button/proc/light_up()
 	light_up = TRUE
@@ -121,11 +113,11 @@
 	//therefore, to display upper levels at the top of the menu and
 	//lower levels at the bottom, we need to go through the list in reverse
 	for(var/i in lift.floors.len to 1 step -1)
-		var/datum/turbolift_floor/floor = lift.floors[i]
+		var/area/turbolift/floor = lift.floors[i]
 		if(floor)
-			var/label = floor.label? floor.label : "Level #[i]"
+			var/label = floor.lift_floor_label ? floor.lift_floor_label : "Level #[i]"
 			dat += "<font color = '[(floor in lift.queued_floors) ? COLOR_YELLOW : COLOR_WHITE]'>"
-			dat += "<a href='?src=\ref[src];move_to_floor=["\ref[floor]"]'>[label]</a>: [floor.name]</font><br>"
+			dat += "<a href='?src=\ref[src];move_to_floor=["\ref[floor]"]'>[label]</a>: [floor.lift_floor_name]</font><br>" //TODO: Update floor_name
 
 	dat += "<hr>"
 	if(lift.doors_are_open())
@@ -145,24 +137,20 @@
 	if(.)
 		return
 
-	if(lift.hacking_intcontrol)
-		buzz("System Error!")
-		return
-
 	var/panel_interact
 	if(href_list["move_to_floor"])
-		if(!lift.queue_move_to(locate(href_list["move_to_floor"]), usr))
-			buzz("Insufficient Access")
+		lift.register_cabincall_floor(usr, src, locate(href_list["move_to_floor"]))
 		panel_interact = 1
 	if(href_list["open_doors"])
+		lift.register_cabincall_open_doors(usr,src)
 		panel_interact = 1
-		lift.open_doors()
 	if(href_list["close_doors"])
+		lift.register_cabincall_close_doors(usr,src)
 		panel_interact = 1
 		lift.close_doors()
 	if(href_list["emergency_stop"])
+		lift.register_cabincall_estop(usr,src)
 		panel_interact = 1
-		lift.emergency_stop()
 
 	if(panel_interact)
 		pressed(usr)

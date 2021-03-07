@@ -518,6 +518,18 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
+"bj" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/turbolift_controller{
+	controller_link_id = lift_aux
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "bk" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -604,6 +616,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/machinery/turbolift_controller{
+	controller_link_id = lift_command
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/bridge_elevator)
@@ -5926,6 +5941,18 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"rX" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/turbolift_controller{
+	controller_link_id = lift_main
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "sd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/pipedispenser/disposal,
@@ -6470,6 +6497,9 @@
 "vi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/turbolift_controller{
+	controller_link_id = lift_cargo
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
@@ -11295,6 +11325,20 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_interstitial)
+"Wp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/turbolift_controller{
+	controller_link_id = lift_medical
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "Wu" = (
@@ -41019,12 +41063,12 @@ ar
 ar
 EK
 LI
-LI
+rX
 Vx
 LI
 LI
 LI
-LI
+bj
 LI
 LI
 LI
@@ -52340,7 +52384,7 @@ hZ
 HV
 UF
 Ir
-Ir
+Wp
 Pp
 Ir
 VH

@@ -10,7 +10,7 @@
 	insecure = FALSE
 
 	var/datum/turbolift/lift
-	var/datum/turbolift_floor/floor
+	var/area/turbolift/floor
 
 /obj/machinery/door/airlock/lift/Destroy()
 	if(lift)

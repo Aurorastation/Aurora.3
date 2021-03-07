@@ -5772,6 +5772,9 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/turbolift_controller{
+	controller_link_id = lift_engineering
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
 "als" = (
@@ -61111,6 +61114,9 @@
 	pixel_x = 14
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/turbolift_controller{
+	controller_link_id = lift_research
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "gfB" = (
@@ -63162,6 +63168,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"kqP" = (
+/obj/machinery/turbolift_controller{
+	controller_link_id = lift_aiaccess
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "kuR" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -120277,7 +120289,7 @@ aUS
 aUS
 aYS
 aSL
-aSL
+kqP
 aSL
 bep
 aSL
