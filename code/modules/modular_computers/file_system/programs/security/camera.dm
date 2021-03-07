@@ -103,14 +103,14 @@
 			return
 		if(!(current_network in C.network))
 			return
-		if(!can_access_network(usr, get_camera_access(C.network)))
+		if(!can_access_network(usr, get_camera_access(current_network)))
+			to_chat(usr, "\The [ui_host()] shows an \"Network Access Denied\" error message.")
 			return
 
 		switch_to_camera(usr, C)
 		return TRUE
 
 	else if(href_list["switch_network"])
-		// Either security access, or access to the specific camera network's department is required in order to access the network.
 		if(can_access_network(usr, get_camera_access(href_list["switch_network"])))
 			current_network = href_list["switch_network"]
 		else
