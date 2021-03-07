@@ -156,10 +156,8 @@
 	sound_to(player, 'sound/effects/menu_click.ogg')
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
-			player.ready = FALSE
 			player.ready(FALSE)
 		else
-			player.ready = TRUE
 			player.ready(TRUE)
 	else
 		player.join_game()
