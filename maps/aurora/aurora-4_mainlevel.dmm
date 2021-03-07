@@ -5979,7 +5979,7 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/obj/machinery/camera/motion/security{
+/obj/machinery/camera/motion/command{
 	c_tag = "Vault - Core";
 	dir = 4
 	},
@@ -13865,7 +13865,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/camera/motion/security{
+/obj/machinery/camera/motion/command{
 	c_tag = "Vault - Interior";
 	dir = 4
 	},
@@ -23370,10 +23370,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aNR" = (
-/obj/machinery/camera/network/security{
+/obj/machinery/camera/network/command{
 	c_tag = "Vault - Entrance";
-	dir = 1;
-	network = list("Security","Armory")
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)

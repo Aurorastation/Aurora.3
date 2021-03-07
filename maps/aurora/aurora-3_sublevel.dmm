@@ -6900,7 +6900,7 @@
 /area/turret_protected/ai_upload_foyer)
 "aoj" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/motion{
+/obj/machinery/camera/motion/command{
 	c_tag = "AI Core - Upload Room";
 	dir = 4
 	},
@@ -10216,7 +10216,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/camera/motion{
+/obj/machinery/camera/motion/command{
 	c_tag = "AI Core - Entrance";
 	pixel_x = 16
 	},
@@ -22369,7 +22369,7 @@
 /obj/item/clothing/shoes/medical{
 	pixel_x = 4;
 	pixel_y = -8
-},
+	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aVi" = (
