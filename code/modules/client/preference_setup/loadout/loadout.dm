@@ -65,7 +65,9 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
 	var/mob/preference_mob = preference_mob()
-	var/list/preferred_jobs = preference_mob.client.prefs.return_all_chosen_jobs_as_list(title = TRUE)
+	var/list/preferred_jobs
+	if(preference_mob)
+		preferred_jobs = preference_mob.client.prefs.return_all_chosen_jobs_as_list(title = TRUE)
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
 		if(max_cost && G.cost > max_cost)
@@ -75,7 +77,7 @@ var/list/gear_datums = list()
 				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
 					. += gear_name
 					break
-		if(G.allowed_roles && preference_mob)
+		if(G.allowed_roles && preferred_jobs)
 			for(var/job in preferred_jobs)
 				if(job in G.allowed_roles)
 					. += gear_name
