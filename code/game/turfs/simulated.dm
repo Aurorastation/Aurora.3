@@ -15,6 +15,8 @@
 
 	roof_type = /turf/simulated/floor/airless/ceiling
 
+	baseturf = /turf/space
+
 /turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
 
 	//Wet type:

@@ -184,7 +184,7 @@
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
 /obj/item/projectile/bullet/pellet/shotgun
 	name = "shrapnel"
-	damage = 30
+	damage = 14
 	pellets = 6
 	range_step = 1
 	spread_step = 10
@@ -385,7 +385,7 @@
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
 			if(ishuman(mob))
-				mob.apply_effect(450, IRRADIATE)
+				mob.apply_damage(250, IRRADIATE, damage_flags = DAM_DISPERSED)
 	new /obj/effect/temp_visual/nuke(A.loc)
 	explosion(A,2,5,9)
 	..()

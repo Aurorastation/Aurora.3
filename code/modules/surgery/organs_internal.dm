@@ -48,15 +48,15 @@
 	if(istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
 		tool_name = "regenerative membrane"
 	else if(istype(tool, /obj/item/stack/medical/bruise_pack))
-		tool_name = "the bandaid"
+		tool_name = "some bandaids"
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
+		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (!I.status & ORGAN_DEAD || I.can_recover()))
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
+	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
 
-	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 	..()
 
 /decl/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -72,12 +72,20 @@
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
-			user.visible_message("<b>[user]</b> finishes applying [tool_name] to [target]'s [I.name].", \
-				SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name].") )
+			if(I.status & ORGAN_DEAD && I.can_recover())
+				user.visible_message("<span class='notice'>\The [user] treats damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>", \
+				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>" )
+			else
+				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
+				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>")
 			I.surgical_fix(user)
+			user.visible_message("\The [user] finishes treating damage within \the [target]'s [affected.name] with [tool_name].", \
+			"You finish treating damage within \the [target]'s [affected.name] with [tool_name].")
 			var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 			if(sponge && istype(I, sponge))
 				target.cure_all_traumas(cure_type = CURE_SURGERY)
+			if(I.status & ORGAN_DEAD)
+				to_chat(user, SPAN_DANGER("This organ is still dead! You must remove the dead tissue with a scalpel!"))
 
 /decl/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
