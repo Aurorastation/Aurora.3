@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed brains dying instantly when the head gets decapitated or the body explodes. This will give roboticists enough time to retrieve and borg them."
