@@ -100,7 +100,7 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
 /datum/gear/suit/medical_chest_rig
 	display_name = "medic chest-rig"
@@ -183,7 +183,7 @@
 	display_name = "detective trenchcoat selection"
 	description = "A selection of detective trenchcoats."
 	path = /obj/item/clothing/suit/storage/toggle/det_trench
-	allowed_roles = list("Detective")
+	allowed_roles = list("Investigator")
 
 /datum/gear/suit/det_trenchcoat/New()
 	..()
@@ -269,7 +269,7 @@
 /datum/gear/suit/secjacketforensictech
 	display_name = "security jacket selection (Forensic Technician)"
 	path = /obj/item/clothing/suit/storage/toggle/forensics
-	allowed_roles = list("Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/suit/secjacketforensictech/New()
 	..()

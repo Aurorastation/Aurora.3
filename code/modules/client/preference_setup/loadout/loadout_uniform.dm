@@ -96,7 +96,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -275,7 +275,7 @@
 	display_name = "uniforms, (Investigations)"
 	description = "A selection of Investigations staff uniforms."
 	path = /obj/item/clothing/under/det
-	allowed_roles = list("Detective", "Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/uniform/detective/New()
 	..()

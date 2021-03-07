@@ -52,7 +52,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -97,7 +97,7 @@
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
@@ -118,7 +118,7 @@
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
@@ -242,7 +242,7 @@
 /datum/gear/accessory/detbadge
 	display_name = "badge, detective"
 	path = /obj/item/clothing/accessory/badge/dia
-	allowed_roles = list("Detective", "Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"

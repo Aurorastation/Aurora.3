@@ -44,7 +44,7 @@
 	display_name = "flash-proof sunglasses selection (Security/Command)"
 	description = "A selection of flash-proof sunglasses."
 	path = /obj/item/clothing/glasses/sunglasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Investigator")
 
 /datum/gear/eyes/sunglasses/New()
 	..()
@@ -87,7 +87,7 @@
 	display_name = "security HUD selection"
 	description = "A selection of security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/aviator
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/eyes/sechuds/New()
 	..()
