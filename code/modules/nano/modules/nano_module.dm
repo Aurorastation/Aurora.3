@@ -20,19 +20,24 @@
 
 /datum/nano_module/proc/check_access(var/mob/user, var/access)
 	if(!access)
-		return 1
+		return TRUE
 
 	if(!istype(user))
-		return 0
+		return FALSE
 
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(!I)
-		return 0
+		return FALSE
 
-	if(access in I.access)
-		return 1
+	if(islist(access))
+		for(var/a in access)
+			if(a in I.access)
+				return TRUE
+	else
+		if(access in I.access)
+			return TRUE
 
-	return 0
+	return FALSE
 
 /datum/nano_module/Topic(href, href_list)
 	if(topic_manager && topic_manager.Topic(href, href_list))

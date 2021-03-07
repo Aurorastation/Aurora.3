@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added Tcomsat as one of the camera networks monitored on Aurora camera networks."
+  - tweak: "Command and Tcomms cameras can only be viewed by command members. Security members can view these networks on blue, and higher, alert."

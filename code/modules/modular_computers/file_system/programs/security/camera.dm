@@ -11,15 +11,22 @@
 		if(NETWORK_THUNDER)
 			return FALSE
 		if(NETWORK_ENGINE,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
-			return access_engine
+			var/static/list/engineering_network = list(access_engine, access_security)
+			return engineering_network
 		if(NETWORK_MEDICAL)
-			return access_medical
+			var/static/list/medical_network = list(access_medical, access_security)
+			return medical_network
 		if(NETWORK_RESEARCH,NETWORK_RESEARCH_OUTPOST)
-			return access_research
+			var/static/list/research_network = list(access_research, access_security)
+			return research_network
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
-			return access_mailsorting // Cargo office - all cargo staff should have access here.
-		if(NETWORK_COMMAND,NETWORK_TELECOM,NETWORK_CIVILIAN_EAST,NETWORK_CIVILIAN_MAIN,NETWORK_CIVILIAN_SURFACE,NETWORK_SERVICE)
-			return access_heads
+			var/static/list/cargo_network = list(access_mailsorting, access_security)
+			return cargo_network // Cargo office - all cargo staff should have access here.
+		if(NETWORK_COMMAND,NETWORK_TELECOM)
+			var/list/command_network = list(access_heads, access_security)
+			if(security_level in list(SEC_LEVEL_GREEN, SEC_LEVEL_YELLOW))
+				command_network -= access_security
+			return command_network
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return access_cent_specops
 
@@ -84,7 +91,7 @@
 	if(!network_access)
 		return TRUE
 
-	return check_access(user, access_security) || check_access(user, network_access)
+	return check_access(user, network_access)
 
 /datum/nano_module/camera_monitor/Topic(href, href_list)
 	if(..())
@@ -95,6 +102,8 @@
 		if(!C)
 			return
 		if(!(current_network in C.network))
+			return
+		if(!can_access_network(usr, get_camera_access(C.network)))
 			return
 
 		switch_to_camera(usr, C)
