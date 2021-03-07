@@ -240,7 +240,7 @@
 	allowed_roles = list("Head of Security")
 
 /datum/gear/accessory/detbadge
-	display_name = "badge, detective"
+	display_name = "badge, investigations"
 	path = /obj/item/clothing/accessory/badge/dia
 	allowed_roles = list("Investigator")
 
