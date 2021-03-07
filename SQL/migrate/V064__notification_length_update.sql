@@ -1,5 +1,5 @@
 --
--- Adds a deleted_by and deleted reason to ss13_characters in preparation for player-permitted un-delete
+-- Increase the message length of the ss13_player_notifications
 --
 
 ALTER TABLE `ss13_player_notifications`
