@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "The Tachyon-Doppler Array outputs its results to the science channel instead of common, now."
-  - rscadd: "You can now toggle the doppler array's reporting on or off by clicking on it."
