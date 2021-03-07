@@ -285,11 +285,19 @@
 		return
 	if (!dbcon.IsConnected())
 		return
+	var/count = 0
+
 	var/DBQuery/warning_count_query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
 	warning_count_query.Execute(list("ckey" = ckey, "computer_id" = computer_id, "address" = address))
 	if(warning_count_query.NextRow())
-		unacked_warning_count = text2num(warning_count_query.item[1])
-		return unacked_warning_count
+		count += text2num(warning_count_query.item[1])
+
+	var/DBQuery/notification_count_query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_player_notifications WHERE ckey = :ckey: AND acked_at is NULL and type IN ('player_greeting','player_greeting_chat')")
+	notification_count_query.Execute(list("ckey" = ckey))
+	if(notification_count_query.NextRow())
+		count += text2num(notification_count_query.item[1])
+
+	return count
 
 /*
  * A proc for an admin/moderator to look up a member's warnings.
