@@ -977,13 +977,8 @@
 /area/security/forensics_laboratory)
 "acl" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/brigdoor/eastleft{
-	name = "Forensics Desk"
-	},
-/obj/machinery/door/window/brigdoor/westright{
-	name = "Forensics Desk";
-	req_access = list(4)
-	},
+/obj/machinery/door/window/brigdoor/eastleft,
+/obj/machinery/door/window/brigdoor/westright,
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "acm" = (
@@ -1109,12 +1104,13 @@
 /turf/simulated/floor/plating,
 /area/security/forensics_laboratory)
 "acw" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
 /obj/machinery/status_display{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 1
-	},
+/turf/simulated/floor/tiled,
 /area/security/brig)
 "acx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1651,12 +1647,13 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
 /obj/item/device/radio/intercom{
 	pixel_x = -28
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 1
-	},
+/turf/simulated/floor/tiled,
 /area/security/brig)
 "adv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1994,15 +1991,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Corridor Camera 6"
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4
-	},
+/turf/simulated/floor/tiled,
 /area/security/brig)
 "adV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2317,9 +2315,10 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
 	},
+/turf/simulated/floor/tiled,
 /area/security/brig)
 "aeF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -60385,6 +60384,10 @@
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "fdP" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Investigations Office";
+	req_access = list(4)
+	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -60394,10 +60397,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/security{
-	name = "Investigations Office";
-	req_access = list(4)
-	},
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -63493,15 +63492,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"loo" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
-/turf/simulated/floor/lino/grey,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
 "lpw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -68793,6 +68783,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"uEx" = (
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/obj/item/device/camera_film,
+/obj/item/device/camera{
+	desc = "A one use - polaroid camera. 30 photos left.";
+	name = "detectives camera";
+	pictures_left = 30
+	},
+/obj/structure/closet/secure_closet/investigator,
+/turf/simulated/floor/lino/grey,
+/area/security/forensics_office{
+	name = "Security - Investigations Office"
+	})
 "uFr" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -104201,7 +104206,7 @@ aad
 aaJ
 abJ
 tZz
-loo
+ndP
 qkU
 gWk
 qHy
@@ -104457,7 +104462,7 @@ aaa
 aad
 aaJ
 abJ
-vsB
+uEx
 ndP
 ndP
 fFb
