@@ -81,7 +81,6 @@
 							ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EUROPA)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
-	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	..()
