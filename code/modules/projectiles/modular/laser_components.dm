@@ -365,21 +365,21 @@
 /obj/item/laser_components/modulator/red
 	name = "red team modulator"
 	desc = "Modulates the beam into firing red team tagger beams."
-	projectile = /obj/item/projectile/beam/laser_tag
+	projectile = /obj/item/projectile/beam/lastertag/red
 	damage = 0
 	icon_state = "red"
 
 /obj/item/laser_components/modulator/blue
 	name = "blue team modulator"
 	desc = "Modulates the beam into firing blue team tagger beams."
-	projectile = /obj/item/projectile/beam/laser_tag/blue
+	projectile = /obj/item/projectile/beam/lastertag/blue
 	damage = 0
 	icon_state = "blue"
 
 /obj/item/laser_components/modulator/omni
 	name = "omni team modulator"
 	desc = "Modulates the beam into firing omni team tagger beams."
-	projectile = /obj/item/projectile/beam/laser_tag/omni
+	projectile = /obj/item/projectile/beam/lastertag/omni
 	damage = 0
 	icon_state = "omni"
 

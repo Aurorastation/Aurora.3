@@ -99,7 +99,27 @@
 	tracer_type = /obj/effect/projectile/tracer/emitter
 	impact_type = /obj/effect/projectile/impact/emitter
 
-/obj/item/projectile/beam/laser_tag
+/obj/item/projectile/beam/lastertag/blue
+	name = "lasertag beam"
+	icon_state = "bluelaser"
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	damage = 0
+	no_attack_log = 1
+	damage_type = BURN
+	check_armor = "laser"
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
+	tracer_type = /obj/effect/projectile/tracer/laser/blue
+	impact_type = /obj/effect/projectile/impact/laser/blue
+
+/obj/item/projectile/beam/lastertag/blue/on_hit(var/atom/target, var/blocked = 0)
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/M = target
+		if(istype(M.wear_suit, /obj/item/clothing/suit/redtag))
+			M.Weaken(5)
+	return 1
+
+/obj/item/projectile/beam/lastertag/red
 	name = "lasertag beam"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
@@ -107,38 +127,32 @@
 	no_attack_log = 1
 	damage_type = BURN
 	check_armor = "laser"
-	var/laser_tag_color = "red"
 
-	muzzle_type = /obj/effect/projectile/muzzle/laser
-	tracer_type = /obj/effect/projectile/tracer/laser
-	impact_type = /obj/effect/projectile/impact/laser
+/obj/item/projectile/beam/lastertag/red/on_hit(var/atom/target, var/blocked = 0)
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/M = target
+		if(istype(M.wear_suit, /obj/item/clothing/suit/bluetag))
+			M.Weaken(5)
+	return 1
 
-/obj/item/projectile/beam/laser_tag/on_hit(var/atom/target, var/blocked = 0)
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
-		if(istype(LT) && laser_tag_color != LT.laser_tag_color)
-			LT.laser_hit()
-	return TRUE
-
-/obj/item/projectile/beam/laser_tag/blue
-	name = "lasertag beam"
-	icon_state = "bluelaser"
-	laser_tag_color = "blue"
-
-	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
-	tracer_type = /obj/effect/projectile/tracer/laser/blue
-	impact_type = /obj/effect/projectile/impact/laser/blue
-
-/obj/item/projectile/beam/laser_tag/omni//A laser tag bolt that stuns EVERYONE
+/obj/item/projectile/beam/lastertag/omni//A laser tag bolt that stuns EVERYONE
 	name = "lasertag beam"
 	icon_state = "omnilaser"
-	laser_tag_color = "omni"
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	damage = 0
+	damage_type = BURN
+	check_armor = "laser"
 
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
 	tracer_type = /obj/effect/projectile/tracer/disabler
 	impact_type = /obj/effect/projectile/impact/disabler
 
+/obj/item/projectile/beam/lastertag/omni/on_hit(var/atom/target, var/blocked = 0)
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/M = target
+		if((istype(M.wear_suit, /obj/item/clothing/suit/bluetag))||(istype(M.wear_suit, /obj/item/clothing/suit/redtag)))
+			M.Weaken(5)
+	return 1
 
 /obj/item/projectile/beam/sniper
 	name = "sniper beam"

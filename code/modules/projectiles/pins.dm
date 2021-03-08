@@ -181,26 +181,28 @@ Pins Below.
 	name = "laser tag firing pin"
 	desc = "A recreational firing pin, used in laser tag units to ensure users have their vests on."
 	fail_message = "<span class='warning'>SUIT CHECK FAILED.</span>"
-	var/tag_color = ""
+	var/obj/item/clothing/suit/suit_requirement = null
+	var/tagcolor = ""
 
 /obj/item/device/firing_pin/tag/pin_auth(mob/living/user)
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
-		if(istype(LT) && tag_color == LT.laser_tag_color)
-			return TRUE
-	to_chat(user, SPAN_WARNING("You need to be wearing [tag_color] laser tag armor!"))
-	return FALSE
+		var/mob/living/carbon/human/M = user
+		if(istype(M.wear_suit, suit_requirement))
+			return 1
+	to_chat(user, "<span class='warning'>You need to be wearing [tagcolor] laser tag armor!</span>")
+	return 0
 
 /obj/item/device/firing_pin/tag/red
 	name = "red laser tag firing pin"
 	icon_state = "firing_pin_red"
-	tag_color = "red"
+	suit_requirement = /obj/item/clothing/suit/redtag
+	tagcolor = "red"
 
 /obj/item/device/firing_pin/tag/blue
 	name = "blue laser tag firing pin"
 	icon_state = "firing_pin_blue"
-	tag_color = "blue"
+	suit_requirement = /obj/item/clothing/suit/bluetag
+	tagcolor = "blue"
 
 /obj/item/device/firing_pin/Destroy()
 	if(gun)

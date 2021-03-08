@@ -10253,7 +10253,7 @@
 /turf/simulated/floor/plating,
 /area/store)
 "jiW" = (
-/obj/structure/closet/lasertag,
+/obj/structure/closet/lasertag/red,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -10261,6 +10261,10 @@
 	dir = 4;
 	pixel_x = -28
 	},
+/obj/item/gun/energy/lasertag/red,
+/obj/item/gun/energy/lasertag/red,
+/obj/item/clothing/suit/redtag,
+/obj/item/clothing/suit/redtag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "jkk" = (
@@ -25001,6 +25005,10 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/item/gun/energy/lasertag/blue,
+/obj/item/gun/energy/lasertag/blue,
+/obj/item/clothing/suit/bluetag,
+/obj/item/clothing/suit/bluetag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "wcR" = (
