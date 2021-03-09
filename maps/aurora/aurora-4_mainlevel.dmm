@@ -20015,9 +20015,6 @@
 	name = "Security Wing";
 	req_access = list(63)
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aIk" = (
@@ -20065,9 +20062,6 @@
 	id_tag = "BrigFoyer";
 	name = "Security Wing";
 	req_access = list(63)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
@@ -21199,9 +21193,6 @@
 	id = "Security Lockdown";
 	name = "Security Blast Door";
 	opacity = 0
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -27966,9 +27957,6 @@
 	layer = 2.8;
 	name = "Security Aft Entrance";
 	req_access = list(63)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
