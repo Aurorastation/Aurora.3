@@ -705,7 +705,6 @@
 	if(alien != IS_DIONA)
 		if (caffeine)
 			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
-			M.add_chemical_effect(CE_PULSE, 1)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
