@@ -65,7 +65,8 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/tonic,
 	/obj/item/reagent_containers/food/drinks/cans/sodawater,
 	/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
-	/obj/item/reagent_containers/food/drinks/cans/beetle_milk
+	/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
 )
 
 // This default list is a bit different, it contains items we don't want
