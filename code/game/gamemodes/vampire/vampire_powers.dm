@@ -580,39 +580,49 @@
 		if(tox_loss)
 			to_heal = min(10, tox_loss)
 			adjustToxLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(oxy_loss)
 			to_heal = min(10, oxy_loss)
 			adjustOxyLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(ext_loss)
 			to_heal = min(20, ext_loss)
 			heal_overall_damage(min(10, getBruteLoss()), min(10, getFireLoss()))
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(clone_loss)
 			to_heal = min(10, clone_loss)
 			adjustCloneLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 
-		var/list/organs = get_damaged_organs(1, 1)
-		if(length(organs))
+		adjustHalLoss(-20)
+
+		var/list/damaged_organs = get_damaged_organs(TRUE, TRUE, FALSE)
+		if(length(damaged_organs))
 			// Heal an absurd amount, basically regenerate one organ.
-			heal_organ_damage(50, 50)
-			blood_used += 12
+			heal_organ_damage(50, 50, FALSE)
+			blood_used += 3
+
+		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /decl/reagent/blood)
+		if(missing_blood)
+			to_heal = min(20, missing_blood)
+			vessel.add_reagent(/decl/reagent/blood, to_heal)
+			blood_used += round(to_heal * 0.1) // gonna need to regen a shitton of blood, since human mobs have around 560 normally
 
 		for(var/A in organs)
 			var/healed = FALSE
 			var/obj/item/organ/external/E = A
+			if(E.status & ORGAN_ROBOT)
+				continue
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
-				blood_used += 12
+				blood_used += 2
 			if(E.status & ORGAN_TENDON_CUT)
 				E.status &= ~ORGAN_TENDON_CUT
-				blood_used += 12
+				blood_used += 2
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
-				blood_used += 12
+				blood_used += 3
 				healed = TRUE
 
 			if(healed)
@@ -643,6 +653,8 @@
 			vampire.status &= ~VAMP_HEALING
 			to_chat(src, SPAN_NOTICE("Your body has finished healing. You are ready to continue."))
 			break
+		else
+			vampire.blood_usable -= blood_used
 
 	// We broke out of the loop naturally. Gotta catch that.
 	if(vampire.status & VAMP_HEALING)

@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Vampires now recover from pain damage when they do blood heal."
+  - bugfix: "Vampire blood heal no longer attempts to heal prosthetics, it never could in the first place."
+  - rscadd: "Vampire blood heal now regens blood."
+  - bugfix: "Fixed vampire blood heal not actually using blood."
