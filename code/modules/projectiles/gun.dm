@@ -98,6 +98,8 @@
 	var/sel_mode = 1 //index of the currently selected mode
 	var/list/firemodes = list()
 
+	var/markings = 0 // for marking kills with a knife
+
 	//wielding information
 	var/fire_delay_wielded = 0
 	var/recoil_wielded = 0
@@ -614,6 +616,8 @@
 	..()
 	if(get_dist(src, user) > 1)
 		return
+	if(markings)
+		to_chat(user, SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock."))
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
@@ -922,6 +926,12 @@
 				qdel(pin)
 				pin = null
 		return
+
+	if(is_sharp(I))
+		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", SPAN_NOTICE("You carve a notched mark into \the [src]."))
+		markings++
+		return
+
 	return ..()
 
 /obj/item/gun/proc/get_ammo()
