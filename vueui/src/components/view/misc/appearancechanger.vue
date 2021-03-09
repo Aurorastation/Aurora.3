@@ -42,7 +42,7 @@
           Languages:
         </div>
         <div class="itemContentWide">
-          <vui-button v-for="language in valid_languages" :class="{'button' : 1, 'selected' : language in owner_languages}" :params="{ language: language }" :key="language">{{ language }}</vui-button>
+          <vui-button v-for="language in valid_languages" :class="{'button' : 1, 'selected' : ArrayContains(owner_languages, language)}" :params="{ language: language }" :key="language">{{ language }}</vui-button>
         </div>
       </div>
     </div>
@@ -88,6 +88,21 @@
 export default {
   data() {
     return this.$root.$data.state;
+  },
+  methods: {
+    ArrayContains(array, string) {
+      if(array.includes(string)) {
+        return true
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+* {
+  text-transform: capitalize;
+}
+</style>

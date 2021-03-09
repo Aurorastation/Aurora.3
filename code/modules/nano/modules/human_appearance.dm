@@ -21,6 +21,7 @@
 /datum/vueui_module/appearance_changer/New(var/set_location, var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/set_state = default_state)
 	..()
 	location = set_location
+	message_admins(location)
 	target_human = WEAKREF(H)
 	ui_state = set_state
 	src.check_whitelist = check_species_whitelist
@@ -49,9 +50,9 @@
 			if(owner.change_gender(href_list["gender"]))
 				cut_and_generate_data()
 				return 1
-	if(href_list["pronoun"])
+	if(href_list["pronouns"])
 		if(can_change(APPEARANCE_GENDER))
-			owner.pronouns = href_list["pronoun"]
+			owner.pronouns = href_list["pronouns"]
 			cut_and_generate_data()
 			return 1
 	if(href_list["skin_tone"])
@@ -135,9 +136,9 @@
 	return 0
 
 /datum/vueui_module/appearance_changer/ui_interact(var/mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, location)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, location, "misc-appearancechanger", 800, 450, name, state = ui_state)
+		ui = new(user, src, "misc-appearancechanger", 800, 450, name, state = interactive_state)
 	ui.open()
 
 /datum/vueui_module/appearance_changer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -190,13 +191,13 @@
 	data["owner_hair_style"] = owner.h_style
 	data["valid_hair_styles"] = null
 	if(data["change_hair"])
-		data["valid_hair_styles"] = valid_languages
+		data["valid_hair_styles"] = valid_hairstyles
 
 	data["change_facial_hair"] = can_change(APPEARANCE_FACIAL_HAIR)
 	data["owner_facial_hair_style"] = owner.f_style
 	data["valid_facial_hair_styles"] = null
 	if(data["change_facial_hair"])
-		data["facial_hair_styles"] = valid_facial_hairstyles
+		data["valid_facial_hair_styles"] = valid_facial_hairstyles
 
 	data["change_hair_color"] = can_change(APPEARANCE_HAIR_COLOR)
 	data["change_facial_hair_color"] = can_change(APPEARANCE_FACIAL_HAIR_COLOR)
@@ -251,9 +252,9 @@
 	if(!length(valid_species))
 		valid_species = owner.generate_valid_species(check_whitelist, whitelist, blacklist)
 	if(!length(valid_genders))
-		valid_genders = owner.species.default_genders
+		valid_genders = owner.species.default_genders.Copy()
 	if(!length(valid_pronouns))
-		valid_pronouns = owner.species.selectable_pronouns
+		valid_pronouns = owner.species.selectable_pronouns.Copy()
 	if(!length(valid_hairstyles) || !length(valid_facial_hairstyles))
 		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 1)
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
