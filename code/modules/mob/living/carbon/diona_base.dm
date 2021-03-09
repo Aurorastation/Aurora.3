@@ -627,36 +627,26 @@ var/list/diona_banned_languages = list(
 	var/regen_limb_progress
 	var/pause_regen = FALSE
 
-/datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/D)
-	user.visible_message(SPAN_DANGER("[user] is trying to bite [D.name]."), SPAN_DANGER("You start biting \the [D], you both must stay still!"))
-	user.face_atom(get_turf(D))
-	if(do_mob(user, D, 40, needhand = FALSE))
-		//Attempt to find the blood vessel, but don't create a fake one if its not there.
-		//If the target doesn't have a vessel its probably due to someone not implementing it properly, like xenos
-		//We'll still allow it
-		var/newDNA
-		var/datum/reagents/vessel
-
-		var/total_blood = REAGENT_VOLUME(vessel, /decl/reagent/blood)
-		var/remove_amount = total_blood * 0.05
-		if(ishuman(D))
-			var/mob/living/carbon/human/H = D
-			remove_amount = H.species.blood_volume * 0.05
+/datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
+	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))
+	user.face_atom(get_turf(H))
+	if(do_mob(user, H, 40, needhand = FALSE))
+		var/remove_amount = H.species.blood_volume * 0.05
 		if(remove_amount > 0)
-			vessel.remove_reagent(/decl/reagent/blood, remove_amount, TRUE)
+			H.vessel.remove_reagent(/decl/reagent/blood, remove_amount, TRUE)
 			user.adjustNutritionLoss(-remove_amount * 0.5)
-		var/list/data = REAGENT_DATA(vessel, /decl/reagent/blood)
-		newDNA = data["blood_DNA"]
+		var/list/data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
+		var/newDNA = data["blood_DNA"]
 
 		if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
-			newDNA = md5("\ref[D]")
+			newDNA = md5("\ref[H]")
 
-		D.adjustBruteLoss(4)
-		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [D].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [D]!"))
-		to_chat(D, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
-		D.reagents.add_reagent(/decl/reagent/mortaphenyl/aphrodite, 5)
-		if(D.client)
-			INVOKE_ASYNC(src, .proc/memory_transfer, user, D)
+		H.adjustBruteLoss(4)
+		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [H].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [H]!"))
+		to_chat(H, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
+		H.reagents.add_reagent(/decl/reagent/mortaphenyl/aphrodite, 5)
+		if(H.client)
+			INVOKE_ASYNC(src, .proc/memory_transfer, user, H)
 		if(newDNA in sampled_DNA)
 			to_chat(user, SPAN_DANGER("You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else."))
 			return
@@ -670,7 +660,7 @@ var/list/diona_banned_languages = list(
 			//2 = We learned something!
 
 			//Now we sample their languages!
-			for(var/datum/language/L in D.languages)
+			for(var/datum/language/L in H.languages)
 				learned = max(learned, 1)
 				if (!(L in user.languages) && !(L in diona_banned_languages))
 					//We don't know this language, and we can learn it!
@@ -687,7 +677,7 @@ var/list/diona_banned_languages = list(
 
 			update_languages(user)
 	else
-		to_chat(user, SPAN_WARNING("Something went wrong while trying to sample [D], both you and the target must remain still."))
+		to_chat(user, SPAN_WARNING("Something went wrong while trying to sample [H], both you and the target must remain still."))
 
 /datum/dionastats/proc/memory_transfer(var/mob/user, var/mob/donor)
 	var/memory_drain = input(donor, "[user] just drained some of your blood, including some of your memory. What was on your mind?", "Diona Memory Transfer") as null|text
