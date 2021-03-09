@@ -193,8 +193,6 @@
 		visible_message("<span class='danger'>A dark aura manifests itself around [src.name], their eyes turning red and their composure changing to be more beast-like.</span>", "<span class='danger'>You can resist no longer. The power of the Veil takes control over your mind: you are unable to speak or think. In people, you see nothing but prey to be feasted upon. You are reduced to an animal.</span>")
 
 		overlay_fullscreen("frenzy", /obj/screen/fullscreen/frenzy)
-		mutations.Add(HULK)
-		update_mutations()
 
 		sight |= SEE_MOBS
 
@@ -215,9 +213,6 @@
 
 	if (prob(force_stop ? 100 : vampire.blood_usable))
 		vampire.status &= ~VAMP_FRENZIED
-
-		mutations.Remove(HULK)
-		update_mutations()
 
 		clear_fullscreen("frenzy")
 		sight &= ~SEE_MOBS
