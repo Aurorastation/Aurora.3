@@ -28,13 +28,11 @@
 
 /obj/item/projectile/beam/pistol
 	damage = 25
-	armor_penetration = 10
 
 /obj/item/projectile/beam/pistol/hegemony
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	damage = 30
-	armor_penetration = 5
 
 	muzzle_type = /obj/effect/projectile/muzzle/hegemony
 	tracer_type = /obj/effect/projectile/tracer/hegemony
@@ -42,7 +40,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 35
-	armor_penetration = 15
+	armor_penetration = 5
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
