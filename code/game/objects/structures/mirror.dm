@@ -19,7 +19,7 @@
 			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
 	if(ishuman(user))
-		var/datum/nano_module/appearance_changer/AC = ui_users[user]
+		var/datum/vueui_module/appearance_changer/AC = ui_users[user]
 		if(!AC)
 			AC = new(src, user)
 			AC.name = "SalonPro Nano-Mirror&trade;"
@@ -71,7 +71,7 @@
 
 /obj/structure/mirror/Destroy()
 	for(var/user in ui_users)
-		var/datum/nano_module/appearance_changer/AC = ui_users[user]
+		var/datum/vueui_module/appearance_changer/AC = ui_users[user]
 		qdel(AC)
 	ui_users.Cut()
 	return ..()
@@ -90,7 +90,7 @@
 			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
 	if(ishuman(user))
-		var/datum/nano_module/appearance_changer/AC = ui_users[user]
+		var/datum/vueui_module/appearance_changer/AC = ui_users[user]
 		if(!AC)
 			AC = new(src, user)
 			AC.name = "SalonPro Nano-Mirror&trade;"
@@ -100,7 +100,7 @@
 
 /obj/item/mirror/Destroy()
 	for(var/user in ui_users)
-		var/datum/nano_module/appearance_changer/AC = ui_users[user]
+		var/datum/vueui_module/appearance_changer/AC = ui_users[user]
 		qdel(AC)
 	ui_users.Cut()
 	return ..()

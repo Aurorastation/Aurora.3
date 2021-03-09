@@ -1,7 +1,7 @@
 /mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/location = src, var/mob/user = src, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/state = default_state)
-	var/datum/nano_module/appearance_changer/AC = new(location, src, check_species_whitelist, species_whitelist, species_blacklist)
+	var/datum/vueui_module/appearance_changer/AC = new(location, src, check_species_whitelist, species_whitelist, species_blacklist, state)
 	AC.flags = flags
-	AC.ui_interact(user, state = state)
+	AC.ui_interact(user)
 
 /mob/living/carbon/human/proc/change_species(var/new_species)
 	if(!new_species)
@@ -17,12 +17,13 @@
 	reset_hair()
 	return 1
 
-/mob/living/carbon/human/proc/change_gender(var/gender)
-	if(src.gender == gender)
+/mob/living/carbon/human/proc/change_gender(var/set_gender)
+	if(gender == set_gender)
 		return
 
-	src.gender = gender
-	dna.SetUIState(DNA_UI_GENDER, src.gender != MALE, 1)
+	gender = set_gender
+	pronouns = gender
+	dna.SetUIState(DNA_UI_GENDER, gender != MALE, 1)
 	reset_hair()
 	update_body()
 	species.create_organs(src)
