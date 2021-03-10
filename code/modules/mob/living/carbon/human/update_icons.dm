@@ -845,16 +845,15 @@ There are several things that need to be remembered:
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
 
-		if(result_layer)
-			result_layer.appearance_flags = RESET_ALPHA
-		var/list/ovr
-
+		result_layer.appearance_flags = RESET_ALPHA
 		if(shoes.blood_DNA)
-			var/obj/item/clothing/shoes/S = shoes
-			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
-			bloodsies.color = shoes.blood_color
-			bloodsies.appearance_flags = RESET_ALPHA
-			ovr = list(result_layer, bloodsies)
+			for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
+				var/obj/item/organ/external/E = get_organ(limb_tag)
+				if(E && !E.is_stump())
+					var/image/bloodsies = image(species.blood_mask, "shoeblood_[E.limb_name]")
+					bloodsies.color = shoes.blood_color
+					bloodsies.appearance_flags = RESET_ALPHA
+					result_layer.overlays.Add(bloodsies)
 
 		//Shoe layer stuff from Polaris v1.0333a
 		var/shoe_layer = SHOES_LAYER
@@ -863,7 +862,7 @@ There are several things that need to be remembered:
 			if(S.shoes_under_pants == TRUE)
 				shoe_layer = SHOES_LAYER_ALT
 
-		overlays_raw[shoe_layer] = ovr || result_layer
+		overlays_raw[shoe_layer] = result_layer
 	else
 		if(footprint_color)		// Handles bloody feet.
 			for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
