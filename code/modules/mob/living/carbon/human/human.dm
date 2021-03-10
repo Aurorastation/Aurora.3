@@ -2009,7 +2009,7 @@
 	return ..(speaking, hearer, used_accent)
 
 /mob/living/carbon/human/proc/generate_valid_languages()
-	var/list/available_languages = species.secondary_langs.Copy() + all_languages[LANGUAGE_TCB]
+	var/list/available_languages = species.secondary_langs.Copy() + LANGUAGE_TCB
 	for(var/L in all_languages)
 		var/datum/language/lang = all_languages[L]
 		if(!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))

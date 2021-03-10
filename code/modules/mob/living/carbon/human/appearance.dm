@@ -63,13 +63,13 @@
 	var/list/valid_hairstyles = generate_valid_hairstyles()
 	var/list/valid_facial_hairstyles = generate_valid_facial_hairstyles()
 
-	if(valid_hairstyles.len)
+	if(LAZYLEN(valid_hairstyles))
 		h_style = pick(valid_hairstyles)
 	else
 		//this shouldn't happen
 		h_style = "Bald"
 
-	if(valid_facial_hairstyles.len)
+	if(LAZYLEN(valid_facial_hairstyles))
 		f_style = pick(valid_facial_hairstyles)
 	else
 		//this shouldn't happen
