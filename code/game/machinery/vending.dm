@@ -31,7 +31,7 @@
 		var/obj/item/seeds/S = A
 		icon_state = S.update_appearance(TRUE)
 	else
-		icon_state = icon(A.icon, A.icon_state, SOUTH)
+		icon_state = icon(A.icon, A.icon_state)
 	QDEL_NULL(A)
 
 /**
