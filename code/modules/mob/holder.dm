@@ -74,6 +74,9 @@ var/list/holder_mob_icon_cache = list()
 	if (isalive && contained.stat == DEAD)
 		held_death(1)//If we get here, it means the mob died sometime after we picked it up. We pass in 1 so that we can play its deathmessage
 
+/obj/item/holder/proc/set_contained(var/mob/M)
+	M.forceMove(src)
+	contained = M
 
 //This function checks if the current location is safe to release inside
 //it returns 1 if the creature will bug out when released
@@ -205,8 +208,7 @@ var/list/holder_mob_icon_cache = list()
 
 	spawn(2)
 		var/obj/item/holder/H = new holder_type(loc)
-		src.forceMove(H)
-		H.contained = src
+		H.set_contained(src)
 
 		if (src.stat == DEAD)
 			H.held_death()//We've scooped up an animal that's already dead. use the proper dead icons
@@ -462,6 +464,13 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "monkey"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
+	var/is_normal_monkey = TRUE
+
+/obj/item/holder/monkey/set_contained(var/mob/living/carbon/human/M)
+	..()
+	M.dir = SOUTH //monkeys look better head-on | source: it was revealed to me in a mirror
+	if(is_normal_monkey && istype(M.w_uniform, /obj/item/clothing/under/punpun))
+		item_state = "monkey_fancy"
 
 /obj/item/holder/monkey/farwa
 	name = "farwa"
@@ -470,6 +479,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "farwa"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
+	is_normal_monkey = FALSE
 
 /obj/item/holder/monkey/stok
 	name = "stok"
@@ -478,6 +488,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "stok"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
+	is_normal_monkey = FALSE
 
 /obj/item/holder/monkey/neaera
 	name = "neaera"
@@ -486,6 +497,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "neaera"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
+	is_normal_monkey = FALSE
 
 //Holders for rats
 /obj/item/holder/rat
