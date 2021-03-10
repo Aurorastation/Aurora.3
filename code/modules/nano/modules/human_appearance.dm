@@ -158,7 +158,7 @@
 	data["valid_pronouns"] = null
 	if(data["change_gender"])
 		data["valid_gender"] = valid_genders
-		if(length(valid_pronouns))
+		if(LAZYLEN(valid_pronouns))
 			data["valid_pronouns"] = valid_pronouns
 
 	data["owner_accent"] = owner.accent
@@ -247,7 +247,7 @@
 		valid_species = owner.generate_valid_species(check_whitelist, whitelist, blacklist)
 	if(!LAZYLEN(valid_genders) && length(owner.species.default_genders))
 		valid_genders = owner.species.default_genders.Copy()
-	if(!LAZYLEN(valid_pronouns) && length(owner.species.selectable_pronouns))
+	if(!LAZYLEN(valid_pronouns) && LAZYLEN(owner.species.selectable_pronouns))
 		valid_pronouns = owner.species.selectable_pronouns.Copy()
 	if(!LAZYLEN(valid_hairstyles) || !length(valid_facial_hairstyles))
 		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 1)
