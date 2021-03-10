@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Monkeys have gained uniform, ID, and pocket inventory slots."
-  - bugfix: "You can put Pun Pun's uniform back on if it gets taken off now."
-  - bugfix: "Fixed some gore pixels poking out of Pun Pun's feet."
