@@ -62,6 +62,9 @@
 	max_shells = 4
 	can_sawoff = FALSE
 
+	needspin = FALSE
+	has_safety = FALSE
+
 	jam_chance = 0
 
 /obj/item/gun/projectile/shotgun/pump/rifle/pipegun/examine(mob/user)

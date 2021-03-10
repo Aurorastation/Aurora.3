@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Pipeguns no longer spawn with pins, they also no longer have a safety."
+  - bugfix: "Trying to install a pin on a gun that doesn't use pins now gives a warning message."
