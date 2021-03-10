@@ -705,7 +705,6 @@
 	if(alien != IS_DIONA)
 		if (caffeine)
 			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
-			M.add_chemical_effect(CE_PULSE, 1)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
@@ -4512,6 +4511,19 @@
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
 		M.drowsyness = 0
+
+/decl/reagent/drink/hrozamal_soda
+	name = "Hro'zamal Soda"
+	description = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	color = "#F0C56C"
+	adj_sleepy = -1
+	caffeine = 0.2
+	taste_description = "carbonated fruit sweetness"
+	carbonated = TRUE
+
+	glass_icon_state = "hrozamal_soda_glass"
+	glass_name = "glass of Hro'zamal Soda"
+	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
 /decl/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"

@@ -103,7 +103,7 @@
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
-				AddComponent(/datum/component/armor, armor, armor_degradation_speed)
+				AddComponent(/datum/component/armor, armor)
 				break
 
 /obj/item/Destroy()

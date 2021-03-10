@@ -185,46 +185,48 @@
 	var/obj/item/weldingtool/welder
 
 /obj/structure/distillery/dismantle()
-	var/obj/structure/reagent_dispensers/keg/keg = new (loc)
-	if (src.reagents && src.reagents.total_volume)
-		src.reagents.trans_to_holder(keg.reagents, src.reagents.total_volume)
-	new /obj/item/stack/rods(get_turf(src), 3)
+	var/turf/T = get_turf(src)
+	var/obj/structure/reagent_dispensers/keg/keg = new (T)
+	if (reagents?.total_volume)
+		reagents.trans_to_holder(keg.reagents, reagents.total_volume)
+	new /obj/item/stack/rods(T, 3)
 	if(welder)
-		welder.forceMove(loc)
+		welder.forceMove(T)
 		welder = null
 	qdel(src)
 
 /obj/structure/distillery/proc/trans_item(obj/item/W, mob/user)
 	if(transfer_out)
 		if(!reagents.total_volume)
-			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
+			to_chat(user, SPAN_NOTICE("[src] is empty."))
 			return
 		var/amt = reagents.trans_to_holder(W.reagents, reagents.total_volume)
-		to_chat(user, SPAN_NOTICE("You fill \the [W] with [amt] units from \the [src]."))
+		to_chat(user, SPAN_NOTICE("You fill [W] with [amt] units from [src]."))
 		return
 	else
-		if(!W.reagents || !W.reagents.total_volume)
-			to_chat(user, SPAN_NOTICE("\The [W] is empty."))
+		if(!W.reagents?.total_volume)
+			to_chat(user, SPAN_NOTICE("[W] is empty."))
 			return
-		var/amt = min(10, W.reagents.total_volume)
-		W.reagents.trans_to_holder(src.reagents, amt) // just pour it if you can
-		to_chat(user, SPAN_NOTICE("You pour [amt] units from \the [W] into \the [src]."))
+		var/amt = 5
+		if(istype(W, /obj/item/reagent_containers))
+			var/obj/item/reagent_containers/reagent_container = W
+			amt = reagent_container.amount_per_transfer_from_this
+		W.reagents.trans_to_holder(reagents, amt) // just pour it if you can
+		to_chat(user, SPAN_NOTICE("You pour [amt] units from [W] into [src]."))
 		return
 
 /obj/structure/distillery/proc/distill()
-	if(!reagents || !reagents.total_volume) // can't distill nothing
+	if(!reagents?.total_volume) // can't distill nothing
 		return
 	for(var/_R in reagents.reagent_volumes)
+		if(!ispath(_R, /decl/reagent/alcohol))
+			continue
 		var/decl/reagent/alcohol/AR = decls_repository.get_decl(_R)
-		if(!istype(AR))
-			return
-		var/ARvol = REAGENT_VOLUME(reagents, AR.type)
-		reagents.add_reagent(/decl/reagent/water, (1-(AR.strength/100))*ARvol)
-		if(istype(AR, /decl/reagent/alcohol))
-			reagents.add_reagent(/decl/reagent/alcohol, (AR.strength/100)*ARvol)
-		else if(istype(AR, /decl/reagent/alcohol/butanol))
-			reagents.add_reagent(/decl/reagent/alcohol/butanol, (AR.strength/100)*ARvol)
-		reagents.remove_reagent(AR.type, ARvol)
+		var/ARvol = REAGENT_VOLUME(reagents, _R)
+		var/alcohol_fraction = AR.strength/100
+		reagents.add_reagent(/decl/reagent/water, (1-alcohol_fraction)*ARvol)
+		reagents.add_reagent(ispath(_R, /decl/reagent/alcohol/butanol) ? /decl/reagent/alcohol/butanol : /decl/reagent/alcohol, alcohol_fraction*ARvol)
+		reagents.remove_reagent(_R, ARvol)
 	icon_state = "distillery-off"
 
 /obj/structure/distillery/attackby(obj/item/W, mob/user)

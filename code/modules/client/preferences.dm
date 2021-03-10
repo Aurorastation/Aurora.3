@@ -642,7 +642,7 @@ datum/preferences
 		job_engsec_med = 0
 		job_engsec_low = 0
 
-		alternate_option = 0
+		alternate_option = 1
 		metadata = ""
 
 		organ_data = list()

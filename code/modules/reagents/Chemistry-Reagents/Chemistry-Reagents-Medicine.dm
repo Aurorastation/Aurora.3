@@ -139,13 +139,11 @@
 	var/removing = (4 * removed)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	for(var/_R in ingested.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		if((remove_generic && istype(R, /decl/reagent/toxin)) || (_R in remove_toxins))
-			ingested.remove_reagent(R.type, removing)
+		if((remove_generic && ispath(_R, /decl/reagent/toxin)) || (_R in remove_toxins))
+			ingested.remove_reagent(_R, removing)
 			return
 	for(var/_R in M.reagents.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		if((remove_generic && istype(R, /decl/reagent/toxin)) || (_R in remove_toxins))
+		if((remove_generic && ispath(_R, /decl/reagent/toxin)) || (_R in remove_toxins))
 			M.reagents.remove_reagent(_R, removing)
 			return
 
@@ -605,10 +603,9 @@
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	if(ingested)
 		for(var/_R in ingested.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if(istype(R, /decl/reagent/alcohol))
+			if(ispath(_R, /decl/reagent/alcohol))
 				var/amount = min(P, REAGENT_VOLUME(ingested, _R))
-				ingested.remove_reagent(R.type, amount)
+				ingested.remove_reagent(_R, amount)
 				P -= amount
 				if (P <= 0)
 					return
@@ -617,8 +614,7 @@
 	//as a treatment option if someone was dumb enough to do this
 	if(M.bloodstr)
 		for(var/_R in M.bloodstr.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if(istype(R, /decl/reagent/alcohol))
+			if(ispath(_R, /decl/reagent/alcohol))
 				var/amount = min(P, REAGENT_VOLUME(M.bloodstr, _R))
 				M.bloodstr.remove_reagent(_R, amount)
 				P -= amount
