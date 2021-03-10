@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added prescription HUD assemblies to the loadout."
