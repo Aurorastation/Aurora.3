@@ -150,26 +150,29 @@
 	if(!shard_icon)
 		shard_icon = shard_type
 
+	var/wall_file
+	var/multipart_reinf_file
+
 	var/skip_blend = FALSE
 	switch (icon_base)
 		if ("solid")
-			wall_icon = 'icons/turf/smooth/composite_solid.dmi'
+			wall_file = 'icons/turf/smooth/composite_solid.dmi'
 		if ("stone")
-			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
-			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
+			wall_file = 'icons/turf/smooth/composite_stone.dmi'
+			multipart_reinf_file = 'icons/turf/smooth/composite_stone_reinf.dmi'
 		if ("metal")
-			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
+			wall_file = 'icons/turf/smooth/composite_metal.dmi'
 		if ("cult")
-			wall_icon = 'icons/turf/smooth/cult_wall.dmi'
+			wall_file = 'icons/turf/smooth/cult_wall.dmi'
 			skip_blend = TRUE
 		if ("arust")
-			wall_icon = 'icons/turf/smooth/rusty_wall.dmi'
+			wall_file = 'icons/turf/smooth/rusty_wall.dmi'
 			skip_blend = TRUE
 		if ("biomass")
-			wall_icon = 'icons/turf/smooth/diona_wall.dmi'
+			wall_file = 'icons/turf/smooth/diona_wall.dmi'
 			skip_blend = TRUE
 		if ("vaurca")
-			wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
+			wall_file = 'icons/turf/smooth/vaurca_wall.dmi'
 			skip_blend = TRUE
 		if ("shuttle")
 			skip_blend = TRUE
@@ -178,11 +181,11 @@
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
-	if (wall_icon && icon_colour && !skip_blend)
-		wall_icon = icon(wall_icon)
+	if (wall_file && icon_colour && !skip_blend)
+		wall_icon = icon(wall_file)
 		wall_icon.Blend(icon_colour, ICON_MULTIPLY)
-		if (multipart_reinf_icon)
-			multipart_reinf_icon = icon(multipart_reinf_icon)
+		if (multipart_reinf_file)
+			multipart_reinf_icon = icon(multipart_reinf_file)
 			multipart_reinf_icon.Blend(icon_colour, ICON_MULTIPLY)
 
 // This is a placeholder for proper integration of windows/windoors into the system.
