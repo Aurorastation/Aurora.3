@@ -1,5 +1,5 @@
-/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/location = src, var/mob/user = src, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/state = default_state)
-	var/datum/vueui_module/appearance_changer/AC = new(location, src, check_species_whitelist, species_whitelist, species_blacklist, state)
+/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/mob/user = src, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list())
+	var/datum/vueui_module/appearance_changer/AC = new(src, check_species_whitelist, species_whitelist, species_blacklist)
 	AC.flags = flags
 	AC.ui_interact(user)
 
@@ -173,7 +173,9 @@
 			continue
 		valid_hairstyles += hairstyle
 
-	return valid_hairstyles
+	if(length(valid_hairstyles))
+		return valid_hairstyles
+	return null
 
 /mob/living/carbon/human/proc/generate_valid_facial_hairstyles()
 	var/list/valid_facial_hairstyles = new()
@@ -191,7 +193,9 @@
 
 		valid_facial_hairstyles += facialhairstyle
 
-	return valid_facial_hairstyles
+	if(length(valid_facial_hairstyles))
+		return valid_facial_hairstyles
+	return null
 
 /mob/living/carbon/human/proc/force_update_limbs()
 	for(var/obj/item/organ/external/O in organs)

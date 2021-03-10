@@ -2,34 +2,28 @@
 	var/name = "Appearance Changer"
 	var/flags = APPEARANCE_ALL_HAIR
 
-	var/atom/location
-	var/ui_state
-
 	var/datum/weakref/target_human
 	var/list/valid_species = list()
-	var/list/valid_genders = list()
-	var/list/valid_pronouns = list()
-	var/list/valid_hairstyles = list()
-	var/list/valid_facial_hairstyles = list()
-	var/list/valid_accents = list()
+	var/list/valid_genders
+	var/list/valid_pronouns
+	var/list/valid_hairstyles
+	var/list/valid_facial_hairstyles
+	var/list/valid_accents
 	var/list/valid_languages = list()
 
 	var/check_whitelist
 	var/list/whitelist
 	var/list/blacklist
 
-/datum/vueui_module/appearance_changer/New(var/set_location, var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/set_state = default_state)
+/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list())
 	..()
-	location = set_location
-	message_admins(location)
 	target_human = WEAKREF(H)
-	ui_state = set_state
 	src.check_whitelist = check_species_whitelist
 	src.whitelist = species_whitelist
 	src.blacklist = species_blacklist
 	generate_data(check_whitelist, whitelist, blacklist)
 
-/datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = ui_state)
+/datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = interactive_state)
 	if(..())
 		return 1
 
@@ -168,7 +162,7 @@
 			data["valid_pronouns"] = valid_pronouns
 
 	data["owner_accent"] = owner.accent
-	data["change_accent"] = can_change(APPEARANCE_GENDER)
+	data["change_accent"] = can_change(APPEARANCE_ACCENT)
 	data["valid_accents"] = null
 	if(data["change_accent"])
 		data["valid_accents"] = valid_accents
@@ -177,7 +171,7 @@
 	for(var/datum/language/L in owner.languages)
 		owner_languages += L.name
 	data["owner_languages"] = owner_languages
-	data["change_language"] = can_change(APPEARANCE_GENDER)
+	data["change_language"] = can_change(APPEARANCE_LANGUAGE)
 	data["valid_languages"] = null
 	if(data["change_language"])
 		data["valid_languages"] = valid_languages
@@ -237,12 +231,12 @@
 
 /datum/vueui_module/appearance_changer/proc/cut_and_generate_data()
 	// Making the assumption that the available species remain constant
-	valid_genders.Cut()
-	valid_pronouns.Cut()
-	valid_facial_hairstyles.Cut()
-	valid_facial_hairstyles.Cut()
-	valid_accents.Cut()
-	valid_languages.Cut()
+	LAZYCLEARLIST(valid_genders)
+	LAZYCLEARLIST(valid_pronouns)
+	LAZYCLEARLIST(valid_hairstyles)
+	LAZYCLEARLIST(valid_facial_hairstyles)
+	LAZYCLEARLIST(valid_accents)
+	valid_languages.Cut() // this is the only non-lazy list, along with species
 	generate_data()
 
 /datum/vueui_module/appearance_changer/proc/generate_data()
@@ -251,14 +245,15 @@
 		return FALSE
 	if(!length(valid_species))
 		valid_species = owner.generate_valid_species(check_whitelist, whitelist, blacklist)
-	if(!length(valid_genders))
+	if(!LAZYLEN(valid_genders) && length(owner.species.default_genders))
 		valid_genders = owner.species.default_genders.Copy()
-	if(!length(valid_pronouns))
+	if(!LAZYLEN(valid_pronouns) && length(owner.species.selectable_pronouns))
 		valid_pronouns = owner.species.selectable_pronouns.Copy()
-	if(!length(valid_hairstyles) || !length(valid_facial_hairstyles))
+	if(!LAZYLEN(valid_hairstyles) || !length(valid_facial_hairstyles))
 		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 1)
+	if(!LAZYLEN(valid_facial_hairstyles))
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
-	if(!length(valid_accents))
-		valid_accents = owner.generate_valid_accent()
+	if(!LAZYLEN(valid_accents) && length(owner.species.allowed_accents))
+		valid_accents = owner.species.allowed_accents.Copy()
 	if(!length(valid_languages))
 		valid_languages = owner.generate_valid_languages()

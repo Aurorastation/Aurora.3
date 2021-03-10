@@ -150,7 +150,7 @@
 	if (pref.can_edit_name)
 		dat += "(<a href='?src=\ref[src];random_name=1'>Random Name</A>)"
 	dat += "<br>"
-	dat += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
+	dat += "<b>Sex:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
 	var/datum/species/S = all_species[pref.species]
 	if(length(S.selectable_pronouns))
 		dat += "<b>Pronouns:</b> <a href='?src=\ref[src];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
