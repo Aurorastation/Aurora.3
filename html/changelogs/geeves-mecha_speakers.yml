@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Exosuits now come with integrated megaspeakers. When activated, they will increase the volume of your speech."
