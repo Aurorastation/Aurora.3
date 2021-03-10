@@ -103,7 +103,7 @@
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
-				AddComponent(/datum/component/armor, armor, armor_degradation_speed)
+				AddComponent(/datum/component/armor, armor)
 				break
 
 /obj/item/Destroy()
@@ -877,4 +877,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. += "Throw Force: [throwforce]<br>"
 
 /obj/item/proc/use_resource(var/mob/user, var/use_amount)
+	return
+
+// this gets called when the item gets chucked by the vending machine
+/obj/item/proc/vendor_action(var/obj/machinery/vending/V)
 	return
