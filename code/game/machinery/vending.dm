@@ -9,7 +9,6 @@
 	var/price = 0  // Price to buy one
 	var/display_color = null  // Display color for vending machine listing
 	var/category = CAT_NORMAL  // CAT_HIDDEN for contraband, CAT_COIN for premium
-	var/icon/product_icon
 	var/icon/icon_state
 
 /datum/data/vending_product/New(var/path, var/name = null, var/amount = 1, var/price = 0, var/color = null, var/category = CAT_NORMAL)
@@ -19,7 +18,7 @@
 	var/atom/A = new path(null)
 
 	if(!name)
-		product_name = initial(A.name)
+		product_name = A.name
 	else
 		product_name = name
 
@@ -30,10 +29,9 @@
 	if(istype(A, /obj/item/seeds))
 		// thanks seeds for being overlays defined at runtime
 		var/obj/item/seeds/S = A
-		product_icon = S.update_appearance(TRUE)
+		icon_state = S.update_appearance(TRUE)
 	else
-		product_icon = icon(A.icon, A.icon_state, SOUTH)
-	icon_state = product_icon
+		icon_state = icon(A.icon, A.icon_state, SOUTH)
 	QDEL_NULL(A)
 
 /**
