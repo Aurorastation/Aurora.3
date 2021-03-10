@@ -17,7 +17,6 @@
 /obj/item/device/flashlight/survival/Initialize()
 	. = ..()
 	cell = new /obj/item/cell/device(src)
-	cell.percent()
 
 /obj/item/device/flashlight/survival/Destroy()
 	QDEL_NULL(cell)
