@@ -7,7 +7,6 @@
 	density = 0
 	anchored = 1
 	var/shattered = 0
-	var/list/ui_users = list()
 
 /obj/structure/mirror/attack_hand(mob/user as mob)
 	if(shattered)
@@ -19,12 +18,8 @@
 			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
 	if(ishuman(user))
-		var/datum/vueui_module/appearance_changer/AC = ui_users[user]
-		if(!AC)
-			AC = new(src, user)
-			AC.name = "SalonPro Nano-Mirror&trade;"
-			ui_users[user] = AC
-		AC.ui_interact(user)
+		var/mob/living/carbon/human/H = user
+		H.change_appearance(APPEARANCE_HAIR, H, FALSE)
 
 /obj/structure/mirror/proc/shatter()
 	if(shattered)	return
@@ -69,19 +64,11 @@
 		user.visible_message("<span class='danger'>[user] hits [src] and bounces off!</span>")
 	return 1
 
-/obj/structure/mirror/Destroy()
-	for(var/user in ui_users)
-		var/datum/vueui_module/appearance_changer/AC = ui_users[user]
-		qdel(AC)
-	ui_users.Cut()
-	return ..()
-
 /obj/item/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "mirror"
-	var/list/ui_users = list()
 
 /obj/item/mirror/attack_self(mob/user as mob)
 	if(user.mind)
@@ -90,17 +77,5 @@
 			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
 	if(ishuman(user))
-		var/datum/vueui_module/appearance_changer/AC = ui_users[user]
-		if(!AC)
-			AC = new(src, user)
-			AC.name = "SalonPro Nano-Mirror&trade;"
-			AC.flags = APPEARANCE_HAIR
-			ui_users[user] = AC
-		AC.ui_interact(user)
-
-/obj/item/mirror/Destroy()
-	for(var/user in ui_users)
-		var/datum/vueui_module/appearance_changer/AC = ui_users[user]
-		qdel(AC)
-	ui_users.Cut()
-	return ..()
+		var/mob/living/carbon/human/H = user
+		H.change_appearance(APPEARANCE_HAIR, H, FALSE)

@@ -18,15 +18,15 @@
         <div class="itemContentWide">
           <vui-button v-for="gender in valid_gender" :class="{'button' : 1, 'selected' : owner_gender == gender}" :params="{ gender: gender }" :key="gender">{{ gender }}</vui-button>
         </div>
-        <div v-if="valid_pronouns" class="itemLabelNarrow">
+        <div v-if="valid_pronouns.length" class="itemLabelNarrow">
           Pronouns:
         </div>
-        <div v-if="valid_pronouns" class="itemContentWide">
+        <div v-if="valid_pronouns.length" class="itemContentWide">
           <vui-button v-for="pronouns in valid_pronouns" :class="{'button' : 1, 'selected' : owner_pronouns == pronouns}" :params="{ pronouns: pronouns }" :key="pronouns">{{ pronouns }}</vui-button>
         </div>
       </div>
     </div>
-    <div v-if="change_accent && valid_accents">
+    <div v-if="change_accent && valid_accents.length">
       <div class="item">
         <div class="itemLabelNarrow">
           Accents:
@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div v-if="change_language && valid_languages">
+    <div v-if="change_language && valid_languages.length">
       <div class="item">
         <div class="itemLabelNarrow">
           Languages:
@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div v-if="change_hair && valid_hair_styles">
+    <div v-if="change_hair && valid_hair_styles.length">
       <div class="item">
         <div class="itemLabelNarrow">
           Hair Styles:
@@ -71,7 +71,7 @@
         </div>
       </div>
     </div>
-    <div v-if="change_facial_hair && valid_facial_hair_styles">
+    <div v-if="change_facial_hair && valid_facial_hair_styles.length">
       <div class="item">
         <div class="itemLabelNarrow">
           Facial Hair Styles:
