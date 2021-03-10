@@ -179,10 +179,10 @@
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
 	if (wall_icon && icon_colour && !skip_blend)
-		wall_icon = new(wall_icon)
+		wall_icon = icon(wall_icon)
 		wall_icon.Blend(icon_colour, ICON_MULTIPLY)
 		if (multipart_reinf_icon)
-			multipart_reinf_icon = new(multipart_reinf_icon)
+			multipart_reinf_icon = icon(multipart_reinf_icon)
 			multipart_reinf_icon.Blend(icon_colour, ICON_MULTIPLY)
 
 // This is a placeholder for proper integration of windows/windoors into the system.
