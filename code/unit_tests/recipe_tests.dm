@@ -40,8 +40,8 @@
 /datum/unit_test/stack_recipe_cost/start_test()
 	var/tested_count = 0
 	var/error_count = 0
-	for(var/T in subtypesof(/material))
-		var/material/D = new T
+	SSmaterials.create_material_lists() // just in case
+	for(var/material/D in SSmaterials.materials)
 		var/list/datum/stack_recipe_list/recipe_lists = D.get_recipes()
 		var/list/temp_matter = D.get_matter()
 		for(var/datum/stack_recipe_list/L in recipe_lists)
