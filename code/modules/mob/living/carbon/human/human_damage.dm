@@ -259,7 +259,7 @@
 /mob/living/carbon/human/proc/get_damaged_organs(var/brute, var/burn, var/prosthetic = TRUE)
 	var/list/obj/item/organ/external/parts = list()
 	for(var/obj/item/organ/external/O in organs)
-		if(!prosthetic && (O.status & ORGAN_ROBOT))
+		if(!prosthetic && BP_IS_ROBOTIC(O))
 			continue
 		if((brute && O.brute_dam) || (burn && O.burn_dam))
 			parts += O

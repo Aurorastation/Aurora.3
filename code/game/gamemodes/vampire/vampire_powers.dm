@@ -611,7 +611,7 @@
 		for(var/A in organs)
 			var/healed = FALSE
 			var/obj/item/organ/external/E = A
-			if(E.status & ORGAN_ROBOT)
+			if(BP_IS_ROBOTIC(E))
 				continue
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
