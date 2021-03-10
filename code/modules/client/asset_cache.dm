@@ -150,7 +150,6 @@ var/list/asset_datums = list()
 
 /datum/asset
 	var/_abstract = /datum/asset
-	var/delayed = FALSE
 
 /datum/asset/New()
 	asset_datums[type] = src
@@ -463,7 +462,6 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/vending
 	name = "vending"
-	delayed = TRUE
 
 /datum/asset/spritesheet/vending/register()
 	var/list/vending_products = list()
