@@ -103,3 +103,4 @@
 	var/mob/living/simple_animal/shade/shade = locate() in stone
 	announce_ghost_joinleave(shade)
 	shade.ghostize(FALSE)
+	target.dust()
