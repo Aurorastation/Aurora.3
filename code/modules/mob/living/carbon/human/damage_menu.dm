@@ -50,7 +50,7 @@
 	return data
 
 /datum/vueui_module/damage_menu/Topic(href, href_list)
-	if(!usr.client.holder)
+	if(!check_rights(R_ADMIN))
 		return
 
 	var/mob/living/carbon/human/H = target_human.resolve()
