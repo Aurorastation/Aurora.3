@@ -9,8 +9,7 @@
 /datum/unit_test/research_design_cost/start_test()
 	var/tested_count = 0
 	var/error_count = 0
-	for(var/T in subtypesof(/datum/design))
-		var/datum/design/D = new T
+	for(var/datum/design/D in designs)
 		if(ispath(D.build_path, /obj/item))
 			var/obj/item/I = D.Fabricate()
 			if(I.matter && D.materials && I.recyclable) // non-recyclable items can't be exploited
