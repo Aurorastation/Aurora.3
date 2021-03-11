@@ -110,7 +110,7 @@ steps:
       - cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
       - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
       - grep "0 warnings" build_log.txt
-      - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+      - DreamDaemon aurorastation.dmb -invisible -trusted>&1 | tee log.txt
       - grep "All Unit Tests Passed" log.txt
       - (! grep "runtime error:" log.txt)
       - echo "Unit Tests Completed"
