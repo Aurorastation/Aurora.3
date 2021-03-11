@@ -317,14 +317,23 @@ There are several things that need to be remembered:
 					temp2.Insert(icon(temp, dir = EAST), dir = EAST)
 				if(!(part.icon_position & RIGHT))
 					temp2.Insert(icon(temp, dir = WEST), dir = WEST)
-				base_icon.Blend(temp2, ICON_OVERLAY)
+				try
+					base_icon.Blend(temp2, ICON_OVERLAY)
+				catch(var/exception/e)
+					world.log << "[__FILE__]:[__LINE__] - [e] on [e.file]:[e.line]"
 				if(part.icon_position & LEFT)
 					temp2.Insert(icon(temp, dir = EAST), dir = EAST)
 				if(part.icon_position & RIGHT)
 					temp2.Insert(icon(temp, dir = WEST), dir = WEST)
-				base_icon.Blend(temp2, ICON_UNDERLAY)
+				try
+					base_icon.Blend(temp2, ICON_UNDERLAY)
+				catch(var/exception/e)
+					world.log << "[__FILE__]:[__LINE__] - [e] on [e.file]:[e.line]"
 			else
-				base_icon.Blend(temp, ICON_OVERLAY)
+				try
+					base_icon.Blend(temp, ICON_OVERLAY)
+				catch(var/exception/e)
+					world.log << "[__FILE__]:[__LINE__] - [e] on [e.file]:[e.line]"
 
 		if(!(species.flags & NO_SCAN))
 			if(husk)
@@ -349,7 +358,10 @@ There are several things that need to be remembered:
 	compile_overlays()
 
 	//END CACHED ICON GENERATION.
-	stand_icon.Blend(base_icon,ICON_OVERLAY)
+	try
+		stand_icon.Blend(base_icon,ICON_OVERLAY)
+	catch(var/exception/e)
+		world.log << "[__FILE__]:[__LINE__] - [e] on [e.file]:[e.line]"
 
 	//tail
 	update_tail_showing(0)
