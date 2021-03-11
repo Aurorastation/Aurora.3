@@ -73,7 +73,7 @@
 
 			var/icon/eyes_icon = SSicon_cache.human_eye_cache[cache_key]
 			if (!eyes_icon)
-				eyes_icon = new/icon(species.eyes_icons, species.eyes)
+				eyes_icon = icon(species.eyes_icons, species.eyes)
 				if(eyecolor)
 					eyes_icon.Blend(eyecolor, species.eyes_icon_blend)
 				else
@@ -87,7 +87,7 @@
 	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
 		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lip_style]"]
 		if (!lip_icon)
-			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "[owner.lip_style]")
+			lip_icon = icon('icons/mob/human_face/lips.dmi', "[owner.lip_style]")
 			SSicon_cache.human_lip_cache["[owner.lip_style]"] = lip_icon
 
 		add_overlay(lip_icon)
@@ -128,7 +128,7 @@
 
 			var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
 			if (!finished_icon)
-				finished_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
+				finished_icon = icon(icon = mark_style.icon, icon_state = "[mark_style.icon_state]-[limb_name]")
 				finished_icon.Blend(m_color, mark_style.icon_blend_mode)
 				SSicon_cache.markings_cache[cache_key] = finished_icon
 

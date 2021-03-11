@@ -310,8 +310,8 @@ There are several things that need to be remembered:
 			//That part makes left and right legs drawn topmost and lowermost when human looks WEST or EAST
 			//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
 			if(part.icon_position&(LEFT|RIGHT))
-				var/icon/temp2 = new('icons/mob/human.dmi',"blank")
-				temp2.Insert(icon(temp ,dir = NORTH), dir = NORTH)
+				var/icon/temp2 = icon('icons/mob/human.dmi',"blank")
+				temp2.Insert(icon(temp, dir = NORTH), dir = NORTH)
 				temp2.Insert(icon(temp, dir = SOUTH), dir = SOUTH)
 				if(!(part.icon_position & LEFT))
 					temp2.Insert(icon(temp, dir = EAST), dir = EAST)
@@ -332,8 +332,8 @@ There are several things that need to be remembered:
 
 		//Handle husk overlay.
 		if(husk && ("overlay_husk" in icon_states(species.icobase)))
-			var/icon/mask = new(base_icon)
-			var/icon/husk_over = new(species.icobase,"overlay_husk")
+			var/icon/mask = icon(base_icon)
+			var/icon/husk_over = icon(species.icobase,"overlay_husk")
 			mask.MapColors(0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,0)
 			husk_over.Blend(mask, ICON_ADD)
 			base_icon.Blend(husk_over, ICON_OVERLAY)
