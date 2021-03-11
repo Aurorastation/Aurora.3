@@ -651,7 +651,7 @@ var/list/ai_verbs_default = list(
 		else
 			to_chat(usr, SPAN_WARNING("There are no humanoids within camera view to base your hologram on."))
 	else
-		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "custom")
+		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "void", "custom")
 		if(input)
 			if(input == "custom")
 				if(custom_sprite)

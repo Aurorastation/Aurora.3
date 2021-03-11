@@ -164,3 +164,8 @@ var/list/datum/ai_icon/ai_icons
 	name = "Triumvirate Static"
 	alive_icon = "ai-triumvirate-malf"
 	alive_light = "#020B2B"
+
+/datum/ai_icon/faceless
+	name = "Faceless"
+	alive_icon = "ai-faceless"
+	alive_light = "#4b0421"
