@@ -349,10 +349,12 @@ There are several things that need to be remembered:
 	compile_overlays()
 
 	//END CACHED ICON GENERATION.
-	world.log << "BASE ICON: [icon2base64(base_icon)]"
-	world.log << "."
-	world.log << "STAND ICON: [icon2base64(stand_icon)]"
-	stand_icon.Blend(base_icon,ICON_OVERLAY)
+	try
+		stand_icon.Blend(base_icon,ICON_OVERLAY)
+	catch
+		world.log << "BASE ICON: [icon2html(base_icon)]"
+		world.log << "."
+		world.log << "STAND ICON: [icon2html(stand_icon)]"
 
 	//tail
 	update_tail_showing(0)
