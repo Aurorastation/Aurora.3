@@ -87,7 +87,7 @@ var/global/datum/global_init/init = new ()
 
 	callHook("startup")
 
-	enable_debugger()
+	//enable_debugger()
 
 	. = ..()
 
