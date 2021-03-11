@@ -275,7 +275,7 @@ There are several things that need to be remembered:
 
 	//Create a new, blank icon for our mob to use.
 	if(stand_icon)
-		qdel(stand_icon)
+		del(stand_icon)
 	stand_icon = icon(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
 	var/is_frenzied = "nofrenzy"
@@ -349,6 +349,9 @@ There are several things that need to be remembered:
 	compile_overlays()
 
 	//END CACHED ICON GENERATION.
+	world.log << "BASE ICON: [icon2base64(base_icon)]"
+	world.log << "."
+	world.log << "STAND ICON: [icon2base64(stand_icon)]"
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
 
 	//tail
