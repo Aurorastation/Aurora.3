@@ -125,6 +125,14 @@
 		A.client.eye = A.eyeobj
 		return TRUE
 
+	if(ishuman(user)) //this code is here to stop species night vision from being used on the cameras, since it does not make sense since cameras are just images. this is probably not the best way to do this, but it works
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/E = H.internal_organs_by_name[BP_EYES]
+		if (istype(E, /obj/item/organ/internal/eyes/night))
+			var/obj/item/organ/internal/eyes/night/N = E
+			if(N.night_vision )
+				N.disable_night_vision()
+
 	set_current(C)
 	user.machine = ui_host()
 	user.reset_view(current_camera)
