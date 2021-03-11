@@ -142,7 +142,7 @@
 
 			var/icon/organ_icon = SSicon_cache.internal_organ_cache[cache_key]
 			if (!organ_icon)
-				organ_icon = new /icon(O.on_mob_icon, O.icon_state)
+				organ_icon = icon(O.on_mob_icon, O.icon_state)
 				SSicon_cache.internal_organ_cache[cache_key] = organ_icon
 
 			add_overlay(organ_icon)
@@ -156,7 +156,7 @@
 		gender = "m"
 
 	if(force_icon)
-		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
+		mob_icon = icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
 		if((painted && skin_color) || robotize_type == PROSTHETIC_SYNTHSKIN)
 			mob_icon.Blend(skin_color, ICON_ADD)
 		if(!isnull(s_tone))
@@ -168,7 +168,7 @@
 		get_internal_organs_overlay()
 	else
 		if(!dna)
-			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
+			mob_icon = icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
 		else
 			if(!gendered_icon)
 				gender = null
@@ -179,14 +179,14 @@
 					gender = "m"
 
 			if(skeletal)
-				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else if (status & ORGAN_ROBOT && !force_skintone)
-				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else
 				if (status & ORGAN_MUTATED)
-					mob_icon = new /icon(species.deform, "[icon_name][gender ? "_[gender]" : ""]")
+					mob_icon = icon(species.deform, "[icon_name][gender ? "_[gender]" : ""]")
 				else
-					mob_icon = new /icon(species.icobase, "[icon_name][gender ? "_[gender]" : ""]")
+					mob_icon = icon(species.icobase, "[icon_name][gender ? "_[gender]" : ""]")
 
 				if(status & ORGAN_DEAD)
 					mob_icon.ColorTone(rgb(10,50,0))

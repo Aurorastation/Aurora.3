@@ -215,8 +215,8 @@ There are several things that need to be remembered:
 		var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
 		var/icon/DI = damage_icon_parts[cache_index]
 		if(!DI)
-			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
-			DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
+			DI = icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
+			DI.Blend(icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
 			DI.Blend(species.blood_color, ICON_MULTIPLY)
 			damage_icon_parts[cache_index] = DI
 
@@ -276,7 +276,7 @@ There are several things that need to be remembered:
 	//Create a new, blank icon for our mob to use.
 	if(stand_icon)
 		qdel(stand_icon)
-	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
+	stand_icon = icon(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
 	var/is_frenzied = "nofrenzy"
 	if(mind)
@@ -311,17 +311,17 @@ There are several things that need to be remembered:
 			//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
 			if(part.icon_position&(LEFT|RIGHT))
 				var/icon/temp2 = new('icons/mob/human.dmi',"blank")
-				temp2.Insert(new /icon(temp ,dir = NORTH), dir = NORTH)
-				temp2.Insert(new /icon(temp, dir = SOUTH), dir = SOUTH)
+				temp2.Insert(icon(temp ,dir = NORTH), dir = NORTH)
+				temp2.Insert(icon(temp, dir = SOUTH), dir = SOUTH)
 				if(!(part.icon_position & LEFT))
-					temp2.Insert(new /icon(temp, dir = EAST), dir = EAST)
+					temp2.Insert(icon(temp, dir = EAST), dir = EAST)
 				if(!(part.icon_position & RIGHT))
-					temp2.Insert(new /icon(temp, dir = WEST), dir = WEST)
+					temp2.Insert(icon(temp, dir = WEST), dir = WEST)
 				base_icon.Blend(temp2, ICON_OVERLAY)
 				if(part.icon_position & LEFT)
-					temp2.Insert(new /icon(temp, dir = EAST), dir = EAST)
+					temp2.Insert(icon(temp, dir = EAST), dir = EAST)
 				if(part.icon_position & RIGHT)
-					temp2.Insert(new /icon(temp, dir = WEST), dir = WEST)
+					temp2.Insert(icon(temp, dir = WEST), dir = WEST)
 				base_icon.Blend(temp2, ICON_UNDERLAY)
 			else
 				base_icon.Blend(temp, ICON_OVERLAY)
@@ -379,7 +379,7 @@ There are several things that need to be remembered:
 
 	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
 	if (!face_standing)	// Not cached, generate it from scratch.
-		face_standing = new /icon('icons/mob/human_face/hair.dmi',"bald")
+		face_standing = icon('icons/mob/human_face/hair.dmi',"bald")
 		// Beard.
 		if(f_style)
 			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]

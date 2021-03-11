@@ -275,7 +275,7 @@ var/list/holder_mob_icon_cache = list()
 	// Generate appropriate on-mob icons.
 	var/mob/living/carbon/human/owner = M
 	if(!icon && istype(owner) && owner.species)
-		var/icon/I = new /icon()
+		var/icon/I = icon()
 
 		var/skin_colour = rgb(owner.r_skin, owner.g_skin, owner.b_skin)
 		var/hair_colour = rgb(owner.r_hair, owner.g_hair, owner.b_hair)

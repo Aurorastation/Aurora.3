@@ -137,9 +137,9 @@
 	/*
 	var/icon/I
 	if (dir >= 0)
-		I = new /icon(icon, icon_state, dir)
+		I = icon(icon, icon_state, dir)
 	else
-		I = new /icon(icon, icon_state)
+		I = icon(icon, icon_state)
 		dir = "default"
 
 	var/filename = "[ckey("[icon]_[icon_state]_[dir]")].png"

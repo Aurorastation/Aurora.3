@@ -818,7 +818,7 @@ proc/ColorTone(rgb, tone)
 
 		if(no_anim)
 			//Clean up repeated frames
-			var/icon/cleaned = new /icon()
+			var/icon/cleaned = icon()
 			cleaned.Insert(flat, "", SOUTH, 1, 0)
 			. = cleaned
 		else

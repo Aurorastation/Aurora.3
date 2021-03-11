@@ -97,7 +97,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	
+
 	if(istype(item, /obj/item/device/laser_assembly))
 		var/obj/item/device/laser_assembly/A = item
 		A.ready_to_craft = FALSE
@@ -124,10 +124,10 @@
 		var/obj/item/device/laser_assembly/A = item
 		A.update_icon()
 		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
-		Icon_used = new /icon(item.icon, item.icon_state)
+		Icon_used = icon(item.icon, item.icon_state)
 	else if(item)
 		icon_state = "[icon_state]_on"
-		Icon_used = new /icon(item.icon, item.icon_state)
+		Icon_used = icon(item.icon, item.icon_state)
 
 	if(Icon_used)
 		// Making gun sprite smaller and centering it where we want, cause dang they are thicc
@@ -165,7 +165,7 @@
 					"shots modifier" = initial(l_component.shots), "burst modifier" = initial(l_component.burst), "accuracy modifier" = initial(l_component.accuracy), "repair tool" = l_repair_name
 				)
 		data["gun_mods"] = mods
-	
+
 	else if(istype(item, /obj/item/gun))
 		var/obj/item/gun/gun = item
 		data["name"] = gun.name
@@ -264,8 +264,8 @@
 		ui = new(user, src, "wanalyzer-analyzer", width, height, capitalize(name))
 
 	if(item)
-		var/icon/Icon_used = new /icon(item.icon, item.icon_state)
-		ui.add_asset("icon", Icon_used) 
+		var/icon/Icon_used = icon(item.icon, item.icon_state)
+		ui.add_asset("icon", Icon_used)
 		ui.send_asset("icon")
 	ui.open()
 

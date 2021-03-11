@@ -313,14 +313,14 @@
 
 	coating = applied_coating
 	//Now we have to do the witchcraft with masking images
-	//var/icon/I = new /icon(icon, icon_state)
+	//var/icon/I = icon(icon, icon_state)
 
 	if (!flat_icon)
 		flat_icon = getFlatIcon(src)
 	var/icon/I = flat_icon
 	color = "#FFFFFF" //Some fruits use the color var. Reset this so it doesnt tint the batter
-	I.Blend(new /icon('icons/obj/food_custom.dmi', rgb(255,255,255)),ICON_ADD)
-	I.Blend(new /icon('icons/obj/food_custom.dmi', applied_coating_reagent.icon_raw),ICON_MULTIPLY)
+	I.Blend(icon('icons/obj/food_custom.dmi', rgb(255,255,255)),ICON_ADD)
+	I.Blend(icon('icons/obj/food_custom.dmi', applied_coating_reagent.icon_raw),ICON_MULTIPLY)
 	var/image/J = image(I)
 	J.alpha = 200
 	J.blend_mode = BLEND_OVERLAY
@@ -351,8 +351,8 @@
 			flat_icon = getFlatIcon(src)
 		var/icon/I = flat_icon
 		color = "#FFFFFF" //Some fruits use the color var
-		I.Blend(new /icon('icons/obj/food_custom.dmi', rgb(255,255,255)),ICON_ADD)
-		I.Blend(new /icon('icons/obj/food_custom.dmi', our_coating.icon_cooked),ICON_MULTIPLY)
+		I.Blend(icon('icons/obj/food_custom.dmi', rgb(255,255,255)),ICON_ADD)
+		I.Blend(icon('icons/obj/food_custom.dmi', our_coating.icon_cooked),ICON_MULTIPLY)
 		var/image/J = image(I)
 		J.alpha = 200
 		J.tag = "coating"

@@ -647,9 +647,9 @@ var/list/global/slot_flags_enumeration = list(
 		blood_overlay = image(blood_overlay)	// Copy instead of getting a ref, we're going to mutate this.
 		return
 
-	var/icon/I = new /icon(icon, icon_state)
-	I.Blend(new /icon('icons/effects/blood.dmi', rgb(255,255,255)),ICON_ADD) //fills the icon_state with white (except where it's transparent)
-	I.Blend(new /icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY) //adds blood and the remaining white areas become transparent
+	var/icon/I = icon(icon, icon_state)
+	I.Blend(icon('icons/effects/blood.dmi', rgb(255,255,255)),ICON_ADD) //fills the icon_state with white (except where it's transparent)
+	I.Blend(icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY) //adds blood and the remaining white areas become transparent
 
 	blood_overlay = image(I)
 	SSicon_cache.bloody_cache[type] = blood_overlay
