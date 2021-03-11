@@ -162,6 +162,11 @@
 	display_name = "battlemonsters starter deck"
 	path = /obj/item/battle_monsters/wrapped
 
+/datum/gear/squidplushie
+	display_name = "colourable squid plushie"
+	path = /obj/item/toy/plushie/squidcolour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/plushie
 	display_name = "plushie selection"
 	path = /obj/item/toy/plushie
@@ -182,6 +187,7 @@
 	plushies["plushie, schlorrgo"] = /obj/item/toy/plushie/schlorrgo
 	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
+	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste

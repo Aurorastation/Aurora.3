@@ -81,6 +81,7 @@
 	medhud["aviators, medical"] = /obj/item/clothing/glasses/hud/health/aviator
 	medhud["HUD, medical"] = /obj/item/clothing/glasses/hud/health
 	medhud["HUDpatch, medical"] = /obj/item/clothing/glasses/eyepatch/hud/medical
+	medhud["prescription HUD, medical"] = /obj/item/clothing/glasses/hud/health/prescription
 	gear_tweaks += new/datum/gear_tweak/path(medhud)
 
 /datum/gear/eyes/sechuds
@@ -95,6 +96,7 @@
 	sechud["aviators, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	sechud["HUD, security"] = /obj/item/clothing/glasses/hud/security
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
+	sechud["prescription HUD, security"] = /obj/item/clothing/glasses/hud/security/prescription
 	gear_tweaks += new/datum/gear_tweak/path(sechud)
 
 /datum/gear/eyes/hudpatch
