@@ -57,6 +57,4 @@ fi
 
 rm $dmepath.mdme
 
-apt-get install libpng-dev
-
 exit $retval
