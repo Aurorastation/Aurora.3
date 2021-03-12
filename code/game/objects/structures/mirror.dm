@@ -19,7 +19,7 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.change_appearance(APPEARANCE_HAIR, H, FALSE)
+		H.change_appearance(APPEARANCE_HAIR, H, FALSE, ui_state = default_state, state_object = src)
 
 /obj/structure/mirror/proc/shatter()
 	if(shattered)	return
@@ -78,4 +78,4 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.change_appearance(APPEARANCE_HAIR, H, FALSE)
+		H.change_appearance(APPEARANCE_HAIR, H, FALSE, ui_state = default_state, state_object = src)

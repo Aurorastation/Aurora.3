@@ -2,6 +2,9 @@
 	var/name = "Appearance Changer"
 	var/flags = APPEARANCE_ALL_HAIR
 
+	var/datum/topic_state/ui_state
+	var/datum/state_object
+
 	var/datum/weakref/target_human
 	var/list/valid_species = list()
 	var/list/valid_genders = list()
@@ -15,23 +18,22 @@
 	var/list/whitelist
 	var/list/blacklist
 
-/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list())
+/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null)
 	..()
+	ui_state = set_ui_state
+	state_object = set_state_object
 	target_human = WEAKREF(H)
 	src.check_whitelist = check_species_whitelist
 	src.whitelist = species_whitelist
 	src.blacklist = species_blacklist
 	generate_data(check_whitelist, whitelist, blacklist)
 
-/datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = interactive_state)
+/datum/vueui_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = ui_state)
 	if(..())
 		return 1
 
 	var/mob/living/carbon/human/owner = target_human.resolve()
 	if(!istype(owner))
-		return FALSE
-
-	if(owner != usr && !check_rights(R_ADMIN))
 		return FALSE
 
 	if(href_list["race"])
@@ -132,7 +134,7 @@
 /datum/vueui_module/appearance_changer/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "misc-appearancechanger", 800, 450, name, state = interactive_state)
+		ui = new(user, src, "misc-appearancechanger", 800, 450, name, state = ui_state, set_state_object = state_object)
 	ui.open()
 
 /datum/vueui_module/appearance_changer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
