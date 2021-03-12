@@ -201,7 +201,7 @@
 /mob/living/simple_animal/borer/UnarmedAttack(atom/A, proximity)
 	if(iscarbon(A))
 		var/mob/living/carbon/C = A
-		if(C.lying || C.paralysis)
+		if(C.lying || C.weakened)
 			do_infest(C)
 		else
 			do_paralyze(C)

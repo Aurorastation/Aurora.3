@@ -475,7 +475,7 @@
 		return
 
 	to_chat(src, SPAN_NOTICE("You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
-	host.awaken_psi_basic("something in your head")
+	host.awaken_psi_basic("something in your head", FALSE)
 	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
 
 /mob/living/simple_animal/borer/verb/advance_faculty()
@@ -525,9 +525,11 @@
 	if(!host)
 		return
 
-	host.psi.set_rank(selected_faculty, host.psi.get_rank(selected_faculty) + 1)
-	host.psi.update()
-	to_chat(src, SPAN_NOTICE("You successfully manage to upgrade your host's [selected_faculty] faculty."))
+	var/host_psi_rank = host.psi.get_rank(selected_faculty)
+	var/next_rank = host_psi_rank > PSI_RANK_BLUNT ? host_psi_rank + 1 : PSI_RANK_OPERANT
+	host.psi.set_rank(selected_faculty, next_rank)
+	host.psi.update(TRUE)
+	to_chat(src, SPAN_NOTICE("You successfully manage to upgrade your host to [psychic_ranks_to_strings[host.psi.ranks[selected_faculty]]] [selected_faculty]."))
 	to_chat(host, SPAN_GOOD("A breeze of fresh air washes over your mind, you feel powerful!"))
 	to_chat(host, SPAN_NOTICE("You have been psionically enlightened. You are now a [psychic_ranks_to_strings[host.psi.ranks[selected_faculty]]] in the [selected_faculty] faculty."))
 
