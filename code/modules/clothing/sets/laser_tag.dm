@@ -38,7 +38,8 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/card/id/ID = H.GetIdCard()
-			user_name = ID.registered_name
+			if(ID)
+				user_name = ID.registered_name
 		var/list/num_to_word = list("one", "two", "three", "four", "five")
 		visible_message("<b>[capitalize_first_letters(name)]</b> says, \"[SPAN_NOTICE("[user_name] armor health set to [num_to_word[set_health]].")]\".")
 		return
