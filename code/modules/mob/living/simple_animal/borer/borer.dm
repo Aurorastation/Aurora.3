@@ -167,3 +167,20 @@
 
 /mob/living/simple_animal/borer/cannot_use_vents()
 	return
+
+/mob/living/simple_animal/borer/UnarmedAttack(atom/A, proximity)
+	if(iscarbon(A))
+		var/mob/living/carbon/C = A
+		if(C.lying)
+			do_infest(C)
+		else
+			do_paralyze(C)
+		return
+	return ..()
+
+/mob/living/simple_animal/borer/RangedAttack(atom/A, params)
+	if(iscarbon(A))
+		var/mob/living/carbon/C = A
+		do_paralyze(C)
+		return
+	return ..()

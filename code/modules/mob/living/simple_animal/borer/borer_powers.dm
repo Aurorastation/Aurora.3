@@ -52,15 +52,24 @@
 		if(src.Adjacent(C))
 			choices += C
 
-	if(!choices.len)
+	if(!length(choices))
 		to_chat(src, SPAN_NOTICE("There are no viable hosts within range."))
 		return
 
 	var/mob/living/carbon/M = input(src,"Who do you wish to infest?") in null|choices
+	if(M)
+		do_infest(M)
 
+/mob/living/simple_animal/borer/proc/do_infest(var/mob/living/carbon/M)
+	if(host)
+		to_chat(src, SPAN_NOTICE("You are already within a host."))
+		return
+	if(stat)
+		to_chat(src, SPAN_NOTICE("You cannot infest a target in your current state."))
+		return
 	if(!M || !src)
 		return
-	if(!(src.Adjacent(M)))
+	if(!Adjacent(M))
 		return
 	if(M.has_brain_worms())
 		to_chat(src, SPAN_WARNING("You cannot infest someone who is already infested!"))
@@ -236,12 +245,14 @@
 		if(C.stat != 2)
 			choices += C
 
+	var/mob/living/carbon/M = input(src, "Who do you wish to dominate?") in null|choices
+	if(M)
+		do_paralyze(M)
+
+/mob/living/simple_animal/borer/proc/do_paralyze(var/mob/living/carbon/M)
 	if(world.time - used_dominate < 150)
 		to_chat(src, SPAN_NOTICE("You cannot use that ability again so soon."))
 		return
-
-	var/mob/living/carbon/M = input(src, "Who do you wish to dominate?") in null|choices
-
 	if(!M || !src)
 		return
 	if(M.isSynthetic())
