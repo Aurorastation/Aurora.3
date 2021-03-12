@@ -141,6 +141,7 @@
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["sex"], R.sex, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["age"], R.age, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["fingerprint"], R.fingerprint, ., data)
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["has_notes"], (R.notes != "No notes found."), ., data)
 			if(R.medical)
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["blood"], R.medical.blood_type, ., data)
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["dna"], R.medical.blood_dna, ., data)

@@ -24,19 +24,17 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/suit/storage/tajaran/cloak
-	name = "commoner cloak"
-	desc = "A tajaran cloak made with the middle class in mind, fancy but nothing special."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "taj_commoncloak"
-	item_state = "taj_commoncloak"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-
-/obj/item/clothing/suit/storage/tajaran/cloak/fancy
-	name = "royal cloak"
-	desc = "A cloak fashioned from the best materials, meant for tajara of high standing."
-	icon_state = "taj_fancycloak"
-	item_state = "taj_fancycloak"
+/obj/item/clothing/suit/storage/tajaran/raakti_shariim
+	name = "\improper Raakti Shariim coat"
+	desc = "A blue adhomian wool coat with lilac purple accents and pale-gold insignia, signifying a Constable of the NKA's Raakti Shariim."
+	icon = 'icons/obj/clothing/species/tajaran/raakti_shariim.dmi'
+	icon_state = "raakti_shariim_coat"
+	item_state = "raakti_shariim_coat"
+	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
+		peacekeeping force, working closely with both the Royal Constabulary and the Royal Ministry of Intelligence to \
+		seek out internal threats to the Kingdom such as spies, terrorists, and other domestic enemies to the crown. \
+		The Raakti Shariim's uniforms incorporate a dark, navy blue paired with a lilac accent and pale-gold twin-sun \
+		insignia."
 
 /obj/item/clothing/suit/storage/toggle/tajaran
 	name = "tajaran naval coat"
@@ -93,7 +91,7 @@
 	icon_state = "raskarasuit"
 	item_state = "raskarasuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_TAJARA)
 	desc_fluff =  "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
@@ -151,8 +149,8 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/suit/armor/tajara
-	name = "amohdan swordsmen armor"
+/obj/item/clothing/suit/armor/amohda
+	name = "amohdan swordsman armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "amohdan_armor"
@@ -162,12 +160,19 @@
 	allowed = list(/obj/item/gun,/obj/item/material/sword)
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_TAJARA)
-	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)
 	siemens_coefficient = 0.35
 	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
-	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
-	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
-	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
+	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
+	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
+	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
+	and the People's Republic of Adhomai looms over the southern end of the island..."
 
 /obj/item/clothing/suit/armor/cuirass
 	name = "cuirass"
@@ -176,7 +181,13 @@
 	icon_state = "cuirass"
 	item_state = "cuirass"
 	contained_sprite = TRUE
-	armor = list(melee = 50, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)
 
 /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	name = "republican service jacket"
@@ -184,5 +195,11 @@
 	icon_state = "greenservice"
 	item_state = "greenservice"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 30, bullet = 20, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)
 	siemens_coefficient = 0.50

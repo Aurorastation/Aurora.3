@@ -16,6 +16,8 @@
 	has_fine_manipulation = 0
 	show_ssd = null
 
+	bodytype = BODYTYPE_MONKEY
+
 	eyes = "blank_eyes"
 
 	gibbed_anim = "gibbed-m"
@@ -27,7 +29,7 @@
 	tail = "chimptail"
 
 	unarmed_types = list(/datum/unarmed_attack/bite, /datum/unarmed_attack/claws)
-	inherent_verbs = list(/mob/living/proc/ventcrawl)
+	inherent_verbs = list(/mob/living/proc/ventcrawl, /mob/living/carbon/human/proc/change_animal_name)
 	hud_type = /datum/hud_data/monkey
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/monkey
 
@@ -143,7 +145,8 @@
 	deform = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite
+		/mob/living/carbon/human/proc/bugbite,
+		/mob/living/carbon/human/proc/change_animal_name
 		)
 
 	tail = "vkrexitail"

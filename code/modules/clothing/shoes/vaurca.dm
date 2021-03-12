@@ -4,7 +4,9 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "vaurca_shoes"
 	item_state = "vaurca_shoes"
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+			melee = ARMOR_MELEE_MINOR
+			)
 	body_parts_covered = FEET
 	species_restricted = list(BODYTYPE_VAURCA)
 	contained_sprite = TRUE

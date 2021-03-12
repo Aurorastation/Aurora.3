@@ -127,170 +127,6 @@
 	name = "tajaran leather gloves"
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/gloves/watch
-	name = "watch"
-	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in black plastic."
-	desc_fluff = "For those who want too much time on their wrists instead."
-	icon_state = "watch"
-	item_state = "watch"
-	w_class = ITEMSIZE_TINY
-	wired = 1
-	species_restricted = null
-	gender = NEUTER
-	body_parts_covered = null
-	fingerprint_chance = 100
-	var/flipped = 0
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/gloves/watch/silver
-	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
-	desc_fluff = "To unleash the telemarketer in you!"
-	icon_state = "watch_silver"
-	item_state = "watch_silver"
-
-/obj/item/clothing/gloves/watch/gold
-	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in <b>REAL</b> faux gold."
-	desc_fluff = "Be the jerk-ass pawn shop owner you'll never be."
-	icon_state = "watch_gold"
-	item_state = "watch_gold"
-
-/obj/item/clothing/gloves/watch/spy
-	desc = "It's a GENUINE Spy-Tech Invisi-watch! <b>WARNING</b> : Does not actually make you invisible."
-	desc_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
-	icon_state = "watch_spy"
-	item_state = "watch_silver"
-
-/obj/item/clothing/gloves/watch/spy/checktime()
-	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
-
-/obj/item/clothing/gloves/watch/examine(mob/user)
-	..()
-	if (get_dist(src, user) <= 1)
-		checktime()
-
-/obj/item/clothing/gloves/watch/verb/checktime()
-	set category = "Object"
-	set name = "Check Time"
-	set src in usr
-
-	if(wired && !clipped)
-		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
-		if (emergency_shuttle.get_status_panel_eta())
-			to_chat(usr, SPAN_WARNING("The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
-	else if(wired && clipped)
-		to_chat(usr, "You check your watch, realising it's still open.")
-	else
-		to_chat(usr, "You check your watch as it dawns on you that it's broken.")
-
-/obj/item/clothing/gloves/watch/verb/pointatwatch()
-	set category = "Object"
-	set name = "Point At Watch"
-	set src in usr
-
-	if(wired && !clipped)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
-	else if(wired && clipped)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
-	else
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
-
-/obj/item/clothing/gloves/watch/verb/swapwrists()
-	set category = "Object"
-	set name = "Flip Watch Wrist"
-	set src in usr
-
-	if (usr.stat || usr.restrained())
-		return
-
-	src.flipped = !src.flipped
-	if(src.flipped)
-		src.item_state = "[item_state]_alt"
-	else
-		src.item_state = initial(item_state)
-	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
-	update_clothing_icon()
-
-/obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
-		if (clipped) //Using clipped because adding a new var for something is dumb
-			user.visible_message(SPAN_NOTICE("[user] screws the cover of the [src] closed."), SPAN_NOTICE("You screw the cover of the [src] closed."))
-			clipped = 0
-			return
-//		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
-		user.visible_message(SPAN_NOTICE("[user] unscrews the cover of the [src]."), SPAN_NOTICE("You unscrew the cover of the [src]."))
-		clipped = 1
-		return
-	if(wired)
-		return
-	if(W.iscoil())
-		var/obj/item/stack/cable_coil/C = W
-		if (!clipped)
-			to_chat(user, SPAN_NOTICE("The [src] is not open."))
-			return
-
-		if(wired)
-			to_chat(user, SPAN_NOTICE("The [src] are already wired."))
-			return
-
-		if(C.amount < 2)
-			to_chat(user, SPAN_NOTICE("There is not enough wire to cover the [src]."))
-			return
-
-		C.use(2)
-		wired = 1
-		to_chat(user, SPAN_NOTICE("You repair some wires in the [src]."))
-		return
-
-/obj/item/clothing/gloves/watch/emp_act(severity)
-	if(prob(50/severity))
-		wired = 0
-	..()
-
-/obj/item/clothing/gloves/armchain
-	name = "cobalt arm chains"
-	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
-	icon_state = "cobalt_armchains"
-	item_state = "cobalt_armchains"
-	siemens_coefficient = 1.0
-	fingerprint_chance = 100
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/gloves/armchain/emerald
-	name = "emerald arm chains"
-	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
-	icon_state = "emerald_armchains"
-	item_state = "emerald_armchains"
-
-/obj/item/clothing/gloves/armchain/ruby
-	name = "ruby arm chains"
-	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
-	icon_state = "ruby_armchains"
-	item_state = "ruby_armchains"
-
-/obj/item/clothing/gloves/goldbracer
-	name = "cobalt bracers"
-	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
-	icon_state = "cobalt_bracers"
-	item_state = "cobalt_bracers"
-	siemens_coefficient = 1.0
-	fingerprint_chance = 100
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/gloves/goldbracer/emerald
-	name = "emerald bracers"
-	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
-	icon_state = "emerald_bracers"
-	item_state = "emerald_bracers"
-
-/obj/item/clothing/gloves/goldbracer/ruby
-	name = "ruby bracers"
-	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
-	icon_state = "ruby_bracers"
-	item_state = "ruby_bracers"
-
 	/*
 	Forcegloves.  They amplify force from melee hits as well as muck up disarm and stuff a little.
 	Has bits of code in item_attack.dm, stungloves.dm, human_attackhand, human_defense
@@ -383,7 +219,13 @@
 	icon_state = "warping_claws"
 	item_state = "warping_claws"
 	attack_verb = list("ripped", "torn", "cut")
-	armor = list(melee = 50, bullet = 15, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)
 	siemens_coefficient = 1
 	force = 5
 	punch_force = 10
@@ -406,7 +248,6 @@
 	item_state = "ballisticfist"
 	siemens_coefficient = 1
 	fingerprint_chance = 50
-	siemens_coefficient = 1
 	clipped = 1
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
@@ -473,3 +314,63 @@
 	. = ..()
 	if(mounted)
 		mounted.switch_firemodes()
+
+/obj/item/clothing/gloves/tesla
+	name = "tesla glove"
+	desc = "A weaponized gauntlet capable of firing lightning bolts."
+	desc_fluff = "A tesla-based weapon created by the People's Republic of Adhomai as part of their Tesla Brigade program. Because of its long recharge time, the gauntlet is commonly \
+	used as an ancillary weapon."
+	icon_state = "tesla_glove_on"
+	item_state = "tesla_glove_on"
+	siemens_coefficient = 1
+	fingerprint_chance = 50
+	clipped = TRUE
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
+	gender = NEUTER
+	var/charged = TRUE
+
+/obj/item/clothing/gloves/tesla/Touch(atom/A, mob/living/user, proximity)
+	if(!charged)
+		to_chat(user, SPAN_WARNING("\The [src] is still recharging."))
+		return
+
+	if(user.a_intent == I_HURT)
+		if(proximity)
+			if(iscarbon(A))
+				var/mob/living/carbon/L = A
+				L.electrocute_act(20,src, 1, user.zone_sel.selecting)
+				spark(src, 3, alldirs)
+				charged = FALSE
+				update_icon()
+				user.update_inv_gloves()
+				addtimer(CALLBACK(src, .proc/rearm), 10 SECONDS)
+
+		else
+			var/turf/T = get_turf(user)
+			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
+			var/obj/item/projectile/beam/tesla/LE = new (T)
+			LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
+			spark(src, 3, alldirs)
+			playsound(user.loc, 'sound/magic/LightningShock.ogg', 75, 1)
+			charged = FALSE
+			update_icon()
+			user.update_inv_gloves()
+			addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+
+/obj/item/clothing/gloves/tesla/proc/rearm()
+	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))
+	charged = TRUE
+	update_icon()
+
+/obj/item/clothing/gloves/tesla/update_icon()
+	if(charged)
+		icon_state = "tesla_glove_on"
+		item_state = "tesla_glove_on"
+	else
+		icon_state = "tesla_glove"
+		item_state = "tesla_glove"
+	if(ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_gloves()

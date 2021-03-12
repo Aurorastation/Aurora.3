@@ -63,11 +63,11 @@
 		usr.unEquip(C)
 
 		switch(over_object.name)
-			if(BP_R_HAND)
+			if("right hand")
 				if(istype(src, /obj/item/clothing/ears))
 					C = check_two_ears(usr)
 				usr.put_in_r_hand(C)
-			if(BP_L_HAND)
+			if("left hand")
 				if(istype(src, /obj/item/clothing/ears))
 					C = check_two_ears(usr)
 				usr.put_in_l_hand(C)
@@ -97,11 +97,17 @@
 		for(var/obj/item/clothing/accessory/A in accessories)
 			to_chat(user, "\A [A] is attached to it.")
 
+/obj/item/clothing/proc/update_accessory_slowdown()
+	slowdown_accessory = 0
+	for(var/obj/item/clothing/accessory/bling in accessories)
+		slowdown_accessory += bling.slowdown
+
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
 	LAZYADD(accessories, A)
 	A.on_attached(src, user)
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
+	update_accessory_slowdown()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
@@ -110,22 +116,32 @@
 	A.on_removed(user)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
+	update_accessory_slowdown()
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living)) return
-	if(usr.stat) return
-	if(!LAZYLEN(accessories)) return
+
+	if(!isliving(usr))
+		return
+
+	var/mob/living/M = usr
+
+	if(use_check_and_message(M))
+		return
+
+	if(!LAZYLEN(accessories))
+		return
+
 	var/obj/item/clothing/accessory/A
 	if(LAZYLEN(accessories) > 1)
-		A = input("Select an accessory to remove from [src]") as null|anything in accessories
+		A = input("Select an accessory to remove.") as null|anything in accessories
 	else
 		A = accessories[1]
-	src.remove_accessory(usr,A)
+	remove_accessory(usr,A)
 	if(!LAZYLEN(accessories))
-		src.verbs -= /obj/item/clothing/proc/removetie_verb
+		verbs -= /obj/item/clothing/proc/removetie_verb
 
 /obj/item/clothing/emp_act(severity)
 	if(LAZYLEN(accessories))

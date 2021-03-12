@@ -640,14 +640,14 @@
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
 			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
-		M.apply_effect(40, PAIN, 0)
+		M.apply_effect(30, PAIN)
 
 /decl/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	M.apply_effect(4, PAIN, 0)
+	M.apply_effect(10, PAIN)
 	if(prob(5))
 		M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
@@ -705,7 +705,6 @@
 	if(alien != IS_DIONA)
 		if (caffeine)
 			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
-			M.add_chemical_effect(CE_PULSE, 1)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
@@ -4512,6 +4511,19 @@
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
 		M.drowsyness = 0
+
+/decl/reagent/drink/hrozamal_soda
+	name = "Hro'zamal Soda"
+	description = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	color = "#F0C56C"
+	adj_sleepy = -1
+	caffeine = 0.2
+	taste_description = "carbonated fruit sweetness"
+	carbonated = TRUE
+
+	glass_icon_state = "hrozamal_soda_glass"
+	glass_name = "glass of Hro'zamal Soda"
+	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
 /decl/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"

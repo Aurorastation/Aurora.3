@@ -15,12 +15,16 @@
 		/mob/living/silicon/robot/drone
 		)
 
+/obj/structure/plasticflaps/Initialize()
+	. = ..()
+	material = SSmaterials.get_material_by_name(MATERIAL_PLASTIC)
+
 /obj/structure/plasticflaps/CanPass(atom/A, turf/T)
 	if(istype(A) && A.checkpass(PASSGLASS))
 		return prob(60)
 
 	var/obj/structure/bed/B = A
-	if (istype(A, /obj/structure/bed) && B.buckled_mob)//if it's a bed/chair and someone is buckled, it will not pass
+	if (istype(A, /obj/structure/bed) && B.buckled)//if it's a bed/chair and someone is buckled, it will not pass
 		return 0
 
 	if(istype(A, /obj/vehicle))	//no vehicles

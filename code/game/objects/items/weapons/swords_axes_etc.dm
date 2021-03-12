@@ -102,9 +102,7 @@
 			if(user.a_intent == I_DISARM)
 				if(ishuman(target))
 					var/mob/living/carbon/human/T = target
-					var/armor = T.run_armor_check(target_zone,"melee")
-
-					T.apply_damage(40, PAIN, target_zone, armor)
+					T.apply_damage(40, PAIN, target_zone)
 		return
 	else
 		return ..()

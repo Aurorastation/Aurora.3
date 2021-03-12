@@ -119,7 +119,7 @@
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
 	..()
 
-/mob/living/silicon/stun_effect_act()
+/mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	return	//immune
 
 /mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, tesla_shock = FALSE, ground_zero)
@@ -282,22 +282,14 @@
 		if(1.0)
 			brute = 400
 			burn = 100
-			if(!anchored && !prob(getarmor(null, "bomb")))
-				gib()
 		if(2.0)
 			brute = 60
 			burn = 60
 		if(3.0)
 			brute = 30
 
-	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
-	brute *= protection
-	burn *= protection
-
-	adjustBruteLoss(brute)
-	adjustFireLoss(burn)
-
-	updatehealth()
+	apply_damage(brute, BRUTE, damage_flags = DAM_EXPLODE)
+	apply_damage(burn, BURN, damage_flags = DAM_EXPLODE)
 
 /mob/living/silicon/proc/receive_alarm(var/datum/alarm_handler/alarm_handler, var/datum/alarm/alarm, was_raised)
 	if(!next_alarm_notice)

@@ -22,11 +22,23 @@
 
 /obj/item/mech_component/sensors/show_missing_parts(var/mob/user)
 	if(!radio)
-		to_chat(user, "<span class='warning'>It is missing a radio.</span>")
+		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=radio'>radio</a>."))
 	if(!camera)
-		to_chat(user, "<span class='warning'>It is missing a camera.</span>")
+		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=camera'>camera</a>."))
 	if(!software)
-		to_chat(user, "<span class='warning'>It is missing a software control module.</span>")
+		to_chat(user, SPAN_WARNING("It is missing an <a href='?src=\ref[src];info=module'>exosuit control module</a>."))
+
+/obj/item/mech_component/sensors/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return
+	switch(href_list["info"])
+		if("radio")
+			to_chat(usr, SPAN_NOTICE("A radio can be created at a mechatronic fabricator."))
+		if("camera")
+			to_chat(usr, SPAN_NOTICE("A camera can be created at a mechatronic fabricator."))
+		if("module")
+			to_chat(usr, SPAN_NOTICE("An exosuit control module can be created at a mechatronic fabricator, while the software chips it uses can be printed at the circuit imprinter."))
 
 /obj/item/mech_component/sensors/return_diagnostics(mob/user)
 	..()
@@ -71,17 +83,17 @@
 /obj/item/mech_component/sensors/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing, /obj/item/mech_component/control_module))
 		if(software)
-			to_chat(user, "<span class='warning'>\The [src] already has a control modules installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a control modules installed."))
 			return
 		if(install_component(thing, user)) software = thing
 	else if(istype(thing,/obj/item/robot_parts/robot_component/radio))
 		if(radio)
-			to_chat(user, "<span class='warning'>\The [src] already has a radio installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a radio installed."))
 			return
 		if(install_component(thing, user)) radio = thing
 	else if(istype(thing,/obj/item/robot_parts/robot_component/camera))
 		if(camera)
-			to_chat(user, "<span class='warning'>\The [src] already has a camera installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a camera installed."))
 			return
 		if(install_component(thing, user)) camera = thing
 	else
@@ -98,7 +110,15 @@
 
 /obj/item/mech_component/control_module/examine(mob/user)
 	. = ..()
-	to_chat(user, "<span class='notice'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</span>")
+	to_chat(user, SPAN_NOTICE("<a href='?src=\ref[src];info=software'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</a>"))
+
+/obj/item/mech_component/control_module/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return
+	switch(href_list["info"])
+		if("software")
+			to_chat(usr, SPAN_NOTICE("Software for \the [src] can be created at the circuit imprinter."))
 
 /obj/item/mech_component/control_module/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing, /obj/item/circuitboard/exosystem))
@@ -114,10 +134,10 @@
 /obj/item/mech_component/control_module/proc/install_software(var/obj/item/circuitboard/exosystem/software, var/mob/user)
 	if(installed_software.len >= max_installed_software)
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] can only hold [max_installed_software] software modules.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] can only hold [max_installed_software] software modules."))
 		return
 	if(user)
-		to_chat(user, "<span class='notice'>You load \the [software] into \the [src]'s memory.</span>")
+		to_chat(user, SPAN_NOTICE("You load \the [software] into \the [src]'s memory."))
 		user.unEquip(software)
 	software.forceMove(src)
 	update_software()

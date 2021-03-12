@@ -2550,7 +2550,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4161,7 +4161,7 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -7945,7 +7945,7 @@
 	},
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
@@ -8089,12 +8089,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
-"zN" = (
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "zQ" = (
 /obj/structure/flora/pottedplant/random,
 /obj/structure/extinguisher_cabinet{
@@ -10546,6 +10540,9 @@
 	dir = 9
 	},
 /obj/machinery/firealarm/east,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "LD" = (
@@ -11312,7 +11309,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/pink/full,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
@@ -12056,7 +12053,7 @@
 "TH" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
@@ -12618,6 +12615,9 @@
 "WO" = (
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
@@ -42791,7 +42791,7 @@ mo
 mo
 mo
 mo
-zN
+ab
 ab
 ab
 ab
@@ -50712,7 +50712,7 @@ if
 im
 wo
 Zt
-zN
+ab
 ab
 ab
 aa

@@ -330,6 +330,12 @@
 		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
 		/obj/item/stack/material/glass/phoronglass = list(/decl/reagent/platinum, /decl/reagent/silicate, /decl/reagent/silicate, /decl/reagent/silicate), //5 platinum, 15 silicate,
 		)
+	var/list/beaker_types = list( // also can't be ground
+		/obj/item/reagent_containers/glass,
+		/obj/item/reagent_containers/food/drinks/drinkingglass,
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/reagent_containers/cooking_container
+	)
 
 /obj/machinery/reagentgrinder/Initialize()
 	. = ..()
@@ -340,10 +346,7 @@
 	return
 
 /obj/machinery/reagentgrinder/attackby(var/obj/item/O as obj, var/mob/user as mob)
-
-	if (istype(O,/obj/item/reagent_containers/glass) || \
-		istype(O,/obj/item/reagent_containers/food/drinks/drinkingglass) || \
-		istype(O,/obj/item/reagent_containers/food/drinks/shaker))
+	if (is_type_in_list(O, beaker_types))
 		if (beaker)
 			return 1
 		else
@@ -542,7 +545,7 @@
 
 
 /obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
-	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
+	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")

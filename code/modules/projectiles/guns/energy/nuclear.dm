@@ -6,8 +6,8 @@
 	in your hand.  To recharge this weapon, use a weapon recharger."
 	desc_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
-	icon_state = "energystun100"
-	item_state = "energystun100"
+	icon_state = "energystun"
+	item_state = "energystun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	accuracy = 1
@@ -26,6 +26,8 @@
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/laser1.ogg')
 		)
+
+	has_item_ratio = FALSE
 
 	var/crit_fail = 0 //Added crit_fail as a local variable
 

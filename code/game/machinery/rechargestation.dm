@@ -218,9 +218,10 @@
 	if(!hascell(M))
 		return
 
+	if(!M.Move(src))
+		return
 	add_fingerprint(M)
 	M.reset_view(src)
-	M.forceMove(src)
 	occupant = M
 	update_icon()
 	return 1

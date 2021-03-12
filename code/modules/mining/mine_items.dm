@@ -1280,6 +1280,7 @@ var/list/total_extraction_beacons = list()
 	switch(choice)
 		if("sculpture")
 			appearance = T
+			appearance_flags = KEEP_TOGETHER
 			color = list( // for anyone interested, this is called a color matrix
 				0.35, 0.3, 0.25,
 				0.35, 0.3, 0.25,

@@ -7,7 +7,7 @@
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_SMALL
-	var/slot = "decor"
+	var/slot = ACCESSORY_SLOT_GENERIC
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/image/mob_overlay = null
@@ -18,37 +18,44 @@
 	on_removed()
 	return ..()
 
-/obj/item/clothing/accessory/proc/get_inv_overlay()
-	if(!inv_overlay)
-		if(!mob_overlay)
-			get_mob_overlay()
+/obj/item/clothing/accessory/Initialize()
+	. = ..()
+	update_icon()
 
+/obj/item/clothing/accessory/proc/get_inv_overlay(var/force = FALSE)
+	if(!mob_overlay)
+		get_mob_overlay()
+	var/I = mob_overlay.icon
+	if(!inv_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
-		inv_overlay = image(icon = mob_overlay.icon, icon_state = tmp_icon_state, dir = SOUTH)
-		if(contained_sprite)
-			tmp_icon_state = "[tmp_icon_state]"
-			inv_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]_w", dir = SOUTH)
+		else if(contained_sprite)
+			tmp_icon_state = "[tmp_icon_state]_w"
+		inv_overlay = image(icon = I, icon_state = tmp_icon_state, dir = SOUTH)
 	if(color)
 		inv_overlay.color = color
+	if(build_from_parts)
+		inv_overlay.cut_overlays()
+		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_mob_overlay()
-	if(!mob_overlay)
+/obj/item/clothing/accessory/proc/get_mob_overlay(var/force = FALSE)
+	var/I = icon_override ? icon_override : contained_sprite ? icon : INV_ACCESSORIES_DEF_ICON
+	if(!mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_mob" in icon_states(icon_override))
+			if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
-			mob_overlay = image("icon" = icon_override, "icon_state" = "[tmp_icon_state]")
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
-			mob_overlay = image("icon" = icon, "icon_state" = "[tmp_icon_state]")
-		else
-			mob_overlay = image("icon" = INV_ACCESSORIES_DEF_ICON, "icon_state" = "[tmp_icon_state]")
+		mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 	if(color)
 		mob_overlay.color = color
+	if(build_from_parts)
+		mob_overlay.cut_overlays()
+		mob_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	mob_overlay.appearance_flags = RESET_ALPHA
 	return mob_overlay
 
@@ -59,7 +66,6 @@
 	has_suit = S
 	loc = has_suit
 	has_suit.add_overlay(get_inv_overlay())
-
 	if(user)
 		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
 		src.add_fingerprint(user)
@@ -164,11 +170,23 @@
 	name = "white tie"
 	icon_state = "whitetie"
 
+/obj/item/clothing/accessory/tie/colourable
+	name = "tie"
+	icon_state = "whitetie"
+
+/obj/item/clothing/accessory/tie/colourable/clip
+	name = "tie with a gold clip"
+	build_from_parts = TRUE
+	worn_overlay = "clip"
+	
+/obj/item/clothing/accessory/tie/colourable/clip/silver
+	name = "tie with a silver clip"
+	worn_overlay = "sclip"
+
 /obj/item/clothing/accessory/tie/bowtie
 	name = "bowtie"
 	desc = "Snazzy!"
 	icon_state = "bowtie"
-
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
@@ -250,7 +268,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
-	slot = "over"
+	slot = ACCESSORY_SLOT_CAPE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
@@ -470,11 +488,11 @@
 	overlay_state = "galaxycape"
 
 /obj/item/clothing/accessory/poncho/trinary
-    name = "trinary perfection cape"
-    desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-    icon_state = "trinary_cape"
-    item_state = "trinary_cape"
-    overlay_state = "trinary_cape"
+	name = "trinary perfection cape"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
+	icon_state = "trinary_cape"
+	item_state = "trinary_cape"
+	overlay_state = "trinary_cape"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
@@ -483,8 +501,8 @@
 	icon_state = "senior_ribbon"
 	item_state = "senior_ribbon"
 	overlay_state = "senior_ribbon"
-	slot = "over"
-	flippable = 1
+	slot = ACCESSORY_SLOT_CAPE
+	flippable = TRUE
 
 /obj/item/clothing/accessory/legion/specialist
 	name = "specialist medallion"
@@ -498,7 +516,7 @@
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
 	icon_state = "venter"
 	item_state = "venter"
-	slot = "over"
+	slot = ACCESSORY_SLOT_CAPE
 
 /obj/item/clothing/accessory/offworlder/bracer
 	name = "legbrace"
@@ -550,15 +568,6 @@
 	badge_string = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_TINY
-
-/obj/item/clothing/accessory/bracelet
-	name = "bracelet"
-	desc = "A simple bracelet with a clasp."
-	icon_state = "bracelet"
-	w_class = ITEMSIZE_TINY
-	drop_sound = 'sound/items/drop/ring.ogg'
-	pickup_sound = 'sound/items/pickup/ring.ogg'
-	flippable = 1
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"

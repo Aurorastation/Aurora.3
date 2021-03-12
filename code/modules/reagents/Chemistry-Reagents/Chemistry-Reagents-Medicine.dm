@@ -139,13 +139,11 @@
 	var/removing = (4 * removed)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	for(var/_R in ingested.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		if((remove_generic && istype(R, /decl/reagent/toxin)) || (_R in remove_toxins))
-			ingested.remove_reagent(R.type, removing)
+		if((remove_generic && ispath(_R, /decl/reagent/toxin)) || (_R in remove_toxins))
+			ingested.remove_reagent(_R, removing)
 			return
 	for(var/_R in M.reagents.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		if((remove_generic && istype(R, /decl/reagent/toxin)) || (_R in remove_toxins))
+		if((remove_generic && ispath(_R, /decl/reagent/toxin)) || (_R in remove_toxins))
 			M.reagents.remove_reagent(_R, removing)
 			return
 
@@ -264,7 +262,7 @@
 
 /decl/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
-	M.add_chemical_effect(CE_NOFEVER, ((M.chem_doses[type]/2)^2-(REAGENT_VOLUME(holder, type)-M.chem_doses[type]/2))/(M.chem_doses[type]/4)) // creates a smooth curve peaking at half the dose metabolised
+	M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
 
 /decl/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -605,10 +603,9 @@
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	if(ingested)
 		for(var/_R in ingested.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if(istype(R, /decl/reagent/alcohol))
+			if(ispath(_R, /decl/reagent/alcohol))
 				var/amount = min(P, REAGENT_VOLUME(ingested, _R))
-				ingested.remove_reagent(R.type, amount)
+				ingested.remove_reagent(_R, amount)
 				P -= amount
 				if (P <= 0)
 					return
@@ -617,8 +614,7 @@
 	//as a treatment option if someone was dumb enough to do this
 	if(M.bloodstr)
 		for(var/_R in M.bloodstr.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if(istype(R, /decl/reagent/alcohol))
+			if(ispath(_R, /decl/reagent/alcohol))
 				var/amount = min(P, REAGENT_VOLUME(M.bloodstr, _R))
 				M.bloodstr.remove_reagent(_R, amount)
 				P -= amount
@@ -824,6 +820,7 @@
 	taste_description = "bitterness"
 
 /decl/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Also handles the effects of fevers
 	if(!(REAGENT_VOLUME(holder, type) > 20))
 		if(M.bodytemperature > 310)
 			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -932,7 +929,7 @@
 	reagent_state = LIQUID
 	color = "#333333"
 	metabolism = 0.0016 * REM
-	overdose = 5
+	overdose = 15
 	od_minimum_dose = 3
 	taste_description = "bitterness"
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
@@ -1614,13 +1611,13 @@
 /decl/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		return
-	if(M.chem_doses[type] < 1)	//not that effective after initial rush
+	if(M.chem_doses[type] < 0.2)	//not that effective after initial rush
 		M.add_chemical_effect(CE_PAINKILLER, min(15*REAGENT_VOLUME(holder, type), 35))
 		M.add_chemical_effect(CE_PULSE, 1)
-	else
+	else if(M.chem_doses[type] < 1)
 		M.add_chemical_effect(CE_PAINKILLER, min(10*REAGENT_VOLUME(holder, type), 15))
 		M.add_chemical_effect(CE_PULSE, 2)
-	if(M.chem_doses[type] > 5)
+	if(M.chem_doses[type] > 10)
 		M.make_jittery(5)
 	if(REAGENT_VOLUME(holder, type) >= 5 && M.is_asystole())
 		remove_self(5, holder)

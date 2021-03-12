@@ -22,6 +22,7 @@
 	var/list/partial_understanding				  // List of languages that can /somehwat/ understand it, format is: name = chance of understanding a word
 	var/machine_understands = TRUE	// Whether machines can parse and understand this language
 	var/allow_accents = FALSE
+	var/always_parse_language = FALSE // forces the language to parse for language keys even when a default is set
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
@@ -170,8 +171,11 @@
 
 // Language handling.
 /mob/proc/add_language(var/language)
-
-	var/datum/language/new_language = all_languages[language]
+	var/datum/language/new_language
+	if(istype(language, /datum/language))
+		new_language = language
+	else
+		new_language = all_languages[language]
 
 	if (!istype(new_language) || !new_language)
 		CRASH("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")

@@ -141,7 +141,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/plating,
 /area/store)
@@ -387,7 +387,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/lino/grey,
 /area/store)
@@ -1153,7 +1153,7 @@
 	pixel_y = 7
 	},
 /obj/item/toy/figure/assistant,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "aOO" = (
@@ -6878,7 +6878,7 @@
 /area/hallway/secondary/entry/emergency)
 "gnQ" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
@@ -6888,7 +6888,7 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -7829,7 +7829,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/engi,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -8451,6 +8451,20 @@
 	pixel_x = 16
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "power generation supplies"
+	},
+/obj/item/circuitboard/rtg,
+/obj/item/stack/cable_coil{
+	amount = 5
+	},
+/obj/item/stock_parts/capacitor,
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
+/obj/item/stack/material/phoron{
+	amount = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "hCb" = (
@@ -9345,6 +9359,9 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/disposalpipe/segment,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "ioe" = (
@@ -10236,7 +10253,7 @@
 /turf/simulated/floor/plating,
 /area/store)
 "jiW" = (
-/obj/structure/closet/lasertag/red,
+/obj/structure/closet/lasertag,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -10244,10 +10261,6 @@
 	dir = 4;
 	pixel_x = -28
 	},
-/obj/item/gun/energy/lasertag/red,
-/obj/item/gun/energy/lasertag/red,
-/obj/item/clothing/suit/redtag,
-/obj/item/clothing/suit/redtag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "jkk" = (
@@ -12219,6 +12232,9 @@
 "kYN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
@@ -24236,7 +24252,7 @@
 	pixel_y = 2
 	},
 /obj/item/paper_bin,
-/obj/item/book/manual/ntsl2,
+/obj/item/book/manual/wiki/ntsl2,
 /obj/machinery/light_switch{
 	pixel_y = 26
 	},
@@ -24985,10 +25001,6 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/item/gun/energy/lasertag/blue,
-/obj/item/gun/energy/lasertag/blue,
-/obj/item/clothing/suit/bluetag,
-/obj/item/clothing/suit/bluetag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "wcR" = (
@@ -26276,7 +26288,7 @@
 /area/storage/shields)
 "xdG" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/light,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Primary Tool Storage Aft";
@@ -27507,7 +27519,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "ykk" = (
@@ -53952,7 +53964,7 @@ fdu
 fdu
 fdu
 kKF
-nmN
+kKF
 kKF
 kKF
 kKF

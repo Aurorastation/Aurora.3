@@ -12,10 +12,13 @@
 #define PIERCE    "pierce"
 #define LASER     "laser"
 
-#define DAM_EDGE    1
-#define DAM_SHARP   2
-#define DAM_LASER   4
-#define DAM_BULLET  8
+#define DAM_EDGE      1
+#define DAM_SHARP     2
+#define DAM_LASER     4
+#define DAM_BULLET    8
+#define DAM_EXPLODE   16
+#define DAM_DISPERSED 32 // Makes apply_damage calls without specified zone distribute damage rather than randomly choose organ (for humans)
+#define DAM_BIO       64
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"

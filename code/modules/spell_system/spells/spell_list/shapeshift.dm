@@ -30,8 +30,8 @@
 			to_chat(user, "Your spell has no effect on them.")
 			continue
 
-		if(M.buckled)
-			M.buckled.unbuckle_mob()
+		if(M.buckled_to)
+			M.buckled_to.unbuckle()
 
 		var/new_mob = pick(possible_transformations)
 

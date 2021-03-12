@@ -49,6 +49,9 @@ var/datum/controller/subsystem/vote/SSvote
 	log_debug("The server has called a crew transfer vote")
 
 /datum/controller/subsystem/vote/proc/autogamemode()
+	for(var/thing in clients)
+		var/client/C = thing
+		window_flash(C)
 	initiate_vote("gamemode","the server", 1)
 	log_debug("The server has called a gamemode vote")
 
