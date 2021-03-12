@@ -10,15 +10,15 @@
 		to_chat(src, SPAN_NOTICE("You cannot leave your host in your current state."))
 		return
 
-	to_chat(src, SPAN_NOTICE("You begin disconnecting from [host]'s synapses and prodding at their internal ear canal."))
-
-	if(!host.stat)
-		to_chat(host, SPAN_WARNING("An odd, uncomfortable pressure begins to build inside your skull, behind your ear..."))
-
 	var/exit_time = 10 SECONDS
 	if(!start_ability(host, exit_time))
 		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
 		return
+
+	to_chat(src, SPAN_NOTICE("You begin disconnecting from [host]'s synapses and prodding at their internal ear canal."))
+	if(!host.stat)
+		to_chat(host, SPAN_WARNING("An odd, uncomfortable pressure begins to build inside your skull, behind your ear..."))
+
 	addtimer(CALLBACK(src, .proc/exit_host), exit_time)
 
 /mob/living/simple_animal/borer/proc/exit_host()
@@ -297,13 +297,14 @@
 			to_chat(src, SPAN_WARNING("\The [host]'s mind is shielded against your powers."))
 			return
 
-	to_chat(src, SPAN_WARNING("You begin delicately adjusting your connection to the host brain..."))
-	to_chat(host, SPAN_WARNING("You feel a tingling sensation at the back of your head."))
-
 	var/takeover_time = 10 SECONDS + (host.getBrainLoss() * 5)
 	if(!start_ability(host, takeover_time))
 		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
 		return
+
+	to_chat(src, SPAN_WARNING("You begin delicately adjusting your connection to the host brain..."))
+	to_chat(host, SPAN_WARNING("You feel a tingling sensation at the back of your head."))
+
 	addtimer(CALLBACK(src, .proc/host_takeover), takeover_time)
 
 /mob/living/simple_animal/borer/proc/host_takeover()
@@ -459,15 +460,16 @@
 			to_chat(src, SPAN_WARNING("\The [host]'s mind is shielded against your powers."))
 			return
 
+	var/jumpstart_time = 15 SECONDS
+	if(!start_ability(host, jumpstart_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
+		return
+
 	chemicals -= 150
 	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to unleash their potential."))
 	to_chat(host, SPAN_DANGER("You feel some tendrils probe at the back of your head..."))
 	to_chat(host, FONT_LARGE(SPAN_WARNING("You feel something terrible coming on...")))
 
-	var/jumpstart_time = 15 SECONDS
-	if(!start_ability(host, jumpstart_time))
-		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
-		return
 	addtimer(CALLBACK(src, .proc/jumpstart_psi), jumpstart_time)
 
 /mob/living/simple_animal/borer/proc/jumpstart_psi()
@@ -511,14 +513,15 @@
 		to_chat(src, SPAN_NOTICE("This faculty has already been pushed to the max potential you can achieve!"))
 		return
 
-	chemicals -= 75
-	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to upgrade their abilities."))
-	to_chat(host, SPAN_WARNING("You feel a burning, tingling sensation at the back of your head..."))
-
 	var/faculty_time = 10 SECONDS
 	if(!start_ability(host, faculty_time))
 		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
 		return
+
+	chemicals -= 75
+	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to upgrade their abilities."))
+	to_chat(host, SPAN_WARNING("You feel a burning, tingling sensation at the back of your head..."))
+
 	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), faculty_time)
 
 /mob/living/simple_animal/borer/proc/faculty_upgrade(var/selected_faculty)
