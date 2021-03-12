@@ -5,6 +5,8 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 
+	var/pronouns = NEUTER
+
 	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
 
 	var/list/hud_list[10]
@@ -2006,14 +2008,8 @@
 
 	return ..(speaking, hearer, used_accent)
 
-/mob/living/carbon/human/proc/generate_valid_accent()
-	var/list/valid_accents = list()
-	for(var/current_accents in species.allowed_accents)
-		valid_accents += current_accents
-	return valid_accents
-
 /mob/living/carbon/human/proc/generate_valid_languages()
-	var/list/available_languages = species.secondary_langs.Copy()
+	var/list/available_languages = species.secondary_langs.Copy() + LANGUAGE_TCB
 	for(var/L in all_languages)
 		var/datum/language/lang = all_languages[L]
 		if(!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))
@@ -2036,7 +2032,7 @@
 			to_chat(src, SPAN_NOTICE("You no longer know <b>[new_language.name]</b>."))
 		return TRUE
 	var/total_alternate_languages = languages.Copy()
-	total_alternate_languages -= all_languages[LANGUAGE_TCB]
+	total_alternate_languages -= all_languages[species.language]
 	if(length(total_alternate_languages) >= species.num_alternate_languages)
 		to_chat(src, SPAN_WARNING("You can't add any more languages!"))
 		return TRUE
