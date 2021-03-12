@@ -5,6 +5,7 @@ delete-after: True
 changes:
   - rscadd: "Cortical borers now get a UI element that shows how many chemicals they have to use. They also gain their host's health doll when they infest them."
   - rscadd: "Hosts that get taken over by cortical borers now get a big resist button UI element, which they can use to resist the borer's control."
+  - tweak: "Resisting against borer control now takes fourty seconds to a minute, up from twenty seconds to twenty-five seconds."
   - rscadd: "Various cortical borer action now have a progress bar. Resisting borer control now also has a progress bar."
   - tweak: "Hosts being controlled by borers now emote randomly regardless of brain damage."
   - rscadd: "Borers can now paralyze and infest people by clicking on them. It will paralyze if they're not lying down/paralyzed, and will infest if they are."
