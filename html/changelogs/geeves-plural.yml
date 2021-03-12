@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Allows characters to set their pronouns in character creation if desired. Only affects examining and gender appearance in visible messages."
