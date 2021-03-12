@@ -28,11 +28,15 @@
 	hunger_enabled = FALSE
 
 	var/used_dominate
+	var/datum/progressbar/autocomplete/ability_bar
+	var/ability_start_time = 0
+	var/obj/screen/borer/chemicals/chem_hud
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
 	var/mob/living/carbon/human/host        // Human host for the brain worm.
 	var/truename                            // Name used for brainworm-speak.
 	var/mob/living/captive_brain/host_brain // Used for swapping control of the body back and forth.
 	var/controlling                         // Used in human death check.
+	var/list/static/controlling_emotes = list("blink","blink_r","choke","drool","twitch","twitch_v","gasp")
 	var/has_reproduced
 	var/request_player = TRUE
 
@@ -43,6 +47,8 @@
 	..()
 	if(mind)
 		borers.add_antagonist(mind)
+	if(client && host)
+		client.screen += host.healths
 
 /mob/living/simple_animal/borer/Initialize()
 	. = ..()
@@ -56,6 +62,11 @@
 	if(request_player && !ckey && !client)
 		SSghostroles.add_spawn_atom("borer", src)
 
+/mob/living/simple_animal/borer/Destroy()
+	QDEL_NULL(ability_bar)
+	QDEL_NULL(host_brain)
+	return ..()
+
 /mob/living/simple_animal/borer/death(gibbed, deathmessage)
 	SSghostroles.remove_spawn_atom("borer", src)
 	return ..(gibbed,deathmessage)
@@ -64,14 +75,28 @@
 	return FALSE
 
 /mob/living/simple_animal/borer/Life()
-	..()
 	if(host)
 		if(!stat && host.stat != DEAD)
 			if(chemicals < 250)
 				chemicals++
-		if(host && !host.stat)
-			if(controlling && prob(host.getBrainLoss()/20))
-				host.say("*[pick(list("blink","blink_r","choke","drool","twitch","twitch_s","gasp"))]")
+		if(!host.stat && controlling && prob(2))
+			host.emote(pick(controlling_emotes))
+	..()
+	if(!QDELETED(ability_bar))
+		ability_bar.update(world.time - ability_start_time)
+
+/mob/living/simple_animal/borer/proc/start_ability(var/atom/target, var/time)
+	if(!QDELETED(ability_bar))
+		return FALSE
+	ability_bar = new /datum/progressbar/autocomplete(src, time, target)
+	ability_start_time = world.time
+	ability_bar.update(0)
+	return TRUE
+
+/mob/living/simple_animal/borer/handle_regular_hud_updates()
+	. = ..()
+	if(chem_hud)
+		chem_hud.maptext = SMALL_FONTS(7, chemicals)
 
 /mob/living/simple_animal/borer/Stat()
 	..()
@@ -88,6 +113,9 @@
 /mob/living/simple_animal/borer/proc/detach()
 	if(!host || !controlling)
 		return
+
+	if(ability_bar)
+		QDEL_NULL(ability_bar)
 
 	if(istype(host,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = host
@@ -158,6 +186,8 @@
 	host.machine = null
 
 	host.status_flags &= ~PASSEMOTES
+	if(client)
+		client.screen -= host.healths
 	host = null
 	return
 
@@ -171,7 +201,7 @@
 /mob/living/simple_animal/borer/UnarmedAttack(atom/A, proximity)
 	if(iscarbon(A))
 		var/mob/living/carbon/C = A
-		if(C.lying)
+		if(C.lying || C.paralysis)
 			do_infest(C)
 		else
 			do_paralyze(C)
@@ -179,7 +209,7 @@
 	return ..()
 
 /mob/living/simple_animal/borer/RangedAttack(atom/A, params)
-	if(iscarbon(A))
+	if(iscarbon(A) && get_dist(src, A) <= 2)
 		var/mob/living/carbon/C = A
 		do_paralyze(C)
 		return

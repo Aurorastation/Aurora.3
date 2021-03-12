@@ -15,7 +15,11 @@
 	if(!host.stat)
 		to_chat(host, SPAN_WARNING("An odd, uncomfortable pressure begins to build inside your skull, behind your ear..."))
 
-	addtimer(CALLBACK(src, .proc/exit_host), 100)
+	var/exit_time = 10 SECONDS
+	if(!start_ability(host, exit_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
+		return
+	addtimer(CALLBACK(src, .proc/exit_host), exit_time)
 
 /mob/living/simple_animal/borer/proc/exit_host()
 	if(!host || !src)
@@ -48,7 +52,7 @@
 		return
 
 	var/list/choices = list()
-	for(var/mob/living/carbon/C in view(1,src))
+	for(var/mob/living/carbon/C in view(2, src))
 		if(src.Adjacent(C))
 			choices += C
 
@@ -112,6 +116,9 @@
 		src.host = M
 		src.host.status_flags |= PASSEMOTES
 		src.forceMove(M)
+
+		if(client)
+			client.screen += host.healths
 
 		//Update their traitor status.
 		if(host.mind)
@@ -293,7 +300,11 @@
 	to_chat(src, SPAN_WARNING("You begin delicately adjusting your connection to the host brain..."))
 	to_chat(host, SPAN_WARNING("You feel a tingling sensation at the back of your head."))
 
-	addtimer(CALLBACK(src, .proc/host_takeover), 100+(host.getBrainLoss()*5))
+	var/takeover_time = 10 SECONDS + (host.getBrainLoss() * 5)
+	if(!start_ability(host, takeover_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
+		return
+	addtimer(CALLBACK(src, .proc/host_takeover), takeover_time)
 
 /mob/living/simple_animal/borer/proc/host_takeover()
 	if(!host || !src || controlling)
@@ -314,8 +325,8 @@
 	host_brain = new(src)
 
 	host_brain.ckey = host.ckey
-
-	host_brain.name = host.name
+	host_brain.name = host.real_name
+	host_brain.real_name = "[host_brain.name] (captive host)"
 
 	if(!host_brain.computer_id)
 		host_brain.computer_id = h2b_id
@@ -452,16 +463,25 @@
 	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to unleash their potential."))
 	to_chat(host, SPAN_DANGER("You feel some tendrils probe at the back of your head..."))
 	to_chat(host, FONT_LARGE(SPAN_WARNING("You feel something terrible coming on...")))
-	addtimer(CALLBACK(src, .proc/jumpstart_psi), 150)
+
+	var/jumpstart_time = 15 SECONDS
+	if(!start_ability(host, jumpstart_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
+		return
+	addtimer(CALLBACK(src, .proc/jumpstart_psi), jumpstart_time)
 
 /mob/living/simple_animal/borer/proc/jumpstart_psi()
+	if(!host)
+		return
+
 	to_chat(src, SPAN_NOTICE("You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
 	host.awaken_psi_basic("something in your head")
+	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
 
 /mob/living/simple_animal/borer/verb/advance_faculty()
 	set category = "Abilities"
 	set name = "Advance Psionic Faculty (75)"
-	set desc = "Advance one of your host's psionic faculties' by one step."
+	set desc = "Advance one of your host's psionic faculties by one step."
 
 	if(!host)
 		to_chat(src, SPAN_NOTICE("You are not inside a host body."))
@@ -486,16 +506,25 @@
 	if(!selected_faculty)
 		return
 	selected_faculty = lowertext(selected_faculty)
-	if(host.psi.get_rank(selected_faculty) >= PSI_RANK_GRANDMASTER)
+	var/max_rank = islesserform(host) ? PSI_RANK_OPERANT : PSI_RANK_MASTER
+	if(host.psi.get_rank(selected_faculty) >= max_rank)
 		to_chat(src, SPAN_NOTICE("This faculty has already been pushed to the max potential you can achieve!"))
 		return
 
 	chemicals -= 75
 	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to upgrade their abilities."))
 	to_chat(host, SPAN_WARNING("You feel a burning, tingling sensation at the back of your head..."))
-	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), 100)
+
+	var/faculty_time = 10 SECONDS
+	if(!start_ability(host, faculty_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
+		return
+	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), faculty_time)
 
 /mob/living/simple_animal/borer/proc/faculty_upgrade(var/selected_faculty)
+	if(!host)
+		return
+
 	host.psi.set_rank(selected_faculty, host.psi.get_rank(selected_faculty) + 1)
 	host.psi.update()
 	to_chat(src, SPAN_NOTICE("You successfully manage to upgrade your host's [selected_faculty] faculty."))

@@ -3,6 +3,9 @@
 	real_name = "host brain"
 	universal_understand = TRUE
 
+	var/datum/progressbar/resist_bar
+	var/resist_start_time = 0
+
 /mob/living/captive_brain/say(var/message)
 	if(istype(src.loc,/mob/living/simple_animal/borer))
 		message = sanitize(message)
@@ -22,19 +25,36 @@
 			else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
 				to_chat(M, "The captive mind of [src] whispers, \"[message]\"")
 
+/mob/living/captive_brain/Destroy()
+	QDEL_NULL(resist_bar)
+	return ..()
+
 /mob/living/captive_brain/emote(var/message)
 	return
 
+/mob/living/captive_brain/Life()
+	if(resist_bar)
+		resist_bar.update(world.time - resist_start_time)
+	return ..()
+
 /mob/living/captive_brain/process_resist()
 	//Resisting control by an alien mind.
+	if(resist_bar)
+		to_chat(src, SPAN_WARNING("You're already resisting the alien control!"))
+		return
+
 	if(istype(src.loc,/mob/living/simple_animal/borer))
 		var/mob/living/simple_animal/borer/B = src.loc
 		var/mob/living/captive_brain/H = src
 
-		to_chat(H, SPAN_DANGER("You begin doggedly resisting the parasite's control (this will take approximately sixty seconds)."))
+		to_chat(H, SPAN_DANGER("You begin doggedly resisting the parasite's control."))
 		to_chat(B.host, SPAN_DANGER("You feel the captive mind of [src] begin to resist your control."))
 
-		addtimer(CALLBACK(src, .proc/eject_borer, B, H), rand(200, 250) + B.host.getBrainLoss())
+		var/resist_time = rand(40 SECONDS, 1 MINUTE)
+		addtimer(CALLBACK(src, .proc/eject_borer, B, H), resist_time)
+		resist_bar = new /datum/progressbar/autocomplete(src, resist_time, B.host)
+		resist_start_time = world.time
+		resist_bar.update(0)
 		return
 
 	..()
