@@ -57,4 +57,6 @@ fi
 
 rm $dmepath.mdme
 
+apt install libpng12-dev
+
 exit $retval
