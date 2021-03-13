@@ -279,7 +279,7 @@ datum/unit_test/mob_damage/start_test()
 
 
 	var/msg = "Damage taken: [ending_damage] out of [damage_amount] || expected: [expected_msg] \[Overall Health:[ending_health] (Initial: [initial_health])\]"
-	QDEL_IN(H, 5 SECONDS)
+	qdel(H)
 	if(failure)
 		fail(msg)
 	else
