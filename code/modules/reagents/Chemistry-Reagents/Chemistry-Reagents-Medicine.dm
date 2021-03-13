@@ -392,8 +392,6 @@
 	metabolism_min = REM * 0.0125
 
 /decl/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(!check_min_dose(M, 0.5))
-		return
 	M.drowsyness = max(M.drowsyness - 5, 0)
 	if(REAGENT_VOLUME(holder, type) < 10) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
 		M.AdjustParalysis(-1)
