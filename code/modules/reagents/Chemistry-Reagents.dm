@@ -159,3 +159,7 @@
 
 /decl/reagent/proc/mix_data(var/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return REAGENT_DATA(holder, type)
+
+//Check to use when seeing if the person has the minimum dose of the reagent. Useful for stopping minimum transfer rate IV drips from applying chem effects
+/decl/reagent/proc/check_min_dose(var/mob/living/carbon/M, var/min_dose = 1)
+	return (M.chem_doses[type] >= min_dose)
