@@ -13,7 +13,7 @@
 	taste_description = "bitterness"
 
 /decl/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(check_chem_dose(M, 0.25))
+	if(check_min_dose(M, 0.25))
 		M.add_chemical_effect(CE_STABLE)
 		M.add_chemical_effect(CE_PAINKILLER, 25)
 
