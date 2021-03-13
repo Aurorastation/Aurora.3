@@ -241,7 +241,7 @@
 
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"
-	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Paris Police clothes respectively."
+	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolis clothes respectively."
 	path = /obj/item/clothing/under/elyra_holo
 	flags = GEAR_HAS_DESC_SELECTION
 
