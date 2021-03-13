@@ -82,7 +82,7 @@
 		eyeobj.possess(src)
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
-	winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#F0F0F0")
+	winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#D3B5B5")
 	MOB_STOP_THINKING(src)
 
 	update_client_color()

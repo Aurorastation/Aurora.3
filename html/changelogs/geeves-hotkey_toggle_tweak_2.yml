@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - tweak: "Hotkey mode is now the default mode for all mobs."
+  - tweak: "The game window is now focused by default, not the input bar."
