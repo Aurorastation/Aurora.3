@@ -1418,7 +1418,7 @@
 
 	addtimer(CALLBACK(src, .proc/regenerate_icons), 0)
 	if(vessel)
-		addtimer(CALLBACK(src, .proc/restore_blood), 0)
+		addtimer(CALLBACK(src, .proc/restore_blood),  0)
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
