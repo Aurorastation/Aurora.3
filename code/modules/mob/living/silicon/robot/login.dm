@@ -4,7 +4,7 @@
 	show_laws(0)
 
 	// the fuck
-	winset(src, null, "mainwindow.macro=borgmacro input.focus=true input.background-color=#D3B5B5")
+	winset(src, null, "mainwindow.macro=borghotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#F0F0F0")
 
 	// Forces synths to select an icon relevant to their module
 	if(module && !icon_selected)
