@@ -12,7 +12,7 @@
 	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
-	var/age_min = 17
+	var/age_min = 18
 	var/age_max = 85
 	var/economic_modifier = 0
 	var/list/default_genders = list(MALE, FEMALE)
@@ -658,6 +658,6 @@
 
 /datum/species/proc/get_injection_modifier()
 	return injection_mod
-	
+
 /datum/species/proc/is_naturally_insulated()
 	return FALSE
