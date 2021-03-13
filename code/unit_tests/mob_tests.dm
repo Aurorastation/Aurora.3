@@ -53,9 +53,6 @@ datum/unit_test/mob_hear/start_test()
 	var/mob/living/test/test_speaker_mob = locate(test_speaker["mobref"])
 	var/mob/living/test/test_listener_mob = locate(test_listener["mobref"])
 
-	QDEL_IN(20, test_speaker_mob)
-	QDEL_IN(20, test_listener_mob)
-
 	if(isnull(test_speaker_mob) || isnull(test_listener_mob))
 		fail("Test unable to set test mob from reference")
 		return 0
@@ -282,7 +279,7 @@ datum/unit_test/mob_damage/start_test()
 
 
 	var/msg = "Damage taken: [ending_damage] out of [damage_amount] || expected: [expected_msg] \[Overall Health:[ending_health] (Initial: [initial_health])\]"
-
+	QDEL_IN(H, 5 SECONDS)
 	if(failure)
 		fail(msg)
 	else
