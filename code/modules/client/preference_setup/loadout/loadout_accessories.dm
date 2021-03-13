@@ -32,6 +32,7 @@
 /datum/gear/accessory/armband/New()
 	..()
 	var/armbands = list()
+	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo

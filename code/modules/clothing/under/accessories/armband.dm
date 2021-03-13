@@ -80,7 +80,7 @@
 	it has been worn as a symbol of independence and patriotism."
 	icon_state = "tauceti"
 
-/obj/item/clothing/accessory/armband/tauceti
+/obj/item/clothing/accessory/armband/scc
 	name = "Stellar Corporate Conglomerate armband"
 	desc = "An armband, tailored with all the colors of the Sellar Corporate Conglomerate."
 	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
