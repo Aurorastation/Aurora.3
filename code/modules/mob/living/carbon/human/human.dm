@@ -198,7 +198,7 @@
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
-		
+
 		var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
 		if(IC && IC.cell)
 			stat("Battery charge:", "[IC.get_charge()]/[IC.cell.maxcharge]")
@@ -1416,10 +1416,9 @@
 	maxHealth = species.total_health
 	health = maxHealth
 
-	spawn(0)
-		regenerate_icons()
-		if (vessel)
-			restore_blood()
+	INVOKE_ASYNC(src, .proc/regenerate_icons)
+	if(vessel)
+		INVOKE_ASYNC(src, .proc/restore_blood)
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)

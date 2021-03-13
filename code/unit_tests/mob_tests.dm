@@ -53,6 +53,9 @@ datum/unit_test/mob_hear/start_test()
 	var/mob/living/test/test_speaker_mob = locate(test_speaker["mobref"])
 	var/mob/living/test/test_listener_mob = locate(test_listener["mobref"])
 
+	QDEL_IN(20, test_speaker_mob)
+	QDEL_IN(20, test_listener_mob)
+
 	if(isnull(test_speaker_mob) || isnull(test_listener_mob))
 		fail("Test unable to set test mob from reference")
 		return 0

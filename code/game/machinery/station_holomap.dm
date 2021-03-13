@@ -49,7 +49,7 @@
 		update_icon()
 		return
 
-	holomap_datum.initialize_holomap(T, reinit = FALSE)
+	holomap_datum.initialize_holomap(T, reinit = TRUE)
 
 	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
 	small_station_map.layer = EFFECTS_ABOVE_LIGHTING_LAYER
