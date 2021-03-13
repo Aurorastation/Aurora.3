@@ -32,7 +32,7 @@ datum/unit_test/vision_glasses/start_test()
 datum/unit_test/vision_glasses/check_result()
 
 	if(isnull(H) || H.life_tick < 2)
-		return 0       
+		return 0
 
 	if(isnull(H.glasses))
 		fail("Mob doesn't have glasses on")
@@ -44,6 +44,7 @@ datum/unit_test/vision_glasses/check_result()
 	else
 		fail("Mob See invisible is [H.see_invisible] / expected [expectation]")
 
+	qdel(H)
 	return 1
 
 datum/unit_test/vision_glasses/NVG

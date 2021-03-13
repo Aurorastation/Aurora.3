@@ -1416,9 +1416,9 @@
 	maxHealth = species.total_health
 	health = maxHealth
 
-	INVOKE_ASYNC(src, .proc/regenerate_icons)
+	addtimer(CALLBACK(src, .proc/regenerate_icons), 0)
 	if(vessel)
-		INVOKE_ASYNC(src, .proc/restore_blood)
+		addtimer(CALLBACK(src, .proc/restore_blood), 0)
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
