@@ -199,7 +199,6 @@
 	hats["hat, flatcap"] = /obj/item/clothing/head/flatcap
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
-
 /datum/gear/head/hijab
 	display_name = "hijab selection"
 	path = /obj/item/clothing/head/hijab
