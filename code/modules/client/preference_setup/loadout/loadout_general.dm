@@ -92,33 +92,19 @@
 	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks())
 
 /datum/gear/banner
-	display_name = "banner selection"
+	display_name = "dominian great house standard selection"
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/banner/New()
+/datum/gear/standard/New()
 	..()
-	var/banners = list()
-	banners["banner, SolGov"] = /obj/item/flag/sol
-	banners["banner, Dominia"] = /obj/item/flag/dominia
-	banners["banner, Elyra"] = /obj/item/flag/elyra
-	banners["banner, Hegemony"] = /obj/item/flag/hegemony
-	banners["banner, Jargon"] = /obj/item/flag/jargon
-	banners["banner, NanoTrasen"] = /obj/item/flag/nanotrasen
-	banners["banner, Eridani Fed"] = /obj/item/flag/eridani
-	banners["banner, Sedantis"] = /obj/item/flag/vaurca
-	banners["banner, People's Republic of Adhomai"] = /obj/item/flag/pra
-	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
-	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
-	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
-	banners["banner, Dominian Diona"] = /obj/item/flag/diona
-	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
-	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
-	banners["banner, Idris Incorporated"] = /obj/item/flag/idris
-	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
-	banners["banner, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi
-	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
-	gear_tweaks += new/datum/gear_tweak/path(banners)
+	var/standards = list()
+	standards["standard, Strelitz"] = /obj/item/flag/strelitz
+	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
+	standards["standard, Kazkhz"] = /obj/item/flag/kazkhz
+	standards["standard, Caladius"] = /obj/item/flag/caladius
+	standards["standard, Zhao"] = /obj/item/flag/zhao
+	gear_tweaks += new/datum/gear_tweak/path(standards)
 
 /datum/gear/flag
 	display_name = "flag selection"

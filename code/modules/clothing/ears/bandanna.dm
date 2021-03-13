@@ -22,3 +22,9 @@
 	desc = "A plain black bandanna."
 	icon_state = "band_bk"
 	item_state = "band_bk"
+
+/obj/item/clothing/ears/bandanna/colorable
+	name = "neck bandanna"
+	desc = "A bandanna in 16,777,216 designer colors that goes around the neck."
+	icon_state = "band_wh"
+	item_state = "band_wh"

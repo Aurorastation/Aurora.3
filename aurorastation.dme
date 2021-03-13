@@ -1381,6 +1381,7 @@
 #include "code\modules\clothing\ears\bandanna.dm"
 #include "code\modules\clothing\ears\earmuffs.dm"
 #include "code\modules\clothing\ears\earrings.dm"
+#include "code\modules\clothing\ears\hijabs.dm"
 #include "code\modules\clothing\ears\skrell.dm"
 #include "code\modules\clothing\factions\dominia.dm"
 #include "code\modules\clothing\factions\elyra.dm"
