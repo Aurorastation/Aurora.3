@@ -49,13 +49,6 @@
 /datum/character_disabilities/total_colorblind/apply_self(var/mob/living/carbon/human/H)
 	H.add_client_color(/datum/client_color/monochrome)
 
-/datum/character_disabilities/mute
-	name = "Muteness"
-	desc = "You are unable to form coherent speech."
-
-/datum/character_disabilities/mute/apply_self(var/mob/living/carbon/human/H)
-	H.sdisabilities |= MUTE
-
 /datum/character_disabilities/deaf
 	name = "Deafness"
 	desc = "You are unable to percieve sound."
