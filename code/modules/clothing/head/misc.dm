@@ -282,6 +282,47 @@
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!
 
+/obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
+	name = "hijab"
+	desc = "Encompassing cloth headwear worn by some human cultures and religions."
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "hijab_black"
+	item_state = "hijab_black"
+	flags_inv = BLOCKHAIR
+	body_parts_covered = 0
+	contained_sprite = 1
+	slot_flags = SLOT_EARS  | SLOT_HEAD
+
+/obj/item/clothing/head/hijab/grey
+	name = "grey hijab"
+	icon_state = "hijab_grey"
+	item_state = "hijab_grey"
+
+/obj/item/clothing/head/hijab/red
+	name = "red hijab"
+	icon_state = "hijab_red"
+	item_state = "hijab_red"
+
+/obj/item/clothing/head/hijab/brown
+	name = "brown hijab"
+	icon_state = "hijab_brown"
+	item_state = "hijab_brown"
+
+/obj/item/clothing/head/hijab/green
+	name = "green hijab"
+	icon_state = "hijab_green"
+	item_state = "hijab_green"
+
+/obj/item/clothing/head/hijab/blue
+	name = "blue hijab"
+	icon_state = "hijab_blue"
+	item_state = "hijab_blue"
+
+/obj/item/clothing/head/hijab/white
+	name = "white hijab"
+	icon_state = "hijab_white"
+	item_state = "hijab_white"
+
 /obj/item/clothing/head/cowboy
 	name = "cowboy hat"
 	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
