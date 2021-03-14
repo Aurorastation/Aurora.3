@@ -40,6 +40,7 @@ delete-after: True
 changes:
   - rscadd: "Added new Dominian Great House standards in the loadout general tab."
   - rscadd: "Added colorable bandannas to the loadout ear tab."
-  - rscadd: "Reworked hijab colors and added a colorable hijab, courtesy of NiennaB." 
+  - rscadd: "Reworked hijab colors and added a colorable hijab, courtesy of NiennaB."
+  - tweak: "Made hijabs fit in the ear slot so you can fit them under hats."  
   - rscadd: "Reworked lipstick colors and added new lipsticks colors, courtesy of NiennaB."
   - tweak: "Changed all references of Persipolis to Persepolis."
