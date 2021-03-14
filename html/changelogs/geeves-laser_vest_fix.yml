@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes laser tag vests gently breaking when you try to change their health without an ID on your person."

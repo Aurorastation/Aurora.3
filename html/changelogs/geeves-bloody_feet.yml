@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed shoes not getting bloody."
-  - bugfix: "Fixed the north facing right foot blood sprite being on the wrong side."
