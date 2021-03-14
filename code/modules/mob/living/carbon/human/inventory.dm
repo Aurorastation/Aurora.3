@@ -224,10 +224,12 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_l_hand)
 			src.l_hand = W
 			W.equipped(src, slot)
+			W.screen_loc = ui_lhand
 			update_inv_l_hand(redraw_mob)
 		if(slot_r_hand)
 			src.r_hand = W
 			W.equipped(src, slot)
+			W.screen_loc = ui_rhand
 			update_inv_r_hand(redraw_mob)
 		if(slot_belt)
 			src.belt = W
@@ -326,6 +328,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 		update_inv_r_hand()
 
 	W.layer = SCREEN_LAYER+0.01
+	for(var/s in species.hud.gear)
+		var/list/gear = species.hud.gear[s]
+		if(gear["slot"] == slot)
+			W.screen_loc = gear["loc"]
+			break
 
 	if(W.action_button_name)
 		update_action_buttons()
@@ -410,45 +417,21 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 //Puts the item into our active hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_active_hand(var/obj/item/W)
-	return (hand ? put_in_l_hand(W) : put_in_r_hand(W))
+	return (hand ? equip_to_slot_if_possible(W, slot_l_hand) : equip_to_slot_if_possible(W, slot_r_hand))
 
 //Puts the item into our inactive hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W)
-	return (hand ? put_in_r_hand(W) : put_in_l_hand(W))
+	return (hand ? equip_to_slot_if_possible(W, slot_r_hand) : equip_to_slot_if_possible(W, slot_l_hand))
 
 /mob/living/carbon/human/put_in_hands(var/obj/item/W)
 	if(!W)
-		return 0
+		return FALSE
 	if(put_in_active_hand(W))
-		update_inv_l_hand()
-		update_inv_r_hand()
-		return 1
+		return TRUE
 	else if(put_in_inactive_hand(W))
-		update_inv_l_hand()
-		update_inv_r_hand()
-		return 1
+		return TRUE
 	else
 		return ..()
-
-/mob/living/carbon/human/put_in_l_hand(var/obj/item/W)
-	if(!..() || l_hand)
-		return 0
-	W.forceMove(src)
-	l_hand = W
-	W.equipped(src,slot_l_hand)
-	W.add_fingerprint(src)
-	update_inv_l_hand()
-	return 1
-
-/mob/living/carbon/human/put_in_r_hand(var/obj/item/W)
-	if(!..() || r_hand)
-		return 0
-	W.forceMove(src)
-	r_hand = W
-	W.equipped(src,slot_r_hand)
-	W.add_fingerprint(src)
-	update_inv_r_hand()
-	return 1
 
 /mob/living/carbon/human/proc/update_noise_level()
 	is_noisy = FALSE

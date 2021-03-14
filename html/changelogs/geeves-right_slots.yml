@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Equipping items will now put them into the correct slot position, depending on which HUD your species has."
