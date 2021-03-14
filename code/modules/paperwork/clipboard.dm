@@ -29,10 +29,10 @@
 			switch(over_object.name)
 				if("right hand")
 					M.u_equip(src)
-					M.equip_to_slot_if_possible(src, slot_r_hand)
+					M.equip_to_slot_if_possible(src, slot_r_hand, bypass_species_restriction = TRUE)
 				if("left hand")
 					M.u_equip(src)
-					M.equip_to_slot_if_possible(src, slot_l_hand)
+					M.equip_to_slot_if_possible(src, slot_l_hand, bypass_species_restriction = TRUE)
 
 			add_fingerprint(usr)
 			return

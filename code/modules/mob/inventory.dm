@@ -21,10 +21,10 @@
 //set del_on_fail to have it delete W if it fails to equip
 //set disable_warning to disable the 'you are unable to equip that' warning.
 //unset redraw_mob to prevent the mob from being redrawn at the end.
-/mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE)
+/mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE, bypass_species_restriction = FALSE)
 	if(!istype(W)) return 0
 
-	if(!W.mob_can_equip(src, slot, disable_warning, ignore_blocked))
+	if(!W.mob_can_equip(src, slot, disable_warning, ignore_blocked, bypass_species_restriction))
 		if(del_on_fail)
 			qdel(W)
 		else

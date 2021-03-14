@@ -58,13 +58,13 @@
 	return 0
 
 //BS12: Species-restricted clothing check.
-/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE)
+/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, bypass_species_restriction = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
 		return 0
 
-	if(species_restricted && istype(M,/mob/living/carbon/human))
+	if(!bypass_species_restriction && species_restricted && istype(M,/mob/living/carbon/human))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
