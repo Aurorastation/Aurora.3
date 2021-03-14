@@ -698,11 +698,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	if(ishuman(M)) //this code is here to stop species night vision from being used on the cameras, since it does not make sense since cameras are just images. this is probably not the best way to do this, but it works
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/E = H.internal_organs_by_name[BP_EYES]
-		if (istype(E, /obj/item/organ/internal/eyes/night))
-			var/obj/item/organ/internal/eyes/night/N = E
-			if(N.night_vision )
-				N.disable_night_vision()
+		H.disable_organ_night_vision()
 
 	if(!zoom && !cannotzoom)
 		if(M.hud_used.hud_shown)
