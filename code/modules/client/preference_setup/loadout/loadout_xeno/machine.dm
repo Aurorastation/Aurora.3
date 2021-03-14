@@ -133,3 +133,24 @@
 	goldendeep["golden deep suit"] = /obj/item/clothing/under/goldendeep/suit
 	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
 	gear_tweaks += new/datum/gear_tweak/path(goldendeep)
+
+/datum/gear/augment/machine/gustatoral
+	display_name = "gustatoral centre (tongue)"
+	description = "An extremely complex augment, capable of translating taste into binary code, allowing synthetic beings to experience food."
+	path = /obj/item/organ/internal/augment/gustatoral
+	cost = 1
+	whitelisted = list(SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/augment/machine/gustatoral/hands
+	display_name = "gustatoral centre (hands)"
+	description = "An extremely complex augment, capable of translating taste into binary code, allowing synthetic beings to experience food."
+	path = /obj/item/organ/internal/augment/gustatoral/hand
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+
+/datum/gear/augment/machine/gustatoral/hands/New()
+	..()
+	var/list/handies = list()
+	handies["gustatoral centre (right hand)"] = /obj/item/organ/internal/augment/gustatoral/hand
+	handies["gustatoral centre (left hand)"] = /obj/item/organ/internal/augment/gustatoral/hand/left
+	gear_tweaks += new /datum/gear_tweak/path(handies)

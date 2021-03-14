@@ -146,6 +146,7 @@
 #define BP_AUG_PEN          "retractable combipen"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_GUSTATORAL   "integrated gustatoral centre"
 #define BP_AUG_TESLA        "tesla spine"
 #define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
 #define BP_AUG_HAIR         "synthetic hair extensions"
