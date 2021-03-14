@@ -417,11 +417,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 //Puts the item into our active hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_active_hand(var/obj/item/W)
-	return (hand ? equip_to_slot_if_possible(W, slot_l_hand, bypass_species_restriction = TRUE) : equip_to_slot_if_possible(W, slot_r_hand, bypass_species_restriction = TRUE))
+	return (hand ? equip_to_slot_if_possible(W, slot_l_hand) : equip_to_slot_if_possible(W, slot_r_hand))
 
 //Puts the item into our inactive hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W)
-	return (hand ? equip_to_slot_if_possible(W, slot_r_hand, bypass_species_restriction = TRUE) : equip_to_slot_if_possible(W, slot_l_hand, bypass_species_restriction = TRUE))
+	return (hand ? equip_to_slot_if_possible(W, slot_r_hand) : equip_to_slot_if_possible(W, slot_l_hand))
 
 /mob/living/carbon/human/put_in_hands(var/obj/item/W)
 	if(!W)
