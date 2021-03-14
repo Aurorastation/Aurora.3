@@ -2071,6 +2071,6 @@
 /mob/living/carbon/human/proc/disable_organ_night_vision()
 	var/obj/item/organ/E = internal_organs_by_name[BP_EYES]
 	if (istype(E, /obj/item/organ/internal/eyes/night))
-	var/obj/item/organ/internal/eyes/night/N = E
-	if(N.night_vision )
-		N.disable_night_vision()
+		var/obj/item/organ/internal/eyes/night/N = E
+		if(N.night_vision )
+			N.disable_night_vision()
