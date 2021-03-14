@@ -176,7 +176,7 @@
 		return ..()
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(stomach)
-		return nutrition + (stomach.ingested.total_volume * 10)
+		return nutrition + stomach.ingested.total_volume
 	return 0
 
 /mob/living/carbon/human/Stat()
@@ -901,7 +901,7 @@
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	var/nothing_to_puke = FALSE
 	if(should_have_organ(BP_STOMACH))
-		if(!istype(stomach) || (stomach.ingested.total_volume <= 5 && stomach.contents.len == 0))
+		if(!istype(stomach) || (stomach.ingested.total_volume <= 3 && !length(stomach.contents)))
 			nothing_to_puke = TRUE
 	else if(!(locate(/mob) in contents))
 		nothing_to_puke = TRUE
