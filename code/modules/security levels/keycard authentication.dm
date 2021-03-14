@@ -164,8 +164,9 @@ var/global/maint_all_access = 0
 	maint_all_access = 1
 	security_announcement.Announce("The maintenance access requirement has been revoked on all airlocks.","Attention!")
 
-/proc/revoke_maint_all_access()
-	maint_all_access = 0
+/proc/revoke_maint_all_access(var/announce_only)
+	if(!announce_only)
+		maint_all_access = 0
 	security_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.","Attention!")
 
 /obj/machinery/door/airlock/allowed(mob/M)

@@ -36,8 +36,8 @@
 		C.apply_radiation_effects()
 
 
-/datum/event/radiation_storm/end()
-	revoke_maint_all_access()
+/datum/event/radiation_storm/end(var/faked)
+	revoke_maint_all_access(faked)
 
 /datum/event/radiation_storm/syndicate/radiate()
 	return
