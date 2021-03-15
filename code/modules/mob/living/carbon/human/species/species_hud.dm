@@ -62,6 +62,7 @@
 /datum/hud_data/diona
 	has_hydration = FALSE
 	has_internals = FALSE
+	has_m_intent = FALSE
 	gear = list(
 		"i_clothing" =   list("loc" = ui_iclothing, "name" = "uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1),
 		"o_clothing" =   list("loc" = ui_shoes,     "name" = "suit",         "slot" = slot_wear_suit, "state" = "suit",   "toggle" = 1),

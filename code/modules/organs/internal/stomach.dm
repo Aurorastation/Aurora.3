@@ -110,11 +110,10 @@
 		if(functioning)
 			for(var/mob/living/M in contents)
 				if(M.stat == DEAD)
-					addtimer(CALLBACK(src, .proc/digest_mob, M), 30 SECONDS, TIMER_UNIQUE)
+					addtimer(CALLBACK(src, .proc/digest_mob, M), 5 MINUTES, TIMER_UNIQUE)
 
-				M.adjustBruteLoss(3)
-				M.adjustFireLoss(3)
-				M.adjustToxLoss(3)
+				M.adjustBruteLoss(2)
+				M.adjustFireLoss(2)
 
 				var/digestion_product = M.get_digestion_product()
 				if(digestion_product)
