@@ -791,8 +791,6 @@
 	pickup_sound = null
 	equip_sound = null
 
-	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand) // putting it here instead of in the proc so we don't have to init a shitton of lists
-
 /obj/item/offhand/proc/unwield()
 	if(ismob(loc))
 		var/mob/the_mob = loc
@@ -819,6 +817,7 @@
 		qdel(src)
 
 /obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand)
 	if(slot in equippable_slots)
 		return TRUE
 	return FALSE
