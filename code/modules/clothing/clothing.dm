@@ -81,7 +81,8 @@
 					wearable = 1
 
 			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
-				to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
+				if(!disable_warning)
+					to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
 	return 1
 
