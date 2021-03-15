@@ -529,8 +529,9 @@
 		prescriptions -= H.equipment_prescription
 	return Clamp(prescriptions, 0, 7)
 
-// if calculation is true, it won't sap resources
-/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/calculation, var/post_calculation)
+// pre_move is set to TRUE when the mob checks whether it's even possible to move, so resources aren't drained until after the move completes
+// once the mob moves and its loc actually changes, the pre_move is set to FALSE and all the proper resources are drained
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if (!H.exhaust_threshold)
 		return 1 // Handled.
 
@@ -542,36 +543,35 @@
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
 	if(C && !C.is_broken())
 		cost = 0
-		if(!calculation)
+		if(!pre_move)
 			C.do_run_act()
 
 	var/remainder = 0
 	if (H.stamina > cost)
-		if(!calculation)
+		if(!pre_move)
 			H.stamina -= cost
 			H.hud_used.move_intent.update_move_icon(H)
 		return 1
 	else if (H.stamina > 0)
 		remainder = cost - H.stamina
-		if(!calculation)
+		if(!pre_move)
 			H.stamina = 0
 	else
 		remainder = cost
 
-	if(!calculation && (H.disabilities & ASTHMA))
+	if(!pre_move && (H.disabilities & ASTHMA))
 		H.adjustOxyLoss(remainder*0.15)
 
-	if(!calculation && (H.disabilities & COUGHING))
+	if(!pre_move && (H.disabilities & COUGHING))
 		H.adjustHalLoss(remainder*0.1)
 
-	if(!calculation && breathing_organ && has_organ[breathing_organ])
+	if(!pre_move && breathing_organ && has_organ[breathing_organ])
 		var/obj/item/organ/O = H.internal_organs_by_name[breathing_organ]
 		if(O.is_bruised())
 			H.adjustOxyLoss(remainder*0.15)
 			H.adjustHalLoss(remainder*0.25)
 
-	// so trying to run when you can't run will still give negative effects
-	if(calculation && !post_calculation)
+	if(!pre_move)
 		H.adjustHalLoss(remainder*0.25)
 		H.updatehealth()
 		if((H.get_shock() >= 10) && prob(H.get_shock() *2))
@@ -584,7 +584,7 @@
 		H.flash_pain(H.get_shock())
 		return 0
 
-	if(!calculation)
+	if(!pre_move)
 		H.hud_used.move_intent.update_move_icon(H)
 	return 1
 

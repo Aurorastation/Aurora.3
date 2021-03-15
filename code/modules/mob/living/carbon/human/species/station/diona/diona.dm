@@ -128,7 +128,7 @@
 
 	alterable_internal_organs = list()
 
-/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost, var/calculation, var/post_calculation)
+/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost, var/pre_move)
 	var/datum/dionastats/DS = H.get_dionastats()
 
 	if (!DS)
@@ -138,7 +138,7 @@
 
 	if(H.total_radiation && !DS.regening_organ)
 		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
-			if(!calculation)
+			if(!pre_move)
 				H.apply_radiation(cost*(-0.5))
 			return 1
 		else
@@ -146,11 +146,11 @@
 			H.total_radiation = 0
 
 	if (DS.stored_energy > remainder)
-		if(!calculation)
+		if(!pre_move)
 			DS.stored_energy -= remainder
 		return 1
 	else
-		if(!calculation)
+		if(!pre_move)
 			remainder -= DS.stored_energy
 			DS.stored_energy = 0
 			H.adjustHalLoss(remainder*5, 1)

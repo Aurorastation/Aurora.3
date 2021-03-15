@@ -303,7 +303,7 @@
 		if (mob_is_human)
 			var/mob/living/carbon/human/H = mob
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
-			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE, FALSE))) //This will return false if we collapse from exhaustion
+			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
 				sprint_tally = tally
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			else
@@ -383,7 +383,7 @@
 
 		if(sprint_tally && mob.loc != old_loc)
 			var/mob/living/carbon/human/H = mob
-			H.species.handle_sprint_cost(H, sprint_tally, FALSE, TRUE)
+			H.species.handle_sprint_cost(H, sprint_tally, FALSE)
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
 		var/atom/O = mob.loc
