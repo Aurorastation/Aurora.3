@@ -45137,21 +45137,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bCo" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "bCp" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -45951,7 +45936,7 @@
 /turf/simulated/floor/plating,
 /area/turbolift/command_sub)
 "bEc" = (
-/obj/random/loot,
+/obj/effect/mazegen/module_helper/entry_exit,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bEe" = (
@@ -60011,9 +59996,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "dKN" = (
-/obj/random/junk,
-/obj/effect/landmark{
-	name = "Revenant"
+/obj/effect/mazegen/generator/blockwise{
+	mheight = 7;
+	mwidth = 5
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -67873,6 +67858,10 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
+"tJU" = (
+/obj/effect/mazegen/module_loot/trash,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "tKo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
@@ -87041,13 +87030,13 @@ aab
 aab
 bBu
 beG
-bbs
-bbs
 bcY
-bbs
-bbs
-bbs
-bbs
+bcY
+bcY
+bcY
+bcY
+bcY
+dKN
 bJu
 bbs
 aox
@@ -87298,13 +87287,13 @@ aab
 aab
 bBv
 beG
-bbs
-bcY
-bcY
-bQG
 bEc
 bcY
-bbs
+bcY
+bcY
+bcY
+bcY
+tJU
 beG
 bbs
 aox
@@ -87555,14 +87544,14 @@ aab
 aab
 bBv
 beG
-bbs
-beC
-bEc
-bbs
-bbs
-beC
-bbs
-bCo
+bcY
+bcY
+bcY
+bcY
+bcY
+bcY
+bcY
+beG
 bbs
 bbs
 aox
@@ -87812,13 +87801,13 @@ bGe
 aab
 bBv
 beG
-bbs
 bcY
-bbs
-dKN
-bbs
 bcY
-bbs
+bcY
+bcY
+bcY
+bcY
+bEc
 beG
 bFT
 bbs
@@ -88069,7 +88058,7 @@ bzA
 aab
 bBv
 beG
-bbs
+bcY
 bcY
 bcY
 bcY

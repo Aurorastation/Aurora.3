@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported Maze Generation from ParadiseStation. Replaced the maze next to research with the randomized maze."
