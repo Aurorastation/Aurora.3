@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now carve notches into gun stocks by using any sort of sharp tool on them."
