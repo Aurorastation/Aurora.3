@@ -4046,10 +4046,8 @@ Follow by example and make good judgement based on length which list to include 
 		is_painted = 1
 		species_allowed = list(/datum/species/getmorean)
 		body_parts = list("chest")
-
-		get_can_color
-			name = "Can Colouring"
-			icon_state = "get_color"
+		name = "Can Colouring"
+		icon_state = "get_color"
 
 		get_logo_backing
 			name = "Logo Backing"
