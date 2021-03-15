@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Archaeological finds should no longer be created with a clearance depth larger than anomaly depth."
