@@ -3562,6 +3562,15 @@
 	else
 		..()
 
+/obj/item/reagent_containers/food/snacks/bunbun
+	name = "\improper Bun Bun"
+	desc = "A small bread monkey fashioned from two burger buns."
+	icon_state = "bunbun"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/decl/reagent/nutriment = 8)
+	reagent_data = list(/decl/reagent/nutriment = list("bun" = 4))
+
 /obj/item/reagent_containers/food/snacks/taco
 	name = "taco"
 	desc = "Take a bite!"
