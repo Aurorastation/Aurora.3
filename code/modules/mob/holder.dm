@@ -464,13 +464,14 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "monkey"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
-	var/is_normal_monkey = TRUE
 
 /obj/item/holder/monkey/set_contained(var/mob/living/carbon/human/M)
 	..()
 	M.dir = SOUTH //monkeys look better head-on | source: it was revealed to me in a mirror
-	if(is_normal_monkey && istype(M.w_uniform, /obj/item/clothing/under/punpun))
-		item_state = "monkey_fancy"
+	if(istype(M.w_uniform, /obj/item/clothing/under))
+		var/obj/item/clothing/under/monkey_uniform = M.w_uniform
+		if(("[item_state]_[monkey_uniform.worn_state]_lh" in icon_states(icon))) // using _lh, because if there's a _lh, there's probably a _rh, right?
+			item_state = "[item_state]_[monkey_uniform.worn_state]"
 
 /obj/item/holder/monkey/farwa
 	name = "farwa"
@@ -479,7 +480,6 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "farwa"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
-	is_normal_monkey = FALSE
 
 /obj/item/holder/monkey/stok
 	name = "stok"
@@ -488,7 +488,6 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "stok"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
-	is_normal_monkey = FALSE
 
 /obj/item/holder/monkey/neaera
 	name = "neaera"
@@ -497,7 +496,6 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "neaera"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_NORMAL
-	is_normal_monkey = FALSE
 
 //Holders for rats
 /obj/item/holder/rat
