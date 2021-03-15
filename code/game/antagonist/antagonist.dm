@@ -55,7 +55,7 @@
 	var/db_log_id = null                    // ID of the db entry used to track that antagonist
 
 	// Used for setting appearance.
-	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_HUMAN)
+	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_HUMAN,SPECIES_GETMOREAN)
 
 	// Runtime vars.
 	var/datum/mind/leader                   // Current leader, if any.

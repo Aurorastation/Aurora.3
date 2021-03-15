@@ -260,7 +260,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/terminator
 	mob_size = 30
 
-/mob/living/carbon/human/getmorean
+/mob/living/carbon/human/getmorean/Initialize(mapload)
 	. = ..(mapload, SPECIES_GETMOREAN)
 
 /mob/living/carbon/human/golem/Initialize(mapload)

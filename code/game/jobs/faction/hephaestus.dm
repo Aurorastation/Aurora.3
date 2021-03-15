@@ -71,7 +71,8 @@
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_GETMOREAN
 		)
 	)
 

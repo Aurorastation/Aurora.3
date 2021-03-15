@@ -4,6 +4,7 @@
 	short_name = "get"
 	name_plural = "Getmoreans"
 	bodytype = BODYTYPE_GETMOREAN
+	category_name = "Getmorean"
 	age_max = 20
 	economic_modifier = 4 // Getmorean don't get paid much money at all, as they're technically a hired corperate entity.
 	icobase = 'icons/mob/human_races/getmorean/r_getmorean.dmi'
