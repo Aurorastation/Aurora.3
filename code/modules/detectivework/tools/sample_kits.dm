@@ -134,7 +134,7 @@
 
 /obj/item/forensics/sample_kit/proc/take_sample(var/mob/user, var/atom/supplied)
 	var/obj/item/sample/S = new evidence_path(get_turf(user), supplied)
-	to_chat(user, "<span class='notice'>You transfer [S.evidence.len] [S.evidence.len > 1 ? "[evidence_type]s" : "[evidence_type]"] to \the [S].</span>")
+	to_chat(user, "<span class='notice'>You transfer [S.evidence.len] [evidence_type]\s to \the [S].</span>")
 
 /obj/item/forensics/sample_kit/afterattack(var/atom/A, var/mob/user, var/proximity)
 	if(!proximity)

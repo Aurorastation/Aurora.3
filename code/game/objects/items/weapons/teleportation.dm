@@ -78,7 +78,7 @@ Frequency:
 										direct = "very weak"
 							src.temp += "[W.code]-[dir2text(get_dir(sr, tr))]-[direct]<BR>"
 
-				src.temp += "<B>Extranneous Signals:</B><BR>"
+				src.temp += "<B>Extraneous Signals:</B><BR>"
 				for (var/obj/item/implant/tracking/W in implants)
 					if (!W.implanted || !(istype(W.loc,/obj/item/organ/external) || ismob(W.loc)))
 						continue
@@ -248,7 +248,7 @@ Frequency:
 	else
 		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
-		target_closet.animate_shake()
+		target_closet.shake_animation()
 		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 100, TRUE)
 
 /obj/item/closet_teleporter/Destroy()

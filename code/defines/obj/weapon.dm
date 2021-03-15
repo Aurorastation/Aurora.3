@@ -84,7 +84,7 @@
 
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
-		armorpercent = targethuman.run_armor_check(target_zone,"melee")
+		armorpercent = targethuman.get_blocked_ratio(target_zone, BRUTE, damage = force)*100
 		wasblocked = targethuman.check_shields(force, src, user, target_zone, null) //returns 1 if it's a block
 
 	var/damageamount = force
@@ -487,8 +487,8 @@
 	icon_state = "RPED"
 	item_state = "RPED"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi'
+		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi'
 		)
 	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)

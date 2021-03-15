@@ -204,9 +204,9 @@
 		equip_item(H, suit_store, slot_s_store)
 
 	if(l_hand)
-		H.put_in_l_hand(new l_hand(H))
+		equip_item(H, l_hand, slot_l_hand)
 	if(r_hand)
-		H.put_in_r_hand(new r_hand(H))
+		equip_item(H, r_hand, slot_r_hand)
 
 	if(allow_pda_choice)
 		switch(H.pda_choice)

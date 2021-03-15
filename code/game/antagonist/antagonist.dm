@@ -72,6 +72,7 @@
 	// ID card stuff.
 	var/default_access = list()
 	var/id_type = /obj/item/card/id
+	var/id_card // a reference to the id_card we spawned with
 
 
 /datum/antagonist/New()

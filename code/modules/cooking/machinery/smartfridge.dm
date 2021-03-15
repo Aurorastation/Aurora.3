@@ -86,7 +86,6 @@
 			var/datum/seed/chosen_seed = SSplants.seeds[seed]
 			if(chosen_seed)
 				chosen_seed.spawn_seed(src)
-		CHECK_TICK
 
 	for(var/obj/item/reagent_containers/food/snacks/grown/g in contents)
 		item_quants[g.name]++

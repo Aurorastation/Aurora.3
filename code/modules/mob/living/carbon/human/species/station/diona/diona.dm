@@ -8,6 +8,7 @@
 	age_min = 1
 	age_max = 1000
 	default_genders = list(NEUTER)
+	selectable_pronouns = list(NEUTER, PLURAL)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
@@ -201,3 +202,6 @@
 
 /datum/species/diona/has_psi_potential()
 	return FALSE
+	
+/datum/species/diona/is_naturally_insulated()
+	return TRUE

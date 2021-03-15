@@ -36,8 +36,8 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
-	bowman = /obj/item/device/radio/headset/heads/cmo
-	headset = /obj/item/device/radio/headset/heads/cmo/alt
+	headset = /obj/item/device/radio/headset/heads/cmo
+	bowman = /obj/item/device/radio/headset/heads/cmo/alt
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo

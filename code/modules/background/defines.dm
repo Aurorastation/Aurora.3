@@ -103,6 +103,8 @@
 
 #define ACCENT_TTS "Text-to-Speech"
 
+#define ACCENT_BLUESPACE "Bluespace"
+
 #define ACCENT_ZORA "Zo'rane"
 #define ACCENT_KLAX "K'laxane"
 #define ACCENT_CTHUR "C'thuric"

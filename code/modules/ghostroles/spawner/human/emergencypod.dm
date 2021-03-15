@@ -262,10 +262,10 @@
 	)
 
 	gloves = list(
-		/obj/item/clothing/gloves/watch,
-		/obj/item/clothing/gloves/watch/silver,
-		/obj/item/clothing/gloves/watch/gold,
-		/obj/item/clothing/gloves/watch/spy
+		/obj/item/clothing/wrists/watch,
+		/obj/item/clothing/wrists/watch/silver,
+		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/spy
 	)
 
 	l_pocket = /obj/item/syndie/teleporter
@@ -329,3 +329,5 @@
 	passport.name = "[H.real_name]'s Passport"
 	if(W)
 		W.handle_item_insertion(passport)
+
+	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE)

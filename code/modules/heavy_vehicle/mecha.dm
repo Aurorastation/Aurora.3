@@ -8,7 +8,7 @@
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
 	mob_push_flags = ALLMOBS
-	can_buckle = FALSE
+	can_be_buckled = FALSE
 	accent = ACCENT_TTS
 	var/decal
 
@@ -66,6 +66,7 @@
 	var/maintenance_protocols
 	var/lockdown
 	var/entry_speed = 30
+	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
 	var/material/material

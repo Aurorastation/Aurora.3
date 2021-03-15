@@ -1,5 +1,7 @@
 /obj/item/clipboard
 	name = "clipboard"
+	desc = "When other writing surfaces are unavailable."
+	desc_info = "You can store a pen in this."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	item_state = "clipboard"
@@ -25,12 +27,12 @@
 
 		if(!M.restrained() && !M.stat)
 			switch(over_object.name)
-				if(BP_R_HAND)
+				if("right hand")
 					M.u_equip(src)
-					M.put_in_r_hand(src)
-				if(BP_L_HAND)
+					M.equip_to_slot_if_possible(src, slot_r_hand)
+				if("left hand")
 					M.u_equip(src)
-					M.put_in_l_hand(src)
+					M.equip_to_slot_if_possible(src, slot_l_hand)
 
 			add_fingerprint(usr)
 			return

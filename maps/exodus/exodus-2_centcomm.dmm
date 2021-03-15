@@ -1711,7 +1711,7 @@
 /area/centcom/evac)
 "akg" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor"
@@ -2813,9 +2813,9 @@
 /area/antag/mercenary)
 "anu" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/vest/merc,
-/obj/item/clothing/suit/storage/vest/merc,
-/obj/item/clothing/suit/storage/vest/merc,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
@@ -11969,7 +11969,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/reinforced,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/carpet,
 /area/shuttle/merchant)
 "aQb" = (
@@ -15248,8 +15248,6 @@
 /area/centcom/control)
 "aXR" = (
 /obj/structure/table/rack,
-/obj/item/rig/ert/janitor,
-/obj/item/rig/ert/janitor,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -17040,7 +17038,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -19719,7 +19717,7 @@
 	req_access = list(103)
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,

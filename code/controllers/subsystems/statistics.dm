@@ -22,6 +22,7 @@
 	var/list/msg_raider = list()
 	var/list/msg_burglar = list()
 	var/list/msg_ninja = list()
+	var/list/msg_bluespace = list()
 	var/list/msg_cargo = list()
 	var/list/msg_service = list()
 
@@ -53,7 +54,7 @@
 			if(!isobserver(C.mob) && !C.holder)
 				if(C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
-					to_chat(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
+					to_chat_immediate(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
 					kicked_clients++
 

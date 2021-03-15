@@ -58,13 +58,13 @@
 	return 0
 
 //BS12: Species-restricted clothing check.
-/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE)
+/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
 		return 0
 
-	if(species_restricted && istype(M,/mob/living/carbon/human))
+	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
@@ -251,11 +251,17 @@
 		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor))
 			number = between(0, number, 100)
 
-		armor["melee"] = melee_armor
-		armor["bullet"] = bullet_armor
-		armor["laser"] = laser_armor
-		armor["energy"] = energy_armor
-		armor["bomb"] = bomb_armor
+		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
+		if(istype(armor_component))
+			armor_component.RemoveComponent()
+		var/list/armor_list = list(
+			melee = melee_armor,
+			bullet = bullet_armor,
+			laser = laser_armor,
+			energy = energy_armor,
+			bomb = bomb_armor
+		)
+		AddComponent(/datum/component/armor, armor_list)
 
 		if(!isnull(material.conductivity))
 			siemens_coefficient = between(0, material.conductivity / 10, 10)
@@ -335,7 +341,7 @@
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
 		)
 	siemens_coefficient = 0.75
-	var/wired = 0
+	var/wired = FALSE
 	var/obj/item/cell/cell = 0
 	var/clipped = 0
 	var/fingerprint_chance = 0
@@ -372,7 +378,7 @@
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
 	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
-		if (clipped)
+		if(clipped)
 			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
 			update_icon()
 			return
@@ -791,7 +797,7 @@
 	w_class = ITEMSIZE_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
-	valid_accessory_slots = list("armband","decor", "over")
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 
 /obj/item/clothing/suit/return_own_image()
 	var/image/our_image
@@ -843,8 +849,8 @@
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
 	var/worn_state = null
-	valid_accessory_slots = list("utility","armband","decor", "over")
-	restricted_accessory_slots = list("utility")
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)
@@ -935,7 +941,6 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
-
 
 /obj/item/clothing/under/examine(mob/user)
 	..(user)
@@ -1075,4 +1080,4 @@
 	gender = NEUTER
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
-	var/undergloves = 1
+	var/undergloves = TRUE

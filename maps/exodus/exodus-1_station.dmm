@@ -1550,7 +1550,7 @@
 	req_access = list(3)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/melee/baton/loaded,
 /obj/item/shield/riot,
 /obj/item/clothing/head/helmet/riot,
@@ -1709,7 +1709,7 @@
 	req_access = list(3)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/melee/baton/loaded,
 /obj/item/shield/riot,
 /obj/item/clothing/head/helmet/riot,
@@ -1899,7 +1899,7 @@
 	req_access = list(3)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/melee/baton/loaded,
 /obj/item/shield/riot,
 /obj/item/clothing/head/helmet/riot,
@@ -2044,11 +2044,11 @@
 	name = "Weapons locker";
 	req_access = list(3)
 	},
-/obj/item/clothing/suit/armor/bulletproof{
+/obj/item/clothing/suit/armor/carrier/ballistic{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/armor/bulletproof{
+/obj/item/clothing/suit/armor/carrier/ballistic{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -2068,11 +2068,11 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/clothing/suit/armor/laserproof{
+/obj/item/clothing/suit/armor/carrier/ablative{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/armor/laserproof{
+/obj/item/clothing/suit/armor/carrier/ablative{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -2987,7 +2987,7 @@
 /area/security/main)
 "afG" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled,
 /area/security/main)
@@ -3282,8 +3282,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
+/obj/item/clothing/suit/armor/carrier/heavy/sec,
+/obj/item/clothing/head/helmet/security/heavy,
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "agl" = (
@@ -4211,7 +4211,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "ahZ" = (
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/door/window/brigdoor{
 	dir = 4;
 	name = "Warden's Desk";
@@ -4744,7 +4744,7 @@
 	pixel_y = 4
 	},
 /obj/item/pen,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -4763,7 +4763,7 @@
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -14218,7 +14218,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "aBc" = (
-/obj/structure/closet/lasertag/red,
+/obj/structure/closet/lasertag,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -14256,7 +14256,7 @@
 /area/crew_quarters/fitness)
 "aBg" = (
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the 'Space' from Space Cleaner and written in Chemistry. Scrawled on the back is, 'Okay, whoever filled this with polytrinic acid, it was only funny the first time. It was hard enough replacing the CMO's first cat!'";
 	name = "Pharmacy Cleaner"
@@ -18394,7 +18394,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "aJo" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "aJp" = (
@@ -19161,7 +19161,7 @@
 /area/chapel/office)
 "aKS" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/button/crematorium{
+/obj/machinery/button/switch/crematorium{
 	pixel_x = 25
 	},
 /obj/machinery/light/small{
@@ -25951,7 +25951,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -31114,7 +31114,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/meeting_room)
 "bil" = (
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/device/assembly/timer,
 /obj/item/device/eftpos{
 	eftpos_name = "Bridge EFTPOS scanner"
@@ -35272,7 +35272,7 @@
 /area/quartermaster/loading)
 "bqf" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
@@ -35282,7 +35282,7 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "bqg" = (
@@ -36983,7 +36983,7 @@
 /area/rnd/lab)
 "bte" = (
 /obj/structure/table/standard,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/pen,
 /obj/item/stack/packageWrap,
 /obj/item/stack/packageWrap,
@@ -38360,7 +38360,7 @@
 	},
 /obj/machinery/recharger,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -39394,7 +39394,7 @@
 "bxA" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/beige{
 	dir = 1
@@ -57719,7 +57719,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
@@ -59894,7 +59894,7 @@
 "cjP" = (
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/latex,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "cjQ" = (
@@ -60073,7 +60073,7 @@
 "ckl" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "ckm" = (
@@ -65338,7 +65338,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cue" = (
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/structure/reagent_dispensers/virusfood{
 	pixel_x = -30
 	},
@@ -66178,7 +66178,7 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/device/slime_scanner,
 /obj/item/device/slime_scanner,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "cvw" = (
@@ -76330,7 +76330,7 @@
 "tRf" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},

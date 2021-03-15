@@ -451,7 +451,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/gloves/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
+/obj/item/clothing/wrists/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
 	name = "engraved wristwatch"
 	desc = "A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
 	icon = 'icons/obj/custom_items/rex_watch.dmi'
@@ -1648,9 +1648,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 /obj/item/fluff/cress_book //Lyric Book - Emily Cress - mattatlas
-	name = "lyric book"
-	desc = "An old, faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. A dark purple H is scribbled on the center, along with half a heart on the \
-	left and a cut on the bottom right. The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock."
+	name = "lyric folder"
+	desc = "An old, slightly faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. The name on the folder reads \"Hyo\". \
+			The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock or metal, with overall somber lyrics."
 	icon = 'icons/obj/custom_items/cress_items.dmi'
 	icon_state = "cress_book"
 	w_class = ITEMSIZE_SMALL
@@ -1660,9 +1660,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/cress_book/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.visible_message("<span class='notice'>[user] begins searching through \the [src] pages.</span>")
+	user.visible_message("<span class='notice'>[user] begins searching through \the [src]'s pages...</span>")
 	if(do_after(user, 25))
-		to_chat(user, "<span class='notice'>You read on the pages of \the [src]: [pick(lyrics)]</span>")
+		to_chat(user, "<span class='notice'>You pick out a song in the folder and read the lyrics: [pick(lyrics)]</span>")
 
 
 /obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos

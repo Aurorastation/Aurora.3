@@ -225,7 +225,7 @@ var/const/enterloopsanity = 100
 		var/has_feet = TRUE
 		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 			has_feet = FALSE
-		if(!H.buckled && !H.lying && has_feet)
+		if(!H.buckled_to && !H.lying && has_feet)
 			if(H.shoes) //Adding ash to shoes
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))

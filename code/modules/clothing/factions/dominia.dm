@@ -325,6 +325,37 @@
 	overlay_state = "dominian_cape_red"
 	contained_sprite = TRUE
 	icon_override = null
+	var/rolled = FALSE
+
+/obj/item/clothing/accessory/poncho/dominia/red/update_clothing_icon()
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_wear_suit()
+	get_mob_overlay(TRUE)
+	get_inv_overlay(TRUE)
+
+/obj/item/clothing/accessory/poncho/dominia/red/verb/roll_up_mantle()
+	set name = "Roll Up Cape Mantle"
+	set desc = "Roll up your cape's mantle. Doesn't work with some capes."
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return FALSE
+
+	var/list/icon_states = icon_states(icon)
+	var/initial_state = initial(icon_state)
+	var/new_state = "[initial_state]_h"
+	if(!(new_state in icon_states))
+		to_chat(usr, SPAN_WARNING("Your cape doesn't allow this!"))
+		return
+
+	rolled = !rolled
+	to_chat(usr, SPAN_NOTICE("You roll your cape's mantle [rolled ? "up" : "down"]."))
+	icon_state = rolled ? new_state : initial_state
+	item_state = rolled ? new_state : initial_state
+	overlay_state = rolled ? new_state : initial_state
+	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/under/dominia/initiate
 	name = "tribunal initiate's robe"
@@ -382,3 +413,85 @@
 	name = "fisanduhian ushanka"
 	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way. This one has a large Fisanduhian flag on the front."
 	icon_state = "fishushanka"
+	item_state = "fishushanka"
+
+/obj/item/clothing/under/dominia/dress/fancy
+	name = "Morozi dress"
+	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves."
+	desc_fluff = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
+				the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
+				due to the often frigid temperatures of Moroz."
+	icon = 'icons/clothing/under/uniforms/dominia_dresses.dmi'
+	icon_state = "morozi_dress"
+	item_state = "morozi_dress"
+	contained_sprite = TRUE
+	var/house
+
+/obj/item/clothing/under/dominia/dress/fancy/Initialize()
+	. = ..()
+	if(house)
+		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves, and a colored sash marking its wearer as \
+				an affiliate of House [capitalize(house)]."
+		icon_state = "[house]"
+		item_state = "[house]"
+		update_clothing_icon()
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless
+	name = "sleeveless Morozi dress"
+	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has no sleeves."
+	desc_fluff = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
+				the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
+				due to the often frigid temperatures of Moroz."
+	icon_state = "morozi_dress_rs"
+	item_state = "morozi_dress_rs"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/Initialize()
+	. = ..()
+	if(house)
+		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has no sleeves, and a colored sash marking its wearer as \
+				an affiliate of House [house]."
+		icon_state += "_rs"
+		item_state += "_rs"
+		update_clothing_icon()
+
+/obj/item/clothing/under/dominia/dress/fancy/zhao
+	name = "house zhao Morozi dress"
+	house = "zhao"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/zhao
+	name = "sleeveless house zhao Morozi dress"
+	house = "zhao"
+
+/obj/item/clothing/under/dominia/dress/fancy/volvalaad
+	name = "house volvalaad Morozi dress"
+	house = "volvalaad"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/volvalaad
+	name = "sleeveless house volvalaad Morozi dress"
+	house = "volvalaad"
+
+/obj/item/clothing/under/dominia/dress/fancy/strelitz
+	name = "house strelitz Morozi dress"
+	house = "strelitz"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/strelitz
+	name = "sleeveless house strelitz Morozi dress"
+	house = "strelitz"
+
+/obj/item/clothing/under/dominia/dress/fancy/caladius
+	name = "house caladius Morozi dress"
+	house = "caladius"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/caladius
+	name = "sleeveless house caladius Morozi dress"
+	house = "caladius"
+
+/obj/item/clothing/under/dominia/dress/fancy/kazhkz
+	name = "house kazhkz Morozi dress"
+	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/kazhkz
+	name = "sleeveless house kazhkz Morozi dress"
+	house = "kazhkz"
+
+

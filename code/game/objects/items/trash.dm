@@ -205,10 +205,6 @@
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
-/obj/item/trash/diona_bites
-	name = "dionae bites"
-	icon_state = "dionaebitesempty"
-
 /obj/item/trash/ricetub
 	name = "empty rice tub"
 	icon_state = "ricetub"

@@ -393,6 +393,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BLSP_FREQ)
+					SSfeedback.msg_bluespace += blackbox_msg
 				if(BURG_FREQ)
 					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
@@ -551,9 +553,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
 
-		// Create a radio headset for the sole purpose of using its icon
-		var/static/obj/item/device/radio/headset/radio = new
-
 		var/part_b = "</span><b> \[[freq_text]\][part_b_extra]</b> <span class='message'>" // Tweaked for security headsets -- TLE
 		var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message'>" // Tweaked for security headsets -- TLE
 		var/part_c = "</span></span>"
@@ -583,6 +582,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BLSP_FREQ)
+					SSfeedback.msg_bluespace += blackbox_msg
 				if(BURG_FREQ)
 					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)

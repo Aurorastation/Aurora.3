@@ -15,7 +15,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = FALSE
 	var/time_to_escape = 60
-	var/ignore_armor = FALSE
+	var/activated_armor_penetration = 0
 
 /obj/item/trap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
@@ -46,33 +46,33 @@
 		return TRUE
 	return FALSE
 
-/obj/item/trap/user_unbuckle_mob(mob/user)
-	if(buckled_mob && can_use(user))
+/obj/item/trap/user_unbuckle(mob/user)
+	if(buckled && can_use(user))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
-			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]..."),
+			SPAN_NOTICE("\The [user] begins freeing \the [buckled] from \the [src]..."),
+			SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]..."),
 			SPAN_NOTICE("You hear metal creaking.")
 			)
 		if(do_after(user, time_to_escape))
 			user.visible_message(
-				SPAN_NOTICE("\The [user] frees \the [buckled_mob] from \the [src]."),
-				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
+				SPAN_NOTICE("\The [user] frees \the [buckled] from \the [src]."),
+				SPAN_NOTICE("You free \the [buckled] from \the [src].")
 				)
-			unbuckle_mob()
+			unbuckle()
 			anchored = FALSE
 
 /obj/item/trap/attack_hand(mob/user)
-	if(buckled_mob && can_use(user))
+	if(buckled && can_use(user))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
-			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]...")
+			SPAN_NOTICE("\The [user] begins freeing \the [buckled] from \the [src]..."),
+			SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]...")
 			)
 		if(do_after(user, time_to_escape))
 			user.visible_message(
-				SPAN_NOTICE("\The user frees \the [buckled_mob] from \the [src]."),
-				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
+				SPAN_NOTICE("\The user frees \the [buckled] from \the [src]."),
+				SPAN_NOTICE("You free \the [buckled] from \the [src].")
 				)
-			unbuckle_mob()
+			unbuckle()
 			anchored = FALSE
 	else if(deployed && can_use(user))
 		user.visible_message(
@@ -98,18 +98,9 @@
 	else
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
-	if(!ignore_armor)
-		//armor
-		var/blocked = L.run_armor_check(target_zone, "melee")
-		if(blocked >= 100)
-			return
-		var/success = L.apply_damage(30, BRUTE, target_zone, blocked, src)
-		if(!success)
-			return FALSE
-	else
-		var/success = L.apply_damage(30, BRUTE, target_zone, 0, src)
-		if(!success)
-			return FALSE
+	var/success = L.apply_damage(30, BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	if(!success)
+		return FALSE
 
 	var/did_trap = TRUE
 	if(ishuman(L))
@@ -120,8 +111,8 @@
 
 	if(did_trap)
 		//trap the victim in place
-		can_buckle = TRUE
-		buckle_mob(L)
+		can_buckle = list(/mob/living)
+		buckle(L)
 		can_buckle = initial(can_buckle)
 
 	deployed = FALSE
@@ -134,6 +125,10 @@
 		bear.instant_aggro()
 
 /obj/item/trap/Crossed(atom/movable/AM)
+	if(ishuman(AM))
+		var/mob/living/carbon/human/H = AM
+		if(H.shoes?.item_flags & LIGHTSTEP)
+			return
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
 		L.visible_message(
@@ -142,13 +137,11 @@
 			SPAN_WARNING("<b>You hear a loud metallic snap!</b>")
 			)
 		attack_mob(L)
-		if(!buckled_mob)
+		if(!buckled)
 			anchored = FALSE
 		deployed = FALSE
 		update_icon()
-		animate_shake()
-	..()
-
+		shake_animation()
 
 /obj/item/trap/update_icon()
 	icon_state = "[icon_base][deployed]"
@@ -156,7 +149,7 @@
 /obj/item/trap/sharpened
 	name = "sharpened mechanical trap"
 	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
-	ignore_armor = TRUE
+	activated_armor_penetration = 100
 
 /obj/item/trap/animal
 	name = "small trap"
@@ -174,7 +167,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = FALSE
 	time_to_escape = 3 // Minutes
-	can_buckle = TRUE
+	can_buckle = list(/mob/living)
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
@@ -233,10 +226,10 @@
 		if(AM.loc != loc)
 			AM.forceMove(loc)
 		captured = WEAKREF(L)
-		buckle_mob(L)
+		buckle(L)
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = FALSE
-		src.animate_shake()
+		src.shake_animation()
 		update_icon()
 
 /obj/item/trap/animal/proc/req_breakout()
@@ -252,13 +245,13 @@
 
 	if ((world.time - last_shake) > 5 SECONDS)
 		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
-		animate_shake()
+		shake_animation()
 		last_shake = world.time
 
 	return TRUE
 
 // If we are stuck, and need to get out
-/obj/item/trap/animal/user_unbuckle_mob(var/mob/living/escapee)
+/obj/item/trap/animal/user_unbuckle(var/mob/living/escapee)
 	if (req_breakout() < 1)
 		return
 
@@ -369,10 +362,10 @@
 		var/mob/living/ll = L
 		msg = "<span class='warning'>[ll] runs out of \the [src].</span>"
 
-	unbuckle_mob()
+	unbuckle()
 	captured = null
 	visible_message(msg)
-	animate_shake()
+	shake_animation()
 	update_icon()
 	release_time = world.time
 
@@ -438,7 +431,7 @@
 		var/datum/M = captured.resolve()
 		if(isliving(M))
 			var/mob/living/L = M
-			if(L && buckled_mob.buckled == src)
+			if(L && buckled.buckled_to == src)
 				L.forceMove(loc)
 			else if(L)
 				captured = null
@@ -571,7 +564,7 @@
 						/mob/living/simple_animal/pig)
 
 /obj/item/trap/animal/large/attack_hand(mob/user)
-	if(user == buckled_mob)
+	if(user == buckled)
 		return
 	else if(!anchored)
 		to_chat(user, SPAN_WARNING("You need to anchor \the [src] first!"))
@@ -661,4 +654,3 @@
 		return
 	else
 		..()
-

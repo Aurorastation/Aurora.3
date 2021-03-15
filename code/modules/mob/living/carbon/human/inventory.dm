@@ -82,6 +82,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 			return 1
 		if(slot_in_belt)
 			return 1
+		if(slot_wrists)
+			return has_organ(BP_L_ARM) || has_organ(BP_R_ARM)
 
 /mob/living/carbon/human/u_equip(obj/W as obj)
 	if(!W)	return 0
@@ -111,6 +113,9 @@ This saves us from having to call add_fingerprint() any time something is put in
 	else if (W == gloves)
 		gloves = null
 		update_inv_gloves()
+	else if (W == wrists)
+		wrists = null
+		update_inv_wrists()
 	else if (W == glasses)
 		glasses = null
 		update_inv_glasses()
@@ -167,8 +172,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		update_inv_back()
 	else if (W == handcuffed)
 		handcuffed = null
-		if(buckled && buckled.buckle_require_restraints)
-			buckled.unbuckle_mob()
+		if(buckled_to && buckled_to.buckle_require_restraints)
+			buckled_to.unbuckle()
 		update_inv_handcuffed()
 	else if (W == legcuffed)
 		legcuffed = null
@@ -219,10 +224,12 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_l_hand)
 			src.l_hand = W
 			W.equipped(src, slot)
+			W.screen_loc = ui_lhand
 			update_inv_l_hand(redraw_mob)
 		if(slot_r_hand)
 			src.r_hand = W
 			W.equipped(src, slot)
+			W.screen_loc = ui_rhand
 			update_inv_r_hand(redraw_mob)
 		if(slot_belt)
 			src.belt = W
@@ -258,6 +265,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 			src.gloves = W
 			W.equipped(src, slot)
 			update_inv_gloves(redraw_mob)
+		if(slot_wrists)
+			src.wrists = W
+			W.equipped(src, slot)
+			update_inv_wrists(redraw_mob)
 		if(slot_head)
 			src.head = W
 			if(head.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR|HIDEMASK))
@@ -306,7 +317,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 			var/obj/item/clothing/under/uniform = src.w_uniform
 			uniform.attackby(W,src)
 		else
-			to_chat(src, "<span class='danger'>You are trying to eqip this item to an unsupported inventory slot. If possible, please write a ticket with steps to reproduce. Slot was: [slot]</span>")
+			to_chat(src, "<span class='danger'>You are trying to equip this item to an unsupported inventory slot. If possible, please write a ticket with steps to reproduce. Slot was: [slot]</span>")
 			return
 
 	if((W == src.l_hand) && (slot != slot_l_hand))
@@ -317,6 +328,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 		update_inv_r_hand()
 
 	W.layer = SCREEN_LAYER+0.01
+	for(var/s in species.hud.gear)
+		var/list/gear = species.hud.gear[s]
+		if(gear["slot"] == slot)
+			W.screen_loc = gear["loc"]
+			break
 
 	if(W.action_button_name)
 		update_action_buttons()
@@ -335,7 +351,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_glasses)
 			covering = src.head
 			check_flags = EYES
-		if(slot_gloves, slot_w_uniform)
+		if(slot_gloves, slot_wrists, slot_w_uniform)
 			covering = src.wear_suit
 		if(slot_l_ear, slot_r_ear)
 			covering = src.head
@@ -367,6 +383,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_s_store)    return s_store
 		if(slot_l_ear)      return l_ear
 		if(slot_r_ear)      return r_ear
+		if(slot_wrists)		return wrists
 	return ..()
 
 /mob/living/carbon/human/get_equipped_items(var/include_carried = 0)
@@ -384,6 +401,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if(wear_mask) items += wear_mask
 	if(wear_suit) items += wear_suit
 	if(w_uniform) items += w_uniform
+	if(wrists) items += wrists
 
 	if(include_carried)
 		if(l_hand)     items += l_hand
@@ -399,45 +417,21 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 //Puts the item into our active hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_active_hand(var/obj/item/W)
-	return (hand ? put_in_l_hand(W) : put_in_r_hand(W))
+	return (hand ? equip_to_slot_if_possible(W, slot_l_hand) : equip_to_slot_if_possible(W, slot_r_hand))
 
 //Puts the item into our inactive hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W)
-	return (hand ? put_in_r_hand(W) : put_in_l_hand(W))
+	return (hand ? equip_to_slot_if_possible(W, slot_r_hand) : equip_to_slot_if_possible(W, slot_l_hand))
 
 /mob/living/carbon/human/put_in_hands(var/obj/item/W)
 	if(!W)
-		return 0
+		return FALSE
 	if(put_in_active_hand(W))
-		update_inv_l_hand()
-		update_inv_r_hand()
-		return 1
+		return TRUE
 	else if(put_in_inactive_hand(W))
-		update_inv_l_hand()
-		update_inv_r_hand()
-		return 1
+		return TRUE
 	else
 		return ..()
-
-/mob/living/carbon/human/put_in_l_hand(var/obj/item/W)
-	if(!..() || l_hand)
-		return 0
-	W.forceMove(src)
-	l_hand = W
-	W.equipped(src,slot_l_hand)
-	W.add_fingerprint(src)
-	update_inv_l_hand()
-	return 1
-
-/mob/living/carbon/human/put_in_r_hand(var/obj/item/W)
-	if(!..() || r_hand)
-		return 0
-	W.forceMove(src)
-	r_hand = W
-	W.equipped(src,slot_r_hand)
-	W.add_fingerprint(src)
-	update_inv_r_hand()
-	return 1
 
 /mob/living/carbon/human/proc/update_noise_level()
 	is_noisy = FALSE

@@ -84,7 +84,8 @@ var/list/slot_equipment_priority = list( \
 		slot_s_store,\
 		slot_tie,\
 		slot_l_store,\
-		slot_r_store\
+		slot_r_store,\
+		slot_wrists\
 	)
 
 //Checks if a given slot can be accessed at this time, either to equip or unequip I
@@ -145,18 +146,6 @@ var/list/slot_equipment_priority = list( \
 			return l_hand
 		return
 
-//Puts the item into your l_hand if possible and calls all necessary triggers/updates. returns 1 on success.
-/mob/proc/put_in_l_hand(var/obj/item/W)
-	if(lying || !istype(W))
-		return 0
-	return 1
-
-//Puts the item into your r_hand if possible and calls all necessary triggers/updates. returns 1 on success.
-/mob/proc/put_in_r_hand(var/obj/item/W)
-	if(lying || !istype(W))
-		return 0
-	return 1
-
 //Puts the item into our active hand if possible. returns 1 on success.
 /mob/proc/put_in_active_hand(var/obj/item/W)
 	return 0 // Moved to human procs because only they need to use hands.
@@ -194,7 +183,6 @@ var/list/slot_equipment_priority = list( \
 		remove_from_mob(W)
 		if(!(W && W.loc))
 			return TRUE
-		W.do_putdown_animation(target, src)
 		W.forceMove(target)
 		update_icon()
 		return TRUE
@@ -273,7 +261,7 @@ var/list/slot_equipment_priority = list( \
 
 /mob/proc/get_inventory_slot(obj/item/I)
 	var/slot = 0
-	for(var/s in slot_back to slot_tie) //kind of worries me
+	for(var/s in slot_first to slot_last) //kind of worries me
 		if(get_equipped_item(s) == I)
 			slot = s
 			break
@@ -398,11 +386,6 @@ var/list/slot_equipment_priority = list( \
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
-/*
-		if(istype(src.loc, /turf/space) || (src.flags & NOGRAV)) //they're in space, move em one space in the opposite direction
-			src.inertia_dir = get_dir(target, src)
-			step(src, inertia_dir)
-*/
 		if(istype(item,/obj/item))
 			var/obj/item/W = item
 			W.randpixel_xy()

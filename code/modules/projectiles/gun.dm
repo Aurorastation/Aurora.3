@@ -148,8 +148,6 @@
 	if(istype(loc, /obj/item/rig_module))
 		has_safety = FALSE
 
-	update_wield_verb()
-
 	queue_icon_update()
 
 /obj/item/gun/update_icon()
@@ -178,6 +176,17 @@
 			item_state = replacetext(item_state,"-wielded","")
 
 	update_held_icon()
+
+/obj/item/gun/proc/unique_action(var/mob/user)
+	return
+
+/obj/item/gun/proc/toggle_firing_mode(var/mob/user, var/list/message_mobs)
+	var/datum/firemode/new_mode = switch_firemodes(user)
+	if(new_mode)
+		playsound(user, safetyoff_sound, 25)
+		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -232,29 +241,6 @@
 			return FALSE
 		else
 			return TRUE
-
-/obj/item/gun/verb/wield_gun()
-	set name = "Wield Firearm"
-	set category = "Object"
-	set src in usr
-
-	if(is_wieldable)
-		toggle_wield(usr)
-		update_held_icon()
-	else
-		to_chat(usr, SPAN_WARNING("You can't wield \the [src]!"))
-
-/obj/item/gun/ui_action_click()
-	if(src in usr)
-		wield_gun()
-
-/obj/item/gun/proc/update_wield_verb()
-	if(is_wieldable) //If the gun is marked as wieldable, make the action button appear and add the verb.
-		action_button_name = "Wield Firearm"
-		verbs += /obj/item/gun/verb/wield_gun
-	else
-		action_button_name = ""
-		verbs -= /obj/item/gun/verb/wield_gun
 
 /obj/item/gun/afterattack(atom/A, mob/living/user, adjacent, params)
 	if(adjacent) return //A is adjacent, is the user, or is on the user's person
@@ -656,12 +642,12 @@
 
 	return new_mode
 
-/obj/item/gun/attack_self(mob/user, var/list/message_mobs)
-	var/datum/firemode/new_mode = switch_firemodes(user)
-	if(new_mode)
-		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
-	for(var/M in message_mobs)
-		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
+/obj/item/gun/attack_self(mob/user)
+	if(is_wieldable)
+		toggle_wield(usr)
+		update_held_icon()
+	else
+		to_chat(usr, SPAN_WARNING("You can't wield \the [src]!"))
 
 // Safety Procs
 
@@ -959,3 +945,9 @@
 		else
 			maptext_x = 22
 		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"
+
+/obj/item/gun/get_print_info(var/no_clear = TRUE)
+	if(no_clear)
+		. = ""
+	. += "Burst: [burst]<br>"
+	. += "Reliability: [reliability]<br>"

@@ -139,7 +139,6 @@
 			slot_flags = SLOT_BACK
 			item_state = "large_3"
 			is_wieldable = TRUE
-	update_wield_verb()
 
 /obj/item/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
@@ -325,3 +324,19 @@
 		to_chat(M, "You describe the gun as [input]. Say hello to your new friend.")
 		described = 1
 		return 1
+
+/obj/item/gun/energy/laser/prototype/get_print_info()
+	. = ..(FALSE)
+
+	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
+		var/obj/item/laser_components/l_component = i
+
+		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
+		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
+		. += "Reliability: [initial(l_component.reliability)]<br>"
+		. += "Damage Modifier: [initial(l_component.damage)]<br>"
+		. += "Fire Delay Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Shots Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Burst Modifier: [initial(l_component.burst)]<br>"
+		. += "Accuracy Modifier: [initial(l_component.accuracy)]<br>"
+		. += "Repair Tool: [l_repair_name]<br>"
