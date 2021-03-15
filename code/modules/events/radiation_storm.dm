@@ -37,7 +37,9 @@
 
 
 /datum/event/radiation_storm/end(var/faked)
-	revoke_maint_all_access(faked)
+	if(faked)
+		return
+	revoke_maint_all_access()
 
 /datum/event/radiation_storm/syndicate/radiate()
 	return
