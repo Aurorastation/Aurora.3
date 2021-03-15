@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Diona now spawn with a survival flashlight, which is good enough to keep them alive for four minutes. It can be recharged at a recharger."
-  - tweak: "Diona no longer benefit speedwise from radiation or light, instead they just get a flat speed buff."
-  - rscdel: "Diona can no longer sprint."
-  - tweak: "Swallowing and digesting mobs now does less damage to them, and digestion completes are five minutes, rather than thirty seconds."
