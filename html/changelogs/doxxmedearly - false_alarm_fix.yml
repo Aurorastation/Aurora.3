@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the false alarm event causing it to seem like some events (including itself) were ending as soon as they began."
