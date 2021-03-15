@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes hovering over slots with species restricted clothes spamming the chat with Your species cannot wear this messages."
