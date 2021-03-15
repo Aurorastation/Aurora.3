@@ -162,4 +162,4 @@
 
 //Check to use when seeing if the person has the minimum dose of the reagent. Useful for stopping minimum transfer rate IV drips from applying chem effects
 /decl/reagent/proc/check_min_dose(var/mob/living/carbon/M, var/min_dose = 1)
-	return (M.chem_doses[type] >= min_dose)
+	return (REAGENT_VOLUME(M, type) >= min_dose)
