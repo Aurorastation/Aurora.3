@@ -27,6 +27,8 @@
 #define SPECIES_IPC_UNBRANDED_REMOTE	"Remote Unbranded Frame"
 #define SPECIES_IPC_TERMINATOR		"Military Frame"
 
+#define SPECIES_GETMOREAN           "Getmorean"
+
 #define SPECIES_SLIMEPERSON			"Slime"
 
 #define SPECIES_SKELETON			"Skeleton"
@@ -73,6 +75,7 @@
 #define BODYTYPE_UNATHI				"Unathi"
 #define BODYTYPE_DIONA				"Diona"
 #define BODYTYPE_TAJARA				"Tajara"
+#define BODYTYPE_GETMOREAN          "Getmorean"
 
 #define BODYTYPE_VAURCA				"Vaurca"
 #define BODYTYPE_VAURCA_BREEDER		"Vaurca Breeder"

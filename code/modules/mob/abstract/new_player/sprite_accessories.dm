@@ -4039,3 +4039,26 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Xion - Lights Color"
 			icon_state = "xion_lights"
 			body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+
+//getmorean
+	getmorean
+		icon = 'icons/mob/human_races/markings_getmorean.dmi'
+		is_painted = 1
+		species_allowed = list(/datum/species/getmorean)
+		body_parts = list("chest")
+
+		get_can_color
+			name = "Can Colouring"
+			icon_state = "get_color"
+
+		get_logo_backing
+			name = "Logo Backing"
+			icon_state = "get_backing"
+
+		get_logo_text
+			name = "Logo Text"
+			icon_state = "get_logo"
+
+		get_lines
+			name = "Lines"
+			icon_state = "get_lines"
