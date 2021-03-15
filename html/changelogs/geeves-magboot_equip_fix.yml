@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Magboots no longer deploy onto your feet when you simply pick them up."
