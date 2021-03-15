@@ -34,6 +34,7 @@
 	QDEL_NULL(holomap_datum)
 	return ..()
 
+/*
 /obj/machinery/station_map/Initialize()
 	. = ..()
 	holomap_datum = new()
@@ -59,6 +60,7 @@
 	floor_markings.dir = src.dir
 	floor_markings.layer = ON_TURF_LAYER
 	update_icon()
+*/
 
 /obj/machinery/station_map/attack_hand(var/mob/user)
 	if(watching_mob && (watching_mob != user))
