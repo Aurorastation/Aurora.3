@@ -701,12 +701,8 @@
 		to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [name] with both hands."))
 
 		var/obj/item/offhand/O = user.get_inactive_hand()
-		if(O && istype(O))
+		if(istype(O))
 			O.unwield()
-		else
-			O = user.get_active_hand()
-		return
-
 	else
 		if(user.get_inactive_hand())
 			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
@@ -751,11 +747,10 @@
 
 /obj/item/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
-	if(is_wieldable)
-		if(wielded)
-			if(!disable_warning) // unfortunately not sure there's a way to get this to only fire once when it's looped
-				to_chat(M, SPAN_WARNING("Lower \the [initial(name)] first!"))
-			return FALSE
+	if(wielded)
+		if(!disable_warning) // unfortunately not sure there's a way to get this to only fire once when it's looped
+			to_chat(M, SPAN_WARNING("Lower \the [initial(name)] first!"))
+		return FALSE
 
 	return ..()
 
@@ -796,6 +791,8 @@
 	pickup_sound = null
 	equip_sound = null
 
+	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand) // putting it here instead of in the proc so we don't have to init a shitton of lists
+
 /obj/item/offhand/proc/unwield()
 	if(ismob(loc))
 		var/mob/the_mob = loc
@@ -814,7 +811,7 @@
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()
 		if(istype(O))
-			to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [name] with both hands."))
+			to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [O] with both hands."))
 			O.unwield()
 			unwield()
 
@@ -822,6 +819,8 @@
 		qdel(src)
 
 /obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+	if(slot in equippable_slots)
+		return TRUE
 	return FALSE
 
 /obj/item/gun/Destroy()
