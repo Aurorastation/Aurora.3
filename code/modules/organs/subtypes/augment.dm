@@ -359,6 +359,7 @@
 /obj/item/organ/internal/augment/memory_inhibitor
 	name = "memory inhibitor"
 	desc = "A Zeng Hu implant that allows one to have control over their memories, allowing you to set a timer and remove any memories developed within it. This is most popular in Zeng Hu labs within Eridani."
+	icon_state = "memory_inhibitor"
 	organ_tag = BP_AUG_MEMORY
 	parent_organ = BP_HEAD
 	activable = TRUE
@@ -393,6 +394,7 @@
 /obj/item/organ/internal/augment/emotional_manipulator
 	name = "emotional manipulator"
 	desc = "A Zeng Hu brain implant to manipulate the brain’s chemicals to induce a calming or happy feeling. This is one of the most popular implants across the company."
+	icon_state = "emotional_manipulator"
 	organ_tag = BP_AUG_EMOTION
 	parent_organ = BP_HEAD
 	action_button_name = "Activate Emotional Manipulator"
