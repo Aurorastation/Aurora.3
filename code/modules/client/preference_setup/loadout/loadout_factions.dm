@@ -87,12 +87,6 @@
 	slot = slot_head
 	faction = "Zeng-Hu Pharmaceuticals"
 
-/datum/gear/faction/zenghu_beret_alt
-	display_name = "white zeng-hu beret"
-	path = /obj/item/clothing/head/beret/zeng/alt
-	slot = slot_head
-	faction = "Zeng-Hu Pharmaceuticals"
-
 /datum/gear/faction/zenghu_labcoat
 	display_name = "zeng-hu labcoat selection"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
