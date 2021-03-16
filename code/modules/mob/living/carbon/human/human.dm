@@ -200,7 +200,7 @@
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
-		
+
 		var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
 		if(IC && IC.cell)
 			stat("Battery charge:", "[IC.get_charge()]/[IC.cell.maxcharge]")
@@ -2055,3 +2055,10 @@
 	set name = "click_suit_storage"
 	if(s_store)
 		s_store.Click()
+
+/mob/living/carbon/human/proc/disable_organ_night_vision()
+	var/obj/item/organ/E = internal_organs_by_name[BP_EYES]
+	if (istype(E, /obj/item/organ/internal/eyes/night))
+		var/obj/item/organ/internal/eyes/night/N = E
+		if(N.night_vision )
+			N.disable_night_vision()
