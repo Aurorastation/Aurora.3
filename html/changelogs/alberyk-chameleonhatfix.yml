@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the chameleon hat behaving like a softcap."
+  - bugfix: "The wizard chameleon now has a proper icon."
