@@ -42,6 +42,12 @@
 	if(!vision_mechanical_color && (status & ORGAN_ROBOT))
 		return
 
+	if(owner.client && ((owner.client.view != world.view) || (owner.client.pixel_x != 0) || (owner.client.pixel_y != 0))) //using binoculars
+		return
+
+	if(owner.machine && owner.machine.check_eye(owner) >= 0 && owner.client.eye != owner) //using cameras
+		return
+
 	if(!night_vision)
 		enable_night_vision()
 	else
