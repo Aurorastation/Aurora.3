@@ -625,11 +625,11 @@
 /obj/item/rig/check_equipped(mob/living/carbon/human/M, slot, assisted_equip = FALSE)
 	if(istype(M) && slot == slot_back)
 		if(!assisted_equip && seal_delay > 0)
-			M.visible_message("<span class='notice'>[M] starts putting on \the [src]...</span>", "<span class='notice'>You start putting on \the [src]...</span>")
+			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), SPAN_NOTICE("You start putting on \the [src]..."))
 			if(!do_after(M, seal_delay))
 				return FALSE
 
-		M.visible_message("<span class='notice'><b>[M] struggles into \the [src].</b></span>", "<span class='notice'><b>You struggle into \the [src].</b></span>")
+		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
 		wearer = M
 		wearer.wearing_rig = src
 		update_icon()
