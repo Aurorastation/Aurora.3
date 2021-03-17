@@ -112,7 +112,7 @@ steps:
       - grep "0 warnings" build_log.txt
       - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
       - grep "All Unit Tests Passed" log.txt
-      - (! grep -P 'runtime error:( ?!\n\[[^\[\]]+\]BYOND Error)' log.txt) # (!grep "runtime_error" log.txt) # replace with this after CI is fixed
+      - (! grep -P 'runtime error: (?!\n\[[^\[\]]+\]BYOND Error)' log.txt) # (!grep "runtime_error" log.txt) # replace with this after CI is fixed
       - echo "Unit Tests Completed"
 ---
 kind: pipeline
@@ -142,7 +142,7 @@ steps:
       - grep "0 warnings" build_log.txt
       - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
       - grep "All Unit Tests Passed" log.txt
-      - (! grep -P 'runtime error:( ?!\n\[[^\[\]]+\]BYOND Error)' log.txt) # (!grep "runtime_error" log.txt) # replace with this after CI is fixed
+      - (! grep -P 'runtime error: (?!\n\[[^\[\]]+\]BYOND Error)' log.txt) # (!grep "runtime_error" log.txt) # replace with this after CI is fixed
       - echo "Unit Tests Completed"
 ---
 kind: pipeline
@@ -172,7 +172,7 @@ steps:
       - grep "0 warnings" build_log.txt
       - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
       - grep "All Unit Tests Passed" log.txt
-      - (! grep -P 'runtime error:( ?!\n\[[^\[\]]+\]BYOND Error)' log.txt) # (!grep "runtime_error" log.txt) # replace with this after CI is fixed
+      - (! grep -P 'runtime error: (?!\n\[[^\[\]]+\]BYOND Error)' log.txt) # (!grep "runtime_error" log.txt) # replace with this after CI is fixed
       - echo "Unit Tests Completed"
 ---
 kind: signature
