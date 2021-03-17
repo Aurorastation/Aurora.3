@@ -208,18 +208,23 @@
 /obj/item/trash/ricetub
 	name = "empty rice tub"
 	icon_state = "ricetub"
+	var/has_chopsticks = FALSE
 
 /obj/item/trash/ricetub/attackby(obj/item/W, mob/living/user)
 	if(istype(W, /obj/item/material/kitchen/utensil/fork/chopsticks))
-		var/obj/item/trash/ricetub_s/T = new()
 		to_chat(user, SPAN_NOTICE("You reattach the [W] to \the [src]"))
-		src.Destroy()
-		W.Destroy()
-		user.put_in_inactive_hand(T) //Because the chopsticks are in the active hand
+		qdel(W)
+		has_chopsticks = TRUE
+		update_icon()
 
-/obj/item/trash/ricetub_s
-	name = "empty rice tub"
-	icon_state = "ricetub_s"
+/obj/item/trash/ricetub/update_icon()
+	if(has_chopsticks)
+		icon_state = "ricetub_s"
+	else
+		icon_state = "ricetub"
+
+/obj/item/trash/ricetub/sticks
+	has_chopsticks = TRUE
 
 /obj/item/trash/seaweed
 	name = "empty moss pack"
