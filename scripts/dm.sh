@@ -56,8 +56,6 @@ fi
 
 rm $dmepath.mdme
 
-ls -l ..
-ls -l .
 chmod -R a+rwX .
 
 exit $retval
