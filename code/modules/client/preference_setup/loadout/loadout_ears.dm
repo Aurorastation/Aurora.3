@@ -16,6 +16,11 @@
 	bandanna["black bandanna"] = /obj/item/clothing/ears/bandanna/black
 	gear_tweaks += new/datum/gear_tweak/path(bandanna)
 
+/datum/gear/ears/bandanna_colorable
+	display_name = "neck bandanna (colorable)"
+	path = /obj/item/clothing/ears/bandanna_colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/ears/headphones
 	display_name = "headphones"
 	path = /obj/item/clothing/ears/earmuffs/headphones
@@ -51,3 +56,4 @@
 	hearingaids["hearing aid, white"] = /obj/item/device/hearing_aid/white
 	hearingaids["hearing aid, skrellian"] = /obj/item/device/hearing_aid/skrell
 	gear_tweaks += new/datum/gear_tweak/path(hearingaids)
+

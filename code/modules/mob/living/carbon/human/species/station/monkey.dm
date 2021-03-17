@@ -14,7 +14,6 @@
 	secondary_langs = list(LANGUAGE_CHIMPANZEE)
 	greater_form = SPECIES_HUMAN
 	mob_size = MOB_SMALL
-	has_fine_manipulation = 0
 	show_ssd = null
 
 	bodytype = BODYTYPE_MONKEY
