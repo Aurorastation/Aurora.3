@@ -696,6 +696,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1
 
+	if(ishuman(M)) //this code is here to stop species night vision from being used on the cameras, since it does not make sense since cameras are just images. this is probably not the best way to do this, but it works
+		var/mob/living/carbon/human/H = M
+		H.disable_organ_night_vision()
+
 	if(!zoom && !cannotzoom)
 		if(M.hud_used.hud_shown)
 			M.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
