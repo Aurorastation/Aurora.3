@@ -171,13 +171,6 @@
 
 //loose leaf
 
-/obj/item/storage/chewables/rollable/bad
-	name = "box of S'th Kasavakh tobacco leaves"
-	desc = "A box of coarse gritty tobacco which still manages to grow against the desertification of Moghes."
-	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/bad = 8)
-	icon_state = "roll_bad"
-	item_state = "Fpacket"
-
 /obj/item/storage/chewables/rollable
 	name = "box of Agyre Lake tobacco leaves"
 	desc = "Advertised to be grown using fresh water pumped directly from the titular Martian lake."
@@ -192,6 +185,13 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
+
+/obj/item/storage/chewables/rollable/unathi
+	name = "box of S'th Kasavakh tobacco leaves"
+	desc = "A box of coarse gritty tobacco which still manages to grow against the desertification of Moghes."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco = 8)
+	icon_state = "roll_unathi"
+	item_state = "Fpacket"
 
 /obj/item/storage/chewables/rollable/fine
 	name = "box of Excelsior Epsilon tobacco leaves"

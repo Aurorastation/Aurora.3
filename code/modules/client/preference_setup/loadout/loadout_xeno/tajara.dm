@@ -1,3 +1,21 @@
+/datum/gear/shoes/tajara/boots
+	display_name = "tajaran boots selection"
+	description = "A selection of boots fitted for Tajara."
+	path = /obj/item/clothing/shoes/tajara
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/shoes/tajara/boots/New()
+	..()
+	var/list/boots = list()
+	boots["black boots, short"] = /obj/item/clothing/shoes/tajara/jackboots
+	boots["black boots, knee"] = /obj/item/clothing/shoes/tajara/jackboots/knee
+	boots["black boots, thigh"] = /obj/item/clothing/shoes/tajara/jackboots/thigh
+	boots["brown workboots"] = /obj/item/clothing/shoes/tajara/workboots
+	boots["grey workboots"] = /obj/item/clothing/shoes/tajara/workboots/grey
+	boots["dark workboots"] = /obj/item/clothing/shoes/tajara/workboots/dark
+	gear_tweaks += new/datum/gear_tweak/path(boots)
+
 /datum/gear/gloves/tajara
 	display_name = "tajara gloves selection"
 	description = "A selection of tajaran gloves."
@@ -211,9 +229,9 @@
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/shoes/tajara
+/datum/gear/shoes/tajara/footwraps
 	display_name = "native tajaran foot-wear"
-	path = /obj/item/clothing/shoes/tajara
+	path = /obj/item/clothing/shoes/tajara/footwraps
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 

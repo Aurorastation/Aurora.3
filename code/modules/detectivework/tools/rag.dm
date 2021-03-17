@@ -144,7 +144,7 @@
 					for(var/_R in reagents.reagent_volumes)
 						var/decl/reagent/R = decls_repository.get_decl(_R)
 						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
-						if(istype(R, /decl/reagent/alcohol))
+						if(ispath(_R, /decl/reagent/alcohol))
 							var/decl/reagent/alcohol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.

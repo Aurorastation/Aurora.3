@@ -480,6 +480,8 @@
 		var/datum/gas_mixture/breath = H.get_breath_from_environment()
 		var/fail = L.handle_breath(breath, 1)
 		if(!fail)
+			if(!L.is_bruised())
+				losebreath = 0
 			to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
 
 	cpr(H) //Again.	
@@ -502,7 +504,7 @@
 	var/dam_zone = user.zone_sel?.selecting
 	if(!dam_zone)
 		dam_zone = pick(organs)
-	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
+	var/obj/item/organ/external/affecting = get_organ(dam_zone)
 	apply_damage(damage, BRUTE, affecting)
 	updatehealth()
 	return TRUE
