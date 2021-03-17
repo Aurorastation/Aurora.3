@@ -100,6 +100,7 @@
 	emagged = 0 //Ignores if somebody doesn't have card access to that machine.
 	var/seconds_electrified = 0 //Shock customers like an airlock.
 	var/shoot_inventory = 0 //Fire items at customers! We're broken!
+	var/shoot_inventory_chance = 2
 
 	var/scan_id = 1
 	var/obj/item/coin/coin
@@ -758,7 +759,7 @@
 		src.speak(slogan)
 		src.last_slogan = world.time
 
-	if(src.shoot_inventory && prob(2))
+	if(src.shoot_inventory && prob(shoot_inventory_chance))
 		src.throw_item()
 
 	return
@@ -811,12 +812,12 @@
 
 //Somebody cut an important wire and now we're following a new definition of "pitch."
 /obj/machinery/vending/proc/throw_item()
-	var/obj/throw_item = null
+	var/obj/item/throw_item = null
 	var/mob/living/target = locate() in view(7,src)
 	if(!target)
 		return 0
 
-	for(var/datum/data/vending_product/R in src.product_records)
+	for(var/datum/data/vending_product/R in shuffle(product_records))
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
 		var/dump_path = R.product_path
@@ -827,9 +828,9 @@
 		SSvueui.check_uis_for_change(src)
 		throw_item = new dump_path(src.loc)
 		break
-	if (!throw_item)
-		return 0
-	spawn(0)
-		throw_item.throw_at(target, 16, 3, src)
+	if(!throw_item)
+		return FALSE
+	throw_item.vendor_action(src)
+	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, 16, 3, src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1

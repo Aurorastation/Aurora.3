@@ -329,3 +329,5 @@
 	passport.name = "[H.real_name]'s Passport"
 	if(W)
 		W.handle_item_insertion(passport)
+
+	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE)

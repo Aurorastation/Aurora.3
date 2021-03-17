@@ -87,11 +87,14 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
 /obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone = BP_CHEST)
-
 	if(flags & NOBLUDGEON)
 		return 0
+
 	if(M == user && user.a_intent != I_HURT)
 		return 0
+
+	if(user.incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_KNOCKOUT|INCAPACITATION_KNOCKDOWN|INCAPACITATION_FORCELYING))
+		return
 
 	if(force && user.is_pacified())
 		to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
