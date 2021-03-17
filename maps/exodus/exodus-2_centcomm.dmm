@@ -14459,10 +14459,10 @@
 /area/centcom/control)
 "aVR" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_equipment/mounted_system/taser/ion,
-/obj/item/mecha_equipment/mounted_system/taser,
-/obj/item/mecha_equipment/mounted_system/taser/laser,
-/obj/item/mecha_equipment/mounted_system/taser/smg,
+/obj/item/mecha_equipment/mounted_system/combat/ion,
+/obj/item/mecha_equipment/mounted_system/combat/taser,
+/obj/item/mecha_equipment/mounted_system/combat/laser,
+/obj/item/mecha_equipment/mounted_system/combat/smg,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"

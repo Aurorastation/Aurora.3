@@ -92,7 +92,7 @@
 			if(prob(botEmagChance))
 				bot.emag_act(1)
 
-/datum/event/ionstorm/end()
+/datum/event/ionstorm/end(var/faked)
 	spawn(rand(5000,8000))
 		if(prob(50))
 			ion_storm_announcement()
