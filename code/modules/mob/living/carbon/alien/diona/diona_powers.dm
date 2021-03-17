@@ -203,7 +203,7 @@
 		adjustNutritionLoss(-20)
 	else if (types & TYPE_WEIRD)
 		visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but passes right through it!."), SPAN_DANGER("You attempt to sink your fangs into [donor.name] but pass right through it!"))
-	else if (iscarbon(donor))
+	else if (ishuman(donor))
 		var/datum/dionastats/DS = get_dionastats()
 		if(DS)
 			DS.do_blood_suck(src, donor)

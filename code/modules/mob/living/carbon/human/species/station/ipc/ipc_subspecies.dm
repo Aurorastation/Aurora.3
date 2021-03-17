@@ -5,12 +5,13 @@
 	name_plural = "Shells"
 	bodytype = BODYTYPE_HUMAN
 	default_genders = list(MALE, FEMALE)
+	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
 	burn_mod = 1.2
 	grab_mod = 1
 
 	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
-	job restrictions. Created in the late days of 2457, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
+	job restrictions. Created in the late days of 2450, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
 	to create an uncannily close approximation of the organic form. Early models of Shell had the advantage of being able to compose themselves of a wide \
 	 variety of organic parts, but contemporary models have been restricted to a single species for the sake of prosthetic integrity. The additional weight of \
 	 the synthskin on the original Hephaestus frame reduces the efficacy of the unit's already strained coolant systems, and increases charge consumption."
@@ -19,6 +20,7 @@
 
 	icobase = 'icons/mob/human_races/human/r_human.dmi'
 	deform = 'icons/mob/human_races/ipc/robotic.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/shell_preview.dmi'
 
 	light_range = 0
 	light_power = 0
@@ -75,6 +77,14 @@
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
 							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+
+/datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
+	if(reference)
+		return src
+	// it's illegal for shells in Tau Ceti space to not have tags, so their records would have to be falsified
+	if(records && !H.internal_organs_by_name[BP_IPCTAG])
+		return "Human"
+	return name
 
 /datum/species/machine/shell/get_light_color()
 	return

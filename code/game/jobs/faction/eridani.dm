@@ -26,7 +26,7 @@
 		/datum/job/visitor,
 		/datum/job/officer,
 		/datum/job/warden,
-		/datum/job/forensics,
+		/datum/job/investigator,
 		/datum/job/med_tech,
 		/datum/job/representative
 	)
@@ -43,8 +43,7 @@
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/eridani,
 		"Warden" = /datum/outfit/job/warden/eridani,
-		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
-		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
+		"Investigator" = /datum/outfit/job/forensics/eridani,
 		"Paramedic" = /datum/outfit/job/med_tech/paramed/eridani,
 		"First Responder" = /datum/outfit/job/med_tech/paramed/eridani,
 		"Corporate Liaison" = /datum/outfit/job/representative/eridani
