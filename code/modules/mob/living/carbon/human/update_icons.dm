@@ -535,8 +535,6 @@ There are several things that need to be remembered:
 
 	overlays_raw[UNIFORM_LAYER] = null
 	if(check_draw_underclothing())
-		w_uniform.screen_loc = ui_iclothing
-
 		//determine the icon to use
 		var/icon/under_icon
 		var/under_state = ""
@@ -604,7 +602,6 @@ There are several things that need to be remembered:
 	overlays_raw[ID_LAYER_ALT] = null
 	if(wear_id)
 		var/image/result_layer
-		wear_id.screen_loc = ui_id	//TODO
 		if(w_uniform)
 			if(!w_uniform:displays_id)
 				return
@@ -678,7 +675,6 @@ There are several things that need to be remembered:
 			bloodsies.color = gloves.blood_color
 			result_layer = list(result_layer, bloodsies)
 
-		gloves.screen_loc = ui_gloves
 		overlays_raw[GLOVES_LAYER] = result_layer
 	else if(blood_DNA)
 		var/image/bloodsies = image(species.blood_mask, "bloodyhands")
@@ -726,8 +722,6 @@ There are several things that need to be remembered:
 
 	if(check_draw_ears())
 		if(l_ear)
-			l_ear.screen_loc = ui_l_ear
-
 			var/image/result_layer = null
 
 			//Determine the icon to use
@@ -771,8 +765,6 @@ There are several things that need to be remembered:
 
 	if(check_draw_ears())
 		if(r_ear)
-			r_ear.screen_loc = ui_r_ear
-
 			var/image/result_layer = null
 
 			//Determine the icon to use
@@ -815,8 +807,6 @@ There are several things that need to be remembered:
 		return
 
 	if(check_draw_shoes())
-		shoes.screen_loc = ui_shoes
-
 		var/image/result_layer = null
 
 		//Determine the icon to use
@@ -845,16 +835,15 @@ There are several things that need to be remembered:
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
 
-		if(result_layer)
-			result_layer.appearance_flags = RESET_ALPHA
-		var/list/ovr
-
+		result_layer.appearance_flags = RESET_ALPHA
 		if(shoes.blood_DNA)
-			var/obj/item/clothing/shoes/S = shoes
-			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
-			bloodsies.color = shoes.blood_color
-			bloodsies.appearance_flags = RESET_ALPHA
-			ovr = list(result_layer, bloodsies)
+			for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
+				var/obj/item/organ/external/E = get_organ(limb_tag)
+				if(E && !E.is_stump())
+					var/image/bloodsies = image(species.blood_mask, "shoeblood_[E.limb_name]")
+					bloodsies.color = shoes.blood_color
+					bloodsies.appearance_flags = RESET_ALPHA
+					result_layer.overlays.Add(bloodsies)
 
 		//Shoe layer stuff from Polaris v1.0333a
 		var/shoe_layer = SHOES_LAYER
@@ -863,7 +852,7 @@ There are several things that need to be remembered:
 			if(S.shoes_under_pants == TRUE)
 				shoe_layer = SHOES_LAYER_ALT
 
-		overlays_raw[shoe_layer] = ovr || result_layer
+		overlays_raw[shoe_layer] = result_layer
 	else
 		if(footprint_color)		// Handles bloody feet.
 			for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
@@ -891,13 +880,11 @@ There are several things that need to be remembered:
 			var/image/s_store_image = image(s_store.icon_override || s_store.icon, state)
 			s_store_image.appearance_flags = RESET_ALPHA
 			overlays_raw[SUIT_STORE_LAYER] = s_store_image
-			s_store.screen_loc = ui_sstore1
 		else
 			//s_store.auto_adapt_species(src)
 			var/image/s_store_image = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
 			s_store_image.appearance_flags = RESET_ALPHA
 			overlays_raw[SUIT_STORE_LAYER] = s_store_image
-			s_store.screen_loc = ui_sstore1		//TODO
 	else
 		overlays_raw[SUIT_STORE_LAYER] = null
 	if(update_icons)
@@ -909,7 +896,6 @@ There are several things that need to be remembered:
 
 	overlays_raw[HEAD_LAYER] = null
 	if(head)
-		head.screen_loc = ui_head		//TODO
 		var/image/standing = null
 		//Determine the icon to use
 		var/t_icon = INV_HEAD_DEF_ICON
@@ -968,8 +954,6 @@ There are several things that need to be remembered:
 		return
 
 	if(belt)
-		belt.screen_loc = ui_belt
-
 		var/image/result_layer = null
 
 		//Determine the icon to use
@@ -1033,8 +1017,6 @@ There are several things that need to be remembered:
 		return
 
 	if(wear_suit)
-		wear_suit.screen_loc = ui_oclothing
-
 		var/image/result_layer = null
 
 		//Determine the icon to use
@@ -1100,11 +1082,6 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	if(l_store)
-		l_store.screen_loc = ui_storage1	//TODO
-	if(r_store)
-		r_store.screen_loc = ui_storage2	//TODO
-
 	if(update_icons)
 		update_icon()
 
@@ -1115,7 +1092,6 @@ There are several things that need to be remembered:
 
 	overlays_raw[FACEMASK_LAYER] = null
 	if(check_draw_mask())
-		wear_mask.screen_loc = ui_mask	//TODO
 		var/image/standing
 
 		if(wear_mask.contained_sprite)
@@ -1159,8 +1135,6 @@ There are several things that need to be remembered:
 
 	overlays_raw[BACK_LAYER] = null
 	if(back)
-		back.screen_loc = ui_back	//TODO
-
 		//determine the icon to use
 		var/icon/overlay_icon
 		var/overlay_state = ""
@@ -1277,8 +1251,6 @@ There are several things that need to be remembered:
 
 	overlays_raw[L_HAND_LAYER] = null
 	if(l_hand)
-		l_hand.screen_loc = ui_lhand	//TODO
-
 		//determine icon state to use
 		var/t_state = l_hand.item_state || l_hand.icon_state
 
@@ -1329,8 +1301,6 @@ There are several things that need to be remembered:
 
 	overlays_raw[R_HAND_LAYER] = null
 	if(r_hand)
-		r_hand.screen_loc = ui_rhand	//TODO
-
 		//determine icon state to use
 		var/t_state = r_hand.item_state || r_hand.icon_state
 
@@ -1381,8 +1351,6 @@ There are several things that need to be remembered:
 
 	overlays_raw[WRISTS_LAYER] = null
 	if(check_draw_wrists())
-		wrists.screen_loc = ui_lhand	//TODO
-
 		//determine icon state to use
 		var/t_state = wrists.item_state || wrists.icon_state
 

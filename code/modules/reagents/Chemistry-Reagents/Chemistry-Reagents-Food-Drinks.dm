@@ -66,8 +66,7 @@
 	taste_mult = 4
 	reagent_state = SOLID
 	metabolism = REM * 2
-	ingest_met = REM * 4
-	var/nutriment_factor = 12 // Per removed in digest.
+	var/nutriment_factor = 8 // Per removed in digest.
 	var/hydration_factor = 0 // Per removed in digest.
 	var/blood_factor = 2
 	var/regen_factor = 0.8
@@ -82,7 +81,7 @@
 	name = "Synthetic Nutriment"
 	description = "A cheaper alternative to actual nutriment."
 	taste_description = "cheap food"
-	nutriment_factor = 10
+	nutriment_factor = 6
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
@@ -135,7 +134,7 @@
 	Generally coatings are intended for deep frying foods
 */
 /decl/reagent/nutriment/coating
-	nutriment_factor = 6 //Less dense than the food itself, but coatings still add extra calories
+	nutriment_factor = 4 //Less dense than the food itself, but coatings still add extra calories
 	var/icon_raw
 	var/icon_cooked
 	var/coated_adj = "coated"
@@ -251,7 +250,7 @@
 	description = "More commonly known as fat, the third macronutrient, with over double the energy content of carbs and protein"
 
 	reagent_state = SOLID
-	nutriment_factor = 27//The caloric ratio of carb/protein/fat is 4:4:9
+	nutriment_factor = 12
 	color = "#CCCCCC"
 	taste_description = "fat"
 
@@ -309,7 +308,7 @@
 /decl/reagent/nutriment/honey
 	name = "Honey"
 	description = "A golden yellow syrup, loaded with sugary sweetness."
-	nutriment_factor = 10
+	nutriment_factor = 8
 	color = "#FFFF00"
 	taste_description = "honey"
 	germ_adjust = 5
@@ -705,7 +704,6 @@
 	if(alien != IS_DIONA)
 		if (caffeine)
 			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
-			M.add_chemical_effect(CE_PULSE, 1)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
