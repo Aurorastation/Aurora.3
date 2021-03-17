@@ -56,4 +56,8 @@ fi
 
 rm $dmepath.mdme
 
+ls -l ..
+ls -l .
+chmod -R a+rX .
+
 exit $retval
