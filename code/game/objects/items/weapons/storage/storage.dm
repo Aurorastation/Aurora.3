@@ -86,10 +86,10 @@
 		switch(over_object.name)
 			if("right hand")
 				usr.u_equip(src)
-				usr.put_in_r_hand(src,FALSE)
+				usr.equip_to_slot_if_possible(src, slot_r_hand)
 			if("left hand")
 				usr.u_equip(src)
-				usr.put_in_l_hand(src,FALSE)
+				usr.equip_to_slot_if_possible(src, slot_l_hand)
 		src.add_fingerprint(usr)
 
 /obj/item/storage/proc/return_inv()

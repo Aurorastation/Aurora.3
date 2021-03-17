@@ -19,7 +19,7 @@
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
-		"3" = /turf/space,
+		"3" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"4" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"5" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"6" = /turf/unsimulated/floor/asteroid/ash,

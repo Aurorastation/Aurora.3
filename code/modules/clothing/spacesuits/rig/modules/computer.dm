@@ -425,7 +425,7 @@
 /obj/item/rig_module/power_sink/accepts_item(var/obj/item/input_device, var/mob/living/user)
 	var/can_drain = input_device.drain_power(1)
 	if(can_drain > 0)
-		engage(input_device, user)
+		do_engage(input_device, user)
 		return TRUE
 	return FALSE
 

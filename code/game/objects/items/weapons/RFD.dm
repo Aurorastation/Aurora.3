@@ -490,6 +490,8 @@ RFD Mining-Class
 		stored_matter--
 		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/30</b> fabrication-units."))
 
+	return TRUE
+
 
 // Malf AI RFD Transformer.
 
@@ -545,6 +547,8 @@ RFD Mining-Class
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
 			R.cell.use(used_energy)
+
+	return TRUE
 
 
 /*
