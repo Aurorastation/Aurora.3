@@ -216,6 +216,11 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
 
+/datum/gear/head/hijab_colorable
+	display_name = "colorable hijab"
+	path = /obj/item/clothing/head/hijab/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/turban
 	display_name = "turban selection"
 	path = /obj/item/clothing/head/turban
