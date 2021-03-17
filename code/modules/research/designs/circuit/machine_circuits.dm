@@ -136,6 +136,11 @@
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/cerealmaker
 
+/datum/design/circuit/machine/grill
+	name = "Grill"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/grill
+
 /datum/design/circuit/machine/candymaker
 	name = "Candy Machine"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
