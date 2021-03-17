@@ -16,10 +16,14 @@
 	//  E.g. setting it to more than 1 will make mitigation drop off faster, effectively reducing the range of damage mitigation
 	var/over_armor_mult = 1
 
-/datum/component/armor/Initialize(list/armor)
+	var/sealed = FALSE // Used with ARMOR_TYPE_RIG.
+
+/datum/component/armor/Initialize(list/armor, armor_type)
 	..()
 	if(armor)
 		armor_values = armor.Copy()
+	if(armor_type)
+		armor_flags = armor_type
 
 // Takes in incoming damage value
 // Applies state changes to self, holder, and whatever else caused by damage mitigation
@@ -71,6 +75,9 @@
 /datum/component/armor/proc/get_value(key)
 	if(isnull(armor_values[key]))
 		return 0
+	if(armor_flags & ARMOR_TYPE_RIG)
+		if(key == "bio" && sealed)
+			return 100
 	return min(armor_values[key], 100)
 
 /datum/component/armor/proc/set_value(key, newval)

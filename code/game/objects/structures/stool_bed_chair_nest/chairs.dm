@@ -119,6 +119,24 @@
 /obj/structure/bed/chair/comfy/lime/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
+/obj/structure/bed/chair/comfy/sofa
+	name = "sofa"
+	desc = "A sofa, how nice!"
+	icon_state = "sofamiddle_preview"
+	base_icon = "sofamiddle"
+
+/obj/structure/bed/chair/comfy/sofa/left
+	icon_state = "sofaend_left_preview"
+	base_icon = "sofaend_left"
+
+/obj/structure/bed/chair/comfy/sofa/right
+	icon_state = "sofaend_right_preview"
+	base_icon = "sofaend_right"
+
+/obj/structure/bed/chair/comfy/sofa/corner
+	icon_state = "sofacorner_preview"
+	base_icon = "sofacorner"
+
 /obj/structure/bed/chair/office
 	name = "office chair"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC

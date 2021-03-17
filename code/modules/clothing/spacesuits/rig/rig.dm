@@ -166,7 +166,11 @@
 		piece.permeability_coefficient = permeability_coefficient
 		piece.unacidable = unacidable
 		piece.species_restricted = species_restricted
-		if(islist(armor)) piece.armor = armor.Copy()
+		if(islist(armor))
+			var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
+			if(istype(armor_component))
+				armor_component.RemoveComponent()
+			piece.AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_RIG)
 
 	set_vision(!offline)
 	update_icon(1)
@@ -288,12 +292,9 @@
 								helmet.update_light(wearer)
 
 					//sealed pieces become airtight, protecting against diseases
-					if (!seal_target)
-						LAZYINITLIST(piece.armor)
-						piece.armor["bio"] = 100
-					else
-						LAZYINITLIST(piece.armor)
-						piece.armor["bio"] = LAZYACCESS(src.armor, "bio") || 0
+					var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
+					if(istype(armor_component))
+						armor_component.sealed = !seal_target
 					playsound(src, "[!seal_target ? 'sound/machines/rig/rig_deploy.ogg' : 'sound/machines/rig/rig_retract.ogg']", 20, FALSE)
 
 				else
@@ -600,7 +601,7 @@
 				if("deactivate")
 					module.deactivate(user)
 				if("engage")
-					module.engage(null, user)
+					module.do_engage(null, user)
 				if("select")
 					selected_module = module
 				if("select_charge_type")
@@ -621,23 +622,19 @@
 			to_chat(module.integrated_ai, "[message]")
 			. = 1
 
-/obj/item/rig/equipped(mob/living/carbon/human/M)
-	..()
+/obj/item/rig/check_equipped(mob/living/carbon/human/M, slot, assisted_equip = FALSE)
+	if(istype(M) && slot == slot_back)
+		if(!assisted_equip && seal_delay > 0)
+			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), SPAN_NOTICE("You start putting on \the [src]..."))
+			if(!do_after(M, seal_delay))
+				return FALSE
 
-	if(seal_delay > 0 && istype(M) && M.back == src)
-		M.visible_message("<span class='notice'>[M] starts putting on \the [src]...</span>", "<span class='notice'>You start putting on \the [src]...</span>")
-		if(!do_after(M,seal_delay))
-			if(M && M.back == src)
-				if(!M.unEquip(src))
-					return
-			M.put_in_hands(src)
-			return
-
-	if(istype(M) && M.back == src)
-		M.visible_message("<span class='notice'><b>[M] struggles into \the [src].</b></span>", "<span class='notice'><b>You struggle into \the [src].</b></span>")
+		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
 		wearer = M
 		wearer.wearing_rig = src
 		update_icon()
+		return TRUE
+	return TRUE
 
 /obj/item/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
 
@@ -670,7 +667,7 @@
 			equip_to = slot_shoes
 			use_obj = boots
 			check_slot = wearer.shoes
-		if(BP_CHEST)
+		if("chest")
 			equip_to = slot_wear_suit
 			use_obj = chest
 			check_slot = wearer.wear_suit

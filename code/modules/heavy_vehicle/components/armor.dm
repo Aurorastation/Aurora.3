@@ -13,7 +13,7 @@
 
 /obj/item/robot_parts/robot_component/armor/mech/Initialize()
 	. = ..()
-	AddComponent(/datum/component/armor, armor, ARMOR_TYPE_EXOSUIT)
+	AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_EXOSUIT)
 
 /obj/item/robot_parts/robot_component/armor/mech/radproof
 	name = "radiation-proof armor plating"

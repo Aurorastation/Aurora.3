@@ -248,7 +248,6 @@
 	item_state = "ballisticfist"
 	siemens_coefficient = 1
 	fingerprint_chance = 50
-	siemens_coefficient = 1
 	clipped = 1
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
@@ -315,3 +314,63 @@
 	. = ..()
 	if(mounted)
 		mounted.switch_firemodes()
+
+/obj/item/clothing/gloves/tesla
+	name = "tesla glove"
+	desc = "A weaponized gauntlet capable of firing lightning bolts."
+	desc_fluff = "A tesla-based weapon created by the People's Republic of Adhomai as part of their Tesla Brigade program. Because of its long recharge time, the gauntlet is commonly \
+	used as an ancillary weapon."
+	icon_state = "tesla_glove_on"
+	item_state = "tesla_glove_on"
+	siemens_coefficient = 1
+	fingerprint_chance = 50
+	clipped = TRUE
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
+	gender = NEUTER
+	var/charged = TRUE
+
+/obj/item/clothing/gloves/tesla/Touch(atom/A, mob/living/user, proximity)
+	if(!charged)
+		to_chat(user, SPAN_WARNING("\The [src] is still recharging."))
+		return
+
+	if(user.a_intent == I_HURT)
+		if(proximity)
+			if(iscarbon(A))
+				var/mob/living/carbon/L = A
+				L.electrocute_act(20,src, 1, user.zone_sel.selecting)
+				spark(src, 3, alldirs)
+				charged = FALSE
+				update_icon()
+				user.update_inv_gloves()
+				addtimer(CALLBACK(src, .proc/rearm), 10 SECONDS)
+
+		else
+			var/turf/T = get_turf(user)
+			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
+			var/obj/item/projectile/beam/tesla/LE = new (T)
+			LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
+			spark(src, 3, alldirs)
+			playsound(user.loc, 'sound/magic/LightningShock.ogg', 75, 1)
+			charged = FALSE
+			update_icon()
+			user.update_inv_gloves()
+			addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+
+/obj/item/clothing/gloves/tesla/proc/rearm()
+	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))
+	charged = TRUE
+	update_icon()
+
+/obj/item/clothing/gloves/tesla/update_icon()
+	if(charged)
+		icon_state = "tesla_glove_on"
+		item_state = "tesla_glove_on"
+	else
+		icon_state = "tesla_glove"
+		item_state = "tesla_glove"
+	if(ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_gloves()

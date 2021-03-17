@@ -30,7 +30,7 @@
 		if("NanoTrasen Sponsored")
 			new /obj/item/reagent_containers/food/snacks/liquidfood(src)
 			new /obj/item/reagent_containers/food/snacks/liquidfood(src)
-			new /obj/item/reagent_containers/food/drinks/cans/sodawater(src)
+			new /obj/item/reagent_containers/food/drinks/cans/hrozamal_soda(src)
 			desc += " This one has the NanoTrasen logo."
 
 /obj/item/storage/field_ration/army
