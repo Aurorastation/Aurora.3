@@ -104,7 +104,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/zavodskoisec
 	slot = slot_tie
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Security Officer","Forensic Technician","Warden")
+	allowed_roles = list("Security Officer","Investigator","Warden")
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
@@ -116,7 +116,7 @@
 	display_name = "idris security sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
-	allowed_roles = list("Security Officer","Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer","Investigator")
 
 /datum/gear/faction/heph_labcoat
 	display_name = "hephaestus labcoat"
