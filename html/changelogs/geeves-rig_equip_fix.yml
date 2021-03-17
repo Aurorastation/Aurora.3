@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Moving while equipping hardsuits will no longer drop them into the aether."
-  - bugfix: "Putting a hardsuit on an unconscious person will no longer drop it into the aether either, as it will bypass the wait period."
