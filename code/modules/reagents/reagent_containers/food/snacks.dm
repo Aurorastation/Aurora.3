@@ -3690,7 +3690,7 @@
 	name = "packed rice bowl"
 	desc = "Boiled rice packed in a sealed plastic tub with the Nojosuru Foods logo on it. There appears to be a pair of chopsticks clipped to the side."
 	icon_state = "ricetub"
-	trash = /obj/item/trash/ricetub_s
+	trash = /obj/item/trash/ricetub/sticks
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
 	reagents_to_add = list(/decl/reagent/nutriment = 5)

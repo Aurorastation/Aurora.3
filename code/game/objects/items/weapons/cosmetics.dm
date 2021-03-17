@@ -23,15 +23,67 @@
 	name = "black lipstick"
 	colour = "black"
 
+/obj/item/lipstick/amberred
+	name = "amberred lipstick"
+	colour = "amberred"
+
+/obj/item/lipstick/cherry
+	name = "cherry lipstick"
+	colour = "cherry"
+
+/obj/item/lipstick/orange
+	name = "orange lipstick"
+	colour = "orange"
+
+/obj/item/lipstick/gold
+	name = "gold lipstick"
+	colour = "gold"
+
+/obj/item/lipstick/purple
+	name = "purple lipstick"
+	colour = "purple"
+
+/obj/item/lipstick/deepred
+	name = "deepred lipstick"
+	colour = "deepred"
+
 /obj/item/lipstick/pink
 	name = "pink lipstick"
 	colour = "pink"
+
+/obj/item/lipstick/rosepink
+	name = "rosepink lipstick"
+	colour = "rosepink"
+
+/obj/item/lipstick/nude
+	name = "nude lipstick"
+	colour = "nude"
+
+/obj/item/lipstick/wine
+	name = "wine lipstick"
+	colour = "wine"
+
+/obj/item/lipstick/peach
+	name = "peach lipstick"
+	colour = "peach"
+
+/obj/item/lipstick/forestgreen
+	name = "forestgreen lipstick"
+	colour = "forestgreen"
+
+/obj/item/lipstick/skyblue
+	name = "skyblue lipstick"
+	colour = "skyblue"
+
+/obj/item/lipstick/teal
+	name = "teal lipstick"
+	colour = "teal"
 
 /obj/item/lipstick/random
 	name = "lipstick"
 
 /obj/item/lipstick/random/New()
-	colour = pick("red","purple","jade","pink","black")
+	colour = pick("red","purple","jade","black","amberred","cherry","orange","gold","purple","deepred","pink","rosepink","nude","wine","peach","forestgreen","skyblue","teal")
 	name = "[colour] lipstick"
 
 

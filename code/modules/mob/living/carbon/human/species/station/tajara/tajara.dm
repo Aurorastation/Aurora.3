@@ -24,6 +24,8 @@
 
 	grab_mod = 1.25 // Fur easy to cling onto
 
+	age_max = 80
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
 	name_language = LANGUAGE_SIIK_MAAS
