@@ -97,6 +97,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/banner/New()
+
 	..()
 	var/banners = list()
 	banners["banner, SolGov"] = /obj/item/flag/sol
@@ -119,6 +120,21 @@
 	banners["banner, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
 	gear_tweaks += new/datum/gear_tweak/path(banners)
+
+/datum/gear/standard
+	display_name = "dominian great house standard selection"
+	path = /obj/item/flag
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/standard/New()
+	..()
+	var/standards = list()
+	standards["standard, Strelitz"] = /obj/item/flag/strelitz
+	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
+	standards["standard, Kazkhz"] = /obj/item/flag/kazkhz
+	standards["standard, Caladius"] = /obj/item/flag/caladius
+	standards["standard, Zhao"] = /obj/item/flag/zhao
+	gear_tweaks += new/datum/gear_tweak/path(standards)
 
 /datum/gear/flag
 	display_name = "flag selection"
@@ -162,6 +178,11 @@
 	display_name = "battlemonsters starter deck"
 	path = /obj/item/battle_monsters/wrapped
 
+/datum/gear/squidplushie
+	display_name = "colourable squid plushie"
+	path = /obj/item/toy/plushie/squidcolour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/plushie
 	display_name = "plushie selection"
 	path = /obj/item/toy/plushie
@@ -182,6 +203,7 @@
 	plushies["plushie, schlorrgo"] = /obj/item/toy/plushie/schlorrgo
 	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
+	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste

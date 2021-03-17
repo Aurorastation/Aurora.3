@@ -280,7 +280,7 @@
 		return FALSE
 
 	owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shift in shape and length."))
-	owner.change_appearance(APPEARANCE_ALL_HAIR, owner.loc, owner, check_species_whitelist = 1)
+	owner.change_appearance(APPEARANCE_ALL_HAIR, owner)
 
 /obj/item/organ/internal/augment/suspension
 	name = "calf suspension"

@@ -120,7 +120,7 @@
 	path = /obj/item/gun/custom_ka/frame01/illegal
 
 /datum/uplink_item/item/visible_weapons/teslagauntlet
-	name = "Tesla Gauntlet"
+	name = "Tesla Glove"
 	item_cost = 10
 	path = /obj/item/clothing/gloves/tesla
 

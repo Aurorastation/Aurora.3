@@ -50,6 +50,7 @@
 #define MODE_LONER "loner"
 #define MODE_WIZARD "wizard"
 #define MODE_CHANGELING "changeling"
+#define MODE_MORPH "morph"
 #define MODE_CULTIST "cultist"
 #define MODE_HIGHLANDER "highlander"
 #define MODE_MONKEY "monkey"
