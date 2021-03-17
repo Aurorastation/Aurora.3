@@ -36,7 +36,7 @@
 /datum/gear/computer/handheld/wristbound/security/investigations
 	display_name = "wristbound computer (Security Investigations)"
 	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security/investigations
-	allowed_roles = list("Detective", "Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/computer/handheld/wristbound/security/research
 	display_name = "wristbound computer (Research)"
