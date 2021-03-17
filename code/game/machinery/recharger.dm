@@ -19,7 +19,8 @@
 		/obj/item/melee/baton,
 		/obj/item/cell,
 		/obj/item/modular_computer,
-		/obj/item/computer_hardware/battery_module
+		/obj/item/computer_hardware/battery_module,
+		/obj/item/device/flashlight/survival
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"

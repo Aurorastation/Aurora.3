@@ -24,14 +24,12 @@ var/list/diona_banned_languages = list(
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
 	//if light_organ is non null, then we're working with a gestalt. otherwise nymph
 
-
 	var/light_amount = DS.last_lightlevel //If we're not re-fetching the light level then we'll use a recent cached version
 
 	if (life_tick % 2 == 0) //Only fetch the lightlevel every other proc to save performance
 		if (DS.last_location != loc || life_tick % 4 == 0) //Fetch it even less often if we haven't moved since last check
 			light_amount = get_lightlevel_diona(DS)
 			DS.last_lightlevel = light_amount
-
 
 	DS.stored_energy += light_amount
 
@@ -50,13 +48,6 @@ var/list/diona_banned_languages = list(
 	DS.last_location = loc
 	if(light_amount)
 		adjustNutritionLoss(-light_amount) // regenerate our nutrition from light.
-	move_delay_mod = min(initial(move_delay_mod) - light_amount * 1, 0)
-	sprint_speed_factor = initial(sprint_speed_factor)
-	sprint_cost_factor = Clamp(initial(sprint_cost_factor) - light_amount * DIONA_LIGHT_COEFICIENT, 0, initial(sprint_cost_factor))
-	if (total_radiation)
-		move_delay_mod = max(move_delay_mod * total_radiation * 3, -4.5)
-		sprint_speed_factor = 0.65
-		sprint_cost_factor = 0
 
 /mob/living/carbon/alien/diona/death()
 	if(client && gestalt && switch_to_gestalt())
