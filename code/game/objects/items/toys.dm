@@ -958,6 +958,28 @@
 	desc = "A bear plushie. Only you can stop phoron fires!"
 	icon_state = "bearplushie_fire"
 
+/obj/item/toy/plushie/schlorrgo
+	name = "schlorrgo plush"
+	desc = "A schlorrgo plushie, ready to roll his way into your heart!"
+	icon_state = "schlorrgoplushie"
+	phrase = "Eough!"
+
+/obj/item/toy/plushie/coolschlorrgo
+	name = "Cool Schlorrgo plush"
+	desc = "A plushie of the popular cartoon character, Cool Schlorrgo. Hadii's grace!"
+	icon_state = "coolerschlorrgoplushie"
+	phrase = "Eough!"
+
+/obj/item/toy/plushie/slime
+	name = "slime plush"
+	desc = "A beanbag-filled slime plushie. Relaxing!"
+	icon_state = "slimeplushie"
+
+/obj/item/toy/plushie/bee
+	name = "bee plush"
+	desc = "A chunky plushie bee. Your new buzz-t friend!"
+	icon_state = "beeplushie"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid
@@ -976,6 +998,13 @@
 	icon_state = "[colorvar]squid"
 	item_state = "[colorvar]squid"
 	desc = "A small, cute and loveable squid friend. This one is in [colorvar]."
+
+/obj/item/toy/plushie/squidcolour
+	name = "squid plushie"
+	desc = "A small, cute, and loveable squid friend. This one comes in a wide variety of colours."
+	icon_state = "squidplushie_colour"
+	// slot_flags = SLOT_HEAD - head sprite may come someday, but not today.
+	phrase = "Blub!"
 
 //Toy cult sword
 /obj/item/toy/cultsword

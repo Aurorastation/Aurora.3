@@ -38,16 +38,20 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	if(proximity_flag)
 		if(istype(target, /obj/item/gun))
 			var/obj/item/gun/G = target
+			if(!G.needspin)
+				to_chat(user, SPAN_WARNING("\The [G] doesn't take pins."))
+				return
+
 			if(G.pin && (force_replace || G.pin.pin_replaceable))
 				G.pin.forceMove(get_turf(G))
 				G.pin.gun_remove(user)
-				to_chat(user, "<span class ='notice'>You remove [G]'s old pin.</span>")
+				to_chat(user, SPAN_NOTICE("You remove \the [G]'s old pin."))
 
 			if(!G.pin)
 				gun_insert(user, G)
-				to_chat(user, "<span class ='notice'>You insert [src] into [G].</span>")
+				to_chat(user, SPAN_NOTICE("You insert [src] into \the [G]."))
 			else
-				to_chat(user, "<span class ='notice'>This firearm already has a firing pin installed.</span>")
+				to_chat(user, SPAN_NOTICE("This firearm already has a firing pin installed."))
 
 /obj/item/device/firing_pin/emag_act()
 	if(!emagged)
@@ -181,28 +185,26 @@ Pins Below.
 	name = "laser tag firing pin"
 	desc = "A recreational firing pin, used in laser tag units to ensure users have their vests on."
 	fail_message = "<span class='warning'>SUIT CHECK FAILED.</span>"
-	var/obj/item/clothing/suit/suit_requirement = null
-	var/tagcolor = ""
+	var/tag_color = ""
 
 /obj/item/device/firing_pin/tag/pin_auth(mob/living/user)
 	if(ishuman(user))
-		var/mob/living/carbon/human/M = user
-		if(istype(M.wear_suit, suit_requirement))
-			return 1
-	to_chat(user, "<span class='warning'>You need to be wearing [tagcolor] laser tag armor!</span>")
-	return 0
+		var/mob/living/carbon/human/H = user
+		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
+		if(istype(LT) && tag_color == LT.laser_tag_color)
+			return TRUE
+	to_chat(user, SPAN_WARNING("You need to be wearing [tag_color] laser tag armor!"))
+	return FALSE
 
 /obj/item/device/firing_pin/tag/red
 	name = "red laser tag firing pin"
 	icon_state = "firing_pin_red"
-	suit_requirement = /obj/item/clothing/suit/redtag
-	tagcolor = "red"
+	tag_color = "red"
 
 /obj/item/device/firing_pin/tag/blue
 	name = "blue laser tag firing pin"
 	icon_state = "firing_pin_blue"
-	suit_requirement = /obj/item/clothing/suit/bluetag
-	tagcolor = "blue"
+	tag_color = "blue"
 
 /obj/item/device/firing_pin/Destroy()
 	if(gun)

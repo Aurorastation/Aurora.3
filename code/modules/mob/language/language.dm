@@ -171,8 +171,11 @@
 
 // Language handling.
 /mob/proc/add_language(var/language)
-
-	var/datum/language/new_language = all_languages[language]
+	var/datum/language/new_language
+	if(istype(language, /datum/language))
+		new_language = language
+	else
+		new_language = all_languages[language]
 
 	if (!istype(new_language) || !new_language)
 		CRASH("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
