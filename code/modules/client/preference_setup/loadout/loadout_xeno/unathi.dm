@@ -204,3 +204,9 @@
 	augs["farseer eye"] = /obj/item/organ/internal/augment/farseer_eye
 	augs["eye flashlight"] = /obj/item/organ/internal/augment/eye_flashlight
 	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/religion/shaman_staff
+	display_name = "shaman staff"
+	path = /obj/item/cane/shaman
+	sort_category = "Xenowear - Unathi"
+	whitelisted = list(SPECIES_UNATHI)

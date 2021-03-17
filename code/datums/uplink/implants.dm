@@ -6,24 +6,24 @@
 
 /datum/uplink_item/item/implants/imp_freedom
 	name = "Freedom Implant"
-	item_cost = 5
+	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/imp_freedom
 
 /datum/uplink_item/item/implants/imp_compress
 	name = "Compressed Matter Implant"
 	desc = "A box containing a single implanter and matter cartridge. To remove an unintended target, use the implanter in-hand then open the cartridge with a screwdriver."
-	item_cost = 6
+	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/imp_compress
 
 /datum/uplink_item/item/implants/imp_explosive
 	name = "Explosive Implant (DANGER!)"
-	item_cost = 8
+	item_cost = 4
 	desc = "A box containing an explosive implant and implanter. Use the implant in-hand to set the explosion size and trigger phrase."
 	path = /obj/item/storage/box/syndie_kit/imp_explosive
 
 /datum/uplink_item/item/implants/imp_deadman
 	name = "Deadman Implant (DANGER!)"
-	item_cost = 6
+	item_cost = 3
 	desc = "A box containing an explosive implant and implanter. The implant monitors vitals and will detonate when the subject dies."
 	path = /obj/item/storage/box/syndie_kit/imp_deadman
 

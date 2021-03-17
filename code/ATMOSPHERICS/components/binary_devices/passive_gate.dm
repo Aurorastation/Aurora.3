@@ -60,8 +60,8 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		add_underlay(T, node1, turn(dir, 180), node1.icon_connect_type)
-		add_underlay(T, node2, dir, node2.icon_connect_type)
+		add_underlay(T, node1, turn(dir, 180), node1?.icon_connect_type)
+		add_underlay(T, node2, dir, node2?.icon_connect_type)
 
 /obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
 	update_underlays()
