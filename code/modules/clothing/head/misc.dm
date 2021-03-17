@@ -291,6 +291,7 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	contained_sprite = 1
+	slot_flags = SLOT_EARS  | SLOT_HEAD
 
 /obj/item/clothing/head/hijab/grey
 	name = "grey hijab"

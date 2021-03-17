@@ -858,6 +858,7 @@
 #include "code\game\objects\items\devices\lighting\flashlight.dm"
 #include "code\game\objects\items\devices\lighting\glowstick.dm"
 #include "code\game\objects\items\devices\lighting\lamp.dm"
+#include "code\game\objects\items\devices\lighting\survival.dm"
 #include "code\game\objects\items\devices\PDA\radio.dm"
 #include "code\game\objects\items\devices\radio\_radio_defines.dm"
 #include "code\game\objects\items\devices\radio\beacon.dm"
