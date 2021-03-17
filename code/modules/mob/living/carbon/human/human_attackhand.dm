@@ -504,7 +504,7 @@
 	var/dam_zone = user.zone_sel?.selecting
 	if(!dam_zone)
 		dam_zone = pick(organs)
-	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
+	var/obj/item/organ/external/affecting = get_organ(dam_zone)
 	apply_damage(damage, BRUTE, affecting)
 	updatehealth()
 	return TRUE

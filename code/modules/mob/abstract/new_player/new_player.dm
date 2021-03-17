@@ -68,7 +68,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
 			if(client.unacked_warning_count > 0)
-				alert(src, "You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+				alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 				return
 
 			ready = text2num(href_list["ready"])
@@ -121,7 +121,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 
 		if(client.unacked_warning_count > 0)
-			alert(usr, "You can not join the game, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+			alert(usr, "You can not join the game, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]

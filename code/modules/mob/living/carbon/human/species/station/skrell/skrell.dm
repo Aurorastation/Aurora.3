@@ -4,8 +4,10 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
+	age_min = 30
 	age_max = 500
 	default_genders = list(PLURAL)
+	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -81,6 +83,7 @@
 							ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EUROPA)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
+	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	..()
