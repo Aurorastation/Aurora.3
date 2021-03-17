@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Grown bioluminescent crops now lose their glow after 5-7 minutes. Splattered glowing crops glow for 3-5 minutes."
