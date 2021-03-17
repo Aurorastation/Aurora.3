@@ -173,22 +173,6 @@
 					to_chat(owner, "<span class='danger'>You feel your heart lurching in your chest...</span>")
 					owner.adjustOxyLoss(8)
 
-/datum/brain_trauma/severe/discoordination
-	name = "Discoordination"
-	desc = "Patient is unable to use complex tools or machinery."
-	scan_desc = "extreme discoordination"
-	gain_text = "<span class='warning'>You can barely control your hands!</span>"
-	lose_text = "<span class='notice'>You feel in control of your hands again.</span>"
-	cure_type = CURE_CRYSTAL
-
-/datum/brain_trauma/severe/discoordination/on_gain()
-	owner.disabilities |= MONKEYLIKE
-	..()
-
-/datum/brain_trauma/severe/discoordination/on_lose()
-	owner.disabilities &= ~MONKEYLIKE
-	..()
-
 /datum/brain_trauma/severe/aphasia
 	name = "Aphasia"
 	desc = "Patient is unable to speak or understand any language."

@@ -75,6 +75,7 @@
 
 /obj/structure/closet/statue/proc/create_icon(var/mob/living/L)
 	appearance = L
+	appearance_flags |= KEEP_TOGETHER
 	dir = L.dir
 	color = list(
 				    0.30, 0.3, 0.25,

@@ -369,36 +369,8 @@
 	new /obj/item/device/encryptionkey/headset_med(src)
 
 
-/obj/structure/closet/secure_closet/detective
-	name = "detective's locker"
-	req_access = list(access_detective)
-	icon_state = "sec1"
-	icon_closed = "sec"
-	icon_locked = "sec1"
-	icon_opened = "secopen"
-	icon_broken = "secbroken"
-	icon_off = "secoff"
-
-/obj/structure/closet/secure_closet/detective/fill()
-	//Appearance
-	new /obj/item/clothing/suit/storage/det_jacket(src)
-	new /obj/item/clothing/under/det(src)
-	new /obj/item/clothing/under/det/black(src)
-	new /obj/item/clothing/under/det/classic(src)
-	new /obj/item/clothing/accessory/badge/dia(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/shoes/brown(src)
-	//Tools
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
-	new /obj/item/clothing/suit/armor/carrier/generic(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
-	new /obj/item/taperoll/police(src)
-	//Belts
-	new /obj/item/clothing/accessory/holster/waist(src)
-
-/obj/structure/closet/secure_closet/csi
-	name = "forensic technician's locker"
+/obj/structure/closet/secure_closet/investigator
+	name = "investigator's locker"
 	req_access = list(access_forensics_lockers)
 	icon_state = "sec1"
 	icon_closed = "sec"
@@ -407,24 +379,26 @@
 	icon_broken = "secbroken"
 	icon_off = "secoff"
 
-/obj/structure/closet/secure_closet/csi/fill()
+/obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/suit/storage/toggle/forensics(src)
-	new /obj/item/clothing/suit/armor/carrier/generic(src)
-	new /obj/item/clothing/under/det/forensics(src)
+	new /obj/item/clothing/suit/storage/det_jacket(src)
+	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/accessory/badge/dia(src)
+	new /obj/item/clothing/suit/storage/toggle/forensics(src)
 	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
-	new /obj/item/storage/box/evidence(src)
-	new /obj/item/device/flash(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	new /obj/item/taperoll/police(src)
+	new /obj/item/device/flash(src)
+	//Belts
+	new /obj/item/clothing/accessory/holster/waist(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
