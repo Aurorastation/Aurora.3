@@ -37921,11 +37921,11 @@
 /area/medical/medbay)
 "boh" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	dir = 1;
-	frequency = 1449;
-	listening = 0;
-	name = "Station Intercom (Interrogation)";
+	frequency = 1459;
+	listening = 1;
+	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner_wide/lime{
@@ -41047,11 +41047,11 @@
 /area/medical/medbay)
 "buo" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	dir = 1;
-	frequency = 1449;
-	listening = 0;
-	name = "Station Intercom (Interrogation)";
+	frequency = 1459;
+	listening = 1;
+	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/light{
@@ -41377,11 +41377,11 @@
 /area/medical/reception)
 "bvj" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	dir = 1;
-	frequency = 1449;
-	listening = 0;
-	name = "Station Intercom (Interrogation)";
+	frequency = 1459;
+	listening = 1;
+	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/structure/table/standard,
@@ -44852,11 +44852,11 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	dir = 1;
-	frequency = 1449;
-	listening = 0;
-	name = "Station Intercom (Interrogation)";
+	frequency = 1459;
+	listening = 1;
+	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/item/nitrilebox{
@@ -44960,11 +44960,11 @@
 /area/hallway/primary/central_one)
 "bCL" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	dir = 1;
-	frequency = 1449;
-	listening = 0;
-	name = "Station Intercom (Interrogation)";
+	frequency = 1459;
+	listening = 1;
+	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/research{
@@ -47466,11 +47466,11 @@
 "bIC" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	dir = 1;
-	frequency = 1449;
-	listening = 0;
-	name = "Station Intercom (Interrogation)";
+	frequency = 1459;
+	listening = 1;
+	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/item/device/radio{
@@ -48809,11 +48809,11 @@
 /area/maintenance/research_port)
 "bLY" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = 0;
 	dir = 1;
-	frequency = 1449;
-	listening = 0;
-	name = "Station Intercom (Interrogation)";
+	frequency = 1459;
+	listening = 1;
+	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/structure/table/standard,
