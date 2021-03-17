@@ -13,7 +13,8 @@
 	name = "Pun Pun"
 	real_name = name
 	named = TRUE
-	w_uniform = new /obj/item/clothing/under/punpun(src)
+
+	equip_to_slot(new /obj/item/clothing/under/punpun(src), slot_w_uniform)
 
 /obj/item/clothing/under/nupnup
 	name = "christmas uniform"

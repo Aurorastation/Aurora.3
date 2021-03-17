@@ -161,6 +161,13 @@ proc/get_radio_key_from_channel(var/channel)
 		return "asks"
 	return verb
 
+/mob/living/proc/get_font_size_modifier()
+	if(ismech(loc))
+		var/mob/living/heavy_vehicle/HV = loc
+		if(HV.loudening)
+			return FONT_SIZE_LARGE
+	return null
+
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR)
 	if(stat)
 		if(stat == DEAD)
@@ -276,11 +283,10 @@ proc/get_radio_key_from_channel(var/channel)
 
 		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
 
-
 	var/list/hear_clients = list()
 	for(var/m in listening)
 		var/mob/M = m
-		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
 		if(heard_say && M.client)
 			hear_clients += M.client
 

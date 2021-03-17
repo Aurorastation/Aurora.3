@@ -193,8 +193,7 @@
 /obj/item/projectile/beam/hivebot
 	name = "electrical discharge"
 	damage = 10
-	damage_type = PAIN
-	taser_effect = 1
+	damage_type = BURN
 	agony = 30
 	armor_penetration = 40
 	muzzle_type = /obj/effect/projectile/muzzle/stun
@@ -205,7 +204,6 @@
 	name = "harmless electrical discharge"
 	damage = 0
 	damage_type = PAIN
-	taser_effect = TRUE
 	agony = 0
 
 /obj/item/projectile/beam/hivebot/incendiary
@@ -213,7 +211,6 @@
 	damage_type = BURN
 	damage = 20
 	incinerate = 5
-	taser_effect = 0
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
 	impact_type = /obj/effect/projectile/impact/laser/blue

@@ -107,7 +107,8 @@
 //the activeFor variable.
 //For example: if(activeFor == myOwnVariable + 30) doStuff()
 //Only called once.
-/datum/event/proc/end()
+//faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
+/datum/event/proc/end(var/faked)
 	return
 
 //Returns the latest point of event processing.
