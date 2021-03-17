@@ -10,7 +10,6 @@
 	var/tested_count = 0
 	var/error_count = 0
 	for(var/datum/design/D in designs)
-		var/datum/design/D = new T
 		if(ispath(D.build_path, /obj/item))
 			var/obj/item/I = D.Fabricate()
 			if(I.matter && D.materials && I.recyclable) // non-recyclable items can't be exploited
