@@ -81,7 +81,7 @@
 		target.dna.real_name = getName
 		if(target.mind)
 			target.mind.name = target.name
-		target.change_appearance(APPEARANCE_PLASTICSURGERY, usr, usr, check_species_whitelist = 1, state = z_state)
+		target.change_appearance(APPEARANCE_PLASTICSURGERY, user, TRUE, ui_state = default_state, state_object = target)
 		target.op_stage.face = FACE_ALTERED
 
 
@@ -229,7 +229,7 @@
 		target.dna.real_name = getName
 		if(target.mind)
 			target.mind.name = target.name
-		target.change_appearance(APPEARANCE_PLASTICSURGERY, usr, usr, check_species_whitelist = 1, state = z_state)
+		target.change_appearance(APPEARANCE_PLASTICSURGERY, user, TRUE, ui_state = default_state, state_object = target)
 		target.op_stage.face = FACE_ALTERED
 
 
