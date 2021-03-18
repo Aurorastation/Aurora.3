@@ -71,6 +71,30 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"aal" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ammunition (shotgun less-than-lethal)"
+	},
+/obj/effect/decal/warning_stripes,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/storage/box/stunshells,
+/obj/item/storage/box/flashshells{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/storage/box/beanbags{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/beanbags{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/trackingslugs,
+/obj/item/storage/box/sabotshells,
+/obj/item/storage/box/sabotshells,
+/turf/simulated/floor/tiled/dark,
+/area/security/armory)
 "aan" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -9102,28 +9126,6 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
-/turf/simulated/floor/tiled/dark,
-/area/security/armory)
-"arG" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (shotgun less-than-lethal)"
-	},
-/obj/effect/decal/warning_stripes,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/storage/box/stunshells,
-/obj/item/storage/box/flashshells{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/obj/item/storage/box/beanbags{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/beanbags{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/trackingslugs,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arH" = (
@@ -98211,7 +98213,7 @@ amO
 amO
 amO
 aqv
-arG
+aal
 asQ
 auz
 awe
