@@ -189,7 +189,7 @@
 
 /datum/reagents/proc/has_all_reagents(var/list/check_reagents)
 	for(var/current in check_reagents)
-		if(!has_reagent(current))
+		if(!has_reagent(current, check_reagents[current]))
 			return FALSE
 	return TRUE
 
