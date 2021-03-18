@@ -124,7 +124,8 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/medium
-	damage = 30
+	damage = 25
+	armor_penetration = 5
 
 /obj/item/projectile/bullet/pistol/strong
 	damage = 45

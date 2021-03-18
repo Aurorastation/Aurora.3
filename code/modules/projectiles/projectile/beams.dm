@@ -40,7 +40,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 35
-	armor_penetration = 5
+	armor_penetration = 10
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
