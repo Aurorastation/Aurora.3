@@ -7,7 +7,6 @@
 	age_min = 30
 	age_max = 500
 	default_genders = list(PLURAL)
-	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
