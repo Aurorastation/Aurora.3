@@ -475,6 +475,12 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/shotgun_sabot
+	name = "ammunition (sabot, shotgun)"
+	path = /obj/item/ammo_casing/shotgun/sabot
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/tacknife
 	name = "tactical knife"
 	path = /obj/item/material/knife/tacknife
