@@ -3,6 +3,10 @@
 */
 
 /datum/ghostspawner/human/admin/corporate
+	short_name = null
+	name = "Corporate Entity"
+	desc = "A corporate entity so dull it doesn't even exist. Thrilling!"
+
 	tags = list("CCIA")
 	landmark_name = "CCIAAgent"
 	req_perms = R_CCIAA
