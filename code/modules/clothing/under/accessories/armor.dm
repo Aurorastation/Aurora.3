@@ -87,6 +87,11 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
+/obj/item/clothing/accessory/leg_guard/heavy/scc
+	name = "heavy SCC leg guards"
+	icon_state = "legguards_blue"
+	item_state = "legguards_blue"
+
 /obj/item/clothing/accessory/leg_guard/heavy/sec
 	name = "heavy corporate leg guards"
 	icon_state = "legguards_sec_heavy"
@@ -183,6 +188,11 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
+
+/obj/item/clothing/accessory/arm_guard/heavy/scc
+	name = "heavy SCC arm guards"
+	icon_state = "armguards_blue"
+	item_state = "armguards_blue"
 
 /obj/item/clothing/accessory/arm_guard/heavy/sec
 	name = "heavy corporate arm guards"

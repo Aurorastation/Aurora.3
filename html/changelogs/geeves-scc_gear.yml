@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Gave the CCIA a new SCC agent to spawn as. They need an admin to enable the slot, however."
+  - rscadd: "Added an energy repeater, given to SCC bodyguards."
+  - rscadd: "Added SCC undershirts and shorts."
+  - rscadd: "Added SCC jackets, shorts, flags, banners, floor decals, sleeve patches, armbands."
+  - tweak: "CCIA ghostspawners have been put into a CCIA tab to declutter the admin tab."
