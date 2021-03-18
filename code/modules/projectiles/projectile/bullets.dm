@@ -167,7 +167,7 @@
 /obj/item/projectile/bullet/sabot
 	name = "sabot"
 	damage = 30
-	armor_penetration = 30
+	armor_penetration = 45
 
 /obj/item/projectile/bullet/tracking
 	name = "tracking shot"
