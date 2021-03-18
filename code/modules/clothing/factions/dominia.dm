@@ -381,7 +381,7 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
 /obj/item/clothing/head/beret/dominia
-	name = "tribunal initiate’s beret"
+	name = "tribunal initiate's beret"
 	desc = "A simple red beret with a golden badge marking its wearer as an initiate of the Moroz Holy Tribunal."
 	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
 	funding - spares any expenses funding them, and these berets are made of luxurious velvet."
@@ -390,8 +390,8 @@
 	item_state = "dominia_beret"
 
 /obj/item/clothing/head/beret/dominia/priest
-	name = "tribunalist’s beret"
-	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal’s clergy."
+	name = "tribunalist's beret"
+	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal's clergy."
 	desc_fluff = "With their black and gold clothing designed to resemble that of their noble counterparts, the full clergy of the Moroz Holy Tribunal \
 	are a sight to behold both inside and outside of the Empire of Dominia. This beret features an emblem luxuriously and painstakingly crafted out of real gold."
 	icon = 'icons/clothing/head/dominia_beret_priest.dmi'
