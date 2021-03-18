@@ -172,7 +172,7 @@
 /obj/item/projectile/bullet/tracking
 	name = "tracking shot"
 	damage = 10
-	embed_chance = 60 // this thing was designed to embed, so it has a 80% base chance to embed (damage + this flat increase)
+	embed_chance = 70 // this thing was designed to embed, so it has a 80% base chance to embed (damage + this flat increase)
 	agony = 10
 	shrapnel_type = /obj/item/implant/tracking
 
