@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Wearing thick clothing and gas masks now hide your gender again."
-  - tweak: "Clothing hiding gender is now restricted to thick clothing or clothing that explicitly obscures the face. This means cloth or surgical masks no longer does so."
