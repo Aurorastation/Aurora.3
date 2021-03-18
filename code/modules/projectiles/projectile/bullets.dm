@@ -164,11 +164,16 @@
 	sharp = 0
 	incinerate = 10
 
+/obj/item/projectile/bullet/sabot
+	name = "sabot"
+	damage = 30
+	armor_penetration = 30
+
 /obj/item/projectile/bullet/tracking
 	name = "tracking shot"
-	damage = 20
+	damage = 10
 	embed_chance = 60 // this thing was designed to embed, so it has a 80% base chance to embed (damage + this flat increase)
-	agony = 20
+	agony = 10
 	shrapnel_type = /obj/item/implant/tracking
 
 /obj/item/projectile/bullet/tracking/do_embed(obj/item/organ/external/organ)
