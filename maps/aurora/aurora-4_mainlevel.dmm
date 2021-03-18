@@ -1032,6 +1032,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "acs" = (
@@ -1128,6 +1131,11 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -12295,7 +12303,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/banner,
+/obj/structure/banner/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awP" = (
@@ -12332,7 +12340,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/banner,
+/obj/structure/banner/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awT" = (
@@ -19982,7 +19990,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/sign/flag/nanotrasen/left,
 /turf/simulated/floor/plating,
 /area/bridge)
 "aIL" = (
@@ -19999,7 +20006,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/sign/flag/nanotrasen/right,
 /turf/simulated/floor/plating,
 /area/bridge)
 "aIM" = (
@@ -20471,10 +20477,10 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJD" = (
-/obj/structure/banner,
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
+/obj/structure/banner/scc,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJE" = (
@@ -20980,6 +20986,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
+	},
+/obj/structure/sign/flag/scc/left{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -24994,10 +25003,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/banner,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/banner/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRu" = (
@@ -25140,7 +25149,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/banner,
+/obj/structure/banner/scc,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRG" = (
@@ -28472,10 +28481,10 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/banner,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/banner/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aXu" = (
@@ -29684,6 +29693,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
+	},
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -30910,11 +30922,11 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/structure/sign/flag/nanotrasen/left{
+/obj/structure/sign/flag/scc/left{
 	pixel_x = -16;
 	pixel_y = 30
 	},
-/obj/structure/sign/flag/nanotrasen/right{
+/obj/structure/sign/flag/scc/right{
 	pixel_x = 16;
 	pixel_y = 30
 	},
@@ -37921,10 +37933,7 @@
 /area/medical/medbay)
 "boh" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 0;
 	dir = 1;
-	frequency = 1459;
-	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
@@ -39603,6 +39612,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "brE" = (
@@ -39975,6 +39987,9 @@
 	name = "borerstart"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/sign/flag/scc{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bsl" = (
@@ -41047,10 +41062,7 @@
 /area/medical/medbay)
 "buo" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 0;
 	dir = 1;
-	frequency = 1459;
-	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
@@ -41377,10 +41389,7 @@
 /area/medical/reception)
 "bvj" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 0;
 	dir = 1;
-	frequency = 1459;
-	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
@@ -44852,10 +44861,7 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/device/radio/intercom{
-	broadcasting = 0;
 	dir = 1;
-	frequency = 1459;
-	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
@@ -44960,10 +44966,7 @@
 /area/hallway/primary/central_one)
 "bCL" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 0;
 	dir = 1;
-	frequency = 1459;
-	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
@@ -47466,10 +47469,7 @@
 "bIC" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = 0;
 	dir = 1;
-	frequency = 1459;
-	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
@@ -48809,10 +48809,7 @@
 /area/maintenance/research_port)
 "bLY" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 0;
 	dir = 1;
-	frequency = 1459;
-	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
@@ -53542,6 +53539,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bXS" = (
@@ -53619,6 +53619,9 @@
 "bYe" = (
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -62318,6 +62321,12 @@
 /obj/random/gloves,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"imd" = (
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "ipL" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -66201,6 +66210,20 @@
 "qdR" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/workshop)
+"qea" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/structure/sign/flag/scc/right{
+	pixel_y = 30
+	},
+/turf/simulated/floor/tiled,
+/area/bridge)
 "qgs" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -99288,7 +99311,7 @@ bve
 bve
 bve
 baI
-aZs
+imd
 bHm
 bIg
 bIZ
@@ -115698,7 +115721,7 @@ aDk
 vCz
 gGa
 aIL
-aKt
+qea
 aMj
 aOc
 aPG
