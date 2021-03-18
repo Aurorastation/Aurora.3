@@ -190,6 +190,13 @@
 	spent_icon = "trackingshell-spent"
 	projectile_type = /obj/item/projectile/bullet/tracking
 
+/obj/item/ammo_casing/shotgun/sabot
+	name = "sabot slug"
+	desc = "A 12-gauge shotgun sabot slug. It sacrifices most of its damage potential in order to penetrate armor."
+	icon_state = "sshell"
+	spent_icon = "sshell-spent"
+	projectile_type = /obj/item/projectile/bullet/sabot
+
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
 	desc = "A .50 cal PPS bullet casing."
