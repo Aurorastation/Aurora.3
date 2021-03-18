@@ -502,6 +502,11 @@
 		'sound/effects/bodyfall4.ogg'
 	)
 
+/decl/sound_category/bodyfall_skrell_sound
+	sounds = list(
+		'sound/effects/bodyfall_skrell1.ogg'
+	)
+
 /decl/sound_category/bodyfall_machine_sound
 	sounds = list(
 		'sound/effects/bodyfall_machine1.ogg',

@@ -24,6 +24,7 @@ BLIND     // can't see anything
 	var/prescription = 0
 	var/see_invisible = -1
 	var/toggleable = 0
+	var/toggle_changes_appearance = TRUE
 	var/off_state = "degoggles"
 	var/active = 1
 	var/activation_sound = 'sound/items/goggles_charge.ogg'
@@ -46,14 +47,14 @@ BLIND     // can't see anything
 		var/mob/M = src.loc
 		M.update_inv_glasses()
 
-
 /obj/item/clothing/glasses/attack_self(mob/user)
 	if(toggleable)
 		if(active)
 			active = 0
-			icon_state = off_state
-			item_state = off_state
-			user.update_inv_glasses()
+			if(toggle_changes_appearance)
+				icon_state = off_state
+				item_state = off_state
+				user.update_inv_glasses()
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
 			to_chat(usr, "You deactivate the optical matrix on the [src].")
@@ -61,9 +62,10 @@ BLIND     // can't see anything
 				set_light(0)
 		else
 			active = 1
-			icon_state = initial(icon_state)
-			item_state = initial(icon_state)
-			user.update_inv_glasses()
+			if(toggle_changes_appearance)
+				icon_state = initial(icon_state)
+				item_state = initial(icon_state)
+				user.update_inv_glasses()
 			if(activation_sound)
 				sound_to(usr, activation_sound)
 			flash_protection = initial(flash_protection)
@@ -265,9 +267,11 @@ BLIND     // can't see anything
 	set category = "Object"
 	set src in usr
 
-	if (usr.stat || usr.restrained())
+	if(use_check_and_message(usr))
 		return
+	handle_flipping(usr)
 
+/obj/item/clothing/glasses/eyepatch/proc/handle_flipping(var/mob/user)
 	src.flipped = !src.flipped
 	if(src.flipped)
 		src.icon_state = "[icon_state]_r"
@@ -698,24 +702,40 @@ BLIND     // can't see anything
 	off_state = "hudpatch"
 	action_button_name = "Toggle iPatch"
 	prescription = 7 //To emulate not having one eyeball
-	toggleable = 1
+	toggleable = TRUE
+	toggle_changes_appearance = FALSE
 	var/eye_color = COLOR_WHITE
 	var/image/mob_overlay
 
-/obj/item/clothing/glasses/eyepatch/hud/Initialize()
-	.  = ..()
+/obj/item/clothing/glasses/eyepatch/hud/handle_flipping(mob/user)
+	..()
+	handle_mob_overlay()
+
+/obj/item/clothing/glasses/eyepatch/hud/proc/handle_mob_overlay()
+	if(mob_overlay && ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		if(H.glasses == src)
+			H.cut_overlay(mob_overlay, TRUE)
 	mob_overlay = image('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
-	mob_overlay.layer = LIGHTING_LAYER+1
+	mob_overlay.layer = LIGHTING_LAYER + 1
+	if(active && ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		if(H.glasses == src)
+			H.add_overlay(mob_overlay, TRUE)
 	update_icon()
 
+/obj/item/clothing/glasses/eyepatch/hud/Initialize()
+	. = ..()
+	handle_mob_overlay()
+
 /obj/item/clothing/glasses/eyepatch/hud/equipped(mob/user, slot)
-	if (slot == slot_glasses)
+	if(active && slot == slot_glasses)
 		user.add_overlay(mob_overlay, TRUE)
 	else
 		user.cut_overlay(mob_overlay, TRUE)
-	. =..()
+	return ..()
 
 /obj/item/clothing/glasses/eyepatch/hud/Destroy()
 	if (ishuman(loc))
@@ -725,7 +745,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/attack_self()
 	..()
-	update_icon()
+	handle_mob_overlay()
 
 /obj/item/clothing/glasses/eyepatch/hud/update_icon()
 	cut_overlays()
@@ -733,7 +753,7 @@ BLIND     // can't see anything
 		var/image/eye = image('icons/obj/clothing/glasses.dmi', "[icon_state]_ovr")
 		eye.appearance_flags = RESET_COLOR
 		eye.color = eye_color
-		add_overlay (eye)
+		add_overlay(eye)
 
 /obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/newloc)
 	if (!ishuman(loc))

@@ -203,18 +203,7 @@
 	if(job_civilian_low & ASSISTANT)
 		previewJob = SSjobs.GetJob("Assistant")
 	else
-		for(var/datum/job/job in SSjobs.occupations)
-			var/job_flag
-			switch(job.department_flag)
-				if(CIVILIAN)
-					job_flag = job_civilian_high
-				if(MEDSCI)
-					job_flag = job_medsci_high
-				if(ENGSEC)
-					job_flag = job_engsec_high
-			if(job.flag == job_flag)
-				previewJob = job
-				break
+		previewJob = return_chosen_high_job()
 
 	if(previewJob)
 		mannequin.job = previewJob.title
@@ -236,6 +225,19 @@
 			mannequin.regenerate_icons()
 		else
 			mannequin.update_icon()
+
+/datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
+	var/datum/job/chosenJob
+	if(job_civilian_high)
+		chosenJob = SSjobs.bitflag_to_job["[CIVILIAN]"]["[job_civilian_high]"]
+	else if(job_medsci_high)
+		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
+	else if(job_engsec_high)
+		chosenJob = SSjobs.bitflag_to_job["[ENGSEC]"]["[job_engsec_high]"]
+
+	if(title)
+		return chosenJob.title
+	return chosenJob
 
 /datum/preferences/proc/update_mannequin()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)

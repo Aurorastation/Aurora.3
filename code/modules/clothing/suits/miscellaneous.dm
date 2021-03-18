@@ -1,32 +1,8 @@
 /*
  * Contains:
- *		Lasertag
  *		Costume
  *		Misc
  */
-
-/*
- * Lasertag
- */
-/obj/item/clothing/suit/bluetag
-	name = "blue laser tag armor"
-	desc = "Blue Pride, Station Wide."
-	icon_state = "bluetag"
-	item_state = "bluetag"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/gun/energy/lasertag/blue)
-	siemens_coefficient = 1.0
-
-/obj/item/clothing/suit/redtag
-	name = "red laser tag armor"
-	desc = "Reputed to go faster."
-	icon_state = "redtag"
-	item_state = "redtag"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/gun/energy/lasertag/red)
-	siemens_coefficient = 1.0
 
 /*
  * Costume
@@ -585,7 +561,7 @@
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	attack_verb = list("warned", "cautioned", "smashed")
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/caution/attack_self()
 	toggle()

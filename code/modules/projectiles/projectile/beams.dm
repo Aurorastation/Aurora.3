@@ -28,7 +28,6 @@
 
 /obj/item/projectile/beam/pistol
 	damage = 25
-	armor_penetration = 10
 
 /obj/item/projectile/beam/pistol/scc
 	armor_penetration = 15
@@ -41,7 +40,6 @@
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	damage = 30
-	armor_penetration = 5
 
 	muzzle_type = /obj/effect/projectile/muzzle/hegemony
 	tracer_type = /obj/effect/projectile/tracer/hegemony
@@ -49,7 +47,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 35
-	armor_penetration = 15
+	armor_penetration = 5
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
@@ -106,27 +104,7 @@
 	tracer_type = /obj/effect/projectile/tracer/emitter
 	impact_type = /obj/effect/projectile/impact/emitter
 
-/obj/item/projectile/beam/lastertag/blue
-	name = "lasertag beam"
-	icon_state = "bluelaser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 0
-	no_attack_log = 1
-	damage_type = BURN
-	check_armor = "laser"
-
-	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
-	tracer_type = /obj/effect/projectile/tracer/laser/blue
-	impact_type = /obj/effect/projectile/impact/laser/blue
-
-/obj/item/projectile/beam/lastertag/blue/on_hit(var/atom/target, var/blocked = 0)
-	if(istype(target, /mob/living/carbon/human))
-		var/mob/living/carbon/human/M = target
-		if(istype(M.wear_suit, /obj/item/clothing/suit/redtag))
-			M.Weaken(5)
-	return 1
-
-/obj/item/projectile/beam/lastertag/red
+/obj/item/projectile/beam/laser_tag
 	name = "lasertag beam"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
@@ -134,32 +112,38 @@
 	no_attack_log = 1
 	damage_type = BURN
 	check_armor = "laser"
+	var/laser_tag_color = "red"
 
-/obj/item/projectile/beam/lastertag/red/on_hit(var/atom/target, var/blocked = 0)
-	if(istype(target, /mob/living/carbon/human))
-		var/mob/living/carbon/human/M = target
-		if(istype(M.wear_suit, /obj/item/clothing/suit/bluetag))
-			M.Weaken(5)
-	return 1
+	muzzle_type = /obj/effect/projectile/muzzle/laser
+	tracer_type = /obj/effect/projectile/tracer/laser
+	impact_type = /obj/effect/projectile/impact/laser
 
-/obj/item/projectile/beam/lastertag/omni//A laser tag bolt that stuns EVERYONE
+/obj/item/projectile/beam/laser_tag/on_hit(var/atom/target, var/blocked = 0)
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
+		if(istype(LT) && laser_tag_color != LT.laser_tag_color)
+			LT.laser_hit()
+	return TRUE
+
+/obj/item/projectile/beam/laser_tag/blue
+	name = "lasertag beam"
+	icon_state = "bluelaser"
+	laser_tag_color = "blue"
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
+	tracer_type = /obj/effect/projectile/tracer/laser/blue
+	impact_type = /obj/effect/projectile/impact/laser/blue
+
+/obj/item/projectile/beam/laser_tag/omni//A laser tag bolt that stuns EVERYONE
 	name = "lasertag beam"
 	icon_state = "omnilaser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 0
-	damage_type = BURN
-	check_armor = "laser"
+	laser_tag_color = "omni"
 
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
 	tracer_type = /obj/effect/projectile/tracer/disabler
 	impact_type = /obj/effect/projectile/impact/disabler
 
-/obj/item/projectile/beam/lastertag/omni/on_hit(var/atom/target, var/blocked = 0)
-	if(istype(target, /mob/living/carbon/human))
-		var/mob/living/carbon/human/M = target
-		if((istype(M.wear_suit, /obj/item/clothing/suit/bluetag))||(istype(M.wear_suit, /obj/item/clothing/suit/redtag)))
-			M.Weaken(5)
-	return 1
 
 /obj/item/projectile/beam/sniper
 	name = "sniper beam"
@@ -177,12 +161,11 @@
 /obj/item/projectile/beam/stun
 	name = "stun beam"
 	icon_state = "stun"
-	nodamage = 1
-	taser_effect = 1
-	sharp = 0
+	damage = 1
+	sharp = FALSE
 	eyeblur = 1
-	agony = 40
-	damage_type = PAIN
+	agony = 45
+	damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -201,8 +184,8 @@
 /obj/item/projectile/beam/mousegun
 	name = "electrical arc"
 	icon_state = "stun"
-	nodamage = 1
-	damage_type = PAIN
+	damage = 1
+	damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun

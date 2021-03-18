@@ -28,6 +28,7 @@
 			/obj/screen/mecha/toggle/hatch_open,
 			/obj/screen/mecha/radio,
 			/obj/screen/mecha/toggle/sensor,
+			/obj/screen/mecha/toggle/megaspeakers,
 			/obj/screen/mecha/rename
 			)
 

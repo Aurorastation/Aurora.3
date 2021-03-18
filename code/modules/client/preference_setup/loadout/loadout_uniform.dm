@@ -96,7 +96,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -242,7 +242,7 @@
 
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"
-	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Perispolisean clothes respectively."
+	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolis clothes respectively."
 	path = /obj/item/clothing/under/elyra_holo
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -276,7 +276,7 @@
 	display_name = "uniforms, (Investigations)"
 	description = "A selection of Investigations staff uniforms."
 	path = /obj/item/clothing/under/det
-	allowed_roles = list("Detective", "Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/uniform/detective/New()
 	..()

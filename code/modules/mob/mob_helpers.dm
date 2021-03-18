@@ -1206,7 +1206,11 @@ proc/is_blind(A)
 	sdisabilities &= ~DEAF
 
 /mob/proc/get_antag_datum(var/antag_role)
-	return
+	if(!mind)
+		return
+	var/datum/D = mind.antag_datums[antag_role]
+	if(D)
+		return D
 
 /mob/dump_contents()
 	for(var/thing in get_contained_external_atoms())

@@ -101,7 +101,7 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
 /datum/gear/suit/medical_chest_rig
 	display_name = "medic chest-rig"
@@ -172,6 +172,8 @@
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
+	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/trenchcoat_colorable
@@ -179,20 +181,6 @@
 	description = "A sleek canvas trenchcoat in 167,777,216 designer colors."
 	path = /obj/item/clothing/suit/storage/toggle/trench/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/suit/det_trenchcoat
-	display_name = "detective trenchcoat selection"
-	description = "A selection of detective trenchcoats."
-	path = /obj/item/clothing/suit/storage/toggle/det_trench
-	allowed_roles = list("Detective")
-
-/datum/gear/suit/det_trenchcoat/New()
-	..()
-	var/coat = list()
-	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
-	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
-	gear_tweaks += new/datum/gear_tweak/path(coat)
-
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
@@ -270,7 +258,7 @@
 /datum/gear/suit/secjacketforensictech
 	display_name = "security jacket selection (Forensic Technician)"
 	path = /obj/item/clothing/suit/storage/toggle/forensics
-	allowed_roles = list("Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/suit/secjacketforensictech/New()
 	..()

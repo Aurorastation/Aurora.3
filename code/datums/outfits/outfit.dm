@@ -41,6 +41,14 @@
 	var/accessory = null
 	var/suit_accessory = null
 
+	// species specific item paths, in the form of
+	// thing = list(SPECIES_NAME = /type/path/here)
+	// if no path is found, the default fallback (var without the species_ prefix) will be used
+	var/list/species_head
+	var/list/species_suit
+	var/list/species_gloves
+	var/list/species_shoes
+
 	//The following vars must be paths
 	var/l_hand = null
 	var/r_hand = null
@@ -180,19 +188,45 @@
 		equip_item(H, uniform, slot_w_uniform)
 		if(accessory)
 			equip_uniform_accessory(H)
-	if(suit)
+	var/got_suit = FALSE
+	if(length(species_suit))
+		var/path = species_suit[H.species.name]
+		if(path)
+			got_suit = TRUE
+			equip_item(H, path, slot_wear_suit)
+			if(suit_accessory)
+				equip_suit_accessory(H)
+	if(suit && !got_suit)
 		equip_item(H, suit, slot_wear_suit)
 		if(suit_accessory)
 			equip_suit_accessory(H)
 	if(belt)
 		equip_item(H, belt, slot_belt)
-	if(gloves)
+	var/got_gloves = FALSE
+	if(length(species_gloves))
+		var/path = species_gloves[H.species.name]
+		if(path)
+			got_gloves = TRUE
+			equip_item(H, path, slot_gloves)
+	if(gloves && !got_gloves)
 		equip_item(H, gloves, slot_gloves)
 	if(wrist)
 		equip_item(H, wrist, slot_wrists)
-	if(shoes)
+	var/got_shoes = FALSE
+	if(length(species_shoes))
+		var/path = species_shoes[H.species.name]
+		if(path)
+			got_shoes = TRUE
+			equip_item(H, path, slot_shoes)
+	if(shoes && !got_shoes)
 		equip_item(H, shoes, slot_shoes)
-	if(head)
+	var/got_head = FALSE
+	if(length(species_head))
+		var/path = species_head[H.species.name]
+		if(path)
+			got_head = TRUE
+			equip_item(H, path, slot_head)
+	if(head && !got_head)
 		equip_item(H, head, slot_head)
 	if(mask)
 		equip_item(H, mask, slot_wear_mask)
@@ -207,9 +241,9 @@
 		equip_item(H, suit_store, slot_s_store)
 
 	if(l_hand)
-		H.put_in_l_hand(new l_hand(H))
+		equip_item(H, l_hand, slot_l_hand)
 	if(r_hand)
-		H.put_in_r_hand(new r_hand(H))
+		equip_item(H, r_hand, slot_r_hand)
 
 	if(allow_pda_choice)
 		switch(H.pda_choice)
@@ -286,6 +320,27 @@
 
 	H.update_body()
 	return 1
+
+// this proc takes all the scattered voidsuit pieces and reassembles them into one piece
+/datum/outfit/proc/organize_voidsuit(mob/living/carbon/human/H, var/add_magboots = TRUE)
+	var/obj/item/tank/T = H.s_store
+	H.unEquip(T, TRUE)
+
+	var/obj/item/clothing/suit/space/void/VS = H.wear_suit
+	H.unEquip(VS, TRUE)
+
+	var/obj/item/clothing/head/helmet/VH = H.head
+	H.unEquip(VH, TRUE, VS)
+	VS.helmet = VH
+
+	T.forceMove(VS)
+	VS.tank = T
+
+	if(add_magboots)
+		var/obj/item/clothing/shoes/magboots/M = new /obj/item/clothing/shoes/magboots(VH)
+		VS.boots = M
+
+	H.equip_to_slot_if_possible(VS, slot_wear_suit)
 
 /datum/outfit/proc/apply_fingerprints(mob/living/carbon/human/H)
 	if(!istype(H))

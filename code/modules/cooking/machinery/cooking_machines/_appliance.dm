@@ -254,12 +254,11 @@
 		oilwork(J, CI)
 
 	for (var/_R in CI.container.reagents.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		if (istype(R, /decl/reagent/nutriment))
+		if (ispath(_R, /decl/reagent/nutriment))
 			CI.max_cookwork += CI.container.reagents.reagent_volumes[_R] *2//Added reagents contribute less than those in food items due to granular form
 
 			//Nonfat reagents will soak oil
-			if (!istype(R, /decl/reagent/nutriment/triglyceride))
+			if (!ispath(_R, /decl/reagent/nutriment/triglyceride))
 				CI.max_oil += CI.container.reagents.reagent_volumes[_R] * 0.25
 		else
 			CI.max_cookwork += CI.container.reagents.reagent_volumes[_R]
@@ -275,12 +274,11 @@
 	var/work = 0
 	if (istype(S) && S.reagents)
 		for (var/_R in S.reagents.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if (istype(R, /decl/reagent/nutriment))
+			if (ispath(_R, /decl/reagent/nutriment))
 				work += S.reagents.reagent_volumes[_R] *3//Core nutrients contribute much more than peripheral chemicals
 
 				//Nonfat reagents will soak oil
-				if (!istype(R, /decl/reagent/nutriment/triglyceride))
+				if (!ispath(_R, /decl/reagent/nutriment/triglyceride))
 					CI.max_oil += S.reagents.reagent_volumes[_R] * 0.35
 			else
 				work += S.reagents.reagent_volumes[_R]
@@ -575,15 +573,15 @@
 		result.kitchen_tag = SA.kitchen_tag
 		if (SA.meat_amount)
 			reagent_amount = SA.meat_amount*9 // at a rate of 9 protein per meat
-	var/decl/reagent/digest_product = victim.get_digestion_product()
+	var/digest_product_type = victim.get_digestion_product() // DOES NOT RETURN A DECL, RETURNS A PATH
 	var/list/data
 	var/meat_name = result.kitchen_tag || victim.name
 	if(ishuman(victim))
 		var/mob/living/carbon/human/CH = victim
 		meat_name = CH.species?.name || meat_name
-	if(istype(digest_product, /decl/reagent/nutriment/protein))
+	if(ispath(digest_product_type, /decl/reagent/nutriment/protein))
 		data = list("[meat_name] meat" = reagent_amount)
-	result.reagents.add_reagent(victim.get_digestion_product(), reagent_amount, data)
+	result.reagents.add_reagent(digest_product_type, reagent_amount, data)
 
 	if (victim.reagents)
 		victim.reagents.trans_to(result, victim.reagents.total_volume)

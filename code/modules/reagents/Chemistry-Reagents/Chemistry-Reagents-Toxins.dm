@@ -470,12 +470,12 @@
 		return
 	M.add_chemical_effect(CE_PULSE, -2)
 	var/dose = M.chem_doses[type]
-	if(dose < 1)
+	if(dose < 2)
 		if(dose == metabolism * 2 || prob(5))
 			M.emote("yawn")
-	else if(dose < 1.5)
+	else if(dose < 3.5)
 		M.eye_blurry = max(M.eye_blurry, 10)
-	else if(dose < 5)
+	else if(dose < 7)
 		if(prob(50))
 			M.Weaken(2)
 		M.drowsyness = max(M.drowsyness, 20)
