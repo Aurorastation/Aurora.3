@@ -832,6 +832,11 @@ var/global/list/common_tools = list(
 			surgery_attempt = SURGERY_SUCCESS
 		else
 			surgery_attempt = SURGERY_FAIL
+	else if(M.buckled_to)
+		if(prob(55))
+			surgery_attempt = SURGERY_SUCCESS
+		else
+			surgery_attempt = SURGERY_FAIL
 	else if(locate(/obj/structure/table, M.loc))
 		located = TRUE
 		if(prob(66))
