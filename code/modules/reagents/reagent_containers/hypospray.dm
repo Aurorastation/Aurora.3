@@ -107,7 +107,7 @@
 	icon_state = "autoinjector1"
 	item_state = "autoinjector1"
 	var/empty_state = "autoinjector0"
-	flags = OPENCONTAINER
+	flags = null
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 5

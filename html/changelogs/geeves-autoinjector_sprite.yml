@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Autoinjectors now start secured, which properly sets their sprite. Remember to use screwdrivers to unsecure them, and to use them in-hand to resecure them."
