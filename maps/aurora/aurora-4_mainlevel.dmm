@@ -3270,6 +3270,10 @@
 /area/security/forensics_morgue)
 "agv" = (
 /obj/structure/table/standard,
+/obj/item/surgery/surgicaldrill{
+	pixel_x = 1;
+	pixel_y = -2
+	},
 /obj/item/surgery/hemostat,
 /obj/item/surgery/retractor,
 /obj/item/surgery/circular_saw,
@@ -4375,20 +4379,24 @@
 	},
 /area/security/forensics_morgue)
 "aiI" = (
-/obj/structure/cable/green{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "12-0"
-	},
 /obj/structure/disposalpipe/up,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
+/obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
+	d1 = 16;
+	d2 = 0;
+	icon_state = "12-0"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -4723,11 +4731,11 @@
 /area/maintenance/vault)
 "ajy" = (
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ajz" = (
@@ -5065,19 +5073,18 @@
 /area/maintenance/vault)
 "ake" = (
 /obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -59343,6 +59350,24 @@
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
+"dcZ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "dde" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -61030,6 +61055,7 @@
 	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "gen" = (
@@ -106952,8 +106978,8 @@ klC
 klC
 klC
 klC
-aiI
-ajy
+klC
+tzU
 ake
 lQu
 nHe
@@ -107209,9 +107235,9 @@ klC
 klC
 klC
 klC
-tzU
-tzU
-tzU
+aiI
+ajy
+dcZ
 nHe
 nHe
 vFG
