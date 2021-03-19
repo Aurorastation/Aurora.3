@@ -24,15 +24,14 @@
 //TODO:   Floor Access Update?
 //TODO: Anti-Destruction
 //TODO: Interactions
-//TODO: Unit Tests of controller_link_id
 
 
 /obj/machinery/turbolift_controller/Initialize()
+	..()
 	wires = new(src)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/turbolift_controller/LateInitialize()
-	. = ..()
 	for(var/datum/turbolift/tlift in elevators)
 		if(tlift.controller_link_id == controller_link_id)
 			lift = tlift
