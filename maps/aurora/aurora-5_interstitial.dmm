@@ -2089,11 +2089,12 @@
 /turf/simulated/wall,
 /area/security/training_crimescene)
 "eF" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/donut,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eG" = (
@@ -2220,7 +2221,6 @@
 "eT" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/storage/box/fancy/donut,
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eU" = (
@@ -2740,22 +2740,6 @@
 "gO" = (
 /obj/structure/table/rack,
 /obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/security_interstitial)
-"gS" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
 "gY" = (
@@ -6069,6 +6053,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)
+"sC" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/security_interstitial)
 "sE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -8339,6 +8327,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
+"Hx" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_interstitial)
 "HC" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Construction Level"
@@ -9516,10 +9520,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"LU" = (
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/plating,
-/area/maintenance/security_interstitial)
 "LY" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -47151,7 +47151,7 @@ gd
 et
 WO
 hg
-LU
+sC
 WX
 WX
 WX
@@ -47921,7 +47921,7 @@ so
 eO
 et
 hi
-gS
+Hx
 WX
 ab
 ab
