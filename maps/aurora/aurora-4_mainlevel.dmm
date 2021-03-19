@@ -4380,10 +4380,6 @@
 /area/security/forensics_morgue)
 "aiI" = (
 /obj/structure/disposalpipe/up,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /obj/structure/window/reinforced{
@@ -59350,24 +59346,6 @@
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"dcZ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "dde" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -70536,6 +70514,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engineering_hallway_main)
+"xkB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "xlC" = (
 /obj/machinery/optable{
 	name = "Autopsy Table"
@@ -107237,7 +107233,7 @@ klC
 klC
 aiI
 ajy
-dcZ
+xkB
 nHe
 nHe
 vFG
