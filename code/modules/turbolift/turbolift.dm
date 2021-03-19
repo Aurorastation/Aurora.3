@@ -33,20 +33,24 @@
 	queue_move_to(B.floor)
 
 /datum/turbolift/proc/register_cabincall_floor(var/mob/user, var/obj/structure/lift/panel/P, var/area/turbolift/destination)
-	if(controller.can_cabincall(user,P,destination))
-		queue_move_to(destination)
+	if(controller && !controller.can_cabincall(user,P,destination))
+		return
+	queue_move_to(destination)
 
 /datum/turbolift/proc/register_cabincall_open_doors(var/mob/user, var/obj/structure/lift/panel/P)
-	if(controller.can_cabin_dooropen(user,P))
-		open_doors()
+	if(controller && !controller.can_cabin_dooropen(user,P))
+		return
+	open_doors()
 
 /datum/turbolift/proc/register_cabincall_close_doors(var/mob/user, var/obj/structure/lift/panel/P)
-	if(controller.can_cabin_doorclose(user,P))
-		close_doors()
+	if(controller && !controller.can_cabin_doorclose(user,P))
+		return
+	close_doors()
 
 /datum/turbolift/proc/register_cabincall_estop(var/mob/user, var/obj/structure/lift/panel/P)
-	if(controller.can_estop(user,P))
-		emergency_stop()
+	if(controller && !controller.can_estop(user,P))
+		return
+	emergency_stop()
 
 
 //These are the actual actions the lift performs
@@ -64,14 +68,16 @@
 	return 0
 
 /datum/turbolift/proc/open_doors(var/area/turbolift/use_floor = current_floor)
-	if(controller.shoud_opendoors())
-		for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
-			door.command("open")
+	if(controller && !controller.shoud_opendoors())
+		return
+	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
+		door.command("open")
 
 /datum/turbolift/proc/close_doors(var/area/turbolift/use_floor = current_floor)
-	if(controller.should_closedoors())
-		for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
-			door.command("close")
+	if(controller && !controller.should_closedoors())
+		return
+	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
+		door.command("close")
 
 /datum/turbolift/proc/do_work()
 	var/current_floor_index = floors.Find(current_floor)
@@ -93,7 +99,7 @@
 		doors_closing = 1
 		queue_movement(move_delay / 2)
 		return 1
-	else if(doors_open && doors_closing && !controller.wires.hacking_safety) // We failed to close the doors - probably, someone is blocking them; stop trying to move
+	else if(doors_open && doors_closing && (controller && controller.shoud_closedoors())) // We failed to close the doors - probably, someone is blocking them; stop trying to move
 		doors_closing = 0
 		open_doors()
 		control_panel_interior.audible_message("\The [current_floor.ext_panel] buzzes loudly.")
