@@ -40,6 +40,6 @@ delete-after: True
 changes:
   - rscadd: "Added a labcoat to the investigator lockers."
   - rscadd: "Added a drill to the autopsy lab. You can crack open Vaurca now."
-  - maptweak: "The sec breakroom had its donk pockets exchanged with a corporate care package. A water cooler has also been installed to give the paper cups some use."
+  - maptweak: "The sec breakroom had its donk pockets exchanged with a corporate care package."
   - maptweak: "Fully enclosed the morgue by adding an additional wall, sec maint's pipe and wire layout was also tweaked to accomodate this."
   - bugfix: "The security sublevel will now properly send its trash along the disposals network, it used to shoot out into the training wing."
