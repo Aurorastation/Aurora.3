@@ -146,9 +146,12 @@
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
+	cut_overlays()
 	if(reagents.total_volume > 0 && !is_open_container())
 		icon_state = initial(icon_state)
 		item_state = initial(icon_state)
+		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinjector_reagents")
+		reagent_overlay.color = reagents.get_color()
 	else
 		icon_state = empty_state
 		item_state = empty_state
