@@ -117,7 +117,7 @@
 
 /datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	if (isskrell(H) == FALSE)
+	if(!isskrell(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/blue(H), slot_head)
 
 /datum/outfit/job/doctor/nurse
