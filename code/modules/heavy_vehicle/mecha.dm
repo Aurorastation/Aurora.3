@@ -66,6 +66,7 @@
 	var/maintenance_protocols
 	var/lockdown
 	var/entry_speed = 30
+	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
 	var/material/material

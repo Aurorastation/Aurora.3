@@ -18,12 +18,12 @@
 	name = "Mounted Taser"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	req_tech = list(TECH_COMBAT = 1)
-	build_path = /obj/item/mecha_equipment/mounted_system/taser
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/taser
 
 /datum/design/item/mechfab/exosuit_equipment/uac
 	name = "Mounted Automatic Weapon"
 	req_tech = list(TECH_COMBAT = 4)
-	build_path = /obj/item/mecha_equipment/mounted_system/taser/smg
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/smg
 
 /datum/design/item/mechfab/exosuit_equipment/plasma
 	name = "Mounted Plasma Cutter"
@@ -35,13 +35,13 @@
 	name = "Mounted Ion Rifle"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
-	build_path = /obj/item/mecha_equipment/mounted_system/taser/ion
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/ion
 
 /datum/design/item/mechfab/exosuit_equipment/laser
 	name = "Mounted Laser Gun"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
-	build_path = /obj/item/mecha_equipment/mounted_system/taser/laser
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/laser
 
 /datum/design/item/mechfab/exosuit_equipment/rcd
 	name = "Mounted RFD-C"
@@ -69,14 +69,20 @@
 /datum/design/item/mechfab/exosuit_equipment/xray
 	name = "Mounted X-Ray Gun"
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4, TECH_MATERIAL = 5, TECH_ILLEGAL = 3)
-	build_path = /obj/item/mecha_equipment/mounted_system/xray
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/xray
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000)
 
 /datum/design/item/mechfab/exosuit_equipment/flashbang
 	name = "Mounted Flashbang Launcher"
 	req_tech = list(TECH_COMBAT = 3)
-	build_path = /obj/item/mecha_equipment/mounted_system/grenadeflash
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/grenadeflash
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000)
+
+/datum/design/item/mechfab/exosuit_equipment/cleaner
+	name = "Mounted Cleaner Grenade Launcher"
+	req_tech = list(TECH_MATERIAL = 2)
+	build_path = /obj/item/mecha_equipment/mounted_system/grenadecleaner
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 
 /datum/design/item/mechfab/exosuit_equipment/crisisdrone
 	name = "Mounted Crisis Drone"

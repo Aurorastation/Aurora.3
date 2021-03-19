@@ -33,6 +33,9 @@
 
 	return TRUE
 
+/mob/living/heavy_vehicle/get_standard_pixel_x()
+	return offset_x
+
 /mob/living/heavy_vehicle/proc/toggle_maintenance_protocols()
 	var/obj/screen/mecha/toggle/maint/M = locate() in hud_elements
 	M.toggled()

@@ -109,7 +109,7 @@
 
 	//Setup the appearance
 	if(allow_appearance_change)
-		M.change_appearance(allow_appearance_change, M.loc, check_species_whitelist = 1)
+		M.change_appearance(allow_appearance_change, M)
 	else //otherwise randomize
 		M.client.prefs.randomize_appearance_for(M, FALSE)
 

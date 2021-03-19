@@ -107,17 +107,17 @@ var/global/list/datum/supply_drop_loot/supply_drop
 	..()
 	contents = list(
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/storage/vest,
 		/obj/item/clothing/suit/storage/vest,
-		/obj/item/clothing/suit/armor/laserproof,
-		/obj/item/clothing/suit/armor/bulletproof)
+		/obj/item/clothing/suit/armor/carrier/ablative,
+		/obj/item/clothing/suit/armor/carrier/ballistic)
 
 /datum/supply_drop_loot/materials
 	name = "Materials"

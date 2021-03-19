@@ -106,7 +106,7 @@
 	message_enabled = 0
 	message_disable = 0
 
-/obj/item/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
+/obj/item/gun/energy/lawgiver/unique_action(mob/living/carbon/user) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
 	if(dna != null)
 		return
 	else

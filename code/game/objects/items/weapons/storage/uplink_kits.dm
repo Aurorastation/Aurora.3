@@ -123,7 +123,7 @@
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
-		/obj/item/clothing/head/softcap/chameleon = 1,
+		/obj/item/clothing/head/chameleon = 1,
 		/obj/item/clothing/suit/chameleon = 1,
 		/obj/item/clothing/shoes/chameleon = 1,
 		/obj/item/storage/backpack/chameleon = 1,
@@ -220,8 +220,8 @@
 	starts_with = list(/obj/item/rig_module/electrowarfare_suite = 1, /obj/item/rig_module/voice = 1)
 
 /obj/item/storage/box/syndie_kit/armor
-	name = "boxed armor kit"
-	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
+	name = "boxed heavy armor kit"
+	starts_with = list(/obj/item/clothing/suit/armor/carrier/heavy = 1, /obj/item/clothing/head/helmet/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
 	starts_with = list(/obj/item/spacecash/c1000 = 10)

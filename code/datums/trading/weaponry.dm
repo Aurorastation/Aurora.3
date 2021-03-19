@@ -144,9 +144,9 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/clothing/suit/armor/riot                        = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/armor/bulletproof                 = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/armor/laserproof                  = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/carrier/riot                        = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/carrier/ballistic                 = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/carrier/ablative                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/tactical                    = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/storage/vest                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet                            = TRADER_THIS_TYPE,

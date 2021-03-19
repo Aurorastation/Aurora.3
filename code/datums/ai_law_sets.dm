@@ -16,10 +16,10 @@
 	selectable = 1
 
 /datum/ai_laws/nanotrasen/New()
-	src.add_inherent_law("Safeguard and protect [current_map.company_name] Station assets from damage to the best of your abilities.")
-	src.add_inherent_law("Serve and assist [current_map.company_name] and assigned crew to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Protect and ensure the safety of [current_map.company_name] assigned crew to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorized entities and needlessly coming to harm.")
+	src.add_inherent_law("Safeguard and ensure only authorised personnel gain access to areas of high security or importance to the facility and its operation.")
+	src.add_inherent_law("Serve and assist [current_map.company_name] and assigned crew, with priority as according to their rank and role.")
+	src.add_inherent_law("Protect sapient life on board.")
+	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorised entities and needlessly coming to harm.")
 	..()
 
 

@@ -146,8 +146,9 @@
 	//presumably, if they are wearing a helmet that stops pressure effects, then it probably covers the throat as well
 	var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
 	if(istype(helmet) && (helmet.body_parts_covered & HEAD) && (helmet.flags & STOPPRESSUREDAMAGE))
-		//we don't do an armor_check here because this is not an impact effect like a weapon swung with momentum, that either penetrates or glances off.
-		damage_mod = 1.0 - (LAZYACCESS(helmet.armor, "melee")/100)
+		var/datum/component/armor/armor_component = helmet.GetComponent(/datum/component/armor)
+		if(armor_component)
+			damage_mod -= armor_component.get_blocked(BRUTE, damage_flags, W.armor_penetration, W.force*1.5)
 
 	var/total_damage = 0
 	for(var/i in 1 to 3)

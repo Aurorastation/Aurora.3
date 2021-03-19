@@ -166,6 +166,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
 "pp" = (

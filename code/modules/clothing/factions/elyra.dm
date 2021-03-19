@@ -1,6 +1,6 @@
 /obj/item/clothing/under/elyra_holo
 	name = "elyran holographic suit"
-	desc = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Perispolisean clothes respectively."
+	desc = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolisean clothes respectively."
 	icon = 'icons/clothing/under/uniforms/elyra_holoclothes.dmi'
 	icon_state = "holosuit_fem"
 	item_state = "holosuit_fem"
@@ -12,13 +12,13 @@
 		"base holographic suit",
 		"medinean artisans holo-dress",
 		"aemaqii ocean holo-dress",
-		"perispolisean desert holo-dress"
+		"persepolisean desert holo-dress"
 		)
 
 	var/list/descriptions = list(
 		"A form-fitting holographic dress with striking purple and white coloration. It possesses high-fidelity, artistic representation of Elyran Medinean culture markers coating its tightly-woven hardlight fabric.",
 		"A fine holo-dress which owes its overall design to the chemical seas of Aemaqq, with itself flowing gently in waves. It looks particularly cozy, and protective against a cold ocean breeze.",
-		"A loose, airy holo-dress with clashing earthen and bright colors. The design is iconic among the Elyran Perispolisean native populations due to its expressive contrast and the hot climate."
+		"A loose, airy holo-dress with clashing earthen and bright colors. The design is iconic among the Elyran Persepolisean native populations due to its expressive contrast and the hot climate."
 		)
 
 /obj/item/clothing/under/elyra_holo/masc
@@ -28,12 +28,12 @@
 		"base holographic suit",
 		"medinean artisans holo-suit",
 		"aemaqii fur outfit",
-		"perispolisean nomads outfit"
+		"persepolisean nomads outfit"
 		)
 	descriptions = list(
 		"A tight-fitting hardlight suit decorated with golden highlights to contrast its red, purplish overshirt and jet black pants. A favorite among the Elyran planet of Medina.",
 		"High quality, and colorful fur derived from the colder regions of Aemaqq's chemical seas. Were this outfit real, you'd probably assume the thick, stump and even branch-like fur to be extracted from one of its countless sea leviathans. Even the holographic variant is excellent at trapping heat.",
-		"A loose holographic outfit, sturdy, baggy and cool with plentiful pockets. The baggy over-wear is a trend on the Elyran world Perispolis due to its hot climate, and this particular style has spread like wildfire across other warm worlds as well. "
+		"A loose holographic outfit, sturdy, baggy and cool with plentiful pockets. The baggy over-wear is a trend on the Elyran world Persepolis due to its hot climate, and this particular style has spread like wildfire across other warm worlds as well. "
 		)
 
 /obj/item/clothing/under/elyra_holo/Initialize()
