@@ -13,8 +13,9 @@
 	taste_description = "bitterness"
 
 /decl/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_STABLE)
-	M.add_chemical_effect(CE_PAINKILLER, 25)
+	if(check_min_dose(M, 0.25))
+		M.add_chemical_effect(CE_STABLE)
+		M.add_chemical_effect(CE_PAINKILLER, 25)
 
 /decl/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(2))
@@ -134,18 +135,17 @@
 	if(remove_generic)
 		M.drowsyness = max(0, M.drowsyness - 6 * removed)
 		M.hallucination -= (2 * removed)
-		M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
+		if(check_min_dose(M, 0.5))
+			M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
 
 	var/removing = (4 * removed)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	for(var/_R in ingested.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		if((remove_generic && istype(R, /decl/reagent/toxin)) || (_R in remove_toxins))
-			ingested.remove_reagent(R.type, removing)
+		if((remove_generic && ispath(_R, /decl/reagent/toxin)) || (_R in remove_toxins))
+			ingested.remove_reagent(_R, removing)
 			return
 	for(var/_R in M.reagents.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		if((remove_generic && istype(R, /decl/reagent/toxin)) || (_R in remove_toxins))
+		if((remove_generic && ispath(_R, /decl/reagent/toxin)) || (_R in remove_toxins))
 			M.reagents.remove_reagent(_R, removing)
 			return
 
@@ -167,7 +167,8 @@
 	var/strength = 6
 
 /decl/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
+	if(check_min_dose(M, 0.5))
+		M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
 	holder.remove_reagent(/decl/reagent/lexorin, strength/3 * removed)
 
 //Hyperoxia causes brain and eye damage
@@ -263,8 +264,9 @@
 	breathe_mul = 0
 
 /decl/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 50)
-	M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
 
 /decl/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -286,11 +288,12 @@
 	breathe_mul = 0
 
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 80)
-	if(!M.chem_effects[CE_CLEARSIGHT])
-		M.eye_blurry = max(M.eye_blurry, 5)
-	if(!M.chem_effects[CE_STRAIGHTWALK])
-		M.confused = max(M.confused, 10)
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 80)
+		if(!M.chem_effects[CE_CLEARSIGHT])
+			M.eye_blurry = max(M.eye_blurry, 5)
+		if(!M.chem_effects[CE_STRAIGHTWALK])
+			M.confused = max(M.confused, 10)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -345,11 +348,12 @@
 	breathe_mul = 0
 
 /decl/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 200)
-	if(!M.chem_effects[CE_CLEARSIGHT])
-		M.eye_blurry = max(M.eye_blurry, 5)
-	if(!M.chem_effects[CE_STRAIGHTWALK])
-		M.confused = max(M.confused, 20)
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 200)
+		if(!M.chem_effects[CE_CLEARSIGHT])
+			M.eye_blurry = max(M.eye_blurry, 5)
+		if(!M.chem_effects[CE_STRAIGHTWALK])
+			M.confused = max(M.confused, 20)
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -428,7 +432,7 @@
 	metabolism_min = REM * 0.075
 
 /decl/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(REAGENT_VOLUME(holder, type) >= 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
+	if(check_min_dose(M, 2)) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
 		M.dizziness = max(125, M.dizziness)
 		M.make_dizzy(5)
 		if(!(REAGENT_VOLUME(holder, type) > 10))
@@ -480,7 +484,8 @@
 /decl/reagent/oculine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_CLEARSIGHT)
+		if(check_min_dose(M))
+			M.add_chemical_effect(CE_CLEARSIGHT)
 
 /decl/reagent/oculine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 15)
@@ -560,8 +565,9 @@
 /decl/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
-	M.add_chemical_effect(CE_SPEEDBOOST, 1)
-	M.add_chemical_effect(CE_PULSE, 1)
+	if(check_min_dose(M, 0.5))
+		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_chemical_effect(CE_PULSE, 1)
 
 /decl/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5*removed)
@@ -605,10 +611,9 @@
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	if(ingested)
 		for(var/_R in ingested.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if(istype(R, /decl/reagent/alcohol))
+			if(ispath(_R, /decl/reagent/alcohol))
 				var/amount = min(P, REAGENT_VOLUME(ingested, _R))
-				ingested.remove_reagent(R.type, amount)
+				ingested.remove_reagent(_R, amount)
 				P -= amount
 				if (P <= 0)
 					return
@@ -617,8 +622,7 @@
 	//as a treatment option if someone was dumb enough to do this
 	if(M.bloodstr)
 		for(var/_R in M.bloodstr.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if(istype(R, /decl/reagent/alcohol))
+			if(ispath(_R, /decl/reagent/alcohol))
 				var/amount = min(P, REAGENT_VOLUME(M.bloodstr, _R))
 				M.bloodstr.remove_reagent(_R, amount)
 				P -= amount
@@ -633,7 +637,8 @@
 /decl/reagent/ethylredoxrazine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_STRAIGHTWALK)
+		if(check_min_dose(M))
+			M.add_chemical_effect(CE_STRAIGHTWALK)
 
 /decl/reagent/hyronalin
 	name = "Hyronalin"
@@ -749,7 +754,8 @@
 	glass_desc = "You'd better not."
 
 /decl/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
 /decl/reagent/coughsyrup/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder) // effects based loosely on DXM
 	M.hallucination = max(M.hallucination, 40)
@@ -824,6 +830,8 @@
 	taste_description = "bitterness"
 
 /decl/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(!check_min_dose(M))
+		return
 	M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Also handles the effects of fevers
 	if(!(REAGENT_VOLUME(holder, type) > 20))
 		if(M.bodytemperature > 310)
@@ -1443,7 +1451,7 @@
 	. = ..()
 
 /decl/reagent/pulmodeiectionem/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
-	if(REAGENT_VOLUME(holder, type) > 5)
+	if(check_min_dose(H, 5))
 		if(prob(50))
 			H.visible_message("<b>[H]</b> splutters, coughing up a cloud of purple dust.", "You cough up a cloud of purple dust.")
 			remove_self(10, holder)
@@ -1590,7 +1598,7 @@
 	else
 		M.adjustHydrationLoss(-removed*5)
 	if(REAGENT_VOLUME(holder, type) < 3)
-		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
 
 /decl/reagent/saline/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.confused = max(M.confused, 20)
@@ -1615,13 +1623,13 @@
 /decl/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		return
-	if(M.chem_doses[type] < 1)	//not that effective after initial rush
+	if(M.chem_doses[type] < 0.2)	//not that effective after initial rush
 		M.add_chemical_effect(CE_PAINKILLER, min(15*REAGENT_VOLUME(holder, type), 35))
 		M.add_chemical_effect(CE_PULSE, 1)
-	else
+	else if(M.chem_doses[type] < 1)
 		M.add_chemical_effect(CE_PAINKILLER, min(10*REAGENT_VOLUME(holder, type), 15))
 		M.add_chemical_effect(CE_PULSE, 2)
-	if(M.chem_doses[type] > 5)
+	if(M.chem_doses[type] > 10)
 		M.make_jittery(5)
 	if(REAGENT_VOLUME(holder, type) >= 5 && M.is_asystole())
 		remove_self(5, holder)
@@ -1654,7 +1662,8 @@
 	taste_description = "numbness"
 
 /decl/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed, var/datum/reagents/holder)
-	H.add_chemical_effect(CE_PACIFIED, 1)
+	if(check_min_dose(H))
+		H.add_chemical_effect(CE_PACIFIED, 1)
 
 /decl/reagent/pacifier/overdose(var/mob/living/carbon/H, var/alien, var/datum/reagents/holder)
 	H.add_chemical_effect(CE_EMETIC, H.chem_doses[type] / 6)
@@ -1687,8 +1696,9 @@
 
 /decl/reagent/coagzolug/affect_blood(mob/living/carbon/M, alien, removed)
 	. = ..()
-	M.add_chemical_effect(CE_BLOODCLOT)
-	M.make_dizzy(5)
+	if(check_min_dose(M, 0.5))
+		M.add_chemical_effect(CE_BLOODCLOT)
+		M.make_dizzy(5)
 
 /decl/reagent/coagzolug/overdose(var/mob/living/carbon/H, var/alien)
 	if(prob(2))

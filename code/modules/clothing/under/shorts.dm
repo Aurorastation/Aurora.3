@@ -29,6 +29,13 @@
 	icon_state = "greyshorts"
 	item_state = "greyshorts"
 
+/obj/item/clothing/under/shorts/scc
+	name = "Stellar Corporate Conglomerate shorts"
+	desc = "Shorts displaying the wearer's pride in their assigned corporate entity."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "sccshorts"
+	item_state = "sccshorts"
+
 /obj/item/clothing/under/shorts/jeans
 	name = "jeans shorts"
 	desc = "Some jeans! Just in short form!"

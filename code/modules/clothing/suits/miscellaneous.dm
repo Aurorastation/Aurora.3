@@ -1,32 +1,8 @@
 /*
  * Contains:
- *		Lasertag
  *		Costume
  *		Misc
  */
-
-/*
- * Lasertag
- */
-/obj/item/clothing/suit/bluetag
-	name = "blue laser tag armor"
-	desc = "Blue Pride, Station Wide."
-	icon_state = "bluetag"
-	item_state = "bluetag"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/gun/energy/lasertag/blue)
-	siemens_coefficient = 1.0
-
-/obj/item/clothing/suit/redtag
-	name = "red laser tag armor"
-	desc = "Reputed to go faster."
-	icon_state = "redtag"
-	item_state = "redtag"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/gun/energy/lasertag/red)
-	siemens_coefficient = 1.0
 
 /*
  * Costume
@@ -315,6 +291,15 @@
 	desc = "A brown leather coat. A corporate logo is proudly displayed on the back."
 	icon_state = "brown_jacket_nt"
 
+/obj/item/clothing/suit/storage/toggle/brown_jacket/scc
+	name = "Stellar Corporate Conglomerate jacket"
+	desc = "A comfortable blue jacket. Tailored upon its back is a large Stellar Corporate Conglomerate logo."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to excercice an undisputed economic dominance over the Orion Spur."
+	icon = 'icons/clothing/suits/scc_jacket.dmi'
+	icon_state = "scc_jacket"
+	item_state = "scc_jacket"
+	contained_sprite = TRUE
+
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"
 	desc = "A flannel shirt, for all your space hipster needs."
@@ -576,7 +561,7 @@
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	attack_verb = list("warned", "cautioned", "smashed")
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/caution/attack_self()
 	toggle()
