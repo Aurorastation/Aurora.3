@@ -44,6 +44,9 @@
 		else if(istype(thing, /mob/living/silicon/robot/drone/mining))
 			var/mob/living/silicon/robot/drone/mining/MD = thing
 			MD.request_player()
+		else if(istype(thing, /obj/effect/mazegen/generator))
+			var/obj/effect/mazegen/generator/MG = thing
+			MG.run_generator()
 		LAZYREMOVE(SSatoms.late_misc_firers, thing)
 
 	if (config.use_forumuser_api)

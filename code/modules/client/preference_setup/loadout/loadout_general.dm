@@ -97,8 +97,10 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/banner/New()
+
 	..()
 	var/banners = list()
+	banners["banner, Stellar Corporate Conglomerate"] = /obj/item/flag/scc
 	banners["banner, SolGov"] = /obj/item/flag/sol
 	banners["banner, Dominia"] = /obj/item/flag/dominia
 	banners["banner, Elyra"] = /obj/item/flag/elyra
@@ -120,6 +122,21 @@
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
+/datum/gear/standard
+	display_name = "dominian great house standard selection"
+	path = /obj/item/flag
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/standard/New()
+	..()
+	var/standards = list()
+	standards["standard, Strelitz"] = /obj/item/flag/strelitz
+	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
+	standards["standard, Kazkhz"] = /obj/item/flag/kazkhz
+	standards["standard, Caladius"] = /obj/item/flag/caladius
+	standards["standard, Zhao"] = /obj/item/flag/zhao
+	gear_tweaks += new/datum/gear_tweak/path(standards)
+
 /datum/gear/flag
 	display_name = "flag selection"
 	cost = 2
@@ -129,6 +146,7 @@
 /datum/gear/flag/New()
 	..()
 	var/flags = list()
+	flags["flag, Stellar Corporate Conglomerate"] = /obj/item/flag/scc/l
 	flags["flag, SolGov"] = /obj/item/flag/sol/l
 	flags["flag, Dominia"] = /obj/item/flag/dominia/l
 	flags["flag, Elyra"] = /obj/item/flag/elyra/l

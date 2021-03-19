@@ -115,6 +115,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sandwich
 
+/decl/recipe/bunbun
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/bun
+	)
+	result = /obj/item/reagent_containers/food/snacks/bunbun
+
 /decl/recipe/superbiteburger
 	fruit = list("tomato" = 1)
 	reagents = list(/decl/reagent/sodiumchloride = 5, /decl/reagent/blackpepper = 5)
