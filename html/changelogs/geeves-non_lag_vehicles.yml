@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Vehicle actions are no longer done via verbs in the top right, or the right click menu. Check the extra examine info for instructions on how to operate vehicles."
-  - tweak: "You now use wrenches to unlatch vehicles."

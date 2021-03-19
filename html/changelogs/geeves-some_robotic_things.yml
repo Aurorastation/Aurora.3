@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Making an IPC at robotics will give its microbattery the cell you used when you made the endoskeleton."
-  - bugfix: "IPCs made at robotics will now have posibrains designations that match their names."
-  - rscadd: "Microbatteries will now have the class of cell installed next to its name, which allows self-diagnostics to show which cell you have as an IPC."
-  - tweak: "Posibrains can now get any names from the EAL language selection options."

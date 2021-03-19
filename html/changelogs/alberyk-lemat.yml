@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - tweak: "Changing ammo types in the lemat is now tied to the unique action button."
