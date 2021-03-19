@@ -74,11 +74,8 @@
 /proc/IsMultiple(x, y)
 	return x % y == 0
 
-/proc/IsEven(x)
-	return !(x & 0x1)
-
-/proc/IsOdd(x)
-	return  (x & 0x1)
+#define ISEVEN(x) (x % 2 == 0)
+#define ISODD(x) (x % 2 != 0)
 
 // Performs a linear interpolation between a and b.
 // Note: weight=0 returns a, weight=1 returns b, and weight=0.5 returns the mean of a and b.
@@ -165,3 +162,9 @@
 /proc/n_inrange(var/num, var/min=-1, var/max=1)
 	if(isnum(num)&&isnum(min)&&isnum(max))
 		return ((min <= num) && (num <= max))
+
+#define MODULUS_FLOAT(X, Y) ( (X) - (Y) * round((X) / (Y)) )
+
+// Will filter out extra rotations and negative rotations
+// E.g: 540 becomes 180. -180 becomes 180.
+#define SIMPLIFY_DEGREES(degrees) (MODULUS_FLOAT((degrees), 360))

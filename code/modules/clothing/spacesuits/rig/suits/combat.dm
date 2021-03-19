@@ -1,6 +1,6 @@
 /obj/item/rig/combat
 	name = "combat hardsuit control module"
-	desc = "A sleek and dangerous hardsuit for active combat."
+	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
 	icon_state = "combat_rig"
 	suit_type = "combat hardsuit"
 	armor = list(
@@ -40,7 +40,7 @@
 
 /obj/item/rig/military
 	name = "military hardsuit control module"
-	desc = "A powerful hardsuit designed for military operations."
+	desc = "A powerful hardsuit designed for military operations. This is coated in Solarian military colors."
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(

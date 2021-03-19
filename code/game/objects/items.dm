@@ -39,6 +39,7 @@
 	var/permeability_coefficient = 1 // for chemicals/diseases
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
+	var/slowdown_accessory = 0 // Updated on accessory add/remove. This is how much the current accessories slow you down.
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
 	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
 	var/list/allowed = null //suit storage stuff.
@@ -102,7 +103,7 @@
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
-				AddComponent(/datum/component/armor, armor, armor_degradation_speed)
+				AddComponent(/datum/component/armor, armor)
 				break
 
 /obj/item/Destroy()
@@ -695,6 +696,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1
 
+	if(ishuman(M)) //this code is here to stop species night vision from being used on the cameras, since it does not make sense since cameras are just images. this is probably not the best way to do this, but it works
+		var/mob/living/carbon/human/H = M
+		H.disable_organ_night_vision()
+
 	if(!zoom && !cannotzoom)
 		if(M.hud_used.hud_shown)
 			M.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
@@ -874,3 +879,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. += "Dismemberment: [edge ? "likely to dismember" : "unlikely to dismember"]<br>"
 	. += "Penetration: [armor_penetration]<br>"
 	. += "Throw Force: [throwforce]<br>"
+
+/obj/item/proc/use_resource(var/mob/user, var/use_amount)
+	return
+
+// this gets called when the item gets chucked by the vending machine
+/obj/item/proc/vendor_action(var/obj/machinery/vending/V)
+	return

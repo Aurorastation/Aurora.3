@@ -9,8 +9,11 @@
 	minimal_player_age = 10
 	economic_modifier = 5
 	ideal_character_age = 30
-	create_record = 0
-	account_allowed = 0
+
+	create_record = FALSE
+	account_allowed = TRUE
+	public_account = FALSE
+	initial_funds_override = 2500
 
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)

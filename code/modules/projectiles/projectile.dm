@@ -25,8 +25,6 @@
 	//used for shooting at blank range, you shouldn't be able to miss
 	var/can_miss = 0
 
-	var/taser_effect = 0 //If set then the projectile will apply it's agony damage using stun_effect_act() to mobs it hits, and other damage will be ignored
-
 	//Effects
 	var/damage = 10
 	var/damage_type = BRUTE		//BRUTE, BURN, TOX, OXY, CLONE, PAIN are the only things that should be in here
@@ -121,7 +119,8 @@
 	if(hit_effect)
 		new hit_effect(target.loc)
 
-	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
+	L.apply_effects(0, weaken, paralyze, 0, stutter, eyeblur, drowsy, 0, incinerate, blocked)
+	L.stun_effect_act(stun, agony, def_zone, src, damage_flags)
 	L.apply_damage(irradiate, IRRADIATE, damage_flags = DAM_DISPERSED) //radiation protection is handled separately from other armor types.
 	return 1
 
@@ -311,7 +310,7 @@
 /obj/item/projectile/proc/old_style_target(atom/target, atom/source)
 	if(!source)
 		source = get_turf(src)
-	setAngle(Get_Angle(source, target))
+	setAngle(get_projectile_angle(source, target))
 
 /obj/item/projectile/proc/fire(angle, atom/direct_target)
 	//If no angle needs to resolve it from xo/yo!
@@ -332,7 +331,7 @@
 			qdel(src)
 			return
 		var/turf/target = locate(Clamp(starting + xo, 1, world.maxx), Clamp(starting + yo, 1, world.maxy), starting.z)
-		setAngle(Get_Angle(src, target))
+		setAngle(get_projectile_angle(src, target))
 	if(dispersion)
 		setAngle(Angle + rand(-dispersion, dispersion))
 	original_angle = Angle
@@ -368,7 +367,7 @@
 	else if(targloc && curloc)
 		yo = targloc.y - curloc.y
 		xo = targloc.x - curloc.x
-		setAngle(Get_Angle(src, targloc))
+		setAngle(get_projectile_angle(src, targloc))
 	else
 		crash_with("WARNING: Projectile [type] fired without either mouse parameters, or a target atom to aim at!")
 		qdel(src)

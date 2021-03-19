@@ -41,7 +41,9 @@
 		C.apply_radiation_effects()
 
 
-/datum/event/radiation_storm/end()
+/datum/event/radiation_storm/end(var/faked)
+	if(faked)
+		return
 	revoke_maint_all_access()
 	for(var/area/A in all_areas)
 		if(A.flags & RAD_SHIELDED)
