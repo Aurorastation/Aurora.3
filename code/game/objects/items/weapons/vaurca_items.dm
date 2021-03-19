@@ -428,7 +428,7 @@
 	tension = 1
 	..()
 
-/obj/item/gun/launcher/crossbow/vaurca/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/vaurca/unique_action(mob/living/user)
 	pump(user)
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)

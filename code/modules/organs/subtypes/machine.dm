@@ -74,7 +74,7 @@
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
-	cell = new cell(src)
+	replace_cell(new cell(src))
 	. = ..()
 
 /obj/item/organ/internal/cell/proc/percent()
@@ -142,8 +142,16 @@
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 			else if(user.unEquip(W, src))
-				cell = W
+				replace_cell(W)
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
+
+/obj/item/organ/internal/cell/proc/replace_cell(var/obj/item/cell/C)
+	if(istype(cell))
+		qdel(cell)
+	if(C.loc != src)
+		C.forceMove(src)
+	cell = C
+	name = "[initial(name)] ([C.name])"
 
 /obj/item/organ/internal/cell/listen()
 	if(get_charge())
@@ -590,6 +598,22 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
+
+/obj/item/organ/external/groin/ipc/unbranded/cap // extreme nugget action
+	force_prosthetic_name = "prosthetic groin cap"
+	supports_children = FALSE
+
+/obj/item/organ/external/groin/ipc/unbranded/cap/Initialize(mapload)
+	. = ..()
+	var/obj/item/organ/internal/kidneys/K = new(src)
+	K.robotize()
+	internal_organs += K
+	var/obj/item/organ/internal/liver/L = new(src)
+	L.robotize()
+	internal_organs += L
+	var/obj/item/organ/internal/stomach/S = new(src)
+	S.robotize()
+	internal_organs += S
 
 /obj/item/organ/external/arm/ipc/unbranded
 	dislocated = -1

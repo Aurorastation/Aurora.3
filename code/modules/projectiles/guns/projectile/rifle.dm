@@ -62,6 +62,9 @@
 	max_shells = 4
 	can_sawoff = FALSE
 
+	needspin = FALSE
+	has_safety = FALSE
+
 	jam_chance = 0
 
 /obj/item/gun/projectile/shotgun/pump/rifle/pipegun/examine(mob/user)
@@ -115,7 +118,7 @@
 		return 0
 	return ..()
 
-/obj/item/gun/projectile/contender/attack_self(mob/user as mob)
+/obj/item/gun/projectile/contender/unique_action(mob/user as mob)
 	if(chambered)
 		chambered.forceMove(get_turf(src))
 		chambered = null
@@ -176,7 +179,7 @@
 	var/open_bolt = 0
 	var/obj/item/ammo_magazine/boltaction/vintage/has_clip
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attack_self(mob/living/user as mob)
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/unique_action(mob/living/user as mob)
 	if(wielded)
 		if(world.time >= recentpump + 10)
 			pump(user)

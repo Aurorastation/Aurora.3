@@ -981,59 +981,43 @@ obj/structure/cable/proc/cableColor(var/colorC)
 //////////////////////////////
 // Nooses.
 /////////////////////////////
-/obj/item/stack/cable_coil/verb/make_noose(mob/user)
+/obj/item/stack/cable_coil/verb/make_noose()
 	set name = "Make Noose"
 	set category = "Object"
-	var/mob/M = user
 
-	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
-		if(!istype(user.loc,/turf)) return
-		if(!(locate(/obj/item/stool) in user.loc) && !(locate(/obj/structure/bed) in user.loc) && !(locate(/obj/structure/table) in user.loc) && !(locate(/obj/structure/toilet) in user.loc))
-			to_chat(user, SPAN_WARNING("You have to be standing on top of a chair/table/bed to make a noose!"))
-			return FALSE
-		if(src.amount <= 24)
-			to_chat(user, SPAN_WARNING("You need at least 25 lengths to make a noose!"))
-			return
-		user.visible_message(SPAN_WARNING("[user] starts winding some cable together to make a noose, tying it to the ceiling!"),
-							 SPAN_NOTICE("You start to wind some cable together to make a noose, tying it to the ceiling."))
-		if(do_after(user, 250))
-			new/obj/structure/noose(user.loc, color)
-			to_chat(user, SPAN_NOTICE("You wind some cable together to make a noose, tying it to the ceiling."))
-			playsound(user.loc, 'sound/effects/noose_idle.ogg', 50, 1, -3)
-			src.use(25)
-	else
-		to_chat(user, SPAN_WARNING("You cannot do that."))
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
+		return
+
+	if(!isturf(usr.loc))
+		return
+	if(!(locate(/obj/item/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+		to_chat(usr, SPAN_WARNING("You have to be standing on top of a chair/table/bed to make a noose!"))
+		return FALSE
+	if(amount < 25)
+		to_chat(usr, SPAN_WARNING("You need at least 25 lengths to make a noose!"))
+		return
+	usr.visible_message(SPAN_WARNING("[usr] starts winding some cable together to make a noose, tying it to the ceiling!"),
+							SPAN_NOTICE("You start to wind some cable together to make a noose, tying it to the ceiling."))
+	if(do_after(usr, 250))
+		new /obj/structure/noose(usr.loc, color)
+		to_chat(usr, SPAN_NOTICE("You wind some cable together to make a noose, tying it to the ceiling."))
+		playsound(usr.loc, 'sound/effects/noose_idle.ogg', 50, 1, -3)
+		use(25)
 
 /obj/structure/noose
 	name = "noose"
 	desc = "A morbid apparatus."
 	icon_state = "noose"
-	buckle_lying = 0
+	buckle_lying = FALSE
 	icon = 'icons/obj/noose.dmi'
-	anchored = 1
-	can_buckle = 1
+	anchored = TRUE
 	layer = 5
-	color = null
 	var/image/over = null
 	var/ticks = 0
 
-/obj/structure/noose/attackby(obj/item/I, mob/user, params)
-	if(I.iswirecutter())
-		user.visible_message("[user] cuts the noose.",
-							 SPAN_NOTICE("You cut the noose."))
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
-		if(istype(buckled, /mob/living))
-			var/mob/living/M = buckled
-			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),\
-										SPAN_DANGER("You fall over and hit the ground!"))
-			M.adjustBruteLoss(10)
-		new/obj/item/stack/cable_coil(get_turf(src), 25, color)
-		qdel(src)
-		return
-	..()
-
 /obj/structure/noose/Initialize(mapload, param_color = null)
 	. = ..()
+	can_buckle = list(/mob/living/carbon/human)
 	pixel_y += 16 //Noose looks like it's "hanging" in the air
 	over = image(icon, "noose_overlay")
 	over.layer = MOB_LAYER + 0.1
@@ -1045,6 +1029,20 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/structure/noose/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
+
+/obj/structure/noose/attackby(obj/item/I, mob/user, params)
+	if(I.iswirecutter())
+		user.visible_message("<b>[user]</b> cuts \the [src].", SPAN_NOTICE("You cut \the [src]."))
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+		if(istype(buckled, /mob/living))
+			var/mob/living/M = buckled
+			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),\
+										SPAN_DANGER("You fall over and hit the ground!"))
+			M.adjustBruteLoss(10)
+		new /obj/item/stack/cable_coil(get_turf(src), 25, color)
+		qdel(src)
+		return
+	..()
 
 /obj/structure/noose/post_buckle(mob/living/M)
 	if(M == buckled)

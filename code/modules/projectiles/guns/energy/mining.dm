@@ -7,6 +7,7 @@
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "plasma"
 	item_state = "plasma"
+	usesound = 'sound/weapons/plasma_cutter.ogg'
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
@@ -49,6 +50,15 @@
 	else
 		..()
 
+/obj/item/gun/energy/plasmacutter/proc/check_power_and_message(var/mob/user, var/use_amount = 1)
+	if(!power_supply)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+		return TRUE
+	if(!power_supply.check_charge(charge_cost * use_amount))
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have enough power to do this!"))
+		return TRUE
+	return FALSE
+
 /obj/item/gun/energy/plasmacutter/mounted
 	name = "mounted plasma cutter"
 	self_recharge = TRUE
@@ -65,11 +75,20 @@
 	range = 5
 	pass_flags = PASSTABLE
 
+	var/mineral_passes = 2 // amount of mineral turfs it passes through before ending
+
 	muzzle_type = /obj/effect/projectile/muzzle/plasma_cutter
 	tracer_type = /obj/effect/projectile/tracer/plasma_cutter
 	impact_type = /obj/effect/projectile/impact/plasma_cutter
 	maiming = TRUE
 	maim_rate = 1
+
+/obj/item/projectile/beam/plasmacutter/proc/pass_check(var/turf/simulated/mineral/mine_turf)
+	if(mineral_passes <= 0)
+		return null // the projectile stops
+	mineral_passes--
+	on_impact(mine_turf)
+	return PROJECTILE_CONTINUE // the projectile tunnels deeper
 
 /obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
 	if(istype(A, /turf/simulated/mineral))
@@ -81,3 +100,12 @@
 			M.emitter_blasts_taken += 2
 		M.emitter_blasts_taken += 1
 	. = ..()
+
+/obj/item/gun/energy/plasmacutter/use_resource(mob/user, var/use_amount)
+	if(use_external_power)
+		var/obj/item/cell/external = get_external_power_supply()
+		if(external)
+			external.use(use_amount * charge_cost)
+		return
+	if(power_supply)
+		power_supply.use(use_amount * charge_cost)

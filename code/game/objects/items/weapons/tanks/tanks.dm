@@ -5,12 +5,9 @@
 /obj/item/tank
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tank.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tank.dmi',
-		)
 
 	var/gauge_icon = "indicator_tank"
 	var/last_gauge_pressure
@@ -31,6 +28,7 @@
 	var/volume = 70
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with a computer or handheld gas analyzer then we might just breath whatever they put in it.
+
 /obj/item/tank/Initialize()
 	. = ..()
 
@@ -39,6 +37,7 @@
 	air_contents.temperature = T20C
 
 	START_PROCESSING(SSprocessing, src)
+	adjust_initial_gas()
 	update_gauge()
 
 /obj/item/tank/Destroy()
@@ -229,6 +228,9 @@
 	if(gauge_icon)
 		update_gauge()
 	check_status()
+
+/obj/item/tank/proc/adjust_initial_gas()
+	return
 
 /obj/item/tank/proc/update_gauge()
 	var/gauge_pressure = 0

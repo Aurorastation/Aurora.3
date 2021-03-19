@@ -252,12 +252,12 @@
 			iv.pixel_y = 6
 		overlays += iv
 	if(bag_strap && istype(buckled, /obj/structure/closet/body_bag))
-		buckled.overlays += image(icon, bag_strap)
+		LAZYADD(buckled.overlays, image(icon, bag_strap))
 
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
 	if(iswrench(I) || istype(I, /obj/item/stack) || iswirecutter(I))
 		return 1
-	if(iv_stand && !beaker && istype(I, /obj/item/reagent_containers))
+	if(iv_stand && !beaker && (istype(I, /obj/item/reagent_containers/glass/beaker) || istype(I, /obj/item/reagent_containers/blood)))
 		if(!user.unEquip(I, target = src))
 			return
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
@@ -314,7 +314,7 @@
 	..()
 	if(use_check(usr) || !Adjacent(usr))
 		return
-	if(!(ishuman(usr) || isrobot(usr)))
+	if(!ishuman(usr))
 		return
 	if(over_object == buckled && beaker)
 		if(iv_attached)
@@ -360,8 +360,7 @@
 			if(iv_attached)
 				detach_iv(M, usr)
 		else
-			MA.overlays.Cut() //Remove straps
-			MA.update_icon() //Add label back (if it had one)
+			LAZYREMOVE(MA.overlays, image(icon, bag_strap)) //Remove straps
 		density = FALSE
 		MA.pixel_y = 0
 		update_icon()

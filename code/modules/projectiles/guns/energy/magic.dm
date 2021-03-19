@@ -133,7 +133,7 @@ obj/item/gun/energy/staff/focus/special_check(var/mob/living/user)
 	return 1
 
 
-obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
+obj/item/gun/energy/staff/focus/toggle_firing_mode(mob/living/user)
 	if(projectile_type == /obj/item/projectile/forcebolt)
 		charge_cost = 400
 		to_chat(user, "<span class='warning'>The [src.name] will now strike a small area.</span>")

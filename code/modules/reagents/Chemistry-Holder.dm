@@ -189,7 +189,7 @@
 
 /datum/reagents/proc/has_all_reagents(var/list/check_reagents)
 	for(var/current in check_reagents)
-		if(!has_reagent(current))
+		if(!has_reagent(current, check_reagents[current]))
 			return FALSE
 	return TRUE
 
@@ -349,11 +349,11 @@
 		return
 	var/temperature = src.get_temperature()
 	if(temperature >= REAGENTS_BURNING_TEMP_HIGH)
-		var/burn_damage = Clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP)
+		var/burn_damage = Clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,min(total_volume*2,REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP))
 		target.adjustFireLoss(burn_damage)
 		target.visible_message(SPAN_DANGER("The hot liquid burns [target]!"))
 	else if(temperature <= REAGENTS_BURNING_TEMP_LOW)
-		var/burn_damage = Clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP)
+		var/burn_damage = Clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,min(total_volume*2,REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP))
 		target.adjustFireLoss(burn_damage)
 		target.visible_message(SPAN_DANGER("The freezing liquid burns [target]!"))
 

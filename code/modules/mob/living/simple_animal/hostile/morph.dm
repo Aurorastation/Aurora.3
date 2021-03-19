@@ -1,5 +1,3 @@
-#define MORPH_COOLDOWN 50
-
 /mob/living/simple_animal/hostile/morph
 	name = "morph"
 	desc = "A revolting, pulsating pile of flesh."
@@ -54,12 +52,13 @@
 	var/melee_damage_disguised = 0
 	var/eat_while_disguised = FALSE
 	var/atom/movable/form = null
-	var/morph_time = 0
 	var/static/list/blacklist_typecache = typecacheof(list(/obj/screen, /obj/singularity, /mob/living/simple_animal/hostile/morph, /obj/effect, /obj/structure/gore))
 
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
+
 	verbs += /mob/living/proc/ventcrawl
+	verbs -= /mob/living/simple_animal/verb/change_name
 
 	var/list/morph_spells = list(/spell/aoe_turf/conjure/node, /spell/aoe_turf/conjure/nest)
 	for(var/spell in morph_spells)
@@ -132,18 +131,15 @@
 		return TRUE
 
 /mob/living/simple_animal/hostile/morph/AltClickOn(atom/movable/A)
-	if(morph_time <= world.time && !stat)
-		if(A == src)
-			restore()
-		else if(istype(A) && allowed(A))
-			assume(A)
-	else
-		to_chat(src, SPAN_WARNING("Your chameleon skin is still repairing itself!"))
+	if(stat)
+		to_chat(src, SPAN_WARNING("You need to be conscious to do this!"))
+		return
+	if(A == src)
+		restore()
+	else if(istype(A) && allowed(A))
+		assume(A)
 
 /mob/living/simple_animal/hostile/morph/proc/assume(atom/movable/target)
-	if(morphed)
-		to_chat(src, SPAN_WARNING("You must restore to your original form first!"))
-		return
 	morphed = TRUE
 	form = target
 	visible_message(SPAN_WARNING("\The [src] suddenly twists and changes shape, becoming a copy of \the [target]!"), SPAN_NOTICE("You twist your body and assume the form of \the [target]."))
@@ -158,9 +154,6 @@
 	melee_damage_upper = melee_damage_disguised
 	speed = 1
 	mob_size = MOB_MINISCULE
-
-	morph_time = world.time + MORPH_COOLDOWN
-	return
 
 /mob/living/simple_animal/hostile/morph/proc/restore()
 	if(!morphed)
@@ -187,8 +180,6 @@
 	speed = 2.5
 	mob_size = 15
 
-	morph_time = world.time + MORPH_COOLDOWN
-
 /mob/living/simple_animal/hostile/morph/death(gibbed)
 	if(morphed)
 		visible_message(SPAN_WARNING("\The [src] twists and dissolves into a pile of green flesh!"), SPAN_DANGER("Your skin ruptures! Your flesh breaks apart! No disguise can ward off de--"))
@@ -204,8 +195,7 @@
 
 /mob/living/simple_animal/hostile/morph/UnarmedAttack(atom/A, proximity)
 	if(morphed && !melee_damage_disguised)
-		to_chat(src, SPAN_WARNING("You can't attack while disguised!"))
-		return
+		restore()
 	if(isliving(A)) //Eat Corpses to regen health
 		var/mob/living/L = A
 		if(L.stat == DEAD)

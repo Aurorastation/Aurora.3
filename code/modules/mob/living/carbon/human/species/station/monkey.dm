@@ -9,12 +9,14 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_monkey.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_monkey.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_monkey.dmi'
-	language = null
+	language = LANGUAGE_CHIMPANZEE
 	default_language = LANGUAGE_CHIMPANZEE
+	secondary_langs = list(LANGUAGE_CHIMPANZEE)
 	greater_form = SPECIES_HUMAN
 	mob_size = MOB_SMALL
-	has_fine_manipulation = 0
 	show_ssd = null
+
+	bodytype = BODYTYPE_MONKEY
 
 	eyes = "blank_eyes"
 
