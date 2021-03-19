@@ -182,8 +182,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	blood_color = "#EDD12F"
 	flesh_color = "#EDD12F"
 
-	death_sound = 'sound/magic/anima_fragment_death.ogg'
-
 	heat_level_1 = T0C+550
 	heat_level_2 = T0C+750
 	heat_level_3 = T0C+950
@@ -382,8 +380,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	death_message = "shatters into many shards!"
 	death_message_range = 7
 
-	death_sound = /decl/sound_category/glass_break_sound
-
 	heat_level_1 = T0C+350
 	heat_level_2 = T0C+550
 	heat_level_3 = T0C+750
@@ -563,8 +559,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	blood_color = "#824B28"
 	flesh_color = "#824B28"
-
-	death_sound = 'sound/effects/woodcutting.ogg'
 
 	heat_level_1 = T0C+188
 	heat_level_2 = T0C+288
@@ -811,8 +805,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	death_message = "collapses into a pile of flesh!"
 	death_message_range = 7
-
-	death_sound = 'sound/magic/disintegrate.ogg'
 
 	golem_designation = "Flesh"
 

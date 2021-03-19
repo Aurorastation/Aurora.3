@@ -227,7 +227,6 @@
 
 	show_ssd = "laying inert, its activation glyph dark"
 
-	death_sound = 'sound/effects/bang.ogg'
 	death_message = "collapses to the ground with a CLUNK, and begins to beep ominously."
 	death_message_range = 7
 
