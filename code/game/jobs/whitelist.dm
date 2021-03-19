@@ -27,9 +27,7 @@ var/list/whitelist_jobconfig = list()
 
 /proc/load_whitelist()
 	if (config.sql_whitelists)
-		establish_db_connection(dbcon)
-
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
 			error("Database connection failed while loading whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
@@ -146,7 +144,7 @@ var/list/whitelist_jobconfig = list()
 	if (!istype(C) || C.holder)
 		return 0
 
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return 0
 
 	var/age_to_beat = 0

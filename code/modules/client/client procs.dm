@@ -134,8 +134,7 @@ var/list/localhost_addresses = list(
 
 		var/request_id = text2num(href_list["linkingrequest"])
 
-		establish_db_connection(dbcon)
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
 			return
 
@@ -483,8 +482,7 @@ var/list/localhost_addresses = list(
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
 /proc/get_player_age(key)
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey:")
@@ -618,8 +616,7 @@ var/list/localhost_addresses = list(
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/list/requests = list()
@@ -656,8 +653,7 @@ var/list/localhost_addresses = list(
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
