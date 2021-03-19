@@ -175,12 +175,12 @@ datum/unit_test/wire_test/start_test()
 		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
-	
+
 	if(failed_checks)
 		fail("\[[failed_checks] / [checks]\] Some doors had improper turfs below them.")
 	else
 		pass("All \[[checks]\] doors have proper turfs below them.")
-	
+
 	return 1
 
 /datum/unit_test/bad_firedoors
@@ -201,7 +201,7 @@ datum/unit_test/wire_test/start_test()
 		else if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
-	
+
 	if(failed_checks)
 		fail("\[[failed_checks] / [checks]\] Some firedoors were doubled up or had bad turfs below them.")
 	else
@@ -243,7 +243,7 @@ datum/unit_test/wire_test/start_test()
 		if (!pipe.node1 || !pipe.node2)
 			failed_checks++
 			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
-	
+
 	next_turf:
 		for(var/turf/T in turfs)
 			for(var/dir in cardinal)
@@ -285,6 +285,28 @@ datum/unit_test/wire_test/start_test()
 		fail("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
 	else
 		pass("All \[[checks]\] vending machines have valid product lists.")
+
+	return 1
+
+
+/datum/unit_test/mapped_turbolift
+	name = "MAP: Check if each turbolift has a turbolift controller"
+
+/datum/unit_test/mapped_turbolift/start_test()
+	var/checks = 0
+	var/failed_checks = 0
+
+	for(var/datum/turbolift/lift in elevators)
+		checks++
+		var/obj/machinery/turbolift_controller = lift.controller
+		if(!istype(turbolift_controller))
+			failed_checks++
+			log_unit_test("Turbolift with linking_id [lift.controller_link_id] does not have a controller")
+
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some turbolift do not have a controller mapped in.")
+	else
+		pass("All \[[checks]\] turbolift have a elevator controller.")
 
 	return 1
 
