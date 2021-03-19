@@ -526,7 +526,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/turbolift_controller{
-	controller_link_id = lift_aux
+	controller_link_id = lift_aux;
+	pixel_x = 30
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
@@ -618,7 +619,8 @@
 	dir = 10
 	},
 /obj/machinery/turbolift_controller{
-	controller_link_id = lift_command
+	controller_link_id = lift_command;
+	pixel_y = 33
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/bridge_elevator)
@@ -5949,7 +5951,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/turbolift_controller{
-	controller_link_id = lift_main
+	controller_link_id = lift_main;
+	pixel_x = 30
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
@@ -6499,7 +6502,8 @@
 	dir = 4
 	},
 /obj/machinery/turbolift_controller{
-	controller_link_id = lift_cargo
+	controller_link_id = lift_cargo;
+	pixel_x = -34
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
@@ -11337,7 +11341,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/turbolift_controller{
-	controller_link_id = lift_medical
+	controller_link_id = lift_medical;
+	pixel_x = -33
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
