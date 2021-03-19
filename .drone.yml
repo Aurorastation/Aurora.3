@@ -52,7 +52,7 @@ steps:
     image: node:10-buster
     commands:
       - cd vueui
-      - npm install # TODO: Cache that shit
+      - npm install
       - (npm run lint | tee lint.log)
       - grep "No lint errors found!" lint.log
       - npm run build
@@ -119,6 +119,9 @@ kind: pipeline
 type: docker
 name: dm-aurora
 
+node:
+  k: y
+
 clone:
   depth: 50
 
@@ -146,6 +149,9 @@ kind: pipeline
 type: docker
 name: dm-exodus
 
+node:
+  k: y
+
 clone:
   depth: 50
 
@@ -170,6 +176,6 @@ steps:
       - echo "Unit Tests Completed"
 ---
 kind: signature
-hmac: 786139dfd954616bf68bb0f31c69be9b93b2440468056be8a4a7c36704733890
+hmac: cec2335f99d83072683a7556eedb55e3c2e54463d9263e01ad72d8312ec90c24
 
 ...

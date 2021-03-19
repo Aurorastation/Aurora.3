@@ -698,6 +698,65 @@
 	desc = "A green Dominian standard which represents the dionae within the Empire."
 	icon_state = "diona"
 
+/obj/item/flag/strelitz
+	name = "House Strelitz standard"
+	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
+	They are known for their military service and emphasis on personal bravery."
+	flag_path = "strelitz"
+
+/obj/structure/sign/flag/strelitz
+	name = "House Strelitz standard"
+	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
+	They are known for their military service and emphasis on personal bravery."
+	icon_state = "strelitz"
+
+/obj/item/flag/volvalaad
+	name = "House Volvalaad standard"
+	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
+	They are known for their reformist ideals, and scientific prowess."
+	flag_path = "volvalaad"
+
+/obj/structure/sign/flag/volvalaad
+	name = "House Volvalaad standard"
+	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
+	They are known for their Habsburgian inbreeding, reformist ideals, and scientific prowess."
+	icon_state = "volvalaad"
+
+/obj/item/flag/kazkhz
+	name = "House Kazkhz standard"
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
+	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	flag_path = "kazkhz"
+
+/obj/structure/sign/flag/kazkhz
+	name = "House Kazkhz standard"
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
+	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	icon_state = "kazkhz"
+
+/obj/item/flag/caladius
+	name = "House Caladius standard"
+	desc = "A purple standard which represensts House Caladius, one of the great houses of the Empire of Dominia. They are \
+	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
+	flag_path = "caladius"
+
+/obj/structure/sign/flag/caladius
+	name = "House Caladius standard"
+	desc = "A purple standard which represensts House Caladius, one of the great houses of the Empire of Dominia. They are \
+	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
+	icon_state = "caladius"
+
+/obj/item/flag/zhao
+	name = "House Zhao standard"
+	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of \
+	known for its naval officers and patronage of the Dominian shipbuilding industry."
+	flag_path = "zhao"
+
+/obj/structure/sign/flag/zhao
+	name = "House Zhao standard"
+	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of \
+	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
+	icon_state = "zhao"
 
 /obj/structure/sign/flag/biesel
 	name = "Republic of Biesel flag"
@@ -717,6 +776,28 @@
 
 /obj/item/flag/biesel/l
 	name = "Large Republic of Biesel flag"
+	flag_size = 1
+
+/obj/structure/sign/flag/scc
+	name = "Stellar Corporate Conglomerate flag"
+	desc = "The colours and logo of the Stellar Corporate Conglomerate."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "scc"
+
+/obj/structure/sign/flag/scc/left
+	icon_state = "scc_l"
+
+/obj/structure/sign/flag/scc/right
+	icon_state = "scc_r"
+
+/obj/item/flag/scc
+	name = "Stellar Corporate Conglomerate flag"
+	desc = "The flag representing the Stellar Corporate Conglomerate."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	flag_path = "scc"
+
+/obj/item/flag/scc/l
+	name = "Large Stellar Corporate Conglomerate flag"
 	flag_size = 1
 
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
@@ -765,10 +846,14 @@
 				P2.pixel_y = 32
 		P2.name = name
 		P2.desc = desc
+		P2.desc_info = desc_info
+		P2.desc_fluff = desc_fluff
 	else
 		P.icon_state = "[flag_path]"
 	P.name = name
 	P.desc = desc
+	P.desc_info = desc_info
+	P.desc_fluff = desc_fluff
 	qdel(src)
 
 

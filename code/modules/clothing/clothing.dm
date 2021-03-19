@@ -58,13 +58,13 @@
 	return 0
 
 //BS12: Species-restricted clothing check.
-/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE)
+/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
 		return 0
 
-	if(species_restricted && istype(M,/mob/living/carbon/human))
+	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
@@ -81,7 +81,8 @@
 					wearable = 1
 
 			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
-				to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
+				if(!disable_warning)
+					to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
 	return 1
 
@@ -882,7 +883,9 @@
 		H = src.loc
 
 	var/icon/under_icon
-	if(icon_override)
+	if(contained_sprite)
+		under_icon = icon
+	else if(icon_override)
 		under_icon = icon_override
 	else if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype()])
 		under_icon = sprite_sheets[H.species.get_bodytype()]
@@ -892,7 +895,7 @@
 		under_icon = INV_W_UNIFORM_DEF_ICON
 
 	// The _s is because the icon update procs append it.
-	if(("[worn_state]_d_s") in icon_states(under_icon))
+	if(("[worn_state]_d[contained_sprite ? "_un" : "_s"]") in icon_states(under_icon))
 		if(rolled_down != 1)
 			rolled_down = 0
 	else
@@ -905,7 +908,9 @@
 		H = src.loc
 
 	var/icon/under_icon
-	if(icon_override)
+	if(contained_sprite)
+		under_icon = icon
+	else if(icon_override)
 		under_icon = icon_override
 	else if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype(H)])
 		under_icon = sprite_sheets[H.species.get_bodytype(H)]
@@ -915,7 +920,7 @@
 		under_icon = INV_W_UNIFORM_DEF_ICON
 
 	// The _s is because the icon update procs append it.
-	if(("[worn_state]_r_s") in icon_states(under_icon))
+	if(("[worn_state]_r[contained_sprite ? "_un" : "_s"]") in icon_states(under_icon))
 		if(rolled_sleeves != 1)
 			rolled_sleeves = 0
 	else

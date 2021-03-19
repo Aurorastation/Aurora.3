@@ -271,7 +271,7 @@
 				new_shell.name = new_shell.real_name
 				var/obj/item/organ/internal/mmi_holder/posibrain/P = new_shell.internal_organs_by_name[BP_BRAIN]
 				P.setup_brain()
-				new_shell.change_appearance(APPEARANCE_ALL_HAIR | APPEARANCE_SKIN | APPEARANCE_EYE_COLOR, new_shell.loc, new_shell)
+				new_shell.change_appearance(APPEARANCE_ALL_HAIR | APPEARANCE_SKIN | APPEARANCE_EYE_COLOR, new_shell)
 				qdel(src)
 				return
 
