@@ -140,8 +140,8 @@
 // Cargo trains are open topped, so you can shoot at the driver.
 // Or you can shoot at the tug itself, if you're good.
 /obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)
-	if (buckled_mob && Proj.original == buckled_mob)
-		buckled_mob.bullet_act(Proj)
+	if (buckled && Proj.original == buckled)
+		buckled.bullet_act(Proj)
 	else
 		..()
 
@@ -211,7 +211,7 @@
 	H.apply_effects(5, 5)
 	for(var/i = 0, i < rand(1,5), i++)
 		var/def_zone = pick(parts)
-		H.apply_damage(rand(5,10), BRUTE, def_zone, H.run_armor_check(def_zone, "melee"))
+		H.apply_damage(rand(5,10), BRUTE, def_zone)
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
 	..()

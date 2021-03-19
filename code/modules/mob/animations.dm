@@ -83,7 +83,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 /mob/proc/update_floating(var/dense_object=0)
 
-	if(anchored||buckled)
+	if(anchored||buckled_to)
 		make_floating(0)
 		return
 
@@ -108,7 +108,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return
 
 /mob/proc/make_floating(var/n)
-	if(buckled)
+	if(buckled_to)
 		if(is_floating)
 			stop_floating()
 		return

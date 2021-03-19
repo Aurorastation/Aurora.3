@@ -20,9 +20,6 @@ var/global/datum/universal_state/universe = new
 
 var/global/list/global_map = null
 
-// Noises made when hit while typing.
-var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
-
 var/diary               = null
 var/diary_runtime  = null
 var/diary_date_string = null

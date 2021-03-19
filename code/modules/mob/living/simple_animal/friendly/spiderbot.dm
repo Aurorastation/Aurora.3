@@ -56,6 +56,9 @@
 	verbs |= /mob/living/simple_animal/spiderbot/proc/control_integrated_radio
 	voice_name = name
 
+/mob/living/simple_animal/spiderbot/can_name(var/mob/living/M)
+	return FALSE
+
 /mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
 	if(istype(O, /obj/item/device/mmi))

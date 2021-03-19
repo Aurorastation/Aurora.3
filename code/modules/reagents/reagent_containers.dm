@@ -79,12 +79,17 @@
 	qdel(src)
 
 /obj/item/reagent_containers/attackby(var/obj/item/W, var/mob/user)
+	if(istype(W, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/dipped = W
+		dipped.attempt_apply_coating(src, user)
+		return
 	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
 		if(do_after(user, 10))
 			if(!QDELETED(src))
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))
 				user.do_attack_animation(src)
 				shatter(W, user)
+				return
 	..()
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)

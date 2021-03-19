@@ -35,6 +35,841 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">18 March 2021</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed bugged recipes that were &#x27;eating&#x27; reagents unless the exact amount was added all at once, such as cheese wheels.</li>
+				<li class="bugfix">IV drips now respect the transfer amount when TAKING blood, instead of using the max rate. Blood donations should be much safer now.</li>
+				<li class="tweak">Removed the undetectable chem_dose that would linger after a reagent was totally metabolized. This prevents weird interactions when being given a dose of a reagent soon after metabolizing a previous dose of the same reagent.</li>
+				<li class="tweak">Soporific takes a little longer to kick in and knock someone out.</li>
+				<li class="tweak">Some medicines now have a minimum dosage before certain affects will be applied. This minimum is typically 1u or less, and prevents abusing IV drips on 0.01u transfer rate to get the full power of some medications, mainly Dexalin and painkillers.</li>
+				<li class="tweak">Saline Plus restores blood at half the rate. It is still the most effect way to restore blood outside of transfusions.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Wearing thick clothing and gas masks now hide your gender again.</li>
+				<li class="tweak">Clothing hiding gender is now restricted to thick clothing or clothing that explicitly obscures the face. This means cloth or surgical masks no longer does so.</li>
+				<li class="rscadd">Gave the CCIA a new SCC agent to spawn as. They need an admin to enable the slot, however.</li>
+				<li class="rscadd">Added an energy repeater, given to SCC bodyguards.</li>
+				<li class="rscadd">Added SCC undershirts and shorts.</li>
+				<li class="rscadd">Added SCC jackets, shorts, flags, banners, floor decals, sleeve patches, armbands.</li>
+				<li class="tweak">CCIA ghostspawners have been put into a CCIA tab to declutter the admin tab.</li>
+				<li class="rscadd">Skrell now have male, female, plural pronouns.</li>
+				<li class="rscadd">The recipe to make Bun Bun, mixing two buns in a bowl, has been re-added.</li>
+				<li class="rscadd">Ported Maze Generation from ParadiseStation. Replaced the maze next to research with the randomized maze.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">IRUs can now pick their coat in the loadout again.</li>
+			</ul>
+			<h3 class="author">UncleJo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed the muteness disabililty from the loadout.</li>
+			</ul>
+
+			<h2 class="date">17 March 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Moving while equipping hardsuits will no longer drop them into the aether.</li>
+				<li class="bugfix">Putting a hardsuit on an unconscious person will no longer drop it into the aether either, as it will bypass the wait period.</li>
+				<li class="bugfix">The amount of things your stomach can hold is now based on your stomach volume.</li>
+				<li class="tweak">Reduced the amount of nutrition nutriment refills across the board. Greatly reduced the amount fat fills.</li>
+				<li class="tweak">Reduced the speed at which nutriment gets metabolised.</li>
+				<li class="tweak">Stomach volume now contributes less to overall fullness.</li>
+				<li class="tweak">Made it so that you can throw up at a lower stomach volume.</li>
+				<li class="rscadd">Borers can now examine things while infesting someone.</li>
+				<li class="tweak">Grown bioluminescent crops now lose their glow after 5-7 minutes. Splattered glowing crops glow for 3-5 minutes.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">CI recipe tests no longer reinstantiate singletons.</li>
+				<li class="maptweak">Exodus loads properly again.</li>
+				<li class="bugfix">Fixes a runtime with atmos components.</li>
+			</ul>
+			<h3 class="author">Stryker, NiennaB updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new Dominian Great House standards in the loadout general tab.</li>
+				<li class="rscadd">Added colorable bandannas to the loadout ear tab.</li>
+				<li class="rscadd">Reworked hijab colors and added a colorable hijab, courtesy of NiennaB.</li>
+				<li class="tweak">Made hijabs fit in the ear slot so you can fit them under hats.</li>
+				<li class="rscadd">Reworked lipstick colors and added new lipsticks colors, courtesy of NiennaB.</li>
+				<li class="tweak">Changed all references of Persipolis to Persepolis.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The Zeiglertail hairstyle no longer exposes an eye on the right facing sprite.</li>
+			</ul>
+
+			<h2 class="date">16 March 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Species&#x27; night vision can no longer be used with cameras and binoculars.</li>
+				<li class="bugfix">Fixed the chameleon hat behaving like a softcap.</li>
+				<li class="bugfix">The wizard chameleon now has a proper icon.</li>
+				<li class="tweak">Some species&#x27; ages were tweaked to be more lore accurate.</li>
+			</ul>
+			<h3 class="author">Sue updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Detective and CSI have been merged into one role, Investigator, which shares loadout slots both FT/Detective used to have.</li>
+			</ul>
+
+			<h2 class="date">15 March 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the rice bowl deleting itself.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the false alarm event causing it to seem like some events (including itself) were ending as soon as they began.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes hovering over slots with species restricted clothes spamming the chat with Your species cannot wear this messages.</li>
+				<li class="bugfix">Wielding guns and picking up species restricted backpacks now work again.</li>
+				<li class="tweak">Monkeys are now capable of fine manipulation.</li>
+				<li class="rscadd">Diona now spawn with a survival flashlight, which is good enough to keep them alive for four minutes. It can be recharged at a recharger.</li>
+				<li class="tweak">Diona no longer benefit speedwise from radiation or light, instead they just get a flat speed buff.</li>
+				<li class="rscdel">Diona can no longer sprint.</li>
+				<li class="tweak">Swallowing and digesting mobs now does less damage to them, and digestion completes are five minutes, rather than thirty seconds.</li>
+				<li class="tweak">The Unathi tobacco leaves are no longer low quality producing acrid smoke.</li>
+				<li class="rscadd">You can now carve notches into gun stocks by using any sort of sharp tool on them.</li>
+				<li class="tweak">Untagged shells now appear as Human in their employment records.</li>
+				<li class="tweak">Tweaks the gear Ceres Lance receives a little bit.</li>
+				<li class="bugfix">Magboots no longer deploy onto your feet when you simply pick them up.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Archaeological finds should no longer be created with a clearance depth larger than anomaly depth.</li>
+			</ul>
+			<h3 class="author">TheGreyWolf updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Turning off species nightvision now retains the color blindness disability if they had it.</li>
+			</ul>
+
+			<h2 class="date">14 March 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed tanks and jetpacks having no on back sprites.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes riot helmets not having the correct icon states.</li>
+				<li class="bugfix">Fixes laser tag vests gently breaking when you try to change their health without an ID on your person.</li>
+				<li class="bugfix">Fixes gore poking out of monkey groins.</li>
+				<li class="bugfix">Multiple borers can no longer infect the same host.</li>
+				<li class="bugfix">Statues are no longer neon pink or purple, again.</li>
+				<li class="bugfix">Fixed shoes not getting bloody.</li>
+				<li class="bugfix">Fixed the north facing right foot blood sprite being on the wrong side.</li>
+				<li class="rscadd">Miner lockers now start with an orange hardhat.</li>
+				<li class="bugfix">Borers releasing control now properly give the host the message that they&#x27;re back in control.</li>
+				<li class="bugfix">Equipping items will now put them into the correct slot position, depending on which HUD your species has.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The firearm control program now correctly displays if a gun is disabled or on automatic.</li>
+			</ul>
+
+			<h2 class="date">12 March 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Allows characters to set their pronouns in character creation if desired. Only affects examining and gender appearance in visible messages.</li>
+			</ul>
+
+			<h2 class="date">10 March 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The tesla gauntlet now shock its target at melee range when punching.</li>
+			</ul>
+			<h3 class="author">Flpfs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Rolls the detective trenchcoat in the loadout into the general trenchcoat selection.</li>
+				<li class="bugfix">Removes IAA from the list of allowed jobs that can get the flash-proof sunglasses in the loadout.</li>
+				<li class="tweak">Moves the Unathi shaman staff from Religion to Xenowear - Unathi.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaked how vending machines act when they throw things at you. Should be a bit more spicy now.</li>
+				<li class="rscadd">Monkeys have gained uniform, ID, and pocket inventory slots.</li>
+				<li class="bugfix">You can put Pun Pun&#x27;s uniform back on if it gets taken off now.</li>
+				<li class="bugfix">Fixed some gore pixels poking out of Pun Pun&#x27;s feet.</li>
+				<li class="rscadd">Morphs now gets an antagonist status assigned to them when they get released, granting them access to ambitions and AOOC.</li>
+				<li class="tweak">Removed the cooldown on morphs changing form, making it more viable to change after attacking.</li>
+				<li class="tweak">Attacking as a morph will now instantly drop the disguise, instead of you needing to drop it manually.</li>
+				<li class="bugfix">Morphs now actually attack the bodypart they&#x27;re aiming at.</li>
+				<li class="bugfix">You can no longer rename morphs.</li>
+				<li class="bugfix">Pipeguns no longer spawn with pins, they also no longer have a safety.</li>
+				<li class="bugfix">Trying to install a pin on a gun that doesn&#x27;t use pins now gives a warning message.</li>
+				<li class="bugfix">Fixes Diona DNA sampling.</li>
+				<li class="rscadd">Exosuits now come with integrated megaspeakers. When activated, they will increase the volume of your speech.</li>
+			</ul>
+			<h3 class="author">SierraKomodo & Pawnp updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">New sprites and lighting overlays for teleporters have been added.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added prescription HUD assemblies to the loadout.</li>
+			</ul>
+
+			<h2 class="date">09 March 2021</h2>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Resprites the CE, EVA, Hazard and TCFL rigs.</li>
+			</ul>
+
+			<h2 class="date">08 March 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduced the armor penetration from laser rifles, removed the armor penetration from pistol laser beams..</li>
+			</ul>
+			<h3 class="author">Scheveningen updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Reduced overall TC amount granted to all antag uplinks to 15. This was so that it still maintains the concept of having to ration between weapons and non-combat uplink equipment, displayed below.</li>
+				<li class="balance">Greatly lowered costs of non-combat uplink equipment. Most weapons that can be acquired through the uplink have had their cost adjusted, rounded down. Relatively speaking, all weapons from the uplink should be very similar impact on the overall TC pool as before.</li>
+			</ul>
+			<h3 class="author">Waff-AI updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the ability to add plushies to your loadout.</li>
+				<li class="rscdel">Adds greyscaled squid plushies, a bee, a slime, and two schlorrgo plushies.</li>
+			</ul>
+
+			<h2 class="date">07 March 2021</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Prevents players from joining if they have unacknowledged notifications.</li>
+			</ul>
+			<h3 class="author">Flpfs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changes the shell creation date in the IPC blurb to match the new lore.</li>
+				<li class="tweak">Adds an image for shells in the blurb preview.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed brains dying instantly when the head gets decapitated or the body explodes. This will give roboticists enough time to retrieve and borg them.</li>
+				<li class="bugfix">Broken lights that have been turned off with a lightswitch no longer spark.</li>
+				<li class="rscadd">Added helmets to the laser tag gear loadout.</li>
+				<li class="rscadd">You can now alt-click laser tag armour to be able to set how many hits it will take before flooring you.</li>
+				<li class="rscadd">You can now use a multitool on laser tag gear to change which colour it is and works against.</li>
+				<li class="tweak">Lowered the laser tag gun recharge rate to 4 seconds per shot, down from 8 seconds per shot.</li>
+				<li class="tweak">The Tachyon-Doppler Array outputs its results to the science channel instead of common, now.</li>
+				<li class="rscadd">You can now toggle the doppler array&#x27;s reporting on or off by clicking on it.</li>
+				<li class="rscadd">Skrell now make a wet slapping noise when they fall over. Yeah.</li>
+			</ul>
+			<h3 class="author">TheGreyWolf updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">New characters now start with their preference set to return to lobby if all their job slots are taken.</li>
+			</ul>
+
+			<h2 class="date">06 March 2021</h2>
+			<h3 class="author">witchbells updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a plushtoy of Penny. You&#x27;re welcome.</li>
+			</ul>
+
+			<h2 class="date">05 March 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduced radiation damage caused by uranium golems.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You can no longer build padded comfy chairs out of steel, comfy chairs are now built plain and require you to pad it with other materials, such as carpet or leather.</li>
+				<li class="tweak">Office chairs and comfy chairs have been collapsed into the miscellaneous construction tab in the steel sheet menu.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Suffocating will no longer continuously apply losebreath. This is capped now, thus making recovery periods for suffocation much shorter.</li>
+				<li class="bugfix">The necrotic (dead) organ surgery has been fixed. For internal organs, use a scalpel! Cancel out of the organ removal prompt and the surgery will begin.</li>
+				<li class="bugfix">Wheelchairs no longer interact with the paranormal entities.</li>
+				<li class="tweak">CPR now removes losebreath, thus making it a convenient option if people aren&#x27;t breathing.</li>
+				<li class="tweak">It is now obvious if the organ is dead following an organ repair surgery.</li>
+				<li class="balance">Getting headshots no longer multiplies damage exponentially if the damage is extremely high.</li>
+				<li class="balance">Headshots no longer make you lose breath.</li>
+				<li class="balance">Organs now need necrotic surgery if they&#x27;ve been dead for over five minutes.</li>
+				<li class="balance">The necrotic organ surgery is now longer, at about ten seconds. It also heals ten damage so that organs don&#x27;t instantly die anymore.</li>
+				<li class="balance">Slowed brain decay while in cardiac arrest.</li>
+				<li class="tweak">Non-glass (beakers, bottles) or non-bloodbag reagent containers may no longer be put onto roller beds.</li>
+				<li class="tweak">Coffee no longer applies CE_PULSE, which means you won&#x27;t get spammed by heartbeat for having the audacity to drink it.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes diona bites.</li>
+			</ul>
+
+			<h2 class="date">04 March 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed jumping down disposals causing no damage.</li>
+				<li class="tweak">Destroying the station&#x27;s floor won&#x27;t create asteroid tiles anymore.</li>
+			</ul>
+			<h3 class="author">Alberyk, Canon35 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Hro&#x27;zamal Soda.</li>
+			</ul>
+			<h3 class="author">Carpe Venenum updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You can now properly scan people with circuit debuggers and integrated circuit sensors.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Lethal blaster bolts now correctly go through laser armor.</li>
+				<li class="bugfix">Fixed rig armor suddenly disappearing upon being deployed.</li>
+				<li class="bugfix">Fixed various wrong armor definitions.</li>
+				<li class="bugfix">Fixed the unathi breacher having wrong armor values for laser defense.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Cooking containers are now acceptable containers for blenders, and also won&#x27;t be ground up.</li>
+				<li class="refactor">Converts a lot of reagent decl istypes to ispaths, which might cause a speedup.</li>
+				<li class="bugfix">Ya&#x27;ssa will now properly handle messages starting with S that have no space between it and the key.</li>
+				<li class="bugfix">Native Tajaran footwear selected from the loadout will now spawn properly.</li>
+				<li class="bugfix">Fixes makeshift distilleries.</li>
+				<li class="bugfix">You can no longer charge remotely by abusing a wheelchair and a cyborg charger.</li>
+				<li class="bugfix">Fixes batter.</li>
+				<li class="tweak">Batter is now applied by clicking a container with food in your hand.</li>
+				<li class="bugfix">Secret chems now load properly.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The spiderling infestation announcement now references greimorians.</li>
+			</ul>
+
+			<h2 class="date">03 March 2021</h2>
+			<h3 class="author">Carpe Venenum updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Hairstyle gradients now respect the original hairstyle&#x27;s blending mode, meaning that they are now properly shaded.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added supply/scrubber specific pressure regulators.</li>
+			</ul>
+			<h3 class="author">Varoxus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added gloves to the xenobotany lockers.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fancy cloak&#x27;s front facing sprite has had its golden trim fixed, it was previously not in line with the rest when it comes to colour.</li>
+				<li class="rscadd">Tajara can now pick from a selection of closed boots that aren&#x27;t toeless in their xenoware section. These are the black boots and workboots.</li>
+			</ul>
+
+			<h2 class="date">02 March 2021</h2>
+			<h3 class="author">Alberyk, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the tesla gauntlet to the uplink.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Using hardsuit modules now generally only applies the module&#x27;s cooldown if the action was successful. Standard click-cooldown still applies, however.</li>
+				<li class="rscadd">Using a hardsuit module will now colour your back HUD icon red until the cooldown ends.</li>
+				<li class="rscadd">You can now remove the cap from a vacuum flask to turn it into a small 10u cup.</li>
+				<li class="rscadd">Readying up now shows your character name and the job they have set to high in the Lobby stat panel. No ckeys are exposed.</li>
+				<li class="rscadd">Magboots now prevent you from being thrown about during shuttle rides.</li>
+				<li class="bugfix">Fixes flipping iPatches making the sprite go all wonky.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Ghosts are no longer invisible if from an engineering or security department.</li>
+				<li class="experiment">Human mobs now get knocked out by pain sooner; from 200 halloss to 120.</li>
+				<li class="experiment">Pain decay nerfs have been reverted as well.</li>
+				<li class="tweak">Disruptor projectiles have been buffed. They now knock down a human mob in about six shots, and they have 10 shots available before recharging.</li>
+				<li class="tweak">Nerfed shotgun lethal pellets.</li>
+				<li class="tweak">Adrenaline has been nerfed once again, now only having its full effect for a short amount of time. Its jittering now happens when the dose is very high, instead of at a mediocre amount.</li>
+				<li class="backend">Reworked how disruptor lethal authorization works in the backend. No user-facing changes.</li>
+				<li class="tweak">Touched up wireless firing mode failure messages and added a sound to gun registration.</li>
+				<li class="tweak">All gun agony damage now goes through the siemens coefficient.</li>
+				<li class="tweak">Stun baton pain damage has been slightly nerfed to compensate.</li>
+				<li class="tweak">Security&#x27;s non-lethal guns now do one burn damage. Think of it as flavour.</li>
+			</ul>
+			<h3 class="author">SierraKomodo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a Raakti Shariim beret, coat, and uniform to the loadout for Tajara characters.</li>
+				<li class="maptweak">The pharmacy&#x27;s shutters now start closed.</li>
+			</ul>
+			<h3 class="author">UncleJo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two unique, access-locked lockers to the EMT bay and relocated most of the existing table clutter into them. They additionally come with a full uniform, a stethoscope, a penlight, a roller bed, and a crowbar. No more trips to the sub-level.</li>
+				<li class="rscadd">Added a box of nitrile gloves, a medical suit cycler, and two spare roller beds into the EMT bay.</li>
+				<li class="tweak">Gave the EMT bay itself a bit of a facelift. It should be a bit cleaner and a bit roomier now.</li>
+				<li class="tweak">Replaced the wall-mounted NanoMed vendor in the EMT bay with the alternative variant that doesn&#x27;t shoot dylovene syringes at you during rampant brand intelligence events. Thank God.</li>
+				<li class="maptweak">Removed the wall that was left smack dab in the middle of the General Treatment Room to house the GTR&#x27;s APC and intercom unit. The intercom is gone as well.</li>
+				<li class="tweak">Relocated one of the General Treatment Room&#x27;s cryo pods into the Intensive Care Unit to make room for the GTR&#x27;s APC, along with an extra table.</li>
+			</ul>
+			<h3 class="author">Wickedcybs and UncleJo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Replaced a misplaced disposals section in medical with a straight piece.</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Ported directional floodlights from Baystation 12.</li>
+			</ul>
+
+			<h2 class="date">01 March 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Lowered the Tajaran cloak loadout selection price to 1.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The AI has received a new default set of laws.</li>
+				<li class="tweak">AIs can bolt and unbolt all airlocks again, provided the AI control wire hasn&#x27;t been pulsed.</li>
+				<li class="tweak">Cyborg-likes now need to be adjacent to airlocks before they can bolt or unbolt them.</li>
+				<li class="rscadd">An anti-Cyborg-like setting has been added to turrets.</li>
+				<li class="tweak">Camera wires are no longer randomized per camera, all of them will be the same.</li>
+				<li class="rscdel">Removed malfunctioning AI as a gamemode.</li>
+				<li class="rscadd">AI can now roll traitor again.</li>
+				<li class="rscadd">Allows robotics to print prosthetic groin caps. These come with all the organs that groins normally come with, but they do not support attachment of legs.</li>
+				<li class="rscadd">Light Step shoes now let you avoid bear traps.</li>
+				<li class="rscadd">You can now grill xenomeat on the grill, as is. The polyacid inside will provide the spice you need.</li>
+				<li class="rscadd">Ported new grill sprites.</li>
+				<li class="rscadd">Added grill circuitboards to RnD, mapped one into the maintenance workshop.</li>
+				<li class="rscadd">Increased the amount of meat greimorians drop when butchered.</li>
+				<li class="tweak">Added an additional recipe for grilled meat that only needs salt and pepper, no space spice.</li>
+				<li class="rscadd">Barricades can now be damaged by bullets. If you aim directly at them, you will hit them. If you stand next to them when you fire through them, you will always shoot through, otherwise there is only a 35% chance for the bullet to pass unimpeded.</li>
+				<li class="rscadd">Mobs can no longer slip through barricades.</li>
+				<li class="bugfix">AMRs, tranq rifles, and Hegemony Sluggers will now report their ammo counts correctly.</li>
+				<li class="rscadd">Broken lights that have power now occasionally spark.</li>
+				<li class="rscadd">Diona now transmits heard messages between its detached nymph and its gestalt.</li>
+				<li class="rscadd">Gave lings the ability to upgrade space adaption for 5 genome points, removing their need to breathe, and nullifying the damage taken from low pressure.</li>
+				<li class="bugfix">Droppod Burglars now properly get their burglar role assigned.</li>
+				<li class="refactor">Refactors how a lot of items handles being initialized. A full list of affected items can be found in the New Check PR.</li>
+				<li class="rscadd">You can now pull rechargers onto tables.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a runtime with blood updating on gloves.</li>
+				<li class="bugfix">Fixed a typo in the changeling evolution menu.</li>
+				<li class="bugfix">People can no longer attack with items if they&#x27;re knocked down.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The sublevel &#x27;physician lockers&#x27; are renamed to &#x27;medical equipment locker&#x27; and have had one medical helmet added to their storages.</li>
+				<li class="maptweak">The white shoes in the med sublevel are now medical shoes.</li>
+				<li class="tweak">The medic chest rig can now carry the medical helmet in its suit storage.</li>
+				<li class="tweak">The Unathi hide mantle is now a poncho-type accessory, so it can attach to clothing and suits.</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixed &#x27;enble&#x27; to enable in the chat client.</li>
+				<li class="spellcheck">Changed &#x27;Extranneous&#x27; to &#x27;Extraneous&#x27; in teleportation.</li>
+			</ul>
+
+			<h2 class="date">27 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed the advanced weapons software for exosuits, all combat gear now work with the standard weapon software.</li>
+				<li class="bugfix">Synaptizine no longer exponentially increases your stamina into infinity.</li>
+				<li class="bugfix">The stamina bar above your move intent now properly updates your max stamina value.</li>
+				<li class="bugfix">Stasis now works.</li>
+				<li class="rscadd">Superheated or supercooled chemical damage caps are now also calculated by total volume, so spritzing someone doesn&#x27;t do 40 damage a pop.</li>
+				<li class="tweak">Diona Roast is now made with of 2u of Space Spice, instead of 5u of Polyacid.</li>
+				<li class="rscadd">Added sofas, you can build them in the misc. construction tab with steel sheets.</li>
+				<li class="rscadd">The byond icon on your taskbar now flashes when the gamemode vote starts, if you&#x27;re tabbed out.</li>
+				<li class="rscadd">Bishops and Shells can now use prosthetics.</li>
+				<li class="rscadd">Mechfabs now give proper indication that you lack access if you lack access.</li>
+				<li class="rscadd">Added examine text to floors that allows you to see what you can deconstruct them with.</li>
+				<li class="tweak">Diona floors can now be removed with shovels and welding tools.</li>
+				<li class="bugfix">Fixed emergency oxygen tanks having the wrong handedness.</li>
+				<li class="bugfix">Fixed phoron tank in-hands being missing due to being named wrong.</li>
+				<li class="rscadd">Added missing hydrogen tank in-hands.</li>
+				<li class="bugfix">Fixed tanks changing their air contents after checking their air contents for the gauge value.</li>
+			</ul>
+
+			<h2 class="date">25 February 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed the invisibility module from the ninja hardsuit.</li>
+				<li class="rscdel">Removed the meson mode from the advanced vision hardsuit module.</li>
+				<li class="tweak">Replaced the self destruct in the ninja rig with an anti-theft system that delets the user and the rig upon death. You can still buy the explosive option in the uplink.</li>
+				<li class="tweak">Increased the energy use of the invisibility hardsuit module.</li>
+				<li class="rscadd">Ninja hardsuit options are now similar to antag gear loadouts: they come with more stuff than just the hardsuit.</li>
+				<li class="tweak">Increased the number of needed players in the intrigue and visitor game modes to 20.</li>
+				<li class="rscadd">Added a Kosmostrelki themed gear loadout.</li>
+				<li class="rscdel">Removed the vampire dominate power.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a macroable verb to click suit storage, click_suit_storage.</li>
+				<li class="bugfix">Plants can now buckle people again.</li>
+			</ul>
+			<h3 class="author">TheDocOct updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the medical chest-rig and first responder vests, which spawned in the medical sublevel, as loadout options.</li>
+			</ul>
+
+			<h2 class="date">24 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added cleaning grenade launchers to the exosuit equipment list in the mechfab.</li>
+				<li class="rscadd">Examining the equipment you can attach to exosuits will now show you to which hardpoints it can be attached, and which software it requires to function.</li>
+				<li class="bugfix">Fixes exosuits responding to their commands without invoking their names first.</li>
+				<li class="rscadd">Examining in-construction exosuit parts will now add hyperlinks to certain words, which can be clicked to provide some info on the steps to take to complete it.</li>
+				<li class="bugfix">Using a plasma cutter to cut down walls, grilles, and girders, now properly plays the sound and uses its charge.</li>
+				<li class="rscadd">Using welding tools on walls will now drain their fuel.</li>
+				<li class="rscadd">Plasma cutters beams can now hit three asteroid walls per shot, making them more useful for mining.</li>
+				<li class="rscadd">Added a new variant of spider, nicknamed &#x27;Jackal&#x27;, that counters IPCs by sapping their power and EMPing their limbs.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Badges can now be attached to plate carriers.</li>
+				<li class="bugfix">Crossbows are no longer duplicated when attached to an RFD.</li>
+				<li class="bugfix">Fixed hardsuit weapon configuration.</li>
+				<li class="bugfix">Fixed riot armguards worn sprite.</li>
+				<li class="bugfix">You can now wear most accessories on plate carriers once again.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Revised some fluff descriptions and resistances to a few pieces of Tajaran gear.</li>
+			</ul>
+
+			<h2 class="date">23 February 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduced the medium bullet damage to 30 from 35.</li>
+			</ul>
+			<h3 class="author">Alberyk, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Added new sprites to blaster guns, gauss thumper, pump shotgun, ion rifle, disruptor guns, laser rifle, bolt action rifle, energy carbines, security handguns, revolvers, machine gun, marksman rifle, and some others.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the ability for ore detectors to find minor xenoarch finds, as well as major artifacts.</li>
+				<li class="rscadd">Added ore detectors to xenoarch excavation lockers.</li>
+				<li class="tweak">You can no longer toggle your hardsuit pieces while incapacitated.</li>
+				<li class="tweak">Captain and HoP radios now start with all the channels on, making them opt-out instead.</li>
+				<li class="bugfix">Fixed exosuits that do attack animations being off centre.</li>
+				<li class="bugfix">Fixed exosuit hardpoints losing their cooldown colour before the cooldown actually completed.</li>
+				<li class="bugfix">Climbing out of an exosuit with a closed hatch now properly updates the HUD.</li>
+				<li class="tweak">Made the mech fab name lowercase.</li>
+				<li class="refactor">Tweaked how the mechfab accepts materials, no user-facing changes should be noticeable.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tear gas should now be much more effective.</li>
+				<li class="tweak">Stun batons now disperse pain all over the body. What happened previously was that hitting the same body part would not cause spillover, thus keeping the mob&#x27;s pain at that limb&#x27;s total pain cap.</li>
+				<li class="tweak">Adrenaline generation is now capped and will not be generated if there is more than 15u in the system.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Rectified a mistake that was missed on the Tajara Bangs Alt hairstyle. A superfluous pixel was removed.</li>
+				<li class="tweak">The rescue RIG&#x27;s chemical injector has had its mortaphenyl replaced with perconol due to the changes with medical reagents recently.</li>
+			</ul>
+
+			<h2 class="date">22 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed being in an exosuit not letting you override its assigned leader.</li>
+				<li class="bugfix">Fixed various bugs regarding tying nooses and attach people to them.</li>
+			</ul>
+
+			<h2 class="date">21 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixed a spelling error when removing an air tank from a hardsuit.</li>
+				<li class="bugfix">Fixed the circuit imprinter machine having the protolathe category selection instead of its own.</li>
+				<li class="bugfix">Using clamps to lift up canisters no longer smash them.</li>
+				<li class="rscadd">Merchants now get an Idris account that they can operate from memory and ATMs. The station account terminal will not be able to interact with this account.</li>
+				<li class="bugfix">Fixed examining a buckled humanoid saying that they&#x27;re buckled_to to something.</li>
+				<li class="rscadd">You can now take gumballs out of gumball jars by dragging the jar onto your sprite.</li>
+			</ul>
+			<h3 class="author">Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Resprites all NT-ERT suits, with the exception of the now deleted J-ERT suit.</li>
+				<li class="tweak">Restricts NT-ERT suits to Skrell/Human.</li>
+				<li class="tweak">Resprites the combat RIG suit from Robotics.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Security armor has received a revamp in both mechanics and looks. They now get plate carriers, armor plates, leg guards and arm guards. The latter three are accessories to the first.</li>
+				<li class="tweak">Mercenary body armor works much the same way now as well.</li>
+				<li class="rscdel">Temporarily removed the ablative armor&#x27;s laser reflection mechanic until a replacement can be coded.</li>
+				<li class="tweak">Added slight slowdown to the ablative and bulletproof vests.</li>
+				<li class="rscadd">Added a heavy helmet to the heavy security vest kit.</li>
+				<li class="rscdel">Removed two heavy security vests from the armory in exchange for them being fit out with arm guards, leg guards and a helmet.</li>
+				<li class="bugfix">Fixed the ballistic arm guard sprite not showing up on the mob.</li>
+				<li class="bugfix">Fixed the ablative armor not having its siemens coefficient.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Boot selection in xenoware now gives Tajara their own specific sprites for each boot type. Remains the same for all other species.</li>
+				<li class="bugfix">Tesla leg prosthetics had a extra pixel that has been removed.</li>
+			</ul>
+
+			<h2 class="date">20 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the Eject AI option not appearing on consoles that spawn with an AI slot.</li>
+				<li class="bugfix">Fixed mining drone upgrades not properly setting the correct module for the mining drone.</li>
+				<li class="rscadd">You can now examine mining drones to gauge how upgraded they are.</li>
+				<li class="rscadd">Mapped in an appearance changer to the Loner basement.</li>
+			</ul>
+			<h3 class="author">Lady Fowl updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed telescience portals to not fail like hand tele portals.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Floor tile throwing damage and throw range have been halved.</li>
+				<li class="tweak">Wielding firearms is now done via the activate-held-object verb, aka the Z key in hotkey mode or clicking on the item with itself.</li>
+				<li class="tweak">Firemode switching has been offloaded to a new verb, toggle-burst-fire, which is invisible but macro-able. It has a new HUD icon to the right of the pockets.</li>
+				<li class="tweak">Other kinds of behaviour that aren&#x27;t firemode switching have been offloaded to another invisible verb, unique-action, which also has a new HUD icon to the right of the pockets.</li>
+				<li class="tweak">Switching firemode now plays a small sound.</li>
+				<li class="bugfix">The toggle burst fire button is now correctly called Toggle Firing Mode. The verb is also toggle-firing-mode.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed bodybags losing their labels after being unbuckled to roller beds.</li>
+			</ul>
+
+			<h2 class="date">19 February 2021</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Updates the character deletion warning to reflect that it is not possible to create another character with the same name.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Three Towns Cider cans now have a crushed icon state.</li>
+				<li class="bugfix">Removing items from skrell headtail pocket storage now works properly. It used to check if they had a hat, not a head.</li>
+			</ul>
+			<h3 class="author">William Murdoch updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new labcoat in IAC colors to the loadout.</li>
+			</ul>
+
+			<h2 class="date">18 February 2021</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed vehicles not working properly.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes CMO headset selection being flipped.</li>
+				<li class="bugfix">Fixes how projectile angles are calculated, this should fix emitter shots going diagonally.</li>
+				<li class="rscadd">Shooting light fixtures will now cause them to break.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The groin is no longer vital.</li>
+				<li class="tweak">Reworks how stance damage works slightly. Having no feet or no legs means you can no longer walk at all. Behaviour with only one foot unchanged.</li>
+				<li class="tweak">Canes no longer help you when you have no legs or feet.</li>
+				<li class="bugfix">Non-existant feet are no longer bloody.</li>
+			</ul>
+
+			<h2 class="date">17 February 2021</h2>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixed a few grammar issues when buckling people to things.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">References to spiderlings and spiders should now reference greimorians. Overt references like &#x27;spiderling remains&#x27; are now &#x27;greimorian larva remains&#x27; too.</li>
+			</ul>
+
+			<h2 class="date">16 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Turbolifts now gib when moving up, but only if you get crushed by the wall against the roof. Standing on the flat part will keep you safe.</li>
+				<li class="tweak">Weldpacks have been changed into reagent containers, you can open their fuel caps by using a wrench.</li>
+				<li class="rscadd">Added recolourable winter coats.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Wizards can no longer cast most spells while under various forms of incapacitation.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the roller bed sprites. They are now a bit bulkier (for ease of clicking) and a bit brighter.</li>
+				<li class="tweak">Roller bed IVs now show up on the left of the bed, not the right, so they are no longer blocked by medhuds. The fluid low light is now a tad more obvious too.</li>
+				<li class="tweak">You can now buckle body bags and cryo bags to roller beds.</li>
+				<li class="tweak">Roller beds are now normal sized items, so they fit in your bag.</li>
+				<li class="tweak">Trying to pull someone buckled_to to something now attempts to pull that thing instead.</li>
+				<li class="tweak">Station time is now based of Galactic Standard Time (CST IRL).</li>
+				<li class="rscdel">Removed automated nightlighting. Nightlighting can still be enabled via the lighting control program, and via individual APCs.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Makes dionae naturally insulated against being shocked</li>
+			</ul>
+
+			<h2 class="date">15 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaked the Impact Wrench&#x27;s bit&#x27;s colour and sprite to make it easier to see what you have.</li>
+				<li class="rscadd">Mousing over the impact wrench while holding shift will now make a pop-up tooltip showing which bit is selected.</li>
+				<li class="tweak">Emergency floodlights are now called industrial floodlights.</li>
+				<li class="bugfix">Floodlights now spawn with a device class cell. It used to spawn with a high cap, with the max charge manually lowered. No change in total charge duration.</li>
+				<li class="rscadd">Examining a floodlight now gives you an idea about the status of the cell.</li>
+				<li class="tweak">Tweaked floodlight flickering to make it less bad.</li>
+				<li class="rscadd">Added the necessary supplies to set up a simple RTG to the research shuttle.</li>
+				<li class="rscadd">Any humanoid capable of ripping open airlocks can now shred the sparkly energy shields by harm intent clicking them with an empty hand.</li>
+				<li class="rscadd">You can now completely get rid of bodies by dismembering all their limbs, including the lower body.</li>
+				<li class="rscadd">You can now carve steel wool out of steel sheets by using something sharp.</li>
+				<li class="rscdel">Removed the cheap buildable steel wool recipe from steel sheets.</li>
+				<li class="bugfix">Fixes the Chemistry Codex.</li>
+				<li class="bugfix">Fixed clicking the wristbound on the wrist slot not interacting with it.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Reworked board games (checkers and chess) in to one holo board, that allows to play any game. Also it been ported to VueUI.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Resprited Coalition, Elyran, EPMC suits/RIGs, as well as the Banshee and Revenant voidsuits.</li>
+			</ul>
+
+			<h2 class="date">14 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added pipeguns, chambered in 5.56mm.</li>
+				<li class="tweak">The improvised shotgun recipe now creates a pipegun instead.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Ported a new armor system from Baystation. It&#x27;s far more modular and allows for more granularity. Armor is now exponential and will block damage better the lower it is from the armor rating.</li>
+				<li class="balance">Notably, armor now removes damage flags if the damage is blocked significantly. This means no more bleeding from a 2 damage projectile.</li>
+				<li class="balance">Due to this, a lot of guns were buffed, including Security and antagonist guns alike. Some things may be a bit too strong or a bit too weak.</li>
+				<li class="balance">Likewise, a lot of armor has received buffs. Mech armor should now be considerably more durable.</li>
+				<li class="balance">Re-added laser organ damage.</li>
+				<li class="tweak">Increased the cost of the sharpened bear trap.</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Permissions sync disable functionality should now work.</li>
+			</ul>
+
+			<h2 class="date">13 February 2021</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Thetamycin starts fighting infections right away (Instead of requiring 5u to metabolize first), which means minor infections treated early will be cured quickly, and major ones have a slightly reduced treatment time.</li>
+				<li class="rscadd">Added thetamycin to the reagents shown in the body scanner, instead of filing them under &#x27;other.&#x27;</li>
+				<li class="bugfix">Golems and other bloodless species should no longer get infections.</li>
+				<li class="bugfix">Infections now show up on printed scans from the body scanner.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed TTV devices not being able to open their UIs.</li>
+				<li class="rscadd">Removing a device from a TTV now puts it in your hand.</li>
+				<li class="bugfix">Fixed megaphones having the wrong handedness.</li>
+				<li class="rscadd">A neck grab and above will now always hoist the grabbee into a raised position.</li>
+				<li class="rscadd">If the person you have in a neck grab is lying down for whatever reason, you cannot use them as a shield.</li>
+				<li class="rscadd">You can only use a human shield if you&#x27;re facing the direction you&#x27;re being shot at. Bullets that come from behind you will bypass your human shield.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Cheap lighters are now colourable in the loadout.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds Tajara specific flats in a selection contained within their loadout menu.</li>
+				<li class="rscadd">Adds toeless winter boots to the xenowear section.</li>
+			</ul>
+
+			<h2 class="date">12 February 2021</h2>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed misalignment with the oxygen deprivation kit in-hand sprite. It will no longer float off the hands now.</li>
+			</ul>
+
+			<h2 class="date">11 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Revenants now get a martial art that allows them to bash people away on a three hit combo. This replaces their ability to use guns.</li>
+				<li class="rscdel">Revenants are no longer able to operate welderbombs.</li>
+				<li class="tweak">Revenants now absorb 20% of laser fire instead of 30%.</li>
+				<li class="tweak">Moved Revenant spawnpoints into the station.</li>
+				<li class="tweak">Tweaked the rift gameplay, should be easier for the station to stop the revenants now.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You can now actually select the sleeved Morozi dress in the loadout.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reflavored giant spiders to Greimorians, a new alien species that serves the same purpose mechanically.</li>
+			</ul>
+
+			<h2 class="date">10 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You can now put drink dispensers back onto table by dragging them onto it.</li>
+				<li class="tweak">Cutting up bedsheets now gives cloth instead of going directly to rags.</li>
+				<li class="rscadd">Mapped in four engineering maglocks in the engineering sub-level storage.</li>
+				<li class="rscadd">Mapped in a chem heater for the kitchen.</li>
+				<li class="tweak">Ported Bay blob to replace our own. Notably, this changes how it spreads and also its description.</li>
+				<li class="tweak">Blobs can no longer penetrate walls reinforced with tough materials.</li>
+				<li class="rscadd">Attacking blobs with wirecutters will now produce samples, which can be used for offense or for research.</li>
+				<li class="rscdel">Attacking blobs no longer suck the weapons out of your hand. Happy killing.</li>
+			</ul>
+
+			<h2 class="date">09 February 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes belts missing their sprites and having uncoloured overlays.</li>
+			</ul>
+
+			<h2 class="date">08 February 2021</h2>
+			<h3 class="author">MattAtlas, DasFox updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new fancy Dominian dresses under a new loadout selection.</li>
+				<li class="imageadd">Updated the tribunal cape.</li>
+				<li class="rscadd">Added a verb to the red tribunalist cape that allows you to hide part of it.</li>
+			</ul>
+
+			<h2 class="date">07 February 2021</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Most non-hostile simple animals without a name can be renamed, including monkeys and the alien equivalents. This is done via right-click menu. You have only one chance. Some cannot be named (Such as nymphs). Please bug report any simple mobs that can be renamed but should not be. It is intentional that simple mobs cannot rename themselves.</li>
+				<li class="rscadd">Cult constructs and wizard familiars can be renamed by those with the proper antagonist type. Wizard apprentices cannot rename familiars.</li>
+				<li class="tweak">Guard dogs can only be renamed if they have no master, or, if they have one, only by their master.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds colorable belts.</li>
+				<li class="tweak">Fannypacks are now recolorable.</li>
+				<li class="rscadd">Belts now have a dedicated loadout section.</li>
+			</ul>
+
+			<h2 class="date">06 February 2021</h2>
+			<h3 class="author">Alberyk, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a freeze ray gun.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Smart mobs will no longer slip out of your aggressive grabs by moving away.</li>
+				<li class="bugfix">Molotovs now work off both alcohol and welding fuel.</li>
+				<li class="bugfix">Molotovs now longer emit light if an unlit rag is inserted.</li>
+				<li class="bugfix">Molotov rags now properly delete when they burn out.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added custom rolls and burgers. Made in the same way as custom sandwiches, but with a bun or burger respectively. Go wild!</li>
+			</ul>
+
+			<h2 class="date">05 February 2021</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Surgeons/Pharmacists can now access the Odin surgery/chem dispensery sections respectively.</li>
+				<li class="maptweak">Added a CCIA/FIB escort Ready Room, openable by the agents if needed, they can also now access the Odin detention wing.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the tachyon doppler-array not having a sprite.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Upgraded NTSL2+ to NTSL2++. New scripting environment, better error messages, space for future expansion.</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed suitsensors.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes IDs not being read in wristbounds worn in the wrist slot.</li>
+				<li class="bugfix">Fixes examining wrist descriptions on other people.</li>
+			</ul>
+
 			<h2 class="date">04 February 2021</h2>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">

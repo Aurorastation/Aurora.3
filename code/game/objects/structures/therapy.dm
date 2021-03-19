@@ -42,7 +42,7 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened || usr.lying || usr.restrained() || usr.buckled)
+	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened || usr.lying || usr.restrained() || usr.buckled_to)
 		return
 
 	if(on)
@@ -62,12 +62,13 @@
 	var/datum/powernet/PN = C.powernet
 	flick("echair1", src)
 	spark(src, 12, alldirs)
-	if(buckled_mob && istype(C))
-		if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
-			to_chat(buckled_mob, "<span class='danger'>You feel a deep shock course through your body!</span>")
+	if(istype(buckled, /mob/living) && istype(C))
+		var/mob/living/M = buckled
+		if(electrocute_mob(M, C, src, 1.25, BP_HEAD))
+			to_chat(M, "<span class='danger'>You feel a deep shock course through your body!</span>")
 			sleep(1)
-			if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
-				buckled_mob.Stun(PN.get_electrocute_damage()*10)
+			if(electrocute_mob(M, C, src, 1.25, BP_HEAD))
+				M.Stun(PN.get_electrocute_damage()*10)
 	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 
 	return
@@ -418,11 +419,11 @@
 
 	if (do_mob(user, L, 30, needhand = 0))
 		var/bucklestatus = L.bucklecheck(user)
-		if (!bucklestatus)//incase the patient got buckled during the delay
+		if (!bucklestatus)//incase the patient got buckled_to during the delay
 			return
 		if (bucklestatus == 2)
-			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = L.buckled_to
+			LB.user_unbuckle(user)
 
 		if (L.client)
 			L.client.perspective = EYE_PERSPECTIVE
@@ -463,8 +464,8 @@
 
 	if (do_mob(user, H, 30, needhand = 0))
 		if (bucklestatus == 2)
-			var/obj/structure/LB = H.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = H.buckled_to
+			LB.user_unbuckle(user)
 		if (H.client)
 			H.client.perspective = EYE_PERSPECTIVE
 			H.client.eye = src

@@ -60,6 +60,9 @@
 	SSghostroles.remove_spawn_atom("borer", src)
 	return ..(gibbed,deathmessage)
 
+/mob/living/simple_animal/borer/can_name(var/mob/living/M)
+	return FALSE
+
 /mob/living/simple_animal/borer/Life()
 	..()
 	if(host)
@@ -96,12 +99,12 @@
 	host.remove_language(LANGUAGE_BORER)
 	host.remove_language(LANGUAGE_BORER_HIVEMIND)
 
-	to_chat(host, "<span class='notice'>You feel your nerves again as your control over your own body is restored.</span>")
 	host.verbs -= /mob/living/carbon/proc/release_control
 	host.verbs -= /mob/living/carbon/proc/punish_host
 	host.verbs -= /mob/living/carbon/proc/spawn_larvae
 
 	if(host_brain)
+		to_chat(host_brain, FONT_LARGE(SPAN_NOTICE("You feel your nerves again as your control over your own body is restored.")))
 		// these are here so bans and multikey warnings are not triggered on the wrong people when ckey is changed.
 		// computer_id and IP are not updated magically on their own in offline mobs -walter0o
 

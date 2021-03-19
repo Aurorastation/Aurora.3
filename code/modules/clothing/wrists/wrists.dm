@@ -19,7 +19,7 @@
 		M.update_inv_wrists()
 
 /obj/item/clothing/wrists/Initialize()
-	..()
+	. = ..()
 	update_flip_verb()
 
 /obj/item/clothing/wrists/proc/update_flip_verb()

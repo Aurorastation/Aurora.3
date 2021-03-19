@@ -20,7 +20,7 @@
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		var/damage_coef = 1
-		if(H.buckled)
+		if(H.buckled_to)
 			return
 		if(H.resting)
 			return
@@ -49,9 +49,7 @@
 					damage_coef -= 0.2
 					return
 
-				var/armor_block = H.run_armor_check(affecting, "melee")
-
-				if(H.apply_damage(25 * damage_coef, BRUTE, affecting, armor_block))
+				if(H.apply_damage(25 * damage_coef, BRUTE, affecting))
 					H.updatehealth()
 
 					if(H.can_feel_pain())

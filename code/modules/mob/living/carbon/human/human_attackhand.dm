@@ -52,9 +52,8 @@
 
 						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
-						var/armorblock = run_armor_check(M.zone_sel.selecting, "energy")
-						apply_effects(5,5,0,0,5,0,0,0,0,armorblock)
-						apply_damage(rand(5,25), BURN, M.zone_sel.selecting,armorblock)
+						apply_effects(5,5,0,0,5,0,0,0,0)
+						apply_damage(rand(5,25), BURN, M.zone_sel.selecting)
 
 						if(prob(15))
 							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
@@ -84,7 +83,6 @@
 				visible_message("<span class='danger'>[H] has attempted to punch [src]!</span>")
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
-			var/armor_block = run_armor_check(affecting, "melee")
 
 			if(HULK in H.mutations)
 				damage += 5
@@ -93,10 +91,10 @@
 
 			visible_message("<span class='danger'>[H] has punched [src]!</span>")
 
-			apply_damage(damage, PAIN, affecting, armor_block)
+			apply_damage(damage, PAIN, affecting)
 			if(damage >= 9)
 				visible_message("<span class='danger'>[H] has weakened [src]!</span>")
-				apply_effect(4, WEAKEN, armor_block)
+				apply_effect(4, WEAKEN)
 
 			return
 
@@ -137,7 +135,7 @@
 				w_uniform.add_fingerprint(M)
 
 			var/obj/item/grab/G = new /obj/item/grab(M, src)
-			if(buckled)
+			if(buckled_to)
 				to_chat(M, "<span class='notice'>You cannot grab [src], [src.get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 			if(!G)	//the grab will delete itself in New if affecting is anchored
 				return
@@ -193,7 +191,7 @@
 				// Someone got a good grip on them, they won't be able to do much damage
 				rand_damage = max(1, rand_damage - 2)
 
-			if(src.grabbed_by.len || src.buckled || !src.canmove || src==H)
+			if(src.grabbed_by.len || src.buckled_to || !src.canmove || src==H)
 				accurate = 1 // certain circumstances make it impossible for us to evade punches
 				rand_damage = 5
 
@@ -284,12 +282,11 @@
 						var/obj/item/clothing/gloves/force/X = H.gloves
 						real_damage *= X.amplification
 
-			var/armor = run_armor_check(hit_zone, "melee")
 			// Apply additional unarmed effects.
-			attack.apply_effects(H, src, armor, rand_damage, hit_zone)
+			attack.apply_effects(H, src, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, hit_dam_type, hit_zone, armor, damage_flags = damage_flags)
+			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags)
 
 
 			if(M.resting && src.help_up_offer)
@@ -375,7 +372,7 @@
 			var/randn = rand(1, 100)
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
-					apply_effect(6, WEAKEN, run_armor_check(affecting, "melee"))
+					apply_effect(6, WEAKEN)
 					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					visible_message("<span class='danger'>[M] hurls [src] to the floor!</span>")
 					step_away(src,M,15)
@@ -384,7 +381,7 @@
 					return
 
 				else
-					var/armor_check = run_armor_check(affecting, "melee")
+					var/armor_check = 100 * get_blocked_ratio(affecting, BRUTE, damage = 20)
 					apply_effect(3, WEAKEN, armor_check)
 					if(armor_check < 100)
 						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
@@ -406,7 +403,7 @@
 					sleep(1)
 					step_away(src,M,15)
 					sleep(1)
-					apply_effect(1, WEAKEN, run_armor_check(affecting, "melee"))
+					apply_effect(1, WEAKEN, get_blocked_ratio(M.zone_sel.selecting, BRUTE, damage = 20)*100)
 					return
 
 				//See about breaking grips or pulls
@@ -483,6 +480,8 @@
 		var/datum/gas_mixture/breath = H.get_breath_from_environment()
 		var/fail = L.handle_breath(breath, 1)
 		if(!fail)
+			if(!L.is_bruised())
+				losebreath = 0
 			to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
 
 	cpr(H) //Again.	
@@ -505,9 +504,8 @@
 	var/dam_zone = user.zone_sel?.selecting
 	if(!dam_zone)
 		dam_zone = pick(organs)
-	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
-	var/armor_block = run_armor_check(affecting, "melee")
-	apply_damage(damage, BRUTE, affecting, armor_block)
+	var/obj/item/organ/external/affecting = get_organ(dam_zone)
+	apply_damage(damage, BRUTE, affecting)
 	updatehealth()
 	return TRUE
 

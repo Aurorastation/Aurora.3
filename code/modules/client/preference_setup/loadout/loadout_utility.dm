@@ -79,32 +79,6 @@
 	display_name = "camera"
 	path = 	/obj/item/device/camera
 
-/datum/gear/utility/fannypack
-	display_name = "fannypack selection"
-	cost = 2
-	path = /obj/item/storage/belt/fannypack
-
-/datum/gear/utility/fannypack/New()
-	..()
-	var/list/fannys = list()
-	fannys["leather fannypack"] = /obj/item/storage/belt/fannypack
-	fannys["black fannypack"] = /obj/item/storage/belt/fannypack/black
-	fannys["blue fannypack"] = /obj/item/storage/belt/fannypack/blue
-	fannys["cyan fannypack"] = /obj/item/storage/belt/fannypack/cyan
-	fannys["green fannypack"] = /obj/item/storage/belt/fannypack/green
-	fannys["orange fannypack"] = /obj/item/storage/belt/fannypack/orange
-	fannys["purple fannypack"] = /obj/item/storage/belt/fannypack/purple
-	fannys["red fannypack"] = /obj/item/storage/belt/fannypack/red
-	fannys["white fannypack"] = /obj/item/storage/belt/fannypack/white
-	fannys["yellow fannypack"] = /obj/item/storage/belt/fannypack/yellow
-	gear_tweaks += new/datum/gear_tweak/path(fannys)
-
-/datum/gear/utility/toolbelt_alt
-	display_name = "tool-belt, alt"
-	cost = 0
-	path = /obj/item/storage/belt/utility/alt
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
-
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"
 	path = /obj/item/himeo_kit

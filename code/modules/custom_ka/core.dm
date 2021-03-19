@@ -372,7 +372,7 @@
 	accuracy = round(recoil_increase*0.25)
 	accuracy_wielded = accuracy * 0.5
 
-/obj/item/gun/custom_ka/attack_self(mob/user as mob)
+/obj/item/gun/custom_ka/unique_action(mob/user)
 	. = ..()
 
 	if(!wielded)
