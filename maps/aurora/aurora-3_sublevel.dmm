@@ -1748,6 +1748,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/closet/crate{
+	name = "Maglock Storage"
+	},
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
+/obj/item/device/magnetic_lock/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "aee" = (
@@ -2011,6 +2018,9 @@
 	pixel_x = 22;
 	pixel_y = 8;
 	specialfunctions = 4
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
@@ -7279,7 +7289,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/status_display{
 	layer = 4;
@@ -8249,7 +8259,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8958,7 +8968,7 @@
 	c_tag = "Medical - Patient Wing Library";
 	dir = 1
 	},
-/obj/item/storage/box/chess_kit,
+/obj/item/board,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
 "aqG" = (
@@ -10429,6 +10439,9 @@
 /area/bridge/aibunker)
 "atb" = (
 /obj/item/modular_computer/console/preset/engineering,
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atc" = (
@@ -12036,7 +12049,7 @@
 "avD" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
@@ -12058,6 +12071,9 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
@@ -22353,10 +22369,10 @@
 /area/medical/medbay4)
 "aVg" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/clothing/shoes/white{
+/obj/item/clothing/shoes/medical{
 	pixel_x = 4;
 	pixel_y = -8
-	},
+},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aVi" = (
@@ -22390,6 +22406,9 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -29075,6 +29094,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
+"hBn" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/sign/flag/scc{
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
 "hDw" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
@@ -29472,17 +29502,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
-"iwX" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "iAw" = (
 /obj/structure/table/rack,
 /obj/item/shovel{
@@ -29631,6 +29650,15 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
+"iRI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/security/penal_colony)
 "iRV" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
@@ -30649,6 +30677,16 @@
 /obj/item/deck/tarot,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
+"lvt" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 6
+	},
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
 "lxg" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -30715,6 +30753,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"lOl" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 6
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/airless,
+/area/security/penal_colony)
 "lOI" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -31921,6 +31968,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"nGh" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/airless,
+/area/security/penal_colony)
 "nHn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/disposalpipe/segment,
@@ -32341,6 +32400,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"oBQ" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
 "oFa" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "research_sensor";
@@ -32374,12 +32444,6 @@
 /obj/machinery/power/crystal_agitator,
 /turf/simulated/floor,
 /area/security/penal_colony)
-"oJR" = (
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "oKh" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 10
@@ -35431,6 +35495,9 @@
 	pixel_x = -28
 	},
 /obj/machinery/light/small/emergency,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medsublevel_port)
 "vnr" = (
@@ -35528,6 +35595,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"vtH" = (
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/airless,
+/area/security/penal_colony/warden)
 "vyW" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -49697,7 +49770,7 @@ uPd
 aki
 cvy
 cKF
-acf
+hBn
 hkV
 mgM
 wAi
@@ -50725,7 +50798,7 @@ uPd
 aki
 cvy
 cKF
-dUz
+oBQ
 tDA
 wkd
 uVg
@@ -52085,7 +52158,7 @@ nDL
 nDL
 tkm
 iOl
-oJR
+aba
 aba
 aba
 ale
@@ -58511,7 +58584,7 @@ aCP
 oVg
 fOV
 aFK
-cVG
+lvt
 rSj
 aIJ
 aJL
@@ -67683,7 +67756,7 @@ aaa
 aaa
 aaa
 jKB
-fLn
+vtH
 fLn
 fLn
 bSA
@@ -68462,7 +68535,7 @@ lCe
 hiP
 gkA
 lCe
-tUv
+iRI
 vGh
 vGh
 vGh
@@ -69490,7 +69563,7 @@ lCe
 hiP
 gkA
 lCe
-tUv
+iRI
 vGh
 vGh
 vGh
@@ -70001,7 +70074,7 @@ ybc
 xZJ
 jCg
 kMM
-hiP
+nGh
 gkA
 lCe
 vGh
@@ -70515,7 +70588,7 @@ ybc
 xZJ
 xZJ
 kMM
-pzB
+lOl
 wsT
 lCe
 vGh
@@ -71115,7 +71188,7 @@ aIZ
 aNT
 vnf
 awP
-iwX
+aqA
 ebn
 ayi
 akG
@@ -80880,7 +80953,7 @@ eEq
 baw
 cFw
 nzR
-oJR
+aba
 aba
 aba
 aaa

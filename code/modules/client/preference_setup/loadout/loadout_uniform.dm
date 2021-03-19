@@ -96,7 +96,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -176,6 +176,7 @@
 	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/green
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts/black
 	pants["athletic shorts, grey"] = /obj/item/clothing/under/shorts/grey
+	pants["Stellar Corporate Conglomerate shorts"] = /obj/item/clothing/under/shorts/scc
 	pants["jean shorts"] = /obj/item/clothing/under/shorts/jeans
 	pants["jean short shorts"] = /obj/item/clothing/under/shorts/jeans/female
 	pants["classic jeans shorts"] = /obj/item/clothing/under/shorts/jeans/classic
@@ -199,7 +200,7 @@
 
 /datum/gear/uniform/colorpants/New()
 	..()
-	var/colorpants = list()
+	var/list/colorpants = list()
 	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
 	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
 	gear_tweaks += new/datum/gear_tweak/path(colorpants)
@@ -209,14 +210,14 @@
 	path = /obj/item/clothing/under/syndicate/tacticool
 
 /datum/gear/uniform/dominia
-	display_name = "dominia clothing selection"
-	description = "A selection of dominian clothing."
+	display_name = "dominian clothing selection"
+	description = "A selection of Dominian clothing."
 	path = /obj/item/clothing/under/dominia
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/dominia/New()
 	..()
-	var/suit = list()
+	var/list/suit = list()
 	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
 	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
@@ -226,15 +227,28 @@
 	suit["dominia summer dress"] = /obj/item/clothing/under/dominia/dress/summer
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
+/datum/gear/uniform/dominia_dress
+	display_name = "dominian dress selection"
+	description = "A selection of fancy Dominian dresses."
+	path = /obj/item/clothing/under/dominia/dress
+
+/datum/gear/uniform/dominia_dress/New()
+	..()
+	var/list/suit = list()
+	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/fancy))
+		var/obj/item/clothing/under/dominia/dress/D = new dress //I'm not typing all this shit manually. Jesus christ.
+		suit["[D.name]"] = D.type
+	gear_tweaks += new/datum/gear_tweak/path(suit)
+
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"
-	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Perispolisean clothes respectively."
+	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolis clothes respectively."
 	path = /obj/item/clothing/under/elyra_holo
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/elyra_holo/New()
 	..()
-	var/suit = list()
+	var/list/suit = list()
 	suit["elyran holographic suit, feminine"] = /obj/item/clothing/under/elyra_holo
 	suit["elyran holographic suit, masculine"] = /obj/item/clothing/under/elyra_holo/masc
 	gear_tweaks += new/datum/gear_tweak/path(suit)
@@ -252,7 +266,7 @@
 
 /datum/gear/uniform/officer/New()
 	..()
-	var/uniform = list()
+	var/list/uniform = list()
 	uniform["officer uniform, standard"] = /obj/item/clothing/under/rank/security
 	uniform["officer uniform, corporate"] = /obj/item/clothing/under/rank/security/corp
 	uniform["officer uniform, blue"] = /obj/item/clothing/under/rank/security/blue
@@ -262,7 +276,7 @@
 	display_name = "uniforms, (Investigations)"
 	description = "A selection of Investigations staff uniforms."
 	path = /obj/item/clothing/under/det
-	allowed_roles = list("Detective", "Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/uniform/detective/New()
 	..()

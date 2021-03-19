@@ -430,7 +430,7 @@ var/list/world_api_rate_limit = list()
 /proc/establish_db_connection(var/DBConnection/con)
 	if (!config.sql_enabled)
 		return FALSE
-	
+
 	if (!con)
 		error("No DBConnection object passed to establish_db_connection() proc.")
 		return FALSE

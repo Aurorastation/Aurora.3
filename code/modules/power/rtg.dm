@@ -11,7 +11,7 @@
 	use_power = 0
 
 	// You can buckle someone to RTG, then open its panel. Fun stuff.
-	can_buckle = TRUE
+	can_buckle = list(/mob/living)
 	buckle_lying = FALSE
 	buckle_require_restraints = TRUE
 
@@ -35,7 +35,7 @@
 	add_avail(power_gen)
 	if(panel_open && irradiate)
 		for (var/mob/living/L in range(2, src))
-			L.apply_effect(10, IRRADIATE, blocked = L.getarmor(null, "rad"))	// Weak but noticeable.
+			L.apply_damage(10, IRRADIATE, damage_flags = DAM_DISPERSED)	// Weak but noticeable.
 
 /obj/machinery/power/rtg/update_icon()
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)
@@ -57,7 +57,7 @@
 	return ..()
 
 /obj/machinery/power/rtg/attack_hand(mob/user)
-	if(user.a_intent == I_GRAB && user_buckle_mob(user.pulling, user))
+	if(user.a_intent == I_GRAB && user_buckle(user.pulling, user))
 		return
 	..()
 

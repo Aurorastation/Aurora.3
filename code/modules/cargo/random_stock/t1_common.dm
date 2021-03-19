@@ -168,7 +168,7 @@ STOCK_ITEM_COMMON(weldgear, 2)
 	if(prob(50))
 		new /obj/item/clothing/head/welding(L)
 	if(prob(50))
-		new /obj/item/weldpack(L)
+		new /obj/item/reagent_containers/weldpack(L)
 
 STOCK_ITEM_COMMON(inflatable, 3)
 	new /obj/item/storage/briefcase/inflatable(L)

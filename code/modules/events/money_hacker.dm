@@ -31,9 +31,9 @@
 	else
 		endWhen = activeFor + 10
 
-/datum/event/money_hacker/end()
+/datum/event/money_hacker/end(var/faked)
 	var/message
-	if(affected_account && !affected_account.suspended)
+	if(affected_account && !affected_account.suspended && !faked)
 		//hacker wins
 		message = "The hack attempt has succeeded."
 

@@ -49,9 +49,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			totalPlayers = 0
 			totalPlayersReady = 0
 			for(var/mob/abstract/new_player/player in player_list)
-				stat("[player.key]", (player.ready)?("(Playing)"):(null))
 				totalPlayers++
 				if(player.ready)
+					stat("[copytext_char(player.client.prefs.real_name, 1, 18)]", ("[player.client.prefs.return_chosen_high_job(TRUE)]"))
 					totalPlayersReady++
 
 /mob/abstract/new_player/Topic(href, href_list[])
@@ -68,7 +68,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
 			if(client.unacked_warning_count > 0)
-				alert(src, "You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+				alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 				return
 
 			ready = text2num(href_list["ready"])
@@ -121,7 +121,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 
 		if(client.unacked_warning_count > 0)
-			alert(usr, "You can not join the game, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+			alert(usr, "You can not join the game, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]
@@ -274,9 +274,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
-	if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
-		character.buckled.forceMove(character.loc)
-		character.buckled.set_dir(character.dir)
+	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/chair/wheelchair))
+		character.buckled_to.forceMove(character.loc)
+		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))

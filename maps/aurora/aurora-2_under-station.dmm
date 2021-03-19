@@ -36,13 +36,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
-"ep" = (
-/obj/structure/lattice,
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/template_noop,
-/area/template_noop)
 "eu" = (
 /obj/structure/table/standard,
 /obj/item/storage/briefcase/inflatable,
@@ -172,6 +165,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
@@ -333,6 +329,9 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -12774,7 +12773,7 @@ CN
 CN
 mc
 CN
-ep
+Ar
 CN
 UG
 sQ
