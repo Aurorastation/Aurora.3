@@ -951,6 +951,7 @@
 		/datum/brain_trauma/mild/phobia = 0.1,
 		/datum/brain_trauma/mild/muscle_weakness/ = 0.05
 	)
+	suppressing_reagents = list(/decl/reagent/mental/nicotine) //The way to suppress nicotine withdrawal... is nicotine.
 	conflicting_reagent = null
 	min_dose = 0.0064 * REM
 
