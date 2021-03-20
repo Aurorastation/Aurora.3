@@ -1,7 +1,0 @@
-author: Doxxmedearly
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes:
-  - bugfix: "Fixed an issue where you'd get messages about needing your nicotine fix while smoking."
