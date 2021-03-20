@@ -662,9 +662,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	set category = "IC"
 	set src in view(1)
 
-	var/mob/living/M = usr
+	var/mob/living/carbon/M = usr
 	if(!istype(M))
-		to_chat(usr, SPAN_NOTICE("You aren't able to rename \the [src]."))
+		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
 		return
 
 	if(can_name(M))
