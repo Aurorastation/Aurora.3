@@ -8,7 +8,7 @@
 	mob_size = 0.5
 	unsuitable_atoms_damage = 2.5
 	maxHealth = 20
-	density = 0
+	density = FALSE
 	var/strength = 1
 	var/feral = 0
 	var/mut = 0
@@ -170,9 +170,9 @@
 					qdel(src)
 					return
 				var/turf/simulated/floor/T = get_step(src, pick(1,2,4,8))
-				density = 1
+				density = TRUE
 				Move(T)
-				density = 0
+				density = FALSE
 			break
 
 

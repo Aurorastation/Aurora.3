@@ -25,7 +25,7 @@
 	for(var/turf/T in range(1,user))
 		var/atom/movable/overlay/animation = new /atom/movable/overlay(T)
 		animation.name = "conjure"
-		animation.density = 0
+		animation.density = FALSE
 		animation.anchored = 1
 		animation.icon = 'icons/effects/effects.dmi'
 		animation.layer = 3

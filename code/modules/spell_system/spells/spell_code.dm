@@ -163,7 +163,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 			spell.icon = overlay_icon
 			spell.icon_state = overlay_icon_state
 			spell.anchored = 1
-			spell.density = 0
+			spell.density = FALSE
 			spawn(overlay_lifespan)
 				qdel(spell)
 	return valid_targets

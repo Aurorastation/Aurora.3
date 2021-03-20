@@ -521,7 +521,7 @@
 	icon_state = "wallmed"
 	deny_time = 15
 	req_access = list(access_medical)
-	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
+	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
@@ -548,7 +548,7 @@
 	icon_state = "wallmed"
 	deny_time = 15
 	req_access = list(access_medical)
-	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
+	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,

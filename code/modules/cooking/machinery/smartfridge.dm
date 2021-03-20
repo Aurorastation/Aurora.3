@@ -5,7 +5,7 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "smartfridge"
 	layer = 2.9
-	density = 1
+	density = TRUE
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 5

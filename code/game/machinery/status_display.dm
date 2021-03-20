@@ -15,7 +15,7 @@
 	icon_state = "frame"
 	layer = OBJ_LAYER
 	anchored = 1
-	density = 0
+	density = FALSE
 	use_power = 1
 	idle_power_usage = 10
 	var/hears_arrivals = FALSE

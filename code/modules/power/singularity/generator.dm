@@ -5,7 +5,7 @@
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "TheSingGen"
 	anchored = 0
-	density = 1
+	density = TRUE
 	use_power = 0
 	var/energy = 0
 	var/creation_type = /obj/singularity

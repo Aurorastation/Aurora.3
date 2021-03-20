@@ -9,7 +9,7 @@
 	icon_state = "capacitor"
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/active = 0
-	density = 1
+	density = TRUE
 	var/stored_charge = 0	//not to be confused with power cell charge, this is in Joules
 	var/last_stored_charge = 0
 	var/time_since_fail = 100

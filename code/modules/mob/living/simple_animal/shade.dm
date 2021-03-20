@@ -88,7 +88,7 @@
 	unsuitable_atoms_damage = 0
 	incorporeal_move = INCORPOREAL_SHADE
 	mob_size = 0
-	density = 0
+	density = FALSE
 	speed = 1
 	residue = /obj/item/ectoplasm/bs
 	var/last_message_heard

@@ -7,7 +7,7 @@
 	var/active = 0
 	var/drill_time = 10
 	var/turf/drilling_turf
-	density = 1
+	density = TRUE
 	layer = 3.1		//to go over ores
 
 /obj/machinery/giga_drill/attack_hand(mob/user as mob)

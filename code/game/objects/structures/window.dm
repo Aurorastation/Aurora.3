@@ -2,7 +2,7 @@
 	name = "window"
 	desc = "A window."
 	icon = 'icons/obj/structures.dmi'
-	density = 1
+	density = TRUE
 	w_class = ITEMSIZE_NORMAL
 	layer = 3.2//Just above doors
 	anchored = 1.0
@@ -319,7 +319,7 @@
 
 
 /obj/structure/window/Destroy()
-	density = 0
+	density = FALSE
 	update_nearby_tiles()
 	var/turf/location = loc
 	loc = null

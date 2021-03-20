@@ -7,7 +7,7 @@
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_as_0"
 	anchored = 0
-	density = 1
+	density = TRUE
 	w_class = ITEMSIZE_HUGE
 	build_amt = 4
 	var/state = STATE_UNWIRED
@@ -218,7 +218,7 @@
 			return
 
 		playsound(src.loc, W.usesound, 100, 1)
-	
+
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring the airlock assembly from the floor.", \
 								SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))

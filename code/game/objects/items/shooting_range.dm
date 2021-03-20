@@ -4,7 +4,7 @@
 	desc = "A shooting target."
 	icon = 'icons/obj/target_stake.dmi'
 	icon_state = "target_h"
-	density = 0
+	density = FALSE
 	var/hp = 1800
 	var/icon/virtualIcon
 	var/list/bulletholes = list()
@@ -14,7 +14,7 @@
 		for(var/obj/structure/target_stake/T in view(3,src))
 			if(T.pinned_target == src)
 				T.pinned_target = null
-				T.density = 1
+				T.density = TRUE
 				break
 		return ..() // delete target
 
@@ -51,8 +51,8 @@
 
 		if(stake)
 			if(stake.pinned_target)
-				stake.density = 1
-				density = 0
+				stake.density = TRUE
+				density = FALSE
 				layer = OBJ_LAYER
 
 				loc = user.loc

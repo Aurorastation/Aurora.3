@@ -14,7 +14,7 @@
 	var/field_radius = 3
 	var/max_field_radius = 100
 	var/list/field
-	density = 1
+	density = TRUE
 	var/locked = 0
 	var/average_field_strength = 0
 	var/strengthen_rate = 0.2

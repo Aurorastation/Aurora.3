@@ -6,7 +6,7 @@
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "singularity_s1"
 	anchored = 1
-	density = 1
+	density = TRUE
 	layer = 6
 	light_power = -100 //eats all light
 	unacidable = 1 //Don't comment this out.

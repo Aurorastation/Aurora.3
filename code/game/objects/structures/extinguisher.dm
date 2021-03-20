@@ -4,7 +4,7 @@
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "extinguisher_closed"
 	anchored = 1
-	density = 0
+	density = FALSE
 	var/obj/item/extinguisher/has_extinguisher
 	var/opened = 0
 

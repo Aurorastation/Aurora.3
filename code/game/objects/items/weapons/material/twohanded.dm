@@ -318,7 +318,7 @@
 	name = "head on a spear"
 	desc = "How barbaric."
 	icon_state = "headspear"
-	density = 0
+	density = FALSE
 	anchored = 1
 
 /obj/structure/headspear/attack_hand(mob/living/user)

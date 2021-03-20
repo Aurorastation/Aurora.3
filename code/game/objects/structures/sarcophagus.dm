@@ -3,7 +3,7 @@
 	desc = "A sealed ancient sarcophagus."
 	icon = 'icons/obj/sarcophagus.dmi'
 	icon_state = "sarcophagus"
-	density = 1
+	density = TRUE
 	anchored = 0
 	var/open = FALSE
 

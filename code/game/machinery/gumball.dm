@@ -5,7 +5,7 @@
 	icon_state = "gumball_100"
 	layer = 2.9
 	anchored = 1
-	density = 1
+	density = TRUE
 	use_power = 1
 	idle_power_usage = 10
 	var/typeofcandy = "gumballs"

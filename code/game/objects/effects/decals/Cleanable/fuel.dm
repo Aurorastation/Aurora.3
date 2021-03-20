@@ -111,7 +111,7 @@
 	name = "foam"
 	desc = "Some kind of extinguishing foam."
 	gender = PLURAL
-	density = 0
+	density = FALSE
 	anchored = 1
 	layer = 2
 	icon = 'icons/effects/effects.dmi'

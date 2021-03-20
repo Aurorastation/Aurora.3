@@ -6,7 +6,7 @@
 	icon_state = "tele0"
 	layer = 2.9
 	anchored = 1
-	density = 0
+	density = FALSE
 	use_power = 0
 	var/selectedrank
 	var/last_reply = 0
@@ -57,7 +57,7 @@
 		var/obj/item/storage/backpack/B = H.back
 		if(!B.insert_into_storage(gearbox))
 			H.put_in_any_hand_if_possible(gearbox)
-	else		
+	else
 		H.put_in_any_hand_if_possible(gearbox)
 
 	return

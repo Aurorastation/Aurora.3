@@ -3,7 +3,7 @@
 	icon = 'icons/obj/makeshift_workstation.dmi'
 	icon_state = "workstation"
 	desc = "It's a makeshift workstation for grinding, chopping, and heating."
-	density = 1
+	density = TRUE
 
 	anchored = 1
 	throwpass = 1
@@ -175,7 +175,7 @@
 	icon = 'icons/obj/makeshift_workstation.dmi'
 	icon_state = "distillery-empty"
 	desc = "It's a makeshift still for purifying alcohol."
-	density = 1
+	density = TRUE
 
 	anchored = 1
 

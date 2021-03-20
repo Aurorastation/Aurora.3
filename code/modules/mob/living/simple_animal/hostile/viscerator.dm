@@ -9,7 +9,7 @@
 	maxHealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 15
-	density = 0
+	density = FALSE
 	attacktext = "cut"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	blood_overlay_icon = null

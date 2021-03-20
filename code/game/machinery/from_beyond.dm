@@ -5,7 +5,7 @@
 	icon_state = "ano60"	//TODO: get unique sprites for this
 
 	anchored = 0
-	density = 1
+	density = TRUE
 
 	use_power = 1
 

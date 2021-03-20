@@ -3,7 +3,7 @@
 	name = "large crystal"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "crystal"
-	density = 1
+	density = TRUE
 
 /obj/structure/crystal/New()
 	..()

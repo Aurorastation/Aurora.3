@@ -17,7 +17,7 @@
 	mob_size = MOB_MINISCULE
 	possession_candidate = 1
 	holder_type = /obj/item/holder/lizard
-	density = 0
+	density = FALSE
 	seek_speed = 0.75
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag

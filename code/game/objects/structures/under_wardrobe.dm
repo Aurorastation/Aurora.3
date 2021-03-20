@@ -9,7 +9,7 @@
 	desc = "Holds item of clothing you shouldn't be showing off in the hallways."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "cabinet_closed"
-	density = 1
+	density = TRUE
 
 /obj/structure/undies_wardrobe/attack_hand(var/mob/user)
 	if(!human_who_can_use_underwear(user))

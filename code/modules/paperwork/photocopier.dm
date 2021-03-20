@@ -4,7 +4,7 @@
 	icon_state = "photocopier"
 	var/insert_anim = "photocopier_scan"
 	anchored = 1
-	density = 1
+	density = TRUE
 	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 200

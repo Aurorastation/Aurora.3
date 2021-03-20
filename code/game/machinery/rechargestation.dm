@@ -3,7 +3,7 @@
 	desc = "A heavy duty rapid charging system, designed to quickly recharge cyborg power reserves."
 	icon = 'icons/obj/robot_charger.dmi'
 	icon_state = "borgcharger0"
-	density = 1
+	density = TRUE
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 75

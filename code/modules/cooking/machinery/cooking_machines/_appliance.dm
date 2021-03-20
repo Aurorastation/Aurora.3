@@ -11,7 +11,7 @@
 	desc_info = "Control-click this to change its temperature."
 	icon = 'icons/obj/cooking_machines.dmi'
 	var/appliancetype = 0
-	density = 1
+	density = TRUE
 	anchored = 1
 
 	use_power = 0

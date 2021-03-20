@@ -1102,7 +1102,7 @@
 	level = 1
 	dir = SOUTH
 	initialize_directions = SOUTH
-	density = 1
+	density = TRUE
 
 /obj/machinery/atmospherics/pipe/tank/Initialize()
 	icon_state = "air"

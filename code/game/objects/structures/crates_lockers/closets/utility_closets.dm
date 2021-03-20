@@ -213,7 +213,7 @@
 	icon_opened = "hydrant_open"
 	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
-	density = 0
+	density = FALSE
 	wall_mounted = 1
 
 /obj/structure/closet/hydrant/fill()
@@ -238,5 +238,5 @@
 	icon_opened = "medical_wall_open"
 	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
-	density = 0
+	density = FALSE
 	wall_mounted = 1

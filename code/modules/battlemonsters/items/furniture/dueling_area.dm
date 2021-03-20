@@ -2,12 +2,12 @@
 	name = "dueling table"
 	icon = 'icons/obj/battle_monsters/furniture.dmi'
 	anchored = 1
-	density = 1
+	density = TRUE
 	climbable = 1
 	throwpass = 1
 
 /obj/structure/dueling_table/no_collide
-	density = 0
+	density = FALSE
 
 /obj/structure/dueling_table/no_collide/above_layer
 	layer = ABOVE_MOB_LAYER
@@ -17,7 +17,7 @@
 	icon = 'icons/obj/battle_monsters/logo.dmi'
 	icon_state = "logo"
 	anchored = 1
-	density = 0
+	density = FALSE
 	mouse_opacity = 0
 
 #define CELLS 8

@@ -3,7 +3,7 @@
 	name = "turbolift control component"
 	icon = 'icons/obj/turbolift.dmi'
 	anchored = 1
-	density = 0
+	density = FALSE
 
 	var/datum/turbolift/lift
 

@@ -184,7 +184,7 @@
 	w_class = ITEMSIZE_IMMENSE
 	max_w_class = ITEMSIZE_IMMENSE
 	anchored = 1.0
-	density = 0
+	density = FALSE
 	cant_hold = list(/obj/item/storage/secure/briefcase)
 	starts_with = list(/obj/item/paper = 1, /obj/item/pen = 1)
 

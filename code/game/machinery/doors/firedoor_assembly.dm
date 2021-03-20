@@ -5,7 +5,7 @@ obj/structure/firedoor_assembly
 	icon_state = "door_construction"
 	anchored = 0
 	opacity = 0
-	density = 1
+	density = TRUE
 	build_amt = 4
 	var/wired = 0
 

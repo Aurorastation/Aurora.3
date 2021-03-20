@@ -25,7 +25,7 @@
 	icon_dead = "spiderbot-smashed"
 
 	wander = 0
-	density = 0
+	density = FALSE
 	health = 25
 	maxHealth = 25
 	hunger_enabled = 0

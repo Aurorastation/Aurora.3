@@ -10,7 +10,7 @@
 	icon = 'icons/obj/musician.dmi'
 	icon_state = "minimoog"
 	anchored = 1
-	density = 1
+	density = TRUE
 	w_class = ITEMSIZE_HUGE
 	var/datum/song/song
 	var/playing = 0

@@ -12,7 +12,7 @@
 	maxHealth = 75
 
 	stop_automated_movement_when_pulled = 1 //so people can drag the dog around
-	density = 1
+	density = TRUE
 
 	speak_chance = 1
 	turns_per_move = 7
@@ -100,7 +100,7 @@
 	health = 25
 	maxHealth = 25
 
-	density = 0
+	density = FALSE
 
 	mob_size = 3.2
 	max_nutrition = 80

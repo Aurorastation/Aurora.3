@@ -7,7 +7,7 @@
 
 	icon_screen = "comm_logs"
 	light_color = "#00b000"
-	density = 1
+	density = TRUE
 	anchored = 1.0
 	circuit = /obj/item/circuitboard/atmoscontrol
 	req_access = list(access_ce)
@@ -20,7 +20,7 @@
 	icon_state = "medlaptop0"
 
 	icon_screen = "atmoslaptop"
-	density = 0
+	density = FALSE
 
 /obj/machinery/computer/atmoscontrol/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))

@@ -3,7 +3,7 @@
 	desc = "An advanced machine that can be used to convert grown plantlike biological material into various other bio-goods."
 	icon = 'icons/obj/biogenerator.dmi'
 	icon_state = "biogen"
-	density = 1
+	density = TRUE
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 40

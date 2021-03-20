@@ -16,7 +16,7 @@
 	icon = 'icons/obj/library.dmi'
 	icon_state = "book-0"
 	anchored = 1
-	density = 1
+	density = TRUE
 	opacity = 1
 	build_amt = 5
 

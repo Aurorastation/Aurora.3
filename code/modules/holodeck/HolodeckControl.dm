@@ -378,5 +378,5 @@
 		return TRUE
 
 /obj/machinery/computer/HolodeckControl/Exodus
-	density = 0
+	density = FALSE
 	linkedholodeck_area = /area/holodeck/alphadeck

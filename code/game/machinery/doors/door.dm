@@ -8,7 +8,7 @@
 	icon_state = "door_closed"
 	anchored = 1
 	opacity = 1
-	density = 1
+	density = TRUE
 	layer = DOOR_OPEN_LAYER
 	var/open_layer = DOOR_OPEN_LAYER
 	var/closed_layer = DOOR_CLOSED_LAYER
@@ -123,7 +123,7 @@
 	playsound(src.loc, hatch_close_sound, 30, 1, -1)
 
 /obj/machinery/door/Destroy()
-	density = 0
+	density = FALSE
 	update_nearby_tiles()
 
 	return ..()
@@ -505,7 +505,7 @@
 	icon_state = "door_open"
 	set_opacity(0)
 	sleep(3)
-	src.density = 0
+	src.density = FALSE
 	update_nearby_tiles()
 	sleep(7)
 	src.layer = open_layer
@@ -537,7 +537,7 @@
 
 	do_animate("closing")
 	sleep(3)
-	src.density = 1
+	src.density = TRUE
 	explosion_resistance = initial(explosion_resistance)
 	src.layer = closed_layer
 	update_nearby_tiles()

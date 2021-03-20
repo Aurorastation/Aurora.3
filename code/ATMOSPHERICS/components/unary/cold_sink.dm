@@ -9,7 +9,7 @@
 	screwdriver, and then using a crowbar."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "freezer_0"
-	density = 1
+	density = TRUE
 	anchored = 1
 	use_power = 0
 	idle_power_usage = 5			// 5 Watts for thermostat related circuitry
@@ -78,7 +78,7 @@
 	if(!ui)
 		ui = new(user, src, "machinery-atmospherics-freezer", 440, 300, "Gas Cooling System")
 		ui.auto_update_content = TRUE
-	
+
 	ui.open()
 
 /obj/machinery/atmospherics/unary/freezer/vueui_data_change(list/data, mob/user, datum/vueui/ui)

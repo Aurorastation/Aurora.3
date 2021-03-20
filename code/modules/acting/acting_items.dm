@@ -4,7 +4,7 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "cart"
 	anchored = 1
-	density = 1
+	density = TRUE
 	var/active = 1
 
 /obj/machinery/acting/wardrobe/attack_hand(var/mob/user as mob)
@@ -22,7 +22,7 @@
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bioprinter"
 	anchored = 1
-	density = 1
+	density = TRUE
 
 /obj/machinery/acting/changer/attack_hand(var/mob/user as mob)
 	if(ishuman(user))

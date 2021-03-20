@@ -31,7 +31,7 @@
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
 	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
-	density = 1
+	density = TRUE
 	anchored = 1
 	opacity = 0
 	icon = 'icons/obj/inflatable.dmi'
@@ -200,7 +200,7 @@
 	isSwitchingStates = 1
 	flick("door_opening",src)
 	sleep(10)
-	density = 0
+	density = FALSE
 	opacity = 0
 	state = 1
 	update_icon()
@@ -213,7 +213,7 @@
 	isSwitchingStates = 1
 	flick("door_closing",src)
 	sleep(10)
-	density = 1
+	density = TRUE
 	opacity = 0
 	state = 0
 	update_icon()

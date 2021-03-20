@@ -5,7 +5,7 @@
 	icon_state = "ghost"
 	layer = 4
 	stat = DEAD
-	density = 0
+	density = FALSE
 	canmove = 0
 	blinded = 0
 	anchored = 1	//  don't get pushed around

@@ -7,7 +7,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "sp_base"
 	anchored = 1
-	density = 1
+	density = TRUE
 	use_power = 0
 	idle_power_usage = 0
 	active_power_usage = 0
@@ -276,7 +276,7 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 	anchored = 1
-	density = 1
+	density = TRUE
 	use_power = 1
 	idle_power_usage = 250
 	var/id = 0

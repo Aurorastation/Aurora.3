@@ -3,7 +3,7 @@
 	desc = "It has stubby legs bolted up against it's body for stabilising."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "suspension2"
-	density = 1
+	density = TRUE
 	req_access = list(access_research)
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/obj/item/cell/cell
@@ -322,7 +322,7 @@
 	name = "energy field"
 	icon = 'icons/effects/effects.dmi'
 	anchored = 1
-	density = 1
+	density = TRUE
 	var/field_type = "chlorine"
 
 /obj/effect/suspension_field/Destroy()

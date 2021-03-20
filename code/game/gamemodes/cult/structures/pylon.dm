@@ -451,7 +451,7 @@
 	//It will stop processing after the next check, start of the next process
 
 	empowered = 0
-	density = 0
+	density = FALSE
 	update_icon()
 
 /obj/structure/cult/pylon/proc/repair(mob/user)
@@ -459,7 +459,7 @@
 		if(user)
 			to_chat(user, SPAN_NOTICE("You weave forgotten magic, summoning the shards of the crystal and knitting them anew, until it hovers flawless once more."))
 		isbroken = 0
-		density = 1
+		density = TRUE
 	else if(damagetaken > 0)
 		to_chat(user, SPAN_NOTICE("You meld the crystal lattice back into integrity, sealing over the cracks until they never were."))
 	else

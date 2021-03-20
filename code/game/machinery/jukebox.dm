@@ -14,7 +14,7 @@ datum/track/New(var/title_name, var/audio)
 	icon_state = "jukebox2-nopower"
 	var/state_base = "jukebox2"
 	anchored = 0
-	density = 1
+	density = TRUE
 	power_channel = EQUIP
 	use_power = 1
 	idle_power_usage = 10

@@ -7,7 +7,7 @@
 	icon_state = "closed"
 	layer = SHOWER_OPEN_LAYER
 	opacity = 1
-	density = 0
+	density = FALSE
 	anchored = TRUE //curtains start secured in place
 	build_amt = 2
 	var/manipulating = FALSE //prevents queuing up multiple deconstructs and returning a bunch of cloth

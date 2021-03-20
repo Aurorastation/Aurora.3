@@ -71,7 +71,7 @@
 	icon_state_active = null
 	ui_title = "Soda Dispenser"
 	accept_drinking = 1
-	density = 0//It's a half-height machine that sits on a table, this allows small things to walk under that table
+	density = FALSE//It's a half-height machine that sits on a table, this allows small things to walk under that table
 	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/bar_soft/full
@@ -108,7 +108,7 @@
 	icon_state_active = null
 	ui_title = "Booze Dispenser"
 	accept_drinking = 1
-	density = 0//It's a half-height machine that sits on a table, this allows small things to walk under that table
+	density = FALSE//It's a half-height machine that sits on a table, this allows small things to walk under that table
 	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/bar_alc/full
@@ -141,7 +141,7 @@
 	icon_state_active = null
 	ui_title = "Coffee Master 3000"
 	accept_drinking = 1
-	density = 0
+	density = FALSE
 	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/coffeemaster/full

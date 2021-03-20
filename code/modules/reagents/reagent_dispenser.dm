@@ -4,7 +4,7 @@
 	desc_info = "You can right-click this and change the amount transferred per use."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
-	density = 1
+	density = TRUE
 	anchored = 0
 	var/accept_any_reagent = TRUE
 
@@ -230,7 +230,7 @@
 	desc = "Refill pepper spray canisters."
 	icon_state = "peppertank"
 	anchored = 1
-	density = 0
+	density = FALSE
 	amount_per_transfer_from_this = 45
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/capsaicin/condensed = 1000)
@@ -241,7 +241,7 @@
 	icon_state = "virusfoodtank"
 	amount_per_transfer_from_this = 10
 	anchored = 1
-	density = 0
+	density = FALSE
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/nutriment/virusfood = 1000)
 
@@ -251,7 +251,7 @@
 	icon_state = "acidtank"
 	amount_per_transfer_from_this = 10
 	anchored = 1
-	density = 0
+	density = FALSE
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/acid = 1000)
 

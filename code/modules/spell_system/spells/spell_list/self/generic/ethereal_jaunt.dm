@@ -25,7 +25,7 @@
 			var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
 			var/atom/movable/overlay/animation = new /atom/movable/overlay( mobloc )
 			animation.name = "water"
-			animation.density = 0
+			animation.density = FALSE
 			animation.anchored = 1
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.layer = 5
@@ -82,7 +82,7 @@
 	icon_state = "nothing"
 	var/canmove = 1
 	var/reappearing = 0
-	density = 0
+	density = FALSE
 	anchored = 1
 	var/turf/last_valid_turf
 

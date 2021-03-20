@@ -252,7 +252,7 @@
 
 /obj/machinery/computer/ship/navigation/telescreen	//little hacky but it's only used on one ship so it should be okay
 	icon_state = "tele_nav"
-	density = 0
+	density = FALSE
 
 /obj/machinery/computer/ship/navigation/telescreen/update_icon()
 	if(stat & (NOPOWER|BROKEN))

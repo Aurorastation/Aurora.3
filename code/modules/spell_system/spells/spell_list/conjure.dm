@@ -49,7 +49,7 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 			summoned_object = new summoned_object_type(spawn_place)
 		var/atom/movable/overlay/animation = new /atom/movable/overlay(spawn_place)
 		animation.name = "conjure"
-		animation.density = 0
+		animation.density = FALSE
 		animation.anchored = 1
 		animation.icon = 'icons/effects/effects.dmi'
 		animation.layer = 3

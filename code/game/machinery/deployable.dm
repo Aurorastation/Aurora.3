@@ -179,7 +179,7 @@ for reference:
 	desc = "A deployable barrier. Swipe your ID card to lock/unlock it."
 	icon = 'icons/obj/objects.dmi'
 	anchored = 0.0
-	density = 1.0
+	density = TRUE
 	icon_state = "barrier"
 	var/health = 100.0
 	var/maxhealth = 100.0

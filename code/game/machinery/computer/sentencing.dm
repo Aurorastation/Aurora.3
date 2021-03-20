@@ -6,7 +6,7 @@
 	light_color = LIGHT_COLOR_ORANGE
 	req_one_access = list( access_brig, access_heads )
 	circuit = "/obj/item/circuitboard/sentencing"
-	density = 0
+	density = FALSE
 
 	var/datum/crime_incident/incident
 	var/menu_screen = "main_menu"

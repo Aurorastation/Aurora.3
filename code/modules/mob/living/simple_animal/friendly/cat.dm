@@ -31,7 +31,7 @@
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
 	max_nutrition = 60
-	density = 0
+	density = FALSE
 	var/mob/living/simple_animal/rat/rattarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE

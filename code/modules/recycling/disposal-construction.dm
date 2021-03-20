@@ -8,7 +8,7 @@
 	icon = 'icons/obj/pipes/disposal.dmi'
 	icon_state = "conpipe-s"
 	anchored = 0
-	density = 0
+	density = FALSE
 	matter = list(DEFAULT_WALL_MATERIAL = 1850)
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
@@ -225,9 +225,9 @@
 			anchored = 0
 			if(ispipe)
 				level = 2
-				density = 0
+				density = FALSE
 			else if(ptype != 15)
-				density = 1
+				density = TRUE
 			to_chat(user, "You detach the [nicetype] from the underfloor.")
 		else
 			if(ptype>=6 && ptype <= 8 || ptype == 15) // Disposal bin, outlet or small disposal bin
@@ -251,9 +251,9 @@
 			anchored = 1
 			if(ispipe)
 				level = 1 // We don't want disposal bins to disappear under the floors
-				density = 0
+				density = FALSE
 			else if(ptype != 15)
-				density = 1 // We don't want disposal bins or outlets to go density 0
+				density = TRUE // We don't want disposal bins or outlets to go density 0
 			to_chat(user, "You attach the [nicetype] to the underfloor.")
 		playsound(src.loc, I.usesound, 100, 1)
 		update()

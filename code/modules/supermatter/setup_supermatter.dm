@@ -185,7 +185,7 @@
 	desc = "You shouldn't see this."
 	invisibility = 101
 	anchored = 1
-	density = 0
+	density = FALSE
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x4"
 

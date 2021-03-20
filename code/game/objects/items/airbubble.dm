@@ -63,7 +63,7 @@
 	close_sound = 'sound/items/zip.ogg'
 	var/item_path = /obj/item/airbubble
 	var/zipped = FALSE
-	density = 0
+	density = FALSE
 	storage_capacity = 20
 	var/contains_body = FALSE
 	var/used = TRUE // If we have deployed it once
@@ -160,7 +160,7 @@
 	icon_state = icon_opened
 	opened = 1
 	playsound(loc, open_sound, 15, 1, -3)
-	density = 0
+	density = FALSE
 	return 1
 
 /obj/structure/closet/airbubble/close(mob/user as mob)
@@ -182,7 +182,7 @@
 	opened = 0
 
 	playsound(loc, close_sound, 25, 0, -3)
-	density = 1
+	density = TRUE
 	add_inside()
 	return 1
 

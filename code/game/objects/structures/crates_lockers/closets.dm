@@ -3,7 +3,7 @@
 	desc = "It's a basic storage unit."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
-	density = 1
+	density = TRUE
 	w_class = ITEMSIZE_HUGE
 	layer = OBJ_LAYER - 0.01
 	build_amt = 2

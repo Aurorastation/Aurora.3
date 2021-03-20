@@ -224,7 +224,7 @@
 	return
 
 /obj/machinery/door/window/holowindoor/shatter(var/display_message = 1)
-	src.density = 0
+	src.density = FALSE
 	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
@@ -320,7 +320,7 @@
 	icon = 'icons/obj/basketball.dmi'
 	icon_state = "hoop"
 	anchored = 1
-	density = 1
+	density = TRUE
 	throwpass = 1
 
 /obj/structure/holohoop/attackby(obj/item/W as obj, mob/user as mob)

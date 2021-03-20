@@ -23,7 +23,7 @@
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
 	desc_info = "It can be repaired with a welding tool."
 	icon_state = "smes"
-	density = 1
+	density = TRUE
 	anchored = 1
 	use_power = 0
 	clicksound = /decl/sound_category/switch_sound

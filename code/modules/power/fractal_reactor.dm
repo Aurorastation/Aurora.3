@@ -9,7 +9,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "tracker" //ICON stolen from solar tracker. There is no need to make new texture for debug item
 	anchored = 1
-	density = 1
+	density = TRUE
 	var/power_generation_rate = 1000000 //Defaults to 1MW of power.
 	var/powernet_connection_failed = 0
 	var/mapped_in = 0					//Do not announce creation when it's mapped in.

@@ -4,7 +4,7 @@
 	icon = 'icons/effects/Targeted.dmi'
 	icon_state = "locking"
 	anchored = 1
-	density = 0
+	density = FALSE
 	opacity = 0
 	layer = FLY_LAYER
 	appearance_flags = NO_CLIENT_COLOR

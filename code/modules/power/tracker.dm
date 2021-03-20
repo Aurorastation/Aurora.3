@@ -9,7 +9,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "tracker"
 	anchored = 1
-	density = 1
+	density = TRUE
 	use_power = 0
 
 	var/id = 0

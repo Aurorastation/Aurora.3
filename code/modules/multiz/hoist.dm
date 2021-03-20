@@ -90,7 +90,7 @@
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_base"
 	var/broken = 0
-	density = 1
+	density = TRUE
 	anchored = 1
 	name = "hoist"
 	desc = "A manual hoist, uses a clamp and pulley to hoist things."

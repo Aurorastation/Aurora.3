@@ -12,7 +12,7 @@
 
 // Used for spray that you spray at walls, tables, hydrovats etc
 /obj/effect/decal/spraystill
-	density = 0
+	density = FALSE
 	anchored = 1
 	layer = 50
 
@@ -21,7 +21,7 @@
 	name = "object"
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "ladder11"
-	density = 0
+	density = FALSE
 	anchored = 1
 	layer = 3
 

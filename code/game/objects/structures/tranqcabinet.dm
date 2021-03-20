@@ -4,7 +4,7 @@
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "tranq_closed"
 	anchored = 1
-	density = 0
+	density = FALSE
 	var/obj/item/gun/projectile/heavysniper/tranq/has_tranq
 	var/opened = 0
 

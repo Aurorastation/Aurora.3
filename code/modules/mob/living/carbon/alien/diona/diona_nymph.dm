@@ -6,7 +6,7 @@
 	max_nutrition = 5000
 	language = null
 	mob_size = 4
-	density = 0
+	density = FALSE
 	mouth_size = 2 //how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
 	eat_types = 0 //This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
 	composition_reagent = /decl/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein

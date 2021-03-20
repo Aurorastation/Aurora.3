@@ -7,7 +7,7 @@
 	icon_state = "acid"
 	icon = 'icons/mob/npc/alien.dmi'
 
-	density = 0
+	density = FALSE
 	opacity = 0
 	anchored = 1
 

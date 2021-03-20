@@ -9,7 +9,7 @@
 	light_range = 4
 
 	anchored = 1
-	density = 1
+	density = TRUE
 	layer = 9
 	use_power = 0
 

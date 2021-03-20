@@ -8,7 +8,7 @@
 	desc_antag = "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
-	density = 1
+	density = TRUE
 	var/health = 100.0
 	flags = CONDUCT
 	obj_flags = OBJ_FLAG_SIGNALER

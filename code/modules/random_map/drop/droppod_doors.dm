@@ -4,7 +4,7 @@
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "droppod_door_closed"
 	anchored = 1
-	density = 1
+	density = TRUE
 	opacity = 1
 	layer = TURF_LAYER + 0.1
 	var/deploying
@@ -68,12 +68,12 @@
 		M.throw_at(get_edge_target_turf(origin,src.dir),rand(0,3),50)
 
 	// Create a decorative ramp bottom and flatten out our current ramp.
-	density = 0
+	density = FALSE
 	opacity = 0
 	icon_state = "ramptop"
 	var/obj/structure/droppod_door/door_bottom = new(T)
 	door_bottom.deployed = 1
-	door_bottom.density = 0
+	door_bottom.density = FALSE
 	door_bottom.opacity = 0
 	door_bottom.dir = src.dir
 	door_bottom.icon_state = "rampbottom"

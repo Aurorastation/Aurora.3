@@ -5,7 +5,7 @@
 	icon_state = "mixer0b"
 	use_power = 0
 	idle_power_usage = 100
-	density = 1
+	density = TRUE
 	anchored = 1
 	var/obj/item/reagent_containers/container
 	var/target_temperature = 300 //Measured in kelvin.

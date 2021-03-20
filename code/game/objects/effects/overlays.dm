@@ -21,7 +21,7 @@
 	name = "Palm tree"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm1"
-	density = 1
+	density = TRUE
 	layer = 5
 	anchored = 1
 
@@ -30,7 +30,7 @@
 	name = "Palm tree"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm2"
-	density = 1
+	density = TRUE
 	layer = 5
 	anchored = 1
 
@@ -51,7 +51,7 @@
 	name = "snow"
 	icon = 'icons/turf/overlays.dmi'
 	icon_state = "snowfloor"
-	density = 0
+	density = FALSE
 	anchored = 1
 	layer = 3
 

@@ -98,7 +98,7 @@
 	gender = NEUTER
 	status_flags = 0
 	anchored = 1
-	density = 0
+	density = FALSE
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	wander = 0
@@ -261,7 +261,7 @@
 	gender = NEUTER
 	status_flags = 0
 	anchored = 1
-	density = 0
+	density = FALSE
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	wander = 0
@@ -325,7 +325,7 @@
 	gender = MALE
 	status_flags = 0
 	anchored = 1
-	density = 1
+	density = TRUE
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	wander = 0
@@ -407,7 +407,7 @@
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccend"
 	anchored = 1
-	density = 0
+	density = FALSE
 	layer = 2.1
 
 /obj/structure/greatworm/Initialize()

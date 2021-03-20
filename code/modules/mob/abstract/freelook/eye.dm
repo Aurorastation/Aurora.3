@@ -9,7 +9,7 @@
 	icon = 'icons/mob/eye.dmi'
 	icon_state = "default-eye"
 	alpha = 127
-	density = 0
+	density = FALSE
 
 	var/sprint = 10
 	var/cooldown = 0
@@ -97,7 +97,7 @@
 /mob/abstract/eye/proc/setLoc(var/T)
 	if(!owner)
 		return FALSE
-	
+
 	T = get_turf(T)
 	if(!T || T == loc)
 		return FALSE
@@ -108,7 +108,7 @@
 		owner.client.eye = src
 	if(owner_follows_eye)
 		owner.forceMove(loc)
-	
+
 	visualnet.update_eye_chunks(src)
 	return TRUE
 

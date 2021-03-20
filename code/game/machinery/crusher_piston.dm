@@ -7,7 +7,7 @@
 	icon = 'icons/obj/machines/crusherbase.dmi'
 	icon_state = "standalone"
 	anchored = 1
-	density = 1
+	density = TRUE
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	use_power = 1
@@ -367,7 +367,7 @@
 	desc = "A colossal piston used for crushing garbage."
 	icon = 'icons/obj/machines/crusherpiston.dmi' //Placeholder TODO: Get a proper icon
 	icon_state = "piston_0"
-	density = 0
+	density = FALSE
 	anchored = 1
 	pixel_y = -64
 	var/stage = 0 //The stage of the piston
@@ -465,7 +465,7 @@
 /obj/effect/piston_blocker
 	name = "trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
-	density = 1
+	density = TRUE
 	anchored = 1
 	opacity = 1
 	mouse_opacity = 0

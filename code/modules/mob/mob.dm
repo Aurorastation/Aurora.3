@@ -925,7 +925,7 @@
 				lying = 1
 				canmove = 0
 				pixel_y = V.mob_offset_y - 5
-			else 
+			else
 				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
 				canmove = 1
 				pixel_y = V.mob_offset_y
@@ -946,7 +946,7 @@
 			canmove = !incapacitated(INCAPACITATION_DISABLED)
 
 	if(lying)
-		density = 0
+		density = FALSE
 		if(l_hand) unEquip(l_hand)
 		if(r_hand) unEquip(r_hand)
 	else

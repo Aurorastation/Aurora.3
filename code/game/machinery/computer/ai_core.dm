@@ -3,7 +3,7 @@
 	desc = "A large machine that can store an AI, give it power, and protection. Additionally, it provides site-wide camera access."
 	icon = 'icons/mob/AI.dmi'
 	icon_state = "0"
-	density = 1
+	density = TRUE
 	anchored = 0
 	build_amt = 4
 	var/state = 0

@@ -13,7 +13,7 @@
 	icon_state = "syndbeacon"
 
 	anchored = 1
-	density = 1
+	density = TRUE
 
 	var/temptext = ""
 	var/selfdestructing = 0
@@ -83,7 +83,7 @@
 	icon_state = "beacon0"
 
 	anchored = 0
-	density = 1
+	density = TRUE
 	layer = MOB_LAYER - 0.1 //so people can't hide it and it's REALLY OBVIOUS
 	stat = 0
 

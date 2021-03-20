@@ -243,7 +243,7 @@
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "metronome1"
 	anchored = 1
-	density = 0
+	density = FALSE
 	var/time_last_ran = 0
 	var/ticktock = "Tick"
 
@@ -298,7 +298,7 @@
 	desc = "A state-of-the-art crystal therapy pod. Designed to utilize phoron enhanced quartz crystals to remove mental trauma from the body. Proven to be 100% effective 30% of the time!"
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "sleeper_s"
-	density = 1
+	density = TRUE
 	anchored = 1
 
 	use_power = 1
@@ -482,7 +482,7 @@
 	desc = "An advanced control panel that can be used to interface with a connected therapy pod."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "sleeper_s_scannerconsole"
-	density = 0
+	density = FALSE
 	anchored = 1
 	var/obj/machinery/chakrapod/connected
 	var/crystal = 0

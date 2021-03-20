@@ -2,7 +2,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "signpost"
 	anchored = 1
-	density = 1
+	density = TRUE
 
 	attackby(obj/item/W as obj, mob/user as mob)
 		return attack_hand(user)
@@ -27,7 +27,7 @@
 
 /obj/effect/beam
 	name = "beam"
-	density = 0
+	density = FALSE
 	unacidable = 1//Just to be sure.
 	var/def_zone
 	flags = PROXMOVE
@@ -51,7 +51,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "showcase_1"
 	desc = "A stand with the empty body of a cyborg bolted to it."
-	density = 1
+	density = TRUE
 	anchored = 1
 	unacidable = 1//temporary until I decide whether the borg can be removed. -veyveyr
 
@@ -62,7 +62,7 @@
 	icon_state = "ball"
 	name = "beach ball"
 	item_state = "beachball"
-	density = 0
+	density = FALSE
 	anchored = 0
 	w_class = ITEMSIZE_LARGE
 	force = 0.0
@@ -85,11 +85,11 @@
 	desc = "An ancient and inoperable shuttle-craft"
 	icon = 'icons/obj/machines/spaceship.dmi'
 	anchored = 1
-	density = 1
+	density = TRUE
 
 /obj/structure/mainframe
 	name = "Ancient Mainframe"
 	desc = "A long-fried AI mainframe from the 2420s. It's more fit to be holding rats than AIs at this point."
 	icon = 'icons/obj/mainframe.dmi'
 	anchored = 1
-	density = 1
+	density = TRUE

@@ -15,7 +15,7 @@ obj/structure/windoor_assembly
 	icon_state = "l_windoor_assembly01"
 	obj_flags = OBJ_FLAG_ROTATABLE
 	anchored = 0
-	density = 0
+	density = FALSE
 	dir = NORTH
 	w_class = ITEMSIZE_NORMAL
 	flags = ON_BORDER
@@ -41,7 +41,7 @@ obj/structure/windoor_assembly
 	update_nearby_tiles(need_rebuild=1)
 
 obj/structure/windoor_assembly/Destroy()
-	density = 0
+	density = FALSE
 	update_nearby_tiles()
 	return ..()
 
@@ -212,7 +212,7 @@ obj/structure/windoor_assembly/Destroy()
 
 					if(!src) return
 
-					density = 1 //Shouldn't matter but just incase
+					density = TRUE //Shouldn't matter but just incase
 					to_chat(user, "<span class='notice'>You finish the windoor!</span>")
 
 					if(secure)
@@ -224,7 +224,7 @@ obj/structure/windoor_assembly/Destroy()
 							windoor.icon_state = "rightsecureopen"
 							windoor.base_state = "rightsecure"
 						windoor.set_dir(src.dir)
-						windoor.density = 0
+						windoor.density = FALSE
 
 						if(src.electronics.one_access)
 							windoor.req_access = null
@@ -242,7 +242,7 @@ obj/structure/windoor_assembly/Destroy()
 							windoor.icon_state = "rightopen"
 							windoor.base_state = "right"
 						windoor.set_dir(src.dir)
-						windoor.density = 0
+						windoor.density = FALSE
 
 						if(src.electronics.one_access)
 							windoor.req_access = null

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/pipeturbine.dmi'
 	icon_state = "turbine"
 	anchored = 0
-	density = 1
+	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/efficiency = 0.4
@@ -209,7 +209,7 @@
 	icon = 'icons/obj/pipeturbine.dmi'
 	icon_state = "motor"
 	anchored = 0
-	density = 1
+	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/kin_to_el_ratio = 0.1	//How much kinetic energy will be taken from turbine and converted into electricity

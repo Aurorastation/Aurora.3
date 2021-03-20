@@ -4,7 +4,7 @@
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "incubator"	//incubator_on
 	anchored = 1
-	density = 1
+	density = TRUE
 	idle_power_usage = 50
 	active_power_usage = 750
 	use_power = 1

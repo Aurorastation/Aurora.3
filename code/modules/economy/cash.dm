@@ -5,7 +5,7 @@
 	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	opacity = 0
-	density = 0
+	density = FALSE
 	anchored = 0.0
 	force = 1.0
 	throwforce = 1.0

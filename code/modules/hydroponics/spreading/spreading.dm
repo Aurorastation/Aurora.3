@@ -25,7 +25,7 @@
 /obj/effect/dead_plant
 	anchored = 1
 	opacity = 0
-	density = 0
+	density = FALSE
 	color = DEAD_PLANT_COLOUR
 
 /obj/effect/dead_plant/attack_hand()
@@ -41,7 +41,7 @@
 	name = "plant"
 	anchored = 1
 	opacity = 0
-	density = 0
+	density = FALSE
 	icon = 'icons/obj/hydroponics_growing.dmi'
 	icon_state = "bush4-1"
 	layer = 3
@@ -198,10 +198,10 @@
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
 		opacity = 1
 		if(islist(seed.chems) && !isnull(seed.chems[/decl/reagent/woodpulp]))
-			density = 1
+			density = TRUE
 	else
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
-		density = 0
+		density = FALSE
 
 /obj/effect/plant/proc/calc_dir()
 	set background = 1

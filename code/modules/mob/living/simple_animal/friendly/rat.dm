@@ -34,7 +34,7 @@
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "stomps on"
-	density = 0
+	density = FALSE
 	meat_amount = 2 // Rats are a bit bigger, so a bit more meat for dreg-feeding.
 	var/body_color //brown, gray, white, american irish, hooded leave blank for random
 	layer = MOB_LAYER

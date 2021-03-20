@@ -77,7 +77,7 @@
 	src.operating = 1
 	playsound(src.loc, open_sound, 100, 1)
 	flick(icon_state_opening, src)
-	src.density = 0
+	src.density = FALSE
 	update_nearby_tiles()
 	src.update_icon()
 	src.set_opacity(0)
@@ -95,7 +95,7 @@
 	playsound(src.loc, close_sound, 100, 1)
 	src.layer = closed_layer
 	flick(icon_state_closing, src)
-	src.density = 1
+	src.density = TRUE
 	update_nearby_tiles()
 	src.update_icon()
 	src.set_opacity(1)
@@ -209,7 +209,7 @@
 
 /obj/machinery/door/blast/regular/open
 	icon_state = "pdoor0"
-	density = 0
+	density = FALSE
 	opacity = 0
 
 // SUBTYPE: Shutters
@@ -224,7 +224,7 @@
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
-	density = 0
+	density = FALSE
 	opacity = 0
 
 // SUBTYPE: Odin
@@ -240,7 +240,7 @@
 
 /obj/machinery/door/blast/odin/open
 	icon_state = "pdoor0"
-	density = 0
+	density = FALSE
 	opacity = 0
 
 /obj/machinery/door/blast/odin/attackby(obj/item/C as obj, mob/user as mob)
@@ -254,7 +254,7 @@
 
 /obj/machinery/door/blast/odin/shuttle
 	icon_state = "pdoor0"
-	density = 0
+	density = FALSE
 	opacity = 0
 
 /obj/machinery/door/blast/odin/shuttle/ert
@@ -263,12 +263,12 @@
 /obj/machinery/door/blast/odin/shuttle/tcfl
 	_wifi_id = "tcfl_shuttle_release"
 	icon_state = "pdoor1"
-	density = 1
+	density = TRUE
 	opacity = 1
 
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter
 	_wifi_id = "tcfl_shuttle_lockdown"
-	density = 0
+	density = FALSE
 	opacity = 0
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"

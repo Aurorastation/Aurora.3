@@ -7,7 +7,7 @@
 
 /obj/machinery/chem_master
 	name = "ChemMaster 3000"
-	density = 1
+	density = TRUE
 	anchored = 1
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
@@ -307,7 +307,7 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "juicer1"
 	layer = 2.9
-	density = 0
+	density = FALSE
 	anchored = 0
 	use_power = 1
 	idle_power_usage = 5

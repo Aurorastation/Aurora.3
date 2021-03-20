@@ -84,7 +84,7 @@
 	name = "meteor"
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "large"
-	density = 1
+	density = TRUE
 	anchored = 1.0
 	var/hits = 3
 	var/detonation_chance = 50

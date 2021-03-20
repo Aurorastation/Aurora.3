@@ -4,7 +4,7 @@
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
 	icon = 'icons/obj/machines/particle_accelerator2.dmi'
-	density = 1
+	density = TRUE
 	anchored = 1
 
 /obj/machinery/computer/artillerycontrol/machinery_process()
@@ -57,7 +57,7 @@
 	name = "artillery"
 	icon = 'icons/obj/machines/artillery.dmi'
 	anchored = 1
-	density = 1
+	density = TRUE
 
 /obj/structure/artilleryplaceholder/decorative
-	density = 0
+	density = FALSE

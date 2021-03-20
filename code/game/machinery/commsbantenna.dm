@@ -5,7 +5,7 @@
 	icon_state = "bspacerelay"
 
 	anchored = 1
-	density = 1
+	density = TRUE
 	use_power = 1
 	var/on = 1
 

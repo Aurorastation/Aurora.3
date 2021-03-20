@@ -10,7 +10,7 @@
 	mouse_opacity = 0
 	anchored = 1
 	layer = 4.1		//just above mobs
-	density = 0
+	density = FALSE
 	var/strength = 0
 	var/ticks_recovering = 10
 

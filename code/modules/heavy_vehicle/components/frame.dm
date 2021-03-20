@@ -11,7 +11,7 @@
 	desc = "The frame for am exosuit, apparently."
 	icon = 'icons/mecha/mech_parts.dmi'
 	icon_state = "backbone"
-	density = 1
+	density = TRUE
 	pixel_x = -8
 
 	// Holders for the final product.

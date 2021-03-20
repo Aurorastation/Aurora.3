@@ -15,7 +15,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi'
 		)
 	opacity = 0
-	density = 0
+	density = FALSE
 	anchored = 0.0
 	flags = CONDUCT
 	force = 10.0

@@ -6,7 +6,7 @@
 	desc = "It's thick and gooey. Perhaps it's the chef's cooking?"
 	var/drydesc = "It's dry and crusty. Someone is not doing their job."
 	gender = PLURAL
-	density = 0
+	density = FALSE
 	anchored = 1
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mfloor1"
@@ -183,7 +183,7 @@
 	name = "gibs"
 	desc = "They look bloody and gruesome."
 	gender = PLURAL
-	density = 0
+	density = FALSE
 	anchored = 1
 	layer = 2
 	icon = 'icons/effects/blood.dmi'
@@ -246,7 +246,7 @@
 	name = "mucus"
 	desc = "Disgusting mucus."
 	gender = PLURAL
-	density = 0
+	density = FALSE
 	anchored = 1
 	layer = 2
 	icon = 'icons/effects/blood.dmi'

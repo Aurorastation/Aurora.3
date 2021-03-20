@@ -34,7 +34,7 @@ The "dust" will damage the hull of the station causin minor hull breaches.
 	desc = "Dust in space."
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "dust"
-	density = 1
+	density = TRUE
 	anchored = 1
 	var/strength = 2 //ex_act severity number
 	var/life = 2 //how many things we hit before qdel(src)

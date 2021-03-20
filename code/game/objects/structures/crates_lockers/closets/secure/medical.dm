@@ -229,6 +229,6 @@
 	icon_off = "medical_wall_off"
 	store_mobs = FALSE
 	anchored = 1
-	density = 0
+	density = FALSE
 	wall_mounted = 1
 	req_access = list(access_medical_equip)

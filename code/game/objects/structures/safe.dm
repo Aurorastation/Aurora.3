@@ -11,7 +11,7 @@ FLOOR SAFES
 	icon = 'icons/obj/safe.dmi'
 	icon_state = "safe"
 	anchored = 1
-	density = 1
+	density = TRUE
 	var/broken = FALSE	//is the tumbler broken into
 	var/open = 0		//is the safe open?
 	var/tumbler_1_pos	//the tumbler position- from 0 to 71
@@ -263,7 +263,7 @@ obj/structure/safe/ex_act(severity)
 /obj/structure/safe/floor
 	name = "floor safe"
 	icon_state = "floorsafe"
-	density = 0
+	density = FALSE
 	level = 1	//underfloor
 	layer = 2.5
 	drill_x_offset = -1

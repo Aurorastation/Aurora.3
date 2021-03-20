@@ -18,7 +18,7 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rfd"
 	opacity = 0
-	density = 0
+	density = FALSE
 	anchored = 0.0
 	var/stored_matter = 0
 	var/mode = 1

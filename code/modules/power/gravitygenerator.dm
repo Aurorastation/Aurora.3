@@ -20,7 +20,7 @@
 	desc = "A device which produces a gravaton field when set up."
 	icon = 'icons/obj/machines/gravity_generator.dmi'
 	anchored = 1
-	density = 1
+	density = TRUE
 	use_power = 0
 	unacidable = 1
 	var/sprite_number = 0
@@ -162,7 +162,7 @@
 		if(count == 5) // Middle
 			middle = part
 		if(count <= 3) // Their sprite is the top part of the generator
-			part.density = 0
+			part.density = FALSE
 			part.layer = MOB_LAYER + 0.1
 		part.sprite_number = count
 		part.main_part = src

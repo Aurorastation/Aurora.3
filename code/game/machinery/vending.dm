@@ -46,7 +46,7 @@
 	icon_state = "generic"
 	layer = 2.9
 	anchored = 1
-	density = 1
+	density = TRUE
 	clicksound = /decl/sound_category/button_sound
 
 	var/icon_vend //Icon_state when vending

@@ -42,7 +42,7 @@
 	desc = "It scans DNA structures."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "scanner_0"
-	density = 1
+	density = TRUE
 	anchored = 1.0
 	use_power = 1
 	idle_power_usage = 50
@@ -208,7 +208,7 @@
 	name = "DNA Modifier Access Console"
 	desc = "Scand DNA."
 	icon_screen = "dna"
-	density = 1
+	density = TRUE
 	circuit = /obj/item/circuitboard/scan_consolenew
 	var/selected_ui_block = 1.0
 	var/selected_ui_subblock = 1.0

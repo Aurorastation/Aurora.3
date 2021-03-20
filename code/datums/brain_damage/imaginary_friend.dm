@@ -34,7 +34,7 @@
 /mob/abstract/mental
 	universal_understand = 1
 	incorporeal_move = INCORPOREAL_GHOST
-	density = 0
+	density = FALSE
 
 /mob/abstract/mental/friend
 	name = "imaginary friend"

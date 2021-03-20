@@ -2,7 +2,7 @@
 	name = "corporate banner"
 	desc = "A blue flag emblazoned with a golden logo of Nanotrasen hanging from a wooden stand."
 	anchored = 1
-	density = 1
+	density = TRUE
 	layer = 9
 	var/icon_up = "banner_up"
 	icon = 'icons/obj/banner.dmi'

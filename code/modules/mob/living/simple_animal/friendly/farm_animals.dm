@@ -170,7 +170,7 @@
 	var/amount_grown = 0
 	pass_flags = PASSTABLE | PASSGRILLE
 	holder_type = /obj/item/holder/chick
-	density = 0
+	density = FALSE
 	mob_size = 0.75//just a rough estimate, the real value should be way lower
 	canbrush = TRUE
 	hunger_enabled = FALSE
@@ -219,7 +219,7 @@
 	var/body_color
 	pass_flags = PASSTABLE
 	holder_type = /obj/item/holder/chicken
-	density = 0
+	density = FALSE
 	mob_size = 2
 	hunger_enabled = FALSE
 	canbrush = TRUE

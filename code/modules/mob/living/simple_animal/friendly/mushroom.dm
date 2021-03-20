@@ -20,7 +20,7 @@
 	var/datum/seed/seed
 	var/harvest_time
 	var/min_explode_time = 1200
-	density = 0
+	density = FALSE
 	holder_type = /obj/item/holder/mushroom
 	mob_size = 2
 	canbrush = TRUE

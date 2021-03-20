@@ -3,7 +3,7 @@
 	desc = "A mechanical basin designed to nurture plants and other aquatic life. It has various useful sensors."
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "hydrotray3"
-	density = 1
+	density = TRUE
 	anchored = 1
 	flags = OPENCONTAINER
 	volume = 100

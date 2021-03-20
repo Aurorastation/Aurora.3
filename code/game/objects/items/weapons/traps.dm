@@ -548,7 +548,7 @@
 	throwforce = 6
 	force = 10
 	w_class = 6
-	density = 1
+	density = TRUE
 	origin_tech = list(TECH_ENGINEERING = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 15750)
 	deployed = FALSE

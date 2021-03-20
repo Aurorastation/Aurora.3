@@ -7,7 +7,7 @@
 
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "psiphon:0"
-	density = 1
+	density = TRUE
 	w_class = ITEMSIZE_NORMAL
 
 	var/on = 0

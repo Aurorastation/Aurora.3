@@ -1,5 +1,5 @@
 /mob
-	density = 1
+	density = TRUE
 	layer = 4.0
 	animate_movement = 2
 	flags = PROXMOVE

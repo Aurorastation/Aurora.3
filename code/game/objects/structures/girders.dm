@@ -5,7 +5,7 @@
 	You can dismantle the grider with a wrench, or add support struts with a screwdriver to enable further reinforcement."
 	icon_state = "girder"
 	anchored = 1
-	density = 1
+	density = TRUE
 	layer = ABOVE_CABLE_LAYER
 	w_class = ITEMSIZE_HUGE
 	var/state = 0

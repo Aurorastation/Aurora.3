@@ -27,7 +27,7 @@
 	icon_state = "beacon"
 
 	anchored = 0
-	density = 1
+	density = TRUE
 	layer = MOB_LAYER - 0.1
 	stat = 0
 

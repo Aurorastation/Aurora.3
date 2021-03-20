@@ -6,7 +6,7 @@ var/global/list/bluespace_inhibitors
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "nopad"
 	anchored = 1
-	density = 1
+	density = TRUE
 	use_power = 1
 	active_power_usage = 5000
 	idle_power_usage = 1000

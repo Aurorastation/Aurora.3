@@ -12,7 +12,7 @@
 	light_color = "#ffcc33"
 
 	//computer stuff
-	density = 1
+	density = TRUE
 	anchored = 1.0
 	circuit = /obj/item/circuitboard/powermonitor
 	var/alerting = 0

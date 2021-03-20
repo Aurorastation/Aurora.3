@@ -8,7 +8,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
 	anchored = 0
-	density = 1
+	density = TRUE
 	climbable = 1
 	flags = OPENCONTAINER
 	build_amt = 15

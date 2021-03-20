@@ -146,7 +146,7 @@
 	melee_damage_lower = 8
 	melee_damage_upper = 12
 	mob_size = 4.5 //weight based on Chanthangi goats
-	density = 0
+	density = FALSE
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 	canbrush = TRUE
 
@@ -190,7 +190,7 @@
 	melee_damage_lower = 3
 	melee_damage_upper = 4
 	attacktext = "clawed"
-	density = 0
+	density = FALSE
 
 	wizardy_spells = list(/spell/targeted/subjugation)
 	canbrush = TRUE

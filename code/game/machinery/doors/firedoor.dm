@@ -13,7 +13,7 @@
 	icon_state = "door_open"
 	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
 	opacity = 0
-	density = 0
+	density = FALSE
 	layer = DOOR_OPEN_LAYER - 0.01
 	open_layer = DOOR_OPEN_LAYER - 0.01 // Just below doors when open
 	closed_layer = DOOR_CLOSED_LAYER + 0.2 // Just above doors when closed
@@ -299,7 +299,7 @@
 
 					var/obj/structure/firedoor_assembly/FA = new/obj/structure/firedoor_assembly(src.loc)
 					FA.anchored = 1
-					FA.density = 1
+					FA.density = TRUE
 					FA.wired = 1
 					FA.update_icon()
 					qdel(src)
