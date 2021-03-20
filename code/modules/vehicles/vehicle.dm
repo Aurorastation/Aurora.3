@@ -42,12 +42,11 @@
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
-/obj/vehicle/New()
-	..()
-	//spawn the cell you want in each vehicle
-
 /obj/vehicle/Initialize()
 	. = ..()
+	setup_vehicle()
+
+/obj/vehicle/proc/setup_vehicle()
 	LAZYADD(can_buckle, /mob/living)
 
 /obj/vehicle/Move()
