@@ -28,6 +28,7 @@
 
 /obj/item/projectile/beam/pistol
 	damage = 25
+	armor_penetration = 5
 
 /obj/item/projectile/beam/pistol/hegemony
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
@@ -55,8 +56,8 @@
 /obj/item/projectile/beam/xray
 	name = "xray beam"
 	icon_state = "xray"
-	damage = 30
-	armor_penetration = 30
+	damage = 15
+	armor_penetration = 35
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray

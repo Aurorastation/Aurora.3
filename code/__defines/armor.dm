@@ -9,7 +9,7 @@
 #define  ARMOR_BALLISTIC_PISTOL		30	//Blocks holdout and normal pistol ammo
 #define  ARMOR_BALLISTIC_MEDIUM		40
 #define  ARMOR_BALLISTIC_REVOLVER   50	//Blocks antag revolver rounds.
-#define  ARMOR_BALLISTIC_RIFLE		65	//Blocks rifle rounds.
+#define  ARMOR_BALLISTIC_RIFLE		60	//Blocks rifle rounds.
 #define  ARMOR_BALLISTIC_AP			75	//Blocks basically almost every caliber except superheavy ones.
 #define  ARMOR_BALLISTIC_HEAVY		100
 

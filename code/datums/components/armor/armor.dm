@@ -45,7 +45,6 @@
 	if(blocked >= armor_border_blocking)
 		if(damage_flags & DAM_LASER)
 			damage *= FLUIDLOSS_CONC_BURN/FLUIDLOSS_WIDE_BURN
-			to_world("Updated Damage: [damage]")
 		damage_flags &= ~(DAM_SHARP | DAM_EDGE | DAM_LASER)
 	if(damage_type == IRRADIATE)
 		damage = max(0, damage - 100 * blocked)
