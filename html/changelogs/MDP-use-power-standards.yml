@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - backend: "Replaces all instances of use_power = 0/1/2 with use_power = POWER_USE_(OFF/IDLE/ACTIVE), for code clarity."
   - backend: "Adds a code check for use_power = 0/1/2."
+  - refactor: "Adds defines for power use levels: POWER_USE_OFF, POWER_USE_IDLE, POWER_USE_ACTIVE."
