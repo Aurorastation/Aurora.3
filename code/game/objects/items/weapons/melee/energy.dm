@@ -3,7 +3,7 @@
 	var/active_force
 	var/active_throwforce
 	var/active_w_class
-	sharp = 0
+	sharp = FALSE
 	edge = 0
 	armor_penetration = 10
 	flags = NOBLOODY
@@ -23,7 +23,7 @@
 	active = 1
 	force = active_force
 	throwforce = active_throwforce
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	w_class = active_w_class
 	playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
@@ -146,7 +146,7 @@
 	flags = CONDUCT | NOBLOODY
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4)
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	slot_flags = SLOT_BACK
 	base_reflectchance = 0
@@ -195,7 +195,7 @@
 	flags = CONDUCT | NOBLOODY
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	base_reflectchance = 0
 	base_block_chance = 0 //cannot be used to block guns
@@ -234,7 +234,7 @@
 	w_class = ITEMSIZE_SMALL
 	flags = NOBLOODY
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	var/blade_color
 	shield_power = 75
@@ -362,7 +362,7 @@
 	force = 40
 	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
 	armor_penetration = 100
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	anchored = 1    // Never spawned outside of inventory, should be fine.
 	throwforce = 1  //Throwing or dropping the item deletes it.

@@ -66,7 +66,7 @@
 	icon_state= "bolter"
 	damage = 50
 	check_armor = "bullet"
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 
 /obj/item/projectile/bullet/gyro/on_impact(var/atom/A)
@@ -199,7 +199,7 @@
 	icon_state= "gauss"
 	damage = 75
 	check_armor = "bomb"
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 
 /obj/item/projectile/bullet/trod/on_impact(var/atom/A)

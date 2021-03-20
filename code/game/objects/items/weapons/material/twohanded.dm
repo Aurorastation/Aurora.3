@@ -193,7 +193,7 @@
 	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
 	unwielded_force_divisor = 0.25
 	force_divisor = 0.7 // 10/42 with hardness 60 (steel) and 0.25 unwielded divisor
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
@@ -237,7 +237,7 @@
 	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
 	thrown_force_divisor = 1.2 // 24 damage for steel (weight 20)
 	edge = 1
-	sharp = 0
+	sharp = FALSE
 	mob_throw_hit_sound =  'sound/weapons/pierce.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
@@ -550,7 +550,7 @@
 	force = 10
 	unwielded_force_divisor = 0.4
 	force_divisor = 0.6
-	sharp = 1
+	sharp = TRUE
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
 
 /obj/item/material/twohanded/pike/pitchfork
@@ -625,7 +625,7 @@
 	unwielded_force_divisor = 1
 	thrown_force_divisor = 0.75
 	edge = 1
-	sharp = 1
+	sharp = TRUE
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	default_material = "steel"
 	parry_chance = 60

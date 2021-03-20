@@ -21,7 +21,7 @@
 	icon_state = "sliver1"	//0-4
 	randpixel = 8
 	w_class = ITEMSIZE_TINY
-	sharp = 1
+	sharp = TRUE
 	//item_state = "electronic"
 	var/source_rock = "/turf/simulated/mineral/"
 	var/datum/geosample/geological_data

@@ -24,7 +24,7 @@
 		to_chat(user, "<span class='notice'>You carefully insert [syringe] into [src].</span>")
 		user.remove_from_mob(syringe)
 		syringe.forceMove(src)
-		sharp = 1
+		sharp = TRUE
 		name = "syringe dart"
 		update_icon()
 

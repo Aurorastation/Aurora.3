@@ -10,7 +10,7 @@
 	w_class = ITEMSIZE_LARGE
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
 	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -78,7 +78,7 @@
 	item_state = "rapier"
 	slot_flags = SLOT_BELT
 	attack_verb = list("attacked", "stabbed", "prodded", "poked", "lunged")
-	sharp = 0
+	sharp = FALSE
 
 /obj/item/material/sword/longsword
 	name = "longsword"

@@ -1,6 +1,6 @@
 /obj/item/material/harpoon
 	name = "harpoon"
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	desc = "Tharr she blows!"
 	icon_state = "harpoon"
@@ -37,7 +37,7 @@
 	force_divisor = 0.2 // 12 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
 	w_class = ITEMSIZE_SMALL
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
 	attack_verb = list("chopped", "torn", "cut")
@@ -80,7 +80,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
 		)
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	force_divisor = 0.25
 
@@ -109,7 +109,7 @@
 		)
 	force_divisor = 0.275 // 16 with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 with weight 20 (steel)
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	throw_speed = 1
 	throw_range = 3

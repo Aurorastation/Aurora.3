@@ -7,7 +7,7 @@
 	throw_speed = 3
 	throw_range = 7
 	w_class = ITEMSIZE_NORMAL
-	sharp = 0
+	sharp = FALSE
 	edge = 0
 	icon = 'icons/obj/weapons.dmi'
 

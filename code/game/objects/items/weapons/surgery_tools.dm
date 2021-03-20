@@ -87,7 +87,7 @@
 	item_state = "scalpel"
 	flags = CONDUCT
 	force = 10.0
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
@@ -147,7 +147,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'

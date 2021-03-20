@@ -313,7 +313,7 @@
 	burst = 10
 	burst_delay = 1
 	fire_delay = 30
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	anchored = 0
 	armor_penetration = 40

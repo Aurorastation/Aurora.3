@@ -24,7 +24,7 @@
 	volume = 15
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
-	sharp = 1
+	sharp = TRUE
 	noslice = 1
 	unacidable = 1 //glass
 	var/mode = SYRINGE_CAPPED

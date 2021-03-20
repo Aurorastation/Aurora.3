@@ -89,7 +89,7 @@
 	w_class = ITEMSIZE_TINY
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	contained_sprite = 1
 
@@ -359,7 +359,7 @@
 	w_class = ITEMSIZE_LARGE
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	contained_sprite = 1
 	base_reflectchance = 40

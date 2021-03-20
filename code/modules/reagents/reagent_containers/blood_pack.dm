@@ -94,7 +94,7 @@
 		to_chat(usr, "<span class='notice'>You label the blood pack as [blood_name].</span>")
 		return
 
-	if (istype(P, /obj/item/) && P.sharp == 1)
+	if (istype(P, /obj/item/) && P.sharp)
 		var/mob/living/carbon/human/H = usr
 		if(LAZYLEN(P.attack_verb))
 			user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")

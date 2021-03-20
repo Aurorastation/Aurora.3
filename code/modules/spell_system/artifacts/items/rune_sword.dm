@@ -17,7 +17,7 @@
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 8)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	base_reflectchance = 60
 	base_block_chance = 60

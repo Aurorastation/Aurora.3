@@ -83,6 +83,15 @@ else
     echo "PASS: to_world count matches" >> code_error.log
 fi
 
+echo "Checking for sharp = 0/1 uses:" >> code_error.log
+grep -r '\bsharp\s*=\s*\d' **/*.dm >> code_error.log
+if [ $? -eq 0 ]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found sharp = 0/1 in code" >> code_error.log
+else
+    echo "PASS: Did not find sharp = 0/1 in code:" >> code_error.log
+fi
+
 echo "Found $ERROR_COUNT Errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then

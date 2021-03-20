@@ -230,7 +230,7 @@
 	force = 5
 	punch_force = 10
 	clipped = 1
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'

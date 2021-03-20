@@ -29,7 +29,7 @@
 	force = 15
 	throwforce = 7
 	w_class = ITEMSIZE_LARGE
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
@@ -174,7 +174,7 @@
 	force = 15
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
-	sharp = 1
+	sharp = TRUE
 	edge = 1
 	can_embed = 0
 	origin_tech = list(TECH_COMBAT = 4)

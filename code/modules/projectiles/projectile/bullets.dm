@@ -153,7 +153,7 @@
 	damage = 10
 	agony = 60
 	embed = 0
-	sharp = 0
+	sharp = FALSE
 
 /obj/item/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
@@ -161,7 +161,7 @@
 	damage = 5
 	agony = 0
 	embed = 0
-	sharp = 0
+	sharp = FALSE
 	incinerate = 10
 
 /obj/item/projectile/bullet/tracking
@@ -310,7 +310,7 @@
 	damage = 0
 	nodamage = 1
 	embed = 0
-	sharp = 0
+	sharp = FALSE
 
 /obj/item/projectile/bullet/pistol/cap/process()
 	loc = null
@@ -324,7 +324,7 @@
 	damage_type = BRUTE
 	check_armor = "bullet"
 	embed = 1
-	sharp = 1
+	sharp = TRUE
 	penetrating = 1
 
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
