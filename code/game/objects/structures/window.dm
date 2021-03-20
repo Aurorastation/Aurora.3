@@ -5,7 +5,7 @@
 	density = 1
 	w_class = ITEMSIZE_NORMAL
 	layer = 3.2//Just above doors
-	anchored = 1.0
+	anchored = TRUE
 	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/maxhealth = 14.0
@@ -166,7 +166,7 @@
 		tforce = I.throwforce
 	if(reinf) tforce *= 0.25
 	if(health - tforce <= 7 && !reinf)
-		anchored = 0
+		anchored = FALSE
 		update_nearby_icons()
 		step(src, get_dir(AM, src))
 	take_damage(tforce)
@@ -262,7 +262,7 @@
 			user.do_attack_animation(src)
 			hit(W.force)
 			if(health <= 7)
-				anchored = 0
+				anchored = FALSE
 				update_nearby_icons()
 				step(src, get_dir(user, src))
 		else
@@ -305,7 +305,7 @@
 
 	//player-constructed windows
 	if (constructed)
-		anchored = 0
+		anchored = FALSE
 
 	if (start_dir)
 		set_dir(start_dir)

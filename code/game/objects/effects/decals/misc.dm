@@ -7,13 +7,13 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "arrow"
 	layer = 16.0
-	anchored = 1
+	anchored = TRUE
 	mouse_opacity = 0
 
 // Used for spray that you spray at walls, tables, hydrovats etc
 /obj/effect/decal/spraystill
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	layer = 50
 
 //Used for imitating an object's sprite for decorative purposes.
@@ -22,7 +22,7 @@
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "ladder11"
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	layer = 3
 
 /obj/effect/decal/fake_object/light_source

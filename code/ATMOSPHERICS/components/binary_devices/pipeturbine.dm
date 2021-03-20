@@ -3,7 +3,7 @@
 	desc = "A gas turbine. Converting pressure into energy since 1884."
 	icon = 'icons/obj/pipeturbine.dmi'
 	icon_state = "turbine"
-	anchored = 0
+	anchored = FALSE
 	density = 1
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -208,7 +208,7 @@
 	desc = "Electrogenerator. Converts rotation into power."
 	icon = 'icons/obj/pipeturbine.dmi'
 	icon_state = "motor"
-	anchored = 0
+	anchored = FALSE
 	density = 1
 	obj_flags = OBJ_FLAG_ROTATABLE
 

@@ -26,7 +26,7 @@
 		var/atom/movable/overlay/animation = new /atom/movable/overlay(T)
 		animation.name = "conjure"
 		animation.density = 0
-		animation.anchored = 1
+		animation.anchored = TRUE
 		animation.icon = 'icons/effects/effects.dmi'
 		animation.layer = 3
 		animation.master = T

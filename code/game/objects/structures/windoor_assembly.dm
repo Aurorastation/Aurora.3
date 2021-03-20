@@ -14,7 +14,7 @@ obj/structure/windoor_assembly
 	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "l_windoor_assembly01"
 	obj_flags = OBJ_FLAG_ROTATABLE
-	anchored = 0
+	anchored = FALSE
 	density = 0
 	dir = NORTH
 	w_class = ITEMSIZE_NORMAL
@@ -31,7 +31,7 @@ obj/structure/windoor_assembly
 	..()
 	if(constructed)
 		state = "01"
-		anchored = 0
+		anchored = FALSE
 	switch(start_dir)
 		if(NORTH, SOUTH, EAST, WEST)
 			set_dir(start_dir)
@@ -95,7 +95,7 @@ obj/structure/windoor_assembly/Destroy()
 				if(do_after(user, 40/W.toolspeed))
 					if(!src) return
 					to_chat(user, "<span class='notice'>You've secured the windoor assembly!</span>")
-					src.anchored = 1
+					src.anchored = TRUE
 					if(src.secure)
 						src.name = "Secure Anchored Windoor Assembly"
 					else
@@ -109,7 +109,7 @@ obj/structure/windoor_assembly/Destroy()
 				if(do_after(user, 40/W.toolspeed))
 					if(!src) return
 					to_chat(user, "<span class='notice'>You've unsecured the windoor assembly!</span>")
-					src.anchored = 0
+					src.anchored = FALSE
 					if(src.secure)
 						src.name = "Secure Windoor Assembly"
 					else

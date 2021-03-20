@@ -4,7 +4,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "bspacerelay"
 
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	use_power = 1
 	var/on = 1

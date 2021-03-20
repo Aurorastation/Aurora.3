@@ -43,7 +43,7 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "scanner_0"
 	density = 1
-	anchored = 1.0
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 50
 	active_power_usage = 300
@@ -224,7 +224,7 @@
 	var/obj/machinery/dna_scannernew/connected = null
 	var/obj/item/disk/data/disk = null
 	var/selected_menu_key = null
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 400

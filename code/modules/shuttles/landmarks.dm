@@ -140,7 +140,7 @@
 		return
 
 	active = 1
-	anchored = 1
+	anchored = TRUE
 
 	var/obj/effect/shuttle_landmark/automatic/mark = new(T)
 	mark.name = "beacon signal ([T.x],[T.y])"

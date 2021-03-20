@@ -45,7 +45,7 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
 	layer = 2.9
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	clicksound = /decl/sound_category/button_sound
 

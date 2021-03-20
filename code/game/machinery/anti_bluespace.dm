@@ -5,7 +5,7 @@ var/global/list/bluespace_inhibitors
 	desc = "Scrambles any bluespace related activity and displaces it away from the beacon's area of effect."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "nopad"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	use_power = 1
 	active_power_usage = 5000
@@ -62,7 +62,7 @@ var/global/list/bluespace_inhibitors
 	playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
 	visible_message(SPAN_WARNING("\The [src] breaks!"))
 	stat |= BROKEN
-	anchored = 0
+	anchored = FALSE
 	update_icon()
 
 /obj/machinery/anti_bluespace/attackby(obj/item/W as obj, mob/user as mob)

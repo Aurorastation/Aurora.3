@@ -3,7 +3,7 @@
 	gender = PLURAL
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
-	anchored = 0
+	anchored = FALSE
 
 /obj/effect/decal/remains/human
 	desc = "They look like human remains. They have a strange aura about them."

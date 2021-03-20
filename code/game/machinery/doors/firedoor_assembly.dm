@@ -3,7 +3,7 @@ obj/structure/firedoor_assembly
 	desc = "It can save lives."
 	icon = 'icons/obj/doors/DoorHazard.dmi'
 	icon_state = "door_construction"
-	anchored = 0
+	anchored = FALSE
 	opacity = 0
 	density = 1
 	build_amt = 4

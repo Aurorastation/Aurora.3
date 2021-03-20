@@ -19,7 +19,7 @@
 	name = "gravitational generator"
 	desc = "A device which produces a gravaton field when set up."
 	icon = 'icons/obj/machines/gravity_generator.dmi'
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	use_power = 0
 	unacidable = 1

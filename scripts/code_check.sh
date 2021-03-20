@@ -83,6 +83,15 @@ else
     echo "PASS: to_world count matches" >> code_error.log
 fi
 
+echo "Checking for anchored = 0/1 uses:" >> code_error.log
+grep -r 'anchored\s*=\s*\d' **/*.dm >> code_error.log
+if [ $? -eq 0 ]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found anchored = 0/1 in code" >> code_error.log
+else
+    echo "PASS: Found no anchored = 0/1 in code:" >> code_error.log
+fi
+
 echo "Found $ERROR_COUNT Errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then

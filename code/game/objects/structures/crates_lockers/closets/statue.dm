@@ -31,7 +31,7 @@
 	if(isliving(L))
 		if(L.buckled_to)
 			L.buckled_to = 0
-			L.anchored = 0
+			L.anchored = FALSE
 		if(L.client)
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src

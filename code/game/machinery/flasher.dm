@@ -12,7 +12,7 @@
 	var/last_flash = 0 //Don't want it getting spammed like regular flashes
 	var/strength = 20 //How weakened targets are when flashed.
 	var/base_state = "mflash"
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 2
 	flags = PROXMOVE
@@ -25,7 +25,7 @@
 	icon_state = "pflash1"
 	layer = OBJ_LAYER - 0.01
 	strength = 8
-	anchored = 0
+	anchored = FALSE
 	base_state = "pflash"
 	density = 1
 

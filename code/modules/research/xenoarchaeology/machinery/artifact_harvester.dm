@@ -3,7 +3,7 @@
 	name = "exotic particle harvester"
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "incubator"	//incubator_on
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	idle_power_usage = 50
 	active_power_usage = 750
@@ -84,7 +84,7 @@
 		if(inserted_battery.stored_charge >= inserted_battery.capacity)
 			use_power = 1
 			harvesting = 0
-			cur_artifact.anchored = 0
+			cur_artifact.anchored = FALSE
 			cur_artifact.being_used = 0
 			cur_artifact = null
 			src.visible_message("<b>[name]</b> states, \"Battery is full.\"")
@@ -194,7 +194,7 @@
 						if(source_effect)
 							harvesting = 1
 							use_power = 2
-							cur_artifact.anchored = 1
+							cur_artifact.anchored = TRUE
 							cur_artifact.being_used = 1
 							icon_state = "incubator_on"
 							var/message = "<b>[src]</b> states, \"Beginning energy harvesting.\""
@@ -219,7 +219,7 @@
 			if(harvesting < 0 && inserted_battery.battery_effect && inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate()
 			harvesting = 0
-			cur_artifact.anchored = 0
+			cur_artifact.anchored = FALSE
 			cur_artifact.being_used = 0
 			cur_artifact = null
 			src.visible_message("<b>[name]</b> states, \"Energy harvesting interrupted.\"")

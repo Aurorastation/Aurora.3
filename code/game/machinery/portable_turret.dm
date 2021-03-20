@@ -12,7 +12,7 @@
 	name = "turret"
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "cover_0"
-	anchored = 1
+	anchored = TRUE
 
 	density = 0
 	use_power = 1				//this turret uses and requires power
@@ -348,12 +348,12 @@
 			//This code handles moving the turret around. After all, it's a portable turret!
 			if(!anchored)
 				playsound(loc, I.usesound, 100, 1)
-				anchored = 1
+				anchored = TRUE
 				update_icon()
 				to_chat(user, "<span class='notice'>You secure the exterior bolts on the turret.</span>")
 			else if(anchored)
 				playsound(loc, I.usesound, 100, 1)
-				anchored = 0
+				anchored = FALSE
 				to_chat(user, "<span class='notice'>You unsecure the exterior bolts on the turret.</span>")
 				update_icon()
 		wrenching = 0
@@ -809,7 +809,7 @@
 			if(I.iswrench() && !anchored)
 				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You secure the external bolts.</span>")
-				anchored = 1
+				anchored = TRUE
 				build_step = 1
 				icon_state = "turret_frame_1_[case_sprite_set]"
 				return
@@ -835,7 +835,7 @@
 			else if(I.iswrench())
 				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You unfasten the external bolts.</span>")
-				anchored = 0
+				anchored = FALSE
 				build_step = 0
 				icon_state = "turret_frame_0_[case_sprite_set]"
 				return

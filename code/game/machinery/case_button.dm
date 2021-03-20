@@ -4,7 +4,7 @@
 	desc = "A button in a case protected with a forcefield."
 	icon = 'icons/obj/glasscasebutton.dmi'
 	icon_state = "c1"
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 50 //50W because the forcefield is disabled
 	active_power_usage = 2000 //2kW because of the forcefield

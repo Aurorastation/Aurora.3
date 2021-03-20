@@ -159,7 +159,7 @@
 	icon_state = "airlock_sensor_off"
 	layer = OBJ_LAYER
 
-	anchored = 1
+	anchored = TRUE
 	power_channel = ENVIRON
 
 	var/id_tag
@@ -239,7 +239,7 @@
 	icon_state = "access_button_standby"
 	layer = OBJ_LAYER
 
-	anchored = 1
+	anchored = TRUE
 	power_channel = ENVIRON
 
 	var/master_tag

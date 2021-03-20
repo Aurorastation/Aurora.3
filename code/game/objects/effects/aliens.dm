@@ -9,7 +9,7 @@
 
 	density = 0
 	opacity = 0
-	anchored = 1
+	anchored = TRUE
 
 	var/atom/target
 	var/ticks = 0

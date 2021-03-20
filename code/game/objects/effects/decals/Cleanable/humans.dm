@@ -7,7 +7,7 @@
 	var/drydesc = "It's dry and crusty. Someone is not doing their job."
 	gender = PLURAL
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
@@ -184,7 +184,7 @@
 	desc = "They look bloody and gruesome."
 	gender = PLURAL
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
@@ -247,7 +247,7 @@
 	desc = "Disgusting mucus."
 	gender = PLURAL
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"

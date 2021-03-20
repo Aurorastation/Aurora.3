@@ -10,7 +10,7 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "heater_0"
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	use_power = 0
 	idle_power_usage = 5			//5 Watts for thermostat related circuitry
 
@@ -99,7 +99,7 @@
 	if(!ui)
 		ui = new(user, src, "machinery-atmospherics-freezer", 440, 300, "Gas Heating System")
 		ui.auto_update_content = TRUE
-	
+
 	ui.open()
 
 /obj/machinery/atmospherics/unary/heater/vueui_data_change(list/data, mob/user, datum/vueui/ui)

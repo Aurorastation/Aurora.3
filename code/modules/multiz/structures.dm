@@ -9,7 +9,7 @@
 	icon = 'icons/obj/structures.dmi'
 	density = 0
 	opacity = 0
-	anchored = 1
+	anchored = TRUE
 
 	var/allowed_directions = DOWN
 	var/obj/structure/ladder/target_up
@@ -202,7 +202,7 @@
 	icon = 'icons/obj/stairs.dmi'
 	density = 0
 	opacity = 0
-	anchored = 1
+	anchored = TRUE
 	layer = TURF_LAYER
 
 /obj/structure/stairs/Initialize()

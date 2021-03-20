@@ -32,7 +32,7 @@
 	desc = "An inflated membrane. Do not puncture."
 	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	opacity = 0
 	icon = 'icons/obj/inflatable.dmi'
 	icon_state = "wall"

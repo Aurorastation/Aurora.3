@@ -135,7 +135,7 @@
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
 	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon_state = "spiderling"
-	anchored = 0
+	anchored = FALSE
 	layer = 2.7
 	health = 3
 	var/last_itch = 0

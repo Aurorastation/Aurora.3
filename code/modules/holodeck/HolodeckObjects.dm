@@ -143,7 +143,7 @@
 	desc = "Apply butt."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "stool_padded_preview"
-	anchored = 1.0
+	anchored = TRUE
 
 /obj/item/clothing/gloves/boxing/hologlove
 	name = "boxing gloves"
@@ -174,7 +174,7 @@
 		if(W.damtype == BRUTE || W.damtype == BURN)
 			hit(W.force)
 			if(health <= 7)
-				anchored = 0
+				anchored = FALSE
 				update_nearby_icons()
 				step(src, get_dir(user, src))
 		else
@@ -319,7 +319,7 @@
 	desc = "Boom, Shakalaka!"
 	icon = 'icons/obj/basketball.dmi'
 	icon_state = "hoop"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	throwpass = 1
 
@@ -363,7 +363,7 @@
 	var/area/currentarea = null
 	var/eventstarted = 0
 
-	anchored = 1.0
+	anchored = TRUE
 	use_power = 0 // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)

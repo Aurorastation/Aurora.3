@@ -2,7 +2,7 @@
 	name = "landmark"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
-	anchored = 1.0
+	anchored = TRUE
 	unacidable = 1
 	simulated = 0
 	invisibility = 101
@@ -107,7 +107,7 @@
 	name = "start"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x"
-	anchored = 1.0
+	anchored = TRUE
 	invisibility = 101
 
 /obj/effect/landmark/start/New()

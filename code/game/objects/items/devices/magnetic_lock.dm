@@ -372,7 +372,7 @@
 		if (target_node2)
 			target_node2.bracer = null
 			target_node2 = null
-		anchored = 0
+		anchored = FALSE
 
 		STOP_PROCESSING(SSprocessing, src)
 		last_process_time = 0
@@ -385,7 +385,7 @@
 
 	last_process_time = world.time
 	START_PROCESSING(SSprocessing, src)
-	anchored = 1
+	anchored = TRUE
 
 	spawn(-15)
 		flick("deploy_[department]", src)

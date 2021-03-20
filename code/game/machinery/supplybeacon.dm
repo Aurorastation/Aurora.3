@@ -26,7 +26,7 @@
 	icon = 'icons/obj/supplybeacon.dmi'
 	icon_state = "beacon"
 
-	anchored = 0
+	anchored = FALSE
 	density = 1
 	layer = MOB_LAYER - 0.1
 	stat = 0

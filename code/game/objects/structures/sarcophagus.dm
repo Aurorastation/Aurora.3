@@ -4,7 +4,7 @@
 	icon = 'icons/obj/sarcophagus.dmi'
 	icon_state = "sarcophagus"
 	density = 1
-	anchored = 0
+	anchored = FALSE
 	var/open = FALSE
 
 /obj/structure/sarcophagus/examine(mob/user)

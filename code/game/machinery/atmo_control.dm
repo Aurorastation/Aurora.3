@@ -10,7 +10,7 @@
 	name = "gas Sensor"
 	desc = "Measures the gas content of the atmosphere around the sensor."
 
-	anchored = 1
+	anchored = TRUE
 	var/state = 0
 
 	var/id_tag

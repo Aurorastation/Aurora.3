@@ -44,7 +44,7 @@
 	var/T = get_turf(usr)
 	var/mob/living/carbon/human/bst/bst = new(T)
 //	bst.original_mob = usr
-	bst.anchored = 1
+	bst.anchored = TRUE
 	bst.ckey = usr.ckey
 	bst.name = "Bluespace Technician"
 	bst.real_name = "Bluespace Technician"

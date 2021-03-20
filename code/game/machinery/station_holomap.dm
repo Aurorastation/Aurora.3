@@ -3,7 +3,7 @@
 	desc = "A virtual map of the surrounding station."
 	icon = 'icons/obj/machines/stationmap.dmi'
 	icon_state = "station_map"
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	use_power = 1
 	idle_power_usage = 10

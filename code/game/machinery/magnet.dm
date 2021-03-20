@@ -12,7 +12,7 @@
 	desc = "A device that uses station power to create points of magnetic energy."
 	level = 1		// underfloor
 	layer = 2.5
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 50
 
@@ -192,7 +192,7 @@
 	icon = 'icons/obj/airlock_machines.dmi' // uses an airlock machine icon, THINK GREEN HELP THE ENVIRONMENT - RECYCLING!
 	icon_state = "airlock_control_standby"
 	density = 1
-	anchored = 1.0
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 45
 	var/frequency = 1449

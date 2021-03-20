@@ -23,7 +23,7 @@
 	log_and_message_admins("<span class='notice'>Event: Spacevines failed to find a viable turf.</span>")
 
 /obj/effect/dead_plant
-	anchored = 1
+	anchored = TRUE
 	opacity = 0
 	density = 0
 	color = DEAD_PLANT_COLOUR
@@ -39,7 +39,7 @@
 
 /obj/effect/plant
 	name = "plant"
-	anchored = 1
+	anchored = TRUE
 	opacity = 0
 	density = 0
 	icon = 'icons/obj/hydroponics_growing.dmi'

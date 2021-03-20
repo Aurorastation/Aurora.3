@@ -3,7 +3,7 @@
 	desc = "For the union!"
 	icon = 'icons/obj/tesla_engine/tesla_coil.dmi'
 	icon_state = "coil"
-	anchored = 0
+	anchored = FALSE
 	density = 1
 	var/power_loss = 2
 	var/input_power_multiplier = 1
@@ -57,7 +57,7 @@
 	desc = "Keep an area from being fried from Edison's Bane."
 	icon = 'icons/obj/tesla_engine/tesla_coil.dmi'
 	icon_state = "grounding_rod"
-	anchored = 0
+	anchored = FALSE
 	density = 1
 
 	component_types = list(

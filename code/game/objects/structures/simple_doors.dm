@@ -1,7 +1,7 @@
 /obj/structure/simple_door
 	name = "door"
 	density = 1
-	anchored = 1
+	anchored = TRUE
 
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"

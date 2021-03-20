@@ -33,7 +33,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	if(!current_map.overmap_z)
 		build_overmap()
-		
+
 	start_x = start_x || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 	start_y = start_y || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 
@@ -102,7 +102,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	name = "generic sector"
 	desc = "Sector with some stuff in it."
 	icon_state = "sector"
-	anchored = 1
+	anchored = TRUE
 
 // Because of the way these are spawned, they will potentially have their invisibility adjusted by the turfs they are mapped on
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
@@ -115,7 +115,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	testing("Building overmap...")
 	world.maxz++
 	current_map.overmap_z = world.maxz
-	
+
 	testing("Putting overmap on [current_map.overmap_z]")
 	var/area/overmap/A = new
 	global.map_overmap = A

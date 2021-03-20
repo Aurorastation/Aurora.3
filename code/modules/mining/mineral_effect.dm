@@ -4,7 +4,7 @@
 	desc = "Shiny."
 	mouse_opacity = 0
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	var/ore_key
 	var/image/scanner_image
 

@@ -3,7 +3,7 @@
 	desc = "A wall mounted cabinet designed to hold a tranquilizer rifle."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "tranq_closed"
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	var/obj/item/gun/projectile/heavysniper/tranq/has_tranq
 	var/opened = 0

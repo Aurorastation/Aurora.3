@@ -5,7 +5,7 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "mirror"
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	var/shattered = 0
 
 /obj/structure/mirror/attack_hand(mob/user as mob)

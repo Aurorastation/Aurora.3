@@ -2,7 +2,7 @@
 	var/datum/computer/file/embedded_program/program	//the currently executing program
 
 	name = "Embedded Controller"
-	anchored = 1
+	anchored = TRUE
 	layer = OBJ_LAYER
 
 	use_power = 1

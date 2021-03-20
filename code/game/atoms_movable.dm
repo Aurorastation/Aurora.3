@@ -1,7 +1,7 @@
 /atom/movable
 	layer = 3
 	var/last_move = null
-	var/anchored = 0
+	var/anchored = FALSE
 	var/movable_flags
 
 	// var/elevation = 2    - not used anywhere
@@ -205,7 +205,7 @@
 //Overlays
 /atom/movable/overlay
 	var/atom/master = null
-	anchored = 1
+	anchored = TRUE
 
 /atom/movable/overlay/New()
 	verbs.Cut()

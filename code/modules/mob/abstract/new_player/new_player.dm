@@ -14,7 +14,7 @@
 	stat = 2
 	canmove = 0
 
-	anchored = 1	//  don't get pushed around
+	anchored = TRUE	//  don't get pushed around
 	simulated = FALSE
 
 INITIALIZE_IMMEDIATE(/mob/abstract/new_player)

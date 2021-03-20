@@ -135,7 +135,7 @@
 					A.circuit = M
 					A.state = 3
 					A.icon_state = "3"
-					A.anchored = 1
+					A.anchored = TRUE
 					qdel(src)
 				else
 					to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
@@ -146,7 +146,7 @@
 					A.circuit = M
 					A.state = 4
 					A.icon_state = "4"
-					A.anchored = 1
+					A.anchored = TRUE
 					qdel(src)
 		src.updateUsrDialog()
 		return

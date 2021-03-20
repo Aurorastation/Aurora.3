@@ -6,7 +6,7 @@
 	name = "R&D device"
 	icon = 'icons/obj/machines/research.dmi'
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	var/busy = 0
 	var/obj/machinery/computer/rdconsole/linked_console

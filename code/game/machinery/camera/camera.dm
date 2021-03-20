@@ -12,7 +12,7 @@
 	var/c_tag = null
 	var/c_tag_order = 999
 	var/status = 1
-	anchored = 1.0
+	anchored = TRUE
 	var/invuln = null
 	var/bugged = 0
 	var/obj/item/camera_assembly/assembly = null
@@ -145,7 +145,7 @@
 		if(weld(W, user))
 			if(assembly)
 				assembly.forceMove(src.loc)
-				assembly.anchored = 1
+				assembly.anchored = TRUE
 				assembly.camera_name = c_tag
 				assembly.camera_network = english_list(network, "Station", ",", ",")
 				assembly.update_icon()

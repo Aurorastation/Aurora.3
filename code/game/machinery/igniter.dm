@@ -5,7 +5,7 @@
 	icon_state = "igniter1"
 	var/id = null
 	var/on = 0
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
@@ -68,7 +68,7 @@
 	var/last_spark = 0
 	var/base_state = "migniter"
 	layer = 3.3
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4

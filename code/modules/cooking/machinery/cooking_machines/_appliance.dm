@@ -12,7 +12,7 @@
 	icon = 'icons/obj/cooking_machines.dmi'
 	var/appliancetype = 0
 	density = 1
-	anchored = 1
+	anchored = TRUE
 
 	use_power = 0
 	idle_power_usage = 5			// Power used when turned on, but not processing anything

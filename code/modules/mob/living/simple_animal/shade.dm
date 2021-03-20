@@ -326,7 +326,7 @@
 
 	possessed_body = H
 	possessive = 1
-	anchored = 1
+	anchored = TRUE
 	canmove = 0
 	forceMove(possessed_body)
 	heard_dying_message = 0
@@ -346,7 +346,7 @@
 	forceMove(get_turf(possessed_body))
 	possessed_body = null
 	possessive = 0
-	anchored = 0
+	anchored = FALSE
 	canmove = 1
 	heard_dying_message = 0
 	possession_heard_message = 0

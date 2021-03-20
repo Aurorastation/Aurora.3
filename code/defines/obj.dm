@@ -1,7 +1,7 @@
 /obj/structure/signpost
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "signpost"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 
 	attackby(obj/item/W as obj, mob/user as mob)
@@ -20,7 +20,7 @@
 		var/mark = ""
 		icon = 'icons/misc/mark.dmi'
 		icon_state = "blank"
-		anchored = 1
+		anchored = TRUE
 		layer = 99
 		mouse_opacity = 0
 		unacidable = 1//Just to be sure.
@@ -44,7 +44,7 @@
 /obj/effect/projection
 	name = "Projection"
 	desc = "This looks like a projection of something."
-	anchored = 1.0
+	anchored = TRUE
 
 /obj/structure/showcase
 	name = "Showcase"
@@ -52,7 +52,7 @@
 	icon_state = "showcase_1"
 	desc = "A stand with the empty body of a cyborg bolted to it."
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	unacidable = 1//temporary until I decide whether the borg can be removed. -veyveyr
 
 /obj/item/mouse_drag_pointer = MOUSE_ACTIVE_POINTER
@@ -63,7 +63,7 @@
 	name = "beach ball"
 	item_state = "beachball"
 	density = 0
-	anchored = 0
+	anchored = FALSE
 	w_class = ITEMSIZE_LARGE
 	force = 0.0
 	throwforce = 0.0
@@ -84,12 +84,12 @@
 	name = "Abandoned Shuttle"
 	desc = "An ancient and inoperable shuttle-craft"
 	icon = 'icons/obj/machines/spaceship.dmi'
-	anchored = 1
+	anchored = TRUE
 	density = 1
 
 /obj/structure/mainframe
 	name = "Ancient Mainframe"
 	desc = "A long-fried AI mainframe from the 2420s. It's more fit to be holding rats than AIs at this point."
 	icon = 'icons/obj/mainframe.dmi'
-	anchored = 1
+	anchored = TRUE
 	density = 1

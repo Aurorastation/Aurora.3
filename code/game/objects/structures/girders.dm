@@ -4,7 +4,7 @@
 	A false wall can be made by using a crowbar on this girder, and then adding some material.<br>\
 	You can dismantle the grider with a wrench, or add support struts with a screwdriver to enable further reinforcement."
 	icon_state = "girder"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	layer = ABOVE_CABLE_LAYER
 	w_class = ITEMSIZE_HUGE
@@ -34,7 +34,7 @@
 /obj/structure/girder/displaced
 	name = "displaced girder"
 	icon_state = "displaced"
-	anchored = 0
+	anchored = FALSE
 	health = 50
 	cover = 25
 
@@ -61,7 +61,7 @@
 		dismantle()
 
 /obj/structure/girder/proc/reset_girder()
-	anchored = 1
+	anchored = TRUE
 	cover = initial(cover)
 	health = min(health,initial(health))
 	state = 0
@@ -171,7 +171,7 @@
 			if(!src) return
 			to_chat(user, "<span class='notice'>You dislodged the girder!</span>")
 			icon_state = "displaced"
-			anchored = 0
+			anchored = FALSE
 			health = 50
 			cover = 25
 

@@ -6,7 +6,7 @@ var/list/floor_light_cache = list()
 	icon_state = "base"
 	desc = "A backlit floor panel."
 	layer = TURF_LAYER+0.001
-	anchored = 0
+	anchored = FALSE
 	use_power = 2
 	idle_power_usage = 2
 	active_power_usage = 20
@@ -22,7 +22,7 @@ var/list/floor_light_cache = list()
 	var/default_light_colour = "#FFFFFF"
 
 /obj/machinery/floor_light/prebuilt
-	anchored = 1
+	anchored = TRUE
 
 /obj/machinery/floor_light/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
@@ -182,11 +182,11 @@ var/list/floor_light_cache = list()
 /obj/machinery/floor_light/dance
 	name = "dance floor"
 	on_state = "light_on-dancefloor_A"
-	anchored = 1
+	anchored = TRUE
 	on = TRUE
 	use_power = 2
 
 /obj/machinery/floor_light/dance/alternate
 	name = "dance floor"
 	on_state = "light_on-dancefloor_B"
-	anchored = 1
+	anchored = TRUE

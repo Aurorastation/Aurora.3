@@ -19,7 +19,7 @@
 	icon_state = "rfd"
 	opacity = 0
 	density = 0
-	anchored = 0.0
+	anchored = FALSE
 	var/stored_matter = 0
 	var/mode = 1
 	w_class = ITEMSIZE_NORMAL

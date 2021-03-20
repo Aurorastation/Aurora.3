@@ -1,6 +1,6 @@
 /obj/effect/rune
 	desc = "A strange collection of symbols drawn in blood."
-	anchored = 1
+	anchored = TRUE
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "1"
 	unacidable = TRUE

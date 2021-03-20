@@ -15,7 +15,7 @@ var/list/tape_roll_applications = list()
 /obj/item/tape
 	name = "tape"
 	icon = 'icons/policetape.dmi'
-	anchored = 1
+	anchored = TRUE
 	var/lifted = 0
 	var/list/crumplers
 	var/crumpled = 0

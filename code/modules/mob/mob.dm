@@ -925,20 +925,20 @@
 				lying = 1
 				canmove = 0
 				pixel_y = V.mob_offset_y - 5
-			else 
+			else
 				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
 				canmove = 1
 				pixel_y = V.mob_offset_y
 		else if(buckled_to)
-			anchored = 1
+			anchored = TRUE
 			canmove = 0
 			if(buckled_to.buckle_lying != -1)
 				lying = buckled_to.buckle_lying
 			if(buckled_to.buckle_movable)
-				anchored = 0
+				anchored = FALSE
 				canmove = 1
 		else if(captured)
-			anchored = 1
+			anchored = TRUE
 			canmove = 0
 			lying = 0
 		else
@@ -1117,7 +1117,7 @@
 		if(O == implant)
 			pinned -= O
 		if(!pinned.len)
-			anchored = 0
+			anchored = FALSE
 	implant.dropInto(loc)
 	implant.add_blood(src)
 	implant.update_icon()

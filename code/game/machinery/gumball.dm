@@ -4,7 +4,7 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
 	layer = 2.9
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	use_power = 1
 	idle_power_usage = 10

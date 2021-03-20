@@ -5,7 +5,7 @@
 	desc = "It's a machine that grows replacement organs."
 	icon = 'icons/obj/surgery.dmi'
 
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	use_power = 1
 	idle_power_usage = 40

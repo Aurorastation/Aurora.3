@@ -3,7 +3,7 @@
 	icon = 'icons/obj/lockwall.dmi'
 	icon_state = "emerg"
 	var/list/spawnitems = list()
-	anchored = 1
+	anchored = TRUE
 	var/amount = 3 // spawns each items X times.
 /obj/structure/walllocker/attack_hand(mob/user as mob)
 	if (istype(user, /mob/living/silicon/ai))	//Added by Strumpetplaya - AI shouldn't be able to

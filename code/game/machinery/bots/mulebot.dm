@@ -11,7 +11,7 @@
 	icon_state = "mulebot0"
 	layer = MOB_LAYER
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	animate_movement=1
 	health = 150 //yeah, it's tougher than ed209 because it is a big metal box with wheels --rastaf0
 	maxhealth = 150

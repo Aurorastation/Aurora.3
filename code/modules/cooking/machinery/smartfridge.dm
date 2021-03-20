@@ -6,7 +6,7 @@
 	icon_state = "smartfridge"
 	layer = 2.9
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 100

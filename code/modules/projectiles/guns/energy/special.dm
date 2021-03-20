@@ -315,7 +315,7 @@
 	fire_delay = 30
 	sharp = 1
 	edge = 1
-	anchored = 0
+	anchored = FALSE
 	armor_penetration = 40
 	flags = NOBLOODY
 	can_embed = 0
@@ -362,7 +362,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.mob_size >= 30)
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-			anchored = 1
+			anchored = TRUE
 			to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 			icon_state = "megaglaive1"
 			..()
@@ -375,7 +375,7 @@
 	if(!istype(loc,/mob))
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		icon_state = "megaglaive0"
-		anchored = 0
+		anchored = FALSE
 
 /obj/item/gun/energy/vaurca/typec/update_icon()
 	return

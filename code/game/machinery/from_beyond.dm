@@ -4,7 +4,7 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "ano60"	//TODO: get unique sprites for this
 
-	anchored = 0
+	anchored = FALSE
 	density = 1
 
 	use_power = 1

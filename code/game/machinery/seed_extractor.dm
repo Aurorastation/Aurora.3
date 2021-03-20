@@ -4,7 +4,7 @@
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "sextractor"
 	density = 1
-	anchored = 1
+	anchored = TRUE
 
 obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob)
 

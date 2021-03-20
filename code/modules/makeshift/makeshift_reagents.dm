@@ -5,7 +5,7 @@
 	desc = "It's a makeshift workstation for grinding, chopping, and heating."
 	density = 1
 
-	anchored = 1
+	anchored = TRUE
 	throwpass = 1
 
 	var/obj/item/device/analyzer/analyzer
@@ -177,7 +177,7 @@
 	desc = "It's a makeshift still for purifying alcohol."
 	density = 1
 
-	anchored = 1
+	anchored = TRUE
 
 	// we don't have it as an opencontainer because it's handled directly
 

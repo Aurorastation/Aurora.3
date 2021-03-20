@@ -3,7 +3,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "fuel"
 	layer = TURF_LAYER+0.2
-	anchored = 1
+	anchored = TRUE
 	var/amount = 1
 
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, nologs = 0)
@@ -46,7 +46,7 @@
 			amount *= 0.75
 
 /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel
-	anchored = 0
+	anchored = FALSE
 
 /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel/Initialize(mapload, amt = 1, d = 0)
 	set_dir(d) //Setting this direction means you won't get torched by your own flamethrower.
@@ -112,7 +112,7 @@
 	desc = "Some kind of extinguishing foam."
 	gender = PLURAL
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	layer = 2
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "white_foam"

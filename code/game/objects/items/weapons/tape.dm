@@ -93,7 +93,7 @@
 	icon_state = "tape"
 	w_class = ITEMSIZE_TINY
 	layer = 4
-	anchored = 1 //it's sticky, no you cant move it
+	anchored = TRUE //it's sticky, no you cant move it
 	drop_sound = null
 	var/obj/item/stuck = null
 

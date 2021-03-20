@@ -10,14 +10,14 @@
 	level = 1
 	layer = TURF_LAYER
 	var/obj/machinery/power/master = null
-	anchored = 1
+	anchored = TRUE
 	layer = 2.6 // a bit above wires
 
 
 /obj/machinery/power/terminal/Initialize()
 	. = ..()
 	var/turf/T = src.loc
-	if(level == 1) 
+	if(level == 1)
 		hide(!T.is_plating())
 	return
 

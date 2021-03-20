@@ -142,7 +142,7 @@
 
 /obj/vehicle/bike/turn_on()
 	ion.start()
-	anchored = 1
+	anchored = TRUE
 
 	if(can_hover)
 		flying = TRUE

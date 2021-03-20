@@ -41,7 +41,7 @@
 					to_chat(user, "<span class='warning'>No exposed cable here to attach to.</span>")
 					return
 				else
-					anchored = 1
+					anchored = TRUE
 					mode = 1
 					visible_message("<span class='notice'>\The [user] attaches \the [src] to the cable!</span>")
 					return
@@ -52,7 +52,7 @@
 			if (mode == 2)
 				STOP_PROCESSING(SSprocessing, src)
 				processing_power_items.Remove(src)
-			anchored = 0
+			anchored = FALSE
 			mode = 0
 			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
 			set_light(0)

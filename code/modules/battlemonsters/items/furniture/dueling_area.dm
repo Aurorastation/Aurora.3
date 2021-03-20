@@ -1,7 +1,7 @@
 /obj/structure/dueling_table
 	name = "dueling table"
 	icon = 'icons/obj/battle_monsters/furniture.dmi'
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	climbable = 1
 	throwpass = 1
@@ -16,7 +16,7 @@
 	name = "battlemonsters logo"
 	icon = 'icons/obj/battle_monsters/logo.dmi'
 	icon_state = "logo"
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	mouse_opacity = 0
 

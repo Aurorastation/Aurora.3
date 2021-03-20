@@ -16,7 +16,7 @@
 		)
 	opacity = 0
 	density = 0
-	anchored = 0.0
+	anchored = FALSE
 	flags = CONDUCT
 	force = 10.0
 	throwforce = 10.0

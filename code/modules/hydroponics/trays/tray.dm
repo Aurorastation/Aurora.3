@@ -4,7 +4,7 @@
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "hydrotray3"
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	flags = OPENCONTAINER
 	volume = 100
 

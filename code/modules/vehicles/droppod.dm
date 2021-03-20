@@ -95,7 +95,7 @@
 	C.forceMove(src)
 
 	C.set_dir(dir)
-	C.anchored = 1
+	C.anchored = TRUE
 
 	user_buckle(C, C)
 	icon_state = initial(icon_state)
@@ -133,7 +133,7 @@
 			var/mob/living/L = a
 			L.forceMove(dest)
 			L.set_dir(get_dir(loc, dest))
-			L.anchored = 0
+			L.anchored = FALSE
 			L.pixel_x = initial(user.pixel_x)
 			L.pixel_y = initial(user.pixel_y)
 			L.layer = initial(user.layer)

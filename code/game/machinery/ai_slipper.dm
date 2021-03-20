@@ -3,7 +3,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "motion0"
 	layer = 3
-	anchored = 1.0
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 10
 	var/uses = 20

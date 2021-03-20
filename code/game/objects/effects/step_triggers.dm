@@ -6,7 +6,7 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
 	invisibility = 101 // nope cant see this shit
-	anchored = 1
+	anchored = TRUE
 
 /obj/effect/step_trigger/proc/Trigger(var/atom/movable/A)
 	return 0

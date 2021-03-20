@@ -10,7 +10,7 @@
 	var/time = 10
 	var/timing = 0
 	var/lockdownbyai = 0
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 6

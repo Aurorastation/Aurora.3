@@ -242,7 +242,7 @@
 	desc = "Tick. Tock. Tick. Tock. Tick. Tock."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "metronome1"
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	var/time_last_ran = 0
 	var/ticktock = "Tick"
@@ -262,12 +262,12 @@
 			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
 			STOP_PROCESSING(SSfast_process, src)
 			icon_state = "metronome0"
-			anchored = 0
+			anchored = FALSE
 		else
 			to_chat(user, "<span class='notice'>You anchor \the [src] and it restabilizes.</span>")
 			START_PROCESSING(SSfast_process, src)
 			icon_state = "metronome1"
-			anchored = 1
+			anchored = TRUE
 	else
 		..()
 
@@ -299,7 +299,7 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "sleeper_s"
 	density = 1
-	anchored = 1
+	anchored = TRUE
 
 	use_power = 1
 	idle_power_usage = 60
@@ -483,7 +483,7 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "sleeper_s_scannerconsole"
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	var/obj/machinery/chakrapod/connected
 	var/crystal = 0
 	var/working = 0

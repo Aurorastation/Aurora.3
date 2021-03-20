@@ -5,7 +5,7 @@
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
 	density = 1
-	anchored = 0
+	anchored = FALSE
 	var/accept_any_reagent = TRUE
 
 	var/amount_per_transfer_from_this = 10
@@ -229,7 +229,7 @@
 	name = "pepper spray refiller"
 	desc = "Refill pepper spray canisters."
 	icon_state = "peppertank"
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	amount_per_transfer_from_this = 45
 	can_tamper = FALSE
@@ -240,7 +240,7 @@
 	desc = "A dispenser of virus food."
 	icon_state = "virusfoodtank"
 	amount_per_transfer_from_this = 10
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/nutriment/virusfood = 1000)
@@ -250,7 +250,7 @@
 	desc = "A dispenser of acid for industrial processes."
 	icon_state = "acidtank"
 	amount_per_transfer_from_this = 10
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/acid = 1000)
@@ -264,7 +264,7 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "water_cooler"
 	possible_transfer_amounts = null
-	anchored = 1
+	anchored = TRUE
 	capacity = 500
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/water = 500)
@@ -277,11 +277,11 @@
 			if(!src) return
 			switch (anchored)
 				if (0)
-					anchored = 1
+					anchored = TRUE
 					user.visible_message("\The [user] tightens the screws securing \the [src] to the floor.", "You tighten the screws securing \the [src] to the floor.")
 				if (1)
 					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.", "You unfasten the screws securing \the [src] to the floor.")
-					anchored = 0
+					anchored = FALSE
 		return
 	else
 		..()

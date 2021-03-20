@@ -8,7 +8,7 @@
 	icon_locked ="base"
 	icon_closed ="base"
 	icon_opened = "base"
-	anchored = 1
+	anchored = TRUE
 	canbemoved = 1
 
 

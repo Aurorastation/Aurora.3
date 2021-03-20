@@ -6,7 +6,7 @@
 	use_power = 0
 	idle_power_usage = 100
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	var/obj/item/reagent_containers/container
 	var/target_temperature = 300 //Measured in kelvin.
 	var/accept_drinking = FALSE

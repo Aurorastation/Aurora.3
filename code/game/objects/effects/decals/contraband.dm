@@ -84,7 +84,7 @@
 	desc = "A large piece of space-resistant printed paper. "
 	icon = 'icons/obj/contraband.dmi'
 	icon_state = "poster_map"
-	anchored = 1
+	anchored = TRUE
 	var/serial_number	//Will hold the value of src.loc if nobody initialises it
 	var/poster_type		//So mappers can specify a desired poster
 	var/ruined = FALSE

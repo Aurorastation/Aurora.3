@@ -140,7 +140,7 @@
 /obj/structure/bed/chair/office
 	name = "office chair"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
-	anchored = 0
+	anchored = FALSE
 	buckle_movable = 1
 	build_amt = 5
 
@@ -203,7 +203,7 @@
 	desc = "It exudes authority... and looks about as comfortable as a brick."
 	icon_state = "bridge_preview"
 	base_icon = "bridge"
-	anchored = 1
+	anchored = TRUE
 
 /obj/structure/bed/chair/office/bridge/legion
 	name = "legion pilot seat"

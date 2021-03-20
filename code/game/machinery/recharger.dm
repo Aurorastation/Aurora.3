@@ -5,7 +5,7 @@
 	desc = "Useful for recharging electronic devices."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger_off"
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 6
 	active_power_usage = 45 KILOWATTS

@@ -18,7 +18,7 @@
 	use_power = 1
 	idle_power_usage = 100
 	density = 1
-	anchored = 1
+	anchored = TRUE
 
 /obj/machinery/chemical_dispenser/Initialize()
 	. = ..()

@@ -15,7 +15,7 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "icecream_vat"
 	density = 1
-	anchored = 0
+	anchored = FALSE
 	use_power = 0
 	flags = OPENCONTAINER | NOREACT
 

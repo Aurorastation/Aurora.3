@@ -26,6 +26,6 @@
 	icon = 'icons/misc/mark.dmi'
 	name = "X"
 	invisibility = 101
-	anchored = 1
+	anchored = TRUE
 	opacity = 0
 */

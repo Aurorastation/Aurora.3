@@ -14,7 +14,7 @@
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
 	layer = OBJ_LAYER
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	use_power = 1
 	idle_power_usage = 10

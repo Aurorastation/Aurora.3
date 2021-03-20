@@ -360,7 +360,7 @@
 					if(victim || target)
 						victim = null
 						target = null
-						anchored = 0
+						anchored = FALSE
 						if(prob(80) && !client)
 							discipline++
 					spawn(0)

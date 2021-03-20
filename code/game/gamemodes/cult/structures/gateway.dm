@@ -5,7 +5,7 @@
 	icon_state = "hole"
 	density = TRUE
 	unacidable = TRUE
-	anchored = 1.0
+	anchored = TRUE
 	var/spawnable = null
 
 /obj/effect/gateway/CollidedWith(mob/M)

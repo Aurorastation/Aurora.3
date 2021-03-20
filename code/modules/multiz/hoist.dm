@@ -22,7 +22,7 @@
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
 	can_buckle = 1
-	anchored = 1
+	anchored = TRUE
 
 /obj/effect/hoist_hook/attack_hand(mob/living/user)
 	return // no, bad
@@ -46,7 +46,7 @@
 	hoistee = AM
 	if(ismob(AM))
 		source_hook.buckle(AM)
-	AM.anchored = 1 // why isn't this being set by buckle for silicons?
+	AM.anchored = TRUE // why isn't this being set by buckle for silicons?
 	source_hook.layer = AM.layer + 0.1
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
@@ -91,7 +91,7 @@
 	icon_state = "hoist_base"
 	var/broken = 0
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	name = "hoist"
 	desc = "A manual hoist, uses a clamp and pulley to hoist things."
 	var/atom/movable/hoistee
@@ -126,7 +126,7 @@
 	if(ismob(hoistee))
 		source_hook.unbuckle(hoistee)
 	else
-		hoistee.anchored = 0
+		hoistee.anchored = FALSE
 	hoistee = null
 	layer = NORMAL_LAYER
 

@@ -5,7 +5,7 @@
 	desc = "Shoots things into space."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mass_driver"
-	anchored = 1.0
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 50
@@ -61,13 +61,13 @@
 			user.visible_message("[user.name] secures [src] to the floor.", \
 				"You secure the external reinforcing bolts to the floor.", \
 				"You hear a ratchet")
-			src.anchored = 1
+			src.anchored = TRUE
 		else
 			playsound(src.loc, W.usesound, 75, 1)
 			user.visible_message("[user.name] unsecures [src] from the floor.", \
 				"You unsecure the external reinforcing bolts from the floor.", \
 				"You hear a ratchet")
-			src.anchored = 0
+			src.anchored = FALSE
 
 /obj/item/mass_driver_diy
 	name = "Mass Driver Kit"
@@ -155,5 +155,5 @@
 	desc = "Shoots things really hard really fast."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mass_driver"
-	anchored = 0
+	anchored = FALSE
 	use_power = 0

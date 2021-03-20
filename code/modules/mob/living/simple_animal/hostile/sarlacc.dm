@@ -15,7 +15,7 @@
 	icon_state = null
 	mouse_opacity = 0
 	throwforce = 0
-	anchored = 1
+	anchored = TRUE
 	deployed = 1
 	time_to_escape = 45 SECONDS
 	var/mob/living/simple_animal/hostile/greatworm/originator
@@ -97,7 +97,7 @@
 	maxHealth = 100
 	gender = NEUTER
 	status_flags = 0
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	a_intent = I_HURT
 	stop_automated_movement = 1
@@ -260,7 +260,7 @@
 	maxHealth = 25
 	gender = NEUTER
 	status_flags = 0
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	a_intent = I_HURT
 	stop_automated_movement = 1
@@ -324,7 +324,7 @@
 
 	gender = MALE
 	status_flags = 0
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	a_intent = I_HURT
 	stop_automated_movement = 1
@@ -406,7 +406,7 @@
 	desc = "The intestinal length of the great worm this end belongs to travels for what looks like miles."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccend"
-	anchored = 1
+	anchored = TRUE
 	density = 0
 	layer = 2.1
 

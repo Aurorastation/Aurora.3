@@ -8,7 +8,7 @@
 	icon_state = "shieldsparkles"
 	alpha = 0
 	mouse_opacity = 0
-	anchored = 1
+	anchored = TRUE
 	layer = 4.1		//just above mobs
 	density = 0
 	var/strength = 0

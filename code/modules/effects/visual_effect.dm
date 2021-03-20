@@ -1,7 +1,7 @@
 /obj/effect/visual
 	name = "effect"
 	icon = 'icons/effects/effects.dmi'
-	anchored = 1
+	anchored = TRUE
 	simulated = 0
 	mouse_opacity = 0
 	var/life_ticks			// How many ticks this effect will live before it stops processing.
@@ -22,7 +22,7 @@
 
 // Called every effects processor tick. Return value determines what the process does to this object.
 /obj/effect/visual/proc/tick()
-	if (!life_ticks)	
+	if (!life_ticks)
 		return EFFECT_DESTROY
 
 	life_ticks--

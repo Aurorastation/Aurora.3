@@ -23,7 +23,7 @@
 	icon_state = "palm1"
 	density = 1
 	layer = 5
-	anchored = 1
+	anchored = TRUE
 
 
 /obj/effect/overlay/palmtree_l
@@ -32,7 +32,7 @@
 	icon_state = "palm2"
 	density = 1
 	layer = 5
-	anchored = 1
+	anchored = TRUE
 
 
 /obj/effect/overlay/coconut
@@ -52,12 +52,12 @@
 	icon = 'icons/turf/overlays.dmi'
 	icon_state = "snowfloor"
 	density = 0
-	anchored = 1
+	anchored = TRUE
 	layer = 3
 
 /obj/effect/overlay/temp
 	icon_state = "nothing"
-	anchored = 1
+	anchored = TRUE
 	layer = 5
 	mouse_opacity = 0
 	var/duration = 10 //in deciseconds

@@ -13,7 +13,7 @@ datum/track/New(var/title_name, var/audio)
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "jukebox2-nopower"
 	var/state_base = "jukebox2"
-	anchored = 0
+	anchored = FALSE
 	density = 1
 	power_channel = EQUIP
 	use_power = 1
@@ -222,7 +222,7 @@ datum/track/New(var/title_name, var/audio)
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "record"
 	state_base = "record"
-	anchored = 0
+	anchored = FALSE
 	tracks = list(
 		new/datum/track("Boolean Sisters", 'sound/music/recordplayer/BooleanSisters.ogg'),
 		new/datum/track("Posin'", 'sound/music/recordplayer/Posin.ogg'),

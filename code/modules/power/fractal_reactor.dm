@@ -8,7 +8,7 @@
 	desc = "This thing drains power from fractal-subspace." // (DEBUG ITEM: INFINITE POWERSOURCE FOR MAP TESTING. CONTACT DEVELOPERS IF FOUND.)"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "tracker" //ICON stolen from solar tracker. There is no need to make new texture for debug item
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	var/power_generation_rate = 1000000 //Defaults to 1MW of power.
 	var/powernet_connection_failed = 0

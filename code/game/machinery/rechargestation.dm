@@ -4,7 +4,7 @@
 	icon = 'icons/obj/robot_charger.dmi'
 	icon_state = "borgcharger0"
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 75
 	has_special_power_checks = TRUE

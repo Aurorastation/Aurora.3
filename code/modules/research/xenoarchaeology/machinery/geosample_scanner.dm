@@ -2,7 +2,7 @@
 /obj/machinery/radiocarbon_spectrometer
 	name = "radiocarbon spectrometer"
 	desc = "A specialised, complex scanner for gleaning information on all manner of small things."
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	flags = OPENCONTAINER
 	icon = 'icons/obj/virology.dmi'

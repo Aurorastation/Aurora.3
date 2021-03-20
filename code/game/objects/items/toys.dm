@@ -408,7 +408,7 @@
 	desc = ""
 	icon = 'icons/obj/toy.dmi'
 	icon_state = null
-	anchored = 1
+	anchored = TRUE
 	density = 0
 
 

@@ -24,7 +24,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	name = "visitor computer"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "computer"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	var/screenstate = 0
 	var/title
@@ -118,7 +118,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	name = "Check-In/Out Computer"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "computer"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	var/arcanecheckout = 0
 	var/screenstate = 0 // 0 - Main Menu, 1 - Inventory, 2 - Checked Out, 3 - Check Out a Book
@@ -404,7 +404,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bigscanner"
 	var/insert_anim = "bigscanner1"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	var/obj/item/book/cache		// Last scanned book
 
@@ -456,7 +456,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	name = "Book Binder"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "binder"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 
 /obj/machinery/bookbinder/attackby(var/obj/O as obj, var/mob/user as mob)

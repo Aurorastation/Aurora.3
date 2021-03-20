@@ -5,7 +5,7 @@
 	icon_state = "secure1"
 	density = 1
 	opened = 0
-	anchored = 0
+	anchored = FALSE
 	var/locked = 1
 	var/broken = 0
 	var/large = 1
@@ -139,7 +139,7 @@
 				to_chat(user,  "<span class='notice'>You unfasten the locker's bolts!</span>")
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = 0
-				anchored = 0
+				anchored = FALSE
 		else if(!wrenched)
 			to_chat(user,  "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>")
 			playsound(loc, W.usesound, 50, 1)
@@ -147,7 +147,7 @@
 				to_chat(user,  "<span class='notice'>You fasten the locker's bolts!</span>")
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = 1
-				anchored = 1
+				anchored = TRUE
 	else if(istype(W, /obj/item/device/hand_labeler))
 		var/obj/item/device/hand_labeler/HL = W
 		if (HL.mode == 1)

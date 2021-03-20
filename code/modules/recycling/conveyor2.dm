@@ -7,7 +7,7 @@
 	name = "conveyor belt"
 	desc = "A conveyor belt."
 	layer = 2			// so they appear under stuff
-	anchored = 1
+	anchored = TRUE
 	var/operating = 0	// 1 if running forward, -1 if backwards, 0 if off
 	var/operable = 1	// true if can operate (no broken segments in this belt run)
 	var/forwards		// this is the default (forward) direction, set by the map dir
@@ -198,7 +198,7 @@
 
 	var/id = "" 				// must match conveyor IDs to control them
 
-	anchored = 1
+	anchored = TRUE
 
 /obj/machinery/conveyor_switch/Initialize(mapload, newid)
 	. = ..()

@@ -10,7 +10,7 @@ FLOOR SAFES
 	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Scarborough Arms - 2 tumbler safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\""
 	icon = 'icons/obj/safe.dmi'
 	icon_state = "safe"
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	var/broken = FALSE	//is the tumbler broken into
 	var/open = 0		//is the safe open?

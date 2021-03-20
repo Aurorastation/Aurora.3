@@ -1,7 +1,7 @@
 /obj/structure/banner
 	name = "corporate banner"
 	desc = "A blue flag emblazoned with a golden logo of Nanotrasen hanging from a wooden stand."
-	anchored = 1
+	anchored = TRUE
 	density = 1
 	layer = 9
 	var/icon_up = "banner_up"
@@ -30,11 +30,11 @@
 	if(W.iswrench())
 		switch(anchored)
 			if(0)
-				anchored = 1
+				anchored = TRUE
 				playsound(src.loc, W.usesound, 75, 1)
 				user.visible_message("[user.name] secures [src.name] to the floor.", "You secure [src.name] to the floor.", "You hear a ratchet")
 			if(1)
-				anchored = 0
+				anchored = FALSE
 				playsound(src.loc, W.usesound, 75, 1)
 				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.", "You unsecure [src.name] from the floor.", "You hear a ratchet")
 		return

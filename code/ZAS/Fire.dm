@@ -122,7 +122,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 /obj/fire
 	//Icon for fire on turfs.
 
-	anchored = 1
+	anchored = TRUE
 	mouse_opacity = 0
 
 	blend_mode = BLEND_ADD
@@ -152,7 +152,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		set_light(7, FIRE_LIGHT_2, no_update = TRUE)
 	else
 		set_light(5, FIRE_LIGHT_1, no_update = TRUE)
-	
+
 	air_contents.adjust_gas(GAS_CO2, firelevel * 0.07)
 
 	for(var/mob/living/L in loc)

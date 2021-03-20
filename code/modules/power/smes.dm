@@ -24,7 +24,7 @@
 	desc_info = "It can be repaired with a welding tool."
 	icon_state = "smes"
 	density = 1
-	anchored = 1
+	anchored = TRUE
 	use_power = 0
 	clicksound = /decl/sound_category/switch_sound
 

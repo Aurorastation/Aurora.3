@@ -9,7 +9,7 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
 
-	anchored = 1
+	anchored = TRUE
 	unacidable = 1
 	simulated = 0
 	invisibility = 101
@@ -118,7 +118,7 @@
 	icon_recharging = "sleeper"	//Icon to use when recharging
 	icon_used = "sleeper"	//Icon to use when spwanpoint has been used
 
-	anchored = 1
+	anchored = TRUE
 	unacidable = 1
 	simulated = 1
 	invisibility = 0
@@ -136,7 +136,7 @@
 	icon_recharging = "doorctrl-p"
 	icon_used = "doorctrl-p"
 
-	anchored = 1
+	anchored = TRUE
 	unacidable = 1
 	simulated = 1
 	invisibility = 0

@@ -296,7 +296,7 @@
 			fabricated_laptop.battery_module.charge_to_full()
 		fabricated_laptop.forceMove(src.loc)
 		fabricated_laptop.screen_on = 0
-		fabricated_laptop.anchored = 0
+		fabricated_laptop.anchored = FALSE
 		fabricated_laptop.update_icon()
 		fabricated_laptop = null
 	else if((devtype == 2) && fabricated_tablet)
