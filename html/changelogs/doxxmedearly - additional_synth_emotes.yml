@@ -1,0 +1,5 @@
+author: Doxxmedearly
+delete-after: True
+
+changes:
+  - rscadd: "Adds several new synthetic emotes, complete with sounds: *beep2, *beep3, *ping2, *longbuzz, *mad, *alert, *whirr, *chime, *buffer, *buffer2, *greet, and *joy. Be the best expressive machine you can be."
