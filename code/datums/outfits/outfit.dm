@@ -28,6 +28,7 @@
 	var/back = null // Mutually exclusive with and will override backpack choices below. Use for RIGs, tanks, etc.
 	var/belt = null
 	var/gloves = null
+	var/wrist = null
 	var/shoes = null
 	var/head = null
 	var/mask = null
@@ -209,6 +210,8 @@
 			equip_item(H, path, slot_gloves)
 	if(gloves && !got_gloves)
 		equip_item(H, gloves, slot_gloves)
+	if(wrist)
+		equip_item(H, wrist, slot_wrists)
 	var/got_shoes = FALSE
 	if(length(species_shoes))
 		var/path = species_shoes[H.species.name]
@@ -360,6 +363,8 @@
 		H.shoes.add_fingerprint(H, 1)
 	if(H.gloves)
 		H.gloves.add_fingerprint(H, 1)
+	if(H.wrists)
+		H.wrists.add_fingerprint(H, 1)
 	if(H.l_ear)
 		H.l_ear.add_fingerprint(H, 1)
 	if(H.r_ear)

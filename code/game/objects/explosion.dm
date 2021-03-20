@@ -17,13 +17,9 @@
 	SSexplosives.queue(data)
 
 	//Machines which report explosions.
-	for(var/i,i<=doppler_arrays.len,i++)
-		var/obj/machinery/doppler_array/Array = doppler_arrays[i]
-		if(Array)
-			var/x0 = epicenter.x
-			var/y0 = epicenter.y
-			var/z0 = epicenter.z
-			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range)
+	for(var/thing in doppler_arrays)
+		var/obj/machinery/doppler_array/Array = thing
+		Array.sense_explosion(epicenter.x,epicenter.y,epicenter.z,devastation_range,heavy_impact_range,light_impact_range)
 
 // == Recursive Explosions stuff ==
 

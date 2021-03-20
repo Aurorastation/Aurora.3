@@ -696,10 +696,7 @@
 	for(var/_R in chem_doses)
 		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))
 			continue
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		chem_doses[_R] -= R.metabolism
-		if(chem_doses[_R] <= 0)
-			chem_doses -= _R
+		chem_doses -= _R //We're no longer metabolizing this reagent. Remove it from chem_doses
 
 	updatehealth()
 

@@ -60,6 +60,14 @@
 		/obj/item/clothing/accessory/arm_guard/heavy
 	)
 
+/obj/item/clothing/suit/armor/carrier/heavy/scc
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/heavy/scc,
+		/obj/item/clothing/accessory/leg_guard/heavy/scc,
+		/obj/item/clothing/accessory/arm_guard/heavy/scc,
+		/obj/item/clothing/accessory/sleevepatch/scc
+	)
+
 /obj/item/clothing/suit/armor/carrier/heavy/sec
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/heavy/sec,
@@ -167,6 +175,13 @@
 		bomb = ARMOR_BOMB_PADDED,
 	)
 	slowdown = 0.5
+
+/obj/item/clothing/accessory/armor_plate/heavy/scc
+	name = "heavy SCC armor plate"
+	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
+	icon_state = "plate_blue"
+	item_state = "plate_blue"
+	slowdown = 0 // the SCC is hacking
 
 /obj/item/clothing/accessory/armor_plate/heavy/sec
 	name = "heavy corporate armor plate"
