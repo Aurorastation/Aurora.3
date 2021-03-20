@@ -11,7 +11,7 @@ var/list/admin_departments
 	insert_anim = "faxsend"
 	req_one_access = list(access_lawyer, access_heads)
 	density = 0//It's a small machine that sits on a table, this allows small things to walk under that table
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 30
 	active_power_usage = 200
 

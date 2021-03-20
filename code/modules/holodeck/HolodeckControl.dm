@@ -6,7 +6,7 @@
 	icon_screen = "holocontrolw"
 	light_color = LIGHT_COLOR_CYAN
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	active_power_usage = 8000 //8kW for the scenery + 500W per holoitem
 
 	circuit = /obj/item/circuitboard/holodeckcontrol
@@ -214,7 +214,7 @@
 			damaged = 1
 			loadProgram(current_map.holodeck_programs["turnoff"], 0)
 			active = 0
-			use_power = 1
+			use_power = POWER_USE_IDLE
 			for(var/mob/M in range(10,src))
 				M.show_message("The holodeck overloads!")
 
@@ -260,7 +260,7 @@
 			linkedholodeck.gravitychange(TRUE)
 
 		active = 0
-		use_power = 1
+		use_power = POWER_USE_IDLE
 
 
 /obj/machinery/computer/HolodeckControl/proc/loadProgram(var/datum/holodeck_program/HP, var/check_delay = 1)
@@ -281,7 +281,7 @@
 
 	last_change = world.time
 	active = 1
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 
 	for(var/item in holographic_objs)
 		derez(item)
@@ -351,7 +351,7 @@
 
 	last_gravity_change = world.time
 	active = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 
 	if(A.has_gravity())
 		A.gravitychange(FALSE)
@@ -366,7 +366,7 @@
 		linkedholodeck.gravitychange(TRUE)
 
 	active = 0
-	use_power = 1
+	use_power = POWER_USE_IDLE
 
 /obj/machinery/computer/HolodeckControl/proc/togglelock(var/mob/user)
 	if(allowed(user))

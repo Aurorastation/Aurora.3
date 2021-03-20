@@ -35,7 +35,7 @@ Possible to do for anyone motivated enough:
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
-	use_power = 1
+	use_power = POWER_USE_IDLE
 
 	var/holopad_id
 
@@ -183,7 +183,7 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
 	if(!istype(user))
 		return
-	
+
 	if(!ai_can_interact(user))
 		return
 
@@ -216,7 +216,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 				text = speaking.scramble(text)
 			else
 				text = stars(text)
-		
+
 		//This communication is imperfect because the holopad "filters" voices and is only designed to connect to the master only.
 		var/rendered
 		if(speaking)
@@ -352,7 +352,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram
 	icon = 'icons/obj/holopad.dmi'
 	anchored = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 5
 	active_power_usage = 100
 

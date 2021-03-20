@@ -7,7 +7,7 @@
 	anchored = 0
 	density = 1
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 
 	active_power_usage = 1 KILOWATTS
 	active_power_usage = 10 KILOWATTS

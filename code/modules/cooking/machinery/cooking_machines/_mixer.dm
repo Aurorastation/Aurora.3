@@ -107,7 +107,7 @@ fundamental differences
 	..()
 	stat |= POWEROFF
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
-	use_power = 0
+	use_power = POWER_USE_OFF
 	CI.reset()
 	update_icon()
 

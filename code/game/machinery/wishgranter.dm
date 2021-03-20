@@ -11,7 +11,7 @@
 	anchored = 1
 	density = 1
 	layer = 9
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	var/chargesa = 1
 	var/insistinga = 0

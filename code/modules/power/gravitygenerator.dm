@@ -21,7 +21,7 @@
 	icon = 'icons/obj/machines/gravity_generator.dmi'
 	anchored = 1
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	unacidable = 1
 	var/sprite_number = 0
 	light_color = LIGHT_COLOR_CYAN
@@ -110,7 +110,7 @@
 	active_power_usage = 3000
 	power_channel = ENVIRON
 	sprite_number = 8
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	interact_offline = 1
 	var/on = 1
 	var/breaker = 1
@@ -340,7 +340,7 @@
 	charging_state = POWER_IDLE
 	var/gravity_changed = (on != new_state)
 	on = new_state
-	use_power = on ? 2 : 1
+	use_power = on ? POWER_USE_ACTIVE : POWER_USE_IDLE
 	// Sound the alert if gravity was just enabled or disabled.
 	var/alert = 0
 	var/area/area = get_area(src)

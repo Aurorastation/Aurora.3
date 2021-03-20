@@ -5,7 +5,7 @@
 	name = "omni device"
 	icon = 'icons/atmos/omni_devices.dmi'
 	icon_state = "base"
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	initialize_directions = 0
 	level = 1
 
@@ -70,7 +70,7 @@
 	last_flow_rate = 0
 
 	if(error_check())
-		use_power = 0
+		use_power = POWER_USE_OFF
 
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
 		return 0

@@ -12,7 +12,7 @@
 	icon = 'icons/obj/machines/slotmachine.dmi'
 	icon_state = "slots1"
 	density = TRUE
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 250
 	active_power_usage = 500
 	circuit = /obj/item/circuitboard/slot_machine

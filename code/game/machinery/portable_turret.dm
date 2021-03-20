@@ -15,7 +15,7 @@
 	anchored = 1
 
 	density = 0
-	use_power = 1				//this turret uses and requires power
+	use_power = POWER_USE_IDLE				//this turret uses and requires power
 	idle_power_usage = 50		//when inactive, this turret takes up constant 50 Equipment power
 	active_power_usage = 300	//when active, this turret takes up constant 300 Equipment power
 	power_channel = EQUIP	//drains power from the EQUIPMENT channel
@@ -1154,7 +1154,7 @@
 
 /obj/machinery/porta_turret/legion
 	enabled = 0
-	use_power = 0
+	use_power = POWER_USE_OFF
 	icon_state = "cover_legion"
 	lethal = 1
 	lethal_icon = 1

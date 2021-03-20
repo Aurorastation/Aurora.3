@@ -11,7 +11,7 @@
 	icon_state = "map_injector"
 	layer = 3
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 15000	//15000 W ~ 20 HP
 

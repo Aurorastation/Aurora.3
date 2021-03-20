@@ -8,7 +8,7 @@
 	icon_state = "rtg"
 	density = TRUE
 	anchored = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	// You can buckle someone to RTG, then open its panel. Fun stuff.
 	can_buckle = list(/mob/living)
@@ -98,7 +98,7 @@
 	origin_tech = list(
 		TECH_DATA = 3,
 		TECH_MATERIAL = 4,
-		TECH_POWER = 3, 
+		TECH_POWER = 3,
 		TECH_ENGINEERING = 3,
 		TECH_PHORON = 3
 	)

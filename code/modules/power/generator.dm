@@ -6,7 +6,7 @@
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-	use_power = FALSE
+	use_power = POWER_USE_OFF
 	idle_power_usage = 100 //Watts, I hope.  Just enough to do the computer and display things.
 
 	var/max_power = 500000

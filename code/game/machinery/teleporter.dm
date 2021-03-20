@@ -8,7 +8,7 @@
 	name = "teleporter pad"
 	desc = "It's the pad of a teleporting machine."
 	icon_state = "pad"
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	active_power_usage = 2000
 
@@ -61,7 +61,7 @@
 	name = "teleportation station"
 	desc = "A teleportation hub that can be used to lock onto beacons and implants and relaying the coordinates precisely to a nearby teleportation pad."
 	icon_state = "station"
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	active_power_usage = 2000
 

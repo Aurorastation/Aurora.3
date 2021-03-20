@@ -13,7 +13,7 @@
 	var/strength = 20 //How weakened targets are when flashed.
 	var/base_state = "mflash"
 	anchored = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 2
 	flags = PROXMOVE
 	var/_wifi_id

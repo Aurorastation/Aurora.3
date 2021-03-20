@@ -14,7 +14,7 @@
 	var/gib_time = 40        // Time from starting until meat appears
 	var/gib_throw_dir = WEST // Direction to spit meat and gibs in.
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 2
 	active_power_usage = 500
 

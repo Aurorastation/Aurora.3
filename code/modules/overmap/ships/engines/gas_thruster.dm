@@ -61,7 +61,7 @@
 	density = 1
 	atmos_canpass = CANPASS_NEVER
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	power_channel = EQUIP
 	idle_power_usage = 21600 //6 Wh per tick for default 2 capacitor. Gives them a reason to turn it off, really to nerf backup battery
 

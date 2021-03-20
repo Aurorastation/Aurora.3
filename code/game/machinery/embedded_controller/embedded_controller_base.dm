@@ -5,7 +5,7 @@
 	anchored = 1
 	layer = OBJ_LAYER
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	var/checks_for_access = FALSE
 

@@ -4,7 +4,7 @@
 	icon_state = "motion0"
 	layer = 3
 	anchored = 1.0
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	var/uses = 20
 	var/disabled = 1

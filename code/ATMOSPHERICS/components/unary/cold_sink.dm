@@ -11,7 +11,7 @@
 	icon_state = "freezer_0"
 	density = 1
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 5			// 5 Watts for thermostat related circuitry
 
 	var/heatsink_temperature = T20C	// The constant temperature reservoir into which the freezer pumps heat. Probably the hull of the station or something.
@@ -78,7 +78,7 @@
 	if(!ui)
 		ui = new(user, src, "machinery-atmospherics-freezer", 440, 300, "Gas Cooling System")
 		ui.auto_update_content = TRUE
-	
+
 	ui.open()
 
 /obj/machinery/atmospherics/unary/freezer/vueui_data_change(list/data, mob/user, datum/vueui/ui)

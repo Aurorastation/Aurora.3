@@ -7,7 +7,7 @@
 	force = 20
 
 	layer = PIPE_LAYER
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	var/alert_pressure = 80*ONE_ATMOSPHERE
 		//minimum pressure before check_pressure(...) should be called

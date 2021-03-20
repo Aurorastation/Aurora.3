@@ -14,7 +14,7 @@
 	density = 1
 	anchored = 1
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
 
@@ -116,7 +116,7 @@
 		return
 
 	stat ^= POWEROFF // Toggles power
-	use_power = (stat & POWEROFF) ? 0 : 2 // If on, use active power, else use no power
+	use_power = (stat & POWEROFF) ? POWER_USE_OFF : POWER_USE_ACTIVE // If on, use active power, else use no power
 	if(user)
 		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", "You turn [use_power ? "on" : "off"] [src].")
 	playsound(src, 'sound/machines/click.ogg', 40, 1)

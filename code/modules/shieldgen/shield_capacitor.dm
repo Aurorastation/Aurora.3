@@ -16,7 +16,7 @@
 	var/max_charge = 8e6	//8 MJ
 	var/max_charge_rate = 400000	//400 kW
 	var/locked = 0
-	use_power = 0 //doesn't use APC power
+	use_power = POWER_USE_OFF //doesn't use APC power
 	var/charge_rate = 100000	//100 kW
 	var/obj/machinery/shield_gen/owned_gen
 

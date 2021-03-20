@@ -13,7 +13,7 @@
 	desc = "A lighting fixture."
 	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
@@ -205,19 +205,19 @@
 				stat |= BROKEN
 				set_light(0)
 		else
-			use_power = 2
+			use_power = POWER_USE_ACTIVE
 			active_power_usage = light_range * LIGHTING_POWER_FACTOR
 			if (supports_nightmode && nightmode)
 				set_light(night_brightness_range, night_brightness_power, brightness_color)
 			else
 				set_light(brightness_range, brightness_power, brightness_color)
 	else if (has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !(stat & POWEROFF))
-		use_power = 1
+		use_power = POWER_USE_IDLE
 		emergency_mode = TRUE
 		var/new_power = round(max(0.5, 0.75 * (cell.charge / cell.maxcharge)), 0.1)
 		set_light(brightness_range * 0.25, new_power, LIGHT_COLOR_EMERGENCY)
 	else
-		use_power = 1
+		use_power = POWER_USE_IDLE
 		set_light(0)
 
 	update_icon()

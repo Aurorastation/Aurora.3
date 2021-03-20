@@ -145,7 +145,7 @@
 	var/is_open = FALSE //Whether or not the wires are exposed
 	var/locked = FALSE
 	var/check_delay = 60	//periodically recheck if we need to rebuild a shield
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 
 /obj/machinery/shieldgen/Destroy()

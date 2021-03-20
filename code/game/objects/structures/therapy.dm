@@ -301,7 +301,7 @@
 	density = 1
 	anchored = 1
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 60
 	active_power_usage = 10000
 

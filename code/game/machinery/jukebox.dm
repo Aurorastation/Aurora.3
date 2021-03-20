@@ -16,7 +16,7 @@ datum/track/New(var/title_name, var/audio)
 	anchored = 0
 	density = 1
 	power_channel = EQUIP
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	active_power_usage = 100
 	clicksound = 'sound/machines/buttonbeep.ogg'

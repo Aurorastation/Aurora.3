@@ -3,7 +3,7 @@
 	desc = "A simple device that can be used to heat the contents of a beaker to a precise temperature."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0b"
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 100
 	density = 1
 	anchored = 1
@@ -117,11 +117,11 @@
 		var/current_temperature = container.reagents.get_temperature()
 
 		if(should_heat && current_temperature >= target_temperature)
-			use_power = 0
+			use_power = POWER_USE_OFF
 			updateUsrDialog()
 			return
 		else if(!should_heat && current_temperature <= target_temperature)
-			use_power = 0
+			use_power = POWER_USE_OFF
 			updateUsrDialog()
 			return
 
@@ -141,7 +141,7 @@
 		updateUsrDialog()
 
 	else
-		use_power = 0
+		use_power = POWER_USE_OFF
 		updateUsrDialog()
 		return
 

@@ -19,7 +19,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/speed = 1
 	var/product_offset = FALSE //Set to make the printer spawn its product in a neighboring turf dictated by dir.
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 30
 	active_power_usage = 2500
 

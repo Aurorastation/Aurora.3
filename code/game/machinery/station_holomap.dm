@@ -5,7 +5,7 @@
 	icon_state = "station_map"
 	anchored = 1
 	density = 0
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	active_power_usage = 500
 

@@ -14,7 +14,7 @@
 	icon_state = "blueprint_0"
 	density = FALSE
 	anchored = FALSE
-	use_power = 0
+	use_power = POWER_USE_OFF
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/obj/item/circuitboard/circuit
 	var/list/components = list()

@@ -4,7 +4,7 @@
 	icon_state = "autolathe"
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	active_power_usage = 2000
 	clicksound = /decl/sound_category/keyboard_sound

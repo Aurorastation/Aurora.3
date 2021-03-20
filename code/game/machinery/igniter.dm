@@ -6,7 +6,7 @@
 	var/id = null
 	var/on = 0
 	anchored = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 2
 	active_power_usage = 4
 	var/_wifi_id
@@ -69,7 +69,7 @@
 	var/base_state = "migniter"
 	layer = 3.3
 	anchored = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 2
 	active_power_usage = 4
 	var/_wifi_id

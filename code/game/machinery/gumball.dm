@@ -6,7 +6,7 @@
 	layer = 2.9
 	anchored = 1
 	density = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	var/typeofcandy = "gumballs"
 	var/initialicon = "gumball"

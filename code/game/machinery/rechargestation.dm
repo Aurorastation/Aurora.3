@@ -5,7 +5,7 @@
 	icon_state = "borgcharger0"
 	density = 1
 	anchored = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 75
 	has_special_power_checks = TRUE
 	var/mob/occupant = null
@@ -77,7 +77,7 @@
 
 	if(!has_cell_power())
 		return FALSE
-	if(src.use_power == 1)
+	if(src.use_power == POWER_USE_IDLE)
 		cell.use(idle_power_usage * CELLRATE)
 	else if(src.use_power >= 2)
 		cell.use(active_power_usage * CELLRATE)

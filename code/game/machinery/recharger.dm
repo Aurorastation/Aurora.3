@@ -6,7 +6,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger_off"
 	anchored = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 6
 	active_power_usage = 45 KILOWATTS
 	pass_flags = PASSTABLE

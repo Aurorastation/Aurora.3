@@ -7,7 +7,7 @@ var/global/list/bluespace_inhibitors
 	icon_state = "nopad"
 	anchored = 1
 	density = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	active_power_usage = 5000
 	idle_power_usage = 1000
 

@@ -305,7 +305,7 @@ var/list/ai_verbs_default = list(
 /obj/machinery/ai_powersupply
 	name = "power supply"
 	active_power_usage = 50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	power_channel = EQUIP
 	var/mob/living/silicon/ai/powered_ai
 	invisibility = 100
@@ -330,14 +330,14 @@ var/list/ai_verbs_default = list(
 		qdel(src)
 		return
 	if(powered_ai.APU_power)
-		use_power = 0
+		use_power = POWER_USE_OFF
 		return
 	if(!powered_ai.anchored)
 		loc = powered_ai.loc
-		use_power = 0
+		use_power = POWER_USE_OFF
 		use_power(50000) // Less optimalised but only called if AI is unwrenched. This prevents usage of wrenching as method to keep AI operational without power. Intellicard is for that.
 	if(powered_ai.anchored)
-		use_power = 2
+		use_power = POWER_USE_ACTIVE
 
 /mob/living/silicon/ai/rejuvenate()
 	return 	// TODO: Implement AI rejuvination

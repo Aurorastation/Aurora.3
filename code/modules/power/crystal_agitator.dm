@@ -6,7 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	active_power_usage = 3000
 
 	var/agitation_range = 4
@@ -65,7 +65,7 @@
 	if(!length(agitation_turfs))
 		toggle_active()
 		return
-	
+
 	var/actual_load = draw_power(active_power_usage)
 	if(actual_load < active_power_usage)
 		toggle_active()

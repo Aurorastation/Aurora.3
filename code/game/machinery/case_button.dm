@@ -5,7 +5,7 @@
 	icon = 'icons/obj/glasscasebutton.dmi'
 	icon_state = "c1"
 	anchored = 1
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 50 //50W because the forcefield is disabled
 	active_power_usage = 2000 //2kW because of the forcefield
 	power_channel = EQUIP

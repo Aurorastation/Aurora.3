@@ -6,7 +6,7 @@
 	icon = 'icons/atmos/vent_scrubber.dmi'
 	icon_state = "map_scrubber_off"
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 7500			//7500 W ~ 10 HP
 
@@ -34,7 +34,7 @@
 	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	icon_state = "map_scrubber_on"
 
 /obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
@@ -158,7 +158,7 @@
 		return 1
 
 	if (!node)
-		use_power = 0
+		use_power = POWER_USE_OFF
 
 	if (broadcast_status_next_process)
 		broadcast_status()
@@ -214,14 +214,14 @@
 	if(signal.data["panic_siphon"]) //must be before if("scrubbing") thing
 		panic = text2num(signal.data["panic_siphon"])
 		if(panic)
-			use_power = 1
+			use_power = POWER_USE_IDLE
 			scrubbing = 0
 		else
 			scrubbing = 1
 	if(signal.data["toggle_panic_siphon"] != null)
 		panic = !panic
 		if(panic)
-			use_power = 1
+			use_power = POWER_USE_IDLE
 			scrubbing = 0
 		else
 			scrubbing = 1

@@ -5,7 +5,7 @@
 	icon_state = "fab-idle"
 	density = TRUE
 	anchored = TRUE
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	active_power_usage = 5000
 	req_access = list(access_robotics)
@@ -45,11 +45,11 @@
 	if(stat)
 		return
 	if(busy)
-		use_power = 2
+		use_power = POWER_USE_ACTIVE
 		progress += speed
 		check_build()
 	else
-		use_power = 1
+		use_power = POWER_USE_IDLE
 	update_icon()
 
 /obj/machinery/mecha_part_fabricator/update_icon()

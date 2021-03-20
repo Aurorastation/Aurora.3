@@ -8,7 +8,7 @@
 	reference = "control_box"
 	anchored = FALSE
 	density = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 500
 	active_power_usage = 70000 //70 kW per unit of strength
 	construction_state = 0

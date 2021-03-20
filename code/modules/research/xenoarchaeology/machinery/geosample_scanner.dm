@@ -8,7 +8,7 @@
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "analyser"
 
-	use_power = 1			//1 = idle, 2 = active
+	use_power = POWER_USE_IDLE			//1 = idle, 2 = active
 	idle_power_usage = 20
 	active_power_usage = 300
 

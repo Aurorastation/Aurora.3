@@ -4,7 +4,7 @@
 	icon_state = "protolathe"
 	flags = OPENCONTAINER
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 30
 	active_power_usage = 5000
 

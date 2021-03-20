@@ -26,7 +26,7 @@
 	interact_offline = TRUE
 
 	var/on = 0
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	active_power_usage = 200
 	clicksound = 'sound/machines/buttonbeep.ogg'

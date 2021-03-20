@@ -9,6 +9,11 @@
 #define DOOR_CRUSH_DAMAGE 20
 #define ALIEN_SELECT_AFK_BUFFER  1    // How many minutes that a person can be AFK before not being allowed to be an alien.
 
+// Bay port.
+#define POWER_USE_OFF    0
+#define POWER_USE_IDLE   1
+#define POWER_USE_ACTIVE 2
+
 // Channel numbers for power.
 #define EQUIP   1
 #define LIGHT   2

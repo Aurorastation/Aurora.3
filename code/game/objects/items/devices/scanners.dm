@@ -636,7 +636,7 @@ BREATH ANALYZER
 	if(!internal_bodyscanner)
 		var/obj/machinery/body_scanconsole/S = new (src)
 		S.forceMove(src)
-		S.use_power = FALSE
+		S.use_power = POWER_USE_OFF
 		internal_bodyscanner = S
 
 /obj/item/device/advanced_healthanalyzer/Destroy()

@@ -115,22 +115,22 @@
 								MACHINERY_GO_TO_NEXT
 						else	// ?!
 							log_debug("SSmachinery: Type '[M.type]' has insane channel [chan] (expected value in range 1-3).")
-							M.use_power = FALSE
+							M.use_power = POWER_USE_OFF
 							MACHINERY_GO_TO_NEXT
 
 				if (A.has_weird_power)
-					A.use_power(M.use_power == 2 ? M.active_power_usage : M.idle_power_usage, chan)
+					A.use_power(M.use_power == POWER_USE_ACTIVE ? M.active_power_usage : M.idle_power_usage, chan)
 				else
 					switch (chan)
 						if (EQUIP)
-							A.used_equip += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
+							A.used_equip += M.use_power == POWER_USE_ACTIVE ? M.active_power_usage : M.idle_power_usage
 						if (LIGHT)
-							A.used_light += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
+							A.used_light += M.use_power == POWER_USE_ACTIVE ? M.active_power_usage : M.idle_power_usage
 						if (ENVIRON)
-							A.used_environ += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
+							A.used_environ += M.use_power == POWER_USE_ACTIVE ? M.active_power_usage : M.idle_power_usage
 						else // ?!
 							log_debug("SSmachinery: Type '[M.type]' has insane channel [chan] (expected value in range 1-3).")
-							M.use_power = FALSE
+							M.use_power = POWER_USE_OFF
 
 		if (no_mc_tick)
 			CHECK_TICK

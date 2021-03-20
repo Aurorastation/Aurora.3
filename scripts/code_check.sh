@@ -83,6 +83,15 @@ else
     echo "PASS: to_world count matches" >> code_error.log
 fi
 
+echo "Checking for use_power = 0/1/2 uses:" >> code_error.log
+grep -r '\buse_power\s*=\s*\d' **/*.dm >> code_error.log
+if [ $? -eq 0 ]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found use_power = 0/1/2 in code" >> code_error.log
+else
+    echo "PASS: Did not find use_power = 0/1/2 in code:" >> code_error.log
+fi
+
 echo "Found $ERROR_COUNT Errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then

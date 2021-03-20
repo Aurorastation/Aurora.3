@@ -14,7 +14,7 @@
 	icon = 'icons/atmos/vent_pump.dmi'
 	icon_state = "map_vent"
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 7500			//7500 W ~ 10 HP
 
@@ -52,18 +52,18 @@
 	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/unary/vent_pump/on
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	icon_state = "map_vent_out"
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon
 	pump_direction = 0
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	icon_state = "map_vent_in"
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	icon_state = "map_vent_in"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
@@ -119,7 +119,7 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
 	if (!node)
-		use_power = 0
+		use_power = POWER_USE_OFF
 
 	var/vent_icon = ""
 
@@ -178,7 +178,7 @@
 		return 1
 
 	if (!node)
-		use_power = 0
+		use_power = POWER_USE_OFF
 	if(!can_pump())
 		return 0
 

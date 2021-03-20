@@ -121,7 +121,7 @@
 /obj/machinery/appliance/cooker/update_icon()
 	overlays.Cut()
 	var/image/light
-	if (use_power == 2 && !stat)
+	if (use_power == POWER_USE_ACTIVE && !stat)
 		light = image(icon, "light_on")
 	else
 		light = image(icon, "light_off")
@@ -160,15 +160,15 @@
 
 /obj/machinery/appliance/cooker/proc/heat_up()
 	if (temperature < set_temp)
-		if (use_power == 1 && ((set_temp - temperature) > 5))
+		if (use_power == POWER_USE_IDLE && ((set_temp - temperature) > 5))
 			playsound(src, 'sound/machines/click.ogg', 20, 1)
-			use_power = 2 //If we're heating we use the active power
+			use_power = POWER_USE_ACTIVE //If we're heating we use the active power
 			update_icon()
 		temperature += heating_power / resistance
 		update_cooking_power()
 		return TRUE
-	if (use_power == 2)
-		use_power = 1
+	if (use_power == POWER_USE_ACTIVE)
+		use_power = POWER_USE_IDLE
 		playsound(src, 'sound/machines/click.ogg', 20, 1)
 		update_icon()
 

@@ -35,7 +35,7 @@
 	var/disallow_occupant_types = list()
 	var/display_loading_message = TRUE
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 15
 	active_power_usage = 250 //builtin health analyzer, dialysis machine, injectors.
 	var/parts_power_usage

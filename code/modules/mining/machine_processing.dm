@@ -8,7 +8,7 @@
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -118,7 +118,7 @@
 	dat += "</table><hr>"
 	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
 	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
-	
+
 	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
 	processor_win.set_content(dat)
 	processor_win.open()
@@ -300,7 +300,7 @@
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
 	var/active = 0
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 15
 	active_power_usage = 150
 

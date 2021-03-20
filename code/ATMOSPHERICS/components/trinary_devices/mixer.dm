@@ -6,7 +6,7 @@
 
 	name = "Gas mixer"
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 3700	//This also doubles as a measure of how powerful the mixer is, in Watts. 3700 W ~ 5 HP
 
@@ -33,7 +33,7 @@
 		icon_state += use_power ? "on" : "off"
 	else
 		icon_state += "off"
-		use_power = 0
+		use_power = POWER_USE_OFF
 
 /obj/machinery/atmospherics/trinary/mixer/update_underlays()
 	if(..())

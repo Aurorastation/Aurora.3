@@ -7,7 +7,7 @@
 	var/modify_state = "table2"
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 1
 	active_power_usage = 5
 	component_types = list(
@@ -69,7 +69,7 @@
 		playsound(loc, /decl/sound_category/switch_sound, 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
-	if(air_group || (height == 0)) 
+	if(air_group || (height == 0))
 		return FALSE
 
 	return istype(mover) && mover.checkpass(PASSTABLE)

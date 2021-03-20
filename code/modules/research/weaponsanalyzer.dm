@@ -5,7 +5,7 @@
 	icon_state = "weapon_analyzer"
 	density = TRUE
 	anchored = TRUE
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 60
 	active_power_usage = 2000
 
@@ -97,7 +97,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	
+
 	if(istype(item, /obj/item/device/laser_assembly))
 		var/obj/item/device/laser_assembly/A = item
 		A.ready_to_craft = FALSE
@@ -165,7 +165,7 @@
 					"shots modifier" = initial(l_component.shots), "burst modifier" = initial(l_component.burst), "accuracy modifier" = initial(l_component.accuracy), "repair tool" = l_repair_name
 				)
 		data["gun_mods"] = mods
-	
+
 	else if(istype(item, /obj/item/gun))
 		var/obj/item/gun/gun = item
 		data["name"] = gun.name
@@ -265,7 +265,7 @@
 
 	if(item)
 		var/icon/Icon_used = new /icon(item.icon, item.icon_state)
-		ui.add_asset("icon", Icon_used) 
+		ui.add_asset("icon", Icon_used)
 		ui.send_asset("icon")
 	ui.open()
 

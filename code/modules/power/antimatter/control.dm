@@ -8,7 +8,7 @@
 	var/icon_mod = "on" // on, critical, or fuck
 	anchored = FALSE
 	density = TRUE
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 100
 	active_power_usage = 1000
 
@@ -202,10 +202,10 @@
 /obj/machinery/power/am_control_unit/proc/toggle_power()
 	active = !active
 	if(active)
-		use_power = 2
+		use_power = POWER_USE_ACTIVE
 		visible_message(SPAN_NOTICE("\The [src] starts up."))
 	else
-		use_power = 1
+		use_power = POWER_USE_IDLE
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
 	for(var/obj/machinery/am_shielding/AMS in linked_cores)
 		AMS.update_icon()
