@@ -195,6 +195,8 @@
 /mob/living/carbon/human/proc/has_hearing_aid()
 	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
 		return TRUE
+	if(has_functioning_augment(BP_AUG_COCHLEAR))
+		return TRUE
 	return FALSE
 
 /mob/living/carbon/human/proc/is_submerged()
@@ -286,5 +288,11 @@
 		return TRUE
 	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
 	if(changeling?.space_adapted)
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/has_functioning_augment(var/aug_tag)
+	var/obj/item/organ/internal/augment/aug = internal_organs_by_name[aug_tag]
+	if(aug && !aug.is_broken())
 		return TRUE
 	return FALSE

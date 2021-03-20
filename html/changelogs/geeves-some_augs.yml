@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added cochlear implants to the augment menu, they function the same as hearing aids."
+  - rscadd: "Added a retractable lighter to the augment menu, they function like the combitool augment, but for a lighter."
+  - rscadd: "Added synthetic vocal cords to the augment menu. They make you mute if removed, but remove muteness if implanted."
