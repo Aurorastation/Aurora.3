@@ -185,7 +185,7 @@
 	var/goal = (delta_power < 0) ? (charge) : (capacity - charge)
 	var/old_time = last_time // this is to prevent runtime errors with
 	last_time = world.time   // accidental division by zero
-	time = world.time + (delta_power) ? ((goal / abs(delta_power)) / max(round(world.time - old_time), 1)) : (0)
+	time = world.time + (delta_power ? ((goal / abs(delta_power)) / max(round(world.time - old_time), 1)) : 0)
 	// If it is negative - we are discharging
 	if(delta_power < 0)
 		charge_mode = 0
