@@ -1,0 +1,6 @@
+author: JohnWildkins, BLUNTFORCE420
+
+delete-after: True
+
+changes:
+  - imageadd: "Security backpack sprite adjusted to make the straps lower-profile."
