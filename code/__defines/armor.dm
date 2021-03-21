@@ -16,6 +16,7 @@
 #define  ARMOR_LASER_MINOR			10
 #define  ARMOR_LASER_SMALL			25
 #define  ARMOR_LASER_PISTOL			35	//Minimum required to block e-pistols.
+#define  ARMOR_LASER_MEDIUM			40
 #define  ARMOR_LASER_RIFLE			45	//Minimum required to block las-rifles.
 #define  ARMOR_LASER_MAJOR			55
 #define  ARMOR_LASER_AP				70
