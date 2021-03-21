@@ -35,6 +35,14 @@
 	item_state = "gas_alt_alt"
 	icon_state = "gas_alt_alt"
 
+/obj/item/clothing/mask/gas/half
+	name = "face mask"
+	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air. A more lightweight variant that doesn't shield the eyes as a consequence."
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE
+	item_state = "gas_alt_half"
+	icon_state = "gas_alt_half"
+
 /obj/item/clothing/mask/gas/old
 	desc = "A face-covering mask that can be connected to an air supply. Seems to be an old, outdated design."
 	filtered_gases = list(GAS_N2O)
