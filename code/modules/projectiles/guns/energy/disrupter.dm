@@ -15,18 +15,18 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/energy/disruptorstun
 	secondary_projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 12 //12 shots stun, 8 shots lethal.
+	max_shots = 10
 	charge_cost = 150
-	fire_delay = 8
 	accuracy = 1
 	has_item_ratio = FALSE
 	modifystate = "disruptorpistolstun"
 	sel_mode = 1
-	var/selectframecheck = FALSE
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun, modifystate="disruptorpistolstun", charge_cost = 150, fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="disruptorpistolkill", recoil = 1, charge_cost = 225, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun, modifystate="disruptorpistolstun", fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/disruptor, modifystate="disruptorpistolkill", recoil = 1, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 		)
+	required_firemode_auth = list(WIRELESS_PIN_STUN, WIRELESS_PIN_LETHAL)
+	var/selectframecheck = FALSE
 
 /obj/item/gun/energy/disruptorpistol/security
 	pin = /obj/item/device/firing_pin/wireless
@@ -35,7 +35,7 @@
 	name = "miniature disruptor pistol"
 	desc = "A Nanotrasen designed blaster pistol with two settings: stun and lethal. This is the miniature version."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolc.dmi'
-	max_shots = 7
+	max_shots = 8
 	force = 3
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_POCKET
 	w_class = ITEMSIZE_SMALL
@@ -47,7 +47,7 @@
 	name = "magnum disruptor pistol"
 	desc = "A Nanotrasen designed blaster pistol with two settings: stun and lethal. This is the magnum version."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolm.dmi'
-	max_shots = 20
+	max_shots = 15
 	force = 6
 
 /obj/item/gun/energy/disruptorpistol/magnum/security

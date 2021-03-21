@@ -118,8 +118,8 @@
 	else if (LAZYLEN(contents))
 		var/obj/O = locate() in contents
 		return . + O.name //Just append the name of the first object
-	else if (reagents && reagents.total_volume > 0)
-		var/datum/reagent/R = reagents.get_master_reagent()
+	else if (reagents.total_volume > 0)
+		var/decl/reagent/R = reagents.get_primary_reagent_decl()
 		return . + R.name//Append name of most voluminous reagent
 	return . + "empty"
 
@@ -239,7 +239,8 @@
 	icon_state = "grill_grate"
 	appliancetype = GRILL
 	insertable = list(
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/xenomeat
 	)
 
 /obj/item/reagent_containers/cooking_container/grill_grate/can_fit()

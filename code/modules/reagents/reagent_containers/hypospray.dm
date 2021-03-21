@@ -54,7 +54,7 @@
 		if(!inj_time)
 			return
 		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
-		if(armorcheck && L.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
+		if(armorcheck && L.get_blocked_ratio(target_zone, BRUTE, damage = 10))
 			inj_time += 6 SECONDS
 		if(!do_mob(user, L, inj_time))
 			return 1
@@ -127,7 +127,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			flags &= ~OPENCONTAINER
 			update_icon()
@@ -155,7 +155,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
-	if(reagents && reagents.reagent_list.len)
+	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("It is currently loaded."))
 	else
 		to_chat(user, SPAN_NOTICE("It is empty."))
@@ -163,11 +163,22 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name = "autoinjector (inaprovaline)"
+	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
 
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
+/obj/item/reagent_containers/hypospray/autoinjector/emergency
+	name = "autoinjector (emergency)"
+	reagents_to_add = list(/decl/reagent/inaprovaline = 2.5, /decl/reagent/dexalin = 2.5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/emergency/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/inaprovaline, 5)
-	update_icon()
+	desc += " This auto-injector is to be used in emergencies. It contains a small amount of inaprovaline and dexalin."
+
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug
+	name = "autoinjector (coagzolug)"
+	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
+	volume = 5
+	flags = 0
+	reagents_to_add = list(/decl/reagent/coagzolug = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
 	name = "sideeffects-be-gone! autoinjector"
@@ -175,7 +186,7 @@
 	volume = 30
 	amount_per_transfer_from_this = 15
 
-	reagents_to_add = list(/datum/reagent/synaptizine = 5, /datum/reagent/cetahydramine = 10, /datum/reagent/oculine = 5, /datum/reagent/ethylredoxrazine = 10)
+	reagents_to_add = list(/decl/reagent/synaptizine = 5, /decl/reagent/cetahydramine = 10, /decl/reagent/oculine = 5, /decl/reagent/ethylredoxrazine = 10)
 
 /obj/item/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"
@@ -183,7 +194,7 @@
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-	reagents_to_add = list(/datum/reagent/hyperzine = 12, /datum/reagent/mortaphenyl = 6, /datum/reagent/synaptizine = 2)
+	reagents_to_add = list(/decl/reagent/hyperzine = 12, /decl/reagent/mortaphenyl = 6, /decl/reagent/synaptizine = 2)
 
 /obj/item/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
@@ -191,7 +202,7 @@
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/inaprovaline = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycomorphine = 3, /datum/reagent/synaptizine = 2, /datum/reagent/mental/corophenidate = 5)
+	reagents_to_add = list(/decl/reagent/tricordrazine = 15, /decl/reagent/inaprovaline = 5, /decl/reagent/dexalin/plus = 5, /decl/reagent/oxycomorphine = 3, /decl/reagent/synaptizine = 2, /decl/reagent/mental/corophenidate = 5)
 
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"
@@ -202,4 +213,4 @@
 	armorcheck = 0
 	time = 0
 
-	reagents_to_add = list(/datum/reagent/oxycomorphine = 5, /datum/reagent/synaptizine = 5, /datum/reagent/hyperzine = 5, /datum/reagent/arithrazine = 5)
+	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)

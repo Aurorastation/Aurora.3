@@ -1,40 +1,194 @@
-// Switch this out to use a database at some point. Each ckey is
-// associated with a list of custom item datums. When the character
-// spawns, the list is checked and all appropriate datums are spawned.
-// See config/example/custom_items.txt for a more detailed overview
-// of how the config system works.
+//This is the custom items system.
+//There are two main modes of operation: database-based and file-based
+//The operating mode is decided by the config.sql_enabled parameter
+//
+/// File
+// In File mode the system loads all the custom items from the custom_items.json into the custom_items list at roundstart
+// There is also a fallback mode for the DEPRECATED custom_items.txt. This fallback mode will be removed at some point.
+// You SHOULD migrate to json file (manually) or the db using the automatic migration feature described in the db section
+// When the equip_custom_items() proc is called for a specified mob, the custom_items list is iteraed over to determine which
+//  custom items belong to that mob of the player. Afterwards the items are spawned and applied to the mob (if the role matches)
+//
+/// Database
+// In the database mode the custom items are NOT preloaded but fetched on demand based on the character id.
+// If the database is empty and one of the configuration files exists the configuration file is loaded into the custom_items list.
+// Afterwards a attempt is made to migrate the custom items into the database.
+// Once there are entries in the ss13_characters_custom_items table no more attempts to migrate the data are made.
+// To make it easier to find the round when that migration occured, the feedback variables
+//   custom_item_migration_success and custom_item_migration_error are set.
+//
+/// Removed Features
+// The kits have been removed without replacement
+// The icon manipulation features have been removed without replacement
+// The required access has been removed without replacement
+// The name/desc field have been removed and replaced with the item_data system
+//  This allows to modify any (string/int) variable of a existing item via the custom_item system.
+//  The key in the item_data list is the name of the variable, and the value is the value of the variable.
+//  i.e. `item_data = list("name"="asdf")` would set the name of the item to asdf when its spawned in
 
-// CUSTOM ITEM ICONS:
-// Inventory icons must be in CUSTOM_ITEM_OBJ with state name [item_icon].
-// On-mob icons must be in CUSTOM_ITEM_MOB with state name [item_icon].
-// Inhands must be in CUSTOM_ITEM_MOB as [icon_state]_l and [icon_state]_r.
-
-// Kits must have mech icons in CUSTOM_ITEM_OBJ under [kit_icon].
-// Broken must be [kit_icon]-broken and open must be [kit_icon]-open.
-
-// Kits must also have hardsuit icons in CUSTOM_ITEM_MOB as [kit_icon]_suit
-// and [kit_icon]_helmet, and in CUSTOM_ITEM_OBJ as [kit_icon].
-
-
-//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 /var/list/custom_items = list()
 
+//Loads the custom items from the json file if the db backend is disabled
+/hook/pregame_start/proc/load_custom_items()
+	var/load_from_file = 0
+
+	if (config.sql_enabled)
+		log_debug("Custom Items: Loading from SQL")
+		//If we have sql enabled we check if the db is empty. If so we migrate the json file to the db
+		//If the db is not empty we dont load the json file
+		if(!establish_db_connection(dbcon))
+			log_debug("Custom Items: Unable to establish database connection. - Aborting")
+			return 1
+
+		var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters_custom_items")
+		query.Execute()
+
+		if (!query.NextRow())
+			log_debug("Custom Items: Unable to fetch custom item count from database. - Aborting")
+			return 1
+		var/item_count = text2num(query.item[1])
+		if(item_count > 0)
+			return 1
+		//If there are no items in the db, migrate them
+		load_from_file = 2
+		log_debug("Custom Items: No items found in the database - attempting migration")
+	else
+		//If we dont have a db, we need to load the json file
+		load_from_file = 1
+
+	if(load_from_file)
+		log_debug("Custom Items: Loading from File")
+		//Check if the json file exists
+		if(fexists("config/custom_items.json"))
+			log_debug("Custom Items: Loading from json")
+			var/list/loaded_items = list()
+			var/item_id = 0
+			try
+				loaded_items = json_decode(return_file_text("config/custom_items.json"))
+			catch(var/exception/e)
+				log_debug("Custom Items: Failed to load custom_items.json: [e]")
+
+			for(var/item in loaded_items)
+				//TODO: Check for existance of the vars first
+				item_id += 1
+				var/datum/custom_item/ci = new()
+				ci.id = item_id
+				ci.usr_ckey = item["ckey"]
+				ci.usr_charname = item["character_name"]
+				ci.item_path = text2path(item["item_path"])
+				if(item["item_data"])
+					ci.item_data = item["item_data"]
+				if(item["item_name"])
+					ci.item_data["name"] = item["item_name"]
+				if(item["item_desc"])
+					ci.item_data["desc"] = item["item_desc"]
+				ci.additional_data = item["additional_data"]
+				ci.req_titles = item["req_titles"]
+				custom_items.Add(ci)
+			log_debug("Custom Items: Loaded [length(custom_items)] custom items")
+		else if(fexists("config/custom_items.txt")) //TODO: Retire that at some point down the line
+			log_debug("Custom Items: Loading from txt")
+			log_and_message_admins("The deprecated custom_items.txt file is used. Migrate to SQL or JSON.")
+			//If we dont have the json file, we might have the old file so lets try that
+			var/datum/custom_item/current_data
+			for(var/line in text2list(file2text("config/custom_items.txt"), "\n"))
+				line = trim(line)
+				if(line == "" || !line || findtext(line, "#", 1, 2))
+					continue
+
+				if(findtext(line, "{", 1, 2) || findtext(line, "}", 1, 2)) // New block!
+					if(current_data && current_data.usr_ckey && current_data.usr_charname)
+						custom_items.Add(current_data)
+					current_data = null
+
+				var/split = findtext(line,":")
+				if(!split)
+					continue
+				var/field = trim(copytext(line,1,split))
+				var/field_data = trim(copytext(line,(split+1)))
+				if(!field || !field_data)
+					continue
+
+				if(!current_data)
+					current_data = new()
+
+				switch(field)
+					if("ckey")
+						current_data.usr_ckey = ckey(field_data)
+					if("character_name")
+						current_data.usr_charname = lowertext(field_data)
+					if("item_path")
+						current_data.item_path = text2path(field_data)
+					if("item_name")
+						current_data.item_data["name"] = field_data
+					if("item_icon")
+						continue
+					if("inherit_inhands")
+						continue
+					if("item_desc")
+						current_data.item_data["desc"] = field_data
+					if("req_access")
+						continue
+					if("req_titles")
+						current_data.req_titles = text2list(field_data,", ")
+					if("kit_name")
+						continue
+					if("kit_desc")
+						continue
+					if("kit_icon")
+						continue
+					if("additional_data")
+						current_data.additional_data = field_data
+	if(load_from_file == 2 && length(custom_items)) //insert the item into the db
+		log_debug("Custom Items: Migrating custom_items to database")
+		var/success_count = 0
+		var/error_count = 0
+		for(var/item in custom_items)
+			var/datum/custom_item/ci = item
+			log_debug("Custom Items: Migrating Item for: [ci.usr_ckey] - [ci.usr_charname]")
+
+			if(!ci.item_path || ci.item_path == "")
+				log_debug("Custom Items: Invalid Item path")
+				error_count += 1
+				continue
+
+			//Fetch the character id of the character
+			var/DBQuery/char_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND name = :name: AND deleted_at IS NULL ORDER BY id DESC")
+			char_query.Execute(list("ckey"=ckey(ci.usr_ckey),"name"=ci.usr_charname))
+			if (!char_query.NextRow())
+				log_debug("Custom Items: Unable to find matching character for: ckey: [ci.usr_ckey] name: [ci.usr_charname]")
+				error_count += 1
+				continue
+			var/char_id = text2num(char_query.item[1])
+
+			try
+				var/DBQuery/item_insert_query = dbcon.NewQuery("INSERT INTO ss13_characters_custom_items (`char_id`, `item_path`, `item_data`, `req_titles`, `additional_data`) VALUES (:char_id:, :item_path:, :item_data:, :req_titles:, :additional_data:)")
+				item_insert_query.Execute(list("char_id"=char_id,"item_path"="[ci.item_path]","item_data"=json_encode(ci.item_data),"req_titles"=json_encode(ci.req_titles),"additional_data"=ci.additional_data))
+			catch(var/exception/e)
+				log_debug("Custom Items: Failed to save item to db: [e]")
+				error_count += 1
+			success_count += 1
+
+		feedback_set("custom_item_migration_success",success_count)
+		feedback_set("custom_item_migration_error",error_count)
+	return 1
+
 /datum/custom_item
-	var/assoc_key
-	var/character_name
-	var/inherit_inhands = 1 //if unset, and inhands are not provided, then the inhand overlays will be invisible.
-	var/item_icon
-	var/item_desc
-	var/name
-	var/item_path = /obj/item
-	var/req_access = 0
+	var/id
+	//the character_id is used with the db setup
+	var/character_id
+	//the char_name/ckey is used with the disk based setup (and auto-generated from the char id for the db based setup)
+	var/usr_ckey
+	var/usr_charname
+
+	var/item_path
+	var/list/item_data = list()
+
 	var/list/req_titles = list()
-	var/kit_name
-	var/kit_desc
-	var/kit_icon
+
 	var/additional_data
 
-/datum/custom_item/proc/spawn_item(var/newloc)
+/datum/custom_item/proc/spawn_item(var/newloc) //TODO: pass mob its spawned for as parameter
 	var/obj/item/citem = new item_path(newloc)
 	apply_to_item(citem)
 	return citem
@@ -42,207 +196,90 @@
 /datum/custom_item/proc/apply_to_item(var/obj/item/item)
 	if(!item)
 		return
-	if(name)
-		item.name = name
-	if(item_desc)
-		item.desc = item_desc
-	if(item_icon)
-		if(!istype(item))
-			item.icon = CUSTOM_ITEM_OBJ
-			item.icon_state = item_icon
-			return
-		else
-			if(inherit_inhands)
-				apply_inherit_inhands(item)
-			else
-				item.item_state_slots = null
-				item.item_icons = null
 
-			item.icon = CUSTOM_ITEM_OBJ
-			item.icon_state = item_icon
-			item.item_state = null
-			item.icon_override = CUSTOM_ITEM_MOB
-
-		var/obj/item/clothing/under/U = item
-		if(istype(U))
-			U.worn_state = U.icon_state
-			U.update_rolldown_status()
-
-	// Kits are dumb so this is going to have to be hardcoded/snowflake.
-	if(istype(item, /obj/item/device/kit))
-		var/obj/item/device/kit/K = item
-		K.new_name = kit_name
-		K.new_desc = kit_desc
-		K.new_icon = kit_icon
-		K.new_icon_file = CUSTOM_ITEM_OBJ
-		if(istype(item, /obj/item/device/kit/suit))
-			var/obj/item/device/kit/suit/kit = item
-			kit.new_light_overlay = additional_data
-			kit.new_mob_icon_file = CUSTOM_ITEM_MOB
+	//Customize the item with the item_data
+	for(var/var_name in item_data)
+		try
+			item.vars[var_name] = item_data[var_name]
+		catch(var/exception/e)
+			log_debug("Custom Item: Bad variable name [var_name] in custom item with id [id]: [e]")
 
 	// for snowflake implants
-	else if(istype(item, /obj/item/implanter/fluff))
+	if(istype(item, /obj/item/implanter/fluff))
 		var/obj/item/implanter/fluff/L = item
-		L.allowed_ckey = assoc_key
+		L.allowed_ckey = usr_ckey
 		L.implant_type = text2path(additional_data)
 		L.create_implant()
 
 	return item
 
-/datum/custom_item/proc/apply_inherit_inhands(var/obj/item/item)
-	var/list/new_item_icons = list()
-	var/list/new_item_state_slots = list()
-
-	var/list/available_states = icon_states(CUSTOM_ITEM_MOB)
-
-	//If l_hand or r_hand are not present, preserve them using item_icons/item_state_slots
-	//Then use icon_override to make every other slot use the custom sprites by default.
-	//This has to be done before we touch any of item's vars
-	if(!("[item_icon]_l" in available_states))
-		new_item_state_slots[slot_l_hand_str] = get_state(item, slot_l_hand_str, "_l")
-		new_item_icons[slot_l_hand_str] = get_icon(item, slot_l_hand_str, 'icons/mob/items/lefthand.dmi')
-	if(!("[item_icon]_r" in available_states))
-		new_item_state_slots[slot_r_hand_str] = get_state(item, slot_r_hand_str, "_r")
-		new_item_icons[slot_r_hand_str] = get_icon(item, slot_r_hand_str, 'icons/mob/items/righthand.dmi')
-
-	item.item_state_slots = new_item_state_slots
-	item.item_icons = new_item_icons
-
-//this has to mirror the way update_inv_*_hand() selects the state
-/datum/custom_item/proc/get_state(var/obj/item/item, var/slot_str, var/hand_str)
-	var/t_state
-	if(item.item_state_slots && item.item_state_slots[slot_str])
-		t_state = item.item_state_slots[slot_str]
-	else if(item.item_state)
-		t_state = item.item_state
-	else
-		t_state = item.icon_state
-	if(item.icon_override)
-		t_state += hand_str
-	return t_state
-
-//this has to mirror the way update_inv_*_hand() selects the icon
-/datum/custom_item/proc/get_icon(var/obj/item/item, var/slot_str, var/icon/hand_icon)
-	var/icon/t_icon
-	if(item.icon_override)
-		t_icon = item.icon_override
-	else if(item.item_icons && (slot_str in item.item_icons))
-		t_icon = item.item_icons[slot_str]
-	else
-		t_icon = hand_icon
-	return t_icon
-
-// Parses the config file into the custom_items list.
-/hook/startup/proc/load_custom_items()
-
-	var/datum/custom_item/current_data
-	for(var/line in text2list(file2text("config/custom_items.txt"), "\n"))
-
-		line = trim(line)
-		if(line == "" || !line || findtext(line, "#", 1, 2))
-			continue
-
-		if(findtext(line, "{", 1, 2) || findtext(line, "}", 1, 2)) // New block!
-			if(current_data && current_data.assoc_key)
-				if(!custom_items[current_data.assoc_key])
-					custom_items[current_data.assoc_key] = list()
-				var/list/L = custom_items[current_data.assoc_key]
-				L |= current_data
-			current_data = null
-
-		var/split = findtext(line,":")
-		if(!split)
-			continue
-		var/field = trim(copytext(line,1,split))
-		var/field_data = trim(copytext(line,(split+1)))
-		if(!field || !field_data)
-			continue
-
-		if(!current_data)
-			current_data = new()
-
-		switch(field)
-			if("ckey")
-				current_data.assoc_key = lowertext(field_data)
-			if("character_name")
-				current_data.character_name = lowertext(field_data)
-			if("item_path")
-				current_data.item_path = text2path(field_data)
-			if("item_name")
-				current_data.name = field_data
-			if("item_icon")
-				current_data.item_icon = field_data
-			if("inherit_inhands")
-				current_data.inherit_inhands = text2num(field_data)
-			if("item_desc")
-				current_data.item_desc = field_data
-			if("req_access")
-				current_data.req_access = text2num(field_data)
-			if("req_titles")
-				current_data.req_titles = text2list(field_data,", ")
-			if("kit_name")
-				current_data.kit_name = field_data
-			if("kit_desc")
-				current_data.kit_desc = field_data
-			if("kit_icon")
-				current_data.kit_icon = field_data
-			if("additional_data")
-				current_data.additional_data = field_data
-	return 1
-
 //gets the relevant list for the key from the listlist if it exists, check to make sure they are meant to have it and then calls the giving function
-/proc/equip_custom_items(mob/living/carbon/human/M)
-	var/list/key_list = custom_items[M.ckey]
-	if(!key_list || key_list.len < 1)
-		return
+/proc/equip_custom_items(var/mob/living/carbon/human/M)
+	//Fetch the custom items for the mob
+	if(config.sql_enabled)
+		if(!establish_db_connection(dbcon))
+			log_debug("Custom Items: Unable to establish database connection while loading item. - Aborting")
+			return
 
-	for(var/datum/custom_item/citem in key_list)
+		var/DBQuery/char_item_query = dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
+		char_item_query.Execute(list("char_id"=M.character_id))
+		while(char_item_query.NextRow())
+			CHECK_TICK
+			var/datum/custom_item/ci = new()
+			ci.id = text2num(char_item_query.item[1])
+			ci.character_id = text2num(char_item_query.item[2])
+			ci.usr_ckey = char_item_query.item[3]
+			ci.usr_charname = char_item_query.item[4]
+			ci.item_path = text2path(char_item_query.item[5])
+			ci.item_data = json_decode(char_item_query.item[6]) //TODO: try/catch
+			ci.req_titles = json_decode(char_item_query.item[7]) //TODO: try/catch
+			ci.additional_data = char_item_query.item[8]
 
-		// Check for requisite ckey and character name.
-		if((lowertext(citem.assoc_key) != lowertext(M.ckey)) || (lowertext(citem.character_name) != lowertext(M.real_name)))
-			continue
-
-		// Check for required access.
-		var/obj/item/I = M.wear_id
-		if(citem.req_access && citem.req_access > 0)
-			if(!(istype(I) && (citem.req_access in I.GetAccess())))
+			equip_custom_item_to_mob(ci,M)
+	else
+		for(var/item in custom_items)
+			CHECK_TICK
+			var/datum/custom_item/ci = item
+			if(lowertext(ci.usr_ckey) != lowertext(M.ckey))
 				continue
-
-		// Check for required job title.
-		if(citem.req_titles && citem.req_titles.len > 0)
-			var/has_title
-			var/current_title = M.mind.role_alt_title ? M.mind.role_alt_title : M.mind.assigned_role
-			for(var/title in citem.req_titles)
-				if(title == current_title)
-					has_title = 1
-					break
-			if(!has_title)
+			if(lowertext(ci.usr_charname) != lowertext(M.real_name))
 				continue
+			equip_custom_item_to_mob(ci,M)
 
-		// ID cards and MCs are applied directly to the existing object rather than spawned fresh.
-		var/obj/item/existing_item
-		if(citem.item_path == /obj/item/card/id)
-			existing_item = locate(/obj/item/card/id) in M.get_contents() //TODO: Improve this ?
-		else if(citem.item_path == /obj/item/modular_computer)
-			existing_item = locate(/obj/item/modular_computer) in M.contents
 
-		// Spawn and equip the item.
-		if(existing_item)
-			citem.apply_to_item(existing_item)
-		else
-			place_custom_item(M,citem)
+/proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/M)
+	// Check for required job title.
+	if(citem.req_titles && length(citem.req_titles) > 0)
+		var/has_title
+		var/current_title = M.mind.role_alt_title ? M.mind.role_alt_title : M.mind.assigned_role
+		for(var/title in citem.req_titles)
+			if(title == current_title)
+				has_title = 1
+				break
+		if(!has_title)
+			to_chat(M, "A custom item could not be equipped as you have joined with the wrong role.")
+			return FALSE
 
-// Places the item on the target mob.
-/proc/place_custom_item(mob/living/carbon/human/M, var/datum/custom_item/citem)
+	// ID cards and MCs are applied directly to the existing object rather than spawned fresh.
+	var/obj/item/existing_item
+	if(citem.item_path == /obj/item/card/id)
+		existing_item = locate(/obj/item/card/id) in M.get_contents() //TODO: Improve this ?
+	else if(citem.item_path == /obj/item/modular_computer)
+		existing_item = locate(/obj/item/modular_computer) in M.contents
 
-	if(!citem) return
-	var/obj/item/newitem = citem.spawn_item()
+	// Spawn and equip the item.
+	if(existing_item)
+		citem.apply_to_item(existing_item)
+		return TRUE
+	else
+		var/obj/item/newitem = citem.spawn_item()
 
-	if(M.equip_to_appropriate_slot(newitem))
-		return newitem
+		if(M.equip_to_appropriate_slot(newitem))
+			return TRUE
 
-	if(M.equip_to_storage(newitem))
-		return newitem
+		if(M.equip_to_storage(newitem))
+			return TRUE
 
-	newitem.forceMove(get_turf(M.loc))
-	return newitem
+		newitem.forceMove(get_turf(M.loc))
+		to_chat(M, "A custom item has been placed on the floor as there was no space for it on your mob.")
+		return TRUE

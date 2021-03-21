@@ -20,12 +20,12 @@
 
 #define REAGENTS_OVERDOSE 20
 #define REAGENTS_BURNING_TEMP_HIGH T0C + 65 //Temperature at which high temperature burns occur
-#define REAGENTS_BURNING_TEMP_HIGH_DAMAGE 0.0001 //Damage per celcius per unit above the REAGENTS_BURNING_TEMP_HIGH define per unit.
-#define REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP 20 //Maximum amount of burn damage to deal due to high temperature reagents.
+#define REAGENTS_BURNING_TEMP_HIGH_DAMAGE 0.1 //Damage per celcius per unit above the REAGENTS_BURNING_TEMP_HIGH define per unit.
+#define REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP 40 //Maximum amount of burn damage to deal due to high temperature reagents.
 
-#define REAGENTS_BURNING_TEMP_LOW T0C - 30 //Temperature at which low temperature burns occur
-#define REAGENTS_BURNING_TEMP_LOW_DAMAGE 0.00005 //Damage per celcius per unit below the REAGENTS_BURNING_TEMP_LOW define per unit.
-#define REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP 20 //Maximum amount of burn damage to deal due to low temperature reagents.
+#define REAGENTS_BURNING_TEMP_LOW T0C - 55 //Temperature at which low temperature burns occur
+#define REAGENTS_BURNING_TEMP_LOW_DAMAGE 0.1 //Damage per celcius per unit below the REAGENTS_BURNING_TEMP_LOW define per unit.
+#define REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP 40 //Maximum amount of burn damage to deal due to low temperature reagents.
 
 #define REAGENTS_BODYTEMP 0.002 //Increase in body temperature per unit per celcius above current body temperature.
 #define REAGENTS_BODYTEMP_MIN 0.25 //Minimum amount of increase to actually increase body temperature. The increase is also rounded to this value.
@@ -44,6 +44,7 @@
 #define IS_UNDEAD  128
 
 // Apply status effects
+#define CE_ADRENALINE	"adrenal"		// Like speedboost but different
 #define CE_ALCOHOL      "alcohol"		// Liver filtering
 #define CE_ANTIEMETIC   "antiemetic"	// suppresses vomiting
 #define CE_ITCH         "itch"          // causes itching
@@ -75,6 +76,7 @@
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
 #define CE_OXYGENATED   "oxygenated"	// Dexalin
+#define CE_BLOODCLOT    "bloodclot"		// Coagzolug
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"
@@ -106,3 +108,7 @@
 
 #define	BASE_VOMIT_CHANCE 10 //Base chance
 #define	VOMIT_CHANCE_SCALE 2.5 //Percent change added for every 0.01 percent over the VOMIT limit
+
+#define REAGENTS_FREE_SPACE(R) (R.maximum_volume - R.total_volume)
+#define REAGENT_VOLUME(REAGENT_HOLDER, REAGENT_TYPE) (REAGENT_HOLDER?.reagent_volumes && REAGENT_HOLDER.reagent_volumes[REAGENT_TYPE])
+#define REAGENT_DATA(REAGENT_HOLDER, REAGENT_TYPE)   (REAGENT_HOLDER?.reagent_data    && REAGENT_HOLDER.reagent_data[REAGENT_TYPE])

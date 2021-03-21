@@ -63,8 +63,8 @@
 		A.attack_robot(src)
 		return
 
-	// buckled cannot prevent machine interlinking but stops arm movement
-	if(buckled)
+	// buckled_to cannot prevent machine interlinking but stops arm movement
+	if(buckled_to)
 		return
 
 	if(W == A)
@@ -191,8 +191,8 @@
 /atom/proc/BorgCtrlClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
 	CtrlClick(user)
 
-/obj/machinery/door/airlock/BorgCtrlClick() // Bolts doors. Forwards to AI code.
-	AICtrlClick()
+/obj/machinery/door/airlock/BorgCtrlClick(mob/user) // Bolts doors. Forwards to AI code.
+	AICtrlClick(user)
 
 /obj/machinery/power/apc/BorgCtrlClick() // turns off/on APCs. Forwards to AI code.
 	AICtrlClick()
@@ -223,6 +223,6 @@
 /mob/living/silicon/robot/RangedAttack(atom/A)
 	A.attack_robot(src)
 
-/atom/proc/attack_robot(mob/user as mob)
+/atom/proc/attack_robot(mob/user)
 	attack_ai(user)
 	return

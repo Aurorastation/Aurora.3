@@ -7,6 +7,8 @@
 		return FALSE
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))
+	if(istype(target_slot, /obj/item/clothing/ears/offear))
+		target_slot = (l_ear == target_slot ? r_ear : l_ear)
 
 	switch(slot_to_strip)
 		// Handle things that are part of this interface but not removing/replacing a given item.
@@ -88,9 +90,12 @@
 
 	if(stripping)
 		admin_attack_log(user, src, "Attempted to remove \a [target_slot]", "Target of an attempt to remove \a [target_slot].", "attempted to remove \a [target_slot] from")
+		if((l_ear == target_slot || r_ear == target_slot) && (target_slot.slot_flags & SLOT_TWOEARS))
+			var/obj/item/clothing/ears/OE = (l_ear == target_slot ? r_ear : l_ear)
+			qdel(OE)
 		unEquip(target_slot)
 	else if(user.unEquip(held))
-		equip_to_slot_if_possible(held, text2num(slot_to_strip), 0, 1, 1)
+		equip_to_slot_if_possible(held, text2num(slot_to_strip), FALSE, TRUE, TRUE, FALSE, TRUE)
 		if(held.loc != src)
 			user.put_in_hands(held)
 	return 1

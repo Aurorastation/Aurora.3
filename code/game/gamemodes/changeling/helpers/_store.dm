@@ -175,6 +175,13 @@ var/list/datum/power/changeling/powerinstances = list()
 	isVerb = FALSE
 	verbpath = /mob/proc/changeling_engorgedglands
 
+/datum/power/changeling/space_adaption
+	name = "UPGRADE: Space Adaption"
+	desc = "Our body chemistry changes to become resistant to the effects of low pressure, and we no longer have the need to breathe."
+	genomecost = 5
+	isVerb = FALSE
+	verbpath = /mob/proc/changeling_spaceadaption
+
 /datum/power/changeling/rapid_regeneration
 	name = "Rapid Regeneration"
 	desc = "We evolve the ability to rapidly regenerate, negating the need for stasis."
@@ -220,9 +227,10 @@ var/list/datum/power/changeling/powerinstances = list()
 	set category = "Changeling"
 	set desc = "Buy new abilities with the genomes we obtained."
 
-	if(!usr || !usr.mind || !usr.mind.changeling)
+	var/datum/changeling/changeling = usr.mind.antag_datums[MODE_CHANGELING]
+	if(!usr || !usr.mind || !changeling)
 		return
-	src = usr.mind.changeling
+	src = changeling
 
 	if(!powerinstances.len)
 		for(var/P in powers)
@@ -399,7 +407,7 @@ var/list/datum/power/changeling/powerinstances = list()
 		<table width='560' align='center' cellspacing='0' cellpadding='5' id='maintable'>
 			<tr id='title_tr'>
 				<td align='center'>
-					<font size='5'><b>Changling Evolution Menu</b></font><br>
+					<font size='5'><b>Changeling Evolution Menu</b></font><br>
 					Hover over a power to see more information<br>
 					Current evolution points left to evolve with: [geneticpoints]<br>
 					Absorb genomes to acquire more evolution points
@@ -480,7 +488,8 @@ var/list/datum/power/changeling/powerinstances = list()
 
 
 /datum/changeling/proc/purchasePower(var/datum/mind/M, var/power_name, var/remake_verbs = 1)
-	if(!M || !M.changeling)
+	var/datum/changeling/changeling = M.antag_datums[MODE_CHANGELING]
+	if(!M || !changeling)
 		return
 
 	var/datum/power/changeling/power = power_name

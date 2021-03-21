@@ -119,8 +119,7 @@
 					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the urinal."))
 					return
 				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
-				var/blocked = GM.run_armor_check("melee")
-				GM.apply_damage(8, def_zone = BP_HEAD, blocked = blocked, used_weapon = "blunt force")
+				GM.apply_damage(8, def_zone = BP_HEAD, used_weapon = "blunt force")
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 1.5)
 			else
 				to_chat(user, SPAN_NOTICE("You need a tighter grip."))
@@ -235,7 +234,7 @@
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(spray_amount)
-	W.reagents.add_reagent(/datum/reagent/water, spray_amount)
+	W.reagents.add_reagent(/decl/reagent/water, spray_amount)
 	W.set_up(O, spray_amount)
 
 	if(iscarbon(O))
@@ -257,15 +256,17 @@
 
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			var/washgloves = 1
-			var/washshoes = 1
-			var/washmask = 1
-			var/washears = 1
-			var/washglasses = 1
+			var/washgloves = TRUE
+			var/washshoes = TRUE
+			var/washmask = TRUE
+			var/washears = TRUE
+			var/washglasses = TRUE
+			var/washwrists = TRUE
 
 			if(H.wear_suit)
 				washgloves = !(H.wear_suit.flags_inv & HIDEGLOVES)
 				washshoes = !(H.wear_suit.flags_inv & HIDESHOES)
+				washwrists = !(H.wear_suit.flags_inv & HIDEWRISTS)
 
 			if(H.head)
 				washmask = !(H.head.flags_inv & HIDEMASK)
@@ -308,15 +309,19 @@
 					update_icons_required = TRUE
 			if(H.l_ear && washears)
 				if(H.l_ear.clean_blood())
-					H.update_inv_ears(0)
+					H.update_inv_l_ear(0)
 					update_icons_required = TRUE
 			if(H.r_ear && washears)
 				if(H.r_ear.clean_blood())
-					H.update_inv_ears(0)
+					H.update_inv_r_ear(0)
 					update_icons_required = TRUE
 			if(H.belt)
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)
+					update_icons_required = TRUE
+			if(H.wrists && washwrists)
+				if(H.wrists.clean_blood())
+					H.update_inv_wrists(0)
 					update_icons_required = TRUE
 			H.clean_blood(washshoes)
 		else
@@ -364,7 +369,7 @@
 		return
 	is_washing = 1
 	var/turf/T = get_turf(src)
-	reagents.add_reagent(/datum/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	T.clean(src)
 	spawn(100)
 		is_washing = 0
@@ -472,7 +477,7 @@
 					to_chat(usr, SPAN_WARNING("\The [RG] is already full."))
 					return
 
-				RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
+				RG.reagents.add_reagent(/decl/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].",
 									 SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
@@ -497,7 +502,7 @@
 					return
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
-				S.reagents.add_reagent(/datum/reagent/water, trans)
+				S.reagents.add_reagent(/decl/reagent/water, trans)
 				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."),
 									 SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
@@ -529,8 +534,8 @@
 	// Short of a rewrite, this is necessary to stop monkeycubes being washed.
 	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
-	else if(istype(O, /obj/item/mop))
-		O.reagents.add_reagent(/datum/reagent/water, 5)
+	else if(istype(O, /obj/item/mop) || istype(O, /obj/item/reagent_containers/glass/rag))
+		O.reagents.add_reagent(/decl/reagent/water, 5)
 		to_chat(user, SPAN_NOTICE("You wet \the [O] in \the [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
@@ -554,7 +559,7 @@
 	if(!I) return 								//Item's been destroyed while washing
 	if(user.get_active_hand() != I) return		//Person has switched hands or the item in their hands
 
-	O.clean_blood()
+	I.clean_blood()
 	user.visible_message( \
 		SPAN_NOTICE("[user] washes \a [I] using \the [src]."), \
 		SPAN_NOTICE("You wash \a [I] using \the [src]."))

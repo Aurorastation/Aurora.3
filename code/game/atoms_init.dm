@@ -15,7 +15,7 @@
 		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
-	
+
 	var/list/created = SSatoms.created_atoms
 	if(created)
 		created += src
@@ -29,7 +29,7 @@
 		if(!reagents)
 			create_reagents(0)
 		for(var/v in reagents_to_add)
-			reagents.maximum_volume += max(LAZYACCESS(reagents_to_add, v) - reagents.get_free_space(), 0)
+			reagents.maximum_volume += max(LAZYACCESS(reagents_to_add, v) - REAGENTS_FREE_SPACE(reagents), 0)
 			reagents.add_reagent(v, LAZYACCESS(reagents_to_add, v), LAZYACCESS(reagent_data, v))
 
 	if (light_power && light_range)

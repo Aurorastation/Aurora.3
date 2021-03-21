@@ -1,763 +1,802 @@
 //These value assume that each unit is roughly a gram
 
-/datum/reagent
+/decl/reagent
 	var/value = 1 //per unit
 
-/datum/reagent/blood
+/decl/reagent/blood
 	value = 2
 
-/datum/reagent/water
+/decl/reagent/water
 	value = 0
 
-/datum/reagent/fuel
+/decl/reagent/fuel
 	value = 6.8
 
-/datum/reagent/acetone
+/decl/reagent/acetone
 	value = 0.27
 
-/datum/reagent/aluminum
+/decl/reagent/aluminum
 	value = 0.02
 
-/datum/reagent/ammonia
+/decl/reagent/ammonia
 	value = 0.01
 
-/datum/reagent/carbon
+/decl/reagent/carbon
 	value = 0.2
 
-/datum/reagent/copper
+/decl/reagent/copper
 	value = 0.02
 
-/datum/reagent/alcohol/ethanol
+/decl/reagent/alcohol
 	value = 0.01
 
-/datum/reagent/alcohol/butanol
+/decl/reagent/alcohol/butanol
 	value = 0.02
 
-/datum/reagent/alcohol/butanol/xuizijuice
+/decl/reagent/alcohol/butanol/xuizijuice
 	value = 0.2
 
-/datum/reagent/alcohol/butanol/xuizijuice
+/decl/reagent/alcohol/butanol/xuizijuice
 	value = 0.2
 
-/datum/reagent/hydrazine
+/decl/reagent/hydrazine
 	value = 0.017
 
-/datum/reagent/iron
+/decl/reagent/iron
 	value = 0.01
 
-/datum/reagent/lithium
+/decl/reagent/lithium
 	value = 6
 
-/datum/reagent/mercury
+/decl/reagent/mercury
 	value = 0.02
 
-/datum/reagent/phosphorus
+/decl/reagent/phosphorus
 	value = 0.4
 
-/datum/reagent/potassium
+/decl/reagent/potassium
 	value = 1
 
-/datum/reagent/radium
+/decl/reagent/radium
 	value = 50 //Radium is crazy expensive, like 100k+ per gram. So probably a bit less expensive in the future.
 
-/datum/reagent/acid
+/decl/reagent/acid
 	value = 0.2
 
-/datum/reagent/acid/stomach
+/decl/reagent/acid/stomach
 	value = 0
 
-/datum/reagent/sodium
+/decl/reagent/sodium
 	value = 0.1
 
-/datum/reagent/sugar
+/decl/reagent/sugar
 	value = 0.1
 
-/datum/reagent/sulfur
+/decl/reagent/sulfur
 	value = 2
 
-/datum/reagent/kois
+/decl/reagent/kois
 	value = 0.5
 
-/datum/reagent/nutriment
+/decl/reagent/nutriment
 	value = 0.1
 
-/datum/reagent/nutriment/virus_food
+/decl/reagent/nutriment/virus_food
 	value = 0.15
 
-/datum/reagent/nutriment/sprinkles
+/decl/reagent/nutriment/sprinkles
 	value = 0.05
 
-/datum/reagent/nutriment/mint
+/decl/reagent/nutriment/mint
 	value = 0.14
 
-/datum/reagent/lipozine
+/decl/reagent/lipozine
 	value = 0.11
 
-/datum/reagent/sodiumchloride
+/decl/reagent/sodiumchloride
 	value = 0.11
 
-/datum/reagent/blackpepper
+/decl/reagent/blackpepper
 	value = 0.1
 
-/datum/reagent/enzyme
+/decl/reagent/enzyme
 	value = 0.2
 
-/datum/reagent/frostoil
+/decl/reagent/frostoil
 	value = 0.2
 
-/datum/reagent/capsaicin
+/decl/reagent/capsaicin
 	value = 0.2
 
-/datum/reagent/capsaicin/condensed
+/decl/reagent/capsaicin/condensed
 	value = 0.5
 
-/datum/reagent/drink
+/decl/reagent/drink
 	value = 0.1
 
-/datum/reagent/drink/milk/chocolate
+/decl/reagent/drink/milk/chocolate
 	value = 0.11
 
-/datum/reagent/drink/milk/cream
+/decl/reagent/drink/milk/cream
 	value = 0.12
 
-/datum/reagent/drink/coffee
+/decl/reagent/drink/coffee
 	value = 0.12
 
-/datum/reagent/drink/coffee/soy_latte
+/decl/reagent/drink/coffee/soy_latte
 	value = 0.13
 
-/datum/reagent/drink/hot_coco
+/decl/reagent/drink/hot_coco
 	value = 0.11
 
-/datum/reagent/drink/milkshake
+/decl/reagent/drink/milkshake
 	value = 0.12
 
-/datum/reagent/drink/rewriter
+/decl/reagent/drink/rewriter
 	value = 0.11
 
-/datum/reagent/drink/nuka_cola
+/decl/reagent/drink/nuka_cola
 	value = 0.13
 
-/datum/reagent/drink/doctorsdelight
+/decl/reagent/drink/doctorsdelight
 	value = 0.3
 
-/datum/reagent/drink/ice
+/decl/reagent/drink/ice
 	value = 0
 
-/datum/reagent/drink/nothing
+/decl/reagent/drink/nothing
 	value = 0
 
-/datum/reagent/alcohol/ethanol/absinthe
+/decl/reagent/alcohol/absinthe
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/ale
+/decl/reagent/alcohol/ale
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/beer
+/decl/reagent/alcohol/beer
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/bitters
+/decl/reagent/alcohol/bitters
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/bluecuracao
+/decl/reagent/alcohol/bluecuracao
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/champagne
+/decl/reagent/alcohol/champagne
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/cognac
+/decl/reagent/alcohol/cognac
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/deadrum
+/decl/reagent/alcohol/deadrum
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/gin
+/decl/reagent/alcohol/gin
 	value = 0.1
 
-/datum/reagent/alcohol/ethanol/coffee/kahlua
+/decl/reagent/alcohol/coffee/kahlua
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/melonliquor
+/decl/reagent/alcohol/melonliquor
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/rum
+/decl/reagent/alcohol/rum
 	value = 0.1
 
-/datum/reagent/alcohol/ethanol/sake
+/decl/reagent/alcohol/sake
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/tequila
+/decl/reagent/alcohol/tequila
 	value = 0.1
 
-/datum/reagent/alcohol/ethanol/thirteenloko
+/decl/reagent/alcohol/thirteenloko
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/vermouth
+/decl/reagent/alcohol/vermouth
 	value = 0.1
 
-/datum/reagent/alcohol/ethanol/vodka
+/decl/reagent/alcohol/vodka
 	value = 0.1
 
-/datum/reagent/alcohol/ethanol/whiskey
+/decl/reagent/alcohol/whiskey
 	value = 0.1
 
-/datum/reagent/alcohol/ethanol/wine
+/decl/reagent/alcohol/wine
 	value = 0.1
 
-/datum/reagent/alcohol/ethanol/acid_spit
+/decl/reagent/alcohol/acid_spit
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/alliescocktail
+/decl/reagent/alcohol/alliescocktail
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/aloe
+/decl/reagent/alcohol/aloe
 	value = 0.17
 
-/datum/reagent/alcohol/ethanol/amasec
+/decl/reagent/alcohol/amasec
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/andalusia
+/decl/reagent/alcohol/andalusia
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/antifreeze
+/decl/reagent/alcohol/antifreeze
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/atomicbomb
+/decl/reagent/alcohol/atomicbomb
 	value = 0.21
 
-/datum/reagent/alcohol/ethanol/coffee/b52
+/decl/reagent/alcohol/coffee/b52
 	value = 0.17
 
-/datum/reagent/alcohol/ethanol/bahama_mama
+/decl/reagent/alcohol/bahama_mama
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/bananahonk
+/decl/reagent/alcohol/bananahonk
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/barefoot
+/decl/reagent/alcohol/barefoot
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/beepsky_smash
+/decl/reagent/alcohol/beepsky_smash
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/bilk
+/decl/reagent/alcohol/bilk
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/blackrussian
+/decl/reagent/alcohol/blackrussian
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/bloodymary
+/decl/reagent/alcohol/bloodymary
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/booger
+/decl/reagent/alcohol/booger
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/coffee/brave_bull
+/decl/reagent/alcohol/coffee/brave_bull
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/cmojito
+/decl/reagent/alcohol/cmojito
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/gibsonpunch
+/decl/reagent/alcohol/gibsonpunch
 	value = 0.19
 
-/datum/reagent/alcohol/ethanol/classic
+/decl/reagent/alcohol/classic
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/martini
+/decl/reagent/alcohol/martini
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/corkpopper
+/decl/reagent/alcohol/corkpopper
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/rumandcola
+/decl/reagent/alcohol/rumandcola
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/cubalibre
+/decl/reagent/alcohol/cubalibre
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/demonsblood
+/decl/reagent/alcohol/demonsblood
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/devilskiss
+/decl/reagent/alcohol/devilskiss
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/driestmartini
+/decl/reagent/alcohol/driestmartini
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/ginfizz
+/decl/reagent/alcohol/ginfizz
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/french75
+/decl/reagent/alcohol/french75
 	value = 0.17
 
-/datum/reagent/alcohol/ethanol/grog
+/decl/reagent/alcohol/grog
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/erikasurprise
+/decl/reagent/alcohol/erikasurprise
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/gargleblaster
+/decl/reagent/alcohol/gargleblaster
 	value = 0.21
 
-/datum/reagent/alcohol/ethanol/gintonic
+/decl/reagent/alcohol/gintonic
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/goldschlager
+/decl/reagent/alcohol/goldschlager
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/hippiesdelight
+/decl/reagent/alcohol/hippiesdelight
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/hooch
+/decl/reagent/alcohol/hooch
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/iced_beer
+/decl/reagent/alcohol/iced_beer
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/irishcarbomb
+/decl/reagent/alcohol/irishcarbomb
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/coffee/irishcoffee
+/decl/reagent/alcohol/coffee/irishcoffee
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/irish_cream
+/decl/reagent/alcohol/irish_cream
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/longislandicedtea
+/decl/reagent/alcohol/longislandicedtea
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/manhattan
+/decl/reagent/alcohol/manhattan
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/manhattan_proj
+/decl/reagent/alcohol/manhattan_proj
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/manly_dorf
+/decl/reagent/alcohol/manly_dorf
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/margarita
+/decl/reagent/alcohol/margarita
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/mead
+/decl/reagent/alcohol/mead
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/moonshine
+/decl/reagent/alcohol/moonshine
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/muscmule
+/decl/reagent/alcohol/muscmule
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/neurotoxin
+/decl/reagent/alcohol/neurotoxin
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/omimosa
+/decl/reagent/alcohol/omimosa
 	value = 0.18
 
-/datum/reagent/alcohol/ethanol/patron
+/decl/reagent/alcohol/patron
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/pinkgin
+/decl/reagent/alcohol/pinkgin
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/pinkgintonic
+/decl/reagent/alcohol/pinkgintonic
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/piratepunch
+/decl/reagent/alcohol/piratepunch
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/planterpunch
+/decl/reagent/alcohol/planterpunch
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/pwine
+/decl/reagent/alcohol/pwine
 	value = 0.19
 
-/datum/reagent/alcohol/ethanol/red_mead
+/decl/reagent/alcohol/red_mead
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/sbiten
+/decl/reagent/alcohol/sbiten
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/screwdrivercocktail
+/decl/reagent/alcohol/screwdrivercocktail
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/silencer
+/decl/reagent/alcohol/silencer
 	value = 0.135
 
-/datum/reagent/alcohol/ethanol/singulo
+/decl/reagent/alcohol/singulo
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/snowwhite
+/decl/reagent/alcohol/snowwhite
 	value = 0.125
 
-/datum/reagent/alcohol/ethanol/ssroyale
+/decl/reagent/alcohol/ssroyale
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/suidream
+/decl/reagent/alcohol/suidream
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/gibsonhooch
+/decl/reagent/alcohol/gibsonhooch
 	value = 0.21
 
-/datum/reagent/alcohol/ethanol/tequila_sunrise
+/decl/reagent/alcohol/tequila_sunrise
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/threemileisland
+/decl/reagent/alcohol/threemileisland
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/toxins_special
+/decl/reagent/alcohol/toxins_special
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/vodkamartini
+/decl/reagent/alcohol/vodkamartini
 	value = 0.135
 
-/datum/reagent/alcohol/ethanol/vodkatonic
+/decl/reagent/alcohol/vodkatonic
 	value = 0.145
 
-/datum/reagent/alcohol/ethanol/white_russian
+/decl/reagent/alcohol/white_russian
 	value = 0.125
 
-/datum/reagent/alcohol/ethanol/whiskey_cola
+/decl/reagent/alcohol/whiskey_cola
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/whiskeysoda
+/decl/reagent/alcohol/whiskeysoda
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/specialwhiskey
+/decl/reagent/alcohol/specialwhiskey
 	value = 0.3
 
-/datum/reagent/alcohol/ethanol/daiquiri
+/decl/reagent/alcohol/daiquiri
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/icepick
+/decl/reagent/alcohol/icepick
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/poussecafe
+/decl/reagent/alcohol/poussecafe
 	value = 0.17
 
-/datum/reagent/alcohol/ethanol/mintjulep
+/decl/reagent/alcohol/mintjulep
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/johncollins
+/decl/reagent/alcohol/johncollins
 	value = 0.17
 
-/datum/reagent/alcohol/ethanol/gimlet
+/decl/reagent/alcohol/gimlet
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/starsandstripes
+/decl/reagent/alcohol/starsandstripes
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/metropolitan
+/decl/reagent/alcohol/metropolitan
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/caruso
+/decl/reagent/alcohol/caruso
 	value = 0.18
 
-/datum/reagent/alcohol/ethanol/aprilshower
+/decl/reagent/alcohol/aprilshower
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/carthusiansazerac
+/decl/reagent/alcohol/carthusiansazerac
 	value = 0.17
 
-/datum/reagent/alcohol/ethanol/deweycocktail
+/decl/reagent/alcohol/deweycocktail
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/chartreusegreen
+/decl/reagent/alcohol/chartreusegreen
 	value = 0.18
 
-/datum/reagent/alcohol/ethanol/chartreuseyellow
+/decl/reagent/alcohol/chartreuseyellow
 	value = 0.18
 
-/datum/reagent/alcohol/ethanol/cremewhite
+/decl/reagent/alcohol/cremewhite
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/cremeyvette
+/decl/reagent/alcohol/cremeyvette
 	value = 0.17
 
-/datum/reagent/alcohol/ethanol/brandy
+/decl/reagent/alcohol/brandy
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/guinness
+/decl/reagent/alcohol/guinness
 	value = 0.1
 
-/datum/reagent/alcohol/ethanol/drambuie
+/decl/reagent/alcohol/drambuie
 	value = 0.18
 
-/datum/reagent/alcohol/ethanol/oldfashioned
+/decl/reagent/alcohol/oldfashioned
 	value = 0.15
 
-/datum/reagent/alcohol/ethanol/blindrussian
+/decl/reagent/alcohol/blindrussian
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/rustynail
+/decl/reagent/alcohol/rustynail
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/tallrussian
+/decl/reagent/alcohol/tallrussian
 	value = 0.15
 
-/datum/reagent/inaprovaline
+/decl/reagent/alcohol/solarian_white
+	value = 0.125
+
+/decl/reagent/alcohol/solarian_marine
+	value = 0.2
+
+/decl/reagent/alcohol/cloudyoran
+	value = 0.12
+
+/decl/reagent/alcohol/djinntea
+	value = 0.12
+
+/decl/reagent/alcohol/permanentrevolution
+	value = 0.13
+
+/decl/reagent/alcohol/internationale
+	value = 0.13
+
+/decl/reagent/alcohol/dionamama
+	value = 0.2
+
+/decl/reagent/alcohol/jovianstorm
+	value = 0.13
+
+/decl/reagent/alcohol/primeminister
+	value = 0.13
+
+/decl/reagent/alcohol/peacetreaty
+	value = 0.15
+
+/decl/reagent/alcohol/fiscream
+	value = 0.14
+
+/decl/reagent/alcohol/coffee/fiscoffee
+	value = 0.13
+
+/decl/reagent/alcohol/fisfirebomb
+	value = 0.15
+
+/decl/reagent/inaprovaline
 	value = 2.5
 
-/datum/reagent/bicaridine
+/decl/reagent/bicaridine
 	value = 4.9
 
-/datum/reagent/dermaline
+/decl/reagent/dermaline
 	value = 3.9
 
-/datum/reagent/dylovene
+/decl/reagent/dylovene
 	value = 2.1
 
-/datum/reagent/dexalin
+/decl/reagent/dexalin
 	value = 2.4
 
-/datum/reagent/dexalin/plus
+/decl/reagent/dexalin/plus
 	value = 3.6
 
-/datum/reagent/tricordrazine
+/decl/reagent/tricordrazine
 	value = 6
 
-/datum/reagent/cryoxadone
+/decl/reagent/cryoxadone
 	value = 3.9
 
-/datum/reagent/clonexadone
+/decl/reagent/clonexadone
 	value = 5.5
 
-/datum/reagent/perconol
+/decl/reagent/perconol
 	value = 3.3
 
-/datum/reagent/mortaphenyl
+/decl/reagent/mortaphenyl
 	value = 3.1
 
-/datum/reagent/oxycomorphine
+/decl/reagent/oxycomorphine
 	value = 3.3
 
-/datum/reagent/synaptizine
+/decl/reagent/synaptizine
 	value = 4.6
 
-/datum/reagent/alkysine
+/decl/reagent/alkysine
 	value = 5.9
 
-/datum/reagent/oculine
+/decl/reagent/oculine
 	value = 4.2
 
-/datum/reagent/peridaxon
+/decl/reagent/peridaxon
 	value = 6
 
-/datum/reagent/ryetalyn
+/decl/reagent/ryetalyn
 	value = 3.6
 
-/datum/reagent/pneumalin
+/decl/reagent/pneumalin
 	value = 3.2
 
-/datum/reagent/hyperzine
+/decl/reagent/hyperzine
 	value = 3.9
 
-/datum/reagent/ethylredoxrazine
+/decl/reagent/ethylredoxrazine
 	value = 3.1
 
-/datum/reagent/hyronalin
+/decl/reagent/hyronalin
 	value = 2.3
 
-/datum/reagent/arithrazine
+/decl/reagent/arithrazine
 	value = 2.7
 
-/datum/reagent/thetamycin
+/decl/reagent/thetamycin
 	value = 2.5
 
-/datum/reagent/coughsyrup
+/decl/reagent/coughsyrup
 	value = 1.5
 
-/datum/reagent/sterilizine
+/decl/reagent/sterilizine
 	value = 2.2
 
-/datum/reagent/leporazine
+/decl/reagent/leporazine
 	value = 2
 
-/datum/reagent/mental/corophenidate
+/decl/reagent/mental/corophenidate
 	value = 6
 
-/datum/reagent/mental/parvosil
+/decl/reagent/mental/parvosil
 	value = 6
 
-/datum/reagent/mental/neurostabin
+/decl/reagent/mental/neurostabin
 	value = 6
 
-/datum/reagent/mental/minaphobin
+/decl/reagent/mental/minaphobin
 	value = 6
 
-/datum/reagent/mental/emoxanyl
+/decl/reagent/mental/emoxanyl
 	value = 6
 
-/datum/reagent/mental/orastabin
+/decl/reagent/mental/orastabin
 	value = 6
 
-/datum/reagent/mental/neurapan
+/decl/reagent/mental/neurapan
 	value = 6
 
-/datum/reagent/mental/nerospectan
+/decl/reagent/mental/nerospectan
 	value = 6
 
-/datum/reagent/mental/truthserum
+/decl/reagent/mental/truthserum
 	value = 8
 
-/datum/reagent/mental/nicotine
+/decl/reagent/mental/nicotine
 	value = 2
 
-/datum/reagent/rezadone
+/decl/reagent/rezadone
 	value = 5
 
-/datum/reagent/verunol
+/decl/reagent/verunol
 	value = 2
 
-/datum/reagent/crayon_dust
+/decl/reagent/crayon_dust
 	value = 0.001
 
-/datum/reagent/adminordrazine
+/decl/reagent/adminordrazine
 	value = 1000
 
-/datum/reagent/gold
+/decl/reagent/gold
 	value = 7
 
-/datum/reagent/silver
+/decl/reagent/silver
 	value = 4
 
-/datum/reagent/uranium
+/decl/reagent/uranium
 	value = 9
 
-/datum/reagent/platinum
+/decl/reagent/platinum
 	value = 3
 
-/datum/reagent/adrenaline
+/decl/reagent/adrenaline
 	value = 3
 
-/datum/reagent/diethylamine
+/decl/reagent/diethylamine
 	value = 0.9
 
-/datum/reagent/surfactant
+/decl/reagent/surfactant
 	value = 0.05
 
-/datum/reagent/thermite
+/decl/reagent/thermite
 	value = 6
 
-/datum/reagent/spacecleaner
+/decl/reagent/spacecleaner
 	value = 0.7
 
-/datum/reagent/lube
+/decl/reagent/lube
 	value = 0.6
 
-/datum/reagent/glycerol
+/decl/reagent/glycerol
 	value = 8
 
-/datum/reagent/nitroglycerin
+/decl/reagent/nitroglycerin
 	value = 9
 
-/datum/reagent/coolant
+/decl/reagent/coolant
 	value = 0.8
 
-/datum/reagent/woodpulp
+/decl/reagent/woodpulp
 	value = 0.6
 
-/datum/reagent/luminol
+/decl/reagent/luminol
 	value = 1.4
 
-/datum/reagent/toxin
+/decl/reagent/toxin
 	value = 2
 
-/datum/reagent/toxin/plasticide
+/decl/reagent/toxin/plasticide
 	value = 2.1
 
-/datum/reagent/toxin/amatoxin
+/decl/reagent/toxin/amatoxin
 	value = 2.3
 
-/datum/reagent/toxin/carpotoxin
+/decl/reagent/toxin/carpotoxin
 	value = 3
 
-/datum/reagent/toxin/phoron
+/decl/reagent/toxin/phoron
 	value = 10
 
-/datum/reagent/toxin/cyanide
+/decl/reagent/toxin/cyanide
 	value = 3.3
 
-/datum/reagent/toxin/potassium_chloride
+/decl/reagent/toxin/potassium_chloride
 	value = 4.4
 
-/datum/reagent/toxin/potassium_chlorophoride
+/decl/reagent/toxin/potassium_chlorophoride
 	value = 4.5
 
-/datum/reagent/toxin/zombiepowder
+/decl/reagent/toxin/zombiepowder
 	value = 2.9
 
-/datum/reagent/toxin/fertilizer
+/decl/reagent/toxin/fertilizer
 	value = 1.2
 
-/datum/reagent/toxin/plantbgone
+/decl/reagent/toxin/plantbgone
 	value = 1.1
 
-/datum/reagent/acid/polyacid
+/decl/reagent/acid/polyacid
 	value = 2
 
-/datum/reagent/lexorin
+/decl/reagent/lexorin
 	value = 2.4
 
-/datum/reagent/mutagen
+/decl/reagent/mutagen
 	value = 3.1
 
-/datum/reagent/slimejelly
+/decl/reagent/slimejelly
 	value = 1.2
 
-/datum/reagent/soporific
+/decl/reagent/soporific
 	value = 2.5
 
-/datum/reagent/polysomnine
+/decl/reagent/polysomnine
 	value = 2.6
 
-/datum/reagent/polysomnine/beer2
+/decl/reagent/polysomnine/beer2
 	value = 2.2
 
-/datum/reagent/space_drugs
+/decl/reagent/space_drugs
 	value = 2.8
 
-/datum/reagent/serotrotium
+/decl/reagent/serotrotium
 	value = 2.5
 
-/datum/reagent/cryptobiolin
+/decl/reagent/cryptobiolin
 	value = 2
 
-/datum/reagent/impedrezene
+/decl/reagent/impedrezene
 	value = 1.8
 
-/datum/reagent/mindbreaker
+/decl/reagent/mindbreaker
 	value = 0.6
 
-/datum/reagent/psilocybin
+/decl/reagent/psilocybin
 	value = 0.7
 
-/datum/reagent/aslimetoxin
+/decl/reagent/aslimetoxin
 	value = 3
 
-/datum/reagent/toxin/nanites
+/decl/reagent/toxin/nanites
 	value = 9
 
-/datum/reagent/estus
+/decl/reagent/estus
 	value = 50
 
-/datum/reagent/liquid_fire
+/decl/reagent/liquid_fire
 	value = 50
 
-/datum/reagent/black_matter
+/decl/reagent/black_matter
 	value = 250
 
-/datum/reagent/bluespace_dust
+/decl/reagent/bluespace_dust
 	value = 250
 
-/datum/reagent/philosopher_stone
+/decl/reagent/philosopher_stone
 	value = 1000
 
-/datum/reagent/elixir
+/decl/reagent/elixir
 	value = 1000
 
-/datum/reagent/azoth
+/decl/reagent/azoth
 	value = 500
 
-/datum/reagent/toxin/undead
+/decl/reagent/toxin/undead
 	value = 300

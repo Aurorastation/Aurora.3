@@ -202,14 +202,6 @@ obj/item/gun/energy/retro
 	turret_is_lethal = TRUE
 	turret_sprite_set = "laser"
 
-/obj/item/gun/energy/laser/shotgun/update_icon()
-	..()
-	if(wielded)
-		item_state = "[initial(icon_state)]-wielded"
-	else
-		item_state = initial(item_state)
-	update_held_icon()
-
 /obj/item/gun/energy/laser/shotgun/research
 	name = "expedition shotgun"
 	desc = "A Nanotrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
@@ -219,41 +211,55 @@ obj/item/gun/energy/retro
 
 /obj/item/gun/energy/lasertag
 	name = "laser tag gun"
+	desc = "A simple low-power laser gun, outfitted for use in laser tag arenas."
 	item_state = "laser"
 	has_item_ratio = FALSE
-	desc = "Standard issue weapon of the Imperial Guard"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
-	self_recharge = 1
+	self_recharge = TRUE
+	recharge_time = 2
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	fire_sound = 'sound/weapons/laser1.ogg'
-	projectile_type = /obj/item/projectile/beam/lastertag/blue
-	var/required_vest
+	projectile_type = /obj/item/projectile/beam/laser_tag
+	pin = /obj/item/device/firing_pin/tag/red
+	can_turret = TRUE
+	turret_is_lethal = FALSE
+	turret_sprite_set = "red"
 
-/obj/item/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
-	if(ishuman(M))
-		if(!istype(M.wear_suit, required_vest))
-			to_chat(M, "<span class='warning'>You need to be wearing your laser tag vest!</span>")
-			return 0
+/obj/item/gun/energy/lasertag/attackby(obj/item/I, mob/user)
+	if(I.ismultitool())
+		var/chosen_color = input(user, "Which color do you wish your gun to be?", "Color Selection") as null|anything in list("blue", "red")
+		if(!chosen_color)
+			return
+		get_tag_color(chosen_color)
+		to_chat(user, SPAN_NOTICE("\The [src] is now a [chosen_color] laser tag gun."))
+		return
 	return ..()
+
+/obj/item/gun/energy/lasertag/proc/get_tag_color(var/set_color)
+	projectile_type = text2path("/obj/item/projectile/beam/laser_tag/[set_color]")
+	if(pin)
+		QDEL_NULL(pin)
+		var/pin_path = text2path("/obj/item/device/firing_pin/tag/[set_color]")
+		pin = new pin_path(src)
+	switch(set_color)
+		if("red")
+			icon = 'icons/obj/guns/redtag.dmi'
+		if("blue")
+			icon = 'icons/obj/guns/bluetag.dmi'
+	icon_state = "[set_color]tag"
+	item_state = icon_state
+	modifystate = item_state
+	update_held_icon()
 
 /obj/item/gun/energy/lasertag/blue
 	icon = 'icons/obj/guns/bluetag.dmi'
 	icon_state = "bluetag"
 	item_state = "bluetag"
-	projectile_type = /obj/item/projectile/beam/lastertag/blue
-	required_vest = /obj/item/clothing/suit/bluetag
+	projectile_type = /obj/item/projectile/beam/laser_tag/blue
 	pin = /obj/item/device/firing_pin/tag/blue
-	can_turret = 1
-	turret_is_lethal = 0
 	turret_sprite_set = "blue"
 
 /obj/item/gun/energy/lasertag/red
 	icon = 'icons/obj/guns/redtag.dmi'
 	icon_state = "redtag"
 	item_state = "redtag"
-	projectile_type = /obj/item/projectile/beam/lastertag/red
-	required_vest = /obj/item/clothing/suit/redtag
-	pin = /obj/item/device/firing_pin/tag/red
-	can_turret = 1
-	turret_is_lethal = 0
-	turret_sprite_set = "red"

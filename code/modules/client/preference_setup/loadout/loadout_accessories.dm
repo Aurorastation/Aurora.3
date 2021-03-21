@@ -4,11 +4,6 @@
 	slot = slot_tie
 	sort_category = "Accessories"
 
-/datum/gear/accessory/bracelet
-	display_name = "bracelet (colourable)"
-	path = /obj/item/clothing/accessory/bracelet
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/accessory/suspenders
@@ -37,6 +32,7 @@
 /datum/gear/accessory/armband/New()
 	..()
 	var/armbands = list()
+	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
@@ -57,7 +53,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -73,26 +69,21 @@
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
 /datum/gear/accessory/tie
-	display_name = "tie selection"
-	path = /obj/item/clothing/accessory/blue
+	display_name = "tie selection (colourable)"
+	path = /obj/item/clothing/accessory/tie/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/tie/New()
 	..()
 	var/ties = list()
-	ties["red tie"] = /obj/item/clothing/accessory/red
-	ties["red tie with a clip"] = /obj/item/clothing/accessory/tie/red_clip
-	ties["orange tie"] = /obj/item/clothing/accessory/tie/orange
-	ties["yellow tie"] = /obj/item/clothing/accessory/tie/yellow
-	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
-	ties["green tie"] = /obj/item/clothing/accessory/tie/green
-	ties["dark green tie"] = /obj/item/clothing/accessory/tie/darkgreen
-	ties["blue tie"] = /obj/item/clothing/accessory/blue
-	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
-	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
-	ties["purple tie"] = /obj/item/clothing/accessory/tie/purple
-	ties["black tie"] = /obj/item/clothing/accessory/tie/black
-	ties["white tie"] = /obj/item/clothing/accessory/tie/white
+	ties["tie"] = /obj/item/clothing/accessory/tie/colourable
+	ties["tie, gold clip"] = /obj/item/clothing/accessory/tie/colourable/clip
+	ties["tie, silver clip"] = /obj/item/clothing/accessory/tie/colourable/clip/silver
 	gear_tweaks += new/datum/gear_tweak/path(ties)
+
+/datum/gear/accessory/horrible_tie
+	display_name = "horrible tie"
+	path = /obj/item/clothing/accessory/horrible
 
 /datum/gear/accessory/bowtie
 	display_name = "bowtie"
@@ -107,7 +98,7 @@
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
@@ -116,8 +107,9 @@
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
-	path = /obj/item/clothing/accessory/storage/webbing
+	path = /obj/item/clothing/accessory/storage/webbing/grayscale
 	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
@@ -127,7 +119,7 @@
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
@@ -249,9 +241,9 @@
 	allowed_roles = list("Head of Security")
 
 /datum/gear/accessory/detbadge
-	display_name = "badge, detective"
+	display_name = "badge, investigations"
 	path = /obj/item/clothing/accessory/badge/dia
-	allowed_roles = list("Detective, Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"
@@ -274,6 +266,11 @@
 	display_name = "shoulder sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/scc_patch
+	display_name = "Stellar Corporate Conglomerate sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/scc
+	flags = 0
 
 /datum/gear/accessory/whalebone
 	display_name = "europan bone charm"

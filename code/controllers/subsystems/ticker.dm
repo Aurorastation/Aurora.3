@@ -294,7 +294,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				robo.laws.show_laws(world)
 
 	if(dronecount)
-		to_world("<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round.</b>")
+		to_world("<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance drone\s at the end of this round.</b>")
 
 	mode.declare_completion()//To declare normal completion.
 
@@ -363,6 +363,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
+	callHook("pregame_start")
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
@@ -522,12 +523,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
 	if(station_missed)
 		for(var/mob/living/M in living_mob_list)
-			M.buckled = temp_buckle				//buckles the mob so it can't do anything
+			M.buckled_to = temp_buckle				//buckles the mob so it can't do anything
 			if(M.client)
 				M.client.screen += cinematic	//show every client the cinematic
 	else	//nuke kills everyone on z-level 1 to prevent "hurr-durr I survived"
 		for(var/mob/living/M in living_mob_list)
-			M.buckled = temp_buckle
+			M.buckled_to = temp_buckle
 			if(M.client)
 				M.client.screen += cinematic
 

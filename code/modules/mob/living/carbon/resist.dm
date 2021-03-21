@@ -1,7 +1,7 @@
 /mob/living/carbon/process_resist()
 
 	//drop && roll
-	if(on_fire && !buckled)
+	if(on_fire && !buckled_to)
 		var/obj/effect/decal/cleanable/foam/extinguisher_foam = locate() in src.loc
 		var/extra = 0
 		if(extinguisher_foam)
@@ -82,8 +82,8 @@
 	if(istype(HC))
 		breakouttime = HC.breakouttime
 
-	if(buckled)
-		breakouttime += 600 //If you are buckled, it takes a minute longer, but you are unbuckled and uncuffed instantly
+	if(buckled_to)
+		breakouttime += 600 //If you are buckled_to, it takes a minute longer, but you are unbuckled and uncuffed instantly
 
 	displaytime = breakouttime / 600 //Minutes
 
@@ -113,10 +113,10 @@
 
 		var/buckle_message_user = ""
 		var/buckle_message_other = ""
-		if(buckled) //If the person is buckled, also unbuckle the person
+		if(buckled_to) //If the person is buckled, also unbuckle the person
 			buckle_message_user = " and unbuckle yourself"
 			buckle_message_other = " and to unbuckle themself"
-			buckled.user_unbuckle_mob(src)
+			buckled_to.user_unbuckle(src)
 
 		if(violent_removal)
 			var/obj/item/organ/external/E = H.get_organ(pick(BP_L_ARM,BP_R_ARM))
@@ -146,7 +146,7 @@
 		break_legcuffs()
 		return
 
-	var/obj/item/legcuffs/HC = legcuffed
+	var/obj/item/handcuffs/HC = legcuffed
 
 	//A default in case you are somehow legcuffed with something that isn't an obj/item/legcuffs type
 	var/breakouttime = 1200
@@ -162,7 +162,7 @@
 		)
 
 	if(do_after(src, breakouttime))
-		if(!legcuffed || buckled)
+		if(!legcuffed || buckled_to)
 			return
 		visible_message(
 			"<span class='danger'>[src] manages to remove \the [legcuffed]!</span>",
@@ -206,8 +206,8 @@
 
 		qdel(handcuffed)
 		handcuffed = null
-		if(buckled)
-			buckled.unbuckle_mob()
+		if(buckled_to)
+			buckled_to.unbuckle()
 		update_inv_handcuffed()
 
 /mob/living/carbon/proc/break_legcuffs()
@@ -215,7 +215,7 @@
 	visible_message("<span class='danger'>[src] is trying to break the legcuffs!</span>")
 
 	if(do_after(src, 50))
-		if(!legcuffed || buckled)
+		if(!legcuffed || buckled_to)
 			return
 
 		visible_message(

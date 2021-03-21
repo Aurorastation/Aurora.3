@@ -79,7 +79,7 @@
 	if(owner.stat == UNCONSCIOUS || owner.sleeping > 0)
 		return
 	var/sleep_chance = 5
-	if(owner.m_intent == "run")
+	if(owner.m_intent == M_RUN)
 		sleep_chance += 15
 	if(owner.drowsyness)
 		sleep_chance += owner.drowsyness + 5
@@ -172,22 +172,6 @@
 				else
 					to_chat(owner, "<span class='danger'>You feel your heart lurching in your chest...</span>")
 					owner.adjustOxyLoss(8)
-
-/datum/brain_trauma/severe/discoordination
-	name = "Discoordination"
-	desc = "Patient is unable to use complex tools or machinery."
-	scan_desc = "extreme discoordination"
-	gain_text = "<span class='warning'>You can barely control your hands!</span>"
-	lose_text = "<span class='notice'>You feel in control of your hands again.</span>"
-	cure_type = CURE_CRYSTAL
-
-/datum/brain_trauma/severe/discoordination/on_gain()
-	owner.disabilities |= MONKEYLIKE
-	..()
-
-/datum/brain_trauma/severe/discoordination/on_lose()
-	owner.disabilities &= ~MONKEYLIKE
-	..()
 
 /datum/brain_trauma/severe/aphasia
 	name = "Aphasia"

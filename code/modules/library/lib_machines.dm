@@ -43,8 +43,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			<A href='?src=\ref[src];setauthor=1'>Filter by Author: [author]</A><BR>
 			<A href='?src=\ref[src];search=1'>\[Start Search\]</A><BR>"}
 		if(1)
-			establish_db_connection(dbcon)
-			if(!dbcon.IsConnected())
+			if(!establish_db_connection(dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font><BR>"
 			else if(!SQLquery)
 				dat += "<font color=red><b>ERROR</b>: Malformed search request. Please contact your system administrator for assistance.</font><BR>"
@@ -190,8 +189,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			<A href='?src=\ref[src];switchscreen=0'>(Return to main menu)</A><BR>"}
 		if(4)
 			dat += "<h3>External Archive</h3>"
-			establish_db_connection(dbcon)
-			if(!dbcon.IsConnected())
+			if(!establish_db_connection(dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font>"
 			else
 				dat += {"<A href='?src=\ref[src];orderbyid=1'>(Order book by SS<sup>13</sup>BN)</A><BR><BR>
@@ -334,8 +332,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 					if(scanner.cache.unique)
 						alert("This book has been rejected from the database. Aborting!")
 					else
-						establish_db_connection(dbcon)
-						if(!dbcon.IsConnected())
+						if(!establish_db_connection(dbcon))
 							alert("Connection to Archive has been severed. Aborting.")
 						else
 							/*
@@ -359,8 +356,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 
 	if(href_list["targetid"])
 		var/sqlid = sanitizeSQL(href_list["targetid"])
-		establish_db_connection(dbcon)
-		if(!dbcon.IsConnected())
+		if(!establish_db_connection(dbcon))
 			alert("Connection to Archive has been severed. Aborting.")
 		if(bibledelay)
 			for (var/mob/V in hearers(src))

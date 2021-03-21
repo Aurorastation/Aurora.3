@@ -124,7 +124,7 @@
 			user.visible_message("<b>[user]</b> aims \the [src] between [P] ribs!", SPAN_NOTICE("You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return
-			var/blocked = H.getarmor_organ(H.organs_by_name[BP_CHEST], "melee")
+			var/blocked = H.get_blocked_ratio(BP_CHEST, BRUTE, DAM_SHARP, damage = 5)
 			if(blocked > 20)
 				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
 				return
@@ -147,20 +147,20 @@
 	switch(mode)
 		if(SYRINGE_DRAW)
 
-			if(!reagents.get_free_space())
+			if(!REAGENTS_FREE_SPACE(reagents))
 				to_chat(user, SPAN_WARNING("The syringe is full."))
 				mode = SYRINGE_INJECT
 				return
 
 			if(ismob(target))//Blood!
-				if(reagents.has_reagent(/datum/reagent/blood))
+				if(reagents.has_reagent(/decl/reagent/blood))
 					to_chat(user, SPAN_NOTICE("There is already a blood sample in this syringe."))
 					return
 				if(istype(target, /mob/living/carbon))
 					if(istype(target, /mob/living/carbon/slime))
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
 						return
-					var/amount = reagents.get_free_space()
+					var/amount = REAGENTS_FREE_SPACE(reagents)
 					var/mob/living/carbon/T = target
 					if(!T.dna)
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood. (To be specific, your target seems to be missing their DNA datum)."))
@@ -169,21 +169,8 @@
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
 						return
 
-					var/datum/reagent/B
-					if(istype(T, /mob/living/carbon/human))
-						var/mob/living/carbon/human/H = T
-						if(H.species && H.species.flags & NO_BLOOD)
-							H.reagents.trans_to_obj(src, amount)
-						else
-							B = T.take_blood(src, amount)
-					else
-						B = T.take_blood(src,amount)
+					T.take_blood(src,amount)
 
-					if (B)
-						reagents.reagent_list += B
-						reagents.update_total()
-						on_reagent_change()
-						reagents.handle_reactions()
 					to_chat(user, SPAN_NOTICE("You take a blood sample from [target]."))
 					for(var/mob/O in viewers(4, user))
 						O.show_message(SPAN_NOTICE("[user] takes a blood sample from [target]."), 1)
@@ -201,7 +188,7 @@
 				to_chat(user, SPAN_NOTICE("You fill the syringe with [trans] units of the solution."))
 				update_icon()
 
-			if(!reagents.get_free_space())
+			if(!REAGENTS_FREE_SPACE(reagents))
 				mode = SYRINGE_INJECT
 				update_icon()
 
@@ -216,7 +203,7 @@
 			if(!target.is_open_container() && !ismob(target) && !istype(target, /obj/item/reagent_containers/food) && !istype(target, /obj/item/slime_extract) && !istype(target, /obj/item/clothing/mask/smokable/cigarette) && !istype(target, /obj/item/storage/box/fancy/cigarettes))
 				to_chat(user, SPAN_NOTICE("You cannot directly fill this object."))
 				return
-			if(!target.reagents.get_free_space())
+			if(!REAGENTS_FREE_SPACE(target.reagents))
 				to_chat(user, SPAN_NOTICE("[target] is full."))
 				return
 
@@ -319,7 +306,8 @@
 		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
 			return
 
-		if (target != user && H.getarmor(target_zone, "melee") > 5 && prob(50))
+		var/armor = H.get_blocked_ratio(target_zone, BRUTE, damage_flags = DAM_SHARP, damage = 5)*100
+		if (target != user && armor > 50 && prob(50))
 			for(var/mob/O in viewers(world.view, user))
 				O.show_message(text(SPAN_DANGER("[user] tries to stab [target] in \the [hit_area] with [src.name], but the attack is deflected by armor!")), 1)
 			user.remove_from_mob(src)
@@ -379,7 +367,7 @@
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"
 	desc = "Contains inaprovaline - used to stabilize patients."
-	reagents_to_add = list(/datum/reagent/inaprovaline = 15)
+	reagents_to_add = list(/decl/reagent/inaprovaline = 15)
 
 /obj/item/reagent_containers/syringe/inaprovaline/Initialize()
 	. = ..()
@@ -389,7 +377,7 @@
 /obj/item/reagent_containers/syringe/dylovene
 	name = "Syringe (dylovene)"
 	desc = "Contains anti-toxins."
-	reagents_to_add = list(/datum/reagent/dylovene = 15)
+	reagents_to_add = list(/decl/reagent/dylovene = 15)
 
 /obj/item/reagent_containers/syringe/dylovene/Initialize()
 	. = ..()
@@ -399,7 +387,7 @@
 /obj/item/reagent_containers/syringe/antibiotic
 	name = "Syringe (thetamycin)"
 	desc = "Contains antibiotics."
-	reagents_to_add = list(/datum/reagent/thetamycin = 15)
+	reagents_to_add = list(/decl/reagent/thetamycin = 15)
 
 /obj/item/reagent_containers/syringe/antibiotic/Initialize()
 	. = ..()
@@ -409,7 +397,7 @@
 /obj/item/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
-	reagents_to_add = list(/datum/reagent/toxin/panotoxin = 5, /datum/reagent/mindbreaker = 10)
+	reagents_to_add = list(/decl/reagent/toxin/panotoxin = 5, /decl/reagent/mindbreaker = 10)
 
 /obj/item/reagent_containers/syringe/drugs/Initialize()
 	. = ..()
@@ -419,7 +407,7 @@
 /obj/item/reagent_containers/syringe/fluvectionem
 	name = "Syringe (fluvectionem)"
 	desc = "Contains purging medicine."
-	reagents_to_add = list(/datum/reagent/fluvectionem = 15)
+	reagents_to_add = list(/decl/reagent/fluvectionem = 15)
 
 /obj/item/reagent_containers/syringe/fluvectionem/Initialize()
 	. = ..()
@@ -428,7 +416,7 @@
 
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral
-	reagents_to_add = list(/datum/reagent/polysomnine = 60)
+	reagents_to_add = list(/decl/reagent/polysomnine = 60)
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
 	. = ..()

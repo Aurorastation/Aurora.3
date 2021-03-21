@@ -393,9 +393,8 @@
 	data["beakerVolume"] = 0
 	if(connected.beaker)
 		data["beakerLabel"] = connected.beaker.label_text ? connected.beaker.label_text : null
-		if (connected.beaker.reagents && connected.beaker.reagents.reagent_list.len)
-			for(var/datum/reagent/R in connected.beaker.reagents.reagent_list)
-				data["beakerVolume"] += R.volume
+		for(var/_R in connected.beaker.reagents.reagent_volumes)
+			data["beakerVolume"] += connected.beaker.reagents.reagent_volumes[_R]
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -455,7 +454,7 @@
 			else
 				randmuti(src.connected.occupant)
 
-		src.connected.occupant.apply_effect(((src.radiation_intensity*3)+src.radiation_duration*3), IRRADIATE, blocked = 0)
+		src.connected.occupant.apply_damage(((src.radiation_intensity*3)+src.radiation_duration*3), IRRADIATE, damage_flags = DAM_DISPERSED)
 		src.connected.locked = lock_state
 		return 1 // return 1 forces an update to all Nano uis attached to src
 
@@ -549,7 +548,7 @@
 			block = miniscrambletarget(num2text(selected_ui_target), src.radiation_intensity, src.radiation_duration)
 			src.connected.occupant.dna.SetUISubBlock(src.selected_ui_block,src.selected_ui_subblock,block)
 			src.connected.occupant.UpdateAppearance()
-			src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, blocked = 0)
+			src.connected.occupant.apply_damage((src.radiation_intensity+src.radiation_duration), IRRADIATE, damage_flags = DAM_DISPERSED)
 		else
 			if	(prob(20+src.radiation_intensity))
 				randmutb(src.connected.occupant)
@@ -557,7 +556,7 @@
 			else
 				randmuti(src.connected.occupant)
 				src.connected.occupant.UpdateAppearance()
-			src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, blocked = 0)
+			src.connected.occupant.apply_damage(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, damage_flags = DAM_DISPERSED)
 		src.connected.locked = lock_state
 		return 1 // return 1 forces an update to all Nano uis attached to src
 
@@ -614,10 +613,10 @@
 
 				//testing("Irradiated SE block [real_SE_block]:[src.selected_se_subblock] ([original_block] now [block]) [(real_SE_block!=selected_se_block) ? "(SHIFTED)":""]!")
 				connected.occupant.dna.SetSESubBlock(real_SE_block,selected_se_subblock,block)
-				src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, blocked = 0)
+				src.connected.occupant.apply_damage((src.radiation_intensity+src.radiation_duration), IRRADIATE, damage_flags = DAM_DISPERSED)
 				domutcheck(src.connected.occupant,src.connected)
 			else
-				src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, blocked = 0)
+				src.connected.occupant.apply_damage(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, damage_flags = DAM_DISPERSED)
 				if	(prob(80-src.radiation_duration))
 					//testing("Random bad mut!")
 					randmutb(src.connected.occupant)
@@ -739,7 +738,7 @@
 				src.connected.occupant.dna.SE = buf.dna.SE
 				src.connected.occupant.dna.UpdateSE()
 				domutcheck(src.connected.occupant,src.connected)
-			src.connected.occupant.apply_effect(rand(20,50), IRRADIATE, blocked = 0)
+			src.connected.occupant.apply_damage(rand(20,50), damage_flags = DAM_DISPERSED)
 			return 1
 
 		if (bufferOption == "createInjector")

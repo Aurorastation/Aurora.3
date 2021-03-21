@@ -12,15 +12,17 @@
 	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
-	var/age_min = 17
+	var/age_min = 18
 	var/age_max = 85
 	var/economic_modifier = 0
 	var/list/default_genders = list(MALE, FEMALE)
+	var/list/selectable_pronouns = list(MALE, FEMALE, PLURAL)
 
 	// Icon/appearance vars.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
+	var/bandages_icon
 
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
@@ -35,6 +37,7 @@
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/eyes_icon_blend = ICON_ADD                       // The icon blending mode to use for eyes.
+	var/blood_type = "blood"
 	var/blood_color = "#A10808"                          // Red.
 	var/flesh_color = "#FFC896"                          // Pink.
 	var/examine_color                                    // The color of the species' name in the examine text. Defaults to flesh_color if unset.
@@ -89,6 +92,7 @@
 	var/natural_climbing = FALSE             //If true, the species always succeeds at climbing.
 	var/climb_coeff = 1.25                   //The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
 	// Death vars.
+	var/respawn_type = CREW
 	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human
 	var/gibber_type = /obj/effect/gibspawner/human
 	var/single_gib_type = /obj/effect/decal/cleanable/blood/gibs
@@ -235,12 +239,14 @@
 
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
+	var/default_g_style = "None"
 
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM)
 	var/default_citizenship = CITIZENSHIP_BIESEL
 	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
-									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR)
+									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR,
+									ACCENT_PLUTO, ACCENT_ASSUNZIONE)
 	var/default_accent = ACCENT_CETI
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
@@ -325,7 +331,6 @@
 	return
 
 /datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
-
 	for(var/obj/item/organ/organ in H.contents)
 		if((organ in H.organs) || (organ in H.internal_organs))
 			qdel(organ)
@@ -334,6 +339,8 @@
 	if(H.internal_organs)         H.internal_organs.Cut()
 	if(H.organs_by_name)          H.organs_by_name.Cut()
 	if(H.internal_organs_by_name) H.internal_organs_by_name.Cut()
+	if(H.bad_external_organs)     H.bad_external_organs.Cut()
+	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
 	H.organs = list()
 	H.internal_organs = list()
@@ -418,6 +425,7 @@
 			H.dna.SetSEState(MONKEYBLOCK,0)
 	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
 		H.gender = pick(default_genders)
+		H.pronouns = H.gender
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -495,7 +503,7 @@
 	if(!H.client)//no client, no screen to update
 		return 1
 
-	H.set_fullscreen(H.eye_blind && !H.equipment_prescription, "blind", /obj/screen/fullscreen/blind)
+	H.set_fullscreen(H.eye_blind, "blind", /obj/screen/fullscreen/blind)
 	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
 	if(config.welder_vision)
@@ -567,7 +575,7 @@
 		H.flash_pain(H.get_shock())
 
 	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
-		H.m_intent = "walk"
+		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
 		H.flash_pain(H.get_shock())
@@ -606,6 +614,7 @@
 /datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
 	H.h_style = H.species.default_h_style
 	H.f_style = H.species.default_f_style
+	H.g_style = H.species.default_g_style
 	H.update_hair()
 
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
@@ -621,7 +630,7 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return /datum/reagent/nutriment
+	return /decl/reagent/nutriment
 
 /datum/species/proc/can_commune()
 	return FALSE
@@ -631,6 +640,12 @@
 
 /datum/species/proc/handle_despawn()
 	return
+
+/datum/species/proc/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
+	return
+
+/datum/species/proc/get_strip_info(var/reference)
+	return ""
 
 /datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
 	if(flags & NO_PAIN)
@@ -644,3 +659,12 @@
 
 /datum/species/proc/get_injection_modifier()
 	return injection_mod
+
+/datum/species/proc/is_naturally_insulated()
+	return FALSE
+
+// the records var is so that untagged shells can appear human
+/datum/species/proc/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
+	if(reference)
+		return src
+	return name

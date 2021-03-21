@@ -281,6 +281,7 @@
 		)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!
+
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
@@ -290,6 +291,7 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	contained_sprite = 1
+	slot_flags = SLOT_EARS  | SLOT_HEAD
 
 /obj/item/clothing/head/hijab/grey
 	name = "grey hijab"
@@ -508,87 +510,6 @@
 	icon_state = "ruby_crest"
 	item_state = "ruby_crest"
 
-
-//ipc 'pins'
-
-/obj/item/clothing/head/antenna
-	name = "curved antennae"
-	desc = "A set of decorative antennae. This particular pair is curved in the middle point, arcing upwards. Unfortunately, it doesn't get FM here."
-	icon_state = "curvedantennae"
-	item_state = "curvedantennae"
-	slot_flags = SLOT_HEAD | SLOT_EARS
-	body_parts_covered = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 10)
-	drop_sound = 'sound/items/drop/component.ogg'
-	pickup_sound = 'sound/items/pickup/component.ogg'
-
-/obj/item/clothing/head/antenna/straight
-	name = "straight antennae"
-	desc = "A set of decorative antennae. This particular pair is straight, jutting out to what is reasonably shoulder width. They don't seem to plug into anything."
-	icon_state = "straightantennae"
-	item_state = "straightantennae"
-
-/obj/item/clothing/head/antenna/spiked
-	name = "spiked chassis mounts"
-	desc = "Two large mounts holding up chassis protrusions on either side of the head. Careful for doorways."
-	icon_state = "horncrown"
-	item_state = "horncrown"
-
-/obj/item/clothing/head/antenna/spiked/small
-	name = "small chassis horns"
-	desc = "Two small mounts holding up chassis protrusions on either side of the head, sans head crown."
-	icon_state = "horn"
-	item_state = "horncrown"
-
-/obj/item/clothing/head/antenna/side
-	name = "side chassis mounts"
-	desc = "Two large mounts holding up chassis protrusions on either side of the head."
-	icon_state = "tusk"
-	item_state = "tusk"
-
-/obj/item/clothing/head/antenna/dish
-	name = "head dishes"
-	desc = "Two tiny dishes intended to hold excess wiring in a very specific manner and mostly end up being used as decoration. If only they picked up holodramas."
-	icon_state = "dish"
-	item_state = "dish"
-
-/obj/item/clothing/head/antenna/double
-	name = "antenna ears"
-	desc = "Despite being commonly seen on Shells, nobody knows what these actually do."
-	icon_state = "dual_robot_antennae"
-	item_state = "dual_robot_antennae"
-
-/obj/item/clothing/head/antenna/double/left/horn
-	name = "left antenna horn"
-	icon_state = "left_horn"
-	item_state = "left_horn"
-
-/obj/item/clothing/head/antenna/double/left
-	name = "left antenna ear"
-	icon_state = "left_robot_antennae"
-	item_state = "left_robot_antennae"
-
-/obj/item/clothing/head/antenna/double/right
-	name = "right antenna ear"
-	icon_state = "right_robot_antennae"
-	item_state = "right_robot_antennae"
-
-/obj/item/clothing/head/antenna/double/right/horn
-	name = "right antenna horn"
-	icon_state = "right_horn"
-	item_state = "right_horn"
-
-/obj/item/clothing/head/antenna/circle
-	name = "circle antenna"
-	icon_state = "circleantenna"
-	item_state = "dish"
-
-/obj/item/clothing/head/antenna/trinary_halo
-	name = "trinary perfection antenna"
-	desc = "A decorative antenna that is commonly worn by IPCs who serve the Trinary Perfection. It resembles a golden gear."
-	icon_state = "trinary_halo"
-	item_state = "trinary_halo"
-
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"
 	icon_state = "culthood"
@@ -615,8 +536,9 @@
 	icon_state = "greyutility"
 	item_state = "greyutility"
 	contained_sprite = 1
-	armor = list(melee = 10, bullet = 10, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
-
+	armor = list(
+		melee = ARMOR_MELEE_MINOR
+		)
 /obj/item/clothing/head/navy/marine
 	name = "sol marine utility cover"
 	desc = "An eight pointed cover issued to Sol Alliance marines as part of their field uniform."
@@ -671,7 +593,13 @@
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	contained_sprite = 1
 
 /obj/item/clothing/head/nonla

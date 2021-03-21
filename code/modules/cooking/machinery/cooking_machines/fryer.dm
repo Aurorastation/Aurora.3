@@ -40,7 +40,7 @@
 	if (prob(20))
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
-	oil.add_reagent(/datum/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
+	oil.add_reagent(/decl/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
 	fry_loop = new(list(src), FALSE)
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
@@ -57,9 +57,9 @@
 	..()//In addition to parent temperature calculation
 	//Fryer efficiency also drops when oil levels arent optimal
 	var/oil_level = 0
-	var/datum/reagent/nutriment/triglyceride/oil/OL = oil.get_master_reagent()
+	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
 	if (OL && istype(OL))
-		oil_level = OL.volume
+		oil_level = oil.reagent_volumes[OL.type]
 
 	var/oil_efficiency = 0
 	if (oil_level)
@@ -97,18 +97,18 @@
 	var/total_oil = 0
 	var/total_our_oil = 0
 	var/total_removed = 0
-	var/datum/reagent/our_oil = oil.get_master_reagent()
+	var/decl/reagent/our_oil = oil.get_primary_reagent_decl()
 
 	for (var/obj/item/I in CI.container)
 		if (I.reagents && I.reagents.total_volume)
-			for (var/datum/reagent/R in I.reagents.reagent_list)
-				if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
-					total_oil += R.volume
-					if (R.type != our_oil.type)
-						total_removed += R.volume
-						I.reagents.remove_reagent(R.type, R.volume)
+			for (var/_R in I.reagents.reagent_volumes)
+				if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
+					total_oil += I.reagents.reagent_volumes[_R]
+					if (_R != our_oil.type)
+						total_removed += I.reagents.reagent_volumes[_R]
+						I.reagents.remove_reagent(_R, I.reagents.reagent_volumes[_R])
 					else
-						total_our_oil += R.volume
+						total_our_oil += I.reagents.reagent_volumes[_R]
 
 	if (total_removed > 0 || total_oil != CI.max_oil)
 		total_oil = min(total_oil, CI.max_oil)
@@ -125,10 +125,9 @@
 			for (var/thing in CI.container)
 				var/obj/item/I = thing
 				if (I.reagents && I.reagents.total_volume)
-					for (var/reagent in I.reagents.reagent_list)
-						var/datum/reagent/R = reagent
-						if (istype(R, /datum/reagent/nutriment/triglyceride/oil) && R.type == our_oil.type)
-							I.reagents.remove_reagent(R.type, R.volume*portion)
+					for (var/_R in I.reagents.reagent_volumes)
+						if (_R == our_oil.type)
+							I.reagents.remove_reagent(_R, I.reagents.reagent_volumes[_R]*portion)
 					I.reagents.set_temperature(T0C + 40 + rand(-5, 5)) // warm, but not hot; avoiding aftereffects of the hot oil
 
 /obj/machinery/appliance/cooker/fryer/cook_mob(var/mob/living/victim, var/mob/user)
@@ -149,8 +148,9 @@
 	var/damage = rand(7,13)
 	//Though this damage seems reduced, some hot oil is transferred to the victim and will burn them for a while after
 
-	var/datum/reagent/nutriment/triglyceride/oil/OL = oil.get_master_reagent()
-	damage *= OL.heatdamage(victim)
+	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
+	if(istype(OL))
+		damage *= OL.heatdamage(victim, oil)
 
 	var/obj/item/organ/external/E
 	var/nopain
@@ -204,13 +204,12 @@
 	//That would really require coding some sort of filter or better replacement mechanism first
 	//So for now, restrict to oil only
 		var/amount = 0
-		for (var/reagent in I.reagents.reagent_list)
-			var/datum/reagent/R = reagent
-			if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
-				var/delta = oil.get_free_space()
-				delta = min(delta, R.volume)
-				oil.add_reagent(R.type, delta)
-				I.reagents.remove_reagent(R.type, delta)
+		for (var/_R in I.reagents.reagent_volumes)
+			if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
+				var/delta = REAGENTS_FREE_SPACE(oil)
+				delta = min(delta, I.reagents.reagent_volumes[_R])
+				oil.add_reagent(_R, delta)
+				I.reagents.remove_reagent(_R, delta)
 				amount += delta
 		if (amount > 0)
 			user.visible_message("[user] pours some oil into [src].", SPAN_NOTICE("You pour [amount]u of oil into [src]."), SPAN_NOTICE("You hear something viscous being poured into a metal container."))

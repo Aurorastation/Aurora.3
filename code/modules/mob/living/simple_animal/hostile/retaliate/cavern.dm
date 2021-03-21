@@ -7,7 +7,7 @@
 	icon_living = "dweller"
 	icon_dead = "dweller_dead"
 	ranged = 1
-	smart = TRUE
+	smart_ranged = TRUE
 	turns_per_move = 3
 	organ_names = list("head", "central segment", "tail")
 	response_help = "pets"
@@ -85,7 +85,7 @@
 	maxHealth = 60
 	harm_intent_damage = 5
 	ranged = 1
-	smart = TRUE
+	smart_ranged = TRUE
 	organ_names = list("core", "right fore wheel", "left fore wheel", "right rear wheel", "left rear wheel")
 	melee_damage_lower = 0
 	melee_damage_upper = 0

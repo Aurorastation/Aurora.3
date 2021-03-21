@@ -70,7 +70,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(O.reagents.get_reagent_amount(/datum/reagent/water) >= 750)
+	if(REAGENT_VOLUME(O.reagents, /decl/reagent/water) >= 750)
 		return TRUE
 	return FALSE
 
@@ -80,7 +80,7 @@
 	reward_low = 2300
 	reward_high = 4000
 	required_count = 2
-	wanted_types = list(/obj/structure/bed/chair/wheelchair)
+	wanted_types = list(/obj/structure/bed/chair/wheelchair, /obj/item/wheelchair)
 
 /datum/bounty/item/assistant/film
 	name = "Camera Film"
@@ -163,7 +163,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(O.reagents.get_reagent_amount(/datum/reagent/spacecleaner) >= 200)
+	if(REAGENT_VOLUME(O.reagents, /decl/reagent/spacecleaner) >= 200)
 		return TRUE
 	return FALSE
 

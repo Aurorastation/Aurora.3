@@ -7,6 +7,7 @@
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)
+	selectable_pronouns = null
 	economic_modifier = 2
 	language = LANGUAGE_VAURCA
 	primitive_form = SPECIES_MONKEY_VAURCA
@@ -14,6 +15,7 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	preview_icon = 'icons/mob/human_races/vaurca/vaurca_preview.dmi'
+	bandages_icon = 'icons/mob/bandage.dmi'
 	name_language = LANGUAGE_VAURCA
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
@@ -154,3 +156,6 @@
 
 /datum/species/bug/has_psi_potential()
 	return FALSE
+	
+/datum/species/bug/is_naturally_insulated()
+	return TRUE

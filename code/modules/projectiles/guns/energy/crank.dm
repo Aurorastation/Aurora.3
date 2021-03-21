@@ -4,6 +4,7 @@
 	icon = 'icons/obj/guns/icelance.dmi'
 	icon_state = "icelance"
 	item_state = "icelance"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	max_shots = 3
 	accuracy = -1
@@ -28,7 +29,7 @@
 	concentrated energy are used by high ranking soldiers or special operatives of the Republican army, but their durability is dubious in comparison to the mass-produced, \
 	single shot or bolt action rifles that the majority of Tajaran soldiers use."
 
-/obj/item/gun/energy/rifle/icelance/attack_self(mob/living/user as mob)
+/obj/item/gun/energy/rifle/icelance/unique_action(mob/living/user)
 	if(is_charging)
 		to_chat(user, "<span class='warning'>You are already charging \the [src].</span>")
 		return
@@ -52,11 +53,3 @@
 
 /obj/item/gun/energy/rifle/icelance/get_cell()
 	return DEVICE_NO_CELL
-
-/obj/item/gun/energy/rifle/icelance/update_icon()
-	..()
-	if(wielded)
-		item_state = "icelance-wielded"
-	else
-		item_state = initial(item_state)
-	update_held_icon()

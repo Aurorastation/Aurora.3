@@ -118,6 +118,8 @@
 	if(max_growth > 2 && prob(50))
 		max_growth-- //Ensure some variation in final sprite, makes the carpet of crap look less wonky.
 
+	can_buckle = list(/mob/living)
+
 	mature_time = world.time + seed.get_trait(TRAIT_MATURATION) + 15 //prevent vines from maturing until at least a few seconds after they've been created.
 	spread_chance = seed.get_trait(TRAIT_POTENCY)
 	spread_distance = ((growth_type > 0) ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
@@ -130,7 +132,7 @@
 	update_icon()
 	SSplants.add_plant(src)
 	// Some plants eat through plating.
-	if(islist(seed.chems) && !isnull(seed.chems[/datum/reagent/acid/polyacid]))
+	if(islist(seed.chems) && !isnull(seed.chems[/decl/reagent/acid/polyacid]))
 		var/turf/T = get_turf(src)
 		T.ex_act(prob(80) ? 3 : 2)
 
@@ -195,7 +197,7 @@
 	if(growth>2 && growth == max_growth)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
 		opacity = 1
-		if(islist(seed.chems) && !isnull(seed.chems[/datum/reagent/woodpulp]))
+		if(islist(seed.chems) && !isnull(seed.chems[/decl/reagent/woodpulp]))
 			density = 1
 	else
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5

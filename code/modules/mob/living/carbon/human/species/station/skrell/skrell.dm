@@ -4,12 +4,14 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
+	age_min = 30
 	age_max = 500
 	default_genders = list(PLURAL)
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
 	preview_icon = 'icons/mob/human_races/skrell/skrell_preview.dmi'
+	bandages_icon = 'icons/mob/bandage.dmi'
 	eyes = "skrell_eyes_s"
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
@@ -32,6 +34,20 @@
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
+
+	has_limbs = list(
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/skrell),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
+		)
 
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart/skrell,
@@ -66,9 +82,30 @@
 							ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EUROPA)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
+	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
+	..()
 	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
+
+/datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
+	switch(action)
+		if("headtail")
+			if(!H.organs_by_name[BP_HEAD] || istype(H.organs_by_name[BP_HEAD], /obj/item/organ/external/stump))
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
+				return
+			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
+			if(do_after(user, HUMAN_STRIP_DELAY, act_target = H))
+				var/obj/item/storage/internal/skrell/S = locate() in H.organs_by_name[BP_HEAD]
+				var/obj/item/I = locate() in S
+				if(!I)
+					to_chat(user, SPAN_WARNING("\The [H] had nothing in their headtail storage."))
+					return
+				S.remove_from_storage(I, get_turf(H))
+				return
+
+/datum/species/skrell/get_strip_info(var/reference)
+	return "<BR><A href='?src=[reference];species=headtail'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

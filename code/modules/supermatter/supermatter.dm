@@ -305,7 +305,7 @@
 		var/rads = (power / 10) * ( 1 / (radius**2) )
 		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
 			continue
-		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
+		l.apply_damage(rads, IRRADIATE, damage_flags = DAM_DISPERSED)
 		if(l.is_diona())
 			l.adjustToxLoss(-rads)
 			if(last_message_time + 800 < world.time) // Not to spam message
@@ -388,7 +388,7 @@
 	user.drop_from_inventory(W)
 	Consume(W)
 
-	user.apply_effect(150, IRRADIATE, blocked = user.getarmor(null, "rad"))
+	user.apply_damage(150, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 
 /obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
@@ -431,7 +431,7 @@
 		else
 			l.show_message("<span class=\"warning\">You hear an uneartly ringing and notice your skin is covered in fresh radiation burns.</span>", 2)
 		var/rads = 500 * sqrt( 1 / (get_dist(l, src) + 1) )
-		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
+		l.apply_damage(rads, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 
 /obj/machinery/power/supermatter/proc/supermatter_pull()

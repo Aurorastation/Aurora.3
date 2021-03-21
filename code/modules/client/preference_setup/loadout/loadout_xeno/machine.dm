@@ -30,41 +30,39 @@
 	crest["crest, ruby"] = /obj/item/clothing/head/crest/ruby
 	gear_tweaks += new/datum/gear_tweak/path(crest)
 
-/datum/gear/gloves/armchains
+/datum/gear/wrists/armchains
 	display_name = "golden deep armchains"
-	path = /obj/item/clothing/gloves/armchain
-	cost = 1
+	path = /obj/item/clothing/wrists/armchain
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/gloves/armchains/New()
+/datum/gear/wrists/armchains/New()
 	..()
 	var/armchains = list()
-	armchains["arm chains, cobalt"] = /obj/item/clothing/gloves/armchain
-	armchains["arm chains, emerald"] = /obj/item/clothing/gloves/armchain/emerald
-	armchains["arm chains, ruby"] = /obj/item/clothing/gloves/armchain/ruby
+	armchains["arm chains, cobalt"] = /obj/item/clothing/wrists/armchain
+	armchains["arm chains, emerald"] = /obj/item/clothing/wrists/armchain/emerald
+	armchains["arm chains, ruby"] = /obj/item/clothing/wrists/armchain/ruby
 	gear_tweaks += new/datum/gear_tweak/path(armchains)
 
-/datum/gear/gloves/bracers
+/datum/gear/wrists/bracers
 	display_name = "golden deep bracers"
-	path = /obj/item/clothing/gloves/goldbracer
-	cost = 1
+	path = /obj/item/clothing/wrists/goldbracer
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/gloves/bracers/New()
+/datum/gear/wrists/bracers/New()
 	..()
 	var/bracers = list()
-	bracers["arm chains, cobalt"] = /obj/item/clothing/gloves/goldbracer
-	bracers["arm chains, emerald"] = /obj/item/clothing/gloves/goldbracer/emerald
-	bracers["arm chains, ruby"] = /obj/item/clothing/gloves/goldbracer/ruby
+	bracers["arm chains, cobalt"] = /obj/item/clothing/wrists/goldbracer
+	bracers["arm chains, emerald"] = /obj/item/clothing/wrists/goldbracer/emerald
+	bracers["arm chains, ruby"] = /obj/item/clothing/wrists/goldbracer/ruby
 	gear_tweaks += new/datum/gear_tweak/path(bracers)
 
 /datum/gear/ears/antennae
 	display_name = "antennae"
-	path = /obj/item/clothing/head/antenna
+	path = /obj/item/clothing/ears/antenna
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
@@ -73,23 +71,21 @@
 /datum/gear/ears/antennae/New()
 	..()
 	var/antenna = list()
-	antenna["antenna, curved"] = /obj/item/clothing/head/antenna
-	antenna["antenna, straight"] = /obj/item/clothing/head/antenna/straight
-	antenna["antenna, spiked"] = /obj/item/clothing/head/antenna/spiked
-	antenna["antenna, small spiked"] = /obj/item/clothing/head/antenna/spiked/small
-	antenna["antenna, side"] = /obj/item/clothing/head/antenna/side
-	antenna["antenna, dish"] = /obj/item/clothing/head/antenna/dish
-	antenna["antenna, double"] = /obj/item/clothing/head/antenna/double
-	antenna["antenna, left"] = /obj/item/clothing/head/antenna/double/left
-	antenna["antenna, right"] = /obj/item/clothing/head/antenna/double/right
-	antenna["antenna, left horn"] = /obj/item/clothing/head/antenna/double/left/horn
-	antenna["antenna, right horn"] = /obj/item/clothing/head/antenna/double/right/horn
-	antenna["antenna, circle"] = /obj/item/clothing/head/antenna/circle
+	antenna["antenna, curved"] = /obj/item/clothing/ears/antenna/curved
+	antenna["antenna, straight"] = /obj/item/clothing/ears/antenna/straight
+	antenna["antenna, circle"] = /obj/item/clothing/ears/antenna/circle
+	antenna["antenna, tusk"] = /obj/item/clothing/ears/antenna/tusk
+	antenna["antenna, horn crown"] = /obj/item/clothing/ears/antenna/horncrown
+	antenna["antenna, dual horns"] = /obj/item/clothing/ears/antenna/horn
+	antenna["antenna, horn"] = /obj/item/clothing/ears/antenna/horn/single
+	antenna["antenna, dishes"] = /obj/item/clothing/ears/antenna/dish
+	antenna["antenna, dual whips"] = /obj/item/clothing/ears/antenna/whip
+	antenna["antenna, whip"] = /obj/item/clothing/ears/antenna/whip/single
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
 
 /datum/gear/ears/trinary_halo
 	display_name = "trinary perfection antenna"
-	path = /obj/item/clothing/head/antenna/trinary_halo
+	path = /obj/item/clothing/ears/antenna/trinary_halo
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
@@ -107,7 +103,7 @@
 	path = /obj/item/clothing/suit/armor/vest/idris
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Investigator", "Security Cadet")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/idris/New()

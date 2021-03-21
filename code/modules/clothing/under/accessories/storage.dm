@@ -2,7 +2,7 @@
 	name = "load bearing equipment"
 	desc = "Used to hold things when you don't have enough hands."
 	icon_state = "webbing"
-	slot = "utility"
+	slot = ACCESSORY_SLOT_UTILITY
 	var/slots = 3
 	var/obj/item/storage/internal/hold
 	w_class = ITEMSIZE_NORMAL
@@ -48,6 +48,9 @@
 	name = "webbing"
 	desc = "Sturdy mess of synthcotton belts and buckles, ready to share your burden."
 	icon_state = "webbing"
+
+/obj/item/clothing/accessory/storage/webbing/grayscale
+	icon_state = "webbing_g"
 
 /obj/item/clothing/accessory/storage/black_vest
 	name = "black webbing vest"

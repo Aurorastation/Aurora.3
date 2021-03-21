@@ -57,6 +57,8 @@
 			if(istype(I,typepath))
 				if(feedback)
 					to_chat(user, SPAN_NOTICE("You collect \the [I]."))
+				if(isturf(I.loc) && I.Adjacent(user))
+					I.do_pickup_animation(user)
 				I.forceMove(src)
 				wrapped = I
 				wrapped.pixel_x = 0
@@ -120,16 +122,16 @@
 /obj/item/gripper/attack(mob/living/carbon/M, mob/living/carbon/user)
 	if(wrapped) //The force of the wrapped obj gets set to zero during the attack() and afterattack().
 		force_holder = wrapped.force
-		wrapped.force = 0.0
+		wrapped.force = 0
 		wrapped.attack(M,user)
 		if(QDELETED(wrapped))
 			wrapped = null
 		return TRUE
 	else // mob interactions
 		switch(user.a_intent)
-			if("help")
+			if(I_HELP)
 				user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [M] with \the [src]")
-			if("harm")
+			if(I_HURT)
 				M.attack_generic(user, user.mob_size, "crushed")//about 16 dmg for a cyborg
 				//Attack generic does a visible message so we dont need one here
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 3)
@@ -179,13 +181,15 @@
 // VEEEEERY limited version for mining borgs. Basically only for swapping cells, upgrading the drills, and upgrading custom KAs.
 /obj/item/gripper/miner
 	name = "drill maintenance gripper"
-	desc = "A simple grasping tool for the maintenance of heavy drilling machines."
+	desc = "A simple grasping tool for the maintenance and upgrade of heavy drilling machines."
 	icon_state = "gripper-mining"
 
 	can_hold = list(
 		/obj/item/cell,
 		/obj/item/stock_parts,
-		/obj/item/custom_ka_upgrade
+		/obj/item/custom_ka_upgrade,
+		/obj/item/warp_core,
+		/obj/item/extraction_pack
 	)
 
 /obj/item/gripper/paperwork
@@ -249,7 +253,7 @@
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/spray,
 		/obj/item/storage/pill_bottle,
-		/obj/item/hand_labeler,
+		/obj/item/device/hand_labeler,
 		/obj/item/paper,
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,

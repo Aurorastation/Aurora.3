@@ -9,14 +9,6 @@
 #define DOOR_CRUSH_DAMAGE 20
 #define ALIEN_SELECT_AFK_BUFFER  1    // How many minutes that a person can be AFK before not being allowed to be an alien.
 
-// Airlock defines for setting up the AI's ability to bolt them
-#define AIRLOCK_AI_BOLTING_AUTO    0 // automatic setup depending on whether the airlock starts locked
-#define AIRLOCK_AI_BOLTING_TRUE    1 // AI can bolt the airlock, but this can be toggled by pulsing the AI control wire
-#define AIRLOCK_AI_BOLTING_FALSE   2 // AI can NOT bolt the airlock, but this can be toggled by pulsing the AI control wire
-#define AIRLOCK_AI_BOLTING_ALLOW   3 // AI can always operate the airlock, pulsing the AI control wire does nothing
-#define AIRLOCK_AI_BOLTING_DENY    4 // AI can never operate the airlock, pulsing the AI control wire does nothing
-#define AIRLOCK_AI_BOLTING_NEVER   5 // AI can never operate the airlock, even if they are antag
-
 // Channel numbers for power.
 #define EQUIP   1
 #define LIGHT   2
@@ -125,6 +117,4 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define M_NO_PROCESS 27
 
 // This controls how much power the AME generates per unit of fuel.
-// Assuming 100% efficency, use this equation to figure out power output.
-//      power_generated = (fuel**2) * AM_POWER_FACTOR
-#define AM_POWER_FACTOR 50000
+#define AM_POWER_FACTOR 1000000

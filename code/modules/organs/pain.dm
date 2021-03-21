@@ -3,7 +3,6 @@
 		animate(pain, alpha = target, time = 15, easing = ELASTIC_EASING)
 		animate(pain, alpha = 0, time = 20)
 
-mob/var/list/pain_stored = list()
 mob/var/last_pain_message = ""
 mob/var/next_pain_time = 0
 
@@ -73,6 +72,7 @@ mob/var/next_pain_time = 0
 		if(maxdam > 10 && paralysis)
 			paralysis = max(0, paralysis - round(maxdam / 10))
 		if(maxdam > 50 && prob(maxdam / 5))
+			to_chat(src, SPAN_WARNING("A bolt of pain shoots through your body, causing your hands to spasm!"))
 			drop_item()
 		var/burning = damaged_organ.burn_dam > damaged_organ.brute_dam
 		var/msg

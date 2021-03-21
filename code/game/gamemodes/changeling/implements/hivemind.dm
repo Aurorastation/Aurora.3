@@ -15,7 +15,8 @@
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	announce_ghost_joinleave(ghostize(1, 0))
-	changeling_mob.mind.changeling.hivemind_members -= src
+	var/datum/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
+	changeling.hivemind_members -= src
 	relay_hivemind(SPAN_NOTICE("[src] has left our hivemind to join the living dead."), changeling_mob)
 
 /mob/abstract/hivemind/proc/add_to_hivemind(var/mob/original_body, var/mob/living/carbon/human/ling)
@@ -28,7 +29,8 @@
 		ckey = original_body.ckey
 		changeling_mob = ling
 	if(changeling_mob)
-		changeling_mob.mind.changeling.hivemind_members[name] = src
+		var/datum/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
+		changeling.hivemind_members[name] = src
 		introduction(changeling_mob)
 
 /mob/abstract/hivemind/proc/introduction(var/mob/living/carbon/human/ling)
@@ -62,10 +64,9 @@
 	var/mob/living/simple_animal/hostile/morph/M = new /mob/living/simple_animal/hostile/morph(get_turf(changeling_mob))
 	M.stop_thinking = TRUE // prevent the AI from taking over when the player ghosts
 	M.ckey = ckey
-	changeling_mob.mind.changeling.hivemind_members -= src
+	morphs.add_antagonist(M.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 
-	to_chat(M, SPAN_DANGER(FONT_LARGE("You are a morph, released by [changeling_mob]!")))
-	to_chat(M, SPAN_DANGER("As a morph, you can disguise as objects by alt-clicking on them."))
-	to_chat(M, SPAN_DANGER("You can eat people and items by clicking on them, but only if they're dead."))
+	var/datum/changeling/changeling = changeling_mob.mind.antag_datums[MODE_CHANGELING]
+	changeling.hivemind_members -= src
 
 	qdel(src)

@@ -42,6 +42,8 @@
 
 /proc/get_centcom_access(job)
 	switch(job)
+		if("SCC Agent", "SCC Executive", "SCC Bodyguard")
+			return list(access_cent_general, access_cent_captain, access_cent_living)
 		if("CCIA Agent")
 			return list(access_cent_general, access_cent_captain, access_cent_living)
 		if("Emergency Response Team")
@@ -248,8 +250,8 @@ var/obj/item/card/id/all_access/ghost_all_access
 		var/id = wear_id.GetID()
 		if(id)
 			return id
-	if(gloves)
-		var/id = gloves.GetID()
+	if(wrists)
+		var/id = wrists.GetID()
 		if(id)
 			return id
 

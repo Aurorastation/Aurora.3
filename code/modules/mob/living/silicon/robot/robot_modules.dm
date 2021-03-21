@@ -119,8 +119,8 @@ var/global/list/robot_modules = list(
 		else if(F.times_used)
 			F.times_used--
 
-	if(E && E.reagents.total_volume < E.reagents.maximum_volume)
-		E.reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
+	if(E.reagents && (REAGENTS_FREE_SPACE(E.reagents) > 0))
+		E.reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
 
 	if(!synths.len)
 		return
@@ -221,6 +221,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/mass_spectrometer(src)
 	src.modules += new /obj/item/autopsy_scanner(src)
 	src.modules += new /obj/item/device/breath_analyzer(src)
+	modules += new /obj/item/taperoll/medical(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
 	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
@@ -230,11 +231,11 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
+	src.emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
@@ -260,7 +261,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/hypospray/cmo/PS = src.emag
-		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
+		PS.reagents.add_reagent(/decl/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/medical/rescue
@@ -294,6 +295,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/chemistry(src)
 	src.modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	src.modules += new /obj/item/borg/rescue/mobility(src)
+	modules += new /obj/item/taperoll/medical(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
 	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
@@ -301,7 +303,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
+	src.emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
@@ -332,7 +334,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/PS = src.emag
-		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
+		PS.reagents.add_reagent(/decl/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/engineering
@@ -550,7 +552,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent(/datum/reagent/lube, 250)
+	src.emag.reagents.add_reagent(/decl/reagent/lube, 250)
 	src.emag.name = "Lube spray"
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -559,7 +561,7 @@ var/global/list/robot_modules = list(
 	LR.Charge(R, amount)
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/S = src.emag
-		S.reagents.add_reagent(/datum/reagent/lube, 2 * amount)
+		S.reagents.add_reagent(/decl/reagent/lube, 2 * amount)
 
 /obj/item/robot_module/clerical
 	name = "service robot module"
@@ -613,7 +615,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
@@ -641,7 +643,7 @@ var/global/list/robot_modules = list(
 	var/datum/reagents/RG = new /datum/reagents(50)
 	src.emag.reagents = RG
 	RG.my_atom = src.emag
-	RG.add_reagent(/datum/reagent/polysomnine/beer2, 50)
+	RG.add_reagent(/decl/reagent/polysomnine/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general
@@ -652,7 +654,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
@@ -690,12 +692,13 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/gripper/miner(src)
 	src.modules += new /obj/item/rfd/mining(src)
+	src.modules += new /obj/item/ore_detector(src)
 	src.modules += new /obj/item/mining_scanner(src)
 	src.modules += new /obj/item/ore_radar(src)
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
@@ -772,7 +775,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/device/hand_labeler(src)
 	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
@@ -964,9 +967,14 @@ var/global/list/robot_modules = list(
 	no_slip = TRUE
 	networks = list(NETWORK_MINE)
 
-/obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R)
+/obj/item/robot_module/mining_drone/Initialize(mapload, mob/living/silicon/robot/R)
+	. = ..()
+	set_up_default(R)
+
+/obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/has_drill = TRUE)
 	modules += new /obj/item/device/flash(src)
-	modules += new /obj/item/pickaxe/drill(src)
+	if(has_drill)
+		modules += new /obj/item/pickaxe/drill(src)
 	modules += new /obj/item/storage/bag/ore/drone(src)
 	modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	modules += new /obj/item/gripper/miner(src)
@@ -977,6 +985,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/tank/jetpack/carbondioxide(src)
 	modules += new /obj/item/rfd/mining(src)
 	modules += new /obj/item/tethering_device(src)
+	modules += new /obj/item/ore_detector(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(20000)
 	synths += metal
@@ -992,23 +1001,16 @@ var/global/list/robot_modules = list(
 	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	emag.name = "Mounted Plasma Cutter"
 
-/obj/item/robot_module/mining_drone/basic/Initialize(mapload, mob/living/silicon/robot/robot)
-	. = ..()
-	set_up_default(src)
-
-/obj/item/robot_module/mining_drone/drill/Initialize(mapload, mob/living/silicon/robot/robot)
-	. = ..()
-	set_up_default(src, FALSE)
+/obj/item/robot_module/mining_drone/drill/set_up_default(mob/living/silicon/robot/R)
+	..(R, FALSE)
 	modules += new /obj/item/pickaxe/jackhammer(src)
 
-/obj/item/robot_module/mining_drone/ka/Initialize(mapload, mob/living/silicon/robot/robot)
-	. = ..()
-	set_up_default(src)
+/obj/item/robot_module/mining_drone/ka/set_up_default(mob/living/silicon/robot/R)
+	..(R)
 	modules += new /obj/item/gun/custom_ka/cyborg(src)
 
-/obj/item/robot_module/mining_drone/drillandka/Initialize(mapload, mob/living/silicon/robot/robot)
-	. = ..()
-	set_up_default(src, FALSE)
+/obj/item/robot_module/mining_drone/drillandka/set_up_default(mob/living/silicon/robot/R)
+	..(R, FALSE)
 	modules += new /obj/item/pickaxe/jackhammer(src)
 	modules += new /obj/item/gun/custom_ka/cyborg(src)
 

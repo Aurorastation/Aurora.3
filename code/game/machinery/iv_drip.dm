@@ -20,7 +20,7 @@
 
 	if(beaker)
 		var/datum/reagents/reagents = beaker.reagents
-		if(reagents.total_volume)
+		if(reagents?.total_volume)
 			var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
 
 			var/percent = round((reagents.total_volume / beaker.volume) * 100)
@@ -33,7 +33,8 @@
 				if(80 to 90)	filling.icon_state = "reagent80"
 				if(91 to INFINITY)	filling.icon_state = "reagent100"
 
-			filling.icon += reagents.get_color()
+			var/reagent_color = reagents.get_color()
+			filling.icon += reagent_color
 			add_overlay(filling)
 
 /obj/machinery/iv_drip/MouseDrop(over_object, src_location, over_location)
@@ -74,61 +75,52 @@
 /obj/machinery/iv_drip/machinery_process()
 	set background = 1
 
-	if(src.attached)
+	if(!beaker)
+		return
 
-		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
-			var/obj/item/organ/external/affecting = src.attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
-			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
-			affecting.take_damage(brute = 5, damage_flags = DAM_SHARP)
-			src.attached = null
-			src.update_icon()
+	if(!istype(attached))
+		return
+
+	if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
+		var/obj/item/organ/external/affecting = attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
+		attached.visible_message("<span class='warning'>The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
+		affecting.take_damage(brute = 5, damage_flags = DAM_SHARP)
+		attached = null
+		update_icon()
+		return
+
+	if(!attached.dna)
+		return
+
+	if(NOCLONE in attached.mutations)
+		return
+
+	if(attached.species.flags & NO_BLOOD)
+		return
+
+	// Give blood
+	if(mode)
+		if(beaker.reagents.total_volume > 0)
+			beaker.reagents.trans_to_mob(attached, transfer_amount, CHEM_BLOOD)
+			update_icon()
+
+	// Take blood
+	else
+		var/amount = REAGENTS_FREE_SPACE(beaker.reagents)
+		amount = min(amount, transfer_amount)
+		// If the beaker is full, ping
+		if(amount == 0)
+			if(prob(5))
+				visible_message("[src] pings.")
 			return
 
-	if(src.attached && src.beaker)
+		if(attached.get_blood_volume() < 90 && !blood_message_sent)
+			visible_message("[icon2html(src, viewers(get_turf(src)))] \The <b>[src]</b> flashes a warning light!")
+			playsound(src, 'sound/machines/buzz-two.ogg', 50)
+			blood_message_sent = TRUE
 
-		var/mob/living/carbon/human/T = attached
-
-		if(!istype(T))
-			return
-
-		if(!T.dna)
-			return
-
-		if(NOCLONE in T.mutations)
-			return
-
-		if(T.species.flags & NO_BLOOD)
-			return
-
-		// Give blood
-		if(mode)
-			if(src.beaker.volume > 0)
-				src.beaker.reagents.trans_to_mob(src.attached, transfer_amount, CHEM_BLOOD)
-				update_icon()
-
-		// Take blood
-		else
-			var/amount = beaker.reagents.maximum_volume - beaker.reagents.total_volume
-			amount = min(amount, 4)
-			// If the beaker is full, ping
-			if(amount == 0)
-				if(prob(5)) 
-					visible_message("\The [src] pings.")
-				return
-
-			if(T.get_blood_volume() < 90 && !blood_message_sent)
-				visible_message("[icon2html(src, viewers(get_turf(src)))] \The <b>[src]</b> flashes a warning light!")
-				playsound(src, 'sound/machines/buzz-two.ogg', 50)
-				blood_message_sent = TRUE
-
-			var/datum/reagent/B = T.take_blood(beaker,amount)
-
-			if(B)
-				beaker.reagents.reagent_list |= B
-				beaker.reagents.update_total()
-				beaker.on_reagent_change()
-				beaker.reagents.handle_reactions()
-				update_icon()
+		if(attached.take_blood(beaker,amount))
+			update_icon()
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)
 	if (isAI(user))
@@ -154,20 +146,20 @@
 		return
 
 	mode = !mode
-	to_chat(usr, "The IV drip is now [mode ? "injecting" : "taking blood"].")
+	to_chat(usr, "[src] is now [mode ? "injecting" : "taking blood"].")
 
 /obj/machinery/iv_drip/examine(mob/user)
 	..(user)
 	if (!(user in view(2)) && user!=src.loc) return
 
-	to_chat(user, "The IV drip is [mode ? "injecting" : "taking blood"].")
+	to_chat(user, "[src] is [mode ? "injecting" : "taking blood"].")
 	to_chat(user, "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>")
 
 	if(beaker)
-		if(beaker.reagents && beaker.reagents.reagent_list.len)
+		if(LAZYLEN(beaker.reagents.reagent_volumes))
 			to_chat(usr, "<span class='notice'>Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid.</span>")
 		else
-			to_chat(usr, "<span class='notice'>Attached is an empty [beaker].</span>")
+			to_chat(usr, "<span class='notice'>Attached is [beaker]. It is empty.</span>")
 	else
 		to_chat(usr, "<span class='notice'>No chemicals are attached.</span>")
 

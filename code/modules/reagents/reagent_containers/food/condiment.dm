@@ -39,28 +39,28 @@
 /obj/item/reagent_containers/food/condiment/on_reagent_change(var/force = FALSE)
 	if(fixed_state && !force)
 		return
-	if(!LAZYLEN(reagents.reagent_list))
+	if(isemptylist(reagents.reagent_volumes))
 		icon_state = "emptycondiment"
 		name = "condiment bottle"
 		desc = "An empty condiment bottle."
 		center_of_mass = list("x"=16, "y"=6)
 		return
 
-	var/datum/reagent/master = reagents.get_master_reagent()
-	name = master.condiment_name || (reagents.reagent_list.len == 1 ? "[lowertext(master.name)] bottle" : "condiment bottle")
-	desc = master.condiment_desc || (reagents.reagent_list.len == 1 ? master.description : "A mixture of various condiments. [master.name] is one of them.")
+	var/decl/reagent/master = reagents.get_primary_reagent_decl()
+	name = master.condiment_name || (reagents.reagent_volumes.len == 1 ? "[lowertext(master.name)] bottle" : "condiment bottle")
+	desc = master.condiment_desc || (reagents.reagent_volumes.len == 1 ? master.description : "A mixture of various condiments. [master.name] is one of them.")
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 
 /obj/item/reagent_containers/food/condiment/enzyme
 	icon_state = "enzyme" // for map preview
 	fixed_state = TRUE
-	reagents_to_add = list(/datum/reagent/enzyme = 50)
+	reagents_to_add = list(/decl/reagent/enzyme = 50)
 
 /obj/item/reagent_containers/food/condiment/sugar
 	icon_state = "sugar"
 	fixed_state = TRUE
-	reagents_to_add = list(/datum/reagent/sugar = 50)
+	reagents_to_add = list(/decl/reagent/sugar = 50)
 
 /obj/item/reagent_containers/food/condiment/shaker
 	name = "shaker"
@@ -80,20 +80,20 @@
 
 /obj/item/reagent_containers/food/condiment/shaker/salt
 	icon_state = "saltshakersmall"
-	reagents_to_add = list(/datum/reagent/sodiumchloride = 20)
+	reagents_to_add = list(/decl/reagent/sodiumchloride = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/peppermill
 	icon_state = "peppermillsmall"
-	reagents_to_add = list(/datum/reagent/blackpepper = 20)
+	reagents_to_add = list(/decl/reagent/blackpepper = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/diona
 	icon_state = "dionaepowder"
-	reagents_to_add = list(/datum/reagent/diona_powder = 20)
+	reagents_to_add = list(/decl/reagent/diona_powder = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/spacespice
 	icon_state = "spacespicebottle"
 	volume = 40
-	reagents_to_add = list(/datum/reagent/spacespice = 40)
+	reagents_to_add = list(/decl/reagent/spacespice = 40)
 
 /obj/item/reagent_containers/food/condiment/flour
 	name = "flour sack"
@@ -102,16 +102,16 @@
 	center_of_mass = list("x"=16, "y"=8)
 	volume = 220
 	fixed_state = TRUE
-	reagents_to_add = list(/datum/reagent/nutriment/flour = 200)
+	reagents_to_add = list(/decl/reagent/nutriment/flour = 200)
 
 /obj/item/reagent_containers/food/condiment/barbecue
 	fixed_state = TRUE
-	reagents_to_add = list(/datum/reagent/nutriment/barbecue = 20)
+	reagents_to_add = list(/decl/reagent/nutriment/barbecue = 20)
 
 /obj/item/reagent_containers/food/condiment/garlicsauce
 	fixed_state = TRUE
-	reagents_to_add = list(/datum/reagent/nutriment/garlicsauce = 50)
+	reagents_to_add = list(/decl/reagent/nutriment/garlicsauce = 50)
 
 /obj/item/reagent_containers/food/condiment/pacid
 	name = "culinary acid"
-	reagents_to_add = list(/datum/reagent/acid/polyacid = 50)
+	reagents_to_add = list(/decl/reagent/acid/polyacid = 50)

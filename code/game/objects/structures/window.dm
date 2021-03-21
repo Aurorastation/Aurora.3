@@ -278,22 +278,21 @@
 	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
 
 	var/def_zone = ran_zone(BP_HEAD, 20)
-	var/blocked = M.run_armor_check(def_zone, "melee")
 	switch (state)
 		if(1)
 			M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))
-			M.apply_damage(7, damtype, def_zone, blocked, src)
+			M.apply_damage(7, damtype, def_zone, used_weapon = src)
 			hit(10)
 		if(2)
 			M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"))
 			if (prob(50))
 				M.Weaken(1)
-			M.apply_damage(10, damtype, def_zone, blocked, src)
+			M.apply_damage(10, damtype, def_zone, used_weapon = src)
 			hit(25)
 		if(3)
 			M.visible_message(SPAN_DANGER("<big>[user] crushes [M] against \the [src]!</big>"))
 			M.Weaken(5)
-			M.apply_damage(20, damtype, def_zone, blocked, src)
+			M.apply_damage(20, damtype, def_zone, used_weapon = src)
 			hit(50)
 
 /obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
@@ -529,20 +528,18 @@
 /obj/structure/window/reinforced/crescent/shatter()
 	return
 
-/obj/machinery/button/windowtint
+/obj/machinery/button/switch/windowtint
 	name = "window tint control"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "light0"
 	desc = "A remote control switch for polarized windows."
 	var/range = 16
 
-/obj/machinery/button/windowtint/attack_hand(mob/user as mob)
+/obj/machinery/button/switch/windowtint/attack_hand(mob/user as mob)
 	if(..())
 		return 1
 
 	toggle_tint()
 
-/obj/machinery/button/windowtint/proc/toggle_tint()
+/obj/machinery/button/switch/windowtint/proc/toggle_tint()
 	use_power(5)
 
 	active = !active
@@ -554,10 +551,10 @@
 				W.toggle()
 				return
 
-/obj/machinery/button/windowtint/power_change()
+/obj/machinery/button/switch/windowtint/power_change()
 	..()
 	if(active && !powered(power_channel))
 		toggle_tint()
 
-/obj/machinery/button/windowtint/update_icon()
+/obj/machinery/button/switch/windowtint/update_icon()
 	icon_state = "light[active]"

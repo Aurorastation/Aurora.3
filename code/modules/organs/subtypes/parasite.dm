@@ -8,8 +8,18 @@
 	var/stage = 1
 	var/max_stage = 4
 	var/stage_ticker = 0
+	var/infection_speed = 2 //Will be determined by get_infect_speed()
+	var/infect_speed_high = 35	//The fastest this parasite will advance stages
+	var/infect_speed_low = 15	//The slowest this parasite will advance stages
 	var/stage_interval = 600 //time between stages, in seconds
 	var/subtle = 0 //will the body reject the parasite naturally?
+
+/obj/item/organ/internal/parasite/Initialize()
+	. = ..()
+	get_infect_speed()
+
+/obj/item/organ/internal/parasite/proc/get_infect_speed() //Slightly randomizes how fast each infection progresses.
+	infection_speed = rand(infect_speed_low, infect_speed_high) / 10
 
 /obj/item/organ/internal/parasite/process()
 	..()
@@ -18,10 +28,11 @@
 		return
 
 	if(stage < max_stage)
-		stage_ticker += 2 //process ticks every ~2 seconds
+		stage_ticker += infection_speed 
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
+		get_infect_speed() //Each stage may progress faster or slower than the previous one
 		stage_effect()
 
 /obj/item/organ/internal/parasite/handle_rejection()
@@ -79,8 +90,8 @@
 		set_light(1, l_color = "#E6E600")
 		if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/datum/reagent/toxin/phoron, 8)
-			owner.reagents.add_reagent(/datum/reagent/kois, 5)
+			owner.reagents.add_reagent(/decl/reagent/toxin/phoron, 8)
+			owner.reagents.add_reagent(/decl/reagent/kois, 5)
 
 	if(stage >= 4)
 		if(prob(10))
@@ -90,8 +101,8 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/datum/reagent/kois,10)
-			R.add_reagent(/datum/reagent/toxin/phoron,10)
+			R.add_reagent(/decl/reagent/kois,10)
+			R.add_reagent(/decl/reagent/toxin/phoron,10)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
 
 			S.attach(T)
@@ -146,7 +157,7 @@
 
 		if(prob(5))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/datum/reagent/kois/black, 4)
+			owner.reagents.add_reagent(/decl/reagent/kois/black, 4)
 
 		else if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel disorientated!</span>")
@@ -188,8 +199,8 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/datum/reagent/kois/black,10)
-			R.add_reagent(/datum/reagent/toxin/phoron,5)
+			R.add_reagent(/decl/reagent/kois/black,10)
+			R.add_reagent(/decl/reagent/toxin/phoron,5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)

@@ -13,7 +13,6 @@
 
 	rack_sound = 'sound/weapons/riflebolt.ogg'
 	rack_verb = "pull back the bolt on"
-	has_wield_state = TRUE
 
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -31,7 +30,6 @@
 	slot_flags &= ~SLOT_BACK
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 	can_bayonet = FALSE
-	has_wield_state = FALSE
 	if(bayonet)
 		qdel(bayonet)
 		bayonet = null
@@ -51,7 +49,51 @@
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	can_bayonet = FALSE
-	has_wield_state = FALSE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun
+	name = "pipegun"
+	desc = "An excellent weapon for flushing out tunnel rats and enemy assistants, but its rifling leaves much to be desired."
+	icon = 'icons/obj/guns/pipegun.dmi'
+	icon_state = "pipegun"
+	item_state = "pipegun"
+	caliber = "a556"
+	ammo_type = null
+	magazine_type = null
+	max_shells = 4
+	can_sawoff = FALSE
+
+	needspin = FALSE
+	has_safety = FALSE
+
+	jam_chance = 0
+
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/examine(mob/user)
+	. = ..()
+	switch(jam_chance)
+		if(10 to 20)
+			to_chat(user, SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag."))
+		if(20 to 40)
+			to_chat(user, SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag."))
+		if(40 to 80)
+			to_chat(user, SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag."))
+		if(80 to INFINITY)
+			to_chat(user, SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag."))
+
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/attackby(obj/item/A, mob/user)
+	if(istype(A, /obj/item/reagent_containers/glass/rag))
+		if(!jam_chance || jam_chance == initial(jam_chance))
+			to_chat(user, SPAN_WARNING("There's no fouling present on \the [src]."))
+			return
+		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [A].", SPAN_NOTICE("You start cleaning \the [src] with \the [A]."))
+		if(do_after(user, jam_chance * 5))
+			to_chat(user, SPAN_WARNING("You completely clean \the [src]."))
+			jam_chance = initial(jam_chance)
+		return
+	return ..()
+
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_post_fire(mob/user)
+	. = ..()
+	jam_chance = min(jam_chance + 5, 100)
 
 /obj/item/gun/projectile/contender
 	name = "pocket rifle"
@@ -76,7 +118,7 @@
 		return 0
 	return ..()
 
-/obj/item/gun/projectile/contender/attack_self(mob/user as mob)
+/obj/item/gun/projectile/contender/unique_action(mob/user as mob)
 	if(chambered)
 		chambered.forceMove(get_turf(src))
 		chambered = null
@@ -137,7 +179,7 @@
 	var/open_bolt = 0
 	var/obj/item/ammo_magazine/boltaction/vintage/has_clip
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attack_self(mob/living/user as mob)
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/unique_action(mob/living/user as mob)
 	if(wielded)
 		if(world.time >= recentpump + 10)
 			pump(user)
@@ -253,14 +295,6 @@
 /obj/item/gun/projectile/gauss/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "gauss_thumper" : "gauss_thumper-e"
-
-	if(wielded)
-		item_state = "gauss_thumper-wielded"
-	else
-		item_state = "gauss_thumper"
-
-	update_held_icon()
-	return
 
 /obj/item/gun/energy/gauss/mounted/mech
 	name = "heavy gauss cannon"

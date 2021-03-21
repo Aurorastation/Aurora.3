@@ -7,8 +7,9 @@
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
-	var/can_buckle = TRUE
+	can_be_buckled = TRUE
 
+	var/obj/screen/cells = null
 	var/obj/screen/flash = null
 	var/obj/screen/blind = null
 	var/obj/screen/hands = null
@@ -16,6 +17,7 @@
 	var/obj/screen/purged = null
 	var/obj/screen/internals/internals = null
 	var/obj/screen/oxygen = null
+	var/obj/screen/paralysis_indicator = null
 	var/obj/screen/i_select = null
 	var/obj/screen/m_select = null
 	var/obj/screen/toxin = null
@@ -33,6 +35,8 @@
 	var/obj/screen/gun/move/gun_move_icon = null
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
+	var/obj/screen/gun/unique_action_icon = null
+	var/obj/screen/gun/toggle_firing_mode = null
 	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
@@ -105,7 +109,7 @@
 	var/name_archive //For admin things like possession
 
 	var/timeofdeath = 0.0//Living
-	var/cpr_time = 1.0//Carbon
+	var/cpr = FALSE //Whether the mob is performing cpr or not
 
 	var/bodytemperature = 310.055	//98.7 F
 	var/old_x = 0
@@ -132,9 +136,8 @@
 	var/intent = null//Living
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
-	var/m_intent = "walk"//Living
+	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
-	var/obj/buckled = null//Living
 	var/obj/item/l_hand = null//Living
 	var/obj/item/r_hand = null//Living
 	var/obj/item/back = null//Human/Monkey
@@ -174,7 +177,7 @@
 	var/accent
 
 	var/faction = "neutral" //Used for checking whether hostile simple animals will attack you, possibly more stuff later
-	var/captured = 0 //Functionally, should give the same effect as being buckled into a chair when true.
+	var/captured = 0 //Functionally, should give the same effect as being buckled_to into a chair when true.
 
 //Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
 	//var/proc_holder_list[] = list()//Right now unused.

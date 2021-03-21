@@ -56,8 +56,8 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/item/melee/baton, /obj/item/gun/energy/taser, /obj/item/handcuffs, /obj/item/clothing/glasses/sunglasses/sechud,
 												 /obj/machinery/door/airlock/security, /obj/item/clothing/under/rank/cadet, /obj/structure/sign/directions/security,
 												 /obj/item/clothing/head/bio_hood/security, /obj/item/clothing/head/bomb_hood/security, /obj/item/clothing/head/helmet/space/void/security,
-												 /obj/item/clothing/head/softcap/security, /obj/item/clothing/suit/armor/vest/security, /obj/item/clothing/suit/bio_suit/security,
-												 /obj/item/clothing/suit/bomb_suit/security, /obj/item/clothing/suit/security/navyofficer, /obj/item/clothing/suit/space/void/security,
+												 /obj/item/clothing/head/softcap/security, /obj/item/clothing/suit/security, /obj/item/clothing/suit/bio_suit/security,
+												 /obj/item/clothing/suit/bomb_suit/security, /obj/item/clothing/suit/security/officer, /obj/item/clothing/suit/space/void/security,
 												 /obj/item/clothing/suit/storage/hooded/wintercoat/security, /obj/item/device/magnetic_lock/security,/obj/item/toy/figure/secofficer,
 												 /obj/item/gun/bang/sec, /obj/item/gun/projectile/sec, /obj/item/book/manual/wiki/security_space_law)),
 
@@ -88,7 +88,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/structure/banner, /obj/structure/bed/chair/office/bridge, /obj/item/clothing/head/collectable/captain,
 												 /obj/item/clothing/head/helmet/space/void/captain, /obj/item/clothing/suit/space/void/captain, /obj/item/clothing/suit/storage/hooded/wintercoat/captain,
 												 /obj/item/clothing/under/captainformal, /obj/item/clothing/under/rank/captain, /obj/item/toy/figure/captain, /obj/item/card/id/captains_spare,
-												 /obj/item/gun/energy/captain, /obj/item/stamp/captain, /obj/item/storage/backpack/captain, /obj/item/clothing/suit/armor/vest/security)),
+												 /obj/item/gun/energy/captain, /obj/item/stamp/captain, /obj/item/storage/backpack/captain, /obj/item/clothing/suit/security)),
 
 					   "filth"   = typecacheof(list(/obj/effect/decal/cleanable,/obj/effect/decal/remains,/obj/item/trash, /obj/machinery/portable_atmospherics/hydroponics)),
 
@@ -118,7 +118,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						  "skrell"   = typecacheof(list(/datum/species/skrell)),
 						  "robots"   = typecacheof(list(/datum/species/machine)),
 						  "pests"   = typecacheof(list(/datum/species/diona, /datum/species/bug)),
-						  "paranormals"   = typecacheof(list(/datum/species/shadow, /datum/species/skeleton, /datum/species/golem)),
+						  "paranormals"   = typecacheof(list(/datum/species/revenant, /datum/species/skeleton, /datum/species/golem)),
 						  "humans"   = typecacheof(list(/datum/species/human))
 						 )
 

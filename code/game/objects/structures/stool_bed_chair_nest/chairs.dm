@@ -2,13 +2,13 @@
 	name = "chair"
 	desc = "You sit in this. Either by will or force."
 	icon_state = "chair_preview"
-	color = "#666666"
 	base_icon = "chair"
+	color = "#666666"
 
 	build_amt = 1
 
 	buckle_dir = 0
-	buckle_lying = 0 //force people to sit up in chairs when buckled
+	buckle_lying = 0 //force people to sit up in chairs when buckled_to
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
@@ -28,12 +28,13 @@
 		qdel(src)
 
 /obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
-	if(!buckled_mob && user)
+	if(!buckled && user)
 		rotate(user)
 	return TRUE
 
-/obj/structure/bed/chair/post_buckle_mob()
+/obj/structure/bed/chair/post_buckle()
 	update_icon()
+	return ..()
 
 /obj/structure/bed/chair/update_icon()
 	..()
@@ -41,41 +42,51 @@
 	var/list/stool_cache = SSicon_cache.stool_cache
 
 	var/cache_key = "[base_icon]-[material.name]-over"
-	if(isnull(stool_cache[cache_key]))
+	if(!stool_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
-		if(apply_material_color)
+		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
 		I.layer = FLY_LAYER
 		stool_cache[cache_key] = I
 	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
-		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]-over"
-		if(isnull(stool_cache[padding_cache_key]))
+		var/padding_cache_key = "[base_icon]-[padding_material.name]-padding-over"
+		if(!stool_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding_over")
-			if(apply_material_color)
+			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = padding_material.icon_colour
 			I.layer = FLY_LAYER
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
 
-	if(buckled_mob && padding_material)
-		cache_key = "[base_icon]-armrest-[padding_material.name]"
-		if(isnull(stool_cache[cache_key]))
+	if(buckled)
+		cache_key = "[base_icon]-[material.name]-armrest"
+		if(!stool_cache[cache_key])
 			var/image/I = image(icon, "[base_icon]_armrest")
-			I.layer = MOB_LAYER + 0.1
-			if(apply_material_color)
-				I.color = padding_material.icon_colour
+			I.layer = FLY_LAYER
+			if(material_alteration & MATERIAL_ALTERATION_COLOR)
+				I.color = material.icon_colour
 			stool_cache[cache_key] = I
 		add_overlay(stool_cache[cache_key])
+		if(padding_material)
+			cache_key = "[base_icon]-[padding_material.name]-padding-armrest"
+			if(!stool_cache[cache_key])
+				var/image/I = image(icon, "[base_icon]_padding_armrest")
+				I.layer = FLY_LAYER
+				if(material_alteration & MATERIAL_ALTERATION_COLOR)
+					I.color = padding_material.icon_colour
+				stool_cache[cache_key] = I
+			add_overlay(stool_cache[cache_key])
 
 /obj/structure/bed/chair/set_dir()
 	. = ..()
-	if(buckled_mob)
-		buckled_mob.set_dir(dir)
+	if(buckled)
+		buckled.set_dir(dir)
 
 // Leaving this in for the sake of compilation.
 /obj/structure/bed/chair/comfy
+	name = "comfy chair"
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
 	base_icon = "comfychair"
@@ -108,13 +119,30 @@
 /obj/structure/bed/chair/comfy/lime/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
+/obj/structure/bed/chair/comfy/sofa
+	name = "sofa"
+	desc = "A sofa, how nice!"
+	icon_state = "sofamiddle_preview"
+	base_icon = "sofamiddle"
+
+/obj/structure/bed/chair/comfy/sofa/left
+	icon_state = "sofaend_left_preview"
+	base_icon = "sofaend_left"
+
+/obj/structure/bed/chair/comfy/sofa/right
+	icon_state = "sofaend_right_preview"
+	base_icon = "sofaend_right"
+
+/obj/structure/bed/chair/comfy/sofa/corner
+	icon_state = "sofacorner_preview"
+	base_icon = "sofacorner"
+
 /obj/structure/bed/chair/office
+	name = "office chair"
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	anchored = 0
 	buckle_movable = 1
 	build_amt = 5
-
-/obj/structure/bed/chair/office/update_icon()
-	return
 
 /obj/structure/bed/chair/office/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
@@ -125,69 +153,73 @@
 	. = ..()
 	if(makes_rolling_sound)
 		playsound(src, 'sound/effects/roll.ogg', 100, 1)
-	if(buckled_mob)
-		var/mob/living/occupant = buckled_mob
-		occupant.buckled = null
+	if(buckled)
+		var/mob/living/occupant = buckled
+		occupant.buckled_to = null
 		occupant.Move(src.loc)
-		occupant.buckled = src
+		occupant.buckled_to = src
 		if (occupant && (src.loc != occupant.loc))
 			if (propelled)
 				for (var/mob/O in src.loc)
 					if (O != occupant)
 						Collide(O)
 			else
-				unbuckle_mob()
+				unbuckle()
 
 /obj/structure/bed/chair/office/Collide(atom/A)
 	. = ..()
-	if(!buckled_mob)
+	if(!buckled)
 		return
 
 	if(propelled)
-		var/mob/living/occupant = unbuckle_mob()
+		var/mob/living/occupant = unbuckle()
 
 		var/def_zone = ran_zone()
-		var/blocked = occupant.run_armor_check(def_zone, "melee")
 		occupant.throw_at(A, 3, propelled)
-		occupant.apply_effect(6, STUN, blocked)
-		occupant.apply_effect(6, WEAKEN, blocked)
-		occupant.apply_effect(6, STUTTER, blocked)
-		occupant.apply_damage(10, BRUTE, def_zone, blocked)
+		occupant.apply_effect(6, STUN)
+		occupant.apply_effect(6, WEAKEN)
+		occupant.apply_effect(6, STUTTER)
+		occupant.apply_damage(10, BRUTE, def_zone)
 		playsound(src.loc, "punch", 50, 1, -1)
-		if(istype(A, /mob/living))
+		if(isliving(A))
 			var/mob/living/victim = A
 			def_zone = ran_zone()
-			blocked = victim.run_armor_check(def_zone, "melee")
-			victim.apply_effect(6, STUN, blocked)
-			victim.apply_effect(6, WEAKEN, blocked)
-			victim.apply_effect(6, STUTTER, blocked)
-			victim.apply_damage(10, BRUTE, def_zone, blocked)
+			victim.apply_effect(6, STUN)
+			victim.apply_effect(6, WEAKEN)
+			victim.apply_effect(6, STUTTER)
+			victim.apply_damage(10, BRUTE, def_zone)
 		occupant.visible_message("<span class='danger'>[occupant] crashed into \the [A]!</span>")
 
 /obj/structure/bed/chair/office/light
-	icon_state = "officechair_white"
+	icon_state = "officechair_white_preview"
+	base_icon = "officechair_white"
 
 /obj/structure/bed/chair/office/dark
-	icon_state = "officechair_dark"
+	icon_state = "officechair_dark_preview"
+	base_icon = "officechair_dark"
 
 /obj/structure/bed/chair/office/bridge
 	name = "command chair"
 	desc = "It exudes authority... and looks about as comfortable as a brick."
-	icon_state = "bridge"
+	icon_state = "bridge_preview"
+	base_icon = "bridge"
 	anchored = 1
 
 /obj/structure/bed/chair/office/bridge/legion
 	name = "legion pilot seat"
 	desc = "A comfortable seat for a pilot."
-	icon_state = "bridge_legion"
+	icon_state = "bridge_legion_preview"
+	base_icon = "bridge_legion"
 
 /obj/structure/bed/chair/office/bridge/generic
-	icon_state = "bridge_generic"
+	icon_state = "bridge_generic_preview"
+	base_icon = "bridge_generic"
 
 /obj/structure/bed/chair/office/bridge/pilot
 	name = "pilot seat"
 	desc = "A comfortable seat for a pilot."
-	icon_state = "pilot"
+	icon_state = "pilot_preview"
+	base_icon = "pilot"
 
 /obj/structure/bed/chair/office/hover
 	name = "hoverchair"
@@ -203,27 +235,19 @@
 /obj/structure/bed/chair/office/hover/command
 	icon_state = "hover_command"
 
-/obj/structure/bed/chair/office/Initialize()
-	. = ..()
-	var/image/I = image(icon, "[icon_state]_over")
-	I.layer = FLY_LAYER
-	add_overlay(I)
-
 // Chair types
 /obj/structure/bed/chair/plastic
-	color = "#CCCCCC"
 
 /obj/structure/bed/chair/plastic/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC)
 
 /obj/structure/bed/chair/wood
-	name = "wooden chair"
+	name = "classic chair"
 	desc = "Old is never too old to not be in fashion."
-	icon_state = "wooden_chair"
+	icon_state = "wooden_chair_preview"
+	base_icon = "wooden_chair"
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	build_amt = 3
-
-/obj/structure/bed/chair/wood/update_icon()
-	return
 
 /obj/structure/bed/chair/wood/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
@@ -233,56 +257,38 @@
 /obj/structure/bed/chair/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
 
-/obj/structure/bed/chair/wood/Initialize(mapload)
-	.=..()
-	var/image/I = image(icon, "[icon_state]_over")
-	I.layer = FLY_LAYER
-	add_overlay(I)
-
 /obj/structure/bed/chair/wood/wings
-	icon_state = "wooden_chair_wings"
+	name = "winged chair"
+	icon_state = "wooden_chair_wings_preview"
+	base_icon = "wooden_chair_wings"
 
 /obj/structure/bed/chair/unmovable
 	can_dismantle = 0
 
 /obj/structure/bed/chair/shuttle
-	icon_state = "shuttlechair"
+	name = "shuttle chair"
+	icon_state = "shuttlechair_preview"
 	base_icon = "shuttlechair"
+	buckling_sound = 'sound/effects/metal_close.ogg'
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	can_dismantle = FALSE
-	apply_material_color = FALSE
 	anchored = TRUE
 
-/obj/structure/bed/chair/shuttle/update_icon()
-	cut_overlays()
-
-	var/image/O = image(icon, "[icon_state]_over")
-	O.layer = FLY_LAYER
-	add_overlay(O)
-
-	var/list/stool_cache = SSicon_cache.stool_cache
-
-	var/cache_key = "[base_icon]_over"
-	if(isnull(stool_cache[cache_key]))
-		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
-		if(apply_material_color)
-			I.color = material.icon_colour
-		I.layer = FLY_LAYER
-		stool_cache[cache_key] = I
-	add_overlay(stool_cache[cache_key])
-
-	if(buckled_mob)
-		icon_state = "[base_icon]_down"
-		cache_key = "[base_icon]-armrest"
-		if(isnull(stool_cache[cache_key]))
-			var/image/I = image(icon, "[base_icon]_armrest")
-			I.layer = MOB_LAYER + 0.1
-			if(apply_material_color)
-				I.color = padding_material.icon_colour
-			stool_cache[cache_key] = I
-		add_overlay(stool_cache[cache_key])
-
+/obj/structure/bed/chair/shuttle/post_buckle()
+	if(buckled)
+		base_icon = "shuttlechair-b"
 	else
-		icon_state = initial(icon_state)
+		base_icon = "shuttlechair"
+	..()
+
+/obj/structure/bed/chair/shuttle/update_icon()
+	..()
+	if(!buckled)
+		var/image/I = image(icon, "[base_icon]_special")
+		I.layer = ABOVE_MOB_LAYER
+		if(material_alteration & MATERIAL_ALTERATION_COLOR)
+			I.color = material.icon_colour
+		overlays |= I
 
 // pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
 /obj/structure/bed/chair/pool
@@ -293,14 +299,14 @@
 /obj/structure/bed/chair/pool/update_icon()
 	return
 
-/obj/structure/bed/chair/pool/buckle_mob(mob/living/M)
+/obj/structure/bed/chair/pool/buckle(mob/living/M)
 	if(!iscarbon(M))
 		return FALSE
 	return ..()
 
-/obj/structure/bed/chair/pool/post_buckle_mob(mob/living/M)
+/obj/structure/bed/chair/pool/post_buckle(mob/living/M)
 	. = ..()
-	if(M == buckled_mob)
+	if(M == buckled)
 		M.pixel_y = -6
 	else
 		M.pixel_y = initial(M.pixel_y)

@@ -1010,27 +1010,6 @@ proc/admin_notice(var/message, var/rights)
 
 	item_to_spawn.spawn_item(get_turf(usr))
 
-/datum/admins/proc/check_custom_items()
-
-	set category = "Debug"
-	set desc = "Check the custom item list."
-	set name = "Check Custom Items"
-
-	if(!check_rights(R_SPAWN))	return
-
-	if(!custom_items)
-		to_chat(usr, "Custom item list is null.")
-		return
-
-	if(!custom_items.len)
-		to_chat(usr, "Custom item list not populated.")
-		return
-
-	for(var/assoc_key in custom_items)
-		to_chat(usr, "[assoc_key] has:")
-		var/list/current_items = custom_items[assoc_key]
-		for(var/datum/custom_item/item in current_items)
-			to_chat(usr, "- name: [item.name] icon: [item.item_icon] path: [item.item_path] desc: [item.item_desc]")
 
 /datum/admins/proc/spawn_plant(seedtype in SSplants.seeds)
 	set category = "Debug"

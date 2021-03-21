@@ -164,6 +164,19 @@
 	else
 		return ..()
 
+/mob/living/carbon/human/playsound_get_environment(pressure_factor = 1.0)
+	if(protected_from_sound())
+		return PADDED_CELL
+	return ..()
+
+/mob/proc/check_sound_equipment_volume()
+	return 1
+
+/mob/living/carbon/human/check_sound_equipment_volume()
+	if(protected_from_sound())
+		return 0.6
+	return 1
+
 /mob/proc/playsound_to(turf/source_turf, sound/original_sound, use_random_freq, modify_environment = TRUE, use_pressure = TRUE, required_preferences = 0, required_asfx_toggles = 0)
 	var/sound/S = copy_sound(original_sound)
 
@@ -209,8 +222,9 @@
 	if (modify_environment)
 		S.environment = playsound_get_environment(pressure_factor)
 
-	sound_to(src, S)
+	S.volume *= check_sound_equipment_volume()
 
+	sound_to(src, S)
 	return S.volume
 
 /mob/proc/playsound_simple(source, soundin, volume, use_random_freq = FALSE, frequency = 0, falloff = 0, use_pressure = TRUE, required_preferences = 0, required_asfx_toggles = 0)
@@ -486,6 +500,11 @@
 		'sound/effects/bodyfall2.ogg',
 		'sound/effects/bodyfall3.ogg',
 		'sound/effects/bodyfall4.ogg'
+	)
+
+/decl/sound_category/bodyfall_skrell_sound
+	sounds = list(
+		'sound/effects/bodyfall_skrell1.ogg'
 	)
 
 /decl/sound_category/bodyfall_machine_sound

@@ -1,8 +1,3 @@
-//drink_flags defines
-#define NO_EMPTY_ICON 1		//does NOT have an iconstate_empty icon. If adding empty icons for a drink, make sure it does not have this flag
-#define UNIQUE_EMPTY_ICON 2	//Uses the empty_icon_state listed. Should really only be used when one trash state applies to multiple drinks. Remove if one is added
-#define IS_GLASS 4		//Container is glass. Affects shattering, unacidable, etc.
-
 /*
 Standards for trash/empty states under the /drinks path:
 Adding Empty States: Trash/Empty states should be placed in the drinks_empty.dmi and should be the drink's icon_state name followed by _empty (ex: whiskeybottle_empty) and the NO_EMPTY_ICON flag should be removed.
@@ -44,11 +39,11 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		if(drink_flags & UNIQUE_EMPTY_ICON)
 			icon = 'icons/obj/drinks_empty.dmi'
 			icon_state = empty_icon_state
-			return
-		if(!(drink_flags & NO_EMPTY_ICON))
+		else if(drink_flags & UNIQUE_EMPTY_ICON_FILE)
+			icon_state = empty_icon_state
+		else if(!(drink_flags & NO_EMPTY_ICON))
 			icon = 'icons/obj/drinks_empty.dmi'
 			icon_state = "[initial(icon_state)]_empty"
-			return
 	else
 		icon = initial(icon)	//Necessary for refilling empty drinks
 		icon_state = initial(icon_state)
@@ -61,7 +56,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
 			return
 		if(shaken)
-			for(var/datum/reagent/R in reagents.reagent_list)
+			for(var/_R in reagents.reagent_volumes)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				if(R.carbonated)
 					boom(user)
 					return
@@ -125,7 +121,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A golden cup"
 	name = "golden cup"
 	icon_state = "golden_cup"
-	item_state = "" //nope :(
+	item_state = "" //nope :[
 	w_class = ITEMSIZE_LARGE
 	force = 14
 	throwforce = 10
@@ -147,7 +143,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	center_of_mass = list("x"=16, "y"=9)
-	reagents_to_add = list(/datum/reagent/drink/milk = 50)
+	reagents_to_add = list(/decl/reagent/drink/milk = 50)
 
 /obj/item/reagent_containers/food/drinks/soymilk
 	name = "soymilk"
@@ -157,7 +153,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	center_of_mass = list("x"=16, "y"=9)
-	reagents_to_add = list(/datum/reagent/drink/milk/soymilk = 50)
+	reagents_to_add = list(/decl/reagent/drink/milk/soymilk = 50)
 
 /obj/item/reagent_containers/food/drinks/coffee
 	name = "robust coffee"
@@ -169,7 +165,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/datum/reagent/drink/coffee = 30)
+	reagents_to_add = list(/decl/reagent/drink/coffee = 30)
 
 /obj/item/reagent_containers/food/drinks/pslatte
 	name = "seasonal pumpkin spice latte"
@@ -182,7 +178,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/datum/reagent/drink/coffee/sadpslatte = 30)
+	reagents_to_add = list(/decl/reagent/drink/coffee/sadpslatte = 30)
 
 /obj/item/reagent_containers/food/drinks/tea
 	name = "duke purple tea"
@@ -194,7 +190,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/datum/reagent/drink/tea = 30)
+	reagents_to_add = list(/decl/reagent/drink/tea = 30)
 
 /obj/item/reagent_containers/food/drinks/greentea
 	name = "green tea"
@@ -207,7 +203,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/datum/reagent/drink/tea/greentea = 30)
+	reagents_to_add = list(/decl/reagent/drink/tea/greentea = 30)
 
 /obj/item/reagent_containers/food/drinks/hotcider
 	name = "hot cider"
@@ -220,7 +216,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/datum/reagent/drink/ciderhot = 30)
+	reagents_to_add = list(/decl/reagent/drink/ciderhot = 30)
 
 /obj/item/reagent_containers/food/drinks/chaitea
 	name = "chai tea"
@@ -233,7 +229,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/datum/reagent/drink/tea/chaitea = 30)
+	reagents_to_add = list(/decl/reagent/drink/tea/chaitea = 30)
 
 /obj/item/reagent_containers/food/drinks/ice
 	name = "ice cup"
@@ -245,7 +241,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=10)
-	reagents_to_add = list(/datum/reagent/drink/ice = 30)
+	reagents_to_add = list(/decl/reagent/drink/ice = 30)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
 	name = "dutch hot coco"
@@ -257,7 +253,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=13)
-	reagents_to_add = list(/datum/reagent/drink/hot_coco = 30)
+	reagents_to_add = list(/decl/reagent/drink/hot_coco = 30)
 
 /obj/item/reagent_containers/food/drinks/dry_ramen
 	name = "cup ramen"
@@ -269,7 +265,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/datum/reagent/drink/dry_ramen = 30)
+	reagents_to_add = list(/decl/reagent/drink/dry_ramen = 30)
 	is_liquid = FALSE
 
 /obj/item/reagent_containers/food/drinks/dry_ramen/on_reagent_change()
@@ -290,7 +286,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/disk.ogg'
 	pickup_sound = 'sound/items/pickup/disk.ogg'
 
-	reagents_to_add = list(/datum/reagent/water = 30)
+	reagents_to_add = list(/decl/reagent/water = 30)
 
 //heehoo bottle flipping
 /obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
@@ -382,54 +378,54 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "Full of vitamins and deliciousness!"
 	icon_state = "orangejuice"
 
-	reagents_to_add = list(/datum/reagent/drink/orangejuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/orangejuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/cream
 	name = "milk cream"
 	desc = "It's cream. Made from milk. What else did you think you'd find in there?"
 	icon_state = "cream"
 
-	reagents_to_add = list(/datum/reagent/drink/milk/cream = 100)
+	reagents_to_add = list(/decl/reagent/drink/milk/cream = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/tomatojuice
 	name = "tomato juice"
 	desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
 	icon_state = "tomatojuice"
 
-	reagents_to_add = list(/datum/reagent/drink/tomatojuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/tomatojuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/limejuice
 	name = "lime juice"
 	desc = "Sweet-sour goodness."
 	icon_state = "limejuice"
 
-	reagents_to_add = list(/datum/reagent/drink/limejuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/limejuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/lemonjuice
 	name = "lemon juice"
 	desc = "This juice is VERY sour."
 	icon_state = "lemoncarton"
 
-	reagents_to_add = list(/datum/reagent/drink/lemonjuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/lemonjuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/dynjuice
 	name = "dyn juice"
 	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
 	icon_state = "dyncarton"
 
-	reagents_to_add = list(/datum/reagent/drink/dynjuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/dynjuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/applejuice
 	name = "apple juice"
 	desc = "Juice from an apple. Yes."
 	icon_state = "applejuice"
 
-	reagents_to_add = list(/datum/reagent/drink/applejuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/applejuice = 100)
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
 //	itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
-//	icon states.
+//	icon states.)
 
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
@@ -495,6 +491,50 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	icon_state = "vacuumflask"
 	volume = 60
 	center_of_mass = list("x"=15, "y"=4)
+
+	var/obj/item/reagent_containers/food/drinks/flask/flask_cup/cup
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
+	. = ..()
+	cup = new(src)
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
+	if(cup)
+		to_chat(user, SPAN_NOTICE("You remove \the [src]'s cap."))
+		user.put_in_hands(cup)
+		cup = null
+		update_icon()
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
+		if(cup)
+			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
+			return
+		if(W.reagents.total_volume + reagents.total_volume > volume)
+			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and the flask!"))
+			return
+		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
+		user.drop_from_inventory(W, src)
+		cup = W
+		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
+		update_icon()
+		return
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/update_icon()
+	icon_state = cup ? initial(icon_state) : "[initial(icon_state)]-nobrim"
+
+/obj/item/reagent_containers/food/drinks/flask/flask_cup
+	name = "vacuum flask cup"
+	desc = "The cup that appears in your hands after you unscrew the cap of the flask and turn it over. Magic!"
+	icon_state = "vacuumflask-brim"
+	volume = 10
+	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/flask/flask_cup/afterattack(atom/target, mob/user, proximity, params)
+	if(istype(target, /obj/item/reagent_containers/food/drinks/flask/vacuumflask))
+		return
+	return ..()
 
 /obj/item/reagent_containers/food/drinks/britcup
 	name = "cup"

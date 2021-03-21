@@ -21,7 +21,7 @@
 	confined_use = TRUE
 
 	use_power_cost = 75
-	active_power_cost = 5
+	active_power_cost = 15
 	passive_power_cost = 0
 	module_cooldown = 30
 
@@ -165,8 +165,8 @@
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/fabricator/energy_net/engage(atom/target, mob/user)
-	if(holder && holder.wearer)
-		if(..(target) && target)
+	if(holder?.wearer && target)
+		if(..())
 			holder.wearer.Beam(target, "n_beam", , 10)
 		return TRUE
 	return FALSE
@@ -203,7 +203,7 @@
 
 	//OH SHIT.
 	if(holder.wearer.stat == DEAD)
-		engage(1)
+		do_engage(1)
 
 /obj/item/rig_module/self_destruct/engage(var/skip_check)
 	if(!skip_check && usr && alert(usr, "Are you sure you want to push that button?", "Self-destruct", "No", "Yes") == "No")
@@ -214,6 +214,25 @@
 		holder.wearer.drop_from_inventory(src)
 		qdel(holder)
 	qdel(src)
+
+/obj/item/rig_module/anti_theft
+	name = "anti-theft system"
+	desc = "An advanced anti-theft system that tracks the user's lifesigns."
+	icon_state = "deadman"
+	usable = FALSE
+	active = FALSE
+	permanent = FALSE
+
+/obj/item/rig_module/anti_theft/process()
+	// Not being worn, leave it alone.
+	if(!holder || !holder.wearer || !holder.wearer.wear_suit == holder)
+		return FALSE
+
+	if(holder && holder.wearer.stat == DEAD)
+		holder.wearer.dust()
+		holder.wearer.drop_from_inventory(src)
+		qdel(holder)
+		qdel(src)
 
 /obj/item/rig_module/emp_shielding
 	name = "EMP dissipation module"
@@ -269,12 +288,12 @@
 	if(cooldown)
 		to_chat(user, SPAN_DANGER("There isn't enough power stored up yet!"))
 		return FALSE
-	else
-		message_user(user, SPAN_NOTICE("You inject a burst of power into \the [holder]."), SPAN_NOTICE("Your suit emits a loud sound as power is rapidly injected into your suit's battery!"))
-		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
-		holder.cell.give(generation_amount)
-		cooldown = 1
-		addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 2 MINUTES)
+	message_user(user, SPAN_NOTICE("You inject a burst of power into \the [holder]."), SPAN_NOTICE("Your suit emits a loud sound as power is rapidly injected into your suit's battery!"))
+	playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
+	holder.cell.give(generation_amount)
+	cooldown = 1
+	addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 2 MINUTES)
+	return TRUE
 
 /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()
 	cooldown = 0

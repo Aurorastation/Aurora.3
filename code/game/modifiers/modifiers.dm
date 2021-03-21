@@ -5,10 +5,6 @@
 //This system is designed to allow making non-permanant, reversible changes to variables of any atom,
 //Though the system will be primarily used for altering properties of mobs, it can work on anything.
 
-//Intended uses are to allow equipment and items that modify a mob's various stats and attributes
-//As well as to replace the badly designed chem effects system
-
-
 This system works through a few main procs which should be overridden:
 All overridden procs should contain a call to parent at the start, before any other code
 
@@ -95,20 +91,13 @@ it should be avoided in favour of manual removal where possible
 //This is essentially a more permissable version of equipment, and works when held, in backpacks, pockets, etc
 //It can also be used on non-mob targets
 
-#define MODIFIER_REAGENT	3
-//The status effect remains valid as long as the dose of this chemical in a mob's reagents is above
-//a specified dose value (specified in source data).
-//The default of zero will keep it valid if the chemical is in them at all
-//This checks for the reagent by type, in any of a mob's reagent holders - touching, blood, ingested
-//Affected atom must be a mob
-
-#define MODIFIER_AURA	4
+#define MODIFIER_AURA	3
 //The modifier remains valid as long as the target's turf is within a range of the source's turf
 //The range is defined in source data
 //A range of zero is still valid if source and target are on the same turf. Sub-zero range is invalid
 //Works on any affected atom
 
-#define MODIFIER_TIMED	5
+#define MODIFIER_TIMED	4
 //The modifier remains valid as long as the duration has not expired.
 //Note that a duration can be used on any time, this type is just one that does not
 //check anything else but duration.
@@ -117,7 +106,7 @@ it should be avoided in favour of manual removal where possible
 //Works on any atom
 
 
-#define MODIFIER_CUSTOM	6
+#define MODIFIER_CUSTOM	5
 //The validity check will always return 1. The author is expected to override
 //it with custom validity checking behaviour.
 //Does not require or use a source atom
@@ -183,7 +172,7 @@ it should be avoided in favour of manual removal where possible
 	//This list can be overridden if you want a custom slot whitelist
 	var/list/valid_equipment_slots = list(slot_back, slot_wear_mask, slot_handcuffed, slot_belt, \
 	slot_wear_id, slot_l_ear, slot_glasses, slot_gloves, slot_head, slot_shoes, slot_wear_suit, \
-	slot_w_uniform,slot_legcuffed, slot_r_ear, slot_legs, slot_tie)
+	slot_w_uniform,slot_legcuffed, slot_r_ear, slot_legs, slot_tie, slot_wrists)
 
 
 
@@ -224,10 +213,6 @@ it should be avoided in favour of manual removal where possible
 		if (MODIFIER_ITEM)
 			if (!source || !istype(source, /obj))
 				return invalid_creation("Item type requires a source")
-
-		if (MODIFIER_REAGENT)
-			if (!istype(target, /mob) || !istype(source, /datum/reagent))
-				return invalid_creation("Reagent type requires a mob target and a reagent source")
 
 		if (MODIFIER_AURA)
 			if (!source || !istype(source, /atom))
@@ -312,44 +297,6 @@ it should be avoided in favour of manual removal where possible
 		if (MODIFIER_ITEM)
 			if (!source.find_up_hierarchy(target))//If source is somewhere inside target, this will be true
 				return validity_fail("Not found in parent hierarchy")
-		if (MODIFIER_REAGENT)
-			var/totaldose = 0
-			if (!istype(source, /datum/reagent))//this shouldnt happen
-				return validity_fail("Source is not a reagent!")
-
-			var/ourtype = source.type
-
-			for (var/datum/reagent/R in target.reagents.reagent_list)
-				if (istype(R, ourtype))
-					totaldose += R.dose
-
-			if (istype(target, /mob/living))
-				var/mob/living/L = target
-
-				if(ishuman(L))
-					var/mob/living/carbon/human/H = L
-
-					for (var/datum/reagent/R in H.get_ingested_reagents())
-						if(istype(R, ourtype))
-							totaldose += R.dose
-
-				if (istype(target, /mob/living/carbon))
-					var/mob/living/carbon/C = target
-
-					for (var/datum/reagent/R in C.bloodstr.reagent_list)
-						if (istype(R, ourtype))
-							totaldose += R.dose
-
-					for (var/datum/reagent/R in C.touching.reagent_list)
-						if (istype(R, ourtype))
-							totaldose += R.dose
-
-					for (var/datum/reagent/R in C.breathing.reagent_list)
-						if (istype(R, ourtype))
-							totaldose += R.dose
-
-			if (totaldose < source_data)
-				return validity_fail("Dose is too low!")
 
 		if (MODIFIER_AURA)
 			if (!(get_turf(target) in range(source_data, get_turf(source))))

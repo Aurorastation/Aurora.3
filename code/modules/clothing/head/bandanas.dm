@@ -29,13 +29,6 @@
 	item_state = "bandana_red"
 
 // Departmental bandanas. By Wowzewow (Wezzy).
-
-/obj/item/clothing/head/bandana/captain
-	name = "captain's bandana"
-	desc = "It's the captain's bandana with some fine nanotech lining. All hands on deck!"
-	icon_state = "bandana_captain"
-	item_state = "bandana_captain"
-
 /obj/item/clothing/head/bandana/security
 	name = "security bandana"
 	desc = "It's a security bandana with some fine nanotech lining. Great for holding back your thick mullet while chasing perps."
@@ -89,3 +82,11 @@
 	desc = "It's a janitor bandana with some fine nanotech lining. For the viscera cleaners of today!"
 	icon_state = "bandana_janitor"
 	item_state = "bandana_janitor"
+
+// Corporate.
+
+/obj/item/clothing/head/bandana/security/corp
+	name = "corporate security bandana"
+	desc = "It's a security bandana with some fine nanotech lining. Who knew a do-rag could be so oppresive?"
+	icon_state = "corp"
+	item_state = "corp"

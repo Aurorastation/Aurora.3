@@ -163,6 +163,12 @@
 		update()
 		return
 
+	else if (istype (I, /obj/item/material/ashtray) && user.a_intent != I_HURT)
+		var/obj/item/material/ashtray/A = I
+		if(A.emptyout(get_turf(src)))
+			user.visible_message("<b>[user]</b> pours [I] out into [src].", SPAN_NOTICE("You pour [I] out into [src]."))
+		return
+
 	else if (istype (I, /obj/item/device/lightreplacer))
 		var/count = 0
 		var/obj/item/device/lightreplacer/R = I
@@ -215,7 +221,7 @@
 /obj/machinery/disposal/MouseDrop_T(mob/target, mob/user)
 	if(user.stat || !user.canmove || !istype(target))
 		return
-	if(target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1)
+	if(target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1)
 		return
 
 	//animals cannot put mobs other than themselves into disposal
@@ -261,6 +267,7 @@
 		target.client.perspective = EYE_PERSPECTIVE
 		target.client.eye = src
 
+	target.simple_move_animation(src)
 	target.forceMove(src)
 
 	for (var/mob/C in viewers(src))
@@ -631,7 +638,7 @@
 	if (hasmob && prob(3))
 		for(var/mob/living/H in src)
 			if(!istype(H,/mob/living/silicon/robot/drone)) //Drones use the mailing code to move through the disposal system,
-				H.take_overall_damage(20, 0, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
+				H.take_overall_damage(20, 0, DAM_SHARP, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
 
 	var/obj/structure/disposalpipe/curr = loc
 	if (!loc)

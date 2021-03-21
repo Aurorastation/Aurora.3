@@ -25,6 +25,7 @@
 	minbodytemp = 0
 
 	tameable = FALSE
+	smart_melee = FALSE
 
 	flying = TRUE
 	attack_emote = "buzzes at"
@@ -36,6 +37,12 @@
 	spark(T, 3, alldirs)
 	qdel(src)
 
+/mob/living/simple_animal/hostile/viscerator/CanPass(atom/movable/mover, turf/target, height, air_group)
+	. = ..()
+	if(.)
+		if(istype(mover, /mob/living/simple_animal/hostile/viscerator))
+			return FALSE
+
 /mob/living/simple_animal/hostile/viscerator/proc/wakeup()
 	stance = HOSTILE_STANCE_IDLE
 
@@ -46,10 +53,8 @@
 	if(severity == 1.0)
 		apply_damage(5)
 
-/mob/living/simple_animal/hostile/viscerator/lube/Initialize()
-	. = ..()
-	create_reagents(30)
-	reagents.add_reagent(/datum/reagent/lube, 30)
+/mob/living/simple_animal/hostile/viscerator/lube
+	reagents_to_add = list(/decl/reagent/lube = 30)
 
 /mob/living/simple_animal/hostile/viscerator/lube/death()
 	reagents.splash(get_turf(src), 30)

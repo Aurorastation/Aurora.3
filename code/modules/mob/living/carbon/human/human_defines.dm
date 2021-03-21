@@ -5,6 +5,12 @@
 	var/b_hair = 0
 	var/h_style = "Bald"
 
+	//Hair gradient color and style
+	var/r_grad = 0
+	var/g_grad = 0
+	var/b_grad = 0
+	var/g_style = "None"
+
 	//Facial hair colour and style
 	var/r_facial = 0
 	var/g_facial = 0
@@ -61,6 +67,7 @@
 	var/obj/item/r_store = null
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
+	var/obj/item/wrists = null
 
 	var/used_skillpoints = 0
 	var/skill_specialization = null

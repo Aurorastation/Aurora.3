@@ -138,14 +138,14 @@
 			supplied_drop_types -= drop
 			if(istype(drop))
 				drop.tag = null
-				if(drop.buckled)
-					drop.buckled = null
+				if(drop.buckled_to)
+					drop.buckled_to = null
 				drop.forceMove(T)
 	else if(ispath(drop_type))
 		drop = new drop_type(T)
 		if(istype(drop))
-			if(drop.buckled)
-				drop.buckled = null
+			if(drop.buckled_to)
+				drop.buckled_to = null
 			drop.forceMove(T)
 
 /datum/admins/proc/call_drop_pod()

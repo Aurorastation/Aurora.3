@@ -156,10 +156,8 @@
 	sound_to(player, 'sound/effects/menu_click.ogg')
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
-			player.ready = FALSE
 			player.ready(FALSE)
 		else
-			player.ready = TRUE
 			player.ready(TRUE)
 	else
 		player.join_game()
@@ -230,7 +228,7 @@
 			alert(src, "You have not saved your character yet. Please do so before readying up.")
 			return
 		if(client.unacked_warning_count > 0)
-			alert(src, "You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+			alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
 		ready = readying
@@ -260,7 +258,7 @@
 
 		observer.started_as_observer = 1
 		close_spawn_windows()
-		var/obj/O = locate("landmark*Observer-Start")
+		var/obj/O = locate("landmark*Observer-Start") in landmarks_list
 		if(istype(O))
 			to_chat(src, "<span class='notice'>Now teleporting.</span>")
 			observer.forceMove(O.loc)
@@ -272,6 +270,7 @@
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = new
 		client.prefs.dress_preview_mob(mannequin)
 		observer.appearance = mannequin
+		observer.appearance_flags = KEEP_TOGETHER
 		observer.alpha = 127
 		observer.layer = initial(observer.layer)
 		observer.invisibility = initial(observer.invisibility)

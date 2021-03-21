@@ -47,6 +47,8 @@
 <A href='?src=\ref[src];make=7;dir=1'>Unary Vent</A><BR>
 <A href='?src=\ref[src];make=9;dir=1'>Gas Pump</A><BR>
 <A href='?src=\ref[src];make=15;dir=1'>Pressure Regulator</A><BR>
+<A href='?src=\ref[src];make=44;dir=1'>Scrubbers Pressure Regulator</A><BR>
+<A href='?src=\ref[src];make=45;dir=1'>Supply Pressure Regulator</A><BR>
 <A href='?src=\ref[src];make=16;dir=1'>High Power Gas Pump</A><BR>
 <A href='?src=\ref[src];make=10;dir=1'>Scrubber</A><BR>
 <A href='?src=\ref[src];makemeter=1'>Meter</A><BR>

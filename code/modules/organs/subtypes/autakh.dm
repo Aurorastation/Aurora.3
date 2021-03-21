@@ -72,7 +72,7 @@
 	icon_state = "anchor"
 	organ_tag = "anchor"
 	parent_organ = BP_HEAD
-	robotic = 2
+	robotic = ROBOTIC_MECHANICAL
 	var/suffered_revelation = FALSE
 
 /obj/item/organ/internal/anchor/Initialize()
@@ -106,7 +106,7 @@
 	parent_organ = BP_GROIN
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
-	owner.apply_damage(1, BRUTE, BP_GROIN)
+	owner.apply_damage(1, BRUTE, BP_GROIN, armor_pen = 100)
 
 /obj/item/organ/internal/augment/protein_valve
 	name = "protein breakdown valve"
@@ -137,7 +137,7 @@
 
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-		owner.reagents.add_reagent(/datum/reagent/adrenaline, 15)
+		owner.reagents.add_reagent(/decl/reagent/adrenaline, 15)
 
 /obj/item/organ/internal/augment/venomous_rest
 	name = "venomous rest implant"
@@ -156,9 +156,9 @@
 		return FALSE
 
 	if(owner.reagents)
-		owner.reagents.add_reagent(/datum/reagent/inaprovaline, 10)
-		owner.reagents.add_reagent(/datum/reagent/tricordrazine, 10)
-		owner.reagents.add_reagent(/datum/reagent/soporific, 15)
+		owner.reagents.add_reagent(/decl/reagent/inaprovaline, 10)
+		owner.reagents.add_reagent(/decl/reagent/tricordrazine, 10)
+		owner.reagents.add_reagent(/decl/reagent/soporific, 15)
 		take_damage(15)
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 

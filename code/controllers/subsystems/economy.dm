@@ -24,9 +24,8 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 	create_station_account()
 
-	for(var/department in station_departments)
-		create_department_account(department)
-	create_department_account("Vendor")
+	for(var/account in department_funds)
+		create_department_account(account)
 
 	..()
 
@@ -77,7 +76,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	department_account.account_number = next_account_number
 	next_account_number += rand(1,500)
 	department_account.remote_access_pin = rand(1111, 111111)
-	department_account.money = 5000
+	department_account.money = department_funds[department]
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new()
@@ -96,13 +95,14 @@ var/datum/controller/subsystem/economy/SSeconomy
 	return TRUE
 
 //Create a "normal" player account
-/datum/controller/subsystem/economy/proc/create_account(var/new_owner_name = "Default user", var/starting_funds = 0, var/obj/machinery/account_database/source_db)
+/datum/controller/subsystem/economy/proc/create_account(var/new_owner_name = "Default user", var/starting_funds = 0, var/datum/computer_file/program/account_db/source_db, var/account_public = TRUE)
 	//create a new account
 	var/datum/money_account/M = new()
 	M.owner_name = new_owner_name
 	M.remote_access_pin = rand(1111, 111111)
 	M.money = starting_funds
 	M.account_number = next_account_number
+	M.public_account = account_public
 	next_account_number += rand(1,25)
 
 	//create an entry in the account transaction log for when it was created
@@ -121,31 +121,28 @@ var/datum/controller/subsystem/economy/SSeconomy
 		T.time = worldtime2text()
 		T.source_terminal = source_db.machine_id
 
-		//create a sealed package containing the account details
-		var/obj/item/smallDelivery/P = new /obj/item/smallDelivery(source_db.loc)
+		if(source_db.computer.nano_printer)
+			var/pname = "Account information: [M.owner_name]"
+			var/info = "<b>Account details (confidential)</b><br><hr><br>"
+			info += "<i>Account holder:</i> [M.owner_name]<br>"
+			info += "<i>Account number:</i> [M.account_number]<br>"
+			info += "<i>Account pin:</i> [M.remote_access_pin]<br>"
+			info += "<i>Starting balance:</i> [M.money]电<br>"
+			info += "<i>Date and time:</i> [worldtime2text()], [worlddate2text()]<br><br>"
+			info += "<i>Creation terminal ID:</i> [source_db.machine_id]<br>"
+			var/obj/item/card/id/held_card = source_db.get_held_card()
+			info += "<i>Authorised NT officer overseeing creation:</i> [held_card.registered_name]<br>"
 
-		var/obj/item/paper/R = new /obj/item/paper(P)
-		P.wrapped = R
-		var/pname = "Account information: [M.owner_name]"
-		var/info = "<b>Account details (confidential)</b><br><hr><br>"
-		info += "<i>Account holder:</i> [M.owner_name]<br>"
-		info += "<i>Account number:</i> [M.account_number]<br>"
-		info += "<i>Account pin:</i> [M.remote_access_pin]<br>"
-		info += "<i>Starting balance:</i> $[M.money]<br>"
-		info += "<i>Date and time:</i> [worldtime2text()], [worlddate2text()]<br><br>"
-		info += "<i>Creation terminal ID:</i> [source_db.machine_id]<br>"
-		info += "<i>Authorised NT officer overseeing creation:</i> [source_db.held_card.registered_name]<br>"
-
-		R.set_content_unsafe(pname, info)
-
-		//stamp the paper
-		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-		stampoverlay.icon_state = "paper_stamp-cent"
-		if(!R.stamped)
-			R.stamped = new
-		R.stamped += /obj/item/stamp
-		R.add_overlay(stampoverlay)
-		R.stamps += "<HR><i>This paper has been stamped by the Accounts Database.</i>"
+			var/obj/item/paper/R = source_db.computer.nano_printer.print_text("", pname, "#deebff")
+			R.set_content_unsafe(pname, info)
+			//stamp the paper
+			var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+			stampoverlay.icon_state = "paper_stamp-cent"
+			if(!R.stamped)
+				R.stamped = new
+			R.stamped += /obj/item/stamp
+			R.add_overlay(stampoverlay)
+			R.stamps += "<HR><i>This paper has been stamped by the Accounts Database.</i>"
 
 	//add the account
 	add_transaction_log(M,T)
@@ -153,6 +150,13 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 	return M
 
+/datum/controller/subsystem/economy/proc/get_public_accounts()
+	var/list/public_accounts = list()
+	for(var/account in all_money_accounts)
+		var/datum/money_account/M = all_money_accounts[account]
+		if(M.public_account)
+			public_accounts += account // yes, we're passing the number
+	return public_accounts
 
 //Charge a account
 /datum/controller/subsystem/economy/proc/charge_to_account(var/attempt_account_number, var/source_name, var/purpose, var/terminal_id, var/amount)
@@ -282,6 +286,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 /datum/money_account
 	var/owner_name = ""
 	var/account_number = 0
+	var/public_account = TRUE
 	var/remote_access_pin = 0
 	var/money = 0
 	var/list/transactions = list()

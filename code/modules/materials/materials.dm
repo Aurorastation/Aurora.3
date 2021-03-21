@@ -38,6 +38,7 @@
 /material
 	var/name	                          // Unique name for use in indexing the list.
 	var/display_name                      // Prettier name for display.
+	var/adjective_name					  // To override the name for subtypes and stuff.
 	var/use_name
 	var/flags = 0                         // Various status modifiers.
 	var/sheet_singular_name = "sheet"
@@ -144,6 +145,8 @@
 		display_name = name
 	if(!use_name)
 		use_name = display_name
+	if(!adjective_name)
+		adjective_name = display_name
 	if(!shard_icon)
 		shard_icon = shard_type
 
@@ -869,6 +872,7 @@
 
 /material/cloth
 	name = MATERIAL_CLOTH
+	stack_type = /obj/item/stack/material/cloth
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	door_icon_base = "wood"
 	ignition_point = T0C+232

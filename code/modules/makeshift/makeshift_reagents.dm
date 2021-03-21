@@ -15,14 +15,14 @@
 	var/list/forbidden = list(/obj/item/reagent_containers/inhaler, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/glass, /obj/item/extinguisher)
 	// duplicate from blender code, since it's not really worth a define. also, it has fewer things.
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list(/datum/reagent/iron),
-		/obj/item/stack/material/uranium = list(/datum/reagent/uranium),
-		/obj/item/stack/material/phoron = list(/datum/reagent/toxin/phoron),
-		/obj/item/stack/material/gold = list(/datum/reagent/gold),
-		/obj/item/stack/material/silver = list(/datum/reagent/silver),
-		/obj/item/stack/material/steel = list(/datum/reagent/iron, /datum/reagent/carbon),
-		/obj/item/stack/material/sandstone = list(/datum/reagent/silicon, /datum/reagent/acetone),
-		/obj/item/stack/material/glass = list(/datum/reagent/silicate),
+		/obj/item/stack/material/iron = list(/decl/reagent/iron),
+		/obj/item/stack/material/uranium = list(/decl/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/decl/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/decl/reagent/gold),
+		/obj/item/stack/material/silver = list(/decl/reagent/silver),
+		/obj/item/stack/material/steel = list(/decl/reagent/iron, /decl/reagent/carbon),
+		/obj/item/stack/material/sandstone = list(/decl/reagent/silicon, /decl/reagent/acetone),
+		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
 		) // removed borosilicate glass, platinum, and plasteel, too tough. just steal a grinder if you need it
 
 /obj/structure/chemkit/Initialize()
@@ -80,13 +80,13 @@
 		var/amt = 0
 		switch(phase_filter)
 			if("solid")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(SOLID), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(SOLID), REAGENTS_FREE_SPACE(reagents))
 			if("liquid")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(LIQUID), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(LIQUID), REAGENTS_FREE_SPACE(reagents))
 			if("gas")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(GAS), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(GAS), REAGENTS_FREE_SPACE(reagents))
 			else
-				amt = reagents.trans_to_holder(I.reagents, reagents.get_free_space())
+				amt = reagents.trans_to_holder(I.reagents, REAGENTS_FREE_SPACE(reagents))
 		if(amt)
 			to_chat(user, SPAN_NOTICE("You fill \the [I] with [amt] units from \the [src]."))
 	else if(I.reagents && I.reagents.total_volume)
@@ -97,7 +97,7 @@
 	if(!istype(stack))
 		return
 	var/list/sheet_components = sheet_reagents[stack.type]
-	var/amount_to_take = max(0,min(stack.amount,round(reagents.get_free_space()/REAGENTS_PER_SHEET)))
+	var/amount_to_take = max(0,min(stack.amount,round(REAGENTS_FREE_SPACE(reagents)/REAGENTS_PER_SHEET)))
 	if(!amount_to_take)
 		return
 	stack.use(amount_to_take)
@@ -185,46 +185,49 @@
 	var/obj/item/weldingtool/welder
 
 /obj/structure/distillery/dismantle()
-	var/obj/structure/reagent_dispensers/keg/keg = new (loc)
-	if (src.reagents && src.reagents.total_volume)
-		src.reagents.trans_to_holder(keg.reagents, src.reagents.total_volume)
-	new /obj/item/stack/rods(get_turf(src), 3)
+	var/turf/T = get_turf(src)
+	var/obj/structure/reagent_dispensers/keg/keg = new (T)
+	if (reagents?.total_volume)
+		reagents.trans_to_holder(keg.reagents, reagents.total_volume)
+	new /obj/item/stack/rods(T, 3)
 	if(welder)
-		welder.forceMove(loc)
+		welder.forceMove(T)
 		welder = null
 	qdel(src)
 
 /obj/structure/distillery/proc/trans_item(obj/item/W, mob/user)
 	if(transfer_out)
 		if(!reagents.total_volume)
-			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
+			to_chat(user, SPAN_NOTICE("[src] is empty."))
 			return
 		var/amt = reagents.trans_to_holder(W.reagents, reagents.total_volume)
-		to_chat(user, SPAN_NOTICE("You fill \the [W] with [amt] units from \the [src]."))
+		to_chat(user, SPAN_NOTICE("You fill [W] with [amt] units from [src]."))
 		return
 	else
-		if(!W.reagents || !W.reagents.total_volume)
-			to_chat(user, SPAN_NOTICE("\The [W] is empty."))
+		if(!W.reagents?.total_volume)
+			to_chat(user, SPAN_NOTICE("[W] is empty."))
 			return
-		var/amt = min(10, W.reagents.total_volume)
-		W.reagents.trans_to_holder(src.reagents, amt) // just pour it if you can
-		to_chat(user, SPAN_NOTICE("You pour [amt] units from \the [W] into \the [src]."))
+		var/amt = 5
+		if(istype(W, /obj/item/reagent_containers))
+			var/obj/item/reagent_containers/reagent_container = W
+			amt = reagent_container.amount_per_transfer_from_this
+		W.reagents.trans_to_holder(reagents, amt) // just pour it if you can
+		to_chat(user, SPAN_NOTICE("You pour [amt] units from [W] into [src]."))
 		return
 
 /obj/structure/distillery/proc/distill()
-	if(!reagents || !reagents.total_volume) // can't distill nothing
+	if(!reagents?.total_volume) // can't distill nothing
 		return
-	for(var/datum/reagent/R in src.reagents.reagent_list)
-		if(!istype(R, /datum/reagent/alcohol))
-			return
-		var/datum/reagent/alcohol/AR = R
-		reagents.add_reagent(/datum/reagent/water, (1-(AR.strength/100))*AR.volume)
-		if(istype(AR, /datum/reagent/alcohol/ethanol))
-			reagents.add_reagent(/datum/reagent/alcohol/ethanol, (AR.strength/100)*AR.volume)
-		if(istype(AR, /datum/reagent/alcohol/butanol))
-			reagents.add_reagent(/datum/reagent/alcohol/butanol, (AR.strength/100)*AR.volume)
-		reagents.remove_reagent(AR.type, AR.volume)
-	src.icon_state = "distillery-off"
+	for(var/_R in reagents.reagent_volumes)
+		if(!ispath(_R, /decl/reagent/alcohol))
+			continue
+		var/decl/reagent/alcohol/AR = decls_repository.get_decl(_R)
+		var/ARvol = REAGENT_VOLUME(reagents, _R)
+		var/alcohol_fraction = AR.strength/100
+		reagents.add_reagent(/decl/reagent/water, (1-alcohol_fraction)*ARvol)
+		reagents.add_reagent(ispath(_R, /decl/reagent/alcohol/butanol) ? /decl/reagent/alcohol/butanol : /decl/reagent/alcohol, alcohol_fraction*ARvol)
+		reagents.remove_reagent(_R, ARvol)
+	icon_state = "distillery-off"
 
 /obj/structure/distillery/attackby(obj/item/W, mob/user)
 	if(W.iscrowbar())

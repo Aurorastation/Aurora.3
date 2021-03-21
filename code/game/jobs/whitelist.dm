@@ -1,17 +1,33 @@
 #define WHITELISTFILE "data/whitelist.txt"
 
 var/list/whitelist = list()
+var/list/whitelist_jobconfig = list()
+
+/**
+* The config/whitelist_jobconfig.json file contains a list that associates a job name with a whitelist_status.
+* A job name in that case is any rank that /proc/jobban_isbanned(player, rank) checks for.
+* The status needs to be present in the ss13_whitelist_statuses table and assigned to the players that should have the whitelist.
+* This system only works with the sql based whitelists.
+* The file based whitelists are still supported but it is not possible to assign specific whitelists to specific players. (its either all or nothing)
+*/
 
 /hook/startup/proc/loadWhitelist()
 	if (config.usewhitelist)
+		load_whitelist_jobconfig()
 		load_whitelist()
 	return 1
 
+/proc/load_whitelist_jobconfig()
+	if(fexists("config/whitelist_jobconfig.json"))
+		log_debug("Whitelist JobConfig: Loading from json")
+		try
+			whitelist_jobconfig = json_decode(return_file_text("config/whitelist_jobconfig.json"))
+		catch(var/exception/e)
+			log_debug("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
+
 /proc/load_whitelist()
 	if (config.sql_whitelists)
-		establish_db_connection(dbcon)
-
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
 			error("Database connection failed while loading whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
@@ -22,11 +38,19 @@ var/list/whitelist = list()
 	if (!whitelist.len)
 		whitelist = null
 
-/proc/check_whitelist(mob/M)
+/proc/check_whitelist_rank(mob/M, var/rank)
+	if (length(whitelist_jobconfig))
+		if (rank in whitelist_jobconfig)
+			return check_whitelist(M, whitelist_jobconfig[rank])
+		else
+			return TRUE //If the rank does not exist in the whitelist config, the rank isnt whitelisted
+	else
+		return TRUE //If the whitelist_jobconfig isnt loaded, there are no whitelists
+
+/proc/check_whitelist(mob/M, var/whitelist_id = 1)
 	if (config.sql_whitelists)
-		var/head_of_staff_whitelist = 1
 		if (M.client && M.client.whitelist_status)
-			return (M.client.whitelist_status & head_of_staff_whitelist)
+			return (M.client.whitelist_status & whitelist_id)
 
 		return 0
 	else
@@ -43,9 +67,7 @@ var/list/whitelist = list()
 
 /proc/load_alienwhitelist()
 	if (config.sql_whitelists)
-		establish_db_connection(dbcon)
-
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
 			error("Database connection failed while loading alien whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
@@ -122,7 +144,7 @@ var/list/whitelist = list()
 	if (!istype(C) || C.holder)
 		return 0
 
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return 0
 
 	var/age_to_beat = 0

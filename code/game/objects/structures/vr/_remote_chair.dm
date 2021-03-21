@@ -1,7 +1,8 @@
 /obj/structure/bed/chair/remote
 	name = "virtual reality centre"
 	desc = "A comfortable chair with full audio-visual transposition centres."
-	icon_state = "shuttlechair_down"
+	icon_state = "shuttlechair_preview"
+	base_icon = "shuttlechair"
 	var/portable_type
 	can_dismantle = FALSE
 	var/remote_network // Which network does this remote control belong to?
@@ -34,7 +35,7 @@
 		return
 	..()
 
-/obj/structure/bed/chair/remote/user_buckle_mob(mob/user)
+/obj/structure/bed/chair/remote/user_buckle(mob/user)
 	..()
 	var/area/A = get_area(src)
 	if(!A.powered(EQUIP))
@@ -45,21 +46,21 @@
 		if(H.old_mob)
 			to_chat(H, SPAN_WARNING("The chair rejects you! You cannot recursively control bodies."))
 			return
-	add_overlay(image('icons/obj/furniture.dmi', src, "vr_helmet", MOB_LAYER + 1))
+	add_overlay(image('icons/obj/furniture.dmi', src, "vr_helmet", FLY_LAYER))
 	START_PROCESSING(SSprocessing, src)
 
 
 /obj/structure/bed/chair/remote/process()
 	..()
-	if(buckled_mob)
+	if(buckled)
 		var/area/A = get_area(src)
 		if(!A.powered(EQUIP))
-			user_unbuckle_mob(buckled_mob)
+			user_unbuckle(buckled)
 
 // Return to our body in the unfortunate event that we get unbuckled while plugged in
-/obj/structure/bed/chair/remote/user_unbuckle_mob(mob/user)
-	if(buckled_mob)
-		var/mob/M = buckled_mob
+/obj/structure/bed/chair/remote/user_unbuckle(mob/user)
+	if(buckled)
+		var/mob/M = buckled
 		if(istype(M) && M.vr_mob)
 			M.vr_mob.body_return()
 		cut_overlays()

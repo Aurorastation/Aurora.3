@@ -37,7 +37,7 @@
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
-	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
+	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_robotics, access_hop)
 	required_access_download = access_heads
 	available_on_ntnet = TRUE
 
@@ -141,6 +141,7 @@
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["sex"], R.sex, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["age"], R.age, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["fingerprint"], R.fingerprint, ., data)
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["has_notes"], (R.notes != "No notes found."), ., data)
 			if(R.medical)
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["blood"], R.medical.blood_type, ., data)
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["dna"], R.medical.blood_dna, ., data)

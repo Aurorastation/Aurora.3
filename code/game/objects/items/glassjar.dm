@@ -100,6 +100,16 @@
 	update_icon()
 	return
 
+/obj/item/glass_jar/MouseDrop(atom/over)
+	if(usr != over || use_check_and_message(usr))
+		return
+	if(length(contained))
+		switch(contains)
+			if(JAR_GUMBALL)
+				release(contained[1], usr)
+				usr.put_in_hands(contained[1])
+				contained -= contained[1]
+
 /obj/item/glass_jar/attackby(var/atom/A, var/mob/user, var/proximity)
 	if(istype(A, /obj/item/spacecash))
 		var/obj/item/spacecash/S = A
@@ -107,7 +117,7 @@
 			contains = JAR_MONEY
 		if(contains != JAR_MONEY)
 			return
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S.worth] credit\s into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
 	if(istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
@@ -219,6 +229,8 @@
 	for(var/i = 1 to GUMBALL_MAX)
 		var/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/G = new(src)
 		contained += G
+
+	return INITIALIZE_HINT_LATELOAD
 
 #undef JAR_NOTHING
 #undef JAR_MONEY

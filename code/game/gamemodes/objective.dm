@@ -435,7 +435,7 @@ datum/objective/steal
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof
+		"an ablative armor vest" = /obj/item/clothing/suit/armor/carrier/ablative
 	)
 
 	var/global/possible_items_special[] = list(
@@ -600,7 +600,8 @@ datum/objective/capture
 					n_p ++
 		else if (SSticker.current_state == GAME_STATE_PLAYING)
 			for(var/mob/living/carbon/human/P in player_list)
-				if(P.client && !(P.mind.changeling) && P.mind!=owner)
+				var/datum/changeling/changeling = P.mind.antag_datums[MODE_CHANGELING]
+				if(P.client && !changeling && P.mind != owner)
 					n_p ++
 		target_amount = min(target_amount, n_p)
 
@@ -608,7 +609,8 @@ datum/objective/capture
 		return target_amount
 
 	check_completion()
-		if(owner && owner.changeling && owner.changeling.absorbed_dna && (owner.changeling.absorbedcount >= target_amount))
+		var/datum/changeling/changeling = owner.antag_datums[MODE_CHANGELING]
+		if(owner && changeling?.absorbed_dna && (changeling.absorbedcount >= target_amount))
 			return 1
 		else
 			return 0

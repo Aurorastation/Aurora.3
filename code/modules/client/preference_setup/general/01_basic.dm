@@ -5,6 +5,7 @@
 /datum/category_item/player_setup_item/general/basic/load_character(var/savefile/S)
 	S["real_name"]  >> pref.real_name
 	S["gender"]     >> pref.gender
+	S["pronouns"]   >> pref.pronouns
 	S["age"]        >> pref.age
 	S["species"]    >> pref.species
 	S["spawnpoint"] >> pref.spawnpoint
@@ -17,6 +18,7 @@
 /datum/category_item/player_setup_item/general/basic/save_character(var/savefile/S)
 	S["real_name"]  << pref.real_name
 	S["gender"]     << pref.gender
+	S["pronouns"]   << pref.pronouns
 	S["age"]        << pref.age
 	S["species"]    << pref.species
 	S["spawnpoint"] << pref.spawnpoint
@@ -34,6 +36,7 @@
 			"vars" = list(
 				"name" = "real_name",
 				"gender",
+				"pronouns",
 				"age",
 				"metadata",
 				"spawnpoint",
@@ -64,6 +67,7 @@
 		"ss13_characters" = list(
 			"name",
 			"gender",
+			"pronouns",
 			"age",
 			"metadata",
 			"spawnpoint",
@@ -83,6 +87,7 @@
 	return list(
 		"name" = pref.real_name,
 		"gender" = pref.gender,
+		"pronouns" = pref.pronouns,
 		"age" = pref.age,
 		"metadata" = pref.metadata,
 		"spawnpoint" = pref.spawnpoint,
@@ -129,6 +134,7 @@
 
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
+	pref.pronouns           = sanitize_pronouns(pref.pronouns, pref.species, pref.gender)
 	pref.real_name          = sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
 		pref.real_name      = random_name(pref.gender, pref.species)
@@ -144,10 +150,13 @@
 	if (pref.can_edit_name)
 		dat += "(<a href='?src=\ref[src];random_name=1'>Random Name</A>)"
 	dat += "<br>"
-	dat += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
+	dat += "<b>Sex:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
+	var/datum/species/S = all_species[pref.species]
+	if(length(S.selectable_pronouns))
+		dat += "<b>Pronouns:</b> <a href='?src=\ref[src];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a><br>"
-	if(istype(all_species[pref.species], /datum/species/machine))
+	if(istype(S, /datum/species/machine))
 		if(pref.can_edit_ipc_tag)
 			dat += "<b>Has Tag:</b> <a href='?src=\ref[src];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
 		else
@@ -181,10 +190,22 @@
 		if (!isnull(raw_name) && CanUseTopic(user))
 			var/new_name = sanitize_name(raw_name, pref.species)
 			if(new_name)
+				if(new_name == pref.real_name)
+					return TOPIC_NOACTION //If the name is the same do nothing
+				if(config.sql_saves)
+					//Check if the player already has a character with the same name. (We dont have to account for the current char in that query, as that is already handled by the condition above)
+					var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey: and name = :char_name:")
+					query.Execute(list("ckey" = user.client.ckey, "char_name" = new_name))
+					query.NextRow()
+					var/count = text2num(query.item[1])
+					if(count > 0)
+						to_chat(user, SPAN_WARNING("Invalid name. You have already used this name for another character. If you have deleted the character contact an admin to restore it."))
+						return TOPIC_NOACTION
+
 				pref.real_name = new_name
 				return TOPIC_REFRESH
 			else
-				to_chat(user, "<span class='warning'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>")
+				to_chat(user, SPAN_WARNING("Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
 				return TOPIC_NOACTION
 
 	else if(href_list["namehelp"])
@@ -202,9 +223,21 @@
 	else if(href_list["gender"])
 		var/datum/species/S = all_species[pref.species]
 		pref.gender = next_in_list(pref.gender, valid_player_genders & S.default_genders)
+		pref.pronouns = pref.gender
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["pronouns"])
+		var/datum/species/S = all_species[pref.species]
+		var/selectable_pronouns = list() // this only exists to uppercase the first letters, otherwise it is uggo
+		for(var/pronoun in S.selectable_pronouns)
+			selectable_pronouns += capitalize_first_letters(pronoun)
+		var/new_pronouns = input(usr, "Select how your characters will appear to others when examined.", "Pronoun Selection") as null|anything in selectable_pronouns
+		if(!new_pronouns)
+			return
+		pref.pronouns = lowertext(new_pronouns)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["age"])

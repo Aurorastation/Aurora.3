@@ -131,7 +131,7 @@
 		// get_debug_type displays this
 	else if(istext(value))
 		debug_type = null // it's kinda annoying here; we can tell the type by the quotes
-		vtext = "\"[value]\""
+		vtext = "\"[html_encode(value)]\""
 	else if(isicon(value))
 		vtext = "[value]"
 	else if(isfile(value))

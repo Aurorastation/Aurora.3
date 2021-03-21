@@ -253,17 +253,16 @@
 	for (var/obj/item/J in CI.container)
 		oilwork(J, CI)
 
-	for (var/r in CI.container.reagents.reagent_list)
-		var/datum/reagent/R = r
-		if (istype(R, /datum/reagent/nutriment))
-			CI.max_cookwork += R.volume *2//Added reagents contribute less than those in food items due to granular form
+	for (var/_R in CI.container.reagents.reagent_volumes)
+		if (ispath(_R, /decl/reagent/nutriment))
+			CI.max_cookwork += CI.container.reagents.reagent_volumes[_R] *2//Added reagents contribute less than those in food items due to granular form
 
 			//Nonfat reagents will soak oil
-			if (!istype(R, /datum/reagent/nutriment/triglyceride))
-				CI.max_oil += R.volume * 0.25
+			if (!ispath(_R, /decl/reagent/nutriment/triglyceride))
+				CI.max_oil += CI.container.reagents.reagent_volumes[_R] * 0.25
 		else
-			CI.max_cookwork += R.volume
-			CI.max_oil += R.volume * 0.10
+			CI.max_cookwork += CI.container.reagents.reagent_volumes[_R]
+			CI.max_oil += CI.container.reagents.reagent_volumes[_R]* 0.10
 
 	//Rescaling cooking work to avoid insanely long times for large things
 	var/brackets = CI.max_cookwork / 4
@@ -274,17 +273,16 @@
 	var/obj/item/reagent_containers/food/snacks/S = I
 	var/work = 0
 	if (istype(S) && S.reagents)
-		for (var/r in S.reagents.reagent_list)
-			var/datum/reagent/R = r
-			if (istype(R, /datum/reagent/nutriment))
-				work += R.volume *3//Core nutrients contribute much more than peripheral chemicals
+		for (var/_R in S.reagents.reagent_volumes)
+			if (ispath(_R, /decl/reagent/nutriment))
+				work += S.reagents.reagent_volumes[_R] *3//Core nutrients contribute much more than peripheral chemicals
 
 				//Nonfat reagents will soak oil
-				if (!istype(R, /datum/reagent/nutriment/triglyceride))
-					CI.max_oil += R.volume * 0.35
+				if (!ispath(_R, /decl/reagent/nutriment/triglyceride))
+					CI.max_oil += S.reagents.reagent_volumes[_R] * 0.35
 			else
-				work += R.volume
-				CI.max_oil += R.volume * 0.15
+				work += S.reagents.reagent_volumes[_R]
+				CI.max_oil += S.reagents.reagent_volumes[_R] * 0.15
 
 
 	else if(istype(I, /obj/item/holder))
@@ -575,15 +573,15 @@
 		result.kitchen_tag = SA.kitchen_tag
 		if (SA.meat_amount)
 			reagent_amount = SA.meat_amount*9 // at a rate of 9 protein per meat
-	var/datum/reagent/digest_product = victim.get_digestion_product()
+	var/digest_product_type = victim.get_digestion_product() // DOES NOT RETURN A DECL, RETURNS A PATH
 	var/list/data
 	var/meat_name = result.kitchen_tag || victim.name
 	if(ishuman(victim))
 		var/mob/living/carbon/human/CH = victim
 		meat_name = CH.species?.name || meat_name
-	if(istype(digest_product, /datum/reagent/nutriment/protein))
+	if(ispath(digest_product_type, /decl/reagent/nutriment/protein))
 		data = list("[meat_name] meat" = reagent_amount)
-	result.reagents.add_reagent(victim.get_digestion_product(), reagent_amount, data)
+	result.reagents.add_reagent(digest_product_type, reagent_amount, data)
 
 	if (victim.reagents)
 		victim.reagents.trans_to(result, victim.reagents.total_volume)

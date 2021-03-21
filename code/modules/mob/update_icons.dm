@@ -58,7 +58,13 @@
 /mob/proc/update_inv_pockets()
 	return
 
-/mob/proc/update_inv_ears()
+/mob/proc/update_inv_l_ear()
+	return
+
+/mob/proc/update_inv_r_ear()
+	return
+
+/mob/proc/update_inv_wrists()
 	return
 
 /mob/proc/update_targeted()

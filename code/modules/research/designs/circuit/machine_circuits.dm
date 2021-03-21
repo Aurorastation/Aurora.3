@@ -56,6 +56,11 @@
 	req_tech = list(TECH_DATA = 2, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/mech_recharger
 
+/datum/design/circuit/machine/heph_mech_recharger
+	name = "Hephaestus Mech Recharger"
+	req_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_ENGINEERING = 4)
+	build_path = /obj/item/circuitboard/mech_recharger/hephaestus
+
 /datum/design/circuit/machine/recharge_station
 	name = "Cyborg Recharge Station"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
@@ -130,6 +135,11 @@
 	name = "Cereal Maker"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/cerealmaker
+
+/datum/design/circuit/machine/grill
+	name = "Grill"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/grill
 
 /datum/design/circuit/machine/candymaker
 	name = "Candy Machine"

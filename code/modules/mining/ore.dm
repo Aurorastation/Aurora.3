@@ -85,7 +85,8 @@
 	icon_state = "slag"
 	material = null
 
-/obj/item/ore/New()
+/obj/item/ore/Initialize()
+	. = ..()
 	if((randpixel_xy()) && icon_state == "ore1")
 		icon_state = "ore[pick(1,2,3)]"
 

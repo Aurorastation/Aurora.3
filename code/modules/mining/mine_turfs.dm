@@ -129,11 +129,15 @@ var/list/mineral_can_smooth_with = list(
 			GetDrilled()
 
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
+		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
+		. = PC_beam.pass_check(src)
+
 	// Emitter blasts
 	if(istype(Proj, /obj/item/projectile/beam/emitter))
 		emitter_blasts_taken++
 
-	if(emitter_blasts_taken > 2) // 3 blasts per tile
+	if(emitter_blasts_taken >= 3)
 		GetDrilled()
 
 /turf/simulated/mineral/CollidedWith(AM)
@@ -389,8 +393,8 @@ var/list/mineral_can_smooth_with = list(
 	if(prob(25))
 		var/datum/reagents/R = new/datum/reagents(20)
 		R.my_atom = src
-		R.add_reagent(/datum/reagent/stone_dust,20)
-		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/datum/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
+		R.add_reagent(/decl/reagent/stone_dust,20)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/decl/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
 		S.show_log = 0
 		S.set_up(R, 10, 0, src, 40)
 		S.start()

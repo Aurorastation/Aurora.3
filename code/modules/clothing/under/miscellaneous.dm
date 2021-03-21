@@ -84,6 +84,26 @@
 	icon_state = "fib_uniform"
 	worn_state = "fib_uniform"
 
+/obj/item/clothing/under/rank/scc
+	name = "Stellar Corporate Conglomerate agent uniform"
+	desc = "A formal blue uniform worn by agents of the Stellar Corporate Conglomerate."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon = 'icons/clothing/under/uniforms/scc.dmi'
+	icon_state = "scc_agent"
+	item_state = "scc_agent"
+	worn_state = "scc_agent"
+	contained_sprite = TRUE
+
+	rolled_down = FALSE
+	rolled_sleeves = FALSE
+
+/obj/item/clothing/under/rank/scc/executive
+	name = "Stellar Corporate Conglomerate executive uniform"
+	desc = "A stylish purple uniform worn by executive agents of the Stellar Corporate Conglomerate."
+	icon_state = "scc_executive"
+	item_state = "scc_executive"
+	worn_state = "scc_executive"
+
 /obj/item/clothing/under/ert
 	name = "ERT tactical uniform"
 	desc = "A short-sleeved black uniform, paired with grey digital-camo cargo pants. It looks very tactical."
@@ -127,7 +147,15 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	armor = list(melee = 100, bullet = 100, laser = 100,energy = 100, bomb = 100, bio = 100, rad = 100)
+	armor = list(
+			melee = ARMOR_MELEE_VERY_HIGH,
+			bullet = ARMOR_BALLISTIC_AP,
+			laser = ARMOR_LASER_HEAVY,
+			energy = ARMOR_ENERGY_SHIELDED,
+			bomb = ARMOR_BOMB_SHIELDED,
+			bio = ARMOR_BIO_SHIELDED,
+			rad = ARMOR_RAD_SHIELDED
+			)
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
@@ -260,14 +288,6 @@
 	item_state = "y_suit"
 	worn_state = "dress_yellow"
 
-/obj/item/clothing/under/dress/dress_cap
-	name = "captain's dress uniform"
-	desc = "Feminine fashion for the style concious captain."
-	icon_state = "dress_cap"
-	item_state = "b_suit"
-	worn_state = "dress_cap"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
 /obj/item/clothing/under/dress/dress_hop
 	name = "head of personnel dress uniform"
 	desc = "Feminine fashion for the style concious HoP."
@@ -326,13 +346,6 @@
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear, made of strong woven spider-silk. This variant seems to be tailored to resemble a dress, revealing much more skin."
 	icon_state = "crdress"
 	worn_state = "crdress"
-
-/obj/item/clothing/under/captainformal
-	name = "captain's formal uniform"
-	desc = "A captain's formal-wear, for special occasions."
-	icon_state = "captain_formal"
-	item_state = "b_suit"
-	worn_state = "captain_formal"
 
 /obj/item/clothing/under/hosformalmale
 	name = "head of security's formal uniform"
@@ -529,7 +542,9 @@
 	icon_state = "swatunder"
 	//item_state = "swatunder"
 	worn_state = "swatunder"
-	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR
+		)
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/lance
@@ -539,7 +554,9 @@
 	item_state = "lance_fatigues"
 	worn_state = "lance_fatigues"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR
+		)
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/dress/lance_dress

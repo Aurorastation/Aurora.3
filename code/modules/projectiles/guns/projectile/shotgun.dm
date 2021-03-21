@@ -26,6 +26,8 @@
 		if(do_after(user, 30, act_target = src))	//SHIT IS STEALTHY EYYYYY
 			sawing_in_progress = FALSE
 			saw_off(user, A)
+		else
+			sawing_in_progress = FALSE
 	else
 		..()
 
@@ -38,7 +40,7 @@
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
 	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  After firing, you will need to pump the gun, by clicking on the gun in your hand.  To reload, load more shotgun \
+	then click where you want to fire.  After firing, you will need to pump the gun, by using the unique-action verb.  To reload, load more shotgun \
 	shells into the gun."
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
@@ -56,7 +58,6 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
-	var/has_wield_state = TRUE
 	var/rack_sound = 'sound/weapons/shotgun_pump.ogg'
 	var/rack_verb = "pump"
 
@@ -65,7 +66,11 @@
 		return chambered.BB
 	return null
 
-/obj/item/gun/projectile/shotgun/pump/attack_self(mob/living/user)
+/obj/item/gun/projectile/shotgun/pump/unique_action(mob/living/user)
+	if(jam_num)
+		return
+	else if(unjam_cooldown + 2 SECONDS > world.time)
+		return
 	if(world.time >= recentpump + 10)
 		pump(user)
 		recentpump = world.time
@@ -90,14 +95,6 @@
 
 	update_maptext()
 	update_icon()
-
-/obj/item/gun/projectile/shotgun/pump/update_icon()
-	..()
-	if(wielded && has_wield_state)
-		item_state = "[icon_state]-wielded"
-	else
-		item_state = "[icon_state]"
-	update_held_icon()
 
 /obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
@@ -151,7 +148,7 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel"
 
-/obj/item/gun/projectile/shotgun/doublebarrel/attack_self(mob/user)
+/obj/item/gun/projectile/shotgun/doublebarrel/unique_action(mob/user)
 	unload_ammo(user, TRUE)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/AltClick(mob/user)
@@ -159,14 +156,6 @@
 		var/datum/firemode/new_mode = switch_firemodes(user)
 		if(new_mode)
 			to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
-
-/obj/item/gun/projectile/shotgun/doublebarrel/update_icon()
-	..()
-	if(wielded && has_wield_state)
-		item_state = "[icon_state]-wielded"
-	else
-		item_state = "[icon_state]"
-	update_held_icon()
 
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -242,7 +231,7 @@
 	to_chat(user, "You [folded ? "fold" : "unfold"] \the [src].")
 	update_icon()
 
-/obj/item/gun/projectile/shotgun/foldable/attack_self(mob/living/user)
+/obj/item/gun/projectile/shotgun/foldable/unique_action(mob/living/user)
 	toggle_folded(user)
 
 /obj/item/gun/projectile/shotgun/foldable/special_check(mob/user)

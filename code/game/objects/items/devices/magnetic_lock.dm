@@ -47,7 +47,7 @@
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
-	..()
+	. = ..()
 	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Foreign Legion."
 
 /obj/item/device/magnetic_lock/Initialize()

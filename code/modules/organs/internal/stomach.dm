@@ -23,7 +23,7 @@
 
 /obj/item/organ/internal/stomach/Initialize()
 	. = ..()
-	ingested = new /datum/reagents/metabolism(240, owner, CHEM_INGEST)
+	ingested = new /datum/reagents/metabolism(stomach_volume, owner, CHEM_INGEST)
 	if(!ingested.my_atom)
 		ingested.my_atom = src
 	if(species && species.gluttonous)
@@ -110,11 +110,10 @@
 		if(functioning)
 			for(var/mob/living/M in contents)
 				if(M.stat == DEAD)
-					addtimer(CALLBACK(src, .proc/digest_mob, M), 30 SECONDS, TIMER_UNIQUE)
+					addtimer(CALLBACK(src, .proc/digest_mob, M), 5 MINUTES, TIMER_UNIQUE)
 
-				M.adjustBruteLoss(3)
-				M.adjustFireLoss(3)
-				M.adjustToxLoss(3)
+				M.adjustBruteLoss(2)
+				M.adjustFireLoss(2)
 
 				var/digestion_product = M.get_digestion_product()
 				if(digestion_product)
@@ -126,7 +125,7 @@
 
 		if(should_process_alcohol)
 
-			var/alcohol_volume = ingested.get_reagent_amount(/datum/reagent/alcohol/ethanol)
+			var/alcohol_volume = REAGENT_VOLUME(ingested, /decl/reagent/alcohol)
 
 			// Alcohol counts as double volume for the purposes of vomit probability
 			var/effective_volume = ingested.total_volume + alcohol_volume

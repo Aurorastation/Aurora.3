@@ -23,6 +23,7 @@
 	var/projectile_type = /obj/item/projectile/beam/practice //also passed to turrets
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
+	var/list/required_firemode_auth //This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
 
 	//self-recharging
 	var/self_recharge = 0	//if set, the weapon will recharge itself
@@ -43,9 +44,28 @@
 	if(.)
 		update_icon()
 
-/obj/item/gun/energy/emp_act(severity)
+/obj/item/gun/energy/emp_act(var/severity)
 	..()
+	disable_cell_temp(severity)
 	queue_icon_update()
+
+/obj/item/gun/energy/proc/disable_cell_temp(var/severity)
+	set waitfor = FALSE
+	if(!power_supply)
+		return
+	var/mob/M
+	if(ismob(loc))
+		M = loc
+		to_chat(M, SPAN_DANGER("[src] locks up!"))
+		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
+	var/initial_charge = power_supply.charge
+	power_supply.charge = 0	
+	sleep(severity * 20)
+	power_supply.give(initial_charge)
+	update_maptext()
+	update_icon()
+	if(M && loc == M)
+		playsound(M, 'sound/weapons/laser_safetyoff.ogg', 30)
 
 /obj/item/gun/energy/get_cell()
 	return power_supply
@@ -118,7 +138,6 @@
 	return
 
 /obj/item/gun/energy/update_icon()
-	..()
 	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
 		var/icon_state_ratio = ""
@@ -141,7 +160,8 @@
 		else
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
-	update_held_icon()
+			
+	..()
 
 /obj/item/gun/energy/handle_post_fire()
 	..()
@@ -151,3 +171,21 @@
 	if(!power_supply)
 		return 0
 	return round(power_supply.charge / charge_cost)
+
+/obj/item/gun/energy/get_print_info()
+	. = ""
+	. += "Max Shots: [initial(max_shots)]<br>"
+	. += "Recharge Type: [initial(self_recharge) ? "self recharging" : "not self recharging"]<br>"
+	if(initial(self_recharge))
+		. += "Recharge Time: [initial(recharge_time)]<br>"
+	. += "<br><b>Primary Projectile</b><br>"
+	var/obj/item/projectile/P = new projectile_type
+	. += P.get_print_info()
+
+	if(secondary_projectile_type)
+		. += "<br><b>Secondary Projectile</b><br>"
+		var/obj/item/projectile/P_second = new secondary_projectile_type
+		. += P_second.get_print_info()
+	. += "<br>"
+
+	. += ..(FALSE)

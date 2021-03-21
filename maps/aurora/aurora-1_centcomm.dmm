@@ -331,12 +331,10 @@
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "aby" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_picnicarea)
 "abz" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -353,7 +351,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -361,8 +358,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "abC" = (
@@ -419,7 +414,6 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "abO" = (
@@ -430,7 +424,6 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "abP" = (
@@ -438,7 +431,6 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "abQ" = (
@@ -501,8 +493,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "acd" = (
@@ -519,14 +509,12 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/palebush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "acf" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -643,9 +631,8 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acu" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/holostool,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_picnicarea)
 "acv" = (
 /obj/effect/floor_decal/spline/plain{
@@ -811,7 +798,7 @@
 /area/holodeck/source_chapel)
 "acW" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_picnicarea)
 "acY" = (
 /turf/simulated/floor/holofloor/tiled,
@@ -1103,7 +1090,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -1143,7 +1129,6 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "adQ" = (
@@ -1309,8 +1294,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "aeD" = (
@@ -2308,7 +2291,7 @@
 /area/centcom/specops)
 "ajY" = (
 /obj/machinery/vending/coffee/free{
-	pixel_x = 5;random_itemcount = 0
+	pixel_x = 5
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -2459,7 +2442,7 @@
 /obj/item/shield/energy/legion,
 /obj/item/melee/energy/sword/knife,
 /obj/item/melee/telebaton,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sec,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
@@ -3617,7 +3600,7 @@
 "avU" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Security Disarmament Point";
-	req_access = list(2)
+	req_access = list(1)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -5667,8 +5650,7 @@
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 3;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/ripped,
 /obj/item/reagent_containers/blood/OMinus{
@@ -5753,7 +5735,7 @@
 	dir = 4
 	},
 /obj/machinery/vending/coffee/free{
-	pixel_x = -1;
+	pixel_x = -1
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -6233,7 +6215,7 @@
 	req_access = list(103)
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -6378,7 +6360,7 @@
 	},
 /area/shuttle/administration)
 "aRx" = (
-/obj/item/device/megaphone{
+/obj/item/device/megaphone/red{
 	pixel_x = 1;
 	pixel_y = 4
 	},
@@ -6884,6 +6866,7 @@
 /area/shuttle/escape)
 "aWZ" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "13,3";
 	name = "transport shuttle"
@@ -7806,6 +7789,18 @@
 	icon_state = "dark2"
 	},
 /area/centcom/specops)
+"bsm" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "bsu" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -8378,7 +8373,7 @@
 "bKw" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
-	req_access = list(2)
+	req_access = list(1)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -8527,10 +8522,8 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "bQP" = (
 /turf/unsimulated/wall/darkshuttlewall,
@@ -8656,9 +8649,7 @@
 	},
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "bUC" = (
 /obj/item/device/radio/intercom{
@@ -8785,7 +8776,7 @@
 	},
 /area/shuttle/skipjack)
 "cbf" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -9059,13 +9050,13 @@
 	},
 /area/centcom/legion/hangar5)
 "cjw" = (
-/mob/living/simple_animal/cat/penny,
 /obj/machinery/door/window/southleft{
 	name = "CCIAP Penny"
 	},
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
+/mob/living/simple_animal/cat/penny,
 /turf/unsimulated/floor{
 	icon_state = "carpet"
 	},
@@ -9202,12 +9193,12 @@
 	},
 /area/centcom/legion)
 "cov" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -9315,7 +9306,7 @@
 	pixel_x = 4;
 	pixel_y = 9
 	},
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_x = -6;
 	pixel_y = -4
 	},
@@ -9353,6 +9344,15 @@
 	icon_state = "wood-broken4"
 	},
 /area/centcom/legion/hangar5)
+"crZ" = (
+/obj/machinery/vending/zora{
+	density = 0;
+	name = "Jacked Zo'ra Soda";
+	pixel_y = -22;
+	prices = list()
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "cti" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -9647,6 +9647,31 @@
 	icon_state = "cafeteria"
 	},
 /area/centcom/legion)
+"cEZ" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/snacks/sushi_serve{
+	layer = 3.5;
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/snacks/sushi_serve{
+	layer = 3.6;
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/breakfast_wrap{
+	layer = 2.99;
+	pixel_x = 29;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/snacks/breakfast_wrap{
+	pixel_x = 29;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "cFg" = (
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "6,0"
@@ -10582,6 +10607,7 @@
 	name = "transport shuttle"
 	},
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "0,3";
 	name = "transport shuttle";
@@ -10784,6 +10810,12 @@
 	icon_state = "15,2"
 	},
 /area/shuttle/mercenary)
+"dlT" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "dmv" = (
 /obj/structure/cult/tome,
 /turf/unsimulated/floor{
@@ -10826,8 +10858,7 @@
 /area/antag/raider)
 "dnd" = (
 /obj/machinery/door/window/brigdoor/eastright{
-	name = "Shuttle Brig";
-	req_access = list(2)
+	name = "Shuttle Brig"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
@@ -10935,9 +10966,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "drc" = (
 /obj/structure/shuttle_part/cargo{
@@ -11195,6 +11224,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/antag/mercenary)
+"dFf" = (
+/obj/vehicle/droppod/syndie{
+	connected_blastdoor = "loner_droppod_1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/antag/loner)
 "dFD" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -11204,6 +11241,7 @@
 /area/shuttle/skipjack)
 "dGi" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "1,3";
 	name = "transport shuttle"
@@ -11515,6 +11553,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/transport1)
+"dMI" = (
+/obj/structure/table/reinforced/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 13;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 19;
+	pixel_y = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "dML" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -12613,7 +12665,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -12693,24 +12744,24 @@
 "eBz" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/bar)
-"eBX" = (
-/obj/random/junk,
-/turf/unsimulated/floor/plating,
-/area/centcom/spawning)
-"eCE" = (
+"eBC" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -4;
-	pixel_y = -9
+	pixel_y = 19
 	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 3;
-	pixel_y = -9
+	pixel_x = 2;
+	pixel_y = 19
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
 /area/centcom/bar)
+"eBX" = (
+/obj/random/junk,
+/turf/unsimulated/floor/plating,
+/area/centcom/spawning)
 "eCT" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced/crescent{
@@ -12754,9 +12805,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "eDB" = (
 /turf/simulated/wall/shuttle/unique/cargo{
@@ -12781,8 +12830,7 @@
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -1;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -12974,6 +13022,19 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor,
 /area/centcom/holding)
+"eJv" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
+"eJA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_picnicarea)
 "eJU" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -13175,8 +13236,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -13350,7 +13409,7 @@
 /area/centcom/legion)
 "eVL" = (
 /obj/machinery/vending/coffee/free{
-	pixel_x = -1;
+	pixel_x = -1
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -13460,7 +13519,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -13593,6 +13652,26 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
+"ffl" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = -9
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "ffm" = (
 /obj/machinery/light/spot{
 	dir = 1;
@@ -13801,6 +13880,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
+"foB" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "foD" = (
 /obj/effect/decal/fake_object{
 	desc = "It's used to monitor rooms.";
@@ -14231,6 +14318,15 @@
 	icon_state = "wood"
 	},
 /area/antag/raider)
+"fAq" = (
+/obj/structure/railing/mapped,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
+/area/centcom/bar)
 "fAY" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
@@ -14970,8 +15066,8 @@
 /area/centcom/holding)
 "fUN" = (
 /obj/structure/table/wood,
-/obj/item/device/megaphone,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/sec,
+/obj/item/device/megaphone/sec,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -15077,7 +15173,7 @@
 /area/antag/raider)
 "fYz" = (
 /obj/machinery/vending/coffee/free{
-	pixel_x = -1;
+	pixel_x = -1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -15139,7 +15235,7 @@
 /obj/item/storage/briefcase/aluminium,
 /obj/item/device/camera,
 /obj/item/device/taperecorder,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -15275,6 +15371,18 @@
 	name = "staircase"
 	},
 /area/centcom/spawning)
+"geV" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "CCIA Bodyguard Sidearm";
+	req_access = list(109)
+	},
+/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/energy/disruptorpistol/magnum,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "gfl" = (
 /obj/structure/window/basic{
 	dir = 8
@@ -16410,7 +16518,8 @@
 /area/centcom/specops)
 "gMq" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "6,22"
+	icon_state = "6,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -17000,7 +17109,7 @@
 	pixel_x = 7;
 	pixel_y = 9
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -17316,15 +17425,14 @@
 /area/merchant_station/warehouse)
 "hmF" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/sandwich{
-	layer = 3.6;
+/obj/item/reagent_containers/food/snacks/blt{
+	layer = 2.99;
 	pixel_x = 4;
-	pixel_y = 17
+	pixel_y = 14
 	},
-/obj/item/reagent_containers/food/snacks/sandwich{
-	layer = 3.7;
-	pixel_x = 4;
-	pixel_y = 8
+/obj/item/reagent_containers/food/snacks/blt{
+	pixel_x = 3;
+	pixel_y = 7
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -17523,7 +17631,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
 /obj/item/device/taperecorder,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "brown"
@@ -17670,7 +17778,7 @@
 /area/centcom/evac)
 "hBo" = (
 /obj/machinery/vending/cigarette/merchant{
-	pixel_x = 2;
+	pixel_x = 2
 	},
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
@@ -17744,13 +17852,6 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"hEl" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
 "hEu" = (
 /obj/structure/shuttle_part/transfer{
 	density = 0;
@@ -17937,11 +18038,9 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
 /area/centcom/evac)
 "hOa" = (
 /obj/structure/table/wood,
@@ -18086,6 +18185,16 @@
 /obj/structure/window/shuttle/unique/mercenary/small,
 /turf/simulated/floor/plating,
 /area/shuttle/syndicate_elite)
+"hRB" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/antag/loner)
 "hRS" = (
 /obj/structure/closet/jcloset,
 /turf/unsimulated/floor{
@@ -18432,6 +18541,14 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
+"idp" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "idA" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -19277,9 +19394,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "iCJ" = (
 /obj/structure/shuttle_part/distress{
@@ -19291,6 +19406,9 @@
 "iCW" = (
 /obj/machinery/vending/cola{
 	pixel_x = 5
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -19306,9 +19424,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "iEv" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -19477,7 +19593,7 @@
 /obj/item/folder{
 	pixel_y = 2
 	},
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "iJy" = (
@@ -19908,6 +20024,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
+"iVA" = (
+/obj/machinery/camera/network/crescent{
+	c_tag = "Crescent Bar East";
+	dir = 8
+	},
+/obj/structure/bed/chair/comfy/beige,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "iVT" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Ops.";
@@ -20085,12 +20211,6 @@
 	icon_state = "dark2"
 	},
 /area/antag/mercenary)
-"jbP" = (
-/obj/machinery/computer/teleporter,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/antag/ninja)
 "jcc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -20448,7 +20568,7 @@
 /area/centcom/legion/hangar5)
 "jsh" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "burglar_hideout_hatch";
 	locked = 1;
@@ -20501,7 +20621,7 @@
 /area/centcom/bar)
 "jvz" = (
 /obj/machinery/vending/coffee/free{
-	pixel_x = 2;
+	pixel_x = 2
 	},
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -20599,6 +20719,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
+"jzV" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "jAm" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -20609,7 +20737,7 @@
 	pixel_x = -2;
 	pixel_y = 6
 	},
-/obj/machinery/button/windowtint{
+/obj/machinery/button/switch/windowtint{
 	id = "CCIABS";
 	pixel_x = 5
 	},
@@ -20693,6 +20821,16 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
+"jCr" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/obj/structure/table/stone/marble,
+/obj/random/booze,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/antag/loner)
 "jCO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/glass/bucket{
@@ -20729,8 +20867,7 @@
 "jDe" = (
 /obj/structure/closet/walllocker/emerglocker/north{
 	pixel_x = -26;
-	pixel_y = -3;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -3
 	},
 /obj/structure/closet/crate/secure/gear{
 	name = "secure crate";
@@ -21206,7 +21343,7 @@
 	},
 /area/antag/wizard)
 "jUu" = (
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -21294,12 +21431,10 @@
 /area/antag/mercenary)
 "jXl" = (
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/grassybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_y = 3
 	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "jXF" = (
 /obj/structure/shuttle_part/merchant{
@@ -21495,8 +21630,7 @@
 	tag_door = "legion_shuttle_hatch"
 	},
 /obj/structure/closet/walllocker/emerglocker/south{
-	pixel_y = -28;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
@@ -21536,9 +21670,7 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "kdz" = (
 /obj/structure/shuttle_part/transfer{
@@ -21773,7 +21905,7 @@
 /obj/item/pen{
 	pixel_y = 16
 	},
-/obj/item/hand_labeler{
+/obj/item/device/hand_labeler{
 	pixel_y = 2
 	},
 /obj/structure/table/wood{
@@ -21822,7 +21954,7 @@
 "kml" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Cell 2";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -22037,6 +22169,59 @@
 /obj/effect/shuttle_landmark/research/interim,
 /turf/space/transit/south,
 /area/template_noop)
+"kug" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/obj/structure/closet{
+	icon_closed = "blue";
+	icon_state = "blue";
+	name = "\improper FIB tactical gear"
+	},
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/suit/armor/tactical{
+	name = "\improper FIB tactical armor"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/obj/item/clothing/head/helmet/tactical{
+	name = "\improper FIB tactical helmet"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "kuA" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -22480,10 +22665,7 @@
 "kLK" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "kLP" = (
 /obj/structure/shuttle_part/mercenary{
@@ -22589,11 +22771,8 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "kOI" = (
 /obj/structure/railing/mapped{
@@ -22658,6 +22837,21 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
+"kRn" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "FIB Primary";
+	req_access = list(109)
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "kRu" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -22727,7 +22921,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/fernybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
@@ -22876,6 +23069,13 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/distress)
+"kXq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "kXw" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "4,2"
@@ -23387,6 +23587,16 @@
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
+"loP" = (
+/obj/machinery/vending/snack{
+	density = 0;
+	name = "Jacked Getmore Chocolate Corp";
+	pixel_y = -22;
+	prices = list();
+	random_itemcount = 0
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "loR" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
 	dir = 8
@@ -23401,8 +23611,7 @@
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 34;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -23501,6 +23710,21 @@
 	icon_state = "13,7"
 	},
 /area/shuttle/mercenary)
+"luJ" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "loner_basement_hatch";
+	locked = 1;
+	name = "Hangar Access"
+	},
+/obj/machinery/door/blast/odin{
+	dir = 2;
+	id = "loner_basement";
+	name = "Hangar Access"
+	},
+/turf/unsimulated/floor,
+/area/antag/mercenary)
 "luW" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
@@ -23555,8 +23779,7 @@
 /area/antag/burglar)
 "lvr" = (
 /obj/structure/closet/walllocker/emerglocker/south{
-	pixel_y = -27;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -27
 	},
 /obj/structure/bed/chair/shuttle{
 	dir = 4
@@ -23582,12 +23805,6 @@
 	icon_state = "4,6"
 	},
 /area/shuttle/merchant)
-"lvN" = (
-/obj/structure/table/reinforced,
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/control)
 "lwz" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon_state = "5,6"
@@ -23688,6 +23905,13 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"lzP" = (
+/obj/item/stool/bar/padded,
+/obj/effect/landmark{
+	name = "lonerspawn"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "lAw" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/security/tactical{
@@ -23757,7 +23981,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/merchant,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /obj/item/stack/packageWrap,
 /obj/item/device/price_scanner,
 /turf/simulated/floor/wood,
@@ -23768,7 +23992,8 @@
 /area/shuttle/merchant)
 "lCv" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "7,22"
+	icon_state = "7,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -23920,7 +24145,8 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastright{
 	name = "dispensary";
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/dropper,
 /turf/unsimulated/floor{
@@ -24137,6 +24363,14 @@
 	icon_state = "lino_grey"
 	},
 /area/centcom/bar)
+"lMX" = (
+/obj/effect/landmark{
+	name = "CCIAEscort"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "lNi" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -24486,7 +24720,7 @@
 "lYZ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Detention Wing";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
@@ -24498,7 +24732,7 @@
 	id = "detention";
 	name = "detention wing blast doors";
 	pixel_x = -23;
-	req_access = list(108)
+	req_access = list(109)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -24811,16 +25045,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
-"mho" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
-/area/centcom/evac)
 "mhJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/backpack/duffel{
@@ -25001,6 +25225,7 @@
 	name = "transport shuttle"
 	},
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,3";
 	name = "transport shuttle";
@@ -25342,6 +25567,15 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/wood,
 /area/shuttle/merchant)
+"mwt" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/atm{
+	pixel_y = 28
+	},
+/turf/unsimulated/floor,
+/area/centcom/bar)
 "mwJ" = (
 /obj/structure/table/wood,
 /obj/item/trash/cigbutt,
@@ -25380,7 +25614,7 @@
 "mxw" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Cell 1";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -25427,6 +25661,9 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
+"mzN" = (
+/turf/unsimulated/floor,
+/area/antag/loner)
 "mAd" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/blast/odin/open{
@@ -25471,10 +25708,10 @@
 "mBP" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Advanced Interrogation";
-	req_access = list(103)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/specops)
 "mBU" = (
@@ -25656,7 +25893,7 @@
 /obj/item/stack/packageWrap{
 	pixel_y = 5
 	},
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25681,9 +25918,6 @@
 "mKr" = (
 /turf/simulated/floor/tiled/ramp,
 /area/merchant_station)
-"mKw" = (
-/turf/simulated/floor/holofloor/desert,
-/area/holodeck/source_picnicarea)
 "mLc" = (
 /obj/structure/shuttle_part/mercenary/small{
 	icon_state = "8,1"
@@ -25894,7 +26128,7 @@
 "mRW" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "mSo" = (
@@ -26335,6 +26569,22 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
+"nhP" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "CCIAReadyRoom";
+	name = "Ready Room";
+	pixel_x = -23;
+	pixel_y = 7;
+	req_access = list(103)
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "nhS" = (
 /obj/structure/flora/rock/pile{
 	icon_state = "lavarocks2"
@@ -26496,6 +26746,13 @@
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
+"nlh" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "nli" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -26698,8 +26955,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "nrX" = (
@@ -26750,6 +27005,29 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
+"nuh" = (
+/obj/structure/table/rack,
+/obj/item/storage/briefcase/aluminium{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/storage/briefcase/aluminium{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/storage/lockbox/cciaa/fib{
+	pixel_y = -1
+	},
+/obj/item/storage/lockbox/cciaa/fib{
+	pixel_y = -1
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "nux" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -26861,6 +27139,9 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
+"nye" = (
+/turf/unsimulated/wall/steel,
+/area/antag/loner)
 "nyh" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -27196,14 +27477,12 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/leafybush,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "nFu" = (
 /turf/simulated/wall/shuttle/unique/distress{
@@ -27320,11 +27599,9 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/stalkybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
 /area/centcom/evac)
 "nLo" = (
 /obj/item/material/ashtray/bronze{
@@ -27341,7 +27618,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/item/folder/blue,
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -27493,6 +27770,21 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/burglar)
+"nND" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "loner_basement";
+	name = "hangar controller";
+	pixel_x = 26;
+	pixel_y = -1;
+	tag_door = "loner_basement_hatch"
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "nNG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/cigbutt,
@@ -28619,10 +28911,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
 /area/centcom/bar)
 "oBu" = (
 /obj/effect/floor_decal/corner/blue{
@@ -29120,12 +29410,10 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/grassybush,
-/obj/structure/flora/ausbushes/reedbush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_y = 3
 	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "oUr" = (
 /obj/structure/table/rack,
@@ -29225,7 +29513,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -24
 	},
-/obj/item/weldpack{
+/obj/item/reagent_containers/weldpack{
 	pixel_y = -10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -29279,8 +29567,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "oZj" = (
@@ -29478,14 +29764,6 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
-"phW" = (
-/obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
-/area/centcom/holding)
 "pit" = (
 /obj/structure/table/wood{
 	table_reinf = "wood"
@@ -29900,6 +30178,54 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"pwA" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/storage/toggle/fib{
+	layer = 2.99;
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/armor/vest/fib{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/helmet/ballistic{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "pxm" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -30125,8 +30451,7 @@
 	name = "blood closet";
 	pixel_x = -29;
 	pixel_y = 30;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -30640,6 +30965,10 @@
 	icon_state = "wood"
 	},
 /area/centcom/evac)
+"pQq" = (
+/obj/machinery/recharge_station,
+/turf/unsimulated/floor,
+/area/antag/loner)
 "pQP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
@@ -30669,6 +30998,39 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
+"pSl" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/melee/telebaton{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/crowbar{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "pSH" = (
 /obj/structure/closet/crate/secure/legion{
 	icon_state = "tcflcrateopen";
@@ -30882,7 +31244,7 @@
 /area/shuttle/specops)
 "pZr" = (
 /obj/machinery/vending/coffee/free{
-	pixel_x = -1;
+	pixel_x = -1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -30902,6 +31264,26 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
+"pZR" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = 1
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = -9
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "qav" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor,
@@ -31072,6 +31454,13 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
+"qix" = (
+/obj/machinery/newscaster{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/unsimulated/wall/darkshuttlewall,
+/area/centcom/control)
 "qiS" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
@@ -31117,9 +31506,7 @@
 	},
 /area/centcom/holding)
 "qjS" = (
-/obj/machinery/account_database{
-	name = "CentComm Accounts database"
-	},
+/obj/item/modular_computer/console/preset/command/account/centcomm,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -31134,8 +31521,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/pointybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
@@ -31172,6 +31557,27 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/bar)
+"qmG" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/storage/firstaid/o2{
+	layer = 2.99;
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/o2{
+	layer = 2.99;
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "qmV" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sink{
@@ -31259,6 +31665,20 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
+"qpP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "loner_basement";
+	name = "external hangar access";
+	pixel_x = -23;
+	pixel_y = 4;
+	req_access = list(150)
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/mercenary)
 "qpU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -31980,6 +32400,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
+"qRb" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "qRm" = (
 /obj/structure/table/wood,
 /obj/effect/decal/fake_object{
@@ -32257,9 +32683,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "rch" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
@@ -32316,8 +32740,7 @@
 /obj/structure/closet/walllocker/emerglocker/north{
 	layer = 3;
 	pixel_x = -1;
-	pixel_y = 29;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = 29
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -32538,16 +32961,6 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/merchant)
-"rkV" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar East";
-	dir = 8
-	},
-/obj/structure/table/reinforced/wood,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/centcom/bar)
 "rkX" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -32584,9 +32997,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "rmo" = (
 /obj/structure/shuttle_part/ert{
@@ -32739,8 +33150,7 @@
 "rtG" = (
 /obj/structure/bed/chair/shuttle,
 /obj/structure/closet/walllocker/emerglocker{
-	pixel_y = 31;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = 31
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -32768,6 +33178,20 @@
 	icon_state = "new_white"
 	},
 /area/centcom/holding)
+"rvp" = (
+/obj/effect/floor_decal/corner/blue/full,
+/obj/structure/table/rack,
+/obj/item/storage/box/cdeathalarm_kit{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/device/camera,
+/obj/item/device/megaphone/sec,
+/obj/item/device/megaphone/sec,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "rvq" = (
 /obj/structure/closet/walllocker/emerglocker/south{
 	pixel_y = -27
@@ -32885,8 +33309,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southright{
-	name = "holding cell";
-	req_access = list(2)
+	name = "holding cell"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -33127,10 +33550,15 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/pointybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
+"rJB" = (
+/obj/machinery/acting/changer{
+	density = 0;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor,
+/area/antag/loner)
 "rKw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
@@ -33264,6 +33692,36 @@
 	icon_state = "wood_light"
 	},
 /area/antag/mercenary)
+"rOk" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "FIB Sidearm";
+	req_access = list(109)
+	},
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/gun/projectile/automatic/wt550/lethal,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "rPi" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/handheld/pda/syndicate,
@@ -33334,25 +33792,24 @@
 /area/centcom/legion)
 "rRr" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/berrymuffin{
+/obj/item/reagent_containers/food/snacks/taco{
 	layer = 2.98;
-	name = "stale muffin";
-	pixel_x = -8;
-	pixel_y = 10
+	pixel_x = -4;
+	pixel_y = 7
 	},
-/obj/item/reagent_containers/food/snacks/berrymuffin{
-	layer = 2.98;
-	name = "stale muffin";
-	pixel_x = 5;
-	pixel_y = 10
+/obj/item/reagent_containers/food/snacks/taco{
+	layer = 2.99;
+	pixel_x = -4;
+	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/snacks/berrymuffin{
-	name = "stale muffin";
-	pixel_x = -8
+/obj/item/reagent_containers/food/snacks/nt_muffin{
+	layer = 2.99;
+	pixel_x = 13;
+	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/berrymuffin{
-	name = "stale muffin";
-	pixel_x = 5
+/obj/item/reagent_containers/food/snacks/nt_muffin{
+	pixel_x = 11;
+	pixel_y = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -33575,7 +34032,6 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "rZt" = (
@@ -34061,7 +34517,7 @@
 /area/centcom/control)
 "ssN" = (
 /obj/machinery/vending/coffee/free{
-	pixel_x = -1;
+	pixel_x = -1
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -34178,9 +34634,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "sxB" = (
 /turf/unsimulated/wall/fakepdoor{
@@ -34393,11 +34847,9 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/reedbush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
 /area/centcom/evac)
 "sEk" = (
 /obj/structure/table/standard,
@@ -34704,6 +35156,15 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/burglar)
+"sQc" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/double/map/left{
+	desc = "A framed picture of a station.";
+	pixel_x = 16;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "sQf" = (
 /obj/machinery/suit_cycler/freelancer,
 /turf/unsimulated/floor,
@@ -34876,6 +35337,15 @@
 	icon_state = "dark2"
 	},
 /area/centcom/specops)
+"sZs" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/double/map/right{
+	desc = "A framed picture of a station.";
+	pixel_x = -16;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "sZB" = (
 /obj/effect/shuttle_landmark/merc_elite/start,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -34886,6 +35356,12 @@
 	icon_state = "10,5"
 	},
 /area/shuttle/mercenary)
+"tao" = (
+/obj/machinery/vending/security,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "taw" = (
 /obj/machinery/light{
 	dir = 1;
@@ -34917,9 +35393,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "tbN" = (
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -35189,6 +35663,7 @@
 /area/antag/ninja)
 "thI" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,7";
 	name = "transport shuttle"
@@ -35255,6 +35730,15 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
+"tmx" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ion Rifle"
+	},
+/obj/item/gun/energy/rifle/ionrifle,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "tmP" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -35264,9 +35748,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/spawning)
 "tnJ" = (
 /obj/structure/bed/chair/shuttle{
@@ -35360,6 +35842,21 @@
 	icon_state = "15,2"
 	},
 /area/shuttle/legion)
+"trq" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "CCIA Bodyguard Primary";
+	req_access = list(109)
+	},
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "trx" = (
 /turf/unsimulated/floor{
 	icon_state = "platingdmg1"
@@ -35739,7 +36236,7 @@
 "tDo" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Emergency Surgery";
-	req_one_access = list(104)
+	req_one_access = list(45,104)
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -35932,15 +36429,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/syndicate_elite)
-"tIZ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
 "tJm" = (
 /obj/effect/decal/fake_object{
 	dir = 1;
@@ -36107,12 +36595,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "tPw" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -36496,7 +36980,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
@@ -36954,6 +37437,14 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
+"usv" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/pods{
+	desc = "A direction sign which reads 'DROPPODS'.";
+	name = "\improper DROPPODS"
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/loner)
 "usD" = (
 /obj/machinery/light{
 	dir = 4;
@@ -36972,8 +37463,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/closet/walllocker/emerglocker{
 	pixel_x = 27;
-	pixel_y = -1;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	pixel_y = -1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
@@ -36999,7 +37489,6 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "uvI" = (
@@ -37016,14 +37505,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
-"uvS" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "0,3";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/evac)
 "uwJ" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "12,13"
@@ -37409,7 +37890,8 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
@@ -37446,8 +37928,7 @@
 /obj/structure/closet/secure_closet/medical_wall{
 	name = "medical supplies";
 	pixel_x = 28;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/storage/backpack/messenger/med,
 /turf/simulated/floor/tiled/dark,
@@ -38010,6 +38491,16 @@
 	icon_state = "4,12"
 	},
 /area/shuttle/mercenary)
+"vcF" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/atm{
+	pixel_x = 28;
+	pixel_y = -2
+	},
+/turf/unsimulated/floor,
+/area/centcom/bar)
 "vcK" = (
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
@@ -38422,6 +38913,14 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
+"vsx" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/stunshells,
+/obj/item/storage/box/practiceshells,
+/obj/item/storage/box/trackingslugs,
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor,
+/area/antag/loner)
 "vsG" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "13,12"
@@ -38662,7 +39161,8 @@
 "vFX" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = list(104)
+	req_access = null;
+	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/ghostspawpoint{
@@ -39217,27 +39717,19 @@
 	pixel_x = 16;
 	pixel_y = 5
 	},
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/gloves/arm_guard/mercs,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/shoes/leg_guard/merc,
-/obj/item/clothing/suit/storage/vest/merc{
+/obj/item/clothing/suit/armor/carrier/heavy{
 	pixel_x = -6;
 	pixel_y = 1
 	},
-/obj/item/clothing/suit/storage/vest/merc{
+/obj/item/clothing/suit/armor/carrier/heavy{
 	pixel_x = -6;
 	pixel_y = 1
 	},
-/obj/item/clothing/suit/storage/vest/merc{
+/obj/item/clothing/suit/armor/carrier/heavy{
 	pixel_x = -6;
 	pixel_y = 1
 	},
-/obj/item/clothing/suit/storage/vest/merc{
+/obj/item/clothing/suit/armor/carrier/heavy{
 	pixel_x = -6;
 	pixel_y = 1
 	},
@@ -39464,7 +39956,8 @@
 /area/antag/raider)
 "weL" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "5,22"
+	icon_state = "5,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -39495,11 +39988,10 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_y = -3
 	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "wgf" = (
 /obj/structure/bed/chair/shuttle{
@@ -39522,7 +40014,7 @@
 	syndie = 1
 	},
 /obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -39667,7 +40159,7 @@
 /obj/item/deck/cards,
 /obj/item/deck/cards,
 /obj/item/deck/tarot,
-/obj/item/device/megaphone,
+/obj/item/device/megaphone/red,
 /obj/item/device/flashlight/lantern,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/clothing/mask/smokable/pipe,
@@ -39807,6 +40299,9 @@
 /obj/machinery/vending/zora{
 	pixel_x = 5
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -39822,6 +40317,12 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
+"woa" = (
+/obj/structure/railing/mapped,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
+/area/centcom/bar)
 "woD" = (
 /turf/simulated/floor/holofloor/space{
 	blocks_air = 1;
@@ -39931,8 +40432,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	name = "holding cell";
-	req_access = list(2)
+	name = "holding cell"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -40318,11 +40818,10 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/genericbush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
+/obj/structure/flora/ausbushes/grassybush{
+	pixel_y = -3
 	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "wAo" = (
 /obj/machinery/door/airlock/silver{
@@ -40495,7 +40994,8 @@
 /area/shuttle/transport1)
 "wEM" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "8,22"
+	icon_state = "8,22";
+	outside_window = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
@@ -40863,7 +41363,7 @@
 	pixel_x = -3;
 	pixel_y = 12
 	},
-/obj/item/device/megaphone{
+/obj/item/device/megaphone/red{
 	pixel_y = -4
 	},
 /obj/structure/table/standard,
@@ -40982,16 +41482,13 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
+/turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "wUa" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "9,22"
+	icon_state = "9,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -41079,6 +41576,19 @@
 	icon_state = "0,2"
 	},
 /area/centcom/specops)
+"wWu" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Ready Room";
+	req_access = list(109)
+	},
+/obj/machinery/door/blast/odin{
+	id = "CCIAReadyRoom";
+	name = "Ready Room"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "wWK" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/medical{
@@ -41363,17 +41873,6 @@
 	icon_state = "steel_dirty"
 	},
 /area/antag/raider)
-"xdo" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/fernybush,
-/obj/structure/flora/ausbushes/leafybush,
-/turf/unsimulated/floor{
-	icon_state = "grass_alt"
-	},
-/area/centcom/holding)
 "xeH" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -41598,22 +42097,30 @@
 /area/centcom/holding)
 "xkI" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/breakfast_wrap{
-	pixel_x = 15
-	},
-/obj/item/reagent_containers/food/snacks/burrito_vegan{
-	pixel_x = 15;
+/obj/item/reagent_containers/food/snacks/salad/tossedsalad{
+	layer = 2.99;
+	pixel_x = 18;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.5;
-	pixel_x = -2;
-	pixel_y = 5
+/obj/item/reagent_containers/food/snacks/salad/tossedsalad{
+	pixel_x = 16;
+	pixel_y = 3
 	},
-/obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.5;
-	pixel_x = -13;
-	pixel_y = 5
+/obj/item/material/kitchen/utensil/fork/plastic{
+	pixel_x = -16;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/utensil/fork/plastic{
+	pixel_x = -16;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/utensil/fork/plastic{
+	pixel_x = -16;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/utensil/fork/plastic{
+	pixel_x = -16;
+	pixel_y = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -41789,7 +42296,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/westright,
-/obj/item/hand_labeler,
+/obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "brown"
@@ -42352,6 +42859,17 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
+"xJg" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/zipties,
+/obj/item/storage/box/zipties{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/control)
 "xJF" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/item/plastique,
@@ -42513,6 +43031,19 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
+"xOe" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/machinery/door/blast/odin/open{
+	_wifi_id = "loner_droppod_1";
+	layer = 2.8;
+	name = "Pod L"
+	},
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/antag/loner)
 "xOs" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -43071,7 +43602,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
@@ -52911,12 +53441,12 @@ lnj
 yhJ
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
-ahV
+nye
+nye
+nye
+nye
+nye
 xVl
 xVl
 xVl
@@ -53168,11 +53698,11 @@ gCr
 gCr
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+nye
+jCr
+lzP
+pQq
 xVl
 xVl
 rWF
@@ -53425,11 +53955,11 @@ gCr
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+nye
+hRB
+mzN
+dlT
 xVl
 rMK
 rXN
@@ -53682,11 +54212,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+nye
+sQc
+usv
+loP
 xVl
 rNY
 rXN
@@ -53939,11 +54469,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+nye
+dFf
+xOe
+crZ
 xVl
 rPi
 rXN
@@ -54196,11 +54726,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
+nye
+sZs
+usv
+rJB
 xVl
 xVl
 rZy
@@ -54453,12 +54983,12 @@ aaM
 aaM
 aaM
 aaM
-aaM
 ahV
-ahV
-ahV
-ahV
-ahV
+nye
+vsx
+nND
+mzN
+nye
 xVl
 xVl
 xVl
@@ -54714,7 +55244,7 @@ aaM
 xVl
 xVl
 xVl
-xVl
+luJ
 xVl
 xVl
 xVl
@@ -54972,7 +55502,7 @@ tZx
 vYd
 yjy
 vYd
-vYd
+qpP
 vYd
 vYd
 vYd
@@ -56549,7 +57079,7 @@ ioz
 ioz
 ioz
 ioz
-jbP
+ioz
 sFP
 aaM
 aaM
@@ -63453,11 +63983,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahV
+ahV
+ahV
+ahV
+ahV
 ahV
 ahV
 ahV
@@ -63710,11 +64240,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahV
+ahV
+ahV
+ahV
+ahV
 ahV
 ahV
 ahV
@@ -65942,7 +66472,7 @@ nHd
 vVC
 jSH
 rhK
-bYs
+qix
 bYs
 owT
 uSv
@@ -67979,8 +68509,8 @@ sNE
 bYs
 bYs
 lSm
-uSv
 uxa
+uSv
 uSv
 uSv
 uSv
@@ -68236,7 +68766,7 @@ vVC
 eGb
 bYs
 leH
-uSv
+uxa
 uSv
 roS
 voh
@@ -68493,7 +69023,7 @@ vVC
 vVC
 bYs
 kjq
-uSv
+uxa
 uSv
 vNR
 ayw
@@ -68750,14 +69280,14 @@ vVC
 vVC
 fdH
 jLm
-uSv
 uxa
+uSv
 vNR
 ayw
 ymd
 lny
 vVC
-vVC
+lMX
 bzK
 bYs
 bYs
@@ -69527,8 +70057,8 @@ ssN
 ayw
 sBa
 kjl
+vVC
 xOs
-lvN
 uxs
 bYs
 oat
@@ -69784,7 +70314,7 @@ bYs
 bYs
 bYs
 bYs
-bYs
+wWu
 bYs
 bYs
 bYs
@@ -70037,14 +70567,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+nuh
+bsm
+nhP
+foB
+foB
+bsm
+rvp
 eBz
 kLK
 wCA
@@ -70294,14 +70824,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+pwA
+vVC
+vVC
+vVC
+vVC
+vVC
+pSl
 eBz
 kOH
 xzI
@@ -70551,14 +71081,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+kRn
+vVC
+vVC
+vVC
+vVC
+vVC
+trq
 eBz
 kLK
 ahe
@@ -70571,7 +71101,7 @@ xps
 rvN
 iCW
 wnl
-vpg
+idp
 mVZ
 mVZ
 vpg
@@ -70808,14 +71338,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ayw
+rOk
+vVC
+vVC
+vVC
+vVC
+vVC
+geV
 eBz
 eBz
 ayK
@@ -70829,11 +71359,11 @@ eBz
 eBz
 eBz
 cov
-eCE
 eOT
+eBC
 vpg
-eCE
 eOT
+eBC
 vpg
 vpg
 tRt
@@ -71065,16 +71595,16 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+kug
+ffl
+jzV
+jzV
+jzV
+pZR
+qmG
 eBz
-kLK
+woa
 ahe
 aqu
 tFj
@@ -71322,16 +71852,16 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+bYs
+bYs
+xJg
+tao
+tmx
+bYs
+bYs
 eBz
-kOH
+fAq
 ahe
 aqu
 tFj
@@ -71341,7 +71871,7 @@ lMz
 lMz
 lMz
 jcv
-kgi
+cEZ
 fOf
 vpg
 vpg
@@ -71581,11 +72111,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bYs
+bYs
+bYs
+bYs
+bYs
 aaM
 eBz
 kLK
@@ -71602,7 +72132,7 @@ xkI
 gwf
 vpg
 dOH
-eOT
+dMI
 czD
 vpg
 vpg
@@ -71846,7 +72376,7 @@ aaM
 aaM
 eBz
 eBz
-ahe
+mwt
 aqu
 tFj
 jeX
@@ -71858,8 +72388,8 @@ jcv
 hmF
 xhC
 vpg
-dOH
-rkV
+iVA
+eOT
 czD
 kOI
 hjw
@@ -72359,7 +72889,7 @@ aaM
 aaM
 aaM
 eBz
-kOH
+fAq
 ahe
 aqu
 apU
@@ -72616,7 +73146,7 @@ aaM
 aaM
 aaM
 eBz
-kLK
+woa
 ahe
 aqu
 apU
@@ -73387,7 +73917,7 @@ aaM
 aaM
 aaM
 eBz
-kOH
+fAq
 ahe
 aqu
 apU
@@ -74190,11 +74720,11 @@ yjf
 imi
 imi
 aCm
-phW
+jXl
 awK
 axs
 rwk
-xdo
+wzL
 bQP
 azf
 nfY
@@ -74445,7 +74975,7 @@ aDo
 oSo
 xoL
 sDF
-mho
+nKX
 wzE
 wzE
 wzE
@@ -75735,7 +76265,7 @@ aWV
 aWI
 bMd
 jON
-uvS
+wne
 wzE
 aJH
 vNl
@@ -78788,7 +79318,7 @@ bQM
 nFm
 oBd
 sNi
-llN
+vcF
 avR
 gqa
 loL
@@ -89982,12 +90512,12 @@ acN
 aed
 aeO
 kTO
+qRb
+kXq
+gLc
+qRb
 wSA
-wSA
-wSA
-hEl
-wSA
-hEl
+qRb
 yhw
 gXh
 gLc
@@ -91523,15 +92053,15 @@ acO
 acO
 aef
 aeO
-oyh
+nlh
 fid
 fri
-fri
+eJv
 ufi
 oNX
-xwr
+eJv
 oyh
-fri
+eJv
 xwr
 aeO
 aaM
@@ -96142,9 +96672,9 @@ abw
 abN
 acc
 tVT
-tVT
+abN
 qlC
-tVT
+abN
 adL
 nrk
 rYS
@@ -96653,7 +97183,7 @@ aaM
 (209,1,1) = {"
 aaO
 aby
-mKw
+aby
 acd
 acu
 acW
@@ -97683,9 +98213,9 @@ aaO
 abB
 abP
 acg
-tIZ
+abP
 oYx
-oYx
+eJA
 ePR
 adP
 eyb

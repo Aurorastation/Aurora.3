@@ -38,7 +38,7 @@
 
 /obj/item/reagent_containers/extinguisher_refill/attack_self(mob/user as mob) //Copied from inhalers.
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
 			flags &= ~OPENCONTAINER
 		else
@@ -59,12 +59,12 @@
 		return
 
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents?.reagent_volumes))
 			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
 		else
 			to_chat(user,"<span class='notice'>It is empty.</span>")
 	else
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents?.reagent_volumes))
 			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
 		else
 			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
@@ -75,7 +75,7 @@
 
 /obj/item/reagent_containers/extinguisher_refill/filled/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
+	reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
 	flags &= ~OPENCONTAINER
 
 /obj/item/extinguisher
@@ -122,7 +122,7 @@
 
 /obj/item/extinguisher/New()
 	create_reagents(max_water)
-	reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
+	reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
 /obj/item/extinguisher/examine(mob/user)
@@ -194,9 +194,9 @@
 
 		var/direction = get_dir(src,target)
 
-		if(user.buckled && isobj(user.buckled))
+		if(user.buckled_to && isobj(user.buckled_to))
 			spawn(0)
-				propel_object(user.buckled, user, turn(direction,180))
+				propel_object(user.buckled_to, user, turn(direction,180))
 
 		var/turf/T = get_turf(target)
 		var/turf/T1 = get_step(T,turn(direction, 90))

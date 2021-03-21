@@ -250,8 +250,8 @@
 	},
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -388,8 +388,8 @@
 "aU" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
@@ -579,8 +579,8 @@
 "bw" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -734,8 +734,8 @@
 "bR" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 1
+	dir = 1;
+	must_start_working = 1
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/blue{
@@ -919,8 +919,8 @@
 "ck" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -948,7 +948,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/account_database,
+/obj/item/modular_computer/console/preset/command/account,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "co" = (
@@ -963,8 +963,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -1007,8 +1007,8 @@
 	},
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 1
+	dir = 1;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
@@ -1045,8 +1045,8 @@
 	},
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 1
+	dir = 1;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -1254,8 +1254,8 @@
 "dd" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1268,8 +1268,8 @@
 "df" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1279,16 +1279,16 @@
 "dg" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "dh" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
@@ -1425,6 +1425,15 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"dT" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "RevenantRift"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "eI" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor 1";
@@ -1508,8 +1517,8 @@
 "ob" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1526,6 +1535,12 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"sO" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "tT" = (
@@ -1612,8 +1627,8 @@
 "HK" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1684,9 +1699,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "WS" = (
-/obj/turbolift_map_holder/runtime{
-	dir = 8
-	},
+/obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
 "YP" = (
@@ -3457,7 +3470,7 @@ da
 da
 dl
 dc
-do
+dT
 dt
 du
 dl
@@ -3882,7 +3895,7 @@ ae
 bv
 cw
 bv
-ae
+sO
 ae
 ae
 ae

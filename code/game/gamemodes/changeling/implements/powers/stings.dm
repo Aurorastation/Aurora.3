@@ -14,11 +14,14 @@
 	stealthy = set_stealthy
 
 /datum/changeling_sting/proc/can_sting(var/mob/living/target)
-	if(!target)
+	if(!target || !owner.mind)
 		return FALSE
-	if(!(target in view(owner.mind.changeling.sting_range)))
+	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
+	if(!changeling)
 		return FALSE
-	if(!owner.sting_can_reach(target, owner.mind.changeling.sting_range))
+	if(!(target in view(changeling.sting_range)))
+		return FALSE
+	if(!owner.sting_can_reach(target, changeling.sting_range))
 		to_chat(owner, SPAN_WARNING("Our sting can't reach here!"))
 		return FALSE
 	if(!owner.changeling_power(required_chems))
@@ -30,8 +33,9 @@
 	return TRUE
 
 /datum/changeling_sting/proc/do_sting(var/mob/living/target)
-	owner.mind.changeling.chem_charges -= required_chems
-	owner.mind.changeling.sting_range = 1
+	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
+	changeling.chem_charges -= required_chems
+	changeling.sting_range = 1
 	owner.verbs -= verb_path
 	ADD_VERB_IN(owner, 10, verb_path)
 
@@ -53,17 +57,18 @@
 	feedback_add_details("changeling_powers", feedback_tag)
 
 /mob/proc/changeling_sting(var/required_chems = 0, var/verb_path, var/datum_path, var/stealthy = FALSE)
-	if(istype(mind.changeling.prepared_sting, datum_path))
-		to_chat(src, SPAN_NOTICE("You unprepare the <b>[mind.changeling.prepared_sting.name]</b>."))
-		QDEL_NULL(mind.changeling.prepared_sting)
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	if(istype(changeling.prepared_sting, datum_path))
+		to_chat(src, SPAN_NOTICE("You unprepare the <b>[changeling.prepared_sting.name]</b>."))
+		QDEL_NULL(changeling.prepared_sting)
 		return
 
-	var/datum/changeling/changeling = changeling_power(required_chems)
+	changeling = changeling_power(required_chems)
 	if(!changeling)
 		return FALSE
 
 	changeling.prepared_sting = new datum_path(src, verb_path, required_chems, stealthy)
-	to_chat(src, SPAN_NOTICE("You prepare to fire the <b>[mind.changeling.prepared_sting.name]</b>."))
+	to_chat(src, SPAN_NOTICE("You prepare to fire the <b>[changeling.prepared_sting.name]</b>."))
 	return TRUE
 
 /mob/proc/changeling_hallucinate_sting()
@@ -153,8 +158,8 @@
 	set name = "Transformation Sting (40)"
 	set desc = "Causes the target to permanently transform into a collected DNA subject."
 
-
-	if(!length(mind.changeling.absorbed_dna))
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	if(!length(changeling.absorbed_dna))
 		to_chat(src, SPAN_WARNING("You have no DNA to load this sting with!"))
 		return
 
@@ -163,23 +168,23 @@
 		return
 
 	var/list/names = list()
-	for(var/thing in mind.changeling.absorbed_dna)
+	for(var/thing in changeling.absorbed_dna)
 		var/datum/absorbed_dna/DNA = thing
 		names += "[DNA.name]"
 
 	var/S = input(src, "Select the target DNA:", "Target DNA") as null|anything in names
 	if(!S)
-		QDEL_NULL(mind.changeling.prepared_sting)
+		QDEL_NULL(changeling.prepared_sting)
 		to_chat(src, SPAN_NOTICE("With no DNA chosen, you unprepare the sting."))
 		return
 
-	var/datum/absorbed_dna/chosen_dna = mind.changeling.GetDNA(S)
+	var/datum/absorbed_dna/chosen_dna = changeling.GetDNA(S)
 	if(!chosen_dna)
-		QDEL_NULL(mind.changeling.prepared_sting)
+		QDEL_NULL(changeling.prepared_sting)
 		to_chat(src, SPAN_WARNING("Something went wrong, you do not possess the DNA of this person."))
 		return
 
-	var/datum/changeling_sting/transformation/T = mind.changeling.prepared_sting
+	var/datum/changeling_sting/transformation/T = changeling.prepared_sting
 	T.dna_payload = chosen_dna
 
 /datum/changeling_sting/transformation
@@ -222,7 +227,7 @@
 	target.Paralyse(10)
 	target.make_jittery(1000)
 	if(target.reagents)
-		target.reagents.add_reagent(/datum/reagent/toxin/cyanide, 5)
+		target.reagents.add_reagent(/decl/reagent/toxin/cyanide, 5)
 
 /mob/proc/changeling_extract_dna_sting()
 	set category = "Changeling"
@@ -253,11 +258,12 @@
 	set name = "Ranged Sting (10)"
 	set desc = "Your next sting ability can be used against targets 2 squares away."
 
-	if(mind.changeling.sting_range > 1)
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	if(changeling.sting_range > 1)
 		to_chat(src, SPAN_WARNING("The range of your sting has already been boosted!"))
 		return
 
-	var/datum/changeling/changeling = changeling_power(10, 0, 100)
+	changeling = changeling_power(10, 0, 100)
 	if(!changeling)
 		return FALSE
 	changeling.chem_charges -= 10

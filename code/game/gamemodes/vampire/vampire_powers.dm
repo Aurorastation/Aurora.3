@@ -56,8 +56,8 @@
 		return
 
 	var/datum/vampire/draining_vamp = null
-	if(T.mind?.vampire)
-		draining_vamp = T.mind.vampire
+	if(T.mind)
+		draining_vamp = T.mind.antag_datums[MODE_VAMPIRE]
 
 	var/target_aware = !!T.client
 
@@ -85,14 +85,14 @@
 	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
 	while(do_mob(src, T, 50) && vampire.status & VAMP_DRAINING && vampire.blood_usable < VAMPIRE_MAX_USABLE_BLOOD)
-		if(!mind.vampire)
+		if(!vampire)
 			to_chat(src, SPAN_DANGER("Your fangs have disappeared!"))
 			return
 
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
-		if(!T.vessel.get_reagent_amount(/datum/reagent/blood))
+		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
 			to_chat(src, SPAN_DANGER("[T] has no more blood left to give."))
 			break
 
@@ -102,8 +102,8 @@
 		var/frenzy_lower_chance = 0
 
 		// Alive and not of empty mind.
-		if(check_drain_target_state(T))
-			blood = min(15, T.vessel.get_reagent_amount(/datum/reagent/blood))
+		if (check_drain_target_state(T))
+			blood = min(15, REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
@@ -121,7 +121,7 @@
 				frenzy_lower_chance = 0
 		// SSD/protohuman or dead.
 		else
-			blood = min(5, T.vessel.get_reagent_amount(/datum/reagent/blood))
+			blood = min(5, REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
 			vampire.blood_usable += blood
 
 			frenzy_lower_chance = 40
@@ -130,14 +130,14 @@
 			vampire.frenzy--
 
 		if(blood_total != vampire.blood_total)
-			var/update_msg = "You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood"
+			var/update_msg = "You have accumulated [vampire.blood_total] unit\s of blood"
 			if(blood_usable != vampire.blood_usable)
 				update_msg += " and have [vampire.blood_usable] left to use"
 			update_msg += "."
 
 			to_chat(src, SPAN_NOTICE(update_msg))
 		check_vampire_upgrade()
-		T.vessel.remove_reagent(/datum/reagent/blood, 5)
+		T.vessel.remove_reagent(/decl/reagent/blood, 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
@@ -342,7 +342,7 @@
 
 	var/list/victims = list()
 	for(var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(istype(T) && (T.l_ear || T.r_ear) && istype((T.l_ear || T.r_ear), /obj/item/clothing/ears/earmuffs))
+		if(T.protected_from_sound())
 			continue
 		if(!vampire_can_affect_target(T, 0))
 			continue
@@ -498,7 +498,8 @@
 	last_valid_turf = get_turf(owner.loc)
 	owner.forceMove(src)
 
-	if(owner.mind.vampire.status & VAMP_FULLPOWER)
+	var/datum/vampire/vampire = owner_mob.mind.antag_datums[MODE_VAMPIRE]
+	if(vampire.status & VAMP_FULLPOWER)
 		for(var/obj/item/grab/G in list(owner.l_hand, owner.r_hand))
 			G.affecting.vampire_phase_out(get_turf(G))
 			G.affecting.forceMove(src)
@@ -579,39 +580,49 @@
 		if(tox_loss)
 			to_heal = min(10, tox_loss)
 			adjustToxLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(oxy_loss)
 			to_heal = min(10, oxy_loss)
 			adjustOxyLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(ext_loss)
 			to_heal = min(20, ext_loss)
 			heal_overall_damage(min(10, getBruteLoss()), min(10, getFireLoss()))
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(clone_loss)
 			to_heal = min(10, clone_loss)
 			adjustCloneLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 
-		var/list/organs = get_damaged_organs(1, 1)
-		if(length(organs))
+		adjustHalLoss(-20)
+
+		var/list/damaged_organs = get_damaged_organs(TRUE, TRUE, FALSE)
+		if(length(damaged_organs))
 			// Heal an absurd amount, basically regenerate one organ.
-			heal_organ_damage(50, 50)
-			blood_used += 12
+			heal_organ_damage(50, 50, FALSE)
+			blood_used += 3
+
+		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /decl/reagent/blood)
+		if(missing_blood)
+			to_heal = min(20, missing_blood)
+			vessel.add_reagent(/decl/reagent/blood, to_heal)
+			blood_used += round(to_heal * 0.1) // gonna need to regen a shitton of blood, since human mobs have around 560 normally
 
 		for(var/A in organs)
 			var/healed = FALSE
 			var/obj/item/organ/external/E = A
+			if(BP_IS_ROBOTIC(E))
+				continue
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
-				blood_used += 12
+				blood_used += 2
 			if(E.status & ORGAN_TENDON_CUT)
 				E.status &= ~ORGAN_TENDON_CUT
-				blood_used += 12
+				blood_used += 2
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
-				blood_used += 12
+				blood_used += 3
 				healed = TRUE
 
 			if(healed)
@@ -642,6 +653,8 @@
 			vampire.status &= ~VAMP_HEALING
 			to_chat(src, SPAN_NOTICE("Your body has finished healing. You are ready to continue."))
 			break
+		else
+			vampire.blood_usable -= blood_used
 
 	// We broke out of the loop naturally. Gotta catch that.
 	if(vampire.status & VAMP_HEALING)
@@ -649,60 +662,6 @@
 		to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 
 	return
-
-// Dominate a victim, imbed a thought into their mind.
-/mob/living/carbon/human/proc/vampire_dominate()
-	set category = "Vampire"
-	set name = "Dominate (50)"
-	set desc = "Dominate the mind of a victim, make them obey your will."
-
-	var/datum/vampire/vampire = vampire_power(25, 0)
-	if(!vampire)
-		return
-
-	var/list/victims = list()
-	for(var/mob/living/carbon/human/H in view(7))
-		if(H == src)
-			continue
-		victims += H
-
-	if(!length(victims))
-		to_chat(src, SPAN_WARNING("No suitable targets."))
-		return
-
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
-	if(!T || !vampire_can_affect_target(T, 1, 1))
-		return
-
-	if(!(vampire.status & VAMP_FULLPOWER))
-		to_chat(src, SPAN_NOTICE("You begin peering into [T]'s mind, looking for a way to gain control."))
-
-		if(!do_mob(src, T, 50))
-			to_chat(src, SPAN_WARNING("Your concentration is broken!"))
-			return
-
-		to_chat(src, SPAN_NOTICE("You succeed in dominating [T]'s mind. They are yours to command."))
-	else
-		to_chat(src, SPAN_NOTICE("You instantly dominate [T]'s mind, forcing them to obey your command."))
-
-	var/command = input(src, "Command your victim.", "Your command.") as text|null
-	if(!command)
-		to_chat(src, SPAN_NOTICE("You decide against commanding your victim."))
-		return
-
-	command = sanitizeSafe(command, extra = 0)
-
-	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
-
-	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
-	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
-	to_chat(T, SPAN_GOOD("<i><em>[command]</em></i>"))
-	to_chat(src, SPAN_NOTICE("You command [T], and they will obey."))
-	visible_message("<b>[src]</b> whispers something.")
-
-	vampire.use_blood(50)
-	verbs -= /mob/living/carbon/human/proc/vampire_dominate
-	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_dominate, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Enthralls a person, giving the vampire a mortal slave.
 /mob/living/carbon/human/proc/vampire_enthrall()
@@ -748,9 +707,9 @@
 	to_chat(T, SPAN_DANGER("Your mind blanks as you finish feeding from [src]'s wrist."))
 	thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
-	T.mind.vampire.master = src
-	vampire.thralls += T
-	to_chat(T, SPAN_NOTICE("You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them."))
+	var/datum/vampire/T_vampire = T.mind.antag_datums[MODE_VAMPIRE]
+	T_vampire.assign_master(T, src, vampire)
+	to_chat(T, SPAN_NOTICE("You have been forced into a blood bond by [T_vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them."))
 	to_chat(src, SPAN_NOTICE("You have completed the thralling process. They are now your slave and will obey your commands."))
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
@@ -802,7 +761,7 @@
 		for(var/mob/living/carbon/human/T in view(5))
 			if(T == src)
 				continue
-			if(!vampire_can_affect_target(T, 0, 1))
+			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power.
 				continue
 			if(!T.client)
 				continue
@@ -845,8 +804,8 @@
 	to_chat(T, SPAN_NOTICE("You feel pure bliss as [src] touches you."))
 	vampire.use_blood(50)
 
-	T.reagents.add_reagent(/datum/reagent/rezadone, 3)
-	T.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
+	T.reagents.add_reagent(/decl/reagent/rezadone, 3)
+	T.reagents.add_reagent(/decl/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
@@ -883,29 +842,29 @@
 		to_chat(src, SPAN_WARNING("Your fangs are already sunk into a victim's neck!"))
 		return
 
-	if(T.mind.vampire)
-		var/datum/vampire/draining_vamp = T.mind.vampire
+	if(T.mind)
+		var/datum/vampire/draining_vamp = T.mind.antag_datums[MODE_VAMPIRE]
+		if(draining_vamp)
+			if(draining_vamp.status & VAMP_ISTHRALL)
+				var/choice_text = ""
+				var/denial_response = ""
+				if(draining_vamp.master == src)
+					choice_text = "[T] is your thrall. Do you wish to release them from the blood bond and give them the chance to become your equal?"
+					denial_response = "You opt against giving [T] a chance to ascend, and choose to keep them as a servant."
+				else
+					choice_text = "You can feel the taint of another master running in the veins of [T]. Do you wish to release them of their blood bond, and convert them into a vampire, in spite of their master?"
+					denial_response = "You choose not to continue with the Embrace, and permit [T] to keep serving their master."
 
-		if(draining_vamp.status & VAMP_ISTHRALL)
-			var/choice_text = ""
-			var/denial_response = ""
-			if(draining_vamp.master == src)
-				choice_text = "[T] is your thrall. Do you wish to release them from the blood bond and give them the chance to become your equal?"
-				denial_response = "You opt against giving [T] a chance to ascend, and choose to keep them as a servant."
+				if(alert(src, choice_text, "Choices", "Yes", "No") == "No")
+					to_chat(src, SPAN_NOTICE("[denial_response]"))
+					return
+
+				thralls.remove_antagonist(T.mind, 0, 0)
+				qdel(draining_vamp)
+				draining_vamp = null
 			else
-				choice_text = "You can feel the taint of another master running in the veins of [T]. Do you wish to release them of their blood bond, and convert them into a vampire, in spite of their master?"
-				denial_response = "You choose not to continue with the Embrace, and permit [T] to keep serving their master."
-
-			if(alert(src, choice_text, "Choices", "Yes", "No") == "No")
-				to_chat(src, SPAN_NOTICE("[denial_response]"))
+				to_chat(src, SPAN_WARNING("You feel corruption running in [T]'s blood. Much like yourself, [T.get_pronoun("he")] is already a spawn of the Veil, and cannot be Embraced."))
 				return
-
-			thralls.remove_antagonist(T.mind, 0, 0)
-			qdel(draining_vamp)
-			draining_vamp = null
-		else
-			to_chat(src, SPAN_WARNING("You feel corruption running in [T]'s blood. Much like yourself, [T.get_pronoun("he")] is already a spawn of the Veil, and cannot be Embraced."))
-			return
 
 	vampire.status |= VAMP_DRAINING
 
@@ -915,15 +874,15 @@
 
 	var/drained_all_blood = FALSE
 	while(do_mob(src, T, 50))
-		if(!mind.vampire)
+		if(!vampire)
 			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
-		if(!T.vessel.get_reagent_amount(/datum/reagent/blood))
+		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
 			to_chat(src, SPAN_NOTICE("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
 			drained_all_blood = TRUE
 			break
 
-		T.vessel.remove_reagent(/datum/reagent/blood, 50)
+		T.vessel.remove_reagent(/decl/reagent/blood, 50)
 
 	if(!drained_all_blood)
 		vampire.status &= ~VAMP_DRAINING
@@ -948,8 +907,9 @@
 	to_chat(T, SPAN_DANGER("You awaken. Moments ago, you were dead, your conciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power."))
 	to_chat(src, SPAN_WARNING("You have corrupted another mortal with the taint of the Veil. Beware: they will awaken hungry and maddened; not bound to any master."))
 
-	T.mind.vampire.blood_usable = 0
-	T.mind.vampire.frenzy = 250
+	var/datum/vampire/T_vampire = T.mind.antag_datums[MODE_VAMPIRE]
+	T_vampire.blood_usable = 0
+	T_vampire.frenzy = 250
 	T.vampire_check_frenzy()
 
 	vampire.status &= ~VAMP_DRAINING
@@ -962,7 +922,7 @@
 
 	if(status_flags & LEAPING)
 		return
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, SPAN_WARNING("You cannot lean in your current state."))
 		return
 

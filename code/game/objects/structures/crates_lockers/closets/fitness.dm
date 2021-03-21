@@ -43,29 +43,3 @@
 	new /obj/item/clothing/mask/luchador(src)
 	new /obj/item/clothing/mask/luchador/rudos(src)
 	new /obj/item/clothing/mask/luchador/tecnicos(src)
-
-
-/obj/structure/closet/lasertag/red
-	name = "red laser tag equipment"
-	desc = "It's a storage unit for laser tag equipment."
-	icon_state = "red"
-	icon_closed = "red"
-
-/obj/structure/closet/lasertag/red/fill()
-	new /obj/item/gun/energy/lasertag/red(src)
-	new /obj/item/gun/energy/lasertag/red(src)
-	new /obj/item/clothing/suit/redtag(src)
-	new /obj/item/clothing/suit/redtag(src)
-
-
-/obj/structure/closet/lasertag/blue
-	name = "blue laser tag equipment"
-	desc = "It's a storage unit for laser tag equipment."
-	icon_state = "blue"
-	icon_closed = "blue"
-
-/obj/structure/closet/lasertag/blue/fill()
-	new /obj/item/gun/energy/lasertag/blue(src)
-	new /obj/item/gun/energy/lasertag/blue(src)
-	new /obj/item/clothing/suit/bluetag(src)
-	new /obj/item/clothing/suit/bluetag(src)
