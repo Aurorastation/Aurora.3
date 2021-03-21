@@ -806,9 +806,8 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
+	var/image/result_layer = null
 	if(check_draw_shoes())
-		var/image/result_layer = null
-
 		//Determine the icon to use
 		var/t_icon = INV_SHOES_DEF_ICON
 		if(shoes.contained_sprite)
@@ -861,7 +860,11 @@ There are several things that need to be remembered:
 					var/image/bloodsies = image(species.blood_mask, "shoeblood_[E.limb_name]")
 					bloodsies.color = footprint_color
 					bloodsies.appearance_flags = RESET_ALPHA
-					overlays_raw[SHOES_LAYER] = bloodsies
+					if(!result_layer)
+						result_layer = bloodsies
+					else
+						result_layer.overlays.Add(bloodsies)
+			overlays_raw[SHOES_LAYER] = result_layer
 		else
 			overlays_raw[SHOES_LAYER] = null
 			overlays_raw[SHOES_LAYER_ALT] = null
