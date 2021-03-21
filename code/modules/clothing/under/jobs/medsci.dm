@@ -198,6 +198,7 @@
 	contained_sprite = TRUE
 	icon_state = "firstresponderjumpsuit"
 	item_state = "firstresponderjumpsuit"
+	worn_state = "firstresponderjumpsuit"
 
 /obj/item/clothing/under/rank/psych
 	desc = "A basic white jumpsuit. It has turqouise markings that denote the wearer as a psychiatrist."
