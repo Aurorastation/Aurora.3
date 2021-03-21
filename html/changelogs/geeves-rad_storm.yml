@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Non-shielded areas now get a pulsating green overlay when a radiation storm is active."
