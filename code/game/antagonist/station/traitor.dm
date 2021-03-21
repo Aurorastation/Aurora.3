@@ -109,6 +109,9 @@ var/datum/antagonist/traitor/traitors
 	//Begin code phrase.
 	give_codewords(traitor_mob)
 
+	if(ishuman(traitor_mob))
+		traitor_mob.verbs += /mob/living/proc/ventcrawl
+
 /datum/antagonist/traitor/proc/spawn_uplink(var/mob/living/carbon/human/traitor_mob)
 	if(!istype(traitor_mob))
 		return

@@ -9,6 +9,7 @@ var/global/list/can_enter_vent_with = list(
 	/obj/item/implant,
 	/obj/item/device/radio/borg,
 	/obj/item/holder,
+	/obj,
 	/obj/machinery/camera,
 	/mob/living/simple_animal/borer,
 	/mob/living/simple_animal/rat,
