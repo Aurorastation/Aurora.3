@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - tweak: "AI can no longer interact with xenoarchaeology artifacts. Borgs still can if they are adjacent to it."
