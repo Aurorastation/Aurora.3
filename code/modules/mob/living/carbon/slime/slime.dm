@@ -78,7 +78,7 @@
 	verbs += /mob/living/proc/ventcrawl
 
 	add_language(LANGUAGE_TCB)
-	set_default_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	src.colour = colour
 	number = rand(1, 1000)

@@ -1,7 +1,7 @@
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
-	desc_info = "Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will similarly toggle the kickstand."
+	desc_info = "Click on the bike, click resist, or type resist into the red bar below to get off. Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will similarly toggle the kickstand."
 	icon = 'icons/obj/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
@@ -25,8 +25,8 @@
 	var/kickstand = TRUE
 	var/can_hover = TRUE
 
-/obj/vehicle/bike/Initialize()
-	. = ..()
+/obj/vehicle/bike/setup_vehicle()
+	..()
 	ion = new(src)
 	turn_off()
 	add_overlay(image('icons/obj/bike.dmi', "[icon_state]_off_overlay", MOB_LAYER + 1))
@@ -36,16 +36,13 @@
 
 /obj/vehicle/bike/CtrlClick(var/mob/user)
 	if(Adjacent(user) && anchored)
-		toggle()
+		toggle_engine(user)
 	else
 		return ..()
 
-/obj/vehicle/bike/verb/toggle()
-	set name = "Toggle Engine"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(usr.incapacitated()) return
+/obj/vehicle/bike/proc/toggle_engine(var/mob/user)
+	if(use_check_and_message(user))
+		return
 
 	if(!on)
 		turn_on()
@@ -61,23 +58,20 @@
 	else
 		return ..()
 
-/obj/vehicle/bike/verb/kickstand()
-	set name = "Toggle Kickstand"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(usr.incapacitated()) return
+/obj/vehicle/bike/proc/kickstand(var/mob/user)
+	if(use_check_and_message(user))
+		return
 
 	if(kickstand)
-		usr.visible_message("\The [usr] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
+		user.visible_message("\The [user] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_up.ogg', 50, 1)
 	else
 		if(isturf(loc))
 			var/turf/T = loc
 			if (T.is_hole)
-				to_chat(usr, "<span class='warning'>You don't think kickstands work here.</span>")
+				to_chat(user, "<span class='warning'>You don't think kickstands work here.</span>")
 				return
-		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
+		user.visible_message("\The [user] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)
 		if(pulledby)
 			pulledby.stop_pulling()

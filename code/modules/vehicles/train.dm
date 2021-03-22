@@ -23,8 +23,8 @@
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
-/obj/vehicle/train/Initialize()
-	. = ..()
+/obj/vehicle/train/setup_vehicle()
+	..()
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
 
@@ -119,20 +119,12 @@
 	else if(load)
 		unload(user)			//unload if loaded
 
-/obj/vehicle/train/verb/unlatch_v()
-	set name = "Unlatch"
-	set desc = "Unhitches this train from the one in front of it."
-	set category = "Vehicle"
-	set src in view(1)
-
-	if(!istype(usr, /mob/living/carbon/human))
+/obj/vehicle/train/attackby(obj/item/W, mob/user)
+	if(W.iswrench())
+		playsound(loc, W.usesound, 70, FALSE)
+		unattach(user)
 		return
-
-	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
-		return
-
-	unattach(usr)
-
+	return ..()
 
 //-------------------------------------------
 // Latching/unlatching procs
