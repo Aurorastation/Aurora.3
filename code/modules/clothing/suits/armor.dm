@@ -125,6 +125,29 @@
 	siemens_coefficient = 0.35
 	pocket_slots = 4//fullbody, more slots
 
+/obj/item/clothing/suit/armor/swat/kitchen
+	name = "kitchen armor"
+	desc = "Thick padded clothes, incapable of withstanding any sort of real damage. Its real use is in blocking the impact of sharp low-velocity, low-torque objects."
+	desc_fluff = "The GetMore Reflecto-Pad! Designed and created by Chip Getmore (trademark!) himself, this set of armour will protect our hardworking food-staff from being impaled by their own utensils!"
+	icon = 'icons/clothing/kit/kitchen_armor.dmi'
+	icon_state = "kitchen_armor"
+	item_state = "kitchen_armor"
+	contained_sprite = TRUE
+	gas_transfer_coefficient = 1
+	permeability_coefficient = 1
+	item_flags = THICKMATERIAL
+	slowdown = 2
+	allowed = list(/obj/item/reagent_containers/food/drinks/shaker, /obj/item/material/kitchen/utensil, /obj/item/reagent_containers/food/condiment, /obj/item/reagent_containers/food/drinks/bottle)
+	armor = null
+	flags_inv = 0
+
+/obj/item/clothing/suit/armor/swat/kitchen/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	var/obj/item/I = damage_source
+	if(istype(I) && istype(I.thrower, /obj/machinery/vending))
+		to_chat(user, SPAN_GOOD("\The [src] calculates the trajectory of \the [I] and the padding within blocks its vicious attack!"))
+		return TRUE
+	return FALSE
+
 /obj/item/clothing/suit/armor/swat/officer
 	name = "officer jacket"
 	desc = "An armored jacket used in special operations."

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added kitchen armor to the dinnerware vendor, retrievable by inserting coins into it."

@@ -194,6 +194,25 @@
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.1
 
+/obj/item/clothing/head/helmet/swat/kitchen
+	name = "kitchen helmet"
+	desc = "A thick padded helmet, incapable of withstanding any sort of real damage. Its real use is in blocking the impact of sharp low-velocity, low-torque objects."
+	desc_fluff = "The GetMore Reflecto-Hat! Designed and created by Chip Getmore (trademark!) himself, this helmet will protect our hardworking food-staff from being impaled by their own utensils!"
+	icon = 'icons/clothing/kit/kitchen_armor.dmi'
+	icon_state = "kitchen_helmet"
+	item_state = "kitchen_helmet"
+	contained_sprite = TRUE
+	armor = null
+	flags_inv = HIDEEARS|BLOCKHAIR
+	siemens_coefficient = 1
+
+/obj/item/clothing/head/helmet/swat/kitchen/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	var/obj/item/I = damage_source
+	if(istype(I) && istype(I.thrower, /obj/machinery/vending))
+		to_chat(user, SPAN_GOOD("\The [src] calculates the trajectory of \the [I] and the padding within blocks its vicious attack!"))
+		return TRUE
+	return FALSE
+
 /obj/item/clothing/head/helmet/swat/peacekeeper
 	name = "\improper ERT civil protection helmet"
 	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."

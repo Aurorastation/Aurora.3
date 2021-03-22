@@ -838,7 +838,9 @@
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
 	)
 	premium = list(
-		/obj/item/storage/toolbox/lunchbox/nt/filled = 2
+		/obj/item/storage/toolbox/lunchbox/nt/filled = 2,
+		/obj/item/clothing/head/helmet/swat/kitchen = 2,
+		/obj/item/clothing/suit/armor/swat/kitchen = 2
 	)
 	restock_items = 1
 	random_itemcount = 0
@@ -853,6 +855,9 @@
 		/obj/item/material/kitchen/utensil/knife/plastic = 12,
 		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12
+	)
+	premium = list(
+		/obj/item/storage/toolbox/lunchbox/nt/filled = 2
 	)
 
 /obj/machinery/vending/sovietsoda
