@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Various cleanables no longer dry."
+  - tweak: "Continuously stepping over wet cleanables will no longer dry them."

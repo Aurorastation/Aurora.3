@@ -18,7 +18,7 @@
 	var/list/datum/disease2/disease/virus2 = list()
 	var/amount = 5
 	var/drytime
-	var/dries = TRUE
+	var/dries = FALSE
 
 /obj/effect/decal/cleanable/blood/no_dry
 	dries = FALSE
@@ -111,8 +111,7 @@
 		W.bloodiness = 4
 
 	perp.update_inv_shoes(1)
-	amount--
-	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
+	if(amount && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
 		perp.slip(src, 4)
 
 /obj/effect/decal/cleanable/blood/proc/dry()
