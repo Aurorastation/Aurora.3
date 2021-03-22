@@ -37,7 +37,7 @@
 
 /obj/item/clothing/mask/gas/half
 	name = "face mask"
-	desc = "A mask that covers the mouth and nose. It can be connected to an air supply. Filters harmful gases from the air."
+	desc = "A respirator that covers the mouth and nose. It can be connected to an air supply. Filters harmful gases from the air."
 	item_state = "halfgas"
 	icon_state = "halfgas"
 	flags_inv = HIDEFACE
