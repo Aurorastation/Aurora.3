@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Equipping clothing when the inventory slots are hidden no longer makes the item float in space."
