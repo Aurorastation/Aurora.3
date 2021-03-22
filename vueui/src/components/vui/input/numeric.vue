@@ -1,8 +1,10 @@
 <template>
   <div>
+    <vui-button v-if="minButton" :disabled="val<=min" @click="onUpdatedValue(min - val)">Min</vui-button>
     <vui-button v-for="bv in subButtons" :key="'-' + bv" :disabled="val - bv < min" @click="onUpdatedValue(-(10 ** bv))">-</vui-button>
     <input @keypress="onKeyPress" :style="{width: width}" ref="input" :value="val" @input="onFieldUpdate($event.target)">
     <vui-button v-for="bv in addButtons" :key="'+' + bv" :disabled="val + bv > max" @click="onUpdatedValue(10 ** bv)">+</vui-button>
+    <vui-button v-if="maxButton" :disabled="val>=max" @click="onUpdatedValue(max - val)">Max</vui-button>
   </div>
 </template>
 
@@ -13,6 +15,14 @@ export default {
     value: {
       type: Number,
       default: 0
+    },
+    minButton: {
+      type: Boolean,
+      default: false
+    },
+    maxButton: {
+      type: Boolean,
+      default: false
     },
     buttonCount: {
       type: Number,
