@@ -64,6 +64,3 @@
 // Do not override.
 /datum/vueui_var_monitor/proc/transform_to_boolean(invert, source, current)
 	return !!source ^ invert
-
-/datum/vueui_var_monitor/proc/transform_to_integer(source, current)
-	return round(source)

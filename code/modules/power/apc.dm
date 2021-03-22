@@ -908,19 +908,6 @@
 
 	return ui_interact(user)
 
-VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
-	watch_var("operating", "isOperating")
-	watch_var("chargemode", "chargeMode")
-	watch_var("main_status", "externalPower")
-	watch_var("night_mode", "lightingMode")
-	watch_var("charging", "chargingStatus")
-	watch_var("lastused_total", "totalLoad", CALLBACK(null, .proc/transform_to_integer))
-	watch_var("lastused_charging", "totalCharging", CALLBACK(null, .proc/transform_to_integer))
-	watch_var("coverlocked", "coverLocked")
-	watch_var("emergency_lights", "emergencyMode", CALLBACK(null, .proc/transform_to_boolean, TRUE))
-	watch_var("time", "time")
-	watch_var("charge_mode", "charge_mode")
-
 /obj/machinery/power/apc/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	var/list/monitordata = ..()
 	data = list()
@@ -931,6 +918,17 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
 	data["powerCellStatus"] = cell?.percent()
 	data["failTime"] = failure_timer * 2
 	data["siliconUser"] = isAdmin || issilicon(user)
+	data["totalLoad"] = round(lastused_total)
+	data["totalCharging"] = round(lastused_charging)
+	data["isOperating"] = operating
+	data["chargeMode"] = chargemode
+	data["externalPower"] = main_status
+	data["lightingMode"] = night_mode
+	data["chargingStatus"] = charging
+	data["coverLocked"] = coverlocked
+	data["emergencyMode"] = !emergency_lights
+	data["time"] = time
+	data["charge_mode"] = charge_mode
 	data["powerChannels"] = list(\
 		"Equipment" = list(\
 			"powerLoad" = lastused_equip,\
