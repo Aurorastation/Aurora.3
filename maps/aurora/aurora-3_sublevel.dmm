@@ -20883,12 +20883,6 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_picnic)
-"aQV" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/grass/alt,
-/area/medical/patient_wing_picnic)
 "aQX" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -22378,7 +22372,7 @@
 /obj/item/clothing/shoes/medical{
 	pixel_x = 4;
 	pixel_y = -8
-	},
+},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aVi" = (
@@ -26029,12 +26023,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"bzd" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/grass/alt,
-/area/medical/patient_wing_picnic)
 "bBR" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/sign/vacuum{
@@ -26397,17 +26385,6 @@
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
-"ckc" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/sign/flag/scc{
-	pixel_x = 32
-	},
-/turf/simulated/floor/plating,
-/area/outpost/engineering/power)
 "ckF" = (
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Perma, Patient Three Dorm";
@@ -29053,6 +29030,12 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"hyq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/grass/alt,
+/area/medical/patient_wing_picnic)
 "hyS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -29111,6 +29094,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
+"hBn" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/sign/flag/scc{
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
 "hDw" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
@@ -29481,12 +29475,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
-"iqA" = (
-/obj/structure/sign/flag/scc{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony/warden)
 "iqH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/emitter,
@@ -29662,6 +29650,15 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
+"iRI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/security/penal_colony)
 "iRV" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
@@ -30680,6 +30677,16 @@
 /obj/item/deck/tarot,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
+"lvt" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 6
+	},
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
 "lxg" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -30746,6 +30753,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"lOl" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 6
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/airless,
+/area/security/penal_colony)
 "lOI" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -30815,18 +30831,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
-"lSy" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/flag/scc{
-	pixel_y = 32
-	},
-/turf/simulated/floor/airless,
-/area/security/penal_colony)
 "lVK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
@@ -31113,6 +31117,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
+"msp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/grass/alt,
+/area/medical/patient_wing_picnic)
 "mtn" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -31958,6 +31968,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"nGh" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/airless,
+/area/security/penal_colony)
 "nHn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/disposalpipe/segment,
@@ -32378,6 +32400,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"oBQ" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
 "oFa" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "research_sensor";
@@ -33357,15 +33390,6 @@
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"qPa" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/sign/flag/scc{
-	pixel_y = 32
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/security/penal_colony)
 "qPS" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/research/anomaly_harvest)
@@ -34112,15 +34136,6 @@
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"swV" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 6
-	},
-/obj/structure/sign/flag/scc{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/airless,
-/area/security/penal_colony)
 "sAb" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/cable{
@@ -34194,10 +34209,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
-"sKq" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/grass/alt,
-/area/medical/patient_wing_picnic)
 "sLJ" = (
 /obj/machinery/optable{
 	name = "Autopsy Table"
@@ -34872,17 +34883,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/patient_wing)
-"uiH" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/sign/flag/scc{
-	pixel_x = -32
-	},
-/turf/simulated/floor/plating,
-/area/outpost/engineering/power)
 "ujo" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/bathroom)
@@ -35595,6 +35595,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"vtH" = (
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/airless,
+/area/security/penal_colony/warden)
 "vyW" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -35733,16 +35739,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
-"vNS" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner_wide/mauve{
-	dir = 6
-	},
-/obj/structure/sign/flag/scc{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/white,
-/area/outpost/research/hallway)
 "vPb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -36929,6 +36925,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
+"xUC" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/grass/alt,
+/area/medical/patient_wing_picnic)
 "xUD" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -49770,7 +49770,7 @@ uPd
 aki
 cvy
 cKF
-uiH
+hBn
 hkV
 mgM
 wAi
@@ -50798,7 +50798,7 @@ uPd
 aki
 cvy
 cKF
-ckc
+oBQ
 tDA
 wkd
 uVg
@@ -58584,7 +58584,7 @@ aCP
 oVg
 fOV
 aFK
-vNS
+lvt
 rSj
 aIJ
 aJL
@@ -67756,7 +67756,7 @@ aaa
 aaa
 aaa
 jKB
-iqA
+vtH
 fLn
 fLn
 bSA
@@ -68535,7 +68535,7 @@ lCe
 hiP
 gkA
 lCe
-qPa
+iRI
 vGh
 vGh
 vGh
@@ -69563,7 +69563,7 @@ lCe
 hiP
 gkA
 lCe
-qPa
+iRI
 vGh
 vGh
 vGh
@@ -70074,7 +70074,7 @@ ybc
 xZJ
 jCg
 kMM
-lSy
+nGh
 gkA
 lCe
 vGh
@@ -70588,7 +70588,7 @@ ybc
 xZJ
 xZJ
 kMM
-swV
+lOl
 wsT
 lCe
 vGh
@@ -77095,9 +77095,9 @@ oZc
 aLm
 aMo
 aNo
-bzd
+hyq
 aOR
-bzd
+hyq
 aOf
 aQU
 aLm
@@ -77356,7 +77356,7 @@ aNq
 aNq
 aNq
 aNq
-aQV
+msp
 aLm
 aSH
 aTv
@@ -77864,7 +77864,7 @@ vCz
 bvB
 aKo
 aLo
-sKq
+xUC
 fdV
 hHy
 hHy
@@ -78127,7 +78127,7 @@ hHy
 hHy
 fdV
 aNq
-aQV
+msp
 aLm
 aSK
 aTx
@@ -78378,7 +78378,7 @@ unQ
 vCz
 dYW
 aLm
-sKq
+xUC
 aNq
 aNq
 aNq

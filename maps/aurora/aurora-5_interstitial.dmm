@@ -2208,16 +2208,11 @@
 /area/security/break_room)
 "eP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eQ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
-/area/security/break_room)
-"eR" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eT" = (
@@ -6006,6 +6001,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"so" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "Detective"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "Detective"
+	},
+/turf/simulated/floor/plating,
+/area/security/break_room)
 "ss" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -6164,10 +6172,6 @@
 "ta" = (
 /turf/simulated/wall,
 /area/maintenance/interstitial_construction_site)
-"tf" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/tiled,
-/area/security/break_room)
 "tk" = (
 /obj/structure/table/steel,
 /obj/item/ladder_mobile{
@@ -6815,30 +6819,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
-"xU" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 2;
-	icon_state = "pipe-j2"
-	},
-/turf/simulated/floor/tiled,
-/area/security/training)
 "yb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -7149,6 +7129,15 @@
 /obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
+"Ab" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Security Cadet"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/training_theoretical)
 "Ad" = (
 /obj/structure/lattice,
 /obj/structure/disposalpipe/segment{
@@ -7213,6 +7202,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"Ax" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Security Break Room";
+	req_access = list(1)
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/break_room)
 "AB" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -7793,6 +7801,30 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Et" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 2;
+	icon_state = "pipe-j2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
 "Eu" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -7885,19 +7917,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
-"EV" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "Detective"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "Detective"
-	},
-/turf/simulated/floor/plating,
-/area/security/break_room)
 "EZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -8502,25 +8521,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
-"IA" = (
-/obj/machinery/door/airlock/glass_security{
-	name = "Security Break Room";
-	req_access = list(1)
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/security/break_room)
 "IC" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -10095,13 +10095,6 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
-"PH" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/security/break_room)
 "PJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -10643,6 +10636,11 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Sw" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/security/break_room)
 "Sx" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -10716,9 +10714,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_construction_site/office)
-"SW" = (
-/turf/simulated/open,
-/area/hallway/secondary/entry/stairs)
 "SX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
@@ -10939,6 +10934,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
+"Ul" = (
+/turf/simulated/open,
+/area/hallway/secondary/entry/stairs)
 "Uq" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/folder/yellow,
@@ -11685,15 +11683,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
-"Zg" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Security Cadet"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/training_theoretical)
 "Zk" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
@@ -11743,6 +11732,10 @@
 "Zz" = (
 /turf/simulated/open,
 /area/turbolift/medical_interstitial)
+"ZA" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/tiled,
+/area/security/break_room)
 "ZE" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -11771,6 +11764,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"ZM" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/break_room)
 "ZN" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -38998,8 +38998,8 @@ Tl
 Kj
 Me
 yZ
-SW
-SW
+Ul
+Ul
 qi
 PZ
 rr
@@ -39255,7 +39255,7 @@ UI
 Br
 pB
 Me
-SW
+Ul
 MH
 qi
 Nx
@@ -45082,7 +45082,7 @@ fD
 fZ
 gr
 gG
-Zg
+Ab
 ht
 ml
 rp
@@ -46104,7 +46104,7 @@ es
 dA
 eN
 dA
-xU
+Et
 fq
 dA
 dA
@@ -46361,7 +46361,7 @@ et
 eC
 eO
 et
-IA
+Ax
 et
 eC
 eO
@@ -46616,7 +46616,7 @@ ef
 eo
 eu
 eD
-eP
+Sw
 fa
 fk
 fr
@@ -47130,10 +47130,10 @@ mZ
 jz
 et
 eF
-eR
+eP
 fc
 fm
-tf
+ZA
 fG
 gd
 et
@@ -47387,10 +47387,10 @@ eh
 eq
 eu
 eG
-eR
+eP
 fd
 fn
-PH
+ZM
 fI
 ge
 et
@@ -47647,7 +47647,7 @@ eH
 eT
 fd
 fo
-tf
+ZA
 fJ
 gf
 et
@@ -47901,11 +47901,11 @@ eE
 eE
 et
 eC
-EV
+so
 eO
 et
 eC
-EV
+so
 eO
 et
 WX
