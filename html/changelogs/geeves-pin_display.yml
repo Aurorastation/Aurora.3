@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "The progress bar for removing a pin from a gun will now properly display."
