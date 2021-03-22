@@ -243,3 +243,43 @@
     icon_state = "trinary_badge"
     overlay_state = "trinary_badge"
     badge_string = null
+
+/obj/item/clothing/accessory/badge/passport_sol
+	name = "\improper ASSN passport"
+	desc = "A passport issued to the citizens of the Alliance of Sovereign Solarian Nations."
+	icon_state = "passport_sol"
+	overlay_state = "passport_sol"
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+	
+/obj/item/clothing/accessory/badge/passport_elyra
+	name = "republic of elyra passport"
+	desc = "A passport issued to the citizens of the Republic of Elyra."
+	icon_state = "passport_elyra"
+	overlay_state = "passport_elyra"
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passport_dominia
+	name = "empire of dominia passport"
+	desc = "A passport issued to the citizens of the Empire of Dominia."
+	icon_state = "passport_dominia"
+	overlay_state = "passport_dominia"
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passport_coalition
+	name = "coalition of colonies passport"
+	desc = "A passport issued to the citizens of the Coalition of Colonies."
+	icon_state = "passport_coalition"
+	overlay_state = "passport_coalition"
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
