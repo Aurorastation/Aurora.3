@@ -50,7 +50,7 @@
     </vui-item>
 
     <vui-item label="Pump Direction:">
-      <vui-button :icon="pump_dir ? 'fa-var-share' : 'arrowreturn-1-w'" :params="{direction : 1}">
+      <vui-button :icon="pump_dir ? 'arrowreturn-1-e' : 'arrowreturn-1-w'" :params="{direction : 1}">
         {{pump_dir ? 'Out' : 'In'}}
       </vui-button>
     </vui-item>

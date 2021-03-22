@@ -127,7 +127,6 @@
 	var/obj/item/cell/cell
 	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/cellused = 0
-	var/initalchargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/start_charge = 90				// initial cell charge %
 	var/cell_type = /obj/item/cell/apc
 	var/opened = COVER_CLOSED
@@ -139,7 +138,7 @@
 	var/infected = FALSE
 	var/operating = TRUE
 	var/charging = CHARGING_OFF
-	var/chargemode = CHARGE_MODE_DISCHARGE
+	var/chargemode = TRUE // whether we're trying to charge
 	var/chargecount = 0
 	var/locked = TRUE
 	var/coverlocked = TRUE
@@ -177,7 +176,7 @@
 	var/emergency_lights = FALSE
 
 	var/time = 0
-	var/charge_mode = CHARGE_MODE_CHARGE
+	var/charge_mode = CHARGE_MODE_CHARGE // if we're actually able to charge
 	var/last_time = 1
 
 /obj/machinery/power/apc/updateDialog()
@@ -913,7 +912,6 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
 	watch_var("operating", "isOperating")
 	watch_var("chargemode", "chargeMode")
 	watch_var("main_status", "externalPower")
-	watch_var("chargemode", "chargeMode")
 	watch_var("night_mode", "lightingMode")
 	watch_var("charging", "chargingStatus")
 	watch_var("lastused_total", "totalLoad", CALLBACK(null, .proc/transform_to_integer))
@@ -924,7 +922,10 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
 	watch_var("charge_mode", "charge_mode")
 
 /obj/machinery/power/apc/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = ..() || data || list()
+	var/list/monitordata = ..()
+	data = list()
+	if(monitordata)
+		data = monitordata
 	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
 	data["locked"] = (locked && !emagged)
 	data["powerCellStatus"] = cell?.percent()
@@ -1164,14 +1165,14 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
 		// draw power from cell as before to power the area
 		cellused = min(cell.charge, CELLRATE * lastused_total)	// clamp deduction to a max, amount left in cell
 		cell.use(cellused)
-
+		var/draw = 0
 		if(excess > lastused_total)		// if power excess recharge the cell
 										// by the same amount just used
-			var/draw = draw_power(cellused/CELLRATE) // draw the power needed to charge this cell
+			draw = draw_power(cellused/CELLRATE) // draw the power needed to charge this cell
 			cell.give(draw * CELLRATE)
 		else		// no excess, and not enough per-apc
 			if( (cell.charge/CELLRATE + excess) >= lastused_total)		// can we draw enough from cell+grid to cover last usage?
-				var/draw = draw_power(excess)
+				draw = draw_power(excess)
 				cell.charge = min(cell.maxcharge, cell.charge + CELLRATE * draw)	//recharge with what we can
 				charging = CHARGING_OFF
 			else	// not enough power available to run the last tick!
@@ -1195,8 +1196,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
 
 				ch = draw_power(ch/CELLRATE) // Removes the power we're taking from the grid
 				cell.give(ch*CELLRATE) // actually recharge the cell
-				lastused_charging = ch
-				lastused_total += ch // Sensors need this to stop reporting APC charging as "Other" load
+				lastused_charging = ch + draw
+				lastused_total += ch + draw // Sensors need this to stop reporting APC charging as "Other" load
 			else
 				charging = CHARGING_OFF		// stop charging
 				chargecount = 0
@@ -1219,7 +1220,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
 					charging = CHARGING_ON
 
 		else // chargemode off
-			charging = CHARGING_ON
+			charging = CHARGING_OFF
 			chargecount = 0
 
 	else // no cell, switch everything off
@@ -1403,13 +1404,11 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
 
 /obj/machinery/power/apc/proc/update_time()
 
-	var/delta_power = (lastused_charging) ? (-lastused_charging) : (lastused_total)
-	delta_power *= 0.0005
+	var/delta_power = (lastused_charging * 2) - lastused_total
+	delta_power *= CELLRATE
 
-	var/goal = (delta_power > 0) ? (cell.charge) : (cell.maxcharge - cell.charge)
-	var/old_time = last_time // this is to prevent runtime errors with
-	last_time = world.time   // accidental division by zero
-	time = world.time + (delta_power) ? ((goal / abs(delta_power)) / max(round(world.time - old_time), 1)) : (0)
+	var/goal = (delta_power < 0) ? (cell.charge) : (cell.maxcharge - cell.charge)
+	time = world.time + (delta_power ? ((goal / abs(delta_power)) * (world.time - last_time)) : 0)
 	// If it is negative - we are discharging
 	if(delta_power < 0)
 		charge_mode = CHARGE_MODE_DISCHARGE
@@ -1417,6 +1416,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/apc, apcmonitor)
 		charge_mode = CHARGE_MODE_CHARGE
 	else
 		charge_mode = CHARGE_MODE_STABLE
+	last_time = world.time
 
 #undef UPDATE_CELL_IN
 #undef UPDATE_OPENED1
