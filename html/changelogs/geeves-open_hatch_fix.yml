@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Opening an IPC's hatch will no longer ask you whether you want to open or close it."
+  - tweak: "Added a surgery step where IPC hatches must be screwed shut, instead of automatically screwing shut after being crowbarred."
