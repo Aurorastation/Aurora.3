@@ -873,10 +873,13 @@
 					stat("Failsafe Controller:", "ERROR")
 				if (Master)
 					stat(null, "- Subsystems -")
+					var/amt = 0
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
-
+						if(amt >= 70)
+							break
+						amt++
 						SS.stat_entry()
 
 		if(listed_turf && client)

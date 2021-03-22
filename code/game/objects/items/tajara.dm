@@ -160,7 +160,7 @@
 				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
 		var/real_time = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 		var/adhomian_time = real_time
-		if(IsEven(current_day))
+		if(ISEVEN(current_day))
 			adhomian_time = real_time + 24
 		adhomian_day = Floor(current_day / 2)
 		to_chat(usr, "You check your [src.name], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is the '[adhomian_day]th day of [adhomian_month], [adhomian_year]'.")

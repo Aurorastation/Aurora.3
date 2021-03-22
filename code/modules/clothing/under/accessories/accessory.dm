@@ -578,6 +578,13 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
+/obj/item/clothing/accessory/sleevepatch/scc
+	name = "Stellar Corporate Conglomerate patch"
+	desc = "An embroidered patch, adorned with the logo of the Stellar Corporate Conglomerate, which can be attached to the shoulder sleeve of clothing."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "scc_patch"
+	overlay_state = "scc_patch"
+
 /obj/item/clothing/accessory/sleevepatch/zavodskoi
 	name = "\improper Zavodskoi Interstellar sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo."
