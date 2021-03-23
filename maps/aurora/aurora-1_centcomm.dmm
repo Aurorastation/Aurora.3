@@ -39498,6 +39498,22 @@
 	pixel_x = 6;
 	pixel_y = -1
 	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -1;
+	pixel_y = -6
+	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -1;
+	pixel_y = -6
+	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -1;
+	pixel_y = -6
+	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -1;
+	pixel_y = -6
+	},
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"

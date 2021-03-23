@@ -326,6 +326,7 @@
 	new /obj/item/clothing/suit/security/officer(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
 	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
