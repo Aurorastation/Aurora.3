@@ -7669,7 +7669,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/gas/half{
 	pixel_x = -6;
-	pixel_y = -3
+	pixel_y = -4
 	},
 /obj/item/clothing/mask/gas/half{
 	pixel_x = -6;
