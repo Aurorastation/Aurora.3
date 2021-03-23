@@ -44,11 +44,10 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)
-	if(hostile_nameable)
-		return ..()
-	if(faction && faction == M.faction) //In case the mob had a dociler used on it
-		return ..()
-	return FALSE
+	if(!hostile_nameable)
+		to_chat(M, SPAN_WARNING("\The [src] cannot be renamed."))
+		return FALSE
+	return ..()
 
 
 /mob/living/simple_animal/hostile/proc/FindTarget()
