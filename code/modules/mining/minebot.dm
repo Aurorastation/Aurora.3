@@ -2,7 +2,7 @@
 	icon_state = "miningdrone"
 	mod_type = "Mining"
 	law_type = /datum/ai_laws/mining_drone
-	module_type = /obj/item/robot_module/mining_drone/basic
+	module_type = /obj/item/robot_module/mining_drone
 	holder_type = /obj/item/holder/drone/mining
 	maxHealth = 45
 	health = 45
@@ -15,7 +15,6 @@
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade
-	var/melee_upgrade
 	var/drill_upgrade
 
 /mob/living/silicon/robot/drone/mining/Initialize()
@@ -46,6 +45,20 @@
 	verbs -= /mob/living/silicon/robot/drone/verb/set_mail_tag
 	update_icon()
 	density = FALSE
+
+/mob/living/silicon/robot/drone/mining/examine(mob/user)
+	. = ..()
+	if(health_upgrade)
+		to_chat(user, SPAN_NOTICE("\The [src] appears to have a reinforced chassis."))
+	if(ranged_upgrade || drill_upgrade)
+		var/output_text = "\The [src]'s lights indicates it has"
+		if(ranged_upgrade && drill_upgrade)
+			output_text += " fully upgraded mining equipment."
+		else if(ranged_upgrade)
+			output_text += " a stationbound class KA mounted to it."
+		else if(drill_upgrade)
+			output_text += " a jackhammer drill mounted to it."
+		to_chat(user, SPAN_NOTICE(output_text))
 
 /mob/living/silicon/robot/drone/mining/updatename()
 	real_name = "NT-I-[rand(100,999)]"
@@ -85,6 +98,11 @@
 /mob/living/silicon/robot/drone/mining/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/borg/upgrade))
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
+		return
+
+	if(istype(W, /obj/item/device/mine_bot_upgrade))
+		var/obj/item/device/mine_bot_upgrade/MBU = W
+		MBU.upgrade_bot(src, user)
 		return
 
 	else if (W.GetID())
@@ -130,29 +148,22 @@
 	icon_state = "mainboard"
 	icon = 'icons/obj/module.dmi'
 
-/obj/item/device/mine_bot_upgrade/afterattack(var/mob/living/silicon/robot/drone/mining/M, mob/user, proximity)
-	if(!istype(M) || !proximity)
-		return
-	if(upgrade_bot(M, user))
-		to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
-
 /obj/item/device/mine_bot_upgrade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
-	if(M.melee_upgrade)
+	if(M.drill_upgrade)
 		to_chat(user, SPAN_WARNING("[src] already has a drill upgrade installed!"))
 		return
 	M.mod_type = initial(M.mod_type)
 	M.uneq_all()
-	qdel(M.module)
-	M.module = null
+	QDEL_NULL(M.module)
 	if(M.ranged_upgrade)
-		new /obj/item/robot_module/mining_drone/drillandka(M)
+		M.module = new /obj/item/robot_module/mining_drone/drillandka(M, M)
 	else
-		new /obj/item/robot_module/mining_drone/drill(M)
-	M.melee_upgrade = TRUE
+		M.module = new /obj/item/robot_module/mining_drone/drill(M, M)
+	M.drill_upgrade = TRUE
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
+	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
-	return TRUE
 
 /obj/item/device/mine_bot_upgrade/health
 	name = "minebot chassis upgrade"
@@ -168,8 +179,8 @@
 			var/datum/robot_component/C = M.components[V]
 			C.max_damage = 30
 	M.health_upgrade = TRUE
+	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
-	return TRUE
 
 /obj/item/device/mine_bot_upgrade/ka
 	name = "minebot kinetic accelerator upgrade"
@@ -180,17 +191,16 @@
 		return
 	M.mod_type = initial(M.mod_type)
 	M.uneq_all()
-	qdel(M.module)
-	M.module = null
-	if(M.melee_upgrade)
-		new /obj/item/robot_module/mining_drone/drillandka(M)
+	QDEL_NULL(M.module)
+	if(M.drill_upgrade)
+		M.module = new /obj/item/robot_module/mining_drone/drillandka(M, M)
 	else
-		new /obj/item/robot_module/mining_drone/ka(M)
+		M.module = new /obj/item/robot_module/mining_drone/ka(M, M)
 	M.ranged_upgrade = TRUE
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
+	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
-	return TRUE
 
 /mob/living/silicon/robot/drone/mining/roundstart/Initialize()
 	. = ..()

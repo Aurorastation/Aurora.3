@@ -70,7 +70,7 @@
 
 /mob/living/simple_animal/carp/fluff/think()
 	..()
-	if(!stat && !buckled && (turns_since_move > 5))
+	if(!stat && !buckled_to && (turns_since_move > 5))
 		walk_to(src,0)
 		turns_since_move = 0
 		handle_movement_target()

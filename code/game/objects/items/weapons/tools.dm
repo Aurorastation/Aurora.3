@@ -168,8 +168,8 @@
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
-		if(C.buckled?.buckle_require_restraints)
-			C.buckled.unbuckle_mob()
+		if(C.buckled_to?.buckle_require_restraints)
+			C.buckled_to.unbuckle()
 		C.update_inv_handcuffed()
 		return
 	else
@@ -464,6 +464,10 @@
 		if(M)
 			to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 		return 0
+
+/obj/item/weldingtool/use_resource(mob/user, var/use_amount)
+	if(get_fuel() >= use_amount)
+		reagents.remove_reagent(/decl/reagent/fuel, use_amount)
 
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()

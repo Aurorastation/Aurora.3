@@ -277,7 +277,7 @@
 		return
 
 	if(!stop_automated_movement && wander && !anchored)
-		if(isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
 				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
 				moving_to = pick(cardinal)
@@ -701,8 +701,9 @@
 	set category = "IC"
 	set src in view(1)
 
-	var/mob/living/M = usr
-	if(!M)	
+	var/mob/living/carbon/M = usr
+	if(!istype(M))
+		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
 		return
 
 	if(can_name(M))
@@ -765,7 +766,9 @@
 
 		if(issmall(src))
 			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
-			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			var/obj/effect/decal/cleanable/blood/splatter/S = new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			S.basecolor = blood_type
+			S.update_icon()
 			qdel(src)
 		else
 			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")

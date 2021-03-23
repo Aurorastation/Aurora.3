@@ -7,6 +7,7 @@
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)
+	selectable_pronouns = null
 	economic_modifier = 2
 	language = LANGUAGE_VAURCA
 	primitive_form = SPECIES_MONKEY_VAURCA
@@ -155,3 +156,6 @@
 
 /datum/species/bug/has_psi_potential()
 	return FALSE
+	
+/datum/species/bug/is_naturally_insulated()
+	return TRUE

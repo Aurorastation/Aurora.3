@@ -12,8 +12,7 @@
 		if (!holder)
 			return
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return
 
 	var/serverip = "[world.internet_address]:[world.port]"
@@ -139,8 +138,7 @@
 	if(job)
 		sql += " AND job = '[job]'"
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return
 
 	var/ban_id
@@ -234,8 +232,7 @@
 
 	var/sql = "SELECT ckey, bantype, job FROM ss13_ban WHERE id = [id]"
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return
 
 	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appeal.")
@@ -306,8 +303,7 @@
 
 	if(!check_rights(R_BAN))	return
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		to_chat(usr, "<span class='warning'>Failed to establish database connection</span>")
 		return
 

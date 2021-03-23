@@ -17,8 +17,8 @@
 
 /obj/structure/bed/chair/wheelchair/set_dir()
 	. = ..()
-	if(buckled_mob)
-		buckled_mob.set_dir(dir)
+	if(buckled)
+		buckled.set_dir(dir)
 
 /obj/structure/bed/chair/wheelchair/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench() || istype(W,/obj/item/stack) || W.iswirecutter())
@@ -33,7 +33,7 @@
 			user.pulledby = null
 			to_chat(user, "<span class='warning'>You lost your grip!</span>")
 		return
-	if(buckled_mob && pulling && user == buckled_mob)
+	if(buckled && pulling && user == buckled)
 		if(pulling.stat || pulling.stunned || pulling.weakened || pulling.paralysis || pulling.lying || pulling.restrained())
 			pulling.pulledby = null
 			pulling = null
@@ -51,7 +51,7 @@
 	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
 		to_chat(user, "<span class='warning'>You cannot go there.</span>")
 		return
-	if(pulling && buckled_mob && (buckled_mob == user))
+	if(pulling && buckled && (buckled == user))
 		to_chat(user, "<span class='warning'>You cannot drive while being pushed.</span>")
 		return
 
@@ -59,10 +59,10 @@
 	driving = 1
 	var/turf/T = null
 	//--1---Move occupant---1--//
-	if(buckled_mob)
-		buckled_mob.buckled = null
-		step(buckled_mob, direction)
-		buckled_mob.buckled = src
+	if(buckled)
+		buckled.buckled_to = null
+		step(buckled, direction)
+		buckled.buckled_to = src
 	//--2----Move driver----2--//
 	if(pulling)
 		T = pulling.loc
@@ -70,8 +70,8 @@
 			step(pulling, get_dir(pulling.loc, src.loc))
 	//--3--Move wheelchair--3--//
 	step(src, direction)
-	if(buckled_mob) // Make sure it stays beneath the occupant
-		Move(buckled_mob.loc)
+	if(buckled) // Make sure it stays beneath the occupant
+		Move(buckled.loc)
 	set_dir(direction)
 	if(pulling) // Driver
 		if(pulling.loc == src.loc) // We moved onto the wheelchair? Revert!
@@ -89,19 +89,19 @@
 /obj/structure/bed/chair/wheelchair/Move()
 	. = ..()
 	playsound(src, 'sound/effects/roll.ogg', 75, 1)
-	if(buckled_mob)
-		var/mob/living/occupant = buckled_mob
+	if(buckled)
+		var/mob/living/occupant = buckled
 		if(!driving)
-			occupant.buckled = null
+			occupant.buckled_to = null
 			occupant.Move(src.loc)
-			occupant.buckled = src
+			occupant.buckled_to = src
 			if (occupant && (src.loc != occupant.loc))
 				if (propelled)
 					for (var/mob/O in src.loc)
 						if (O != occupant)
 							Collide(O)
 				else
-					unbuckle_mob()
+					unbuckle()
 			if (pulling && (get_dist(src, pulling) > 1))
 				pulling.pulledby = null
 				to_chat(pulling, "<span class='warning'>You lost your grip!</span>")
@@ -114,13 +114,13 @@
 	if (pulling)
 		MouseDrop(usr)
 	else
-		user_unbuckle_mob(user)
+		user_unbuckle(user)
 	return
 
 /obj/structure/bed/chair/wheelchair/CtrlClick(var/mob/user)
 	if(in_range(src, user))
 		if(!ishuman(user))	return
-		if(user == buckled_mob)
+		if(user == buckled)
 			to_chat(user, "<span class='warning'>You realize you are unable to push the wheelchair you sit in.</span>")
 			return
 		if(!pulling)
@@ -138,11 +138,11 @@
 
 /obj/structure/bed/chair/wheelchair/Collide(atom/A)
 	. = ..()
-	if(!buckled_mob)
+	if(!buckled)
 		return
 
 	if(propelled || (pulling && (pulling.a_intent == I_HURT)))
-		var/mob/living/occupant = unbuckle_mob()
+		var/mob/living/occupant = unbuckle()
 
 		if (pulling && (pulling.a_intent == I_HURT))
 			occupant.throw_at(A, 3, 3, pulling)
@@ -186,7 +186,7 @@
 		B.set_dir(newdir)
 	bloodiness--
 
-/obj/structure/bed/chair/wheelchair/buckle_mob(mob/M as mob, mob/user as mob)
+/obj/structure/bed/chair/wheelchair/buckle(mob/M as mob, mob/user as mob)
 	if(M == pulling)
 		pulling = null
 		usr.pulledby = null
@@ -210,11 +210,12 @@
 
 /obj/structure/bed/chair/wheelchair/MouseDrop(over_object, src_location, over_location)
 	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		if(!ishuman(usr))
-			return FALSE
-		if(buckled_mob)
-			return FALSE
+	if(!ishuman(usr))
+		return FALSE
+	if(buckled)
+		return FALSE
+	if(!usr.Adjacent(src))
+		return FALSE
 	visible_message(SPAN_NOTICE("[usr] collapses [src]."))
 	var/obj/item/wheelchair/R = new(get_turf(src))
 	R.name = src.name

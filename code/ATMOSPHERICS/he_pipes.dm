@@ -66,20 +66,21 @@
 		else if(istype(loc, /turf/space/))
 			parent.radiate_heat_to_space(surface, 1)
 
-		if(buckled_mob)
+		if(istype(buckled, /mob/living))
+			var/mob/living/M = buckled
 			var/hc = pipe_air.heat_capacity()
-			var/avg_temp = (pipe_air.temperature * hc + buckled_mob.bodytemperature * 3500) / (hc + 3500)
+			var/avg_temp = (pipe_air.temperature * hc + M.bodytemperature * 3500) / (hc + 3500)
 			pipe_air.temperature = avg_temp
-			buckled_mob.bodytemperature = avg_temp
+			M.bodytemperature = avg_temp
 
 			var/heat_limit = 1000
 
-			var/mob/living/carbon/human/H = buckled_mob
+			var/mob/living/carbon/human/H = buckled
 			if(istype(H) && H.species)
 				heat_limit = H.species.heat_level_3
 
 			if(pipe_air.temperature > heat_limit + 1)
-				buckled_mob.apply_damage(4 * log(pipe_air.temperature - heat_limit), BURN, BP_CHEST, used_weapon = "Excessive Heat")
+				M.apply_damage(4 * log(pipe_air.temperature - heat_limit), BURN, BP_CHEST, used_weapon = "Excessive Heat")
 
 		//fancy radiation glowing
 		if(pipe_air.temperature && (icon_temperature > 500 || pipe_air.temperature > 500)) //start glowing at 500K

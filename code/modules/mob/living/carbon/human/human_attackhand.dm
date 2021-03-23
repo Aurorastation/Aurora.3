@@ -135,7 +135,7 @@
 				w_uniform.add_fingerprint(M)
 
 			var/obj/item/grab/G = new /obj/item/grab(M, src)
-			if(buckled)
+			if(buckled_to)
 				to_chat(M, "<span class='notice'>You cannot grab [src], [src.get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 			if(!G)	//the grab will delete itself in New if affecting is anchored
 				return
@@ -191,7 +191,7 @@
 				// Someone got a good grip on them, they won't be able to do much damage
 				rand_damage = max(1, rand_damage - 2)
 
-			if(src.grabbed_by.len || src.buckled || !src.canmove || src==H)
+			if(src.grabbed_by.len || src.buckled_to || !src.canmove || src==H)
 				accurate = 1 // certain circumstances make it impossible for us to evade punches
 				rand_damage = 5
 
@@ -480,6 +480,8 @@
 		var/datum/gas_mixture/breath = H.get_breath_from_environment()
 		var/fail = L.handle_breath(breath, 1)
 		if(!fail)
+			if(!L.is_bruised())
+				losebreath = 0
 			to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
 
 	cpr(H) //Again.	
@@ -502,7 +504,7 @@
 	var/dam_zone = user.zone_sel?.selecting
 	if(!dam_zone)
 		dam_zone = pick(organs)
-	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
+	var/obj/item/organ/external/affecting = get_organ(dam_zone)
 	apply_damage(damage, BRUTE, affecting)
 	updatehealth()
 	return TRUE

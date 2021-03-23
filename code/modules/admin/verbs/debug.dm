@@ -315,6 +315,7 @@
 			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
 			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
 		if("Admin")
+			outfit_catagories["Stellar Corporate Conglomerate"] = typesof(/datum/outfit/admin/scc)
 			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)
 			outfit_catagories["Antagonist"] = typesof(/datum/outfit/admin/syndicate)
 			outfit_catagories["Event"] = typesof(/datum/outfit/admin/event)

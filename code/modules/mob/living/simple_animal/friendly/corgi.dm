@@ -53,7 +53,7 @@
 /mob/living/simple_animal/corgi/Ian/think()
 	..()
 
-	if(!stat && !resting && !buckled)
+	if(!stat && !resting && !buckled_to)
 		if(prob(1))
 			visible_emote(pick("dances around.","chases their tail."),0)
 			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
@@ -146,7 +146,7 @@
 
 /mob/living/simple_animal/corgi/Lisa/think()
 	..()
-	if(!stat && !resting && !buckled)
+	if(!stat && !resting && !buckled_to)
 		turns_since_scan++
 		if(turns_since_scan > 15)
 			turns_since_scan = 0
@@ -168,6 +168,6 @@
 				new /mob/living/simple_animal/corgi/puppy(loc)
 				puppies++
 
-	if (!stat && !resting && !buckled && prob(1))
+	if (!stat && !resting && !buckled_to && prob(1))
 		visible_emote(pick("dances around","chases her tail"),0)
 		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

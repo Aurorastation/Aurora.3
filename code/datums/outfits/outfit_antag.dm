@@ -389,7 +389,7 @@
 		)
 
 	belt = null
-	suit = /obj/item/clothing/suit/armor/bulletproof
+	suit = /obj/item/clothing/suit/armor/carrier/ballistic
 
 	shoes = list(
 		/obj/item/clothing/shoes/laceup/all_species,
@@ -506,7 +506,7 @@
 	uniform = /obj/item/clothing/under/chameleon/wizard
 	back = /obj/item/storage/backpack/chameleon/wizard
 	suit = /obj/item/clothing/suit/chameleon/wizard
-	head = /obj/item/clothing/head/softcap/chameleon/wizard
+	head = /obj/item/clothing/head/chameleon/wizard
 	shoes = /obj/item/clothing/shoes/chameleon/wizard
 	l_ear = /obj/item/device/radio/headset/bluespace
 	r_pocket = /obj/item/teleportation_scroll

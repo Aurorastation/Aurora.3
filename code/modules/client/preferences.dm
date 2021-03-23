@@ -37,6 +37,7 @@ datum/preferences
 	var/can_edit_name = TRUE				//Whether or not a character's name can be edited. Used with SQL saving.
 	var/can_edit_ipc_tag = TRUE
 	var/gender = MALE					//gender of character (well duh)
+	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
@@ -378,7 +379,7 @@ datum/preferences
 	else if(href_list["delete"])
 		if (!config.sql_saves)
 			return 0
-		if (alert(usr, "This will permanently delete the character you have loaded. Are you sure?", "Delete Character", "No", "Yes") == "Yes")
+		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to delete the loaded character?", "Delete Character", "No", "Yes") == "Yes")
 			delete_character_sql(usr.client)
 	else
 		return 0
@@ -424,6 +425,7 @@ datum/preferences
 	character.exploit_record = exploit_record
 
 	character.gender = gender
+	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
 
@@ -506,8 +508,7 @@ datum/preferences
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
 		if(D == src)
-			establish_db_connection(dbcon)
-			if(!dbcon.IsConnected())
+			if(!establish_db_connection(dbcon))
 				return open_load_dialog_file(user)
 
 			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
@@ -642,7 +643,7 @@ datum/preferences
 		job_engsec_med = 0
 		job_engsec_low = 0
 
-		alternate_option = 0
+		alternate_option = 1
 		metadata = ""
 
 		organ_data = list()
@@ -671,7 +672,7 @@ datum/preferences
 		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id:")
+	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW(), deleted_by = \"player\" WHERE id = :char_id:")
 	query.Execute(list("char_id" = current_character))
 
 	// Create a new character.
