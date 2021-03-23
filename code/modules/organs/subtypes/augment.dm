@@ -349,11 +349,11 @@
 	name = "C'thur language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
 
-/obj/item/organ/internal/augment/gustatoral
-	name = "gustatoral centre"
-	action_button_name = "Activate Gustatoral Centre (tongue)"
+/obj/item/organ/internal/augment/gustatorial
+	name = "gustatorial centre"
+	action_button_name = "Activate Gustatorial Centre (tongue)"
 	action_button_icon = "augment"
-	organ_tag = BP_AUG_GUSTATORAL
+	organ_tag = BP_AUG_GUSTATORIAL
 	parent_organ = BP_HEAD
 	activable = TRUE
 	cooldown = 8
@@ -362,7 +362,7 @@
 	var/action_verb = "licks"
 	var/self_action_verb = "lick"
 
-/obj/item/organ/internal/augment/gustatoral/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/gustatorial/attack_self(var/mob/user)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -381,14 +381,14 @@
 			to_chat(user, SPAN_NOTICE("\The [src] will now output taste as if you were <b>[taste_choice]</b>."))
 			taste_sensitivity = tastes[taste_choice]
 
-/obj/item/organ/internal/augment/gustatoral/hand
+/obj/item/organ/internal/augment/gustatorial/hand
 	parent_organ = BP_R_HAND
-	action_button_name = "Activate Gustatoral Centre (hand)"
+	action_button_name = "Activate Gustatorial Centre (hand)"
 
 	action_verb = "sticks their finger in"
 	self_action_verb = "stick your finger in"
 
-/obj/item/organ/internal/augment/gustatoral/hand/left
+/obj/item/organ/internal/augment/gustatorial/hand/left
 	parent_organ = BP_L_HAND
 
 // Snakebitten!
