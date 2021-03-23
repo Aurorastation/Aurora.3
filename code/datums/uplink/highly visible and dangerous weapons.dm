@@ -121,7 +121,7 @@
 
 /datum/uplink_item/item/visible_weapons/teslagauntlet
 	name = "Tesla Glove"
-	item_cost = 10
+	item_cost = 6
 	path = /obj/item/clothing/gloves/tesla
 
 /datum/uplink_item/item/visible_weapons/random_weapon

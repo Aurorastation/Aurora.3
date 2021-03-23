@@ -158,6 +158,10 @@
 #define BP_AUG_LANGUAGE     "integrated language processor"
 #define BP_AUG_PSI         "psionic receiver"
 #define BP_AUG_CALF_OVERRIDE     "calf overdrive"
+#define BP_AUG_MEMORY         "memory inhibitor"
+#define BP_AUG_EMOTION         "emotional manipulator"
+#define BP_AUG_ENCHANED_VISION   "vision enhanced retinas"
+#define BP_AUG_SIGHTLIGHTS   "ocular installed sightlights"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

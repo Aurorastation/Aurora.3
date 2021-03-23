@@ -103,7 +103,7 @@
 	path = /obj/item/clothing/suit/armor/vest/idris
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Investigator", "Security Cadet")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/idris/New()

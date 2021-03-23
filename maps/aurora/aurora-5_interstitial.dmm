@@ -2099,14 +2099,17 @@
 /area/security/break_room)
 "eG" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/cups,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/storage/box/cups,
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eH" = (
-/obj/item/storage/box/donkpockets,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eI" = (
@@ -2469,8 +2472,8 @@
 /area/security/training_theoretical)
 "fF" = (
 /obj/structure/bed/chair/comfy/sofa/left{
-	icon_state = "sofaend_left_preview";
-	dir = 4
+	dir = 4;
+	icon_state = "sofaend_left_preview"
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
@@ -2538,22 +2541,22 @@
 /area/security/training_theoretical)
 "gb" = (
 /obj/structure/bed/chair/comfy/sofa/corner{
-	icon_state = "sofacorner_preview";
-	dir = 4
+	dir = 4;
+	icon_state = "sofacorner_preview"
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gc" = (
 /obj/structure/bed/chair/comfy/sofa{
-	icon_state = "sofamiddle_preview";
-	dir = 1
+	dir = 1;
+	icon_state = "sofamiddle_preview"
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gd" = (
 /obj/structure/bed/chair/comfy/sofa/left{
-	icon_state = "sofaend_left_preview";
-	dir = 1
+	dir = 1;
+	icon_state = "sofaend_left_preview"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/wood,
@@ -2731,22 +2734,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
 "gN" = (
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
 "gO" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/drop{
-	pixel_y = 32
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply,
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
-/obj/structure/cable/green{
-	d1 = 32;
-	d2 = 2;
-	icon_state = "11-2"
-	},
-/obj/structure/disposalpipe/down,
-/turf/simulated/open,
+/obj/structure/table/rack,
+/obj/random/loot,
+/turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
 "gY" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2882,7 +2876,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -2906,20 +2899,19 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
 "hi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply,
+/obj/structure/disposalpipe/down,
 /obj/structure/cable/green{
-	icon_state = "1-8"
+	d1 = 32;
+	d2 = 2;
+	icon_state = "11-2"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+/obj/structure/sign/drop{
+	pixel_y = 32
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/open,
 /area/maintenance/security_interstitial)
 "hq" = (
 /obj/effect/floor_decal/corner/blue{
@@ -6061,6 +6053,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)
+"sC" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/security_interstitial)
 "sE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -8331,6 +8327,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
+"Hx" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_interstitial)
 "HC" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Construction Level"
@@ -47139,7 +47151,7 @@ gd
 et
 WO
 hg
-WX
+sC
 WX
 WX
 WX
@@ -47397,7 +47409,7 @@ et
 gN
 hh
 WX
-ab
+WX
 ab
 ab
 ab
@@ -47652,7 +47664,7 @@ fJ
 gf
 et
 gO
-hi
+hh
 WX
 ab
 ab
@@ -47908,8 +47920,8 @@ eC
 so
 eO
 et
-WX
-WX
+hi
+Hx
 WX
 ab
 ab
@@ -48164,10 +48176,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
+WX
+WX
+WX
+WX
 ab
 ab
 ab
