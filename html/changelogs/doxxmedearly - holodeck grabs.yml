@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed a bug where deleted mobs would sometimes reappear in someone's hands if grabbed, such as holodeck penguins."
