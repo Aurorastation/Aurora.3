@@ -193,8 +193,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/tea = 30)
 
 /obj/item/reagent_containers/food/drinks/greentea
-	name = "blue tea"
-	desc = "Tasty green tea, now in colorblind mode."
+	name = "green tea"
+	desc = "Tasty green tea. It's good for you!"
 	icon_state = "greentea_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -206,8 +206,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/tea/greentea = 30)
 
 /obj/item/reagent_containers/food/drinks/hotcider
-	name = "\improper Hot Spider hot cider"
-	desc = "A hearty apple drink, spiced just right. Guaranteed to contain less than 1% spiders."
+	name = "hot cider"
+	desc = "A hearty apple drink, spiced just right."
 	icon_state = "soy_latte_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -233,7 +233,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/ice
 	name = "\improper Admiral's ice cup"
-	desc = "Solid water in a collector's cup, proudly displaying the face of the late Admiral Frost."
+	desc = "Solid water served in an official Getmore-brand disposable collector's cup, each one commemorating a late admiral."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -245,7 +245,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
 	name = "\improper Red Gaia hot coco"
-	desc = "Brewed on Mars and dispensed at a temperature hotter than any human can stand."
+	desc = "A Mars favorite. Usually dispensed at a temperature hotter than any human can stand."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
