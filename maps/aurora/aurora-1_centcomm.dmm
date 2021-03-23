@@ -39217,9 +39217,7 @@
 /area/antag/mercenary)
 "vKj" = (
 /obj/structure/table/rack,
-/obj/item/clothing/mask/gas/half{
-	pixel_y = -1
-	},
+/obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
