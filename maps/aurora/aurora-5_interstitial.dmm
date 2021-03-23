@@ -2469,8 +2469,8 @@
 /area/security/training_theoretical)
 "fF" = (
 /obj/structure/bed/chair/comfy/sofa/left{
-	icon_state = "sofaend_left_preview";
-	dir = 4
+	dir = 4;
+	icon_state = "sofaend_left_preview"
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
@@ -2538,22 +2538,22 @@
 /area/security/training_theoretical)
 "gb" = (
 /obj/structure/bed/chair/comfy/sofa/corner{
-	icon_state = "sofacorner_preview";
-	dir = 4
+	dir = 4;
+	icon_state = "sofacorner_preview"
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gc" = (
 /obj/structure/bed/chair/comfy/sofa{
-	icon_state = "sofamiddle_preview";
-	dir = 1
+	dir = 1;
+	icon_state = "sofamiddle_preview"
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gd" = (
 /obj/structure/bed/chair/comfy/sofa/left{
-	icon_state = "sofaend_left_preview";
-	dir = 1
+	dir = 1;
+	icon_state = "sofaend_left_preview"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/wood,
@@ -3567,6 +3567,14 @@
 "je" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/heavy,
+/obj/item/clothing/mask/gas/half{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -6;
+	pixel_y = 9
+	},
 /turf/simulated/floor/plating,
 /area/bridge/aibunker)
 "jf" = (
