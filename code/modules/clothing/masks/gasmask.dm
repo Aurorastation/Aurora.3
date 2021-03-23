@@ -41,7 +41,7 @@
 	item_state = "halfgas"
 	icon_state = "halfgas"
 	w_class = ITEMSIZE_SMALL
-	flags_inv = HIDEFACE
+	flags_inv = null
 	body_parts_covered = FACE
 	down_body_parts_covered = null
 	adjustable = TRUE
