@@ -339,7 +339,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(gear["slot"] == slot)
 			W.screen_loc = gear["loc"]
 			break
-	if(hud_used) // geeves broke the CI on 22/03/2021
+	if(hud_used)
 		hud_used.hidden_inventory_update()
 
 	if(W.action_button_name)
