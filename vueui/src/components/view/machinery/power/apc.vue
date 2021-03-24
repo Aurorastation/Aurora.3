@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="state.failTime" class="notice"> <!-- Failure - Disabled -->
+    <div v-if="state.failTime" class="notice" style="color: white;"> <!-- Failure - Disabled -->
       <h3 class="fw-bold">SYSTEM FAILURE</h3>
       <span class="fst-italic">I/O regulator malfuction detected! Waiting for system reboot...</span><br>
       Automatic reboot in {{state.failTime}} seconds...

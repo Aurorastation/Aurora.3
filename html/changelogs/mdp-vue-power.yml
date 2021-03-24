@@ -41,3 +41,4 @@ changes:
   - refactor: "Vue-ifies portable air pumps, APCs, SMES units, and the AI/admin Supermatter Crystal monitor."
   - backend: "Adds an optional min/max button to VueUI numeric inputs."
   - tweak: "Fixes some missing formatting for VueUI progress bars."
+  - tweak: "FontAwesome icons in VueUI windows are now fixed-width. Thanks for pointing out the issue, Geeves!"

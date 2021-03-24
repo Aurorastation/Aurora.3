@@ -61,6 +61,7 @@
 
 	target_pressure = rand(0,1300)
 	update_icon()
+	SSvueui.check_uis_for_change(src)
 
 	..(severity)
 
@@ -111,6 +112,7 @@
 			update_icon()
 
 	src.updateDialog()
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/portable_atmospherics/powered/pump/return_air()
 	return air_contents
@@ -148,9 +150,8 @@
 /obj/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "machinery-atmospherics-portpump", 480, 410, state = physical_state)
+		ui = new(user, src, "machinery-atmospherics-portpump", 480, 410, "Portable Pump")
 		ui.open()
-		ui.auto_update_content = TRUE
 
 /obj/machinery/portable_atmospherics/powered/pump/Topic(href, href_list)
 	if(..())
@@ -173,3 +174,4 @@
 
 	if(.)
 		update_icon()
+		SSvueui.check_uis_for_change(src)

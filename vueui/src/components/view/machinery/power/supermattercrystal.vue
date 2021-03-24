@@ -6,9 +6,11 @@
       <div class="clearBoth"/>
     </div>
     <vui-group v-else>
-      <h3>Crystal Integrity</h3>
-      <vui-progress :value="integrity_percentage" :min="0" :max="100" :class="integrity_class"/>
-      <b>{{integrity_percentage}} %</b>
+      <vui-group-row>
+        <h3>Crystal Integrity</h3><!--
+        --><vui-progress :value="integrity_percentage" :min="0" :max="100" :class="integrity_class"/><!--
+        --><b>{{integrity_percentage}} %</b>
+      </vui-group-row>
       <h3>Environment</h3>
       <vui-group-item label="Temperature:">
         <vui-progress :value="ambient_temp" :min="0" :max="10000" :class="temp_class"/>
