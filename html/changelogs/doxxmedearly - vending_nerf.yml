@@ -1,0 +1,7 @@
+author: Doxxmedearly
+
+delete-after: True
+
+
+changes:
+  - tweak: "Vending machines should throw items less frequently, with semi-random distance and force that is overall lower than before."
