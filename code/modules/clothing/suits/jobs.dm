@@ -182,7 +182,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "armor"
 	allowed = list (/obj/item/device/analyzer, /obj/item/device/flashlight, /obj/item/device/multitool, /obj/item/device/pipe_painter, /obj/item/device/radio, /obj/item/device/t_scanner, \
 	/obj/item/crowbar, /obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/tank/emergency_oxygen, \
-	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering)
+	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering, /obj/item/storage/bag/inflatable)
 	body_parts_covered = UPPER_TORSO
 	var/opened
 
