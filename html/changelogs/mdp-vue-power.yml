@@ -38,7 +38,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - refactor: "Vue-ifies portable air pumps, APCs, SMES units, and the AI/admin Supermatter Crystal monitor."
+  - refactor: "Vue-ifies portable air pumps, APCs, SMES units, and the AI/admin Supermatter Crystal monitor. A lot of them have been spruced up as well!"
   - backend: "Adds an optional min/max button to VueUI numeric inputs."
   - tweak: "Fixes some missing formatting for VueUI progress bars."
   - tweak: "FontAwesome icons in VueUI windows are now fixed-width. Thanks for pointing out the issue, Geeves!"
+  - tweak: "VueUI group-item elements now have their labels top-aligned."
+  - tweak: "VueUI windows now have a transparent background box to provide more visual contrast. This might cause issues with window sizes; please report them if encountered so the default sizes can be adjusted."

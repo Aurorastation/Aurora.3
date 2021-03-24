@@ -70,25 +70,34 @@
         </vui-group-item>
 
         <h3>Power Channels</h3>
-        <vui-group-item v-for="(channel, channel_title) in state.powerChannels" :key="channel_title" :label="channel_title">
-          <span style="width: 70px; text-align: right">
-            {{channel.powerLoad}}&nbsp;W
-          </span>
-          <span style="width: 105px">
-            &nbsp;&nbsp;
-            <span :class="channelStatClass(channel.status)">{{channelStatus(channel.status)}}</span>
-            <span v-if="state.locked">
-              <span v-if="channel.status == 1 || channel.status == 3">
-                &nbsp;&nbsp;{{channelPower(channel.status)}}
+        <vui-group-row v-for="(channel, channel_title) in state.powerChannels" :key="channel_title">
+          <div style="display:table-cell;vertical-align:top;padding-right:8px;width:4%;" class="itemLabel">
+            {{channel_title}}
+            <span style="float:right;">
+              [<span :class="channelStatClass(channel.status)">{{channelStatus(channel.status)}}</span>]
+              <span v-if="channel.status == 1 || channel.status == 3">[<span class="good">Auto</span>]</span>
+            </span>
+          </div>
+          <div style="display:table-cell;width:10%;">
+            <span style="width: 70px; text-align: right; display:inline-block;">
+              {{channel.powerLoad}}&nbsp;W
+            </span>
+            <span style="width: 105px">
+              &nbsp;&nbsp;
+              <span v-if="state.locked">
+                <span v-if="channel.status == 1 || channel.status == 3">
+                  &nbsp;&nbsp;{{channelPower(channel.status)}}
+                </span>
               </span>
             </span>
-          </span>
-          <div v-if="!state.locked || state.siliconUser">
-            <vui-button icon="sync" :params="{set : 3, chan : channel_title}" :class="{selected : channel.status == 1 || channel.status == 3}">Auto</vui-button>
-            <vui-button icon="power-off" :params="{set : 2, chan : channel_title}" :class="{selected : channel.status == 2}">On</vui-button>
-            <vui-button icon="times" :params="{set : 1, chan : channel_title}" :class="{selected : channel.status == 0}">Off</vui-button>
+            &nbsp;&nbsp;
+            <span v-if="!state.locked || state.siliconUser">
+              <vui-button icon="sync" :params="{set : 3, chan : channel_title}" :class="{selected : channel.status == 1 || channel.status == 3}">Auto</vui-button>
+              <vui-button icon="power-off" :params="{set : 2, chan : channel_title}" :class="{selected : channel.status == 2}">On</vui-button>
+              <vui-button icon="times" :params="{set : 1, chan : channel_title}" :class="{selected : channel.status == 0}">Off</vui-button>
+            </span>
           </div>
-        </vui-group-item>
+        </vui-group-row>
 
         <vui-group-item label="Total Load:">
           {{state.totalLoad}}W{{state.totalCharging ? ` (+ ${state.totalCharging}W Charging)` : null}}
@@ -157,8 +166,8 @@ export default {
       return "Manual";
     },
     channelStatClass(channelStat) {
-      if(channelStat <= 1) {return "Off"}
-      return "On";
+      if(channelStat <= 1) {return "bad"}
+      return "good";
     },
   }
 }
