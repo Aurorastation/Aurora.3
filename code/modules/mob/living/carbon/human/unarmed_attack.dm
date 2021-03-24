@@ -9,7 +9,7 @@ var/global/list/sparring_attack_cache = list()
 	var/miss_sound = /decl/sound_category/punchmiss_sound
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
 	var/sharp = 0
-	var/edge = 0
+	var/edge = FALSE
 
 	var/damage_type = BRUTE
 	var/sparring_variant_type = /datum/unarmed_attack/light_strike
@@ -129,7 +129,7 @@ var/global/list/sparring_attack_cache = list()
 	shredding = 0
 	damage = 0
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	attack_name = "bite"
 
 /datum/unarmed_attack/bite/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
@@ -294,5 +294,5 @@ var/global/list/sparring_attack_cache = list()
 	shredding = 0
 	damage = 0
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	attack_name = "light hit"
