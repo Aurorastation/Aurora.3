@@ -534,7 +534,7 @@
 /obj/item/storage/dropped(mob/user as mob)
 	return
 
-/obj/item/storage/attack_hand(mob/user as mob)
+/obj/item/storage/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.l_store == src && !H.get_active_hand())	//Prevents opening if it's in a pocket.
@@ -550,7 +550,7 @@
 		src.open(user)
 	else
 		..()
-		for(var/mob/M in range(1))
+		for(var/mob/M in range(1, get_turf(src)) - user)
 			if (M.s_active == src)
 				src.close(M)
 	src.add_fingerprint(user)
