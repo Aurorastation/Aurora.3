@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - tweak: "Emergency shutters no longer close if there is a mob on the way."
