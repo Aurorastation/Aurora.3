@@ -268,6 +268,13 @@
 							return //If Collide() returns 0 (keep going) then we continue on to attack M.
 
 			passthrough = !attack_mob(M, distance)
+			var/atom/old_original = original
+			original = null
+			if(passthrough)
+				for(var/obj/O in M.loc)
+					if(O.density && !O.CanPass(src, old_original.loc) && Collide(O))
+						return TRUE
+			original = old_original
 		else
 			passthrough = TRUE
 	else

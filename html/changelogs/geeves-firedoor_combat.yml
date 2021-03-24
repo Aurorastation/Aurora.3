@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Firedoors can now close on people again.."
+  - rscadd: "You can now shoot at and throw stuff at people standing on firedoors."

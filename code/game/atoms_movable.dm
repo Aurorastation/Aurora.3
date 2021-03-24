@@ -9,6 +9,7 @@
 	var/l_move_time = 1
 	var/throwing = 0
 	var/thrower
+	var/atom/throw_target
 	var/turf/throw_source = null
 	var/throw_speed = 2
 	var/throw_range = 7
@@ -114,6 +115,7 @@
 
 	src.throwing = 1
 	src.thrower = thrower
+	src.throw_target = target
 	src.throw_source = get_turf(src)	//store the origin turf
 
 	if(usr)
@@ -187,6 +189,7 @@
 	if(isobj(src)) src.throw_impact(get_turf(src),speed)
 	src.throwing = 0
 	src.thrower = null
+	src.throw_target = null
 	src.throw_source = null
 
 	if (isturf(loc))

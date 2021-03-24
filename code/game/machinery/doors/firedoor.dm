@@ -405,9 +405,7 @@
 	return
 
 /obj/machinery/door/firedoor/can_close()
-	if(locate(/obj/effect/blob) in get_turf(src))
-		return FALSE
-	if(locate(/mob/living) in get_turf(src))
+	if(locate(/obj/effect/blob) in loc)
 		return FALSE
 	return ..()
 
@@ -486,6 +484,17 @@
 
 	if(do_set_light)
 		set_light(2, 0.5, COLOR_SUN)
+
+/obj/machinery/door/firedoor/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(isprojectile(mover))
+		var/obj/item/projectile/P = mover
+		if(P.original && (locate(P.original) in loc))
+			return TRUE
+	else if(isitem(mover))
+		var/obj/item/I = mover
+		if(I.throw_target && (locate(I.throw_target) in loc))
+			return TRUE
+	return ..()
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 
