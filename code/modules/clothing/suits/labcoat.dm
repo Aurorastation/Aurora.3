@@ -91,6 +91,9 @@
 	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in Zeng-Hu colours."
 	icon_state = "labcoat_zeng"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	icon_state = "labcoat_zeng_alt"
+
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	name = "Zavodskoi Interstellar labcoat"
 	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in Zavodskoi Interstellar colours."

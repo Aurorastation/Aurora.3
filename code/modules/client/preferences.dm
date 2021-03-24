@@ -508,8 +508,7 @@ datum/preferences
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
 		if(D == src)
-			establish_db_connection(dbcon)
-			if(!dbcon.IsConnected())
+			if(!establish_db_connection(dbcon))
 				return open_load_dialog_file(user)
 
 			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")

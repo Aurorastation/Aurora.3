@@ -78,8 +78,7 @@
 	attributes += "&"
 	attributes += list2params(list("ckey" = user.ckey, "token" = token))
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		alert("An error occured while attempting to connect to the database!")
 		return 0
 

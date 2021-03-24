@@ -59,3 +59,16 @@ var/real_round_start_time
 	if(!timevar)
 		timevar = world.realtime
 	return time2text(timevar, "YYYY-MM-DD hh:mm:ss")
+
+/**
+ * Returns "watch handle" (really just a timestamp :V)
+ */
+/proc/start_watch()
+	return REALTIMEOFDAY
+
+/**
+ * Returns number of seconds elapsed.
+ * @param wh number The "Watch Handle" from start_watch(). (timestamp)
+ */
+/proc/stop_watch(wh)
+	return round(0.1 * (REALTIMEOFDAY - wh), 0.1)
