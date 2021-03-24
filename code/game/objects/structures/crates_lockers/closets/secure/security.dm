@@ -384,6 +384,7 @@
 	//Appearance
 	new /obj/item/clothing/suit/storage/det_jacket(src)
 	new /obj/item/clothing/under/det(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/accessory/badge/dia(src)
