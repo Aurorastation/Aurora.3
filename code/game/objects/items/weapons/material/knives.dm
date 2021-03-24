@@ -12,7 +12,7 @@
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	flags = CONDUCT
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	var/active = 1 // For butterfly knives
 	force_divisor = 0.15 // 9 when wielded with hardness 60 (steel)
 	matter = list(DEFAULT_WALL_MATERIAL = 12000)
@@ -122,7 +122,7 @@
 
 /obj/item/material/knife/butterfly/update_force()
 	if(active)
-		edge = 1
+		edge = TRUE
 		sharp = 1
 		..() //Updates force.
 		throwforce = max(3,force-3)
@@ -133,7 +133,7 @@
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
 		force = 3
-		edge = 0
+		edge = FALSE
 		sharp = 0
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
