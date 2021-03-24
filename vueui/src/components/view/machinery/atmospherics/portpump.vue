@@ -19,7 +19,7 @@
 
     <vui-group-row><h3>Holding Tank Status</h3></vui-group-row>
     <vui-group-item v-if="hasHoldingTank" label="Tank Label:">
-      {{holdingTank.name}}&nbsp;<vui-button icon='eject' :params="{'remove_tank': 1}">Eject</vui-button>
+      {{holdingTank.name}}&nbsp;<vui-button icon="eject" :params="{'remove_tank': 1}">Eject</vui-button>
     </vui-group-item>
     <vui-group-item v-if="hasHoldingTank" label="Tank Pressure:">{{holdingTank.tankPressure}} kPa</vui-group-item>
     <vui-group-row v-else>
