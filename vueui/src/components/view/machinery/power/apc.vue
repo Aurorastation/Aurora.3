@@ -74,8 +74,8 @@
           <div style="display:table-cell;vertical-align:top;padding-right:8px;width:4%;" class="itemLabel">
             {{channel_title}}
             <span style="float:right;">
-              [<span :class="channelStatClass(channel.status)">{{channelStatus(channel.status)}}</span>]
-              <span v-if="channel.status == 1 || channel.status == 3">[<span class="good">Auto</span>]</span>
+              [<span :class="channelStatClass(channel.status)">{{channelStatus(channel.status)}}</span>]&nbsp;
+              [<span class="good">{{channelPower(channel.status)}}</span>]
             </span>
           </div>
           <div style="display:table-cell;width:10%;">
