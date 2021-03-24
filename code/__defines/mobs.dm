@@ -157,6 +157,10 @@
 #define BP_AUG_LANGUAGE     "integrated language processor"
 #define BP_AUG_PSI         "psionic receiver"
 #define BP_AUG_CALF_OVERRIDE     "calf overdrive"
+#define BP_AUG_MEMORY         "memory inhibitor"
+#define BP_AUG_EMOTION         "emotional manipulator"
+#define BP_AUG_ENCHANED_VISION   "vision enhanced retinas"
+#define BP_AUG_SIGHTLIGHTS   "ocular installed sightlights"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -183,18 +187,20 @@
 #define ROBOT_NOTIFICATION_MODULE_RESET 4
 
 // Appearance change flags
-#define APPEARANCE_UPDATE_DNA  0x1
-#define APPEARANCE_RACE       (0x2|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_GENDER     (0x4|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_SKIN        0x8
-#define APPEARANCE_HAIR        0x10
-#define APPEARANCE_HAIR_COLOR  0x20
-#define APPEARANCE_FACIAL_HAIR 0x40
-#define APPEARANCE_FACIAL_HAIR_COLOR 0x80
-#define APPEARANCE_EYE_COLOR 0x100
-#define APPEARANCE_ALL_HAIR (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
-#define APPEARANCE_ALL       0xFFFF
-#define APPEARANCE_PLASTICSURGERY (APPEARANCE_ALL & ~APPEARANCE_RACE)
+#define APPEARANCE_UPDATE_DNA				1
+#define APPEARANCE_RACE						(2|APPEARANCE_UPDATE_DNA)
+#define APPEARANCE_GENDER					(4|APPEARANCE_UPDATE_DNA)
+#define APPEARANCE_SKIN						8
+#define APPEARANCE_HAIR						16
+#define APPEARANCE_HAIR_COLOR				32
+#define APPEARANCE_FACIAL_HAIR 				64
+#define APPEARANCE_FACIAL_HAIR_COLOR 		128
+#define APPEARANCE_EYE_COLOR 				256
+#define APPEARANCE_ACCENT					512
+#define APPEARANCE_LANGUAGE					1024
+#define APPEARANCE_ALL						65535
+#define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
+#define APPEARANCE_PLASTICSURGERY 			(APPEARANCE_ALL & ~APPEARANCE_RACE)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -205,17 +211,21 @@
 #define MAX_SUPPLIED_LAW_NUMBER 50
 
 //default item on-mob icons
-#define INV_HEAD_DEF_ICON 'icons/mob/head.dmi'
-#define INV_BACK_DEF_ICON 'icons/mob/back.dmi'
-#define INV_L_HAND_DEF_ICON 'icons/mob/items/lefthand.dmi'
-#define INV_R_HAND_DEF_ICON 'icons/mob/items/righthand.dmi'
-#define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
-#define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
-#define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
-#define INV_SHOES_DEF_ICON 'icons/mob/feet.dmi'
+#define INV_HEAD_DEF_ICON			'icons/mob/head.dmi'
+#define INV_BACK_DEF_ICON			'icons/mob/back.dmi'
+#define INV_L_HAND_DEF_ICON			'icons/mob/items/lefthand.dmi'
+#define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
+#define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
+#define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
+#define INV_BELT_DEF_ICON 'icons/mob/belt.dmi'
+#define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
+#define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
+#define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
+#define INV_SHOES_DEF_ICON			'icons/mob/feet.dmi'
+#define INV_WRISTS_DEF_ICON			'icons/mob/wrist.dmi'
 
 // IPC tags
-#define IPC_OWNERSHIP_SELF "Self Owned"
+#define IPC_OWNERSHIP_SELF	  "Self Owned"
 #define IPC_OWNERSHIP_COMPANY "Company Owned"
 #define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 

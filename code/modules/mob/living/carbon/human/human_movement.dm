@@ -36,7 +36,7 @@
 		if (hydration < (max_hydration * 0.1))
 			tally++
 
-	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
+	if(istype(buckled_to, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
@@ -148,12 +148,13 @@
 	var/turf/T = loc
 	var/footsound
 	var/top_layer = 0
-	for(var/obj/structure/S in T)
-		if(S.layer > top_layer && S.footstep_sound)
-			top_layer = S.layer
-			footsound = S.footstep_sound
-	if(!footsound)
-		footsound = T.footstep_sound
+	if(istype(T))
+		for(var/obj/structure/S in T)
+			if(S.layer > top_layer && S.footstep_sound)
+				top_layer = S.layer
+				footsound = S.footstep_sound
+		if(!footsound)
+			footsound = T.footstep_sound
 
 	if (client)
 		var/turf/B = GetAbove(T)
@@ -183,6 +184,7 @@
 /mob/living/carbon/human/proc/ClothesSlowdown()
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
 		. += I.slowdown
+		. += I.slowdown_accessory
 
 /mob/living/carbon/human/get_pulling_movement_delay()
 	. = ..()

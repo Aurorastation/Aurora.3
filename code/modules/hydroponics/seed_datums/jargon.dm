@@ -5,7 +5,7 @@
 	seed_name = "dyn"
 	display_name = "dyn bush"
 	mutants = null
-	chems = list(/datum/reagent/drink/dynjuice = list(2, 2), /datum/reagent/dylovene = list(0, 1))
+	chems = list(/decl/reagent/drink/dynjuice = list(2, 2), /decl/reagent/dylovene = list(0, 1))
 	kitchen_tag = "dyn leaf"
 
 /datum/seed/dyn/setup_traits()
@@ -25,7 +25,7 @@
 	name = "wulumunusha"
 	seed_name = "wulumunusha"
 	display_name = "wulumunusha vines"
-	chems = list(/datum/reagent/wulumunusha = list(3, 5))
+	chems = list(/decl/reagent/wulumunusha = list(3, 5))
 	kitchen_tag = "wulumunusha"
 
 /datum/seed/wulumunusha/setup_traits()
@@ -47,7 +47,7 @@
 	seed_name = "q'lort bulb"
 	display_name = "q'lort"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(3, 5))
+	chems = list(/decl/reagent/nutriment = list(3, 5))
 	kitchen_tag = "q'lort"
 
 /datum/seed/qlort/setup_traits()
@@ -70,7 +70,7 @@
 	seed_name = "guami fruit"
 	display_name = "guami vine"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(5, 9))
+	chems = list(/decl/reagent/nutriment = list(5, 9))
 	kitchen_tag = "guami"
 
 /datum/seed/guami/setup_traits()
@@ -95,7 +95,7 @@
 	seed_name = "eki"
 	display_name = "eki"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(7, 11))
+	chems = list(/decl/reagent/nutriment = list(7, 11))
 	kitchen_tag = "eki"
 
 /datum/seed/eki/setup_traits()
@@ -119,7 +119,7 @@
 	seed_name = "ylpha berry"
 	display_name = "ylpha berry bush"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(3, 5))
+	chems = list(/decl/reagent/nutriment = list(3, 5))
 	kitchen_tag = "ylpha"
 
 /datum/seed/ylpha/setup_traits()

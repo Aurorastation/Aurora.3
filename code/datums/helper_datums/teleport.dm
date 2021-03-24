@@ -42,16 +42,15 @@
 	if(istype(adestination))
 		var/list/turf/good_turfs = list()
 		var/list/turf/bad_turfs = list()
-		for(var/found_inhibitor in circlerange(adestination,8))
-			if(!istype(found_inhibitor,/obj/machinery/anti_bluespace))
-				continue
+		var/turf/T = get_turf(adestination)
+		for(var/found_inhibitor in bluespace_inhibitors)
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
-			if(AB.stat & (NOPOWER | BROKEN) )
+			if(T.z != AB.z || get_dist(adestination, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power(AB.active_power_usage)
 			bad_turfs += circlerangeturfs(get_turf(AB),8)
 			good_turfs += circlerangeturfs(get_turf(AB),9)
-		if(good_turfs.len && bad_turfs.len)
+		if(length(good_turfs) && length(bad_turfs))
 			good_turfs -= bad_turfs
 			return pick(good_turfs)
 
@@ -139,8 +138,8 @@
 	var/obj/structure/bed/chair/C = null
 	if(isliving(teleatom))
 		var/mob/living/L = teleatom
-		if(L.buckled)
-			C = L.buckled
+		if(L.buckled_to)
+			C = L.buckled_to
 
 	if(force_teleport)
 		teleatom.forceMove(destturf)

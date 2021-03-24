@@ -1,3 +1,8 @@
+var/list/localhost_addresses = list(
+	"127.0.0.1" = TRUE,
+	"::1" = TRUE
+)
+
 	////////////
 	//SECURITY//
 	////////////
@@ -129,8 +134,7 @@
 
 		var/request_id = text2num(href_list["linkingrequest"])
 
-		establish_db_connection(dbcon)
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
 			return
 
@@ -392,6 +396,13 @@
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
+	var/local_connection = (config.auto_local_admin && !config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
+	// Automatic admin rights for people connecting locally.
+	// Concept stolen from /tg/ with deepest gratitude.
+	// And ported from Nebula with love.
+	if(local_connection && !admin_datums[ckey])
+		new /datum/admins("Local Host", R_ALL, ckey)
+
 	//Admin Authorisation
 	holder = admin_datums[ckey]
 	if(holder)
@@ -471,8 +482,7 @@
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
 /proc/get_player_age(key)
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey:")
@@ -606,8 +616,7 @@
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/list/requests = list()
@@ -644,8 +653,7 @@
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")

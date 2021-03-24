@@ -51,9 +51,9 @@
 			var/mob/living/L = hit_atom
 			//unfortuately we don't know where the dart will actually hit, since that's done by the parent.
 			if(L.can_inject() && syringe.reagents)
-				var/datum/reagent/reagent_log = syringe.reagents.get_reagents()
+				var/decl/reagent/reagent_log = syringe.reagents.get_reagents()
 				syringe.reagents.trans_to_mob(L, 15, CHEM_BLOOD)
-				admin_inject_log(thrower, L, src, reagent_log, reagent_log.get_temperature(), 15, violent=1)
+				admin_inject_log(thrower, L, src, reagent_log, syringe.reagents.get_temperature(), 15, violent=1)
 
 		syringe.break_syringe(iscarbon(hit_atom)? hit_atom : null)
 		syringe.update_icon()
@@ -95,7 +95,7 @@
 	darts -= next
 	next = null
 
-/obj/item/gun/launcher/syringe/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/syringe/unique_action(mob/living/user)
 	if(next)
 		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", "<span class='warning'>You unlatch and carefully relax the bolt on [src], unloading the spring.</span>")
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)

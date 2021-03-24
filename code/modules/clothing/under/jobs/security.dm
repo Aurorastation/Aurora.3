@@ -14,7 +14,9 @@
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
 	icon_state = "officer_standard"
 	worn_state = "officer_standard"
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL
+		)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/security/corp
@@ -30,7 +32,9 @@
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
 	icon_state = "cadet_standard"
 	worn_state = "cadet_standard"
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL
+		)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/warden
@@ -38,16 +42,18 @@
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the word \"Warden\" written on the shoulders."
 	icon_state = "warden_standard"
 	worn_state = "warden_standard"
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL
+		)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/warden/corp
 	icon_state = "warden_corporate"
 	worn_state = "warden_corporate"
 
-/obj/item/clothing/under/rank/warden/dark_blue
-	icon_state = "warden_darkblue"
-	worn_state = "warden_darkblue"
+/obj/item/clothing/under/rank/warden/blue
+	icon_state = "warden_blue"
+	worn_state = "warden_blue"
 
 /obj/item/clothing/under/rank/warden/remote
 	name = "remote warden's uniform"
@@ -67,7 +73,9 @@
 	desc = "Someone who wears this means business."
 	icon_state = "detective_standard"
 	worn_state = "detective_standard"
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL
+		)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/det/black
@@ -93,7 +101,9 @@
 	name = "head of security's uniform"
 	icon_state = "hos_standard"
 	worn_state = "hos_standard"
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL
+		)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/head_of_security/corp

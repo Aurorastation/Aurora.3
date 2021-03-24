@@ -103,12 +103,12 @@ var/global/photo_count = 0
 		playsound(loc, /decl/sound_category/rustle_sound, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over_object.name)
-				if(BP_R_HAND)
+				if("right hand")
 					M.u_equip(src)
-					M.put_in_r_hand(src)
-				if(BP_L_HAND)
+					M.equip_to_slot_if_possible(src, slot_r_hand)
+				if("left hand")
 					M.u_equip(src)
-					M.put_in_l_hand(src)
+					M.equip_to_slot_if_possible(src, slot_l_hand)
 			add_fingerprint(usr)
 			return
 		if(over_object == usr && in_range(src, usr) || usr.contents.Find(src))
@@ -281,4 +281,3 @@ var/global/photo_count = 0
 		p.id = id
 
 	return p
-

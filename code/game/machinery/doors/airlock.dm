@@ -29,8 +29,7 @@
 	var/lights = TRUE // bolt lights show by default
 	var/aiDisabledIdScanner = FALSE
 	var/aiHacking = FALSE
-	var/aiBolting = null // whether AI is allowed to bolt this door (use the aiBoltingSetup var to override the initial value of this)
-	var/aiBoltingSetup = AIRLOCK_AI_BOLTING_AUTO
+	var/aiBolting = TRUE
 	var/aiBoltingDelay = 8 // how long it takes AIs to drop bolts (in seconds)
 	var/aiUnBoltingDelay = 4 // how long it takes AIs to raise bolts (in seconds)
 	var/aiActionTimer = null
@@ -118,19 +117,9 @@
 				src.closeOther = A
 				break
 
-	switch(aiBoltingSetup)
-		if(AIRLOCK_AI_BOLTING_AUTO)
-			aiBolting = locked // in automatic setup AI can bolt doors that start bolted
-		if(AIRLOCK_AI_BOLTING_TRUE, AIRLOCK_AI_BOLTING_ALLOW)
-			aiBolting = TRUE
-		if(AIRLOCK_AI_BOLTING_FALSE, AIRLOCK_AI_BOLTING_DENY, AIRLOCK_AI_BOLTING_NEVER)
-			aiBolting = FALSE
-
 /obj/machinery/door/airlock/Destroy()
-	qdel(wires)
-	wires = null
-	qdel(wifi_receiver)
-	wifi_receiver = null
+	QDEL_NULL(wires)
+	QDEL_NULL(wifi_receiver)
 	return ..()
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
@@ -196,7 +185,6 @@
 	icon = 'icons/obj/doors/Doorext.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
-	aiBoltingSetup = AIRLOCK_AI_BOLTING_TRUE
 	insecure = 0
 
 /obj/machinery/door/airlock/science
@@ -240,7 +228,6 @@
 	hatch_colour = "#606061"
 	hashatch = FALSE
 	hackProof = TRUE
-	aiBoltingSetup = AIRLOCK_AI_BOLTING_NEVER
 
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -279,7 +266,6 @@
 	hatch_colour = "#606061"
 	hashatch = FALSE
 	hackProof = TRUE
-	aiBoltingSetup = AIRLOCK_AI_BOLTING_NEVER
 
 obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -321,7 +307,6 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	maxhealth = 800
 	panel_visible_while_open = TRUE
 	insecure = 0
-	aiBoltingSetup = AIRLOCK_AI_BOLTING_ALLOW
 	aiBoltingDelay = 12
 	aiUnBoltingDelay = 8
 
@@ -357,7 +342,6 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	hatch_colour = "#5b5b5b"
 	var/hatch_colour_bolted = "#695a5a"
 	insecure = 0
-	aiBoltingSetup = AIRLOCK_AI_BOLTING_TRUE
 
 /obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
 	if (hashatch)
@@ -510,7 +494,6 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	hatch_colour = "#5a5a66"
 	maxhealth = 600
 	insecure = 0
-	aiBoltingSetup = AIRLOCK_AI_BOLTING_ALLOW
 	aiBoltingDelay = 10
 	aiUnBoltingDelay = 5
 
@@ -544,7 +527,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 
 /obj/machinery/door/airlock/uranium/proc/radiate()
 	for(var/mob/living/L in range (3,src))
-		L.apply_effect(15,IRRADIATE, blocked = L.getarmor(null, "rad"))
+		L.apply_damage(15, IRRADIATE, damage_flags = DAM_DISPERSED)
 	return
 
 //---Phoron door
@@ -959,7 +942,7 @@ About the new airlock wires panel:
 			if(!src.density)
 				return
 
-			H.visible_message("\The [H] begins to pry open \the [src]!", "You begin to pry open \the [src]!", "You hear the sound of an airlock being forced open.")
+			H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
 
 			if(!do_after(H, 120, 1, act_target = src))
 				return
@@ -967,7 +950,7 @@ About the new airlock wires panel:
 			src.do_animate("spark")
 			src.stat |= BROKEN
 			var/check = src.open(1)
-			H.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
 			return
 	if(src.p_open)
 		user.set_machine(src)
@@ -1097,24 +1080,26 @@ About the new airlock wires panel:
 			if(!backup_power_lost_until)
 				src.loseBackupPower()
 		if("bolts")
+			if(isrobot(usr) && !Adjacent(usr))
+				to_chat(usr, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need be adjacent the door."))
+				return
 			if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop
 				to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
 			else if(isAdmin || issilicon(usr)) // controls for silicons, "stealthy" antag silicons and "stealthy" admins
-				if(src.aiBolting && src.aiBoltingSetup != AIRLOCK_AI_BOLTING_NEVER)
-					if(!src.arePowerSystemsOn()) // cannot queue actions or "speak" from unpowered doors
-						to_chat(usr, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
-					else if(!isnull(src.aiActionTimer))
-						to_chat(usr, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
-					else if(activate)
-						to_chat(usr, SPAN_NOTICE("The door bolts should drop in [src.aiBoltingDelay] seconds."))
-						src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[src.aiBoltingDelay] seconds</strong>.\"</span>")
-						src.aiActionTimer = addtimer(CALLBACK(src, .proc/lock), src.aiBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
-					else
-						to_chat(usr, SPAN_NOTICE("The door bolts should raise in [src.aiUnBoltingDelay] seconds."))
-						src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.aiUnBoltingDelay] seconds</strong>.\"</span>")
-						src.aiActionTimer = addtimer(CALLBACK(src, .proc/unlock), src.aiUnBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
-				else
+				if(!src.arePowerSystemsOn()) // cannot queue actions or "speak" from unpowered doors
+					to_chat(usr, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
+				else if(!aiBolting)
 					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
+				else if(!isnull(src.aiActionTimer))
+					to_chat(usr, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
+				else if(activate)
+					to_chat(usr, SPAN_NOTICE("The door bolts should drop in [src.aiBoltingDelay] seconds."))
+					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[src.aiBoltingDelay] seconds</strong>.\"</span>")
+					src.aiActionTimer = addtimer(CALLBACK(src, .proc/lock), src.aiBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+				else
+					to_chat(usr, SPAN_NOTICE("The door bolts should raise in [src.aiUnBoltingDelay] seconds."))
+					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.aiUnBoltingDelay] seconds</strong>.\"</span>")
+					src.aiActionTimer = addtimer(CALLBACK(src, .proc/unlock), src.aiUnBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 			else // everyone else
 				if(activate)
 					if(src.lock())
@@ -1128,8 +1113,6 @@ About the new airlock wires panel:
 					to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
 				else if(!isAdmin && !src.arePowerSystemsOn()) // door must be powered - display friendly message if not (admins can magically skip this)
 					to_chat(usr, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
-				else if (!isAdmin && src.aiBoltingSetup == AIRLOCK_AI_BOLTING_NEVER) // not even antags can operate door bolts here
-					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
 				else if(activate)
 					if(src.lock())
 						to_chat(usr, SPAN_NOTICE("The door bolts have been dropped."))
@@ -1416,7 +1399,7 @@ About the new airlock wires panel:
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
-	if(arePowerSystemsOn())
+	if(!forced && arePowerSystemsOn())
 		playsound(src.loc, open_sound_powered, 60, 1)
 	else
 		playsound(src.loc, open_sound_unpowered, 60, 1)
@@ -1485,7 +1468,8 @@ About the new airlock wires panel:
 /mob/living/airlock_crush(var/crush_damage)
 	. = ..()
 	for(var/i = 1, i <= AIRLOCK_CRUSH_DIVISOR, i++)
-		adjustBruteLoss(round(crush_damage / AIRLOCK_CRUSH_DIVISOR))
+		apply_damage((crush_damage / AIRLOCK_CRUSH_DIVISOR), BRUTE)
+
 	SetStunned(5)
 	SetWeakened(5)
 	visible_message(SPAN_DANGER("[src] is crushed in the airlock!"), SPAN_DANGER("You are crushed in the airlock!"), SPAN_NOTICE("You hear airlock actuators momentarily struggle."))
@@ -1521,9 +1505,14 @@ About the new airlock wires panel:
 				if(AM.blocks_airlock())
 					close_door_in(6)
 					return
+	var/has_opened_hatch = FALSE
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
-			if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
+			if(hashatch && AM.checkpass(PASSDOORHATCH))
+				if(!has_opened_hatch)
+					open_hatch(AM)
+				has_opened_hatch = TRUE
+			else if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
 				take_damage(DOOR_CRUSH_DAMAGE)
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())

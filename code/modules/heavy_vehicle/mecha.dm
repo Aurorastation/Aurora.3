@@ -8,7 +8,8 @@
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
 	mob_push_flags = ALLMOBS
-	can_buckle = FALSE
+	can_be_buckled = FALSE
+	accent = ACCENT_TTS
 	var/decal
 
 	var/emp_damage = 0
@@ -26,6 +27,16 @@
 	var/obj/item/card/id/access_card
 	var/list/saved_access = list()
 	var/sync_access = TRUE
+
+	// Mob we're currently paired with or following | the names are saved to prevent metagaming when returning diagnostics
+	var/datum/weakref/leader
+	var/leader_name
+	var/datum/weakref/following
+	var/following_name
+
+	// Orders from our leader
+	var/nickname // we'll respond to our name or our nickname
+	var/follow_distance = 3
 
 	// Mob currently piloting the mech.
 	var/list/pilots
@@ -55,6 +66,7 @@
 	var/maintenance_protocols
 	var/lockdown
 	var/entry_speed = 30
+	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
 	var/material/material
@@ -75,6 +87,8 @@
 	var/obj/screen/mecha/power/hud_power
 
 /mob/living/heavy_vehicle/Destroy()
+	unassign_leader()
+	unassign_following()
 
 	selected_system = null
 
@@ -87,7 +101,7 @@
 	pilots = null
 
 	QDEL_NULL_LIST(hud_elements)
-	
+
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
 
@@ -198,6 +212,9 @@
 
 	// Build icon.
 	update_icon()
+
+	add_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	. = INITIALIZE_HINT_LATELOAD
 

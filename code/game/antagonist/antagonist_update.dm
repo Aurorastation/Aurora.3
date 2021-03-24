@@ -9,12 +9,15 @@
 		var/mob/holder = player.current
 		player.current = new mob_path(get_turf(player.current))
 		player.transfer_to(player.current)
-		if(holder) qdel(holder)
+		if(holder)
+			qdel(holder)
 	player.original = player.current
 	if(!preserve_appearance && (flags & ANTAG_SET_APPEARANCE))
 		spawn(3)
 			var/mob/living/carbon/human/H = player.current
-			if(istype(H)) H.change_appearance(APPEARANCE_ALL, H.loc, H, valid_species, state = z_state)
+			if(istype(H))
+				H.change_appearance(APPEARANCE_ALL, H, valid_species)
+				H.rejuvenate() //So that things like disabilities and stuff get cleared.
 	if((flags & ANTAG_NO_FLAVORTEXT) && ishuman(player.current))
 		var/mob/living/carbon/human/H = player.current
 		H.scrub_flavor_text()

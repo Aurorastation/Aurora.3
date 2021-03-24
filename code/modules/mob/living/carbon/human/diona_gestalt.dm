@@ -12,7 +12,7 @@
 
 
 /mob/living/carbon/human/proc/setup_gestalt()
-	composition_reagent = /datum/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /decl/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
@@ -100,7 +100,7 @@
 	if (severity)
 		damage_factor = (1 / severity)
 
-	var/armorval = 	getarmor(null, "bomb")
+	var/armorval = get_blocked_ratio(BP_CHEST, BRUTE, DAM_DISPERSED, damage = damage)
 	if (armorval)
 		damage_factor *= (1 - (armorval * 0.01))
 

@@ -102,7 +102,7 @@
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat
 	)
-	reagents = list(/datum/reagent/nutriment/protein/egg = 3)
+	reagents = list(/decl/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/burger/bigbite
 
@@ -115,9 +115,16 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sandwich
 
+/decl/recipe/bunbun
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/bun
+	)
+	result = /obj/item/reagent_containers/food/snacks/bunbun
+
 /decl/recipe/superbiteburger
 	fruit = list("tomato" = 1)
-	reagents = list(/datum/reagent/sodiumchloride = 5, /datum/reagent/blackpepper = 5)
+	reagents = list(/decl/reagent/sodiumchloride = 5, /decl/reagent/blackpepper = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/burger/bigbite,
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -129,18 +136,18 @@
 
 /decl/recipe/candiedapple
 	fruit = list("apple" = 1)
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/sugar = 5)
+	reagents = list(/decl/reagent/water = 5, /decl/reagent/sugar = 5)
 	result = /obj/item/reagent_containers/food/snacks/candiedapple
 
 /decl/recipe/slimeburger
-	reagents = list(/datum/reagent/slimejelly = 5)
+	reagents = list(/decl/reagent/slimejelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/jelly/slime
 
 /decl/recipe/jellyburger
-	reagents = list(/datum/reagent/nutriment/cherryjelly = 5)
+	reagents = list(/decl/reagent/nutriment/cherryjelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun
 	)
@@ -148,7 +155,7 @@
 
 /decl/recipe/twobread
 	appliance = SKILLET | MIX
-	reagents = list(/datum/reagent/alcohol/ethanol/wine = 5)
+	reagents = list(/decl/reagent/alcohol/wine = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice
@@ -156,7 +163,7 @@
 	result = /obj/item/reagent_containers/food/snacks/twobread
 
 /decl/recipe/slimesandwich
-	reagents = list(/datum/reagent/slimejelly = 5)
+	reagents = list(/decl/reagent/slimejelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice
@@ -164,7 +171,7 @@
 	result = /obj/item/reagent_containers/food/snacks/jellysandwich/slime
 
 /decl/recipe/cherrysandwich
-	reagents = list(/datum/reagent/nutriment/cherryjelly = 5)
+	reagents = list(/decl/reagent/nutriment/cherryjelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice
@@ -187,7 +194,7 @@
 
 		. = ..(container)
 		for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
-			being_cooked.reagents.del_reagent(/datum/reagent/toxin)
+			being_cooked.reagents.del_reagent(/decl/reagent/toxin)
 
 /*
 /decl/recipe/neuralbroke
@@ -230,7 +237,7 @@
 
 /decl/recipe/donerkebab
 	fruit = list("tomato" = 1, "cabbage" = 1)
-	reagents = list(/datum/reagent/sodiumchloride = 1)
+	reagents = list(/decl/reagent/sodiumchloride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatsteak,
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
@@ -238,7 +245,7 @@
 	result = /obj/item/reagent_containers/food/snacks/donerkebab
 
 /decl/recipe/sashimi
-	reagents = list(/datum/reagent/nutriment/soysauce = 5)
+	reagents = list(/decl/reagent/nutriment/soysauce = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish
 	)
@@ -253,7 +260,7 @@
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
-	reagents = list(/datum/reagent/spacespice = 1)
+	reagents = list(/decl/reagent/spacespice = 1)
 	result = /obj/item/reagent_containers/food/snacks/cheese_cracker
 	result_quantity = 4
 
@@ -290,7 +297,7 @@
 	result = /obj/item/reagent_containers/food/snacks/mashedpotato
 
 /decl/recipe/icecreamsandwich
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/drink/ice = 5)
+	reagents = list(/decl/reagent/drink/milk = 5, /decl/reagent/drink/ice = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/icecream
@@ -299,7 +306,7 @@
 
 /decl/recipe/banana_split
 	fruit = list("banana" = 1)
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/drink/ice = 5)
+	reagents = list(/decl/reagent/drink/milk = 5, /decl/reagent/drink/ice = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/icecream

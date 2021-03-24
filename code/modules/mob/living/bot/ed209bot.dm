@@ -37,7 +37,7 @@
 	move_to_delay = 3
 
 /mob/living/bot/secbot/ed209/Initialize()
-	..()
+	. = ..()
 	if(!short_name)
 		short_name = name
 

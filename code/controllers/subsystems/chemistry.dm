@@ -8,25 +8,21 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/list/active_holders = list()
 	var/list/chemical_reactions
 	var/list/chemical_reactions_clean = list()
-	var/list/datum/reagent/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
 	var/list/codex_data = list()
 	var/list/codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
-	var/list/codex_ignored_result_path = list(/datum/reagent/drink, /datum/reagent/alcohol, /datum/reagent/paint)
+	var/list/codex_ignored_result_path = list(/decl/reagent/drink, /decl/reagent/alcohol)
 
-/datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/datum/reagent/R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
-
+/datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/_R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
+	var/decl/reagent/R = decls_repository.get_decl(_R)
 	if(R.specific_heat > 0)
 		return TRUE
 
-	if(chemical_reagents[R.type].specific_heat > 0) //Don't think this will happen but you never know.
-		return TRUE
-
-	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.type)
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(_R)
 	if(recipe)
 		for(var/chem in recipe.required_reagents)
-			if(!has_valid_specific_heat(chemical_reagents[chem]))
+			if(!has_valid_specific_heat(chem))
 				log_ss("chemistry", "ERROR: [recipe.type] has an improper recipe!")
 				return R.fallback_specific_heat > 0
 
@@ -35,23 +31,23 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if(R.fallback_specific_heat > 0)
 			return TRUE
 		else
-			log_ss("chemistry", "ERROR: [R.type] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
+			log_ss("chemistry", "ERROR: [_R] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
 			return FALSE
 
-/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/datum/reagent/R)
-
+/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/_R)
+	var/decl/reagent/R = decls_repository.get_decl(_R)
 	if(R.specific_heat > 0)
 		return R.specific_heat
 
-	if(chemical_reagents[R.type].specific_heat > 0) //Don't think this will happen but you never know.
-		return chemical_reagents[R.type].specific_heat
+	if(R.specific_heat > 0) //Don't think this will happen but you never know.
+		return R.specific_heat
 
-	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.type)
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(_R)
 	if(recipe)
 		var/final_heat = 0
 		var/result_amount = recipe.result_amount
 		for(var/chem in recipe.required_reagents)
-			var/chem_specific_heat = check_specific_heat(chemical_reagents[chem])
+			var/chem_specific_heat = check_specific_heat(chem)
 			if(chem_specific_heat <= 0)
 				log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 				final_heat = 0
@@ -59,15 +55,15 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
 
 		if(final_heat > 0)
-			chemical_reagents[R.type].specific_heat = final_heat
+			R.specific_heat = final_heat
 			return final_heat
 
 	if(R.fallback_specific_heat > 0)
-		chemical_reagents[R.type].specific_heat = R.fallback_specific_heat
+		R.specific_heat = R.fallback_specific_heat
 		return R.fallback_specific_heat
 
-	log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
-	chemical_reagents[R.type].specific_heat = 1
+	log_ss("chemistry", "ERROR: [_R] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+	R.specific_heat = 1
 	return 1
 
 /datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id)
@@ -76,6 +72,10 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if(CR.result == result_id && CR.result_amount > 0)
 			return CR
 
+/datum/controller/subsystem/chemistry/proc/initialize_specific_heats()
+	for(var/_R in subtypesof(/decl/reagent/))
+		check_specific_heat(_R)
+
 /datum/controller/subsystem/chemistry/stat_entry()
 	..("AH:[active_holders.len]")
 
@@ -83,13 +83,12 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	NEW_SS_GLOBAL(SSchemistry)
 
 /datum/controller/subsystem/chemistry/Initialize()
-	initialize_chemical_reagents()
 	initialize_chemical_reactions()
 	initialize_codex_data()
 	var/pre_secret_len = chemical_reactions.len
-	log_ss("chemistry", "Found [chemical_reagents.len] reagents, [pre_secret_len] reactions.")
-	load_secret_chemicals()
-	log_ss("chemistry", "Loaded [chemical_reactions.len - pre_secret_len] secret reactions.")
+	log_ss("chemistry", "Found [pre_secret_len] reactions.")
+	log_ss("chemistry", "Loaded [load_secret_chemicals()] secret reactions.")
+	initialize_specific_heats() // must be after reactions
 	..()
 
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
@@ -123,9 +122,9 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/Recover()
 	src.active_holders = SSchemistry.active_holders
 	src.chemical_reactions = SSchemistry.chemical_reactions
-	src.chemical_reagents = SSchemistry.chemical_reagents
 
 /datum/controller/subsystem/chemistry/proc/load_secret_chemicals()
+	. = 0
 	var/list/chemconfig = list()
 	try
 		chemconfig = json_decode(return_file_text("config/secretchem.json"))
@@ -141,40 +140,29 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		cc.id = chemconfig[chemical]["id"]
 		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
-		cc.required_reagents = chemconfig[chemical]["required_reagents"]
-		if(!(cc.result in chemical_reagents))
+		if(!ispath(cc.result, /decl/reagent))
 			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 			break
 
-		for(var/A in cc.required_reagents)
-			if(!(A in chemical_reagents))
-				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] required reagents list.")
+		for(var/key in chemconfig[chemical]["required_reagents"])
+			var/result_chem = text2path(key)
+			LAZYSET(cc.required_reagents, result_chem, chemconfig[chemical]["required_reagents"][key])
+			if(!ispath(result_chem, /decl/reagent))
+				log_debug("SSchemistry: Warning: Invalid chemical [key] in [cc.name] required reagents list.")
 				qdel(cc)
 				break
 
-		if(LAZYLEN(cc.required_reagents))
+		if(LAZYLEN(cc?.required_reagents))
 			var/rtype = cc.required_reagents[1]
 			LAZYINITLIST(chemical_reactions[rtype])
 			chemical_reactions[rtype] += cc
-
-//Chemical Reagents - Initialises all /datum/reagent into a list indexed by reagent type
-/datum/controller/subsystem/chemistry/proc/initialize_chemical_reagents()
-	var/paths = subtypesof(/datum/reagent)
-	chemical_reagents = list()
-	for(var/path in paths)
-		var/datum/reagent/D = new path()
-		if(!D.name)
-			continue
-		chemical_reagents[D.type] = D
-
-	sortTim(chemical_reagents, /proc/cmp_text_asc)
-
+			.++
 
 //Chemical Reactions - Initialises all /datum/chemical_reaction into a list
 // It is filtered into multiple lists within a list.
 // For example:
-// chemical_reaction_list[/datum/reagent/toxin/phoron] is a list of all reactions relating to phoron
+// chemical_reaction_list[/decl/reagent/toxin/phoron] is a list of all reactions relating to phoron
 // Note that entries in the list are NOT duplicated. So if a reaction pertains to
 // more than one chemical it will still only appear in only one of the sublists.
 /datum/controller/subsystem/chemistry/proc/initialize_chemical_reactions()
@@ -202,25 +190,25 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			continue
 		if(codex_ignored_result_path && is_path_in_list(CR.result, codex_ignored_result_path))
 			continue
-		var/datum/reagent/R = new CR.result
+		var/decl/reagent/R = decls_repository.get_decl(CR.result)
 		var/reactionData = list(id = CR.id)
 		reactionData["result"] = list(
 			name = R.name,
 			description = R.description,
 			amount = CR.result_amount
 		)
-		
+
 		reactionData["reagents"] = list()
 		for(var/reagent in CR.required_reagents)
-			var/datum/reagent/required_reagent = reagent
+			var/decl/reagent/required_reagent = reagent
 			reactionData["reagents"] += list(list(
 				name = initial(required_reagent.name),
 				amount = CR.required_reagents[reagent]
 			))
-		
+
 		reactionData["catalysts"] = list()
 		for(var/reagent_path in CR.catalysts)
-			var/datum/reagent/required_reagent = reagent_path
+			var/decl/reagent/required_reagent = reagent_path
 			reactionData["catalysts"] += list(list(
 				name = initial(required_reagent.name),
 				amount = CR.catalysts[reagent_path]
@@ -228,27 +216,15 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		reactionData["inhibitors"] = list()
 		for(var/reagent_path in CR.inhibitors)
-			var/datum/reagent/required_reagent = reagent_path
+			var/decl/reagent/required_reagent = reagent_path
 			var/inhibitor_amount = CR.inhibitors[reagent_path] ? CR.inhibitors[reagent_path] : "Any"
 			reactionData["inhibitors"] += list(list(
 				name = initial(required_reagent.name),
 				amount = inhibitor_amount
 			))
 
-		reactionData["temp_min"] = list()
-		for(var/reagent_path in CR.required_temperatures_min)
-			var/datum/reagent/required_reagent = reagent_path
-			reactionData["temp_min"] += list(list(
-				name = initial(required_reagent.name),
-				temp = CR.required_temperatures_min[reagent_path]
-			))
-		
-		reactionData["temp_max"] = list()
-		for(var/reagent_path in CR.required_temperatures_max)
-			var/datum/reagent/required_reagent = reagent_path
-			reactionData["temp_max"] += list(list(
-				name = initial(required_reagent.name),
-				temp = CR.required_temperatures_max[reagent_path]
-			))
-		
+		reactionData["temp_min"] = CR.required_temperature_min
+
+		reactionData["temp_max"] = CR.required_temperature_max
+
 		codex_data += list(reactionData)

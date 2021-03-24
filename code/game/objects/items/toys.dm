@@ -66,7 +66,7 @@
 			if(O.reagents.total_volume < 1)
 				to_chat(user, "The [O] is empty.")
 			else if(O.reagents.total_volume >= 1)
-				if(O.reagents.has_reagent(/datum/reagent/acid/polyacid, 1))
+				if(O.reagents.has_reagent(/decl/reagent/acid/polyacid, 1))
 					to_chat(user, "The acid chews through the balloon!")
 					O.reagents.splash(user, reagents.total_volume)
 					qdel(src)
@@ -925,6 +925,13 @@
 	icon_state = "kittenplushie"
 	slot_flags = SLOT_HEAD
 
+/obj/item/toy/plushie/pennyplush
+	name = "Penny plush"
+	desc = "It's a plush of the beloved company mascot cat, Penny! For the price Nanotrasen sells these things at, you probably could have bought an actual cat."
+	icon_state = "pennyplushie"
+	slot_flags = SLOT_HEAD
+
+
 /obj/item/toy/plushie/lizard
 	name = "lizard plush"
 	desc = "A plushie of a scaly lizard! Very controversial, after being accused as \"racist\" by some Unathi."
@@ -951,6 +958,28 @@
 	desc = "A bear plushie. Only you can stop phoron fires!"
 	icon_state = "bearplushie_fire"
 
+/obj/item/toy/plushie/schlorrgo
+	name = "schlorrgo plush"
+	desc = "A schlorrgo plushie, ready to roll his way into your heart!"
+	icon_state = "schlorrgoplushie"
+	phrase = "Eough!"
+
+/obj/item/toy/plushie/coolschlorrgo
+	name = "Cool Schlorrgo plush"
+	desc = "A plushie of the popular cartoon character, Cool Schlorrgo. Hadii's grace!"
+	icon_state = "coolerschlorrgoplushie"
+	phrase = "Eough!"
+
+/obj/item/toy/plushie/slime
+	name = "slime plush"
+	desc = "A beanbag-filled slime plushie. Relaxing!"
+	icon_state = "slimeplushie"
+
+/obj/item/toy/plushie/bee
+	name = "bee plush"
+	desc = "A chunky plushie bee. Your new buzz-t friend!"
+	icon_state = "beeplushie"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid
@@ -969,6 +998,13 @@
 	icon_state = "[colorvar]squid"
 	item_state = "[colorvar]squid"
 	desc = "A small, cute and loveable squid friend. This one is in [colorvar]."
+
+/obj/item/toy/plushie/squidcolour
+	name = "squid plushie"
+	desc = "A small, cute, and loveable squid friend. This one comes in a wide variety of colours."
+	icon_state = "squidplushie_colour"
+	// slot_flags = SLOT_HEAD - head sprite may come someday, but not today.
+	phrase = "Blub!"
 
 //Toy cult sword
 /obj/item/toy/cultsword
@@ -991,7 +1027,6 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
-
 /obj/item/toy/xmastree
 	name = "miniature Christmas tree"
 	desc = "Now with 99% less pine needles."
@@ -1001,6 +1036,55 @@
 	throwforce = 1
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+
+
+//baystation desk toys
+
+/obj/item/toy/desk
+	var/on = FALSE
+	var/activation_sound = /decl/sound_category/switch_sound
+
+/obj/item/toy/desk/update_icon()
+	if(on)
+		icon_state = "[initial(icon_state)]-on"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/toy/desk/attack_self(mob/user)
+	activate(user)
+
+/obj/item/toy/desk/AltClick(mob/user)
+	activate(user)
+
+/obj/item/toy/desk/proc/activate(mob/user)
+	on = !on
+	playsound(src.loc, activation_sound, 75, 1)
+	update_icon()
+	return 1
+
+/obj/item/toy/desk/newtoncradle
+	name = "\improper Newton's cradle"
+	desc = "A ancient 21th century super-weapon model demonstrating that Sir Isaac Newton is the deadliest sonuvabitch in space."
+	desc_fluff = "Aside from car radios, Eridanian Dregs are reportedly notorious for stealing these things. It is often theorized that the very same ball bearings are used in black-market cybernetics."
+	icon_state = "newtoncradle"
+
+/obj/item/toy/desk/fan
+	name = "office fan"
+	desc = "Your greatest fan."
+	desc_fluff = "For weeks, the atmospherics department faced a conundrum on how to lower temperatures in a localized area through complicated pipe channels and ventilation systems. The problem was promptly solved by ordering several desk fans."
+	icon_state = "fan"
+
+/obj/item/toy/desk/officetoy
+	name = "office toy"
+	desc = "A generic microfusion powered office desk toy. Only generates magnetism and ennui."
+	desc_fluff = "The mechanism inside is a Hephasteus trade secret. No peeking!"
+	icon_state = "desktoy"
+
+/obj/item/toy/desk/dippingbird
+	name = "dipping bird toy"
+	desc = "Engineers marvel at this scale model of a primitive thermal engine. It's highly debated why the majority of owners were in low-level bureaucratic jobs."
+	desc_fluff = "One of the key essentials for every Eridanian suit - it's practically a rite of passage to own one of these things."
+	icon_state = "dippybird"
 
 /obj/item/toy/partypopper
 	name = "party popper"

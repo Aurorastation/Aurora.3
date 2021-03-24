@@ -66,8 +66,8 @@
 		if(!metal)
 			F.create_reagents(10)
 			if(reagents)
-				for(var/datum/reagent/R in reagents.reagent_list)
-					F.reagents.add_reagent(R.type, 1, safety = 1) //added safety check since reagents in the foam have already had a chance to react
+				for(var/_R in reagents.reagent_volumes)
+					F.reagents.add_reagent(_R, 1, safety = 1) //added safety check since reagents in the foam have already had a chance to react
 
 /obj/effect/effect/foam/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume) // foam disolves when heated, except metal foams
 	if(!metal && prob(max(0, exposed_temperature - 475)))
@@ -107,8 +107,8 @@
 	// bit of a hack here. Foam carries along any reagent also present in the glass it is mixed with (defaults to water if none is present). Rather than actually transfer the reagents, this makes a list of the reagent ids and spawns 1 unit of that reagent when the foam disolves.
 
 	if(carry && !metal)
-		for(var/datum/reagent/R in carry.reagent_list)
-			carried_reagents += R.type
+		for(var/_R in carry.reagent_volumes)
+			carried_reagents += _R
 
 /datum/effect/effect/system/foam_spread/start()
 	set waitfor = FALSE
@@ -127,7 +127,7 @@
 			for(var/id in carried_reagents)
 				F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
 		else
-			F.reagents.add_reagent(/datum/reagent/water, 1, safety = 1)
+			F.reagents.add_reagent(/decl/reagent/water, 1, safety = 1)
 
 // wall formed by metal foams, dense and opaque, but easy to break
 
@@ -172,7 +172,7 @@
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam but bounce off it."))
-		animate_shake()
+		shake_animation()
 
 /obj/structure/foamedmetal/attackby(var/obj/item/I, var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -193,7 +193,7 @@
 		if(S.get_amount() < 4)
 			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 			return
-		
+
 		var/material/M = SSmaterials.get_material_by_name(S.default_type)
 		if(!istype(M))
 			return
@@ -230,7 +230,7 @@
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam to no effect."))
-		animate_shake()
+		shake_animation()
 
 /obj/structure/foamedmetal/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	if(air_group)

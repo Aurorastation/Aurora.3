@@ -55,6 +55,8 @@
 #define ui_morph_resist "EAST-2:26,SOUTH:5"
 #define ui_acti "EAST-2:26,SOUTH:5"
 #define ui_movi "EAST-3:24,SOUTH:5"
+#define ui_burstfire "EAST-4:20,SOUTH:14"
+#define ui_uniqueaction "EAST-4:20,SOUTH:5"
 #define ui_zonesel "EAST-1:28,SOUTH:5"
 #define ui_acti_alt "EAST-1:28,SOUTH:5" //alternative intent switcher for when the interface is hidden (F12)
 
@@ -106,10 +108,12 @@
 
 #define ui_glasses "WEST:6,SOUTH+2:9"
 #define ui_mask "WEST+1:8,SOUTH+2:9"
-#define ui_l_ear "WEST+2:10,SOUTH+2:9"
-#define ui_r_ear "WEST+2:10,SOUTH+3:11"
+#define ui_l_ear "WEST+2:10,SOUTH+3:11"
+#define ui_r_ear "WEST:6,SOUTH+3:11"
 
 #define ui_head "WEST+1:8,SOUTH+3:11"
+
+#define ui_wrists "WEST+2:10,SOUTH+2:9"
 
 //Intent small buttons
 #define ui_help_small "EAST-3:8,SOUTH:1"

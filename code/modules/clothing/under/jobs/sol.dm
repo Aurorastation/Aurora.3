@@ -6,7 +6,11 @@
 	icon_state = "sol_uniform"
 	item_state = "sol_uniform"
 	contained_sprite = 1
-	armor = list(melee = 10, bullet = 10, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
 
 /obj/item/clothing/under/rank/fatigues/marine //regular sol navy marine fatigues
 	name = "sol marine fatigues"

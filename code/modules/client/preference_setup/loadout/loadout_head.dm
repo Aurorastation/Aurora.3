@@ -21,6 +21,7 @@
 	bandanas["bandana, red"] = /obj/item/clothing/head/bandana/red
 	bandanas["bandana, captain"] = /obj/item/clothing/head/bandana/captain
 	bandanas["bandana, security"] = /obj/item/clothing/head/bandana/security
+	bandanas["bandana, security (corporate)"] = /obj/item/clothing/head/bandana/security/corp
 	bandanas["bandana, science"] = /obj/item/clothing/head/bandana/science
 	bandanas["bandana, medical"] = /obj/item/clothing/head/bandana/medical
 	bandanas["bandana, engineering"] = /obj/item/clothing/head/bandana/engineering
@@ -51,6 +52,7 @@
 	softcaps["softcap, red"] = /obj/item/clothing/head/softcap/red
 	softcaps["softcap, captain"] = /obj/item/clothing/head/softcap/captain
 	softcaps["softcap, security"] = /obj/item/clothing/head/softcap/security
+	softcaps["softcap, security (corporate)"] = /obj/item/clothing/head/softcap/security/corp
 	softcaps["softcap, science"] = /obj/item/clothing/head/softcap/science
 	softcaps["softcap, medical"] = /obj/item/clothing/head/softcap/medical
 	softcaps["softcap, engineering"] = /obj/item/clothing/head/softcap/engineering
@@ -80,6 +82,7 @@
 	berets["beret, red"] = /obj/item/clothing/head/beret/red
 	berets["beret, captain"] = /obj/item/clothing/head/beret/captain
 	berets["beret, security"] = /obj/item/clothing/head/beret/security
+	berets["beret, security (corporate)"] = /obj/item/clothing/head/beret/security/corp
 	berets["beret, science"] = /obj/item/clothing/head/beret/science
 	berets["beret, medical"] = /obj/item/clothing/head/beret/medical
 	berets["beret, engineering"] = /obj/item/clothing/head/beret/engineering
@@ -105,10 +108,10 @@
 /datum/gear/head/warden/New()
 	..()
 	var/wardenhead = list()
-	wardenhead["blue warden hat"] = /obj/item/clothing/head/warden
-	wardenhead["black warden hat"] = /obj/item/clothing/head/warden/alt
-	wardenhead["commissar's cap"] = /obj/item/clothing/head/warden/commissar
-	wardenhead["warden beret"] = /obj/item/clothing/head/beret/security/warden
+	wardenhead["warden hat, standard"] = /obj/item/clothing/head/warden
+	wardenhead["warden hat, corporate"] = /obj/item/clothing/head/warden/corp
+	wardenhead["warden beret, standard"] = /obj/item/clothing/head/beret/security/warden
+	wardenhead["warden beret, corporate"] = /obj/item/clothing/head/beret/security/warden/corp
 	gear_tweaks += new/datum/gear_tweak/path(wardenhead)
 
 /datum/gear/head/hos
@@ -120,21 +123,11 @@
 /datum/gear/head/hos/New()
 	..()
 	var/hoshead = list()
-	hoshead["blue commander beret"] = /obj/item/clothing/head/beret/security/hos
-	hoshead["black commander beret"] = /obj/item/clothing/head/beret/security/hos/alt
-	hoshead["blue commander hat"] = /obj/item/clothing/head/hos/cap
-	hoshead["black commander hat"] = /obj/item/clothing/head/hos/cap/alt
+	hoshead["head of security hat, standard"] = /obj/item/clothing/head/hos
+	hoshead["head of security hat, corporate"] = /obj/item/clothing/head/hos/corp
+	hoshead["head of security beret, standard"] = /obj/item/clothing/head/beret/security/hos
+	hoshead["head of security beret, corporate"] = /obj/item/clothing/head/beret/security/hos/corp
 	gear_tweaks += new/datum/gear_tweak/path(hoshead)
-
-/datum/gear/head/corp
-	display_name = "cap, corporate (security)"
-	path = /obj/item/clothing/head/softcap/security/corp
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
-
-/datum/gear/head/sec
-	display_name = "cap, security"
-	path = /obj/item/clothing/head/softcap/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
@@ -223,6 +216,11 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
 
+/datum/gear/head/hijab_colorable
+	display_name = "colorable hijab"
+	path = /obj/item/clothing/head/hijab/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/turban
 	display_name = "turban selection"
 	path = /obj/item/clothing/head/turban
@@ -245,7 +243,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -324,3 +322,8 @@
 	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/gadpathur
 	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
+
+/datum/gear/head/dominia
+	display_name = "fisanduhian ushanka"
+	path = /obj/item/clothing/head/ushanka/dominia
+	flags = GEAR_HAS_DESC_SELECTION

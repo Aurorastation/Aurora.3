@@ -81,7 +81,7 @@
 //Used by throw code to hand over the mob, instead of throwing the grab. The grab is then deleted by the throw code.
 /obj/item/grab/proc/throw_held()
 	if(affecting)
-		if(affecting.buckled)
+		if(affecting.buckled_to)
 			return null
 		if(state >= GRAB_AGGRESSIVE)
 			animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1)
@@ -203,13 +203,13 @@
 /obj/item/grab/proc/adjust_position()
 	if(!affecting)
 		return
-	if(affecting.buckled)
+	if(affecting.buckled_to)
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 		return
-	if(affecting.lying && state != GRAB_KILL)
+	if(affecting.lying || force_down)
+		affecting.update_canmove()
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 5, 1, LINEAR_EASING)
-		if(force_down)
-			affecting.set_dir(SOUTH) //face up
+		affecting.set_dir(SOUTH)
 		return
 	var/shift = 0
 	var/adir = get_dir(assailant, affecting)
@@ -225,11 +225,13 @@
 		if(GRAB_NECK, GRAB_UPGRADING)
 			shift = -10
 			adir = assailant.dir
+			affecting.update_canmove()
 			affecting.set_dir(assailant.dir)
 			affecting.forceMove(assailant.loc)
 		if(GRAB_KILL)
 			shift = 0
 			adir = 1
+			affecting.update_canmove()
 			affecting.set_dir(SOUTH) //face up
 			affecting.forceMove(assailant.loc)
 
@@ -323,7 +325,7 @@
 
 //This is used to make sure the victim hasn't managed to yackety sax away before using the grab.
 /obj/item/grab/proc/confirm()
-	if(!assailant || !affecting)
+	if(!assailant || !affecting || QDELETED(affecting))
 		qdel(src)
 		return 0
 
@@ -369,7 +371,7 @@
 					if(hit_zone == BP_EYES)
 						attack_eye(affecting, assailant)
 					else if(hit_zone == BP_HEAD)
-						headbut(affecting, assailant)
+						headbutt(affecting, assailant)
 					else
 						dislocate(affecting, assailant, hit_zone)
 

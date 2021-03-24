@@ -87,10 +87,14 @@
 				reset_girder()
 
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
-		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30/W.toolspeed))
-			if(!src) return
-			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+		var/obj/item/gun/energy/plasmacutter/PC = W
+		to_chat(user, SPAN_NOTICE("You start lining up \the [PC] to the joints of \the [src]..."))
+		if(do_after(user, 2 SECONDS))
+			if(!src)
+				return
+			playsound(loc, PC.fire_sound, 100, 1)
+			to_chat(user, SPAN_NOTICE("You blast apart the girder!"))
+			W.use_resource(user, 1)
 			dismantle()
 
 	else if(istype(W, /obj/item/melee/energy))

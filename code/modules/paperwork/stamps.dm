@@ -81,7 +81,7 @@
 
 // Syndicate stamp to forge documents.
 /obj/item/stamp/chameleon/attack_self(mob/user as mob)
-	var/list/stamp_types = typesof(/obj/item/stamp) - src.type - subtypesof(/obj/item/stamp/fluff)
+	var/list/stamp_types = typesof(/obj/item/stamp)
 	var/list/stamp_selection = list()
 
 	for(var/stamp_type in stamp_types)

@@ -27,7 +27,8 @@
 
 /datum/gear/smoking/lighter
 	display_name = "cheap lighter"
-	path = /obj/item/flame/lighter
+	path = /obj/item/flame/lighter/colourable
+	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/smoking/cigarcase
 	display_name = "cigar case"
@@ -79,7 +80,7 @@
 /datum/gear/smoking/leaves/New()
 	..()
 	var/leaves = list()
-	leaves["S'th Kasavakh tobacco leaves"] = /obj/item/storage/chewables/rollable/bad
+	leaves["S'th Kasavakh tobacco leaves"] = /obj/item/storage/chewables/rollable/unathi
 	leaves["Agyre Lake tobacco leaves"] = /obj/item/storage/chewables/rollable
 	leaves["Excelsior Epsilon tobacco leaves"] = /obj/item/storage/chewables/rollable/fine
 	leaves["Golden Sol tobacco leaves"] = /obj/item/storage/chewables/rollable/nico

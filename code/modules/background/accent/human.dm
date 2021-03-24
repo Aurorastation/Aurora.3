@@ -110,13 +110,19 @@
 	character as villainous or untrustworthy. As a result, it is often looked down upon throughout human space."
 	tag_icon = "venus_surfacer"
 
-/datum/accent/dominia
-	name = ACCENT_DOMINIA
-	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Dominion-spoken Sol Common and Tau Ceti Basic are both heavily \
-	influenced by Tradeband, the common language of both human and unathi nobility in the Empire. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in \
-	the rebellious Morozian region of Fisanduh. The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents \
-	to better blend in with the greater Imperial population."
-	tag_icon = "dominia"
+/datum/accent/dominia_high
+	name = ACCENT_DOMINIA_HIGH
+	description = "The less common Dominian accent is High Morozi, a variation of Tradeband found upon Moroz itself. While Vulgar Morozi is typically associated with the common citizenry of the Empire, \
+	High Morozi is associated with the Imperial nobility. While most typically associated with nobles it is often taught to wealthy commoners in order to more easily brush shoulders with nobility. \
+	This accent is one of the most readily-recognised markers of Dominian nobility abroad."
+	tag_icon = "dominia_high"
+
+/datum/accent/dominia_vulgar
+	name = ACCENT_DOMINIA_VULGAR
+	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Though heavily influenced by Tradeband Vulgar Morozi is considered to be a \
+	dialect of Sol Common rather than a distinct Tradeband dialect. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in the rebellious Morozian region of Fisanduh. \
+	The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents to better blend in with the greater Imperial population."
+	tag_icon = "dominia_vulgar"
 
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
@@ -157,3 +163,16 @@
 	isolation of the planet during its period of reunification. Due to the government's tight control over Gadpathur, and push for unity in the face of the Sol Alliance, Gadpathurians have \
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
+
+/datum/accent/pluto
+	name = ACCENT_PLUTO
+	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System itself, though it is almost undoubtedly the furthest one out from the Sun itself. Rooted in a combination \
+	of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
+	tag_icon = "pluto"
+
+/datum/accent/assunzione
+	name = ACCENT_ASSUNZIONE
+	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages the Assunzionii dialect is \
+	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
+	Luceian services and can be distinguished by its use of archaic language."
+	tag_icon = "assunzione"

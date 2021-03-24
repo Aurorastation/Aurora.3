@@ -12,6 +12,8 @@
 
 	var/list/all_integrated_circuits = list()
 	var/list/printer_recipe_list = list()
+	var/list/printer_recipe_list_basic = list()
+	var/list/printer_recipe_list_upgraded = list()
 
 /datum/controller/subsystem/processing/electronics/New()
 	NEW_SS_GLOBAL(SSelectronics)
@@ -89,6 +91,22 @@
 		new /obj/item/device/integrated_electronics/debugger,
 		new /obj/item/device/integrated_electronics/detailer
 	)
+
+
+	for(var/category in printer_recipe_list)
+		var/items = printer_recipe_list[category]
+		printer_recipe_list_basic[category] = list()
+		printer_recipe_list_upgraded[category] = list()
+		for(var/obj/O in items)
+			var/is_basic = TRUE
+			if(istype(O, /obj/item/integrated_circuit))
+				var/obj/item/integrated_circuit/IC = O
+				if((IC.spawn_flags & IC_SPAWN_RESEARCH) && (!(IC.spawn_flags & IC_SPAWN_DEFAULT)))
+					is_basic = FALSE
+			
+			printer_recipe_list_basic[category] += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "b" = is_basic))
+			printer_recipe_list_upgraded[category] += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "b" = TRUE))
+
 
 	..()
 

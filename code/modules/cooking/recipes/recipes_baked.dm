@@ -81,7 +81,7 @@
 /decl/recipe/soywafers
 	appliance = OVEN
 	fruit = list("soybeans" = 1)
-	reagents = list(/datum/reagent/nutriment/flour = 10)
+	reagents = list(/decl/reagent/nutriment/flour = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soywafers
 
@@ -99,17 +99,9 @@
 	items = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
 	result = /obj/item/reagent_containers/food/snacks/loadedbakedpotato
 
-/decl/recipe/dionaroast
-	appliance = OVEN
-	fruit = list("apple" = 1)
-	reagents = list(/datum/reagent/acid/polyacid = 5) //It dissolves the carapace. Still poisonous, though.
-	items = list(/obj/item/reagent_containers/food/snacks/meat/dionanymph)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/dionaroast
-	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
-
 /decl/recipe/ribplate //Putting this here for not seeing a roast section.
 	appliance = OVEN
-	reagents = list(/datum/reagent/nutriment/honey = 5, /datum/reagent/spacespice = 2, /datum/reagent/blackpepper = 1)
+	reagents = list(/decl/reagent/nutriment/honey = 5, /decl/reagent/spacespice = 2, /decl/reagent/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/ribplate
@@ -144,12 +136,12 @@
 /decl/recipe/plumphelmetbiscuit
 	appliance = OVEN
 	fruit = list("plumphelmet" = 1)
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/flour = 5)
+	reagents = list(/decl/reagent/water = 5, /decl/reagent/nutriment/flour = 5)
 	result = /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
 
 /decl/recipe/spacylibertyduff
 	appliance = OVEN
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/ethanol/vodka = 5, /datum/reagent/psilocybin = 5)
+	reagents = list(/decl/reagent/water = 5, /decl/reagent/alcohol/vodka = 5, /decl/reagent/psilocybin = 5)
 	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
 
 /decl/recipe/hotdiggitydonk //heated donk, in lieu of a microwave
@@ -161,7 +153,7 @@
 
 /decl/recipe/rofflewaffles
 	appliance = OVEN
-	reagents = list(/datum/reagent/psilocybin = 5, /datum/reagent/sugar = 10)
+	reagents = list(/decl/reagent/psilocybin = 5, /decl/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough

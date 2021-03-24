@@ -123,7 +123,7 @@
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
-		/obj/item/clothing/head/softcap/chameleon = 1,
+		/obj/item/clothing/head/chameleon = 1,
 		/obj/item/clothing/suit/chameleon = 1,
 		/obj/item/clothing/shoes/chameleon = 1,
 		/obj/item/storage/backpack/chameleon = 1,
@@ -141,7 +141,7 @@
 		/obj/item/pen/chameleon = 1,
 		/obj/item/device/destTagger = 1,
 		/obj/item/stack/packageWrap = 1,
-		/obj/item/hand_labeler = 1
+		/obj/item/device/hand_labeler = 1
 	)
 
 /obj/item/storage/box/syndie_kit/special_pens
@@ -181,31 +181,31 @@
 	..()
 	var/obj/item/storage/box/fancy/cigarettes/pack
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
+	fill_cigarre_package(pack, list(/decl/reagent/aluminum = 5, /decl/reagent/potassium = 5, /decl/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
+	fill_cigarre_package(pack, list(/decl/reagent/aluminum = 5, /decl/reagent/potassium = 5, /decl/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
+	fill_cigarre_package(pack, list(/decl/reagent/potassium = 5, /decl/reagent/sugar = 5, /decl/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
+	fill_cigarre_package(pack, list(/decl/reagent/potassium = 5, /decl/reagent/sugar = 5, /decl/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	// Dylovene. Going with 1.5 rather than 1.6666666...
-	fill_cigarre_package(pack, list(/datum/reagent/potassium = 1.5, /datum/reagent/ammonia = 1.5, /datum/reagent/silicon = 1.5))
+	fill_cigarre_package(pack, list(/decl/reagent/potassium = 1.5, /decl/reagent/ammonia = 1.5, /decl/reagent/silicon = 1.5))
 	// Mindbreaker
-	fill_cigarre_package(pack, list(/datum/reagent/silicon = 4.5, /datum/reagent/hydrazine = 4.5, /datum/reagent/dylovene = 4.5))
+	fill_cigarre_package(pack, list(/decl/reagent/silicon = 4.5, /decl/reagent/hydrazine = 4.5, /decl/reagent/dylovene = 4.5))
 
 	pack.desc += " 'MB' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	pack.reagents.add_reagent(/datum/reagent/tricordrazine, 15 * pack.storage_slots)
+	pack.reagents.add_reagent(/decl/reagent/tricordrazine, 15 * pack.storage_slots)
 	pack.desc += " 'T' has been scribbled on it."
 
 	new /obj/item/flame/lighter/zippo(src)
@@ -220,8 +220,8 @@
 	starts_with = list(/obj/item/rig_module/electrowarfare_suite = 1, /obj/item/rig_module/voice = 1)
 
 /obj/item/storage/box/syndie_kit/armor
-	name = "boxed armor kit"
-	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
+	name = "boxed heavy armor kit"
+	starts_with = list(/obj/item/clothing/suit/armor/carrier/heavy = 1, /obj/item/clothing/head/helmet/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
 	starts_with = list(/obj/item/spacecash/c1000 = 10)

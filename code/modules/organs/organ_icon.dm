@@ -20,9 +20,7 @@
 		var/datum/robolimb/R = all_robolimbs[robotize_type]
 		if(R.paintable)
 			limb_exception = TRUE
-		if(R.company == PROSTHETIC_SYNTHSKIN)
-			limb_exception = TRUE
-	if(status & ORGAN_ROBOT && !(isipc(human)) && !limb_exception)
+	if((status & ORGAN_ROBOT) && !limb_exception)
 		return
 	if(species && human.species && species.name != human.species.name)
 		return
@@ -112,6 +110,7 @@
 	if(vampire && (vampire.status & VAMP_FRENZIED))
 		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy", EFFECTS_ABOVE_LIGHTING_LAYER)
 		return_image.appearance_flags = KEEP_APART
+		LAZYADD(additional_images, return_image)
 		return list(return_image)
 
 /obj/item/organ/external/proc/apply_markings(restrict_to_robotic = FALSE)
@@ -223,14 +222,19 @@
 /obj/item/organ/external/proc/get_additional_images(var/mob/living/carbon/human/H)
 	return
 
+/obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/human/H)
+	if(LAZYLEN(additional_images))
+		H.cut_overlay(additional_images, TRUE)
+		LAZYCLEARLIST(additional_images)
+
 // new damage icon system
 // adjusted to set damage_state to brute/burn code only (without r_name0 as before)
 /obj/item/organ/external/update_icon()
 	var/n_is = damage_state_text()
 	if (n_is != damage_state)
 		damage_state = n_is
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 // This is NOT safe for caching the organ's own icon, it's only meant to be used for the mob icon cache.
 /obj/item/organ/external/proc/get_mob_cache_key()

@@ -52,7 +52,7 @@
 
 /decl/surgery_step/internal/fix_dead_tissue		//Debridement
 	name = "Debride damaged tissue"
-	priority = 3
+	priority = 4
 	allowed_tools = list(
 		/obj/item/surgery/scalpel = 100,
 		/obj/item/material/knife = 75,
@@ -77,7 +77,7 @@
 			break
 	if(!organ)
 		return
-	if(organ.damage >= organ.max_damage)
+	if(organ.damage > organ.max_damage)
 		to_chat(user, SPAN_WARNING("\The [organ] is too damaged. Repair it first."))
 		return 0
 
@@ -105,6 +105,7 @@
 	user.visible_message(SPAN_NOTICE("[user] has cut away necrotic tissue from [target]'s [organ_to_fix.name] with \the [tool]."), \
 		SPAN_NOTICE("You have cut away necrotic tissue in [target]'s [organ_to_fix.name] with \the [tool]."))
 	organ_to_fix.status &= ~ORGAN_DEAD
+	organ_to_fix.heal_damage(10) //so that they don't insta-die again
 
 /decl/surgery_step/internal/fix_dead_tissue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -114,7 +115,7 @@
 
 /decl/surgery_step/treat_necrosis
 	name = "Treat necrosis"
-	priority = 2
+	priority = 4
 	allowed_tools = list(
 		/obj/item/reagent_containers/dropper = 100,
 		/obj/item/reagent_containers/glass/bottle = 75,
@@ -126,8 +127,8 @@
 	can_infect = FALSE
 	blood_level = 0
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 100
+	max_duration = 110
 
 /decl/surgery_step/treat_necrosis/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -137,7 +138,7 @@
 		return FALSE
 
 	var/obj/item/reagent_containers/container = tool
-	if(!container.reagents.has_reagent(/datum/reagent/peridaxon))
+	if(!container.reagents.has_reagent(/decl/reagent/peridaxon))
 		return FALSE
 
 	if (target_zone == BP_MOUTH)
@@ -162,7 +163,7 @@
 
 	var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD) //technically it's contact, but the reagents are being applied to internal tissue
 	if (trans > 0)
-		if(container.reagents.has_reagent(/datum/reagent/peridaxon))
+		if(container.reagents.has_reagent(/decl/reagent/peridaxon))
 			affected.status &= ~ORGAN_DEAD
 			affected.owner.update_body(1)
 

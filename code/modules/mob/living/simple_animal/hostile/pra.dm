@@ -54,7 +54,7 @@
 
 	tameable = FALSE
 
-	smart = TRUE
+	smart_ranged = TRUE
 
 	mob_bump_flag = ROBOT
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
@@ -63,7 +63,7 @@
 /mob/living/simple_animal/hostile/republicon/Initialize()
 	. = ..()
 	add_language(LANGUAGE_SIIK_MAAS)
-	set_default_language(LANGUAGE_SIIK_MAAS)
+	set_default_language(all_languages[LANGUAGE_SIIK_MAAS])
 
 /mob/living/simple_animal/hostile/republicon/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

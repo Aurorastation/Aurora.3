@@ -22,15 +22,9 @@
 	build_path = /obj/machinery/computer/scan_consolenew
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
 
-/obj/item/circuitboard/teleporter
-	name = T_BOARD("teleporter control console")
-	build_path = /obj/machinery/computer/teleporter
-	origin_tech = list(TECH_DATA = 2, TECH_BLUESPACE = 2)
-
 /obj/item/circuitboard/sentencing
 	name = T_BOARD("criminal sentencing console")
 	build_path = /obj/machinery/computer/sentencing
-
 
 /obj/item/circuitboard/atmos_alert
 	name = T_BOARD("atmospheric alert console")

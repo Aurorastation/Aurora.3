@@ -11,7 +11,7 @@
 	var/throwforce = 1
 	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
 	var/sharp = 0		// whether this object cuts
-	var/edge = 0		// whether this object is more likely to dismember
+	var/edge = FALSE	// whether this object is more likely to dismember
 	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
 	var/damtype = BRUTE
 	var/force = 0
@@ -217,13 +217,6 @@
 //This is useful for setting special behaviour for built items that shouldn't apply to those spawned at roundstart
 /obj/proc/Created()
 	return
-
-/obj/proc/animate_shake()
-	var/init_px = pixel_x
-	var/shake_dir = pick(-1, 1)
-	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
-	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)
-	return 7 // how long it takes to do this
 
 /obj/proc/rotate(var/mob/user, var/anchored_ignore = FALSE)
 	if(use_check_and_message(user))

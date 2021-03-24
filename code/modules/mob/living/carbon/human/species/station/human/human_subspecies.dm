@@ -21,7 +21,7 @@
 	hazard_low_pressure = 10
 
 	examine_color = "#C2AE95"
-	allowed_accents = list(ACCENT_SCARAB, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_HIMEO, ACCENT_ERIDANIDREG, ACCENT_DOMINIA, ACCENT_NCF)
+	allowed_accents = list(ACCENT_SCARAB, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_HIMEO, ACCENT_ERIDANIDREG, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR, ACCENT_NCF, ACCENT_ASSUNZIONE)
 
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack) && H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack))
@@ -51,8 +51,8 @@
 
 	var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 	if(S)
-		for(var/datum/reagent/R in S.ingested.reagent_list)
-			if(R.type == /datum/reagent/rmt)
+		for(var/_R in S.ingested.reagent_volumes)
+			if(_R == /decl/reagent/rmt)
 				return 0
 
 	return 4
@@ -84,8 +84,8 @@
 
 		var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 		if(S)
-			for(var/datum/reagent/R in S.ingested.reagent_list)
-				if(R.type == /datum/reagent/rmt)
+			for(var/_R in S.ingested.reagent_volumes)
+				if(_R == /decl/reagent/rmt)
 					return
 
 		var/pain_message = pick("You feel sluggish as if something is weighing you down.",

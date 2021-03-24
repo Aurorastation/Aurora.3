@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Store from '../../../store.js'
+import Store from '@/store'
 export default {
   props: {
     value: {

@@ -96,9 +96,16 @@ var/datum/antagonist/wizard/wizards
 
 	player.preEquipOutfit(/datum/outfit/admin/wizard, FALSE)
 	player.equipOutfit(/datum/outfit/admin/wizard, FALSE)
+	if(player.wear_id)
+		id_card = player.wear_id
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
+
+/datum/antagonist/wizard/set_antag_name(var/mob/living/player)
+	..()
+	if(id_card)
+		addtimer(CALLBACK(player, /mob/.proc/set_id_info, id_card), 1 SECOND)
 
 /datum/antagonist/wizard/check_victory()
 	var/survivor

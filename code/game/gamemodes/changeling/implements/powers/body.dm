@@ -77,8 +77,8 @@
 		H.u_equip(H.handcuffed)
 		qdel(cuffs)
 
-	if(H.buckled)
-		H.buckled.unbuckle_mob()
+	if(H.buckled_to)
+		H.buckled_to.unbuckle()
 
 	changeling.chem_charges--
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
@@ -210,6 +210,9 @@
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
 	C.remove_changeling_powers()
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		H.handle_hud_list(TRUE)
 
 	C.emote("gasp")
 	C.tod = worldtime2text()
@@ -259,9 +262,9 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent(/datum/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.10)
-	C.reagents.add_reagent(/datum/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
+	C.reagents.add_reagent(/decl/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
+	C.reagents.add_reagent(/decl/reagent/oxycomorphine, 0.10)
+	C.reagents.add_reagent(/decl/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun
@@ -490,8 +493,8 @@
 				continue
 			M.drop_from_inventory(I)
 
-	if(M.buckled)
-		M.buckled.unbuckle_mob()
+	if(M.buckled_to)
+		M.buckled_to.unbuckle()
 
 	if(M.mind)
 		M.mind.transfer_to(ling)

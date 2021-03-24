@@ -4,7 +4,7 @@
 	desc = "A piece of juicy meat found in a person's head."
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
-	vital = 1
+	vital = TRUE
 	icon_state = "brain"
 	force = 1.0
 	w_class = ITEMSIZE_SMALL
@@ -156,20 +156,17 @@
 					if(prob(damprob))
 						take_internal_damage(1)
 					if(prob(damprob))
-						take_internal_damage(2)
+						take_internal_damage(1)
 	..()
 
 /obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)
 	set waitfor = 0
-	if(damage >= (max_damage / 4))
-		damage *= 2
 	..()
 	if(damage >= (max_damage / 5)) //This probably won't be triggered by oxyloss or mercury. Probably.
 		var/damage_secondary = damage * 0.20
 		owner.eye_blurry += damage_secondary
 		owner.confused += damage_secondary * 2
 		owner.Weaken(round(damage_secondary * 3, 1))
-		owner.adjustOxyLoss(damage)
 		if(prob(30))
 			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
 

@@ -9,8 +9,7 @@
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
 	var/accuracy = 1
-	var/fragile = 2        // most glassware is super fragile. Not a boolean.
-	var/shatter = FALSE //does this container shatter?
+	var/fragile = 0        // If nonzero, above what force do we shatter?
 	var/shatter_sound = /decl/sound_category/glass_break_sound
 	var/material/shatter_material = MATERIAL_GLASS //slight typecasting abuse here, gets converted to a material in initializee
 	var/can_be_placed_into = list(
@@ -61,11 +60,18 @@
 
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if((speed >= fragile) && shatter && !ismob(loc))
+	if(ismob(loc))
+		return
+	if(fragile && (speed >= fragile))
 		shatter()
+	if(flags && NOREACT)
+		return
+	if(!reagents)
+		return
+	reagents.apply_force(speed)
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
-	if(reagents?.total_volume)
+	if(reagents.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
 	playsound(src, shatter_sound, 70, 1)
@@ -73,18 +79,23 @@
 	qdel(src)
 
 /obj/item/reagent_containers/attackby(var/obj/item/W, var/mob/user)
-	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && (W.force > fragile) && shatter)
+	if(istype(W, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/dipped = W
+		dipped.attempt_apply_coating(src, user)
+		return
+	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
 		if(do_after(user, 10))
 			if(!QDELETED(src))
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))
 				user.do_attack_animation(src)
 				shatter(W, user)
+				return
 	..()
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	if(can_operate(M) && do_surgery(M, user, src))
 		return
-	if(reagents && !reagents.total_volume && user.a_intent == I_HURT)
+	if(!reagents.total_volume && user.a_intent == I_HURT)
 		return ..()
 
 /obj/item/reagent_containers/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
@@ -109,14 +120,10 @@
 	return ..()
 
 /obj/item/reagent_containers/proc/get_temperature()
-	if(reagents)
-		return reagents.get_temperature()
-	return T0C + 20
+	return reagents.get_temperature()
 
 /obj/item/reagent_containers/proc/reagentlist() // For attack logs
-	if(reagents)
-		return reagents.get_reagents()
-	return "No reagent holder"
+	return reagents.get_reagents()
 
 /obj/item/reagent_containers/proc/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!istype(target))
@@ -126,7 +133,7 @@
 		to_chat(user, "<span class='notice'>[target] is empty.</span>")
 		return 1
 
-	if(reagents && !reagents.get_free_space())
+	if(!REAGENTS_FREE_SPACE(reagents))
 		to_chat(user, "<span class='notice'>[src] is full.</span>")
 		return 1
 
@@ -139,7 +146,7 @@
 	if(user.a_intent != I_HURT)
 		return
 
-	if(!reagents || !reagents.total_volume)
+	if(!reagents.total_volume)
 		return
 
 	user.visible_message("<span class='danger'>\The [target] has been splashed with something by \the [user]!</span>", "<span class = 'warning'>You splash the solution onto \the [target].</span>")
@@ -154,11 +161,11 @@
 	if(user.a_intent != I_HURT)
 		return 0
 
-	if(!reagents || !reagents.total_volume)
+	if(!reagents.total_volume)
 		to_chat(user, "<span class='notice'>[src] is empty.</span>")
 		return 1
 
-	if(target.reagents && !target.reagents.get_free_space())
+	if(target.reagents && !REAGENTS_FREE_SPACE(target.reagents))
 		to_chat(user, "<span class='notice'>[target] is full.</span>")
 		return 1
 
@@ -198,7 +205,7 @@
 	if(user.a_intent == I_HURT)
 		return 0
 
-	if(!reagents || !reagents.total_volume)
+	if(!reagents.total_volume)
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		return 1
 
@@ -272,13 +279,13 @@
 	else if(!target.is_open_container())
 		return 0
 
-	if(!reagents || !reagents.total_volume)
+	if(!reagents.total_volume)
 		if(force) // bash people!
 			return 0
 		to_chat(user, "<span class='notice'>[src] is empty.</span>")
 		return 1
 
-	if(!target.reagents.get_free_space())
+	if(!REAGENTS_FREE_SPACE(target.reagents))
 		to_chat(user, "<span class='notice'>[target] is full.</span>")
 		return 1
 

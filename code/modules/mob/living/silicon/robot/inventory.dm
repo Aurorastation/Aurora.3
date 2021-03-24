@@ -231,24 +231,24 @@
 		to_chat(src, "<span class='notice'>You need to disable a module first!</span>")
 
 /mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
-	var/obj/item/gripper/G = null
+	var/obj/item/gripper/G
 	if (istype(module_state_1, /obj/item/gripper))
 
 		G = module_state_1
 		if (!G.wrapped && G.grip_item(W, src, 1))
-			return 1
+			return TRUE
 	else if (istype(module_state_2, /obj/item/gripper))
 		G = module_state_2
 		if (!G.wrapped && G.grip_item(W, src, 0))
-			return 1
+			return TRUE
 	else if (istype(module_state_3, /obj/item/gripper))
 		G = module_state_3
 		if (!G.wrapped && G.grip_item(W, src, 0))
-			return 1
+			return TRUE
 
 
 	W.forceMove(get_turf(src))
-	return 0
+	return FALSE
 
 
 /mob/living/silicon/robot/drop_item()
@@ -257,10 +257,7 @@
 		if (G.wrapped)
 			G.drop_item()
 			return
-
 	uneq_active()
-
-
 
 /mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W)
@@ -269,17 +266,15 @@
 		if (istype(W.loc, /obj/item/gripper))
 			var/obj/item/gripper/G = W.loc
 			G.drop(target)
-			return 1
-	return 0
-
+			return TRUE
+	return FALSE
 
 /mob/living/silicon/robot/canUnEquip(obj/item/I)
 	if(!I) //If there's nothing to drop, the drop is automatically successful.
-		return 1
+		return TRUE
 	if (I.loc != src)
-		return 1//Allows objects inside grippers
-	return 0//don't allow dropping our modules
-
+		return TRUE //Allows objects inside grippers
+	return FALSE //don't allow dropping our modules
 
 /mob/living/silicon/robot/proc/describe_module(var/slot)
 	var/list/index_module = list(module_state_1,module_state_2,module_state_3)
