@@ -10,8 +10,8 @@
       <div class="notice"> <!-- Lock -->
         <div v-if="state.siliconUser">
           <vui-group-item label="Interface Lock:">
-            <vui-button icon="lock" :params="{toggleaccess : 1}" :class="{selected : state.locked}">Engaged</vui-button>
-            <vui-button icon="lock-open" :params="{toggleaccess : 1}" :disabled="state.malfstatus >= 2" :class="{selected : (state.malfstatus < 2) && !state.locked}">Disengaged</vui-button>
+            <vui-button v-if="state.locked" icon="lock" :params="{toggleaccess : 1}" :class="{selected : state.locked}">Engaged</vui-button>
+            <vui-button v-else icon="lock-open" :params="{toggleaccess : 1}" :disabled="state.malfstatus >= 2" :class="{selected : (state.malfstatus < 2) && !state.locked}">Disengaged</vui-button>
           </vui-group-item>
         </div>
         <span v-else>Swipe an ID card to {{state.locked ? "un" : null}}lock this interface.</span>
@@ -23,10 +23,7 @@
           <div v-if="state.locked && !state.siliconUser">
             <span :class="{good : state.isOperating, bad : !state.isOperating}">{{state.isOperating ? "On" : "Off"}}</span>
           </div>
-          <div v-else>
-            <vui-button icon="times" :params="{breaker : 1}" v-if="!state.isOperating">Off</vui-button>
-            <vui-button icon="power-off" :params="{breaker : 1}" v-else>On</vui-button>
-          </div>
+          <vui-button v-else :icon="state.isOperating ? 'power-off' : 'times'" :params="{breaker : 1}" :class="{selected: state.isOperating}">{{state.isOperating ? "On" : "Off"}}</vui-button>
         </vui-group-item>
 
         <vui-group-item label="External Power:">
@@ -53,19 +50,19 @@
 
         <vui-group-item label="Charge Mode:" v-if="state.powerCellStatus != null">
           <span v-if="state.locked && !state.siliconUser" :class="{good : state.chargeMode, bad : !state.chargeMode}">{{state.chargeMode ? "Auto" : "Off"}}</span>
-          <vui-button v-else :icon="state.chargeMode ? 'sync' : 'times'" :params="{cmode : 1}">{{state.chargeMode ? "Auto" : "Off"}}</vui-button>
+          <vui-button v-else :icon="state.chargeMode ? 'sync' : 'times'" :class="{selected: state.chargeMode}" :params="{cmode : 1}">{{state.chargeMode ? "Auto" : "Off"}}</vui-button>
           &nbsp;
           [<span :class="chargeClass">{{chargeStatus}}</span>]
         </vui-group-item>
 
         <vui-group-item label="Night Lighting:">
-          <vui-button :icon="state.lightingMode ? 'moon' : 'sun'" :params="{lmode : state.lightingMode ? 'off' : 'on'}">{{state.lightingMode ? "On" : "Off"}}</vui-button>
+          <vui-button :icon="state.lightingMode ? 'moon' : 'sun'" :class="{selected: state.lightingMode}" :params="{lmode : state.lightingMode ? 'off' : 'on'}">{{state.lightingMode ? "On" : "Off"}}</vui-button>
         </vui-group-item>
 
         <vui-group-item label="Emergency Lighting:">
           <div style="width: 105px">
             <span v-if="state.locked && !state.siliconUser">{{state.emergencyMode ? "On" : "Off"}}</span>
-            <vui-button v-else icon="lightbulb" :params="{emergency_lights : 1}">{{state.emergencyMode ? "On" : "Off"}}</vui-button>
+            <vui-button v-else icon="lightbulb" :class="{selected: state.emergencyMode}" :params="{emergency_lights : 1}">{{state.emergencyMode ? "On" : "Off"}}</vui-button>
           </div>
         </vui-group-item>
 
@@ -110,7 +107,7 @@
             <span :class="{good : state.coverLocked, bad : !state.coverLocked}" v-if="state.coverLocked">{{state.coverLocked ? "E" : "Dise"}}ngaged</span>
           </div>
           <div v-else>
-            <vui-button :icon="state.coverLocked ? 'lock' : 'lock-open'" :params="{lock : 1}">{{state.coverLocked ? "E" : "Dise"}}ngaged</vui-button>
+            <vui-button :icon="state.coverLocked ? 'lock' : 'lock-open'" :class="{selected: state.coverLocked}" :params="{lock : 1}">{{state.coverLocked ? "E" : "Dise"}}ngaged</vui-button>
           </div>
         </vui-group-item>
 
