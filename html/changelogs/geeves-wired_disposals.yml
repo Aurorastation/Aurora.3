@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Disposals now have wires you can cut and pulse. Cutting one of the wires will disable flushing, pulsing that same one will cause it to flush."

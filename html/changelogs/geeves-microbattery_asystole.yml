@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Removing an IPC's microbattery will no longer kill them, it will just put them in a no-power state until it's reinstalled."
-  - bugfix: "Taking the cell out of a microbattery now works again."
