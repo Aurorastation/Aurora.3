@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the ability to turn off exosuits. This counts as physically disconnecting the power cell, it will no longer drain, but it will also no longer charge."
+  - tweak: "Exosuits with open hatches will no longer cause blindness if the camera system goes down."
