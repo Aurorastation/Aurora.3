@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Closet Teleporters now only go on cooldown if they successfully teleported a mob."
