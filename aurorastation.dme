@@ -989,6 +989,7 @@
 #include "code\game\objects\items\weapons\storage\bible.dm"
 #include "code\game\objects\items\weapons\storage\boxes.dm"
 #include "code\game\objects\items\weapons\storage\briefcase.dm"
+#include "code\game\objects\items\weapons\storage\business_card.dm"
 #include "code\game\objects\items\weapons\storage\cell_backpack.dm"
 #include "code\game\objects\items\weapons\storage\fancy.dm"
 #include "code\game\objects\items\weapons\storage\field_ration.dm"
