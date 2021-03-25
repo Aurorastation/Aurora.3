@@ -1,0 +1,9 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - rscadd: "Cyborgs may now carry gifts and packages in magnetic grippers."
+  - rscadd: "Service and paperwork grippers are now able to wrap items into gifts and parcels."
+  - bugfix: "Cyborgs are now able to open parcels by hitting with no module selected (large parcels on the ground) or activating the parcel in their gripper (small parcels)."
+  - bugfix: "Cyborg grippers will no longer be eaten by package wrap, leaving a borg gripper-less forever."
