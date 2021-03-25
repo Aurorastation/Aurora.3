@@ -2501,14 +2501,14 @@
 
 /decl/reagent/alcohol/jovian_storm
 	name = "Jovian Storm"
-	description = "Named after Jupiter’s storm. It’ll blow you away."
+	description = "Named after Jupiter's storm. It'll blow you away."
 	color = "#AA856A"
 	strength = 15
 	taste_description = "stormy sweetness"
 
 	glass_icon_state = "jovianstormglass"
 	glass_name = "glass of Jovian Storm"
-	glass_desc = "A classic Callistean drink named after Jupiter’s storm. It’ll blow you away."
+	glass_desc = "A classic Callistean drink named after Jupiter's storm. It'll blow you away."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
 /decl/reagent/alcohol/bananahonk

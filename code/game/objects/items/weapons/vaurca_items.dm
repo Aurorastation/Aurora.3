@@ -90,7 +90,7 @@
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	contained_sprite = 1
 
 
@@ -360,7 +360,7 @@
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	contained_sprite = 1
 	base_reflectchance = 40
 	base_block_chance = 60

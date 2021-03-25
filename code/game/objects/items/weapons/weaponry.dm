@@ -120,7 +120,7 @@
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
@@ -138,7 +138,7 @@
 	force = 2
 	throwforce = 1
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'

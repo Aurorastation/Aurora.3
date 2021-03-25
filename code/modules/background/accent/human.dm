@@ -163,3 +163,16 @@
 	isolation of the planet during its period of reunification. Due to the government's tight control over Gadpathur, and push for unity in the face of the Sol Alliance, Gadpathurians have \
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
+
+/datum/accent/pluto
+	name = ACCENT_PLUTO
+	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System itself, though it is almost undoubtedly the furthest one out from the Sun itself. Rooted in a combination \
+	of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
+	tag_icon = "pluto"
+
+/datum/accent/assunzione
+	name = ACCENT_ASSUNZIONE
+	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages the Assunzionii dialect is \
+	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
+	Luceian services and can be distinguished by its use of archaic language."
+	tag_icon = "assunzione"

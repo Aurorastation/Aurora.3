@@ -9,8 +9,7 @@
 	if (!warned_ckey || !istext(warned_ckey))
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		to_chat(usr, "<span class='warning'>Error: warn(): Database Connection failed, reverting to legacy systems.</span>")
 		usr.client.warn_legacy(warned_ckey)
 		return
@@ -110,8 +109,7 @@
 	var/dcolor = "#ffaaaa"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
 
@@ -213,8 +211,7 @@
 	if (!warning_id)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		alert("Connection to SQL database failed while attempting to update your warning's status!")
 		return
 
@@ -249,8 +246,7 @@
 	var/count = 0
 	var/count_expire = 0
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/list/client_details = list("ckey" = ckey, "computer_id" = computer_id, "address" = address)
@@ -280,10 +276,9 @@
  * A proc used to gather if someone has Unacknowledged Warnings
  */
 /client/proc/fetch_unacked_warning_count()
-	establish_db_connection(dbcon)
 	if (!dbcon)
 		return
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 	var/count = 0
 
@@ -468,8 +463,7 @@
 	if(!warning_id || !warning_edit)
 		return
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
 

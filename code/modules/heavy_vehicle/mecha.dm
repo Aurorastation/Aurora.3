@@ -101,7 +101,7 @@
 	pilots = null
 
 	QDEL_NULL_LIST(hud_elements)
-	
+
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
 
@@ -214,7 +214,7 @@
 	update_icon()
 
 	add_language(LANGUAGE_TCB)
-	set_default_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	. = INITIALIZE_HINT_LATELOAD
 

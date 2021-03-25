@@ -481,4 +481,5 @@
 	desc = "Only useful for holding up your pants." // Useless belt is useless.
 	icon_state = "belt"
 	item_state = "belt"
-	storage_slots = 0
+	storage_slots = 1
+	max_w_class = ITEMSIZE_TINY

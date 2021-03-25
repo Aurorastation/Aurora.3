@@ -74,7 +74,7 @@
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
-	cell = new cell(src)
+	replace_cell(new cell(src))
 	. = ..()
 
 /obj/item/organ/internal/cell/proc/percent()
@@ -142,8 +142,16 @@
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 			else if(user.unEquip(W, src))
-				cell = W
+				replace_cell(W)
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
+
+/obj/item/organ/internal/cell/proc/replace_cell(var/obj/item/cell/C)
+	if(istype(cell))
+		qdel(cell)
+	if(C.loc != src)
+		C.forceMove(src)
+	cell = C
+	name = "[initial(name)] ([C.name])"
 
 /obj/item/organ/internal/cell/listen()
 	if(get_charge())
