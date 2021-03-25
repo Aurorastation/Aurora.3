@@ -18,7 +18,7 @@
 	unwrap()
 
 /obj/structure/bigDelivery/attack_ai(mob/user)
-	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open packages.
+	if(isrobot(user) && Adjacent(user)) // Robots can open packages.
 		attack_hand(user)
 
 /obj/structure/bigDelivery/proc/unwrap()
