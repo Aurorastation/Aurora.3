@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Simple mobs now bleed. They also bleed out and die."
+  - rscadd: "Attacking a simple mob while unarmed will now use your default attack with a hitsound."
+  - rscadd: "Attacking a simple mob with an item will now properly show the attack animation and hitsound."
