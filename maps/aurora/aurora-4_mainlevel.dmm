@@ -60345,6 +60345,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "fap" = (
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -69043,6 +69044,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "uRt" = (

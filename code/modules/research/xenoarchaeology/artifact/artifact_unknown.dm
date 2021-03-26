@@ -324,3 +324,8 @@
 		my_effect.UpdateMove()
 	if(secondary_effect)
 		secondary_effect.UpdateMove()
+
+/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely. 
+	if(!isrobot(user) || !Adjacent(user))
+		return
+	return ..()

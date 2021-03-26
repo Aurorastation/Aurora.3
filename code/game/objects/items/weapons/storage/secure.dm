@@ -23,9 +23,9 @@
 	var/l_hacking = 0
 	var/emagged = 0
 	var/open = 0
-	w_class = ITEMSIZE_NORMAL
-	max_w_class = ITEMSIZE_SMALL
-	max_storage_space = 14
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_NORMAL
+	max_storage_space = 16
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
 	examine(mob/user)

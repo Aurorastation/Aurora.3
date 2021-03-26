@@ -24,7 +24,9 @@
 		/obj/item/smes_coil,
 		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
 		/obj/item/computer_hardware,
-		/obj/item/pipe
+		/obj/item/pipe,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 		)
 
 	var/obj/item/wrapped
@@ -74,6 +76,7 @@
 
 /obj/item/gripper/update_icon()
 	underlays.Cut()
+	grippersafety(src)
 	if(wrapped && wrapped.icon)
 		var/mutable_appearance/MA = new(wrapped)
 		MA.layer = FLOAT_LAYER
@@ -107,14 +110,15 @@
 
 	drop(get_turf(src))
 
-/obj/item/gripper/proc/drop(var/atom/target)
+/obj/item/gripper/proc/drop(var/atom/target, var/feedback = TRUE)
 	if(wrapped)
 		if(wrapped.loc == src)
 			if(force_holder)
 				wrapped.force = force_holder
 			wrapped.forceMove(target)
 			force_holder = null
-		to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
+		if(feedback)
+			to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
 	wrapped = null
 	update_icon()
 	return TRUE
@@ -189,7 +193,9 @@
 		/obj/item/stock_parts,
 		/obj/item/custom_ka_upgrade,
 		/obj/item/warp_core,
-		/obj/item/extraction_pack
+		/obj/item/extraction_pack,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 	)
 
 /obj/item/gripper/paperwork
@@ -204,7 +210,11 @@
 		/obj/item/book,
 		/obj/item/newspaper,
 		/obj/item/stamp,
-		/obj/item/ducttape
+		/obj/item/ducttape,
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/stack/packageWrap,
+		/obj/item/stack/wrapping_paper
 		)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -238,7 +248,9 @@
 		/obj/item/slimesteroid2,
 		/obj/item/slimepotion,
 		/obj/item/slimepotion2,
-		/obj/item/remote_mecha
+		/obj/item/remote_mecha,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
@@ -258,7 +270,9 @@
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/food/drinks/sillycup,
-		/obj/item/reagent_containers/food/drinks/medcup
+		/obj/item/reagent_containers/food/drinks/medcup,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 		)
 
 /obj/item/gripper/service //Used to handle food, drinks, and seeds.
@@ -274,7 +288,11 @@
 		/obj/item/trash,
 		/obj/item/reagent_containers/cooking_container,
 		/obj/item/material/kitchen,
-		/obj/item/reagent_containers/food/snacks
+		/obj/item/reagent_containers/food/snacks,
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/stack/packageWrap,
+		/obj/item/stack/wrapping_paper
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

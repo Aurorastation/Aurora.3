@@ -122,6 +122,7 @@
 
 /obj/item/projectile/bullet/pistol
 	damage = 25
+	armor_penetration = 10
 
 /obj/item/projectile/bullet/pistol/medium
 	damage = 30
@@ -202,11 +203,11 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 45
+	damage = 40
 	armor_penetration = 20
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 45
+	damage = 40
 	armor_penetration = 15
 
 /obj/item/projectile/bullet/rifle/a556/ap

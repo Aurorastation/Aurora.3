@@ -26,7 +26,7 @@
 	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
 	if(port)
 		connect(port)
-	
+
 /obj/machinery/portable_atmospherics/canister/Initialize()
 	..()
 
@@ -41,6 +41,7 @@
 		air_contents.react()
 	else
 		update_icon()
+		SSvueui.check_uis_for_change(src)
 
 /obj/machinery/portable_atmospherics/Destroy()
 	qdel(air_contents)
@@ -113,6 +114,7 @@
 		user.drop_from_inventory(T,src)
 		src.holding = T
 		update_icon()
+		SSvueui.check_uis_for_change(src)
 		return
 
 	else if (W.iswrench())
@@ -120,6 +122,7 @@
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
 			update_icon()
+			SSvueui.check_uis_for_change(src)
 			return
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
@@ -127,6 +130,7 @@
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
 					update_icon()
+					SSvueui.check_uis_for_change(src)
 					return
 				else
 					to_chat(user, "<span class='notice'>\The [src] failed to connect to the port.</span>")
@@ -170,6 +174,7 @@
 		cell = C
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
 		power_change()
+		SSvueui.check_uis_for_change(src)
 		return
 
 	if(I.isscrewdriver())
@@ -182,6 +187,7 @@
 		cell.forceMove(src.loc)
 		cell = null
 		power_change()
+		SSvueui.check_uis_for_change(src)
 		return
 	..()
 
