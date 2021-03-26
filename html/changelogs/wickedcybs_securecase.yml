@@ -1,0 +1,6 @@
+author: Wickedcybs
+
+delete-after: True
+
+changes:
+  - tweak: "Secure storages like the secure briefcase can now hold normal sized items and have the same amount of storage space as a standard briefcase."
