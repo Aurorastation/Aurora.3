@@ -31,6 +31,7 @@
 	new /obj/item/book/manual/ka_custom(src)
 	new /obj/item/clothing/accessory/storage/overalls/mining(src)
 	new /obj/item/clothing/head/bandana/miner(src)
+	new /obj/item/clothing/head/hardhat/orange(src)
 
 /******************************Lantern*******************************/
 
@@ -585,14 +586,13 @@
 	key = null
 	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
-	turn_off() //so engine verbs are correctly set
+	turn_off()
 
 /obj/vehicle/train/cargo/engine/mining/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/key/minecarts))
 		if(!key)
 			user.drop_from_inventory(W, src)
 			key = W
-			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 		return
 	..()
 

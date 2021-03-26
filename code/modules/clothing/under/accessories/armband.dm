@@ -79,3 +79,9 @@
 	desc_fluff = "While initially adopted during the early days of the TCFL to account for a sudden increase in volunteers and a lack of uniforms, during the height of the Republic of Biesel's conflicts with the Sol Alliance,\
 	it has been worn as a symbol of independence and patriotism."
 	icon_state = "tauceti"
+
+/obj/item/clothing/accessory/armband/scc
+	name = "Stellar Corporate Conglomerate armband"
+	desc = "An armband, tailored with all the colors of the Sellar Corporate Conglomerate."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "scc"

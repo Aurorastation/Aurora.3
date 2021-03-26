@@ -12,7 +12,8 @@
 
 /obj/item/device/mmi/digital/posibrain/Initialize()
 	. = ..()
-	brainmob.name = "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
+	var/datum/language/L = all_languages[LANGUAGE_EAL]
+	brainmob.name = L.get_random_name()
 	brainmob.real_name = brainmob.name
 
 /obj/item/device/mmi/digital/posibrain/attack_self(mob/user)

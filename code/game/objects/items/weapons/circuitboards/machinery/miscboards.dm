@@ -139,6 +139,18 @@
 							"/obj/item/stock_parts/scanning_module" = 1,
 							"/obj/item/stock_parts/matter_bin" = 2)
 
+/obj/item/circuitboard/grill
+	name = T_BOARD("grill")
+	desc = "The circuitboard for a grill."
+	build_path = /obj/machinery/appliance/cooker/grill
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
+	board_type = "machine"
+	req_components = list(
+			"/obj/item/stock_parts/capacitor" = 2,
+			"/obj/item/stock_parts/micro_laser" = 1,
+			"/obj/item/stack/cable_coil" = 5
+	)
+
 /obj/item/circuitboard/candymachine
 	name = T_BOARD("candy machine")
 	desc = "The circuitboard for a candy machine."

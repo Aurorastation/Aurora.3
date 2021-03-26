@@ -8,6 +8,7 @@
 	age_max = 60
 	economic_modifier = 3
 	default_genders = list(NEUTER)
+	selectable_pronouns = list(NEUTER, PLURAL)
 
 	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
@@ -118,7 +119,7 @@
 	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_ASSUNZIONE)
 
 	alterable_internal_organs = list()
 

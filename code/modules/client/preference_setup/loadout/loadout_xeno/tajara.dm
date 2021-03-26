@@ -1,3 +1,21 @@
+/datum/gear/shoes/tajara/boots
+	display_name = "tajaran boots selection"
+	description = "A selection of boots fitted for Tajara."
+	path = /obj/item/clothing/shoes/tajara
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/shoes/tajara/boots/New()
+	..()
+	var/list/boots = list()
+	boots["black boots, short"] = /obj/item/clothing/shoes/tajara/jackboots
+	boots["black boots, knee"] = /obj/item/clothing/shoes/tajara/jackboots/knee
+	boots["black boots, thigh"] = /obj/item/clothing/shoes/tajara/jackboots/thigh
+	boots["brown workboots"] = /obj/item/clothing/shoes/tajara/workboots
+	boots["grey workboots"] = /obj/item/clothing/shoes/tajara/workboots/grey
+	boots["dark workboots"] = /obj/item/clothing/shoes/tajara/workboots/dark
+	gear_tweaks += new/datum/gear_tweak/path(boots)
+
 /datum/gear/gloves/tajara
 	display_name = "tajara gloves selection"
 	description = "A selection of tajaran gloves."
@@ -36,6 +54,7 @@
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran
+	coat["Raakti Shariim coat"] = /obj/item/clothing/suit/storage/tajaran/raakti_shariim
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_cloak
@@ -44,6 +63,7 @@
 	path = /obj/item/clothing/accessory/poncho/tajarancloak
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
+	cost = 1
 
 /datum/gear/suit/tajara_cloak/New()
 	..()
@@ -100,6 +120,7 @@
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
 	uniform["adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
 	uniform["machinist uniform"] = /obj/item/clothing/under/tajaran/mechanic
+	uniform["Raakti Shariim uniform"] = /obj/item/clothing/under/tajaran/raakti_shariim
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/tajara_dress
@@ -175,6 +196,7 @@
 	circlet["silver dress circlet"] = /obj/item/clothing/head/tajaran/circlet/silver
 	circlet["fur hat"] = /obj/item/clothing/head/tajaran/fur
 	circlet["matake priest hat"] = /obj/item/clothing/head/tajaran/matake
+	circlet["Raakti Shariim beret"] = /obj/item/clothing/head/beret/tajaran/raakti_shariim
 	gear_tweaks += new/datum/gear_tweak/path(circlet)
 
 /datum/gear/accessory/tajara_wrap
@@ -207,9 +229,9 @@
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/shoes/tajara
+/datum/gear/shoes/tajara/footwraps
 	display_name = "native tajaran foot-wear"
-	path = /obj/item/clothing/shoes/tajara
+	path = /obj/item/clothing/shoes/tajara/footwraps
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 

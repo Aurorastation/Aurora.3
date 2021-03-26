@@ -24,12 +24,15 @@
 
 	grab_mod = 1.25 // Fur easy to cling onto
 
+	age_max = 80
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
 	economic_modifier = 7
+	selectable_pronouns = null
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4

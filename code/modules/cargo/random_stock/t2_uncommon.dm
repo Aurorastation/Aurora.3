@@ -93,13 +93,11 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
-		var/decl/reagent/R = decls_repository.get_decl(rname)
-
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (istype(R, /decl/reagent/drink) || istype(R, /decl/reagent/alcohol))
+		if (ispath(rname, /decl/reagent/drink) || ispath(rname, /decl/reagent/alcohol))
 			rname = pick(chems)
-			R = decls_repository.get_decl(rname)
+		var/decl/reagent/R = decls_repository.get_decl(rname)
 		C.reagents.add_reagent(rname, C.volume)
 		C.setLabel(R.name)
 
@@ -145,9 +143,6 @@ STOCK_ITEM_UNCOMMON(advwelder, 2)
 		new /obj/item/weldingtool/experimental(L)
 	else
 		new /obj/item/weldingtool/hugetank(L)
-
-STOCK_ITEM_UNCOMMON(sord, 1)
-	new /obj/item/sord(L)
 
 STOCK_ITEM_UNCOMMON(policebaton, 1.5)
 	new /obj/item/melee/classic_baton(L)

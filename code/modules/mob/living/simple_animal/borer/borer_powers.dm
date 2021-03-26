@@ -73,8 +73,12 @@
 		if(!E || E.is_stump())
 			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
 			return
-		if(!H.species.has_organ[BP_BRAIN])
-			to_chat(src, SPAN_WARNING("\The [H] does not seem to have an ear canal to breach."))
+		var/obj/item/organ/internal/I = H.species.has_organ[BP_BRAIN]
+		if(!I)
+			to_chat(src, SPAN_WARNING("\The [H] doesn't have a brain!"))
+			return
+		if(istype(I, /obj/item/organ/internal/borer))
+			to_chat(src, SPAN_WARNING("You cannot infest someone who is already infested!"))
 			return
 		if(H.isSynthetic())
 			to_chat(src, SPAN_NOTICE("You can't affect synthetics."))
@@ -357,7 +361,7 @@
 	var/mob/living/simple_animal/borer/B = has_brain_worms()
 
 	if(B?.host_brain)
-		to_chat(src, SPAN_WARNING("You withdraw your probosci, releasing control of [B.host_brain]"))
+		to_chat(src, SPAN_WARNING("You withdraw your probosci, releasing control of [B.host_brain]."))
 
 		B.detach()
 

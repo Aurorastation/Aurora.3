@@ -270,7 +270,7 @@
 	desc = "A mass of small intertwined aliens forming a floor... Creepy."
 	icon = 'icons/turf/floors.dmi'
 	icon_base = "diona"
-	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL
+	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL | TURF_REMOVE_WELDER
 	footstep_sound = /decl/sound_category/grass_footstep
 
 //material turfs

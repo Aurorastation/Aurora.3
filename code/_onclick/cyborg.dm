@@ -191,8 +191,8 @@
 /atom/proc/BorgCtrlClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
 	CtrlClick(user)
 
-/obj/machinery/door/airlock/BorgCtrlClick() // Bolts doors. Forwards to AI code.
-	AICtrlClick()
+/obj/machinery/door/airlock/BorgCtrlClick(mob/user) // Bolts doors. Forwards to AI code.
+	AICtrlClick(user)
 
 /obj/machinery/power/apc/BorgCtrlClick() // turns off/on APCs. Forwards to AI code.
 	AICtrlClick()

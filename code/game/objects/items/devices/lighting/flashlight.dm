@@ -51,12 +51,18 @@
 	if(!isturf(user.loc))
 		to_chat(user, "You cannot turn the light on while in this [user.loc].") //To prevent some lighting anomalities.)
 		return 0
+	toggle()
+	user.update_action_buttons()
+	return 1
+
+/obj/item/device/flashlight/proc/toggle()
 	on = !on
 	if(on && activation_sound)
 		playsound(src.loc, activation_sound, 75, 1)
 	update_icon()
-	user.update_action_buttons()
-	return 1
+
+/obj/item/device/flashlight/vendor_action(var/obj/machinery/vending/V)
+	toggle()
 
 /obj/item/device/flashlight/examine(mob/user, distance)
 	. = ..()

@@ -201,8 +201,7 @@
 	delta_power *= SMESRATE
 
 	var/goal = (delta_power < 0) ? (charge) : (capacity - charge)
-
-	var/time_secs = (delta_power) ? ((goal / abs(delta_power)) * (round(world.time - last_time) / 10)) : (0)
+	time = world.time + (delta_power ? ((goal / abs(delta_power)) * (world.time - last_time)) : 0)
 	// If it is negative - we are discharging
 	if(delta_power < 0)
 		charge_mode = 0
@@ -211,7 +210,6 @@
 	else
 		charge_mode = 2
 	last_time = world.time
-	time = ((time_secs / 3600) > 1) ? ("[round(time_secs / 3600)] hours, [round((time_secs % 3600) / 60)] minutes") : ("[round(time_secs / 60)] minutes, [round(time_secs % 60)] seconds")
 
 /obj/machinery/power/smes/machinery_process()
 	if(!can_function())
@@ -252,6 +250,8 @@
 	else
 		outputting = 0
 
+	SSvueui.check_uis_for_change(src)
+
 // called after all power processes are finished
 // restores charge level to smes if there was excess this ptick
 /obj/machinery/power/smes/proc/restore(var/percent_load)
@@ -277,6 +277,7 @@
 
 	if(clev != chargedisplay() ) //if needed updates the icons overlay
 		update_icon()
+	SSvueui.check_uis_for_change(src)
 	return
 
 //Will return 1 on failure
@@ -393,7 +394,32 @@
 		return 0
 	return 1
 
-/obj/machinery/power/smes/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/power/smes/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	// this is the data that will be sent to the ui
+	data = list()
+	var/list/monitordata = ..()
+	if(monitordata)
+		data = monitordata
+	data["nameTag"] = name_tag
+	data["chargeTaken"] = round(input_taken)
+	data["charging"] = inputting
+	data["chargeAttempt"] = input_attempt
+	data["chargeLevel"] = input_level
+	data["chargeMax"] = input_level_max
+	data["outputLoad"] = round(output_used)
+	data["outputting"] = outputting
+	data["outputOnline"] = output_attempt
+	data["outputLevel"] = output_level
+	data["outputMax"] = output_level_max
+	data["time"] = time
+	data["chargeMode"] = charge_mode
+	data["storedCapacity"] = 0
+	if(capacity)
+		data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
+	data["failTime"] = failure_timer * 2
+	return data
+
+/obj/machinery/power/smes/ui_interact(mob/user)
 	if(!can_function())
 		if(!terminal)
 			to_chat(user, SPAN_WARNING("\The [src] is lacking a terminal!"))
@@ -401,41 +427,13 @@
 		if(is_badly_damaged())
 			to_chat(user, SPAN_WARNING("\The [src] is too damaged to function!"))
 		return
-
-	// this is the data which will be sent to the ui
-	var/data[0]
-	data["nameTag"] = name_tag
-	if(capacity)
-		data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
-	else
-		data["storedCapacity"] = 0
-	data["charging"] = inputting
-	data["chargeMode"] = input_attempt
-	data["chargeLevel"] = input_level
-	data["chargeMax"] = input_level_max
-	data["charge_taken"] = round(input_taken)
-	data["outputOnline"] = output_attempt
-	data["outputLevel"] = output_level
-	data["outputMax"] = output_level_max
-	data["outputLoad"] = round(output_used)
-	data["failTime"] = failure_timer * 2
-	data["outputting"] = outputting
-	data["time"] = time
-	data["charge_mode"] = charge_mode
-
-
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "smes.tmpl", "SMES Unit", 540, 420)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
+		ui = new(user, src, "machinery-power-smes", 540, 420, "SMES Unit")
 		// open the new ui window
 		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
 
 /obj/machinery/power/smes/proc/Percentage()
 	return round(100.0*charge/capacity, 0.1)
@@ -447,7 +445,6 @@
 	if( href_list["cmode"] )
 		inputting(!input_attempt)
 		update_icon()
-
 	else if( href_list["online"] )
 		outputting(!output_attempt)
 		update_icon()
@@ -455,27 +452,11 @@
 		failure_timer = 0
 		update_icon()
 	else if( href_list["input"] )
-		switch( href_list["input"] )
-			if("min")
-				input_level = 0
-			if("max")
-				input_level = input_level_max
-			if("set")
-				input_level = input(usr, "Enter new input level (0-[input_level_max])", "SMES Input Power Control", input_level) as num
-		input_level = max(0, min(input_level_max, input_level))	// clamp to range
-
+		input_level = clamp(href_list["input"], 0, input_level_max)	// clamp to range
 	else if( href_list["output"] )
-		switch( href_list["output"] )
-			if("min")
-				output_level = 0
-			if("max")
-				output_level = output_level_max
-			if("set")
-				output_level = input(usr, "Enter new output level (0-[output_level_max])", "SMES Output Power Control", output_level) as num
-		output_level = max(0, min(output_level_max, output_level))	// clamp to range
-
+		output_level = clamp(href_list["output"], 0, output_level_max)	// clamp to range
 	investigate_log("input/output; <font color='[input_level>output_level?"green":"red"][input_level]/[output_level]</font> | Output-mode: [output_attempt?"<font color='green'>on</font>":"<span class='warning'>off</span>"] | Input-mode: [input_attempt?"<font color='green'>auto</font>":"<span class='warning'>off</span>"] by [usr.key]","singulo")
-
+	SSvueui.check_uis_for_change(src)
 	return 1
 
 /obj/machinery/power/smes/proc/energy_fail(var/duration)

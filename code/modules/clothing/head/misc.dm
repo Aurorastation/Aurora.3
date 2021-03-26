@@ -291,6 +291,7 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	contained_sprite = 1
+	slot_flags = SLOT_EARS  | SLOT_HEAD
 
 /obj/item/clothing/head/hijab/grey
 	name = "grey hijab"
@@ -594,7 +595,7 @@
 	item_state = "helmet_tac_sol"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED

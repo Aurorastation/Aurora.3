@@ -101,7 +101,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -123,13 +123,12 @@
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/teleporter,
-		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/chem_dispenser/ninja,
-		/obj/item/rig_module/self_destruct,
+		/obj/item/rig_module/anti_theft,
 		/obj/item/rig_module/actuators/combat
 	)
 

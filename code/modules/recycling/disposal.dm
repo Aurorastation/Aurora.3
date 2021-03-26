@@ -9,6 +9,11 @@
 #define PRESSURE_TANK_VOLUME 150	//L
 #define PUMP_MAX_FLOW_RATE 90		//L/s - 4 m/s using a 15 cm by 15 cm inlet
 
+#define MODE_UNSCREWED -1
+#define MODE_OFF       0
+#define MODE_CHARGING  1
+#define MODE_FLUSHING  2
+
 /obj/machinery/disposal
 	name = "disposal unit"
 	desc = "A pneumatic waste disposal unit."
@@ -16,9 +21,11 @@
 	icon_state = "disposal"
 	anchored = 1
 	density = 1
+	var/datum/wires/disposal/wires
 	var/datum/gas_mixture/air_contents	// internal reservoir
-	var/mode = 1	// item mode 0=off 1=charging 2=charged
-	var/flush = 0	// true if flush handle is pulled
+	var/mode = MODE_CHARGING
+	var/can_flush = TRUE
+	var/flush = FALSE // true if flush handle is pulled
 	var/obj/structure/disposalpipe/trunk/trunk = null // the attached pipe trunk
 	var/flushing = 0	// true if flushing in progress
 	var/flush_every_ticks = 30 //Every 30 ticks it will look whether it is ready to flush
@@ -85,11 +92,12 @@
 	. = ..()
 	trunk = locate() in src.loc
 	if(!trunk)
-		mode = 0
+		mode = MODE_OFF
 		flush = 0
 	else
 		trunk.linked = src	// link the pipe trunk to self
 
+	wires = new(src)
 	air_contents = new/datum/gas_mixture(PRESSURE_TANK_VOLUME)
 	update()
 
@@ -99,39 +107,49 @@
 		trunk.linked = null
 	return ..()
 
+/obj/machinery/disposal/proc/contents_count()
+	var/things = 0
+	for(var/thing in contents)
+		if(istype(thing, /obj/item/device/assembly/signaler))
+			var/obj/item/device/assembly/signaler/S = thing
+			if(S.connected == wires)
+				continue
+		things++
+	return things
+
 // attack by item places it in to disposal
 /obj/machinery/disposal/attackby(var/obj/item/I, var/mob/user)
 	if(stat & BROKEN || !I || !user)
 		return
 
 	src.add_fingerprint(user)
-	if(mode<=0) // It's off
+	if(mode <= MODE_OFF) // It's off
 		if(I.isscrewdriver())
-			if(contents.len > 0)
-				to_chat(user, "Eject the items first!")
+			if(contents_count())
+				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return
-			if(mode==0) // It's off but still not unscrewed
-				mode=-1 // Set it to doubleoff l0l
-				playsound(src.loc, I.usesound, 50, 1)
-				to_chat(user, "You remove the screws around the power connection.")
-				return
-			else if(mode==-1)
-				mode=0
-				playsound(src.loc, I.usesound, 50, 1)
-				to_chat(user, "You attach the screws around the power connection.")
-				return
-		else if(I.iswelder() && mode==-1)
-			if(contents.len > 0)
-				to_chat(user, "Eject the items first!")
+			playsound(src.loc, I.usesound, 50, 1)
+			switch(mode)
+				if(MODE_OFF)
+					mode = MODE_UNSCREWED
+					to_chat(user, SPAN_NOTICE("You remove the screws around the power connection."))
+					return
+				if(MODE_UNSCREWED)
+					mode = MODE_OFF
+					to_chat(user, SPAN_NOTICE("You attach the screws around the power connection."))
+			return
+		else if(I.iswelder() && mode == MODE_UNSCREWED)
+			if(contents_count())
+				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return
 			var/obj/item/weldingtool/W = I
 			if(W.remove_fuel(0,user))
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
-				to_chat(user, "You start slicing the floorweld off the disposal unit.")
-
-				if(do_after(user,20/W.toolspeed))
-					if(!src || !W.isOn()) return
-					to_chat(user, "You sliced the floorweld off the disposal unit.")
+				to_chat(user, SPAN_NOTICE("You start slicing the floorweld off the disposal unit."))
+				if(do_after(user, 20 / W.toolspeed))
+					if(!src || !W.isOn())
+						return
+					to_chat(user, SPAN_NOTICE("You sliced the floorweld off the disposal unit."))
 					if(!istype(src, /obj/machinery/disposal/small))
 						var/obj/structure/disposalconstruct/C = new (src.loc)
 						src.transfer_fingerprints_to(C)
@@ -148,10 +166,14 @@
 					qdel(src)
 				return
 			else
-				to_chat(user, "You need more welding fuel to complete this task.")
+				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return
+		else if(I.ismultitool() || I.iswirecutter() || issignaler(I))
+			wires.Interact(user)
+			return
+
 	if(istype(I, /obj/item/melee/energy/blade))
-		to_chat(user, "You can't place that item inside the disposal unit.")
+		to_chat(user, SPAN_WARNING("You can't place that item inside the disposal unit."))
 		return
 
 	if(istype(I, /obj/item/storage) && length(I.contents) && user.a_intent != I_HURT)
@@ -493,6 +515,12 @@
 /obj/machinery/disposal/proc/flush()
 	set waitfor = FALSE
 
+	if(!can_flush)
+		shake_animation()
+		visible_message(SPAN_WARNING("\The [src] groans violently!"), range = 3)
+		flush = FALSE
+		return
+
 	flushing = 1
 	flick("[icon_state]-flush", src)
 
@@ -610,6 +638,10 @@
 	// now everything inside the disposal gets put into the holder
 	// note AM since can contain mobs or objs
 	for(var/atom/movable/AM in D)
+		if(istype(AM, /obj/item/device/assembly/signaler))
+			var/obj/item/device/assembly/signaler/S = AM
+			if(S.connected == D.wires)
+				continue
 		AM.forceMove(src)
 		if(istype(AM, /obj/structure/bigDelivery) && !hasmob)
 			var/obj/structure/bigDelivery/T = AM
@@ -638,7 +670,7 @@
 	if (hasmob && prob(3))
 		for(var/mob/living/H in src)
 			if(!istype(H,/mob/living/silicon/robot/drone)) //Drones use the mailing code to move through the disposal system,
-				H.take_overall_damage(20, 0, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
+				H.take_overall_damage(20, 0, DAM_SHARP, "Blunt Trauma")//horribly maim any living creature jumping down disposals.  c'est la vie
 
 	var/obj/structure/disposalpipe/curr = loc
 	if (!loc)
@@ -1617,3 +1649,8 @@
 		dirs = alldirs.Copy()
 
 	src.streak(dirs)
+
+#undef MODE_UNSCREWED
+#undef MODE_OFF
+#undef MODE_CHARGING
+#undef MODE_FLUSHING

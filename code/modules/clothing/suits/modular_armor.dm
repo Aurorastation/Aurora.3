@@ -7,8 +7,8 @@
 	item_state = "plate_carrier"
 	blood_overlay_type = "armor"
 	w_class = ITEMSIZE_NORMAL
-	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_ARMOR_PIN, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_BADGE)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_ARMOR_PIN, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_BADGE)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE)
 
 /obj/item/clothing/suit/armor/carrier/officer
 	starting_accessories = list(
@@ -60,6 +60,14 @@
 		/obj/item/clothing/accessory/arm_guard/heavy
 	)
 
+/obj/item/clothing/suit/armor/carrier/heavy/scc
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/heavy/scc,
+		/obj/item/clothing/accessory/leg_guard/heavy/scc,
+		/obj/item/clothing/accessory/arm_guard/heavy/scc,
+		/obj/item/clothing/accessory/sleevepatch/scc
+	)
+
 /obj/item/clothing/suit/armor/carrier/heavy/sec
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/heavy/sec,
@@ -106,11 +114,11 @@
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_AP,
-		laser = ARMOR_LASER_SMALL,
+		laser = ARMOR_LASER_MINOR,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.5
+	slowdown = 1
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -119,12 +127,12 @@
 	item_state = "plate_riot"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.5
+	slowdown = 1
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -132,12 +140,12 @@
 	icon_state = "plate_ablative"
 	item_state = "plate_ablative"
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_RIFLES,
+		melee = ARMOR_MELEE_MINOR,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_AP,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
-	slowdown = 0.5
+	slowdown = 1
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
@@ -147,12 +155,12 @@
 	item_state = "plate_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0.5
+	slowdown = 1
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -161,12 +169,19 @@
 	item_state = "plate_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0.5
+	slowdown = 1
+
+/obj/item/clothing/accessory/armor_plate/heavy/scc
+	name = "heavy SCC armor plate"
+	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
+	icon_state = "plate_blue"
+	item_state = "plate_blue"
+	slowdown = 0 // the SCC is hacking
 
 /obj/item/clothing/accessory/armor_plate/heavy/sec
 	name = "heavy corporate armor plate"
@@ -175,8 +190,8 @@
 	item_state = "plate_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -196,10 +211,10 @@
 	item_state = "helm_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		bomb = ARMOR_BOMB_PADDED,
 	)
 
 /obj/item/clothing/head/helmet/military
@@ -211,8 +226,8 @@
 	item_state = "helm_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
