@@ -1934,3 +1934,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "rhasdrimara_veil"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/head/helmet/space/void/mining/fluff/rajka_helm //HEV-3 Helmet - Rajka Kaljurl'zar - abigbear
+	name = "HEV-3 helmet"
+	desc = "A Hephaestus Environmental Voidsuit variant tailored to Tajara, complete with temperature-circulation auxiliaries, spacious helmet interior to minimize friction, and complete anti-microbial filtration systems."
+	icon = 'icons/obj/custom_items/rajka_suit.dmi'
+	icon_state = "rajka_helm"
+	item_state = "rajka_helm"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/suit/space/void/mining/fluff/rajka_suit //HEV-3 Voidsuit - Rajka Kaljurl'zar - abigbear
+	name = "HEV-3 voidsuit"
+	desc = "A Hephaestus Environmental Voidsuit variant tailored to Tajara, complete with temperature-circulation auxiliaries, heat exchange coils, anti-friction and anti-microbial fabric, and moderate grade external reinforcement for all your industrial EVA activities."
+	icon = 'icons/obj/custom_items/rajka_suit.dmi'
+	icon_state = "rajka_suit"
+	item_state = "rajka_suit"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
