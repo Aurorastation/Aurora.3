@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - tweak: "The General Flavor Text prompt text is now compliant with the server rules."
