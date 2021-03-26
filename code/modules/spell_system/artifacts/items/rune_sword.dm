@@ -18,7 +18,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	base_reflectchance = 60
 	base_block_chance = 60
 	can_block_bullets = 1

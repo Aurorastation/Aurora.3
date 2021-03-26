@@ -36,6 +36,7 @@
 	if(damage <= 0)
 		return args.Copy()
 
+
 	var/blocked = get_blocked(damage_type, damage_flags, armor_pen, damage)
 	on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
 

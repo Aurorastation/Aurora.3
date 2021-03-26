@@ -53,7 +53,7 @@
 		to_chat(user, "<span class='notice'>[src] already has something inside it.</span>")
 		return
 
-	user.visible_message("[user] puts [I] into [src]", "You put [I] inside [src].",\
+	user.visible_message("<b>[user]</b> puts \the [I] into \the [src].", SPAN_NOTICE("You put \the [I] inside \the [src]."),\
 	"You hear a rustle as someone puts something into a plastic bag.")
 
 	icon_state = "evidence"
@@ -74,7 +74,7 @@
 /obj/item/evidencebag/attack_self(mob/user as mob)
 	if(contents.len)
 		var/obj/item/I = contents[1]
-		user.visible_message("[user] takes [I] out of [src]", "You take [I] out of [src].",\
+		user.visible_message("<b>[user]</b> takes \the [I] out of \the [src].", SPAN_NOTICE("You take \the [I] out of \the [src]."),\
 		"You hear someone rustle around in a plastic bag, and remove something.")
 		cut_overlays()	//remove the overlays
 

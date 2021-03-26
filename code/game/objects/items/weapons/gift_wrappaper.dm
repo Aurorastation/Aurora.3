@@ -30,7 +30,7 @@
 	user.drop_item()
 	playsound(src.loc, 'sound/items/package_unwrap.ogg', 50,1)
 	if(src.gift)
-		user.put_in_active_hand(gift)
+		user.put_in_hands(gift)
 		src.gift.add_fingerprint(user)
 	else
 		to_chat(user, "<span class='warning'>The gift was empty!</span>")
