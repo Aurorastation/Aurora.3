@@ -41,11 +41,6 @@
 			return copytext(rank, 2+length(prefix))
 	return rank
 
-/obj/effect/projection
-	name = "Projection"
-	desc = "This looks like a projection of something."
-	anchored = 1.0
-
 /obj/structure/showcase
 	name = "Showcase"
 	icon = 'icons/obj/stationobjs.dmi'
