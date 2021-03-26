@@ -11,7 +11,10 @@
 	clickvol = 30
 
 	var/print_loc
-	var/list/machine_recipes
+
+	var/static/list/autolathe_recipes
+	var/static/list/autolathe_categories
+
 	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
 	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
 	var/show_category = "All"
@@ -46,21 +49,37 @@
 	does_flick = FALSE
 
 /obj/machinery/autolathe/Initialize()
-	. = ..()
+	..()
 	wires = new(src)
 	print_loc = src
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/autolathe/LateInitialize()
+	populate_lathe_recipes()
 
 /obj/machinery/autolathe/Destroy()
 	QDEL_NULL(wires)
 	return ..()
 
-/obj/machinery/autolathe/proc/update_recipe_list()
-	if(!machine_recipes)
-		machine_recipes = autolathe_recipes
+/obj/machinery/autolathe/proc/populate_lathe_recipes()
+	if(autolathe_recipes && autolathe_categories)
+		return
+
+	autolathe_recipes = list()
+	autolathe_categories = list()
+	for(var/R in subtypesof(/datum/autolathe/recipe))
+		var/datum/autolathe/recipe/recipe = new R
+		autolathe_recipes += recipe
+		autolathe_categories |= recipe.category
+
+		var/obj/item/I = new recipe.path
+		if(I.matter && !recipe.resources) //This can be overidden in the datums.
+			recipe.resources = list()
+			for(var/material in I.matter)
+				recipe.resources[material] = I.matter[material]*1.25 // More expensive to produce than they are to recycle.
+		qdel(I)
 
 /obj/machinery/autolathe/interact(mob/user)
-	update_recipe_list()
-
 	if(..() || (disabled && !panel_open))
 		to_chat(user, SPAN_DANGER("\The [src] is disabled!"))
 		return
@@ -83,7 +102,7 @@
 		dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a></h3></center><table width = '100%'>"
 
 		var/index = 0
-		for(var/recipe in machine_recipes)
+		for(var/recipe in autolathe_recipes)
 			var/datum/autolathe/recipe/R = recipe
 			index++
 			if(R.hidden && !hacked || (show_category != "All" && show_category != R.category))
@@ -222,23 +241,25 @@
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	if(busy)
-		to_chat(usr, SPAN_WARNING("The autolathe is busy. Please wait for the completion of previous operation."))
-		return
-
 	if(href_list["change_category"])
 		var/choice = input("Which category do you wish to display?") as null|anything in autolathe_categories+"All"
 		if(!choice)
 			return
 		show_category = choice
+		updateUsrDialog()
+		return
 
-	if(href_list["make"] && machine_recipes)
+	if(busy)
+		to_chat(usr, SPAN_WARNING("The autolathe is busy. Please wait for the completion of previous operation."))
+		return
+
+	if(href_list["make"] && autolathe_recipes)
 		var/index = text2num(href_list["make"])
 		var/multiplier = text2num(href_list["multiplier"])
 		build_item = null
 
-		if(index > 0 && index <= machine_recipes.len)
-			build_item = machine_recipes[index]
+		if(index > 0 && index <= length(autolathe_recipes))
+			build_item = autolathe_recipes[index]
 
 		//Exploit detection, not sure if necessary after rewrite.
 		if(!build_item || multiplier < 0 || multiplier > 100)
