@@ -244,7 +244,6 @@
 
 /obj/item/xmasgift/medium/get_gift_type()
 	var/picked_gift_type = pick(
-		/obj/item/sord,
 		/obj/random/booze,
 		/obj/random/random_flag,
 		/obj/item/storage/belt/champion,
