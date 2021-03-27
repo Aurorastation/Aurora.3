@@ -590,7 +590,7 @@ BLIND     // can't see anything
 		on = !on
 		if(on)
 			flash_protection = FLASH_PROTECTION_NONE
-			active = 1
+			active = TRUE
 			src.hud = hud_holder
 			to_chat(user, "You switch \the [src] to HUD mode.")
 		else
