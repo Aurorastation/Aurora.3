@@ -66,8 +66,7 @@
 	taste_mult = 4
 	reagent_state = SOLID
 	metabolism = REM * 2
-	ingest_met = REM * 4
-	var/nutriment_factor = 12 // Per removed in digest.
+	var/nutriment_factor = 8 // Per removed in digest.
 	var/hydration_factor = 0 // Per removed in digest.
 	var/blood_factor = 2
 	var/regen_factor = 0.8
@@ -82,7 +81,7 @@
 	name = "Synthetic Nutriment"
 	description = "A cheaper alternative to actual nutriment."
 	taste_description = "cheap food"
-	nutriment_factor = 10
+	nutriment_factor = 6
 	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
 
 /decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
@@ -135,7 +134,7 @@
 	Generally coatings are intended for deep frying foods
 */
 /decl/reagent/nutriment/coating
-	nutriment_factor = 6 //Less dense than the food itself, but coatings still add extra calories
+	nutriment_factor = 4 //Less dense than the food itself, but coatings still add extra calories
 	var/icon_raw
 	var/icon_cooked
 	var/coated_adj = "coated"
@@ -251,7 +250,7 @@
 	description = "More commonly known as fat, the third macronutrient, with over double the energy content of carbs and protein"
 
 	reagent_state = SOLID
-	nutriment_factor = 27//The caloric ratio of carb/protein/fat is 4:4:9
+	nutriment_factor = 12
 	color = "#CCCCCC"
 	taste_description = "fat"
 
@@ -309,7 +308,7 @@
 /decl/reagent/nutriment/honey
 	name = "Honey"
 	description = "A golden yellow syrup, loaded with sugary sweetness."
-	nutriment_factor = 10
+	nutriment_factor = 8
 	color = "#FFFF00"
 	taste_description = "honey"
 	germ_adjust = 5
@@ -705,7 +704,6 @@
 	if(alien != IS_DIONA)
 		if (caffeine)
 			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
-			M.add_chemical_effect(CE_PULSE, 1)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
@@ -2503,14 +2501,14 @@
 
 /decl/reagent/alcohol/jovian_storm
 	name = "Jovian Storm"
-	description = "Named after Jupiter’s storm. It’ll blow you away."
+	description = "Named after Jupiter's storm. It'll blow you away."
 	color = "#AA856A"
 	strength = 15
 	taste_description = "stormy sweetness"
 
 	glass_icon_state = "jovianstormglass"
 	glass_name = "glass of Jovian Storm"
-	glass_desc = "A classic Callistean drink named after Jupiter’s storm. It’ll blow you away."
+	glass_desc = "A classic Callistean drink named after Jupiter's storm. It'll blow you away."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
 /decl/reagent/alcohol/bananahonk
@@ -4512,6 +4510,19 @@
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
 		M.drowsyness = 0
+
+/decl/reagent/drink/hrozamal_soda
+	name = "Hro'zamal Soda"
+	description = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	color = "#F0C56C"
+	adj_sleepy = -1
+	caffeine = 0.2
+	taste_description = "carbonated fruit sweetness"
+	carbonated = TRUE
+
+	glass_icon_state = "hrozamal_soda_glass"
+	glass_name = "glass of Hro'zamal Soda"
+	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
 /decl/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"

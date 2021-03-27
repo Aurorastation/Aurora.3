@@ -56,7 +56,7 @@
 		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	else
 		blood_overlay_icon = initial(blood_overlay_icon)
-	handle_blood_overlay(TRUE)
+	handle_blood(TRUE)
 
 /mob/living/simple_animal/hostile/hivebot/get_blood_overlay_name()
 	if(stance == HOSTILE_STANCE_IDLE)
@@ -193,8 +193,7 @@
 /obj/item/projectile/beam/hivebot
 	name = "electrical discharge"
 	damage = 10
-	damage_type = PAIN
-	taser_effect = 1
+	damage_type = BURN
 	agony = 30
 	armor_penetration = 40
 	muzzle_type = /obj/effect/projectile/muzzle/stun
@@ -205,7 +204,6 @@
 	name = "harmless electrical discharge"
 	damage = 0
 	damage_type = PAIN
-	taser_effect = TRUE
 	agony = 0
 
 /obj/item/projectile/beam/hivebot/incendiary
@@ -213,7 +211,6 @@
 	damage_type = BURN
 	damage = 20
 	incinerate = 5
-	taser_effect = 0
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
 	impact_type = /obj/effect/projectile/impact/laser/blue
@@ -729,7 +726,7 @@
 		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	else
 		blood_overlay_icon = initial(blood_overlay_icon)
-	handle_blood_overlay(TRUE)
+	handle_blood(TRUE)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/prospect()
 

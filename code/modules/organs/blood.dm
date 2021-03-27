@@ -217,7 +217,7 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	data["dose_chem"] = chem_doses.Copy()
 	return data
 
-proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
+proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
 
 	var/obj/effect/decal/cleanable/blood/splatter
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
@@ -255,6 +255,11 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
 	else if(isatom(source))
 		var/atom/donor = source
 		blood_data = REAGENT_DATA(donor.reagents, /decl/reagent/blood)
+	else if(!source)
+		if(sourceless_color)
+			splatter.basecolor = sourceless_color
+			splatter.update_icon()
+		return splatter
 	if(!islist(blood_data))
 		return splatter
 

@@ -29,6 +29,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .displayBar {
+    position: relative;
+    width: 236px;
+    height: 16px;
+    border: 1px solid #666666;
+    float: left;
+    margin: 0 5px 0 0;
+    overflow: hidden;
+    background: #000000;
+  }
   .displayBarFill {
     line-height: 1em;
     white-space: nowrap;
@@ -38,5 +48,21 @@ export default {
       vertical-align: middle;
       margin-left: 2px;
     }
+  }
+  .displayBarFill.good {
+      color: #ffffff;
+      background: #4f7529;
+    }
+  .displayBarFill.average {
+    color: #ffffff;
+    background: #cd6500;
+  }
+  .displayBarFill.bad {
+    color: #ffffff;
+    background: #ee0000;
+  }
+  .displayBarFill.highlight {
+    color: #ffffff;
+    background: #8BA5C4;
   }
 </style>

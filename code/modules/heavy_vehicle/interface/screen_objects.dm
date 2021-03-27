@@ -310,4 +310,18 @@
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">SENSOR</span>"
 	notify_user(usr, SPAN_NOTICE("[capitalize_first_letters(owner.head.name)] Advanced Sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active."))
 
+/obj/screen/mecha/toggle/megaspeakers
+	name = "toggle integrated megaspeakers"
+	icon_state = "base" // based
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 5px;\">VOLUME</span>"
+	maptext_x = 1
+	maptext_y = 12
+
+/obj/screen/mecha/toggle/megaspeakers/toggled()
+	toggled = !toggled
+	owner.loudening = toggled
+	var/main_color = owner.loudening ? "#d1d1d1" : "#525252"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">VOLUME</span>"
+	notify_user(usr, SPAN_NOTICE("You [owner.loudening ? "activate" : "deactivate"] \the [owner]'s integrated megaspeakers."))
+
 #undef BAR_CAP

@@ -31,6 +31,7 @@
 #define RELIGION_TRINARY "Trinary Perfection"
 #define RELIGION_SCARAB "Scarab Folk Beliefs"
 #define RELIGION_TAOISM "Taoism"
+#define RELIGION_LUCEISM "Luceism"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
@@ -77,6 +78,8 @@
 #define ACCENT_NCF "Non-Coalition Frontier"
 #define ACCENT_FISANDUH "Fisanduhian"
 #define ACCENT_GADPATHUR "Gadpathurian"
+#define ACCENT_PLUTO "Plutonian"
+#define ACCENT_ASSUNZIONE "Assunzionii"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"

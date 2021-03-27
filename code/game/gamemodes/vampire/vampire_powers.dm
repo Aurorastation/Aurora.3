@@ -580,39 +580,49 @@
 		if(tox_loss)
 			to_heal = min(10, tox_loss)
 			adjustToxLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(oxy_loss)
 			to_heal = min(10, oxy_loss)
 			adjustOxyLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(ext_loss)
 			to_heal = min(20, ext_loss)
 			heal_overall_damage(min(10, getBruteLoss()), min(10, getFireLoss()))
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(clone_loss)
 			to_heal = min(10, clone_loss)
 			adjustCloneLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 
-		var/list/organs = get_damaged_organs(1, 1)
-		if(length(organs))
+		adjustHalLoss(-20)
+
+		var/list/damaged_organs = get_damaged_organs(TRUE, TRUE, FALSE)
+		if(length(damaged_organs))
 			// Heal an absurd amount, basically regenerate one organ.
-			heal_organ_damage(50, 50)
-			blood_used += 12
+			heal_organ_damage(50, 50, FALSE)
+			blood_used += 3
+
+		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /decl/reagent/blood)
+		if(missing_blood)
+			to_heal = min(20, missing_blood)
+			vessel.add_reagent(/decl/reagent/blood, to_heal)
+			blood_used += round(to_heal * 0.1) // gonna need to regen a shitton of blood, since human mobs have around 560 normally
 
 		for(var/A in organs)
 			var/healed = FALSE
 			var/obj/item/organ/external/E = A
+			if(BP_IS_ROBOTIC(E))
+				continue
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
-				blood_used += 12
+				blood_used += 2
 			if(E.status & ORGAN_TENDON_CUT)
 				E.status &= ~ORGAN_TENDON_CUT
-				blood_used += 12
+				blood_used += 2
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
-				blood_used += 12
+				blood_used += 3
 				healed = TRUE
 
 			if(healed)
@@ -643,6 +653,8 @@
 			vampire.status &= ~VAMP_HEALING
 			to_chat(src, SPAN_NOTICE("Your body has finished healing. You are ready to continue."))
 			break
+		else
+			vampire.blood_usable -= blood_used
 
 	// We broke out of the loop naturally. Gotta catch that.
 	if(vampire.status & VAMP_HEALING)
@@ -650,60 +662,6 @@
 		to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 
 	return
-
-// Dominate a victim, imbed a thought into their mind.
-/mob/living/carbon/human/proc/vampire_dominate()
-	set category = "Vampire"
-	set name = "Dominate (50)"
-	set desc = "Dominate the mind of a victim, make them obey your will."
-
-	var/datum/vampire/vampire = vampire_power(25, 0)
-	if(!vampire)
-		return
-
-	var/list/victims = list()
-	for(var/mob/living/carbon/human/H in view(7))
-		if(H == src)
-			continue
-		victims += H
-
-	if(!length(victims))
-		to_chat(src, SPAN_WARNING("No suitable targets."))
-		return
-
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
-	if(!T || !vampire_can_affect_target(T, 1, 1))
-		return
-
-	if(!(vampire.status & VAMP_FULLPOWER))
-		to_chat(src, SPAN_NOTICE("You begin peering into [T]'s mind, looking for a way to gain control."))
-
-		if(!do_mob(src, T, 50))
-			to_chat(src, SPAN_WARNING("Your concentration is broken!"))
-			return
-
-		to_chat(src, SPAN_NOTICE("You succeed in dominating [T]'s mind. They are yours to command."))
-	else
-		to_chat(src, SPAN_NOTICE("You instantly dominate [T]'s mind, forcing them to obey your command."))
-
-	var/command = input(src, "Command your victim.", "Your command.") as text|null
-	if(!command)
-		to_chat(src, SPAN_NOTICE("You decide against commanding your victim."))
-		return
-
-	command = sanitizeSafe(command, extra = 0)
-
-	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
-
-	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
-	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
-	to_chat(T, SPAN_GOOD("<i><em>[command]</em></i>"))
-	to_chat(src, SPAN_NOTICE("You command [T], and they will obey."))
-	visible_message("<b>[src]</b> whispers something.")
-
-	vampire.use_blood(50)
-	verbs -= /mob/living/carbon/human/proc/vampire_dominate
-	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_dominate, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Enthralls a person, giving the vampire a mortal slave.
 /mob/living/carbon/human/proc/vampire_enthrall()

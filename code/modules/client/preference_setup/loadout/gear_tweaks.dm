@@ -206,3 +206,20 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 	if(!metadata)
 		return I.desc
 	I.desc = metadata
+
+/*
+Paper Data
+*/
+/datum/gear_tweak/paper_data/get_contents(var/metadata)
+	return "Written Content: [length(metadata) > 15 ? "[copytext_char(metadata, 1, 15)]..." : metadata]"
+
+/datum/gear_tweak/paper_data/get_default()
+	return ""
+
+/datum/gear_tweak/paper_data/get_metadata(var/user, var/metadata)
+	return sanitize(input(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
+
+/datum/gear_tweak/paper_data/tweak_item(var/obj/item/paper/P, var/metadata)
+	if(!metadata || !istype(P))
+		return
+	P.info = P.parsepencode(metadata)

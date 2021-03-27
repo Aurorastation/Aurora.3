@@ -88,9 +88,28 @@
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zenghu_labcoat
-	display_name = "zeng-hu labcoat"
+	display_name = "zeng-hu labcoat selection"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	slot = slot_wear_suit
+	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zenghu_labcoat/New()
+	..()
+	var/masks = list()
+	masks["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	masks["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	gear_tweaks += new/datum/gear_tweak/path(masks)
+
+/datum/gear/faction/zenghu_apron
+	display_name = "zeng-hu vinyl apron"
+	path = /obj/item/clothing/suit/apron/surgery/zeng
+	slot = slot_wear_suit
+	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zenghu_gloves
+	display_name = "zeng-hu vinyl gloves"
+	path = /obj/item/clothing/gloves/zeng
+	slot = slot_gloves
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zavodskoi_patch
@@ -104,7 +123,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/zavodskoisec
 	slot = slot_tie
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Security Officer","Forensic Technician","Warden")
+	allowed_roles = list("Security Officer","Investigator","Warden")
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
@@ -116,7 +135,7 @@
 	display_name = "idris security sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
-	allowed_roles = list("Security Officer","Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer","Investigator")
 
 /datum/gear/faction/heph_labcoat
 	display_name = "hephaestus labcoat"

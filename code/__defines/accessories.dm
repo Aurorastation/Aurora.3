@@ -2,7 +2,6 @@
 #define ACCESSORY_SLOT_UTILITY			"utility"
 #define ACCESSORY_SLOT_CAPE				"cape"
 #define ACCESSORY_SLOT_ARMBAND			"armband"
-#define ACCESSORY_SLOT_BADGE			"badge"
 #define ACCESSORY_SLOT_ARMOR_PLATE		"armor plate"
 #define ACCESSORY_SLOT_LEG_GUARDS		"leg guards"
 #define ACCESSORY_SLOT_ARM_GUARDS		"arm guards"

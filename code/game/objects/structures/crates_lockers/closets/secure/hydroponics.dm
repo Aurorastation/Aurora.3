@@ -56,3 +56,4 @@
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/watertank(src)
 	new /obj/item/storage/belt/hydro(src)
+	new /obj/item/clothing/gloves/botanic_leather(src)

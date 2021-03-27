@@ -98,6 +98,8 @@
 	var/sel_mode = 1 //index of the currently selected mode
 	var/list/firemodes = list()
 
+	var/markings = 0 // for marking kills with a knife
+
 	//wielding information
 	var/fire_delay_wielded = 0
 	var/recoil_wielded = 0
@@ -614,6 +616,8 @@
 	..()
 	if(get_dist(src, user) > 1)
 		return
+	if(markings)
+		to_chat(user, SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock."))
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
@@ -701,12 +705,8 @@
 		to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [name] with both hands."))
 
 		var/obj/item/offhand/O = user.get_inactive_hand()
-		if(O && istype(O))
+		if(istype(O))
 			O.unwield()
-		else
-			O = user.get_active_hand()
-		return
-
 	else
 		if(user.get_inactive_hand())
 			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
@@ -751,11 +751,10 @@
 
 /obj/item/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
-	if(is_wieldable)
-		if(wielded)
-			if(!disable_warning) // unfortunately not sure there's a way to get this to only fire once when it's looped
-				to_chat(M, SPAN_WARNING("Lower \the [initial(name)] first!"))
-			return FALSE
+	if(wielded)
+		if(!disable_warning) // unfortunately not sure there's a way to get this to only fire once when it's looped
+			to_chat(M, SPAN_WARNING("Lower \the [initial(name)] first!"))
+		return FALSE
 
 	return ..()
 
@@ -814,7 +813,7 @@
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()
 		if(istype(O))
-			to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [name] with both hands."))
+			to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [O] with both hands."))
 			O.unwield()
 			unwield()
 
@@ -822,6 +821,9 @@
 		qdel(src)
 
 /obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand)
+	if(slot in equippable_slots)
+		return TRUE
 	return FALSE
 
 /obj/item/gun/Destroy()
@@ -908,7 +910,7 @@
 
 	if(pin && I.isscrewdriver())
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
-		if(do_after(user,45 SECONDS,act_target = src))
+		if(do_after(user, 45 SECONDS))
 			if(pin.durable || prob(50))
 				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
 				pin.forceMove(get_turf(src))
@@ -922,6 +924,12 @@
 				qdel(pin)
 				pin = null
 		return
+
+	if(is_sharp(I))
+		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", SPAN_NOTICE("You carve a notched mark into \the [src]."))
+		markings++
+		return
+
 	return ..()
 
 /obj/item/gun/proc/get_ammo()

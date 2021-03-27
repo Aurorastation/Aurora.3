@@ -228,8 +228,7 @@
 		return "Holding until Transfer"
 
 /datum/record/char_infraction/proc/saveToDB()
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		error("SQL database connection failed. Infractions Datum failed to save information")
 		return
 
@@ -277,8 +276,7 @@
 	infraction_insert_query.Execute(sql_args)
 
 /datum/record/char_infraction/proc/deleteFromDB(var/deleted_by)
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		error("SQL database connection failed. Infractions Datum failed to save information")
 		return
 
