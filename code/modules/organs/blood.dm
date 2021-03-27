@@ -221,6 +221,8 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/source
 
 	var/obj/effect/decal/cleanable/blood/splatter
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
+	if(sourceless_color == COLOR_OIL)
+		decal_type = /obj/effect/decal/cleanable/blood/oil/streak
 	var/turf/T = get_turf(target)
 
 	// Are we dripping or splattering?
@@ -229,8 +231,10 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/source
 	for(var/obj/effect/decal/cleanable/blood/drip/drop in T)
 		drips |= drop.drips
 		qdel(drop)
-	if(!large && drips.len < 3)
+	if(!large && length(drips) < 3)
 		decal_type = /obj/effect/decal/cleanable/blood/drip
+		if(sourceless_color == COLOR_OIL)
+			decal_type = /obj/effect/decal/cleanable/blood/drip/oil
 
 	// Find a blood decal or create a new one.
 	if(T)
