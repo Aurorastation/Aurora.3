@@ -595,7 +595,7 @@ BLIND     // can't see anything
 			to_chat(user, "You switch \the [src] to HUD mode.")
 		else
 			flash_protection = FLASH_PROTECTION_MODERATE
-			active = 1
+			active = TRUE
 			src.hud = null
 			to_chat(user, "You switch \the [src] to flash protection mode.")
 		update_icon()
