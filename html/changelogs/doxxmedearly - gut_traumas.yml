@@ -1,0 +1,9 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed brain traumas. Medication side or overdose effects that granted traumas instead cause similar effects."
+  - tweak: "Mental medications are mostly there for fluff messages (for now). Some retain their mechanical benefits such as helping with hallucinations."
+  - rscadd: "Orastabin, Neurapan, and Nerospectan now help ease the effects of the stuttering disability (Though not stuttering due to pain and shock). Orastabin is the most effective."
+  - rscdel: "Removed mental medication's withdrawal mechanics. You don't need to pop multiple pills in a shift anymore. This should also fix the nicotine messages."

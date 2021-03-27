@@ -123,12 +123,6 @@
 		else
 			to_chat(user, SPAN_DANGER("The [src] appears to do nothing."))
 			M.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [M]'s head."))
-			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
-				if(prob(25))
-					H.cure_all_traumas(cure_type = CURE_SOLITUDE)
-				else if(prob(20))
-					H.cure_all_traumas(cure_type = CURE_CRYSTAL)
 			return
 	else if(user.a_intent != I_HURT) // to prevent the chaplain from hurting peoples accidentally
 		to_chat(user, SPAN_NOTICE("The [src] appears to do nothing."))
