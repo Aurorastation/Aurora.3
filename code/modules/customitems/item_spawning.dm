@@ -283,38 +283,3 @@
 		newitem.forceMove(get_turf(M.loc))
 		to_chat(M, "A custom item has been placed on the floor as there was no space for it on your mob.")
 		return TRUE
-
-
-
-/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/akila_jacket //Reflective First Responder Jacket - Akila Aksha'Shalwariran - shestrying
-	name = "reflective first responder jacket"
-	desc = "A jacket in an eye-blinding yellow, with flourescent green, light-reflective striping along the cuffs and bottom edge. A bright red cross rests on the front, over the heart."
-	icon = 'icons/obj/custom_items/akila_jacket.dmi'
-	icon_state = "akila_jacket"
-	item_state = "akila_jacket"
-	contained_sprite = TRUE
-
-
-/obj/structure/sign/flag/red_coalition
-	name = "Red Coalition flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
-	icon_state = "redcoalition"
-
-/obj/structure/sign/flag/red_coalition/left
-	icon_state = "redcoalition_l"
-
-/obj/structure/sign/flag/red_coalition/right
-	icon_state = "redcoalition_r"
-
-/obj/item/flag/fluff/nikita_flag //Red Coalition Banner - Nikita Yutani - sycmos
-	name = "Red Coalition flag"
-	icon = 'icons/obj/custom_items/nikita_flag.dmi'
-	icon_state = "nikita_flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
-	flag_path = "redcoalition"
-
-/obj/item/flag/nikita_flag/l
-	flag_size = 1
-
