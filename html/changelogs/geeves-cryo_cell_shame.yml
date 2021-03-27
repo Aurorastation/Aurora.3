@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "The cryogenic feed behind cryocells are now solid, meaning you can't trap yourself in cryo jail anymore."

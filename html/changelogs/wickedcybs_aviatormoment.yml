@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "The security HUD aviators now provides flash protection in flash protection mode. The flash protection mode side sprites were also fixed."
