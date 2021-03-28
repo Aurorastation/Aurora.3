@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Moving around will no longer close storage items, provided you are still adjacent to them."
-  - tweak: "Picking up a storage item will no longer close it."
