@@ -227,7 +227,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		toner = 0
 		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
 		if(target.type == /obj/machinery/photocopier)
-			flick("photocopier_notoner", src)
+			flick("photocopier_notoner", target)
 		playsound(target.loc, 'sound/machines/buzz-two.ogg', 75, 1)
 	return p
 
