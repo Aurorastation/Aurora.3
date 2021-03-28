@@ -6,6 +6,8 @@
 	var/maxHealth = 100 //Maximum health that should be possible.
 	var/health = 100 	//A mob's health
 
+	var/admin_paralyzed
+
 	var/hud_updateflag = 0
 
 	// Virtual Reality

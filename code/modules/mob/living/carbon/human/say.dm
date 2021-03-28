@@ -313,3 +313,9 @@
 
 			message = "[prefix][jointext(words," ")]"
 	return message
+
+/mob/living/carbon/human/say(message, datum/language/speaking, verb, alt_name, ghost_hearing)
+	if(marked_afk)
+		marked_afk = null
+		handle_maptext()
+	return ..()

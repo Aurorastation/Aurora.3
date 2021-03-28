@@ -29,6 +29,9 @@
 	var/pressure_alert = 0
 	var/temperature_alert = 0
 
+	var/image/maptext_holder
+	var/marked_afk
+
 /mob/living/carbon/human/Life()
 	set background = BACKGROUND_ENABLED
 
@@ -51,6 +54,7 @@
 		hud_updateflag = 1022
 
 	voice = GetVoice()
+	handle_maptext()
 
 	//No need to update all of these procs if the guy is dead or in stasis
 	if(stat != DEAD && !InStasis())
@@ -99,6 +103,29 @@
 	if(life_tick > 5 && timeofdeath && (timeofdeath < 5 || world.time - timeofdeath > 6000))	//We are long dead, or we're junk mobs spawned like the clowns on the clown shuttle
 		return 0
 	return 1
+
+/mob/living/carbon/human/proc/handle_maptext()
+	if(maptext_holder && ((!admin_paralyzed && client?.inactivity < 10 MINUTES && !marked_afk || stat == DEAD)))
+		cut_overlay(maptext_holder)
+		QDEL_NULL(maptext_holder)
+	if(stat == DEAD)
+		return
+	if(admin_paralyzed && (!maptext_holder || maptext_holder.maptext == SMALL_FONTS(5, "AFK")))
+		var/image/I = generate_maptext_image("WINDED")
+		maptext_holder = I
+		add_overlay(I)
+	else if(!maptext_holder && (client?.inactivity > 10 MINUTES || marked_afk))
+		var/image/I = generate_maptext_image("AFK")
+		maptext_holder = I
+		add_overlay(I)
+
+/mob/living/carbon/human/proc/generate_maptext_image(var/message)
+	var/image/I = image(null, src)
+	I.appearance_flags = RESET_TRANSFORM
+	I.maptext = SMALL_FONTS(5, message)
+	I.pixel_y = -8
+	I.pixel_x = -2
+	return I
 
 /mob/living/carbon/human/breathe()
 	if(!InStasis())

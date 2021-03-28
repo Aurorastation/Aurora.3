@@ -163,6 +163,8 @@ There are several things that need to be remembered:
 			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
 			ovr += aura_overlay
 
+		ovr += maptext_holder
+
 		add_overlay(ovr)
 
 	if (lying_prev != lying || size_multiplier != 1)

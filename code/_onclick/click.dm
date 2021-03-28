@@ -178,6 +178,11 @@
 				RangedAttack(A, params)
 	return 1
 
+/mob/living/carbon/human/ClickOn(atom/A, params)
+	marked_afk = null
+	handle_maptext()
+	return ..()
+
 /mob/proc/setClickCooldown(var/timeout)
 	next_move = max(world.time + timeout, next_move)
 

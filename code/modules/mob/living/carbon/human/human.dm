@@ -77,6 +77,8 @@
 
 	. = ..()
 
+	verbs += /mob/living/carbon/human/proc/mark_afk
+
 	hide_underwear.Cut()
 	for(var/category in global_underwear.categories_by_name)
 		hide_underwear[category] = FALSE

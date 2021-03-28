@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added AFK and Winded indicators, appearing beneath a character, showing you that the player is OOCly busy/away."
+  - rscadd: "Added a Toggle AFK button in the OOC tab that lets you show the AFK indicator without having to idle for ten minutes."

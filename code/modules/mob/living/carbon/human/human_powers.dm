@@ -1240,3 +1240,15 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(M, SPAN_WARNING("You can't name a corpse."))
 		return FALSE
 	return TRUE
+
+/mob/living/carbon/human/proc/mark_afk()
+	set name = "Toggle AFK"
+	set desc = "Toggle your AFK mark."
+	set category = "OOC"
+
+	if(marked_afk)
+		marked_afk = null
+		to_chat(usr, SPAN_NOTICE("You are no longer marked as AFK."))
+	else
+		marked_afk = TRUE
+		to_chat(usr, SPAN_NOTICE("You are now marked as AFK."))

@@ -157,6 +157,9 @@
 			footsound = T.footstep_sound
 
 	if (client)
+		if(marked_afk && client.inactivity < 1 SECOND)
+			marked_afk = null
+			handle_maptext()
 		var/turf/B = GetAbove(T)
 		if(up_hint)
 			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"

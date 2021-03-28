@@ -1340,15 +1340,17 @@ proc/admin_notice(var/message, var/rights)
 	var/msg
 
 	if(check_rights(R_ADMIN|R_MOD))
-		if (H.paralysis == 0)
+		if(!H.admin_paralyzed)
 			msg = "has paralyzed [key_name_admin(H)]."
 			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[H] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", "<span class='warning'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></span>")
 			H.paralysis = 8000
+			H.admin_paralyzed = TRUE
 		else
 			if (alert("The player is currently winded. Do you want to unwind him?", "Unwind player?", "Yes", "No") == "No")
 				return
 
 			H.paralysis = 0
+			H.admin_paralyzed = FALSE
 			msg = "has unparalyzed [key_name_admin(H)]."
 			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[H] has been unwinded by a member of staff!</font>", "<span class='warning'><b>You have been unwinded by a member of staff!</b></span>")
 		log_and_message_admins(msg)
