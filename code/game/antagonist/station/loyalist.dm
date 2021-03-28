@@ -2,16 +2,16 @@ var/datum/antagonist/loyalists/loyalists
 
 /datum/antagonist/loyalists
 	id = MODE_LOYALIST
-	role_text = "Head Fellow"
-	role_text_plural = "Fellowship"
+	role_text = "Head Loyalist"
+	role_text_plural = "Loyalists"
 	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
 	antag_indicator = "fellowshiphead"
-	welcome_text = "You are one of the Fellowship leaders! Your goal is your choosing but you are a subversion of the Aurora Crew, you must lead your branch of the Fellowship and progress a story. <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
-	victory_text = "The Contenders failed in their goals! You won!"
-	loss_text = "The Contenders put an end to your Fellowship in one fell swoop."
-	victory_feedback_tag = "You thwarted the Contenders in their devious ends."
-	loss_feedback_tag = "You were thwarted by the Contenders."
+	welcome_text = "You are one of the Loyalist leaders! You are seeking to protect the estabilishment at all costs. Give your hearts for the Company! <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
+	victory_text = "The Revolutionaries failed in their goals! You won!"
+	loss_text = "The Revolutionaries put an end to your Loyalists in one fell swoop."
+	victory_feedback_tag = "You thwarted the Revolutionaries in their devious ends."
+	loss_feedback_tag = "You were thwarted by the Revolutionaries."
 	antaghud_indicator = "fellowship"
 
 	hard_cap = 3
@@ -20,15 +20,15 @@ var/datum/antagonist/loyalists/loyalists
 	initial_spawn_target = 8
 
 	// Inround loyalists.
-	faction_role_text = "Fellow"
-	faction_descriptor = "Fellowship"
+	faction_role_text = "Loyalist"
+	faction_descriptor = "Loyalists"
 	faction_verb = /mob/living/proc/convert_to_loyalist
-	faction_welcome = "You have joined a budding fellowship under the forward-thinking lead of a Fellowship leader. Follow their instructions and try to achieve the Fellowship's goals."
+	faction_welcome = "You have decided to defend the estabilishment, no matter what it takes.. Follow your leaders' instructions and try to achieve the Loyalists' goals."
 	faction_indicator = "fellowship"
 	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Lab Assistant", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet", "Captain", "Head of Security")
+	protected_jobs = list("Lab Assistant", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet")
 	required_age = 31
 
 /datum/antagonist/loyalists/New()
@@ -47,14 +47,6 @@ var/datum/antagonist/loyalists/loyalists
 		loyal_obj.explanation_text = "Protect [player.real_name], the [player.mind.assigned_role]."
 		global_objectives += loyal_obj
 
-/datum/antagonist/loyalists/can_become_antag(var/datum/mind/player)
-	if(!..())
-		return FALSE
-	for(var/obj/item/implant/mindshield/L in player.current)
-		if(L?.imp_in == player.current)
-			return FALSE
-	return TRUE
-
 /datum/antagonist/loyalists/equip(var/mob/living/carbon/human/player)
 
 	if(!..())
@@ -66,11 +58,11 @@ var/datum/antagonist/loyalists/loyalists
 	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
-	INVOKE_ASYNC(src, .proc/alert_fellow_status, player)
+	INVOKE_ASYNC(src, .proc/alert_loyalist_status, player)
 	return TRUE
 
-/datum/antagonist/loyalists/proc/alert_fellow_status(var/mob/living/carbon/human/player) //This is still dumb but it works
-	alert(player, "As a Head Fellow you are given an uplink with a lot of telecrystals. \
+/datum/antagonist/loyalists/proc/alert_loyalist_status(var/mob/living/carbon/human/player) //This is still dumb but it works
+	alert(player, "As a Head Loyalist you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
 				Doing so may lead to administrative action being taken.",
