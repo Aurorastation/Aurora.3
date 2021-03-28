@@ -18,7 +18,7 @@
 
 	num_alternate_languages = 3
 
-	icobase = 'icons/mob/human_races/human/r_human.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_shell.dmi'
 	deform = 'icons/mob/human_races/ipc/robotic.dmi'
 	preview_icon = 'icons/mob/human_races/ipc/shell_preview.dmi'
 
