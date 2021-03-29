@@ -398,6 +398,7 @@
 	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)
+	new /obj/item/device/laser_pointer/blue(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 
