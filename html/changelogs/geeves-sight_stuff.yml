@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - refactor: "Refactored how all living things handles its vision, let me know if any bugs pop up."
-  - tweak: "Tajara and vaurca no longer lose their nightvision when using cameras, it stays active, they just don't gain the seeing in darkness benefits."
