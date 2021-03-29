@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "The default hotkey mode is now a preference toggle in the Global settings menu in character creation. It is on be default."
