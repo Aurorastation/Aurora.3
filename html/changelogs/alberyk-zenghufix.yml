@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the ocular installed sightlights not working."
+  - bugfix: "Fixed zooming augment not working properly."

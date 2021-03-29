@@ -465,7 +465,7 @@
 	if(!.)
 		return FALSE
 
-	zoom(owner,7,3, FALSE)
+	zoom(owner,7,7, FALSE)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
 	..()
@@ -491,6 +491,8 @@
 
 	if(!.)
 		return FALSE
+
+	lights_on = !lights_on
 
 	if(lights_on)
 		set_light(5, 2, LIGHT_COLOR_TUNGSTEN, uv = 0, angle = LIGHT_WIDE)
