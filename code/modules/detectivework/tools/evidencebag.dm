@@ -109,7 +109,7 @@
 			label_text = tmp_label
 			update_name_label()
 		return
-	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
+	. = ..() 
 
 /obj/item/evidencebag/proc/update_name_label()
 	if(label_text == "")

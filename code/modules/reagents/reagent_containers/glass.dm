@@ -40,7 +40,7 @@
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
 
-/obj/item/reagent_containers/glass/get_additional_forensics_swab_info() // This leads back to atoms.dm and is originally called from swabs.dm
+/obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
 	var/list/Bdata = REAGENT_DATA(reagents, /decl/reagent/blood/)
 	var/list/blood_Data = list(
