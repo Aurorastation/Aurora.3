@@ -7,7 +7,7 @@ var/datum/antagonist/loyalists/loyalists
 	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
 	antag_indicator = "fellowshiphead"
-	welcome_text = "You are one of the Loyalist leaders! You are seeking to protect the estabilishment at all costs. Give your hearts for the Company! <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
+	welcome_text = "You are one of the Loyalist leaders! You are seeking to protect the establishment at all costs. Give your hearts for the Company! <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
 	victory_text = "The Revolutionaries failed in their goals! You won!"
 	loss_text = "The Revolutionaries put an end to your Loyalists in one fell swoop."
 	victory_feedback_tag = "You thwarted the Revolutionaries in their devious ends."
@@ -23,7 +23,7 @@ var/datum/antagonist/loyalists/loyalists
 	faction_role_text = "Loyalist"
 	faction_descriptor = "Loyalists"
 	faction_verb = /mob/living/proc/convert_to_loyalist
-	faction_welcome = "You have decided to defend the estabilishment, no matter what it takes.. Follow your leaders' instructions and try to achieve the Loyalists' goals."
+	faction_welcome = "You have decided to defend the establishment, no matter what it takes.. Follow your leaders' instructions and try to achieve the Loyalists' goals."
 	faction_indicator = "fellowship"
 	faction_invisible = FALSE
 
