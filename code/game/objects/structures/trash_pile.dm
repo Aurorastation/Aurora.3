@@ -155,6 +155,7 @@
 		/obj/item/clothing/gloves/latex = 2,
 		/obj/item/clothing/head/welding = 2,
 		/obj/item/clothing/mask/gas/alt = 2,
+		/obj/item/clothing/mask/gas/half = 2,
 		/obj/item/clothing/shoes/galoshes = 2,
 		/obj/item/clothing/under/pants/camo = 2,
 		/obj/item/clothing/under/syndicate/tacticool = 2,

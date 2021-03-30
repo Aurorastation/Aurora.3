@@ -7670,6 +7670,22 @@
 /area/maintenance/engineering)
 "apb" = (
 /obj/structure/table/rack,
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -6;
+	pixel_y = -4
+	},
 /obj/item/clothing/mask/gas/alt{
 	pixel_x = -3;
 	pixel_y = 3
@@ -13333,6 +13349,8 @@
 /area/security/brig)
 "ayo" = (
 /obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
@@ -44810,6 +44828,7 @@
 "bCv" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/RD,
+/obj/item/clothing/mask/gas/half,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,

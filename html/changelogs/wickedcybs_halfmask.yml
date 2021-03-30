@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new gas mask variant, the face mask. It filters airborne contaminants but does not protect the eyes!"
+  - maptweak: "Face masks have been mapped to various locations. Research, medical, engineering and security can expect to see them in their departments. Off-station antags and beacon teams have them available as well."
