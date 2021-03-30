@@ -51,6 +51,7 @@
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
 	jackets["puffer jacket"] = /obj/item/clothing/suit/jacket/puffer
 	jackets["puffer vest"] = /obj/item/clothing/suit/jacket/puffer/vest
+	jackets["asymmetric coat"] = /obj/item/clothing/suit/storage/toggle/asymmetriccoat
 
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
 

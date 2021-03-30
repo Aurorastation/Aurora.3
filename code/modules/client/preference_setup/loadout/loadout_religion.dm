@@ -64,3 +64,11 @@
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
 	path = "/obj/item/clothing/accessory/dominia"
+
+/datum/gear/religion/assunzioneorb
+	display_name = "assunzione warding sphere"
+	path = "/obj/item/assunzioneorb"
+
+/datum/gear/religion/assunzionesheath
+	display_name = "assunzione warding sphere sheath"
+	path = "/obj/item/storage/assunzionesheath"
