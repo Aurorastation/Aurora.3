@@ -16,7 +16,8 @@
 	var/obj/effect/projection/projection
 
 /obj/item/storage/slide_projector/Destroy()
-	set_slide(null)
+	QDEL_NULL(current_slide)
+	QDEL_NULL(projection)
 	return ..()
 
 /obj/item/storage/slide_projector/update_icon()
