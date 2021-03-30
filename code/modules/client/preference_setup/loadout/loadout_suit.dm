@@ -218,41 +218,41 @@
 
 /datum/gear/suit/secjacketofficer
 	display_name = "security jacket selection (Security Officer)"
-	path = /obj/item/clothing/suit/security/officer
+	path = /obj/item/clothing/suit/storage/security/officer
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 
 /datum/gear/suit/secjacketofficer/New()
 	..()
 	var/secjacket = list()
-	secjacket["security jacket"] = /obj/item/clothing/suit/security/officer
-	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/officer/blue
-	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/officer/dnavy
+	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/officer
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/officer/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/officer/dnavy
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjacketwarden
 	display_name = "security jacket selection (Warden)"
-	path = /obj/item/clothing/suit/security/warden
+	path = /obj/item/clothing/suit/storage/security/warden
 	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/suit/secjacketwarden/New()
 	..()
 	var/secjacket = list()
-	secjacket["security jacket"] = /obj/item/clothing/suit/security/warden
-	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/warden/blue
-	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/warden/dnavy
+	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/warden
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/warden/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/warden/dnavy
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjackethos
 	display_name = "security jacket selection (Head of Security)"
-	path = /obj/item/clothing/suit/security/hos
+	path = /obj/item/clothing/suit/storage/security/hos
 	allowed_roles = list("Head of Security")
 
 /datum/gear/suit/secjackethos/New()
 	..()
 	var/secjacket = list()
-	secjacket["security jacket"] = /obj/item/clothing/suit/security/hos
-	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/hos/blue
-	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/hos/dnavy
+	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/hos
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/hos/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/hos/dnavy
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjacketforensictech

@@ -150,7 +150,7 @@ datum/preferences
 
 	// SPAAAACE
 	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES
+	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
 
 	var/list/pai = list()	// A list for holding pAI related data.

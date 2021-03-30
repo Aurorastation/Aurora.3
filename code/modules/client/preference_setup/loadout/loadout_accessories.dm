@@ -306,3 +306,16 @@
 	dominia["caladius sash"] = /obj/item/clothing/accessory/dominia/sash/caladius
 	dominia["zhao sash"] =/obj/item/clothing/accessory/dominia/sash/zhao
 	gear_tweaks += new/datum/gear_tweak/path(dominia)
+
+/datum/gear/accessory/passport
+	display_name = "human passport selection"
+	path = /obj/item/clothing/accessory/badge/passport_sol
+
+/datum/gear/accessory/passport/New()
+	..()
+	var/passport = list()
+	passport["passport, sol"] = /obj/item/clothing/accessory/badge/passport_sol
+	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport_elyra
+	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport_dominia
+	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport_coalition
+	gear_tweaks += new/datum/gear_tweak/path(passport)
