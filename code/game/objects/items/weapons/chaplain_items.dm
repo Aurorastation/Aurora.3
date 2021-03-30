@@ -193,3 +193,36 @@
 			A.dropInto(loc)
 			user.visible_message("[user] pours \the [A] out from \the [src].", "You pour \the [A] out from \the [src].")
 			desc = "A vase used to store the ashes of the deceased."
+
+/obj/item/material/assunzioneorb
+	name = "warding sphere"
+	desc = "A religious artefact commonly associated with Luceism, this transparent globe gives off a faint ghostly white light at all times."
+	desc_fluff = "Luceian warding spheres are made on the planet of Assunzione in the great domed city of Guelma, and are carried by followers of the faith heading abroad. \
+	Constructed out of glass and a luce vine bulb these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
+	point towards Assunzione. It is considered extremely bad luck to have one's warding sphere break, to extinguish its flame, or to relinquish it (permanently) to an unbeliever."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "assunzioneorb"
+	item_state = "assunzioneorb"
+	light_power = 1
+	light_color = LIGHT_COLOR_BLUE //#6496FA
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+	default_material = "glass"
+
+/obj/item/storage/assunzionesheath
+	name = "warding sphere casing"
+	desc = "A small metal shell designed to protect the warding sphere inside. The all-seeing eye of Ennoia, a common symbol of Luceism, is engraved upon the front of the casing."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "assunzionesheath_empty"
+	can_hold = list(/obj/item/material/assunzioneorb)
+	storage_slots = 1
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
+
+
+/obj/item/storage/assunzionesheath/update_icon()
+	if(contents.len)
+		icon_state = "assunzionesheath"
+	else
+		icon_state = "assunzionesheath_empty"
+	return
