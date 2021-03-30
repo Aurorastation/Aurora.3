@@ -87,7 +87,7 @@
 		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
 		return
 	if(mob.stat == DEAD && !(prefs.toggles & CHAT_GHOSTLOOC))
-		to_chat(src, "<span class='danger'>You have Ghost LOOC muted.</span>")
+		to_chat(src, "<span class='danger'>You have observer LOOC muted.</span>")
 		return
 
 	if(!holder)

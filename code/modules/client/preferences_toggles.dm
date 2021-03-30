@@ -122,16 +122,16 @@
 	feedback_add_details("admin_verb","TLOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/listen_ghostlooc()
-	set name = "Show/Hide LOOC (Ghosts)"
+	set name = "Show/Hide LOOC (Observers)"
 	set category = "Preferences"
-	set desc = "Toggles seeing Local OutOfCharacter chat from ghosts"
+	set desc = "Toggles seeing Local OutOfCharacter chat from observing players"
 	if(!(prefs.toggles & CHAT_LOOC)) //Don't need to disable ghost LOOC if you've disabled all LOOC
 		to_chat(src, SPAN_NOTICE("You already have the LOOC channel hidden!"))
 		return
 	prefs.toggles ^= CHAT_GHOSTLOOC
 	prefs.save_preferences()
 
-	to_chat(src, "You will [(prefs.toggles & CHAT_GHOSTLOOC) ? "now" : "no longer"] see messages on the LOOC channel from ghosts.")
+	to_chat(src, "You will [(prefs.toggles & CHAT_GHOSTLOOC) ? "now" : "no longer"] see messages on the LOOC channel from observing/ghosted players.")
 	feedback_add_details("admin_verb","TGLOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
