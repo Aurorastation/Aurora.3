@@ -1,5 +1,4 @@
 author: WickedCybs
 
 delete-after: True
-
   - bugfix: "The colour patches (face) pattern would clip through helmets, hair and many other things due to an extra pixel. This has been fixed."
