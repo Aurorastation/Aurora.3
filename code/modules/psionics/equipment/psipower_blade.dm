@@ -2,7 +2,7 @@
 	name = "psychokinetic slash"
 	force = 10
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	maintain_cost = 1
 	icon_state = "psiblade_short"
 	hitsound = 'sound/weapons/psisword.ogg'
@@ -14,7 +14,7 @@
 /obj/item/psychic_power/psiblade/master
 	force = 20
 	maintain_cost = 2
-	
+
 /obj/item/psychic_power/psiblade/master/grand
 	force = 30
 	maintain_cost = 3
