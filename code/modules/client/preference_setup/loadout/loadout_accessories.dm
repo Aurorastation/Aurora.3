@@ -291,6 +291,26 @@
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
 
+/datum/gear/accessory/passcard
+	display_name = "human passcard selection"
+	path = /obj/item/clothing/accessory/badge/passcard_sol
+
+/datum/gear/accessory/passcard/New()
+	..()
+	var/passcard = list()
+	passcard["passcard, sol"] = /obj/item/clothing/accessory/badge/passcard_sol
+	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard_pluto
+	passcard["passcard, eridani"] = /obj/item/clothing/accessory/badge/passcard_eridani
+	passcard["passcard, tau ceti"] = /obj/item/clothing/accessory/badge/passcard_ceti
+	passcard["passcard, elyra"] = /obj/item/clothing/accessory/badge/passcard_elyra
+	passcard["passcard, dominia"] = /obj/item/clothing/accessory/badge/passcard_dominia
+	passcard["passcard, coalition"] = /obj/item/clothing/accessory/badge/passcard_coalition
+	passcard["passcard, himeo"] = /obj/item/clothing/accessory/badge/passcard_coalition
+	passcard["passcard, vysoka"] = /obj/item/clothing/accessory/badge/passcard_vysoka
+	passcard["passcard, gadpathur"] = /obj/item/clothing/accessory/badge/passcard_gad
+	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard_assu
+	gear_tweaks += new/datum/gear_tweak/path(passcard)
+
 /datum/gear/accessory/passport
 	display_name = "human passport selection"
 	path = /obj/item/clothing/accessory/badge/passport_sol
@@ -301,5 +321,5 @@
 	passport["passport, sol"] = /obj/item/clothing/accessory/badge/passport_sol
 	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport_elyra
 	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport_dominia
-	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport_coalition
+	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport_coc
 	gear_tweaks += new/datum/gear_tweak/path(passport)
