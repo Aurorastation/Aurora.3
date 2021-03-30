@@ -244,41 +244,235 @@
     overlay_state = "trinary_badge"
     badge_string = null
 
-/obj/item/clothing/accessory/badge/passport_sol
-	name = "\improper ASSN passport"
-	desc = "A passport issued to a citizen of the Alliance of Sovereign Solarian Nations."
-	icon_state = "passport_sol"
-	overlay_state = "passport_sol"
+/obj/item/clothing/accessory/badge/passcard_ceti
+	name = "republic of biesel passcard"
+	desc = "A passcard issued to citizens of the Republic of Biesel, typically from planets in Biesel proper and smaller territories."
+	desc_fluff = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
+	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
+	and price of consumer plastics and self-powered microholograms."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_ceti"
+	item_state = "passcard_ceti"
+	overlay_state = "passport_ceti"
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
 	flippable = FALSE
 	v_flippable = FALSE
-	
+
+/obj/item/clothing/accessory/badge/passcard_sol
+	name = "\improper ASSN passcard"
+	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations, typically from planets such as the Jewel Worlds or smaller zones of authority."
+	desc_fluff = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
+	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
+	and price of consumer plastics and self-powered microholograms."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_sol"
+	item_state = "passcard_sol"
+	overlay_state = "passcard_sol"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_pluto
+	name = "plutonian passcard"
+	desc = "A passcard issued to citizens of the Solarian planetoid, Pluto."
+	desc_fluff = "Plutonian passcards, in addition to the features of their cousins in the greater Sol Alliance, include details such as Party membership and occupation, available for viewing by personnel \
+	with the appropriate scanning measures."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_pluto"
+	item_state = "passcard_pluto"
+	overlay_state = "passcard_pluto"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_silversun
+	name = "silversun commemorative passcard"
+	desc = "A passcard issued to Idris employees currently or formerly employed or residing on the planet Silversun."
+	desc_fluff = "While Silversun itself is a member of the Sol Alliance, Idris Incorporated has secured a number of obscure patents, permits, and bureaucratic channels that allows them to commemorate \
+	faithful employees from the resort world with unique passcards that double as membership cards to some of the cheaper resorts on-world."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_silversun"
+	item_state = "passcard_silversun"
+	overlay_state = "passcard_silversun"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_eridani
+	name = "eridani corporate republic passcard"
+	desc = "A holographic passcard issued to residents of the Free Economic Zone of Epsilon Eridani."
+	desc_fluff = "Known with a number of unfavorable acronyms across the Republic, Eridani passcards tend to include unhelpful details such as credit score, personal debts, and insurance providers to those \
+	equipped with the right equipment. Infamous across the Orion Spur for being the most sought-after passcards for counterfeiting."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_eridani"
+	item_state = "passcard_eridani"
+	overlay_state = "passcard_eridani"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_elyra
+	name = "elyran passcard"
+	desc = "A passcard issued to citizens of the Serene Republic of Elyra."
+	desc_fluff = "Much like synthetics manufactured in the Serene Republic, Elyran passcards include high-grade anti-counterfeiting through a wafer of borosilicate reinforced with a randomly-chosen alloy. \
+	Unlike other nations, however, Elyra allows for heavy personal customization of their passcards, with some of the most expensive government contractors offering simple musical notes or integration with \
+	jewelry such as a bracelet or necklace."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_elyra"
+	item_state = "passcard_elyra"
+	overlay_state = "passcard_elyra"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_dominia
+	name = "dominian passcard"
+	desc = "A passcard issued to citizens of the Empire of Dominia."
+	desc_fluff = "Dominian passcards, aside from the usual information, also include details such as ones House, their remaining Mo'ri'zal, their status as an Edict Breaker, or- most uniquely- their most recent \
+	testing for status as a synthetic infiltrator."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_dominia"
+	item_state = "passcard_dominia"
+	overlay_state = "passcard_dominia"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_coalition
+	name = "coalition passcard"
+	desc = "A passcard issued to a citizen of the Coalition of Colonies, typically from worlds like Xanu Prime or the 'wilder' frontier-ward planets lacking in strong central government."
+	desc_fluff = "Due to its terse relations with the Sol Alliance, the Coalition of Colonies has likewise refused to make their passcard software compatible with Alliance verification technology as a \
+	whole. Those travelling from the Coalition to Sol space, for whatever reason, are thus likely to carry paper copies of their identity paperwork with them."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_coc"
+	item_state = "passcard_coc"
+	overlay_state = "passcard_coc"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_himeo
+	name = "himean passcard"
+	desc = "A passcard issued to a citizen of the planet Himeo."
+	desc_fluff = "Himean passcards are descended from a series of modifications made to the original design, meant to show the user had membership in a worker's syndicate without arousing suspicioun from \
+	overseers with paper union cards. These 'defaced' Solarian passcards often find their way into planetary museums, or private collections."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_himeo"
+	item_state = "passcard_himeo"
+	overlay_state = "passcard_himeo"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_gad
+	name = "gadpathurian passcard"
+	desc = "A passcard issued to an active member of a Gadpathurian cadre."
+	desc_fluff = "While identification tabs remain the de facto proof of a Gadpathurian's pride to their cadre and nation, more recent innovations in identification-locked facilities and equipment have demanded \
+	a temporary solution to the low-technology tabs until widespread reform can be made to their manufacturing. As such, Gadpathurian passcards are developed from the ground-up, and are notorious for including \
+	hostile electronics that overheat Solarian examination equipment and can be easily destroyed in the event of capture."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_gad"
+	item_state = "passcard_gad"
+	overlay_state = "passcard_gad"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_vysoka
+	name = "vysokan passcard"
+	desc = "A passcard issued to a citizen of the planet Vysoka."
+	desc_fluff = "Vysokan passcards often include metals and plastics derived from the place of origin for their recipient, and may make small aesthetic changes to reflect family traditions. They are often \
+	objects of incredible sentimental value to their bearer."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_vysoka"
+	item_state = "passcard_vysoka"
+	overlay_state = "passcard_vysoka"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_assu
+	name = "assunzionii passcard"
+	desc = "A passcard issued to a citizen of the planet Assunzione."
+	desc_fluff = "Assunzionii passcards, while unable to provide the same light as a warding sphere, are known for having light-absorbing compounds in their assembly, and thus glow in the dark for easy reading."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_assu"
+	item_state = "passcard_assu"
+	overlay_state = "passcard_assu"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passport_sol
+	name = "solarian passport"
+	desc = "A passport issued to a citizen of the Alliance of Sovereign Solarian Nations, or Sol Alliance. A more generalized document for passage abroad."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passport_sol"
+	item_state = "passport_sol"
+	overlay_state = "passport_sol"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passport_coc
+	name = "coalition passport"
+	desc = "A passport issued to a citizen of the Coalition of Colonies, typically from worlds like Xanu Prime or the 'wilder' frontier-ward planets lacking in strong central government."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passport_coc"
+	item_state = "passport_coc"
+	overlay_state = "passport_coc"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
 /obj/item/clothing/accessory/badge/passport_elyra
-	name = "republic of elyra passport"
-	desc = "A passport issued to a citizen of the Republic of Elyra."
+	name = "elyran passport"
+	desc = "A passport issued to a citizen of the Serene Republic of Elyra. Vintage!"
+	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passport_elyra"
+	item_state = "passport_elyra"
 	overlay_state = "passport_elyra"
+	contained_sprite = 1
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
 /obj/item/clothing/accessory/badge/passport_dominia
-	name = "empire of dominia passport"
-	desc = "A passport issued to a citizen of the Empire of Dominia."
+	name = "elyran passport"
+	desc = "A passport issued to a resident of the Empire of Dominia. Popular among those whose debt is great but pockets light."
+	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passport_dominia"
+	item_state = "passport_dominia"
 	overlay_state = "passport_dominia"
-	slot_flags = null
-	w_class = ITEMSIZE_TINY
-	flippable = FALSE
-	v_flippable = FALSE
-
-/obj/item/clothing/accessory/badge/passport_coalition
-	name = "coalition of colonies passport"
-	desc = "A passport issued to a citizen of the Coalition of Colonies."
-	icon_state = "passport_coalition"
-	overlay_state = "passport_coalition"
+	contained_sprite = 1
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
 	flippable = FALSE
