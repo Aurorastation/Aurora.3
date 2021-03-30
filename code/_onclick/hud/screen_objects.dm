@@ -501,3 +501,16 @@
 
 /obj/screen/inventory/back
 	name = "back"
+
+/obj/screen/nanomachines
+	name = "nanomachines"
+	icon = 'icons/mecha/mecha_hud.dmi'
+	icon_state = null
+	maptext_x = 7
+	maptext_y = 10
+
+/obj/screen/nanomachines/Click(location, control, params)
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		if(H.nanomachines)
+			to_chat(H, SPAN_NOTICE("You have <b>[H.nanomachines.machine_volume]</b>/[H.nanomachines.max_machines] nanomachines floating inside you. Their safety cut-off is set at [H.nanomachines.safety_threshold]."))

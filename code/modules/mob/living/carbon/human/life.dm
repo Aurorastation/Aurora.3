@@ -52,33 +52,35 @@
 
 	voice = GetVoice()
 
-	//No need to update all of these procs if the guy is dead or in stasis
-	if(stat != DEAD && !InStasis())
-		//Updates the number of stored chemicals for powers
-		handle_changeling()
+	if(!InStasis())
+		if(nanomachines)
+			nanomachines.handle_nanomachines()
+		if(stat != DEAD)	//No need to update all of these procs if the guy is dead
+			//Updates the number of stored chemicals for powers
+			handle_changeling()
 
-		//Organs
-		handle_organs()
-		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
+			//Organs
+			handle_organs()
+			stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
-		//Random events (vomiting etc)
-		handle_random_events()
+			//Random events (vomiting etc)
+			handle_random_events()
 
-		handle_shock()
+			handle_shock()
 
-		handle_pain()
+			handle_pain()
 
-		handle_medical_side_effects()
+			handle_medical_side_effects()
 
-		handle_fever()
+			handle_fever()
 
-		//Handles regenerating stamina if we have sufficient air and no oxyloss
-		handle_stamina()
+			//Handles regenerating stamina if we have sufficient air and no oxyloss
+			handle_stamina()
 
-		if (is_diona())
-			diona_handle_light(DS)
+			if (is_diona())
+				diona_handle_light(DS)
 
-		handle_shared_dreaming()
+			handle_shared_dreaming()
 
 	if(!handle_some_updates())
 		return											//We go ahead and process them 5 times for HUD images and other stuff though.

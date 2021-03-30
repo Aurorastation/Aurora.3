@@ -289,6 +289,10 @@
 			mymob.healths.screen_loc = ui_health_loc
 		hud_elements |= mymob.healths
 
+		target.nanomachine_hud = new /obj/screen/nanomachines()
+		target.nanomachine_hud.screen_loc = ui_nanomachine
+		hud_elements |= target.nanomachine_hud
+
 	if(hud_data.has_pressure)
 		mymob.pressure = new /obj/screen/pressure()
 		mymob.pressure.icon = 'icons/mob/status_indicators.dmi'
