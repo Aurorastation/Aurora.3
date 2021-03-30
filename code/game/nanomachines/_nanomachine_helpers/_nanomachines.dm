@@ -4,7 +4,6 @@
 
 /mob/living/carbon/human
 	var/datum/nanomachine/nanomachines
-	var/obj/screen/nanomachines/nanomachine_hud
 
 /mob/living/carbon/human/proc/add_nanomachines(var/list/programs)
 	var/message = "Programs loaded:"
@@ -29,12 +28,10 @@
 			var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
 			program_names += NE.name
 		nanomachines.speak_to_owner("[message] [english_list(program_names)].")
-	nanomachine_hud.icon_state = "base"
 
 /mob/living/carbon/human/proc/remove_nanomachines()
 	nanomachines.owner = null
 	QDEL_NULL(nanomachines)
-	nanomachine_hud.icon_state = null
 
 /datum/nanomachine
 	var/mob/living/carbon/human/owner
@@ -62,7 +59,6 @@
 	else
 		var/regen_amount = regen_rate * ((world.time - last_process) / 10)
 		machine_volume = clamp(machine_volume + regen_amount, 0, max_machines)
-		owner.nanomachine_hud.maptext = SMALL_FONTS(7, round(machine_volume))
 		last_process = world.time
 
 /datum/nanomachine/proc/speak_to_owner(var/message)
