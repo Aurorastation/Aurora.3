@@ -682,8 +682,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "lighter-aug"
 	item_state = "lighter-aug"
 
-/obj/item/flame/lighter/zippo/augment/throw_at()
-	usr.drop_from_inventory(src)
+/obj/item/flame/lighter/zippo/augment/throw_at(atom/target, range, speed, mob/thrower)
+	thrower.drop_from_inventory(src)
 
 /obj/item/flame/lighter/zippo/augment/dropped()
 	loc = null
