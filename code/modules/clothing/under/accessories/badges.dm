@@ -466,7 +466,7 @@
 	v_flippable = FALSE
 
 /obj/item/clothing/accessory/badge/passport_dominia
-	name = "elyran passport"
+	name = "dominian passport"
 	desc = "A passport issued to a resident of the Empire of Dominia. Popular among those whose debt is great but pockets light."
 	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passport_dominia"
