@@ -90,7 +90,7 @@
 
 /obj/item/paper/examine(mob/user)
 	..()
-	if (old_name && icon_state == "paper_plane")
+	if (old_name && icon_state == "paper_plane" || icon_state == "paper_swan")
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
