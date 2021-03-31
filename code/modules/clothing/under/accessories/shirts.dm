@@ -84,6 +84,18 @@
 	icon_state = "blouse"
 	item_state = "blouse"
 
+/obj/item/clothing/accessory/longblouse
+	name = "long-sleeved blouse"
+	desc = "A long-sleeved, loose fitting garment."
+	icon_state = "longblouse"
+	item_state = "longblouse"
+
+/obj/item/clothing/accessory/puffyblouse
+	name = "puffy blouse"
+	desc = "A loose fitting garment with plenty of material around the arms."
+	icon_state = "puffyblouse"
+	item_state = "puffyblouse"
+
 //Legacy
 /obj/item/clothing/accessory/wcoat
 	name = "waistcoat"

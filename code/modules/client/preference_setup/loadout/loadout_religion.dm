@@ -67,8 +67,10 @@
 
 /datum/gear/religion/assunzioneorb
 	display_name = "assunzione warding sphere"
+	description = "A religious artefact commonly associated with Luceism."
 	path = "/obj/item/assunzioneorb"
 
 /datum/gear/religion/assunzionesheath
 	display_name = "assunzione warding sphere sheath"
+	description = "A small metal shell designed to hold a warding sphere."
 	path = "/obj/item/storage/assunzionesheath"
