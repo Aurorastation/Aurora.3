@@ -88,3 +88,4 @@
 	offworlder_card["passcard, technoconglomerate"] = /obj/item/clothing/accessory/badge/passcard_techno
 	offworlder_card["passblade, scarab"] = /obj/item/clothing/accessory/badge/passcard_scarab
 	gear_tweaks += new/datum/gear_tweak/path(offworlder_card)
+	sort_category = "Xenowear - Human"
