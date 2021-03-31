@@ -64,7 +64,3 @@
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
 	path = "/obj/item/clothing/accessory/dominia"
-
-/datum/gear/religion/luceism/necklace
-	display_name = "luceist necklace"
-	path = "/obj/item/clothing/accessory/luceism/necklace"
