@@ -36,6 +36,8 @@
 	var/mob/living/carbon/human/owner
 	var/list/loaded_programs = list()
 	var/max_programs = 2
+
+	var/load_time = null // when the nanomachines first entered the host
 	var/last_process = 0
 
 	var/machine_volume = 50  // amount of nanomachines in the system, used as fuel for nanomachine programs
@@ -54,8 +56,13 @@
 	owner = H
 	owner.nanomachines = src
 	last_process = world.time
+	load_time = world.time
 
 /datum/nanomachine/proc/handle_nanomachines()
+	if(load_time && world.time - load_time > 2 HOURS)
+		regen_rate -= 0.6 // nanomachines are old and will work themselves out of the body now
+		safety_threshold = 0
+		load_time = null
 	for(var/program in loaded_programs)
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
 		if(NE.has_process_effect && NE.check_nanomachine_effect(src, owner))
