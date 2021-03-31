@@ -156,8 +156,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/milk/soymilk = 50)
 
 /obj/item/reagent_containers/food/drinks/coffee
-	name = "robust coffee"
-	desc = "Careful, the beverage you're about to enjoy is extremely hot."
+	name = "\improper Martian Dark Roast"
+	desc = "The darkest roast this side of Olympia, guaranteed."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -181,8 +181,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/coffee/sadpslatte = 30)
 
 /obj/item/reagent_containers/food/drinks/tea
-	name = "duke purple tea"
-	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
+	name = "\improper Sol-III tea"
+	desc = "A hot tea with an \"Earthy\" flavor that's much weaker than it claims to be on the cup."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -232,8 +232,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/tea/chaitea = 30)
 
 /obj/item/reagent_containers/food/drinks/ice
-	name = "ice cup"
-	desc = "Careful, cold ice, do not chew."
+	name = "\improper Admiral's ice cup"
+	desc = "Solid water served in an official Getmore-brand disposable collector's cup, each one commemorating a late admiral."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -244,8 +244,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/ice = 30)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
-	name = "dutch hot coco"
-	desc = "Made in Space South America."
+	name = "\improper Red Gaia hot coco"
+	desc = "A Mars favorite. Usually dispensed at a temperature hotter than any human can stand."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee

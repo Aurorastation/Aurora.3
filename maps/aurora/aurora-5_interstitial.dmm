@@ -3559,6 +3559,14 @@
 "je" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/heavy,
+/obj/item/clothing/mask/gas/half{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/item/clothing/mask/gas/half{
+	pixel_x = -6;
+	pixel_y = 9
+	},
 /turf/simulated/floor/plating,
 /area/bridge/aibunker)
 "jf" = (

@@ -300,8 +300,8 @@
 	reagents_to_add = list(/decl/reagent/drink/lemon_lime = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/iced_tea
-	name = "\improper Vrisk Serket iced tea"
-	desc = "That sweet, refreshing southern earthy flavor. That's where it's from, right? South Earth?"
+	name = "\improper Silversun Wave iced tea"
+	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
 	icon_state = "ice_tea_can"
 	center_of_mass = list("x"=16, "y"=10)
 
