@@ -2,8 +2,8 @@
 	name = "nanomachine chamber"
 	desc = "The apparatus bringing the man to the machine. This piece of machinery can infuse nanomachines into a body, as well as scan them to see what's running on them."
 	desc_fluff = "Created in coordination with all the SCC companies, this machine combines the strengths of all of them to create a machine-to-man interface."
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "scanner_"
+	icon = 'icons/obj/machines/nanomachines.dmi'
+	icon_state = "chamber"
 
 	density = TRUE
 
@@ -24,8 +24,16 @@
 	connected_incubator = null
 	return ..()
 
-/obj/machinery/nanomachine_chamber/update_icon()
-	icon_state = "[initial(icon_state)][!!occupant]"
+/obj/machinery/nanomachine_chamber/update_icon(var/power_state)
+	if(!power_state)
+		power_state = !(stat & (BROKEN|NOPOWER|EMPED))
+	icon_state = "[initial(icon_state)][occupant ? "_o" : ""][power_state ? "" : "_u"]"
+
+/obj/machinery/nanomachine_chamber/machinery_process()
+	if(stat & (BROKEN|NOPOWER|EMPED))
+		update_icon(FALSE)
+		return
+	update_icon(TRUE)
 
 /obj/machinery/nanomachine_chamber/relaymove(mob/user, direction)
 	if(use_check(user))
@@ -97,7 +105,10 @@
 		to_chat(user, SPAN_WARNING("\The [src] can only hold humanoids!"))
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [H] into \the [src]."), SPAN_NOTICE("You start putting \the [H] into \the [src]."), range = 3)
+	if(H == user)
+		user.visible_message(SPAN_NOTICE("\The [user] starts climbing into \the [src]."), SPAN_NOTICE("You start climbing into \the [src]."), range = 3)
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [H] into \the [src]."), SPAN_NOTICE("You start putting \the [H] into \the [src]."), range = 3)
 	if(do_mob(user, H, 3 SECONDS))
 		var/bucklestatus = H.bucklecheck(user)
 		if(!bucklestatus)//incase the patient got buckled during the delay
@@ -152,8 +163,7 @@
 
 	if(href_list["infuse"])
 		locked = TRUE
-		var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-		audible_message("[S.icon_tag("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Infusing occupant with nanomachine cluster now.\"")
+		audible_message("[get_accent("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Infusing occupant with nanomachine cluster now.\"")
 		playsound(loc, 'sound/machines/juicer.ogg', 50, TRUE)
 		addtimer(CALLBACK(connected_incubator, /obj/machinery/nanomachine_incubator.proc/infuse_occupant, occupant), 10 SECONDS)
 		locked = FALSE

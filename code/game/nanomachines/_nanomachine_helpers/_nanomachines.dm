@@ -83,8 +83,7 @@
 		owner.remove_nanomachines()
 
 /datum/nanomachine/proc/speak_to_owner(var/message)
-	var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-	to_chat(owner, "[S.icon_tag("nanomachine")] <span class='nanomachine'><b>Inside your head</b>, \"[message]\"</span>")
+	to_chat(owner, "[get_accent("nanomachine")] <span class='nanomachine'><b>Inside your head</b>, \"[message]\"</span>")
 
 /datum/nanomachine/proc/get_loaded_programs()
 	var/list/ui_loaded_programs = list()

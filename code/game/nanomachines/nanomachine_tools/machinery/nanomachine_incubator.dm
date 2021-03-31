@@ -2,8 +2,8 @@
 	name = "nanomachine incubator"
 	desc = "An advanced machine capable of generating nanomachines with various programs loaded into them."
 	desc_fluff = "Created in coordination with all the SCC companies, this machine combines the strengths of all of them to create a man-to-machine interface."
-	icon = 'icons/obj/machines/telecomms.dmi'
-	icon_state = "processor"
+	icon = 'icons/obj/machines/nanomachines.dmi'
+	icon_state = "incubator"
 
 	density = TRUE
 
@@ -29,7 +29,7 @@
 /obj/machinery/nanomachine_incubator/update_icon(var/power_state)
 	if(!power_state)
 		power_state = !(stat & (BROKEN|NOPOWER|EMPED))
-	icon_state = "processor[power_state ? "" : "_off"]"
+	icon_state = "[initial(icon_state)][power_state ? "" : "_off"]"
 
 /obj/machinery/nanomachine_incubator/machinery_process()
 	if(stat & (BROKEN|NOPOWER|EMPED))
@@ -126,6 +126,9 @@
 /obj/machinery/nanomachine_incubator/proc/infuse_occupant(var/mob/living/carbon/human/H)
 	if(!ishuman(H))
 		log_debug("NANOMACHINES: Somehow, someone managed to try and infuse nanomachines into a non-human: [H.name] [H.type]")
+		return
+
+	if(inoperable(MAINT))
 		return
 
 	H.add_nanomachines(loaded_nanomachines)
