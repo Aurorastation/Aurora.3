@@ -44,3 +44,8 @@
 /obj/item/nanomachine_injector/armstrong
 	name_label = "Armstrong"
 	preloaded_programs = list(/decl/nanomachine_effect/nanomachines_son)
+
+//medical
+/obj/item/nanomachine_injector/medical
+	name_label = "Medical"
+	preloaded_programs = list(/decl/nanomachine_effect/blood_regen, /decl/nanomachine_effect/pain_killer)

@@ -752,6 +752,8 @@
 #include "code\game\nanomachines\_nanomachine_helpers\_nanomachines.dm"
 #include "code\game\nanomachines\nanomachine_effects\_nanomachine_effect.dm"
 #include "code\game\nanomachines\nanomachine_effects\debug\nanomachines_son.dm"
+#include "code\game\nanomachines\nanomachine_effects\medical\blood_regen.dm"
+#include "code\game\nanomachines\nanomachine_effects\medical\pain_killer.dm"
 #include "code\game\nanomachines\nanomachine_tools\item\nanomachine_injector.dm"
 #include "code\game\nanomachines\nanomachine_tools\machinery\nanomachine_incubator.dm"
 #include "code\game\objects\buckling.dm"

@@ -602,6 +602,7 @@
 		if(bloodstr) bloodstr.metabolize()
 		if(ingested) metabolize_ingested_reagents()
 		if(breathing) breathing.metabolize()
+		if(nanomachines) nanomachines.handle_nanomachines_chem_effect()
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]

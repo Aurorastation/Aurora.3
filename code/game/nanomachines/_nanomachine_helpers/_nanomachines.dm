@@ -44,6 +44,8 @@
 	var/regen_rate = 0.5      // nanomachines generated per second
 	var/safety_threshold = 50 // how low nanomachines will get before they stop processing/triggering
 
+	var/list/program_last_trigger // keeps time for processes, some want to fire every 2 minutes, for example
+
 /datum/nanomachine/New(var/mob/living/carbon/human/set_owner)
 	owner = set_owner
 	owner.nanomachines = src
@@ -52,7 +54,7 @@
 /datum/nanomachine/proc/handle_nanomachines()
 	for(var/program in loaded_programs)
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
-		if(NE.check_nanomachine_effect(src, owner))
+		if(NE.has_process_effect && NE.check_nanomachine_effect(src, owner))
 			NE.do_nanomachine_effect(src, owner)
 	if(machine_volume <= 0)
 		owner.remove_nanomachines()
@@ -60,6 +62,14 @@
 		var/regen_amount = regen_rate * ((world.time - last_process) / 10)
 		machine_volume = clamp(machine_volume + regen_amount, 0, max_machines)
 		last_process = world.time
+
+/datum/nanomachine/proc/handle_nanomachines_chem_effect()
+	for(var/program in loaded_programs)
+		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
+		if(NE.has_chem_effect && NE.check_nanomachine_effect(src, owner))
+			NE.do_nanomachine_effect(src, owner)
+	if(machine_volume <= 0)
+		owner.remove_nanomachines()
 
 /datum/nanomachine/proc/speak_to_owner(var/message)
 	var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)

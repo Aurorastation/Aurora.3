@@ -168,3 +168,6 @@
 // Will filter out extra rotations and negative rotations
 // E.g: 540 becomes 180. -180 becomes 180.
 #define SIMPLIFY_DEGREES(degrees) (MODULUS_FLOAT((degrees), 360))
+
+#define SECONDS_PASSED(TIME) ((world.time - TIME) / 10)
+#define TIMES_SECONDS_PASSED(TIME) * SECONDS_PASSED(TIME)
