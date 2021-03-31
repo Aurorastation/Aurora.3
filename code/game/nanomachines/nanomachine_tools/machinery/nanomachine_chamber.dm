@@ -39,6 +39,8 @@
 /obj/machinery/nanomachine_chamber/relaymove(mob/user, direction)
 	if(use_check(user))
 		return
+	if(user != occupant)
+		return
 	user.dir = direction
 	go_out()
 
@@ -48,6 +50,9 @@
 	set name = "Eject Body Scanner"
 
 	if(use_check_and_message(usr))
+		return
+	if(locked)
+		to_chat(usr, SPAN_WARNING("\The [src] is locked."))
 		return
 	go_out()
 	add_fingerprint(usr)
@@ -167,4 +172,7 @@
 		audible_message("[get_accent("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Infusing occupant with nanomachine cluster now.\"")
 		playsound(loc, 'sound/machines/juicer.ogg', 50, TRUE)
 		addtimer(CALLBACK(connected_incubator, /obj/machinery/nanomachine_incubator.proc/infuse_occupant, occupant), 10 SECONDS)
-		locked = FALSE
+		addtimer(CALLBACK(src, .proc/set_lock, FALSE), 10 SECONDS)
+
+/obj/machinery/nanomachine_chamber/proc/set_lock(var/lock)
+	locked = lock
