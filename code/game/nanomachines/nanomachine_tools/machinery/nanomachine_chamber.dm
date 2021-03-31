@@ -6,6 +6,7 @@
 	icon_state = "chamber"
 
 	density = TRUE
+	anchored = TRUE
 
 	idle_power_usage = 60
 	active_power_usage = 10000

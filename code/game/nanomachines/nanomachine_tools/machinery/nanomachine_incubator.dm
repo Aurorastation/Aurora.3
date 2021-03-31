@@ -6,6 +6,7 @@
 	icon_state = "incubator"
 
 	density = TRUE
+	anchored = TRUE
 
 	var/nanomachine_reserve = 100
 	var/max_nanomachine_reserve = 1000
