@@ -38,7 +38,7 @@
 #define AGE_MIN 17
 #define AGE_MAX 85
 
-#define MAX_GEAR_COST 15 // Used in chargen for accessory loadout limit.
+#define MAX_GEAR_COST 20 // Used in chargen for accessory loadout limit.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
