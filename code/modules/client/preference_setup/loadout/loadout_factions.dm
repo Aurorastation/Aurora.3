@@ -29,6 +29,11 @@
 	slot = slot_wear_suit
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_passcard
+	display_name = "idris silversun passcard"
+	path = /obj/item/clothing/accessory/badge/passcard_silversun
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/zavodskoi_beret
 	display_name = "black zavodskoi beret"
 	path = /obj/item/clothing/head/beret/security/zavodskoi
@@ -147,4 +152,9 @@
 	display_name = "hephaestus beret"
 	path = /obj/item/clothing/head/beret/heph
 	slot = slot_head
+	faction = "Hephaestus Industries"
+
+/datum/gear/faction/heph_passcard
+	display_name = "hephaestus burszia passcard"
+	path = /obj/item/clothing/accessory/badge/passcard_burszia
 	faction = "Hephaestus Industries"
