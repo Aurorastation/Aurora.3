@@ -173,3 +173,11 @@
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369.15}
 		)
+
+/obj/machinery/chemical_dispenser/coffee/employee
+	spawn_cartridges = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/sugar,
+		/obj/item/reagent_containers/chem_disp_cartridge/milk,
+		/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369.15},
+		/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369}
+	)

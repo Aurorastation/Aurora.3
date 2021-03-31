@@ -134,6 +134,10 @@
 	icon_state = "surgery"
 	no_light_control = 1
 
+/area/medical/nanomachine
+	name = "Medical - Nanomachine Workshop"
+	icon_state = "nanomach"
+
 /area/medical/surgeryobs
 	name = "Medical - Operation Observation Room"
 	icon_state = "surgery"

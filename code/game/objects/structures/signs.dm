@@ -135,6 +135,11 @@
 	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
 	icon_state = "greencross"
 
+/obj/structure/sign/sccplaque
+	name = "SCC plaque"
+	desc = "A plaque dedicated to the achievements of the SCC."
+	icon_state = "sccplaque"
+
 /obj/structure/sign/goldenplaque
 	name = "The Most Robust Men Award for Robustness"
 	desc = "To be Robust is not an action or a way of life, but a mental state. Only those with the force of Will strong enough to act during a crisis, saving friend from foe, are truly Robust. Stay Robust my friends."
