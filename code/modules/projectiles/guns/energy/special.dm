@@ -314,7 +314,7 @@
 	burst_delay = 1
 	fire_delay = 30
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	anchored = 0
 	armor_penetration = 40
 	flags = NOBLOODY

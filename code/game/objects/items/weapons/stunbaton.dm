@@ -10,7 +10,7 @@
 	slot_flags = SLOT_BELT
 	force = 5
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	throwforce = 7
 	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
