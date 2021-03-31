@@ -21,7 +21,7 @@
 
 	if(length(preloaded_programs))
 		loaded_nanomachines = new /datum/nanomachine(src)
-		loaded_nanomachines = preloaded_programs.Copy()
+		loaded_nanomachines.loaded_programs = preloaded_programs.Copy()
 
 	update_icon()
 
