@@ -339,7 +339,7 @@
 /obj/item/clothing/accessory/badge/passcard_dominia
 	name = "dominian passcard"
 	desc = "A passcard issued to citizens of the Empire of Dominia."
-	desc_fluff = "Dominian passcards, aside from the usual information, also include details such as ones House, their remaining Mo'ri'zal, their status as an Edict Breaker, or- most uniquely- their most recent \
+	desc_fluff = "Dominian passcards, aside from the usual information, also include details such as one's House, their remaining Mo'ri'zal debt, their status as an Edict Breaker, or- most uniquely- their most recent \
 	testing for status as a synthetic infiltrator."
 	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passcard_dominia"
@@ -369,7 +369,7 @@
 /obj/item/clothing/accessory/badge/passcard_himeo
 	name = "himean passcard"
 	desc = "A passcard issued to a citizen of the planet Himeo."
-	desc_fluff = "Himean passcards are descended from a series of modifications made to the original design, meant to show the user had membership in a worker's syndicate without arousing suspicioun from \
+	desc_fluff = "Himean passcards are descended from a series of modifications made to the original design, meant to show the user had membership in a worker's syndicate without arousing suspicion from \
 	overseers with paper union cards. These 'defaced' Solarian passcards often find their way into planetary museums, or private collections."
 	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passcard_himeo"
@@ -420,6 +420,52 @@
 	icon_state = "passcard_assu"
 	item_state = "passcard_assu"
 	overlay_state = "passcard_assu"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_scarab
+	name = "scarab passblade"
+	desc = "A dagger issued as a writ of passage to scarabs abroad."
+	desc_fluff = "By Scarab traditions, one should show their weapon to non-Scarabs upon first meeting. This dagger, sheathed in hakhma chitin, is often given to noncombatants, the Released, or the young, so they \
+	may meet with outsiders with at least a blade between them. Despite this, the blade is sealed tightly within the scabbard."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_scarab"
+	item_state = "passcard_scarab"
+	overlay_state = "passcard_scarab"
+	contained_sprite = 1
+	slot_flags = SLOT_HOLSTER
+	w_class = ITEMSIZE_SMALL
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_techno
+	name = "techno-conglomerate passcard"
+	desc = "A clump of machinery scraps repurposed into a functional passcard, used by the Techno-Conglomerate."
+	desc_fluff = "In a society that values progress towards perfection, the Techno-Conglomerate has also applied this to their 'governance'. Prospective wayfarers and explorers will often be required to assemble \
+	their own cards from scraps left over from the early days of the technology, often leading to outdated or buggy versions. Urban legend claims that some have even found a way to exploit this technology to 'sequence' \
+	their way into more secure locales."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_techno"
+	item_state = "passcard_techno"
+	overlay_state = "passcard_techno"
+	contained_sprite = 1
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+/obj/item/clothing/accessory/badge/passcard_burszia
+	name = "burszian passcard"
+	desc = "A passcard issued to Burszian Hephaestus employees and- owned IPCs- working abroad."
+	desc_fluff = "Despite protest from the Himean representatives in government, Hephaestus Industries- citing their 'Home is where the Hephaestus is' initiative- is permitted to issue up to five thousand \
+	sponsored passcards to participating employees on a yearly basis, both to remind them of their home and to save on imported labor costs."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "passcard_burs"
+	item_state = "passcard_burs"
+	overlay_state = "passcard_burs"
 	contained_sprite = 1
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
