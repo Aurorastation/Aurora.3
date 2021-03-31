@@ -203,7 +203,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "assunzioneorb"
 	item_state = "assunzioneorb"
-	light_range = 1.2
+	light_range = 1.4
 	light_power = 1.4
 	light_color = LIGHT_COLOR_BLUE
 	w_class = ITEMSIZE_SMALL
