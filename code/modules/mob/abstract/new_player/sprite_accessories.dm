@@ -2771,6 +2771,10 @@ Follow by example and make good judgement based on length which list to include 
 			name = "burzsia IPC screen"
 			icon_state = "ipc_burzsia"
 
+		ipc_screen_tp
+			name = "trinary perfection IPC screen"
+			icon_state = "ipc_tp"
+
 	diona_eye
 		icon = 'icons/mob/human_face/dionae_hair.dmi'
 		name = "Mono Eye"
