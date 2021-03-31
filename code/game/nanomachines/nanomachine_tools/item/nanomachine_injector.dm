@@ -9,8 +9,8 @@
 	item_state = "nanomachine_injector"
 	contained_sprite = TRUE
 
-	var/spent = FALSE
 	var/list/preloaded_programs
+	var/datum/nanomachine/loaded_nanomachines
 
 /obj/item/nanomachine_injector/Initialize()
 	. = ..()
@@ -18,10 +18,15 @@
 		name_unlabel = name
 		name = "[name] ([name_label])"
 		verbs += /atom/proc/remove_label
+
+	if(length(preloaded_programs))
+		loaded_nanomachines = new /datum/nanomachine(src)
+		loaded_nanomachines = preloaded_programs.Copy()
+
 	update_icon()
 
 /obj/item/nanomachine_injector/attack(mob/living/carbon/human/H, mob/living/user, target_zone)
-	if(spent)
+	if(!loaded_nanomachines)
 		to_chat(user, SPAN_WARNING("\The [src] is spent!"))
 		return
 	if(!ishuman(H))
@@ -33,12 +38,12 @@
 	if(do_mob(user, H, 2 SECONDS))
 		user.visible_message("<b>[user]</b> injects \the [H] with \the [src].", SPAN_NOTICE("You inject \the [H] with \the [src]."))
 		user.do_attack_animation(H, src)
-		H.add_nanomachines(preloaded_programs)
-		spent = TRUE
+		H.add_nanomachines(loaded_nanomachines)
+		loaded_nanomachines = null
 		update_icon()
 
 /obj/item/nanomachine_injector/update_icon()
-	icon_state = "[initial(icon_state)][!spent]"
+	icon_state = "[initial(icon_state)][!!loaded_nanomachines]"
 
 // debug injector
 /obj/item/nanomachine_injector/armstrong

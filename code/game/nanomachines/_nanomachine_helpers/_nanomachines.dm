@@ -5,27 +5,26 @@
 /mob/living/carbon/human
 	var/datum/nanomachine/nanomachines
 
-/mob/living/carbon/human/proc/add_nanomachines(var/list/programs)
+/mob/living/carbon/human/proc/add_nanomachines(var/datum/nanomachine/NM)
 	var/message = "Programs loaded:"
 	var/list/new_programs = list()
 	if(nanomachines)
 		message = "Additional programs loaded:"
-		for(var/program in programs)
-			if(length(nanomachines.loaded_programs) > nanomachines.max_programs)
+		for(var/program in NM.loaded_programs)
+			if(nanomachines.check_program_capacity_usage() > nanomachines.max_programs)
 				break
 			if(program in nanomachines.loaded_programs)
 				continue
 			nanomachines.loaded_programs += program
 			new_programs += program
 	else
-		nanomachines = new /datum/nanomachine(src)
-		if(programs)
-			nanomachines.loaded_programs = programs.Copy()
-			new_programs = nanomachines.loaded_programs
+		NM.set_owner(src)
+		new_programs = nanomachines.loaded_programs
 	if(length(new_programs))
 		var/list/program_names = list()
-		for(var/program in programs)
+		for(var/program in new_programs)
 			var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
+			NE.add_effect(nanomachines, src)
 			program_names += NE.name
 		nanomachines.speak_to_owner("[message] [english_list(program_names)].")
 
@@ -36,18 +35,23 @@
 /datum/nanomachine
 	var/mob/living/carbon/human/owner
 	var/list/loaded_programs = list()
-	var/max_programs = 3
+	var/max_programs = 2
 	var/last_process = 0
 
-	var/machine_volume = 100  // amount of nanomachines in the system, used as fuel for nanomachine programs
-	var/max_machines = 500    // maximum amount of nanomachines in the system
+	var/machine_volume = 50  // amount of nanomachines in the system, used as fuel for nanomachine programs
+	var/max_machines = 100    // maximum amount of nanomachines in the system
 	var/regen_rate = 0.5      // nanomachines generated per second
 	var/safety_threshold = 50 // how low nanomachines will get before they stop processing/triggering
 
 	var/list/program_last_trigger // keeps time for processes, some want to fire every 2 minutes, for example
 
-/datum/nanomachine/New(var/mob/living/carbon/human/set_owner)
-	owner = set_owner
+/datum/nanomachine/New(var/atom/new_owner)
+	..()
+	if(ishuman(new_owner))
+		set_owner(new_owner)
+
+/datum/nanomachine/proc/set_owner(var/mob/living/carbon/human/H)
+	owner = H
 	owner.nanomachines = src
 	last_process = world.time
 
@@ -74,3 +78,29 @@
 /datum/nanomachine/proc/speak_to_owner(var/message)
 	var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
 	to_chat(owner, "[S.icon_tag("nanomachine")] <span class='nanomachine'><b>Inside your head</b>, \"[message]\"</span>")
+
+/datum/nanomachine/proc/get_loaded_programs()
+	var/list/ui_loaded_programs = list()
+	for(var/program in loaded_programs)
+		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
+		ui_loaded_programs += NE.name
+	return ui_loaded_programs
+
+/datum/nanomachine/proc/add_program(var/program)
+	loaded_programs += program
+	var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
+	NE.add_effect(src)
+
+/datum/nanomachine/proc/remove_program(var/program)
+	var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
+	NE.remove_effect(src)
+	loaded_programs -= program
+	if(check_program_capacity_usage() > max_programs) // we removed a storage increasing program while having a program occupying its added slot
+		remove_program(loaded_programs[length(loaded_programs)]) // remove programs at the back first
+
+/datum/nanomachine/proc/check_program_capacity_usage()
+	var/program_usage = 0
+	for(var/program in loaded_programs)
+		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
+		program_usage += NE.program_capacity_usage
+	return program_usage

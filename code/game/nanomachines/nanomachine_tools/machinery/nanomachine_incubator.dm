@@ -5,6 +5,27 @@
 	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "processor"
 
+	density = TRUE
+
+	var/nanomachine_reserve = 100
+	var/max_nanomachine_reserve = 1000
+
+	var/datum/nanomachine/loaded_nanomachines
+
+	var/list/available_programs = list(/decl/nanomachine_effect/blood_regen, /decl/nanomachine_effect/pain_killer, /decl/nanomachine_effect/nanomachines_son, /decl/nanomachine_effect/reproductive_nullifier)
+
+/obj/machinery/nanomachine_incubator/Initialize(mapload, d, populate_components)
+	. = ..()
+	var/obj/machinery/nanomachine_chamber/NC = locate() in range(1, src)
+	if(NC)
+		NC.connected_incubator = src
+
+/obj/machinery/nanomachine_incubator/Destroy()
+	var/obj/machinery/nanomachine_chamber/NC = locate() in range(1, src)
+	if(NC?.connected_incubator == src)
+		NC.connected_incubator = null
+	return ..()
+
 /obj/machinery/nanomachine_incubator/update_icon(var/power_state)
 	if(!power_state)
 		power_state = !(stat & (BROKEN|NOPOWER|EMPED))
@@ -16,21 +37,98 @@
 		return
 	update_icon(TRUE)
 
+/obj/machinery/nanomachine_incubator/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/nanomachine_capsule))
+		var/obj/item/nanomachine_capsule/NC = W
+		if(nanomachine_reserve + NC.nanomachine_payload > max_nanomachine_reserve)
+			to_chat(user, SPAN_WARNING("\The [src] cannot hold this many nanomachines!"))
+			return
+		to_chat(user, SPAN_NOTICE("You feed \the [NC] into \the [src]."))
+		nanomachine_reserve += NC.nanomachine_payload
+		SSvueui.check_uis_for_change(src)
+		user.drop_from_inventory(NC)
+		qdel(NC)
+		return
+	return ..()
+
 /obj/machinery/nanomachine_incubator/attack_hand(var/mob/user)
 	if(..())
-		return
+		return TRUE
 
 	ui_interact(user)
 
 /obj/machinery/nanomachine_incubator/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "medical-nanomachineincubator", 600, 500, capitalize(name))
-		ui.auto_update_content = TRUE
+		ui = new(user, src, "medical-nanomachineincubator", 600, 500, capitalize_first_letters(name))
 	ui.open()
 
 /obj/machinery/nanomachine_incubator/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
 		data = list()
-	data["bongus"] = 1
+	data["max_nanomachine_reserve"] = max_nanomachine_reserve
+	data["nanomachine_reserve"] = nanomachine_reserve
+
+	data["loaded_nanomachines"] = !!loaded_nanomachines
+	data["available_programs"] = null
+	data["loaded_programs"] = null
+	data["space_remaining"] = null
+	data["max_space"] = null
+	if(loaded_nanomachines)
+		data["loaded_programs"] = loaded_nanomachines.get_loaded_programs()
+		data["available_programs"] = get_available_programs()
+		data["space_remaining"] = loaded_nanomachines.max_programs - loaded_nanomachines.check_program_capacity_usage()
+		data["max_space"] = loaded_nanomachines.max_programs
+
 	return data
+
+/obj/machinery/nanomachine_incubator/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return
+
+	if(href_list["print"])
+		var/obj/item/nanomachine_capsule/NC = new /obj/item/nanomachine_capsule(loc)
+		nanomachine_reserve -= NC.nanomachine_payload
+
+	if(href_list["create"])
+		loaded_nanomachines = new /datum/nanomachine(src)
+		nanomachine_reserve -= loaded_nanomachines.machine_volume
+
+	if(href_list["program"])
+		var/decl_path
+		for(var/decl in available_programs)
+			var/decl/nanomachine_effect/NE = decls_repository.get_decl(decl)
+			if(href_list["program"] == NE.name)
+				decl_path = decl
+				break
+		if(!decl_path)
+			log_debug("NANOMACHINES: Nanomachine Incubator failed to get Nanomachine program called: [href_list["program"]]")
+			return
+		if(decl_path in loaded_nanomachines.loaded_programs)
+			loaded_nanomachines.remove_program(decl_path)
+		else
+			loaded_nanomachines.add_program(decl_path)
+
+	if(href_list["flush"])
+		nanomachine_reserve += loaded_nanomachines.machine_volume
+		QDEL_NULL(loaded_nanomachines)
+
+	SSvueui.check_uis_for_change(src)
+
+/obj/machinery/nanomachine_incubator/proc/get_available_programs()
+	var/list/ui_programs = list()
+	for(var/decl in available_programs)
+		var/decl/nanomachine_effect/NE = decls_repository.get_decl(decl)
+		ui_programs[NE.name] = NE.desc
+	return ui_programs
+
+/obj/machinery/nanomachine_incubator/proc/infuse_occupant(var/mob/living/carbon/human/H)
+	if(!ishuman(H))
+		log_debug("NANOMACHINES: Somehow, someone managed to try and infuse nanomachines into a non-human: [H.name] [H.type]")
+		return
+
+	H.add_nanomachines(loaded_nanomachines)
+	loaded_nanomachines = null
+
+	SSvueui.check_uis_for_change(src)
