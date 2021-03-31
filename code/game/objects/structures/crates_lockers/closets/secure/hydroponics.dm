@@ -54,6 +54,7 @@
 	new /obj/item/wirecutters/clippers(src)
 	new /obj/item/reagent_containers/spray/plantbgone(src)
 	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/watertank(src)
 	new /obj/item/storage/belt/hydro(src)
 	new /obj/item/clothing/gloves/botanic_leather(src)

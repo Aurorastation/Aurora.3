@@ -69,7 +69,14 @@
 /datum/species/tajaran
 	default_emotes = list(
 		/decl/emote/audible/howl,
-		/decl/emote/audible/hiss
+		/decl/emote/audible/hiss,
+		/decl/emote/human/swish,
+		/decl/emote/human/wag,
+		/decl/emote/human/sway,
+		/decl/emote/human/qwag,
+		/decl/emote/human/fastsway,
+		/decl/emote/human/swag,
+		/decl/emote/human/stopsway
 	)
 	pain_emotes_with_pain_level = list(
 		list(/decl/emote/audible/scream, /decl/emote/audible/whimper, /decl/emote/audible/moan, /decl/emote/audible/cry, /decl/emote/audible/howl) = 70,

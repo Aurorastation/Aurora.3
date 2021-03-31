@@ -355,13 +355,13 @@
 	if(bleeding)
 		switch(blood_state)
 			if(BLOOD_LIGHT)
-				blood_splatter(src, null, FALSE, sourceless_color = blood_color)
+				blood_splatter(src, null, FALSE, sourceless_color = blood_type)
 				blood_amount--
 			if(BLOOD_MEDIUM)
-				blood_splatter(src, null, TRUE, sourceless_color = blood_color)
+				blood_splatter(src, null, TRUE, sourceless_color = blood_type)
 				blood_amount -= 2
 			if(BLOOD_HEAVY)
-				blood_splatter(src, null, TRUE, sourceless_color = blood_color)
+				blood_splatter(src, null, TRUE, sourceless_color = blood_type)
 				blood_amount -= 3
 
 	if(force_reset || current_blood_state != blood_state)
@@ -580,6 +580,8 @@
 	handle_blood()
 
 /mob/living/simple_animal/proc/handle_bleeding_timer(var/damage_inflicted)
+	if(QDELETED(src)) // robotic mobs explode before this runs
+		return
 	if(!blood_overlay_icon) // no blood, don't bother
 		return
 	if(damage_inflicted <= 0) // just to be safe
