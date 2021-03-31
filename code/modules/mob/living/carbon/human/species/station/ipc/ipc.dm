@@ -290,6 +290,42 @@
 		if ("waiting IPC screen")
 			return "#FFFFFF"
 
+		if ("nanotrasen IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("hephaestus IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("idris IPC screen")
+			return LIGHT_COLOR_CYAN
+
+		if ("zavodskoi IPC screen")
+			return LIGHT_COLOR_RED
+
+		if ("zeng-hu IPC screen")
+			return "#FFFFFF"
+
+		if ("scc IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("republic of biesel IPC screen")
+			return "#FFFFFF"
+
+		if ("sol alliance IPC screen")
+			return "#FFFFFF"
+
+		if ("coalition of colonies IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("republic of elyra IPC screen")
+			return LIGHT_COLOR_YELLOW
+
+		if ("eridani IPC screen")
+			return "#FFFFFF"
+
+		if ("burzsia IPC screen")
+			return LIGHT_COLOR_ORANGE
+
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
