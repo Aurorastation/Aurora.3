@@ -29,6 +29,7 @@ var/const/XENOBIOLOGIST		=(1<<9)
 var/const/MED_TECH			=(1<<10)
 var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
+var/const/NANOMACHINE		=(1<<13)
 
 
 var/const/CIVILIAN			=(1<<2)
@@ -76,6 +77,7 @@ var/list/medical_positions = list(
 	"Psychiatrist",
 	"Pharmacist",
 	"First Responder",
+	"Nanomachine Technician",
 	"Medical Intern"
 )
 

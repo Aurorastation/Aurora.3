@@ -423,6 +423,12 @@ var/const/access_consular = 72
 	id = access_consular
 	desc = "Consular"
 
+var/const/access_nanomachine = 73
+/datum/access/nanomachine
+	id = access_nanomachine
+	desc = "Nanomachine Operator"
+	region = ACCESS_REGION_MEDBAY
+
 /******************
 * Central Command *
 ******************/

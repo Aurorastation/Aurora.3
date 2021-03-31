@@ -504,6 +504,14 @@
 	icon_state = "serv_dep_jacket"
 	item_state = "serv_dep_jacket"
 
+/obj/item/clothing/suit/storage/toggle/nanotech_dep_jacket
+	name = "nanomachine technician's jacket"
+	desc = "A cozy jacket in medical and science's colors, blending madness and... more madness? Damn."
+	icon = 'icons/clothing/kit/nanomachine_technician.dmi'
+	icon_state = "nanomachine_jacket"
+	item_state = "nanomachine_jacket"
+	contained_sprite = TRUE
+
 /obj/item/clothing/suit/storage/toggle/fib
 	name = "\improper FIB agent jacket"
 	desc = "A jacket used by Federal Investigations Bureau agents while on the field."

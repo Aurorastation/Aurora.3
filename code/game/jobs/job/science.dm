@@ -15,12 +15,12 @@
 
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
-			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
+			            access_research, access_robotics, access_xenobiology, access_nanomachine, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
-			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
+			            access_research, access_robotics, access_xenobiology, access_nanomachine, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it)
 	minimal_player_age = 14

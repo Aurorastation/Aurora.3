@@ -217,3 +217,11 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/under/rank/nanomachine
+	name = "nanomachine technician's jumpsuit"
+	desc = "A stylish white jumpsuit. Its purple lining denotes the wearer as a nanomachine technician."
+	icon = 'icons/clothing/kit/nanomachine_technician.dmi'
+	icon_state = "nanomachine_jumpsuit"
+	item_state = "nanomachine_jumpsuit"
+	contained_sprite = TRUE

@@ -14,11 +14,11 @@
 	minimum_character_age = 35
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_nanomachine, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
 			access_first_responder, access_maint_tunnels)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_nanomachine, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
 			access_first_responder, access_maint_tunnels)
 
@@ -242,6 +242,49 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 	id = /obj/item/card/id/white
 	head = /obj/item/clothing/head/hardhat/first_responder
+
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel_med
+	dufflebag = /obj/item/storage/backpack/duffel/med
+	messengerbag = /obj/item/storage/backpack/messenger/med
+
+/datum/job/nanomachine
+	title = "Nanomachine Technician"
+	flag = NANOMACHINE
+	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	economic_modifier = 8
+
+	minimum_character_age = 30
+
+	supervisors = "the Chief Medical Officer and the Research Director, equally"
+	selection_color = "#159075"
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_nanomachine)
+	minimal_access = list(access_medical, access_medical_equip, access_nanomachine)
+	outfit = /datum/outfit/job/nanomachine
+
+/datum/outfit/job/nanomachine
+	name = "Nanomachine Technician"
+	jobtype = /datum/job/nanomachine
+
+	uniform = /obj/item/clothing/under/rank/nanomachine
+	suit = /obj/item/clothing/suit/storage/toggle/nanotech_dep_jacket
+	shoes = /obj/item/clothing/shoes/jackboots/knee
+	species_shoes = list(
+		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless/knee,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless/knee,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless/knee,
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless/knee
+	)
+	headset = /obj/item/device/radio/headset/headset_medsci
+	bowman = /obj/item/device/radio/headset/headset_medsci/alt
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
+	tablet = /obj/item/modular_computer/handheld/preset/medical
+	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med
