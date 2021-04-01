@@ -65,6 +65,10 @@
 	display_name = "tribunal necklace"
 	path = "/obj/item/clothing/accessory/dominia"
 
+/datum/gear/religion/assunzione/accessory
+	display_name = "luceian amulet"
+	path = "/obj/item/clothing/accessory/assunzione"
+
 /datum/gear/religion/assunzioneorb
 	display_name = "assunzione warding sphere"
 	description = "A religious artefact commonly associated with Luceism."
