@@ -5232,14 +5232,14 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
+	id = "nanowindows"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "HoS Windows"
+	id = "nanowindows"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "nanowindows"
 	},
 /turf/simulated/floor/plating,
 /area/medical/nanomachine)
@@ -5789,15 +5789,15 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "HoS Windows"
+	id = "nanowindows"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
-	id = "HoS Windows"
+	id = "nanowindows"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
+	dir = 8;
+	id = "nanowindows"
 	},
 /turf/simulated/floor/plating,
 /area/medical/nanomachine)
@@ -5953,12 +5953,12 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "HoS Windows"
+	dir = 4;
+	id = "nanowindows"
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "HoS Windows"
+	dir = 8;
+	id = "nanowindows"
 	},
 /turf/simulated/floor/plating,
 /area/medical/nanomachine)
@@ -6631,7 +6631,7 @@
 /obj/effect/floor_decal/corner/pink/full{
 	dir = 4
 	},
-/obj/structure/closet,
+/obj/structure/closet/secure_closet/nanomachine_technician,
 /turf/simulated/floor/tiled/white,
 /area/medical/nanomachine)
 "wV" = (
@@ -6817,20 +6817,13 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/storage/box/syringes{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/beakers{
-	pixel_x = 4;
-	pixel_y = -4
-	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
 	},
 /obj/structure/sign/flag/scc/left{
 	pixel_y = -34
 	},
+/obj/item/storage/bag/circuits/basic,
 /turf/simulated/floor/tiled/white,
 /area/medical/nanomachine)
 "yE" = (
@@ -7010,7 +7003,7 @@
 	dir = 6
 	},
 /obj/structure/closet/secure_closet{
-	name = "nanotechnician secure locker";
+	name = "nanotech secure locker";
 	req_access = list(73)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7049,7 +7042,7 @@
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
-	id = "HoS Windows"
+	id = "nanowindows"
 	},
 /turf/simulated/floor/plating,
 /area/medical/nanomachine)
@@ -7465,8 +7458,10 @@
 /turf/simulated/floor/plating,
 /area/janitor/stairs)
 "CP" = (
-/obj/structure/table/steel,
-/obj/machinery/recharger,
+/obj/machinery/recharge_station,
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/nanomachine)
 "CT" = (
@@ -9866,16 +9861,16 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "HoS Windows"
+	dir = 1;
+	id = "nanowindows"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
-	id = "HoS Windows"
+	id = "nanowindows"
 	},
 /obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "HoS Windows"
+	dir = 8;
+	id = "nanowindows"
 	},
 /turf/simulated/floor/plating,
 /area/medical/nanomachine)
@@ -10711,15 +10706,15 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "HoS Windows"
+	id = "nanowindows"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "nanowindows"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "nanowindows"
 	},
 /turf/simulated/floor/plating,
 /area/medical/nanomachine)
@@ -10980,7 +10975,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/effect/decal/cleanable/mucus,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;

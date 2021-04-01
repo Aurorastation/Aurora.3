@@ -232,3 +232,27 @@
 	density = 0
 	wall_mounted = 1
 	req_access = list(access_medical_equip)
+
+/obj/structure/closet/secure_closet/nanomachine_technician
+	name = "nanomachine technician's closet"
+	desc = "All the equipment a nanomachine technician could ever need, and a little more."
+	icon_state = "securenanomach"
+	icon_closed = "securenanomach"
+	icon_locked = "securenanomach1"
+	icon_opened = "securenanomachopen"
+	icon_broken = "securenanomachbroken"
+	icon_off = "securenanomachoff"
+	req_access = list(access_nanomachine)
+
+/obj/structure/closet/secure_closet/nanomachine_technician/fill()
+	..()
+	// uniform
+	new /obj/item/clothing/under/rank/nanomachine(src)
+	new /obj/item/clothing/suit/storage/toggle/nanotech_dep_jacket(src)
+	new /obj/item/clothing/shoes/jackboots/knee(src)
+	new /obj/item/clothing/shoes/jackboots/toeless/knee(src)
+	new /obj/item/device/radio/headset/headset_medsci(src)
+	new /obj/item/storage/backpack/medic(src)
+	// goodies
+	new /obj/item/clothing/glasses/welding(src)
+	new /obj/item/clothing/mask/gas/half(src)
