@@ -751,6 +751,7 @@
 #include "code\game\modifiers\modifiers.dm"
 #include "code\game\nanomachines\_nanomachine_helpers\_nanomachines.dm"
 #include "code\game\nanomachines\nanomachine_effects\_nanomachine_effect.dm"
+#include "code\game\nanomachines\nanomachine_effects\combat\stamina_booster.dm"
 #include "code\game\nanomachines\nanomachine_effects\debug\nanomachines_son.dm"
 #include "code\game\nanomachines\nanomachine_effects\medical\blood_regen.dm"
 #include "code\game\nanomachines\nanomachine_effects\medical\pain_killer.dm"

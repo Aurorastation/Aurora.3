@@ -13,7 +13,7 @@
 
 	var/datum/nanomachine/loaded_nanomachines
 
-	var/list/available_programs = list(/decl/nanomachine_effect/blood_regen, /decl/nanomachine_effect/pain_killer, /decl/nanomachine_effect/nanomachines_son, /decl/nanomachine_effect/reproductive_nullifier)
+	var/list/available_programs = list(/decl/nanomachine_effect/blood_regen, /decl/nanomachine_effect/pain_killer, /decl/nanomachine_effect/stamina_booster, /decl/nanomachine_effect/nanomachines_son, /decl/nanomachine_effect/reproductive_nullifier)
 
 /obj/machinery/nanomachine_incubator/Initialize(mapload, d, populate_components)
 	. = ..()

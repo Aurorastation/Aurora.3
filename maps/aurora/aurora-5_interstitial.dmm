@@ -5131,7 +5131,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "nm" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -5279,10 +5279,6 @@
 /area/maintenance/interstitial_construction_site)
 "of" = (
 /obj/structure/table/steel,
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = 1;
-	pixel_y = 3
-	},
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
@@ -5369,9 +5365,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
-"oF" = (
-/turf/simulated/open,
-/area/maintenance/medbay_interstitial)
 "oJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -5419,7 +5412,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "pd" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6335,7 +6328,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "va" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -6844,7 +6837,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "yF" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -6919,7 +6912,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "yZ" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -7213,7 +7206,7 @@
 /area/hallway/secondary/entry/stairs)
 "Bg" = (
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "Bj" = (
 /turf/simulated/floor/tiled/dark,
 /area/medical/nanomachine)
@@ -7247,7 +7240,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "BH" = (
 /obj/structure/lattice,
 /obj/structure/grille/broken,
@@ -7540,7 +7533,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/medical{
 	name = "Nanomachine Workshop Office";
-	req_one_access = null
+	req_access = list(73)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/nanomachine)
@@ -7776,7 +7769,7 @@
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "EI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -8009,7 +8002,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/sign/v,
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "Gj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8261,7 +8254,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "HI" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille{
@@ -8916,7 +8909,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "JU" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 4
@@ -9478,7 +9471,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "Mh" = (
 /obj/structure/table/rack,
 /obj/random/medical,
@@ -10061,7 +10054,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "PM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10574,7 +10567,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "SA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -10678,7 +10671,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "Tu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -11037,7 +11030,7 @@
 	},
 /obj/effect/floor_decal/corner/pink/full,
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "Vx" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -11103,7 +11096,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "VR" = (
 /obj/effect/large_stock_marker,
 /obj/effect/floor_decal/corner/brown/full{
@@ -11258,7 +11251,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "WO" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -11344,7 +11337,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "Xx" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -11570,7 +11563,7 @@
 	},
 /obj/structure/banner/scc,
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_interstitial)
+/area/medical/nanomachine)
 "Zs" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -43698,7 +43691,7 @@ aa
 aa
 ab
 ab
-YS
+vf
 JQ
 Sx
 Sx
@@ -44470,7 +44463,7 @@ ab
 ab
 ab
 na
-oF
+Iv
 WL
 PJ
 Zr
@@ -44727,7 +44720,7 @@ aa
 ab
 ab
 yE
-oF
+Iv
 HE
 Mf
 VO
@@ -44983,12 +44976,12 @@ aa
 aa
 aa
 ab
-YS
-YS
-YS
+vf
+vf
+vf
 Sk
-YS
-YS
+vf
+vf
 mo
 mo
 UK

@@ -236,7 +236,7 @@
 /obj/structure/closet/secure_closet/nanomachine_technician
 	name = "nanomachine technician's closet"
 	desc = "All the equipment a nanomachine technician could ever need, and a little more."
-	icon_state = "securenanomach"
+	icon_state = "securenanomach1"
 	icon_closed = "securenanomach"
 	icon_locked = "securenanomach1"
 	icon_opened = "securenanomachopen"
