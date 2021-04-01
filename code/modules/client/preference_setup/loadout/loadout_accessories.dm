@@ -161,6 +161,10 @@
 	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
+	sweater["keyhole sweater"] = /obj/item/clothing/accessory/sweaterkeyhole
+	sweater["slim keyhole sweater"] = /obj/item/clothing/accessory/sweaterkeyholeslim
+	sweater["keyhole turtleneck sweater"] = /obj/item/clothing/accessory/sweaterkeyholeturtleneck
+	sweater["keyhole tubeneck sweater"] = /obj/item/clothing/accessory/sweaterkeyholetubeneck
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/shirt

@@ -54,6 +54,34 @@
 	icon_state = "sweaterargyletubeneck"
 	item_state = "sweaterargyletubeneck"
 
+/obj/item/clothing/accessory/sweaterkeyhole
+	name = "keyhole sweater"
+	desc = "A warm knit sweater. Somehow, this one won't be as warm."
+	desc_fluff = "Somehow, you feel like this one isn't work appropriate. You'll still be wearing it, though."
+	icon_state = "sweaterkeyhole"
+	item_state = "sweaterkeyhole"
+
+/obj/item/clothing/accessory/sweaterkeyholeslim
+	name = "slim keyhole sweater"
+	desc = "A warm knit sweater. Not as warm, but still so."
+	desc_fluff = "For when you need to delude yourself that your fashion choices are appropriate."
+	icon_state = "sweaterkeyholeslim"
+	item_state = "sweaterkeyholeslim"
+
+/obj/item/clothing/accessory/sweaterkeyholeturtleneck
+	name = "keyhole turtleneck sweater"
+	desc = "A warm knit keyhole turtleneck sweater."
+	desc_fluff = "Only warm around the neck, however."
+	icon_state = "sweaterkeyholeturtleneck"
+	item_state = "sweaterkeyholeturtleneck"
+
+/obj/item/clothing/accessory/sweaterkeyholetubeneck
+	name = "keyhole tubeneck sweater"
+	desc = "A warm knit tubeneck sweater. This one seems to be missing some material though."
+	desc_fluff = "How do you think they made the tubeneck?"
+	icon_state = "sweaterkeyholetubeneck"
+	item_state = "sweaterkeyholetubeneck"
+
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
 	desc = "A casual dress shirt."
