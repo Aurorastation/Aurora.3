@@ -5,6 +5,7 @@
     <div v-if="loaded_nanomachines">
       <h3>Nanomachine Sculptor</h3>
       <vui-item label="Nanomachine Program Capacity:"><vui-progress :class="{ good: space_remaining > max_space - 1, bad: space_remaining < 1, average: space_remaining < max_space - 1 && space_remaining > 1 }" :value="space_remaining" :max="max_space" :min="0">{{ space_remaining }}</vui-progress></vui-item>
+      <vui-item label="Nanomachine Average Regeneration Rate:"><vui-progress :class="{ good: regen_rate >= 0.4, bad: regen_rate <= 0.2, average: regen_rate < 0.4 && regen_rate > 0.2 }" :value="regen_rate" :max="max_regen_rate" :min="0">{{ regen_rate }} p/s</vui-progress></vui-item>
       <div class="program" v-for="(desc, progname) in available_programs" :key="progname">
         <vui-button :disabled="!space_remaining && !loaded_programs.includes(progname)" :class="{'button' : 1, 'selected' : loaded_programs.includes(progname)}" :params="{ program: progname }">{{ progname }}</vui-button><br>
         <span>{{ desc }}</span>

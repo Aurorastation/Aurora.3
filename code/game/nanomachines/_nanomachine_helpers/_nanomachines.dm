@@ -40,8 +40,9 @@
 	var/load_time = null // when the nanomachines first entered the host
 	var/last_process = 0
 
-	var/machine_volume = 50  // amount of nanomachines in the system, used as fuel for nanomachine programs
+	var/machine_volume = 50   // amount of nanomachines in the system, used as fuel for nanomachine programs
 	var/max_machines = 100    // maximum amount of nanomachines in the system
+	var/deterioration = 0     // how many nanomachines we're losing this process
 	var/regen_rate = 0.5      // nanomachines generated per second
 	var/safety_threshold = 50 // how low nanomachines will get before they stop processing/triggering
 
@@ -59,28 +60,30 @@
 	load_time = world.time
 
 /datum/nanomachine/proc/handle_nanomachines()
-	if(load_time && world.time - load_time > 2 HOURS)
-		regen_rate -= 0.6 // nanomachines are old and will work themselves out of the body now
-		safety_threshold = 0
-		load_time = null
 	for(var/program in loaded_programs)
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
 		if(NE.has_process_effect && NE.check_nanomachine_effect(src, owner))
 			NE.do_nanomachine_effect(src, owner)
-	if(machine_volume <= 0)
-		owner.remove_nanomachines()
-	else
-		var/regen_amount = regen_rate * ((world.time - last_process) / 10)
-		machine_volume = clamp(machine_volume + regen_amount, 0, max_machines)
-		last_process = world.time
+	handle_regen_and_deterioration() // this runs last
 
 /datum/nanomachine/proc/handle_nanomachines_chem_effect()
+	deterioration = 0 // this runs first
 	for(var/program in loaded_programs)
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
 		if(NE.has_chem_effect && NE.check_nanomachine_effect(src, owner))
 			NE.do_nanomachine_effect(src, owner)
+
+/datum/nanomachine/proc/handle_regen_and_deterioration()
+	if(load_time && world.time - load_time > 2 HOURS)
+		regen_rate -= 0.6 // nanomachines are old and will work themselves out of the body now
+		safety_threshold = 0
+		load_time = null
 	if(machine_volume <= 0)
 		owner.remove_nanomachines()
+		return
+	var/regen_amount = (regen_rate - deterioration) TIMES_SECONDS_PASSED(last_process)
+	machine_volume = clamp(machine_volume + regen_amount, 0, max_machines)
+	last_process = world.time
 
 /datum/nanomachine/proc/speak_to_owner(var/message)
 	to_chat(owner, "[get_accent("nanomachine")] <span class='nanomachine'><b>Inside your head</b>, \"[message]\"</span>")
@@ -110,3 +113,12 @@
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
 		program_usage += NE.program_capacity_usage
 	return program_usage
+
+/datum/nanomachine/proc/check_program_deterioration_rate()
+	var/deterioration_rate = 0
+	for(var/program in loaded_programs)
+		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
+		if(!NE.has_chem_effect && !NE.has_process_effect)
+			continue
+		deterioration_rate += NE.nanomachines_per_use
+	return deterioration_rate

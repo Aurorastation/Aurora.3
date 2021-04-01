@@ -61,7 +61,7 @@
 /obj/machinery/nanomachine_incubator/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "medical-nanomachineincubator", 600, 500, capitalize_first_letters(name))
+		ui = new(user, src, "medical-nanomachineincubator", 700, 500, capitalize_first_letters(name))
 	ui.open()
 
 /obj/machinery/nanomachine_incubator/vueui_data_change(list/data, mob/user, datum/vueui/ui)
@@ -75,11 +75,15 @@
 	data["loaded_programs"] = null
 	data["space_remaining"] = null
 	data["max_space"] = null
+	data["regen_rate"] = null
+	data["max_regen_rate"] = null
 	if(loaded_nanomachines)
 		data["loaded_programs"] = loaded_nanomachines.get_loaded_programs()
 		data["available_programs"] = get_available_programs()
 		data["space_remaining"] = loaded_nanomachines.max_programs - loaded_nanomachines.check_program_capacity_usage()
 		data["max_space"] = loaded_nanomachines.max_programs
+		data["regen_rate"] = loaded_nanomachines.regen_rate - loaded_nanomachines.check_program_deterioration_rate()
+		data["max_regen_rate"] = loaded_nanomachines.regen_rate
 
 	return data
 
