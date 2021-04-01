@@ -14,6 +14,7 @@
 	var/mob/living/carbon/human/occupant
 	var/obj/machinery/nanomachine_incubator/connected_incubator
 
+	var/infusing = FALSE
 	var/locked = FALSE
 
 /obj/machinery/nanomachine_chamber/Initialize(mapload, d, populate_components)
@@ -154,14 +155,25 @@
 		data = list()
 
 	data["occupant"] = !!occupant
+	data["occupant_species"] = null
+	data["occupant_nanomachines"] = null
+	data["occupant_nanomachines_loaded_programs"] = null
+	if(occupant)
+		data["occupant_species"] = occupant.species.name
+		data["occupant_nanomachines"] = !!occupant.nanomachines
+		if(occupant.nanomachines)
+			data["occupant_nanomachines_loaded_programs"] = occupant.nanomachines.get_loaded_programs()
 
 	data["connected_incubator"] = !!connected_incubator
-	data["has_nanomachine_cluster"] = null
-	data["loaded_programs"] = null
+	data["connected_incubator_nanomachine_cluster"] = null
+	data["connected_incubator_loaded_programs"] = null
 	if(connected_incubator)
-		data["has_nanomachine_cluster"] = !!connected_incubator.loaded_nanomachines
+		data["connected_incubator_nanomachine_cluster"] = !!connected_incubator.loaded_nanomachines
 		if(connected_incubator.loaded_nanomachines)
-			data["loaded_programs"] = connected_incubator.loaded_nanomachines.get_loaded_programs()
+			data["connected_incubator_loaded_programs"] = connected_incubator.loaded_nanomachines.get_loaded_programs()
+
+	data["infusing"] = infusing
+	data["locked"] = locked
 
 	return data
 
@@ -171,12 +183,22 @@
 		return
 
 	if(href_list["infuse"])
+		infusing = TRUE
 		locked = TRUE
 		audible_message("[get_accent("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Infusing occupant with nanomachine cluster now.\"")
 		playsound(loc, 'sound/machines/juicer.ogg', 50, TRUE)
-		addtimer(CALLBACK(connected_incubator, /obj/machinery/nanomachine_incubator.proc/infuse_occupant, occupant), 10 SECONDS)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, loc, 'sound/machines/microwave/microwave-end.ogg', 50, FALSE), 10 SECONDS)
-		addtimer(CALLBACK(src, .proc/set_lock, FALSE), 10 SECONDS)
+		addtimer(CALLBACK(src, .proc/do_infusement), 10 SECONDS)
 
-/obj/machinery/nanomachine_chamber/proc/set_lock(var/lock)
-	locked = lock
+	if(href_list["eject"])
+		go_out()
+
+	SSvueui.check_uis_for_change(src)
+
+/obj/machinery/nanomachine_chamber/proc/do_infusement()
+	infusing = FALSE
+	locked = FALSE
+	if(!connected_incubator)
+		return
+	connected_incubator.infuse_occupant(occupant)
+	playsound(loc, 'sound/machines/microwave/microwave-end.ogg', 50, FALSE)
+	SSvueui.check_uis_for_change(src)

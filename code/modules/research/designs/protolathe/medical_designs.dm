@@ -47,6 +47,13 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
 	build_path = /obj/item/stack/nanopaste
 
+/datum/design/item/medical/nanomachine_capsule
+	name = "Nanomachine Capsule"
+	desc = "A simple enough device that allows nanomachines to live outside a host body, not growing, but not decaying either."
+	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 50000, MATERIAL_GLASS = 40000, MATERIAL_SILVER = 30000, MATERIAL_PHORON = 20000)
+	build_path = /obj/item/nanomachine_capsule
+
 /datum/design/item/medical/scalpel_laser1
 	name = "Basic Laser Scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks basic and could be improved."
