@@ -47,7 +47,7 @@
 /obj/machinery/nanomachine_chamber/verb/eject()
 	set src in oview(1)
 	set category = "Object"
-	set name = "Eject Body Scanner"
+	set name = "Eject Nanomachine Chamber"
 
 	if(use_check_and_message(usr))
 		return
@@ -69,6 +69,7 @@
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(loc)
 	occupant = null
+	SSvueui.check_uis_for_change(src)
 	update_use_power(1)
 	update_icon()
 
@@ -94,6 +95,7 @@
 
 			M.forceMove(src)
 			occupant = M
+			SSvueui.check_uis_for_change(src)
 			update_use_power(2)
 			update_icon()
 		add_fingerprint(user)
@@ -125,6 +127,7 @@
 
 		H.forceMove(src)
 		occupant = H
+		SSvueui.check_uis_for_change(src)
 		update_use_power(2)
 		update_icon()
 	add_fingerprint(user)
@@ -172,6 +175,7 @@
 		audible_message("[get_accent("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Infusing occupant with nanomachine cluster now.\"")
 		playsound(loc, 'sound/machines/juicer.ogg', 50, TRUE)
 		addtimer(CALLBACK(connected_incubator, /obj/machinery/nanomachine_incubator.proc/infuse_occupant, occupant), 10 SECONDS)
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, loc, 'sound/machines/microwave/microwave-end.ogg', 50, FALSE), 10 SECONDS)
 		addtimer(CALLBACK(src, .proc/set_lock, FALSE), 10 SECONDS)
 
 /obj/machinery/nanomachine_chamber/proc/set_lock(var/lock)
