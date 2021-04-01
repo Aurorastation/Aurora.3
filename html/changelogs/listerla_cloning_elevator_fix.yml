@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - bugfix: "Medical elevator no longer references a cloning wing."
