@@ -433,10 +433,10 @@
 
 /obj/item/clothing/accessory/badge/passport
 	name = "biesellite passport"
-	desc = "A passport issued to a citizen of a sovereign stellar nation. This one seems ."
+	desc = "A passport issued to a citizen of the Republic of Biesel.."
 	icon = 'icons/clothing/accessories/passcards.dmi'
-	icon_state = "passport_sol"
-	item_state = "passport_sol"
+	icon_state = "passport_ceti"
+	item_state = "passport_ceti"
 	contained_sprite = 1
 	slot_flags = null
 	w_class = ITEMSIZE_TINY

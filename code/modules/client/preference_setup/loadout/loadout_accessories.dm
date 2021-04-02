@@ -325,6 +325,7 @@
 /datum/gear/accessory/passport/New()
 	..()
 	var/passport = list()
+	passport["passport, biesel"] = /obj/item/clothing/accessory/badge/passport
 	passport["passport, sol"] = /obj/item/clothing/accessory/badge/passport/sol
 	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport/elyra
 	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport/dominia
