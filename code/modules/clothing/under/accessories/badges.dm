@@ -297,8 +297,8 @@
 /obj/item/clothing/accessory/badge/passcard/sol/cytherean
 	name = "cytherean passcard"
 	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations from the Cytherean Venusian cloud-cities."
-	desc_fluff = "The luxuriant Cytherean lifestyle is represented no better in its identification cards; gaudy, with built-in neon flashing lights and doubling as a business card. The font is infamous for \
-	illegibility."
+	desc_fluff = "The luxuriant Cytherean lifestyle is represented no better than in its identification cards; gaudy, with built-in neon flashing lights and doubling as a business card. The font is infamous for \
+	its illegibility."
 	icon_state = "passcard_cytherean"
 	item_state = "passcard_cytherean"
 
@@ -327,7 +327,7 @@
 	item_state = "passcard_moon"
 
 /obj/item/clothing/accessory/badge/passcard/eridani
-	name = "eridani corporate republic passcard"
+	name = "eridani passcard"
 	desc = "A holographic passcard issued to residents of the Free Economic Zone of Epsilon Eridani."
 	desc_fluff = "Known with a number of unfavorable acronyms across the Republic, Eridani passcards tend to include unhelpful details such as credit score, personal debts, and insurance providers to those \
 	equipped with the right equipment. Infamous across the Orion Spur for being the most sought-after passcards for counterfeiting."
@@ -338,7 +338,7 @@
 	name = "elyran passcard"
 	desc = "A passcard issued to citizens of the Serene Republic of Elyra."
 	desc_fluff = "Much like synthetics manufactured in the Serene Republic, Elyran passcards include high-grade anti-counterfeiting through a wafer of borosilicate reinforced with a randomly-chosen alloy. \
-	Unlike other nations, however, Elyra allows for heavy personal customization of their passcards, with some of the most expensive government contractors offering simple musical notes or integration with \
+	Unlike other nations, however, Elyra allows for heavy personal customization of their passcards, with some of the most expensive government contractors offering brief musical messages or integration with \
 	jewelry such as a bracelet or necklace."
 	icon_state = "passcard_elyra"
 	item_state = "passcard_elyra"
@@ -396,7 +396,7 @@
 
 /obj/item/clothing/accessory/badge/passcard/scarab
 	name = "scarab passblade"
-	desc = "A dagger issued as a writ of passage to scarabs abroad."
+	desc = "A dagger issued as a writ of passage to Scarabs abroad."
 	desc_fluff = "By Scarab traditions, one should show their weapon to non-Scarabs upon first meeting. This dagger, sheathed in hakhma chitin, is often given to noncombatants, the Released, or the young, so they \
 	may meet with outsiders with at least a blade between them. Despite this, the blade is sealed tightly within the scabbard."
 	icon_state = "passcard_scarab"
@@ -445,7 +445,7 @@
 
 /obj/item/clothing/accessory/badge/passport/sol
 	name = "solarian passport"
-	desc = "A passport issued to a citizen of the Alliance of Sovereign Solarian Nations, or Sol Alliance. A more generalized document for passage abroad."
+	desc = "A passport issued to a citizen of the Alliance of Sovereign Solarian Nations, or Sol Alliance. An outdated document for passage abroad."
 	icon_state = "passport_sol"
 	item_state = "passport_sol"
 
