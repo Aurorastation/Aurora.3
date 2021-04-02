@@ -17,11 +17,13 @@
 	return new build_path(newloc, name, loaded_program)
 
 /datum/design/item/nanomachine/disk/stamina_booster
-	name = "Disk: Stamina Booster"
+	name = "Disk: Acid Neutralizer"
 	desc = "Effect: Configure the nanomachines to target lactic acid modules, lowering fatigue and granting increased stamina."
 	loaded_program = /decl/nanomachine_effect/stamina_booster
+	build_path = /obj/item/nanomachine_disk
 
 /datum/design/item/nanomachine/disk/pain_killer
 	name = "Disk: Nerve Duller"
 	desc = "Effect: By attaching themselves to various vital nerves in the body, nanomachines can block the path of pain signals to the brain."
 	loaded_program = /decl/nanomachine_effect/pain_killer
+	build_path = /obj/item/nanomachine_disk

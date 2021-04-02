@@ -10,7 +10,6 @@
 	var/list/program_names = list()
 	for(var/program in nanomachines.loaded_programs)
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
-		NE.add_effect(nanomachines, src)
 		program_names += NE.name
 	nanomachines.speak_to_owner("Programs loaded: [english_list(program_names)].")
 

@@ -13,7 +13,7 @@
 	var/mob/living/carbon/human/occupant
 	var/obj/machinery/nanomachine_incubator/connected_incubator
 
-	var/infusing = FALSE
+	var/working = FALSE
 	var/locked = FALSE
 
 /obj/machinery/nanomachine_chamber/Initialize(mapload, d, populate_components)
@@ -171,7 +171,7 @@
 		if(connected_incubator.loaded_nanomachines)
 			data["connected_incubator_loaded_programs"] = connected_incubator.loaded_nanomachines.get_loaded_programs()
 
-	data["infusing"] = infusing
+	data["working"] = working
 	data["locked"] = locked
 
 	return data
@@ -182,7 +182,7 @@
 		return
 
 	if(href_list["infuse"])
-		infusing = TRUE
+		working = TRUE
 		locked = TRUE
 		audible_message("[get_accent("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Infusing occupant with nanomachine cluster now.\"")
 		playsound(loc, 'sound/machines/juicer.ogg', 50, TRUE)
@@ -191,13 +191,29 @@
 	if(href_list["eject"])
 		go_out()
 
+	if(href_list["extract"])
+		working = TRUE
+		locked = TRUE
+		audible_message("[get_accent("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Extracting occupant's nanomachine cluster now.\"")
+		playsound(loc, 'sound/machines/juicer.ogg', 50, TRUE)
+		addtimer(CALLBACK(src, .proc/do_extraction), 10 SECONDS)
+
 	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/nanomachine_chamber/proc/do_infusement()
-	infusing = FALSE
+	working = FALSE
 	locked = FALSE
 	if(!connected_incubator)
 		return
 	connected_incubator.infuse_occupant(occupant)
+	playsound(loc, 'sound/machines/microwave/microwave-end.ogg', 50, FALSE)
+	SSvueui.check_uis_for_change(src)
+
+/obj/machinery/nanomachine_chamber/proc/do_extraction()
+	working = FALSE
+	locked = FALSE
+	if(!connected_incubator)
+		return
+	connected_incubator.extract_occupant(occupant)
 	playsound(loc, 'sound/machines/microwave/microwave-end.ogg', 50, FALSE)
 	SSvueui.check_uis_for_change(src)

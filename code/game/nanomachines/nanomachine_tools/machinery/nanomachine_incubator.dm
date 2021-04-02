@@ -158,3 +158,20 @@
 	loaded_nanomachines = null
 
 	SSvueui.check_uis_for_change(src)
+
+/obj/machinery/nanomachine_incubator/proc/extract_occupant(var/mob/living/carbon/human/H)
+	if(!ishuman(H))
+		log_debug("NANOMACHINES: Somehow, someone managed to try and extract nanomachines from a non-human: [H.name] [H.type]")
+		return
+
+	if(inoperable(MAINT))
+		return
+	if(!H.nanomachines)
+		return
+
+	H.nanomachines.owner = null
+	loaded_nanomachines = H.nanomachines
+	H.nanomachines = null
+	loaded_nanomachines.machine_volume = initial(loaded_nanomachines.machine_volume) / 2
+
+	SSvueui.check_uis_for_change(src)
