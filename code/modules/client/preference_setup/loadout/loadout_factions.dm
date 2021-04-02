@@ -31,7 +31,7 @@
 
 /datum/gear/faction/idris_passcard
 	display_name = "idris silversun passcard"
-	path = /obj/item/clothing/accessory/badge/passcard_silversun
+	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/zavodskoi_beret
@@ -156,5 +156,5 @@
 
 /datum/gear/faction/heph_passcard
 	display_name = "hephaestus burszia passcard"
-	path = /obj/item/clothing/accessory/badge/passcard_burszia
+	path = /obj/item/clothing/accessory/badge/passcard/burszia
 	faction = "Hephaestus Industries"
