@@ -433,7 +433,7 @@
 
 /obj/item/clothing/accessory/badge/passport
 	name = "biesellite passport"
-	desc = "A passport issued to a citizen of the Republic of Biesel.."
+	desc = "A passport issued to a citizen of the Republic of Biesel."
 	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passport_ceti"
 	item_state = "passport_ceti"
