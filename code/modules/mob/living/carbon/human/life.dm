@@ -643,7 +643,11 @@
 		if(CE_SPEEDBOOST in chem_effects)
 			sprint_speed_factor += 0.2 * chem_effects[CE_SPEEDBOOST]
 			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
-			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
+			move_delay_mod -= 1.5 * chem_effects[CE_SPEEDBOOST]
+
+		if(CE_SLOWDOWN in chem_effects)
+			sprint_speed_factor -= 0.2 * chem_effects[CE_SLOWDOWN]
+			move_delay_mod += 1.5 * chem_effects[CE_SLOWDOWN]
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)

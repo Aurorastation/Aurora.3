@@ -13,7 +13,12 @@
 
 	var/datum/nanomachine/loaded_nanomachines
 
-	var/list/available_programs = list(/decl/nanomachine_effect/blood_regen, /decl/nanomachine_effect/pain_killer, /decl/nanomachine_effect/stamina_booster, /decl/nanomachine_effect/nanomachines_son, /decl/nanomachine_effect/reproductive_nullifier)
+	var/list/available_programs = list(
+		/decl/nanomachine_effect/blood_regen,
+		/decl/nanomachine_effect/muscle_clamp,
+		/decl/nanomachine_effect/reproductive_nullifier,
+		/decl/nanomachine_effect/metabolic_hijack
+		)
 
 /obj/machinery/nanomachine_incubator/Initialize(mapload, d, populate_components)
 	. = ..()
@@ -49,6 +54,20 @@
 		SSvueui.check_uis_for_change(src)
 		user.drop_from_inventory(NC)
 		qdel(NC)
+		return
+	else if(istype(W, /obj/item/nanomachine_disk))
+		var/obj/item/nanomachine_disk/ND = W
+		if(!ND.loaded_program)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have a program loaded!"))
+			return
+		if(ND.loaded_program in available_programs)
+			to_chat(user, SPAN_WARNING("\The [src] already has the program loaded on this disk installed!"))
+			return
+		to_chat(user, SPAN_NOTICE("You slot \the [W] into \the [src]."))
+		available_programs += ND.loaded_program
+		SSvueui.check_uis_for_change(src)
+		user.drop_from_inventory(ND)
+		qdel(ND)
 		return
 	return ..()
 

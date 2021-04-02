@@ -1680,6 +1680,11 @@
 	taste_description = "sourness"
 	fallback_specific_heat = 1
 
+/decl/reagent/rmt/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_RMT)
+
 /decl/reagent/rmt/overdose(var/mob/living/carbon/H, var/alien, var/datum/reagents/holder)
 	if(prob(2))
 		to_chat(H, SPAN_WARNING(pick("Your muscles are stinging a bit.", "Your muscles ache.")))

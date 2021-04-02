@@ -64,10 +64,15 @@
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
 		if(NE.has_process_effect && NE.check_nanomachine_effect(src, owner))
 			NE.do_nanomachine_effect(src, owner)
-	handle_regen_and_deterioration() // this runs last
+	handle_regen_and_deterioration() // this deterioration runs last
 
 /datum/nanomachine/proc/handle_nanomachines_chem_effect()
-	deterioration = 0 // this runs first
+	if(load_time) // infusion sickness
+		var/static/list/effects_to_time = list(2 MINUTES = list(CE_CLUMSY), 3 MINUTES = list(CE_SLOWDOWN, CE_UNDEXTROUS))
+		for(var/time in effects_to_time)
+			if(load_time + time > world.time)
+				owner.add_chemical_effect(effects_to_time[time])
+	deterioration = 0 // this deterioration runs first
 	for(var/program in loaded_programs)
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
 		if(NE.has_chem_effect && NE.check_nanomachine_effect(src, owner))
@@ -75,7 +80,7 @@
 
 /datum/nanomachine/proc/handle_regen_and_deterioration()
 	if(load_time && world.time - load_time > 2 HOURS)
-		regen_rate -= 0.6 // nanomachines are old and will work themselves out of the body now
+		regen_rate = -0.2 // nanomachines are old and will work themselves out of the body now
 		safety_threshold = 0
 		load_time = null
 	if(machine_volume <= 0)

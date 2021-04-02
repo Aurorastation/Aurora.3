@@ -69,6 +69,7 @@
 #define CE_CRYO 	    "cryogenic"     // Prevents damage from being frozen
 #define CE_CLEARSIGHT   "clearsight"    // prevents the blurry eye chem side effect
 #define CE_STRAIGHTWALK "straightwalk"  // prevents the confused walking chem side effect
+#define CE_RMT          "offworldjuice" // allows offworlders to function in normal gravity
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
