@@ -41,3 +41,4 @@ changes:
   - rscadd: "Folders can now hold fibers."
   - rscadd: "Filing cabinets can now hold fibers & fingerprint cards."
   - rscadd: "wallets can now contain fibers, fingerprint cards and bandanas."
+  - rscadd: "Toolbelts can now hold the EFTpos."
