@@ -281,7 +281,7 @@
 	if(!length(parts))
 		return
 	var/obj/item/organ/external/picked = pick(parts)
-	if(picked.heal_damage(brute, burn, prosthetic))
+	if(picked.heal_damage(brute, burn, null, prosthetic))
 		UpdateDamageIcon()
 		BITSET(hud_updateflag, HEALTH_HUD)
 	updatehealth()
