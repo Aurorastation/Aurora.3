@@ -1,7 +1,6 @@
 /obj/machinery/nanomachine_chamber
 	name = "nanomachine chamber"
-	desc = "The apparatus bringing the man to the machine. This piece of machinery can infuse nanomachines into a body, as well as scan them to see what's running on them."
-	desc_fluff = "Created in coordination with all the SCC companies, this machine combines the strengths of all of them to create a machine-to-man interface."
+	desc = "Created through a collaboration between Zeng-Hu Pharmaceutical's Jeonshi Biotech and Hephaestus Industries, this machine is used to add or remove nanomachines from an employee."
 	icon = 'icons/obj/machines/nanomachines.dmi'
 	icon_state = "chamber"
 

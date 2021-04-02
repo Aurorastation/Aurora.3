@@ -1,7 +1,6 @@
 /obj/machinery/nanomachine_incubator
 	name = "nanomachine incubator"
-	desc = "An advanced machine capable of generating nanomachines with various programs loaded into them."
-	desc_fluff = "Created in coordination with all the SCC companies, this machine combines the strengths of all of them to create a man-to-machine interface."
+	desc = "Created through a collaboration between Zeng-Hu Pharmaceutical's Jeonshi Biotech and Hephaestus Industries, this machine is used to create nanomachine clusters and program them for general use."
 	icon = 'icons/obj/machines/nanomachines.dmi'
 	icon_state = "incubator"
 

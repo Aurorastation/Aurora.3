@@ -4,6 +4,8 @@
 
 	program_capacity_usage = 0
 
+	has_process_effect = FALSE
+
 	var/rate_increase = 0.3
 
 /decl/nanomachine_effect/nanomachines_son/do_nanomachine_effect(var/datum/nanomachine/parent, var/mob/living/carbon/human/H)

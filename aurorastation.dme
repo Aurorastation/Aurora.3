@@ -760,7 +760,6 @@
 #include "code\game\nanomachines\nanomachine_effects\utility\reproductive_nullifier.dm"
 #include "code\game\nanomachines\nanomachine_tools\item\nanomachine_capsule.dm"
 #include "code\game\nanomachines\nanomachine_tools\item\nanomachine_disk.dm"
-#include "code\game\nanomachines\nanomachine_tools\item\nanomachine_injector.dm"
 #include "code\game\nanomachines\nanomachine_tools\machinery\nanomachine_chamber.dm"
 #include "code\game\nanomachines\nanomachine_tools\machinery\nanomachine_incubator.dm"
 #include "code\game\objects\buckling.dm"

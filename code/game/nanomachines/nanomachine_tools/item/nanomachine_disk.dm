@@ -1,10 +1,10 @@
 /obj/item/nanomachine_disk
 	name = "nanomachine programming disk"
 	var/name_label
-	desc = "A disk containing the programming required to make nanomachines function in a certain way."
+	desc = "An electronic disk produced by Zeng-Hu Pharmaceuticals for upgrading nanomachine equipment. Keep this safe -- it's probably worth more than you make in a month."
 
-	icon = 'icons/obj/cloning.dmi'
-	icon_state = "harddisk"
+	icon = 'icons/obj/contained_items/tools/nanomachine_disk.dmi'
+	icon_state = "disk"
 
 	var/loaded_program
 

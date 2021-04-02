@@ -6,27 +6,13 @@
 	var/datum/nanomachine/nanomachines
 
 /mob/living/carbon/human/proc/add_nanomachines(var/datum/nanomachine/NM)
-	var/message = "Programs loaded:"
-	var/list/new_programs = list()
-	if(nanomachines)
-		message = "Additional programs loaded:"
-		for(var/program in NM.loaded_programs)
-			if(nanomachines.check_program_capacity_usage() > nanomachines.max_programs)
-				break
-			if(program in nanomachines.loaded_programs)
-				continue
-			nanomachines.loaded_programs += program
-			new_programs += program
-	else
-		NM.set_owner(src)
-		new_programs = nanomachines.loaded_programs
-	if(length(new_programs))
-		var/list/program_names = list()
-		for(var/program in new_programs)
-			var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
-			NE.add_effect(nanomachines, src)
-			program_names += NE.name
-		nanomachines.speak_to_owner("[message] [english_list(program_names)].")
+	NM.set_owner(src)
+	var/list/program_names = list()
+	for(var/program in nanomachines.loaded_programs)
+		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
+		NE.add_effect(nanomachines, src)
+		program_names += NE.name
+	nanomachines.speak_to_owner("Programs loaded: [english_list(program_names)].")
 
 /mob/living/carbon/human/proc/remove_nanomachines()
 	nanomachines.owner = null
@@ -68,10 +54,11 @@
 
 /datum/nanomachine/proc/handle_nanomachines_chem_effect()
 	if(load_time) // infusion sickness
-		var/static/list/effects_to_time = list(2 MINUTES = list(CE_CLUMSY), 3 MINUTES = list(CE_SLOWDOWN, CE_UNDEXTROUS))
-		for(var/time in effects_to_time)
-			if(load_time + time > world.time)
-				owner.add_chemical_effect(effects_to_time[time])
+		if(load_time + 2 MINUTES > world.time)
+			owner.add_chemical_effect(CE_CLUMSY)
+		if(load_time + 3 MINUTES > world.time)
+			owner.add_chemical_effect(CE_SLOWDOWN)
+			owner.add_chemical_effect(CE_UNDEXTROUS)
 	deterioration = 0 // this deterioration runs first
 	for(var/program in loaded_programs)
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
