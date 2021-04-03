@@ -244,6 +244,8 @@
     overlay_state = "trinary_badge"
     badge_string = null
 
+// passcards
+
 /obj/item/clothing/accessory/badge/passcard
 	name = "republic of biesel passcard"
 	desc = "A passcard issued to citizens of the Republic of Biesel, typically from planets in Biesel proper and smaller territories."
@@ -253,12 +255,14 @@
 	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passcard_ceti"
 	item_state = "passcard_ceti"
-	overlay_state = "passport_ceti"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
 	flippable = FALSE
 	v_flippable = FALSE
+
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/clothing/accessory/badge/passcard/sol
 	name = "\improper ASSN passcard"
@@ -321,7 +325,7 @@
 /obj/item/clothing/accessory/badge/passcard/sol/luna
 	name = "lunarian passcard"
 	desc = "A passcard issued to Solarian citizens from the moon of Earth, Luna."
-	desc_fluff = "Not only does the Lunarian passport bring power, prestige, and a heritage of grace; it also brings an invitation to almost every high society open gathering on the planet, and earns priority \
+	desc_fluff = "Not only does the Lunarian passcard bring power, prestige, and a heritage of grace; it also brings an invitation to almost every high society open gathering on the planet, and earns priority \
 	in most reservations for the world's restaurants. If ever there was a silver spoon, it sits here."
 	icon_state = "passcard_moon"
 	item_state = "passcard_moon"
@@ -350,7 +354,6 @@
 	testing for status as a synthetic infiltrator."
 	icon_state = "passcard_dominia"
 	item_state = "passcard_dominia"
-	overlay_state = "passcard_dominia"
 
 /obj/item/clothing/accessory/badge/passcard/coalition
 	name = "coalition passcard"
@@ -367,7 +370,6 @@
 	overseers with paper union cards. These 'defaced' Solarian passcards often find their way into planetary museums, or private collections."
 	icon_state = "passcard_himeo"
 	item_state = "passcard_himeo"
-	overlay_state = "passcard_himeo"
 
 /obj/item/clothing/accessory/badge/passcard/gad
 	name = "gadpathurian passcard"
@@ -392,7 +394,6 @@
 	desc_fluff = "Assunzionii passcards, while unable to provide the same light as a warding sphere, are known for having light-absorbing compounds in their assembly, and thus glow in the dark for easy reading."
 	icon_state = "passcard_assu"
 	item_state = "passcard_assu"
-	overlay_state = "passcard_assu"
 
 /obj/item/clothing/accessory/badge/passcard/scarab
 	name = "scarab passblade"
@@ -403,6 +404,9 @@
 	item_state = "passcard_scarab"
 	slot_flags = SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
+
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 
 /obj/item/clothing/accessory/badge/passcard/techno
 	name = "techno-conglomerate passcard"
@@ -437,11 +441,15 @@
 	icon = 'icons/clothing/accessories/passcards.dmi'
 	icon_state = "passport_ceti"
 	item_state = "passport_ceti"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
 	flippable = FALSE
 	v_flippable = FALSE
+
+	drop_sound = 'sound/items/drop/cloth.ogg'
+
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/clothing/accessory/badge/passport/sol
 	name = "solarian passport"
@@ -460,7 +468,6 @@
 	desc = "A passport issued to a citizen of the Serene Republic of Elyra. Vintage!"
 	icon_state = "passport_elyra"
 	item_state = "passport_elyra"
-
 
 /obj/item/clothing/accessory/badge/passport/dominia
 	name = "dominian passport"
