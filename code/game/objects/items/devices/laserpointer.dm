@@ -71,7 +71,7 @@
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
-		to_chat(user, "<span class='notice'>You point [src] at [target], but nothing happens!</span>")
+		to_chat(user, "<span class='notice'>You point \the [src] at \the [target], but nothing happens!</span>")
 		return
 	if (!user.IsAdvancedToolUser())
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
@@ -89,24 +89,24 @@
 
 		if(prob(25))
 			C.emp_act(28)
-			selfmsg = "<span class='notice'>You hit the lens of [C] with [src], temporarily disabling the camera!</span>"
+			selfmsg = "<span class='notice'>You hit the lens of \the [C] with \the [src], temporarily disabling the camera!</span>"
 
 			admin_attack_log(user, src,"hits the  camera with a laser pointer",  "EMPd a camera with a laser pointer")
 
 		else
-			selfmsg = "<span class='notice'>You fail to hit the lens of [C] with [src].</span>"
-		othermsg = "<span class='notice'>[user] shines [src] at [C].</span>"
+			selfmsg = "<span class='notice'>You fail to hit the lens of \the [C] with \the [src].</span>"
+		othermsg = "<b>[user]</b> shines \the [src] at \the [C]."
 
 	if(iscarbon(target))
 		if(user.zone_sel.selecting == BP_EYES)
 			var/mob/living/carbon/C = target
 			if(C.eyecheck() <= 0 && prob(30))
-				selfmsg = "<span class='notice'>You blind [C] with [src]</span>"
-				othermsg = "<span class='notice'>[user] shines [src] at [C]'s eyes'.</span>"
+				selfmsg = "<span class='notice'>You blind \the [C] with \the [src].</span>"
+				othermsg = "<b>[user]</b> shines \the [src] at \the [C]'s eyes'."
 				C.eye_blind = 3
 			else
-				selfmsg = "<span class='notice'>You fail to blind [C] with [src]</span>"
-				othermsg = "<span class='notice'>[user] fails to shine [C] in the eyes with [src].</span>"
+				selfmsg = "<span class='notice'>You fail to blind \the [C] with \the [src].</span>"
+				othermsg = "<b>[user]</b> fails to blind \the [C] with \the [src]."
 
 	//laser pointer image
 	icon_state = "pointer_[pointer_icon_state]"
@@ -121,7 +121,7 @@
 	if(selfmsg)
 		user.visible_message(othermsg, selfmsg)
 	else
-		user.visible_message("<span class='notice'>[user] points [src] at [target].</span>", "<span class='notice'>You point [src] at [target].</span>")
+		user.visible_message("<b>[user]</b> points \the [src] at \the [target].", "<span class='notice'>You point \the [src] at \the [target].</span>")
 
 
 	flick_overlay(I, showto, 15)
