@@ -245,6 +245,4 @@
 		icon_state = "assunzionesheath"
 	else
 		icon_state = "assunzionesheath_empty"
-	return
-
 
