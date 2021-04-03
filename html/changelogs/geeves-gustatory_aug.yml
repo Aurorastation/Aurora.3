@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a gustatoral centre augment for IPCs. This will allow them to taste food in their active hand as if they've eaten it. Using it with no food in their hand will let them change how sensitive it is."
-  - rscadd: "Shell IPCs get an additional gustatoral centre augment variation that goes in their tongue, allowing them to taste food without their finger."
