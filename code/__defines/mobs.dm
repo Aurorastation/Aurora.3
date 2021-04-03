@@ -381,10 +381,6 @@
 #define BRAIN_DAMAGE_MILD 10
 #define BRAIN_DAMAGE_SEVERE 40
 
-#define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
-#define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
-#define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
-
 #define CURE_CRYSTAL "crystal"
 #define CURE_SOLITUDE "solitude"
 #define CURE_HYPNOSIS "hypnosis"
