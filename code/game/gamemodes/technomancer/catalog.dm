@@ -26,8 +26,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	name = "catalog"
 	desc = "A \"book\" featuring a holographic display, metal cover, and miniaturized teleportation device, allowing the user to \
 	requisition various things from.. where ever they came from."
-	icon = 'icons/obj/storage.dmi'
-	icon_state ="scientology" //placeholder
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "ano91"
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/budget = 1000

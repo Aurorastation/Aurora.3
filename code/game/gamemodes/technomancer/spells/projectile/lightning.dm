@@ -36,7 +36,7 @@
 	if(ishuman(target_mob))
 		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affected = H.get_organ(check_zone(BP_CHEST))
-		H.electrocute_act(power, src, H.get_siemens_coefficient_organ(affected), affected, 0)
+		H.electrocute_act(power, src, H.get_siemens_coefficient_organ(affected), BP_CHEST, 0)
 	else
 		target_mob.electrocute_act(power, src, 0.75, BP_CHEST)
 	return 1

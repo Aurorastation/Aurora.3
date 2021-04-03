@@ -344,12 +344,12 @@
 	mymob.instability_display = new /obj/screen/instability()
 	mymob.instability_display.screen_loc = ui_instability_display
 	mymob.instability_display.icon_state = "wiz_instability_none"
-	hud_elements |= instability_display
+	hud_elements |= mymob.instability_display
 
 	mymob.energy_display = new /obj/screen/energy()
 	mymob.energy_display.screen_loc = ui_energy_display
 	mymob.energy_display.icon_state = "wiz_energy"
-	hud_elements |= energy_display
+	hud_elements |= mymob.energy_display
 
 	mymob.zone_sel = new /obj/screen/zone_sel(null)
 	mymob.zone_sel.icon = ui_style
