@@ -5,6 +5,7 @@
 	icon = 'icons/obj/contained_items/tools/research_slip.dmi'
 	icon_state = "slip"
 	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/research_slip/Initialize(mapload, var/list/research_levels)
 	. = ..()
