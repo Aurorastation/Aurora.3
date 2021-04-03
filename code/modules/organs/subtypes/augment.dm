@@ -465,7 +465,7 @@
 	if(!.)
 		return FALSE
 
-	zoom(owner,7,3, FALSE)
+	zoom(owner,7, do_device_check = FALSE)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
 	..()

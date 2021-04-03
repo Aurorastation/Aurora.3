@@ -204,6 +204,54 @@
 
 	reagents_to_add = list(/decl/reagent/tricordrazine = 15, /decl/reagent/inaprovaline = 5, /decl/reagent/dexalin/plus = 5, /decl/reagent/oxycomorphine = 3, /decl/reagent/synaptizine = 2, /decl/reagent/mental/corophenidate = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/trauma
+	name = "trauma hypo-injector"
+	desc = "A special hypospray made to combat most forms of physical trauma."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/butazoline = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/burn
+	name = "burn hypo-injector"
+	desc = "A special hypospray made to combat most types of superficial burns."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/dermaline = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/oxygen
+	name = "oxygenation hypo-injector"
+	desc = "A special hypospray made to combat oxygen deprivation."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/dexalin/plus = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/purity
+	name = "purity hypo-injector"
+	desc = "A special hypospray made to combat most forms of impurities such as genetic damage and infections."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/thetamycin = 10, /decl/reagent/ryetalyn = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/organ
+	name = "organ hypo-injector"
+	desc = "A special hypospray made to combat internal damage."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/peridaxon = 10, /decl/reagent/oculine = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/pain
+	name = "numbing hypo-injector"
+	desc = "A special hypospray made to combat pain. This one only injects <b>5 units</b> at a time."
+	volume = 15
+	amount_per_transfer_from_this = 5
+
+	reagents_to_add = list(/decl/reagent/oxycomorphine = 15)
+
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"
 	desc = "A hypospray loaded with combat stimulants. Its needle has the ability to bypass armor."

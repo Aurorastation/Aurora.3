@@ -341,6 +341,16 @@
 	mymob.pain = new /obj/screen/fullscreen/pain(null)
 	hud_elements |= mymob.pain
 
+	mymob.instability_display = new /obj/screen/instability()
+	mymob.instability_display.screen_loc = ui_instability_display
+	mymob.instability_display.icon_state = "wiz_instability_none"
+	hud_elements |= instability_display
+
+	mymob.energy_display = new /obj/screen/energy()
+	mymob.energy_display.screen_loc = ui_energy_display
+	mymob.energy_display.icon_state = "wiz_energy"
+	hud_elements |= energy_display
+
 	mymob.zone_sel = new /obj/screen/zone_sel(null)
 	mymob.zone_sel.icon = ui_style
 	mymob.zone_sel.color = ui_color
@@ -513,3 +523,15 @@
 			to_chat(usr, SPAN_WARNING("You are completely paralyzed and cannot move!"))
 		else
 			to_chat(usr, SPAN_NOTICE("You are walking around completely fine."))
+
+/obj/screen/instability
+	name = "instability"
+	icon = 'icons/mob/screen_gen.dmi'
+	icon_state = "instability-1"
+	invisibility = 0
+
+/obj/screen/energy
+	name = "energy"
+	icon = 'icons/mob/screen_gen.dmi'
+	icon_state = "wiz_energy"
+	invisibility = 101
