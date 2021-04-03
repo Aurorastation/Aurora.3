@@ -256,3 +256,6 @@
 	// goodies
 	new /obj/item/clothing/glasses/welding(src)
 	new /obj/item/clothing/mask/gas/half(src)
+	// work
+	new /obj/item/nanomachine_scanner(src)
+	new /obj/item/research_slip/nanomachine(src)

@@ -15,6 +15,7 @@
 	var/list/available_programs = list(
 		/decl/nanomachine_effect/blood_regen,
 		/decl/nanomachine_effect/muscle_clamp,
+		/decl/nanomachine_effect/bio_computing,
 		/decl/nanomachine_effect/reproductive_nullifier,
 		/decl/nanomachine_effect/metabolic_hijack
 		)

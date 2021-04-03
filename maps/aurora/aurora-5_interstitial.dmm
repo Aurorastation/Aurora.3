@@ -6871,6 +6871,13 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
 	},
+/obj/item/research_slip/nanomachine,
+/obj/item/research_slip/nanomachine,
+/obj/item/research_slip/nanomachine,
+/obj/item/research_slip/nanomachine,
+/obj/item/research_slip/nanomachine,
+/obj/item/research_slip/nanomachine,
+/obj/item/nanomachine_scanner,
 /turf/simulated/floor/tiled/white,
 /area/medical/nanomachine)
 "yU" = (

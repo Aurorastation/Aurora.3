@@ -3,7 +3,7 @@
 	var/name_label
 	desc = "An electronic disk produced by Zeng-Hu Pharmaceuticals for upgrading nanomachine equipment. Keep this safe -- it's probably worth more than you make in a month."
 
-	icon = 'icons/obj/contained_items/tools/nanomachine_disk.dmi'
+	icon = 'icons/obj/contained_items/tools/nanomachine.dmi'
 	icon_state = "disk"
 
 	var/loaded_program

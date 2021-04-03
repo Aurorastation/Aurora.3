@@ -10,6 +10,13 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 50000, MATERIAL_GLASS = 40000, MATERIAL_SILVER = 30000, MATERIAL_PHORON = 20000)
 	build_path = /obj/item/nanomachine_capsule
 
+/datum/design/item/nanomachine/slip
+	name = "Nanomachine Research Slip"
+	desc = "A small electronic slip that can be plugged into a Nanomachine Scanner. It's used to store data downloaded from the Bio-Computing program."
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 2000)
+	build_path = /obj/item/research_slip/nanomachine
+
 /datum/design/item/nanomachine/disk
 	var/loaded_program
 

@@ -33,6 +33,9 @@
 
 	var/list/program_last_trigger // keeps time for processes, some want to fire every 2 minutes, for example
 
+	// bio-computing
+	var/tech_points_researched = 0
+
 /datum/nanomachine/New(var/atom/new_owner)
 	..()
 	if(ishuman(new_owner))
