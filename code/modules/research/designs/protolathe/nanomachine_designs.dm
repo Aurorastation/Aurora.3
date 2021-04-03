@@ -19,11 +19,13 @@
 /datum/design/item/nanomachine/disk/stamina_booster
 	name = "Disk: Acid Neutralizer"
 	desc = "Effect: Configure the nanomachines to target lactic acid modules, lowering fatigue and granting increased stamina."
+	req_tech = list(TECH_DATA = 4, TECH_MAGNET = 3, TECH_BIO = 5, TECH_ENGINEERING = 2)
 	loaded_program = /decl/nanomachine_effect/stamina_booster
 	build_path = /obj/item/nanomachine_disk
 
 /datum/design/item/nanomachine/disk/pain_killer
 	name = "Disk: Nerve Duller"
 	desc = "Effect: By attaching themselves to various vital nerves in the body, nanomachines can block the path of pain signals to the brain."
+	req_tech = list(TECH_DATA = 4, TECH_MAGNET = 3, TECH_BIO = 5, TECH_ENGINEERING = 2)
 	loaded_program = /decl/nanomachine_effect/pain_killer
 	build_path = /obj/item/nanomachine_disk

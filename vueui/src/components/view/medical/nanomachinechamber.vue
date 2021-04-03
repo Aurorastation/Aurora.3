@@ -19,6 +19,7 @@
       <h3>Chamber Occupant</h3>
       <vui-item label="Occupant Species:">{{ occupant_species }}</vui-item>
       <div v-if="occupant_nanomachines">
+        <div><vui-item label="Occupant Nanomachine Reserve:"><vui-progress :class="{ good: occupant_nanomachine_reserve >= occupant_max_nanomachine_reserve * 0.8, bad: occupant_nanomachine_reserve <= occupant_max_nanomachine_reserve * 0.05, average: occupant_nanomachine_reserve < occupant_max_nanomachine_reserve * 0.8 && occupant_nanomachine_reserve > occupant_max_nanomachine_reserve * 0.05 }" :value="occupant_nanomachine_reserve" :max="occupant_max_nanomachine_reserve" :min="0">{{ occupant_nanomachine_reserve }}</vui-progress></vui-item></div>
         <div v-if="occupant_nanomachines_loaded_programs && occupant_nanomachines_loaded_programs.length">
           <vui-item label="Occupant Nanomachine Programs:"><span class="program" v-for="program in occupant_nanomachines_loaded_programs" :key="program">{{ program }}</span></vui-item>
         </div>
