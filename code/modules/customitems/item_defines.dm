@@ -1964,7 +1964,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	mining colony represented in the center by the alchemical symbol for iron."
 	flag_path = "redcoalition"
 
-/obj/item/flag/nikita_flag/l
+/obj/item/flag/fluff/nikita_flag/l
 	flag_size = 1
 
 
