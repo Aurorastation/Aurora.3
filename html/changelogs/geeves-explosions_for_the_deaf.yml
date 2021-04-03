@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a text output to explosions, they will now state if it's near or far, and from which direction it's coming. Sorry it took so long, deaf people."
-  - tweak: "Distant explosions now take pressure into account. Dropping a drill outside the station will no longer play an explosion sound for people inside."
