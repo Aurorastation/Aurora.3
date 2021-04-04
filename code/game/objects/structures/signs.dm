@@ -324,6 +324,7 @@
 	flag_path = "solgov"
 
 /obj/item/flag/sol/l
+	name = "Large Sol Alliance flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/dominia
@@ -343,6 +344,7 @@
 	flag_path = "dominia"
 
 /obj/item/flag/dominia/l
+	name = "Large Dominian Empire flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/elyra
@@ -362,6 +364,7 @@
 	flag_path = "elyra"
 
 /obj/item/flag/elyra/l
+	name = "Large Elyran flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/hegemony
@@ -381,6 +384,7 @@
 	flag_path = "izweski"
 
 /obj/item/flag/hegemony/l
+	name = "Large Hegemony flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/jargon
@@ -400,6 +404,7 @@
 	flag_path = "jargon"
 
 /obj/item/flag/jargon/l
+	name = "Large Jargon Federation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/nanotrasen
@@ -419,6 +424,7 @@
 	flag_path = "nanotrasen"
 
 /obj/item/flag/nanotrasen/l
+	name = "Large NanoTrasen Corporation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/eridani
@@ -438,6 +444,7 @@
 	flag_path = "eridani"
 
 /obj/item/flag/eridani/l
+	name = "Large Eridani Corporate Federation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/coalition
@@ -457,6 +464,7 @@
 	flag_path = "coalition"
 
 /obj/item/flag/coalition/l
+	name = "Large Coalition of Colonies flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/vaurca
@@ -476,6 +484,7 @@
 	flag_path = "sedantis"
 
 /obj/item/flag/vaurca/l
+	name = "Large Sedantis flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/america
@@ -495,6 +504,7 @@
 	flag_path = "oldglory"
 
 /obj/item/flag/america/l
+	name = "Large Old World flag"
 	flag_size = 1
 
 /obj/item/flag/dpra
@@ -507,6 +517,7 @@
 	nation they were fighting for the Democratic People's Republic of Adhomai."
 
 /obj/item/flag/dpra/l
+	name = "Large Democratic People's Republic of Adhomai flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/dpra
@@ -536,6 +547,7 @@
 
 /obj/item/flag/pra/l
 	flag_size = 1
+	name = "Large People's Republic of Adhomai flag"
 
 /obj/structure/sign/flag/pra
 	name = "People's Republic of Adhomai flag"
@@ -565,6 +577,7 @@
 
 /obj/item/flag/nka/l
 	flag_size = 1
+	name = "Large New Kingdom of Adhomai flag"
 
 /obj/structure/sign/flag/nka
 	name = "New Kingdom of Adhomai flag"
@@ -588,6 +601,7 @@
 	flag_path = "heph"
 
 /obj/item/flag/heph/l
+	name = "Large Hephaestus Industries flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/heph
@@ -607,6 +621,7 @@
 	flag_path = "zenghu"
 
 /obj/item/flag/zenghu/l
+	name = "Large Zeng-Hu Pharmaceuticals flag
 	flag_size = 1
 
 /obj/structure/sign/flag/zenghu
@@ -645,6 +660,7 @@
 	flag_path = "zavodskoi"
 
 /obj/item/flag/zavodskoi/l
+	name = "Large Zavodskoi Interstellar flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/idris
@@ -664,6 +680,7 @@
 	flag_path = "idris"
 
 /obj/item/flag/idris/l
+	name = "Large Idris Incorporated flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/trinaryperfection
@@ -686,6 +703,7 @@
 	flag_path = "trinaryperfection"
 
 /obj/item/flag/trinaryperfection/l
+	name = "Large Trinary Perfection flag"
 	flag_size = 1
 
 /obj/item/flag/diona
