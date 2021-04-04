@@ -3,5 +3,5 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Added a new job, Nanomachine Technician. Check the wiki for more info."
+  - rscadd: "Added a new job, Nanomachine Technician. Its workplace is above the medical lobby, take the stairs. Check the wiki for more info."
   - tweak: "Reduced the size of research slips."
