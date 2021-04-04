@@ -11,6 +11,11 @@
 	path = /obj/item/clothing/head/beret/security/idris
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_beret_alt
+	display_name = "idris beret (alt)"
+	path = /obj/item/clothing/head/beret/security/idris/alt
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/idris_uniform_alt
 	display_name = "idris service skirt"
 	description = "Not for security usage."
