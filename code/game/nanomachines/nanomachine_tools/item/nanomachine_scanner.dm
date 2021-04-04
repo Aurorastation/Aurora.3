@@ -73,7 +73,7 @@
 			if(H.nanomachines)
 				to_chat(user, SPAN_NOTICE("\The [H] has nanomachines. Currently, they are at <b>[round(H.nanomachines.machine_volume, 0.1)]</b>/[H.nanomachines.max_machines] growth."))
 				if(H.nanomachines.tech_points_researched)
-					to_chat(user, SPAN_NOTICE("Their nanomachines have bio-computing enabled, there [H.nanomachines.tech_points_researched == 1 ? "is" : "are"] <b>[H.nanomachines.tech_points_researched]<b> research point\s available."))
+					to_chat(user, SPAN_NOTICE("Their nanomachines have bio-computing enabled, there [H.nanomachines.tech_points_researched == 1 ? "is" : "are"] <b>[H.nanomachines.tech_points_researched]</b> research point\s available."))
 			else
 				to_chat(user, SPAN_NOTICE("\The [H] does not have any active nanomachines."))
 		if(MODE_COLLECTION)
