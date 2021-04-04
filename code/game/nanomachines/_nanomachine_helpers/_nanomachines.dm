@@ -72,12 +72,12 @@
 		regen_rate = -0.2 // nanomachines are old and will work themselves out of the body now
 		safety_threshold = 0
 		load_time = null
+	var/regen_amount = (regen_rate - deterioration) TIMES_SECONDS_PASSED(last_process)
+	machine_volume = min(machine_volume + regen_amount, max_machines)
+	last_process = world.time
 	if(machine_volume <= 0)
 		owner.remove_nanomachines()
 		return
-	var/regen_amount = (regen_rate - deterioration) TIMES_SECONDS_PASSED(last_process)
-	machine_volume = clamp(machine_volume + regen_amount, 0, max_machines)
-	last_process = world.time
 
 /datum/nanomachine/proc/speak_to_owner(var/message)
 	to_chat(owner, "[get_accent("nanomachine")] <span class='nanomachine'><b>Inside your head</b>, \"[message]\"</span>")

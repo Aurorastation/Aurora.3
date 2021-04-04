@@ -426,7 +426,7 @@ var/const/access_consular = 72
 var/const/access_nanomachine = 73
 /datum/access/nanomachine
 	id = access_nanomachine
-	desc = "Nanomachine Operator"
+	desc = "Nanomachine Technician"
 	region = ACCESS_REGION_MEDBAY
 
 /******************
