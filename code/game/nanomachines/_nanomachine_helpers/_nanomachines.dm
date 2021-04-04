@@ -1,4 +1,4 @@
-// Nanomachines, inspired by the /tg/station verson, Nanites.
+// Nanomachines, inspired by the /tg/station version, Nanites.
 
 #define ACCENT_NANOMACHINE "Nanomachine" // have to put it here because it's higher in the .dme than the other accents
 
