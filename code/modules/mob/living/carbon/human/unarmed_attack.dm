@@ -9,7 +9,7 @@ var/global/list/sparring_attack_cache = list()
 	var/miss_sound = /decl/sound_category/punchmiss_sound
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
 	var/sharp = 0
-	var/edge = 0
+	var/edge = FALSE
 
 	var/damage_type = BRUTE
 	var/sparring_variant_type = /datum/unarmed_attack/light_strike
@@ -43,18 +43,19 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/proc/get_unarmed_damage()
 	return damage
 
-/datum/unarmed_attack/proc/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+/datum/unarmed_attack/proc/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/attack_damage,var/zone)
 
 	if(target.stat == DEAD)
 		return
 
 	var/stun_chance = rand(0, 100)
+	var/armor = target.get_blocked_ratio(zone, BRUTE)
 	var/pain_message = TRUE
 
 	if(!target.can_feel_pain())
 		pain_message = FALSE
 
-	if(attack_damage >= 5 && armor < 100 && !(target == user) && stun_chance <= attack_damage * 5) // 25% standard chance
+	if(attack_damage >= 5 && armor < 1 && !(target == user) && stun_chance <= attack_damage * 5) // 25% standard chance
 		switch(zone) // strong punches can have effects depending on where they hit
 			if(BP_HEAD, BP_MOUTH, BP_EYES)
 				// Induce blurriness
@@ -92,12 +93,12 @@ var/global/list/sparring_attack_cache = list()
 					if(pain_message)
 						target.visible_message("<span class='warning'>[target] gives way slightly.</span>")
 					target.apply_effect(attack_damage*3, PAIN, armor)
-	else if(attack_damage >= 5 && !(target == user) && (stun_chance + attack_damage * 5 >= 100) && armor < 100) // Chance to get the usual throwdown as well (25% standard chance)
+	else if(attack_damage >= 5 && !(target == user) && (stun_chance + attack_damage * 5 >= 100) && armor < 1) // Chance to get the usual throwdown as well (25% standard chance)
 		if(!target.lying)
 			target.visible_message("<span class='danger'>[target] [pick("slumps", "falls", "drops")] down to the ground!</span>")
 		else
 			target.visible_message("<span class='danger'>[target] has been weakened!</span>")
-		target.apply_effect(3, WEAKEN, armor)
+		target.apply_effect(3, WEAKEN, armor*100)
 
 /datum/unarmed_attack/proc/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
@@ -105,7 +106,11 @@ var/global/list/sparring_attack_cache = list()
 	if(!affecting)
 		return
 
-	user.visible_message("<span class='warning'>[user] [pick(attack_verb)] [target] in the [affecting.name]!</span>")
+	user.visible_message(SPAN_WARNING("[user] [pick(attack_verb)] [target] in the [affecting.name]!"))
+	playsound(user.loc, attack_sound, 25, 1, -1)
+
+/datum/unarmed_attack/proc/show_attack_simple(var/mob/living/carbon/human/user, var/mob/living/target, var/zone)
+	user.visible_message(SPAN_WARNING("[user] [pick(attack_verb)] [target] in the [zone]!"))
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /datum/unarmed_attack/proc/handle_eye_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target)
@@ -128,7 +133,7 @@ var/global/list/sparring_attack_cache = list()
 	shredding = 0
 	damage = 0
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	attack_name = "bite"
 
 /datum/unarmed_attack/bite/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
@@ -293,5 +298,5 @@ var/global/list/sparring_attack_cache = list()
 	shredding = 0
 	damage = 0
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	attack_name = "light hit"

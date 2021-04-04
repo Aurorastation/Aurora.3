@@ -42,7 +42,7 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened || usr.lying || usr.restrained() || usr.buckled)
+	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened || usr.lying || usr.restrained() || usr.buckled_to)
 		return
 
 	if(on)
@@ -62,12 +62,13 @@
 	var/datum/powernet/PN = C.powernet
 	flick("echair1", src)
 	spark(src, 12, alldirs)
-	if(buckled_mob && istype(C))
-		if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
-			to_chat(buckled_mob, "<span class='danger'>You feel a deep shock course through your body!</span>")
+	if(istype(buckled, /mob/living) && istype(C))
+		var/mob/living/M = buckled
+		if(electrocute_mob(M, C, src, 1.25, BP_HEAD))
+			to_chat(M, "<span class='danger'>You feel a deep shock course through your body!</span>")
 			sleep(1)
-			if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
-				buckled_mob.Stun(PN.get_electrocute_damage()*10)
+			if(electrocute_mob(M, C, src, 1.25, BP_HEAD))
+				M.Stun(PN.get_electrocute_damage()*10)
 	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 
 	return
@@ -204,7 +205,6 @@
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "Yes")
 			to_chat(H, "<span class='notice'><i>... [text] ...</i></span>")
-			H.cure_all_traumas(cure_type = CURE_HYPNOSIS)
 		else
 			thrall = null
 
@@ -289,8 +289,7 @@
 			ticktock = "Tick"
 		to_chat(H, "<span class='notice'><i>[ticktock]. . .</i></span>")
 		sound_to(H, 'sound/effects/singlebeat.ogg')
-		if(prob(1))
-			H.cure_all_traumas(cure_type = CURE_SOLITUDE)
+
 
 /obj/machinery/chakrapod
 	name = "Crystal Therapy Pod"
@@ -418,11 +417,11 @@
 
 	if (do_mob(user, L, 30, needhand = 0))
 		var/bucklestatus = L.bucklecheck(user)
-		if (!bucklestatus)//incase the patient got buckled during the delay
+		if (!bucklestatus)//incase the patient got buckled_to during the delay
 			return
 		if (bucklestatus == 2)
-			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = L.buckled_to
+			LB.user_unbuckle(user)
 
 		if (L.client)
 			L.client.perspective = EYE_PERSPECTIVE
@@ -463,8 +462,8 @@
 
 	if (do_mob(user, H, 30, needhand = 0))
 		if (bucklestatus == 2)
-			var/obj/structure/LB = H.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = H.buckled_to
+			LB.user_unbuckle(user)
 		if (H.client)
 			H.client.perspective = EYE_PERSPECTIVE
 			H.client.eye = src
@@ -634,20 +633,13 @@
 			break
 
 		var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
-		if (!istype(sponge) || !sponge.traumas.len)
+		if (!istype(sponge))
 			if(get_dist(user,src) <= 1)
 				to_chat(user, "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>")
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
 			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
 			break
 
-		for(var/X in sponge.traumas)
-			var/datum/brain_trauma/trauma = X
-			if(trauma.cure_type == CURE_CRYSTAL)
-				if(!trauma.permanent)
-					qdel(trauma)
-					electroshock_trauma = 1
-					break
 
 		if(electroshock_trauma)
 			visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")

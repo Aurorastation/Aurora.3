@@ -743,7 +743,8 @@
 		/obj/item/gun/energy/rifle/laser/xray,
 		/obj/item/gun/energy/net,
 		/obj/item/gun/energy/laser/shotgun,
-		/obj/item/gun/energy/decloner
+		/obj/item/gun/energy/decloner,
+		/obj/item/gun/energy/freeze
 	)
 
 /obj/random/colored_jumpsuit
@@ -959,11 +960,11 @@
 		/obj/item/clothing/gloves/chameleon = 1,
 		/obj/item/clothing/gloves/black = 10,
 
-		/obj/item/clothing/head/softcap/chameleon = 0.5,
+		/obj/item/clothing/head/chameleon = 0.5,
 		/obj/item/clothing/head/softcap = 5,
 
 		/obj/item/clothing/mask/chameleon = 1,
-		/obj/item/clothing/mask/gas/ = 10,
+		/obj/item/clothing/mask/gas = 10,
 
 		/obj/item/clothing/shoes/chameleon = 0.5,
 		/obj/item/clothing/shoes/black = 5,
@@ -978,7 +979,7 @@
 		/obj/item/gun/bang/deagle = 0.1,
 
 		/obj/item/storage/backpack/chameleon = 1,
-		/obj/item/storage/backpack/ = 10,
+		/obj/item/storage/backpack = 10,
 
 		/obj/item/clothing/glasses/chameleon = 1
 
@@ -1612,7 +1613,8 @@
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
 		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
 		/obj/item/gun/projectile/musket = 0.5,
-		/obj/item/gun/launcher/grenade = 1
+		/obj/item/gun/launcher/grenade = 1,
+		/obj/item/gun/energy/freeze = 0.5
 		)
 
 	var/list/Epic = list(

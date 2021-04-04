@@ -30,7 +30,7 @@
 	throwforce = 7
 	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -175,7 +175,7 @@
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	can_embed = 0
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")

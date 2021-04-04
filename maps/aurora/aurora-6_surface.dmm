@@ -141,7 +141,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/plating,
 /area/store)
@@ -387,7 +387,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/lino/grey,
 /area/store)
@@ -3134,7 +3134,11 @@
 	},
 /area/mine/explored)
 "cCJ" = (
-/obj/effect/floor_decal/ss13/l1,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/scc_full,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "cDq" = (
@@ -3201,6 +3205,9 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -4717,20 +4724,11 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "elY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/ss13/l4,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness)
 "emj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -5298,6 +5296,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/suit/space,
 /obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/half,
 /obj/item/clothing/head/helmet/space,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
@@ -8451,6 +8450,20 @@
 	pixel_x = 16
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "power generation supplies"
+	},
+/obj/item/circuitboard/rtg,
+/obj/item/stack/cable_coil{
+	amount = 5
+	},
+/obj/item/stock_parts/capacitor,
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
+/obj/item/stack/material/phoron{
+	amount = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "hCb" = (
@@ -10239,7 +10252,7 @@
 /turf/simulated/floor/plating,
 /area/store)
 "jiW" = (
-/obj/structure/closet/lasertag/red,
+/obj/structure/closet/lasertag,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -10247,10 +10260,6 @@
 	dir = 4;
 	pixel_x = -28
 	},
-/obj/item/gun/energy/lasertag/red,
-/obj/item/gun/energy/lasertag/red,
-/obj/item/clothing/suit/redtag,
-/obj/item/clothing/suit/redtag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "jkk" = (
@@ -12223,6 +12232,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "kZt" = (
@@ -13203,9 +13215,11 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "lOa" = (
-/obj/effect/floor_decal/ss13/l11,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
 "lON" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -14491,6 +14505,9 @@
 	c_tag = "Bridge - Surface Research Airlock";
 	pixel_x = 22
 	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
 "naj" = (
@@ -14704,10 +14721,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"njM" = (
-/obj/effect/floor_decal/ss13/l5,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "nki" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
@@ -15772,10 +15785,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
-"oet" = (
-/obj/effect/floor_decal/ss13/l3,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "ofd" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,1"
@@ -17758,17 +17767,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
-"pLr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/ss13/l7,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "pLs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -19880,10 +19878,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/solar/fore)
-"rDA" = (
-/obj/effect/floor_decal/ss13/l9,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "rDM" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -21131,21 +21125,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"sMB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/ss13/l14,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "sMU" = (
 /obj/machinery/cryopod,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -22622,21 +22601,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"tUM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/ss13/l2,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "tUX" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -22669,21 +22633,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
-"tXe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/ss13/l10,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "tYg" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -23336,21 +23285,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"uAA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/ss13/l6,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "uAC" = (
 /obj/machinery/shield_capacitor{
 	dir = 4
@@ -23784,7 +23718,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/ss13/l8,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -24239,7 +24172,7 @@
 	pixel_y = 2
 	},
 /obj/item/paper_bin,
-/obj/item/book/manual/ntsl2,
+/obj/item/book/manual/wiki/ntsl2,
 /obj/machinery/light_switch{
 	pixel_y = 26
 	},
@@ -24851,10 +24784,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/store)
-"vSy" = (
-/obj/effect/floor_decal/ss13/l13,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "vTm" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -24988,10 +24917,6 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/item/gun/energy/lasertag/blue,
-/obj/item/gun/energy/lasertag/blue,
-/obj/item/clothing/suit/bluetag,
-/obj/item/clothing/suit/bluetag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "wcR" = (
@@ -26024,6 +25949,9 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
 "wSl" = (
@@ -26536,21 +26464,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
-"xqQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/ss13/l12,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "xrt" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled,
@@ -53353,8 +53266,8 @@ cTx
 oEQ
 res
 vHg
-cCJ
-tUM
+oUS
+kqa
 aXy
 wqg
 anj
@@ -53610,9 +53523,9 @@ pMI
 qmj
 twe
 lkM
-oet
-elY
-nxU
+oUS
+kqa
+cCJ
 tJP
 kKw
 une
@@ -53867,8 +53780,8 @@ wMf
 oRz
 jYz
 vHg
-njM
-uAA
+oUS
+kqa
 aXy
 anj
 opK
@@ -53955,7 +53868,7 @@ fdu
 fdu
 fdu
 kKF
-nmN
+kKF
 kKF
 kKF
 kKF
@@ -54124,7 +54037,7 @@ fho
 dEA
 nBO
 ooj
-pLr
+cZM
 uUH
 aXy
 bzh
@@ -54381,8 +54294,8 @@ iBN
 tUq
 jYz
 vHg
-rDA
-tXe
+oUS
+kqa
 aCD
 anj
 xjq
@@ -54638,8 +54551,8 @@ pMI
 qmj
 twe
 hkf
-lOa
-xqQ
+oUS
+kqa
 nxU
 gXx
 uDh
@@ -54895,8 +54808,8 @@ wIs
 wIs
 eWl
 vHg
-vSy
-sMB
+oUS
+kqa
 aXy
 hxR
 anj
@@ -57770,7 +57683,7 @@ xpj
 pTq
 gqB
 meV
-kjO
+lOa
 kjO
 kjO
 vnh
@@ -60587,7 +60500,7 @@ rYN
 rYN
 rYN
 wbM
-ouv
+elY
 uoC
 ouv
 eKv

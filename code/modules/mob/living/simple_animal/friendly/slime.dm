@@ -8,6 +8,7 @@
 	speak_emote = list("chirps")
 	health = 100
 	maxHealth = 100
+	accent = ACCENT_BLUESPACE
 	response_help   = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
@@ -15,6 +16,11 @@
 	var/colour = "grey"
 	mob_size = 3
 	composition_reagent = /decl/reagent/slimejelly
+
+/mob/living/simple_animal/slime/Initialize()
+	. = ..()
+	add_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 /mob/living/simple_animal/slime/can_force_feed(var/feeder, var/food, var/feedback)
 	if(feedback)

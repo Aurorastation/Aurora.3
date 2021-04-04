@@ -1,48 +1,3 @@
-/obj/item/gun/energy/rifle/ionrifle
-	name = "ion rifle"
-	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by Nanotrasen."
-	icon = 'icons/obj/guns/ionrifle.dmi'
-	icon_state = "ionriflestun100"
-	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
-	modifystate = "ionriflestun"
-	projectile_type = /obj/item/projectile/ion/stun
-	fire_sound = 'sound/weapons/laser1.ogg'
-	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
-	w_class = ITEMSIZE_LARGE
-	accuracy = 1
-	force = 10
-	flags = CONDUCT
-	slot_flags = SLOT_BACK
-	charge_cost = 300
-	max_shots = 4
-	can_turret = 1
-	turret_sprite_set = "ion"
-	firemodes = list()
-
-/obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
-	..(max(severity, 2)) //so it doesn't EMP itself, I guess
-
-/obj/item/gun/energy/rifle/ionrifle/update_icon()
-	if(charge_meter && power_supply && power_supply.maxcharge)
-		var/ratio = power_supply.charge / power_supply.maxcharge
-
-		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
-		if(power_supply.charge < charge_cost)
-			ratio = 0
-		else
-			ratio = max(round(ratio, 0.25) * 100, 25)
-
-		icon_state = "[modifystate][ratio]"
-		item_state = "[modifystate][ratio]"
-	update_held_icon()
-
-/obj/item/gun/energy/rifle/ionrifle/mounted
-	name = "mounted ion rifle"
-	self_recharge = 1
-	use_external_power = 1
-	recharge_time = 10
-	can_turret = 0
-
 /obj/item/gun/energy/decloner
 	name = "biological demolecularisor"
 	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
@@ -359,7 +314,7 @@
 	burst_delay = 1
 	fire_delay = 30
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	anchored = 0
 	armor_penetration = 40
 	flags = NOBLOODY
@@ -369,8 +324,6 @@
 	needspin = FALSE
 
 	is_wieldable = TRUE
-
-	action_button_name = "Wield thermal lance"
 
 /obj/item/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
@@ -461,8 +414,6 @@
 		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60),
 		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
-
-	action_button_name = "Wield thermal drill"
 
 	needspin = FALSE
 

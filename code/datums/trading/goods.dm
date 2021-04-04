@@ -190,7 +190,7 @@
 		/obj/item/clothing/head/bomb_hood               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/caphat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/centhat                 = TRADER_BLACKLIST,
-		/obj/item/clothing/head/softcap/chameleon               = TRADER_BLACKLIST,
+		/obj/item/clothing/head/chameleon               = TRADER_BLACKLIST,
 		/obj/item/clothing/head/collectable             = TRADER_BLACKLIST,
 		/obj/item/clothing/head/culthood                = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/helmet                  = TRADER_BLACKLIST_ALL,
@@ -353,6 +353,8 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/gun/energy/plasmacutter         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/mining = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/mining/fluff = TRADER_BLACKLIST, //No custom items
+		/obj/item/clothing/suit/space/void/mining/fluff        = TRADER_BLACKLIST, //No custom items
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
 		/mob/living/heavy_vehicle/premade/ripley                      = TRADER_THIS_TYPE,

@@ -111,62 +111,9 @@
 	icon_state = "dominia_uniform_red"
 	item_state = "dominia_uniform_red"
 	contained_sprite = TRUE
+
 	rolled_sleeves = FALSE
 	rolled_down = FALSE
-	var/has_down_and_sleeves = TRUE
-
-/obj/item/clothing/under/dominia/rollsuit()
-	set name = "Roll Down Jumpsuit"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, SPAN_NOTICE("You cannot roll down the [src]!"))
-		return
-
-	if((rolled_sleeves == TRUE) && !(rolled_down))
-		rolled_sleeves = FALSE
-
-	if(rolled_down)
-		body_parts_covered = initial(body_parts_covered)
-		item_state = "[initial(item_state)]" // REMINDER!: Contained Sprites automatically take out the _un after the spritename, somehow.
-		to_chat(usr, SPAN_NOTICE("You roll up your [src]."))
-		rolled_down = FALSE
-	else
-		body_parts_covered &= LOWER_TORSO|LEGS|FEET
-		item_state = "[initial(item_state)]_d"
-		to_chat(usr, SPAN_NOTICE("You roll down your [src]."))
-		rolled_down = TRUE
-	update_clothing_icon()
-
-/obj/item/clothing/under/dominia/rollsleeves()
-	set name = "Roll Up Sleeves"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, SPAN_NOTICE("You cannot roll up your [src]'s sleeves!"))
-		return
-
-	if(rolled_down == TRUE)
-		to_chat(usr, SPAN_NOTICE("You must roll up your [src] first!"))
-		return
-
-	if(rolled_sleeves)
-		body_parts_covered = initial(body_parts_covered)
-		item_state = "[initial(item_state)]" // REMINDER!: Contained Sprites automatically take out the _un after the spritename, somehow.
-		to_chat(usr, SPAN_NOTICE("You roll down your [src]'s sleeves."))
-		rolled_sleeves = FALSE
-	else
-		body_parts_covered &= ~(ARMS|HANDS)
-		item_state = "[initial(item_state)]_r"
-		to_chat(usr, SPAN_NOTICE("You roll up your [src]'s sleeves."))
-		rolled_sleeves = TRUE
-	update_clothing_icon()
 
 /obj/item/clothing/under/dominia/black
 	icon = 'icons/clothing/under/uniforms/dominia_uniform_black.dmi'
@@ -325,6 +272,37 @@
 	overlay_state = "dominian_cape_red"
 	contained_sprite = TRUE
 	icon_override = null
+	var/rolled = FALSE
+
+/obj/item/clothing/accessory/poncho/dominia/red/update_clothing_icon()
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_wear_suit()
+	get_mob_overlay(TRUE)
+	get_inv_overlay(TRUE)
+
+/obj/item/clothing/accessory/poncho/dominia/red/verb/roll_up_mantle()
+	set name = "Roll Up Cape Mantle"
+	set desc = "Roll up your cape's mantle. Doesn't work with some capes."
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return FALSE
+
+	var/list/icon_states = icon_states(icon)
+	var/initial_state = initial(icon_state)
+	var/new_state = "[initial_state]_h"
+	if(!(new_state in icon_states))
+		to_chat(usr, SPAN_WARNING("Your cape doesn't allow this!"))
+		return
+
+	rolled = !rolled
+	to_chat(usr, SPAN_NOTICE("You roll your cape's mantle [rolled ? "up" : "down"]."))
+	icon_state = rolled ? new_state : initial_state
+	item_state = rolled ? new_state : initial_state
+	overlay_state = rolled ? new_state : initial_state
+	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/under/dominia/initiate
 	name = "tribunal initiate's robe"
@@ -350,7 +328,7 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
 /obj/item/clothing/head/beret/dominia
-	name = "tribunal initiate’s beret"
+	name = "tribunal initiate's beret"
 	desc = "A simple red beret with a golden badge marking its wearer as an initiate of the Moroz Holy Tribunal."
 	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
 	funding - spares any expenses funding them, and these berets are made of luxurious velvet."
@@ -359,8 +337,8 @@
 	item_state = "dominia_beret"
 
 /obj/item/clothing/head/beret/dominia/priest
-	name = "tribunalist’s beret"
-	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal’s clergy."
+	name = "tribunalist's beret"
+	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal's clergy."
 	desc_fluff = "With their black and gold clothing designed to resemble that of their noble counterparts, the full clergy of the Moroz Holy Tribunal \
 	are a sight to behold both inside and outside of the Empire of Dominia. This beret features an emblem luxuriously and painstakingly crafted out of real gold."
 	icon = 'icons/clothing/head/dominia_beret_priest.dmi'
@@ -382,3 +360,85 @@
 	name = "fisanduhian ushanka"
 	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way. This one has a large Fisanduhian flag on the front."
 	icon_state = "fishushanka"
+	item_state = "fishushanka"
+
+/obj/item/clothing/under/dominia/dress/fancy
+	name = "Morozi dress"
+	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves."
+	desc_fluff = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
+				the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
+				due to the often frigid temperatures of Moroz."
+	icon = 'icons/clothing/under/uniforms/dominia_dresses.dmi'
+	icon_state = "morozi_dress"
+	item_state = "morozi_dress"
+	contained_sprite = TRUE
+	var/house
+
+/obj/item/clothing/under/dominia/dress/fancy/Initialize()
+	. = ..()
+	if(house)
+		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves, and a colored sash marking its wearer as \
+				an affiliate of House [capitalize(house)]."
+		icon_state = "[house]"
+		item_state = "[house]"
+		update_clothing_icon()
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless
+	name = "sleeveless Morozi dress"
+	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has no sleeves."
+	desc_fluff = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
+				the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
+				due to the often frigid temperatures of Moroz."
+	icon_state = "morozi_dress_rs"
+	item_state = "morozi_dress_rs"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/Initialize()
+	. = ..()
+	if(house)
+		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has no sleeves, and a colored sash marking its wearer as \
+				an affiliate of House [house]."
+		icon_state += "_rs"
+		item_state += "_rs"
+		update_clothing_icon()
+
+/obj/item/clothing/under/dominia/dress/fancy/zhao
+	name = "house zhao Morozi dress"
+	house = "zhao"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/zhao
+	name = "sleeveless house zhao Morozi dress"
+	house = "zhao"
+
+/obj/item/clothing/under/dominia/dress/fancy/volvalaad
+	name = "house volvalaad Morozi dress"
+	house = "volvalaad"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/volvalaad
+	name = "sleeveless house volvalaad Morozi dress"
+	house = "volvalaad"
+
+/obj/item/clothing/under/dominia/dress/fancy/strelitz
+	name = "house strelitz Morozi dress"
+	house = "strelitz"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/strelitz
+	name = "sleeveless house strelitz Morozi dress"
+	house = "strelitz"
+
+/obj/item/clothing/under/dominia/dress/fancy/caladius
+	name = "house caladius Morozi dress"
+	house = "caladius"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/caladius
+	name = "sleeveless house caladius Morozi dress"
+	house = "caladius"
+
+/obj/item/clothing/under/dominia/dress/fancy/kazhkz
+	name = "house kazhkz Morozi dress"
+	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/kazhkz
+	name = "sleeveless house kazhkz Morozi dress"
+	house = "kazhkz"
+
+

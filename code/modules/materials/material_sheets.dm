@@ -247,6 +247,21 @@
 	default_type = DEFAULT_WALL_MATERIAL
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/steel/attackby(obj/item/W, mob/user)
+	. = ..()
+	if(is_sharp(W))
+		if(amount < 5)
+			to_chat(user, SPAN_WARNING("You need at least five sheets of steel to do this!"))
+			return
+		user.visible_message("<b>[user]</b> starts carving some steel wool out of \the [src].", SPAN_NOTICE("You start carving some steel wool out of \the [src]."))
+		if(do_after(user, 10 SECONDS))
+			if(amount < 5)
+				return
+			to_chat(user, SPAN_NOTICE("You carve some steel wool out of \the [src]."))
+			var/obj/item/steelwool/SW = new /obj/item/steelwool(get_turf(src))
+			user.put_in_hands(SW)
+			use(5)
+
 /obj/item/stack/material/steel/full/Initialize()
 	. = ..()
 	amount = max_amount

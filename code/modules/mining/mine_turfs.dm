@@ -129,11 +129,15 @@ var/list/mineral_can_smooth_with = list(
 			GetDrilled()
 
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
+		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
+		. = PC_beam.pass_check(src)
+
 	// Emitter blasts
 	if(istype(Proj, /obj/item/projectile/beam/emitter))
 		emitter_blasts_taken++
 
-	if(emitter_blasts_taken > 2) // 3 blasts per tile
+	if(emitter_blasts_taken >= 3)
 		GetDrilled()
 
 /turf/simulated/mineral/CollidedWith(AM)

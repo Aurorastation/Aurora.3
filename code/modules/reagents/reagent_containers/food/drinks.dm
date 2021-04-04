@@ -121,7 +121,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A golden cup"
 	name = "golden cup"
 	icon_state = "golden_cup"
-	item_state = "" //nope :(
+	item_state = "" //nope :[
 	w_class = ITEMSIZE_LARGE
 	force = 14
 	throwforce = 10
@@ -156,8 +156,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/milk/soymilk = 50)
 
 /obj/item/reagent_containers/food/drinks/coffee
-	name = "robust coffee"
-	desc = "Careful, the beverage you're about to enjoy is extremely hot."
+	name = "\improper Martian Dark Roast"
+	desc = "The darkest roast this side of Olympia, guaranteed."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -181,8 +181,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/coffee/sadpslatte = 30)
 
 /obj/item/reagent_containers/food/drinks/tea
-	name = "duke purple tea"
-	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
+	name = "\improper Sol-III tea"
+	desc = "A hot tea with an \"Earthy\" flavor that's much weaker than it claims to be on the cup."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -232,8 +232,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/tea/chaitea = 30)
 
 /obj/item/reagent_containers/food/drinks/ice
-	name = "ice cup"
-	desc = "Careful, cold ice, do not chew."
+	name = "\improper Admiral's ice cup"
+	desc = "Solid water served in an official Getmore-brand disposable collector's cup, each one commemorating a late admiral."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -244,8 +244,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/ice = 30)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
-	name = "dutch hot coco"
-	desc = "Made in Space South America."
+	name = "\improper Red Gaia hot coco"
+	desc = "A Mars favorite. Usually dispensed at a temperature hotter than any human can stand."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -425,7 +425,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
 //	itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
-//	icon states.
+//	icon states.)
 
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
@@ -491,6 +491,50 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	icon_state = "vacuumflask"
 	volume = 60
 	center_of_mass = list("x"=15, "y"=4)
+
+	var/obj/item/reagent_containers/food/drinks/flask/flask_cup/cup
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
+	. = ..()
+	cup = new(src)
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
+	if(cup)
+		to_chat(user, SPAN_NOTICE("You remove \the [src]'s cap."))
+		user.put_in_hands(cup)
+		cup = null
+		update_icon()
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
+		if(cup)
+			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
+			return
+		if(W.reagents.total_volume + reagents.total_volume > volume)
+			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and the flask!"))
+			return
+		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
+		user.drop_from_inventory(W, src)
+		cup = W
+		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
+		update_icon()
+		return
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/update_icon()
+	icon_state = cup ? initial(icon_state) : "[initial(icon_state)]-nobrim"
+
+/obj/item/reagent_containers/food/drinks/flask/flask_cup
+	name = "vacuum flask cup"
+	desc = "The cup that appears in your hands after you unscrew the cap of the flask and turn it over. Magic!"
+	icon_state = "vacuumflask-brim"
+	volume = 10
+	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/flask/flask_cup/afterattack(atom/target, mob/user, proximity, params)
+	if(istype(target, /obj/item/reagent_containers/food/drinks/flask/vacuumflask))
+		return
+	return ..()
 
 /obj/item/reagent_containers/food/drinks/britcup
 	name = "cup"

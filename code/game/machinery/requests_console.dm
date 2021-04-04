@@ -307,9 +307,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Print a form.
 	if(href_list["print"])
 		var/printid = sanitizeSQL(href_list["print"])
-		establish_db_connection(dbcon)
 
-		if(!dbcon.IsConnected())
+		if(!establish_db_connection(dbcon))
 			alert("Connection to the database lost. Aborting.")
 		if(!printid)
 			alert("Invalid query. Try again.")
@@ -334,8 +333,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Get extra information about the form.
 	if(href_list["whatis"])
 		var/whatisid = sanitizeSQL(href_list["whatis"])
-		establish_db_connection(dbcon)
-		if(!dbcon.IsConnected())
+
+		if(!establish_db_connection(dbcon))
 			alert("Connection to the database lost. Aborting.")
 		if(!whatisid)
 			alert("Invalid query. Try again.")

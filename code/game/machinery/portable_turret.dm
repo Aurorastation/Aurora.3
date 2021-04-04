@@ -47,7 +47,8 @@
 	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
 	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
-	var/check_synth	 = 0 	//if active, will shoot at anything not an AI or cyborg
+	var/check_synth	 = 0	//if active, will shoot at anything not an AI or cyborg
+	var/target_borgs = FALSE//if active, will shoot at borgs
 	var/ailock = 0 			// AI cannot use this
 
 	var/immobile = FALSE	// If TRUE, the turret cannot be detached from the ground with a wrench.
@@ -93,6 +94,7 @@
 	enabled = FALSE
 	ailock = TRUE
 	check_synth	 = FALSE
+	target_borgs = FALSE
 	check_access = TRUE
 	check_arrest = TRUE
 	check_records = TRUE
@@ -216,6 +218,7 @@
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
+		"target_borgs" = "Neutralize All Cyborg-likes",
 		"check_wildlife" = "Neutralize All Wildlife",
 		"check_weapons" = "Check Weapon Authorization",
 		"check_records" = "Check Security Records",
@@ -274,6 +277,8 @@
 			lethal_icon = value
 		else if(href_list["command"] == "check_synth")
 			check_synth = value
+		else if(href_list["command"] == "target_borgs")
+			target_borgs = value
 		else if(href_list["command"] == "check_weapons")
 			check_weapons = value
 		else if(href_list["command"] == "check_records")
@@ -562,7 +567,7 @@
 	if(L.invisibility >= INVISIBILITY_LEVEL_ONE) // Cannot see him. see_invisible is a mob-var
 		return TURRET_NOT_TARGET
 
-	if(!emagged && issilicon(L))	// Don't target silica
+	if(!emagged && !target_borgs && issilicon(L))	// Don't target silica
 		return TURRET_NOT_TARGET
 
 	if(L.stat && !emagged)		//if the perp is dead/dying, no need to bother really
@@ -740,6 +745,7 @@
 	var/enabled
 	var/lethal
 	var/check_synth
+	var/target_borgs
 	var/check_access
 	var/check_records
 	var/check_arrest
@@ -764,6 +770,7 @@
 		src.lethal_icon = TC.lethal
 
 	check_synth = TC.check_synth
+	target_borgs = TC.target_borgs
 	check_access = TC.check_access
 	check_records = TC.check_records
 	check_arrest = TC.check_arrest

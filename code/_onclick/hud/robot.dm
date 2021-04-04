@@ -130,6 +130,8 @@ var/obj/screen/robot_inventory
 	mymob.item_use_icon = new /obj/screen/gun/item(null)
 	mymob.gun_move_icon = new /obj/screen/gun/move(null)
 	mymob.radio_use_icon = new /obj/screen/gun/radio(null)
+	mymob.toggle_firing_mode = new /obj/screen/gun/burstfire(null)
+	mymob.unique_action_icon = new /obj/screen/gun/uniqueaction(null)
 
 	mymob.client.screen = null
 
@@ -143,7 +145,10 @@ var/obj/screen/robot_inventory
 		mymob.pullin,
 		robot_inventory,
 		mymob.gun_setting_icon,
-		r.computer)
+		mymob.toggle_firing_mode,
+		mymob.unique_action_icon,
+		r.computer
+		)
 	mymob.client.screen += src.adding + src.other
 
 	return

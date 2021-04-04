@@ -31,6 +31,7 @@
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/device/multitool(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/engineering(src)
@@ -101,9 +102,9 @@
 	new /obj/item/weldingtool/largetank(src)
 	new /obj/item/weldingtool/largetank(src)
 	new /obj/item/weldingtool/largetank(src)
-	new /obj/item/weldpack(src)
-	new /obj/item/weldpack(src)
-	new /obj/item/weldpack(src)
+	new /obj/item/reagent_containers/weldpack(src)
+	new /obj/item/reagent_containers/weldpack(src)
+	new /obj/item/reagent_containers/weldpack(src)
 
 /obj/structure/closet/secure_closet/engineering_personal
 	name = "engineer's locker"
@@ -129,6 +130,7 @@
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
 
@@ -159,6 +161,7 @@
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
 	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
 	new /obj/item/rfd/piping(src)

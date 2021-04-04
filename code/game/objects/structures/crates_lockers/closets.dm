@@ -106,17 +106,15 @@
 			return 0
 	return 1
 
-/obj/structure/closet/proc/dump_contents()
+/obj/structure/closet/dump_contents()
 	//Cham Projector Exception
-	for(var/obj/effect/dummy/chameleon/AD in src)
+	for(var/obj/effect/dummy/chameleon/AD in contents)
 		AD.forceMove(loc)
 
-	for(var/obj/I in src)
-		if(linked_teleporter && I == linked_teleporter)
-			continue
+	for(var/obj/I in contents - linked_teleporter)
 		I.forceMove(loc)
 
-	for(var/mob/M in src)
+	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
 			M.client.eye = M.client.mob
@@ -157,9 +155,12 @@
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
 			return
+		var/did_teleport = FALSE
 		for(var/mob/M in contents)
+			did_teleport = TRUE
 			linked_teleporter.do_teleport(M)
-		linked_teleporter.last_use = world.time
+		if(did_teleport)
+			linked_teleporter.last_use = world.time
 
 	playsound(get_turf(src), close_sound, 25, 0, -3)
 	density = initial(density)
@@ -189,7 +190,7 @@
 /obj/structure/closet/proc/store_mobs(var/stored_units)
 	var/added_units = 0
 	for(var/mob/living/M in loc)
-		if(M.buckled || M.pinned.len)
+		if(M.buckled_to || M.pinned.len)
 			continue
 		if(M.mob_size >= maximum_mob_size)
 			continue

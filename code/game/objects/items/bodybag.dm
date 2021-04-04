@@ -44,6 +44,7 @@
 	var/item_path = /obj/item/bodybag
 	var/contains_body = 0
 	var/shapely = TRUE
+	can_be_buckled = TRUE
 
 /obj/structure/closet/body_bag/content_info(mob/user, content_size)
 	if(!content_size && !contains_body)
@@ -70,7 +71,14 @@
 			src.name = "body bag - "
 			src.name += t
 			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
-			add_overlay("bodybag_label")
+			if(istype(buckled_to, /obj/structure/bed/roller))
+				var/obj/structure/bed/roller/R = buckled_to
+				if(R.bag_strap)
+					LAZYREMOVE(overlays, image(R.icon, R.bag_strap))
+					LAZYADD(overlays, image(icon, "bodybag_label"))
+					LAZYADD(overlays, image(R.icon, R.bag_strap))
+			else
+				LAZYADD(overlays, image(icon, "bodybag_label"))
 		else
 			src.name = "body bag"
 		return
@@ -78,7 +86,7 @@
 		to_chat(user, "You cut the tag off the bodybag.")
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		src.name = "body bag"
-		cut_overlays()
+		LAZYREMOVE(overlays, image(icon, "bodybag_label"))
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)
 	contains_body = ..()
@@ -95,6 +103,11 @@
 		density = 0
 		return TRUE
 	return FALSE
+
+/obj/structure/closet/body_bag/open()
+	if(buckled_to)
+		return 0
+	return ..()
 
 /obj/structure/closet/body_bag/dump_contents(var/stored_units)
 	..()

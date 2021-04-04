@@ -1,6 +1,6 @@
 /datum/gear/suit/unathi_mantle
 	display_name = "hide mantle"
-	path = /obj/item/clothing/suit/unathi/mantle
+	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
@@ -204,3 +204,9 @@
 	augs["farseer eye"] = /obj/item/organ/internal/augment/farseer_eye
 	augs["eye flashlight"] = /obj/item/organ/internal/augment/eye_flashlight
 	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/religion/shaman_staff
+	display_name = "shaman staff"
+	path = /obj/item/cane/shaman
+	sort_category = "Xenowear - Unathi"
+	whitelisted = list(SPECIES_UNATHI)

@@ -34,6 +34,16 @@
 		user.visible_message(SPAN_WARNING("[user] attacks \the [src] with \the [I]."), SPAN_WARNING("You attack \the [src] with \the [I]."))
 		Stress(I.force / 10)
 
+/obj/effect/energy_field/attack_hand(mob/living/carbon/human/H)
+	if(istype(H))
+		if(H.species.can_shred(H))
+			H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			H.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+			H.visible_message(SPAN_WARNING("[H] shreds \the [src]!"), SPAN_WARNING("You shred \the [src]!"))
+			Stress(1)
+			return
+	to_chat(H, SPAN_WARNING("You touch \the [src], and it repulses your hand."))
+
 /obj/effect/energy_field/ex_act(var/severity)
 	Stress(0.5 + severity)
 

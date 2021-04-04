@@ -38,4 +38,9 @@
 #define MECH_GEAR_LAYER             4.08
 #define MECH_ABOVE_LAYER            4.09
 
+// Blob Layers
+#define BLOB_SHIELD_LAYER           4.11
+#define BLOB_NODE_LAYER             4.12
+#define BLOB_CORE_LAYER	            4.13
+
 #define CLICKCATCHER_PLANE -100

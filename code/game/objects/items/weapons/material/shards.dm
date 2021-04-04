@@ -7,7 +7,7 @@
 	icon_state = "large"
 	randpixel = 8
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	recyclable = TRUE
 	w_class = ITEMSIZE_SMALL
 	force_divisor = 0.2 // 6 with hardness 30 (glass)
@@ -62,7 +62,7 @@
 	if(isliving(AM))
 		var/mob/M = AM
 
-		if(M.buckled) //wheelchairs, office chairs, rollerbeds
+		if(M.buckled_to) //wheelchairs, office chairs, rollerbeds
 			return
 
 		to_chat(M, SPAN_DANGER("You step on \the [src]!"))

@@ -116,7 +116,7 @@
 	desc_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
 	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
-	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
+	seen as nothing but a honor and does not grant any status or position that a regular Party member would have."
 	w_class = ITEMSIZE_TINY
 	flippable = TRUE
 	v_flippable = FALSE

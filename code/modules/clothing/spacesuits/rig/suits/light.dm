@@ -5,7 +5,13 @@
 	icon_state = "ninja_rig"
 	suit_type = "light suit"
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
-	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_MELEE_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	emp_protection = 10
 	slowdown = 0
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
@@ -92,7 +98,15 @@
 	suit_type = "stealth suit"
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
 	icon_state = "ninja_rig"
-	armor = list(melee = 50, bullet = 45, laser = 45, energy = 30, bomb = 35, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	emp_protection = 40
 	slowdown = 0
 
@@ -109,13 +123,12 @@
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/teleporter,
-		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/chem_dispenser/ninja,
-		/obj/item/rig_module/self_destruct,
+		/obj/item/rig_module/anti_theft,
 		/obj/item/rig_module/actuators/combat
 	)
 
@@ -158,7 +171,15 @@
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
 	icon_state = "stealth_rig"
-	armor = list(melee = 45, bullet = 20, laser = 50, energy = 10, bomb = 25, bio = 30, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SMALL,
+		rad = ARMOR_RAD_SMALL
+	)
 
 	req_access = list(access_syndicate)
 
@@ -175,7 +196,10 @@
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
 	icon_state = "offworlder_rig"
 	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 5, rad = 5)
+	armor = list(
+		bio = ARMOR_BIO_MINOR,
+		rad = ARMOR_RAD_MINOR
+	)
 	airtight = 0
 	seal_delay = 5
 	helm_type = /obj/item/clothing/head/lightrig/offworlder
@@ -207,7 +231,15 @@
 	desc = "A sleek hardsuit used by the Coalition forces of the Techno-Conglomerate."
 	icon_state = "techno_rig"
 	suit_type = "techno-conglomerate mobility hardsuit"
-	armor = list(melee = 40, bullet = 20, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
 	slowdown = -1
 	offline_slowdown = 0

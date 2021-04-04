@@ -61,10 +61,18 @@
 	if(!owner)
 		return
 
-	to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
-	owner.Weaken(5)
-	disable_night_vision()
-	owner.last_special = world.time + 100
+	if(night_vision)
+		to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
+		owner.Weaken(5)
+		disable_night_vision()
+		owner.last_special = world.time + 100
+
+/obj/item/organ/internal/eyes/night/proc/can_change_invisible()
+	if(owner.client && ((owner.client.view != world.view) || (owner.client.pixel_x != 0) || (owner.client.pixel_y != 0))) //using binoculars
+		return FALSE
+	if(owner.machine && owner.machine.check_eye(owner) >= 0 && owner.client.eye != owner) //using cameras
+		return FALSE
+	return TRUE
 
 /obj/item/organ/internal/eyes/night/proc/enable_night_vision()
 	if(!owner)
@@ -80,8 +88,8 @@
 		owner.visible_message("<b>[owner]</b>[eye_emote]")
 
 	night_vision = TRUE
-	owner.stop_sight_update = TRUE
-	owner.see_invisible = SEE_INVISIBLE_NOLIGHTING
+	if(can_change_invisible())
+		owner.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	if(status & ORGAN_ROBOT)
 		owner.add_client_color(vision_mechanical_color)
 	else
@@ -93,7 +101,8 @@
 	if(!night_vision)
 		return
 	night_vision = FALSE
-	owner.stop_sight_update = FALSE
+	if(can_change_invisible())
+		owner.set_see_invisible(SEE_INVISIBLE_LIVING)
 	if(status & ORGAN_ROBOT)
 		owner.remove_client_color(vision_mechanical_color)
 	else

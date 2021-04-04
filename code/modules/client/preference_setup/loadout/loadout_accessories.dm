@@ -32,6 +32,7 @@
 /datum/gear/accessory/armband/New()
 	..()
 	var/armbands = list()
+	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
@@ -52,7 +53,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -97,7 +98,7 @@
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
@@ -118,7 +119,7 @@
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
@@ -240,9 +241,9 @@
 	allowed_roles = list("Head of Security")
 
 /datum/gear/accessory/detbadge
-	display_name = "badge, detective"
+	display_name = "badge, investigations"
 	path = /obj/item/clothing/accessory/badge/dia
-	allowed_roles = list("Detective", "Forensic Technician")
+	allowed_roles = list("Investigator")
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"
@@ -266,6 +267,11 @@
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/scc_patch
+	display_name = "Stellar Corporate Conglomerate sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/scc
+	flags = 0
+
 /datum/gear/accessory/whalebone
 	display_name = "europan bone charm"
 	path = /obj/item/clothing/accessory/whalebone
@@ -284,3 +290,16 @@
 	gadpathur["industrial cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/ind
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
+
+/datum/gear/accessory/passport
+	display_name = "human passport selection"
+	path = /obj/item/clothing/accessory/badge/passport_sol
+
+/datum/gear/accessory/passport/New()
+	..()
+	var/passport = list()
+	passport["passport, sol"] = /obj/item/clothing/accessory/badge/passport_sol
+	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport_elyra
+	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport_dominia
+	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport_coalition
+	gear_tweaks += new/datum/gear_tweak/path(passport)

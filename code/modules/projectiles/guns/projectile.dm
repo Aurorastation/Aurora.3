@@ -214,7 +214,7 @@
 	..()
 	load_ammo(A, user)
 
-/obj/item/gun/projectile/attack_self(mob/user)
+/obj/item/gun/projectile/toggle_firing_mode(mob/user)
 	if(jam_num)
 		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 		jam_num--

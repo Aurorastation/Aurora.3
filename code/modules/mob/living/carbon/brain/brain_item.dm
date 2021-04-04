@@ -5,16 +5,13 @@
 	parent_organ = BP_HEAD
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "chitin"
-	vital = 1
+	vital = TRUE
 
 /obj/item/organ/internal/brain/xeno
 	name = "thinkpan"
 	desc = "It looks kind of like an enormous wad of purple bubblegum."
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "chitin"
-
-/obj/item/organ/internal/brain/xeno/gain_trauma()
-	return
 
 /obj/item/organ/internal/brain/slime
 	name = "slime core"

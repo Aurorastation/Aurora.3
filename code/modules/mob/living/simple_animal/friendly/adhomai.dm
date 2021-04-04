@@ -101,6 +101,8 @@
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
 
+	hostile_nameable = TRUE
+
 	butchering_products = list(/obj/item/stack/material/animalhide = 5)
 	meat_amount = 8
 

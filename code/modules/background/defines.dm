@@ -31,6 +31,7 @@
 #define RELIGION_TRINARY "Trinary Perfection"
 #define RELIGION_SCARAB "Scarab Folk Beliefs"
 #define RELIGION_TAOISM "Taoism"
+#define RELIGION_LUCEISM "Luceism"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
@@ -59,7 +60,8 @@
 #define ACCENT_ERIDANIDREG "Eridanian Dreg"
 #define ACCENT_SOL "Solarian"
 #define ACCENT_SCARAB "Scarab Fleets"
-#define ACCENT_SILVERSUN "Silversun"
+#define ACCENT_SILVERSUN_ORIGINAL "Silversun Original"
+#define ACCENT_SILVERSUN_EXPATRIATE "Silversun Expatriate"
 #define ACCENT_PHONG "New Hai Phongese"
 #define ACCENT_MARTIAN "Martian"
 #define ACCENT_KONYAN "Konyanger"
@@ -77,6 +79,8 @@
 #define ACCENT_NCF "Non-Coalition Frontier"
 #define ACCENT_FISANDUH "Fisanduhian"
 #define ACCENT_GADPATHUR "Gadpathurian"
+#define ACCENT_PLUTO "Plutonian"
+#define ACCENT_ASSUNZIONE "Assunzionii"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
@@ -102,6 +106,8 @@
 #define ACCENT_VOIDSONG "Voidsong"
 
 #define ACCENT_TTS "Text-to-Speech"
+
+#define ACCENT_BLUESPACE "Bluespace"
 
 #define ACCENT_ZORA "Zo'rane"
 #define ACCENT_KLAX "K'laxane"

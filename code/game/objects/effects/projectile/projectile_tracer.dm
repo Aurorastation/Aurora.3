@@ -19,6 +19,10 @@
 	icon_state = "beam"
 	light_color = LIGHT_COLOR_RED
 
+/obj/effect/projectile/tracer/laser/scc
+	icon_state = "beam_scc"
+	light_color = COLOR_INDIGO
+
 /obj/effect/projectile/tracer/laser/blue
 	icon_state = "beam_blue"
 
