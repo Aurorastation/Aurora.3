@@ -4,6 +4,7 @@
 /obj/item/nanomachine_scanner
 	name = "nanomachine scanner"
 	desc = "A Zeng-Hu produced scanner originating with Jeonshi Biotech, this device is used to determine whether or not there are nanomachines within a subject and extract research data if available."
+	desc_info = "Alt-click to eject the research slip into your hands."
 
 	icon = 'icons/obj/contained_items/tools/nanomachine.dmi'
 	icon_state = "scanner"
