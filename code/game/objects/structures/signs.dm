@@ -621,7 +621,7 @@
 	flag_path = "zenghu"
 
 /obj/item/flag/zenghu/l
-	name = "Large Zeng-Hu Pharmaceuticals flag
+	name = "Large Zeng-Hu Pharmaceuticals flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/zenghu
