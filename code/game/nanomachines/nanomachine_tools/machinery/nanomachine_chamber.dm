@@ -188,6 +188,8 @@
 		return
 
 	if(href_list["infuse"])
+		if(working)
+			return
 		working = TRUE
 		locked = TRUE
 		audible_message("[get_accent("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Infusing occupant with nanomachine cluster now.\"")
@@ -198,6 +200,8 @@
 		go_out()
 
 	if(href_list["extract"])
+		if(working)
+			return
 		working = TRUE
 		locked = TRUE
 		audible_message("[get_accent("tts")] <b>[capitalize_first_letters(src.name)]</b> beeps, \"Extracting occupant's nanomachine cluster now.\"")

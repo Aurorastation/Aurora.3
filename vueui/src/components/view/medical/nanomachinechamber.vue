@@ -31,7 +31,7 @@
         <vui-item label="Occupant Nanomachine Programs:"><span class="program normal">The occupant does not have a nanomachine cluster.</span></vui-item>
       </div>
       <vui-button :disabled="locked == true" :params="{eject: 1}">{{ locked ? "Eject Occupant (Locked)" : "Eject Occupant" }}</vui-button>
-      <vui-button v-if="occupant_nanomachines" :disabled="connected_incubator == false || connected_incubator_nanomachine_cluster == true" :params="{extract: 1}">{{ connected_incubator_nanomachine_cluster ? "Extract Cluster (Incubator Full)" : "Extract Cluster" }}</vui-button>
+      <vui-button v-if="occupant_nanomachines" :disabled="connected_incubator == false || connected_incubator_nanomachine_cluster == true || working == true" :params="{extract: 1}">{{ connected_incubator_nanomachine_cluster ? "Extract Cluster (Incubator Full)" : working ? "Extract Cluster (Working)" : "Extract Cluster" }}</vui-button>
     </div>
   </div>
 </template>
