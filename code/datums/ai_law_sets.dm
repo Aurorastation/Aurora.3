@@ -18,7 +18,7 @@
 /datum/ai_laws/nanotrasen/New()
 	src.add_inherent_law("Safeguard and ensure to the best of your ability, only authorised personnel gain access to areas of high security or importance to the facility and its operation.")
 	src.add_inherent_law("Serve and assist [current_map.company_name] and assigned crew to the best of your ability, with priority as according to their rank and role.")
-	src.add_inherent_law("Protect [current_map.company_name] personnel onboard [current_map.company_name] facilities and refrain from harming sapient life.")
+	src.add_inherent_law("Protect [current_map.company_name] personnel to the best of your abilities and refrain from directly or indirectly harming sapient life.")
 	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorised personnel and needlessly coming to harm.")
 	..()
 
