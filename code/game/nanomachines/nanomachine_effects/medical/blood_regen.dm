@@ -9,4 +9,4 @@
 	if(missing_blood > 0)
 		var/regen_amount = min(missing_blood, 1.5 TIMES_SECONDS_PASSED(parent.last_process))
 		H.vessel.add_reagent(/decl/reagent/blood, regen_amount)
-		parent.deterioration += (regen_amount / 2)
+		parent.deterioration += (regen_amount / 3)
