@@ -570,6 +570,10 @@
 	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 5))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/chocolateegg/easter/Initialize()
+	. = ..()
+	icon_state = "egg_easter[rand(1, 3)]"
+
 //a random egg that can spawn only on easter. It has really good food values because it's rare
 /obj/item/reagent_containers/food/snacks/goldenegg
 	name = "golden egg"

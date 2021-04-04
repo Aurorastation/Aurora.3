@@ -881,3 +881,23 @@
 	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
+
+/obj/item/storage/box/easter_eggs
+	name = "easter egg box"
+	desc = "This box contains a whole buttload of easter eggs."
+
+	icon = 'icons/obj/contained_items/tools/easter_egg_box.dmi'
+	icon_state = "egg_basket1"
+	item_state = "egg_basket"
+	contained_sprite = TRUE
+
+	foldable = null
+
+	max_w_class = ITEMSIZE_SMALL
+	max_storage_space = 60
+	storage_slots = 30
+	can_hold = list(/obj/item/reagent_containers/food/snacks/chocolateegg/easter)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chocolateegg/easter = 21)
+
+/obj/item/storage/box/easter_eggs/update_icon()
+	icon_state = "egg_basket[!!length(contents)]"
