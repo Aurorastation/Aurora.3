@@ -39,4 +39,7 @@ export default {
   background-color: #1d1d1d;
   color: #99c2c9;
 }
+.program:hover .button {
+  color: white;
+}
 </style>

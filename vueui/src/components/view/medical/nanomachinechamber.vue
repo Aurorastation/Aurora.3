@@ -46,11 +46,13 @@ export default {
 
 <style lang="scss" scoped>
 .program {
+  display: inline-block;
   border-radius: 5px;
   border: 1px solid #009141;
   background-color: #01ac4e;
+  margin: 2px;
   margin-right: 5px;
-  padding: 2px;
+  line-height: 20px;
 }
 .program.danger {
   border: 1px solid #910000;
