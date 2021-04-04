@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new job, Nanomachine Technician. Check the wiki for more info."
+  - tweak: "Reduced the size of research slips."
