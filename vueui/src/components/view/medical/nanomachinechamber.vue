@@ -5,7 +5,7 @@
       <div v-if="connected_incubator_nanomachine_cluster">
         <div v-if="connected_incubator_loaded_programs && connected_incubator_loaded_programs.length">
           <vui-item label="Incubator Nanomachine Programs:"><span class="program" v-for="program in connected_incubator_loaded_programs" :key="program">{{ program }}</span></vui-item>
-          <vui-button :disabled="!occupant || working == true" :params="{infuse: 1}">{{ working ? "Infuse Cluster (Working)" : "Infuse Cluster" }}</vui-button>
+          <vui-button :disabled="!occupant || working == true || occupant_synthetic == true" :params="{infuse: 1}">{{ working ? "Infuse Cluster (Working)" : occupant_synthetic ? "Infuse Cluster (Synthetic)" : "Infuse Cluster" }}</vui-button>
         </div>
         <div v-else>
           <vui-item label="Incubator Nanomachine Programs:"><span class="program danger">The incubator cluster has no programs loaded.</span></vui-item>

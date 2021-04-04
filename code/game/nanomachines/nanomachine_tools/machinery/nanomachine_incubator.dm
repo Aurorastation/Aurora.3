@@ -151,6 +151,9 @@
 	if(!ishuman(H))
 		log_debug("NANOMACHINES: Somehow, someone managed to try and infuse nanomachines into a non-human: [H.name] [H.type]")
 		return
+	if(H.isSynthetic())
+		log_debug("NANOMACHINES: Somehow, someone managed to try and infuse nanomachines into a synthetic: [H.name] [H.type]")
+		return
 
 	if(inoperable(MAINT))
 		return
@@ -163,6 +166,9 @@
 /obj/machinery/nanomachine_incubator/proc/extract_occupant(var/mob/living/carbon/human/H)
 	if(!ishuman(H))
 		log_debug("NANOMACHINES: Somehow, someone managed to try and extract nanomachines from a non-human: [H.name] [H.type]")
+		return
+	if(H.isSynthetic())
+		log_debug("NANOMACHINES: Somehow, someone managed to try and extract nanomachines from a synthetic: [H.name] [H.type]")
 		return
 
 	if(inoperable(MAINT))

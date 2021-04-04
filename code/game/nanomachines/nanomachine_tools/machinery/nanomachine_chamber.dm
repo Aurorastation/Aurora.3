@@ -155,12 +155,14 @@
 
 	data["occupant"] = !!occupant
 	data["occupant_species"] = null
+	data["occupant_synthetic"] = null
 	data["occupant_nanomachines"] = null
 	data["occupant_nanomachines_loaded_programs"] = null
 	data["occupant_nanomachine_reserve"] = null
 	data["occupant_max_nanomachine_reserve"] = null
 	if(occupant)
 		data["occupant_species"] = occupant.species.name
+		data["occupant_synthetic"] = occupant.isSynthetic()
 		data["occupant_nanomachines"] = !!occupant.nanomachines
 		if(occupant.nanomachines)
 			data["occupant_nanomachine_reserve"] = round(occupant.nanomachines.machine_volume, 0.1)
