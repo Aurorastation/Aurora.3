@@ -13,9 +13,6 @@
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "chitin"
 
-/obj/item/organ/internal/brain/xeno/gain_trauma()
-	return
-
 /obj/item/organ/internal/brain/slime
 	name = "slime core"
 	desc = "A complex, organic knot of jelly and crystalline particles."

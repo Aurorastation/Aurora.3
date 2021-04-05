@@ -5296,6 +5296,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/suit/space,
 /obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/half,
 /obj/item/clothing/head/helmet/space,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)

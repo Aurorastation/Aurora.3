@@ -4674,7 +4674,7 @@
 
 /obj/item/reagent_containers/food/snacks/nomadskewer
 	name = "nomad skewer"
-	icon_state = "kabob"
+	icon_state = "nomad_skewer"
 	desc = "Fatshouter meat on a stick, served with flora native to Adhomai."
 	trash = /obj/item/stack/rods
 	filling_color = "#FFFEE0"

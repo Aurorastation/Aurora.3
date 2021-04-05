@@ -9,7 +9,7 @@
 	icon_state = "republicon"
 	icon_living = "republicon"
 	icon_dead = "republicon_dead"
-	blood_type = "#000000"
+	blood_type = COLOR_OIL
 	speak_chance = 5
 	turns_per_move = 3
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")

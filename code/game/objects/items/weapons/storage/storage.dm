@@ -196,7 +196,7 @@
 	if(display_contents_with_number)
 		for(var/datum/numbered_display/ND in display_contents)
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
-			ND.sample_object.maptext = "<font color='white'>[(ND.number > 1)? "[ND.number]" : ""]</font>"
+			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
 			ND.sample_object.layer = SCREEN_LAYER+0.01
 			cx++
 			if (cx > (4+cols))
@@ -535,7 +535,7 @@
 /obj/item/storage/dropped(mob/user as mob)
 	return
 
-/obj/item/storage/attack_hand(mob/user as mob)
+/obj/item/storage/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.l_store == src && !H.get_active_hand())	//Prevents opening if it's in a pocket.
@@ -551,7 +551,7 @@
 		src.open(user)
 	else
 		..()
-		for(var/mob/M in range(1))
+		for(var/mob/M in range(1, get_turf(src)) - user)
 			if (M.s_active == src)
 				src.close(M)
 	src.add_fingerprint(user)
