@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "AIs should now be able to interface with APCs remotely once more."
