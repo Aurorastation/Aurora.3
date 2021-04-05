@@ -67,7 +67,7 @@
 	damage = 50
 	check_armor = "bullet"
 	sharp = 1
-	edge = 1
+	edge = TRUE
 
 /obj/item/projectile/bullet/gyro/on_impact(var/atom/A)
 	explosion(A, -1, 0, 2)
@@ -200,7 +200,7 @@
 	damage = 75
 	check_armor = "bomb"
 	sharp = 1
-	edge = 1
+	edge = TRUE
 
 /obj/item/projectile/bullet/trod/on_impact(var/atom/A)
 	explosion(A, 0, 0, 4)

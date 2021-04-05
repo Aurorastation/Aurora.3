@@ -88,7 +88,7 @@
 	flags = CONDUCT
 	force = 10.0
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5.0
@@ -148,7 +148,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
