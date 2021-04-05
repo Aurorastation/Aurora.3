@@ -216,10 +216,12 @@
 				pixel_x = old_x
 				pixel_y = old_y
 				return
-	if (disabilities & STUTTERING)
-		speech_problem_flag = 1
-		if (prob(10))
-			stuttering = max(10, stuttering)
+	if(disabilities & STUTTERING)
+		var/aid = 1 + chem_effects[CE_NOSTUTTER]
+		if(aid < 3) //NOSTUTTER at 2 or above prevents it completely.
+			speech_problem_flag = 1
+			if(prob(10/aid))
+				stuttering = max(10/aid, stuttering)
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
 	if(InStasis())
