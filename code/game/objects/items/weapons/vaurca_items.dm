@@ -90,7 +90,7 @@
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	contained_sprite = 1
 
 
@@ -294,7 +294,7 @@
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MAJOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -311,7 +311,7 @@
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MAJOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -360,7 +360,7 @@
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	contained_sprite = 1
 	base_reflectchance = 40
 	base_block_chance = 60

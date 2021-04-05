@@ -8,6 +8,8 @@
 	icon_living = "ives"
 	icon_dead = "ives_dead"
 
+	blood_overlay_icon = null
+
 	health = 70
 	maxHealth = 70
 

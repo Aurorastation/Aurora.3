@@ -129,7 +129,6 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 					var/obj/item/O = Detach(colour)
 					if(O)
 						L.put_in_hands(O)
-				return
 
 			if(href_list["cut"]) // Toggles the cut/mend status
 				var/obj/item/I = L.get_active_hand()

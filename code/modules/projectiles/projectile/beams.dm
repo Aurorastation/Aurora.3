@@ -28,6 +28,7 @@
 
 /obj/item/projectile/beam/pistol
 	damage = 25
+	armor_penetration = 5
 
 /obj/item/projectile/beam/pistol/scc
 	armor_penetration = 15
@@ -47,7 +48,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 35
-	armor_penetration = 5
+	armor_penetration = 10
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
@@ -62,8 +63,8 @@
 /obj/item/projectile/beam/xray
 	name = "xray beam"
 	icon_state = "xray"
-	damage = 30
-	armor_penetration = 30
+	damage = 15
+	armor_penetration = 35
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray

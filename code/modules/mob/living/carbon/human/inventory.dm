@@ -339,7 +339,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(gear["slot"] == slot)
 			W.screen_loc = gear["loc"]
 			break
-	hud_used.hidden_inventory_update()
+	if(hud_used)
+		hud_used.hidden_inventory_update()
 
 	if(W.action_button_name)
 		update_action_buttons()

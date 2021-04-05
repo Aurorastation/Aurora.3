@@ -473,7 +473,8 @@
 		/obj/item/reagent_containers/pill/cetahydramine = 6,
 		/obj/item/reagent_containers/pill/perconol = 6,
 		/obj/item/reagent_containers/food/drinks/medcup = 4,
-		/obj/item/storage/pill_bottle = 4
+		/obj/item/storage/pill_bottle = 4,
+		/obj/item/reagent_containers/spray/sterilizine = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,

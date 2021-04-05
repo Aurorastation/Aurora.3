@@ -43,12 +43,19 @@
 	individual ships, most of which have their own unique variations upon the standard Scarab accent."
 	tag_icon = "scarabs"
 
-/datum/accent/silversun
-	name = ACCENT_SILVERSUN
-	description = "The native accent of Silversun is a sing-songy take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be \
-	associated with the planet's renowned tourism industry. Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous \
-	vacation retreat by the greater Orion Spur."
-	tag_icon = "silversun"
+/datum/accent/silversun_original
+	name = ACCENT_SILVERSUN_ORIGINAL
+	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet’s renowned tourism industry. \
+	Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous vacation retreat by the greater Orion Spur. This accent is commonly used by Idris Incorporated shell positronic \
+	frames, much to the consternation of Silversun's Originals."
+	tag_icon = "silversun_original"
+
+/datum/accent/silversun_expatriate
+	name = ACCENT_SILVERSUN_EXPATRIATE
+	description = "The accent of Silversun's wealthy Idris Incorporated-aligned minority population is rooted in Tradeband dialects from Eridani and Luna rather than the Sol Common dialect of the Originals, making it audibly distinctive \
+	compared to the 'native' accent of the planet. This accent is most commonly associated with Idris Incorporated employees from Silversun, which tend to be overwhelmingly from the Expatriate population. Many Idris Incorporated positronics \
+	are programmed with this accent, and it is often regarded as the unofficial accent of the megacorporation."
+	tag_icon = "silversun_expatriate"
 
 /datum/accent/phong
 	name = ACCENT_PHONG

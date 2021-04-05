@@ -19,7 +19,6 @@
 	relative_size = 85
 
 	var/mob/living/carbon/brain/brainmob = null
-	var/list/datum/brain_trauma/traumas = list()
 	var/lobotomized = 0
 	var/can_lobotomize = 1
 
@@ -44,11 +43,6 @@
 
 /obj/item/organ/internal/brain/removed(var/mob/living/user)
 
-	for(var/X in traumas)
-		var/datum/brain_trauma/BT = X
-		BT.on_lose(TRUE)
-		BT.owner = null
-
 	var/mob/living/simple_animal/borer/borer = owner.has_brain_worms()
 
 	if(borer)
@@ -70,12 +64,6 @@
 			brainmob.mind.transfer_to(target)
 		else
 			target.key = brainmob.key
-
-	for(var/X in traumas)
-		var/datum/brain_trauma/BT = X
-		BT.owner = owner
-		BT.on_gain()
-
 	..()
 
 /obj/item/organ/internal/brain/getToxLoss()
@@ -216,51 +204,6 @@
 
 /obj/item/organ/internal/brain/get_scarring_level()
 	. = (species.total_health - max_damage)/species.total_health
-
-////////////////////////////////////TRAUMAS////////////////////////////////////////
-
-/obj/item/organ/internal/brain/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
-	for(var/X in traumas)
-		var/datum/brain_trauma/BT = X
-		if(istype(BT, brain_trauma_type) && (consider_permanent || !BT.permanent))
-			return BT
-
-
-//Add a specific trauma
-/obj/item/organ/internal/brain/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
-	var/trauma_type
-	if(ispath(trauma))
-		trauma_type = trauma
-		traumas += new trauma_type(arglist(list(src, permanent) + arguments))
-	else
-		traumas += trauma
-		trauma.permanent = permanent
-
-//Add a random trauma of a certain subtype
-/obj/item/organ/internal/brain/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
-	var/list/datum/brain_trauma/possible_traumas = list()
-	for(var/T in subtypesof(brain_trauma_type))
-		var/datum/brain_trauma/BT = T
-		if(initial(BT.can_gain))
-			possible_traumas += BT
-
-	var/trauma_type = pick(possible_traumas)
-	traumas += new trauma_type(src, permanent)
-
-//Cure a random trauma of a certain subtype
-/obj/item/organ/internal/brain/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
-	var/datum/brain_trauma/trauma = has_trauma_type(brain_trauma_type)
-	if(trauma && (cure_permanent || !trauma.permanent))
-		qdel(trauma)
-
-/obj/item/organ/internal/brain/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
-	for(var/X in traumas)
-		var/datum/brain_trauma/trauma = X
-		if(trauma.cure_type == cure_type || cure_type == CURE_ADMIN)
-			if(cure_permanent || !trauma.permanent)
-				qdel(trauma)
-				if(cure_type != CURE_ADMIN)
-					break
 
 //Miscellaneous
 
