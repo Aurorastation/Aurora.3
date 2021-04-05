@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Added a bunch of immersion and QOL changes to the AI lawset, mostly it's unchanged other than more freedom in law 1 and 2."
+  - tweak: "Added a bunch of immersion and QOL changes to the AI lawset, mostly it's unchanged other than more freedom in law 1 and 2. Also added a law 3 rephrasing."
