@@ -86,3 +86,17 @@
 	description = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/accessory/poncho/dominia/consular
 	allowed_roles = list("Consular Officer")
+
+/datum/gear/religion/assunzione/accessory
+	display_name = "luceian amulet"
+	path = "/obj/item/clothing/accessory/assunzione"
+
+/datum/gear/religion/assunzioneorb
+	display_name = "assunzione warding sphere"
+	description = "A religious artefact commonly associated with Luceism."
+	path = "/obj/item/assunzioneorb"
+
+/datum/gear/religion/assunzionesheath
+	display_name = "assunzione warding sphere sheath"
+	description = "A small metal shell designed to hold a warding sphere."
+	path = "/obj/item/storage/assunzionesheath"

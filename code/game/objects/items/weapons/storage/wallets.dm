@@ -36,7 +36,9 @@
 		/obj/item/device/paicard,
 		/obj/item/device/encryptionkey,
 		/obj/item/fluff,
-		/obj/item/storage/business_card_holder
+		/obj/item/storage/business_card_holder,
+		/obj/item/clothing/head/bandana,
+		/obj/item/sample
 	)
 	slot_flags = SLOT_ID
 

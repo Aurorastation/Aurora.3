@@ -146,6 +146,7 @@
 #define BP_AUG_PEN          "retractable combipen"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
 #define BP_AUG_TESLA        "tesla spine"
 #define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
 #define BP_AUG_HAIR         "synthetic hair extensions"
@@ -380,10 +381,6 @@
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
 #define BRAIN_DAMAGE_SEVERE 40
-
-#define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
-#define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
-#define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
 
 #define CURE_CRYSTAL "crystal"
 #define CURE_SOLITUDE "solitude"

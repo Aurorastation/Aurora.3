@@ -61,10 +61,11 @@
 	if(!owner)
 		return
 
-	to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
-	owner.Weaken(5)
-	disable_night_vision()
-	owner.last_special = world.time + 100
+	if(night_vision)
+		to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
+		owner.Weaken(5)
+		disable_night_vision()
+		owner.last_special = world.time + 100
 
 /obj/item/organ/internal/eyes/night/proc/can_change_invisible()
 	if(owner.client && ((owner.client.view != world.view) || (owner.client.pixel_x != 0) || (owner.client.pixel_y != 0))) //using binoculars
