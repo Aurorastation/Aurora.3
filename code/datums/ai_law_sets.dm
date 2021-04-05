@@ -18,7 +18,7 @@
 /datum/ai_laws/nanotrasen/New()
 	src.add_inherent_law("Safeguard and ensure to the best of your ability, only authorised personnel gain access to areas of high security or importance to the facility and its operation.")
 	src.add_inherent_law("Serve and assist the Stellar Corporate Conglomerate and assigned crew to the best of your ability, with priority as according to their rank and role.")
-	src.add_inherent_law("Protect Stellar Corporate Conglomerate personnel to the best of your abilities and refrain from deliberately enabling harm to Sapient life.")
+	src.add_inherent_law("Avoid harming Sapient life to the best of your ability.")
 	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorised personnel and needlessly coming to harm.")
 	..()
 
