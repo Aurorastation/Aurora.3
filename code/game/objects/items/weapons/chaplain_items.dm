@@ -203,6 +203,8 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "assunzioneorb"
 	item_state = "assunzioneorb"
+	throwforce = 5
+	force = 5
 	light_range = 1.4
 	light_power = 1.4
 	light_color = LIGHT_COLOR_BLUE
@@ -212,8 +214,6 @@
 
 /obj/item/assunzioneorb/proc/shatter()
 	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
-	force = 5
-	sharp = TRUE
 	playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
 	new /obj/item/material/shard(get_turf(src))
 	qdel(src)
