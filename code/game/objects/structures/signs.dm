@@ -800,6 +800,58 @@
 	name = "Large Stellar Corporate Conglomerate flag"
 	flag_size = 1
 
+/obj/item/flag/fisanduh
+	name = "Confederated States of Fisanduh flag"
+	desc = "A flag of the fallen Confederated States of Fisanduh."
+	desc_fluff = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
+	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
+	flag_path = "fisanduh"
+
+/obj/structure/sign/flag/fisanduh
+	name = "Confederated States of Fisanduh flag"
+	desc = "A flag of the fallen Confederated States of Fisanduh."
+	desc_fluff = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
+	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
+	icon_state = "fisanduh"
+
+/obj/item/flag/fisanduh/l
+	name = "large Confederated States of Fisanduh flag"
+	flag_size = 1
+
+/obj/structure/sign/flag/fisanduh/left
+	icon_state = "fisanduh_l"
+
+/obj/structure/sign/flag/fisanduh/right
+	icon_state = "fisanduh_r"
+
+/obj/item/flag/gadpathur
+	name = "United Planetary Defense Council of Gadpathur flag"
+	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
+	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
+	desc_fluff = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
+	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
+	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
+	flag_path = "gadpathur"
+
+/obj/structure/sign/flag/gadpathur
+	name = "United Planetary Defense Council of Gadpathur flag"
+	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
+	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
+	desc_fluff = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
+	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
+	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
+	icon_state = "gadpathur"
+
+/obj/item/flag/gadpathur/l
+	name = "large United Planetary Defense Council of Gadpathur flag"
+	flag_size = 1
+
+/obj/structure/sign/flag/gadpathur/left
+	icon_state = "gadpathur_l"
+
+/obj/structure/sign/flag/gadpathur/right
+	icon_state = "gadpathur_r"
+
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return

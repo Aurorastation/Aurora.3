@@ -372,6 +372,11 @@
 	cardigan["argyle cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/argyle
 	gear_tweaks += new/datum/gear_tweak/path(cardigan)
 
+/datum/gear/suit/asymmetriccoat
+	display_name = "asymmetric coat"
+	path = /obj/item/clothing/suit/storage/toggle/asymmetriccoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/himeo
 	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
