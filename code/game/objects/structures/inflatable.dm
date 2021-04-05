@@ -93,8 +93,8 @@
 	if(!istype(W) || istype(W, /obj/item/inflatable_dispenser))
 		return
 
-	if(can_puncture(W))
-		visible_message(SPAN_DANGER("[user] pierces [src] with [W]!"))
+	if(W.can_puncture())
+		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [W]!"), SPAN_WARNING("You pierce \the [src] with \the [W]!"))
 		deflate(TRUE)
 	if(W.damtype == BRUTE || W.damtype == BURN)
 		hit(W.force)

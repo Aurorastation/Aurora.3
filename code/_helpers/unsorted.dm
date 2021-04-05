@@ -796,14 +796,6 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-// used to check whether the item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
-/proc/can_puncture(obj/item/W)
-	if(is_sharp(W))
-		return TRUE
-	if(W.isFlameSource())
-		return TRUE
-	return FALSE
-
 /proc/is_surgery_tool(obj/item/W)
 	return istype(W, /obj/item/surgery)
 
