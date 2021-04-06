@@ -3057,10 +3057,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
-"hD" = (
-/obj/effect/shuttle_landmark/skipjack/interstitial,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "hG" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -44234,7 +44230,7 @@ ab
 ab
 ab
 ab
-hD
+ab
 ab
 ab
 ab

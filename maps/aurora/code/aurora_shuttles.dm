@@ -314,7 +314,7 @@ AURORA_ESCAPE_POD(3)
 		"nav_skipjack_surface",
 		"nav_skipjack_under",
 		"nav_skipjack_caverns",
-		"nav_skipjack_interstitial",
+		"nav_skipjack_main",
 		"nav_skipjack_toxins"
 		)
 
@@ -351,9 +351,9 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_skipjack_caverns"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/skipjack/interstitial
-	name = "Interstitial, Exposed Hull by Medical"
-	landmark_tag = "nav_skipjack_interstitial"
+/obj/effect/shuttle_landmark/skipjack/main
+	name = "Main Level, Exposed Hull by Science"
+	landmark_tag = "nav_skipjack_main"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/skipjack/toxins

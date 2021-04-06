@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - rscadd: "Added a new job, Nanomachine Technician. Its workplace is above the medical lobby, take the stairs. Check the wiki for more info."
   - tweak: "Reduced the size of research slips."
+  - tweak: "Moved the raider shuttle landmark that used to be on the interstitial level to the main level, to the west of science."
