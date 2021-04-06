@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes overmap console processing / topic calls, so the consoles properly function now. Also stops an infinite-lifecycle loop while viewing the overmap."
