@@ -1228,3 +1228,6 @@ proc/is_blind(A)
 		if(G.state >= GRAB_NECK)
 			return TRUE
 	return FALSE
+
+/mob/get_cell()
+	return FALSE
