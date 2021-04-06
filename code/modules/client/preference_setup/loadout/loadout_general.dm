@@ -191,6 +191,7 @@
 
 /datum/gear/plushie
 	display_name = "plushie selection"
+	description = "A selection of stuffed toys."
 	path = /obj/item/toy/plushie
 
 /datum/gear/plushie/New()
