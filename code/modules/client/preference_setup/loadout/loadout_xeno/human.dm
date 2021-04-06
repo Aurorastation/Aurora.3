@@ -29,16 +29,18 @@
 
 /datum/gear/accessory/offworlder/venter
 	display_name = "venter assembly"
+	cost = 0
 	path = /obj/item/clothing/accessory/offworlder
 
 /datum/gear/accessory/offworlder/neckbrace
 	display_name = "neckbrace"
+	cost = 0
 	path = /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 
 /datum/gear/accessory/offworlder_armband
 	display_name = "exo-stellar ribbon selection"
 	path = /obj/item/clothing/accessory/armband/offworlder
-	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	cost = 0
 	sort_category = "Xenowear - Human"
 
 /datum/gear/accessory/offworlder_armband/New()
@@ -86,4 +88,5 @@
 	display_name = "scarab passblade"
 	path = /obj/item/clothing/accessory/badge/passcard/scarab
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	cost = 0
 	sort_category = "Xenowear - Human"
