@@ -46,6 +46,7 @@
 	var/flipped = null
 	var/flippable = 1
 	var/wear_over_suit = 0
+	var/base_name = ""
 
 
 /obj/item/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
@@ -53,7 +54,7 @@
 	if(.)
 		if(W == front_id)
 			front_id = null
-			name = initial(name)
+			name = base_name
 			update_icon()
 
 /obj/item/storage/wallet/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
@@ -61,6 +62,7 @@
 	if(.)
 		if(!front_id && istype(W, /obj/item/card/id))
 			front_id = W
+			base_name = name
 			name = "[name] ([front_id])"
 			update_icon()
 
