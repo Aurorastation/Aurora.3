@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Lighting SS init no longer adds lighting overlays to tiles that have already generated lighting."

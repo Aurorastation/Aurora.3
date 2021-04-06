@@ -80,7 +80,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 			if (!A.dynamic_lighting)
 				continue
 
-			new /atom/movable/lighting_overlay(T)
+			T.lighting_build_overlay()
 			overlaycount++
 
 			CHECK_TICK
