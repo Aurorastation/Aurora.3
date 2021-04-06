@@ -14,6 +14,7 @@
 	display_name = "glasses selection"
 	description = "A selection of glasses."
 	path = /obj/item/clothing/glasses/regular
+	cost = 0
 
 /datum/gear/eyes/glasses/New()
 	..()
@@ -73,6 +74,7 @@
 	display_name = "medical HUD selection"
 	description = "A selection of medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator
+	cost = 0
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
 
 /datum/gear/eyes/medhuds/New()
@@ -88,6 +90,7 @@
 	display_name = "security HUD selection"
 	description = "A selection of security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/aviator
+	cost = 0
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/eyes/sechuds/New()
@@ -107,7 +110,6 @@
 /datum/gear/eyes/scipatch
 	display_name = "HUDpatch, Science"
 	path = /obj/item/clothing/glasses/eyepatch/hud/science
-	cost = 1
 
 /datum/gear/eyes/circuitry
 	display_name = "goggles, circuitry (empty)"

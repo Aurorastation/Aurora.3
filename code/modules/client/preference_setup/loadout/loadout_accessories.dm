@@ -2,6 +2,7 @@
 	display_name = "silver locket"
 	path = /obj/item/clothing/accessory/locket
 	slot = slot_tie
+	cost = 0
 	sort_category = "Accessories"
 
 /datum/gear/accessory/suspenders
@@ -108,7 +109,7 @@
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
 	path = /obj/item/clothing/accessory/storage/webbing/grayscale
-	cost = 2
+	cost = 1
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/brown_pouches
@@ -129,20 +130,18 @@
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
 	path = /obj/item/clothing/accessory/storage/pouches/colour
-	cost = 2
+	cost = 1
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
 	path = /obj/item/clothing/accessory/storage/overalls/mining
 	allowed_roles = list("Shaft Miner")
-	cost = 2
 
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
-	cost = 2
 
 /datum/gear/accessory/sweater
 	display_name = "sweater selection"
@@ -296,6 +295,7 @@
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"
 	path = /obj/item/clothing/accessory/badge/passcard
+	description = "A selection of cards used as government paperwork."
 
 /datum/gear/accessory/passcard/New()
 	..()

@@ -4,14 +4,13 @@
 	path = /obj/item/clothing/suit/apron
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"
-	cost = 2
+	cost = 1
 
 /datum/gear/suit/colorapron
 	display_name = "apron, multipurpose"
 	path = /obj/item/clothing/suit/apron/colored
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"
-	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/leather

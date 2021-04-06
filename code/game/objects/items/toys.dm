@@ -980,6 +980,12 @@
 	desc = "A chunky plushie bee. Your new buzz-t friend!"
 	icon_state = "beeplushie"
 
+/obj/item/toy/plushie/greimorian
+	name = "greimorian plush"
+	desc = "A friendly plushie of a fierce greimorian! Infesting his way right into your heart!"
+	icon_state = "greimorianplushie"
+	phrase = "Gort!"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid

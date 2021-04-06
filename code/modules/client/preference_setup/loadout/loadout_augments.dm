@@ -12,7 +12,7 @@
 	display_name = "integrated eye sensors"
 	description = "An eye augment that allows the user to deploy medical or security sensors."
 	path = /obj/item/organ/internal/augment/eye_sensors
-	cost = 3
+	cost = 2
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 
 /datum/gear/augment/cyber_hair
@@ -25,7 +25,7 @@
 	display_name = "retractable combitool"
 	description = "An augment that allows the user to deploy a robotic combitool."
 	path = /obj/item/organ/internal/augment/tool/combitool
-	cost = 5
+	cost = 4
 
 /datum/gear/augment/combitool/New()
 	..()
@@ -38,13 +38,12 @@
 	display_name = "integrated health scanner"
 	description = "An augment that allows the user scan their own health condition."
 	path = /obj/item/organ/internal/augment/health_scanner
-	cost = 3
 
 /datum/gear/augment/suspension
 	display_name = "calf suspension"
 	description = "An augment that reduces the damage from falling from heights."
 	path = /obj/item/organ/internal/augment/suspension
-	cost = 4
+	cost = 2
 
 /datum/gear/augment/taste_boosters
 	display_name = "taste booster selection"

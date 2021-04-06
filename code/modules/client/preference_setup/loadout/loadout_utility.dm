@@ -88,7 +88,7 @@
 /datum/gear/utility/wheelchair/color
 	display_name = "wheelchair"
 	path = /obj/item/wheelchair
-	cost = 4
+	cost = 2
 
 /datum/gear/utility/wheelchair/color/New()
 	..()

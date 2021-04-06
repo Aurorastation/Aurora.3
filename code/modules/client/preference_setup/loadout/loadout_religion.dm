@@ -1,6 +1,7 @@
 /datum/gear/religion
 	display_name = "trinary perfection robes"
 	path = /obj/item/clothing/suit/trinary_robes
+	cost = 0
 	sort_category = "Religion"
 	flags = GEAR_HAS_DESC_SELECTION
 

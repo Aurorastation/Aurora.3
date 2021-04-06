@@ -2,12 +2,13 @@
 	display_name = "belt"
 	path = /obj/item/storage/belt/generic
 	slot = slot_belt
+	cost = 0
 	sort_category = "Belts"
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/belt/fannypack
 	display_name = "fannypack"
-	cost = 2
+	cost = 1
 	path = /obj/item/storage/belt/fannypack/recolorable
 
 /datum/gear/belt/toolbelt_alt

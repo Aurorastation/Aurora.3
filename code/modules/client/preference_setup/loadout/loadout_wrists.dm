@@ -1,7 +1,7 @@
 /datum/gear/wrists
 	display_name = "bracelet"
 	path = /obj/item/clothing/wrists/bracelet
-	cost = 1
+	cost = 0
 	slot = slot_wrists
 	sort_category = "Wristwear"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -18,6 +18,7 @@
 	display_name = "watch selection"
 	description = "A selection of watches."
 	path = /obj/item/clothing/wrists/watch
+	cost = 1
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/wrists/watch/New()

@@ -33,6 +33,7 @@
 	display_name = "earring selection"
 	description = "A selection of eye-catching earrings."
 	path = /obj/item/clothing/ears/earring
+	cost = 0
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/earrings/New()
