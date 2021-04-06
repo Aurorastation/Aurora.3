@@ -341,7 +341,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
 	icon_state = "chembag"
-	desc = "A bag for storing pills, patches, and bottles."
+	desc = "A bag for storing pills and bottles of medicine."
 	max_storage_space = 200
 	w_class = ITEMSIZE_LARGE
 	slowdown = 1
