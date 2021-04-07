@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - refactor: "Refactored shooting targets, they should now work a little more sanely."
-  - rscadd: "You can now construct shooting targets and target stakes out of steel in the Misc construction category."
-  - rscadd: "You can now deconstruct target stakes with a wrench."

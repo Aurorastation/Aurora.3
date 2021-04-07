@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - rscadd: "Added an alternate Idris beret that has a cyan symbol rather than gold. This should help with colour cordination."
