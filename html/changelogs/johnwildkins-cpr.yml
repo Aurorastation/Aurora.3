@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a radial menu to CPR attempts. Performing CPR will now ask if you wish to perform mouth-to-mouth resuscitation, or only chest compressions."
+  - bugfix: "Radial menus no longer inherit their anchor's alpha, color, or transformations."
