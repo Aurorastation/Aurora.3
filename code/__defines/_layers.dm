@@ -11,6 +11,7 @@
 #define CABLE_LAYER 2.44
 #define ABOVE_CABLE_LAYER (CABLE_LAYER + 0.1)
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
+#define ABOVE_OBJ_LAYER 3.01
 #define UNDERDOOR 3.09		//Just barely under a closed door.
 #define DOOR_CLOSED_LAYER 3.1	//Above most items if closed
 #define BELOW_MOB_LAYER 3.7
