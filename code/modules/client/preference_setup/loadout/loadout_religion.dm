@@ -1,7 +1,7 @@
-/datum/gear/religion
+/datum/gear/religion // Trinary Perfection
 	display_name = "trinary perfection robes"
 	path = /obj/item/clothing/suit/trinary_robes
-	cost = 0
+	cost = 1
 	sort_category = "Religion"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -17,13 +17,13 @@
 	display_name = "trinary perfection brooch"
 	path = /obj/item/clothing/accessory/badge/trinary
 
-/datum/gear/religion/rosary
-	display_name = "rosary"
-	path = /obj/item/clothing/accessory/rosary
+// Real-World Religions (Judaism, Islam, Buddhism, etc.)
 
 /datum/gear/religion/rosary
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
+
+// Moroz Holy Tribunal
 
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
@@ -66,6 +66,8 @@
 	display_name = "tribunal necklace"
 	path = "/obj/item/clothing/accessory/dominia"
 
+// Luceism
+
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
 	path = "/obj/item/clothing/accessory/assunzione"
@@ -78,4 +80,5 @@
 /datum/gear/religion/assunzionesheath
 	display_name = "assunzione warding sphere sheath"
 	description = "A small metal shell designed to hold a warding sphere."
+	cost = 0
 	path = "/obj/item/storage/assunzionesheath"
