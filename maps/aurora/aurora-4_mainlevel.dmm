@@ -6853,7 +6853,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anI" = (
@@ -8202,6 +8201,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/power/radial_floodlight,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "apZ" = (
@@ -20454,15 +20454,10 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJz" = (
-/obj/structure/table/standard,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 5
-	},
-/obj/item/pen,
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJA" = (
@@ -21504,6 +21499,13 @@
 /obj/machinery/newscaster{
 	pixel_x = -27
 	},
+/obj/structure/table/standard,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/obj/item/pen,
+/obj/item/storage/box/cups,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aLx" = (
@@ -59098,8 +59100,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -61458,6 +61458,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/item/stack/packageWrap,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -65585,6 +65587,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"pam" = (
+/obj/machinery/power/port_gen/pacman,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "pch" = (
 /turf/simulated/floor/plating,
 /area/maintenance/workshop)
@@ -69864,6 +69870,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"wdB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/power/radial_floodlight,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "wee" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -71078,6 +71093,7 @@
 /obj/structure/table/standard,
 /obj/item/folder/sec,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -87465,7 +87481,7 @@ akz
 akz
 amu
 anF
-anF
+wdB
 apY
 anE
 asA
@@ -87721,7 +87737,7 @@ ajL
 akz
 akz
 amv
-anE
+pam
 gaR
 apZ
 arm

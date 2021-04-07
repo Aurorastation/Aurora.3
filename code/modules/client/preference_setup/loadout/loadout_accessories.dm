@@ -293,15 +293,43 @@
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
 
+/datum/gear/accessory/passcard
+	display_name = "human passcard selection"
+	path = /obj/item/clothing/accessory/badge/passcard
+
+/datum/gear/accessory/passcard/New()
+	..()
+	var/passcard = list()
+	passcard["passcard, tau ceti"] = /obj/item/clothing/accessory/badge/passcard
+	passcard["passcard, sol"] = /obj/item/clothing/accessory/badge/passcard/sol
+	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
+	passcard["passcard, jovian"] = /obj/item/clothing/accessory/badge/passcard/sol/jupiter
+	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
+	passcard["passcard, europa"] = /obj/item/clothing/accessory/badge/passcard/sol/europa
+	passcard["passcard, cytherean"] = /obj/item/clothing/accessory/badge/passcard/sol/cytherean
+	passcard["passcard, jintarian"] = /obj/item/clothing/accessory/badge/passcard/sol/jintarian
+	passcard["passcard, eridani"] = /obj/item/clothing/accessory/badge/passcard/eridani
+	passcard["passcard, elyra"] = /obj/item/clothing/accessory/badge/passcard/elyra
+	passcard["passcard, dominia"] = /obj/item/clothing/accessory/badge/passcard/dominia
+	passcard["passcard, coalition"] = /obj/item/clothing/accessory/badge/passcard/coalition
+	passcard["passcard, himeo"] = /obj/item/clothing/accessory/badge/passcard/himeo
+	passcard["passcard, vysoka"] = /obj/item/clothing/accessory/badge/passcard/vysoka
+	passcard["passcard, gadpathur"] = /obj/item/clothing/accessory/badge/passcard/gad
+	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
+	passcard["passcard, techno-conglomerate"] = /obj/item/clothing/accessory/badge/passcard/techno
+	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
+	gear_tweaks += new/datum/gear_tweak/path(passcard)
+
 /datum/gear/accessory/passport
 	display_name = "human passport selection"
-	path = /obj/item/clothing/accessory/badge/passport_sol
+	path = /obj/item/clothing/accessory/badge/passport
 
 /datum/gear/accessory/passport/New()
 	..()
 	var/passport = list()
-	passport["passport, sol"] = /obj/item/clothing/accessory/badge/passport_sol
-	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport_elyra
-	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport_dominia
-	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport_coalition
+	passport["passport, biesel"] = /obj/item/clothing/accessory/badge/passport
+	passport["passport, sol"] = /obj/item/clothing/accessory/badge/passport/sol
+	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport/elyra
+	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport/dominia
+	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport/coc
 	gear_tweaks += new/datum/gear_tweak/path(passport)

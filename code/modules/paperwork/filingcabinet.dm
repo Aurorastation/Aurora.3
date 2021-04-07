@@ -30,12 +30,12 @@
 /obj/structure/filingcabinet/Initialize()
 	. = ..()
 	for(var/obj/item/I in loc)
-		if(istype(I, /obj/item/paper) || istype(I, /obj/item/folder) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
+		if(istype(I, /obj/item/paper) || istype(I, /obj/item/folder) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle) || istype(I, /obj/item/sample))
 			I.forceMove(src)
 
 
 /obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
-	if(istype(P, /obj/item/paper) || istype(P, /obj/item/folder) || istype(P, /obj/item/photo) || istype(P, /obj/item/paper_bundle))
+	if(istype(P, /obj/item/paper) || istype(P, /obj/item/folder) || istype(P, /obj/item/photo) || istype(P, /obj/item/paper_bundle) || istype(P, /obj/item/sample))
 		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
 		user.drop_from_inventory(P,src)
 		flick("[initial(icon_state)]-open",src)

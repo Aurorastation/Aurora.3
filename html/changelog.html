@@ -35,7 +35,69 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">07 April 2021</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added radial floodlights, 360 degree floodlights. Needs to be placed on a knot to work. Mapped two into engineering hard storage.</li>
+				<li class="refactor">Refactored shooting targets, they should now work a little more sanely.</li>
+				<li class="rscadd">You can now construct shooting targets and target stakes out of steel in the Misc construction category.</li>
+				<li class="rscadd">You can now deconstruct target stakes with a wrench.</li>
+				<li class="rscadd">You can now drag an IV bag onto someone to hook them up to it, provided its in one of your hands.</li>
+				<li class="rscadd">IV bag sprites now change to show how full they are, in 25% increments.</li>
+				<li class="rscadd">Half-full IV bags are now considered small and will fit in things like pockets.</li>
+				<li class="rscadd">Ninjas now spawn with a token that allows them to select which hardsuit they want. This will spawn a gear crate with the associated gear.</li>
+				<li class="rscdel">Ninjas no longer spawn with the stealth suit.</li>
+				<li class="rscdel">Removed the Equipped Hardsuits ninja uplink category.</li>
+				<li class="tweak">Ninjas now start with 15 telecrystals instead of 25.</li>
+				<li class="tweak">Tweaked VueUI progress bars, they should look nicer now.</li>
+				<li class="tweak">Sprinting will now only drain your resources and deal damage if you managed to successfully move. The only exception is the calculation for when you&#x27;re out of breath, as it will still make you hurt.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes overmap console processing / topic calls, so the consoles properly function now. Also stops an infinite-lifecycle loop while viewing the overmap.</li>
+				<li class="bugfix">Rags can now be filled at sinks once again.</li>
+				<li class="bugfix">Ashtrays can now be emptied properly, and ashtray icons now update properly when emptied and filled. Ashtrays made of a brittle material will now also shatter if destroyed.</li>
+			</ul>
+			<h3 class="author">TheGreyWolf updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Human passports &amp; passcards will no longer say they are corporate security.</li>
+				<li class="rscadd">Evidence bags can now be labelled by using a pen on them.</li>
+				<li class="bugfix">Swabbing a vial with blood will now properly give the dna type.</li>
+				<li class="tweak">The various evidence reports generated from the forensic equipment are now uniform in their naming.</li>
+				<li class="tweak">Labelers are now small sized items rather than normal sized.</li>
+				<li class="maptweak">Added a labeler to evidence storage and moved the labeler &amp; package wrapper from the investigator desk to the rack in their office.</li>
+				<li class="maptweak">A water cooler has been added to the security lobby along with a sink and a rag in their break room to clean up those donut crumbs everywhere.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added an alternate Idris beret that has a cyan symbol rather than gold. This should help with colour cordination.</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">All flags, as opposed to banners, are now prefixed as large in name.</li>
+				<li class="imageadd">Replaced fossil sprites with ones ported from Polaris.</li>
+			</ul>
+
+			<h2 class="date">06 April 2021</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adjusted how xenoarch artifacts interact with IPCs. They should now be affected in the way that other synthetics do (Such as being subjected to cell drain/charge effects, effects that harm machines, etc.)</li>
+				<li class="rscadd">Added a few more potential artifact effects.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Lighting SS init no longer adds lighting overlays to tiles that have already generated lighting.</li>
+			</ul>
+			<h3 class="author">TheGreyWolf updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Cloth masks on taj now properly cover their noses when facing south.</li>
+			</ul>
+
 			<h2 class="date">05 April 2021</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">AIs should now be able to interface with APCs remotely once more.</li>
+			</ul>
 			<h3 class="author">Stryker, NewOriginalSchwann, Pretzel updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">Adds an asymmetric coat to the suits tab in the loadout.</li>
@@ -43,6 +105,21 @@
 				<li class="rscadd">Adds an Assunzione Warding Sphere and sheath to the religion tab in the loadout. FTs by Schwann.</li>
 				<li class="rscadd">Adds an Assunzione amulet by Pretzel. FT by Schwann.</li>
 				<li class="rscadd">Adds puffy and long sleeved blouses to the shirts tab in the loadout.</li>
+			</ul>
+			<h3 class="author">TheGreyWolf updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Renamed holsters now keep their names when holstering weapons.</li>
+				<li class="bugfix">You can no longer draw a weapon from a holster when incapacitated, resting, cuffed and so on.</li>
+				<li class="rscadd">Folders can now hold fibers.</li>
+				<li class="rscadd">Filing cabinets can now hold fibers &amp; fingerprint cards.</li>
+				<li class="rscadd">wallets can now contain fibers, fingerprint cards and bandanas.</li>
+				<li class="rscadd">Toolbelts can now hold the EFTpos.</li>
+				<li class="bugfix">Laser pointers now show chat messages when pointed at things and have a click delay.</li>
+			</ul>
+			<h3 class="author">Waff-Ai updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new government-issued passcards for humans.</li>
+				<li class="bugfix">Fixed the Penny plushie not having a sprite.</li>
 			</ul>
 
 			<h2 class="date">03 April 2021</h2>

@@ -2106,6 +2106,7 @@
 "eH" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/reagent_containers/glass/rag,
 /obj/item/storage/box/snack{
 	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
 	name = "corporate care package"
@@ -10550,6 +10551,11 @@
 "Sw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "Sx" = (

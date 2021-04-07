@@ -81,3 +81,9 @@
 	path = /obj/item/rig/light/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
 	sort_category = "Xenowear - Human"
+
+/datum/gear/accessory/offworlder_card
+	display_name = "scarab passblade"
+	path = /obj/item/clothing/accessory/badge/passcard/scarab
+	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	sort_category = "Xenowear - Human"
