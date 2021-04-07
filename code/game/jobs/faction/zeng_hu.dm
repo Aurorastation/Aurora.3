@@ -35,6 +35,7 @@
 		/datum/job/surgeon,
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
+		/datum/job/nanomachine,
 		/datum/job/med_tech,
 		/datum/job/roboticist,
 		/datum/job/xenobiologist,
@@ -58,6 +59,7 @@
 		"Chemist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
+		"Nanomachine Technician" = /datum/outfit/job/nanomachine/zeng_hu,
 		"Paramedic" = /datum/outfit/job/med_tech/paramed/zeng_hu,
 		"First Responder" = /datum/outfit/job/med_tech/paramed/zeng_hu,
 		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
@@ -102,6 +104,10 @@
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/nanomachine/zeng_hu
+	name = "Nanomachine Technician - Zeng-Hu"
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/med_tech/paramed/zeng_hu
