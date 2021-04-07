@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now drag an IV bag onto someone to hook them up to it, provided its in one of your hands."
+  - rscadd: "IV bag sprites now change to show how full they are, in 25% increments."
+  - rscadd: "Half-full IV bags are now considered small and will fit in things like pockets."
