@@ -131,8 +131,8 @@
 	. = ..()
 	check_tag(H, H.client)
 
-/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	if (H.stat == CONSCIOUS)
+/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
+	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
 	return TRUE
 
