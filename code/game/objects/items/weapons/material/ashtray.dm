@@ -18,15 +18,17 @@
 	return
 
 /obj/item/material/ashtray/shatter()
+	..()
 	if(emptyout(get_turf(src)))
 		visible_message(SPAN_DANGER("The contents of [src] spill everywhere!"))
 
 /obj/item/material/ashtray/proc/emptyout(atom/dest)
-	var/count = 0
-	for (var/obj/item/clothing/mask/smokable/cigarette/O in contents)
-		count++
+	if(!contents.len)
+		return FALSE
+	for (var/obj/O in contents)
 		O.forceMove(dest)
-	return count > 0
+	update_icon()
+	return TRUE
 
 /obj/item/material/ashtray/attack_self(mob/user)
 	var/turf/dest = get_turf(src)
@@ -68,7 +70,7 @@
 		if (istype(W,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = W
 			if (cig.lit == TRUE)
-				user.visible_message("<b>[user]</b> crushes [cig] in \the [src], putting it out.", SPAN_NOTICE(""))
+				user.visible_message("<b>[user]</b> crushes [cig] in [src], putting it out.", SPAN_NOTICE("You crush [cig] in [src], putting it out."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 				STOP_PROCESSING(SSprocessing, cig)
 				var/obj/item/butt = new cig.type_butt(src)
@@ -82,8 +84,9 @@
 					"<b>[user]</b> places [cig] in [src] without even smoking it.",
 					SPAN_NOTICE("You place [cig] in [src] without even smoking it. Why would you do that?")
 				)
+		else
+			user.visible_message("<b>[user]</b> places [W] in [src].", SPAN_NOTICE("You place [W] in [src]."))
 
-		src.visible_message("[user] places [W] in [src].")
 		user.update_inv_l_hand()
 		user.update_inv_r_hand()
 		add_fingerprint(user)
