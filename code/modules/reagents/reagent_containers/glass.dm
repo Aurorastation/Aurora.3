@@ -43,10 +43,13 @@
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
 	var/list/Bdata = REAGENT_DATA(reagents, /decl/reagent/blood/)
+	var/list/blood_Data = list(
+		Bdata["blood_DNA"] = Bdata["blood_type"]
+	)
 	if(Bdata)
 		additional_evidence["type"] = EVIDENCE_TYPE_BLOOD
 		additional_evidence["sample_type"] = "blood"
-		additional_evidence["dna"] += Bdata["blood_DNA"]
+		additional_evidence["dna"] += blood_Data
 		additional_evidence["sample_message"] = "You dip the swab inside [src] to sample its contents."
 
 	return additional_evidence

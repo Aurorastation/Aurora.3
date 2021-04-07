@@ -8,6 +8,12 @@
 	item_state = ""
 	w_class = ITEMSIZE_SMALL
 	var/obj/item/stored_item = null
+	var/label_text = ""
+	var/base_name = ""
+
+/obj/item/evidencebag/Initialize()
+	. = ..()
+	base_name = name
 
 /obj/item/evidencebag/MouseDrop(var/obj/item/I as obj)
 	if (!ishuman(usr))
@@ -92,3 +98,21 @@
 /obj/item/evidencebag/examine(mob/user)
 	..(user)
 	if (stored_item) user.examinate(stored_item)
+
+/obj/item/evidencebag/attackby(obj/item/W as obj, mob/user as mob)
+	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
+		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
+		if(length(tmp_label) > 15)
+			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")
+		else
+			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
+			label_text = tmp_label
+			update_name_label()
+		return
+	. = ..() 
+
+/obj/item/evidencebag/proc/update_name_label()
+	if(label_text == "")
+		name = base_name
+	else
+		name = "[base_name] ([label_text])"

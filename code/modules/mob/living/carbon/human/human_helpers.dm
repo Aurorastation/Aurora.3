@@ -291,6 +291,11 @@
 		return TRUE
 	return FALSE
 
+/mob/living/carbon/human/get_cell()
+	var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+	if(C)
+		return C.cell
+
 /mob/living/carbon/human/proc/has_functioning_augment(var/aug_tag)
 	var/obj/item/organ/internal/augment/aug = internal_organs_by_name[aug_tag]
 	if(aug && !aug.is_broken())

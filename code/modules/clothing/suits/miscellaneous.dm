@@ -465,6 +465,13 @@
 	icon_state = "peacoat"
 	item_state = "peacoat"
 
+/obj/item/clothing/suit/storage/toggle/asymmetriccoat
+	name = "asymmetric coat"
+	desc = "A solid sleeveless coat that only covers the upper body and the back of the legs."
+	icon_state = "asymmetriccoat"
+	item_state = "asymmetriccoat"
+	body_parts_covered = UPPER_TORSO
+
 /*
  * Department Jackets
  */
