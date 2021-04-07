@@ -1,5 +1,0 @@
-author: JohnWildkins
-delete-after: True
-changes:
-  - bugfix: "Rags can now be filled at sinks once again."
-  - bugfix: "Ashtrays can now be emptied properly, and ashtray icons now update properly when emptied and filled. Ashtrays made of a brittle material will now also shatter if destroyed."

@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Tweaked VueUI progress bars, they should look nicer now."

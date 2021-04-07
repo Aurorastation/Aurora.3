@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Ninjas now spawn with a token that allows them to select which hardsuit they want. This will spawn a gear crate with the associated gear."
-  - rscdel: "Ninjas no longer spawn with the stealth suit."
-  - rscdel: "Removed the Equipped Hardsuits ninja uplink category."
-  - tweak: "Ninjas now start with 15 telecrystals instead of 25."
