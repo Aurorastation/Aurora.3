@@ -1,7 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - imageadd: "Replaced fossil sprites with ones ported from Polaris."
-

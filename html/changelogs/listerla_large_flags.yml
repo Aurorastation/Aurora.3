@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - tweak: "All flags, as opposed to banners, are now prefixed as large in name."
