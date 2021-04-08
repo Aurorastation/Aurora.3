@@ -1992,6 +1992,7 @@
 #include "code\modules\mob\living\carbon\brain\robot.dm"
 #include "code\modules\mob\living\carbon\brain\say.dm"
 #include "code\modules\mob\living\carbon\human\appearance.dm"
+#include "code\modules\mob\living\carbon\human\damage_menu.dm"
 #include "code\modules\mob\living\carbon\human\death.dm"
 #include "code\modules\mob\living\carbon\human\devour.dm"
 #include "code\modules\mob\living\carbon\human\diona_gestalt.dm"
