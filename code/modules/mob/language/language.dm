@@ -6,6 +6,7 @@
 
 /datum/language
 	var/name = "an unknown language"  // Fluff name of language if any.
+	var/short                         // a shortened name, for use when languages need to be identified
 	var/desc = "A language."          // Short description for 'Check Languages'.
 	var/list/speech_verb = list("says")          // 'says', 'hisses', 'farts'.)
 	var/list/ask_verb = list("asks")  // Used when sentence ends in a ?
@@ -14,6 +15,7 @@
 	var/list/whisper_verb = list("says quietly", "says softly", "whispers")  // Optional. When not specified speech_verb + quietly/softly is used instead.
 	var/list/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/colour = "body"               // CSS style to use for strings in this language.
+	var/written_style                 // CSS style used when writing language down, can't be written if null
 	var/key = "x"                     // Character used to speak in language eg. :o for Unathi.
 	var/flags = 0                     // Various language flags.
 	var/native                        // If set, non-native speakers will have trouble speaking.
@@ -28,7 +30,7 @@
 
 /datum/language/New()
 	..()
-	if(key)
+	if(key && written_style)
 		written_regex = new("(\\\[lang=[key]\\\])(.*?)(\\\[\\/lang\\\])", "g")
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)

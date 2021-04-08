@@ -374,9 +374,10 @@
 			continue
 
 		var/content = written_lang_regex.group[3]
+		var/reader_understands = user.say_understands(null, L)
 
 		// Replace the content with <p>content here</p>
-		if(!user.say_understands(null, L))
+		if(!reader_understands)
 			if(language_check)
 				. = replacetext(., written_lang_regex.match, "")
 			else
@@ -384,7 +385,7 @@
 		
 		if(!language_check)
 			// Refer to paper/proc/show_content to edit the spans here.
-			. = L.written_regex.Replace(., "<span class='[L.colour]'>[content]</span>", 1, 0)
+			. = L.written_regex.Replace(., "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>", 1, 0)
 
 /obj/item/paper/Topic(href, href_list)
 	..()

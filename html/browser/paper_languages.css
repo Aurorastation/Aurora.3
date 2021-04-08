@@ -13,3 +13,11 @@
 .delvahhi				{color: #5E2612; font-weight: bold;}
 .siiktau				{color: #A52A2A;}
 .revenant				{color: #215a5c; font-style: italic;}
+
+.sol_common.understood {
+	font-family: Georgia, Verdana, sans-serif;
+}
+
+.sol_common.scramble {
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+}

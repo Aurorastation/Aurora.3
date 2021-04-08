@@ -233,8 +233,10 @@
 
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON
+	short = "SOL"
 	desc = "With its roots in Mandarin Chinese, Common evolved as the official language of the Sol Alliance, with officials working to tie it together with a common tongue. It's spoken by state officials, taught in schools, and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture."
 	colour = "solcom"
+	written_style = "sol_common"
 	key = "1"
 	flags = WHITELISTED | TCOMSSIM
 	syllables = list("a", "abe", "ade", "ai", "an", "ana", "ba", "bae", "bai", "bang", "bao", "bei", "ben", "beo", "bi", "bian", "bing", "bo", "bu", "bugu", "bun", "cai", "can", "cao", "cau", "chan", "chen", "cheong",
