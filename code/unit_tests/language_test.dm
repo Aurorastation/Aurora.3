@@ -4,7 +4,8 @@
 /datum/unit_test/language_test/start_test()
 	var/list/used_keys = list()
 
-	for(var/datum/language/L as anything in subtypesof(/datum/language))
+	for(var/language_path in subtypesof(/datum/language))
+		var/datum/language/L = new language_path
 		if(L.key in used_keys)
 			fail("[L.name]'s key, [L.key], is used multiple times!")
 			continue
