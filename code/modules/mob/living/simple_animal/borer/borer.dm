@@ -161,9 +161,5 @@
 	host = null
 	return
 
-/mob/living/simple_animal/borer/assign_player(var/mob/user)
-	ckey = user.ckey
-	return src
-
 /mob/living/simple_animal/borer/cannot_use_vents()
 	return
