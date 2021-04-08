@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Mobs no longer teleport out of lockers after trying to attack people."
-  - bugfix: "Hostile mobs no longer attack out of traps."
-  - bugfix: "Trap now properly layer over mobs they've trapped."
