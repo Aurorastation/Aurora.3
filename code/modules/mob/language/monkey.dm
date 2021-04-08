@@ -4,7 +4,7 @@
 	speech_verb = list("chimpers")
 	ask_verb = list("chimpers")
 	exclaim_verb = list("screeches")
-	key = "6"
+	key = "ch"
 	machine_understands = FALSE
 	flags = RESTRICTED
 

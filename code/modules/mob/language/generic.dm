@@ -90,7 +90,7 @@
 	ask_verb = list("mumbles")
 	whisper_verb = list("mutters")
 	exclaim_verb = list("screams incoherently")
-	key = "i"
+	key = "gi"
 	syllables = list("m","n","gh","h","l","s","r","a","e","i","o","u")
 	space_chance = 20
 	flags = RESTRICTED
