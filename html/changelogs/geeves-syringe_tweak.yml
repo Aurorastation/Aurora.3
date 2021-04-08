@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Reworks how syringes figure out if they're blocked or looking for injection ports. It now checks for any piece of clothing that covers that specific bodypart."
+  - rscadd: "Spacesuit helmets now have injection ports too."
+  - tweak: "Made the species injection modifier stack with the clothing modifier, meaning a vaurca wearing a voidsuit will take much longer to inject."
+  - bugfix: "Fixed timers for syringe injection through in injection port increasing exponentially."
