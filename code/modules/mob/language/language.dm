@@ -23,6 +23,13 @@
 	var/machine_understands = TRUE	// Whether machines can parse and understand this language
 	var/allow_accents = FALSE
 	var/always_parse_language = FALSE // forces the language to parse for language keys even when a default is set
+	var/list/scramble_cache = list()  // A map of unscrambled words -> scrambled words, for scrambling.
+	var/regex/written_regex           // A REGEX datum to find all written uses of this language.
+
+/datum/language/New()
+	..()
+	if(key)
+		written_regex = new("(\\\[lang=[key]\\\])(.*?)(\\\[\\/lang\\\])", "g")
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
@@ -41,9 +48,6 @@
 		full_name += " [capitalize(lowertext(new_name))]"
 
 	return "[trim(full_name)]"
-
-/datum/language
-	var/list/scramble_cache = list()
 
 /datum/language/proc/scramble(var/input, var/list/known_languages)
 
