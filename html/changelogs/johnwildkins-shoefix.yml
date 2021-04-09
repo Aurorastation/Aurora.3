@@ -1,0 +1,4 @@
+author: JohnWildkins
+delete-after: True
+changes:
+  - bugfix: "Shoes that cause slowdown (such as activated magboots) no longer apply their slowdown twice."
