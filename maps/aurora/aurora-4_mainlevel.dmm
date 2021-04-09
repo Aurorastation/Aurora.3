@@ -59709,8 +59709,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "dGy" = (
-/obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/grill,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "dGU" = (
