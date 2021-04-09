@@ -9,7 +9,6 @@
 	display_name = "fannypack"
 	cost = 2
 	path = /obj/item/storage/belt/fannypack/recolorable
-	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/belt/toolbelt_alt
 	display_name = "tool-belt, alt"
