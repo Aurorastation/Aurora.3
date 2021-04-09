@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed vampire description telling that victims would be mobile when draining them when they were in fact stunned."
