@@ -1,4 +1,5 @@
 /mob/living/silicon/ai/Life()
+	update_sight()
 	if (src.stat == DEAD)
 		return
 	else //I'm not removing that shitton of tabs, unneeded as they are. -- Urist
@@ -144,18 +145,40 @@
 	add_ai_verbs(src)
 
 /mob/living/silicon/ai/update_sight()
-	if(is_blinded())
-		update_icon()
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
-		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 0
-		see_invisible = SEE_INVISIBLE_LIVING
-	else if(stat == DEAD)
+	set_sight(0)
+	eyeobj.set_sight(0)
+	set_see_in_dark(0)
+	eyeobj.set_see_in_dark(0)
+	if(stat == DEAD)
 		update_dead_sight()
+	else if(is_blinded())
+		update_blind_sight()
 	else
-		sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_LIVING
+		update_living_sight()
+
+/mob/living/silicon/ai/update_living_sight()
+	set_sight(BLIND|SEE_TURFS|SEE_SELF|SEE_OBJS)
+	eyeobj.set_sight(BLIND|SEE_TURFS|SEE_SELF|SEE_OBJS)
+	set_see_in_dark(8)
+	eyeobj.set_see_in_dark(8)
+	set_see_invisible(SEE_INVISIBLE_LIVING)
+	eyeobj.set_see_invisible(SEE_INVISIBLE_LIVING)
+
+/mob/living/silicon/ai/update_dead_sight()
+	set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	eyeobj.set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	set_see_in_dark(8)
+	eyeobj.set_see_in_dark(8)
+	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+	eyeobj.set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+
+/mob/living/silicon/ai/proc/update_blind_sight()
+	update_icon()
+	set_sight(BLIND)
+	eyeobj.set_sight(BLIND)
+	overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+	set_see_invisible(SEE_INVISIBLE_LIVING)
+	eyeobj.set_see_invisible(SEE_INVISIBLE_LIVING)
 
 /mob/living/silicon/ai/proc/is_blinded()
 	var/area/A = get_area(src)

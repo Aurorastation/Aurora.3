@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "AI can no longer see mobs, but they can still track humanoids, provided they have an ID and are in camera range."
