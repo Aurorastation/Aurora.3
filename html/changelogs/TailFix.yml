@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Tails will no longer layer over dresses & other clothing when facing south or to the side."
