@@ -1560,6 +1560,10 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos)
+"eK" = (
+/obj/machinery/pipedispenser/disposal,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "eL" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
@@ -1707,7 +1711,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "fm" = (
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/cryopod/robot,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "fn" = (
@@ -3749,7 +3753,7 @@
 	},
 /area/shuttle/escape_pod)
 "ll" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "lm" = (
@@ -3862,7 +3866,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "lG" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "lH" = (
@@ -4011,7 +4015,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "me" = (
-/obj/machinery/pipedispenser/disposal,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "mf" = (
@@ -4557,7 +4561,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "nM" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "nN" = (
@@ -4966,7 +4970,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod)
 "pc" = (
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/atmospherics/pipe/tank/oxygen,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "pf" = (
@@ -5007,7 +5011,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen/freezer)
 "pn" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "pp" = (
@@ -5108,7 +5112,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "pD" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "pE" = (
@@ -5153,7 +5157,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "pJ" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "pK" = (
@@ -5746,7 +5750,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "rD" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "rE" = (
@@ -5951,7 +5955,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "sk" = (
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "sl" = (
@@ -9150,6 +9154,10 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"CD" = (
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "CE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -10435,19 +10443,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "Gz" = (
-/obj/structure/ladder/up{
-	pixel_y = 13
-	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "GA" = (
@@ -11390,6 +11386,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "12-0"
+	},
+/obj/structure/ladder/up{
+	pixel_y = 13
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -14144,7 +14143,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "Rp" = (
-/obj/machinery/pipedispenser,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "Rr" = (
@@ -39766,8 +39765,8 @@ RI
 SK
 rg
 LK
-LK
-LK
+me
+me
 LK
 kA
 oB
@@ -39968,9 +39967,9 @@ RI
 Ru
 bE
 LK
-LK
-LK
-LK
+nM
+pJ
+pJ
 kA
 ZQ
 ZQ
@@ -40170,9 +40169,9 @@ RI
 hH
 rg
 LK
-LK
-LK
-LK
+nM
+rD
+rD
 kA
 Qi
 XT
@@ -40372,9 +40371,9 @@ RI
 Gu
 rg
 LK
-LK
-LK
-LK
+pc
+sk
+sk
 kA
 nr
 hG
@@ -40574,9 +40573,9 @@ RI
 Gu
 rg
 LK
-LK
-LK
-LK
+pn
+Gz
+Gz
 kA
 Vm
 Aj
@@ -40776,9 +40775,9 @@ RI
 Gu
 rg
 LK
-LK
-LK
-LK
+pD
+Rp
+Rp
 kA
 Vm
 uC
@@ -40980,7 +40979,7 @@ rg
 LK
 LK
 LK
-LK
+CD
 kA
 xq
 yQ
@@ -41182,7 +41181,7 @@ rg
 LK
 LK
 LK
-LK
+eK
 kA
 kA
 kA
@@ -41384,7 +41383,7 @@ rg
 LK
 LK
 LK
-LK
+pD
 Ab
 GX
 GX
@@ -42170,11 +42169,11 @@ bh
 cR
 Kq
 hq
-ll
-nM
-nM
-pD
-pD
+LK
+LK
+rg
+LK
+LK
 LK
 LK
 LK
@@ -42371,13 +42370,13 @@ jD
 WB
 Nv
 Kq
-Rp
-lG
-pc
-pc
-pJ
-rD
-rD
+LK
+LK
+LK
+rg
+Nr
+LK
+LK
 LK
 LK
 LK
@@ -42573,20 +42572,20 @@ jD
 GU
 cT
 Kq
-me
+LK
+LK
+LK
+rg
+LK
+LK
+LK
+LK
+LK
+LK
+LK
+LK
 fm
-pn
-pn
-pJ
-sk
-sk
-LK
-LK
-LK
-LK
-LK
-LK
-LK
+ll
 LK
 rg
 rg
@@ -42775,20 +42774,20 @@ jD
 bQ
 cW
 Kq
+LK
+LK
+LK
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+LK
+LK
 fm
-LK
-LK
-FO
-FO
-FO
-FO
-FO
-FO
-FO
-LK
-LK
-LK
-LK
+lG
 LK
 LK
 LK
@@ -45213,7 +45212,7 @@ aa
 aa
 aa
 hq
-Gz
+tZ
 NV
 NV
 NV

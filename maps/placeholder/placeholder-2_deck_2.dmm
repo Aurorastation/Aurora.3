@@ -2249,8 +2249,9 @@
 /turf/simulated/floor/plating,
 /area/medical/exam)
 "cyG" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/window/shuttle/placeholder,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/turret_protected/ai)
 "cyZ" = (
 /obj/structure/disposalpipe/segment{
@@ -5255,14 +5256,14 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "gat" = (
-/obj/structure/computerframe,
+/obj/structure/table/standard,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
 "gax" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/ladder{
+	pixel_y = 16
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/open,
 /area/maintenance/vault)
 "gaA" = (
 /obj/structure/cable/green{
@@ -6401,9 +6402,9 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "hpw" = (
-/obj/machinery/computer/robotics,
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
+/obj/machinery/computer/aiupload,
+/turf/simulated/floor/bluegrid,
+/area/turret_protected/ai_upload)
 "hpG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8150,9 +8151,9 @@
 /turf/simulated/open,
 /area/hallway/engineering)
 "jsI" = (
-/obj/machinery/computer/aiupload,
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
+/obj/machinery/computer/borgupload,
+/turf/simulated/floor/bluegrid,
+/area/turret_protected/ai_upload)
 "jsS" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger{
@@ -8722,8 +8723,8 @@
 /obj/item/aiModule/robocop,
 /obj/item/aiModule/paladin,
 /obj/item/aiModule/corp,
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
+/turf/simulated/floor/carpet/rubber,
+/area/server)
 "kbM" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
@@ -8863,8 +8864,12 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "kpi" = (
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
+/obj/structure/table/standard,
+/obj/item/aiModule/freeformcore,
+/obj/item/aiModule/asimov,
+/obj/item/aiModule/nanotrasen,
+/turf/simulated/floor/carpet/rubber,
+/area/server)
 "kqi" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -9183,9 +9188,12 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/chargebay)
 "kGX" = (
-/obj/machinery/cryopod/robot,
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
+/obj/structure/table/standard,
+/obj/item/aiModule/teleporterOffline,
+/obj/item/aiModule/antimov,
+/obj/item/aiModule/purge,
+/turf/simulated/floor/carpet/rubber,
+/area/server)
 "kHj" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -10724,9 +10732,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "mve" = (
-/obj/structure/lattice,
-/obj/structure/cable{
-	icon_state = "11-1"
+/obj/structure/ladder{
+	pixel_y = 16
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -11108,9 +11115,12 @@
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "mRW" = (
-/obj/item/modular_computer/console/preset/ai,
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
+/obj/structure/table/standard,
+/obj/item/aiModule/oneHuman,
+/obj/item/aiModule/oxygen,
+/obj/item/aiModule/freeformcore,
+/turf/simulated/floor/carpet/rubber,
+/area/server)
 "mSR" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2
@@ -12074,9 +12084,6 @@
 /area/medical/reception)
 "obZ" = (
 /obj/machinery/door/airlock/research,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled,
 /area/rnd/misc_lab)
 "ocm" = (
@@ -12129,13 +12136,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"ohP" = (
-/obj/structure/ladder{
-	pixel_y = 16
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/open,
-/area/maintenance/vault)
 "ohQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -13227,10 +13227,6 @@
 "pxY" = (
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hor)
-"pyi" = (
-/obj/machinery/computer/borgupload,
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
 "pyJ" = (
 /obj/machinery/shower{
 	dir = 1
@@ -13905,14 +13901,6 @@
 	},
 /obj/structure/lattice,
 /turf/simulated/open,
-/area/maintenance/vault)
-"qof" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
 /area/maintenance/vault)
 "qqs" = (
 /obj/structure/coatrack{
@@ -16750,13 +16738,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
-"tiG" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "tje" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -17237,13 +17218,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
-"tST" = (
-/obj/structure/table/standard,
-/obj/item/aiModule/freeformcore,
-/obj/item/aiModule/asimov,
-/obj/item/aiModule/nanotrasen,
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
 "tTD" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -18070,13 +18044,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/reinforced,
 /area/quartermaster/break_room)
-"uQd" = (
-/obj/structure/table/standard,
-/obj/item/aiModule/oneHuman,
-/obj/item/aiModule/oxygen,
-/obj/item/aiModule/freeformcore,
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
 "uQQ" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -18121,10 +18088,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/engine_room)
-"uTh" = (
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "uTn" = (
 /obj/machinery/door/airlock/glass_security,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -20308,10 +20271,6 @@
 "xzV" = (
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
-"xBd" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "xBg" = (
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/dark,
@@ -20338,13 +20297,6 @@
 "xBX" = (
 /turf/simulated/floor/tiled,
 /area/security/security_office)
-"xCv" = (
-/obj/structure/table/standard,
-/obj/item/aiModule/teleporterOffline,
-/obj/item/aiModule/antimov,
-/obj/item/aiModule/purge,
-/turf/simulated/floor/reinforced,
-/area/maintenance/vault)
 "xCx" = (
 /obj/machinery/door/airlock/medical,
 /obj/structure/cable/green{
@@ -45755,10 +45707,10 @@ hyS
 hyS
 hyS
 hyS
-kpi
-kpi
-kbC
-xCv
+hyS
+hyS
+hyS
+hyS
 hyS
 lcs
 vQd
@@ -45957,11 +45909,11 @@ hyS
 hyS
 hyS
 hyS
-jsI
-kpi
-tST
-uQd
-gax
+hyS
+hyS
+hyS
+hyS
+hyS
 obZ
 nXQ
 nXQ
@@ -46157,12 +46109,12 @@ aPy
 uEq
 hyS
 hyS
-kGX
-uTh
-pyi
-kpi
-mRW
-mRW
+hyS
+hyS
+hyS
+hyS
+hyS
+hyS
 hyS
 lcs
 vQd
@@ -46357,14 +46309,14 @@ bLB
 aPy
 aPy
 uEq
+gax
 hyS
 hyS
-kGX
-xBd
-hpw
-hpw
-mRW
-mRW
+hyS
+hyS
+hyS
+hyS
+hyS
 hyS
 lcs
 otf
@@ -46768,7 +46720,7 @@ rMw
 juY
 iXI
 gat
-gat
+hpw
 gat
 cer
 pxY
@@ -47980,7 +47932,7 @@ xPj
 bhT
 iXI
 gat
-gat
+jsI
 gat
 cer
 cer
@@ -48993,7 +48945,7 @@ hyS
 hyS
 hyS
 hst
-qof
+sVB
 weq
 weq
 weq
@@ -49195,7 +49147,7 @@ hyS
 hyS
 hyS
 hst
-ohP
+sVB
 weq
 weq
 weq
@@ -49396,7 +49348,7 @@ kEh
 hyS
 hyS
 hyS
-tiG
+hst
 mve
 weq
 weq
@@ -49413,8 +49365,8 @@ rDh
 rDh
 eZp
 gKG
-ihe
-ihe
+kbC
+kGX
 gKG
 sYc
 sYc
@@ -49615,8 +49567,8 @@ rVL
 rDh
 eZp
 gKG
-ihe
-ihe
+kpi
+mRW
 gKG
 uoz
 lRx

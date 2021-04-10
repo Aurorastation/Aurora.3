@@ -9499,6 +9499,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "WC" = (
+/obj/item/modular_computer/console/preset/ai,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "WH" = (
