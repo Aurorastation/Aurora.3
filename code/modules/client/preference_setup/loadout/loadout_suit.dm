@@ -392,15 +392,15 @@
 /datum/gear/suit/vysoka
 	display_name = "chokha selection"
 	description = "A selection of Vysokan chokhas."
-	path = /obj/item/clothing/suit/storage/vysoka_m
-	flags = GEAR_HAS_DESC_SELECTION
+	path = /obj/item/clothing/suit/storage/vysoka
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/vysoka/New()
 	..()
-	var/coat = list()
-	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka_f
-	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka_m
-	gear_tweaks += new/datum/gear_tweak/path(coat)
+	var/list/coat = list()
+	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka/f
+	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka
+	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/submariner
 	display_name = "submariner jacket"

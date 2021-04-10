@@ -248,23 +248,13 @@
 	item_state = "coatwinter_w"
 	build_from_parts = TRUE
 	hoodtype = /obj/item/clothing/head/winterhood/colorable
-	worn_overlay = "collar_su"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/colorable/Initialize()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/colorable/update_icon()
-	. = ..()
-	cut_overlays()
-	add_overlay(overlay_image(icon, "[icon_state]_collar", flags=RESET_COLOR))
+	worn_overlay = "collar"
 
 /obj/item/clothing/head/winterhood/colorable
 	icon_state = "coatwinter_w_hood"
 	build_from_parts = TRUE
-	worn_overlay = "collar_he"
+	worn_overlay = "collar"
 
-/obj/item/clothing/head/winterhood/colorable/update_icon()
+/obj/item/clothing/head/winterhood/colorable/update_icon(mob/user)
 	. = ..()
-	cut_overlays()
-	add_overlay(overlay_image(icon, "[icon_state]_collar", flags=RESET_COLOR))
+	
