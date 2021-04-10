@@ -1298,3 +1298,66 @@ var/list/admin_verbs_cciaa = list(
 		log_and_message_admins("reset the forced away mission.")
 	else
 		log_and_message_admins("forced the following away mission: [mission_name].")
+
+/client/verb/alooc(msg as text)
+	set name = "Admin LOOC"
+	set desc = "Admin Local OOC, seen only by those in view, regardless of their LOOC preferences."
+	set category = "Admin"
+
+	if(!check_rights(R_ADMIN|R_MOD))
+		return
+
+	if(!mob)
+		return
+
+	msg = sanitize(msg)
+	msg = process_chat_markup(msg, list("*"))
+	if(!msg)
+		return
+
+	log_ooc("(ADMIN LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
+
+	var/mob/source = src.mob
+	var/list/messageturfs = list() //List of turfs we broadcast to.
+	var/list/messagemobs = list() //List of living mobs nearby who can hear it
+
+	for(var/turf in range(world.view, get_turf(source)))
+		messageturfs += turf
+	if(isAI(source))
+		var/mob/living/silicon/ai/AI = source
+		for(var/turf in range(world.view, get_turf(AI.eyeobj)))
+			messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if(!M.client || istype(M, /mob/abstract/new_player))
+			continue
+		if(isAI(M))
+			var/mob/living/silicon/ai/AI = M
+			if(get_turf(AI.eyeobj) in messageturfs)
+				messagemobs += M
+				continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	var/display_name = source.key
+	if(holder && holder.fakekey)
+		display_name = holder.fakekey
+
+	msg = process_chat_markup(msg, list("*"))
+
+	var/prefix
+	var/admin_stuff
+	for(var/client/target in clients)
+		admin_stuff = ""
+		var/display_remote = FALSE
+		if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
+			display_remote = TRUE
+		if(display_remote)
+			prefix = "(R)"
+			admin_stuff += "/([source.key])"
+			if(target != source.client)
+				admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
+		if(target.mob in messagemobs)
+			prefix = ""
+		if((target.mob in messagemobs) || display_remote)
+			to_chat(target, "<span class='ooc'><span class='adminlooc'>" + create_text_tag("ALOOC", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span></span>")

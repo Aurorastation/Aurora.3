@@ -396,6 +396,7 @@
 	var/list/tagname_to_class = list(
 		"OOC" = "ooc",
 		"LOOC" = "looc",
+		"ALOOC" = "adminlooc",
 		"DEV" = "dev",
 		"ADMIN" = "admin",
 		"MOD" = "mod",
