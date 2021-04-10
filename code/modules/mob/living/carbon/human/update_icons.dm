@@ -89,13 +89,13 @@ There are several things that need to be remembered:
 #define DAMAGE_LAYER      2
 #define SURGERY_LAYER     3
 #define UNDERWEAR_LAYER   4
-#define SHOES_LAYER_ALT   5
-#define UNIFORM_LAYER     6
-#define ID_LAYER          7
-#define SHOES_LAYER       8
-#define GLOVES_LAYER      9
-#define BELT_LAYER       10
-#define TAIL_SOUTH_LAYER 11
+#define TAIL_SOUTH_LAYER  5
+#define SHOES_LAYER_ALT   6
+#define UNIFORM_LAYER     7
+#define ID_LAYER          8
+#define SHOES_LAYER       9
+#define GLOVES_LAYER     10
+#define BELT_LAYER       11
 #define SUIT_LAYER       12
 #define ID_LAYER_ALT     13
 #define TAIL_NORTH_LAYER 14
@@ -248,10 +248,10 @@ There are several things that need to be remembered:
 //Overlays for the worn overlay so you can overlay while you overlay
 //eg: ammo counters, primed grenade flashing, etc.
 //"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
-/obj/item/proc/worn_overlays(icon_file)
+/obj/item/proc/worn_overlays(icon_file, var/contained_flag = "")
 	. = list()
 	if(build_from_parts)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
+		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state][contained_flag]_[worn_overlay]")
 		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		. += M
 
@@ -746,7 +746,7 @@ There are several things that need to be remembered:
 			if(l_ear.color)
 				result_layer.color = l_ear.color
 
-			var/image/worn_overlays = l_ear.worn_overlays(t_icon)
+			var/image/worn_overlays = l_ear.worn_overlays(t_icon, l_ear.contained_sprite ? WORN_LEAR : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
@@ -789,7 +789,7 @@ There are several things that need to be remembered:
 			if(r_ear.color)
 				result_layer.color = r_ear.color
 
-			var/image/worn_overlays = r_ear.worn_overlays(t_icon)
+			var/image/worn_overlays = r_ear.worn_overlays(t_icon, r_ear.contained_sprite ? WORN_REAR : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
@@ -830,7 +830,7 @@ There are several things that need to be remembered:
 		if(shoes.color)
 			result_layer.color = shoes.color
 
-		var/image/worn_overlays = shoes.worn_overlays(t_icon)
+		var/image/worn_overlays = shoes.worn_overlays(t_icon, shoes.contained_sprite ? WORN_SHOES : null)
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
 
@@ -923,7 +923,7 @@ There are several things that need to be remembered:
 
 		standing.color = head.color
 		standing.appearance_flags = RESET_ALPHA
-		var/image/worn_overlays = head.worn_overlays(t_icon)
+		var/image/worn_overlays = head.worn_overlays(t_icon, head.contained_sprite ? WORN_HEAD : null)
 		if(worn_overlays)
 			standing.overlays.Add(worn_overlays)
 
@@ -979,7 +979,7 @@ There are several things that need to be remembered:
 			result_layer.color = belt.color
 
 		result_layer.appearance_flags = RESET_ALPHA
-		var/image/worn_overlays = belt.worn_overlays(t_icon)
+		var/image/worn_overlays = belt.worn_overlays(t_icon, belt.contained_sprite ? WORN_BELT : null)
 		if(worn_overlays)
 			result_layer.add_overlay(worn_overlays)
 
@@ -1045,7 +1045,7 @@ There are several things that need to be remembered:
 			result_layer.color = wear_suit.color
 
 		result_layer.appearance_flags = RESET_ALPHA
-		var/image/worn_overlays = wear_suit.worn_overlays(t_icon)
+		var/image/worn_overlays = wear_suit.worn_overlays(t_icon, wear_suit.contained_sprite ? WORN_SUIT : null)
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
 
@@ -1288,7 +1288,7 @@ There are several things that need to be remembered:
 			if(l_hand.color)
 				result_layer.color = l_hand.color
 
-			var/image/worn_overlays = l_hand.worn_overlays(t_icon)
+			var/image/worn_overlays = l_hand.worn_overlays(t_icon, l_hand.contained_sprite ? WORN_LHAND : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
@@ -1338,7 +1338,7 @@ There are several things that need to be remembered:
 			if(r_hand.color)
 				result_layer.color = r_hand.color
 
-			var/image/worn_overlays = r_hand.worn_overlays(t_icon)
+			var/image/worn_overlays = r_hand.worn_overlays(t_icon, r_hand.contained_sprite ? WORN_RHAND : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
@@ -1388,7 +1388,7 @@ There are several things that need to be remembered:
 			if(wrists.color)
 				result_layer.color = wrists.color
 
-			var/image/worn_overlays = wrists.worn_overlays(t_icon)
+			var/image/worn_overlays = wrists.worn_overlays(t_icon, wrists.contained_sprite ? WORN_WRISTS : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 

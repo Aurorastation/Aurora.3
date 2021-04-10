@@ -7,6 +7,7 @@
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
 	flippable = 1
+	var/base_name = ""
 
 /obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
@@ -27,11 +28,12 @@
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
 	user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
-	name = "occupied [initial(name)]"
+	base_name = name
+	name = "occupied [base_name]"
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
 	holstered = null
-	name = initial(name)
+	name = base_name
 
 /obj/item/clothing/accessory/holster/proc/unholster(mob/user as mob)
 	if(!holstered)
@@ -39,6 +41,8 @@
 
 	if(istype(user.get_active_hand(),/obj) && istype(user.get_inactive_hand(),/obj))
 		to_chat(user, "<span class='warning'>You need an empty hand to draw \the [holstered]!</span>")
+	else if (use_check(user))
+		to_chat(user, "<span class='warning'>You can't draw \the [holstered] in your current state!</span>")
 	else
 		var/sound_vol = 25
 		if(user.a_intent == I_HURT)

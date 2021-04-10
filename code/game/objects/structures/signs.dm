@@ -324,6 +324,7 @@
 	flag_path = "solgov"
 
 /obj/item/flag/sol/l
+	name = "Large Sol Alliance flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/dominia
@@ -343,6 +344,7 @@
 	flag_path = "dominia"
 
 /obj/item/flag/dominia/l
+	name = "Large Dominian Empire flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/elyra
@@ -362,6 +364,7 @@
 	flag_path = "elyra"
 
 /obj/item/flag/elyra/l
+	name = "Large Elyran flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/hegemony
@@ -381,6 +384,7 @@
 	flag_path = "izweski"
 
 /obj/item/flag/hegemony/l
+	name = "Large Hegemony flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/jargon
@@ -400,6 +404,7 @@
 	flag_path = "jargon"
 
 /obj/item/flag/jargon/l
+	name = "Large Jargon Federation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/nanotrasen
@@ -419,6 +424,7 @@
 	flag_path = "nanotrasen"
 
 /obj/item/flag/nanotrasen/l
+	name = "Large NanoTrasen Corporation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/eridani
@@ -438,6 +444,7 @@
 	flag_path = "eridani"
 
 /obj/item/flag/eridani/l
+	name = "Large Eridani Corporate Federation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/coalition
@@ -457,6 +464,7 @@
 	flag_path = "coalition"
 
 /obj/item/flag/coalition/l
+	name = "Large Coalition of Colonies flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/vaurca
@@ -476,6 +484,7 @@
 	flag_path = "sedantis"
 
 /obj/item/flag/vaurca/l
+	name = "Large Sedantis flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/america
@@ -495,6 +504,7 @@
 	flag_path = "oldglory"
 
 /obj/item/flag/america/l
+	name = "Large Old World flag"
 	flag_size = 1
 
 /obj/item/flag/dpra
@@ -507,6 +517,7 @@
 	nation they were fighting for the Democratic People's Republic of Adhomai."
 
 /obj/item/flag/dpra/l
+	name = "Large Democratic People's Republic of Adhomai flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/dpra
@@ -536,6 +547,7 @@
 
 /obj/item/flag/pra/l
 	flag_size = 1
+	name = "Large People's Republic of Adhomai flag"
 
 /obj/structure/sign/flag/pra
 	name = "People's Republic of Adhomai flag"
@@ -565,6 +577,7 @@
 
 /obj/item/flag/nka/l
 	flag_size = 1
+	name = "Large New Kingdom of Adhomai flag"
 
 /obj/structure/sign/flag/nka
 	name = "New Kingdom of Adhomai flag"
@@ -588,6 +601,7 @@
 	flag_path = "heph"
 
 /obj/item/flag/heph/l
+	name = "Large Hephaestus Industries flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/heph
@@ -607,6 +621,7 @@
 	flag_path = "zenghu"
 
 /obj/item/flag/zenghu/l
+	name = "Large Zeng-Hu Pharmaceuticals flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/zenghu
@@ -645,6 +660,7 @@
 	flag_path = "zavodskoi"
 
 /obj/item/flag/zavodskoi/l
+	name = "Large Zavodskoi Interstellar flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/idris
@@ -664,6 +680,7 @@
 	flag_path = "idris"
 
 /obj/item/flag/idris/l
+	name = "Large Idris Incorporated flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/trinaryperfection
@@ -686,6 +703,7 @@
 	flag_path = "trinaryperfection"
 
 /obj/item/flag/trinaryperfection/l
+	name = "Large Trinary Perfection flag"
 	flag_size = 1
 
 /obj/item/flag/diona
@@ -799,6 +817,58 @@
 /obj/item/flag/scc/l
 	name = "Large Stellar Corporate Conglomerate flag"
 	flag_size = 1
+
+/obj/item/flag/fisanduh
+	name = "Confederated States of Fisanduh flag"
+	desc = "A flag of the fallen Confederated States of Fisanduh."
+	desc_fluff = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
+	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
+	flag_path = "fisanduh"
+
+/obj/structure/sign/flag/fisanduh
+	name = "Confederated States of Fisanduh flag"
+	desc = "A flag of the fallen Confederated States of Fisanduh."
+	desc_fluff = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
+	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
+	icon_state = "fisanduh"
+
+/obj/item/flag/fisanduh/l
+	name = "large Confederated States of Fisanduh flag"
+	flag_size = 1
+
+/obj/structure/sign/flag/fisanduh/left
+	icon_state = "fisanduh_l"
+
+/obj/structure/sign/flag/fisanduh/right
+	icon_state = "fisanduh_r"
+
+/obj/item/flag/gadpathur
+	name = "United Planetary Defense Council of Gadpathur flag"
+	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
+	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
+	desc_fluff = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
+	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
+	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
+	flag_path = "gadpathur"
+
+/obj/structure/sign/flag/gadpathur
+	name = "United Planetary Defense Council of Gadpathur flag"
+	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
+	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
+	desc_fluff = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
+	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
+	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
+	icon_state = "gadpathur"
+
+/obj/item/flag/gadpathur/l
+	name = "large United Planetary Defense Council of Gadpathur flag"
+	flag_size = 1
+
+/obj/structure/sign/flag/gadpathur/left
+	icon_state = "gadpathur_l"
+
+/obj/structure/sign/flag/gadpathur/right
+	icon_state = "gadpathur_r"
 
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)

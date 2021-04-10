@@ -50,6 +50,7 @@
 	fountainpens["silver fountain pen"] = /obj/item/pen/fountain/silver
 	fountainpens["white fountain pen"] = /obj/item/pen/fountain/white
 	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
+
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
@@ -73,22 +74,42 @@
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
-	path = 	/obj/item/device/taperecorder
+	path = /obj/item/device/taperecorder
 
 /datum/gear/utility/camera
 	display_name = "camera"
-	path = 	/obj/item/device/camera
+	path = /obj/item/device/camera
 
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"
-	path = /obj/item/himeo_kit
+	path = /obj/item/voidsuit_modkit/himeo
 	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel", "Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/utility/wheelchair/color
-    display_name = "wheelchair"
-    path = /obj/item/wheelchair
-    cost = 4
+	display_name = "wheelchair"
+	path = /obj/item/wheelchair
+	cost = 4
 
 /datum/gear/utility/wheelchair/color/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
+
+/datum/gear/utility/business_card_holder
+	display_name = "business card holder"
+	path = /obj/item/storage/business_card_holder
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/business_card
+	display_name = "business card"
+	path = /obj/item/paper/business_card
+	flags = 0
+
+/datum/gear/utility/business_card/New()
+	..()
+	var/list/cards = list()
+	cards["business card, divided"] = /obj/item/paper/business_card
+	cards["business card, plain"] = /obj/item/paper/business_card/alt
+	cards["business card, rounded"] = /obj/item/paper/business_card/rounded
+	cards["business card, glass"] = /obj/item/paper/business_card/glass
+	gear_tweaks += new /datum/gear_tweak/path(cards)
+	gear_tweaks += new /datum/gear_tweak/paper_data()

@@ -563,6 +563,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	name = "HUD aviators"
 	desc = "Modified aviator glasses that can be switched between HUD and flash protection modes. Comes with bonus prescription overlay."
+	flash_protection = FLASH_PROTECTION_NONE
 	icon_state = "aviator_sec"
 	off_state = "aviator_sec_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
@@ -589,12 +590,12 @@ BLIND     // can't see anything
 		on = !on
 		if(on)
 			flash_protection = FLASH_PROTECTION_NONE
-			active = 1
+			active = TRUE
 			src.hud = hud_holder
 			to_chat(user, "You switch \the [src] to HUD mode.")
 		else
-			flash_protection = initial(flash_protection)
-			active = 0
+			flash_protection = FLASH_PROTECTION_MODERATE
+			active = TRUE
 			src.hud = null
 			to_chat(user, "You switch \the [src] to flash protection mode.")
 		update_icon()

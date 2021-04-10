@@ -121,6 +121,7 @@
 	new /obj/item/roller(src)
 	new /obj/item/crowbar/red(src)
 	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
@@ -216,6 +217,8 @@
 	new /obj/item/storage/box/syringes(src)
 	new /obj/item/storage/box/beakers(src)
 	new /obj/item/storage/box/beakers(src)
+	new /obj/item/storage/bag/chemistry(src)
+	new /obj/item/storage/bag/chemistry(src)
 
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"

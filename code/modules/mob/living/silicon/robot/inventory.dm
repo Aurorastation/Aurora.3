@@ -231,21 +231,22 @@
 		to_chat(src, "<span class='notice'>You need to disable a module first!</span>")
 
 /mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
-	var/obj/item/gripper/G
+	var/obj/item/gripper/G = get_active_hand()
+	if (istype(G))
+		if(!G.wrapped && G.grip_item(W, src, TRUE))
+			return TRUE
 	if (istype(module_state_1, /obj/item/gripper))
-
 		G = module_state_1
-		if (!G.wrapped && G.grip_item(W, src, 1))
+		if (!G.wrapped && G.grip_item(W, src, TRUE))
 			return TRUE
 	else if (istype(module_state_2, /obj/item/gripper))
 		G = module_state_2
-		if (!G.wrapped && G.grip_item(W, src, 0))
+		if (!G.wrapped && G.grip_item(W, src, TRUE))
 			return TRUE
 	else if (istype(module_state_3, /obj/item/gripper))
 		G = module_state_3
-		if (!G.wrapped && G.grip_item(W, src, 0))
+		if (!G.wrapped && G.grip_item(W, src, TRUE))
 			return TRUE
-
 
 	W.forceMove(get_turf(src))
 	return FALSE

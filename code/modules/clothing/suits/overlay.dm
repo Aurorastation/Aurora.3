@@ -2,14 +2,6 @@
 
 // Could possibly make it so clothing has TWO kinds of customisable coloring for contrasting colors, more customisation and other stuff, but that requires loadout code I can't do. -Wezzy
 
-/obj/item/clothing/suit/storage/toggle/overlay/Initialize()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/suit/storage/toggle/overlay/toggle_open()
-	. = ..()
-	update_icon()
-
 /obj/item/clothing/suit/storage/toggle/overlay/submariner
 	name = "submariner's coat"
 	desc = "A leather jacket with a synthetic fur collar. It looks comfortable, if a bit warm for the station."

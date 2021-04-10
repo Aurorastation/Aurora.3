@@ -1191,6 +1191,7 @@ proc/is_blind(A)
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey
+	resting = FALSE // ghosting sets resting to true
 	return src
 
 /mob/proc/get_standard_pixel_x()
@@ -1227,4 +1228,7 @@ proc/is_blind(A)
 		var/obj/item/grab/G = thing
 		if(G.state >= GRAB_NECK)
 			return TRUE
+	return FALSE
+
+/mob/get_cell()
 	return FALSE
