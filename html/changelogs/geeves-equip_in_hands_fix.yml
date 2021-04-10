@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Something putting an item in your hands will no longer give an error message if it couldn't find a hand to do it with."
