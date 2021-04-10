@@ -94,28 +94,29 @@ There are several things that need to be remembered:
 #define UNIFORM_LAYER     7
 #define ID_LAYER          8
 #define SHOES_LAYER       9
-#define GLOVES_LAYER     10
-#define BELT_LAYER       11
-#define SUIT_LAYER       12
-#define ID_LAYER_ALT     13
-#define TAIL_NORTH_LAYER 14
-#define GLASSES_LAYER    15
-#define BELT_LAYER_ALT   16
-#define SUIT_STORE_LAYER 17
-#define BACK_LAYER       18
-#define HAIR_LAYER       19
-#define L_EAR_LAYER      20
-#define R_EAR_LAYER      21
-#define FACEMASK_LAYER   22
-#define HEAD_LAYER       23
-#define COLLAR_LAYER     24
-#define HANDCUFF_LAYER   25
-#define LEGCUFF_LAYER    26
-#define L_HAND_LAYER     27
-#define R_HAND_LAYER     28
-#define WRISTS_LAYER     29
-#define FIRE_LAYER       30		//If you're on fire
-#define TOTAL_LAYERS     30
+#define GLOVES_LAYER      10
+#define BELT_LAYER        11
+#define SUIT_LAYER        12
+#define ID_LAYER_ALT      13
+#define TAIL_NORTH_LAYER  14
+#define GLASSES_LAYER     15
+#define BELT_LAYER_ALT    16
+#define SUIT_STORE_LAYER  17
+#define BACK_LAYER        18
+#define HAIR_LAYER        19
+#define GLASSES_ALT_LAYER 20
+#define L_EAR_LAYER       21
+#define R_EAR_LAYER       22
+#define FACEMASK_LAYER    23
+#define HEAD_LAYER        24
+#define COLLAR_LAYER      25
+#define HANDCUFF_LAYER    26
+#define LEGCUFF_LAYER     27
+#define L_HAND_LAYER      28
+#define R_HAND_LAYER      29
+#define WRISTS_LAYER      30
+#define FIRE_LAYER        31		//If you're on fire
+#define TOTAL_LAYERS      31
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
@@ -711,7 +712,25 @@ There are several things that need to be remembered:
 
 	if(glasses_overlay)
 		glasses_overlay.appearance_flags = RESET_ALPHA
-	overlays_raw[GLASSES_LAYER] = glasses_overlay
+
+	if(!glasses)
+		overlays_raw[GLASSES_LAYER] = null
+		overlays_raw[GLASSES_ALT_LAYER] = null
+		if(update_icons)
+			update_icon()
+		return
+
+	var/normal_layer = TRUE
+	if(istype(glasses, /obj/item/clothing/glasses))
+		var/obj/item/clothing/glasses/G = glasses
+		normal_layer = G.normal_layer
+
+	if(normal_layer)
+		overlays_raw[GLASSES_LAYER] = glasses_overlay
+		overlays_raw[GLASSES_ALT_LAYER] = null
+	else
+		overlays_raw[GLASSES_LAYER] = null
+		overlays_raw[GLASSES_ALT_LAYER] = glasses_overlay
 
 	if(update_icons)
 		update_icon()
