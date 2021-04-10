@@ -3,6 +3,7 @@
 
 /datum/progressbar
 	var/goal = 1
+	var/destroy_on_full = FALSE
 	var/last_progress = 0
 	var/image/bar
 	var/shown = 0
@@ -46,6 +47,8 @@
 	if (!shown)
 		user.client.images += bar
 		shown = TRUE
+	if(destroy_on_full && progress == goal)
+		QDEL_IN(src, 5)
 
 /datum/progressbar/proc/shiftDown()
 	--listindex
@@ -75,6 +78,9 @@
 	if(client)
 		client.images -= bar
 		client = null
+
+/datum/progressbar/autocomplete
+	destroy_on_full = TRUE
 
 #undef PROGRESSBAR_ANIMATION_TIME
 #undef PROGRESSBAR_HEIGHT

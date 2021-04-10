@@ -68,6 +68,6 @@
 					L.flicker(10)
 
 
-/datum/event/prison_break/end()
+/datum/event/prison_break/end(var/faked)
 	for(var/area/A in shuffle(areas))
 		A.prison_break()

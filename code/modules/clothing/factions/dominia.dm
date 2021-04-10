@@ -79,6 +79,15 @@
 	icon_state = "zhao_cape"
 	item_state = "zhao_cape"
 
+/obj/item/clothing/suit/storage/dominia/consular
+	name = "Dominian consular officer's greatcoat"
+	desc = "A Dominian greatcoat issued to members of His Majesty's Diplomatic Service, designed in the typical Dominian fashion."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though \
+	the Service also employs many commoners - as long as they can pass the rigorous examinations required to become a full member."
+	icon = 'icons/clothing/suits/coats/dominia_consular_coat.dmi'
+	icon_state = "dominia_consular_coat"
+	item_state = "dominia_consular_coat"
+
 /obj/item/clothing/suit/storage/toggle/dominia
 	name = "dominia great coat"
 	desc = "This is a great coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
@@ -111,62 +120,9 @@
 	icon_state = "dominia_uniform_red"
 	item_state = "dominia_uniform_red"
 	contained_sprite = TRUE
+
 	rolled_sleeves = FALSE
 	rolled_down = FALSE
-	var/has_down_and_sleeves = TRUE
-
-/obj/item/clothing/under/dominia/rollsuit()
-	set name = "Roll Down Jumpsuit"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, SPAN_NOTICE("You cannot roll down the [src]!"))
-		return
-
-	if((rolled_sleeves == TRUE) && !(rolled_down))
-		rolled_sleeves = FALSE
-
-	if(rolled_down)
-		body_parts_covered = initial(body_parts_covered)
-		item_state = "[initial(item_state)]" // REMINDER!: Contained Sprites automatically take out the _un after the spritename, somehow.
-		to_chat(usr, SPAN_NOTICE("You roll up your [src]."))
-		rolled_down = FALSE
-	else
-		body_parts_covered &= LOWER_TORSO|LEGS|FEET
-		item_state = "[initial(item_state)]_d"
-		to_chat(usr, SPAN_NOTICE("You roll down your [src]."))
-		rolled_down = TRUE
-	update_clothing_icon()
-
-/obj/item/clothing/under/dominia/rollsleeves()
-	set name = "Roll Up Sleeves"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, SPAN_NOTICE("You cannot roll up your [src]'s sleeves!"))
-		return
-
-	if(rolled_down == TRUE)
-		to_chat(usr, SPAN_NOTICE("You must roll up your [src] first!"))
-		return
-
-	if(rolled_sleeves)
-		body_parts_covered = initial(body_parts_covered)
-		item_state = "[initial(item_state)]" // REMINDER!: Contained Sprites automatically take out the _un after the spritename, somehow.
-		to_chat(usr, SPAN_NOTICE("You roll down your [src]'s sleeves."))
-		rolled_sleeves = FALSE
-	else
-		body_parts_covered &= ~(ARMS|HANDS)
-		item_state = "[initial(item_state)]_r"
-		to_chat(usr, SPAN_NOTICE("You roll up your [src]'s sleeves."))
-		rolled_sleeves = TRUE
-	update_clothing_icon()
 
 /obj/item/clothing/under/dominia/black
 	icon = 'icons/clothing/under/uniforms/dominia_uniform_black.dmi'
@@ -357,6 +313,35 @@
 	update_icon()
 	update_clothing_icon()
 
+/obj/item/clothing/accessory/poncho/dominia/consular
+	name = "tribunalist consular's cape"
+	desc = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also \
+	employs may commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/suits/capes/dominia_consular_cape.dmi'
+	icon_state = "dominia_cape_consular"
+	item_state = "dominia_cape_consular"
+	overlay_state = "dominia_cape_consular"
+	contained_sprite = TRUE
+	icon_override = null
+	var/rolled = FALSE
+
+/obj/item/clothing/under/dominia/consular
+	name = "dominian consular officer's uniform"
+	desc = "The traditional red-black-gold uniform of a member of His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many \
+	commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/under/uniforms/dominia_consular.dmi'
+	icon_state = "dominia_consular"
+	item_state = "dominia_consular"
+
+/obj/item/clothing/under/dominia/consular/dress
+	name = "dominian consular officer's uniform"
+	desc = "The traditional red-black-gold uniform of a member of His Majesty's Diplomatic Service. This variant has a skirt, for the female diplomat on the go."
+	icon = 'icons/clothing/under/uniforms/dominia_consular.dmi'
+	icon_state = "dominia_consular_fem"
+	item_state = "dominia_consular_fem"
+
 /obj/item/clothing/under/dominia/initiate
 	name = "tribunal initiate's robe"
 	desc = "A simple white robe with red trim and a red sash to fasten it. It's commonly worn by initiates of the Moroz Holy Tribunal."
@@ -380,8 +365,28 @@
 	item_state = "dominia_priest"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
+/obj/item/clothing/under/dominia/priest/consular
+	name = "tribunalist consular's uniform"
+	desc = "The traditional red-black-gold uniform of a priestly member of His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many commoners \
+	- as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/under/uniforms/dominia_consular_priest.dmi'
+	icon_state = "dominia_consular_priest"
+	item_state = "dominia_consular_priest"
+	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
+
+/obj/item/clothing/head/dominia
+	name = "dominian consular officer's dress cap"
+	desc = "A quite fashionable cap issued to the members of His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many \
+    commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/head/dominia_consular_cap.dmi'
+	icon_state = "dominia_consular_cap"
+	item_state = "dominia_consular_cap"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/beret/dominia
-	name = "tribunal initiate’s beret"
+	name = "tribunal initiate's beret"
 	desc = "A simple red beret with a golden badge marking its wearer as an initiate of the Moroz Holy Tribunal."
 	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
 	funding - spares any expenses funding them, and these berets are made of luxurious velvet."
@@ -390,13 +395,22 @@
 	item_state = "dominia_beret"
 
 /obj/item/clothing/head/beret/dominia/priest
-	name = "tribunalist’s beret"
-	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal’s clergy."
+	name = "tribunalist's beret"
+	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal's clergy."
 	desc_fluff = "With their black and gold clothing designed to resemble that of their noble counterparts, the full clergy of the Moroz Holy Tribunal \
 	are a sight to behold both inside and outside of the Empire of Dominia. This beret features an emblem luxuriously and painstakingly crafted out of real gold."
 	icon = 'icons/clothing/head/dominia_beret_priest.dmi'
 	icon_state = "dominia_beret_priest"
 	item_state = "dominia_beret_priest"
+
+/obj/item/clothing/head/beret/dominia/consular
+	name = "tribunalist’s beret"
+	desc = "A beret in gold and red worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs may commoners - \
+	as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/head/dominia_beret_consular.dmi'
+	icon_state = "dominia_beret_consular_priest"
+	item_state = "dominia_beret_consular_priest"
 
 /obj/item/clothing/accessory/dominia
 	name = "tribunal necklace"
@@ -419,8 +433,8 @@
 	name = "Morozi dress"
 	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves."
 	desc_fluff = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
-				the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
-				due to the often frigid temperatures of Moroz."
+	the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
+	due to the often frigid temperatures of Moroz."
 	icon = 'icons/clothing/under/uniforms/dominia_dresses.dmi'
 	icon_state = "morozi_dress"
 	item_state = "morozi_dress"
@@ -494,4 +508,42 @@
 	name = "sleeveless house kazhkz Morozi dress"
 	house = "kazhkz"
 
+/obj/item/clothing/accessory/dominia/sash
+	name = "dominian sash"
+	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one seems to represent Dominia as a whole, however."
+	desc_fluff = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape. While they are \
+	often used in formal uniforms - such as for attendants and domestic staff - these sashes can also be found used in positions where wearing a cape is impractical, such as the medical field."
+	icon = 'icons/clothing/accessories/dominia_sash.dmi'
+	item_state = "dominia_sash"
+	icon_state = "dominia_sash"
+	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/dominia/sash/strelitz
+	name = "strelitz sash"
+	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Strelitz."
+	item_state = "strelitz_sash"
+	icon_state = "strelitz_sash"
+
+/obj/item/clothing/accessory/dominia/sash/volvalaad
+	name = "volvalaad sash"
+	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Volvalaad."
+	item_state = "volvalaad_sash"
+	icon_state = "volvalaad_sash"
+
+/obj/item/clothing/accessory/dominia/sash/kazhkz
+	name = "kazhkz sash"
+	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Kazhkz."
+	item_state = "kazhkz_sash"
+	icon_state = "kazhkz_sash"
+
+/obj/item/clothing/accessory/dominia/sash/caladius
+	name = "caladius sash"
+	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Caladius."
+	item_state = "caladius_sash"
+	icon_state = "caladius_sash"
+
+/obj/item/clothing/accessory/dominia/sash/zhao
+	name = "zhao sash"
+	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Zhao."
+	item_state = "zhao_sash"
+	icon_state = "zhao_sash"

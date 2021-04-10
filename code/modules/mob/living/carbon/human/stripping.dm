@@ -95,7 +95,7 @@
 			qdel(OE)
 		unEquip(target_slot)
 	else if(user.unEquip(held))
-		equip_to_slot_if_possible(held, text2num(slot_to_strip), 0, 1, 1)
+		equip_to_slot_if_possible(held, text2num(slot_to_strip), FALSE, TRUE, TRUE, FALSE, TRUE)
 		if(held.loc != src)
 			user.put_in_hands(held)
 	return 1

@@ -50,6 +50,7 @@
 #define MODE_LONER "loner"
 #define MODE_WIZARD "wizard"
 #define MODE_CHANGELING "changeling"
+#define MODE_MORPH "morph"
 #define MODE_CULTIST "cultist"
 #define MODE_HIGHLANDER "highlander"
 #define MODE_MONKEY "monkey"
@@ -62,7 +63,7 @@
 #define MODE_REVENANT "revenant"
 #define MODE_GOLEM "golem"
 
-#define DEFAULT_TELECRYSTAL_AMOUNT 25
+#define DEFAULT_TELECRYSTAL_AMOUNT 15
 
 // Defines (NOT FLAGS) for making secret, random, and mixed secret less snowflake-string
 // and number dependant.

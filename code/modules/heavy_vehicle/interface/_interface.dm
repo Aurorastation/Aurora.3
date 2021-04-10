@@ -21,6 +21,7 @@
 			i++
 
 		var/list/additional_hud_elements = list(
+			/obj/screen/mecha/toggle/power_control,
 			/obj/screen/mecha/toggle/maint,
 			/obj/screen/mecha/eject,
 			/obj/screen/mecha/toggle/hardpoint,
@@ -28,6 +29,7 @@
 			/obj/screen/mecha/toggle/hatch_open,
 			/obj/screen/mecha/radio,
 			/obj/screen/mecha/toggle/sensor,
+			/obj/screen/mecha/toggle/megaspeakers,
 			/obj/screen/mecha/rename
 			)
 
@@ -54,6 +56,7 @@
 		hud_power = new /obj/screen/mecha/power(src)
 		hud_power.screen_loc = "EAST-1:12,CENTER-4:25"
 		hud_elements |= hud_power
+		hud_power_control = locate(/obj/screen/mecha/toggle/power_control) in hud_elements
 
 	refresh_hud()
 

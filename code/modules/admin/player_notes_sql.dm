@@ -12,8 +12,7 @@
 	else
 		query_details["a_ckey"] = user.ckey
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		alert("SQL connection failed while trying to add a note!")
 		return
 
@@ -36,8 +35,7 @@
 	if (!note_id || !note_edit)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		error("SQL connection failed while attempting to delete a note!")
 		return
 
@@ -93,8 +91,7 @@
 	player_ckey = ckey(player_ckey)
 	admin_ckey = ckey(admin_ckey)
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		error("SQL connection failed while attempting to view a player's notes!")
 		return
 
@@ -185,9 +182,7 @@
 	if (!ckey)
 		return "No ckey given!"
 
-	establish_db_connection(dbcon)
-
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return "Unable to establish database connection! Aborting!"
 
 	var/DBQuery/info_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")

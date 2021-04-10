@@ -733,6 +733,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		if(!cannotzoom)
 			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
 
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.handle_vision()
+
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill
 
@@ -877,4 +881,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. += "Throw Force: [throwforce]<br>"
 
 /obj/item/proc/use_resource(var/mob/user, var/use_amount)
+	return
+
+// this gets called when the item gets chucked by the vending machine
+/obj/item/proc/vendor_action(var/obj/machinery/vending/V)
 	return

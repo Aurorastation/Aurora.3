@@ -44,7 +44,7 @@
 	display_name = "flash-proof sunglasses selection (Security/Command)"
 	description = "A selection of flash-proof sunglasses."
 	path = /obj/item/clothing/glasses/sunglasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Investigator")
 
 /datum/gear/eyes/sunglasses/New()
 	..()
@@ -81,20 +81,23 @@
 	medhud["aviators, medical"] = /obj/item/clothing/glasses/hud/health/aviator
 	medhud["HUD, medical"] = /obj/item/clothing/glasses/hud/health
 	medhud["HUDpatch, medical"] = /obj/item/clothing/glasses/eyepatch/hud/medical
+	medhud["prescription HUD, medical"] = /obj/item/clothing/glasses/hud/health/prescription
 	gear_tweaks += new/datum/gear_tweak/path(medhud)
 
 /datum/gear/eyes/sechuds
 	display_name = "security HUD selection"
 	description = "A selection of security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/aviator
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/eyes/sechuds/New()
 	..()
 	var/sechud = list()
+	sechud["sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud
 	sechud["aviators, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	sechud["HUD, security"] = /obj/item/clothing/glasses/hud/security
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
+	sechud["prescription HUD, security"] = /obj/item/clothing/glasses/hud/security/prescription
 	gear_tweaks += new/datum/gear_tweak/path(sechud)
 
 /datum/gear/eyes/hudpatch

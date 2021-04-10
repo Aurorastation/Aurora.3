@@ -216,6 +216,11 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
 
+/datum/gear/head/hijab_colorable
+	display_name = "colorable hijab"
+	path = /obj/item/clothing/head/hijab/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/turban
 	display_name = "turban selection"
 	path = /obj/item/clothing/head/turban
@@ -238,7 +243,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -322,3 +327,8 @@
 	display_name = "fisanduhian ushanka"
 	path = /obj/item/clothing/head/ushanka/dominia
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/dominia_consular
+	display_name = "dominian consular cap"
+	path = /obj/item/clothing/head/dominia
+	allowed_roles = list("Consular Officer")

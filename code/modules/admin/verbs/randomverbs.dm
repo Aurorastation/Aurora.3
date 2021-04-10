@@ -585,8 +585,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 	switch(reporttype)
 		if("Template")
-			establish_db_connection(dbcon)
-			if (!dbcon.IsConnected())
+			if (!establish_db_connection(dbcon))
 				to_chat(src, "<span class='notice'>Unable to connect to the database.</span>")
 				return
 			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")

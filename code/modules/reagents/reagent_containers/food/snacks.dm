@@ -3562,6 +3562,15 @@
 	else
 		..()
 
+/obj/item/reagent_containers/food/snacks/bunbun
+	name = "\improper Bun Bun"
+	desc = "A small bread monkey fashioned from two burger buns."
+	icon_state = "bunbun"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/decl/reagent/nutriment = 8)
+	reagent_data = list(/decl/reagent/nutriment = list("bun" = 4))
+
 /obj/item/reagent_containers/food/snacks/taco
 	name = "taco"
 	desc = "Take a bite!"
@@ -3681,7 +3690,7 @@
 	name = "packed rice bowl"
 	desc = "Boiled rice packed in a sealed plastic tub with the Nojosuru Foods logo on it. There appears to be a pair of chopsticks clipped to the side."
 	icon_state = "ricetub"
-	trash = /obj/item/trash/ricetub_s
+	trash = /obj/item/trash/ricetub/sticks
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
 	reagents_to_add = list(/decl/reagent/nutriment = 5)
@@ -4665,7 +4674,7 @@
 
 /obj/item/reagent_containers/food/snacks/nomadskewer
 	name = "nomad skewer"
-	icon_state = "kabob"
+	icon_state = "nomad_skewer"
 	desc = "Fatshouter meat on a stick, served with flora native to Adhomai."
 	trash = /obj/item/stack/rods
 	filling_color = "#FFFEE0"

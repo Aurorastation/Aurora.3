@@ -110,6 +110,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
+	l_hand = /obj/item/hardsuit_token
 	back = null
 	belt = /obj/item/storage/belt/ninja
 	shoes = /obj/item/clothing/shoes/swat/ert
@@ -137,10 +138,6 @@
 	. = ..()
 	if(visualsOnly)
 		return
-
-	var/obj/item/rig/light/ninja/rig = new /obj/item/rig/light/ninja(src)
-	rig.dnaLock = H.dna
-	H.equip_to_slot_or_del(rig, slot_l_hand)
 
 	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store)
 
@@ -506,7 +503,7 @@
 	uniform = /obj/item/clothing/under/chameleon/wizard
 	back = /obj/item/storage/backpack/chameleon/wizard
 	suit = /obj/item/clothing/suit/chameleon/wizard
-	head = /obj/item/clothing/head/softcap/chameleon/wizard
+	head = /obj/item/clothing/head/chameleon/wizard
 	shoes = /obj/item/clothing/shoes/chameleon/wizard
 	l_ear = /obj/item/device/radio/headset/bluespace
 	r_pocket = /obj/item/teleportation_scroll

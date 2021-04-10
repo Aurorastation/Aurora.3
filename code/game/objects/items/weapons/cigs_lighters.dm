@@ -355,10 +355,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				to_chat(user, SPAN_NOTICE("[src] is full."))
 
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
-	if(lit == TRUE)
-		user.visible_message(SPAN_NOTICE("[user] calmly drops and treads on the lit [src], putting it out instantly."))
+	if(lit)
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> calmly drops and treads on the lit [src], putting it out instantly."), SPAN_NOTICE("You calmly drop and tread on the lit [src], putting it out instantly."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		die(TRUE)
+	else // Cigarette packing. For compulsive smokers.
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	return ..()
 
 
@@ -674,6 +676,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/flame/lighter/zippo/augment
+	name = "retractable lighter"
+	desc = "An augmented lighter, implanted directly into the hand, popping through the finger."
+	icon_state = "lighter-aug"
+	item_state = "lighter-aug"
+
+/obj/item/flame/lighter/zippo/augment/throw_at(atom/target, range, speed, mob/thrower)
+	thrower.drop_from_inventory(src)
+
+/obj/item/flame/lighter/zippo/augment/dropped()
+	loc = null
+	qdel(src)
+
 /obj/item/flame/lighter/zippo/dominia
 	name = "\improper Dominian Zippo lighter"
 	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia."
@@ -783,9 +798,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		base_state = icon_state
 	if(user.r_hand == src || user.l_hand == src)
 		if(!lit)
-			lit = TRUE
-			update_icon()
-			playsound(src.loc, pick(activation_sound), 75, 1)
+			handle_lighting()
 			if(istype(src, /obj/item/flame/lighter/zippo))
 				if(last_open <= world.time - 20) //Spam limiter.
 					last_open = world.time
@@ -806,8 +819,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
 						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
-			set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
-			START_PROCESSING(SSprocessing, src)
 		else
 			lit = FALSE
 			update_icon()
@@ -825,6 +836,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return ..()
 	return
 
+/obj/item/flame/lighter/proc/handle_lighting()
+	lit = TRUE
+	update_icon()
+	playsound(src.loc, pick(activation_sound), 75, 1)
+	set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
+	handle_lighting()
 
 /obj/item/flame/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	if(!istype(M, /mob))

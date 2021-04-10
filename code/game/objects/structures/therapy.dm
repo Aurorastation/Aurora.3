@@ -132,6 +132,7 @@
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
 	w_class = ITEMSIZE_TINY
+	flags = NOBLUDGEON
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 	var/closed = FALSE
@@ -205,7 +206,6 @@
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "Yes")
 			to_chat(H, "<span class='notice'><i>... [text] ...</i></span>")
-			H.cure_all_traumas(cure_type = CURE_HYPNOSIS)
 		else
 			thrall = null
 
@@ -290,8 +290,7 @@
 			ticktock = "Tick"
 		to_chat(H, "<span class='notice'><i>[ticktock]. . .</i></span>")
 		sound_to(H, 'sound/effects/singlebeat.ogg')
-		if(prob(1))
-			H.cure_all_traumas(cure_type = CURE_SOLITUDE)
+
 
 /obj/machinery/chakrapod
 	name = "Crystal Therapy Pod"
@@ -635,20 +634,13 @@
 			break
 
 		var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
-		if (!istype(sponge) || !sponge.traumas.len)
+		if (!istype(sponge))
 			if(get_dist(user,src) <= 1)
 				to_chat(user, "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>")
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
 			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
 			break
 
-		for(var/X in sponge.traumas)
-			var/datum/brain_trauma/trauma = X
-			if(trauma.cure_type == CURE_CRYSTAL)
-				if(!trauma.permanent)
-					qdel(trauma)
-					electroshock_trauma = 1
-					break
 
 		if(electroshock_trauma)
 			visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")

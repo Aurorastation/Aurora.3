@@ -38,16 +38,20 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	if(proximity_flag)
 		if(istype(target, /obj/item/gun))
 			var/obj/item/gun/G = target
+			if(!G.needspin)
+				to_chat(user, SPAN_WARNING("\The [G] doesn't take pins."))
+				return
+
 			if(G.pin && (force_replace || G.pin.pin_replaceable))
 				G.pin.forceMove(get_turf(G))
 				G.pin.gun_remove(user)
-				to_chat(user, "<span class ='notice'>You remove [G]'s old pin.</span>")
+				to_chat(user, SPAN_NOTICE("You remove \the [G]'s old pin."))
 
 			if(!G.pin)
 				gun_insert(user, G)
-				to_chat(user, "<span class ='notice'>You insert [src] into [G].</span>")
+				to_chat(user, SPAN_NOTICE("You insert [src] into \the [G]."))
 			else
-				to_chat(user, "<span class ='notice'>This firearm already has a firing pin installed.</span>")
+				to_chat(user, SPAN_NOTICE("This firearm already has a firing pin installed."))
 
 /obj/item/device/firing_pin/emag_act()
 	if(!emagged)

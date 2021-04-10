@@ -376,8 +376,8 @@
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 5,
 		/obj/item/storage/box/fancy/cigarettes/nicotine = 3,
 		/obj/item/storage/box/fancy/cigarettes/pra = 6,
-		/obj/item/storage/chewables/rollable/bad = 6,
 		/obj/item/storage/chewables/rollable = 8,
+		/obj/item/storage/chewables/rollable/unathi = 6,
 		/obj/item/storage/chewables/rollable/fine = 5,
 		/obj/item/storage/chewables/rollable/nico = 3,
 		/obj/item/storage/chewables/tobacco/bad = 6,
@@ -406,8 +406,8 @@
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 82,
 		/obj/item/storage/box/fancy/cigarettes/nicotine = 89,
 		/obj/item/storage/box/fancy/cigarettes/pra = 79,
-		/obj/item/storage/chewables/rollable/bad = 56,
 		/obj/item/storage/chewables/rollable = 63,
+		/obj/item/storage/chewables/rollable/unathi = 65,
 		/obj/item/storage/chewables/rollable/fine = 69,
 		/obj/item/storage/chewables/rollable/nico = 86,
 		/obj/item/storage/chewables/tobacco/bad = 55,
@@ -473,7 +473,8 @@
 		/obj/item/reagent_containers/pill/cetahydramine = 6,
 		/obj/item/reagent_containers/pill/perconol = 6,
 		/obj/item/reagent_containers/food/drinks/medcup = 4,
-		/obj/item/storage/pill_bottle = 4
+		/obj/item/storage/pill_bottle = 4,
+		/obj/item/reagent_containers/spray/sterilizine = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,

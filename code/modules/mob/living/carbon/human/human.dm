@@ -5,6 +5,8 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 
+	var/pronouns = NEUTER
+
 	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
 
 	var/list/hud_list[10]
@@ -174,7 +176,7 @@
 		return ..()
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(stomach)
-		return nutrition + (stomach.ingested.total_volume * 10)
+		return nutrition + stomach.ingested.total_volume
 	return 0
 
 /mob/living/carbon/human/Stat()
@@ -198,7 +200,7 @@
 				stat("Internal Atmosphere Info", internal.name)
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
-		
+
 		var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
 		if(IC && IC.cell)
 			stat("Battery charge:", "[IC.get_charge()]/[IC.cell.maxcharge]")
@@ -844,11 +846,6 @@
 			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
 		return 0
 
-	if(disabilities & MONKEYLIKE)
-		if(!silent)
-			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
-		return 0
-
 	return 1
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
@@ -865,13 +862,10 @@
 	dna.check_integrity(src)
 	return
 
-/mob/living/carbon/human/get_species(var/reference = 0)
+/mob/living/carbon/human/get_species(var/reference = FALSE, var/records = FALSE)
 	if(!species)
 		set_species()
-	if (reference)
-		return species
-	else
-		return species.name
+	return species.get_species(reference, src, records)
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
@@ -899,7 +893,7 @@
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	var/nothing_to_puke = FALSE
 	if(should_have_organ(BP_STOMACH))
-		if(!istype(stomach) || (stomach.ingested.total_volume <= 5 && stomach.contents.len == 0))
+		if(!istype(stomach) || (stomach.ingested.total_volume <= 3 && !length(stomach.contents)))
 			nothing_to_puke = TRUE
 	else if(!(locate(/mob) in contents))
 		nothing_to_puke = TRUE
@@ -1162,10 +1156,10 @@
 
 /mob/living/carbon/human/get_gender()
 	var/skipitems = get_covered_clothes()
-	var/skipbody = get_covered_body_parts()
-	. = ..()
+	var/skipbody = get_covered_body_parts(TRUE)
 	if((skipbody & FACE || (skipitems & (HIDEMASK|HIDEFACE))) && ((skipbody & UPPER_TORSO && skipbody & LOWER_TORSO) || (skipitems & HIDEJUMPSUIT))) //big suits/masks/helmets make it hard to tell their gender
-		. = PLURAL
+		return PLURAL
+	return pronouns
 
 /mob/living/carbon/human/proc/increase_germ_level(n)
 	if(gloves)
@@ -1757,39 +1751,6 @@
 	to_chat(src, SPAN_NOTICE("You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
 	return
 
-/mob/living/carbon/human/proc/get_traumas()
-	. = list()
-	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(istype(B, /obj/item/organ/internal/borer))
-		return
-	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
-		. = B.traumas
-
-/mob/living/carbon/human/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
-	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
-		. = B.has_trauma_type(brain_trauma_type, consider_permanent)
-
-/mob/living/carbon/human/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
-	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
-		. = B.gain_trauma(trauma, permanent, arguments)
-
-/mob/living/carbon/human/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
-	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
-		. = B.gain_trauma_type(brain_trauma_type, permanent)
-
-/mob/living/carbon/human/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
-	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
-		. = B.cure_trauma_type(brain_trauma_type, cure_permanent)
-
-/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
-	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
-		. = B.cure_all_traumas(cure_permanent, cure_type)
-
 /mob/living/carbon/human/get_metabolism(metabolism)
 	return ..() * (species ? species.metabolism_mod : 1)
 
@@ -2006,14 +1967,8 @@
 
 	return ..(speaking, hearer, used_accent)
 
-/mob/living/carbon/human/proc/generate_valid_accent()
-	var/list/valid_accents = list()
-	for(var/current_accents in species.allowed_accents)
-		valid_accents += current_accents
-	return valid_accents
-
 /mob/living/carbon/human/proc/generate_valid_languages()
-	var/list/available_languages = species.secondary_langs.Copy()
+	var/list/available_languages = species.secondary_langs.Copy() + LANGUAGE_TCB
 	for(var/L in all_languages)
 		var/datum/language/lang = all_languages[L]
 		if(!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))
@@ -2036,7 +1991,7 @@
 			to_chat(src, SPAN_NOTICE("You no longer know <b>[new_language.name]</b>."))
 		return TRUE
 	var/total_alternate_languages = languages.Copy()
-	total_alternate_languages -= all_languages[LANGUAGE_TCB]
+	total_alternate_languages -= all_languages[species.language]
 	if(length(total_alternate_languages) >= species.num_alternate_languages)
 		to_chat(src, SPAN_WARNING("You can't add any more languages!"))
 		return TRUE
@@ -2067,3 +2022,10 @@
 	set name = "click_suit_storage"
 	if(s_store)
 		s_store.Click()
+
+/mob/living/carbon/human/proc/disable_organ_night_vision()
+	var/obj/item/organ/E = internal_organs_by_name[BP_EYES]
+	if (istype(E, /obj/item/organ/internal/eyes/night))
+		var/obj/item/organ/internal/eyes/night/N = E
+		if(N.night_vision )
+			N.disable_night_vision()
