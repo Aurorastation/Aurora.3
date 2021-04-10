@@ -76,7 +76,8 @@
 		return
 
 	if(!(get_cell()?.checked_use(arms.power_use * CELLRATE)))
-		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
+		to_chat(user, power == MECH_POWER_ON ? SPAN_WARNING("Error: Power levels insufficient.") : SPAN_WARNING("\The [src] is powered off."))
+		return
 
 	if(user != src)
 		set_intent(user.a_intent)
@@ -236,7 +237,6 @@
 	LAZYDISTINCTADD(pilots, user)
 	sync_access()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
-	user << sound('sound/mecha/nominal.ogg',volume=50)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
@@ -426,6 +426,8 @@
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
 				playsound(user.loc, thing.usesound, 50, 1)
 				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [thing].</span>")
+				power = MECH_POWER_OFF
+				hud_power_control.update_icon()
 				body.cell = null
 				return
 			else if(istype(thing, /obj/item/cell))

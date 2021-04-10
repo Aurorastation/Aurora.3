@@ -295,7 +295,14 @@
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
+	active = aura.active
+	passive_power_use = active ? 1 KILOWATTS : 0
 	owner.update_icon()
+
+/obj/item/mecha_equipment/shield/deactivate()
+	if(active)
+		toggle()
+	..()
 
 /obj/item/mecha_equipment/shield/update_icon()
 	. = ..()
@@ -314,7 +321,8 @@
 	var/obj/item/cell/cell = owner.get_cell()
 
 	var/actual_required_power = Clamp(max_charge - charge, 0, charging_rate)
-	charge += cell.use(actual_required_power)
+	if(cell)
+		charge += cell.use(actual_required_power)
 
 /obj/item/mecha_equipment/shield/get_hardpoint_status_value()
 	return charge / max_charge
