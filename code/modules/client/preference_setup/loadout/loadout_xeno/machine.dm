@@ -103,7 +103,7 @@
 	path = /obj/item/clothing/suit/armor/vest/idris
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Investigator", "Security Cadet")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/idris/New()
@@ -133,3 +133,24 @@
 	goldendeep["golden deep suit"] = /obj/item/clothing/under/goldendeep/suit
 	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
 	gear_tweaks += new/datum/gear_tweak/path(goldendeep)
+
+/datum/gear/augment/machine/gustatorial
+	display_name = "gustatorial centre (tongue)"
+	description = "An extremely complex augment, capable of translating taste into binary code, allowing synthetic beings to experience food."
+	path = /obj/item/organ/internal/augment/gustatorial
+	cost = 1
+	whitelisted = list(SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/augment/machine/gustatorial/hands
+	display_name = "gustatorial centre (hands)"
+	description = "An extremely complex augment, capable of translating taste into binary code, allowing synthetic beings to experience food."
+	path = /obj/item/organ/internal/augment/gustatorial/hand
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+
+/datum/gear/augment/machine/gustatorial/hands/New()
+	..()
+	var/list/handies = list()
+	handies["gustatorial centre (right hand)"] = /obj/item/organ/internal/augment/gustatorial/hand
+	handies["gustatorial centre (left hand)"] = /obj/item/organ/internal/augment/gustatorial/hand/left
+	gear_tweaks += new /datum/gear_tweak/path(handies)

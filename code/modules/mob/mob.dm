@@ -873,10 +873,13 @@
 					stat("Failsafe Controller:", "ERROR")
 				if (Master)
 					stat(null, "- Subsystems -")
+					var/amt = 0
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
-
+						if(amt >= 70)
+							break
+						amt++
 						SS.stat_entry()
 
 		if(listed_turf && client)
@@ -1334,6 +1337,18 @@
 /mob/verb/westfaceperm()
 	set hidden = 1
 	set_face_dir(client.client_dir(WEST))
+
+/mob/living/verb/unique_action()
+	set hidden = 1
+	var/obj/item/gun/dakka = get_active_hand()
+	if(istype(dakka))
+		dakka.unique_action(src)
+
+/mob/living/verb/toggle_firing_mode()
+	set hidden = 1
+	var/obj/item/gun/dakka = get_active_hand()
+	if(istype(dakka))
+		dakka.toggle_firing_mode(src)
 
 /mob/proc/adjustEarDamage()
 	return

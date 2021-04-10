@@ -56,7 +56,7 @@
 	var/id_card_type = /obj/item/card/id/synthetic
 
 	var/list/possible_accents = list(ACCENT_TTS, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_LUNA, ACCENT_MARTIAN, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
-									ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EARTH)
+									ACCENT_SILVERSUN_EXPATRIATE, ACCENT_KONYAN, ACCENT_EARTH)
 
 	// Misc
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
@@ -119,7 +119,7 @@
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
 	..()
 
-/mob/living/silicon/stun_effect_act()
+/mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	return	//immune
 
 /mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, tesla_shock = FALSE, ground_zero)

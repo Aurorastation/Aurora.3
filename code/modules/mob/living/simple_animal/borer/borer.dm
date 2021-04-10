@@ -99,12 +99,12 @@
 	host.remove_language(LANGUAGE_BORER)
 	host.remove_language(LANGUAGE_BORER_HIVEMIND)
 
-	to_chat(host, "<span class='notice'>You feel your nerves again as your control over your own body is restored.</span>")
 	host.verbs -= /mob/living/carbon/proc/release_control
 	host.verbs -= /mob/living/carbon/proc/punish_host
 	host.verbs -= /mob/living/carbon/proc/spawn_larvae
 
 	if(host_brain)
+		to_chat(host_brain, FONT_LARGE(SPAN_NOTICE("You feel your nerves again as your control over your own body is restored.")))
 		// these are here so bans and multikey warnings are not triggered on the wrong people when ckey is changed.
 		// computer_id and IP are not updated magically on their own in offline mobs -walter0o
 
@@ -160,10 +160,6 @@
 	host.status_flags &= ~PASSEMOTES
 	host = null
 	return
-
-/mob/living/simple_animal/borer/assign_player(var/mob/user)
-	ckey = user.ckey
-	return src
 
 /mob/living/simple_animal/borer/cannot_use_vents()
 	return

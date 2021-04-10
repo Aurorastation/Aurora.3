@@ -144,7 +144,7 @@
 					for(var/_R in reagents.reagent_volumes)
 						var/decl/reagent/R = decls_repository.get_decl(_R)
 						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
-						if(istype(R, /decl/reagent/alcohol))
+						if(ispath(_R, /decl/reagent/alcohol))
 							var/decl/reagent/alcohol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
@@ -182,7 +182,10 @@
 	if(!proximity)
 		return
 
-	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass) || istype(A, /obj/structure/sink))
+	if(istype(A, /obj/structure/sink))
+		return
+
+	else if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass))
 		if(!REAGENTS_FREE_SPACE(reagents))
 			to_chat(user, SPAN_WARNING("\The [src] is already soaked."))
 			return
@@ -194,7 +197,7 @@
 			update_icon()
 		return
 
-	if(!on_fire && istype(A) && (src in user))
+	else if(!on_fire && istype(A) && (src in user))
 		if(A.is_open_container() && !(A in user))
 			remove_contents(user, A)
 		else if(!ismob(A)) //mobs are handled in attack() - this prevents us from wiping down people while smothering them.

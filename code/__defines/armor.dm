@@ -1,21 +1,25 @@
 // Armor will turn attacks into less dangerous (e.g. turning cut into bruise), so keep that in mind when decided what armor value to use.
 // Some levels are marked with what they intend to block in such way.
-#define  ARMOR_TYPE_STANDARD        1
-#define  ARMOR_TYPE_EXOSUIT         2
+#define  ARMOR_TYPE_STANDARD		1
+#define  ARMOR_TYPE_EXOSUIT			2
+#define  ARMOR_TYPE_RIG				4
 
 #define  ARMOR_BALLISTIC_MINOR		10
 #define  ARMOR_BALLISTIC_SMALL		25
-#define  ARMOR_BALLISTIC_PISTOL		50	//Blocks holdout and normal pistol ammo
-#define  ARMOR_BALLISTIC_RESISTANT	65
-#define  ARMOR_BALLISTIC_RIFLE		80	//Blocks rifle rounds
-#define  ARMOR_BALLISTIC_AP			95
-#define  ARMOR_BALLISTIC_HEAVY		110
+#define  ARMOR_BALLISTIC_PISTOL		30	//Blocks holdout and normal pistol ammo
+#define  ARMOR_BALLISTIC_MEDIUM		40
+#define  ARMOR_BALLISTIC_REVOLVER   50	//Blocks antag revolver rounds.
+#define  ARMOR_BALLISTIC_RIFLE		60	//Blocks rifle rounds.
+#define  ARMOR_BALLISTIC_AP			75	//Blocks basically almost every caliber except superheavy ones.
+#define  ARMOR_BALLISTIC_HEAVY		100
 
 #define  ARMOR_LASER_MINOR			10
-#define  ARMOR_LASER_SMALL			25	//Blocks small e-guns
-#define  ARMOR_LASER_HANDGUNS		40	//Blocks normal e-guns
-#define  ARMOR_LASER_MAJOR			50
-#define  ARMOR_LASER_RIFLES			70	//Blocks laser rifles
+#define  ARMOR_LASER_SMALL			25
+#define  ARMOR_LASER_PISTOL			35	//Minimum required to block e-pistols.
+#define  ARMOR_LASER_MEDIUM			40
+#define  ARMOR_LASER_RIFLE			45	//Minimum required to block las-rifles.
+#define  ARMOR_LASER_MAJOR			55
+#define  ARMOR_LASER_AP				70
 #define  ARMOR_LASER_HEAVY			100
 
 #define  ARMOR_MELEE_MINOR			5

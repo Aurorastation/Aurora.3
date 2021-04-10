@@ -52,8 +52,8 @@
 
 	voice = GetVoice()
 
-	//No need to update all of these procs if the guy is dead.
-	if(stat != DEAD)
+	//No need to update all of these procs if the guy is dead or in stasis
+	if(stat != DEAD && !InStasis())
 		//Updates the number of stored chemicals for powers
 		handle_changeling()
 
@@ -216,10 +216,12 @@
 				pixel_x = old_x
 				pixel_y = old_y
 				return
-	if (disabilities & STUTTERING)
-		speech_problem_flag = 1
-		if (prob(10))
-			stuttering = max(10, stuttering)
+	if(disabilities & STUTTERING)
+		var/aid = 1 + chem_effects[CE_NOSTUTTER]
+		if(aid < 3) //NOSTUTTER at 2 or above prevents it completely.
+			speech_problem_flag = 1
+			if(prob(10/aid))
+				stuttering = max(10/aid, stuttering)
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
 	if(InStasis())
@@ -427,7 +429,7 @@
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
 	else
-		if(!(COLD_RESISTANCE in mutations))
+		if(!pressure_resistant())
 			var/list/obj/item/organ/external/organs = get_damageable_organs()
 			for(var/obj/item/organ/external/O in organs)
 				if(QDELETED(O))
@@ -626,6 +628,7 @@
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
 
 		sprint_speed_factor = species.sprint_speed_factor
+		max_stamina = species.stamina
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 		move_delay_mod = 0
@@ -695,10 +698,7 @@
 	for(var/_R in chem_doses)
 		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))
 			continue
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		chem_doses[_R] -= R.metabolism
-		if(chem_doses[_R] <= 0)
-			chem_doses -= _R
+		chem_doses -= _R //We're no longer metabolizing this reagent. Remove it from chem_doses
 
 	updatehealth()
 
@@ -729,7 +729,7 @@
 		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
 			handle_hallucinations()
 
-		if(get_shock() >= (species.total_health * 0.75))
+		if(get_shock() >= (species.total_health * 0.6))
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
@@ -740,11 +740,11 @@
 			if(sleeping)
 				stat = UNCONSCIOUS
 
-			adjustHalLoss(-7)
+			adjustHalLoss(-5)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
-				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")]")
+				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")].")
 
 		if(paralysis)
 			AdjustParalysis(-1)
@@ -776,11 +776,11 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
-			adjustHalLoss(-5)
+			adjustHalLoss(-3)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-3)
+			adjustHalLoss(-1)
 
 		//Other
 		handle_statuses()
@@ -959,7 +959,7 @@
 
 			if(isSynthetic())
 				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
-				if (istype(IC))
+				if(istype(IC) && IC.is_usable())
 					var/chargeNum = Clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
 				else
@@ -1075,16 +1075,22 @@
 /mob/living/carbon/human/proc/handle_shock()
 	if(status_flags & GODMODE)
 		return 0
+	var/is_asystole = is_asystole()
+	if(is_asystole && isSynthetic())
+		if(!lying && !buckled_to)
+			to_chat(src, SPAN_WARNING("You don't have enough energy to function!"))
+		Paralyse(3)
+		return
 	if(!can_feel_pain())
 		return
 
-	if(is_asystole())
+	if(is_asystole)
 		shock_stage = max(shock_stage + 1, 61)
 
 	var/traumatic_shock = get_shock()
 	if(traumatic_shock >= max(30, 0.8*shock_stage))
 		shock_stage += 1
-	else if (!is_asystole())
+	else if (!is_asystole)
 		shock_stage = min(shock_stage, 160)
 		var/recovery = 1
 		if(traumatic_shock < 0.5 * shock_stage) //lower shock faster if pain is gone completely

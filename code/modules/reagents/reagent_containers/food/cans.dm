@@ -300,8 +300,8 @@
 	reagents_to_add = list(/decl/reagent/drink/lemon_lime = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/iced_tea
-	name = "\improper Vrisk Serket iced tea"
-	desc = "That sweet, refreshing southern earthy flavor. That's where it's from, right? South Earth?"
+	name = "\improper Silversun Wave iced tea"
+	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
 	icon_state = "ice_tea_can"
 	center_of_mass = list("x"=16, "y"=10)
 
@@ -451,3 +451,14 @@
 	icon_state = "three_towns_cider"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/alcohol/butanol/threetownscider = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
+	name = "Hro'zamal Soda"
+	desc = "A can of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and canned in the People's Republic of Adhomai."
+	desc_fluff = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
+	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
+	students because of its stimulant effect."
+	icon_state = "hrozamal_soda_can"
+	center_of_mass = list("x"=16, "y"=10)
+
+	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 30)

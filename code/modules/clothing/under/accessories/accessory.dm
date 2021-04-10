@@ -7,7 +7,7 @@
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_SMALL
-	var/slot = "decor"
+	var/slot = ACCESSORY_SLOT_GENERIC
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/image/mob_overlay = null
@@ -178,7 +178,7 @@
 	name = "tie with a gold clip"
 	build_from_parts = TRUE
 	worn_overlay = "clip"
-	
+
 /obj/item/clothing/accessory/tie/colourable/clip/silver
 	name = "tie with a silver clip"
 	worn_overlay = "sclip"
@@ -220,6 +220,16 @@
 
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/clothing/accessory/assunzione
+	name = "luceian amulent"
+	desc = "A common symbol of the Luceian faith abroad this amulet featuring the religion's all-seeing eye and eight-pointed crest \
+	seems to be made of real gold and gemstones. While not as critical to faithful abroad as a warding sphere, it is considered good form \
+	to ensure one's amulet is well-maintained."
+	icon = 'icons/clothing/accessories/assunzione_amulet.dmi'
+	item_state = "assunzione_amulet"
+	icon_state = "assunzione_amulet"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
@@ -268,7 +278,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
-	slot = "over"
+	slot = ACCESSORY_SLOT_CAPE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
@@ -488,11 +498,11 @@
 	overlay_state = "galaxycape"
 
 /obj/item/clothing/accessory/poncho/trinary
-    name = "trinary perfection cape"
-    desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-    icon_state = "trinary_cape"
-    item_state = "trinary_cape"
-    overlay_state = "trinary_cape"
+	name = "trinary perfection cape"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
+	icon_state = "trinary_cape"
+	item_state = "trinary_cape"
+	overlay_state = "trinary_cape"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
@@ -501,8 +511,8 @@
 	icon_state = "senior_ribbon"
 	item_state = "senior_ribbon"
 	overlay_state = "senior_ribbon"
-	slot = "over"
-	flippable = 1
+	slot = ACCESSORY_SLOT_CAPE
+	flippable = TRUE
 
 /obj/item/clothing/accessory/legion/specialist
 	name = "specialist medallion"
@@ -516,7 +526,7 @@
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
 	icon_state = "venter"
 	item_state = "venter"
-	slot = "over"
+	slot = ACCESSORY_SLOT_CAPE
 
 /obj/item/clothing/accessory/offworlder/bracer
 	name = "legbrace"
@@ -577,6 +587,13 @@
 	flippable = 1
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
+
+/obj/item/clothing/accessory/sleevepatch/scc
+	name = "Stellar Corporate Conglomerate patch"
+	desc = "An embroidered patch, adorned with the logo of the Stellar Corporate Conglomerate, which can be attached to the shoulder sleeve of clothing."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "scc_patch"
+	overlay_state = "scc_patch"
 
 /obj/item/clothing/accessory/sleevepatch/zavodskoi
 	name = "\improper Zavodskoi Interstellar sleeve patch"

@@ -407,6 +407,8 @@
 /obj/machinery/door/firedoor/can_close()
 	if(locate(/obj/effect/blob) in get_turf(src))
 		return FALSE
+	if(locate(/mob/living) in get_turf(src))
+		return FALSE
 	return ..()
 
 /obj/machinery/door/firedoor/close()

@@ -46,9 +46,6 @@
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
 	else
-		if(shoes)
-			tally += shoes.slowdown
-
 		for(var/organ_name in list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
@@ -148,12 +145,13 @@
 	var/turf/T = loc
 	var/footsound
 	var/top_layer = 0
-	for(var/obj/structure/S in T)
-		if(S.layer > top_layer && S.footstep_sound)
-			top_layer = S.layer
-			footsound = S.footstep_sound
-	if(!footsound)
-		footsound = T.footstep_sound
+	if(istype(T))
+		for(var/obj/structure/S in T)
+			if(S.layer > top_layer && S.footstep_sound)
+				top_layer = S.layer
+				footsound = S.footstep_sound
+		if(!footsound)
+			footsound = T.footstep_sound
 
 	if (client)
 		var/turf/B = GetAbove(T)
@@ -183,6 +181,7 @@
 /mob/living/carbon/human/proc/ClothesSlowdown()
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
 		. += I.slowdown
+		. += I.slowdown_accessory
 
 /mob/living/carbon/human/get_pulling_movement_delay()
 	. = ..()

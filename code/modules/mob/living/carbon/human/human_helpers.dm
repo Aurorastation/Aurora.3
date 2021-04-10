@@ -99,6 +99,10 @@
 								organs -= child
 					if ("cyborg")
 						if (rlimb_data[name])
+							O.force_skintone = FALSE
+							for(var/thing in O.children)
+								var/obj/item/organ/external/child = thing
+								child.force_skintone = FALSE
 							O.robotize(rlimb_data[name])
 						else
 							O.robotize()
@@ -276,3 +280,16 @@
 
 /mob/living/carbon/human/get_contained_external_atoms()
 	. = ..() - organs
+
+/mob/living/carbon/human/proc/pressure_resistant()
+	if(COLD_RESISTANCE in mutations)
+		return TRUE
+	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
+	if(changeling?.space_adapted)
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/get_cell()
+	var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+	if(C)
+		return C.cell

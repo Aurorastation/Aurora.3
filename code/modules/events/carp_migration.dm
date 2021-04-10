@@ -90,7 +90,7 @@
 			CHECK_TICK
 		i++
 
-/datum/event/carp_migration/end()
+/datum/event/carp_migration/end(var/faked)
 	for (var/carp_ref in spawned_carp)
 		var/datum/weakref/carp_weakref = carp_ref
 		var/mob/living/simple_animal/hostile/carp/fish = carp_weakref.resolve()

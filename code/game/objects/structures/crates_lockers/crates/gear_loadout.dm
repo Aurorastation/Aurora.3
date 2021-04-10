@@ -267,6 +267,8 @@
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
+	new /obj/item/clothing/head/helmet/space/void/dominia(src)
+	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
@@ -285,3 +287,182 @@
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/fill()
+	new /obj/item/clothing/under/tajaran/cosmonaut(src)
+	new /obj/item/clothing/under/tajaran/cosmonaut(src)
+	new /obj/item/clothing/under/tajaran/cosmonaut(src)
+	new /obj/item/clothing/under/tajaran/cosmonaut(src)
+	new /obj/item/clothing/under/tajaran/cosmonaut/commissar(src)
+	new /obj/item/clothing/head/tajaran/cosmonaut_commissar(src)
+	new /obj/item/rig/tesla/ninja(src)
+	new /obj/item/clothing/head/helmet/space/void/pra(src)
+	new /obj/item/clothing/head/helmet/space/void/pra(src)
+	new /obj/item/clothing/head/helmet/space/void/pra(src)
+	new /obj/item/clothing/head/helmet/space/void/pra(src)
+	new /obj/item/clothing/head/helmet/space/void/pra(src)
+	new /obj/item/clothing/suit/space/void/pra(src)
+	new /obj/item/clothing/suit/space/void/pra(src)
+	new /obj/item/clothing/suit/space/void/pra(src)
+	new /obj/item/clothing/suit/space/void/pra(src)
+	new /obj/item/clothing/suit/space/void/pra(src)
+	new /obj/item/gun/projectile/automatic/rifle/adhomian(src)
+	new /obj/item/gun/projectile/automatic/rifle/adhomian(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/gun/energy/rifle/icelance(src)
+	new /obj/item/gun/projectile/pistol/adhomai(src)
+	new /obj/item/gun/projectile/pistol/adhomai(src)
+	new /obj/item/gun/projectile/pistol/adhomai(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/gun/projectile/deagle/adhomai(src)
+	new /obj/item/ammo_magazine/a50(src)
+	new /obj/item/ammo_magazine/a50(src)
+	new /obj/item/device/augment_implanter/advanced_tesla(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/single/fill()
+	new /obj/item/clothing/under/tajaran/cosmonaut(src)
+	new /obj/item/clothing/head/helmet/space/void/pra(src)
+	new /obj/item/clothing/suit/space/void/pra(src)
+	new /obj/item/gun/projectile/automatic/rifle/adhomian(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/ammo_magazine/boltaction(src)
+	new /obj/item/gun/projectile/pistol/adhomai(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
+//ninja stuff
+/obj/structure/closet/crate/secure/gear_loadout/ninja
+	var/associated_hardsuit = /obj/item/rig/light/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/fill()
+	new associated_hardsuit(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/stealth/fill()
+	..()
+	new /obj/item/gun/projectile/pistol(src)
+	new /obj/item/silencer(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/sol
+	associated_hardsuit = /obj/item/rig/military/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/sol/fill()
+	..()
+	new /obj/item/clothing/under/rank/fatigues/marine(src)
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/pistol/sol(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/gunslinger
+	associated_hardsuit = /obj/item/rig/gunslinger/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/gunslinger/fill()
+	..()
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/revolver/detective(src)
+	new /obj/item/ammo_magazine/c38(src)
+	new /obj/item/ammo_magazine/c38(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/breacher
+	associated_hardsuit = /obj/item/rig/unathi/fancy/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/breacher/fill()
+	..()
+	new /obj/item/gun/energy/pistol/hegemony(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/tesla
+	associated_hardsuit = /obj/item/rig/tesla/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/tesla/fill()
+	..()
+	new /obj/item/device/augment_implanter/advanced_tesla(src)
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/pistol/adhomai(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/strike
+	associated_hardsuit = /obj/item/rig/strike/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/strike/fill()
+	..()
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/automatic/x9(src)
+	new /obj/item/ammo_magazine/c45x(src)
+	new /obj/item/ammo_magazine/c45x(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/jinxiang
+	associated_hardsuit = /obj/item/rig/jinxiang/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/jinxiang/fill()
+	..()
+	new /obj/item/melee/energy/sword/pirate(src)
+	new /obj/item/shield/energy/dominia(src)
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/tanto(src)
+	new /obj/item/ammo_magazine/mc10mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/elyra
+	associated_hardsuit = /obj/item/rig/elyran/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/elyra/fill()
+	..()
+	new /obj/item/gun/projectile/plasma(src)
+	new /obj/item/ammo_magazine/plasma(src)
+	new /obj/item/ammo_magazine/plasma(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/hacker/fill()
+	associated_hardsuit = /obj/item/rig/light/hacker/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/hacker/fill()
+	..()
+	new /obj/item/gun/energy/xray(src)
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/energy/crossbow/largecrossbow(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/techno
+	associated_hardsuit = /obj/item/rig/light/offworlder/techno/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/techno/fill()
+	..()
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/pistol(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/crimson
+	associated_hardsuit = /obj/item/rig/merc/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/crimson/fill()
+	..()
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/revolver(src)
+	new /obj/item/ammo_magazine/a357(src)
+	new /obj/item/ammo_magazine/a357(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/rhino
+	associated_hardsuit = /obj/item/rig/merc/distress/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/rhino/fill()
+	..()
+	new /obj/item/gun/projectile/automatic/rifle/sts35(src)
+	new /obj/item/ammo_magazine/c762(src)
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/pistol(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)

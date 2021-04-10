@@ -10,6 +10,7 @@
 	emp_protection = 35
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 	req_access = list(access_cent_specops)
+	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -96,7 +97,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -112,30 +113,6 @@
 		)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
-/obj/item/rig/ert/janitor
-	name = "ERT-J suit control module"
-	desc = "A suit worn by the janitoral division of an Emergency Response Team. Has purple highlights. Less armored than security the variant, but offers full radiation protection."
-	suit_type = "ERT janitor"
-	icon_state = "ert_janitor_rig"
-	initial_modules = list(
-		/obj/item/rig_module/ai_container,
-		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/fabricator/sign,
-		/obj/item/rig_module/grenade_launcher/cleaner,
-		/obj/item/rig_module/device/decompiler,
-		/obj/item/rig_module/actuators
-		)
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
-	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
-
 /obj/item/rig/ert/assetprotection
 	name = "heavy asset protection suit control module"
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armored and space ready."
@@ -144,7 +121,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SHIELDED,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_RIFLES,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_STRONG,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,

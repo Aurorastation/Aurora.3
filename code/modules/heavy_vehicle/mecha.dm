@@ -66,6 +66,7 @@
 	var/maintenance_protocols
 	var/lockdown
 	var/entry_speed = 30
+	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
 	var/material/material
@@ -100,7 +101,7 @@
 	pilots = null
 
 	QDEL_NULL_LIST(hud_elements)
-	
+
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
 
@@ -213,7 +214,7 @@
 	update_icon()
 
 	add_language(LANGUAGE_TCB)
-	set_default_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	. = INITIALIZE_HINT_LATELOAD
 

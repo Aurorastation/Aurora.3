@@ -9,8 +9,8 @@
 	item_flags = THICKMATERIAL
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -65,8 +65,10 @@
 	name = "head of security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
 	desc_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
-	icon_state = "hoshelmet"
-	item_state = "hoshelmet"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_sec_commander"
+	item_state = "helm_sec_commander"
 
 /obj/item/clothing/head/helmet/hos/dermal
 	name = "dermal armor patch"
@@ -89,7 +91,10 @@
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
 	desc = "It's a helmet specifically designed to protect against close range attacks."
-	icon_state = "riot"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_riot"
+	item_state = "helm_riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -103,24 +108,33 @@
 	if (use_check_and_message(user))
 		return
 
-	if(src.icon_state == initial(icon_state))
-		src.icon_state = "[icon_state]-up"
-		to_chat(user, "You raise the visor on \the [src].")
+	do_flip(user)
+	update_clothing_icon()
+
+/obj/item/clothing/head/helmet/riot/proc/do_flip(var/mob/user)
+	if(icon_state == initial(icon_state))
+		icon_state = "[icon_state]-up"
+		item_state = icon_state
+		to_chat(user, SPAN_NOTICE("You raise the visor on \the [src]."))
 		body_parts_covered = HEAD
 	else
-		src.icon_state = initial(icon_state)
-		to_chat(user, "You lower the visor on \the [src].")
+		icon_state = initial(icon_state)
+		item_state = icon_state
+		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
 		body_parts_covered = HEAD|FACE|EYES
-	update_clothing_icon()
+
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
 	desc = "A helmet made from advanced materials which protects against concentrated energy weapons."
-	icon_state = "helmet_reflect"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_ablative"
+	item_state = "helm_ablative"
 	armor = list(
 		melee = ARMOR_MELEE_SMALL,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_RIFLES,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	siemens_coefficient = 0
@@ -128,7 +142,10 @@
 /obj/item/clothing/head/helmet/ballistic
 	name = "ballistic helmet"
 	desc = "A helmet with reinforced plating to protect against ballistic projectiles."
-	icon_state = "helmet_bulletproof"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_ballistic"
+	item_state = "helm_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_AP,
@@ -140,18 +157,25 @@
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
-	icon = 'icons/clothing/kit/heavy_armor.dmi'
-	item_state = "helmet"
-	icon_state = "helmet"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_heavy"
+	item_state = "helm_heavy"
 	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
+
+/obj/item/clothing/head/helmet/merc/scc
+	name = "heavy SCC helmet"
+	desc = "A blue helmet made from advanced ceramic. If corporate drones had brains, this would be protecting it."
+	icon_state = "helm_blue"
+	item_state = "helm_blue"
 
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
@@ -160,8 +184,8 @@
 	item_state = "swat"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -199,8 +223,8 @@
 	icon_state = "thunderdome"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -228,7 +252,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -241,8 +265,8 @@
 	icon_state = "v62"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -275,7 +299,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -289,7 +313,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_MINOR
@@ -305,7 +329,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_RESISTANT
@@ -344,7 +368,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BIO_MINOR
 	)

@@ -13,6 +13,7 @@
 	var/vital //Lose a vital limb, die immediately.
 	var/rejecting   // Is this organ already being rejected?
 	var/is_augment = FALSE
+	var/death_time
 
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
@@ -128,6 +129,7 @@
 		return
 	damage = max_damage
 	status |= ORGAN_DEAD
+	death_time = world.time
 	STOP_PROCESSING(SSprocessing, src)
 	if(owner && vital)
 		owner.death()
@@ -141,8 +143,9 @@
 /obj/item/organ/proc/can_feel_pain()
 	return (!BP_IS_ROBOTIC(src) && (!species || !(species.flags & NO_PAIN)))
 
+#define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
 /obj/item/organ/proc/can_recover()
-	return max_damage > 0
+	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
 
 /obj/item/organ/process()
 	if(loc != owner)
@@ -283,6 +286,34 @@
 
 /obj/item/organ/proc/is_infected()
 	return (germ_level >= INFECTION_LEVEL_ONE)
+
+/obj/item/organ/proc/estimated_infection_level()
+	if(germ_level < INFECTION_LEVEL_ONE)
+		return "Healthy"
+	else if(germ_level >= INFECTION_LEVEL_ONE && germ_level < INFECTION_LEVEL_TWO)
+		return "Infection Level One"
+	else if(germ_level >= INFECTION_LEVEL_TWO && germ_level < INFECTION_LEVEL_THREE)
+		return "Infection Level Two"
+	else
+		return "Infection Level Three"
+
+/obj/item/organ/proc/increase_germ_level()
+	switch(estimated_infection_level())
+		if("Healthy")
+			germ_level = INFECTION_LEVEL_ONE
+		if("Infection Level One")
+			germ_level = INFECTION_LEVEL_TWO
+		if("Infection Level Two")
+			germ_level = INFECTION_LEVEL_THREE
+
+/obj/item/organ/proc/decrease_germ_level()
+	switch(estimated_infection_level())
+		if("Infection Level One")
+			germ_level = 0
+		if("Infection Level Two")
+			germ_level = INFECTION_LEVEL_ONE
+		if("Infection Level Three")
+			germ_level = INFECTION_LEVEL_TWO
 
 //Germs
 /obj/item/organ/proc/handle_antibiotics()

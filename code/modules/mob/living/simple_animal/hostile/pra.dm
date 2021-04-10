@@ -9,7 +9,7 @@
 	icon_state = "republicon"
 	icon_living = "republicon"
 	icon_dead = "republicon_dead"
-	blood_type = "#000000"
+	blood_type = COLOR_OIL
 	speak_chance = 5
 	turns_per_move = 3
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
@@ -63,7 +63,7 @@
 /mob/living/simple_animal/hostile/republicon/Initialize()
 	. = ..()
 	add_language(LANGUAGE_SIIK_MAAS)
-	set_default_language(LANGUAGE_SIIK_MAAS)
+	set_default_language(all_languages[LANGUAGE_SIIK_MAAS])
 
 /mob/living/simple_animal/hostile/republicon/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

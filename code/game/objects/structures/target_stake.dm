@@ -1,53 +1,62 @@
-// Basically they are for the firing range
+// Target stakes for the firing range.
 /obj/structure/target_stake
 	name = "target stake"
 	desc = "A thin platform with negatively-magnetized wheels."
 	icon = 'icons/obj/target_stake.dmi'
 	icon_state = "target_stake"
-	density = 1
-	w_class = ITEMSIZE_HUGE
-	flags = CONDUCT
-	var/obj/item/target/pinned_target // the current pinned target
+	density = TRUE
+	w_class = ITEMSIZE_IMMENSE
+	build_amt = 10
+	var/obj/item/target/pinned_target
 
-	Move()
-		..()
-		// Move the pinned target along with the stake
-		if(pinned_target in view(3, src))
-			pinned_target.forceMove(loc)
+/obj/structure/target_stake/Initialize(mapload)
+	. = ..()
+	material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
 
-		else // Sanity check: if the pinned target can't be found in immediate view
-			pinned_target = null
-			density = 1
-
-	attackby(obj/item/W as obj, mob/user as mob)
-		// Putting objects on the stake. Most importantly, targets
+/obj/structure/target_stake/attackby(var/obj/item/W, var/mob/user)
+	if(istype(W, /obj/item/target))
 		if(pinned_target)
-			return // get rid of that pinned target first!
-
-		if(istype(W, /obj/item/target))
-			density = 0
-			W.density = 1
-			user.remove_from_mob(W)
-			W.forceMove(loc)
-			W.layer = 3.1
-			pinned_target = W
-			to_chat(user, "You slide the target into the stake.")
+			to_chat(user, SPAN_WARNING("\The [src] already has a target."))
+			return
+		if(user.unEquip(W, FALSE, get_turf(src)))
+			to_chat(user, SPAN_NOTICE("You slide \the [W] into the stake."))
+			set_target(W)
 		return
-
-	attack_hand(mob/user as mob)
-		// taking pinned targets off!
+	if(W.iswrench())
 		if(pinned_target)
-			density = 1
-			pinned_target.density = 0
+			to_chat(user, SPAN_WARNING("You cannot dismantle \the [src] while it has a target attached."))
+			return
+		dismantle()
+
+/obj/structure/target_stake/attack_hand(var/mob/user)
+	. = ..()
+	if(pinned_target && ishuman(user))
+		var/obj/item/target/T = pinned_target
+		to_chat(user, SPAN_NOTICE("You take \the [T] out of the stake."))
+		set_target(null)
+		user.put_in_hands(T)
+
+/obj/structure/target_stake/proc/set_target(var/obj/item/target/T)
+	if(T)
+		density = FALSE
+		T.density = TRUE
+		T.pixel_x = 0
+		T.pixel_y = 0
+		T.layer = ABOVE_OBJ_LAYER
+		moved_event.register(T, src, /atom/movable/proc/move_to_turf)
+		moved_event.register(src, T, /atom/movable/proc/move_to_turf)
+		T.stake = src
+		pinned_target = T
+	else
+		density = TRUE
+		if(pinned_target)
+			pinned_target.density = FALSE
 			pinned_target.layer = OBJ_LAYER
+			moved_event.unregister(pinned_target, src)
+			moved_event.unregister(src, pinned_target)
+			pinned_target.stake = null
+		pinned_target = null
 
-			pinned_target.forceMove(user.loc)
-			if(ishuman(user))
-				if(!user.get_active_hand())
-					user.put_in_hands(pinned_target)
-					to_chat(user, "You take the target out of the stake.")
-			else
-				pinned_target.forceMove(get_turf(user))
-				to_chat(user, "You take the target out of the stake.")
-
-			pinned_target = null
+/obj/structure/target_stake/Destroy()
+	set_target(null)
+	return ..()

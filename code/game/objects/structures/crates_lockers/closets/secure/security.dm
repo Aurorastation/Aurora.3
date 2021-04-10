@@ -16,7 +16,7 @@
 		new /obj/item/storage/backpack/satchel_cap(src)
 	// Armor
 	new /obj/item/clothing/head/helmet(src)
-	new /obj/item/clothing/suit/storage/vest(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
@@ -72,7 +72,7 @@
 	new /obj/item/storage/box/ids( src )
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/clothing/suit/storage/vest(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	new /obj/item/clothing/head/helmet(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/hop(src)
@@ -124,7 +124,9 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/suit/storage/vest/hos(src)
+	new /obj/item/clothing/suit/armor/carrier/hos(src)
+	new /obj/item/clothing/accessory/leg_guard(src)
+	new /obj/item/clothing/accessory/arm_guard(src)
 	if(prob(50))
 		new /obj/item/clothing/under/rank/head_of_security(src)
 		new /obj/item/clothing/head/beret/security/hos(src)
@@ -134,7 +136,7 @@
 		new /obj/item/clothing/head/beret/security/hos/corp(src)
 		new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/suit/security/hos(src)
+	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
@@ -176,7 +178,9 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/suit/storage/vest/hos(src)
+	new /obj/item/clothing/suit/armor/carrier/hos(src)
+	new /obj/item/clothing/accessory/leg_guard(src)
+	new /obj/item/clothing/accessory/arm_guard(src)
 	if(prob(50))	// chance to spawn either corporate or regular outfit. to prevent locker bloat which makes it lag when right clicked
 		new /obj/item/clothing/under/rank/head_of_security(src)
 		new /obj/item/clothing/head/beret/security/hos(src)
@@ -186,7 +190,7 @@
 		new /obj/item/clothing/head/beret/security/corp(src)
 		new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/suit/security/hos(src)
+	new /obj/item/clothing/suit/storage/security/hos(src)
 	//Tools
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/device/radio/headset/heads/hos(src)
@@ -217,7 +221,9 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/suit/storage/vest/warden(src)
+	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/accessory/arm_guard(src)
+	new /obj/item/clothing/accessory/leg_guard(src)
 	if(prob(50))
 		if(prob(50))
 			new /obj/item/clothing/under/rank/warden(src)
@@ -229,8 +235,8 @@
 		new /obj/item/clothing/under/rank/warden/corp(src)
 		new /obj/item/clothing/head/beret/security/corp(src)
 		new /obj/item/clothing/head/warden/corp(src)
-	new /obj/item/clothing/head/helmet(src)
-	new	/obj/item/clothing/suit/security/warden(src)
+	new /obj/item/clothing/head/helmet/security(src)
+	new	/obj/item/clothing/suit/storage/security/warden(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
@@ -302,7 +308,9 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/suit/storage/vest/officer(src)
+	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/accessory/arm_guard(src)
+	new /obj/item/clothing/accessory/leg_guard(src)
 	if(prob(50))
 		if(prob(50))
 			new /obj/item/clothing/under/rank/security(src)
@@ -314,10 +322,11 @@
 		new /obj/item/clothing/under/rank/security/corp(src)
 		new /obj/item/clothing/head/beret/security/corp(src)
 		new /obj/item/clothing/head/softcap/security/corp(src)
-	new /obj/item/clothing/head/helmet(src)
-	new /obj/item/clothing/suit/security/officer(src)
+	new /obj/item/clothing/head/helmet/security(src)
+	new /obj/item/clothing/suit/storage/security/officer(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
 	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
@@ -361,36 +370,8 @@
 	new /obj/item/device/encryptionkey/headset_med(src)
 
 
-/obj/structure/closet/secure_closet/detective
-	name = "detective's locker"
-	req_access = list(access_detective)
-	icon_state = "sec1"
-	icon_closed = "sec"
-	icon_locked = "sec1"
-	icon_opened = "secopen"
-	icon_broken = "secbroken"
-	icon_off = "secoff"
-
-/obj/structure/closet/secure_closet/detective/fill()
-	//Appearance
-	new /obj/item/clothing/suit/storage/det_jacket(src)
-	new /obj/item/clothing/under/det(src)
-	new /obj/item/clothing/under/det/black(src)
-	new /obj/item/clothing/under/det/classic(src)
-	new /obj/item/clothing/accessory/badge/dia(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/shoes/brown(src)
-	//Tools
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
-	new /obj/item/clothing/suit/storage/vest/detective(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
-	new /obj/item/taperoll/police(src)
-	//Belts
-	new /obj/item/clothing/accessory/holster/waist(src)
-
-/obj/structure/closet/secure_closet/csi
-	name = "forensic technician's locker"
+/obj/structure/closet/secure_closet/investigator
+	name = "investigator's locker"
 	req_access = list(access_forensics_lockers)
 	icon_state = "sec1"
 	icon_closed = "sec"
@@ -399,24 +380,28 @@
 	icon_broken = "secbroken"
 	icon_off = "secoff"
 
-/obj/structure/closet/secure_closet/csi/fill()
+/obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/suit/storage/toggle/forensics(src)
-	new /obj/item/clothing/suit/storage/vest/ft(src)
-	new /obj/item/clothing/under/det/forensics(src)
+	new /obj/item/clothing/suit/storage/det_jacket(src)
+	new /obj/item/clothing/under/det(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/accessory/badge/dia(src)
+	new /obj/item/clothing/suit/storage/toggle/forensics(src)
 	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
-	new /obj/item/storage/box/evidence(src)
-	new /obj/item/device/flash(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	new /obj/item/taperoll/police(src)
+	new /obj/item/device/flash(src)
+	new /obj/item/device/laser_pointer/blue(src)
+	//Belts
+	new /obj/item/clothing/accessory/holster/waist(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"

@@ -1648,9 +1648,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 /obj/item/fluff/cress_book //Lyric Book - Emily Cress - mattatlas
-	name = "lyric book"
-	desc = "An old, faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. A dark purple H is scribbled on the center, along with half a heart on the \
-	left and a cut on the bottom right. The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock."
+	name = "lyric folder"
+	desc = "An old, slightly faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. The name on the folder reads \"Hyo\". \
+			The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock or metal, with overall somber lyrics."
 	icon = 'icons/obj/custom_items/cress_items.dmi'
 	icon_state = "cress_book"
 	w_class = ITEMSIZE_SMALL
@@ -1660,9 +1660,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/cress_book/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.visible_message("<span class='notice'>[user] begins searching through \the [src] pages.</span>")
+	user.visible_message("<span class='notice'>[user] begins searching through \the [src]'s pages...</span>")
 	if(do_after(user, 25))
-		to_chat(user, "<span class='notice'>You read on the pages of \the [src]: [pick(lyrics)]</span>")
+		to_chat(user, "<span class='notice'>You pick out a song in the folder and read the lyrics: [pick(lyrics)]</span>")
 
 
 /obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
@@ -1932,5 +1932,63 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/rhasdrimara_veil.dmi'
 	icon_state = "rhasdrimara_veil"
 	item_state = "rhasdrimara_veil"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/akila_jacket //Reflective First Responder Jacket - Akila Aksha'Shalwariran - shestrying
+	name = "reflective first responder jacket"
+	desc = "A jacket in an eye-blinding yellow, with flourescent green, light-reflective striping along the cuffs and bottom edge. A bright red cross rests on the front, over the heart."
+	icon = 'icons/obj/custom_items/akila_jacket.dmi'
+	icon_state = "akila_jacket"
+	item_state = "akila_jacket"
+	contained_sprite = TRUE
+
+
+/obj/structure/sign/flag/red_coalition
+	name = "Red Coalition flag"
+	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
+	mining colony represented in the center by the alchemical symbol for iron."
+	icon_state = "redcoalition"
+
+/obj/structure/sign/flag/red_coalition/left
+	icon_state = "redcoalition_l"
+
+/obj/structure/sign/flag/red_coalition/right
+	icon_state = "redcoalition_r"
+
+/obj/item/flag/fluff/nikita_flag //Red Coalition Banner - Nikita Yutani - sycmos
+	name = "Red Coalition flag"
+	icon = 'icons/obj/custom_items/nikita_flag.dmi'
+	icon_state = "nikita_flag"
+	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
+	mining colony represented in the center by the alchemical symbol for iron."
+	flag_path = "redcoalition"
+
+/obj/item/flag/fluff/nikita_flag/l
+	flag_size = 1
+
+
+/obj/item/voidsuit_modkit/fluff/rajka_suit
+	name = "HEV-3 voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a HEV-3 voidsuit."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/fluff/rajka_suit,
+		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/fluff/rajka_helm)
+
+/obj/item/clothing/head/helmet/space/void/mining/fluff/rajka_helm //HEV-3 Helmet - Rajka Kaljurl'zar - abigbear
+	name = "HEV-3 helmet"
+	desc = "A Hephaestus Environmental Voidsuit variant tailored to Tajara, complete with temperature-circulation auxiliaries, spacious helmet interior to minimize friction, and complete anti-microbial filtration systems."
+	icon = 'icons/obj/custom_items/rajka_suit.dmi'
+	icon_state = "rajka_helm"
+	item_state = "rajka_helm"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/suit/space/void/mining/fluff/rajka_suit //HEV-3 Voidsuit - Rajka Kaljurl'zar - abigbear
+	name = "HEV-3 voidsuit"
+	desc = "A Hephaestus Environmental Voidsuit variant tailored to Tajara, complete with temperature-circulation auxiliaries, heat exchange coils, anti-friction and anti-microbial fabric, and moderate grade external reinforcement for all your industrial EVA activities."
+	icon = 'icons/obj/custom_items/rajka_suit.dmi'
+	icon_state = "rajka_suit"
+	item_state = "rajka_suit"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)

@@ -10,7 +10,7 @@
 	slot_flags = SLOT_BELT
 	force = 5
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	throwforce = 7
 	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
@@ -18,7 +18,7 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten")
 	var/stunforce = 0
-	var/agonyforce = 70
+	var/agonyforce = 60
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/cell/bcell
 	var/hitcost = 1000

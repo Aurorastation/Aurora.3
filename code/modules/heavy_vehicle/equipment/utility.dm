@@ -646,3 +646,12 @@
 
 /obj/item/mecha_equipment/quick_enter/attack_self()
 	return
+
+
+/obj/item/mecha_equipment/mounted_system/grenadecleaner
+	name = "cleaner grenade launcher"
+	desc = "The SGL-6CL grenade launcher is designed to launch primed cleaner grenades."
+	icon_state = "mech_gl"
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/cl
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)

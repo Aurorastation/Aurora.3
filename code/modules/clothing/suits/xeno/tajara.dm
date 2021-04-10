@@ -24,6 +24,18 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
+/obj/item/clothing/suit/storage/tajaran/raakti_shariim
+	name = "\improper Raakti Shariim coat"
+	desc = "A blue adhomian wool coat with lilac purple accents and pale-gold insignia, signifying a Constable of the NKA's Raakti Shariim."
+	icon = 'icons/obj/clothing/species/tajaran/raakti_shariim.dmi'
+	icon_state = "raakti_shariim_coat"
+	item_state = "raakti_shariim_coat"
+	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
+		peacekeeping force, working closely with both the Royal Constabulary and the Royal Ministry of Intelligence to \
+		seek out internal threats to the Kingdom such as spies, terrorists, and other domestic enemies to the crown. \
+		The Raakti Shariim's uniforms incorporate a dark, navy blue paired with a lilac accent and pale-gold twin-sun \
+		insignia."
+
 /obj/item/clothing/suit/storage/toggle/tajaran
 	name = "tajaran naval coat"
 	desc = "A thick wool coat from Adhomai."
@@ -137,8 +149,8 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/suit/armor/tajara
-	name = "amohdan swordsmen armor"
+/obj/item/clothing/suit/armor/amohda
+	name = "amohdan swordsman armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "amohdan_armor"
@@ -152,13 +164,15 @@
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
 		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.35
 	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
-	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
-	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
-	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
+	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
+	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
+	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
+	and the People's Republic of Adhomai looms over the southern end of the island..."
 
 /obj/item/clothing/suit/armor/cuirass
 	name = "cuirass"
@@ -171,7 +185,8 @@
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
 		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/suit/storage/tajaran/pra_jacket
@@ -184,6 +199,7 @@
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_MINOR,
 		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.50

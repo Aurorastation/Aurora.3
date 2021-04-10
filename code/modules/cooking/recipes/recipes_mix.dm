@@ -1,5 +1,19 @@
 
 // see code/datums/recipe.dm
+/decl/recipe/hotdog
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/reagent_containers/food/snacks/hotdog
+
+/decl/recipe/classichotdog
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/meat/corgi
+	)
+	result = /obj/item/reagent_containers/food/snacks/classichotdog
+
 /decl/recipe/humanburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/human,
@@ -48,20 +62,6 @@
 		/obj/item/reagent_containers/food/snacks/tofu
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/tofu
-
-/decl/recipe/hotdog
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/sausage
-	)
-	result = /obj/item/reagent_containers/food/snacks/hotdog
-
-/decl/recipe/classichotdog
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat/corgi
-	)
-	result = /obj/item/reagent_containers/food/snacks/classichotdog
 
 /decl/recipe/humankabob
 	items = list(
@@ -114,6 +114,13 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/sandwich
+
+/decl/recipe/bunbun
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/bun
+	)
+	result = /obj/item/reagent_containers/food/snacks/bunbun
 
 /decl/recipe/superbiteburger
 	fruit = list("tomato" = 1)

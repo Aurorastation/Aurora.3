@@ -88,6 +88,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 2,
 		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
@@ -272,7 +273,6 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
-		/obj/item/reagent_containers/food/snacks/diona_bites = 3,
 		/obj/item/reagent_containers/food/snacks/ricetub = 2,
 		/obj/item/reagent_containers/food/snacks/riceball = 4,
 		/obj/item/reagent_containers/food/snacks/seaweed = 5
@@ -304,7 +304,6 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
 		/obj/item/reagent_containers/food/snacks/tuna = 23,
-		/obj/item/reagent_containers/food/snacks/diona_bites = 40,
 		/obj/item/reagent_containers/food/snacks/ricetub = 40,
 		/obj/item/reagent_containers/food/snacks/riceball = 15,
 		/obj/item/reagent_containers/food/snacks/seaweed = 20
@@ -331,7 +330,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -354,7 +354,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 16,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
-		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
@@ -375,8 +376,8 @@
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 5,
 		/obj/item/storage/box/fancy/cigarettes/nicotine = 3,
 		/obj/item/storage/box/fancy/cigarettes/pra = 6,
-		/obj/item/storage/chewables/rollable/bad = 6,
 		/obj/item/storage/chewables/rollable = 8,
+		/obj/item/storage/chewables/rollable/unathi = 6,
 		/obj/item/storage/chewables/rollable/fine = 5,
 		/obj/item/storage/chewables/rollable/nico = 3,
 		/obj/item/storage/chewables/tobacco/bad = 6,
@@ -405,8 +406,8 @@
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 82,
 		/obj/item/storage/box/fancy/cigarettes/nicotine = 89,
 		/obj/item/storage/box/fancy/cigarettes/pra = 79,
-		/obj/item/storage/chewables/rollable/bad = 56,
 		/obj/item/storage/chewables/rollable = 63,
+		/obj/item/storage/chewables/rollable/unathi = 65,
 		/obj/item/storage/chewables/rollable/fine = 69,
 		/obj/item/storage/chewables/rollable/nico = 86,
 		/obj/item/storage/chewables/tobacco/bad = 55,
@@ -472,7 +473,8 @@
 		/obj/item/reagent_containers/pill/cetahydramine = 6,
 		/obj/item/reagent_containers/pill/perconol = 6,
 		/obj/item/reagent_containers/food/drinks/medcup = 4,
-		/obj/item/storage/pill_bottle = 4
+		/obj/item/storage/pill_bottle = 4,
+		/obj/item/reagent_containers/spray/sterilizine = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,

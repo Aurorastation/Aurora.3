@@ -113,9 +113,7 @@ var/list/forum_groupids_to_ranks = list()
 
 	else
 		//The current admin system uses SQL
-
-		establish_db_connection(dbcon)
-		if(!dbcon.IsConnected())
+		if(!establish_db_connection(dbcon))
 			error("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			config.admin_legacy_system = 1
