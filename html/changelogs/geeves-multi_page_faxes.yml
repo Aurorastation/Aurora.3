@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Requests Consoles can now be used to send paper bundle faxes, it'll take a while to arrive, as it needs to print all the paper first."
-  - bugfix: "Receiving faxes or messages will now properly alert the linked PDAs of Request Consoles."
-  - tweak: "Increased the paper stock Request Consoles start with to 20, up from 10."
