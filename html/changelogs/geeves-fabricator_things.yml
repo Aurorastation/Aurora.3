@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - refactor: "Tweaks how autolathes generate their recipe lists, ideally there'd be no player-facing change."
-  - bugfix: "You can now change autolathe categories while it's busy building things."
