@@ -104,7 +104,7 @@ There are several things that need to be remembered:
 #define SUIT_STORE_LAYER  17
 #define BACK_LAYER        18
 #define HAIR_LAYER        19
-#define GLASSES_ALT_LAYER 20
+#define GLASSES_LAYER_ALT 20
 #define L_EAR_LAYER       21
 #define R_EAR_LAYER       22
 #define FACEMASK_LAYER    23
@@ -715,7 +715,7 @@ There are several things that need to be remembered:
 
 	if(!glasses)
 		overlays_raw[GLASSES_LAYER] = null
-		overlays_raw[GLASSES_ALT_LAYER] = null
+		overlays_raw[GLASSES_LAYER_ALT] = null
 		if(update_icons)
 			update_icon()
 		return
@@ -727,10 +727,10 @@ There are several things that need to be remembered:
 
 	if(normal_layer)
 		overlays_raw[GLASSES_LAYER] = glasses_overlay
-		overlays_raw[GLASSES_ALT_LAYER] = null
+		overlays_raw[GLASSES_LAYER_ALT] = null
 	else
 		overlays_raw[GLASSES_LAYER] = null
-		overlays_raw[GLASSES_ALT_LAYER] = glasses_overlay
+		overlays_raw[GLASSES_LAYER_ALT] = glasses_overlay
 
 	if(update_icons)
 		update_icon()
