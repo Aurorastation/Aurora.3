@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed floating messages attached to exosuits not being centred."
-  - rscadd: "Tweaked some code to give mechs progress bars on the actions they take."
