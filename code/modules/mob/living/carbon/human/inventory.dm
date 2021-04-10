@@ -424,19 +424,19 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 
 //Puts the item into our active hand if possible. returns 1 on success.
-/mob/living/carbon/human/put_in_active_hand(var/obj/item/W)
-	return (hand ? equip_to_slot_if_possible(W, slot_l_hand) : equip_to_slot_if_possible(W, slot_r_hand))
+/mob/living/carbon/human/put_in_active_hand(var/obj/item/W, set_disable_warning = FALSE)
+	return (hand ? equip_to_slot_if_possible(W, slot_l_hand, disable_warning = set_disable_warning) : equip_to_slot_if_possible(W, slot_r_hand, disable_warning = set_disable_warning))
 
 //Puts the item into our inactive hand if possible. returns 1 on success.
-/mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W)
-	return (hand ? equip_to_slot_if_possible(W, slot_r_hand) : equip_to_slot_if_possible(W, slot_l_hand))
+/mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W, set_disable_warning = FALSE)
+	return (hand ? equip_to_slot_if_possible(W, slot_r_hand, disable_warning = set_disable_warning) : equip_to_slot_if_possible(W, slot_l_hand, disable_warning = set_disable_warning))
 
 /mob/living/carbon/human/put_in_hands(var/obj/item/W)
 	if(!W)
 		return FALSE
-	if(put_in_active_hand(W))
+	if(put_in_active_hand(W, TRUE))
 		return TRUE
-	else if(put_in_inactive_hand(W))
+	else if(put_in_inactive_hand(W, TRUE))
 		return TRUE
 	else
 		return ..()
