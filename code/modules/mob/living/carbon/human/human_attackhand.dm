@@ -422,7 +422,7 @@
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
 	return
 
-/mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H, var/starting = FALSE)
+/mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H, var/starting = FALSE, var/cpr_mode)
 	var/obj/item/main_hand = H.get_active_hand()
 	var/obj/item/off_hand = H.get_inactive_hand()
 	if (istype(main_hand) || istype(off_hand))
@@ -434,6 +434,14 @@
 		to_chat(H, SPAN_NOTICE("You stop performing CPR on \the [src]."))
 		return
 	else if (starting)
+		var/list/options = list(
+			"Compressions" = image('icons/mob/screen/generic.dmi', "cpr"),
+			"Mouth-to-Mouth" = image('icons/mob/screen/radial.dmi', "cpro2")
+		)
+		cpr_mode = show_radial_menu(H, src, options, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
+		if(!cpr_mode)
+			cpr = FALSE
+			return
 		to_chat(H, SPAN_NOTICE("You begin performing CPR on \the [src]."))
 
 	H.do_attack_animation(src, null, image('icons/mob/screen/generic.dmi', src, "cpr", src.layer + 1))
@@ -453,38 +461,39 @@
 
 		if(stat != DEAD && prob(10 * rand(0.5, 1)))
 			resuscitate()
-	
+
 	if(!do_after(H, 3, FALSE)) //Chest compresssions are fast, need to wait for the loading bar to do mouth to mouth
 		to_chat(H, SPAN_NOTICE("You stop performing CPR on \the [src]."))
 		cpr = FALSE //If it cancelled, cancel it. Simple.
 
-	if(!H.check_has_mouth())
-		to_chat(H, "<span class='warning'>You don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
-		return
-	if(!check_has_mouth())
-		to_chat(H, "<span class='warning'>They don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
-		return
-	if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-		to_chat(H, "<span class='warning'>You need to remove your mouth covering for mouth-to-mouth resuscitation!</span>")
-		return 0
-	if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-		to_chat(H, "<span class='warning'>You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!</span>")
-		return 0
-	if (!H.internal_organs_by_name[H.species.breathing_organ])
-		to_chat(H, "<span class='danger'>You need lungs for mouth-to-mouth resuscitation!</span>")
-		return
-	if(!need_breathe())
-		return
-	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species.breathing_organ]
-	if(L)
-		var/datum/gas_mixture/breath = H.get_breath_from_environment()
-		var/fail = L.handle_breath(breath, 1)
-		if(!fail)
-			if(!L.is_bruised())
-				losebreath = 0
-			to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
+	if(cpr_mode == "Mouth-to-Mouth")
+		if(!H.check_has_mouth())
+			to_chat(H, SPAN_WARNING("You don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
+			return
+		if(!check_has_mouth())
+			to_chat(H, SPAN_WARNING("They don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
+			return
+		if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
+			to_chat(H, SPAN_WARNING("You need to remove your mouth covering for mouth-to-mouth resuscitation!"))
+			return 0
+		if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
+			to_chat(H, SPAN_WARNING("You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!"))
+			return 0
+		if (!H.internal_organs_by_name[H.species.breathing_organ])
+			to_chat(H, SPAN_DANGER("You need lungs for mouth-to-mouth resuscitation!"))
+			return
+		if(!need_breathe())
+			return
+		var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species.breathing_organ]
+		if(L)
+			var/datum/gas_mixture/breath = H.get_breath_from_environment()
+			var/fail = L.handle_breath(breath, 1)
+			if(!fail)
+				if(!L.is_bruised())
+					losebreath = 0
+				to_chat(src, SPAN_NOTICE("You feel a breath of fresh air enter your lungs. It feels good."))
 
-	cpr(H) //Again.	
+	cpr(H, FALSE, cpr_mode) //Again.
 
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
