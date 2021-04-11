@@ -41,6 +41,7 @@
 	anchored = TRUE
 	atmos_canpass = CANPASS_DENSITY
 
+	var/deflating = FALSE
 	var/undeploy_path = null
 	var/torn_path = null
 	var/health = 50.0
@@ -92,11 +93,13 @@
 /obj/structure/inflatable/attackby(obj/item/W, mob/user)
 	if(!istype(W) || istype(W, /obj/item/inflatable_dispenser))
 		return
+	if(deflating)
+		return
 
 	if(W.can_puncture())
 		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [W]!"), SPAN_WARNING("You pierce \the [src] with \the [W]!"))
 		deflate(TRUE)
-	if(W.damtype == BRUTE || W.damtype == BURN)
+	else if(W.damtype == BRUTE || W.damtype == BURN)
 		hit(W.force)
 		..()
 
@@ -111,15 +114,23 @@
 	hand_deflate()
 
 /obj/structure/inflatable/proc/deflate(var/violent = FALSE)
+	if(deflating)
+		return
 	playsound(loc, 'sound/machines/hiss.ogg', 75, TRUE)
 	if(violent)
+		if(!torn_path)
+			return
+		deflating = TRUE
 		visible_message(SPAN_WARNING("\The [src] rapidly deflates!"))
-		var/obj/item/inflatable/torn/R = new torn_path(loc)
-		transfer_fingerprints_to(R)
-		qdel(src)
+		var/matrix/M = new
+		M.Scale(0.6)
+		M.Turn(pick(-40, 40))
+		animate(src, 0.2 SECONDS, transform = M)
+		addtimer(CALLBACK(src, .proc/post_tear), 0.2 SECONDS)
 	else
 		if(!undeploy_path)
 			return
+		deflating = TRUE
 		visible_message(SPAN_NOTICE("\The [src] slowly deflates."))
 		var/matrix/M = new
 		M.Scale(0.6)
@@ -128,6 +139,11 @@
 
 /obj/structure/inflatable/proc/post_deflate()
 	var/obj/item/inflatable/R = new undeploy_path(loc)
+	transfer_fingerprints_to(R)
+	qdel(src)
+
+/obj/structure/inflatable/proc/post_tear()
+	var/obj/item/inflatable/torn/R = new torn_path(loc)
 	transfer_fingerprints_to(R)
 	qdel(src)
 
@@ -261,7 +277,7 @@
 	w_class = ITEMSIZE_NORMAL
 	display_contents_with_number = TRUE
 	max_storage_space = 28
-	force_column_number = 1 // we want 2 slots to appear, so 1 column + 1 free (to insert stuff)
+	force_column_number = 3 // we want 4 slots to appear, so 3 columns + 1 free (to insert stuff)
 	storage_slots = 14
 	can_hold = list(/obj/item/inflatable)
 	starts_with = list(/obj/item/inflatable/door = 5, /obj/item/inflatable/wall = 7)
