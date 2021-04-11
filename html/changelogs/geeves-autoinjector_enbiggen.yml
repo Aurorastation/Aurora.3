@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Autoinjectors have been resprited, they are now slightly bigger."
-  - rscadd: "Special autoinjectors that spawn with reagents are properly labeled, which allows you to take the label off whenever."
-  - rscadd: "Autoinjectors have received some flavour text in its extended description."
