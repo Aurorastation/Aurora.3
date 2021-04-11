@@ -28,7 +28,7 @@ var/datum/antagonist/technomancer/technomancers
 /datum/antagonist/technomancer/update_antag_mob(var/datum/mind/technomancer)
 	..()
 	technomancer.store_memory("<B>Remember:</B> Do not forget to purchase the functions and equipment you need.")
-	technomancer.current.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
+	technomancer.current.real_name = random_name(technomancer.current.gender, technomancer.current.get_species())
 	technomancer.current.name = technomancer.current.real_name
 
 /datum/antagonist/technomancer/equip(var/mob/living/carbon/human/technomancer_mob)

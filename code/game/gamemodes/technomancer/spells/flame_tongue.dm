@@ -14,8 +14,8 @@
 	aspect = ASPECT_FIRE
 	var/obj/item/weldingtool/spell/welder = null
 
-/obj/item/spell/flame_tongue/New()
-	..()
+/obj/item/spell/flame_tongue/Initialize()
+	. = ..()
 	set_light(3, 2, l_color = "#FF6A00")
 	visible_message("<span class='warning'>\The [loc]'s hand begins to emit a flame.</span>")
 	welder = new /obj/item/weldingtool/spell(src)
@@ -51,7 +51,7 @@
 		//This is needed in order for the welder to work, and works similarly to grippers.
 		welder.loc = user
 		var/resolved = hit_atom.attackby(welder, user)
-		if(!resolved && welder && hit_atom)
+		if(!resolved && welder && ismob(hit_atom))
 			if(pay_energy(500))
 				welder.attack(hit_atom, user, def_zone)
 				adjust_instability(4)

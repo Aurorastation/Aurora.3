@@ -23,9 +23,6 @@
 			var/mob/living/L = new summoned_mob_type(T)
 			core.summoned_mobs |= L
 			L.summoned = 1
-			var/image/summon_underlay = image('icons/obj/objects.dmi', "anom")
-			summon_underlay.alpha = 127
-			L.underlays |= summon_underlay
 			on_summon(L)
 			to_chat(user, "<span class='notice'>You've successfully teleported \a [L] to you!</span>")
 			visible_message("<span class='warning'>\A [L] appears from no-where!</span>")
