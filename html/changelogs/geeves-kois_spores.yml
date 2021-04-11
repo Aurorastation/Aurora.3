@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Tweaked K'ois potency value, their spores should spread better now."
