@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Buffed K'ois healing, it now heals 1.4 brute damage per unit, up from 1.2. And 1.6 burn damage per unit, up from 1.2."
+  - bugfix: "Moved the blood restoring part of K'ois to the correct place, it should work properly now."
