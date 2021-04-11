@@ -23,8 +23,8 @@
 /obj/item/projectile/beam/lightning
 	name = "lightning"
 	icon_state = "lightning"
-	nodamage = 1
-	damage_type = PAIN
+	damage = 20
+	damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/tesla
 	tracer_type = /obj/effect/projectile/tracer/tesla

@@ -426,7 +426,7 @@
 /obj/item/projectile/beam/tesla/on_impact(atom/target)
 	. = ..()
 	if(isliving(target))
-		tesla_zap(target, 3, 5000)
+		tesla_zap(target, 5, 5000)
 
 /obj/item/projectile/beam/tesla/master
 	damage = 15
