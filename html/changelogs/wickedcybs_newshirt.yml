@@ -3,5 +3,5 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - rscadd: "Added crewneck sweaters. Find them of course, in the sweaters selection."
+  - rscadd: "Added crewneck and v-neck sweaters. Find them of course, in the sweaters selection."
   - tweak: "Tweaked the arrangement of each sweater in the sweaters loadout selection. The normal sweaters will be at the top of the list together, with the argyle sweaters at the bottom together."
